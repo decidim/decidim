@@ -43,45 +43,42 @@
       <%= link_to t(".invite_attendee"), conference.registrations_enabled ? new_conference_conference_invite_path(conference) : "#", class: "button tiny button--title #{"disabled" unless conference.registrations_enabled && allowed_to?(:invite_attendee, :conference, conference:)}" %>
     </h2>
   </div>
-
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th><%= t("models.conference_invite.fields.name", scope: "decidim.conferences") %></th>
-            <th><%= t("models.conference_invite.fields.email", scope: "decidim.conferences") %></th>
-            <th><%= t("models.conference_invite.fields.sent_at", scope: "decidim.conferences") %></th>
-            <th><%= t("models.conference_invite.fields.status", scope: "decidim.conferences") %></th>
-            <th><%= t("models.conference_invite.fields.registration_type", scope: "decidim.conferences") %></th>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t("models.conference_invite.fields.name", scope: "decidim.conferences") %></th>
+          <th><%= t("models.conference_invite.fields.email", scope: "decidim.conferences") %></th>
+          <th><%= t("models.conference_invite.fields.sent_at", scope: "decidim.conferences") %></th>
+          <th><%= t("models.conference_invite.fields.status", scope: "decidim.conferences") %></th>
+          <th><%= t("models.conference_invite.fields.registration_type", scope: "decidim.conferences") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @conference_invites.each do |invite| %>
+          <% presenter = Decidim::Conferences::ConferenceInvitePresenter.new(invite) %>
+          <tr data-id="<%= invite.id %>">
+            <td>
+              <%= invite.user.name %>
+            </td>
+            <td>
+              <%= invite.user.email %>
+            </td>
+            <td>
+              <% if invite.sent_at %>
+                <%= l invite.sent_at, format: :long %>
+              <% end %>
+            </td>
+            <td class="<%= presenter.status_html_class %>">
+              <%= presenter.status %>
+            </td>
+            <td>
+              <%= translated_attribute(invite.registration_type.title) %>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          <% @conference_invites.each do |invite| %>
-            <% presenter = Decidim::Conferences::ConferenceInvitePresenter.new(invite) %>
-            <tr data-id="<%= invite.id %>">
-              <td>
-                <%= invite.user.name %>
-              </td>
-              <td>
-                <%= invite.user.email %>
-              </td>
-              <td>
-                <% if invite.sent_at %>
-                  <%= l invite.sent_at, format: :long %>
-                <% end %>
-              </td>
-              <td class="<%= presenter.status_html_class %>">
-                <%= presenter.status %>
-              </td>
-              <td>
-                <%= translated_attribute(invite.registration_type.title) %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @conference_invites, theme: "decidim" %>
-    </div>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @conference_invites, theme: "decidim" %>
   </div>
 </div>

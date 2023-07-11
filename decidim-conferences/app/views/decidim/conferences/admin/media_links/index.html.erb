@@ -7,45 +7,42 @@
       <% end %>
     </h2>
   </div>
+  <div class="table-scroll">
+    <table class="stack">
+      <thead>
+        <tr>
+          <th><%= t("models.media_link.fields.title", scope: "decidim.admin") %></th>
+          <th><%= t("models.media_link.fields.link", scope: "decidim.admin") %></th>
+          <th><%= t("models.media_link.fields.date", scope: "decidim.admin") %></th>
 
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="stack">
-        <thead>
+          <th class="actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @media_links.each do |media_link| %>
           <tr>
-            <th><%= t("models.media_link.fields.title", scope: "decidim.admin") %></th>
-            <th><%= t("models.media_link.fields.link", scope: "decidim.admin") %></th>
-            <th><%= t("models.media_link.fields.date", scope: "decidim.admin") %></th>
+            <td>
+              <%= translated_attribute(media_link.title) %>
+            </td>
+            <td>
+              <%= media_link.link %>
+            </td>
+            <td>
+              <%= l(media_link.date, format: :decidim_short ) %>
+            </td>
+            <td class="table-list__actions">
+              <% if allowed_to? :update, :media_link, media_link: media_link %>
+                <%= icon_link_to "pencil", edit_conference_media_link_path(current_conference, media_link), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+              <% end %>
 
-            <th class="actions"></th>
+              <% if allowed_to? :destroy, :media_link, media_link: media_link %>
+                <%= icon_link_to "circle-x", conference_media_link_path(current_conference, media_link), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+              <% end %>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          <% @media_links.each do |media_link| %>
-            <tr>
-              <td>
-                <%= translated_attribute(media_link.title) %>
-              </td>
-              <td>
-                <%= media_link.link %>
-              </td>
-              <td>
-                <%= l(media_link.date, format: :decidim_short ) %>
-              </td>
-              <td class="table-list__actions">
-                <% if allowed_to? :update, :media_link, media_link: media_link %>
-                  <%= icon_link_to "pencil", edit_conference_media_link_path(current_conference, media_link), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
-                <% end %>
-
-                <% if allowed_to? :destroy, :media_link, media_link: media_link %>
-                  <%= icon_link_to "circle-x", conference_media_link_path(current_conference, media_link), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @media_links, theme: "decidim" %>
-    </div>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @media_links, theme: "decidim" %>
   </div>
 </div>

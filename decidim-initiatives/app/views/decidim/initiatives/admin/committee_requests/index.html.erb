@@ -16,50 +16,48 @@
     </div>
   </div>
 
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+      <tr>
+        <th><%= t "user", scope: "activemodel.attributes.initiatives_committee_member" %></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+        <% if current_initiative.committee_members.empty? %>
         <tr>
-          <th><%= t "user", scope: "activemodel.attributes.initiatives_committee_member" %></th>
-          <th></th>
+          <td><%= t ".no_members_yet" %></td>
+          <td></td>
         </tr>
-        </thead>
-        <tbody>
-          <% if current_initiative.committee_members.empty? %>
-          <tr>
-            <td><%= t ".no_members_yet" %></td>
-            <td></td>
+        <% end %>
+
+        <% current_initiative.committee_members.each do |request| %>
+          <tr data-id="<%= request.id %>">
+            <td>
+              <%= link_to request.user.name, "mailto:#{request.user.email}" %>
+            </td>
+            <td class="table-list__actions">
+              <% if allowed_to? :approve, :initiative_committee_member, request: request %>
+                <%= icon_link_to "check",
+                                 approve_initiative_committee_request_path(current_initiative, request),
+                                 t(".approve"),
+                                 class: "action-icon--check" %>
+              <% end %>
+
+              <% if allowed_to? :revoke, :initiative_committee_member, request: request %>
+                <%= icon_link_to "circle-x",
+                                 revoke_initiative_committee_request_path(current_initiative, request),
+                                 t(".revoke"),
+                                 class: "action-icon--remove",
+                                 method: :delete,
+                                 data: { confirm: t(".confirm_revoke") } %>
+              <% end %>
+            </td>
           </tr>
-          <% end %>
-
-          <% current_initiative.committee_members.each do |request| %>
-            <tr data-id="<%= request.id %>">
-              <td>
-                <%= link_to request.user.name, "mailto:#{request.user.email}" %>
-              </td>
-              <td class="table-list__actions">
-                <% if allowed_to? :approve, :initiative_committee_member, request: request %>
-                  <%= icon_link_to "check",
-                                   approve_initiative_committee_request_path(current_initiative, request),
-                                   t(".approve"),
-                                   class: "action-icon--check" %>
-                <% end %>
-
-                <% if allowed_to? :revoke, :initiative_committee_member, request: request %>
-                  <%= icon_link_to "circle-x",
-                                   revoke_initiative_committee_request_path(current_initiative, request),
-                                   t(".revoke"),
-                                   class: "action-icon--remove",
-                                   method: :delete,
-                                   data: { confirm: t(".confirm_revoke") } %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 

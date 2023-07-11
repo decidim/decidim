@@ -9,61 +9,59 @@
     </h2>
   </div>
   <%= admin_filter_selector(:participatory_space_private_users) %>
-  <div class="card-section">
-    <% if participatory_space_private_users.any? %>
-      <div class="table-scroll">
-        <table class="stack">
-          <thead>
+  <% if participatory_space_private_users.any? %>
+    <div class="table-scroll">
+      <table class="stack">
+        <thead>
+          <tr>
+            <th>
+             <%= sort_link(query, :name, t("models.user.fields.name", scope: "decidim.admin"), default_order: :desc ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :email, t("models.user.fields.email", scope: "decidim.admin"), default_order: :desc ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :invitation_sent_at, t("models.user.fields.invitation_sent_at", scope: "decidim.admin"), default_order: :desc ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :invitation_accepted_at, t("models.user.fields.invitation_accepted_at", scope: "decidim.admin"), default_order: :desc ) %>
+            </th>
+            <th class="actions"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% participatory_space_private_users.each do |private_user| %>
             <tr>
-              <th>
-               <%= sort_link(query, :name, t("models.user.fields.name", scope: "decidim.admin"), default_order: :desc ) %>
-              </th>
-              <th>
-                <%= sort_link(query, :email, t("models.user.fields.email", scope: "decidim.admin"), default_order: :desc ) %>
-              </th>
-              <th>
-                <%= sort_link(query, :invitation_sent_at, t("models.user.fields.invitation_sent_at", scope: "decidim.admin"), default_order: :desc ) %>
-              </th>
-              <th>
-                <%= sort_link(query, :invitation_accepted_at, t("models.user.fields.invitation_accepted_at", scope: "decidim.admin"), default_order: :desc ) %>
-              </th>
-              <th class="actions"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% participatory_space_private_users.each do |private_user| %>
-              <tr>
-                <td>
-                  <%= private_user.user.name %><br>
-                </td>
-                <td>
-                  <%= private_user.user.email %><br>
-                </td>
-                <td>
-                  <% if private_user.user.invitation_sent_at %>
-                    <%= l private_user.user.invitation_sent_at, format: :short %>
-                  <% end %>
-                </td>
-                <td>
-                  <% if private_user.user.invitation_accepted_at %>
-                    <%= l private_user.user.invitation_accepted_at, format: :short %>
-                  <% end %>
-                </td>
-                <td class="table-list__actions">
-                  <% if allowed_to?(:invite, :space_private_user, private_user: private_user) && private_user.user.invited_to_sign_up? %>
-                    <%= icon_link_to "reload", resend_invitation_participatory_space_private_user_path(current_participatory_space, private_user), t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
-                  <% end %>
+              <td>
+                <%= private_user.user.name %><br>
+              </td>
+              <td>
+                <%= private_user.user.email %><br>
+              </td>
+              <td>
+                <% if private_user.user.invitation_sent_at %>
+                  <%= l private_user.user.invitation_sent_at, format: :short %>
+                <% end %>
+              </td>
+              <td>
+                <% if private_user.user.invitation_accepted_at %>
+                  <%= l private_user.user.invitation_accepted_at, format: :short %>
+                <% end %>
+              </td>
+              <td class="table-list__actions">
+                <% if allowed_to?(:invite, :space_private_user, private_user: private_user) && private_user.user.invited_to_sign_up? %>
+                  <%= icon_link_to "reload", resend_invitation_participatory_space_private_user_path(current_participatory_space, private_user), t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
+                <% end %>
 
-                  <% if allowed_to? :destroy, :space_private_user, private_user: private_user %>
-                    <%= icon_link_to "circle-x", participatory_space_private_user_path(current_participatory_space, private_user), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      <%= decidim_paginate participatory_space_private_users %>
-    <% end %>
-  </div>
+                <% if allowed_to? :destroy, :space_private_user, private_user: private_user %>
+                  <%= icon_link_to "circle-x", participatory_space_private_user_path(current_participatory_space, private_user), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= decidim_paginate participatory_space_private_users %>
+  <% end %>
 </div>

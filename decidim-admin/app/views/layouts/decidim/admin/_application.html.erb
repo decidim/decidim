@@ -13,7 +13,7 @@
     <%= render partial: "layouts/decidim/admin/header" %>
   </head>
   <body>
-    <%= render partial: "layouts/decidim/timeout_modal" %>
+    <%= render partial: "layouts/decidim/redesigned_timeout_modal" %>
     <main class="main">
       <div class="layout-wrapper">
       <div class="layout-nav">
@@ -40,7 +40,7 @@
       </div>
       </div>
     </main>
-    <%= render partial: "decidim/shared/confirm_modal" %>
+    <%= render partial: "decidim/shared/redesigned_confirm_modal" %>
     <%= render partial: "layouts/decidim/admin/js_configuration" %>
     <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
 

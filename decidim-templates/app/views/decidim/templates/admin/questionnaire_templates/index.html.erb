@@ -7,7 +7,6 @@
       <% end %>
     </h2>
   </div>
-  <div class="card-section">
   <% if @templates.any? %>
     <div class="table-scroll">
       <table class="table-list questionnaire-templates">
@@ -48,5 +47,4 @@
   <% else %>
     <%= t("templates.empty", scope: "decidim.admin") %>
   <% end %>
-  </div>
 </div>

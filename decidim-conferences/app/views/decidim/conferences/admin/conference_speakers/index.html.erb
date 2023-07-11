@@ -24,46 +24,43 @@
       <% end %>
     </h2>
   </div>
+  <div class="table-scroll">
+    <table class="stack">
+      <thead>
+        <tr>
+          <th><%= t("models.conference_speaker.fields.full_name", scope: "decidim.admin") %></th>
+          <th><%= t("models.conference_speaker.fields.position", scope: "decidim.admin") %></th>
+          <th><%= t("models.conference_speaker.fields.affiliation", scope: "decidim.admin") %></th>
 
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="stack">
-        <thead>
+          <th class="actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @conference_speakers.each do |speaker| %>
+          <% speaker_presenter = Decidim::Admin::ConferenceSpeakerPresenter.new(speaker) %>
           <tr>
-            <th><%= t("models.conference_speaker.fields.full_name", scope: "decidim.admin") %></th>
-            <th><%= t("models.conference_speaker.fields.position", scope: "decidim.admin") %></th>
-            <th><%= t("models.conference_speaker.fields.affiliation", scope: "decidim.admin") %></th>
+            <td>
+              <%= speaker_presenter.name %>
+            </td>
+            <td>
+              <%= translated_attribute(speaker.position) %>
+            </td>
+            <td>
+              <%= translated_attribute(speaker.affiliation) %>
+            </td>
+            <td class="table-list__actions">
+              <% if allowed_to? :update, :conference_speaker, speaker: speaker %>
+                <%= icon_link_to "pencil", edit_conference_speaker_path(current_conference, speaker), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+              <% end %>
 
-            <th class="actions"></th>
+              <% if allowed_to? :destroy, :conference_speaker, speaker: speaker %>
+                <%= icon_link_to "circle-x", conference_speaker_path(current_conference, speaker), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+              <% end %>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          <% @conference_speakers.each do |speaker| %>
-            <% speaker_presenter = Decidim::Admin::ConferenceSpeakerPresenter.new(speaker) %>
-            <tr>
-              <td>
-                <%= speaker_presenter.name %>
-              </td>
-              <td>
-                <%= translated_attribute(speaker.position) %>
-              </td>
-              <td>
-                <%= translated_attribute(speaker.affiliation) %>
-              </td>
-              <td class="table-list__actions">
-                <% if allowed_to? :update, :conference_speaker, speaker: speaker %>
-                  <%= icon_link_to "pencil", edit_conference_speaker_path(current_conference, speaker), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
-                <% end %>
-
-                <% if allowed_to? :destroy, :conference_speaker, speaker: speaker %>
-                  <%= icon_link_to "circle-x", conference_speaker_path(current_conference, speaker), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @conference_speakers, theme: "decidim" %>
-    </div>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @conference_speakers, theme: "decidim" %>
   </div>
 </div>

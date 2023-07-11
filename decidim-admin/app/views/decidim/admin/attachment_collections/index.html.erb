@@ -7,43 +7,40 @@
       <% end %>
     </h2>
   </div>
+  <% if collection_for.attachment_collections.any? %>
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("activemodel.attributes.attachment_collection.name") %></th>
+            <th class="actions"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% collection_for.attachment_collections.each do |attachment_collection| %>
+            <tr data-id="<%= attachment_collection.id %>">
+              <td>
+                <%= link_to translated_attribute(attachment_collection.name), edit_polymorphic_path([collection_for, attachment_collection]) %><br>
+              </td>
+              <td class="table-list__actions">
+                <% if allowed_to? :update, :attachment_collection, attachment_collection: attachment_collection %>
+                  <%= icon_link_to "pencil", edit_polymorphic_path([collection_for, attachment_collection]), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                <% end %>
 
-  <div class="card-section">
-     <% if collection_for.attachment_collections.any? %>
-      <div class="table-scroll">
-        <table class="table-list">
-          <thead>
-            <tr>
-              <th><%= t("activemodel.attributes.attachment_collection.name") %></th>
-              <th class="actions"></th>
+                <% if allowed_to? :destroy, :attachment_collection, attachment_collection: attachment_collection %>
+                  <% if attachment_collection.unused? %>
+                    <%= icon_link_to "circle-x", polymorphic_path([collection_for, attachment_collection]), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                  <% else %>
+                    <span class="action-icon" title="<%= t("attachment_collections.index.attachment_collection_used", scope: "decidim.admin") %>" data-tooltip="true" data-disable-hover="false">
+                      <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", "aria-hidden": true %>
+                    </span>
+                  <% end %>
+                <% end %>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            <% collection_for.attachment_collections.each do |attachment_collection| %>
-              <tr data-id="<%= attachment_collection.id %>">
-                <td>
-                  <%= link_to translated_attribute(attachment_collection.name), edit_polymorphic_path([collection_for, attachment_collection]) %><br>
-                </td>
-                <td class="table-list__actions">
-                  <% if allowed_to? :update, :attachment_collection, attachment_collection: attachment_collection %>
-                    <%= icon_link_to "pencil", edit_polymorphic_path([collection_for, attachment_collection]), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
-                  <% end %>
-
-                  <% if allowed_to? :destroy, :attachment_collection, attachment_collection: attachment_collection %>
-                    <% if attachment_collection.unused? %>
-                      <%= icon_link_to "circle-x", polymorphic_path([collection_for, attachment_collection]), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-                    <% else %>
-                      <span class="action-icon" title="<%= t("attachment_collections.index.attachment_collection_used", scope: "decidim.admin") %>" data-tooltip="true" data-disable-hover="false">
-                        <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", "aria-hidden": true %>
-                      </span>
-                    <% end %>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    <% end %>
-  </div>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
 </div>
