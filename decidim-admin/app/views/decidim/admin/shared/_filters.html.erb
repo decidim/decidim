@@ -1,14 +1,4 @@
 <div class="filters__section">
-  <div class="fcell filter">
-    <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
-      <li>
-        <a href="#" class="dropdown button">
-          <%= t("filter_label", scope: "decidim.admin.filters") %>
-        </a>
-        <%= dropdown_submenu(submenu_options_tree(i18n_ctx)) %>
-      </li>
-    </ul>
-  </div>
   <div class="fcell search">
     <%= search_form_for(query, url: url_for) do |form| %>
       <%= applied_filters_hidden_field_tags %>
@@ -22,12 +12,22 @@
                              scope: "decidim.admin.filters.search_placeholder")
             ) %>
         <div class="input-group-button">
-          <button type="submit" class="button">
-            <%= icon "magnifying-glass", aria_label: t("search_label", scope: "decidim.admin.filters") %>
+          <button type="submit" class="text-secondary">
+            <%= icon "magnifying-glass", aria_label: t("search_label", scope: "decidim.admin.filters"), class: "fill-secondary" %>
           </button>
         </div>
       </div>
     <% end %>
+  </div>
+  <div class="fcell">
+    <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
+      <li>
+        <a href="#" class="dropdown button">
+          <%= t("filter_label", scope: "decidim.admin.filters") %>
+        </a>
+        <%= dropdown_submenu(submenu_options_tree(i18n_ctx)) %>
+      </li>
+    </ul>
   </div>
 </div>
 <div class="card-section fcell grid-x">
@@ -35,6 +35,6 @@
     <%= applied_filters_tags(i18n_ctx) %>
   </div>
   <div class="cell auto text-right">
-    <%= admin_filters_pagination %>
+    <%#= admin_filters_pagination %>
   </div>
 </div>

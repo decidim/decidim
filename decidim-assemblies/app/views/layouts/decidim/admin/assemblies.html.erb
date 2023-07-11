@@ -33,13 +33,6 @@
                  <% end %>
               </li>
               <li>
-                <% if allowed_to? :manage, :assemblies_type %>
-                  <%= link_to t("menu.assemblies_types", scope: "decidim.admin"),
-                             decidim_admin_assemblies.assemblies_types_path,
-                             class: "text-secondary" %>
-                <% end %>
-              </li>
-              <li>
                 <% if allowed_to? :read, :assemblies_setting %>
                   <%= link_to t("menu.assemblies_settings", scope: "decidim.admin"),
                              decidim_admin_assemblies.edit_assemblies_settings_path,
@@ -51,10 +44,12 @@
         </div>
       </div>
     </div>
-    <%= sidebar_menu(:admin_assemblies_menu).render %>
+    <%#= sidebar_menu(:admin_assemblies_menu).render %>
   </div>
 
-  <div class="process-content">
-    <%= yield %>
+  <div class="container">
+    <div class="process-content">
+      <%= yield %>
+    </div>
   </div>
 <% end %>
