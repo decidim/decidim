@@ -11,7 +11,7 @@
 
   <% if count_pending_moderations.positive? && allowed_to?(:read, :global_moderation) %>
     <div class="grid-x grid-margin-x">
-      <div class="cell small-12 medium-12 large-12">
+      <div class="cell small-6 medium-6 large-6">
         <%= render "pending_moderations" %>
       </div>
     </div>
@@ -19,7 +19,7 @@
 
   <div class="grid-x grid-margin-x">
     <% if allowed_to? :read, :users_statistics %>
-      <div class="cell small-12 medium-12 large-12">
+      <div class="cell small-6 medium-6 large-6">
         <%= render(
           partial: "decidim/admin/users_statistics/users_count",
           locals: {
@@ -31,9 +31,9 @@
   </div>
 
   <div class="grid-x grid-margin-x">
-    <% if allowed_to? :read, :metrics %>
-      <div class="cell small-12">
-        <%= render(
+    <%# if allowed_to? :read, :metrics %>
+      <div class="cell small-6 medium-6 large-6">
+        <%#= render(
           partial: "decidim/admin/metrics/metrics",
           locals: {
             metrics_presenter:,
@@ -41,10 +41,10 @@
           }
         ) %>
       </div>
-    <% end %>
+    <%# end %>
 
     <% if allowed_to? :read, :admin_log %>
-      <div class="cell small-12">
+      <div class="cell small-6 medium-6 large-6">
         <%= render partial: "decidim/admin/logs/logs_list", locals: { logs: latest_action_logs, display_filters: false } %>
         <% if latest_action_logs.any? %>
           <div class="text-center"><%= link_to t(".view_more_logs"), logs_path %></div>
@@ -54,10 +54,6 @@
   </div>
 
   <% if current_user.admin_terms_accepted? %>
-    <p class="text-right">
-      <small>
-        <%= link_to( t("title", scope: "decidim.admin.admin_terms_of_service"), admin_terms_show_path) %>
-      </small>
-    </p>
+    <%= link_to( t("title", scope: "decidim.admin.admin_terms_of_service"), admin_terms_show_path, class: 'button button__text-secondary') %>
   <% end %>
 </div>
