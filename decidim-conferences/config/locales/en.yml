@@ -295,13 +295,13 @@ en:
         conference_speakers: Conference speakers
         conferences: Conferences
         duplicate_conference: Duplicate conference
-        media_links: Media links
+        media_links: Media Links
         new_conference: New conference
         new_conference_admin: New conference admin
         new_conference_invite: Invite participant
         new_conference_partner: New partner
         new_conference_speaker: New conference speaker
-        new_media_link: New media link
+        new_media_link: Media Link
         new_registration_type: New registration type
         registration_types: Registration types
         edit_conference_speaker: Update conference speaker

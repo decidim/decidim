@@ -148,10 +148,10 @@ en:
       titles:
         edit_initiative_type_scope: Edit initiative type scope
         initiatives: Initiatives
-        initiatives_settings: Initiative settings
+        initiatives_settings: Settings for initiatives
         initiatives_types: Initiative types
         new_initiative_type: New initiative type
-        new_initiative_type_scope: New initiative type scope
+        new_initiative_type_scope: Create initiative type scope
     events:
       initiatives:
         admin:
