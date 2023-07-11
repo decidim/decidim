@@ -17,6 +17,9 @@
   --alert-rgb: 231 19 26;
 }
 
+/* Decidim-core */
+@import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_dropdown.scss";
+
 @import "stylesheets/decidim/admin/_redesigned_main-nav.scss";
 @import "stylesheets/decidim/admin/_redesigned_layout.scss";
 @import "stylesheets/decidim/admin/_redesigned_secondary-nav.scss";
