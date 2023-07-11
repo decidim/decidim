@@ -180,7 +180,6 @@ en:
         new:
           create: Create
           title: Media Link
-          new_media: New media link
         update:
           error: There was a problem updating this media link.
           success: Media Link successfully updated.

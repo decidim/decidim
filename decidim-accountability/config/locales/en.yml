@@ -261,8 +261,8 @@ en:
           new_result: New result
           statuses: Statuses
           new_status: New status
-          new_CSV_import: New CSV import
-          import_projects: Import projects
+          import_results: Import results from CSV
+          import_projects: Import Projects to Accountability
     components:
       accountability:
         actions:

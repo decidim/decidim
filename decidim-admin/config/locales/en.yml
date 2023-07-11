@@ -1046,10 +1046,10 @@ en:
         statistics: Activity
         user_groups: Groups
         users: Administrators
-        edit_content_block: Edit content block
-        edit_landing_page: Edit landing page
+        moderated_users: Reported participants
+        edit_landing_page: Page contents
         components: Components
-        new_component: New component
+        new_component: Add component
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.
