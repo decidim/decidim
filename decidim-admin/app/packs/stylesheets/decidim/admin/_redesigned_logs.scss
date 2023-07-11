@@ -1,0 +1,85 @@
+.logs{
+  @apply ml-0 mb-0 list-none;
+
+  li{
+    .logs__log__content,
+    .logs__log__diff-row{
+      @apply flex flex-row gap-x-6 pb-4;
+    }
+
+    .logs__log__diff-row:last-child{
+      border-bottom: none;
+    }
+
+    &:last-child{
+      .logs__log__content,
+      .logs__log__diff-row{
+        @apply pb-0;
+      }
+    }
+  }
+
+  .logs__log--deletion .logs__log__content{
+    background-color: rgb(255, 242, 242);
+  }
+
+  .logs__log__explanation{
+    a{
+      @apply text-secondary underline;
+    }
+
+    span{
+      @apply font-semibold;
+    }
+  }
+
+  .logs__log__actions{
+    flex-grow: 1;
+  }
+
+  .logs__log__actions-dropdown{
+    color: $muted;
+    padding: rem-calc(0 10);
+
+    &::after{
+      content: "▸";
+    }
+  }
+
+  .logs__log__diff{
+    max-height: 200px;
+    overflow-y: scroll;
+    display: none;
+  }
+
+  .logs__log--expanded{
+    .logs__log__diff{
+      display: block;
+    }
+
+    .logs__log__actions-dropdown{
+      &::after{
+        content: "▾";
+      }
+    }
+  }
+
+  .logs__log__diff-title{
+    padding-right: rem-calc(10);
+    font-weight: 600;
+  }
+
+  .logs__log__diff-row--new-value{
+    background-color: rgb(217, 255, 221);
+  }
+
+  .logs__log__diff-row--previous-value{
+    background-color: rgb(238, 238, 238);
+
+    .logs__log__diff-title{
+      color: rgb(152, 152, 152);
+      font-weight: normal;
+      text-transform: lowercase;
+    }
+  }
+}
