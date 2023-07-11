@@ -1,12 +1,57 @@
-<% content_for :sidebar_menu_nav do %>
-  <%= sidebar_menu(:admin_assemblies_menu).render %>
-<% end %>
-
 <%= render "layouts/decidim/admin/application" do %>
   <div class="process-title">
     <div class="process-title-content">
-      <%= link_to t("decidim.admin.titles.assemblies"), decidim_assemblies.assemblies_path, target: "_blank" %>
+      <%= link_to t("decidim.admin.titles.assemblies"), decidim_assemblies.assemblies_path, target: "_blank", class:"process-title-content-breadcrumb" %>
+      <div class="ml-auto flex items-center gap-x-4">
+        <% if allowed_to? :create, :assembly %>
+          <%= link_to new_assembly_path(parent_id: parent_assembly&.id), class: "button button__transparent" do %>
+            <svg viewBox="0 0 24 24" id="ri-add-line" class="w-4 h-4">
+                <g>
+                    <path fill="none" d="M0 0h24v24H0z"/>
+                    <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/>
+                </g>
+            </svg>
+            <%= t("actions.new_assembly", scope: "decidim.admin") %>
+          <% end %>
+        <% end %>
+        <div class="inline-block">
+          <%= button_tag id: "assemblies-dropdown-menu-trigger", data: { component: 'dropdown', target: 'assemblies-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
+            <svg viewBox="0 0 24 24" id="ri-more-line">
+              <g>
+                  <path fill="none" d="M0 0h24v24H0z"/>
+                  <path d="M4.5 10.5c-.825 0-1.5.675-1.5 1.5s.675 1.5 1.5 1.5S6 12.825 6 12s-.675-1.5-1.5-1.5zm15 0c-.825 0-1.5.675-1.5 1.5s.675 1.5 1.5 1.5S21 12.825 21 12s-.675-1.5-1.5-1.5zm-7.5 0c-.825 0-1.5.675-1.5 1.5s.675 1.5 1.5 1.5 1.5-.675 1.5-1.5-.675-1.5-1.5-1.5z"/>
+              </g>
+            </svg>
+          <% end %>
+          <div id="assemblies-dropdown-menu-settings">
+            <ul class="dropdown dropdown__bottom">
+              <li>
+                <% if allowed_to? :import, :assembly %>
+                   <%= link_to t("actions.import_assembly", scope: "decidim.admin"),
+                               new_import_path,
+                               class: "text-secondary" %>
+                 <% end %>
+              </li>
+              <li>
+                <% if allowed_to? :manage, :assemblies_type %>
+                  <%= link_to t("menu.assemblies_types", scope: "decidim.admin"),
+                             decidim_admin_assemblies.assemblies_types_path,
+                             class: "text-secondary" %>
+                <% end %>
+              </li>
+              <li>
+                <% if allowed_to? :read, :assemblies_setting %>
+                  <%= link_to t("menu.assemblies_settings", scope: "decidim.admin"),
+                             decidim_admin_assemblies.edit_assemblies_settings_path,
+                             class: "text-secondary" %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
+    <%= sidebar_menu(:admin_assemblies_menu).render %>
   </div>
 
   <div class="process-content">

@@ -5,20 +5,6 @@
         <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %>
         <span>&gt;</span>
       <% end if parent_assembly %>
-
-      <%= t("assemblies", scope: "decidim.admin.titles") %>
-
-      <% if allowed_to? :import, :assembly %>
-        <%= link_to t("actions.import_assembly", scope: "decidim.admin"),
-                    new_import_path,
-                    class: "button tiny button--title" %>
-      <% end %>
-
-      <% if allowed_to? :create, :assembly %>
-        <%= link_to t("actions.new_assembly", scope: "decidim.admin"),
-                    new_assembly_path(parent_id: parent_assembly&.id),
-                    class: "button tiny button--title" %>
-      <% end %>
     </h2>
   </div>
   <%= admin_filter_selector %>

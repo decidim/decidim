@@ -29,12 +29,10 @@
       </div>
       <div class="layout-content">
         <%= render partial: "layouts/decidim/admin/title_bar" %>
+        <%= yield :secondary_nav if content_for? :secondary_nav %>
+        <%= yield :sidebar_menu_nav if content_for? :sidebar_menu_nav %>
         <%= render partial: "layouts/decidim/admin/callouts_full" %>
-        <div class="container">
-          <%= yield %>
-          <%= yield :secondary_nav if content_for? :secondary_nav %>
-          <%= yield :sidebar_menu_nav if content_for? :sidebar_menu_nav %>
-        </div>
+        <%= yield %>
       </div>
       </div>
     </main>
