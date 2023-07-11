@@ -5,31 +5,28 @@
   <div class="tool-bar">
     <% if available_locales.length > 1 %>
     <div class="topbar__dropmenu language-choose relative">
-      <%= button_tag t("name", scope: "locale"), id: "admin-user-dropdown-menu-trigger", data: { component: 'dropdown', target: 'admin-user-dropdown-menu' }, class: '!flex' %>
-      <div id="admin-user-dropdown-menu">
+      <%= button_tag t("name", scope: "locale"), id: "admin-dropdown-menu-trigger", data: { component: 'dropdown', target: 'admin-dropdown-menu-language' }, class: 'dropdown__trigger' %>
+      <div id="admin-dropdown-menu-language">
         <ul class="dropdown dropdown__bottom">
           <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
-            <li><%= link_to(locale_name(locale), decidim.locale_path(locale: locale), method: :post, tabindex: "-1") %></li>
+            <li>
+              <%= link_to(locale_name(locale), decidim.locale_path(locale: locale), method: :post, tabindex: "-1") %>
+            </li>
           <% end %>
         </ul>
       </div>
     </div>
     <% end %>
 
-    <div class="user-login">
-      <ul class="dropdown menu" data-dropdown-menu
-        data-autoclose="false"
-        data-disable-hover="true"
-        data-click-open="true"
-        data-close-on-click="true"
-        tabindex="-1">
-        <li class="is-dropdown-submenu-parent" tabindex="-1">
-          <%= link_to current_user.email, "#", id: "admin-language-menu-control", "aria-controls": "admin-language-menu", "aria-haspopup": "menu", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.email) %>
-          <ul class="menu is-dropdown-submenu" id="admin-language-menu" role="menu" aria-labelledby="admin-language-menu-control" tabindex="-1">
-            <li><%= link_to(t("layouts.decidim.user_menu.sign_out"), decidim.destroy_user_session_path, method: :delete, tabindex: "-1") %></li>
-          </ul>
-        </li>
-      </ul>
+    <div class="user-login relative">
+      <%= button_tag current_user.email, id: "admin-dropdown-menu-login-trigger", data: { component: 'dropdown', target: 'admin-dropdown-menu-login' }, name: current_user.email , class: 'dropdown__trigger' %>
+      <div id="admin-dropdown-menu-login">
+        <ul class="dropdown dropdown__bottom">
+          <li>
+            <%= link_to(t("layouts.decidim.user_menu.sign_out"), decidim.destroy_user_session_path, method: :delete, tabindex: "-1") %>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

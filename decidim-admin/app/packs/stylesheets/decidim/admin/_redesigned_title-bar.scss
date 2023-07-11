@@ -17,35 +17,16 @@
 .tool-bar{
   @apply ml-auto;
 
-  .dropdown.menu > li > a{
-    background: transparent;
-  }
-
-  .is-dropdown-submenu{
-    z-index: 2;
-  }
-
-  .user-login{
-    @apply inline-block;
-  }
-
+  .user-login,
   .language-choose{
     @apply inline-block;
 
-    .is-dropdown-submenu-parent a{
-      @apply text-black;
-
-      &::after{
-        border-color: #fff transparent transparent !important;
-      }
+    [id*="dropdown-menu"][aria-hidden="true"]{
+      @apply hidden;
     }
+  }
 
-    .is-dropdown-submenu li > a{
-      @apply text-black;
-
-      &:hover{
-        background-color: lighten($medium-gray, 30%);
-      }
-    }
+  .dropdown__trigger{
+    @apply flex;
   }
 }
