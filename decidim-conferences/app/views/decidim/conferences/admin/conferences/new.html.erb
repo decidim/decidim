@@ -1,11 +1,19 @@
-<h2 class="conference-title-summary">
-  <%= t "conferences.new.title", scope: "decidim.admin" %>
-</h2>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t "conferences.new.title", scope: "decidim.admin" %>
+  </h2>
+</div>
 
-<%= decidim_form_for(@form, html: { class: "form new_conference conference_form_admin" }) do |f| %>
-  <%= render partial: "form", object: f %>
-
-  <div class="button--double form-general-submit">
-    <%= f.submit t("conferences.new.create", scope: "decidim.admin") %>
+<div class="item__edit">
+  <div class="item__edit-menu">
+    <p class="text-black font-semibold mb-3">Secciones</p>
+    <%= link_to t("conferences.form.title", scope: "decidim.admin"), new_conference_path, anchor: t("conferences.form.title", scope: "decidim.admin"), class: "item__edit-menu-anchor" %>
   </div>
-<% end %>
+
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, html: { class: "form form-defaults  new_conference conference_form_admin" }) do |f| %>
+      <%= render partial: "form", object: f %>
+      <%= f.submit t("conferences.new.create", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
+    <% end %>
+  </div>
+</div>
