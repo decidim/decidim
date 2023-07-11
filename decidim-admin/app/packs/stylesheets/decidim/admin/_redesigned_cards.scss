@@ -4,7 +4,11 @@ $card-padding-small: 1rem;
   @apply bg-transparent border-0;
 
   .table-scroll{
-    @apply bg-white rounded;
+    @apply bg-white rounded p-6;
+  }
+
+  .table{
+    @apply w-full;
   }
 }
 
@@ -106,7 +110,7 @@ $card-padding-small: 1rem;
 }
 
 .card-divider{
-  @apply bg-transparent px-0;
+  @apply bg-transparent px-0 py-2;
 }
 
 .card-divider--reduced{
@@ -116,4 +120,8 @@ $card-padding-small: 1rem;
 
 .card.with-overflow{
   overflow: visible;
+}
+
+.card-section{
+  @apply px-0;
 }
