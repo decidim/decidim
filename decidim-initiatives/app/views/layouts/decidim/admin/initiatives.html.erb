@@ -1,6 +1,6 @@
-<% content_for :sidebar_menu_nav do %>
-  <%= sidebar_menu(:admin_initiatives_menu).render %>
-<% end %>
+<%# content_for :sidebar_menu_nav do %>
+  <%#= sidebar_menu(:admin_initiatives_menu).render %>
+<%# end %>
 
 <% content_for :breadcrumb_nav do %>
   <div class="process-title">
@@ -62,8 +62,6 @@
   </div>
 <% end %>
 <%= render "layouts/decidim/admin/application" do %>
-
-
   <div class="process-content">
     <%= yield %>
   </div>
