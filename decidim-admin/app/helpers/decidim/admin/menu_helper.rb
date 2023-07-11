@@ -15,7 +15,13 @@ module Decidim
       end
 
       def sidebar_menu(target_menu)
-        ::Decidim::Admin::SecondaryMenuPresenter.new(target_menu, self, active_class: "is-active")
+        ::Decidim::Admin::SecondaryMenuPresenter.new(
+          target_menu,
+          self,
+          container_options: { class: "dropdown dropdown__bottom" },
+          element_class: "dropdown__item",
+          active_class: "is-active"
+        )
       end
 
       def aside_menu(target_menu)

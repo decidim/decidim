@@ -105,4 +105,10 @@ $card-padding-small: 1rem;
 
 .card-section{
   @apply p-6 bg-white;
+
+  svg{
+    @apply w-4 h-4 inline-block;
+
+    fill: var(--secondary);
+  }
 }
