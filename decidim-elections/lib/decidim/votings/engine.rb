@@ -84,19 +84,13 @@ module Decidim
         end
 
         Decidim.content_blocks.register(:voting_landing_page, :hero) do |content_block|
-          content_block.cell = "decidim/content_blocks/hero"
-          content_block.settings_form_cell = "decidim/content_blocks/hero_settings_form"
+          content_block.cell = "decidim/votings/content_blocks/hero"
+          content_block.settings_form_cell = "decidim/votings/content_blocks/hero_settings_form"
           content_block.public_name_key = "decidim.content_blocks.hero.name"
 
-          content_block.images = [
-            {
-              name: :background_image,
-              uploader: "Decidim::HomepageImageUploader"
-            }
-          ]
-
           content_block.settings do |settings|
-            settings.attribute :welcome_text, type: :text, translated: true
+            settings.attribute :button_text, type: :text, translated: true
+            settings.attribute :button_url, type: :text, translated: true
           end
 
           content_block.default!
