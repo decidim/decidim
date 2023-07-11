@@ -121,8 +121,8 @@ module Decidim
         end
 
         Decidim.content_blocks.register(:voting_landing_page, :metrics) do |content_block|
-          content_block.cell = "decidim/content_blocks/organization_metrics"
-          content_block.public_name_key = "decidim.content_blocks.metrics.name"
+          content_block.cell = "decidim/votings/content_blocks/metrics"
+          content_block.public_name_key = "decidim.votings.admin.content_blocks.metrics.name"
         end
 
         Decidim.content_blocks.register(:voting_landing_page, :html) do |content_block|
