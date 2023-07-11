@@ -7,10 +7,14 @@
 }
 
 .logo{
-  @apply p-4 block max-w-[80px] md:max-w-[120px] bg-gray-2;
+  @apply p-4 block max-w-[80px] md:max-w-[120px] bg-gray-2 relative py-12;
 
   img{
     @apply block;
+  }
+
+  svg{
+    @apply w-12 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
   }
 }
 
