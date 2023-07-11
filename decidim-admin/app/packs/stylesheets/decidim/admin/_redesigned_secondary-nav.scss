@@ -79,7 +79,7 @@ $process-title-height: 3rem;
   }
 
   .button{
-    @apply no-underline py-1 mb-0;
+    @apply no-underline p-1 mb-0;
   }
 }
 
@@ -88,6 +88,18 @@ $process-title-height: 3rem;
 
   &-breadcrumb{
     @apply text-md font-bold text-white underline;
+
+    &-container-right{
+      @apply ml-auto flex items-center gap-x-4;
+
+      &-link{
+        @apply button button__transparent flex items-center gap-x-2 p-1.5;
+      }
+
+      svg{
+        @apply w-4 h-4 fill-white;
+      }
+    }
   }
 
   &-dropdown{

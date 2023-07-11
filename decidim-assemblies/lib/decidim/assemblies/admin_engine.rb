@@ -154,60 +154,59 @@ module Decidim
                         I18n.t("info", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.edit_assembly_path(current_participatory_space),
                         position: 1,
-                        if: allowed_to?(:update, :assembly, assembly: current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.edit_assembly_path(current_participatory_space))
+                        icon_name: "dashboard",
+                        if: allowed_to?(:update, :assembly, assembly: current_participatory_space)
 
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.components_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.components_path(current_participatory_space)),
-                        if: allowed_to?(:read, :component, assembly: current_participatory_space),
-                        submenu: { target_menu: :admin_assemblies_components_menu, options: { container_options: { id: "components-list" } } }
+                        icon_name: "dashboard",
+                        if: allowed_to?(:read, :component, assembly: current_participatory_space)
 
           menu.add_item :categories,
                         I18n.t("categories", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.categories_path(current_participatory_space),
-                        if: allowed_to?(:read, :category, assembly: current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.categories_path(current_participatory_space))
+                        icon_name: "dashboard",
+                        if: allowed_to?(:read, :category, assembly: current_participatory_space)
 
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.admin.menu.assemblies_submenu"),
                         "#",
                         active: is_active_link?(decidim_admin_assemblies.assembly_attachment_collections_path(current_participatory_space)) ||
                                 is_active_link?(decidim_admin_assemblies.assembly_attachments_path(current_participatory_space)),
+                        icon_name: "dashboard",
                         if: allowed_to?(:read, :attachment_collection, assembly: current_participatory_space) ||
-                            allowed_to?(:read, :attachment, assembly: current_participatory_space),
-                        submenu: { target_menu: :assemblies_admin_attachments_menu }
+                            allowed_to?(:read, :attachment, assembly: current_participatory_space)
 
           menu.add_item :assembly_members,
                         I18n.t("assembly_members", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.assembly_members_path(current_participatory_space),
-                        if: allowed_to?(:read, :assembly_member, assembly: current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.assembly_members_path(current_participatory_space))
+                        icon_name: "dashboard",
+                        if: allowed_to?(:read, :assembly_member, assembly: current_participatory_space)
 
           menu.add_item :assembly_user_roles,
                         I18n.t("assembly_admins", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.assembly_user_roles_path(current_participatory_space),
-                        if: allowed_to?(:read, :assembly_user_role, assembly: current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.assembly_user_roles_path(current_participatory_space))
+                        icon_name: "dashboard",
+                        if: allowed_to?(:read, :assembly_user_role, assembly: current_participatory_space)
 
           menu.add_item :participatory_space_private_users,
                         I18n.t("private_users", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.participatory_space_private_users_path(current_participatory_space),
-                        if: allowed_to?(:read, :space_private_user, assembly: current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.participatory_space_private_users_path(current_participatory_space))
+                        icon_name: "dashboard",
+                        if: allowed_to?(:read, :space_private_user, assembly: current_participatory_space)
 
           menu.add_item :moderations,
                         I18n.t("moderations", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.moderations_path(current_participatory_space),
-                        if: allowed_to?(:read, :moderation, assembly: current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.moderations_path(current_participatory_space))
+                        icon_name: "dashboard",
+                        if: allowed_to?(:read, :moderation, assembly: current_participatory_space)
 
           menu.add_item :edit_assembly_landing_page,
                         I18n.t("landing_page", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.edit_assembly_landing_page_path(current_participatory_space),
-                        if: allowed_to?(:update, :assembly, assembly: current_participatory_space),
-                        active: is_active_link?(decidim_admin_assemblies.assembly_landing_page_path(current_participatory_space))
+                        icon_name: "dashboard",
+                        if: allowed_to?(:update, :assembly, assembly: current_participatory_space)
         end
       end
       initializer "decidim_assemblies_admin.assemblies_menu" do

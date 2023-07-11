@@ -209,6 +209,7 @@ en:
           landing_page: Landing page
           moderations: Moderations
           private_users: Private users
+          see_assembly: See assembly
         assemblies_types: Assemblies types
       models:
         assemblies_types:
