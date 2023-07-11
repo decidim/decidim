@@ -1,14 +1,31 @@
-<%= decidim_form_for(@form, html: { class: "form edit_participatory_process" }) do |f| %>
-  <%= render partial: "form", object: f %>
-  <div class="button--double form-general-submit">
-    <%= f.submit t("participatory_processes.edit.update", scope: "decidim.admin"), class: "button" %>
+<div class="container">
+  <div class="item__edit">
+    <div class="item__edit-menu">
+      <p class="text-black font-semibold">Secciones</p>
+      <%= link_to t("title",  scope: "decidim.participatory_processes.admin.participatory_processes.form"), '', class: "item__edit-menu-anchor" %>
+      <%= link_to t("duration",  scope: "decidim.participatory_processes.admin.participatory_processes.form"), '', class: "item__edit-menu-anchor" %>
+      <%= link_to t("images",  scope: "decidim.participatory_processes.admin.participatory_processes.form"), '', class: "item__edit-menu-anchor" %>
+      <%= link_to t("metadata",  scope: "decidim.participatory_processes.admin.participatory_processes.form"), '', class: "item__edit-menu-anchor" %>
+      <%= link_to t("filters",  scope: "decidim.participatory_processes.admin.participatory_processes.form"), '', class: "item__edit-menu-anchor" %>
+      <%= link_to t("visbility",  scope: "decidim.participatory_processes.admin.participatory_processes.form"), '', class: "item__edit-menu-anchor" %>
+      <%= link_to t("related_processes",  scope: "decidim.participatory_processes.admin.participatory_processes.form"), '', class: "item__edit-menu-anchor" %>
+      <%= link_to t("other",  scope: "decidim.participatory_processes.admin.participatory_processes.form"), '', class: "item__edit-menu-anchor" %>
+    </div>
+    <div class="item__edit-form">
+      <%= decidim_form_for(@form, html: { class: "form edit_participatory_process" }) do |f| %>
+        <%= render partial: "form", object: f %>
+        <div class="button--double form-general-submit">
+          <%= f.submit t("participatory_processes.edit.update", scope: "decidim.admin"), class: "button" %>
 
-    <% if allowed_to? :publish, :process, process: current_participatory_process %>
-      <% if current_participatory_process.published? %>
-        <%= link_to t("actions.unpublish", scope: "decidim.admin"), participatory_process_publish_path(current_participatory_process), method: :delete, class: "button muted" %>
-      <% else %>
-        <%= link_to t("actions.publish", scope: "decidim.admin"), participatory_process_publish_path(current_participatory_process), method: :post, class: "button hollow" %>
+          <% if allowed_to? :publish, :process, process: current_participatory_process %>
+            <% if current_participatory_process.published? %>
+              <%= link_to t("actions.unpublish", scope: "decidim.admin"), participatory_process_publish_path(current_participatory_process), method: :delete, class: "button muted" %>
+            <% else %>
+              <%= link_to t("actions.publish", scope: "decidim.admin"), participatory_process_publish_path(current_participatory_process), method: :post, class: "button hollow" %>
+            <% end %>
+          <% end %>
+        </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
-<% end %>
+</div>

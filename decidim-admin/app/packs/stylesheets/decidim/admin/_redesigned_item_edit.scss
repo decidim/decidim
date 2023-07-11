@@ -1,0 +1,67 @@
+.item__edit{
+  @apply grid grid-cols-[25%_75%];
+
+  &-form{
+    .card{
+      @apply rounded p-4 bg-white mb-8;
+    }
+
+    .card-section{
+      @apply p-0;
+    }
+
+    .card-divider{
+      @apply mt-0 mb-8 pb-2 border-b border-gray;
+    }
+
+    .card-title{
+      @apply font-semibold text-md;
+
+      color: var(--secondary);
+    }
+
+    .label--tabs{
+      @apply mb-1;
+    }
+
+    label{
+      @apply text-gray-2;
+
+      font-size: 14px;
+    }
+
+    .form{
+      [type="text"],
+      [type="password"],
+      [type="date"],
+      [type="datetime"],
+      [type="datetime-local"],
+      [type="month"],
+      [type="week"],
+      [type="email"],
+      [type="number"],
+      [type="search"],
+      [type="tel"],
+      [type="time"],
+      [type="url"],
+      [type="color"],
+      textarea{
+        @apply shadow-none bg-gray-5 text-md h-auto;
+
+        color: rgba(146, 146, 146, 1);
+        border: 1px solid rgba(208, 215, 222, 1);
+      }
+    }
+  }
+
+  &-menu{
+    @apply pr-4;
+
+    &-anchor{
+      @apply block underline mb-3;
+
+      font-size: 14px;
+      color: var(--secondary);
+    }
+  }
+}

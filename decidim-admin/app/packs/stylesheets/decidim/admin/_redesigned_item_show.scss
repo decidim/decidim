@@ -30,13 +30,17 @@
       @apply flex items-center gap-x-2 pb-3;
 
       svg{
-        @apply w-4 h-4;
+        @apply w-4 h-4 fill-gray;
       }
 
       a{
         @apply text-md font-semibold flex items-center gap-x-4 w-full;
 
         color: var(--secondary);
+
+        &:hover span{
+          @apply no-underline;
+        }
 
         span{
           @apply ml-auto;

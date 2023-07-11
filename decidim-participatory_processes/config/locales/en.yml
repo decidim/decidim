@@ -425,7 +425,7 @@ en:
         participatory_process_groups:
           form:
             metadata: Metadata
-            title: General Information
+            title: About this process
             visibility: Visibility
         participatory_process_imports:
           form:
