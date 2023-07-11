@@ -120,7 +120,7 @@ module Decidim
         "default-src" => %w('self' 'unsafe-inline'),
         "script-src" => %w('self' 'unsafe-inline' 'unsafe-eval'),
         "style-src" => %w('self' 'unsafe-inline'),
-        "img-src" => %w('self' *.hereapi.com data:),
+        "img-src" => %w('self' *.hereapi.com https://*.openstreetmap.org data:),
         "font-src" => %w('self'),
         "connect-src" => %w('self' *.hereapi.com *.jsdelivr.net),
         "frame-src" => %w('self'),
