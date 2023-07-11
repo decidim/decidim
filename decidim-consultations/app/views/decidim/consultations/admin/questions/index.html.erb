@@ -43,13 +43,13 @@
             </td>
             <td class="table-list__state">
               <% if question.published? %>
-                <strong class="text-success">
+                <span class="label !text-sm  text-success">
                   <%= t("questions.index.published", scope: "decidim.admin") %>
-                </strong>
+                </span>
               <% else %>
-                <strong class="text-alert">
+                <span class="label !text-sm text-alert">
                   <%= t("questions.index.not_published", scope: "decidim.admin") %>
-                </strong>
+                </span>
               <% end %>
             </td>
             <td class="table-list__actions">

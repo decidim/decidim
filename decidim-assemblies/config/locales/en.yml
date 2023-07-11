@@ -296,6 +296,7 @@ en:
             social_handlers: Social
             title: General Information
             visbility: Visibility
+            sections: Sections
         assemblies_settings:
           edit:
             update: Update

@@ -17,18 +17,18 @@
     </div>
   <% end %>
 
-  <div class="grid-x grid-margin-x">
     <% if allowed_to? :read, :users_statistics %>
-      <div class="cell small-6 medium-6 large-6">
-        <%= render(
-          partial: "decidim/admin/users_statistics/users_count",
-          locals: {
-            result: users_counter
-          }
-        ) %>
+      <div class="grid-x grid-margin-x">
+        <div class="cell small-6 medium-6 large-6">
+          <%= render(
+            partial: "decidim/admin/users_statistics/users_count",
+            locals: {
+              result: users_counter
+            }
+          ) %>
+        </div>
       </div>
     <% end %>
-  </div>
 
   <div class="grid-x grid-margin-x">
     <%# if allowed_to? :read, :metrics %>

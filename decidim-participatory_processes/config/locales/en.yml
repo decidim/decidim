@@ -451,6 +451,7 @@ en:
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: General Information
             visbility: Visibility
+            sections: Sections
       content_blocks:
         extra_data:
           name: Phase & duration

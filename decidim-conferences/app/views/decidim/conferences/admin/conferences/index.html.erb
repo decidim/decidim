@@ -31,9 +31,9 @@
             </td>
             <td class="table-list__state">
               <% if conference.published? %>
-                <strong class="text-success"><%= t("conferences.index.published", scope: "decidim.admin") %></strong>
+                <span class="label !text-sm success"><%= t("conferences.index.published", scope: "decidim.admin") %></span>
               <% else %>
-                <strong class="text-alert"><%= t("conferences.index.not_published", scope: "decidim.admin") %></strong>
+                <span class="label !text-sm alert"><%= t("conferences.index.not_published", scope: "decidim.admin") %></span>
               <% end %>
             </td>
             <td class="table-list__actions">

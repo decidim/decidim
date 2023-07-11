@@ -6,7 +6,9 @@
 
 <div class="item__edit">
   <div class="item__edit-menu">
-    <p class="text-black font-semibold mb-3">Secciones</p>
+    <p class="text-black font-semibold mb-3">
+      <%= t("sections", scope: "decidim.admin.conferences.form") %>
+    </p>
     <%= link_to t("conferences.form.title", scope: "decidim.admin"),  decidim_admin_conferences.edit_conference_path(current_participatory_space, anchor: t("conferences.form.title", scope: "decidim.admin")), class: "item__edit-menu-anchor" %>
   </div>
 

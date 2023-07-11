@@ -153,6 +153,7 @@ en:
           registrations: Registrations
         form:
           title: General Information
+          sections: Sections
         index:
           not_published: Not published
           published: Published

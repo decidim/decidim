@@ -37,8 +37,8 @@
           </td>
           <td><%= humanize_admin_state initiative.state %></td>
           <td><%= initiative.supports_count %>/<%= initiative.scoped_type.supports_required %></td>
-          <td><%= l initiative.created_at, format: :short %></td>
-          <td><%= initiative.published_at? ? l(initiative.published_at, format: :short) : "" %></td>
+          <td class="table-list__date"><%= l initiative.created_at, format: :short %></td>
+          <td class="table-list__date"><%= initiative.published_at? ? l(initiative.published_at, format: :short) : "" %></td>
           <td class="table-list__actions">
             <% if allowed_to? :edit, :initiative, initiative: initiative %>
               <%= icon_link_to "pencil",

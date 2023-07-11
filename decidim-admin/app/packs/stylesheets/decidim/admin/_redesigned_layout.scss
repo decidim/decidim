@@ -62,6 +62,10 @@ body{
   .hide{
     @apply hidden;
   }
+
+  .grid-x.grid-margin-x{
+    @apply mb-4;
+  }
 }
 
 .container{
