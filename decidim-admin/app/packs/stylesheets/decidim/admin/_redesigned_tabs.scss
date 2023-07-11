@@ -2,20 +2,25 @@
   @apply bg-transparent flex items-center gap-x-1;
 
   li{
-    @apply float-none rounded-t-sm;
+    @apply float-none p-1 rounded-t-sm;
 
-    &.is-active{
+    background-color: rgba(243, 244, 247, 1);
+    color: var(--secondary);
+
+    &.is-active,
+    &:hover{
       @apply border-b;
 
       border-color: var(--secondary);
     }
+
+    &:hover{
+      background-color: rgba(243, 244, 247, 1);
+    }
   }
 
   a{
-    @apply p-1 rounded-t-sm text-xs;
-
-    background-color: rgba(243, 244, 247, 1);
-    color: var(--secondary);
+    @apply text-xs p-0;
 
     &::before{
       @apply content-[''] w-2 h-2 inline-block bg-white rounded-full mr-2 border;
