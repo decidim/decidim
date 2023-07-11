@@ -35,6 +35,8 @@ describe "Initiative signing", type: :system do
     allow(Decidim::Verifications::Sms::MobilePhoneForm).to receive(:new).and_return(verification_form)
     allow(verification_form).to receive(:verification_metadata).and_return(verification_code: sms_code)
 
+    expect(page).to have_css(".initiative__aside", text: signature_text(0))
+
     within ".initiative__aside" do
       expect(page).to have_content(signature_text(0))
       click_on "Sign"
@@ -58,7 +60,7 @@ describe "Initiative signing", type: :system do
     let(:initiatives_type) { create(:initiatives_type, :with_sms_code_validation, organization:) }
 
     it "The sms step appears" do
-      expect(page).to have_content("MOBILE PHONE NUMBER")
+      expect(page).to have_content("Mobile phone number")
     end
   end
 
