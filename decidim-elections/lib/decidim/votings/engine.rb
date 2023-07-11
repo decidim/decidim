@@ -98,7 +98,7 @@ module Decidim
 
         Decidim.content_blocks.register(:voting_landing_page, :title) do |content_block|
           content_block.cell = "decidim/votings/content_blocks/main_data"
-          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.main_data.name"
+          content_block.public_name_key = "decidim.votings.admin.content_blocks.main_data.name"
           content_block.default!
         end
 

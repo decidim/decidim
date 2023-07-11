@@ -806,8 +806,6 @@ en:
         content_blocks:
           attachments_and_folders:
             name: Voting attachments and folders
-          description:
-            name: Voting description
           header:
             name: Voting header
           highlighted_votings:
@@ -818,6 +816,8 @@ en:
             name: Voting html block 2
           html_block_3:
             name: Voting html block 3
+          main_data:
+            name: Title and description
           metrics:
             name: Voting metrics
           polling_stations:
@@ -1393,6 +1393,7 @@ en:
           success: Your Access Code got send successfully.
         show:
           dates: Dates
+          title: About this voting
       votings_m:
         badge_name:
           finished: Finished
