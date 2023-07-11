@@ -31,12 +31,12 @@
         <%= render partial: "layouts/decidim/admin/title_bar" %>
         <%= render partial: "layouts/decidim/admin/callouts_full" %>
         <div class="container">
+          <%= yield %>
           <%= yield :secondary_nav if content_for? :secondary_nav %>
           <%= yield :sidebar_menu_nav if content_for? :sidebar_menu_nav %>
-          <%= yield %>
         </div>
       </div>
-      </div><!--/.layout-wrapper-->
+      </div>
     </main>
     <%= render partial: "decidim/shared/confirm_modal" %>
     <%= render partial: "layouts/decidim/admin/js_configuration" %>

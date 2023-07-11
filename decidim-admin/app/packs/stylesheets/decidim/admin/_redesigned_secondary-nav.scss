@@ -100,15 +100,7 @@ $process-title-height: 3rem;
 
 .process-title-content,
 .voting-title-content{
-  @include breakpoint(large){
-    position: absolute;
-    left: 120px;
-    right: 0;
-    top: 0;
-    z-index: 1;
-    background-color: $white;
-    padding: 1rem 1.5rem;
-    height: $process-title-height;
-    box-shadow: 0 6px 10px rgba(black, .04);
-  }
+  @apply bg-white p-4;
+
+  box-shadow: 0 6px 10px rgba(black, .04);
 }
