@@ -83,7 +83,9 @@
   }
 
   td a:not(.button){
-    @apply text-secondary underline text-md font-semibold;
+    @apply underline text-md font-semibold;
+
+    color: var(--secondary);
   }
 
   td > .button{
@@ -116,7 +118,7 @@
 
   .action-icon,
   a.action-icon.highlighted{
-    @apply text-secondary;
+    color: var(--secondary);
   }
 }
 

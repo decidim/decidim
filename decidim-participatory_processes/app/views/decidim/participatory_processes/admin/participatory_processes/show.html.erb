@@ -1,10 +1,20 @@
-<div class="flex pb-4 border-b border-gray mb-4 gap-x-4">
+<div class="item_show__header">
   <% if current_participatory_space.private_space? %>
-    <span><%= t("participatory_processes.index.private", scope: "decidim.admin") %></span>
+    <svg viewBox="0 0 24 24" id="ri-lock-line">
+      <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M19 10h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1V9a7 7 0 1 1 14 0v1zM5 12v8h14v-8H5zm6 2h2v4h-2v-4zm6-4V9A5 5 0 0 0 7 9v1h10z"/>
+      </g>
+    </svg>
   <% else %>
-    <span><%= t("participatory_processes.index.public", scope: "decidim.admin") %></span>
+    <svg viewBox="0 0 24 24" id="ri-lock-unlock-line">
+      <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M7 10h13a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1V9a7 7 0 0 1 13.262-3.131l-1.789.894A5 5 0 0 0 7 9v1zm-2 2v8h14v-8H5zm5 3h4v2h-4v-2z"/>
+      </g>
+    </svg>
   <% end %>
-  <h2 class="text-xl font-bold inline-block">
+  <h2 class="item_show__header-title">
     <%= translated_attribute(current_participatory_space.title) %>
   </h2>
   <% if current_participatory_space.private_space? %>
@@ -14,8 +24,8 @@
   <% end %>
 </div>
 
-<div class="grid grid-cols-[80%_20%] gap-x-8">
-  <div>
+<div class="item_show__content">
+  <div class="item_show__content-activity">
     <div class="card w-full">
       <div class="card-divider">
         <h2 class="card-title">
@@ -24,12 +34,12 @@
       </div>
 
       <div class="card-section">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h2 class="text-lg font-semibold text-secondary mb-5">Impulso y seguimiento de proyectos</h2>
+        <div class="flex text-gray text-sm font-semibold">
+          <span class="inline-block">01/07/2023</span>
+          <span class="inline-block">-></span>
+          <span class="inline-block">12/09/2023</span>
+        </div>
       </div>
     </div>
     <div class="card w-full">
@@ -40,16 +50,12 @@
       </div>
 
       <div class="card-section">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Hace 3 minutos nueva propuesta: <a>Tener espacios participativos</a></p>
       </div>
     </div>
   </div>
-  <div class="h-full border-l border-gray-2 pl-8">
-    <h2>Componentes y páginas</h2>
+  <div class="item_show__content-aside">
+    <h2 class="item_show__content-title">Componentes y páginas</h2>
+    <%= aside_menu(:admin_participatory_process_components_menu).render %>
   </div>
 </div>
