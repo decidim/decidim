@@ -11,7 +11,7 @@ describe "Votings", type: :system do
   end
 
   context "with only one voting in the votings space" do
-    let!(:single_voting) { create(:voting, :published, organization:) }
+    let!(:single_voting) { create(:voting, :published, :with_content_blocks, organization:, blocks_manifests: [:title]) }
 
     before do
       visit decidim_votings.votings_path
