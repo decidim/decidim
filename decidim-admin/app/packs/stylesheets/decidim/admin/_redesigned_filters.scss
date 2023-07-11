@@ -33,27 +33,27 @@
 
     & > li.is-dropdown-submenu-parent > a{
       padding-right: 1rem;
-      background-color: $button-background;
-      color: $white;
+      background-color: #000;
+      color: #fff;
 
       &::after{
-        border-top-color: $white;
+        border-top-color: #fff;
       }
 
       &:hover{
-        background-color: $button-background-hover;
-        color: $white;
+        background-color: #000;
+        color: #fff;
       }
     }
 
     li.is-active > a,
     li.is-active li.is-submenu-item > a:hover{
-      background-color: $primary-color;
-      color: $white;
+      background-color: #000;
+      color: #fff;
     }
 
     .menu.vertical li.is-active.opens-right > a::after{
-      border-left-color: $white;
+      border-left-color: #fff;
     }
   }
 }
@@ -77,7 +77,7 @@
       }
 
       &.action-icon--remove{
-        color: lighten(#e66a5d, 24);
+        color: #e66a5d;
         margin-left: .3rem;
 
         &:hover{

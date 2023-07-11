@@ -1,12 +1,12 @@
 //Vars
-$process-title-height: 3rem;
+/* $process-title-height: 3rem; */
 
 //Styles
 .secondary-nav{
   width: 220px;
   min-height: 100%;
   float: left;
-  background-color: $white;
+  background-color: #fff;
   box-shadow: 6px 6px 10px rgba(black, .04);
 
   ul{
@@ -18,17 +18,12 @@ $process-title-height: 3rem;
     display: block;
     padding: .5rem 1rem;
     margin: 0 .5rem;
-    color: $body-font-color;
+    /* color: $body-font-color; */
 
     &:hover,
     &:focus{
-      color: lighten($body-font-color, 20);
+      /* color: lighten($body-font-color, 20); */
     }
-  }
-
-  li.is-active > a{
-    background-color: $lighter-gray;
-    border-radius: $global-radius;
   }
 
   li > ul{
@@ -61,7 +56,7 @@ $process-title-height: 3rem;
   display: block;
   padding: .5rem 1rem;
   margin: 0 .5rem;
-  color: $body-font-color;
+  /* color: $body-font-color; */
 }
 
 .process-title,

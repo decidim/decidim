@@ -1,5 +1,3 @@
-$card-padding-small: 1rem;
-
 .card{
   @apply bg-transparent border-0;
 
@@ -32,7 +30,7 @@ $card-padding-small: 1rem;
 }
 
 .card-footer{
-  padding: $card-padding;
+  padding: 1rem;
   border-top: 1px solid rgba(black, .1);
 
   .button--remove{
@@ -43,28 +41,16 @@ $card-padding-small: 1rem;
 .card--list__item{
   display: flex;
   align-items: center;
-  padding-left: $card-padding-small;
+  padding-left: 1rem;
 
   .card--list--mini &{
-    padding-left: $card-padding-small;
-  }
-
-  @include breakpoint(medium){
-    padding-left: $card-padding;
+    padding-left: 1rem;
   }
 }
 
 .card--list__icon{
   display: none;
-  fill: $anchor-color;
-
-  @include breakpoint(medium){
-    margin-right: 1rem;
-    display: block;
-    width: 30px;
-    height: 30px;
-    flex-shrink: 0;
-  }
+  fill: currentColor;
 }
 
 .card--list__text{
@@ -92,11 +78,6 @@ $card-padding-small: 1rem;
 
 .card-divider{
   @apply bg-transparent px-0 py-2;
-}
-
-.card-divider--reduced{
-  // height adjust
-  padding: (($global-padding * .5) + rem-calc(.7)) $global-padding;
 }
 
 .card.with-overflow{
