@@ -345,6 +345,9 @@ fr:
           local_area: Zone de l’organisation
           meta_scope: Secteur
           participatory_scope: Ce qui est décidé
+          participatory_structure: Modalités de décision
+          target: Qui participe
+          title: À propos de cette assemblée
         filters:
           names:
             all: Toutes
@@ -365,12 +368,14 @@ fr:
       content_blocks:
         children_assemblies:
           name: Assemblées
+        dates_metadata:
+          name: Métadonnées des dates
         extra_data:
           name: Type et durée
         highlighted_assemblies:
           name: Assemblées mises en avant
         related_assemblies:
-          name: Assemblées en relation
+          name: Assemblées liées
       created_by:
         city_council: Conseil municipal
         others: Autres
