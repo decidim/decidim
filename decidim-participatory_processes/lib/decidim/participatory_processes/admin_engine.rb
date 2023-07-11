@@ -179,6 +179,7 @@ module Decidim
                         I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space)),
+                        icon_name: "dashboard",
                         if: allowed_to?(:update, :process, process: current_participatory_space)
 
           menu.add_item :participatory_process_steps,

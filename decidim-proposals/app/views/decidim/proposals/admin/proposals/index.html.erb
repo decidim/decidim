@@ -1,15 +1,14 @@
-<div class="card with-overflow">
-  <div class="card-divider">
-    <h2 class="card-title flex--sbc">
-      <div>
+<div class="container">
+  <div class="card with-overflow">
+    <div class="card-divider pb-4 border-b border-gray mb-4">
+      <h2 class="text-xl font-bold inline-block">
         <%= t(".title") %>
-        <span id="js-selected-proposals-count" class="component-counter component-counter--inline" title="<%= t("decidim.proposals.admin.proposals.index.selected") %>"></span>
-      </div>
+      </h2>
+    </div>
+    <div class="flex items-center">
+      <%= admin_filter_selector(:proposals) %>
       <%= render partial: "bulk-actions" %>
-    </h2>
-  </div>
-  <%= admin_filter_selector(:proposals) %>
-  <div class="card-section">
+    </div>
     <div class="table-scroll">
       <table class="table-list">
         <thead>
@@ -76,9 +75,9 @@
           <% end %>
         </tbody>
       </table>
-      <%= paginate proposals, theme: "decidim" %>
+      <%= decidim_paginate proposals, theme: "decidim" %>
     </div>
   </div>
-</div>
 
-<%= append_javascript_pack_tag "decidim_proposals_admin" %>
+  <%= append_javascript_pack_tag "decidim_proposals_admin" %>
+</div>

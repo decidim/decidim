@@ -98,6 +98,18 @@ $process-title-height: 3rem;
   &-breadcrumb{
     @apply text-md font-bold text-white underline;
   }
+
+  &-dropdown{
+    .dropdown__item a{
+      @apply flex items-center gap-x-4;
+
+      color: var(--secondary);
+
+      svg{
+        @apply fill-gray;
+      }
+    }
+  }
 }
 
 .secondary-nav__title,

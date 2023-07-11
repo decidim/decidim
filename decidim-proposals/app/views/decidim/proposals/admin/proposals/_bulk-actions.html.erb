@@ -1,9 +1,9 @@
-<div class="flex--cc flex-gap--1">
+<div class="ml-auto">
   <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/dropdown" %>
 
-  <div id="js-other-actions-wrapper">
+  <div class="flex items-center gap-x-4" id="js-other-actions-wrapper">
     <% if component_settings.participatory_texts_enabled? %>
-      <%= link_to t("actions.participatory_texts", scope: "decidim.proposals"), participatory_texts_path, id: "participatory_texts", class: "button tiny button--simple" %>
+      <%= link_to t("actions.participatory_texts", scope: "decidim.proposals"), participatory_texts_path, id: "participatory_texts", class: "tiny button--simple" %>
     <% end %>
 
     <% if allowed_to? :export, :proposals %>
@@ -24,7 +24,7 @@
     <% end %>
 
     <% if allowed_to? :create, :proposal %>
-      <%= link_to t("actions.new", scope: "decidim.proposals"), new_proposal_path, class: "button tiny button--simple" %>
+      <%= link_to t("actions.new", scope: "decidim.proposals"), new_proposal_path, class: "tiny button--simple" %>
     <% end %>
   </div>
 
