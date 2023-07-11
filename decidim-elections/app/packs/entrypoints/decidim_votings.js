@@ -1,5 +1,4 @@
 import "src/decidim/votings/in-person-vote";
-import "src/decidim/votings/voting-description-cell";
 import "src/decidim/votings/polling_officer_zone/edit-closure";
 import "src/decidim/votings/polling_officer_zone/sign-closure";
 import "src/decidim/votings/polling_officer_zone/in-person-vote";

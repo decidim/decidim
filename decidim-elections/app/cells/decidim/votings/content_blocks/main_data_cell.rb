@@ -9,20 +9,20 @@ module Decidim
         include Decidim::SanitizeHelper
         include ActiveLinkTo
 
-        delegate :current_participatory_space, to: :controller
+        delegate :description, to: :resource
 
         private
 
         def title_text
-          t("title", scope: "decidim.participatory_processes.participatory_processes.show")
+          t("title", scope: "decidim.votings.votings.show")
         end
 
         def description_text
-          decidim_sanitize_editor_admin translated_attribute(current_participatory_space.description)
+          decidim_sanitize_editor_admin translated_attribute(description)
         end
 
         def nav_items
-          voting_nav_items(current_participatory_space)
+          voting_nav_items(resource)
         end
 
         def decidim_votings

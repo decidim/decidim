@@ -84,19 +84,13 @@ module Decidim
         end
 
         Decidim.content_blocks.register(:voting_landing_page, :hero) do |content_block|
-          content_block.cell = "decidim/content_blocks/hero"
-          content_block.settings_form_cell = "decidim/content_blocks/hero_settings_form"
+          content_block.cell = "decidim/votings/content_blocks/hero"
+          content_block.settings_form_cell = "decidim/votings/content_blocks/hero_settings_form"
           content_block.public_name_key = "decidim.content_blocks.hero.name"
 
-          content_block.images = [
-            {
-              name: :background_image,
-              uploader: "Decidim::HomepageImageUploader"
-            }
-          ]
-
           content_block.settings do |settings|
-            settings.attribute :welcome_text, type: :text, translated: true
+            settings.attribute :button_text, type: :text, translated: true
+            settings.attribute :button_url, type: :text, translated: true
           end
 
           content_block.default!
@@ -104,7 +98,7 @@ module Decidim
 
         Decidim.content_blocks.register(:voting_landing_page, :title) do |content_block|
           content_block.cell = "decidim/votings/content_blocks/main_data"
-          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.main_data.name"
+          content_block.public_name_key = "decidim.votings.admin.content_blocks.main_data.name"
           content_block.default!
         end
 
@@ -121,14 +115,14 @@ module Decidim
         end
 
         Decidim.content_blocks.register(:voting_landing_page, :stats) do |content_block|
-          content_block.cell = "decidim/content_blocks/stats"
-          content_block.public_name_key = "decidim.content_blocks.stats.name"
+          content_block.cell = "decidim/votings/content_blocks/statistics"
+          content_block.public_name_key = "decidim.votings.admin.content_blocks.stats.name"
           content_block.default!
         end
 
         Decidim.content_blocks.register(:voting_landing_page, :metrics) do |content_block|
-          content_block.cell = "decidim/content_blocks/organization_metrics"
-          content_block.public_name_key = "decidim.content_blocks.metrics.name"
+          content_block.cell = "decidim/votings/content_blocks/metrics"
+          content_block.public_name_key = "decidim.votings.admin.content_blocks.metrics.name"
         end
 
         Decidim.content_blocks.register(:voting_landing_page, :html) do |content_block|
@@ -139,6 +133,16 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :html_content, type: :text, translated: true
           end
+        end
+
+        Decidim.content_blocks.register(:voting_landing_page, :related_documents) do |content_block|
+          content_block.cell = "decidim/content_blocks/participatory_space_documents"
+          content_block.public_name_key = "decidim.application.documents.related_documents"
+        end
+
+        Decidim.content_blocks.register(:voting_landing_page, :related_images) do |content_block|
+          content_block.cell = "decidim/content_blocks/participatory_space_images"
+          content_block.public_name_key = "decidim.application.photos.related_photos"
         end
       end
 

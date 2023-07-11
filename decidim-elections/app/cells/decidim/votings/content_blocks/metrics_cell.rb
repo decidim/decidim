@@ -3,13 +3,11 @@
 module Decidim
   module Votings
     module ContentBlocks
-      class MetricsCell < Decidim::ViewModel
-        delegate :current_participatory_space, to: :controller
-
+      class MetricsCell < Decidim::ContentBlocks::ParticipatorySpaceMetricsCell
         def metrics
           nil
 
-          # @metrics ||= VotingsMetricChartsPresenter.new(participatory_process: current_participatory_space)
+          # @metrics ||= VotingsMetricChartsPresenter.new(participatory_process: resource)
         end
       end
     end
