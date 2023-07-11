@@ -13,27 +13,35 @@
     }
 
     .row{
-      @apply p-4;
+      @apply px-4;
     }
 
     .card-divider{
-      @apply mt-0 p-2 flex-none flex items-center justify-start rounded-none;
+      @apply px-4 mt-0 p-2 rounded-none;
 
       svg{
         @apply inline-block w-6 h-6;
       }
+    }
+
+    .card-divider-button{
+      @apply flex-none flex items-center justify-start;
 
       &[aria-expanded="true"]{
-        @apply mb-8 p-4 border-solid border-b border-gray;
+        @apply bg-gray-5;
 
         svg{
           @apply rotate-90 transition-transform;
+        }
+
+        .card-title{
+          @apply border-solid border-b border-gray w-full;
         }
       }
     }
 
     .card-title{
-      @apply font-semibold text-md w-auto;
+      @apply font-semibold text-md text-left inline-block;
 
       color: var(--secondary);
     }
