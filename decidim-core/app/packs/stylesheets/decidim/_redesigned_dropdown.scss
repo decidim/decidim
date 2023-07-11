@@ -41,10 +41,12 @@
     @apply relative z-10 p-3.5 first:pt-1.5 last:pb-1.5;
   }
 
-  &__item {
-    @apply gap-x-2 flex items-center text-sm text-secondary;
+  &__item{
+    @apply gap-x-2 flex items-center text-secondary;
 
-    > svg {
+    font-size: 14px;
+
+    > svg{
       @apply w-4 h-4 flex-none text-gray fill-current;
     }
 

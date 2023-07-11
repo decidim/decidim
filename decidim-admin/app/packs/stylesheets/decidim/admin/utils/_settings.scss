@@ -65,7 +65,6 @@
 // 1. Global
 // ---------
 
-$global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
@@ -144,51 +143,8 @@ $header-font-style: normal;
 $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 $header-color: inherit;
 $header-lineheight: 1.4;
-$header-margin-bottom: 0.5rem;
-$header-styles: (
-  small: (
-    "h1": (
-      "font-size": 26
-    ),
-    "h2": (
-      "font-size": 22
-    ),
-    "h3": (
-      "font-size": 20
-    ),
-    "h4": (
-      "font-size": 18
-    ),
-    "h5": (
-      "font-size": 16
-    ),
-    "h6": (
-      "font-size": 14
-    )
-  ),
-  medium: (
-    "h1": (
-      "font-size": 30
-    ),
-    "h2": (
-      "font-size": 22
-    ),
-    "h3": (
-      "font-size": 20
-    ),
-    "h4": (
-      "font-size": 18
-    ),
-    "h5": (
-      "font-size": 16
-    ),
-    "h6": (
-      "font-size": 14
-    )
-  )
-);
+$header-margin-bottom: .5rem;
 $header-text-rendering: optimizeLegibility;
-$small-font-size: 90%;
 $header-small-font-color: lighten($body-font-color, 30);
 $paragraph-lineheight: 1.6;
 $paragraph-margin-bottom: 1rem;
@@ -220,7 +176,6 @@ $defnlist-term-margin-bottom: 0.3rem;
 $blockquote-color: $dark-gray;
 $blockquote-padding: rem-calc(9 20 0 19);
 $blockquote-border: 1px solid $medium-gray;
-$cite-font-size: rem-calc(13);
 $cite-color: $dark-gray;
 $cite-pseudo-content: "\2014 \0020";
 $keystroke-font: $font-family-monospace;
@@ -233,14 +188,12 @@ $abbr-underline: 1px dotted $black;
 // 5. Typography Helpers
 // ---------------------
 
-$lead-font-size: $global-font-size * 1.25;
 $lead-lineheight: 1.45;
 $subheader-lineheight: 1.4;
 $subheader-color: $dark-gray;
 $subheader-font-weight: $global-weight-normal;
-$subheader-margin-top: 0.2rem;
-$subheader-margin-bottom: 0.5rem;
-$stat-font-size: 2.5rem;
+$subheader-margin-top: .2rem;
+$subheader-margin-bottom: .5rem;
 
 // 6. Abide
 // --------
@@ -250,7 +203,6 @@ $abide-labels: true;
 $input-background-invalid: map-get($foundation-palette, alert);
 $form-label-color-invalid: map-get($foundation-palette, alert);
 $input-error-color: map-get($foundation-palette, alert);
-$input-error-font-size: rem-calc(12);
 $input-error-font-weight: $global-weight-bold;
 
 // 7. Accordion
@@ -258,7 +210,6 @@ $input-error-font-weight: $global-weight-bold;
 
 $accordion-background: $primary-color;
 $accordion-plusminus: true;
-$accordion-title-font-size: rem-calc(12);
 $accordion-item-color: $white;
 $accordion-item-background-hover: $light-gray;
 $accordion-item-padding: 1.25rem 1rem;
@@ -292,13 +243,11 @@ $badge-color-alt: $black;
 $badge-palette: $foundation-palette;
 $badge-padding: 0.3em;
 $badge-minwidth: 1.5em;
-$badge-font-size: 0.6rem;
 
 // 10. Breadcrumbs
 // ---------------
 
 $breadcrumbs-margin: 0 0 $global-margin 0;
-$breadcrumbs-item-font-size: rem-calc(11);
 $breadcrumbs-item-color: $primary-color;
 $breadcrumbs-item-color-current: $black;
 $breadcrumbs-item-color-disabled: $medium-gray;
@@ -407,7 +356,6 @@ $drilldown-arrow-size: 6px;
 $dropdown-padding: 1rem;
 $dropdown-background: $body-background;
 $dropdown-border: 1px solid $medium-gray;
-$dropdown-font-size: 1rem;
 $dropdown-width: 300px;
 $dropdown-radius: $global-radius;
 $dropdown-sizes: (
@@ -434,14 +382,12 @@ $fieldset-margin: rem-calc(18 0);
 $legend-padding: rem-calc(0 3);
 $form-spacing: rem-calc(16);
 $helptext-color: $body-font-color;
-$helptext-font-size: rem-calc(13);
 $helptext-font-style: italic;
 $input-prefix-color: $black;
 $input-prefix-background: $light-gray;
 $input-prefix-border: 1px solid $light-gray;
 $input-prefix-padding: 1rem;
 $form-label-color: $body-font-color;
-$form-label-font-size: rem-calc(16);
 $form-label-font-weight: $global-weight-normal;
 $form-label-line-height: 1.8;
 $select-background: $white;
@@ -450,7 +396,6 @@ $select-radius: $global-radius;
 $input-color: $black;
 $input-placeholder-color: darken($medium-gray, 30);
 $input-font-family: inherit;
-$input-font-size: rem-calc(16);
 $input-font-weight: $global-weight-normal;
 $input-line-height: $global-lineheight;
 $input-background: $white;
@@ -476,8 +421,7 @@ $form-button-radius: $global-radius;
 $label-background: $primary-color;
 $label-color: $white;
 $label-color-alt: $body-font-color;
-$label-font-size: 0.8rem;
-$label-padding: 0.33333rem 0.5rem;
+$label-padding: .33333rem .5rem;
 $label-palette: $foundation-palette;
 $label-radius: $global-radius;
 
@@ -552,7 +496,6 @@ $orbit-control-zindex: 10;
 // 27. Pagination
 // --------------
 
-$pagination-font-size: rem-calc(16);
 $pagination-margin-bottom: $global-margin;
 $pagination-item-color: $body-font-color;
 $pagination-item-padding: rem-calc(3 10);
@@ -786,7 +729,6 @@ $table-stack-breakpoint: medium;
 $tab-margin: 0;
 $tab-background: darken($light-gray, 2.5);
 $tab-background-active: $white;
-$tab-item-font-size: rem-calc(16);
 $tab-color: $primary-color;
 $tab-active-color: $primary-color;
 $tab-item-background-hover: $white;
@@ -828,9 +770,8 @@ $tooltip-background-color: $black;
 $tooltip-color: $white;
 $tooltip-padding: 0.3rem 1rem;
 $tooltip-max-width: 10rem;
-$tooltip-font-size: $small-font-size;
-$tooltip-pip-width: 0.75rem;
-$tooltip-pip-height: $tooltip-pip-width * 0.866;
+$tooltip-pip-width: .75rem;
+$tooltip-pip-height: $tooltip-pip-width * .866;
 $tooltip-radius: $global-radius;
 
 // 55. Top Bar

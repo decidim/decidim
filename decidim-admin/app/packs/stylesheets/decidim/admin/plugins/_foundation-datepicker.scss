@@ -7,7 +7,6 @@ $calendar-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 $calendar-color-old: $medium-gray;
 $calendar-color-disabled: $light-gray;
 $calendar-radius: $global-radius;
-$calendar-font-size: $global-font-size * 0.9;
 
 .datepicker {
   display: none;
@@ -31,7 +30,6 @@ $calendar-font-size: $global-font-size * 0.9;
   border-radius: $calendar-radius;
   box-shadow: $calendar-shadow;
   background-clip: padding-box;
-  font-size: $calendar-font-size;
   line-height: 18px;
 }
 
@@ -64,7 +62,6 @@ $calendar-font-size: $global-font-size * 0.9;
   width: 20px;
   height: 20px;
   border: 0;
-  font-size: $calendar-font-size;
   padding: 4px 8px;
   background: $calendar-bg-color;
   cursor: pointer;
@@ -111,7 +108,6 @@ $calendar-font-size: $global-font-size * 0.9;
   width: 20px;
   height: 20px;
   border: 0;
-  font-size: $calendar-font-size;
   padding: 4px 8px;
   background: $calendar-bg-color;
   cursor: pointer;

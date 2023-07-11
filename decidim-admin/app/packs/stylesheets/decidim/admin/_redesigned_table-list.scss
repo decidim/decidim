@@ -117,7 +117,7 @@
 
   .table-list__date,
   .table-list__state{
-    @apply text-sm;
+    font-size: 14px;
   }
 }
 
@@ -163,7 +163,6 @@
   position: relative;
   top: -1px;
   margin-left: -1.5 * $global-padding;
-  font-size: 80%;
   font-weight: 600;
 
   &.expanded{
