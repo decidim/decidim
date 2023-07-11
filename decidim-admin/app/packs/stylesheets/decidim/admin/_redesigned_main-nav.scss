@@ -6,23 +6,15 @@
   @apply ml-0 list-none;
 
   a{
-    padding-top: 1rem;
-    padding-bottom: .8rem;
-
-    display: block;
-    color: $medium-gray;
-    font-size: .7rem;
-
+    @apply text-white py-4 block text-xs;
     &:hover{
-      background-color: lighten($dark-gray, 10);
+      background-color:rgba(4, 11, 23, 0.3);
     }
   }
 
   .is-active a{
-    color: $body-font-color;
-    background-color: $white;
-    box-shadow: inset 5px 0 0 $brand;
-    border-bottom-color: $dark-gray;
+    @apply text-white;
+    background-color:rgba(4, 11, 23, 0.3);
   }
 
   .icon{

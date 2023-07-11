@@ -14,18 +14,30 @@
   </head>
   <body>
     <%= render partial: "layouts/decidim/timeout_modal" %>
-    <%= render partial: "layouts/decidim/admin/template_top" %>
-    <div class="layout-nav">
-      <%= main_menu.render %>
-      <%= yield :secondary_nav if content_for? :secondary_nav %>
-      <%= yield :sidebar_menu_nav if content_for? :sidebar_menu_nav %>
-    </div>
-    <div class="layout-content">
-      <div class="container">
-        <%= yield %>
+    <main class="main">
+      <div class="layout-wrapper">
+      <div class="layout-nav">
+        <a href="#menu" class="menu-trigger"><%= icon "menu" %></a>
+        <%= link_to decidim.root_path, class: "logo", target: "_blank" do %>
+          <% if current_organization.logo.present? %>
+            <%= image_tag current_organization.attached_uploader(:logo).path, alt: current_organization.name %>
+          <% else %>
+            <%= current_organization.name %>
+          <% end %>
+        <% end %>
+        <%= main_menu.render %>
+        <%= yield :secondary_nav if content_for? :secondary_nav %>
+        <%= yield :sidebar_menu_nav if content_for? :sidebar_menu_nav %>
       </div>
-    </div>
-    <%= render partial: "layouts/decidim/admin/template_bottom" %>
+      <div class="layout-content">
+        <%= render partial: "layouts/decidim/admin/title_bar" %>
+        <%= render partial: "layouts/decidim/admin/callouts_full" %>
+        <div class="container">
+          <%= yield %>
+        </div>
+      </div>
+      </div><!--/.layout-wrapper-->
+    </main>
     <%= render partial: "decidim/shared/confirm_modal" %>
     <%= render partial: "layouts/decidim/admin/js_configuration" %>
     <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
