@@ -162,6 +162,7 @@ fi:
         continue: Jatka
         more_information: Lisätietoa
       budgets_list:
+        budgets: Budjetit
         cancel_order:
           more_than_one: poistaa äänesi budjetista %{name} ja aloittaa alusta
           only_one: poistaa äänesi ja aloittaa alusta.
@@ -170,8 +171,10 @@ fi:
         if_change_opinion: Jos olet muuttanut mieltäsi, voit
         my_budgets: Omat budjetit
         progress: Viimeistele äänestys
+        remove_vote: Poista ääni
         show: Näytä hankkeet
         vote: Äänestä
+        voted_budgets: Äänestetyt budjetit
         voted_on: Äänestit kohdetta %{links}.
       last_activity:
         new_vote_at: Uusi budjetointiääni
@@ -214,8 +217,11 @@ fi:
             title: Maksimihankkeiden määrä ylitetty
         budget_summary:
           are_you_sure: Haluatko varmasti peruuttaa äänesi?
+          cancel_order: poista äänesi
           checked_out:
+            description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, voit poistaa äänesi.
             title: Budjetin äänestys suoritettu
+          vote: Äänestä budjettia
         count:
           projects_count:
             one: 1 hanke
@@ -234,6 +240,24 @@ fi:
             all: Kaikki
             not_selected: Ei valittu
             selected: Valittu
+        index:
+          back_to_budgets: takaisin kaikkiin budjetteihin
+        order_progress:
+          assigned: Varattu
+          budget: Budjetti
+          dynamic_help:
+            keep_adding_projects: Jatka hankkeiden lisäämistä
+            minimum_reached: Olet saavuttanut äänestystä varten vaaditun vähimmäismäärän
+            start_adding_projects: Aloita lisäämällä hankkeita
+          minimum: Vähintään
+          minimum_projects_rule:
+            description: Valitse vähintään %{minimum_number} haluamaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+          projects_rule:
+            description: Valitse vähintään %{minimum_number} ja enintään %{maximum_number} haluamaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+          projects_rule_maximum_only:
+            description: Valitse enintään %{maximum_number} haluamaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+          vote_threshold_percent_rule:
+            description: Varaa vähintään %{minimum_budget} hankkeille ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
         orders:
           highest_cost: Kallein ensin
           label: Järjestä hankkeet
@@ -251,9 +275,15 @@ fi:
             other: ääntä
           you_voted: Äänestit tätä
         project_budget_button:
+          add: Lisää
           add_descriptive: Lisää hanke %{resource_name} ääneesi.
+          added: Lisätty
           added_descriptive: Hanke %{resource_name} lisätty ääneesi.
+        project_filter:
+          added: Lisätty
+          all: Kaikki
         projects_for: Hankkeet kohteelle %{name}
+        select_projects: Valitse hankkeita
         show:
           budget: Budjetti
       vote_reminder_mailer:
@@ -324,6 +354,8 @@ fi:
     orders:
       checkout:
         error: Äänesi käsittely epäonnistui.
+        success_html: <p>Äänestäminen onnistui.</p> <p class="text-sm font-normal">Voit tutkia myös <a class="text-secondary underline" href="%{rest_of_budgets_link}">muita budjetteja</a>.</p>
+        success_no_left_budgets_html: Äänesi kirjaaminen onnistui.
       destroy:
         error: Äänesi peruuttaminen epäonnistui.
         success: Äänesi on peruttu.
