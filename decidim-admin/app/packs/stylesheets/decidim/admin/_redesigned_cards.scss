@@ -40,25 +40,6 @@ $card-padding-small: 1rem;
   }
 }
 
-.card__icon-open{
-  display: none;
-}
-
-.card--collapsed{
-  .card-section,
-  .card-footer{
-    display: none;
-  }
-
-  .card__icon-close{
-    display: none;
-  }
-
-  .card__icon-open{
-    display: block;
-  }
-}
-
 .card--list__item{
   display: flex;
   align-items: center;
@@ -123,5 +104,5 @@ $card-padding-small: 1rem;
 }
 
 .card-section{
-  @apply p-0;
+  @apply p-6 bg-white;
 }
