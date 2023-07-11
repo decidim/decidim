@@ -1,15 +1,14 @@
 <div class="title-bar">
-  <div class='tool-bar'>
+  <span class="font-semibold font-xs">
+    <%= current_organization.name %>
+  </span>
+  <div class="tool-bar">
     <% if available_locales.length > 1 %>
     <div class="topbar__dropmenu language-choose">
-        <ul class="dropdown menu" data-dropdown-menu
-          data-autoclose="false"
-          data-disable-hover="true"
-          data-click-open="true"
-          data-close-on-click="true"
-          tabindex="-1">
-          <li class="is-dropdown-submenu-parent" tabindex="-1">
-            <%= link_to t("name", scope: "locale"), "#", id: "admin-user-menu-control", "aria-controls": "admin-user-menu", "aria-haspopup": "menu" %>
+        <ul class="dropdown dropdown__bottom" id="dropdown-trigger-language">
+          <li id="dropdown-trigger-language" data-component="dropdown" data-target="dropdown-trigger-language" data-auto-close="true">
+            <%= link_to t("name", scope: "locale"), "#", id: "admin-user-menu-control", "aria-controls": "admin-user-menu", "aria-haspopup": "menu"%>
+            <%= icon "arrow-down-s-line", class: "fill-black inline-block" %>
             <ul class="menu is-dropdown-submenu" id="admin-user-menu" role="menu" aria-labelledby="admin-user-menu-control" tabindex="-1">
               <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
                 <li><%= link_to(locale_name(locale), decidim.locale_path(locale:), method: :post, tabindex: "-1") %></li>

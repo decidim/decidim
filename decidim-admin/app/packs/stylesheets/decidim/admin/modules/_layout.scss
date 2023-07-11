@@ -1,4 +1,4 @@
-html {
+/* html{
   height: 100%;
 }
 
@@ -60,16 +60,11 @@ body {
   }
 }
 
-.layout-content {
-  flex-grow: 1;
-  max-width: 100%;
-  overflow: scroll;
+.layout-content{
+  @apply flex-grow max-w-full overflow-scroll;
 }
 
-.container {
-  padding: 1rem;
-
-  @include breakpoint(mediumlarge) {
-    padding: 2rem;
-  }
+.container{
+  @apply p-8;
 }
+ */

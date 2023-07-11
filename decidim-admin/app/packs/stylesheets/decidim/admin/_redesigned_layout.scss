@@ -1,0 +1,54 @@
+html{
+  @apply h-full;
+}
+
+body{
+  @apply min-h-full flex flex-col;
+}
+
+.main{
+  @apply grow flex flex-col;
+
+  & > .row{
+    @apply w-full md:flex grow;
+  }
+}
+
+.layout-wrapper{
+  @apply flex grow;
+}
+
+.layout-nav{
+  @apply shrink-0 max-w-[340px];
+
+  @include breakpoint(mediumlarge down){
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    transition: transform .3s;
+    z-index: 1;
+  }
+
+  @include breakpoint(small down){
+    max-width: 100%;
+    width: 100%;
+    transform: translateX(-100%);
+
+    .secondary-nav{
+      width: calc(100% - 120px);
+    }
+  }
+
+  &.is-nav-open{
+    transform: translateX(0);
+  }
+}
+
+.layout-content{
+  @apply flex-grow max-w-full;
+}
+
+.container{
+  @apply p-8;
+}

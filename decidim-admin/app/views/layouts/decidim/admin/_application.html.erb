@@ -22,17 +22,17 @@
           <% if current_organization.logo.present? %>
             <%= image_tag current_organization.attached_uploader(:logo).path, alt: current_organization.name %>
           <% else %>
-            <%= current_organization.name %>
+            <p>logo decidim</p>
           <% end %>
         <% end %>
         <%= main_menu.render %>
-        <%= yield :secondary_nav if content_for? :secondary_nav %>
-        <%= yield :sidebar_menu_nav if content_for? :sidebar_menu_nav %>
       </div>
       <div class="layout-content">
         <%= render partial: "layouts/decidim/admin/title_bar" %>
         <%= render partial: "layouts/decidim/admin/callouts_full" %>
         <div class="container">
+          <%= yield :secondary_nav if content_for? :secondary_nav %>
+          <%= yield :sidebar_menu_nav if content_for? :sidebar_menu_nav %>
           <%= yield %>
         </div>
       </div>

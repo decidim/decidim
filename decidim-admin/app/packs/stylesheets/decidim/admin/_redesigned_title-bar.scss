@@ -1,0 +1,51 @@
+.title-bar{
+  @apply py-2 px-8 flex items-center bg-tertiary text-black;
+}
+
+.menu-trigger{
+  @apply inline-block p-2 w-10 text-center;
+}
+
+.logo{
+  @apply p-4 block max-w-[80px] md:max-w-[120px] bg-gray-2;
+
+  img{
+    @apply block;
+  }
+}
+
+.tool-bar{
+  @apply ml-auto;
+
+  .dropdown.menu > li > a{
+    background: transparent;
+  }
+
+  .is-dropdown-submenu{
+    z-index: 2;
+  }
+
+  .user-login{
+    @apply inline-block;
+  }
+
+  .language-choose{
+    @apply inline-block;
+
+    .is-dropdown-submenu-parent a{
+      @apply text-black;
+
+      &::after{
+        border-color: #fff transparent transparent !important;
+      }
+    }
+
+    .is-dropdown-submenu li > a{
+      @apply text-black;
+
+      &:hover{
+        background-color: lighten($medium-gray, 30%);
+      }
+    }
+  }
+}
