@@ -3,7 +3,7 @@
 }
 
 .menu-trigger{
-  @apply inline-block p-2 w-10 text-center;
+  @apply inline-block md:hidden p-2 w-10 text-center;
 }
 
 .logo{
@@ -15,7 +15,7 @@
 }
 
 .tool-bar{
-  @apply ml-auto;
+  @apply ml-auto gap-x-6 flex;
 
   .user-login,
   .language-choose{
@@ -27,6 +27,6 @@
   }
 
   .dropdown__trigger{
-    @apply flex;
+    @apply flex underline p-0;
   }
 }
