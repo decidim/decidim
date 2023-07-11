@@ -1038,7 +1038,7 @@ en:
         conflicts: Verification conflicts
         dashboard: Dashboard
         edit_area_type: Edit area type
-        edit_external_domains: Edit external domains
+        edit_external_domains: External domain whitelist
         edit_help_sections: Edit help sections
         edit_organization: Edit organization
         edit_organization_appearance: Edit homepage appearance
