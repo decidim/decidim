@@ -1,4 +1,4 @@
-<div class="container component__show">
+<div class="component__show">
   <div class="card">
     <h2 class="text-xl font-bold inline-block mb-4">
       <%= decidim_html_escape(present(proposal).title).html_safe %>
@@ -30,14 +30,6 @@
       <div class="card-section">
         <div class="row column">
           <strong><%= t ".body" %>:</strong> <%= simple_format(present(proposal).body(strip_tags: true)) %>
-        </div>
-
-        <div class="row column">
-          <strong><%= t ".votes_count" %>:</strong> <%= proposal.proposal_votes_count %>
-        </div>
-
-        <div class="row column">
-          <strong><%= t ".votes_ranking" %>:</strong> <%= i18n_votes_ranking_for(proposal) %>
         </div>
 
         <div class="row column">
@@ -83,6 +75,12 @@
         <div class="card-section">
           <div class="row column">
             <strong><%= t ".endorsements_count" %>:</strong> <%= proposal.endorsements_count %>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="row column">
+            <strong><%= t ".votes_count" %>:</strong> <%= proposal.proposal_votes_count %>
           </div>
         </div>
 

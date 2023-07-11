@@ -1,4 +1,4 @@
-<%= render "layouts/decidim/admin/application" do %>
+<% content_for :breadcrumb_nav do %>
   <div class="process-title">
     <div class="process-title-content">
       <%= link_to t("decidim.admin.titles.assemblies"), decidim_assemblies.assemblies_path, target: "_blank", class: "process-title-content-breadcrumb" %>
@@ -46,10 +46,10 @@
     </div>
     <%#= sidebar_menu(:admin_assemblies_menu).render %>
   </div>
+<% end %>
 
-  <div class="container">
-    <div class="process-content">
-      <%= yield %>
-    </div>
+<%= render "layouts/decidim/admin/application" do %>
+  <div class="process-content">
+    <%= yield %>
   </div>
 <% end %>
