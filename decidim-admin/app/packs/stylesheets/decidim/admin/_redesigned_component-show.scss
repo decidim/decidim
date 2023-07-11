@@ -1,4 +1,12 @@
 .component__show{
+  &_header{
+    @apply flex items-center pb-4 border-b border-gray mb-4 gap-x-2;
+
+    &-title{
+      @apply text-xl font-bold inline-block;
+    }
+  }
+
   &_nav{
     @apply flex items-center mb-8;
 
