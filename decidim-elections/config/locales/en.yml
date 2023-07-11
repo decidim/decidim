@@ -1359,9 +1359,7 @@ en:
             one: "%{count} voting"
             other: "%{count} votings"
         elections_log:
-          bb_status: Election status
           description: The election log will show you all relevant information about each voting. For example, the status of the key ceremony or tally or if results are published already. Click on the election you want the log information about.
-          election_log: Election Log
           title: Election log
         filters:
           active: Active
