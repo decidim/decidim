@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     module ContentBlocks
-      class ElectionsCell < Decidim::ViewModel
+      class RelatedElectionsCell < Decidim::ViewModel
         delegate :current_participatory_space, to: :controller
 
         def show
