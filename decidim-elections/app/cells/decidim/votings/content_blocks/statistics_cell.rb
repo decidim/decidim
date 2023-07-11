@@ -3,11 +3,7 @@
 module Decidim
   module Votings
     module ContentBlocks
-      class StatisticsCell < Decidim::StatisticsCell
-        def show
-          content_tag(:div, super, class: "section")
-        end
-
+      class StatisticsCell < Decidim::ContentBlocks::ParticipatorySpaceStatsCell
         private
 
         def stats
