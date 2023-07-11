@@ -1,1 +1,6 @@
+---
 kaa:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Kategoriya
