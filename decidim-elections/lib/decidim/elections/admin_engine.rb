@@ -65,6 +65,7 @@ module Decidim
                           I18n.t("trustees", scope: "decidim.elections.admin.menu"),
                           link,
                           if: has_election_components && (allowed_to?(:manage, :trustees) || current_user.admin?),
+                          icon_name: "safe-line",
                           position: 100,
                           active: is_active_link?(link)
           end

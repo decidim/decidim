@@ -110,6 +110,10 @@
       svg{
         @apply w-4 h-4 fill-white;
       }
+
+      .dropdown__item svg{
+        @apply fill-gray;
+      }
     }
   }
 

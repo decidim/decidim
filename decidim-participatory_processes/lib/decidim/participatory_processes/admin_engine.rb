@@ -186,42 +186,42 @@ module Decidim
                         I18n.t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space)),
-                        icon_name: "dashboard",
+                        icon_name: "layout-masonry-line",
                         if: allowed_to?(:read, :process_step)
 
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.components_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.components_path(current_participatory_space)),
-                        icon_name: "dashboard",
+                        icon_name: "layout-masonry-line",
                         if: allowed_to?(:read, :component)
 
           menu.add_item :categories,
                         I18n.t("categories", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.categories_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.categories_path(current_participatory_space)),
-                        icon_name: "dashboard",
+                        icon_name: "price-tag-3-line",
                         if: allowed_to?(:read, :category)
 
           menu.add_item :participatory_process_user_roles,
                         I18n.t("process_admins", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.participatory_process_user_roles_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_user_roles_path(current_participatory_space)),
-                        icon_name: "dashboard",
+                        icon_name: "user-settings-line",
                         if: allowed_to?(:read, :process_user_role)
 
           menu.add_item :participatory_space_private_users,
                         I18n.t("private_users", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space)),
-                        icon_name: "dashboard",
+                        icon_name: "spy-line",
                         if: allowed_to?(:read, :space_private_user)
 
           menu.add_item :moderations,
                         I18n.t("moderations", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.moderations_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.moderations_path(current_participatory_space)),
-                        icon_name: "dashboard",
+                        icon_name: "flag-line",
                         if: allowed_to?(:read, :moderation)
         end
       end

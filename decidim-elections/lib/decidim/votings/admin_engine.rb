@@ -146,53 +146,52 @@ module Decidim
           menu.add_item :edit_voting,
                         I18n.t("info", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.edit_voting_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_votings.edit_voting_path(current_participatory_space)),
+                        icon_name: "tools-line",
                         if: allowed_to?(:edit, :voting, voting: current_participatory_space)
 
           menu.add_item :edit_voting_landing_page,
                         I18n.t("landing_page", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.edit_voting_landing_page_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_votings.voting_landing_page_path(current_participatory_space)),
+                        icon_name: "tools-line",
                         if: allowed_to?(:update, :landing_page)
 
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.components_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_votings.components_path(current_participatory_space)),
+                        icon_name: "layout-masonry-line",
                         if: allowed_to?(:read, :components, voting: current_participatory_space),
                         submenu: { target_menu: :admin_votings_components_menu, options: { container_options: { id: "components-list" } } }
 
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.votings.admin.menu.votings_submenu"),
                         "#",
-                        active: is_active_link?(decidim_admin_votings.voting_attachment_collections_path(current_participatory_space)) ||
-                                is_active_link?(decidim_admin_votings.voting_attachments_path(current_participatory_space)),
+                        icon_name: "attachment-2",
                         if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment),
                         submenu: { target_menu: :decidim_votings_attachments_menu }
 
           menu.add_item :voting_polling_stations,
                         I18n.t("polling_stations", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.voting_polling_stations_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_votings.voting_polling_stations_path(current_participatory_space)),
+                        icon_name: "mail-line",
                         if: !current_participatory_space.online_voting? && allowed_to?(:read, :polling_stations)
 
           menu.add_item :voting_polling_officers,
                         I18n.t("polling_officers", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.voting_polling_officers_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_votings.voting_polling_officers_path(current_participatory_space)),
+                        icon_name: "mail-line",
                         if: !current_participatory_space.online_voting? && allowed_to?(:read, :polling_officers)
 
           menu.add_item :voting_monitoring_committee,
                         I18n.t("monitoring_committee", scope: "decidim.votings.admin.menu.votings_submenu"),
                         "#",
-                        active: is_active_link?(decidim_admin_votings.voting_monitoring_committee_members_path(current_participatory_space)),
+                        icon_name: "mail-line",
                         if: !current_participatory_space.online_voting? && allowed_to?(:read, :monitoring_committee_menu, voting: current_participatory_space),
                         submenu: { target_menu: :decidim_votings_monitoring_committee_menu }
 
           menu.add_item :voting_ballot_styles,
                         I18n.t("ballot_styles", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.voting_ballot_styles_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_votings.voting_ballot_styles_path(current_participatory_space)),
+                        icon_name: "mail-line",
                         if: allowed_to?(:read, :ballot_styles)
         end
       end
