@@ -1,0 +1,35 @@
+.layout-nav .main-nav{
+  @apply bg-gray-2 w-[120px] text-center;
+}
+
+.main-nav ul{
+  @apply ml-0 list-none;
+
+  a{
+    padding-top: 1rem;
+    padding-bottom: .8rem;
+
+    display: block;
+    color: $medium-gray;
+    font-size: .7rem;
+
+    &:hover{
+      background-color: lighten($dark-gray, 10);
+    }
+  }
+
+  .is-active a{
+    color: $body-font-color;
+    background-color: $white;
+    box-shadow: inset 5px 0 0 $brand;
+    border-bottom-color: $dark-gray;
+  }
+
+  .icon{
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto;
+    opacity: .5;
+  }
+}
