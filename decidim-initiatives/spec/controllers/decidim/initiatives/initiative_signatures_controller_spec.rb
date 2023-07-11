@@ -69,7 +69,7 @@ module Decidim
         context "and initiative without user extra fields required" do
           it "action is unavailable" do
             sign_in initiative_without_user_extra_fields.author, scope: :user
-            expect { get :fill_personal_data, params: { initiative_slug: initiative_without_user_extra_fields.slug } }.to raise_error(Wicked::Wizard::InvalidStepError)
+            expect(get(:fill_personal_data, params: { initiative_slug: initiative_without_user_extra_fields.slug })).to redirect_to("/")
           end
         end
       end

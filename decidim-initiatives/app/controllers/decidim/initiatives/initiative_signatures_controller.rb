@@ -4,6 +4,7 @@
 # i18n-tasks-use t('layouts.decidim.initiative_signature_creation_header.finish')
 # i18n-tasks-use t('layouts.decidim.initiative_signature_creation_header.sms_code')
 # i18n-tasks-use t('layouts.decidim.initiative_signature_creation_header.sms_phone_number')
+# i18n-tasks-use t('layouts.decidim.initiative_signature_creation_header.finished')
 module Decidim
   module Initiatives
     require "wicked"
@@ -69,7 +70,9 @@ module Decidim
         build_vote_form(params)
 
         if @vote_form.invalid?
+          flash[:alert] = I18n.t("personal_data.invalid", scope: "decidim.initiatives.initiative_votes")
           @form = @vote_form
+
           render :fill_personal_data && return
         end
         redirect_to sms_phone_number_path
