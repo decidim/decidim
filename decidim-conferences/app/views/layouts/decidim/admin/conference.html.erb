@@ -1,7 +1,15 @@
 <% content_for :breadcrumb_nav do %>
   <div class="process-title">
     <div class="process-title-content">
-      <%= link_to translated_attribute(current_participatory_space.title), decidim_conferences.conference_path(current_participatory_space), target: "_blank", class: 'process-title-content-breadcrumb' %>
+      <div class="process-title-content-breadcrumb-container-left">
+        <%= link_to decidim_admin.root_path, class: "process-title-content-icon-home", data: { "external-link": false } do %>
+          <%= icon "home-gear-line" %>
+        <% end %>
+        <span class="text-white">/</span>
+        <%= link_to t("decidim.admin.titles.conferences"), decidim_admin_conferences.conferences_path, data: { "external-link": false }, class: "process-title-content-breadcrumb-no-active font-normal" %>
+        <span class="text-white">/</span>
+        <%= link_to translated_attribute(current_participatory_space.title), decidim_conferences.conference_path(current_participatory_space), data: { "external-link": false }, class: 'process-title-content-breadcrumb' %>
+      </div>
       <div class="process-title-content-breadcrumb-container-right">
         <%= link_to decidim_conferences.conference_path(current_participatory_space), class: "process-title-content-breadcrumb-container-right-link" do %>
           <svg viewBox="0 0 24 24" id="ri-eye-line">

@@ -1,7 +1,3 @@
-//Vars
-/* $process-title-height: 3rem; */
-
-//Styles
 .secondary-nav{
   width: 220px;
   min-height: 100%;
@@ -81,8 +77,24 @@
 .process-title-content{
   @apply flex items-center;
 
+  &-icon-home{
+    @apply flex items-center;
+
+    svg{
+      @apply w-5 h-5 fill-white;
+    }
+  }
+
   &-breadcrumb{
     @apply text-md font-bold text-white underline;
+
+    &-no-active{
+      @apply text-md text-white font-normal no-underline;
+    }
+
+    &-container-left{
+      @apply flex items-center gap-x-4;
+    }
 
     &-container-right{
       @apply ml-auto flex items-center gap-x-2;
