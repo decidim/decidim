@@ -57,7 +57,7 @@
 
 .process-title,
 .voting-title{
-  @apply bg-gray-2 px-8 p-4 relative;
+  @apply bg-gray-2 px-8 p-2 relative;
 }
 
 .process-title .process-title-content{
@@ -97,7 +97,7 @@
     }
 
     &-container-right{
-      @apply ml-auto flex items-center gap-x-2;
+      @apply ml-auto flex items-center gap-x-4;
 
       &-link{
         @apply button button__transparent flex items-center gap-x-1 px-1.5 py-1;

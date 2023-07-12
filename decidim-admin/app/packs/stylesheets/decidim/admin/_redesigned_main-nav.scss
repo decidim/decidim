@@ -1,10 +1,10 @@
 .layout-nav{
   .main-nav{
-    @apply bg-gray-2 w-[120px] text-center last:pt-10;
+    @apply bg-gray-2 w-[120px] text-center last:pt-6;
   }
 
   .main-nav__modules{
-    @apply pb-10 pt-0 border-b;
+    @apply pb-6 pt-0 border-b;
 
     border-color: #2A3745;
   }

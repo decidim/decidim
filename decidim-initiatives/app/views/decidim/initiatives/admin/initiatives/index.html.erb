@@ -1,7 +1,6 @@
 <div class="card with-overflow" id="initiatives">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= t "decidim.admin.titles.initiatives" %>
       <div class="button--title">
         <% if allowed_to? :export, :initiatives %>
           <%= export_dropdowns(query) %>
@@ -15,7 +14,7 @@
       <thead>
       <tr>
         <th><%= t("models.initiatives.fields.id", scope: "decidim.admin") %></th>
-        <th><%= t("models.initiatives.fields.title", scope: "decidim.admin") %></th>
+        <th class="table-list__left"><%= t("models.initiatives.fields.title", scope: "decidim.admin") %></th>
         <th><%= t("models.initiatives.fields.state", scope: "decidim.admin") %></th>
         <th><%= sort_link(query, :supports_count, t("models.initiatives.fields.supports_count", scope: "decidim.admin"), default_order: :desc) %></th>
         <th><%= sort_link(query, :created_at, t("models.initiatives.fields.created_at", scope: "decidim.admin"), default_order: :desc) %></th>
@@ -27,7 +26,7 @@
       <% @initiatives.each do |initiative| %>
         <tr>
           <td><%= initiative.id %></td>
-          <td>
+          <td class="table-list__left">
             <% if allowed_to? :edit, :initiative, initiative: initiative %>
               <%= link_to translated_attribute(initiative.title),
                           decidim_admin_initiatives.edit_initiative_path(initiative.to_param) %>
@@ -80,6 +79,8 @@
       <% end %>
       </tbody>
     </table>
-    <%= paginate @initiatives, theme: "decidim" %>
   </div>
+</div>
+<div class="mt-4">
+  <%= paginate @initiatives, theme: "decidim" %>
 </div>

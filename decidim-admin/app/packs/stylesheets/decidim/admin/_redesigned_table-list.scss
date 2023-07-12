@@ -49,7 +49,7 @@
   }
 
   tbody tr td{
-    @apply p-4;
+    @apply p-3;
   }
 
   thead th,
@@ -101,6 +101,10 @@
   .table-list__date,
   .table-list__state{
     @apply text-sm;
+  }
+
+  .tabel-list__left{
+    @apply text-left;
   }
 }
 
