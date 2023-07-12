@@ -123,7 +123,7 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
         end
       end
 
-      landing_page_content_blocks = [:header, :description, :elections, :polling_stations, :attachments_and_folders, :stats, :metrics]
+      landing_page_content_blocks = [:hero, :title, :related_elections, :polling_stations, :related_documents, :related_images, :stats, :metrics]
 
       landing_page_content_blocks.each.with_index(1) do |manifest_name, index|
         Decidim::ContentBlock.create(
