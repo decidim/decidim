@@ -15,7 +15,7 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        with_events(with_transaction: true, before: false) do
+        with_events(with_transaction: true) do
           create_debate
         end
         broadcast(:ok, debate)

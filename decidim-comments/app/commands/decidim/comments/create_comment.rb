@@ -21,7 +21,7 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        with_events(before: false) do
+        with_events do
           create_comment
         end
 

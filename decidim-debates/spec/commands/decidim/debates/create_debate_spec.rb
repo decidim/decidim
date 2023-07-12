@@ -41,6 +41,9 @@ describe Decidim::Debates::CreateDebate do
       expect { subject.call }.to change(Decidim::Debates::Debate, :count).by(1)
     end
 
+    it_behaves_like "fires an ActiveSupport::Notification event", "decidim.debates.create_debate:before" do
+      let(:command) { subject }
+    end
     it_behaves_like "fires an ActiveSupport::Notification event", "decidim.debates.create_debate:after" do
       let(:command) { subject }
     end
