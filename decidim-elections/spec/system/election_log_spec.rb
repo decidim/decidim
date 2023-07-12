@@ -169,8 +169,10 @@ describe "Election log", :slow, type: :system do
       end
 
       it "shows that file and checksum are not available" do
-        expect(page).to have_content("Not yet available")
-        expect(page).not_to have_content("Download")
+        within "#verifiable-results-step" do
+          expect(page).to have_content("Not yet available")
+          expect(page).not_to have_content("Download")
+        end
       end
     end
 
