@@ -24,7 +24,6 @@ module Decidim
             have_link("Conferences", href: "/admin/conferences") &
             have_link("Assemblies", href: "/admin/assemblies") &
             have_link("Votings", href: "/admin/votings") &
-            have_link("Consultations", href: "/admin/consultations") &
             have_link("Initiatives", href: "/admin/initiatives") &
             have_link("Global moderation", href: "/admin/moderations") &
             have_link("Pages", href: "/admin/static_pages") &

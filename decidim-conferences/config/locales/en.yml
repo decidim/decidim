@@ -6,7 +6,6 @@ en:
         assemblies_ids: Related Assemblies
         available_slots: Available slots
         banner_image: Banner image
-        consultations_ids: Related Consultations
         copy_categories: Copy categories
         copy_components: Copy components
         copy_features: Copy features
@@ -512,7 +511,6 @@ en:
         introduction: Introduction
         objectives: Objectives
         related_assemblies: Related assemblies
-        related_consultations: Related Consultations
         related_participatory_processes: Related participatory processes
     events:
       conferences:

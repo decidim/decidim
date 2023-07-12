@@ -299,8 +299,6 @@ The transferred data can differ between the different modules but the official m
 - **decidim-comments**
   - Comments
   - Comment votes
-- **decidim-consultations**
-  - Consultation votes
 - **decidim-debates**
   - Debates
   - Endorsements for debates (through endorsement transfers at `decidim-core`)
@@ -381,7 +379,6 @@ module DecidimYourCity
       Decidim::AuthorizationTransfer.unregister(:blogs) # blog posts
       Decidim::AuthorizationTransfer.unregister(:budgets) # budgets
       Decidim::AuthorizationTransfer.unregister(:comments) # comments
-      Decidim::AuthorizationTransfer.unregister(:consultations) # consultation votes
       Decidim::AuthorizationTransfer.unregister(:debates) # debates
       Decidim::AuthorizationTransfer.unregister(:elections) # elections
       Decidim::AuthorizationTransfer.unregister(:forms) # form answers, e.g. survey form answers or meeting registrations
