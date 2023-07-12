@@ -281,6 +281,9 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
 
           context "when the author receives the request" do
             before do
+              within ".header .title-bar .topbar__user__logged" do
+                expect(page).to have_content(user.name)
+              end
               relogin_as author, scope: :user
               visit current_path
               within ".header .title-bar .topbar__user__logged" do
