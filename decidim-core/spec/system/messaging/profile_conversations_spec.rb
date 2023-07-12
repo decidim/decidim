@@ -23,7 +23,7 @@ describe "ProfileConversations", type: :system do
     end
 
     it "has a contact link" do
-      expect(page).to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: profile.id))
+      expect(page).to have_link(title: "Message", href: decidim.new_conversation_path(recipient_id: profile.id))
     end
   end
 
@@ -52,8 +52,8 @@ describe "ProfileConversations", type: :system do
   shared_examples "create new conversation" do
     it "allows sending an initial message", :slow do
       start_conversation("Is this a Ryanair style democracy?")
-      within "#conversations" do
-        expect(page).to have_selector(".muted", text: "Is this a Ryanair style democracy?")
+      within "div.user-activity" do
+        expect(page).to have_selector(".conversation__item-snippet-message", text: "Is this a Ryanair style democracy?")
       end
     end
 
@@ -61,7 +61,7 @@ describe "ProfileConversations", type: :system do
       start_conversation("Is this a Ryanair style democracy?")
 
       visit decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
-      expect(page).to have_selector("#messages .conversation-chat:last-child", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_selector("#messages .conversation__message:last-child", text: "Is this a Ryanair style democracy?")
     end
   end
 
@@ -73,7 +73,7 @@ describe "ProfileConversations", type: :system do
     end
 
     it "shows an empty conversation page" do
-      expect(page).not_to have_selector(".card.card--widget")
+      expect(page).not_to have_selector(".conversation__item")
       expect(page).to have_current_path decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
     end
 
@@ -99,7 +99,7 @@ describe "ProfileConversations", type: :system do
 
           it "shows the existing conversation" do
             visit decidim.profile_conversation_path(nickname: profile.nickname, id: conversation.id)
-            expect(page).to have_selector("#messages .conversation-chat:last-child", text: "Is this a Ryanair style democracy?")
+            expect(page).to have_selector("#messages .conversation__message:last-child", text: "Is this a Ryanair style democracy?")
           end
         end
       end
@@ -133,10 +133,10 @@ describe "ProfileConversations", type: :system do
       end
 
       it "shows profile's conversation list" do
-        within "#conversations" do
-          expect(page).to have_selector(".card.card--widget", text: /#{interlocutor.name}/i)
-          expect(page).to have_selector(".card.card--widget", text: "who wants apples?")
-          expect(page).to have_selector(".card.card--widget", text: /Last message:(.+) ago/)
+        within "div.conversation__container" do
+          expect(page).to have_selector(".conversation__item", text: /#{interlocutor.name}/i)
+          expect(page).to have_selector(".conversation__item", text: "who wants apples?")
+          expect(page).to have_selector(".conversation__item", text: "less than a minute")
         end
       end
 
@@ -144,7 +144,7 @@ describe "ProfileConversations", type: :system do
         visit_profile_inbox
         click_link "conversation-#{conversation.id}"
 
-        expect(page).to have_content("Conversation with #{interlocutor.name}")
+        expect(page).to have_content("Conversation with\n#{interlocutor.name}")
         expect(page).to have_content("who wants apples?")
       end
 
@@ -176,19 +176,15 @@ describe "ProfileConversations", type: :system do
       end
 
       it "shows the topbar button as active" do
-        within "#profile-tabs" do
-          expect(page).to have_selector("li.is-active a", text: "Conversations")
-        end
+        expect(page).to have_selector("li.profile__tab.is-active a", text: "Conversations")
       end
 
       it "shows the topbar button the number of unread messages" do
-        within "#profile-tabs li.is-active a" do
-          expect(page).to have_selector(".badge", text: "2")
-        end
+        expect(page).to have_selector("li.profile__tab.is-active .conversation__item-unread", text: "2")
       end
 
       it "shows the number of unread messages per conversation" do
-        expect(page).to have_selector(".card.card--widget .unread_message__counter", text: "2")
+        expect(page).to have_selector(".conversation__item .conversation__item-unread", text: "2")
       end
     end
 
@@ -208,14 +204,7 @@ describe "ProfileConversations", type: :system do
       end
 
       it "shows the topbar button the number of unread messages" do
-        within "#profile-tabs li.is-active a" do
-          expect(page).to have_selector(".badge", text: "3")
-        end
-      end
-
-      it "shows the number of unread messages per conversation" do
-        expect(page).to have_selector(".card.card--widget .unread_message__counter", text: "2")
-        expect(page).to have_selector(".card.card--widget .unread_message__counter", text: "1")
+        expect(page).to have_selector("li.profile__tab.is-active .conversation__item-unread", text: "3")
       end
     end
 
@@ -226,13 +215,12 @@ describe "ProfileConversations", type: :system do
       end
 
       it "does not show the topbar button the number of unread messages" do
-        within "#profile-tabs li.is-active a" do
-          expect(page).not_to have_selector(".badge")
-        end
+        expect(page).not_to have_selector("li.profile__tab.is-active .conversation__item-unread")
       end
 
       it "does not show an unread count" do
-        expect(page).not_to have_selector(".card.card--widget .unread_message__counter")
+        expect(page).to have_selector(".conversation__item .conversation__item-unread")
+        expect(page.find(".conversation__item .conversation__item-unread").text).to be_blank
       end
 
       it "conversation page does not show the number of unread messages" do
@@ -253,13 +241,13 @@ describe "ProfileConversations", type: :system do
 
       it "appears as the last message", :slow do
         click_button "Send"
-        expect(page).to have_selector("#messages .conversation-chat:last-child", text: "Please reply!")
+        expect(page).to have_selector("#messages .conversation__message:last-child", text: "Please reply!")
       end
 
       context "and interlocutor sees it" do
         before do
           click_button "Send"
-          expect(page).to have_selector("#messages .conversation-chat:last-child", text: "Please reply!")
+          expect(page).to have_selector("#messages .conversation__message:last-child", text: "Please reply!")
           relogin_as interlocutor, scope: :user
           visit decidim.conversations_path
         end
@@ -273,7 +261,8 @@ describe "ProfileConversations", type: :system do
           expect(page).to have_content("Please reply!")
 
           visit decidim.conversations_path
-          expect(page).not_to have_selector(".card.card--widget .unread_message__counter")
+          expect(page).to have_selector(".conversation__item .conversation__item-unread")
+          expect(page.find(".conversation__item .conversation__item-unread").text).to be_blank
         end
       end
     end
@@ -288,7 +277,7 @@ describe "ProfileConversations", type: :system do
         end
 
         it "allows profile to see old messages" do
-          expect(page).to have_content("Conversation with #{interlocutor.name}")
+          expect(page).to have_content("Conversation with\n#{interlocutor.name}")
           expect(page).to have_content("who wants apples?")
         end
 
@@ -310,7 +299,7 @@ describe "ProfileConversations", type: :system do
 
         it "appears as the last message", :slow do
           click_button "Send"
-          expect(page).to have_selector(".conversation-chat:last-child", text: "Please reply!")
+          expect(page).to have_selector(".conversation__message:last-child", text: "Please reply!")
         end
       end
     end
@@ -320,7 +309,6 @@ describe "ProfileConversations", type: :system do
         let!(:interlocutor2) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
 
         it "cannot be selected on the mentioned list", :slow do
-          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated"
           visit_profile_inbox
           expect(page).to have_content("New conversation")
           click_button "New conversation"
@@ -336,12 +324,10 @@ describe "ProfileConversations", type: :system do
         end
 
         it "has disabled submit button" do
-          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated"
           expect(page).to have_button("Next", disabled: true)
         end
 
         it "enables submit button after selecting interlocutor" do
-          skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it is not necessary to fix this because the modal used here will be deprecated"
           find("#add_conversation_users").fill_in with: "@#{interlocutor.nickname}"
           find("#autoComplete_result_0").click
           expect(page).to have_button("Next", disabled: false)
@@ -360,16 +346,15 @@ describe "ProfileConversations", type: :system do
   def visit_profile_inbox
     visit decidim.profile_path(nickname: profile.nickname)
 
-    within "#profile-tabs" do
-      click_link "Conversations"
-    end
+    click_link "Conversations", class: "profile__tab-item"
   end
 
   def visit_inbox
     visit decidim.root_path
 
-    within ".topbar__user__logged" do
-      find(".icon--envelope-closed").click
+    find("#trigger-dropdown-account").click
+    within "#dropdown-menu-account" do
+      click_link("Conversations")
     end
   end
 end

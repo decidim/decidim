@@ -6,13 +6,23 @@ module Decidim
     # the default size is the Medium Card (:m)
     class ConferenceCell < Decidim::ViewModel
       def show
-        cell card_size, model
+        cell card_size, model, options
       end
 
       private
 
+      # REDESIGN_PENDING: size :m is deprecated
       def card_size
-        "decidim/conferences/conference_m"
+        case @options[:size]
+        when :m
+          "decidim/conferences/conference_m"
+        when :l
+          "decidim/conferences/conference_l"
+        when :s
+          "decidim/conferences/conference_s"
+        else
+          "decidim/conferences/conference_g"
+        end
       end
     end
   end

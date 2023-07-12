@@ -1,44 +1,19 @@
-<% if online_meeting_url? %>
-  <% if live? || future? %>
-    <div class="card card--secondary">
-      <div class="card__content text-center">
-        <% if live? %>
-          <div class="heading1 text-primary">
-            <%= icon "audio", class: "heading4" %>
-          </div>
-          <div>
-            <strong class="heading5"><%= t("live_event", scope: "decidim.meetings.meetings.show") %></strong>
-            <% unless show_embed? %>
-              <p><small><%= t("micro_camera_permissions_warning", scope: "decidim.meetings.meetings.show") %></small></p>
-            <% end %>
-          </div>
-        <% end %>
+<div class="meeting__online">
+  <%= icon "broadcast-line", class: "w-14 h-14 fill-current #{live? && online_meeting_url? ? "text-tertiary" : "text-gray"}" %>
 
-        <% if show_embed? && live? %>
-          <div class="<%= "margin-top-3" if live? %> absolutes aspect-ratio-16-9">
-            <%== embed_code(request.host) %>
-          </div>
-        <% elsif live? || future? %>
-          <div class="absolutes">
-            <% if live? %>
-              <%= link_to t("join", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank", class: "button button--sc" %>
-            <% elsif future? %>
-              <span><%= t("link_closed", scope: "decidim.meetings.meetings.show") %></span>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+  <% if !online_meeting_url? %>
+    <p><%= t("link_available_soon", scope: "decidim.meetings.meetings.show") %></p>
+  <% elsif future? %>
+    <p><%= t("link_closed", scope: "decidim.meetings.meetings.show") %></p>
+  <% elsif live? %>
+    <p class="h3"><%= t("live_event", scope: "decidim.meetings.meetings.show") %></p>
+
+    <% unless show_embed? %>
+      <p><%= t("micro_camera_permissions_warning", scope: "decidim.meetings.meetings.show") %></p>
+    <% end %>
+
+    <%== embed_code(request.host) if show_embed? %>
+
+    <%= link_to t("join_meeting", scope: "decidim.meetings.meetings.meeting"), live_event_url, target: "_blank", class: "button button__xl button__secondary", data: { "external-link": false } %>
   <% end %>
-<% else %>
-  <div class="card card--secondary">
-    <div class="card__content address">
-      <div class="address__info">
-        <%= icon "timer", role: "img", "aria-hidden": true, remove_icon_class: true, width: 40, height: 70 %>
-        <div class="address__details">
-          <span><%= t("link_available_soon", scope: "decidim.meetings.meetings.show") %></span>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+</div>

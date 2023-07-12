@@ -44,6 +44,9 @@ module Decidim
           collection do
             resources :imports, controller: "participatory_process_imports", only: [:new, :create]
           end
+          resource :landing_page, only: [:edit, :update], controller: "participatory_process_landing_page" do
+            resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "participatory_process_landing_page_content_blocks"
+          end
         end
 
         scope "/participatory_processes/:participatory_process_slug" do
@@ -222,6 +225,12 @@ module Decidim
                         decidim_admin_participatory_processes.moderations_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.moderations_path(current_participatory_space)),
                         if: allowed_to?(:read, :moderation)
+
+          menu.add_item :edit_participatory_process_landing_page,
+                        I18n.t("landing_page", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.edit_participatory_process_landing_page_path(current_participatory_space),
+                        if: allowed_to?(:update, :process, process: current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_landing_page_path(current_participatory_space))
         end
       end
 

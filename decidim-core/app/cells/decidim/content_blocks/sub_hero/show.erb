@@ -1,15 +1,13 @@
-  <section id="sub_hero" class="extended subhero home-section">
-    <div class="row">
-      <div class="columns small-centered large-10">
-        <h2 class="heading2">
-          <%= organization_description %>
-        </h2>
-        <% unless current_user %>
-          <%= link_to decidim.new_user_registration_path, class: "button--sc link subhero-cta", title: t("decidim.pages.home.sub_hero.register_title") do %>
-            <%= t("decidim.pages.home.sub_hero.register") %>
-            <%= icon "chevron-right", aria_hidden: true, role: "img" %>
-          <% end %>
+<section id="sub_hero" class="home__section">
+  <div class="editor-content text-center">
+    <%= organization_description %>
+    <% unless current_user %>
+      <div>
+        <%= link_to decidim.new_user_registration_path, class: "button button__sm md:button__lg button__secondary no-underline mt-4", title: t("decidim.pages.home.sub_hero.register_title") do %>
+          <%= t("decidim.pages.home.sub_hero.register") %>
+          <%= icon "arrow-right-line", class: "fill-current" %>
         <% end %>
       </div>
-    </div>
-  </section>
+    <% end %>
+  </div>
+</section>

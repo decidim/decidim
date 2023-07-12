@@ -32,8 +32,6 @@ module Decidim
       let(:longitude) { 2.1234 }
       let(:suggested_hashtags) { [] }
       let(:attachment_params) { nil }
-      let(:uploaded_photos) { [] }
-      let(:current_photos) { [] }
       let(:current_files) { [] }
       let(:uploaded_files) { [] }
       let(:errors) { double.as_null_object }
@@ -50,8 +48,6 @@ module Decidim
             user_group_id: user_group.try(:id),
             suggested_hashtags:,
             attachment: attachment_params,
-            photos: current_photos,
-            add_photos: uploaded_photos,
             documents: current_files,
             add_documents: uploaded_files,
             errors:
@@ -181,28 +177,19 @@ module Decidim
                 file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf")
               ]
             end
-            let(:uploaded_photos) do
-              [
-                {
-                  file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg")
-                }
-              ]
-            end
 
             it "creates multiple atachments for the proposal" do
-              expect { command.call }.to change(Decidim::Attachment, :count).by(2)
+              expect { command.call }.to change(Decidim::Attachment, :count).by(1)
               last_attachment = Decidim::Attachment.last
               expect(last_attachment.attached_to).to eq(proposal)
             end
 
             context "with previous attachments" do
               let!(:file) { create(:attachment, :with_pdf, attached_to: proposal) }
-              let!(:photo) { create(:attachment, :with_image, attached_to: proposal) }
               let(:current_files) { [file] }
-              let(:current_photos) { [photo] }
 
               it "does not remove older attachments" do
-                expect { command.call }.to change(Decidim::Attachment, :count).from(2).to(4)
+                expect { command.call }.to change(Decidim::Attachment, :count).from(1).to(2)
               end
             end
           end
@@ -227,17 +214,16 @@ module Decidim
 
           context "when documents and gallery are allowed" do
             let(:component) { create(:proposal_component, :with_attachments_allowed) }
-            let(:uploaded_photos) { [{ file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") }] }
             let(:uploaded_files) { [{ file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }] }
 
             it "Create gallery and documents for the proposal" do
-              expect { command.call }.to change(Decidim::Attachment, :count).by(2)
+              expect { command.call }.to change(Decidim::Attachment, :count).by(1)
             end
           end
 
           context "when gallery are allowed" do
             let(:component) { create(:proposal_component, :with_attachments_allowed) }
-            let(:uploaded_photos) { [{ file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") }] }
+            let(:uploaded_files) { [{ file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") }] }
 
             it "creates an image attachment for the proposal" do
               expect { command.call }.to change(Decidim::Attachment, :count).by(1)

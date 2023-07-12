@@ -24,7 +24,7 @@ describe "User group profile edition", type: :system do
     end
 
     it "rejects the user that accesses manually" do
-      visit decidim.group_manage_users_path(user_group.nickname)
+      visit decidim.profile_group_members_path(user_group.nickname)
       expect(page).to have_content("You are not authorized to perform this action")
     end
   end
@@ -36,12 +36,13 @@ describe "User group profile edition", type: :system do
     end
 
     it "allows editing the profile" do
+      click_button "Manage group"
       expect(page).to have_content("Edit group profile")
       click_link "Edit group profile"
 
       fill_in "Name", with: "My super duper group"
       fill_in "About", with: "We are awesome"
-      dynamically_attach_file(:group_avatar, Decidim::Dev.asset("city.jpeg"), remove_before: true)
+      dynamically_attach_file(:group_avatar, Decidim::Dev.asset("city.jpeg"), remove_before: true, front_interface: true)
 
       click_button "Update group"
 

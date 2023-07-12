@@ -8,6 +8,5 @@
 <%= yield :js_content %>
 
 <%= snippets.display(:foot) %>
-<%= content_for :header_snippets %>
 
 <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>

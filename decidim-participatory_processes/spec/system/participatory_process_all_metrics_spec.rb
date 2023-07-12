@@ -51,10 +51,10 @@ describe "Participatory Processes", download: true, type: :system do
 
     it "downloads CSV data from link" do
       Decidim.metrics_registry.filtered(scope: "participatory_process").each do |metric_manifest|
-        within "##{metric_manifest.metric_name}_chart+p" do
+        within "##{metric_manifest.metric_name}_chart+a" do
           expect(page).to have_content("Download data (CSV)")
           sleep 2
-          click_link "Download data (CSV)"
+          find("span", text: "Download data (CSV)").click
           expect(File.basename(download_path)).to eq "#{metric_manifest.metric_name}_metric_data.csv"
           expect(File).to exist(download_path)
           expect(CSV.open(download_path, &:readline)).to eq %w(key value)
@@ -70,8 +70,8 @@ describe "Participatory Processes", download: true, type: :system do
     end
 
     def check_title_and_description(metric_name)
-      find("div[id='#{metric_name}_chart']").find(:xpath, "../h3", class: "metric-title", count: 1, visible: :all)
-      find("div[id='#{metric_name}_chart']").find(:xpath, "../p", class: "metric-description", count: 1, visible: :all)
+      find("div[id='#{metric_name}_chart']").find(:xpath, "../h3", count: 1, visible: :all)
+      find("div[id='#{metric_name}_chart']").find(:xpath, "../p", count: 1, visible: :all)
     end
   end
 

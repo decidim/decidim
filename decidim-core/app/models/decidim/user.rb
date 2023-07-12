@@ -263,6 +263,7 @@ module Decidim
     end
 
     def needs_password_update?
+      return false if organization.users_registration_mode == "disabled"
       return false unless admin?
       return false unless Decidim.config.admin_password_strong
       return identities.none? if password_updated_at.blank?
@@ -295,7 +296,8 @@ module Decidim
         event: "decidim.events.core.welcome_notification",
         event_class: WelcomeNotificationEvent,
         resource: self,
-        affected_users: [self]
+        affected_users: [self],
+        extra: { force_email: true }
       )
     end
 

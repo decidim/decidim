@@ -1,26 +1,18 @@
-<div class="columns large-3">
-  <div class="m-bottom">
-    <%= link_to :back do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %> <%= t(".back") %>
-    <% end %>
-  </div>
-  <div class="section">
-    <p>
-      <%= t(".title") %>
-    </p>
-  </div>
-  <div class="show-for-large">
-    <ol class="wizard__steps">
-      <% unless single_initiative_type? %>
-        <%= content_tag :li, t(".select_initiative_type"), class: action_name == "select_initiative_type" ? "step--active" : nil %>
-      <% end %>
-      <%= content_tag :li, t(".previous_form"), class: action_name == "previous_form" ? "step--active" : nil %>
-      <%= content_tag :li, t(".show_similar_initiatives"), class: action_name == "show_similar_initiatives" ? "step--active" : nil %>
-      <%= content_tag :li, t(".fill_data"), class: action_name == "fill_data" ? "step--active" : nil %>
-      <% if promotal_committee_required? %>
-        <%= content_tag :li, t(".promotal_committee"), class: action_name == "promotal_committee" ? "step--active" : nil %>
-      <% end %>
-      <%= content_tag :li, t(".finish"), class: action_name == "finish" ? "step--active" : nil %>
-    </ol>
-  </div>
+<div class="text-center py-10">
+  <h1 class="h3 md:h1 decorator inline-block text-left">
+    <%= t("new", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
+  </h1>
 </div>
+
+<ol id="wizard-steps" class="wizard-steps">
+  <% options = { data: { active: true }, aria: { current: "step" } } %>
+
+  <% unless single_initiative_type? %>
+    <%= content_tag :li, t(".select_initiative_type"), action_name == "select_initiative_type" ? options : {} %>
+  <% end %>
+  <%= content_tag :li, t(".fill_data"), action_name == "fill_data" ? options : {} %>
+  <% if promotal_committee_required? %>
+    <%= content_tag :li, t(".promotal_committee"), action_name == "promotal_committee" ? options : {} %>
+  <% end %>
+  <%= content_tag :li, t(".finish"), action_name == "finish" ? options : {} %>
+</ol>

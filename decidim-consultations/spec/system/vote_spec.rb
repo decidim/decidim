@@ -161,6 +161,8 @@ describe "Question vote", type: :system do
       question.create_resource_permission(permissions:)
     end
 
+    # Redesign pending
+    # Update the spec when the new modal are integrated in this module
     context "when user is NOT verified" do
       before do
         switch_to_host(organization.host)
@@ -169,6 +171,8 @@ describe "Question vote", type: :system do
       end
 
       it "is NOT able to vote" do
+        skip_unless_redesign_enabled
+
         within ".question-vote-cabin", match: :first do
           click_button I18n.t("decidim.questions.vote_button.verification_required")
         end

@@ -1,0 +1,53 @@
+<section class="layout-aside__section">
+  <% if @collaborative_draft.published? %>
+    <%= cell "decidim/proposals/collaborative_draft_link_to_proposal", @collaborative_draft %>
+  <% else %>
+    <div class="flex flex-col items-center">
+      <%= resource_version_number(@collaborative_draft.versions_count, "h4") %>
+      <span class="text-gray-2"><%= resource_version_of(@collaborative_draft.versions_count) %></span>
+      <span class="text-sm text-secondary underline"><%= link_to_other_resource_versions(collaborative_draft_version_path(@collaborative_draft, @collaborative_draft.versions.count)) %></span>
+    </div>
+  <% end %>
+</section>
+
+<% if allowed_to?(:publish, :collaborative_draft, collaborative_draft: @collaborative_draft) || @collaborative_draft.requesters.include?(current_user) || allowed_to?(:request_access, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+<section class="layout-aside__section layout-aside__buttons">
+  <% if allowed_to?(:publish, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+    <div>
+      <%= cell "decidim/proposals/irreversible_action_modal", @collaborative_draft, action: :publish %>
+
+      <div class="mt-2 text-center">
+        <%= t("publish_info", scope:"decidim.proposals.collaborative_drafts.show") %>
+        <%= cell "decidim/proposals/irreversible_action_modal", @collaborative_draft, action: :withdraw %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render "request_access_form" %>
+
+  <% if @collaborative_draft.requesters.include? current_user %>
+    <button type="button" class="button button__lg button__secondary w-full" disabled>
+      <%= t("requested_access", scope:"decidim.proposals.collaborative_drafts.show") %>
+    </button>
+  <% end %>
+</section>
+<% end %>
+
+<% if allowed_to?(:edit, :collaborative_draft, collaborative_draft: @collaborative_draft) %>
+<section class="layout-aside__section">
+  <%= link_to edit_collaborative_draft_path(@collaborative_draft), class: "button button__sm button__transparent-secondary w-full", id: "collaborative_draft_edit" do %>
+    <span><%= t("edit", scope:"decidim.proposals.collaborative_drafts.show") %></span>
+    <%= icon "pencil-line" %>
+  <% end %>
+</section>
+<% end %>
+
+<section class="layout-aside__section">
+  <%= render partial: "collaborator_requests" %>
+</section>
+
+<section class="layout-aside__section actions__secondary">
+  <%= follow_button_for(@collaborative_draft) %>
+  <%= cell "decidim/share_button", nil %>
+  <%= cell "decidim/report_button", @collaborative_draft %>
+</section>

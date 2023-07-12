@@ -1,36 +1,12 @@
-<div class="order-by__dropdown order-by__dropdown--right">
-  <span class="order-by__text"><%= t("decidim.components.comment_order_selector.title") %></span>
-  <ul id="comments-order-menu"
-    class="dropdown menu"
-    data-dropdown-menu="data-dropdown-menu"
-    data-autoclose="false"
-    data-disable-hover="true"
-    data-click-open="true"
-    data-close-on-click="true"
-    role="menubar">
-    <li class="is-dropdown-submenu-parent opens-right" role="presentation">
-      <a href="#" id="comments-order-menu-control"
-        aria-label="<%= t("decidim.components.comment_order_selector.title") %>"
-        aria-controls="comments-order-menu"
-        aria-haspopup="menu"
-        role="menuitem"><%= t("decidim.components.comment_order_selector.order.#{order}") %></a>
-      <ul class="menu is-dropdown-submenu submenu first-sub vertical"
-        id="comments-order-chooser-menu"
-        role="menu"
-        aria-labelledby="comments-order-menu-control"
-        data-submenu="">
-        <% available_orders.each do |order_value| %>
-          <li role="presentation" class="is-submenu-item is-dropdown-submenu-item">
-            <%= link_to(
-              t("decidim.components.comment_order_selector.order.#{order_value}"),
-              decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value, reload: 1),
-              tabindex: -1,
-              role: "menuitem",
-              remote: true
-            ) %>
-          </li>
-        <% end %>
-      </ul>
-    </li>
-  </ul>
+<div class="comment-order-by">
+  <% available_orders.each do | order_value| %>
+    <div class="text-center">
+      <%= link_to(
+        t("decidim.components.comment_order_selector.order.#{order_value}"),
+        decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value, reload: 1),
+        class: "button button__sm button__text-secondary only:m-auto comment-order-by__item inline-block #{order_value == order ? "underline font-bold" : ""}",
+        remote: true
+      ) %>
+    </div>
+  <% end %>
 </div>

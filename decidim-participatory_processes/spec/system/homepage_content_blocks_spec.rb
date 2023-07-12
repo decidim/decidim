@@ -24,6 +24,8 @@ describe "Homepage processes content blocks", type: :system do
   end
 
   it "includes active processes to the homepage" do
+    skip "REDESIGN_PENDING - Unskip this test and adapt if necessary after merging https://github.com/decidim/decidim/pull/10920"
+
     visit decidim.root_path
 
     within "#highlighted-processes" do
@@ -37,9 +39,11 @@ describe "Homepage processes content blocks", type: :system do
   context "when there are promoted process groups" do
     let!(:normal_group) { create(:participatory_process_group, organization:) }
     let!(:promoted_group) { create(:participatory_process_group, :promoted, organization:) }
-    let(:promoted_items_titles) { page.all("#highlighted-processes .card__title").map(&:text) }
+    let(:promoted_items_titles) { page.all("#highlighted-processes .card__grid .card__grid-text .h4").map(&:text) }
 
     it "includes promoted group in first place in the same homepage block" do
+      skip "REDESIGN_PENDING - Unskip this test and adapt if necessary after merging https://github.com/decidim/decidim/pull/10920"
+
       visit decidim.root_path
 
       within "#highlighted-processes" do

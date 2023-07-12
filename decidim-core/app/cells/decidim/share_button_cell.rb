@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class ShareButtonCell < RedesignedButtonCell
+  class ShareButtonCell < ButtonCell
     private
 
     def button_classes

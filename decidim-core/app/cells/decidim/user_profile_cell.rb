@@ -1,41 +1,36 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This cell renders the profile of the given user.
-  class UserProfileCell < Decidim::CardMCell
-    include Decidim::SanitizeHelper
-
-    def user_data
-      render
-    end
-
-    def unlinked_user_data
-      render
-    end
+  # This cell renders the card of a user to show in followers and followed
+  # lists.
+  class UserProfileCell < Decidim::CardCell
+    delegate :nickname, to: :presented_resource
+    delegate :name, to: :presented_resource
+    delegate :officialized?, to: :presented_resource
+    delegate :badge, to: :presented_resource
 
     def user
-      model
+      group_membership? ? model.user : model
+    end
+
+    def avatar
+      present(user).avatar_url
+    end
+
+    def role
+      return model.role if group_membership?
+      return "admin" if user.admin?
+    end
+
+    def show_badge?
+      user_group? ? badge.present? : officialized?
     end
 
     def resource_path
       return "#" unless user.visible?
 
-      decidim.profile_path(user.nickname)
-    end
-
-    delegate :nickname, to: :presented_resource
-    delegate :name, to: :presented_resource
-    delegate :organization, to: :presented_resource
-    delegate :officialized?, to: :presented_resource
-
-    delegate :badge, to: :presented_resource
-
-    def description
-      html_truncate(decidim_html_escape(user.about.to_s), length: 100)
-    end
-
-    def avatar
-      present(user).avatar_url(variant: :big, host: organization.host)
+      # Exposes the same method, both Decidim::User and Decidim::UserGroup
+      user.try(:profile_url) || decidim.profile_path(user.nickname)
     end
 
     def presented_resource

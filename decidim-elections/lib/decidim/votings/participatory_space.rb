@@ -7,6 +7,8 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
   participatory_space.stylesheet = "decidim/votings/votings"
   participatory_space.query_type = "Decidim::Votings::VotingType"
 
+  participatory_space.breadcrumb_cell = "decidim/votings/voting_dropdown_metadata"
+
   participatory_space.participatory_spaces do |organization|
     Decidim::Votings::Voting.where(organization:)
   end

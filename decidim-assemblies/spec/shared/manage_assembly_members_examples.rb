@@ -134,7 +134,7 @@ shared_examples "manage assembly members examples" do
 
     it "deletes the assembly member" do
       within find("#assembly_members tr", text: assembly_member.full_name) do
-        accept_confirm { find("a.action-icon--remove").click }
+        accept_confirm(admin: true) { find("a.action-icon--remove").click }
       end
 
       expect(page).to have_admin_callout("successfully")
