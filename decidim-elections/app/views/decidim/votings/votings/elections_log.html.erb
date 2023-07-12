@@ -23,7 +23,7 @@ edit_link(
   </div>
 
   <% elections.each do |election| %>
-    <div class="election-log__entry">
+    <div class="election-log__entry" data-log-entry>
       <span class="election-log__time"><%= election.start_time %></span>
 
       <h2 class="h4 text-secondary">
