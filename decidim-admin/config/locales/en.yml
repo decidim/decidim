@@ -1036,12 +1036,10 @@ en:
         authorization_workflows: Verification methods
         components: Components
         dashboard: Dashboard
-        edit_content_block: Edit content block
         edit_landing_page: Page contents
         impersonatable_users: Manageable participants
         impersonations: Participants management
         metrics: Metrics
-        moderated_users: Reported participants
         new_component: Add component
         panel: Admin
         participants: Participants
