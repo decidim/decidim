@@ -45,7 +45,7 @@ const createDropdown = (component) => {
 
 const createDialog = (component) => {
   const {
-    dataset: { dialog }
+    dataset: { dialog, ...attrs }
   } = component;
 
   // NOTE: due to some SR bugs we have to set the focus on the title
@@ -77,7 +77,9 @@ const createDialog = (component) => {
     }),
     ...(Boolean(component.querySelector(`#dialog-desc-${dialog}`)) && {
       describedby: `dialog-desc-${dialog}`
-    })
+    }),
+    // Add any other options passed via data-attributes
+    ...attrs
   });
 
   // attach all modals to the body, removing them from wherever are placed
