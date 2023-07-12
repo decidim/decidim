@@ -37,7 +37,7 @@ module Decidim
       end
 
       def project
-        @project ||= Project.find_by(id: params[:id])
+        @project ||= budget&.projects&.find_by(id: params[:id])
       end
 
       def search_collection
