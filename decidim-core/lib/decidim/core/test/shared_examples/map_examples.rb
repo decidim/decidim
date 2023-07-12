@@ -10,7 +10,9 @@ shared_context "with map utility" do
 end
 
 shared_context "with frontend map builder" do
-  subject { described_class.new(template, options) }
+  subject { builder_class.new(template, options) }
+
+  let(:builder_class) { described_class }
 
   let(:template_class) do
     Class.new(ActionView::Base) do

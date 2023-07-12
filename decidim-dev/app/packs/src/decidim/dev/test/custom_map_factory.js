@@ -4,7 +4,7 @@
  * following snippet to any view:
  *
  * <%= dynamic_map_for type: "custom", markers: [{ title: "Test 1", latitude: 41.385063, longitude: 2.173404 }], popup_template_id: "custom-popup" do %>
- *  <% append_javascript_pack_tag("decidim_dev_test_custom_map") %>
+ *  <% javascript_pack_tag("decidim_dev_test_custom_map") %>
  *  <template id="custom-popup">
  *    <div>
  *      <h3>${title}</h3>

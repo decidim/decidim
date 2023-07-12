@@ -27,9 +27,8 @@ describe "Custom map", type: :system do
       markers = marker_data
       template.instance_eval do
         dynamic_map_for type: "custom", markers: markers, popup_template_id: "custom-popup" do
-          append_javascript_pack_tag("decidim_dev_test_custom_map")
-
           <<~HTML.html_safe
+            #{javascript_pack_tag("decidim_dev_test_custom_map")}
             <template id="custom-popup">
               <div>
                 <h3>${title}</h3>
@@ -61,6 +60,7 @@ describe "Custom map", type: :system do
   end
 
   context "with OSM" do
+    let(:builder_class) { Decidim::Map::DynamicMap::Builder }
     let(:map_config) do
       {
         provider: :osm,
@@ -72,6 +72,7 @@ describe "Custom map", type: :system do
   end
 
   context "with Here" do
+    let(:builder_class) { Decidim::Map::Provider::DynamicMap::Here::Builder }
     let(:map_config) do
       {
         provider: :here
