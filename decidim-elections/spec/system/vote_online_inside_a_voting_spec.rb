@@ -136,7 +136,7 @@ describe "Vote online in an election inside a Voting", type: :system do
       click_link translated(election.title)
       click_link "Start voting"
 
-      within ".card__content" do
+      within "[data-content]" do
         select("DNI", from: "Document type")
         fill_in "Document number", with: "12345678X"
         fill_in "Postal code", with: "04001"
@@ -168,7 +168,7 @@ describe "Vote online in an election inside a Voting", type: :system do
       click_link translated(election.title)
       click_link "Start voting"
 
-      within ".card__content" do
+      within "[data-content]" do
         select("DNI", from: "Document type")
         fill_in "Document number", with: "12345678X"
         fill_in "Postal code", with: "04001"
@@ -205,7 +205,7 @@ describe "Vote online in an election inside a Voting", type: :system do
     click_link translated(election.title)
     click_link "Start voting"
 
-    within ".card__content" do
+    within "[data-content]" do
       select("DNI", from: "Document type")
       fill_in "Document number", with: "12345678X"
       fill_in "Postal code", with: "04001"
