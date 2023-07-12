@@ -213,7 +213,7 @@ end
 # In config/secrets.yml
 decidim_default: &decidim_default
 (...)
-social_share_services: <%= Decidim::Env.new("DECIDIM_SOCIAL_SHARE_SERVICES", "Twitter, Facebook, WhatsApp, Telegram").to_array.to_json %>
+  social_share_services: <%= Decidim::Env.new("DECIDIM_SOCIAL_SHARE_SERVICES", "Twitter, Facebook, WhatsApp, Telegram").to_array.to_json %>
 ```
 
 And define your own services in the environment variable `DECIDIM_SOCIAL_SHARE_SERVICES` with the services that you want.
@@ -560,7 +560,7 @@ module Decidim
 end
 ```
 
-You can read more about this change at PR:
+You can read more about this change at PRs:
 
 - [\#10111](https://github.com/decidim/decidim/pull/10111)
 - [\#11064](https://github.com/decidim/decidim/pull/11064)

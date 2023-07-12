@@ -50,7 +50,7 @@ module Decidim
       ActiveSupport::Notifications.publish("#{event_namespace}:after", **event_arguments) if after
     end
 
-    private
+    protected
 
     def event_arguments
       raise "#{self.class} must implement #event_arguments"
