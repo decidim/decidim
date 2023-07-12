@@ -52,8 +52,8 @@ en:
         authorization_workflows: Authorizations
       titles:
         csv_census_current_census_data: Current census data
+        id_documents_pending_authorizations: Pending online verifications
         postal_letter_ongoing_verifications: Ongoing verifications
-        id_documents_pending_authorizations: Pending online verifications 
     admin_log:
       organization:
         update_id_documents_config: "%{user_name} updated the Identity Documents authorization configuration"

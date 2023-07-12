@@ -295,6 +295,7 @@ en:
         conference_speakers: Conference speakers
         conferences: Conferences
         duplicate_conference: Duplicate conference
+        edit_conference_speaker: Update conference speaker
         media_links: Media Links
         new_conference: New conference
         new_conference_admin: New conference admin
@@ -304,7 +305,6 @@ en:
         new_media_link: Media Link
         new_registration_type: New registration type
         registration_types: Registration types
-        edit_conference_speaker: Update conference speaker
     admin_log:
       conference:
         create: "%{user_name} created the %{resource_name} conference"
