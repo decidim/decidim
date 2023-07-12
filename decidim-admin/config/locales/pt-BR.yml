@@ -90,6 +90,7 @@ pt-BR:
         secondary_hosts: Espaço secundário
         send_welcome_notification: Enviar notificação de boas-vindas
         success_color: Sucesso
+        tertiary_color: Terciário
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
         twitter_handler: Manipulador do Twitter
