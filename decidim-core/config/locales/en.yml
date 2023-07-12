@@ -1297,6 +1297,7 @@ en:
           register: Register
         hero:
           participate: Participate
+          participate_title: Participate in the platform's processes
           welcome: Welcome to %{organization}!
         statistics:
           headline: Current state of %{organization}
