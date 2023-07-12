@@ -66,7 +66,7 @@
             <% end %>
 
             <% if allowed_to? :preview, :initiative, initiative: initiative %>
-              <%= icon_link_to "eye",
+              <%= icon_link_to "eye-line",
                                decidim_initiatives.initiative_path(initiative.to_param),
                                t(".preview"),
                                class: "action-icon--preview",

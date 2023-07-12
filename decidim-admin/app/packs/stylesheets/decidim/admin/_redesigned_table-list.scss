@@ -112,12 +112,11 @@
   }
 
   &:last-child {
-    text-align: right;
+    @apply text-right;
   }
 
-  .action-icon,
-  a.action-icon.highlighted{
-    @apply text-secondary;
+  svg{
+    @apply fill-secondary w-5 h-5;
   }
 }
 
