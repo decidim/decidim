@@ -1,5 +1,5 @@
 .title-bar{
-  @apply py-2 px-8 flex items-center bg-tertiary text-black;
+  @apply py-2 px-8 flex items-center bg-tertiary text-black text-xs;
 
   [data-target*="dropdown"] > svg:first-of-type {
     @apply inline-block;
@@ -31,7 +31,7 @@
 }
 
 .tool-bar{
-  @apply ml-auto gap-x-6 flex;
+  @apply ml-auto gap-x-4 flex items-center;
 
   .user-login,
   .language-choose{
@@ -39,7 +39,7 @@
   }
 
   .button__site{
-    @apply flex items-center gap-x-2 px-1 text-black font-normal rounded;
+    @apply flex items-center gap-x-2 p-1 text-black font-normal rounded;
 
     background-color: rgba(255, 255, 255, 0.15);
 

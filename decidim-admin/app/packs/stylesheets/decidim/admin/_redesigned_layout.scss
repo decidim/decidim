@@ -19,7 +19,7 @@ body{
 }
 
 .layout-nav{
-  @apply max-w-[340px];
+  @apply max-w-[340px] bg-gray-2;
 
   &.is-nav-open{
     transform: translateX(0);
