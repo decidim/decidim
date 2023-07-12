@@ -179,10 +179,6 @@ en:
           media_links_title: Media Links
         new:
           create: Create
-<<<<<<< HEAD
-          new_media: New media link
-=======
->>>>>>> ebcd7a278a55910b5c2c78e7aa8813e2595d6ada
           title: Media Link
         update:
           error: There was a problem updating this media link.
