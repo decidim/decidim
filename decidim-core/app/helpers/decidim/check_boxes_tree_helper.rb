@@ -71,7 +71,7 @@ module Decidim
       end
 
       TreeNode.new(
-        TreePoint.new("", filter_text_for(t("decidim.proposals.application_helper.filter_category_values.all"))),
+        TreePoint.new("", filter_text_for(t("decidim.core.application_helper.filter_category_values.all"))),
         categories_values
       )
     end
@@ -106,7 +106,7 @@ module Decidim
                      end
 
       TreeNode.new(
-        TreePoint.new("", filter_text_for(t("decidim.initiatives.application_helper.filter_area_values.all"))),
+        TreePoint.new("", filter_text_for(t("decidim.core.application_helper.filter_area_values.all"))),
         areas_values
       )
     end
@@ -115,7 +115,7 @@ module Decidim
       root_point = if array.first[0].blank?
                      TreePoint.new(*array.shift)
                    else
-                     TreePoint.new("", filter_text_for(t("decidim.proposals.application_helper.filter_scope_values.all")))
+                     TreePoint.new("", filter_text_for(t("decidim.core.application_helper.filter_scope_values.all")))
                    end
       TreeNode.new(
         root_point,
@@ -179,7 +179,7 @@ module Decidim
 
     def filter_tree_from(scopes_values)
       TreeNode.new(
-        TreePoint.new("", filter_text_for(t("decidim.proposals.application_helper.filter_scope_values.all"))),
+        TreePoint.new("", filter_text_for(t("decidim.core.application_helper.filter_scope_values.all"))),
         scopes_values
       )
     end

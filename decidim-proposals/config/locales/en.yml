@@ -609,16 +609,12 @@ en:
         rejected: Rejected
         withdrawn: Withdrawn
       application_helper:
-        filter_category_values:
-          all: All
         filter_origin_values:
           all: All
           meetings: Meetings
           official: Official
           participants: Participants
           user_groups: Groups
-        filter_scope_values:
-          all: All
         filter_state_values:
           accepted: Accepted
           all: All
