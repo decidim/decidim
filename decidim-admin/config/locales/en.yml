@@ -1037,11 +1037,12 @@ en:
         components: Components
         dashboard: Dashboard
         edit_content_block: Edit content block
-        edit_landing_page: Edit landing page
+        edit_landing_page: Page contents
         impersonatable_users: Manageable participants
         impersonations: Participants management
         metrics: Metrics
-        new_component: New component
+        moderated_users: Reported participants
+        new_component: Add component
         panel: Admin
         participants: Participants
         scope_types: Scope types
@@ -1050,10 +1051,6 @@ en:
         statistics: Activity
         user_groups: Groups
         users: Administrators
-        moderated_users: Reported participants
-        edit_landing_page: Page contents
-        components: Components
-        new_component: Add component
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.
