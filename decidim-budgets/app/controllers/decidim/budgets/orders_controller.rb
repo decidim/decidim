@@ -40,7 +40,7 @@ module Decidim
       private
 
       def budget
-        @budget ||= Budget.find_by(id: params[:budget_id])
+        @budget ||= Budget.find_by(id: params[:budget_id], component: current_component)
       end
 
       def redirect_path
