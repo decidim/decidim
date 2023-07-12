@@ -1379,7 +1379,6 @@ en:
           dont_have_access_code: Do not have an access code?
           form_title: 'Fill the following form to access the voting:'
           start_voting: Start voting
-          step: Identification
           title: Identify myself with my voting census data
         no_census_contact_information: There is no contact information yet.
         orders:
