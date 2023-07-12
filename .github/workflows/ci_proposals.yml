@@ -1,4 +1,4 @@
-name: "[CI] Budgets"
+name: "[CI] Proposals (system admin)"
 on:
   push:
     branches:
@@ -12,10 +12,13 @@ on:
       - "*"
       - ".github/**"
       - "decidim-admin/**"
+      - "decidim-assemblies/**"
       - "decidim-budgets/**"
       - "decidim-comments/**"
       - "decidim-core/**"
       - "decidim-dev/**"
+      - "decidim-meetings/**"
+      - "decidim-participatory_processes/**"
       - "decidim-proposals/**"
 
 concurrency:
@@ -27,11 +30,20 @@ jobs:
     uses: ./.github/workflows/build_app.yml
     secrets: inherit
     name: Build test application
+
   main:
+    strategy:
+      matrix:
+        test-command:
+          - bundle exec parallel_test --type rspec --pattern spec/ --exclude-pattern spec/system
+          - bundle exec parallel_test --type rspec --pattern spec/system --exclude-pattern spec/system/admin
+          - bundle exec parallel_test --type rspec --pattern spec/system/admin
     needs: build_app
     name: Tests
     uses: ./.github/workflows/test_app.yml
     secrets: inherit
     with:
-      working-directory: "decidim-budgets"
-      test_command: bundle exec parallel_test --type rspec --pattern spec/
+      working-directory: "decidim-proposals"
+      test_command: ${{ matrix.test-command }}
+
+
