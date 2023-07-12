@@ -14,7 +14,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the proposal vote.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -94,7 +94,7 @@ module Decidim
       end
 
       def notify_support_threshold_reached(before, after)
-        # Don't need to notify if threshold has already been reached
+        # Do not need to notify if threshold has already been reached
         return if before == after || after != 100
 
         Decidim::EventsManager.publish(

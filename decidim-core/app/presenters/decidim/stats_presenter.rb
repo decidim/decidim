@@ -15,18 +15,17 @@ module Decidim
     end
 
     def statistics(grouped_stats)
-      statistics = []
-      grouped_stats.each do |_manifest_name, stats|
-        stats.each_with_index.each do |stat, _index|
-          stat.each_with_index.map do |_item, subindex|
-            next unless (subindex % 3).zero?
-            next if stat[subindex + 2].zero?
+      statistics = {}
 
-            statistics << { stat_title: stat[subindex + 1], stat_number: stat[subindex + 2] }
-          end
+      grouped_stats.each do |_manifest_name, stats|
+        stats.each do |_space_manifest, component_manifest, count|
+          next if count.zero?
+
+          statistics[component_manifest] ||= 0
+          statistics[component_manifest] += count
         end
       end
-      statistics
+      statistics.map { |key, number| { stat_title: key, stat_number: number } }
     end
   end
 end

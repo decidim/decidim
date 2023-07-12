@@ -8,7 +8,7 @@ module Decidim
     include Decidim::IconHelper
     include Decidim::Core::Engine.routes.url_helpers
 
-    # Since we're rendering each activity separatedly we need to trigger
+    # Since we are rendering each activity separatedly we need to trigger
     # BatchLoader in order to accumulate all the ids to be found later.
     def show
       return if activities.blank?
@@ -17,23 +17,17 @@ module Decidim
     end
 
     def activity_cell_for(activity)
-      options = {
+      opts = options.slice(:id_prefix, :hide_participatory_space).merge(
         show_author: (context[:user] != activity.user)
-      }
+      )
 
-      cell "#{activity.resource_type.constantize.name.underscore}_activity", activity, context: options
+      cell "#{activity.resource_type.constantize.name.underscore}_activity", activity, context: opts
     rescue NameError
-      cell "decidim/activity", activity, context: options
+      cell "decidim/activity", activity, context: opts
     end
 
     def activities
-      @activities ||= last_activities.select do |activity|
-        activity.visible_for?(current_user)
-      end
-    end
-
-    def last_activities
-      @last_activities ||= model.map do |activity|
+      @activities ||= model.map do |activity|
         activity.organization_lazy
         activity.resource_lazy
         activity.participatory_space_lazy

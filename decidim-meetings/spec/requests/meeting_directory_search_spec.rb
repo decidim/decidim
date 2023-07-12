@@ -4,22 +4,28 @@ require "spec_helper"
 
 RSpec.describe "Meeting directory search", type: :request do
   include Decidim::ComponentPathHelper
+  include Decidim::SanitizeHelper
 
   subject { response.body }
 
   let(:organization) { create(:organization) }
   let!(:components) { create_list(:component, 3, manifest_name: "meetings", organization:) }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
 
   let(:participatory_space) { components.first.participatory_space }
-  let!(:category1) { create :category, participatory_space: }
-  let!(:category2) { create :category, participatory_space: }
-  let!(:child_category) { create :category, participatory_space:, parent: category2 }
-  let!(:meeting1) { create(:meeting, :published, component: components.second) }
-  let!(:meeting2) { create(:meeting, :published, component: components.first, category: category1) }
-  let!(:meeting3) { create(:meeting, :published, component: components.first, category: category2) }
-  let!(:meeting4) { create(:meeting, :published, component: components.first, category: child_category) }
-  let!(:meeting5) { create(:meeting, :published, component: components.third) }
+  let!(:category1) { create(:category, participatory_space:) }
+  let!(:category2) { create(:category, participatory_space:) }
+  let!(:child_category) { create(:category, participatory_space:, parent: category2) }
+  let(:meeting1) { create(:meeting, :published, component: components.second) }
+  let(:meeting2) { create(:meeting, :published, component: components.first, category: category1) }
+  let(:meeting3) { create(:meeting, :published, component: components.first, category: category2) }
+  let(:meeting4) { create(:meeting, :published, component: components.first, category: child_category) }
+  let(:meeting5) { create(:meeting, :published, component: components.third) }
+  let!(:meeting1_title) { decidim_html_escape(translated(meeting1.title)) }
+  let!(:meeting2_title) { decidim_html_escape(translated(meeting2.title)) }
+  let!(:meeting3_title) { decidim_html_escape(translated(meeting3.title)) }
+  let!(:meeting4_title) { decidim_html_escape(translated(meeting4.title)) }
+  let!(:meeting5_title) { decidim_html_escape(translated(meeting5.title)) }
 
   let(:filter_params) { {} }
   let(:request_path) { engine_routes.meetings_path }
@@ -34,11 +40,11 @@ RSpec.describe "Meeting directory search", type: :request do
   end
 
   it "displays all meetings without any filters" do
-    expect(subject).to include(translated(meeting1.title))
-    expect(subject).to include(translated(meeting2.title))
-    expect(subject).to include(translated(meeting3.title))
-    expect(subject).to include(translated(meeting4.title))
-    expect(subject).to include(translated(meeting5.title))
+    expect(subject).to include(meeting1_title)
+    expect(subject).to include(meeting2_title)
+    expect(subject).to include(meeting3_title)
+    expect(subject).to include(meeting4_title)
+    expect(subject).to include(meeting5_title)
   end
 
   context "when filtering by category" do
@@ -48,11 +54,11 @@ RSpec.describe "Meeting directory search", type: :request do
       let(:category_ids) { nil }
 
       it "displays all resources" do
-        expect(subject).to include(translated(meeting1.title))
-        expect(subject).to include(translated(meeting2.title))
-        expect(subject).to include(translated(meeting3.title))
-        expect(subject).to include(translated(meeting4.title))
-        expect(subject).to include(translated(meeting5.title))
+        expect(subject).to include(meeting1_title)
+        expect(subject).to include(meeting2_title)
+        expect(subject).to include(meeting3_title)
+        expect(subject).to include(meeting4_title)
+        expect(subject).to include(meeting5_title)
       end
     end
 
@@ -60,11 +66,11 @@ RSpec.describe "Meeting directory search", type: :request do
       let(:category_ids) { [category2.id] }
 
       it "displays only resources for that category and its children" do
-        expect(subject).not_to include(translated(meeting1.title))
-        expect(subject).not_to include(translated(meeting2.title))
-        expect(subject).to include(translated(meeting3.title))
-        expect(subject).to include(translated(meeting4.title))
-        expect(subject).not_to include(translated(meeting5.title))
+        expect(subject).not_to include(meeting1_title)
+        expect(subject).not_to include(meeting2_title)
+        expect(subject).to include(meeting3_title)
+        expect(subject).to include(meeting4_title)
+        expect(subject).not_to include(meeting5_title)
       end
     end
 
@@ -72,11 +78,11 @@ RSpec.describe "Meeting directory search", type: :request do
       let(:category_ids) { [child_category.id] }
 
       it "displays only resources for that category" do
-        expect(subject).not_to include(translated(meeting1.title))
-        expect(subject).not_to include(translated(meeting2.title))
-        expect(subject).not_to include(translated(meeting3.title))
-        expect(subject).to include(translated(meeting4.title))
-        expect(subject).not_to include(translated(meeting5.title))
+        expect(subject).not_to include(meeting1_title)
+        expect(subject).not_to include(meeting2_title)
+        expect(subject).not_to include(meeting3_title)
+        expect(subject).to include(meeting4_title)
+        expect(subject).not_to include(meeting5_title)
       end
     end
 
@@ -85,11 +91,11 @@ RSpec.describe "Meeting directory search", type: :request do
       let(:category_ids) { [value] }
 
       it "displays only resources for that participatory_process - all categories and sub-categories" do
-        expect(subject).not_to include(translated(meeting1.title))
-        expect(subject).to include(translated(meeting2.title))
-        expect(subject).to include(translated(meeting3.title))
-        expect(subject).to include(translated(meeting4.title))
-        expect(subject).not_to include(translated(meeting5.title))
+        expect(subject).not_to include(meeting1_title)
+        expect(subject).to include(meeting2_title)
+        expect(subject).to include(meeting3_title)
+        expect(subject).to include(meeting4_title)
+        expect(subject).not_to include(meeting5_title)
       end
     end
 
@@ -97,11 +103,11 @@ RSpec.describe "Meeting directory search", type: :request do
       let(:category_ids) { ["without"] }
 
       it "returns resources without a category" do
-        expect(subject).to include(translated(meeting1.title))
-        expect(subject).not_to include(translated(meeting2.title))
-        expect(subject).not_to include(translated(meeting3.title))
-        expect(subject).not_to include(translated(meeting4.title))
-        expect(subject).to include(translated(meeting5.title))
+        expect(subject).to include(meeting1_title)
+        expect(subject).not_to include(meeting2_title)
+        expect(subject).not_to include(meeting3_title)
+        expect(subject).not_to include(meeting4_title)
+        expect(subject).to include(meeting5_title)
       end
     end
 
@@ -109,11 +115,11 @@ RSpec.describe "Meeting directory search", type: :request do
       let(:category_ids) { ["without", category1.id] }
 
       it "returns resources without a category and with the selected category" do
-        expect(subject).to include(translated(meeting1.title))
-        expect(subject).to include(translated(meeting2.title))
-        expect(subject).not_to include(translated(meeting3.title))
-        expect(subject).not_to include(translated(meeting4.title))
-        expect(subject).to include(translated(meeting5.title))
+        expect(subject).to include(meeting1_title)
+        expect(subject).to include(meeting2_title)
+        expect(subject).not_to include(meeting3_title)
+        expect(subject).not_to include(meeting4_title)
+        expect(subject).to include(meeting5_title)
       end
     end
   end

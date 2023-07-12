@@ -68,13 +68,13 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :template, template: template
+          enforce_permission_to(:update, :template, template:)
           @form = form(TemplateForm).from_model(template)
           @preview_form = form(Decidim::Forms::QuestionnaireForm).from_model(template.templatable)
         end
 
         def update
-          enforce_permission_to :update, :template, template: template
+          enforce_permission_to(:update, :template, template:)
           @form = form(TemplateForm).from_params(params)
           UpdateTemplate.call(template, @form, current_user) do
             on(:ok) do |questionnaire_template|
@@ -91,9 +91,9 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :template, template: template
+          enforce_permission_to(:destroy, :template, template:)
 
-          DestroyTemplate.call(template, current_user) do
+          DestroyQuestionnaireTemplate.call(template, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("templates.destroy.success", scope: "decidim.admin")
               redirect_to action: :index

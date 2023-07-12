@@ -6,12 +6,12 @@ module Decidim
     include Decidim::UserProfile
 
     def show
-      enforce_permission_to :read, :user, current_user: current_user
+      enforce_permission_to(:read, :user, current_user:)
       @user_interests = form(UserInterestsForm).from_model(current_user)
     end
 
     def update
-      enforce_permission_to :update, :user, current_user: current_user
+      enforce_permission_to(:update, :user, current_user:)
       @user_interests = form(UserInterestsForm).from_params(params)
 
       UpdateUserInterests.call(current_user, @user_interests) do

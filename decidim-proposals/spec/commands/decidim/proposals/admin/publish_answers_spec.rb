@@ -57,18 +57,18 @@ module Decidim
             expect { subject }.to broadcast(:invalid)
           end
 
-          it "doesn't publish the answers" do
+          it "does not publish the answers" do
             expect { subject }.not_to(change { proposals.map { |proposal| proposal.reload.published_state? }.uniq })
           end
 
-          it "doesn't trace the action" do
+          it "does not trace the action" do
             expect(Decidim.traceability)
               .not_to receive(:perform_action!)
 
             subject
           end
 
-          it "doesn't notify the answers" do
+          it "does not notify the answers" do
             expect(NotifyProposalAnswer).not_to receive(:call)
 
             subject

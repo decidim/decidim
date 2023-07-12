@@ -1,9 +1,22 @@
 # frozen_string_literal: true
 
 RSpec.shared_examples "manage debates" do
-  let!(:debate) { create :debate, category:, component: current_component }
+  let!(:debate) { create(:debate, category:, component: current_component) }
 
   before { visit_component_admin }
+
+  describe "listing" do
+    context "with enriched content" do
+      before do
+        debate.update!(title: { en: "Debate <strong>title</strong>" })
+        visit current_path
+      end
+
+      it "displays the correct title" do
+        expect(page.html).to include("Debate &lt;strong&gt;title&lt;/strong&gt;")
+      end
+    end
+  end
 
   describe "admin form" do
     before { click_on "New Debate" }
@@ -43,7 +56,7 @@ RSpec.shared_examples "manage debates" do
 
       it "cannot edit the debate" do
         within find("tr", text: translated(debate.title)) do
-          expect(page).to have_no_selector(".action-icon--edit")
+          expect(page).not_to have_selector(".action-icon--edit")
         end
       end
     end
@@ -51,8 +64,10 @@ RSpec.shared_examples "manage debates" do
 
   describe "previewing debates" do
     it "links the debate correctly" do
-      link = find("a", text: translated(debate.title))
-      expect(link[:href]).to include(resource_locator(debate).path)
+      within find("tr", text: translated(debate.title)) do
+        link = find("a", class: "action-icon--preview")
+        expect(link[:href]).to include(resource_locator(debate).path)
+      end
     end
 
     it "shows a preview of the debate" do
@@ -175,7 +190,7 @@ RSpec.shared_examples "manage debates" do
 
     it "deletes a debate" do
       within find("tr", text: translated(debate2.title)) do
-        accept_confirm do
+        accept_confirm admin: true do
           page.find(".action-icon--remove").click
         end
       end
@@ -194,7 +209,7 @@ RSpec.shared_examples "manage debates" do
 
       it "cannot delete the debate" do
         within find("tr", text: translated(debate2.title)) do
-          expect(page).to have_no_selector(".action-icon--remove")
+          expect(page).not_to have_selector(".action-icon--remove")
         end
       end
     end
@@ -224,11 +239,11 @@ RSpec.shared_examples "manage debates" do
 
       within "table" do
         within find("tr", text: translated(debate.title)) do
-          expect(page).to have_no_selector(".action-icon--edit")
+          expect(page).not_to have_selector(".action-icon--edit")
+          page.find(".action-icon--close").click
         end
       end
 
-      page.find(".action-icon--close").click
       expect(page).to have_content("The debate was great")
     end
 
@@ -237,7 +252,7 @@ RSpec.shared_examples "manage debates" do
 
       it "cannot close the debate" do
         within find("tr", text: translated(debate.title)) do
-          expect(page).to have_no_selector(".action-icon--close")
+          expect(page).not_to have_selector(".action-icon--close")
         end
       end
     end

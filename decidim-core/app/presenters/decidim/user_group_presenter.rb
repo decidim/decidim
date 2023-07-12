@@ -16,7 +16,7 @@ module Decidim
     end
 
     def can_be_contacted?
-      true
+      true unless blocked?
     end
 
     def officialization_text
@@ -24,6 +24,10 @@ module Decidim
     end
 
     def can_follow?
+      false
+    end
+
+    def officialized?
       false
     end
 

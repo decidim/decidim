@@ -16,7 +16,7 @@ module Decidim
 
         Date.strptime(value, I18n.t("date.formats.decidim_short"))
       rescue ArgumentError
-        nil
+        super
       end
     end
   end

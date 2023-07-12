@@ -8,13 +8,14 @@ module Decidim
     include Decidim::ContextualHelpHelper
     include Decidim::AmendmentsHelper
     include Decidim::CacheHelper
+    include Decidim::RedesignHelper
 
     # Truncates a given text respecting its HTML tags.
     #
     # text    - The String text to be truncated.
     # options - A Hash with the options to truncate the text (default: {}):
     #           :length - An Integer number with the max length of the text.
-    #           :separator - A String to append to the text when it's being
+    #           :separator - A String to append to the text when it is being
     #           truncated.
     #
     # Returns a String.
@@ -45,7 +46,7 @@ module Decidim
 
     # Generates a link to be added to the global Edit link so admins
     # can easily manage data without having to look for it at the admin
-    # panel when they're at a public page.
+    # panel when they are at a public page.
     #
     # link_url      - The String with the URL.
     # action        - The Symbol action to check the permissions for.
@@ -57,7 +58,7 @@ module Decidim
     # link_options[:class]  - An optional String to add as a css class to the link wrapper.
     #
     # Returns nothing.
-    def edit_link(link_url, action, subject, extra_context = {}, link_options = { class: "topbar__edit__link" })
+    def edit_link(link_url, action, subject, extra_context = {}, link_options = {})
       return unless current_user
       return unless admin_allowed_to?(action, subject, extra_context)
       return if content_for?(:edit_link)
@@ -68,7 +69,7 @@ module Decidim
 
     # Generates a second link to be added to the global admin action link so admins
     # can easily manage data without having to look for it at the admin
-    # panel when they're at a public page.
+    # panel when they are at a public page.
     #
     # link_url       - The String with the URL.
     # action         - The Symbol action to check the permissions for.
@@ -98,10 +99,7 @@ module Decidim
     #
     # Renders the cell contents.
     def cell(name, model, options = {}, &)
-      options = { context: { current_user: } }.deep_merge(options)
-
-      redesigned_name = redesigned_layout(name)
-      name = redesigned_name if Object.const_defined?("#{redesigned_name}_cell".camelize)
+      options = { context: { view_context: self, current_user: } }.deep_merge(options)
       super(name, model, options, &)
     end
 

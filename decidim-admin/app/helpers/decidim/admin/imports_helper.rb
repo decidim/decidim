@@ -13,7 +13,7 @@ module Decidim
       #
       # Returns a rendered dropdown.
       def import_dropdown(component = current_component, resource_id: nil)
-        render "decidim/admin/imports/dropdown", component: component, resource_id: resource_id, custom: block_given? do
+        render "decidim/admin/imports/dropdown", component:, resource_id:, custom: block_given? do
           yield if block_given?
         end
       end

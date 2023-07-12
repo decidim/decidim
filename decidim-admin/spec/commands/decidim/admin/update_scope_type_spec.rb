@@ -6,9 +6,9 @@ module Decidim::Admin
   describe UpdateScopeType do
     subject { described_class.new(scope_type, form, user) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:user) { create(:user, organization:) }
-    let(:scope_type) { create :scope_type, organization: }
+    let(:scope_type) { create(:scope_type, organization:) }
     let(:name) { Decidim::Faker::Localized.literal("new name") }
     let(:plural) { Decidim::Faker::Localized.literal("new names") }
 

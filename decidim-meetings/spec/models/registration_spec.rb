@@ -8,13 +8,13 @@ module Decidim::Meetings
 
     let(:meeting) { create(:meeting) }
     let(:user) { create(:user, organization: meeting.organization) }
-    let(:registration) { build :registration, meeting:, user: }
+    let(:registration) { build(:registration, meeting:, user:) }
 
     it { is_expected.to be_valid }
 
     context "when a registration already exists for the same user and meeting" do
       before do
-        create :registration, meeting:, user:
+        create(:registration, meeting:, user:)
       end
 
       it { is_expected.not_to be_valid }
@@ -25,7 +25,7 @@ module Decidim::Meetings
 
       context "when in the same meeting" do
         before do
-          create :registration, meeting:, user: create(:user, organization: meeting.organization), code:
+          create(:registration, meeting:, user: create(:user, organization: meeting.organization), code:)
         end
 
         it "is invalid" do
@@ -37,7 +37,7 @@ module Decidim::Meetings
 
       context "when in another meeting" do
         before do
-          create :registration, code:
+          create(:registration, code:)
         end
 
         it "is invalid" do

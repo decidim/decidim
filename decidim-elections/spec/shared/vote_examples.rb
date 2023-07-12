@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-shared_examples "doesn't allow to vote" do
-  it "doesn't allow clicking in the vote button" do
+shared_examples "does not allow to vote" do
+  it "does not allow clicking in the vote button" do
     visit router.election_path(id: election.id)
 
     expect(page).not_to have_link("Vote")
   end
 
-  it "doesn't allow to access directly to the vote page" do
+  it "does not allow to access directly to the vote page" do
     visit router.new_election_vote_path(election_id: election.id)
 
     expect(page).to have_content("You are not allowed to vote on this election at this moment.")
@@ -30,16 +30,16 @@ shared_examples "allows admins to preview the voting booth" do
   end
 end
 
-shared_examples "doesn't allow admins to preview the voting booth" do
+shared_examples "does not allow admins to preview the voting booth" do
   let(:user) { create(:user, :admin, :confirmed, organization: component.organization) }
 
-  it "doesn't allow clicking the preview button" do
+  it "does not allow clicking the preview button" do
     visit router.election_path(id: election.id)
 
     expect(page).not_to have_link("Preview")
   end
 
-  it "doesn't allow to access directly to the vote page" do
+  it "does not allow to access directly to the vote page" do
     visit router.new_election_vote_path(election_id: election.id)
 
     expect(page).to have_content("You are not allowed to vote on this election at this moment.")

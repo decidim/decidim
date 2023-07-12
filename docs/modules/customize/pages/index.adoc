@@ -16,9 +16,12 @@ Inside of your application you can customize it in different ways:
 
 * xref:customize:authorizations.adoc[Authorizations]
 * xref:customize:code.adoc[Code]
+* xref:customize:content_security_policy.adoc[Content security policy]
+* xref:customize:data_consent.adoc[Data consent]
 * xref:customize:gemfile.adoc[Gemfile]
 * xref:customize:images.adoc[Images]
 * xref:customize:javascript.adoc[Javascript]
+* xref:customize:logic.adoc[Logic]
 * xref:customize:menu.adoc[Menu]
 * xref:customize:oauth.adoc[OAuth]
 * xref:customize:styles.adoc[Styles]

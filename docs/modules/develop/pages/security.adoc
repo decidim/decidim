@@ -5,7 +5,7 @@
 Until we have the version 1.0 we support only the last minor and major
 version with security updates.
 
-https://github.com/decidim/decidim/blob/doc/security-keyserver/SECURITY.adoc[See the last supported version].
+https://github.com/decidim/decidim/blob/develop/SECURITY.md[See the last supported version].
 
 == Reporting a Vulnerability
 

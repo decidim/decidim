@@ -10,11 +10,11 @@ module Decidim
       end
 
       let(:current_organization) { create(:organization) }
-      let(:user) { create :user, organization: meeting_component.organization }
-      let(:meeting_component) { create :meeting_component }
-      let(:meeting) { create :meeting, component: meeting_component }
-      let(:poll) { create :poll, meeting: }
-      let(:questionnaire) { create :meetings_poll_questionnaire, questionnaire_for: poll }
+      let(:user) { create(:user, organization: meeting_component.organization) }
+      let(:meeting_component) { create(:meeting_component) }
+      let(:meeting) { create(:meeting, component: meeting_component) }
+      let(:poll) { create(:poll, meeting:) }
+      let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
       let!(:question) do
         create(
           :meetings_poll_question,

@@ -3,73 +3,54 @@
 require "spec_helper"
 
 describe "Admin manages participatory process group landing page", type: :system do
-  include_context "when admin administrating a participatory process"
-  let!(:participatory_process_group) { create(:participatory_process_group, organization:) }
+  include_context "when admin administrating a participatory process with hero content block registered"
+  let!(:resource) { create(:participatory_process_group, organization:) }
+  let(:scope_name) { :participatory_process_group_homepage }
+  let(:edit_landing_page_path) { decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(resource) }
   let(:active_content_blocks) do
     Decidim::ContentBlock.for_scope(
-      :participatory_process_group_homepage,
+      scope_name,
       organization:
-    ).where(scoped_resource_id: participatory_process_group.id)
+    ).where(scoped_resource_id: resource.id)
   end
 
   before do
-    unless Decidim.content_blocks.for(:participatory_process_group_homepage).any? { |cb| cb.name == :hero }
-      Decidim.content_blocks.register(:participatory_process_group_homepage, :hero) do |content_block|
-        content_block.cell = "decidim/content_blocks/hero"
-        content_block.settings_form_cell = "decidim/content_blocks/hero_settings_form"
-        content_block.public_name_key = "decidim.content_blocks.hero.name"
-
-        content_block.images = [
-          {
-            name: :background_image,
-            uploader: "Decidim::HomepageImageUploader"
-          }
-        ]
-
-        content_block.settings do |settings|
-          settings.attribute :welcome_text, type: :text, translated: true
-        end
-
-        content_block.default!
-      end
-    end
-
     switch_to_host(organization.host)
     login_as user, scope: :user
   end
 
-  context "when editing a participatory process group landing page" do
-    it "has sub nav with Landing page active" do
-      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group)
-      within "div.secondary-nav" do
-        expect(page).to have_content("Info")
-        expect(page).to have_content("Landing page")
-        active_secondary_nav = find(:xpath, ".//li[@class='is-active']")
-        expect(active_secondary_nav.text).to eq("Landing page")
-      end
-    end
+  def edit_content_block_path(resource, content_block)
+    decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(resource, content_block)
   end
+
+  it_behaves_like "manage landing page examples"
 
   context "when editing a non-persisted content block" do
     it "creates the content block to the db before editing it" do
-      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group)
+      visit edit_landing_page_path
 
       expect do
-        within ".js-list-availables" do
-          within find("li", text: "Hero image") do
-            find("svg.icon--pencil").click
+        within ".edit_content_blocks" do
+          click_button "Add content block"
+          within ".add-components" do
+            find("a", text: "Hero image").click
           end
         end
       end.to change(active_content_blocks, :count).by(1)
     end
 
     it "creates the content block when dragged from inactive to active panel" do
-      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group)
-      content_block = first("ul.js-list-availables li")
-      active_blocks_list = find("ul.js-list-actives")
+      visit edit_landing_page_path
 
       expect do
-        content_block.drag_to(active_blocks_list)
+        within ".edit_content_blocks" do
+          click_button "Add content block"
+          within ".add-components" do
+            find("a", text: "Hero image").click
+          end
+        end
+
+        first("ul.js-list-availables li").drag_to(find("ul.js-list-actives"))
         sleep(2)
       end.to change(active_content_blocks, :count).by(1)
     end
@@ -82,9 +63,10 @@ describe "Admin manages participatory process group landing page", type: :system
         organization:,
         manifest_name: :hero,
         scope_name: :participatory_process_group_homepage,
-        scoped_resource_id: participatory_process_group.id
+        scoped_resource_id: resource.id
       )
     end
+
     let(:cta_settings) do
       {
         button_url: "https://example.org/action",
@@ -96,15 +78,15 @@ describe "Admin manages participatory process group landing page", type: :system
       create(
         :content_block,
         organization:,
-        scope_name: :participatory_process_group_homepage,
-        scoped_resource_id: participatory_process_group.id,
+        scope_name:,
+        scoped_resource_id: resource.id,
         manifest_name: :cta,
         settings: cta_settings
       )
     end
 
     it "updates the settings of the content block" do
-      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(participatory_process_group, :hero)
+      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(resource, content_block)
 
       fill_in(
         :content_block_settings_welcome_text_en,
@@ -112,7 +94,7 @@ describe "Admin manages participatory process group landing page", type: :system
       )
 
       click_button "Update"
-      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(participatory_process_group, :hero)
+      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(resource, content_block)
       expect(page).to have_selector("input[value='Custom welcome text!']")
 
       content_block.reload
@@ -121,7 +103,7 @@ describe "Admin manages participatory process group landing page", type: :system
     end
 
     it "shows settings of cta" do
-      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(participatory_process_group, :cta)
+      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(resource, cta_content_block)
       cta_settings.values.each do |value|
         expect(page).to have_selector("input[value='#{value}']")
       end

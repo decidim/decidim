@@ -1,5 +1,7 @@
 /* eslint-disable no-invalid-this */
 
+// REDESING_PENDING: Remove deprecated script
+
 import Foundation from "foundation-sites"
 
 $(() => {

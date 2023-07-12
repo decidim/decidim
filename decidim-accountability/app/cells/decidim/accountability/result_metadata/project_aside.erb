@@ -1,0 +1,6 @@
+<% items.each do |item| %>
+  <div class="accountability__project-aside-item">
+    <div><%= icon item[:icon], class: "w-3.5 h-3.5 fill-current text-gray" %><%= item[:text] %></div>
+    <div><%= item[:value] %></div>
+  </div>
+<% end %>

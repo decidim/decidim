@@ -20,7 +20,7 @@ describe "Authorized comments", type: :system do
 
   before do
     switch_to_host(organization.host)
-    sign_in user
+    login_as user, scope: :user
   end
 
   shared_examples_for "allowed to comment" do
@@ -39,20 +39,20 @@ describe "Authorized comments", type: :system do
   shared_examples_for "allowed to vote a comment" do
     it do
       within "#comment_#{comments[0].id}" do
-        page.find(".comment__votes--up").click
+        page.find(".js-comment__votes--up").click
       end
 
-      expect(page).to have_selector(".comment__votes--up", text: /1/)
+      expect(page).to have_selector(".js-comment__votes--up", text: /1/)
     end
   end
 
   shared_examples_for "not allowed to vote a comment" do
     it do
       within "#comment_#{comments[0].id}" do
-        page.find(".comment__votes--up").click
+        page.find(".js-comment__votes--up").click
       end
 
-      expect(page).to have_selector(".comment__votes--up", text: /0/)
+      expect(page).to have_selector(".js-comment__votes--up", text: /0/)
       expect(page).to have_content("Authorization required")
     end
   end

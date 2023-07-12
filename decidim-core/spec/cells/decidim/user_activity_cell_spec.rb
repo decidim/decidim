@@ -8,6 +8,8 @@ describe Decidim::UserActivityCell, type: :cell do
 
   subject { my_cell.call }
 
+  let(:view_context) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
+
   let(:my_cell) do
     cell(
       "decidim/user_activity",
@@ -16,6 +18,7 @@ describe Decidim::UserActivityCell, type: :cell do
         activities:,
         filter:,
         resource_types:,
+        view_context:,
         user: model
       }
     )
@@ -70,9 +73,9 @@ describe Decidim::UserActivityCell, type: :cell do
   before do
     allow(controller).to receive(:current_organization).and_return(component.organization)
     allow(controller).to receive(:redesign_enabled?).and_return(true)
+    allow(controller).to receive(:params).and_return(ActionController::Parameters.new({}))
 
     allow(my_cell).to receive(:url_for).and_return("/")
-    allow(my_cell).to receive(:params).and_return(ActionController::Parameters.new({}))
     allow(my_cell).to receive(:controller).and_return(controller)
   end
 
@@ -85,7 +88,7 @@ describe Decidim::UserActivityCell, type: :cell do
       expect(subject).to have_link(title, href: comment_link)
     end
 
-    within "#decidim-paginate-container .pagination" do
+    within ".pagination" do
       expect(page).to have_selector("li.page.current", text: "1")
       expect(page).to have_selector("li.page a", text: "2")
       expect(page).not_to have_selector("li.page a", text: "3")
@@ -104,7 +107,7 @@ describe Decidim::UserActivityCell, type: :cell do
         expect(subject).to have_link(title, href: comment_link)
       end
 
-      within "#decidim-paginate-container .pagination" do
+      within ".pagination" do
         expect(page).to have_selector("li.page a", text: "1")
         expect(page).to have_selector("li.page.current", text: "2")
       end
@@ -140,7 +143,7 @@ describe Decidim::UserActivityCell, type: :cell do
         expect(subject).to have_link(title, href: comment_link)
       end
 
-      expect(subject).not_to have_selector("#decidim-paginate-container .pagination")
+      expect(subject).not_to have_selector(".pagination")
     end
   end
 end

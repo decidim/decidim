@@ -22,7 +22,11 @@
           <% @areas.each do |area| %>
             <tr>
               <td>
-                <%= translated_attribute(area.name) %>
+                <% if allowed_to? :update, :area, area: area %>
+                  <%= link_to translated_attribute(area.name), [:edit, area] %>
+                <% else %>
+                  <%= translated_attribute(area.name) %>
+                <% end %>
               </td>
               <td>
                 <%= area.area_type ? translated_attribute(area.area_type.name) : "-" %>

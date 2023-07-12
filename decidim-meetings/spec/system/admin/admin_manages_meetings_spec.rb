@@ -3,9 +3,9 @@
 require "spec_helper"
 require "decidim/proposals/test/capybara_proposals_picker"
 
-describe "Admin manages meetings", type: :system, serves_map: true, serves_geocoding_autocomplete: true do
+describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_map: true, type: :system do
   let(:manifest_name) { "meetings" }
-  let!(:meeting) { create :meeting, :published, scope:, services: [], component: current_component }
+  let!(:meeting) { create(:meeting, :published, scope:, services: [], component: current_component) }
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
@@ -21,7 +21,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
   describe "listing meetings" do
     it "lists the meetings by start date" do
-      old_meeting = create :meeting, scope: scope, services: [], component: current_component, start_time: 2.years.ago
+      old_meeting = create(:meeting, scope:, services: [], component: current_component, start_time: 2.years.ago)
       visit current_path
 
       expect(page).to have_selector("tbody tr:first-child", text: Decidim::Meetings::MeetingPresenter.new(meeting).title)
@@ -32,7 +32,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       visit current_path
 
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-        accept_confirm { click_link "Unpublish" }
+        accept_confirm(admin: true) { click_link "Unpublish" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -51,6 +51,17 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
         expect(page).to have_css(".action-icon--unpublish")
       end
     end
+
+    context "with enriched content" do
+      before do
+        meeting.update!(title: { en: "Meeting <strong>title</strong>" })
+        visit current_path
+      end
+
+      it "displays the correct title" do
+        expect(page.html).to include("Meeting &lt;strong&gt;title&lt;/strong&gt;")
+      end
+    end
   end
 
   describe "admin form" do
@@ -64,6 +75,8 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       click_link "Edit"
     end
 
+    it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full"
+
     it "shows help text" do
       expect(help_text_for("label[for*='meeting_address']")).to be_present
       expect(help_text_for("div[data-tabs-content*='meeting-location']")).to be_present
@@ -75,39 +88,39 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
         within "#meeting-title-tabs" do
           click_link "English"
         end
-        expect(page).to have_css("input", text: meeting.title[:en], visible: :visible)
+        expect(page).to have_field(text: meeting.title[:en], visible: :visible)
 
         within "#meeting-title-tabs" do
           click_link "Català"
         end
-        expect(page).to have_css("input", text: meeting.title[:ca], visible: :visible)
+        expect(page).to have_field(text: meeting.title[:ca], visible: :visible)
 
         within "#meeting-title-tabs" do
           click_link "Castellano"
         end
-        expect(page).to have_css("input", text: meeting.title[:es], visible: :visible)
+        expect(page).to have_field(text: meeting.title[:es], visible: :visible)
       end
 
       it "shows the description correctly in all available locales" do
         within "#meeting-description-tabs" do
           click_link "English"
         end
-        expect(page).to have_css("input", text: meeting.description[:en], visible: :visible)
+        expect(page).to have_field(text: meeting.description[:en], visible: :visible)
 
         within "#meeting-description-tabs" do
           click_link "Català"
         end
-        expect(page).to have_css("input", text: meeting.description[:ca], visible: :visible)
+        expect(page).to have_field(text: meeting.description[:ca], visible: :visible)
 
         within "#meeting-description-tabs" do
           click_link "Castellano"
         end
-        expect(page).to have_css("input", text: meeting.description[:es], visible: :visible)
+        expect(page).to have_field(text: meeting.description[:es], visible: :visible)
       end
     end
 
     context "when there is only one locale" do
-      let(:organization) { create :organization, available_locales: [:en] }
+      let(:organization) { create(:organization, available_locales: [:en]) }
       let(:component) { create(:component, manifest_name:, organization:) }
       let!(:meeting) do
         create(:meeting, scope:, services: [], component:,
@@ -116,12 +129,20 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
       it "shows the title correctly" do
         expect(page).not_to have_css("#meeting-title-tabs")
-        expect(page).to have_css("input", text: meeting.title[:en], visible: :visible)
+        expect(page).to have_field(text: meeting.title[:en], visible: :visible)
       end
 
       it "shows the description correctly" do
         expect(page).not_to have_css("#meeting-description-tabs")
-        expect(page).to have_css("input", text: meeting.description[:en], visible: :visible)
+        expect(page).to have_field(text: meeting.description[:en], visible: :visible)
+      end
+    end
+  end
+
+  it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full" do
+    before do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+        click_link "Edit"
       end
     end
   end
@@ -149,6 +170,36 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     within "table" do
       expect(page).to have_content("My new title")
     end
+  end
+
+  it "sets registration enabled to true when registration type is on this platform" do
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      click_link "Edit"
+    end
+
+    within ".edit_meeting" do
+      select "On this platform", from: :meeting_registration_type
+
+      find("*[type=submit]").click
+    end
+
+    expect(page).to have_admin_callout("successfully")
+    expect(meeting.reload.registrations_enabled).to be true
+  end
+
+  it "sets registration enabled to false when registration type is not on this platform" do
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      click_link "Edit"
+    end
+
+    within ".edit_meeting" do
+      select "Registration disabled", from: :meeting_registration_type
+
+      find("*[type=submit]").click
+    end
+
+    expect(page).to have_admin_callout("successfully")
+    expect(meeting.reload.registrations_enabled).to be false
   end
 
   it "adds a few services to the meeting", :serves_geocoding_autocomplete do
@@ -194,7 +245,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
   end
 
   it "allows the user to preview an unpublished meeting" do
-    unpublished_meeting = create :meeting, scope: scope, services: [], component: current_component
+    unpublished_meeting = create(:meeting, scope:, services: [], component: current_component)
     visit current_path
 
     meeting_path = resource_locator(unpublished_meeting).path
@@ -214,7 +265,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     expect(page).to have_current_path(meeting_path)
   end
 
-  it "creates a new meeting", :slow, :serves_geocoding_autocomplete do # rubocop:disable RSpec/ExampleLength
+  it "creates a new meeting", :serves_geocoding_autocomplete, :slow do # rubocop:disable RSpec/ExampleLength
     find(".card-title a.button").click
 
     fill_in_i18n(
@@ -346,11 +397,11 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       select "In person", from: :meeting_type_of_meeting
       expect(page).to have_field("Address")
       expect(page).to have_field(:meeting_location_en)
-      expect(page).to have_no_field("Online meeting URL")
+      expect(page).not_to have_field("Online meeting URL")
 
       select "Online", from: :meeting_type_of_meeting
-      expect(page).to have_no_field("Address")
-      expect(page).to have_no_field(:meeting_location_en)
+      expect(page).not_to have_field("Address")
+      expect(page).not_to have_field(:meeting_location_en)
       expect(page).to have_field("Online meeting URL")
 
       select "Hybrid", from: :meeting_type_of_meeting
@@ -365,13 +416,13 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
     within ".new_meeting" do
       select "Registration disabled", from: :meeting_registration_type
-      expect(page).to have_no_field("Registration URL")
+      expect(page).not_to have_field("Registration URL")
 
       select "On a different platform", from: :meeting_registration_type
       expect(page).to have_field("Registration URL")
 
       select "On this platform", from: :meeting_registration_type
-      expect(page).to have_no_field("Registration URL")
+      expect(page).not_to have_field("Registration URL")
     end
   end
 
@@ -384,13 +435,13 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
     it "deletes a meeting" do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting2).title) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm(admin: true) { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(Decidim::Meetings::MeetingPresenter.new(meeting2).title)
+        expect(page).not_to have_content(Decidim::Meetings::MeetingPresenter.new(meeting2).title)
       end
     end
   end
@@ -429,11 +480,11 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       end
     end
 
-    it "doesn't display error message when opening meeting's create form" do
+    it "does not display error message when opening meeting's create form" do
       find(".card-title a.button").click
 
       within "label[for='meeting_registration_type']" do
-        expect(page).to have_no_content("There's an error in this field.")
+        expect(page).not_to have_content("There is an error in this field.")
       end
     end
 
@@ -504,7 +555,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: meeting.component.participatory_space)
     end
-    let!(:proposals) { create_list(:proposal, 3, component: proposal_component, skip_injection: true) }
+    let!(:proposals) { create_list(:proposal, 3, component: proposal_component) }
 
     it "closes a meeting with a report" do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do

@@ -1,0 +1,105 @@
+require: rubocop-rails
+
+Rails:
+  Enabled: true
+
+Rails/ActionFilter:
+  Include:
+    - app/controllers/**/*.rb
+    - decidim-*/app/controllers/**/*.rb
+
+Rails/ContentTag:
+  Enabled: false
+
+Rails/CreateTableWithTimestamps:
+  Enabled: false
+
+Rails/EnumUniqueness:
+  Include:
+    - app/models/**/*.rb
+    - decidim-*/app/models/**/*.rb
+
+Rails/Exit:
+  Include:
+    - app/**/*.rb
+    - config/**/*.rb
+    - lib/**/*.rb
+    - decidim-*/app/**/*.rb
+    - decidim-*/config/**/*.rb
+    - decidim-*/lib/**/*.rb
+  Exclude:
+    - lib/**/*.rake
+    - decidim-*/lib/**/*.rake
+
+Rails/FindBy:
+  Include:
+    - "**/*.rb"
+
+Rails/FindEach:
+  Include:
+    - app/models/**/*.rb
+    - decidim-*/app/models/**/*.rb
+
+Rails/HasAndBelongsToMany:
+  Include:
+    - app/models/**/*.rb
+    - decidim-*/app/models/**/*.rb
+
+Rails/HasManyOrHasOneDependent:
+  Include:
+    - app/models/**/*.rb
+    - decidim-*/app/models/**/*.rb
+
+Rails/InverseOf:
+  Enabled: false
+
+Rails/LexicallyScopedActionFilter:
+  Include:
+    - app/controllers/**/*.rb
+    - decidim-*/app/controllers/**/*.rb
+
+Rails/NotNullColumn:
+  Enabled: false
+
+Rails/Output:
+  Include:
+    - app/**/*.rb
+    - config/**/*.rb
+    - db/**/*.rb
+    - lib/**/*.rb
+    - decidim-*/app/**/*.rb
+    - decidim-*/config/**/*.rb
+    - decidim-*/db/**/*.rb
+    - decidim-*/lib/**/*.rb
+  Exclude:
+    - "**/db/seeds.rb"
+
+Rails/OutputSafety:
+  Enabled: false
+
+Rails/Pluck:
+  Enabled: false
+
+Rails/RakeEnvironment:
+  Enabled: false
+
+Rails/ReadWriteAttribute:
+  Include:
+    - app/models/**/*.rb
+    - decidim-*/app/models/**/*.rb
+
+Rails/ReversibleMigration:
+  Enabled: false
+
+Rails/ScopeArgs:
+  Include:
+    - app/models/**/*.rb
+    - decidim-*/app/models/**/*.rb
+
+Rails/SkipsModelValidations:
+  Enabled: true
+
+Rails/Validation:
+  Include:
+    - app/models/**/*.rb
+    - decidim-*/app/models/**/*.rb

@@ -11,7 +11,7 @@ module Decidim
         let!(:current_user) { create(:user, organization:) }
         let(:follower) { create(:user, organization:) }
         let(:proposal_draft) { create(:proposal, :draft, component:, users: [current_user]) }
-        let!(:follow) { create :follow, followable: current_user, user: follower }
+        let!(:follow) { create(:follow, followable: current_user, user: follower) }
 
         it "broadcasts ok" do
           expect { described_class.call(proposal_draft, current_user) }.to broadcast(:ok)

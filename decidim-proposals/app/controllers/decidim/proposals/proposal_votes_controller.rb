@@ -12,7 +12,7 @@ module Decidim
       before_action :authenticate_user!
 
       def create
-        enforce_permission_to :vote, :proposal, proposal: proposal
+        enforce_permission_to(:vote, :proposal, proposal:)
         @from_proposals_list = params[:from_proposals_list] == "true"
 
         VoteProposal.call(proposal, current_user) do
@@ -35,7 +35,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to :unvote, :proposal, proposal: proposal
+        enforce_permission_to(:unvote, :proposal, proposal:)
         @from_proposals_list = params[:from_proposals_list] == "true"
 
         UnvoteProposal.call(proposal, current_user) do

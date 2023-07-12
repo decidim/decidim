@@ -25,7 +25,7 @@ describe Decidim::Coauthorship do
       end
     end
 
-    context "when the author doesn't have a membership of the user group" do
+    context "when the author does not have a membership of the user group" do
       it "is not valid" do
         user_group = create(:user_group, :verified)
         subject.user_group = user_group

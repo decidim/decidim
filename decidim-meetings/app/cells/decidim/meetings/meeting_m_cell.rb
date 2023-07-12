@@ -24,7 +24,7 @@ module Decidim
       end
 
       def title
-        present(model).title
+        present(model).title(html_escape: true)
       end
 
       def description
@@ -43,7 +43,7 @@ module Decidim
         ["alert"]
       end
 
-      delegate :online_meeting?, to: :model
+      delegate :online?, to: :model
 
       private
 

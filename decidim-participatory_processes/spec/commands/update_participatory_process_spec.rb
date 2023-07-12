@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim::ParticipatoryProcesses
   describe Admin::UpdateParticipatoryProcess do
     describe "call" do
-      let(:my_process) { create :participatory_process }
+      let(:my_process) { create(:participatory_process) }
       let(:params) do
         {
           participatory_process: {
@@ -45,7 +45,7 @@ module Decidim::ParticipatoryProcesses
           banner_image: my_process.banner_image.blob
         }
       end
-      let(:user) { create :user, :admin, :confirmed, organization: my_process.organization }
+      let(:user) { create(:user, :admin, :confirmed, organization: my_process.organization) }
       let(:context) do
         {
           current_organization: my_process.organization,
@@ -67,7 +67,7 @@ module Decidim::ParticipatoryProcesses
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't update the participatory process" do
+        it "does not update the participatory process" do
           command.call
           my_process.reload
 
@@ -120,14 +120,14 @@ module Decidim::ParticipatoryProcesses
         end
 
         context "with related processes" do
-          let!(:another_process) { create :participatory_process, organization: my_process.organization }
+          let!(:another_process) { create(:participatory_process, organization: my_process.organization) }
 
           it "links related processes" do
             allow(form).to receive(:related_process_ids).and_return([another_process.id])
             command.call
 
             linked_processes = my_process.linked_participatory_space_resources(:participatory_process, "related_processes")
-            expect(linked_processes).to match_array([another_process])
+            expect(linked_processes).to contain_exactly(another_process)
           end
         end
 

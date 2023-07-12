@@ -19,7 +19,7 @@ module Decidim
     before_validation :generate_identifier
 
     # Finds a matching short link to the same target with exactly the same
-    # parameters if it already exists or creates a new one if it doesn't exist.
+    # parameters if it already exists or creates a new one if it does not exist.
     #
     # @param target [ActiveRecord::Base] The target where this short link should
     #   link to. Most of the times [Decidim::Organization], [Decidim::Component]

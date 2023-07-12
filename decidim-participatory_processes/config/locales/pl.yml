@@ -203,9 +203,6 @@ pl:
           success: Utworzono etap procesu partycypacyjnego.
         default_title: Wprowadzenie
         destroy:
-          error:
-            active_step: Nie można usunąć aktywnego etapu.
-            last_step: Nie można usunąć ostatniego etapu procesu.
           success: Etap procesu partycypacyjnego został usunięty.
         edit:
           title: Edytuj etap procesu partycypacyjnego
@@ -439,8 +436,6 @@ pl:
               many: "%{count} nadchodzących procesów"
               other: "%{count} nadchodzących procesów"
           explanations:
-            no_active: Brak aktualnych procesów
-            no_active_nor_upcoming: Brak aktualnych i nadchodzących procesów
             no_active_nor_upcoming_callout: Nie ma aktualnych ani nadchodzących procesów. Oto lista poprzednich procesów.
           names:
             active: Aktualne

@@ -171,9 +171,6 @@ zh-CN:
           success: 参与进程阶段成功创建。
         default_title: 一. 导言
         destroy:
-          error:
-            active_step: 无法删除活动阶段。
-            last_step: 无法删除进程的最后一个阶段。
           success: 参与进程阶段已成功删除。
         edit:
           title: 编辑参与进程阶段
@@ -360,8 +357,6 @@ zh-CN:
             upcoming:
               other: "%{count} 个即将进行的进程"
           explanations:
-            no_active: 没有活动的进程
-            no_active_nor_upcoming: 没有活动或即将进行的进程
             no_active_nor_upcoming_callout: 没有活跃或即将开始的进程。这里是过去进程的清单。
           names:
             active: 已启用

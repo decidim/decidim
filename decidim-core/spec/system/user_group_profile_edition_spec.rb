@@ -8,7 +8,7 @@ describe "User group profile edition", type: :system do
   let!(:member) { create(:user, :confirmed, organization: creator.organization) }
 
   before do
-    create :user_group_membership, user: member, user_group: user_group, role: :member
+    create(:user_group_membership, user: member, user_group:, role: :member)
 
     switch_to_host(user_group.organization.host)
   end
@@ -20,11 +20,11 @@ describe "User group profile edition", type: :system do
     end
 
     it "does not show the link to edit" do
-      expect(page).to have_no_content("Edit group profile")
+      expect(page).not_to have_content("Edit group profile")
     end
 
     it "rejects the user that accesses manually" do
-      visit decidim.group_manage_users_path(user_group.nickname)
+      visit decidim.profile_group_members_path(user_group.nickname)
       expect(page).to have_content("You are not authorized to perform this action")
     end
   end
@@ -36,12 +36,13 @@ describe "User group profile edition", type: :system do
     end
 
     it "allows editing the profile" do
+      click_button "Manage group"
       expect(page).to have_content("Edit group profile")
       click_link "Edit group profile"
 
       fill_in "Name", with: "My super duper group"
       fill_in "About", with: "We are awesome"
-      dynamically_attach_file(:group_avatar, Decidim::Dev.asset("city.jpeg"), remove_before: true)
+      dynamically_attach_file(:group_avatar, Decidim::Dev.asset("city.jpeg"), remove_before: true, front_interface: true)
 
       click_button "Update group"
 

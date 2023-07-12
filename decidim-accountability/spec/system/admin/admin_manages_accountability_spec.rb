@@ -21,7 +21,9 @@ describe "Admin manages accountability", type: :system do
 
   describe "child results" do
     before do
-      click_link translated(result.title)
+      within ".table-list__actions" do
+        click_link "New Result"
+      end
     end
 
     it_behaves_like "manage child results"

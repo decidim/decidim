@@ -6,7 +6,7 @@ module Decidim::Meetings::Admin
   describe Invites do
     subject { described_class.for(Decidim::Meetings::Invite.all, search, filter) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:search) { nil }
     let(:filter) { nil }
 
@@ -30,7 +30,7 @@ module Decidim::Meetings::Admin
           let(:search) { "Argo" }
 
           it "returns all matching invites" do
-            expect(subject).to match_array([invites[1], invites[2]])
+            expect(subject).to contain_exactly(invites[1], invites[2])
           end
         end
 
@@ -84,7 +84,7 @@ module Decidim::Meetings::Admin
         let(:filter) { "accepted" }
 
         it 'returns the "Accepted" invites matching the query search' do
-          expect(subject).to match_array([accepted_invites[0], accepted_invites[2]])
+          expect(subject).to contain_exactly(accepted_invites[0], accepted_invites[2])
         end
       end
     end

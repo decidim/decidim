@@ -1,0 +1,32 @@
+= Develop
+
+* xref:develop:guide.adoc[Guide]
+* xref:develop:security.adoc[Security]
+
+== Decidim instances
+
+Decidim developers should first understand how to create their own Decidim instances before contributing back to the core.
+
+Start by xref:configure:index.adoc[creating your own Decidim instance] after which you can learn how to develop it further.
+
+== Customize
+
+The next phase in the learning process is to understand how you can customize the different functionality that Decidim provides in case you are not satisfied with the defaults it provides.
+
+Learn more about customizing Decidim from the xref:customize:index.adoc[Customize guide].
+
+== Modules
+
+Once you know the basics of Decidim, it is a great idea to learn creating your own modules before jumping into the Decidim core development. This way you can generally create the functionality that you need faster than providing it to the Decidim core as a pull request as that process takes longer. By modularizing your features it makes it also easier to provide them to the core at later stages.
+
+Learn more about module development from the xref:develop:modules.adoc[Module development guide].
+
+== Core development
+
+Once you feel you know Decidim well enough or want to fix a bug you found in the core, you can start learning more about core development. Note that the easiest way to get your core contributions accepted is to fix bugs and provide small improvements that do not change anything in the current functionality.
+
+First you need to understand the contribution process and the governance around it. To learn more about this topic, read through the xref:contribute:index.adoc[Contribute guide].
+
+== Security
+
+Security is very important to us. Please read through our xref:develop:security.adoc[Security policy] to learn how to report security issues.

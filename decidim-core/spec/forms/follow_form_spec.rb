@@ -6,8 +6,8 @@ module Decidim
   describe FollowForm do
     subject { form }
 
-    let(:user) { create :user }
-    let(:followable) { create :dummy_resource }
+    let(:user) { create(:user) }
+    let(:followable) { create(:dummy_resource) }
     let(:params) do
       {
         followable_gid: followable.to_sgid

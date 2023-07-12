@@ -7,10 +7,10 @@ describe "Private Space Proposal", type: :system do
   let(:manifest) { Decidim.find_component_manifest(manifest_name) }
 
   let!(:organization) { create(:organization) }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
 
-  let!(:participatory_space_private_user) { create :participatory_space_private_user, user: other_user, privatable_to: participatory_space_private }
+  let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: other_user, privatable_to: participatory_space_private) }
 
   let!(:participatory_space) { participatory_space_private }
 
@@ -26,14 +26,14 @@ describe "Private Space Proposal", type: :system do
   end
 
   context "when space is private and transparent" do
-    let!(:participatory_space_private) { create :assembly, :published, organization:, private_space: true, is_transparent: true }
+    let!(:participatory_space_private) { create(:assembly, :published, organization:, private_space: true, is_transparent: true) }
 
     context "when the user is not logged in" do
       it "does not allow create a proposal" do
         visit_component
 
-        within ".title-action" do
-          expect(page).to have_no_link("New proposal")
+        within "aside" do
+          expect(page).not_to have_link("New proposal")
         end
       end
     end
@@ -47,7 +47,9 @@ describe "Private Space Proposal", type: :system do
         it "not allows create a proposal" do
           visit_component
 
-          expect(page).to have_link("New proposal")
+          within "aside" do
+            expect(page).to have_link("New proposal")
+          end
         end
       end
 
@@ -59,8 +61,8 @@ describe "Private Space Proposal", type: :system do
         it "not allows create a proposal" do
           visit_component
 
-          within ".title-action" do
-            expect(page).to have_no_link("New proposal")
+          within "aside" do
+            expect(page).not_to have_link("New proposal")
           end
         end
       end
@@ -68,7 +70,7 @@ describe "Private Space Proposal", type: :system do
   end
 
   context "when the spaces is private and not transparent" do
-    let!(:participatory_space_private) { create :assembly, :published, organization:, private_space: true, is_transparent: false }
+    let!(:participatory_space_private) { create(:assembly, :published, organization:, private_space: true, is_transparent: false) }
 
     context "when the user is not logged in" do
       let(:target_path) { main_component_path(component) }
@@ -95,7 +97,7 @@ describe "Private Space Proposal", type: :system do
 
           within ".new_proposal" do
             fill_in :proposal_title, with: "Creating my proposal"
-            fill_in :proposal_body, with: "This is my proposal's body and I'm using it unwisely."
+            fill_in :proposal_body, with: "This is my proposal's body and I am using it unwisely."
 
             find("*[type=submit]").click
           end

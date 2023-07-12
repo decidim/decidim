@@ -15,7 +15,7 @@ module Decidim
       options[:data].update(abide: true, "live-validate" => true, "validate-on-blur" => true)
 
       options[:html] ||= {}
-      options[:html].update(novalidate: true)
+      options[:html].update(novalidate: true) unless options[:html].has_key?(:novalidate)
 
       # Generally called by form_for but we need the :url option generated
       # already before that.
@@ -201,7 +201,7 @@ module Decidim
     #
     # Returns an HTML-safe String.
     def form_required_explanation
-      content_tag(:div, class: "help-text help-text-form-required-fields") do
+      content_tag(:div, class: "help-text") do
         I18n.t("forms.required_explanation")
       end
     end

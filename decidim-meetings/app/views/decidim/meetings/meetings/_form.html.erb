@@ -59,7 +59,7 @@
 
 <% if current_participatory_space.has_subscopes? %>
   <div class="field">
-    <%= scopes_picker_field form, :decidim_scope_id %>
+    <%= scopes_select_field form, :decidim_scope_id %>
   </div>
 <% end %>
 
@@ -92,12 +92,10 @@
 <div class="field">
   <%= form.select(
     :user_group_id,
-    Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map{|g| [g.name, g.id]},
+    Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] },
     prompt: current_user.name,
     label: t(".create_as")
   ) %>
 </div>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_meetings" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_meetings" %>

@@ -7,7 +7,7 @@ require "decidim/proposals/test/factories"
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
   let(:component_type) { "Proposals" }
-  let!(:current_component) { create :proposal_component, participatory_space: participatory_process }
+  let!(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
   let!(:proposal) { create(:proposal, :with_votes, :with_endorsements, :participant_author, component: current_component, category:) }
   let!(:amendments) { create_list(:proposal_amendment, 5, amendable: proposal, emendation: proposal) }
 

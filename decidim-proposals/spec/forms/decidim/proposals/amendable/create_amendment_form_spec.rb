@@ -8,7 +8,7 @@ module Decidim
       subject { form }
 
       let(:amendable) { create(:proposal) }
-      let(:amender) { create :user, :confirmed, organization: amendable.organization }
+      let(:amender) { create(:user, :confirmed, organization: amendable.organization) }
 
       let(:form) do
         described_class.from_params(form_params).with_context(form_context)
@@ -32,7 +32,7 @@ module Decidim
 
       it_behaves_like "an amendment form"
 
-      context "when the emendation doesn't change the amendable" do
+      context "when the emendation does not change the amendable" do
         let(:emendation_params) { { title: translated(amendable.title), body: translated(amendable.body) } }
 
         it { is_expected.to be_invalid }

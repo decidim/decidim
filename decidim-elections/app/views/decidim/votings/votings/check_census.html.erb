@@ -31,13 +31,13 @@ edit_link(
           </p>
         </div>
         <% if datum.email.present? || datum.mobile_phone_number.present? %>
-          <%= render partial: "access_code_modal", locals: { datum: datum, email: datum.email ? datum.email.gsub!(/^.+@/,"****@") : "", sms: datum.mobile_phone_number ? datum.mobile_phone_number.gsub!(/.{3}\d$/,"***") : "" } %>
+          <%= render partial: "access_code_modal", locals: { datum:, email: datum.email ? datum.email.gsub!(/^.+@/,"****@") : "", sms: datum.mobile_phone_number ? datum.mobile_phone_number.gsub!(/.{3}\d$/,"***") : "" } %>
         <% end %>
       <% elsif not_found %>
         <div class="verify-census-error callout alert mt-s">
           <h5><%= t("decidim.votings.votings.check_census.error.title") %></h5>
           <p>
-            <%== t("decidim.votings.votings.check_census.error.info", census_contact_information: census_contact_information ) %>
+            <%== t("decidim.votings.votings.check_census.error.info", census_contact_information: ) %>
           </p>
         </div>
       <% end %>
@@ -52,7 +52,7 @@ edit_link(
                   <div class="card__content">
                     <form>
                       <div>
-                        <%= render partial: "check_fields", locals: { f: f, form: @form } %>
+                        <%= render partial: "check_fields", locals: { f:, form: @form } %>
                       </div>
                       <%= f.submit t(".check_status"), class: "button expanded mt-s mb-none" %>
                     </form>

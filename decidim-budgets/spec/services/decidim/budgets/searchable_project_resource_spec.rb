@@ -8,8 +8,8 @@ module Decidim
 
     include_context "when a resource is ready for global search"
 
-    let(:current_component) { create :budgets_component, organization: }
-    let(:budget) { create :budget, component: current_component }
+    let(:current_component) { create(:budgets_component, organization:) }
+    let(:budget) { create(:budget, component: current_component) }
 
     let!(:resource) do
       create(
@@ -72,7 +72,7 @@ module Decidim
             budget:,
             scope: scope1,
             title: Decidim::Faker::Localized.name,
-            description: Decidim::Faker::Localized.prefixed("Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!", test_locales)
+            description: Decidim::Faker::Localized.prefixed("Chewie, I will be waiting for your signal. Take care, you two. May the Force be with you. Ow!", test_locales)
           )
         end
 
@@ -81,7 +81,7 @@ module Decidim
             on(:ok) do |results_by_type|
               results = results_by_type[resource.class.name]
               expect(results[:count]).to eq 2
-              expect(results[:results]).to match_array [resource, resource2]
+              expect(results[:results]).to contain_exactly(resource, resource2)
             end
             on(:invalid) { raise("Should not happen") }
           end

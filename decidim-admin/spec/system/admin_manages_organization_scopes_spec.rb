@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Organization scopes", type: :system do
   include Decidim::SanitizeHelper
 
-  let(:admin) { create :user, :admin, :confirmed }
+  let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
   before do
@@ -70,13 +70,13 @@ describe "Organization scopes", type: :system do
 
       it "can delete them" do
         within find("tr", text: translated(scope.name)) do
-          accept_confirm { click_link "Delete" }
+          accept_confirm(admin: true) { click_link "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
 
         within ".card-section" do
-          expect(page).to have_no_content(translated(scope.name))
+          expect(page).not_to have_content(translated(scope.name))
         end
       end
 

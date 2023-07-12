@@ -47,7 +47,7 @@ module Decidim
     # rubocop:enable Metrics/ParameterLists
 
     def create_language_selector(locales, tabs_id, name)
-      if Decidim.available_locales.count > 4
+      if locales.count > 4
         language_selector_select(locales, tabs_id, name)
       else
         language_tabs(locales, tabs_id, name)
@@ -181,7 +181,6 @@ module Decidim
     #                      or 'full' (optional) (default: 'basic')
     #           :lines - The Integer to indicate how many lines should editor have (optional) (default: 10)
     #           :disabled - Whether the editor should be disabled
-    #           :editor_images - Allow attached images (optional) (default: false)
     #
     # Renders a container with both hidden field and editor container
     def editor(name, options = {})
@@ -191,18 +190,33 @@ module Decidim
       label_text = options[:label].to_s
       label_text = label_for(name) if label_text.blank?
       options.delete(:required)
-      hashtaggable = options.delete(:hashtaggable)
+      editor_image = Decidim::EditorImage.new
+      editor_options = editor_options(editor_image, options)
       hidden_options = extract_validations(name, options).merge(options)
 
-      content_tag(:div, class: "editor #{"hashtags__container" if hashtaggable}") do
+      @template.append_stylesheet_pack_tag "decidim_editor"
+      @template.append_javascript_pack_tag "decidim_editor", defer: false
+
+      content_tag(
+        :div,
+        class: "editor #{"hashtags__container" if editor_options[:editor]["class"].include?("js-hashtags")}",
+        id: "#{sanitize_for_dom_selector(@object_name)}_#{sanitize_for_dom_selector(name)}"
+      ) do
         template = ""
-        template += label(name, label_text + required_for_attribute(name)) if options.fetch(:label, true)
-        template += hidden_field(name, hidden_options)
-        template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if hashtaggable}", data: {
-          toolbar:,
-          disabled: options[:disabled]
-        }.merge(editor_images_options(options)), style: "height: #{lines}rem")
+        template += label(name, label_text + required_for_attribute(name), for: nil) if options.fetch(:label, true)
+        template += hidden_field(name, hidden_options.merge(id: nil))
+        template += content_tag(
+          :div,
+          nil,
+          class: editor_options[:editor].delete("class").join(" "),
+          data: {
+            toolbar:,
+            disabled: options[:disabled],
+            options: editor_options[:editor]
+          }
+        ) { content_tag(:div, nil, class: "editor-input", style: "height: #{lines}rem") }
         template += error_for(name, options) if error?(name)
+        template += editor_upload(editor_image, editor_options[:upload])
         template.html_safe
       end
     end
@@ -240,7 +254,7 @@ module Decidim
     #
     # name       - The name of the field (usually area_id)
     # collection - A collection of areas or area_types.
-    #              If it's areas, we sort the selectable options alphabetically.
+    #              If it is areas, we sort the selectable options alphabetically.
     #
     # Returns a String.
     def areas_select(name, collection, options = {}, html_options = {})
@@ -372,13 +386,12 @@ module Decidim
       data[:startdate] = I18n.l(value, format: :decidim_short) if value.present? && value.is_a?(Date)
       datepicker_format = ruby_format_to_datepicker(I18n.t("date.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
+      options[:help_text] ||= I18n.t("decidim.datepicker.help_text", datepicker_format:)
 
       template = text_field(
         attribute,
         options.merge(data:)
       )
-      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format:)
-      template += error_and_help_text(attribute, options.merge(help_text:))
       template.html_safe
     end
 
@@ -387,16 +400,22 @@ module Decidim
     def datetime_field(attribute, options = {})
       value = object.send(attribute)
       data = { datepicker: "", timepicker: "" }
-      data[:startdate] = I18n.l(value, format: :decidim_short) if value.present? && value.is_a?(ActiveSupport::TimeWithZone)
+      if value.present?
+        case value
+        when ActiveSupport::TimeWithZone
+          data[:startdate] = I18n.l(value, format: :decidim_short)
+        when Time, DateTime
+          data[:startdate] = I18n.l(value.in_time_zone(Time.zone), format: :decidim_short)
+        end
+      end
       datepicker_format = ruby_format_to_datepicker(I18n.t("time.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
+      options[:help_text] ||= I18n.t("decidim.datepicker.help_text", datepicker_format:)
 
       template = text_field(
         attribute,
         options.merge(data:)
       )
-      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format:)
-      template += content_tag(:span, help_text, class: "help-text")
       template.html_safe
     end
 
@@ -411,13 +430,13 @@ module Decidim
       object_attachment = object.attachment.present?
       record = object_attachment ? object.attachment : object
       options = {
-        titled: true,
+        titled: options[:multiple],
         resource_class: "Decidim::Attachment",
         show_current: false,
         max_file_size: max_file_size(record, :file),
         label: I18n.t("decidim.forms.upload.labels.add_attachment"),
         button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image"),
-        extension_allowlist: Decidim.organization_settings(Decidim::Attachment).upload_allowed_file_extensions
+        extension_allowlist: Decidim.organization_settings(record).upload_allowed_file_extensions
       }.merge(options)
 
       # Upload help uses extension allowlist from the options so we need to call this AFTER setting the defaults.
@@ -437,7 +456,7 @@ module Decidim
     #              * resouce_name: Name of the resource (e.g. user)
     #              * resource_class: Attribute's resource class (e.g. Decidim::User)
     #              * resouce_class: Class of the resource (e.g. user)
-    #              * optional: Whether the file can be optional or not.
+    #              * required: Whether the file is required or not (false by default).
     #              * titled: Whether the file can have title or not.
     #              * show_current: Whether the current file is displayed next to the button.
     #              * help: Array of help messages which are displayed inside of the upload modal.
@@ -452,19 +471,21 @@ module Decidim
       max_file_size = options[:max_file_size] || max_file_size(object, attribute)
       button_label = options[:button_label] || choose_button_label(attribute)
       help_messages = options[:help] || upload_help(object, attribute, options)
+      redesigned = @template.try(:redesign_enabled?)
 
       options = {
         attribute:,
         resource_name: @object_name,
         resource_class: options[:resource_class]&.to_s || resource_class(attribute),
-        optional: true,
+        required: false,
         titled: false,
         show_current: true,
         max_file_size:,
         help: help_messages,
         label: label_for(attribute),
         button_label:,
-        button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
+        button_edit_label: I18n.t("decidim.forms.upload.labels.replace"),
+        redesigned:
       }.merge(options)
 
       ::Decidim::ViewModel.cell(
@@ -591,7 +612,7 @@ module Decidim
       content = content.html_safe
 
       html = error_and_help_text(attribute, options.merge(help_text:))
-      html + wrap_prefix_and_postfix(content, prefix, postfix)
+      wrap_prefix_and_postfix(content, prefix, postfix) + html
     end
 
     # rubocop: disable Metrics/CyclomaticComplexity
@@ -680,7 +701,7 @@ module Decidim
     # Private: Override method from FoundationRailsHelper to render the text of the
     # label before the input, instead of after.
     #
-    # attribute - The String name of the attribute we're build the label.
+    # attribute - The String name of the attribute we are build the label.
     # text      - The String text to use as label.
     # options   - A Hash to build the label.
     #
@@ -705,6 +726,8 @@ module Decidim
                safe_join([yield, text.html_safe])
              elsif block_given?
                safe_join([text.html_safe, yield])
+             else
+               text
              end
 
       label(attribute, text, options || {})
@@ -712,7 +735,7 @@ module Decidim
     # rubocop:enable Metrics/PerceivedComplexity
     # rubocop:enable Metrics/CyclomaticComplexity
 
-    # Private: Builds a span to be shown when there's a validation error in a field.
+    # Private: Builds a span to be shown when there is a validation error in a field.
     # It looks for the text that will be the content in a similar way `human_attribute_name`
     # does it.
     #
@@ -844,11 +867,24 @@ module Decidim
     end
 
     def extension_allowlist_help(extension_allowlist)
-      ["#{I18n.t("extension_allowlist", scope: "decidim.forms.files")} #{extension_allowlist.map { |ext| ext }.join(", ")}"]
+      [I18n.t("extension_allowlist", scope: "decidim.forms.files", extensions: extension_allowlist.map { |ext| ext }.join(", "))]
     end
 
     def image_dimensions_help(dimensions_info)
-      dimensions_info.map do |_version, info|
+      sorted_info = dimensions_info.values.sort do |infoa, infob|
+        texta, textb = [infoa[:processor], infob[:processor]].map do |processor|
+          I18n.t("processors.#{processor}", scope: "decidim.forms.images", dimensions: "")
+        end
+        widtha, heighta = infoa[:dimensions]
+        widthb, heightb = infob[:dimensions]
+
+        [
+          texta <=> textb,
+          widtha <=> widthb,
+          heighta <=> heightb
+        ].find { |cmp| !cmp.zero? } || 0
+      end
+      sorted_info.map do |info|
         dimensions = I18n.t("dimensions", scope: "decidim.forms.images", width: info[:dimensions].first, height: info[:dimensions].last)
         I18n.t(
           "processors.#{info[:processor]}",
@@ -917,16 +953,6 @@ module Decidim
       end
     end
 
-    def editor_images_options(options)
-      return {} unless options[:editor_images]
-
-      {
-        editor_images: true,
-        upload_images_path: Decidim::Core::Engine.routes.url_helpers.editor_images_path,
-        drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images")
-      }
-    end
-
     # Private: Determines the correct resource class for validators from the
     # object or its PassthruValidator.
     def resource_class(attribute)
@@ -938,6 +964,65 @@ module Decidim
       return object.send(attribute).record.class if klass.respond_to?(:record) && klass.record.present?
 
       object.class
+    end
+
+    # Private: creates the options to pass to the view editor and its attached
+    # upload modal.
+    def editor_options(editor_image, options)
+      upload_options = options.delete(:image_upload) || {}
+      upload_options[:modal_id] ||= "upload_#{SecureRandom.uuid}"
+
+      hashtaggable = options.delete(:hashtaggable)
+      mentionable = options.delete(:mentionable)
+      emojiable = options.delete(:emojiable)
+
+      editor_classes = ["editor-container"]
+      editor_classes << "js-hashtags" if hashtaggable
+      editor_classes << "js-mentions" if mentionable
+      editor_classes << "js-emojis" if emojiable
+
+      editor_options = {
+        class: editor_classes,
+        context: options.delete(:context) || "admin",
+        content_types: {
+          image: editor_image.attached_uploader(:file).content_type_allowlist
+        },
+        upload_images_path: Decidim::Core::Engine.routes.url_helpers.editor_images_path,
+        drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images"),
+        upload_dialog_selector: "##{upload_options[:modal_id]}"
+      }.transform_keys { |key| key.to_s.camelize(:lower) }
+
+      { editor: editor_options, upload: upload_options }
+    end
+
+    # Private: creates an upload modal for the editor that we use to dynamically
+    # upload the images to the editor.
+    def editor_upload(editor_image, options = {})
+      upload_options = {
+        titled: true,
+        modal_only: true,
+        resource_class: "Decidim::EditorImage",
+        show_current: false,
+        max_file_size: max_file_size(editor_image, :file),
+        label: I18n.t("decidim.forms.upload.labels.add_image"),
+        button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image")
+      }.merge(options || {})
+
+      if upload_options[:help].blank?
+        # Upload help uses extension allowlist from the options so we need to call this AFTER setting the defaults.
+        upload_options[:help] = upload_help(
+          editor_image,
+          :file,
+          help_i18n_scope: "decidim.forms.file_help.image"
+        )
+      end
+
+      field = nil
+      @template.form_for(editor_image, url: "") do |form|
+        field = capture { form.upload(:file, upload_options) }
+      end
+
+      field
     end
   end
 end

@@ -4,7 +4,8 @@
 </div>
 
 <div class="collapsible hide">
-  <%= render partial: "smtp_settings", locals: { f: f } %>
-  <%= render partial: "omniauth_settings", locals: { f: f } %>
-  <%= render partial: "file_upload_settings", locals: { f: f } %>
+  <%= render partial: "smtp_settings", locals: { f: } %>
+  <%= render partial: "omniauth_settings", locals: { f: } %>
+  <%= render partial: "file_upload_settings", locals: { f: } %>
+  <%= render partial: "csp_settings", locals: { f: } %>
 </div>

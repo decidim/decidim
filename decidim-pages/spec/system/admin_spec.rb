@@ -21,6 +21,8 @@ describe "Edit a page", type: :system do
       visit_component_admin
     end
 
+    it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='page-body-tabs']", "full"
+
     it "updates the page" do
       new_body = {
         en: "<p>New body</p>",

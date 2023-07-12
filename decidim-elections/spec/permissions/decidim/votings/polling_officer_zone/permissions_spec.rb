@@ -8,7 +8,7 @@ module Decidim
       describe Permissions do
         subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-        let(:user) { create :user, organization: voting.organization }
+        let(:user) { create(:user, organization: voting.organization) }
         let(:context) do
           {
             polling_officer:,

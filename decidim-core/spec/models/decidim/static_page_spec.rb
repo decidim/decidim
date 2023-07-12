@@ -44,19 +44,19 @@ module Decidim
     end
 
     describe ".sorted_by_i18n_title" do
-      let!(:page1) { create :static_page, title: { ca: "Bcde", en: "Afgh" } }
-      let!(:page2) { create :static_page, title: { ca: "Abcd", en: "Defg" } }
+      let!(:page1) { create(:static_page, title: { ca: "Bcde", en: "Afgh" }) }
+      let!(:page2) { create(:static_page, title: { ca: "Abcd", en: "Defg" }) }
 
       before { I18n.locale = :ca }
 
       after { I18n.locale = :en }
 
       it "orders by the title in the current locale" do
-        expect(described_class.where.not(slug: "terms-and-conditions").sorted_by_i18n_title).to eq [page2, page1]
+        expect(described_class.where.not(slug: "terms-of-service").sorted_by_i18n_title).to eq [page2, page1]
       end
 
       it "orders by the title in the specified locale" do
-        expect(described_class.where.not(slug: "terms-and-conditions").sorted_by_i18n_title(:en)).to eq [page1, page2]
+        expect(described_class.where.not(slug: "terms-of-service").sorted_by_i18n_title(:en)).to eq [page1, page2]
       end
     end
 

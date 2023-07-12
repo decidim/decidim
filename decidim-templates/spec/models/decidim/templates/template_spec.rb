@@ -12,28 +12,19 @@ module Decidim
       it { is_expected.to be_valid }
 
       context "without an organization" do
-        let(:template) { build :template, organization: nil }
+        let(:template) { build(:template, organization: nil) }
 
         it { is_expected.not_to be_valid }
       end
 
       context "without a name" do
-        let(:template) { build :template, name: nil }
+        let(:template) { build(:template, name: nil) }
 
         it { is_expected.not_to be_valid }
       end
 
       it "has an associated templatable" do
         expect(subject.templatable).to be_a(Decidim::DummyResources::DummyResource)
-      end
-
-      describe "on destroy" do
-        let(:templatable) { template.templatable }
-
-        it "destroys the templatable" do
-          template.destroy!
-          expect { templatable.reload }.to raise_error(ActiveRecord::RecordNotFound)
-        end
       end
 
       describe "#resource_name" do

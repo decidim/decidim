@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/core/test/shared_examples/space_cell_changes_button_text_cta"
 
 module Decidim::Conferences
   describe ConferenceMCell, type: :cell do
@@ -15,10 +14,8 @@ module Decidim::Conferences
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(subject).to have_css(".card--conference")
+        expect(subject).to have_css("[id^='conference']")
       end
-
-      it_behaves_like "space cell changes button text CTA"
     end
   end
 end

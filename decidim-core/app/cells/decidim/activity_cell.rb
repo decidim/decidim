@@ -10,6 +10,7 @@ module Decidim
     include Decidim::IconHelper
     include Decidim::ApplicationHelper
     include Decidim::SanitizeHelper
+    include ActionView::Helpers::DateHelper
 
     def show
       return unless renderable?
@@ -18,7 +19,7 @@ module Decidim
     end
 
     # Since activity logs could be linked to resource no longer available
-    # this method is added in order to skip rendering a cell if there's
+    # this method is added in order to skip rendering a cell if there is
     # not enough data.
     def renderable?
       resource.present? && participatory_space.present? && published?
@@ -31,7 +32,7 @@ module Decidim
 
     # The title to show at the card.
     #
-    # The card will also be displayed OK if there's no title.
+    # The card will also be displayed OK if there is no title.
     def title
       resource_title = resource.try(:resource_title) || resource.try(:title)
       return if resource_title.blank?
@@ -44,9 +45,15 @@ module Decidim
       end
     end
 
+    def title_icon
+      return if resource.blank?
+
+      resource_type_icon(resource.class)
+    end
+
     # The description to show at the card.
     #
-    # The card will also be displayed OK if there's no description.
+    # The card will also be displayed OK if there is no description.
     def description
       resource_description = resource.try(:resource_description) || resource.try(:description)
       return if resource_description.blank?
@@ -72,7 +79,7 @@ module Decidim
     end
 
     def created_at
-      I18n.l(model.created_at, format: :short)
+      t("decidim.activity.time_ago", time: time_ago_in_words(model.created_at))
     end
 
     def user
@@ -87,11 +94,16 @@ module Decidim
     delegate :action, to: :model
 
     def element_id
-      "action-#{model.id}"
+      "#{id_prefix}-#{model.id}"
+    end
+
+    def id_prefix
+      @id_prefix ||= context[:id_prefix].presence || "action"
     end
 
     def cache_hash
       hash = []
+      hash << id_prefix
       hash << I18n.locale.to_s
       hash << model.class.name.underscore
       hash << model.cache_key_with_version
@@ -130,13 +142,17 @@ module Decidim
 
       return unless presenter
 
-      cell "decidim/author", presenter
+      cell "decidim/author", presenter, layout: :avatar
     end
 
     def participatory_space
       return resource if resource.is_a?(Decidim::Participable)
 
       model.participatory_space_lazy
+    end
+
+    def participatory_space_icon
+      icon "treasure-map-line"
     end
 
     def participatory_space_link
@@ -148,6 +164,10 @@ module Decidim
 
     def show_author?
       context[:show_author]
+    end
+
+    def hide_participatory_space?
+      context[:hide_participatory_space]
     end
   end
 end

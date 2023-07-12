@@ -31,6 +31,7 @@ module Decidim
           attributes = {
             title: @form.title,
             body: @form.body,
+            published_at: @form.published_at,
             component: @form.current_component,
             author: @form.author
           }

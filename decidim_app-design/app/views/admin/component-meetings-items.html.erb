@@ -28,8 +28,8 @@
           <div class="cell small-2"><strong>End date</strong></div>
         </div>
         <div class="grid-x text-muted">
-          <div class="cell small-2"><%= Faker::Time.forward(7).strftime("%m/%d/%Y %R") %></div>
-          <div class="cell small-2"><%= Faker::Time.forward(7).strftime("%m/%d/%Y %R") %></div>
+          <div class="cell small-2"><%= Faker::Time.forward(days: 7).strftime("%m/%d/%Y %R") %></div>
+          <div class="cell small-2"><%= Faker::Time.forward(days: 7).strftime("%m/%d/%Y %R") %></div>
         </div>
       </div>
     </div>
@@ -184,7 +184,7 @@
                   <% 2.times do %>
                     <div class="grid-x grid-padding-x pt-s pb-s">
                       <div class="cell shrink text-center"><%= icon "move" %></div>
-                      <div class="cell small-3"><%= Faker::Time.forward(7, :morning).strftime("%R") %>-<%= Faker::Time.forward(7, :evening).strftime("%R") %>&nbsp;<small>(<%= Faker::Number.between(from: 10, to: 180) %> min)</small></div>
+                      <div class="cell small-3"><%= Faker::Time.forward(days: 7, period: :morning).strftime("%R") %>-<%= Faker::Time.forward(days: 7, period: :evening).strftime("%R") %>&nbsp;<small>(<%= Faker::Number.between(from: 10, to: 180) %> min)</small></div>
                       <div class="cell auto"><strong><%= Faker::Movies::StarWars.quote[0..50] %></strong>&nbsp;<small><%= Faker::Movies::StarWars.quote %></small></div>
                       <div class="cell shrink text-center"><%= icon "circle-x" %></div>
                     </div>

@@ -1,15 +1,9 @@
 <%= render layout: "show", locals: { participants: conversation.interlocutors(current_user) } do %>
-  <div id="messages" class="scroll-to-last-message">
+  <div id="messages" class="space-y-6" data-scroll-last-child>
     <% user_grouped_messages.each do |sender, messages| %>
-        <%= render "messages", sender: sender, messages: messages %>
+      <%= render "messages", sender:, messages: %>
     <% end %>
   </div>
 
-  <% if conversation.with_deleted_users?(current_user) %>
-    <div class="callout warning margin-top-2"><%= t ".deleted_accounts" %></div>
-  <% elsif conversation.accept_user?(current_user) %>
-    <%= render "reply", form: @form, conversation: conversation %>
-  <% else %>
-    <div class="callout warning margin-top-2"><%= t ".not_allowed" %></div>
-  <% end %>
+  <%= render "reply", form: @form, conversation: %>
 <% end %>

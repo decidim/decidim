@@ -1,11 +1,27 @@
-<div class="row column">
-  <%= content_tag :div, class: "callout announcement mb-sm #{callout_class} cell-announcement" do %>
-    <% if has_title? %>
-      <p class="heading5"><%= clean_title %></p>
-
-      <%= clean_body %>
-    <% else %>
-      <%= clean_announcement %>
-    <% end %>
+<%= content_tag :div, id: options[:id], class: "callout #{callout_class}", data: { announcement: "", component: ("accordion" if truncate?) }.compact do %>
+  <% if has_title? %>
+    <div class="h4">
+      <%= clean_title %>
+    </div>
   <% end %>
-</div>
+
+  <% if truncate? %>
+    <% seed = options[:id] || SecureRandom.hex(4) %>
+    <div id="panel-view-more-<%= seed %>" aria-hidden="true">
+      <%= text %>
+    </div>
+
+    <button class="button button__sm button__text-secondary mt-2" data-controls="panel-view-more-<%= seed %>" aria-expanded="false">
+      <span>
+        <%= t("view_more", scope: "layouts.decidim.announcements") %>
+      </span>
+      <%= icon "arrow-down-s-line" %>
+      <span>
+        <%= t("close", scope: "layouts.decidim.announcements") %>
+      </span>
+      <%= icon "arrow-up-s-line" %>
+    </button>
+  <% else %>
+    <%= text %>
+  <% end %>
+<% end %>

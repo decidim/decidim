@@ -11,15 +11,22 @@ fi-pl:
         decidim_area_id: Alue
         description: Kuvaus
         developer_group: Kehittäjäryhmä
+        document: Asiakirja
         domain: Toimintaympäristö
         end_date: Päättymispäivä
         hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
+        import_attachments: Tuo liitteitä
+        import_categories: Kopioi aihepiirejä
+        import_components: Tuo komponentteja
+        import_steps: Tuo vaiheita
         local_area: Järjestöalue
         meta_scope: Teeman metadata
         participatory_process_group_id: Prosessiryhmä
+        participatory_process_type_id: Prosessin tyyppi
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
+        private_space: Yksityinen prosessi
         promoted: Korostettu
         published_at: Julkaisuaika
         related_process_ids: Liittyvät prosessit
@@ -67,7 +74,7 @@ fi-pl:
         participatory_process:
           attributes:
             document:
-              allowed_file_content_types: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{types}'
+              allowed_file_content_types: 'Virheellinen tiedostomuoto. Ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Vaihe aktivoidaan
       decidim/participatory_process_step_changed_event: Vaihe muutettu
@@ -95,6 +102,7 @@ fi-pl:
           all_processes: Näytä kaikki prosessit
           process_groups: Prosessiryhmät
         import_process: Tuo
+        moderate: Moderoi
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
@@ -169,8 +177,17 @@ fi-pl:
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Aktiiviset sisältölohkot
+          add: Lisää sisältölohko
+          destroy_confirmation: Haluatko varmasti poistaa tämän sisältölohkon?
           inactive_content_blocks: Käytöstä poistetut sisältölohkot
+          title: Sivun sisältö
       participatory_process_group_landing_page_content_blocks:
+        create:
+          error: Sisältölohkon luonti epäonnistui.
+          success: Sisältölohkon luonti onnistui.
+        destroy:
+          error: Sisältölohkon poisto epäonnistui.
+          success: Sisältölohkon poisto onnistui.
         edit:
           update: Päivitä
       participatory_process_groups:
@@ -346,7 +363,7 @@ fi-pl:
     log:
       value_types:
         participatory_process_type_presenter:
-          not_found: 'Prosessityyppiä ei löytynyt tietokannasta (ID: %{id})'
+          not_found: 'Prosessityyppiä ei löytynyt tietokannasta (ID: %{id}).'
     menu:
       processes: Prosessit
     metrics:
@@ -464,8 +481,8 @@ fi-pl:
               one: 1 tuleva prosessi
               other: "%{count} tulevaa prosessia"
           explanations:
-            no_active: Ei aktiivisia prosesseja
-            no_active_nor_upcoming: Ei aktiivisia tai tulevia prosesseja
+            no_active: Ei aktiivisia prosesseja.
+            no_active_nor_upcoming: Ei aktiivisia tai tulevia prosesseja.
             no_active_nor_upcoming_callout: Ei ole olemassa aktiivisia tai tulevia prosesseja. Tässä on luettelo menneistä.
           filter_by: Näytä
           names:

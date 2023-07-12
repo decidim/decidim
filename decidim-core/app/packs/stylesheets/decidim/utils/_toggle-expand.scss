@@ -1,23 +1,23 @@
 //Generic toggle expand
 
-.toggle-show{
+.toggle-show {
   display: none;
 
-  &.is-expanded{
+  &.is-expanded {
     display: block;
   }
 }
 
-.expanded-text{
-  .text-toggle__short{
+.expanded-text {
+  .text-toggle__short {
     display: none;
   }
 
-  .text-toggle__long{
+  .text-toggle__long {
     display: block;
   }
 }
 
-.text-toggle__long{
+.text-toggle__long {
   display: none;
 }

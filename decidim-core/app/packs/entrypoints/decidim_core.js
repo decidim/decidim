@@ -2,7 +2,6 @@
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
 
 import $ from "jquery"
-import Quill from "quill"
 import Rails from "@rails/ujs"
 
 import "core-js/stable";
@@ -13,7 +12,6 @@ window.morphdom = morphdom
 import "src/decidim/vendor/foundation-datepicker"
 import "src/decidim/foundation_datepicker_locales"
 import "src/decidim/vendor/modernizr"
-import "src/decidim/vendor/social-share-button"
 
 import "src/decidim/input_tags"
 import "src/decidim/input_hashtags"
@@ -34,11 +32,11 @@ import "src/decidim/append_redirect_url_to_modals"
 import "src/decidim/form_attachments"
 import "src/decidim/form_validator"
 import "src/decidim/form_remote"
-import "src/decidim/ajax_modals"
+// import "src/decidim/ajax_modals"
 import "src/decidim/conferences"
 import "src/decidim/tooltip_keep_on_hover"
 import "src/decidim/diff_mode_dropdown"
-import "src/decidim/conversations"
+import "src/decidim/scroll_to_last_child"
 import "src/decidim/delayed"
 import "src/decidim/icon"
 import "src/decidim/vizzs"
@@ -53,7 +51,7 @@ import "src/decidim/results_listing"
 import "src/decidim/represent_user_group"
 import "src/decidim/impersonation"
 import "src/decidim/start_conversation_dialog"
-import "src/decidim/notifications"
+// import "src/decidim/notifications"
 import "src/decidim/identity_selector_dialog"
 import "src/decidim/gallery"
 import "src/decidim/direct_uploads/upload_field"

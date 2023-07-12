@@ -8,7 +8,7 @@ describe "UserRedirect", type: :system do
   end
 
   context "when organization has forced login" do
-    let(:organization) { create :organization, force_users_to_authenticate_before_access_organization: true }
+    let(:organization) { create(:organization, force_users_to_authenticate_before_access_organization: true) }
 
     let(:user) { create(:user, :confirmed, organization:) }
 
@@ -24,7 +24,7 @@ describe "UserRedirect", type: :system do
       end
 
       it "redirects the user to the page attempted to access before login" do
-        expect(page).to have_css("h1.heading1.page-title", text: "Help")
+        expect(page).to have_css("h1.h3", text: "Help")
       end
     end
   end

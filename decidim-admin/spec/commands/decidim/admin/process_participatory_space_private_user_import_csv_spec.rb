@@ -8,7 +8,7 @@ module Decidim::Admin
 
     let(:current_user) { create(:user, :admin, organization:) }
     let(:organization) { create(:organization) }
-    let(:private_users_to) { create :participatory_process, organization: }
+    let(:private_users_to) { create(:participatory_process, organization:) }
     let(:file) { upload_test_file(Decidim::Dev.test_file("import_participatory_space_private_users.csv", "text/csv"), return_blob: true) }
     let(:validity) { true }
 
@@ -38,7 +38,7 @@ module Decidim::Admin
 
     context "when the CSV file has BOM" do
       let(:file) { upload_test_file(Decidim::Dev.test_file("import_participatory_space_private_users_with_bom.csv", "text/csv"), return_blob: true) }
-      let(:email) { "my_user@example.org" }
+      let(:email) { "john.doe@example.org" }
 
       it "broadcasts ok" do
         expect(subject.call).to broadcast(:ok)

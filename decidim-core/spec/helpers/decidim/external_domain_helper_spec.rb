@@ -8,6 +8,7 @@ module Decidim
       before { helper.instance_variable_set(:@url_parts, { protocol: "https:", domain: "decidim.barcelona", path: "/processes" }) }
 
       it "highlights domain" do
+        skip "REDESIGN_PENDING: helper deprecated"
         expect(helper.highlight_domain).to include('class="alert">decidim.barcelona')
       end
     end

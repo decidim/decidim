@@ -15,15 +15,15 @@
   <div class="row">
     <div class="columns small-4">
       <%= f.text_field :day, placeholder: t(".day_placeholder"), label: t(".day"), "data-autojump" => true, "data-max-length" => 2,
-                        "data-jump-next" => "#login_month" %>
+                             "data-jump-next" => "#login_month" %>
     </div>
     <div class="columns small-4">
       <%= f.text_field :month, placeholder: t(".month_placeholder"), label: t(".month"), "data-autojump" => true, "data-max-length" => 2,
-                        "data-jump-prev" => "#login_day", "data-jump-next" => "#login_year" %>
+                               "data-jump-prev" => "#login_day", "data-jump-next" => "#login_year" %>
     </div>
     <div class="columns small-4">
       <%= f.text_field :year, placeholder: t(".year_placeholder"), label: t(".year"), "data-autojump" => true, "data-max-length" => 4,
-                        "data-jump-prev" => "#login_month" %>
+                              "data-jump-prev" => "#login_month" %>
     </div>
   </div>
 </fieldset>

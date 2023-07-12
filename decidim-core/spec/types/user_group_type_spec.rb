@@ -84,7 +84,7 @@ module Decidim
         let(:model) { membership.user_group }
 
         context "when user accepted in the group" do
-          let(:membership) { create :user_group_membership, role: "member" }
+          let(:membership) { create(:user_group_membership, role: "member") }
 
           it "returns the number of members" do
             expect(response["membersCount"]).to eq(1)
@@ -97,7 +97,7 @@ module Decidim
         end
 
         context "when user is not accepted yet in the group" do
-          let(:membership) { create :user_group_membership, role: "requested" }
+          let(:membership) { create(:user_group_membership, role: "requested") }
 
           it "returns the number of members" do
             expect(response["membersCount"]).to eq(0)

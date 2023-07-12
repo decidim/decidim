@@ -5,9 +5,7 @@
     <% key = key.to_sym %>
     <% if amendable.amendable_fields.include?(key) %>
 
-      <div class="field hashtags__container">
-        <%= amendments_form_field_for(key, emendation_form, original) %>
-      </div>
+      <%= amendments_form_field_for(key, emendation_form, original) %>
 
       <% form.object.errors.full_messages_for(key).each do |message| %>
         <small class="form-error is-visible"><%= message %></small>

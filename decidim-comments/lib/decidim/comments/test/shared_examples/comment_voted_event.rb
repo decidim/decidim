@@ -3,7 +3,7 @@
 require "spec_helper"
 
 shared_examples_for "a comment voted event" do
-  include_context "when it's a comment event"
+  include_context "when it is a comment event"
 
   let(:resource) { comment.commentable }
 

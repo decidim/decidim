@@ -51,7 +51,7 @@ fi:
         decidim/consultations/vote:
           attributes:
             question:
-              invalid_num_votes: Äänten määrä on virheellinen
+              invalid_num_votes: Äänten määrä on virheellinen.
     models:
       decidim/consultation:
         one: Kuuleminen
@@ -153,7 +153,7 @@ fi:
             one: Vastaus
             other: Vastaukset
       question_configuration:
-        disable_external_voting: Poista ulkoinen äänestys käytöstä lisäasetuksille
+        disable_external_voting: Poista ulkoinen äänestys käytöstä edistyneiden asetusten käyttämiseksi.
         form:
           help: Aseta useita vastausvaihtoehtoja nostamalla enimmäisvastausten määrää. Oletuksena enimmäismäärä on 1, mikä tarkoittaa, että vain yhtä vastausvaihtoehtoa voi äänestää.
           title: Lisäasetukset
@@ -265,8 +265,8 @@ fi:
       index:
         title: Kuulemiset
       last_activity:
-        new_consultation: Uusi kuuleminen
-        new_question_at_html: "<span>Uusi kysymys osoitteessa %{link}</span>"
+        new_consultation: 'Uusi kuuleminen:'
+        new_question: 'Uusi kysymys:'
       pages:
         home:
           highlighted_consultations:
@@ -300,7 +300,7 @@ fi:
             votes: Äänet
       question_votes:
         create:
-          error: Kysymyksen äänestäminen epäonnistui
+          error: Kysymyksen äänestäminen epäonnistui.
           success: Voit muuttaa sitä kuulemisen loppuun saakka. Ainoastaan viimeisin ääni hyväksytään.
           title_error: Virhe äänestettäessä!
           title_success: Äänestys onnistui
@@ -358,6 +358,10 @@ fi:
         title: 'Kuuleminen: vahvista ääni'
     resources:
       consultations:
+        actions:
+          comment: Kommentoi
+          vote: Äänestä
+      question:
         actions:
           comment: Kommentoi
           vote: Äänestä

@@ -8,8 +8,8 @@ module Decidim
       describe AssemblyForm do
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
-        let(:organization) { create :organization }
-        let(:assembly_type) { create :assemblies_type, organization: }
+        let(:organization) { create(:organization) }
+        let(:assembly_type) { create(:assemblies_type, organization:) }
         let(:assembly_type_id) { assembly_type.id }
         let(:title) do
           {
@@ -190,8 +190,8 @@ module Decidim
         end
 
         context "when assembly type is in a different organization" do
-          let(:alt_organization) { create :organization }
-          let(:assembly_type) { create :assemblies_type, organization: alt_organization }
+          let(:alt_organization) { create(:organization) }
+          let(:assembly_type) { create(:assemblies_type, organization: alt_organization) }
 
           it { is_expected.not_to be_valid }
         end

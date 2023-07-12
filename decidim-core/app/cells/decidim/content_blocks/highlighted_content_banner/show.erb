@@ -1,24 +1,20 @@
-<section id="highlighted_content_banner" class="extended highligted-content-banner home-section"
-          style="background-image:url('<%= current_organization.attached_uploader(:highlighted_content_banner_image).path %>');">
-  <div class="highligted-content-banner__container">
-    <div class="row">
-      <div class="columns large-10">
-        <h1 class="text-highlight heading1 highligted-content-banner-heading">
-          <%= translated_attribute current_organization.highlighted_content_banner_title %>
-        </h1>
-        <div class="text-highlight">
-          <%= decidim_sanitize_editor translated_attribute current_organization.highlighted_content_banner_short_description %>
-        </div>
-      </div>
-      <div class="columns large-2">
-        <%= link_to current_organization.highlighted_content_banner_action_url,
-                    class: "button expanded button--sc" do %>
-          <%= translated_attribute current_organization.highlighted_content_banner_action_title %>
-          <span class="button__info">
-            <%= translated_attribute current_organization.highlighted_content_banner_action_subtitle %>
-          </span>
-        <% end %>
+<section id="highlighted_content_banner" class="home__section-image" style="--hero-image:url('<%= current_organization.attached_uploader(:highlighted_content_banner_image).path %>');">
+  <div class="home__section-content-banner home__section">
+    <div>
+      <h2 class="home__section-content-banner__title">
+        <%= translated_attribute current_organization.highlighted_content_banner_title %>
+      </h2>
+      <div class="editor-content">
+        <%= translated_attribute current_organization.highlighted_content_banner_short_description %>
       </div>
     </div>
+    <%= link_to current_organization.highlighted_content_banner_action_url, class: "button button__lg button__secondary mt-4 md:mt-0 mr-auto md:mr-0 md:ml-auto" do %>
+      <span>
+        <%= translated_attribute current_organization.highlighted_content_banner_action_title %>
+        <span class="block font-normal text-sm">
+          <%= translated_attribute current_organization.highlighted_content_banner_action_subtitle %>
+        </span>
+      </span>
+    <% end %>
   </div>
 </section>

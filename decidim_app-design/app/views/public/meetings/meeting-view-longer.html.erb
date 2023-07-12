@@ -18,13 +18,13 @@
         <div class="card text-center">
           <div class="card__content--multiple">
             <div>
-              <div class="extra__date"><%= Faker::Time.forward(365, :evening).strftime("%e") %><span class="extra__month text-small"><%= Faker::Time.forward(365, :evening).strftime("%B") %></span></div>
-              <div class="extra__time text-small"><%= Faker::Time.forward(365, :evening).strftime("%R") %></div>
+              <div class="extra__date"><%= Faker::Time.forward(days: 365, period: :evening).strftime("%e") %><span class="extra__month text-small"><%= Faker::Time.forward(days: 365, period: :evening).strftime("%B") %></span></div>
+              <div class="extra__time text-small"><%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %></div>
             </div>
             <%= icon "arrow-thin-right", class: "icon--big muted" %>
             <div>
-              <div class="extra__date"><%= Faker::Time.forward(365, :evening).strftime("%e") %><span class="extra__month text-small"><%= Faker::Time.forward(365, :evening).strftime("%B") %></span></div>
-              <div class="extra__time text-small"><%= Faker::Time.forward(365, :evening).strftime("%R") %></div>
+              <div class="extra__date"><%= Faker::Time.forward(days: 365, period: :evening).strftime("%e") %><span class="extra__month text-small"><%= Faker::Time.forward(days: 365, period: :evening).strftime("%B") %></span></div>
+              <div class="extra__time text-small"><%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %></div>
             </div>
           </div>
           <div class="card__footer">
@@ -67,19 +67,19 @@
           </div>
           <div class="card">
             <div class="card__content scroll">
-              <h5 class="heading5"><strong class="text-uppercase">WILLKOMMEN</strong>&nbsp;<span class="text-small">[<%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %>]</span></h5>
+              <h5 class="heading5"><strong class="text-uppercase">WILLKOMMEN</strong>&nbsp;<span class="text-small">[<%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %> - <%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %>]</span></h5>
               <hr class="reset m-none mb-s">
               <p><%= Faker::Books::Lovecraft.paragraph %></p>
-              <h5 class="heading5"><strong class="text-uppercase">Hauptdiskussionen</strong>&nbsp;<span class="text-small">[<%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %>]</span></h5>
+              <h5 class="heading5"><strong class="text-uppercase">Hauptdiskussionen</strong>&nbsp;<span class="text-small">[<%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %> - <%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %>]</span></h5>
               <hr class="reset m-none mb-s">
               <p><%= Faker::Books::Lovecraft.paragraph %></p>
-              <h6 class="heading6"><strong class="text-uppercase">Überprüfung der Ziele</strong>&nbsp;<span class="text-small">[<%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %>]</span></h6>
+              <h6 class="heading6"><strong class="text-uppercase">Überprüfung der Ziele</strong>&nbsp;<span class="text-small">[<%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %> - <%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %>]</span></h6>
               <p><%= Faker::Books::Lovecraft.paragraph %></p>
               <p><%= Faker::Books::Lovecraft.paragraph %></p>
-              <h5 class="heading5"><strong class="text-uppercase">Hauptdiskussionen: Zweiter Teil</strong>&nbsp;<span class="text-small">[<%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %>]</span></h5>
+              <h5 class="heading5"><strong class="text-uppercase">Hauptdiskussionen: Zweiter Teil</strong>&nbsp;<span class="text-small">[<%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %> - <%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %>]</span></h5>
               <hr class="reset m-none mb-s">
               <p><%= Faker::Books::Lovecraft.paragraph %></p>
-              <h6 class="heading6"><strong class="text-uppercase">Überprüfung der Ziele: Zweiter Teil</strong>&nbsp;<span class="text-small">[<%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %>]</span></h6>
+              <h6 class="heading6"><strong class="text-uppercase">Überprüfung der Ziele: Zweiter Teil</strong>&nbsp;<span class="text-small">[<%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %> - <%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %>]</span></h6>
               <p><%= Faker::Books::Lovecraft.paragraph %></p>
               <p><%= Faker::Books::Lovecraft.paragraph %></p>
               <p><%= Faker::Books::Lovecraft.paragraph %></p>

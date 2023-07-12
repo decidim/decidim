@@ -1,11 +1,11 @@
-<label class="represent-user-group">
+<div>
   <%= check_box_tag :user_group %>
-  <%= checkbox_text %>
-</label>
-<div class="user-group-fields" style="display:none;">
+  <label for="user_group" class="form__wrapper-checkbox-label">
+    <%= checkbox_text %>
+  </label>
   <%= form.select(:user_group_id,
                   user_groups,
-                  selected: selected,
+                  selected:,
                   include_blank: include_blank_text,
                   label: false) %>
 </div>

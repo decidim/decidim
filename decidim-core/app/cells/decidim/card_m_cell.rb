@@ -57,14 +57,14 @@ module Decidim
     end
 
     def title
-      translated_attribute model.title
+      decidim_html_escape(translated_attribute(model.title))
     end
 
     def description
       attribute = model.try(:short_description) || model.try(:body) || model.description
       text = translated_attribute(attribute)
 
-      decidim_sanitize_editor(html_truncate(text, length: 100))
+      decidim_sanitize(html_truncate(text, length: 100))
     end
 
     def has_authors?
@@ -93,14 +93,14 @@ module Decidim
 
     def card_classes
       classes = [base_card_class]
-      classes = classes.concat(["card--stack"]).join(" ") if has_children?
+      classes = classes.push("card--stack").join(" ") if has_children?
       return classes unless has_state?
 
       classes.concat(state_classes).join(" ")
     end
 
     def badge_classes
-      state_classes.concat(["card__text--status"]).join(" ")
+      state_classes.push("card__text--status").join(" ")
     end
 
     def state_classes

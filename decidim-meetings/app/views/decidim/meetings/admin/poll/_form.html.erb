@@ -54,10 +54,12 @@
   <% end %>
 </div>
 
-<%= javascript_pack_tag "decidim_forms_admin", defer: false %>
+<%= append_javascript_pack_tag "decidim_forms_admin" %>
 
 <% if questionnaire.questions_editable? %>
   <script>
-    window.Decidim.createEditableForm()
+    document.addEventListener("DOMContentLoaded", function () {
+      window.Decidim.createEditableForm()
+    })
   </script>
 <% end %>

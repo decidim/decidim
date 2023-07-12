@@ -1,0 +1,102 @@
+.conference {
+  &__hero {
+    @apply backdrop-brightness-[30%];
+
+    &-text {
+      @apply container text-center text-white space-y-6 md:px-16 pt-10 pb-14 md:[&_a_+_a]:ml-6;
+    }
+
+    &-slogan {
+      @apply text-lg font-semibold;
+    }
+
+    &-location {
+      @apply text-lg;
+    }
+  }
+
+  &__content-block {
+    @apply grid grid-cols-9 gap-x-4 place-items-start space-y-0;
+
+    > :nth-child(3n + 1),
+    > :nth-child(3n + 2) {
+      @apply col-span-9 lg:col-span-6;
+    }
+
+    > :nth-child(3n) {
+      @apply col-span-9 lg:col-span-3 row-span-2 lg:order-2 justify-self-center flex flex-col gap-2 max-w-full overflow-x-auto;
+    }
+
+    > :nth-child(3n + 2) {
+      @apply lg:order-3;
+    }
+  }
+
+  &__nav {
+    @apply divide-y divide-white [&>li]:py-3.5 first:[&>li]:pt-0 last:[&>li]:pb-0;
+
+    &-container {
+      @apply ml-0 md:ml-6 bg-primary p-3 md:p-6 rounded w-full md:w-auto self-stretch;
+
+      [id*="dropdown-menu"] {
+        @apply mx-0;
+      }
+
+      [data-target*="dropdown"] {
+        @apply p-0 [&>span]:text-white [&>svg]:text-white;
+      }
+    }
+
+    &-item {
+      @apply flex items-center gap-1 text-white font-semibold hover:underline [&>svg]:fill-current;
+    }
+  }
+
+  &__grid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-x-6 gap-y-10;
+
+    &-item {
+      @apply space-y-4;
+
+      &-img {
+        @apply border-4 border-background rounded aspect-[4/3] p-1;
+
+        img {
+          @apply w-full h-full object-contain;
+        }
+      }
+
+      &-text {
+        @apply text-secondary;
+      }
+    }
+  }
+
+  &__map {
+    @apply flex flex-col-reverse md:flex-row items-start gap-4 only:[&>*]:grow first:[&>*]:min-w-[40%];
+
+    & > :last-child:not(:only-child) {
+      @apply aspect-[4/3] w-full rounded overflow-hidden;
+    }
+
+    &-address {
+      @apply border-4 border-background rounded p-4 mt-4 first:mt-0;
+    }
+  }
+
+  &__box {
+    @apply flex flex-col gap-4 md:flex-row md:items-end justify-between border-2 border-background rounded p-6 first:[&>*]:space-y-4;
+
+    &-icon {
+      @apply w-8 h-8 text-tertiary fill-current;
+    }
+
+    &-title {
+      @apply text-2xl font-semibold;
+    }
+
+    &-description {
+      @apply text-lg text-gray-2;
+    }
+  }
+}

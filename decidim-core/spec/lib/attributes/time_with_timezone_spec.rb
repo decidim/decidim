@@ -24,7 +24,7 @@ module Decidim
       context "when given a String" do
         let(:value) { "01/02/2017 15:00" }
 
-        context "and in a different timezone" do
+        context "with a different timezone" do
           it "parses the String in the correct timezone" do
             Time.use_zone("CET") do
               expect(subject.utc.to_s).to eq("2017-02-01 14:00:00 UTC")
@@ -52,11 +52,19 @@ module Decidim
           end
         end
 
-        context "and an incorrect format" do
+        context "with incorrect format" do
           let(:value) { "foo" }
 
           it "returns nil" do
             expect(subject).to be_nil
+          end
+        end
+
+        context "with serialized ISO 8601 datetime format" do
+          let(:value) { "2017-02-01T15:00:00.000Z" }
+
+          it "parses the String in the correct format" do
+            expect(subject.utc.to_s).to eq("2017-02-01 15:00:00 UTC")
           end
         end
       end

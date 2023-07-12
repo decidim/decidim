@@ -11,7 +11,7 @@ Decidim.register_component(:elections) do |component|
   component.query_type = "Decidim::Elections::ElectionsType"
 
   component.on(:before_destroy) do |instance|
-    raise StandardError, "Can't remove this component" if Decidim::Elections::Election.where(component: instance).any?
+    raise StandardError, "Cannot remove this component" if Decidim::Elections::Election.where(component: instance).any?
   end
 
   # These actions permissions can be configured in the admin panel
@@ -515,6 +515,14 @@ Decidim.register_component(:elections) do |component|
       3.times do
         question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
       end
+    end
+
+    %w(admin@example.org user@example.org user2@example.org).each do |email|
+      trustee = Decidim::Elections::Trustee.find_or_create_by(
+        user: Decidim::User.find_by(email:),
+        organization: participatory_space.organization
+      )
+      trustee.trustees_participatory_spaces.create!(participatory_space:)
     end
   end
 end

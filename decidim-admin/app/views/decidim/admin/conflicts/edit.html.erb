@@ -21,7 +21,7 @@
           <tr>
             <td><%= t("email", scope: "decidim.admin.conflicts.transfer") %></td>
             <td><%= @form.conflict.current_user.email %></td>
-            <td><%= @form.conflict.managed_user.email.present? ? @form.conflict.managed_user.email : "-" %></td>
+            <td><%= @form.conflict.managed_user.email.presence || "-" %></td>
           </tr>
         </tbody>
       </table>

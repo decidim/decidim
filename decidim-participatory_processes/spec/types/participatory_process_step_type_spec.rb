@@ -36,7 +36,8 @@ module Decidim
         let(:query) { '{ title { locales translation(locale:"en") } }' }
 
         it "returns its title" do
-          expect(response["title"]["locales"]).to include(*model.title.keys)
+          expected_keys = (model.description.keys.excluding("machine_translations") + model.description["machine_translations"].keys).sort
+          expect(response["title"]["locales"]).to include(*expected_keys)
           expect(response["title"]["translation"]).to eq(model.title["en"])
         end
       end
@@ -45,7 +46,8 @@ module Decidim
         let(:query) { '{ description { locales translation(locale:"en") } }' }
 
         it "returns its description" do
-          expect(response["description"]["locales"]).to include(*model.description.keys)
+          expected_keys = (model.description.keys.excluding("machine_translations") + model.description["machine_translations"].keys).sort
+          expect(response["description"]["locales"]).to include(*expected_keys)
           expect(response["description"]["translation"]).to eq(model.description["en"])
         end
       end

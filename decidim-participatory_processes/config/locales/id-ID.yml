@@ -158,9 +158,6 @@ id:
           success: Langkah proses partisipatif berhasil dibuat.
         default_title: pengantar
         destroy:
-          error:
-            active_step: Tidak dapat menghapus langkah aktif.
-            last_step: Tidak dapat menghapus langkah terakhir dari suatu proses.
           success: Langkah proses partisipatif berhasil dihapus.
         edit:
           title: Edit langkah proses partisipatif
@@ -325,8 +322,6 @@ id:
             upcoming:
               other: "%{count} proses yang akan datang"
           explanations:
-            no_active: Tidak ada proses aktif
-            no_active_nor_upcoming: Tidak ada proses aktif atau yang akan datang
             no_active_nor_upcoming_callout: Tidak ada proses aktif atau yang akan datang. Berikut ini daftar daftar yang lalu.
           names:
             active: Aktif

@@ -1,0 +1,3 @@
+<% linked_resources.each do |klass, resources| %>
+  <%= render partial: "#{klass.constantize.resource_manifest.template}.html", locals: { resources: } %>
+<% end %>

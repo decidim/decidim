@@ -16,7 +16,7 @@ describe Decidim::Elections::Admin::UpdateAnswerSelection do
   end
 
   context "when answer has no votes" do
-    let(:answer) { create :election_answer }
+    let(:answer) { create(:election_answer) }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)

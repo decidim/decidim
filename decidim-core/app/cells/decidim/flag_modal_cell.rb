@@ -20,6 +20,20 @@ module Decidim
 
     private
 
+    def frontend_administrable?
+      author.respond_to?(:nickname) &&
+        model.can_be_administered_by?(current_user) &&
+        (model.respond_to?(:official?) && !model.official?)
+    end
+
+    def link_to_profile
+      author.presenter.profile_url
+    end
+
+    def author
+      model.try(:creator_identity) || model.try(:normalized_author)
+    end
+
     def user_report_form
       Decidim::ReportForm.from_params(reason: "spam")
     end
@@ -28,8 +42,15 @@ module Decidim
       options[:modal_id] || "flagModal"
     end
 
+    def hide_checkbox_id
+      @hide_checkbox_id ||= Digest::MD5.hexdigest("report_form_hide_#{model.class.name}_#{model.id}")
+    end
+
     def report_form
-      @report_form ||= Decidim::ReportForm.new(reason: "spam")
+      @report_form ||= begin
+        context = { can_hide: model.try(:can_be_administered_by?, current_user) }
+        Decidim::ReportForm.new(reason: "spam").with_context(context)
+      end
     end
   end
 end

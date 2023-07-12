@@ -17,7 +17,7 @@ module Decidim
       #
       # fields - An `Array` of `symbols` specifying the fields that will be part of
       #          the fingerprint generation.
-      # block  - (optional) When provided, it's given an instance of the model as a
+      # block  - (optional) When provided, it is given an instance of the model as a
       #          parameter so the fingerprint can be generated in runtime.
       #
       # Returns nothing.

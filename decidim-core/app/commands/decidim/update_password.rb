@@ -17,6 +17,7 @@ module Decidim
 
       user.password = form.password
       user.password_confirmation = form.password_confirmation
+      user.password_updated_at = Time.current
 
       if user.save
         broadcast(:ok)

@@ -27,8 +27,8 @@ module Decidim
       include Decidim::Publicable
       include Decidim::FilterableResource
 
-      TYPE_OF_MEETING = %w(in_person online hybrid).freeze
-      REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
+      TYPE_OF_MEETING = { in_person: 0, online: 10, hybrid: 20 }.freeze
+      REGISTRATION_TYPES = { registration_disabled: 0, on_this_platform: 10, on_different_platform: 20 }.freeze
 
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
@@ -48,6 +48,8 @@ module Decidim
 
       enum iframe_access_level: [:all, :signed_in, :registered], _prefix: true
       enum iframe_embed_type: [:none, :embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab], _prefix: true
+      enum type_of_meeting: TYPE_OF_MEETING
+      enum registration_type: REGISTRATION_TYPES, _scopes: false
 
       component_manifest_name "meetings"
 
@@ -82,13 +84,16 @@ module Decidim
       scope :visible_for, lambda { |user|
         (all.distinct if user&.admin?) ||
           if user.present?
-            spaces = Decidim.participatory_space_registry.manifests.map do |manifest|
+            (spaces = Decidim.participatory_space_registry.manifests.filter_map do |manifest|
+              table_name = manifest.model_class_name.constantize.try(:table_name)
+              next if table_name.blank?
+
               {
-                name: manifest.model_class_name.constantize.table_name.singularize,
+                name: table_name.singularize,
                 class_name: manifest.model_class_name
               }
-            end
-            user_role_queries = spaces.map do |space|
+            end)
+            (user_role_queries = spaces.map do |space|
               roles_table = "#{space[:name]}_user_roles"
               next unless connection.table_exists?(roles_table)
 
@@ -98,7 +103,7 @@ module Decidim
               (SELECT CONCAT(#{roles_table}.#{space[:name]}_id, '-#{space[:class_name]}')
               FROM #{roles_table} WHERE #{roles_table}.decidim_user_id = ?)
               "
-            end
+            end)
 
             query = "
               decidim_meetings_meetings.private_meeting = ?
@@ -130,12 +135,7 @@ module Decidim
 
       scope :authored_by, ->(author) { where(decidim_author_id: author) }
 
-      scope_search_multi :with_any_type, TYPE_OF_MEETING.map(&:to_sym)
-
-      TYPE_OF_MEETING.each do |type|
-        scope type.to_sym, -> { where(type_of_meeting: type.to_sym) }
-        scope "not_#{type}".to_sym, -> { where.not(type_of_meeting: type.to_sym) }
-      end
+      scope_search_multi :with_any_type, TYPE_OF_MEETING.keys
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
@@ -320,24 +320,6 @@ module Decidim
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
       def reported_searchable_content_extras
         [normalized_author.name]
-      end
-
-      TYPE_OF_MEETING.each do |type|
-        define_method("#{type}_meeting?") do
-          type_of_meeting == type
-        end
-      end
-
-      def registration_disabled?
-        registration_type == "registration_disabled"
-      end
-
-      def on_this_platform?
-        registration_type == "on_this_platform"
-      end
-
-      def on_different_platform?
-        registration_type == "on_different_platform"
       end
 
       def has_contributions?

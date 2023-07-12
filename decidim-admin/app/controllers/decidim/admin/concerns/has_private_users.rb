@@ -94,9 +94,9 @@ module Decidim
           end
 
           def collection
-            # there's an unidentified corner case where Decidim::User
+            # there is an unidentified corner case where Decidim::User
             # may have been destroyed, but the related ParticipatorySpacePrivateUser
-            # remains in the database. That's why filtering by not null users
+            # remains in the database. That is why filtering by not null users
             @collection ||= privatable_to
                             .participatory_space_private_users
                             .includes(:user).where.not("decidim_users.id" => nil)

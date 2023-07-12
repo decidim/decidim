@@ -32,7 +32,11 @@
                               target: "_blank" %>
                   <br>
                 <% else %>
-                  <%= translated_attribute(question.title) %>
+                  <% if allowed_to? :update, :question, question: question %>
+                    <%= link_to translated_attribute(question.title), edit_question_path(question) %>
+                  <% else %>
+                    <%= translated_attribute(question.title) %>
+                  <% end %>
                 <% end %>
               </td>
               <td>
@@ -60,8 +64,6 @@
                   <span class="action-space icon"></span>
                 <% end %>
 
-                <%= free_resource_permissions_link(question) %>
-
                 <% if allowed_to? :preview, :question, question: question %>
                   <%= icon_link_to "eye",
                                    decidim_consultations.question_path(question),
@@ -72,6 +74,7 @@
                   <span class="action-space icon"></span>
                 <% end %>
 
+                <%= free_resource_permissions_link(question) %>
               </td>
             </tr>
           <% end %>

@@ -7,21 +7,21 @@ module Decidim
     describe JoinUserGroup do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:user) { create :user, :confirmed, organization: }
-        let(:user_group) { create :user_group, users: [], organization: }
+        let(:user) { create(:user, :confirmed, organization:) }
+        let(:user_group) { create(:user_group, users: [], organization:) }
 
         let(:command) { described_class.new(user, user_group) }
 
         context "when the user already has a membership with the group" do
           before do
-            create :user_group_membership, user:, user_group:, role: "requested"
+            create(:user_group_membership, user:, user_group:, role: "requested")
           end
 
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a new membership" do
+          it "does not create a new membership" do
             expect do
               command.call
             end.not_to change(Decidim::UserGroupMembership, :count)

@@ -281,8 +281,6 @@ lb:
         working_group: Arbeitsgruppe
       index:
         title: Gremien
-      last_activity:
-        new_assembly: Neues Gremium
       pages:
         home:
           highlighted_assemblies:
@@ -360,9 +358,6 @@ lb:
         related_assemblies: Ähnliche Versammlungen
     statistics:
       assemblies_count: Gremien
-  errors:
-    messages:
-      cannot_be_blank: darf nicht leer sein
   layouts:
     decidim:
       assemblies:

@@ -23,7 +23,7 @@ module Decidim
       end
 
       describe "consultation" do
-        let(:query) { %({ consultation(id: \"#{id}\") { id }}) }
+        let(:query) { %({ consultation(id: "#{id}") { id }}) }
 
         context "with a consultation that belongs to the current organization" do
           let!(:consultation) { create(:consultation, organization: current_organization) }

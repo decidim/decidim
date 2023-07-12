@@ -11,7 +11,7 @@ module Decidim
     let(:presenter) { Decidim::HashtagPresenter.new(hashtag, cased_name: name) }
     let(:name) { hashtag.name }
     let(:content) { "This text contains a valid Decidim::Hashtag Global ID: #{hashtag.to_global_id}/#{name}" }
-    let(:result) { %(This text contains a valid Decidim::Hashtag Global ID: <a target="_blank" class="hashtag-mention" rel="noopener" href="/search?term=%23#{name}">##{name}</a>) }
+    let(:result) { %(This text contains a valid Decidim::Hashtag Global ID: <a target="_blank" class="text-secondary underline" rel="noopener" data-external-link="false" href="/search?term=%23#{name}">##{name}</a>) }
 
     it { is_expected.to eq(result) }
 
@@ -21,7 +21,7 @@ module Decidim
       it { is_expected.to eq(result) }
     end
 
-    context "when parsed hashtag doesn't include the casing part" do
+    context "when parsed hashtag does not include the casing part" do
       let(:content) { "This text contains a valid Decidim::Hashtag Global ID: #{hashtag.to_global_id}" }
 
       it { is_expected.to eq(result) }
@@ -46,7 +46,7 @@ module Decidim
 
       it "renders the two mentions" do
         rendered = renderer.render
-        hashtag_rendered = %(<a target="_blank" class="hashtag-mention" rel="noopener" href="/search?term=%23#{hashtag.name}">##{hashtag.name}</a>)
+        hashtag_rendered = %(<a target="_blank" class="text-secondary underline" rel="noopener" data-external-link="false" href="/search?term=%23#{hashtag.name}">##{hashtag.name}</a>)
         expect(rendered.scan(hashtag_rendered).length).to eq(2)
       end
     end
@@ -78,6 +78,14 @@ module Decidim
 
       it "renders the hashtag without the extra tag" do
         expect(renderer.render(extras: false)).to eq("This text contains a valid Decidim::Hashtag Global ID: ")
+      end
+    end
+
+    context "when rendering for editor" do
+      it "renders the hashtag wrapper for the editor" do
+        expect(renderer.render(editor: true)).to eq(
+          %(This text contains a valid Decidim::Hashtag Global ID: <span data-type="hashtag" data-label="##{hashtag.name}">##{hashtag.name}</span>)
+        )
       end
     end
 

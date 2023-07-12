@@ -7,7 +7,7 @@ module Decidim
 
     included do
       before_action :tos_accepted_by_user
-      helper_method :terms_and_conditions_page
+      helper_method :terms_of_service_page, :terms_of_service_summary_content_blocks
     end
 
     private
@@ -21,8 +21,15 @@ module Decidim
       redirect_to_tos
     end
 
-    def terms_and_conditions_page
-      @terms_and_conditions_page ||= Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: current_organization)
+    def terms_of_service_page
+      @terms_of_service_page ||= Decidim::StaticPage.find_by(slug: "terms-of-service", organization: current_organization)
+    end
+
+    def terms_of_service_summary_content_blocks
+      @terms_of_service_summary_content_blocks ||= Decidim::ContentBlock.published
+                                                                        .for_scope(:static_page, organization: current_organization)
+                                                                        .where(scoped_resource_id: terms_of_service_page.id)
+                                                                        .reject { |content_block| content_block.manifest.nil? || content_block.manifest.name != :summary }
     end
 
     def permitted_paths?
@@ -37,7 +44,7 @@ module Decidim
     end
 
     def tos_path
-      decidim.page_path terms_and_conditions_page
+      decidim.page_path terms_of_service_page
     end
 
     def redirect_to_tos
@@ -49,7 +56,7 @@ module Decidim
       )
 
       flash[:notice] = flash[:notice] if flash[:notice]
-      flash[:secondary] = t("required_review.alert", scope: "decidim.pages.terms_and_conditions")
+      flash[:secondary] = t("required_review.alert", scope: "decidim.pages.terms_of_service")
       redirect_to tos_path
     end
   end

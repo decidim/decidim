@@ -1,14 +1,14 @@
-<li class="questionnaire-question_readonly">
-  <p>
+<li class="answer-questionnaire__question" data-question-readonly>
+  <p class="answer-questionnaire__question-label" data-answer-idx="<%= position %>">
     <%= translated_attribute(model.body) %>
-    <br>
-    <em>
-      (<%= t(model.question_type, scope: "decidim.forms.question_types") %>)
-    </em>
+  </p>
+
+  <p class="answer-questionnaire__question-description">
+    <em><%= t(model.question_type, scope: "decidim.forms.question_types") %></em>
   </p>
 
   <% if model.multiple_choice? %>
-    <ul class="questionnaire-question_readonly-answers <%= model.question_type %>">
+    <ul class="answer-questionnaire__question-description space-y-4">
       <% if model.matrix? %>
         <%= cell("decidim/forms/matrix_readonly", collection: model.matrix_rows) %>
       <% else %>

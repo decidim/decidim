@@ -33,17 +33,18 @@ de:
         slug: URL-Block
         start_date: Startdatum
         title: Titel
+        weight: Reihenfolge
       conference_media_link:
         date: Datum
         link: Link
         title: Titel
-        weight: Gewicht
+        weight: Reihenfolge
       conference_partner:
         link: Link
         logo: Logo
         name: Name
         partner_type: Partnertyp
-        weight: Gewicht
+        weight: Reihenfolge
       conference_registration_invite:
         email: E-Mail
         name: Name
@@ -53,7 +54,7 @@ de:
         description: Beschreibung
         price: Preis
         title: Titel
-        weight: Gewicht
+        weight: Reihenfolge
       conference_speaker:
         affiliation: Zugehörigkeit
         avatar: Profilbild
@@ -73,7 +74,7 @@ de:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Diese E-Mail wurde bereits eingeladen
+              already_invited: Diese E-Mail wurde bereits eingeladen.
   activerecord:
     models:
       decidim/conference:
@@ -134,7 +135,7 @@ de:
           title: Aktualisieren Sie den Konferenzbenutzer.
           update: Aktualisieren
         index:
-          conference_admins_title: Konferenzbenutzer
+          conference_admins_title: Konferenzadmins
         new:
           create: Erstellen
           title: Neuer Konferenzbenutzer
@@ -246,7 +247,7 @@ de:
             price: Preis
             registrations_count: Registrierungen zählen
             title: Titel
-            weight: Bestellposition
+            weight: Reihenfolge
           name: Registrierungstyp
       partners:
         create:
@@ -312,6 +313,7 @@ de:
           update: "%{user_name} hat den Partner %{resource_name} in der Konferenz %{space_name} aktualisiert"
         registration_type:
           create: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} erstellt"
+          delete: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} entfernt"
           publish: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} veröffentlicht"
           unpublish: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} auf \"unveröffentlicht\" gesetzt"
           update: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} aktualisiert"
@@ -351,7 +353,7 @@ de:
             invites: Lädt ein
             search: Suche
           new:
-            explanation: Der Benutzer wird eingeladen, an einer Konferenz teilzunehmen. Wenn die E-Mail nicht registriert ist, werden sie ebenfalls zur Organisation eingeladen.
+            explanation: Die Person wird zur Teilnahme an der Konferenz eingeladen. Wenn die E-Mail nicht registriert ist, werden sie ebenfalls zur Organisation eingeladen.
             invite: Einladen
             new_invite: Nutzer einladen
         conference_registrations:
@@ -379,7 +381,8 @@ de:
         invite_join_conference_mailer:
           invite:
             decline: Einladung '%{conference_title}' ablehnen
-            invited_you_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz um %{application}teilzunehmen. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
+            invited_existing_user_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz um %{application}teilzunehmen. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
+            invited_user_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz auf %{application} teilzunehmen. Sie können die Einladung über den unten stehenden Link akzeptieren."
             registration: Registrierung für '%{conference_title}'
         partners:
           index:
@@ -404,18 +407,11 @@ de:
           cancel: Stornieren
           confirm: Bestätigen
         show:
-          free: Kostenlos
           going: Gehen
           no_slots_available: Keine Steckplätze verfügbar
           registration: Anmeldung
       conference_program:
-        program_meeting:
-          content: Inhalt
-          location: Ort
-          speakers: Lautsprecher
-          streaming: Streaming
         show:
-          day: Tag
           program: Programm
       conference_registration_mailer:
         confirmation:
@@ -430,9 +426,11 @@ de:
         create:
           invalid: Bei dieser Konferenz ist ein Problem aufgetreten.
           success: Sie sind der Konferenz erfolgreich beigetreten.
+          unauthorized: Sie müssen sich anmelden, um sich bei der Konferenz anzumelden.
         decline_invitation:
           invalid: Es ist ein Problem aufgetreten, dass die Einladung abgelehnt wurde.
           success: Sie haben die Einladung erfolgreich abgelehnt.
+          unauthorized: Sie müssen sich anmelden, bevor Sie die Einladung ablehnen.
         destroy:
           invalid: Beim Verlassen dieser Konferenz ist ein Problem aufgetreten.
           success: Sie haben die Konferenz erfolgreich verlassen.
@@ -446,18 +444,18 @@ de:
       conference_speaker_cell:
         personal_url:
           personal_website: Persönliche Webseite
-        twitter_handle:
-          go_to_twitter: Gehe zu Twitter
       conference_speakers:
         index:
-          speakers: Lautsprecher
+          speakers:
+            one: Sprecher*in
+            other: Sprechende
       conferences:
         partners:
           collaborators: Partner
           main_promotors: Organisatoren
         show:
           login_as: Sie sind als %{name} <%{email}> angemeldet
-          make_conference_registration: 'Machen Sie Ihre Registrierung in der Konferenz:'
+          make_conference_registration: Für die Konferenz registrieren
           register: Registrieren
       content_blocks:
         highlighted_conferences:
@@ -467,9 +465,9 @@ de:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Die Registrierung Ihrer Konferenz wurde bestätigt
+            subject: Ihre Registrierung zur Konferenz wurde bestätigt.
           pending_validation:
-            subject: Ihre Anmeldung zur Konferenz steht noch aus
+            subject: Ihre Anmeldung zur Konferenz steht noch aus.
         invite_join_conference_mailer:
           invite:
             subject: Einladung zur Teilnahme an einer Konferenz
@@ -503,29 +501,12 @@ de:
             active_conferences: Aktive Konferenzen
             conferences_button_title: Link zur Konferenz-Seite die alle Konferenzen anzeigt
             see_all_conferences: Alle Konferenzen anzeigen
-      photo:
-        image:
-          attributes:
-            alt: Pressebild
-        show:
-          close_modal: Modal schließen
-          photo: Bild
-      photos_list:
-        show:
-          related_photos: Bilder
       registration_types:
         index:
           choose_an_option: 'Wählen Sie Ihre Registrierungsoption:'
-          login_as: Sie sind als %{name} <%{email}> angemeldet
           no_registrations: Keine Registrierungen
           register: Registrieren
           title: Registrierungsarten
-      shared:
-        conference_user_login:
-          already_account: Haben Sie schon einen Account in Decidim?
-          new_user: Neuer Benutzer?
-          sign_in: Melden Sie sich an, um sich für die Konferenz zu registrieren
-          sign_up: Erstellen Sie ein Konto in decidim, um sich für die Konferenz anzumelden
       show:
         details: Einzelheiten
         introduction: Einführung
@@ -573,7 +554,7 @@ de:
     log:
       value_types:
         conference_presenter:
-          not_found: 'Die Konferenz wurde nicht in der Datenbank gefunden (ID: %{id})'
+          not_found: 'Die Konferenz wurde nicht in der Datenbank gefunden (ID: %{id}).'
     media:
       index:
         description: Links zu dieser Konferenz

@@ -8,7 +8,7 @@ module Decidim
       include Decidim::ComponentPathHelper
 
       def edit
-        enforce_permission_to :update, :component, component: component
+        enforce_permission_to(:update, :component, component:)
         @permissions_form = PermissionsForm.new(
           permissions: permission_forms
         )
@@ -17,7 +17,7 @@ module Decidim
       end
 
       def update
-        enforce_permission_to :update, :component, component: component
+        enforce_permission_to(:update, :component, component:)
         @permissions_form = PermissionsForm.from_params(params)
 
         UpdateComponentPermissions.call(@permissions_form, component, resource, current_user) do

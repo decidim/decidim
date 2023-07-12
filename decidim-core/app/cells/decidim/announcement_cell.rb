@@ -16,15 +16,19 @@ module Decidim
   # or a value accepted by the `translated_attribute` method.
   #
   # As options, the cell accepts a Hash with these keys:
-  #   - `callout_class`: The Css class to apply. Default to `"secondary"`
+  #   - `callout_class`: The Css class to apply
   #
   class AnnouncementCell < Decidim::ViewModel
     include Decidim::SanitizeHelper
 
     def show
-      return if clean_body.blank? && clean_announcement.blank?
+      return if blank_content?
 
       render :show
+    end
+
+    def blank_content?
+      @blank_content ||= clean_body.blank? && clean_announcement.blank?
     end
 
     private
@@ -33,8 +37,12 @@ module Decidim
       announcement.is_a?(Hash) && announcement.has_key?(:title)
     end
 
+    def text
+      has_title? ? clean_body : clean_announcement
+    end
+
     def callout_class
-      options[:callout_class] ||= "secondary"
+      options[:callout_class]
     end
 
     def announcement
@@ -51,6 +59,12 @@ module Decidim
       announcement[:body].presence
     end
 
+    def truncate?
+      return false unless options.has_key? :truncate
+
+      options[:truncate]
+    end
+
     def clean_body
       return unless body
 
@@ -62,7 +76,7 @@ module Decidim
     end
 
     def clean(value)
-      decidim_sanitize(translated_attribute(value))
+      decidim_sanitize_admin(translated_attribute(value))
     end
   end
 end

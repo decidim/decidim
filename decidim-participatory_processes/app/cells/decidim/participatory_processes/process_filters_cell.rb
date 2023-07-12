@@ -13,11 +13,11 @@ module Decidim
       end
 
       def current_filter
-        get_filter(:with_date, model[:default_filter])
+        get_filter_in(:with_date, ALL_FILTERS, model[:default_filter])
       end
 
       def current_type_filter_name
-        participatory_process_types_for_select.find { |_, id| id == get_filter(:with_type) }&.first ||
+        participatory_process_types_for_select.find { |_, id| id == get_filter(:with_any_type) }&.first ||
           I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters")
       end
 
@@ -25,27 +25,31 @@ module Decidim
         params&.dig(:filter, filter_name) || default
       end
 
+      def get_filter_in(filter_name, options, default = nil)
+        value = get_filter(filter_name)
+        options.include?(value) ? value : default
+      end
+
       def filter_params(date_filter, type_filter)
         {
           filter: {
             with_date: date_filter,
-            with_scope: get_filter(:with_scope),
-            with_area: get_filter(:with_area),
-            with_type: type_filter || get_filter(:with_type)
+            with_any_scope: get_filter(:with_any_scope),
+            with_any_area: get_filter(:with_any_area),
+            with_any_type: type_filter || get_filter(:with_any_type)
           }
         }
       end
 
       def filtered_processes(date_filter, filter_with_type: true)
-        query = ParticipatoryProcess.ransack(
+        query = ParticipatoryProcess.where(organization: current_organization).ransack(
           {
             with_date: date_filter,
-            with_scope: get_filter(:with_scope),
-            with_area: get_filter(:with_area),
-            with_type: filter_with_type ? get_filter(:with_type) : nil
+            with_any_scope: get_filter(:with_any_scope),
+            with_any_area: get_filter(:with_any_area),
+            with_any_type: filter_with_type ? get_filter(:with_any_type) : nil
           },
-          current_user:,
-          organization: current_organization
+          current_user:
         ).result
 
         query.published.visible_for(current_user)

@@ -20,4 +20,4 @@ jobs:
         --header "Accept: application/vnd.github.everest-preview+json" \
         --header "Content-Type: application/json" \
         https://api.github.com/repos/decidim/documentation/actions/workflows/trigger_build.yml/dispatches \
-        --data '{"ref": "master"}'
+        --data '{"ref": "develop"}'

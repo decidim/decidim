@@ -51,7 +51,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the initiative" do
+          it "does not update the initiative" do
             expect do
               command.call
             end.not_to change(initiative, :title)
@@ -66,10 +66,61 @@ module Decidim
           it "updates the initiative" do
             command.call
             initiative.reload
-            expect(initiative.title).to be_kind_of(Hash)
+            expect(initiative.title).to be_a(Hash)
             expect(initiative.title["en"]).to eq title
-            expect(initiative.description).to be_kind_of(Hash)
+            expect(initiative.description).to be_a(Hash)
             expect(initiative.description["en"]).to eq description
+          end
+
+          context "when the initiative type enables custom signature end date" do
+            let(:initiative_type) { create(:initiatives_type, :custom_signature_end_date_enabled, organization:) }
+            let(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
+            let!(:initiative) { create(:initiative, :created, organization:, scoped_type:) }
+
+            let(:form_params) do
+              {
+                title:,
+                description:,
+                signature_type:,
+                type_id: initiative_type.id,
+                attachment:,
+                add_documents: uploaded_files,
+                documents: current_files,
+                signature_end_date: Date.tomorrow
+              }
+            end
+
+            it "sets the signature end date" do
+              command.call
+              initiative = Decidim::Initiative.last
+
+              expect(initiative.signature_end_date).to eq(Date.tomorrow)
+            end
+          end
+
+          context "when the initiative type enables area" do
+            let(:initiative_type) { create(:initiatives_type, :area_enabled, organization:) }
+            let(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
+            let!(:initiative) { create(:initiative, :created, organization:, scoped_type:) }
+            let(:area) { create(:area, organization: initiative_type.organization) }
+
+            let(:form_params) do
+              {
+                title: "A reasonable initiative title",
+                description: "A reasonable initiative description",
+                type_id: initiative_type.id,
+                signature_type: "online",
+                decidim_user_group_id: nil,
+                area_id: area.id
+              }
+            end
+
+            it "sets the area" do
+              command.call
+              initiative = Decidim::Initiative.last
+
+              expect(initiative.decidim_area_id).to eq(area.id)
+            end
           end
 
           context "when attachments are allowed" do

@@ -8,7 +8,7 @@ describe Decidim::Initiatives::ExtendInitiativeEvent do
   let(:event_name) { "decidim.events.initiatives.initiative_extended" }
   let(:resource) { initiative }
 
-  let(:initiative) { create :initiative }
+  let(:initiative) { create(:initiative) }
   let(:participatory_space) { initiative }
 
   it_behaves_like "a simple event"
@@ -33,15 +33,17 @@ describe Decidim::Initiatives::ExtendInitiativeEvent do
 
   describe "email_intro" do
     it "is generated correctly" do
+      initiative_title = decidim_html_escape(resource_title)
       expect(subject.email_intro)
-        .to eq("The signatures end date for the initiative #{resource_title} have been extended!")
+        .to eq("The signatures end date for the initiative #{initiative_title} have been extended!")
     end
   end
 
   describe "notification_title" do
     it "is generated correctly" do
+      initiative_title = decidim_html_escape(resource_title)
       expect(subject.notification_title)
-        .to include("The signatures end date for the <a href=\"#{resource_path}\">#{resource_title}</a> initiative have been extended")
+        .to include("The signatures end date for the <a href=\"#{resource_path}\">#{initiative_title}</a> initiative have been extended")
     end
   end
 end

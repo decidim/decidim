@@ -45,7 +45,7 @@ shared_examples "create an initiative type" do
         expect { command.call }.to broadcast(:invalid)
       end
 
-      it "doesn't create an initiative type" do
+      it "does not create an initiative type" do
         expect do
           command.call
         end.not_to change(Decidim::InitiativesType, :count)

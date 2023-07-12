@@ -5,9 +5,9 @@ require "spec_helper"
 describe Decidim::Votings::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: }
-  let(:organization) { create :organization }
-  let(:voting) { create :voting, organization: }
+  let(:user) { create(:user, organization:) }
+  let(:organization) { create(:organization) }
+  let(:voting) { create(:voting, organization:) }
   let(:context) { { voting: } }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
@@ -29,7 +29,7 @@ describe Decidim::Votings::Permissions do
       let(:action_subject) { :voting }
 
       context "when the consultation is published" do
-        let(:voting) { create :voting, :published, organization: }
+        let(:voting) { create(:voting, :published, organization:) }
 
         it { is_expected.to be true }
       end

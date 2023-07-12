@@ -1,20 +1,23 @@
 <% unless attachment_collection.unused? %>
-  <div class="docs__container">
-    <button type="button" data-toggle="docs-collection-<%= attachment_collection.id %>"><%= icon "caret-right", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;
-      <strong><%= translated_attribute(attachment_collection.name) %></strong>
+<button id="dropdown-documents-trigger-<%= attachment_collection.id %>" class="documents__collection-trigger" data-component="dropdown" data-target="dropdown-menu-documents-<%= attachment_collection.id %>" aria-expanded="false">
+  <span>
+    <span class="documents__collection-trigger__icon">
+      <%= icon "folder-line" %>
+      <%= icon "folder-open-line" %>
+    </span>
+    <%= translated_attribute(attachment_collection.name) %>
+  </span>
+  <%= icon "arrow-down-s-fill" %>
+  <%= icon "arrow-up-s-fill" %>
+</button>
 
-      <% attachment_collection_documents_count =  attachment_collection.attachments.select(&:document?).count %>
-      <small>(<%= attachment_collection_documents_count %> <%= t("decidim.application.collection.documents", count: attachment_collection_documents_count) %>)</small>
-    </button>
+<div id="dropdown-menu-documents-<%= attachment_collection.id %>" class="documents__collection-content" aria-hidden="true">
+  <p><%= translated_attribute(attachment_collection.description) %></p>
 
-    <div id="docs-collection-<%= attachment_collection.id %>" class="docs__content hide" data-toggler=".hide">
-      <p><%= translated_attribute(attachment_collection.description) %></p>
-
-      <div class="card card--list">
-        <% documents.each do |document| %>
-          <%= render partial: "decidim/application/document", locals: { document: document } %>
-        <% end %>
-      </div>
-    </div>
+  <div class="documents__container">
+    <% documents.each do |document| %>
+      <%= render partial: "decidim/application/document.html", locals: { document: } %>
+    <% end %>
   </div>
+</div>
 <% end %>

@@ -7,7 +7,7 @@ module Decidim
       # Returns a link to the next/previous question if found.
       # Else, returns a disabled link to the current question.
       def display_next_previous_button(direction, optional_classes = "")
-        # rubocop: disable Style/StringConcatenation as we don't want the string to be frozen
+        # rubocop: disable Style/StringConcatenation as we do not want the string to be frozen
         css = "card__button button hollow " + optional_classes
         # rubocop: enable Style/StringConcatenation
 
@@ -35,10 +35,10 @@ module Decidim
         html_options ||= {}
 
         if current_user
-          html_options["data-open"] = "authorizationModal"
-          html_options["data-open-url"] = decidim_consultations.authorization_vote_modal_question_path(question)
+          html_options["data-dialog-open"] = "authorizationModal"
+          html_options["data-dialog-open-url"] = decidim_consultations.authorization_vote_modal_question_path(question)
         else
-          html_options["data-open"] = "loginModal"
+          html_options["data-dialog-open"] = "loginModal"
         end
 
         html_options["onclick"] = "event.preventDefault();"

@@ -41,7 +41,7 @@ module Decidim
         end
       end
 
-      initializer "decidim.stats" do
+      initializer "decidim_votings.stats" do
         Decidim.stats.register :votings_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
           Decidim::Votings::Voting.where(organization:).published.count
         end
@@ -58,6 +58,15 @@ module Decidim
                         I18n.t("menu.votings", scope: "decidim"),
                         decidim_votings.votings_path,
                         position: 2.6,
+                        if: Decidim::Votings::Voting.where(organization: current_organization).published.any?,
+                        active: :inclusive
+        end
+
+        Decidim.menu :home_content_block_menu do |menu|
+          menu.add_item :votings,
+                        I18n.t("menu.votings", scope: "decidim"),
+                        decidim_votings.votings_path,
+                        position: 40,
                         if: Decidim::Votings::Voting.where(organization: current_organization).published.any?,
                         active: :inclusive
         end

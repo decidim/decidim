@@ -7,7 +7,7 @@ describe Decidim::Proposals::Admin::UpdateProposal do
 
   let(:component) { create(:proposal_component) }
   let(:organization) { component.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:form) do
     form_klass.from_params(
       form_params
@@ -19,7 +19,7 @@ describe Decidim::Proposals::Admin::UpdateProposal do
     )
   end
 
-  let!(:proposal) { create :proposal, :official, component: }
+  let!(:proposal) { create(:proposal, :official, component:) }
 
   let(:has_address) { false }
   let(:address) { nil }
@@ -55,7 +55,7 @@ describe Decidim::Proposals::Admin::UpdateProposal do
         expect { command.call }.to broadcast(:invalid)
       end
 
-      it "doesn't update the proposal" do
+      it "does not update the proposal" do
         expect do
           command.call
         end.not_to change(proposal, :title)
@@ -112,10 +112,19 @@ describe Decidim::Proposals::Admin::UpdateProposal do
 
       context "when attachments are allowed" do
         let(:component) { create(:proposal_component, :with_attachments_allowed) }
+
+        let(:blob) do
+          ActiveStorage::Blob.create_and_upload!(
+            io: File.open(Decidim::Dev.test_file("city.jpeg", "image/jpeg"), "rb"),
+            filename: "city.jpeg",
+            content_type: "image/jpeg" # Or figure it out from `name` if you have non-JPEGs
+          )
+        end
+
         let(:attachment_params) do
           {
             title: "My attachment",
-            file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+            file: blob.signed_id
           }
         end
 

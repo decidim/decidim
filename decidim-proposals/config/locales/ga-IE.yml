@@ -46,8 +46,6 @@ ga:
             values:
               accepted: Glactha
               rejected: Diúltaithe
-          state_null:
-            label: Staid
     components:
       proposals:
         actions:
@@ -134,8 +132,6 @@ ga:
             link: Nasc
             photos: Grianghraif
             proposals: Moltaí
-          update_category:
-            select_a_category: Roghnaigh catagóir le do thoil
       answers:
         accepted: Glactha
         rejected: Diúltaithe
@@ -251,7 +247,6 @@ ga:
           answer: Freagra
           back_to: Siar
           comments: Tráchtanna
-          endorsements_list: Liosta Formhuinithe
           report: Tuairiscigh
         vote_button:
           vote: Tacaigh le

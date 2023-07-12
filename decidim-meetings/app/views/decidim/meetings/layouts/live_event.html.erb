@@ -24,7 +24,7 @@
       <% end %>
 
       <div>
-        <strong class="text-secondary"><%= current_organization.name %></strong> / <strong><%= present(meeting).title(links: true) %></strong>
+        <strong class="text-secondary"><%= current_organization.name %></strong> / <strong><%= present(meeting).title(links: true, html_escape: true) %></strong>
       </div>
 
       <div class="flex--cc">
@@ -49,7 +49,7 @@
       <%= yield %>
     </main>
 
+    <%= append_javascript_pack_tag "decidim_meetings" %>
     <%= render partial: "layouts/decidim/decidim_javascript" %>
-    <%= javascript_pack_tag "decidim_meetings" %>
   </body>
 </html>

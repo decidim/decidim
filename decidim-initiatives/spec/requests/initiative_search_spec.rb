@@ -3,13 +3,14 @@
 require "spec_helper"
 
 RSpec.describe "Initiative search", type: :request do
+  include Decidim::SanitizeHelper
   subject { response.body }
 
-  let(:organization) { create :organization }
-  let(:type1) { create :initiatives_type, organization: }
-  let(:type2) { create :initiatives_type, organization: }
-  let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
-  let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
+  let(:organization) { create(:organization) }
+  let(:type1) { create(:initiatives_type, organization:) }
+  let(:type2) { create(:initiatives_type, organization:) }
+  let(:scoped_type1) { create(:initiatives_type_scope, type: type1) }
+  let(:scoped_type2) { create(:initiatives_type_scope, type: type2) }
   let(:user1) { create(:user, :confirmed, organization:, name: "John McDoggo", nickname: "john_mcdoggo") }
   let(:user2) { create(:user, :confirmed, organization:, nickname: "doggotrainer") }
   let(:group1) { create(:user_group, :confirmed, organization:, name: "The Doggo House", nickname: "the_doggo_house") }
@@ -46,21 +47,21 @@ RSpec.describe "Initiative search", type: :request do
   end
 
   it "displays all published open initiatives by default" do
-    expect(subject).to include(translated(initiative1.title))
-    expect(subject).to include(translated(initiative2.title))
-    expect(subject).to include(translated(initiative3.title))
-    expect(subject).to include(translated(area1_initiative.title))
-    expect(subject).to include(translated(area2_initiative.title))
-    expect(subject).to include(translated(user1_initiative.title))
-    expect(subject).to include(translated(user2_initiative.title))
-    expect(subject).to include(translated(group1_initiative.title))
-    expect(subject).to include(translated(group2_initiative.title))
-    expect(subject).not_to include(translated(closed_initiative.title))
-    expect(subject).not_to include(translated(accepted_initiative.title))
-    expect(subject).not_to include(translated(rejected_initiative.title))
-    expect(subject).not_to include(translated(answered_rejected_initiative.title))
-    expect(subject).not_to include(translated(created_initiative.title))
-    expect(subject).not_to include(translated(user1_created_initiative.title))
+    expect(subject).to include(decidim_html_escape(translated(initiative1.title)))
+    expect(subject).to include(decidim_html_escape(translated(initiative2.title)))
+    expect(subject).to include(decidim_html_escape(translated(initiative3.title)))
+    expect(subject).to include(decidim_html_escape(translated(area1_initiative.title)))
+    expect(subject).to include(decidim_html_escape(translated(area2_initiative.title)))
+    expect(subject).to include(decidim_html_escape(translated(user1_initiative.title)))
+    expect(subject).to include(decidim_html_escape(translated(user2_initiative.title)))
+    expect(subject).to include(decidim_html_escape(translated(group1_initiative.title)))
+    expect(subject).to include(decidim_html_escape(translated(group2_initiative.title)))
+    expect(subject).not_to include(decidim_html_escape(translated(closed_initiative.title)))
+    expect(subject).not_to include(decidim_html_escape(translated(accepted_initiative.title)))
+    expect(subject).not_to include(decidim_html_escape(translated(rejected_initiative.title)))
+    expect(subject).not_to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+    expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+    expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
   end
 
   context "when filtering by text" do
@@ -68,42 +69,42 @@ RSpec.describe "Initiative search", type: :request do
     let(:search_text) { "doggo" }
 
     it "displays the initiatives containing the search in the title or the body or the author name or nickname" do
-      expect(subject).to include(translated(initiative1.title))
-      expect(subject).to include(translated(initiative2.title))
-      expect(subject).not_to include(translated(initiative3.title))
-      expect(subject).not_to include(translated(area1_initiative.title))
-      expect(subject).not_to include(translated(area2_initiative.title))
-      expect(subject).to include(translated(user1_initiative.title))
-      expect(subject).to include(translated(user2_initiative.title))
-      expect(subject).to include(translated(group1_initiative.title))
-      expect(subject).to include(translated(group2_initiative.title))
-      expect(subject).not_to include(translated(closed_initiative.title))
-      expect(subject).not_to include(translated(accepted_initiative.title))
-      expect(subject).not_to include(translated(rejected_initiative.title))
-      expect(subject).not_to include(translated(answered_rejected_initiative.title))
-      expect(subject).not_to include(translated(created_initiative.title))
-      expect(subject).not_to include(translated(user1_created_initiative.title))
+      expect(subject).to include(decidim_html_escape(translated(initiative1.title)))
+      expect(subject).to include(decidim_html_escape(translated(initiative2.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(initiative3.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(area1_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(area2_initiative.title)))
+      expect(subject).to include(decidim_html_escape(translated(user1_initiative.title)))
+      expect(subject).to include(decidim_html_escape(translated(user2_initiative.title)))
+      expect(subject).to include(decidim_html_escape(translated(group1_initiative.title)))
+      expect(subject).to include(decidim_html_escape(translated(group2_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(closed_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(accepted_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(rejected_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
     end
 
     context "and the search_text is an initiative id" do
       let(:search_text) { initiative1.id.to_s }
 
       it "returns the initiative with the searched id" do
-        expect(subject).to include(translated(initiative1.title))
-        expect(subject).not_to include(translated(initiative2.title))
-        expect(subject).not_to include(translated(initiative3.title))
-        expect(subject).not_to include(translated(area1_initiative.title))
-        expect(subject).not_to include(translated(area2_initiative.title))
-        expect(subject).not_to include(translated(user1_initiative.title))
-        expect(subject).not_to include(translated(user2_initiative.title))
-        expect(subject).not_to include(translated(group1_initiative.title))
-        expect(subject).not_to include(translated(group2_initiative.title))
-        expect(subject).not_to include(translated(closed_initiative.title))
-        expect(subject).not_to include(translated(accepted_initiative.title))
-        expect(subject).not_to include(translated(rejected_initiative.title))
-        expect(subject).not_to include(translated(answered_rejected_initiative.title))
-        expect(subject).not_to include(translated(created_initiative.title))
-        expect(subject).not_to include(translated(user1_created_initiative.title))
+        expect(subject).to include(decidim_html_escape(translated(initiative1.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative2.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative3.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(closed_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(accepted_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
       end
     end
   end
@@ -115,21 +116,21 @@ RSpec.describe "Initiative search", type: :request do
       let(:state) { %w(open) }
 
       it "displays only open initiatives" do
-        expect(subject).to include(translated(initiative1.title))
-        expect(subject).to include(translated(initiative2.title))
-        expect(subject).to include(translated(initiative3.title))
-        expect(subject).to include(translated(area1_initiative.title))
-        expect(subject).to include(translated(area2_initiative.title))
-        expect(subject).to include(translated(user1_initiative.title))
-        expect(subject).to include(translated(user2_initiative.title))
-        expect(subject).to include(translated(group1_initiative.title))
-        expect(subject).to include(translated(group2_initiative.title))
-        expect(subject).not_to include(translated(closed_initiative.title))
-        expect(subject).not_to include(translated(accepted_initiative.title))
-        expect(subject).not_to include(translated(rejected_initiative.title))
-        expect(subject).not_to include(translated(answered_rejected_initiative.title))
-        expect(subject).not_to include(translated(created_initiative.title))
-        expect(subject).not_to include(translated(user1_created_initiative.title))
+        expect(subject).to include(decidim_html_escape(translated(initiative1.title)))
+        expect(subject).to include(decidim_html_escape(translated(initiative2.title)))
+        expect(subject).to include(decidim_html_escape(translated(initiative3.title)))
+        expect(subject).to include(decidim_html_escape(translated(area1_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(area2_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(user1_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(user2_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(group1_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(group2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(closed_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(accepted_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
       end
     end
 
@@ -137,21 +138,21 @@ RSpec.describe "Initiative search", type: :request do
       let(:state) { %w(closed) }
 
       it "displays only closed initiatives" do
-        expect(subject).not_to include(translated(initiative1.title))
-        expect(subject).not_to include(translated(initiative2.title))
-        expect(subject).not_to include(translated(initiative3.title))
-        expect(subject).not_to include(translated(area1_initiative.title))
-        expect(subject).not_to include(translated(area2_initiative.title))
-        expect(subject).not_to include(translated(user1_initiative.title))
-        expect(subject).not_to include(translated(user2_initiative.title))
-        expect(subject).not_to include(translated(group1_initiative.title))
-        expect(subject).not_to include(translated(group2_initiative.title))
-        expect(subject).to include(translated(closed_initiative.title))
-        expect(subject).to include(translated(accepted_initiative.title))
-        expect(subject).to include(translated(rejected_initiative.title))
-        expect(subject).to include(translated(answered_rejected_initiative.title))
-        expect(subject).not_to include(translated(created_initiative.title))
-        expect(subject).not_to include(translated(user1_created_initiative.title))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative1.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative2.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative3.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group2_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(closed_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(accepted_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(rejected_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
       end
     end
 
@@ -159,21 +160,21 @@ RSpec.describe "Initiative search", type: :request do
       let(:state) { %w(accepted) }
 
       it "returns only accepted initiatives" do
-        expect(subject).not_to include(translated(initiative1.title))
-        expect(subject).not_to include(translated(initiative2.title))
-        expect(subject).not_to include(translated(initiative3.title))
-        expect(subject).not_to include(translated(area1_initiative.title))
-        expect(subject).not_to include(translated(area2_initiative.title))
-        expect(subject).not_to include(translated(user1_initiative.title))
-        expect(subject).not_to include(translated(user2_initiative.title))
-        expect(subject).not_to include(translated(group1_initiative.title))
-        expect(subject).not_to include(translated(group2_initiative.title))
-        expect(subject).not_to include(translated(closed_initiative.title))
-        expect(subject).to include(translated(accepted_initiative.title))
-        expect(subject).not_to include(translated(rejected_initiative.title))
-        expect(subject).not_to include(translated(answered_rejected_initiative.title))
-        expect(subject).not_to include(translated(created_initiative.title))
-        expect(subject).not_to include(translated(user1_created_initiative.title))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative1.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative2.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative3.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(closed_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(accepted_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
       end
     end
 
@@ -181,21 +182,21 @@ RSpec.describe "Initiative search", type: :request do
       let(:state) { %w(rejected) }
 
       it "returns only rejected initiatives" do
-        expect(subject).not_to include(translated(initiative1.title))
-        expect(subject).not_to include(translated(initiative2.title))
-        expect(subject).not_to include(translated(initiative3.title))
-        expect(subject).not_to include(translated(area1_initiative.title))
-        expect(subject).not_to include(translated(area2_initiative.title))
-        expect(subject).not_to include(translated(user1_initiative.title))
-        expect(subject).not_to include(translated(user2_initiative.title))
-        expect(subject).not_to include(translated(group1_initiative.title))
-        expect(subject).not_to include(translated(group2_initiative.title))
-        expect(subject).not_to include(translated(closed_initiative.title))
-        expect(subject).not_to include(translated(accepted_initiative.title))
-        expect(subject).to include(translated(rejected_initiative.title))
-        expect(subject).to include(translated(answered_rejected_initiative.title))
-        expect(subject).not_to include(translated(created_initiative.title))
-        expect(subject).not_to include(translated(user1_created_initiative.title))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative1.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative2.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative3.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(closed_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(accepted_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(rejected_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
       end
     end
 
@@ -203,21 +204,21 @@ RSpec.describe "Initiative search", type: :request do
       let(:state) { %w(answered) }
 
       it "returns only answered initiatives" do
-        expect(subject).not_to include(translated(initiative1.title))
-        expect(subject).not_to include(translated(initiative2.title))
-        expect(subject).not_to include(translated(initiative3.title))
-        expect(subject).not_to include(translated(area1_initiative.title))
-        expect(subject).not_to include(translated(area2_initiative.title))
-        expect(subject).not_to include(translated(user1_initiative.title))
-        expect(subject).not_to include(translated(user2_initiative.title))
-        expect(subject).not_to include(translated(group1_initiative.title))
-        expect(subject).not_to include(translated(group2_initiative.title))
-        expect(subject).not_to include(translated(closed_initiative.title))
-        expect(subject).not_to include(translated(accepted_initiative.title))
-        expect(subject).not_to include(translated(rejected_initiative.title))
-        expect(subject).to include(translated(answered_rejected_initiative.title))
-        expect(subject).not_to include(translated(created_initiative.title))
-        expect(subject).not_to include(translated(user1_created_initiative.title))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative1.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative2.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative3.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(closed_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(accepted_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(rejected_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
       end
     end
 
@@ -225,21 +226,21 @@ RSpec.describe "Initiative search", type: :request do
       let(:state) { %w(open closed) }
 
       it "displays only closed initiatives" do
-        expect(subject).to include(translated(initiative1.title))
-        expect(subject).to include(translated(initiative2.title))
-        expect(subject).to include(translated(initiative3.title))
-        expect(subject).to include(translated(area1_initiative.title))
-        expect(subject).to include(translated(area2_initiative.title))
-        expect(subject).to include(translated(user1_initiative.title))
-        expect(subject).to include(translated(user2_initiative.title))
-        expect(subject).to include(translated(group1_initiative.title))
-        expect(subject).to include(translated(group2_initiative.title))
-        expect(subject).to include(translated(closed_initiative.title))
-        expect(subject).to include(translated(accepted_initiative.title))
-        expect(subject).to include(translated(rejected_initiative.title))
-        expect(subject).to include(translated(answered_rejected_initiative.title))
-        expect(subject).not_to include(translated(created_initiative.title))
-        expect(subject).not_to include(translated(user1_created_initiative.title))
+        expect(subject).to include(decidim_html_escape(translated(initiative1.title)))
+        expect(subject).to include(decidim_html_escape(translated(initiative2.title)))
+        expect(subject).to include(decidim_html_escape(translated(initiative3.title)))
+        expect(subject).to include(decidim_html_escape(translated(area1_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(area2_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(user1_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(user2_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(group1_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(group2_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(closed_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(accepted_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(rejected_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
       end
     end
   end
@@ -251,21 +252,21 @@ RSpec.describe "Initiative search", type: :request do
       let(:scope_id) { [scoped_type1.scope.id] }
 
       it "displays initiatives by scope" do
-        expect(subject).to include(translated(initiative1.title))
-        expect(subject).not_to include(translated(initiative2.title))
-        expect(subject).not_to include(translated(initiative3.title))
-        expect(subject).not_to include(translated(area1_initiative.title))
-        expect(subject).not_to include(translated(area2_initiative.title))
-        expect(subject).not_to include(translated(user1_initiative.title))
-        expect(subject).not_to include(translated(user2_initiative.title))
-        expect(subject).not_to include(translated(group1_initiative.title))
-        expect(subject).not_to include(translated(group2_initiative.title))
-        expect(subject).not_to include(translated(closed_initiative.title))
-        expect(subject).not_to include(translated(accepted_initiative.title))
-        expect(subject).not_to include(translated(rejected_initiative.title))
-        expect(subject).not_to include(translated(answered_rejected_initiative.title))
-        expect(subject).not_to include(translated(created_initiative.title))
-        expect(subject).not_to include(translated(user1_created_initiative.title))
+        expect(subject).to include(decidim_html_escape(translated(initiative1.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative2.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative3.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(closed_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(accepted_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
       end
     end
 
@@ -273,21 +274,21 @@ RSpec.describe "Initiative search", type: :request do
       let(:scope_id) { [scoped_type2.scope.id, scoped_type1.scope.id] }
 
       it "displays initiatives by scope" do
-        expect(subject).to include(translated(initiative1.title))
-        expect(subject).to include(translated(initiative2.title))
-        expect(subject).not_to include(translated(initiative3.title))
-        expect(subject).not_to include(translated(area1_initiative.title))
-        expect(subject).not_to include(translated(area2_initiative.title))
-        expect(subject).not_to include(translated(user1_initiative.title))
-        expect(subject).not_to include(translated(user2_initiative.title))
-        expect(subject).not_to include(translated(group1_initiative.title))
-        expect(subject).not_to include(translated(group2_initiative.title))
-        expect(subject).not_to include(translated(closed_initiative.title))
-        expect(subject).not_to include(translated(accepted_initiative.title))
-        expect(subject).not_to include(translated(rejected_initiative.title))
-        expect(subject).not_to include(translated(answered_rejected_initiative.title))
-        expect(subject).not_to include(translated(created_initiative.title))
-        expect(subject).not_to include(translated(user1_created_initiative.title))
+        expect(subject).to include(decidim_html_escape(translated(initiative1.title)))
+        expect(subject).to include(decidim_html_escape(translated(initiative2.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative3.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(closed_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(accepted_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
       end
     end
   end
@@ -309,21 +310,21 @@ RSpec.describe "Initiative search", type: :request do
       let(:author) { "any" }
 
       it "displays all initiatives except the created ones" do
-        expect(subject).to include(translated(initiative1.title))
-        expect(subject).to include(translated(initiative2.title))
-        expect(subject).to include(translated(initiative3.title))
-        expect(subject).to include(translated(area1_initiative.title))
-        expect(subject).to include(translated(area2_initiative.title))
-        expect(subject).to include(translated(user1_initiative.title))
-        expect(subject).to include(translated(user2_initiative.title))
-        expect(subject).to include(translated(group1_initiative.title))
-        expect(subject).to include(translated(group2_initiative.title))
-        expect(subject).to include(translated(closed_initiative.title))
-        expect(subject).to include(translated(accepted_initiative.title))
-        expect(subject).to include(translated(rejected_initiative.title))
-        expect(subject).to include(translated(answered_rejected_initiative.title))
-        expect(subject).not_to include(translated(created_initiative.title))
-        expect(subject).not_to include(translated(user1_created_initiative.title))
+        expect(subject).to include(decidim_html_escape(translated(initiative1.title)))
+        expect(subject).to include(decidim_html_escape(translated(initiative2.title)))
+        expect(subject).to include(decidim_html_escape(translated(initiative3.title)))
+        expect(subject).to include(decidim_html_escape(translated(area1_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(area2_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(user1_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(user2_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(group1_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(group2_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(closed_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(accepted_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(rejected_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
       end
     end
 
@@ -331,21 +332,21 @@ RSpec.describe "Initiative search", type: :request do
       let(:author) { "myself" }
 
       it "contains only initiatives of the author, including their created upcoming initiative" do
-        expect(subject).not_to include(translated(initiative1.title))
-        expect(subject).not_to include(translated(initiative2.title))
-        expect(subject).not_to include(translated(initiative3.title))
-        expect(subject).not_to include(translated(area1_initiative.title))
-        expect(subject).not_to include(translated(area2_initiative.title))
-        expect(subject).to include(translated(user1_initiative.title))
-        expect(subject).not_to include(translated(user2_initiative.title))
-        expect(subject).not_to include(translated(group1_initiative.title))
-        expect(subject).not_to include(translated(group2_initiative.title))
-        expect(subject).not_to include(translated(closed_initiative.title))
-        expect(subject).not_to include(translated(accepted_initiative.title))
-        expect(subject).not_to include(translated(rejected_initiative.title))
-        expect(subject).not_to include(translated(answered_rejected_initiative.title))
-        expect(subject).not_to include(translated(created_initiative.title))
-        expect(subject).to include(translated(user1_created_initiative.title))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative1.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative2.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative3.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area2_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(user1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(closed_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(accepted_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(user1_created_initiative.title)))
       end
     end
   end
@@ -355,42 +356,42 @@ RSpec.describe "Initiative search", type: :request do
     let(:type_id) { [initiative1.type.id] }
 
     it "displays initiatives of correct type" do
-      expect(subject).to include(translated(initiative1.title))
-      expect(subject).not_to include(translated(initiative2.title))
-      expect(subject).not_to include(translated(initiative3.title))
-      expect(subject).not_to include(translated(area1_initiative.title))
-      expect(subject).not_to include(translated(area2_initiative.title))
-      expect(subject).not_to include(translated(user1_initiative.title))
-      expect(subject).not_to include(translated(user2_initiative.title))
-      expect(subject).not_to include(translated(group1_initiative.title))
-      expect(subject).not_to include(translated(group2_initiative.title))
-      expect(subject).not_to include(translated(closed_initiative.title))
-      expect(subject).not_to include(translated(accepted_initiative.title))
-      expect(subject).not_to include(translated(rejected_initiative.title))
-      expect(subject).not_to include(translated(answered_rejected_initiative.title))
-      expect(subject).not_to include(translated(created_initiative.title))
-      expect(subject).not_to include(translated(user1_created_initiative.title))
+      expect(subject).to include(decidim_html_escape(translated(initiative1.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(initiative2.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(initiative3.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(area1_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(area2_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(user1_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(user2_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(group1_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(group2_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(closed_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(accepted_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(rejected_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+      expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
     end
 
     context "and providing multiple types" do
       let(:type_id) { [initiative1.type.id, initiative2.type.id] }
 
       it "displays initiatives of correct type" do
-        expect(subject).to include(translated(initiative1.title))
-        expect(subject).to include(translated(initiative2.title))
-        expect(subject).not_to include(translated(initiative3.title))
-        expect(subject).not_to include(translated(area1_initiative.title))
-        expect(subject).not_to include(translated(area2_initiative.title))
-        expect(subject).not_to include(translated(user1_initiative.title))
-        expect(subject).not_to include(translated(user2_initiative.title))
-        expect(subject).not_to include(translated(group1_initiative.title))
-        expect(subject).not_to include(translated(group2_initiative.title))
-        expect(subject).not_to include(translated(closed_initiative.title))
-        expect(subject).not_to include(translated(accepted_initiative.title))
-        expect(subject).not_to include(translated(rejected_initiative.title))
-        expect(subject).not_to include(translated(answered_rejected_initiative.title))
-        expect(subject).not_to include(translated(created_initiative.title))
-        expect(subject).not_to include(translated(user1_created_initiative.title))
+        expect(subject).to include(decidim_html_escape(translated(initiative1.title)))
+        expect(subject).to include(decidim_html_escape(translated(initiative2.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative3.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(closed_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(accepted_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
       end
     end
   end
@@ -402,21 +403,21 @@ RSpec.describe "Initiative search", type: :request do
       let(:area_id) { [area1.id.to_s] }
 
       it "displays initiatives by area" do
-        expect(subject).not_to include(translated(initiative1.title))
-        expect(subject).not_to include(translated(initiative2.title))
-        expect(subject).not_to include(translated(initiative3.title))
-        expect(subject).to include(translated(area1_initiative.title))
-        expect(subject).not_to include(translated(area2_initiative.title))
-        expect(subject).not_to include(translated(user1_initiative.title))
-        expect(subject).not_to include(translated(user2_initiative.title))
-        expect(subject).not_to include(translated(group1_initiative.title))
-        expect(subject).not_to include(translated(group2_initiative.title))
-        expect(subject).not_to include(translated(closed_initiative.title))
-        expect(subject).not_to include(translated(accepted_initiative.title))
-        expect(subject).not_to include(translated(rejected_initiative.title))
-        expect(subject).not_to include(translated(answered_rejected_initiative.title))
-        expect(subject).not_to include(translated(created_initiative.title))
-        expect(subject).not_to include(translated(user1_created_initiative.title))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative1.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative2.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative3.title)))
+        expect(subject).to include(decidim_html_escape(translated(area1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(area2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(closed_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(accepted_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
       end
     end
 
@@ -424,21 +425,21 @@ RSpec.describe "Initiative search", type: :request do
       let(:area_id) { [area1.id.to_s, area2.id.to_s] }
 
       it "displays initiatives by area" do
-        expect(subject).not_to include(translated(initiative1.title))
-        expect(subject).not_to include(translated(initiative2.title))
-        expect(subject).not_to include(translated(initiative3.title))
-        expect(subject).to include(translated(area1_initiative.title))
-        expect(subject).to include(translated(area2_initiative.title))
-        expect(subject).not_to include(translated(user1_initiative.title))
-        expect(subject).not_to include(translated(user2_initiative.title))
-        expect(subject).not_to include(translated(group1_initiative.title))
-        expect(subject).not_to include(translated(group2_initiative.title))
-        expect(subject).not_to include(translated(closed_initiative.title))
-        expect(subject).not_to include(translated(accepted_initiative.title))
-        expect(subject).not_to include(translated(rejected_initiative.title))
-        expect(subject).not_to include(translated(answered_rejected_initiative.title))
-        expect(subject).not_to include(translated(created_initiative.title))
-        expect(subject).not_to include(translated(user1_created_initiative.title))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative1.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative2.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(initiative3.title)))
+        expect(subject).to include(decidim_html_escape(translated(area1_initiative.title)))
+        expect(subject).to include(decidim_html_escape(translated(area2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group1_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(group2_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(closed_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(accepted_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(answered_rejected_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(created_initiative.title)))
+        expect(subject).not_to include(decidim_html_escape(translated(user1_created_initiative.title)))
       end
     end
   end

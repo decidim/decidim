@@ -46,7 +46,7 @@
   <div id="step-<%= questions_count %>" class="hide focus__step" data-toggler=".hide">
     <%= render(
       "new_confirm_step",
-      questions: questions
+      questions:
     ) %>
   </div>
 
@@ -61,13 +61,10 @@
 
 <%= render "decidim/elections/shared/broken_promises_modal" %>
 
-<% content_for :js_content do %>
-
-  <% if preview_mode? %>
-    <%= javascript_pack_tag "decidim_elections_voter_setup_preview" %>
-  <% else %>
-    <%= javascript_pack_tag "decidim_elections_voter_setup_vote" %>
-  <% end %>
-
-  <%= javascript_pack_tag "decidim_elections_voter_new_vote" %>
+<% if preview_mode? %>
+  <%= append_javascript_pack_tag "decidim_elections_voter_setup_preview" %>
+<% else %>
+  <%= append_javascript_pack_tag "decidim_elections_voter_setup_vote" %>
 <% end %>
+
+<%= append_javascript_pack_tag "decidim_elections_voter_new_vote" %>

@@ -58,10 +58,7 @@ pt:
           update:
             invalid: Ocorreu um problema ao guardar o inquérito.
             success: Inquérito guardado corretamente.
-      last_activity:
-        new_survey_at_html: "<span>Novo inquérito em %{link}</span>"
       surveys:
         answer:
           invalid: Ocorreu um problema ao responder ao inquérito.
-          spam_detected: Ocorreu um problema ao responder ao formulário. Talvez tenha sido demasiado rápido, pode tentar novamente?
           success: Inquérito respondido corretamente.

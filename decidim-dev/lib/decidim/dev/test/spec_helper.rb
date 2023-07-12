@@ -5,9 +5,7 @@ require "rspec/rails"
 require "rspec/cells"
 require "byebug"
 require "wisper/rspec/stub_wisper_publisher"
-require "db-query-matchers"
 require "action_view/helpers/sanitize_helper"
-require "axe-rspec"
 require "w3c_rspec_validators"
 require "decidim/dev/test/w3c_rspec_validators_overrides"
 
@@ -25,12 +23,25 @@ RSpec.configure do |config|
   config.order = :random
   config.raise_errors_for_deprecations!
   config.example_status_persistence_file_path = ".rspec-failures"
+  config.filter_run_when_matching :focus
+  config.profile_examples = 10
+  config.default_formatter = "doc" if config.files_to_run.one?
 
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
+  # If you are not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, comment the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
 
   config.include ActionView::Helpers::SanitizeHelper
   config.include ERB::Util
+
+  config.before :all, type: :system do
+    ActiveStorage.service_urls_expire_in = 24.hours
+  end
+
+  config.before :all do
+    Decidim.content_security_policies_extra = {
+      "img-src": %w(https://via.placeholder.com)
+    }
+  end
 end

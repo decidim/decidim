@@ -54,13 +54,6 @@ ga:
       review:
         back: Ar Ais
     application:
-      collection:
-        documents:
-          one: Cáipéis
-          two: Cáipéisí
-          few: Cáipéisí
-          many: Cáipéisí
-          other: Cáipéisí
       geocoding:
         geocoded_address: Seoladh
     authorization_handlers:
@@ -126,9 +119,6 @@ ga:
         ready: Réidh
     endorsable:
       endorsements: Formhuinithe
-    endorsement_buttons_cell:
-      already_endorsed: Formhuinithe
-      endorse: Formhuinigh
     endorsements:
       identities:
         done: Críochnaithe
@@ -152,8 +142,6 @@ ga:
       badges:
         index:
           title: Suaitheantais
-        invitations:
-          name: Cuirí
     group_invites:
       accept_invitation: Glac
       index:
@@ -181,12 +169,7 @@ ga:
         error_modal:
           ok: Togha
         index:
-          ago: ó shin
-          from: Ó
           next: I ndiaidh
-        reply:
-          send: Seol
-          title: Freagra
         start:
           send: Seol
     newsletter_templates:
@@ -322,8 +305,6 @@ ga:
       edit:
         submit_button: Sábháil
     registrations:
-      edit:
-        update: Nuashonraigh
       new:
         sign_up: Cláraigh
     sessions:
@@ -353,6 +334,7 @@ ga:
         see_more: Feic níos mó
   locale:
     name: Gaeilge
+    name_with_error: Gaeilge (earráid!)
   social_share_button:
     douban: Douban
     email: Seoladh ríomhphoist

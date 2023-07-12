@@ -2,7 +2,7 @@
 
 shared_examples "copy assemblies" do
   let!(:assembly) { create(:assembly, organization:) }
-  let!(:component) { create :component, manifest_name: :dummy, participatory_space: assembly }
+  let!(:component) { create(:component, manifest_name: :dummy, participatory_space: assembly) }
   let!(:category) do
     create(
       :category,
@@ -60,7 +60,9 @@ shared_examples "copy assemblies" do
 
       expect(page).to have_content("successfully")
 
-      click_link "Copy assembly"
+      within find("tr", text: "Copy assembly") do
+        click_link "Configure"
+      end
       click_link "Categories"
 
       within ".table-list" do
@@ -76,7 +78,9 @@ shared_examples "copy assemblies" do
 
       expect(page).to have_content("successfully")
 
-      click_link "Copy assembly"
+      within find("tr", text: "Copy assembly") do
+        click_link "Configure"
+      end
       click_link "Components"
 
       within ".table-list" do

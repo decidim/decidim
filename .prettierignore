@@ -1,0 +1,12 @@
+spec/decidim_dummy_app/
+node_modules/
+development_app*/
+
+# Decidim webpack packs
+public/decidim-packs
+# tmp folder (used by webpack to deal with cache)
+tmp
+# webpack packs output
+decidim-packs
+# inner package-lock files inside the packages/ folder
+packages/**/package-lock.json

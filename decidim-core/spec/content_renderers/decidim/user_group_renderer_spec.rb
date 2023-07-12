@@ -7,7 +7,7 @@ module Decidim
     let(:user_group) { create(:user_group, :confirmed) }
     let(:renderer) { described_class.new(content) }
     let(:presenter) { Decidim::UserGroupPresenter.new(user_group) }
-    let(:profile_url) { "http://#{user_group.organization.host}/profiles/#{user_group.nickname}" }
+    let(:profile_url) { "http://#{user_group.organization.host}:#{Capybara.server_port}/profiles/#{user_group.nickname}" }
 
     context "when content has a valid Decidim::UserGroup Global ID" do
       let(:content) { "This text contains a valid Decidim::UserGroup Global ID: #{user_group.to_global_id}" }
@@ -56,6 +56,18 @@ module Decidim
         rendered = renderer.render
         mention = %(<a class="user-mention" href="#{profile_url}">@#{user_group.nickname}</a>)
         expect(rendered.scan(mention).length).to eq(2)
+      end
+    end
+
+    context "when rendering for editor" do
+      let(:content) { "This text contains a valid Decidim::UserGroup Global ID: #{user_group.to_global_id}" }
+      let(:mention) { "@#{user_group.nickname}" }
+      let(:label) { "#{mention} (#{CGI.escapeHTML(user_group.name)})" }
+
+      it "renders the hashtag wrapper for the editor" do
+        expect(renderer.render(editor: true)).to eq(
+          %(This text contains a valid Decidim::UserGroup Global ID: <span data-type="mention" data-id="#{mention}" data-label="#{label}">#{label}</span>)
+        )
       end
     end
   end

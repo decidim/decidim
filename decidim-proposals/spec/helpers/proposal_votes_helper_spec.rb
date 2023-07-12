@@ -18,26 +18,6 @@ module Decidim
         allow(helper).to receive(:component_settings).and_return(double(vote_limit: limit))
       end
 
-      describe "#vote_button_classes" do
-        it "returns small buttons classes from proposals list" do
-          expect(helper.vote_button_classes(true)).to eq("card__button")
-        end
-
-        it "returns expanded buttons classes if it's not from proposals list'" do
-          expect(helper.vote_button_classes(false)).to eq("expanded")
-        end
-      end
-
-      describe "#votes_count_classes" do
-        it "returns small count classes from proposals list" do
-          expect(helper.votes_count_classes(true)).to eq(number: "card__support__number", label: "")
-        end
-
-        it "returns expanded count classes if it's not from proposals list'" do
-          expect(helper.votes_count_classes(false)).to eq(number: "extra__suport-number", label: "extra__suport-text")
-        end
-      end
-
       describe "#vote_limit_enabled?" do
         context "when the current_settings vote_limit is less or equal 0" do
           let(:limit) { 0 }

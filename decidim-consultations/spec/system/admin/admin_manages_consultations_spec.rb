@@ -25,6 +25,8 @@ describe "Admin manages consultations", type: :system do
       end
     end
 
+    it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='consultation-description-tabs']", "full"
+
     it "creates a new consultation" do
       execute_script("$('#consultation_start_voting_date').focus()")
       find(".active").click
@@ -125,7 +127,9 @@ describe "Admin manages consultations", type: :system do
 
   describe "updating a consultation" do
     before do
-      click_link translated(consultation.title)
+      within find("tr", text: translated(consultation.title)) do
+        click_link "Configure"
+      end
     end
 
     it "updates a consultation" do
@@ -154,7 +158,9 @@ describe "Admin manages consultations", type: :system do
 
   describe "updating a consultation with invalid values" do
     before do
-      click_link translated(consultation.title)
+      within find("tr", text: translated(consultation.title)) do
+        click_link "Configure"
+      end
     end
 
     it "do not updates the consultation" do
@@ -182,7 +188,9 @@ describe "Admin manages consultations", type: :system do
     end
 
     it "update a consultation without images does not delete them" do
-      click_link translated(consultation3.title)
+      within find("tr", text: translated(consultation3.title)) do
+        click_link "Configure"
+      end
 
       within ".edit_consultation" do
         find("*[type=submit]").click
@@ -220,7 +228,9 @@ describe "Admin manages consultations", type: :system do
     let!(:consultation) { create(:consultation, :unpublished, organization:) }
 
     before do
-      click_link translated(consultation.title)
+      within find("tr", text: translated(consultation.title)) do
+        click_link "Configure"
+      end
     end
 
     it "publishes the consultation" do
@@ -238,7 +248,9 @@ describe "Admin manages consultations", type: :system do
     let!(:consultation) { create(:consultation, :published, organization:) }
 
     before do
-      click_link translated(consultation.title)
+      within find("tr", text: translated(consultation.title)) do
+        click_link "Configure"
+      end
     end
 
     it "unpublishes the consultation" do
@@ -259,7 +271,7 @@ describe "Admin manages consultations", type: :system do
       visit decidim_admin_consultations.consultations_path
     end
 
-    it "doesn't let the admin manage assemblies form other organizations" do
+    it "does not let the admin manage assemblies form other organizations" do
       within "table" do
         expect(page).not_to have_content(external_consultation.title["en"])
       end

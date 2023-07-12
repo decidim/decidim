@@ -11,15 +11,22 @@ es:
         decidim_area_id: Área
         description: Descripción
         developer_group: Grupo promotor
+        document: Documento
         domain: Dominio
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
+        import_attachments: Importar archivos adjuntos
+        import_categories: Importar categorias
+        import_components: Importar componentes
+        import_steps: Importar fases
         local_area: Área de organización
         meta_scope: Metadatos de ámbito
         participatory_process_group_id: Grupo de procesos
+        participatory_process_type_id: Tipo de proceso
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
+        private_space: Proceso privado
         promoted: Destacado
         published_at: Publicado en
         related_process_ids: Procesos relacionados
@@ -67,7 +74,7 @@ es:
         participatory_process:
           attributes:
             document:
-              allowed_file_content_types: 'Tipo de documento inválido. Los formatos que se aceptan son: %{types}'
+              allowed_file_content_types: 'Tipo de documento no válido. Sólo se permiten archivos con las siguientes extensiones: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: Fase modificada
@@ -95,6 +102,7 @@ es:
           all_processes: Mostrar todos los procesos
           process_groups: Grupos de procesos
         import_process: Importar
+        moderate: Moderar
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
@@ -164,13 +172,22 @@ es:
       participatory_process_copies:
         new:
           copy: Copiar
-          select: Seleccione los datos que deseas duplicar
+          select: Selecciona los datos que deseas duplicar
           title: Duplicar proceso participativo
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Bloques de contenido activos
+          add: Añadir bloque de contenido
+          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
           inactive_content_blocks: Bloques de contenido inactivos
+          title: Contenidos de la página
       participatory_process_group_landing_page_content_blocks:
+        create:
+          error: Se ha producido un error al intentar crear este bloque de contenido.
+          success: El bloque de contenido se ha creado correctamente.
+        destroy:
+          error: Se ha producido un error al intentar eliminar este bloque de contenido.
+          success: Bloque de contenido eliminado correctamente.
         edit:
           update: Actualizar
       participatory_process_groups:
@@ -346,7 +363,7 @@ es:
     log:
       value_types:
         participatory_process_type_presenter:
-          not_found: 'Este tipo de proceso no se encontró en la base de datos (ID: %{id})'
+          not_found: 'Este tipo de proceso no se encontró en la base de datos (ID: %{id}).'
     menu:
       processes: Procesos
     metrics:
@@ -421,7 +438,7 @@ es:
             other: Otro
             related_processes: Procesos relacionados
             scope_type_max_depth_help: Restringe la profundidad del filtro de ámbito; se mostrará el filtro desde el ámbito general hasta el seleccionado.
-            select_an_area: Seleccione una área
+            select_an_area: Selecciona una área
             select_participatory_process_type: Selecciona un tipo de proceso
             select_process_group: Selecciona un grupo de procesos
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -464,8 +481,8 @@ es:
               one: Un próximo proceso
               other: "%{count} próximos procesos"
           explanations:
-            no_active: Sin procesos activos
-            no_active_nor_upcoming: No hay procesos activos ni futuros
+            no_active: Sin procesos activos.
+            no_active_nor_upcoming: No hay procesos activos ni futuros.
             no_active_nor_upcoming_callout: No hay procesos activos ni futuros. Aquí hay una lista de los pasados.
           filter_by: Mostrar
           names:

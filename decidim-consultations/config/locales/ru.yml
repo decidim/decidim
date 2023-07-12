@@ -225,9 +225,6 @@ ru:
           few: голоса из
           many: голосов из
           other: голосов из
-      question_votes:
-        create:
-          error: При голосовании по данному вопросу произошли ошибки
       regular_questions:
         title: Вопросы для этой консультации
       show:

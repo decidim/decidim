@@ -5,11 +5,11 @@ require "spec_helper"
 describe Decidim::Budgets::Admin::CreateBudget do
   subject { described_class.new(form) }
 
-  let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-  let(:participatory_process) { create :participatory_process, organization: }
-  let!(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "budgets" }
-  let(:user) { create :user, :admin, :confirmed, organization: }
-  let(:scope) { create :scope, organization: }
+  let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let!(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "budgets") }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:scope) { create(:scope, organization:) }
 
   let(:form) do
     double(

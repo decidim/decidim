@@ -37,7 +37,7 @@ module Decidim
           end
         end
 
-        context "when the sortition doesn't belong to the component" do
+        context "when the sortition does not belong to the component" do
           let!(:sortition) { create(:sortition, component: create(:sortition_component)) }
 
           it "returns null" do

@@ -31,7 +31,7 @@ module Decidim
       end
 
       def send_form_and_expect_rendering_the_new_template_again
-        post :create, params: params
+        post(:create, params:)
         expect(controller).to render_template "new"
       end
 
@@ -44,8 +44,8 @@ module Decidim
           expect(controller).to receive(:sign_up).and_call_original
         end
 
-        it "doesn't ask the user to confirm the email" do
-          post :create, params: params
+        it "does not ask the user to confirm the email" do
+          post(:create, params:)
           expect(controller.flash.notice).not_to have_content("confirmation")
         end
       end
@@ -55,6 +55,44 @@ module Decidim
 
         it "renders the new template" do
           send_form_and_expect_rendering_the_new_template_again
+        end
+
+        it "adds the flash message" do
+          post(:create, params:)
+          expect(controller.flash.now[:alert]).to have_content("Your email cannot be blank")
+        end
+
+        context "when all params are invalid" do
+          let(:params) do
+            {
+              user: {
+                sign_up_as: "",
+                name: "",
+                nickname: "",
+                email:,
+                password: "123",
+                password_confirmation: "456",
+                tos_agreement: "0",
+                newsletter: "0"
+              }
+            }
+          end
+
+          it "adds the flash message" do
+            post(:create, params:)
+            expect(controller.flash.now[:alert]).to have_content(
+              [
+                "Your name cannot be blank",
+                "Nickname cannot be blank",
+                "Nickname is invalid",
+                "Your email cannot be blank",
+                "Confirm your password does not match Password",
+                "Password is too short",
+                "Password does not have enough unique characters",
+                "Terms of service agreement must be accepted"
+              ].join(", ")
+            )
+          end
         end
       end
 

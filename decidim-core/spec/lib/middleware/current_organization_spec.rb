@@ -32,7 +32,7 @@ module Decidim
         end
       end
 
-      it "doesn't set the organization" do
+      it "does not set the organization" do
         _code, new_env = middleware.call(env)
 
         expect(new_env["decidim.current_organization"]).to be_nil

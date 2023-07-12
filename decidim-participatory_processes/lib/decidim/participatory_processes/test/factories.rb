@@ -83,6 +83,22 @@ FactoryBot.define do
       scopes_enabled { true }
       scope { create :scope, organization: }
     end
+
+    trait :with_content_blocks do
+      transient { blocks_manifests { [:process_hero] } }
+
+      after(:create) do |participatory_process, evaluator|
+        evaluator.blocks_manifests.each do |manifest_name|
+          create(
+            :content_block,
+            organization: participatory_process.organization,
+            scope_name: :participatory_process_homepage,
+            manifest_name:,
+            scoped_resource_id: participatory_process.id
+          )
+        end
+      end
+    end
   end
 
   factory :participatory_process_group, class: "Decidim::ParticipatoryProcessGroup" do
@@ -151,6 +167,7 @@ FactoryBot.define do
     end
 
     organization { participatory_process.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :participatory_process_user_role,
@@ -166,6 +183,7 @@ FactoryBot.define do
     end
 
     organization { participatory_process.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :participatory_process_user_role,
@@ -181,6 +199,7 @@ FactoryBot.define do
     end
 
     organization { participatory_process.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :participatory_process_user_role,
@@ -196,6 +215,7 @@ FactoryBot.define do
     end
 
     organization { participatory_process.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :participatory_process_user_role,

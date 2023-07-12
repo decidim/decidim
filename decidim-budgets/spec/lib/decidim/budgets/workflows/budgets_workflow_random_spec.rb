@@ -14,7 +14,7 @@ describe BudgetsWorkflowRandom do
   let(:not_chosen_resources) { workflow.budgets - [chosen_resource] }
 
   it_behaves_like "includes base workflow features"
-  it_behaves_like "doesn't have orders"
+  it_behaves_like "does not have orders"
   it_behaves_like "highlights a resource" do
     let(:highlighted_resource) { chosen_resource }
   end
@@ -26,7 +26,7 @@ describe BudgetsWorkflowRandom do
       expect(subject).not_to be_vote_allowed(resource)
     end
 
-    expect(workflow.allowed).to match_array([chosen_resource])
+    expect(workflow.allowed).to contain_exactly(chosen_resource)
   end
 
   it "has an allowed status only for the chosen resource" do
@@ -47,10 +47,10 @@ describe BudgetsWorkflowRandom do
     shared_examples "allows to vote only in the order resource" do
       it "allows to vote in the order resource" do
         expect(subject).to be_vote_allowed(order_resource)
-        expect(workflow.allowed).to match_array([order_resource])
+        expect(workflow.allowed).to contain_exactly(order_resource)
       end
 
-      it "doesn't allow to vote in the other resources" do
+      it "does not allow to vote in the other resources" do
         other_resources.each do |resource|
           expect(subject).not_to be_vote_allowed(resource)
         end
@@ -69,7 +69,7 @@ describe BudgetsWorkflowRandom do
     it_behaves_like "has an in-progress order"
     it_behaves_like "allows to vote only in the order resource"
 
-    it "doesn't allow to discard the highlighted resource" do
+    it "does not allow to discard the highlighted resource" do
       expect(workflow.discardable).to be_empty
     end
 
@@ -96,11 +96,11 @@ describe BudgetsWorkflowRandom do
     context "when order has been checked out" do
       before { order.update! checked_out_at: Time.current }
 
-      it_behaves_like "doesn't highlight any resource"
+      it_behaves_like "does not highlight any resource"
       it_behaves_like "has a voted order"
-      it_behaves_like "doesn't allow to vote in any resource"
+      it_behaves_like "does not allow to vote in any resource"
 
-      it "doesn't have any discardable order" do
+      it "does not have any discardable order" do
         expect(workflow.discardable).to be_empty
       end
     end

@@ -15,7 +15,9 @@ shared_examples "manage diplomas" do
 
   context "when diploma configuration not exists" do
     it "configure the diploma settings" do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
       visit_edit_diplomas_page
 
       dynamically_attach_file(:conference_main_logo, main_logo_path)
@@ -33,14 +35,16 @@ shared_examples "manage diplomas" do
   end
 
   context "when diploma configuration exists" do
-    let!(:conference) { create :conference, :diploma, organization: }
+    let!(:conference) { create(:conference, :diploma, organization:) }
 
     context "and a few registrations have been confirmed" do
-      let!(:conference_registrations) { create_list :conference_registration, 10, conference: }
+      let!(:conference_registrations) { create_list(:conference_registration, 10, conference:) }
 
       context "and diplomas has not been sent" do
         before do
-          click_link translated(conference.title)
+          within find("tr", text: translated(conference.title)) do
+            click_link "Configure"
+          end
           visit_edit_diplomas_page
         end
 
@@ -58,7 +62,7 @@ shared_examples "manage diplomas" do
       end
 
       context "and diplomas already has been sent" do
-        let!(:conference_registrations) { create_list :conference_registration, 10, conference: }
+        let!(:conference_registrations) { create_list(:conference_registration, 10, conference:) }
 
         before do
           conference.diploma_sent_at = Time.current
@@ -66,8 +70,10 @@ shared_examples "manage diplomas" do
           conference.reload
         end
 
-        it "can't send the diplomas" do
-          click_link translated(conference.title)
+        it "cannot send the diplomas" do
+          within find("tr", text: translated(conference.title)) do
+            click_link "Configure"
+          end
           visit_edit_diplomas_page
           within ".card-title" do
             expect(page).to have_selector("#send-diplomas.disabled")
@@ -78,10 +84,12 @@ shared_examples "manage diplomas" do
     end
 
     context "and registration has not been confirmed" do
-      let!(:conference_registrations) { create_list :conference_registration, 10, :unconfirmed, conference: }
+      let!(:conference_registrations) { create_list(:conference_registration, 10, :unconfirmed, conference:) }
 
-      it "can't send the diplomas" do
-        click_link translated(conference.title)
+      it "cannot send the diplomas" do
+        within find("tr", text: translated(conference.title)) do
+          click_link "Configure"
+        end
         visit_edit_diplomas_page
         within ".card-title" do
           expect(page).not_to have_selector("#send-diplomas")

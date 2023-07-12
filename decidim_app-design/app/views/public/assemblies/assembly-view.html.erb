@@ -26,8 +26,8 @@
               </li>
               <li class="card-data__item">
                 <div>
-                  <strong class="text-uppercase"><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong><br>
-                  <span class="text-medium"><%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %></span>
+                  <strong class="text-uppercase"><%= Faker::Date.forward(days: 365).strftime("%e %B %Y") %></strong><br>
+                  <span class="text-medium"><%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %> - <%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %></span>
                 </div>
                 <br>
                 <div>
@@ -44,8 +44,8 @@
               </li>
               <li class="card-data__item">
                 <div>
-                  <strong class="text-uppercase"><%= Faker::Date.forward(365).strftime("%e %B %Y") %></strong>
-                  <span class="text-medium"><%= Faker::Time.forward(365, :evening).strftime("%R") %> - <%= Faker::Time.forward(365, :evening).strftime("%R") %></span>
+                  <strong class="text-uppercase"><%= Faker::Date.forward(days: 365).strftime("%e %B %Y") %></strong>
+                  <span class="text-medium"><%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %> - <%= Faker::Time.forward(days: 365, period: :evening).strftime("%R") %></span>
                 </div>
               </li>
             </ul>
@@ -130,7 +130,7 @@
                     <div class="card__text card--picture-offset">
                       <div><small><strong><%= Faker::Company.profession.capitalize %></strong></small></div>
                       <div><small><%= Faker::Movies::StarWars.vehicle %></small></div>
-                      <div class="text-small">Designated on <strong><%= Faker::Date.backward(365).strftime("%D") %></strong></div>
+                      <div class="text-small">Designated on <strong><%= Faker::Date.backward(days: 365).strftime("%D") %></strong></div>
                       <div class="text-small mt-s"><%= Faker::Demographic.sex %> / <%= Faker::Number.number(digits: 2) %> / <%= Faker::Address.city %></div>
                     </div>
                   </div>

@@ -1,0 +1,12 @@
+<section id="amendments">
+  <h2 class="h4 flex items-center gap-2 mb-4">
+    <%= resource_type_icon "Decidim::Amendment", class: "fill-tertiary w-6 h-6" %>
+    <%= t("decidim.amendments.amendments.title", count: emendations.count) %>
+  </h2>
+
+  <div id="amendment-list">
+    <% emendations.each do |emendation| %>
+      <%= card_for emendation, context: { current_user: } %>
+    <% end %>
+  </div>
+</section>

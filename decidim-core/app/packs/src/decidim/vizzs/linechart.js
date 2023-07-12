@@ -3,7 +3,7 @@
 /* eslint dot-location: ["error", "property"] */
 /* global DATACHARTS, fetchDatacharts */
 
-import { select, mouse } from "d3-selection";
+import { select, pointer } from "d3-selection";
 import { extent, ascending } from "d3-array";
 import { scaleTime, scaleLinear } from "d3-scale";
 import { axisLeft, axisBottom } from "d3-axis";
@@ -163,8 +163,8 @@ export default function renderLineCharts() {
         .on("mouseout", () => {
           tooltip.style("opacity", 0)
         })
-        .on("mousemove", function() {
-          let x0 = x.invert(mouse(this)[0])
+        .on("mousemove", function(event) {
+          let x0 = x.invert(pointer(event)[0])
 
           let ge = []
           data.forEach((o) => {
@@ -240,7 +240,7 @@ export default function renderLineCharts() {
     }
 
     // MANDATORY: HTML must contain which metric should it display
-    // If there's no data, fetch it
+    // If there is no data, fetch it
     if (!DATACHARTS || !DATACHARTS[container.dataset.metric]) {
       fetchDatacharts()
     }

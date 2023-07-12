@@ -12,7 +12,7 @@ shared_examples "manage impersonations examples" do
     login_as user, scope: :user
   end
 
-  context "when the organization doesn't have any authorization available" do
+  context "when the organization does not have any authorization available" do
     let(:available_authorizations) { [] }
 
     it "the managed users page displays a warning and creation is disabled" do
@@ -194,7 +194,7 @@ shared_examples "manage impersonations examples" do
         impersonate(impersonated_user, reason:)
       end
 
-      context "and it's a managed user" do
+      context "and it is a managed user" do
         let(:managed) { true }
 
         it_behaves_like "impersonating a user"
@@ -211,7 +211,7 @@ shared_examples "manage impersonations examples" do
 
         context "and a reason is provided" do
           let(:reason) do
-            "We're on a meeting and want to do a collaborative session in the pope's name."
+            "We are on a meeting and want to do a collaborative session in the pope's name."
           end
 
           it_behaves_like "impersonating a user"
@@ -221,7 +221,7 @@ shared_examples "manage impersonations examples" do
             expect(page).to have_content("successfully")
 
             check_impersonation_logs
-            expect(page).to have_content("We're on a meeting and want to do a collaborative session in the pope's name.")
+            expect(page).to have_content("We are on a meeting and want to do a collaborative session in the pope's name.")
           end
         end
       end
@@ -262,6 +262,10 @@ shared_examples "manage impersonations examples" do
       end
 
       expect(page).to have_content("successfully")
+      within_user_menu do
+        click_link "My public profile"
+      end
+
       expect(page).to have_content(managed_user.name)
 
       relogin_as user
@@ -269,7 +273,7 @@ shared_examples "manage impersonations examples" do
       navigate_to_impersonations_page
 
       within find("tr", text: managed_user.name) do
-        expect(page).to have_no_link("Promote")
+        expect(page).not_to have_link("Promote")
       end
     end
   end

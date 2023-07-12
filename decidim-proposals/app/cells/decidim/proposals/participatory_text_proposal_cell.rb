@@ -18,15 +18,6 @@ module Decidim
 
       private
 
-      def title
-        case model.participatory_text_level
-        when "section"
-          "<h5><strong>#{section_title}</strong></h5>"
-        else
-          "<h6><strong>#{section_title}</strong></h6>"
-        end
-      end
-
       def section_title
         decidim_html_escape(present(model).title).html_safe
       end

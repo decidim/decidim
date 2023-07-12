@@ -14,7 +14,7 @@ module Decidim
 
         helper ::Decidim::Admin::ResourcePermissionsHelper
         helper Decidim::Initiatives::InitiativeHelper
-        helper Decidim::Initiatives::CreateInitiativeHelper
+        helper Decidim::Initiatives::SignatureTypeOptionsHelper
 
         # GET /admin/initiatives
         def index
@@ -83,22 +83,31 @@ module Decidim
         # DELETE /admin/initiatives/:id/discard
         def discard
           enforce_permission_to :discard, :initiative, initiative: current_initiative
-          current_initiative.discarded!
-          redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
+          DiscardInitiative.call(current_initiative, current_user) do
+            on(:ok) do
+              redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
+            end
+          end
         end
 
         # POST /admin/initiatives/:id/accept
         def accept
           enforce_permission_to :accept, :initiative, initiative: current_initiative
-          current_initiative.accepted!
-          redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
+          AcceptInitiative.call(current_initiative, current_user) do
+            on(:ok) do
+              redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
+            end
+          end
         end
 
         # DELETE /admin/initiatives/:id/reject
         def reject
           enforce_permission_to :reject, :initiative, initiative: current_initiative
-          current_initiative.rejected!
-          redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
+          RejectInitiative.call(current_initiative, current_user) do
+            on(:ok) do
+              redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
+            end
+          end
         end
 
         # GET /admin/initiatives/:id/send_to_technical_validation

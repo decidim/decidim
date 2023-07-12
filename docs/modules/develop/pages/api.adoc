@@ -8,4 +8,4 @@ Documentation for this API is auto-generated in each instance of Decidim, usuall
 
 Accessing that URL will give a full details of all the objects that can be requested and how. It includes the full field types reference.
 
-As an alternative, if you can't access that URL on your instance you can read about how this work https://github.com/decidim/decidim/blob/develop/decidim-api/docs/usage.md[Using the Decidim GraphQL API].
+As an alternative, if you cannot access that URL on your instance you can read about how this work https://github.com/decidim/decidim/blob/develop/decidim-api/docs/usage.md[Using the Decidim GraphQL API].

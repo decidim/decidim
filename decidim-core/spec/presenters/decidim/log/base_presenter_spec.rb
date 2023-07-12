@@ -15,11 +15,11 @@ describe Decidim::Log::BasePresenter, type: :helper do
       created_at: Date.new(2018, 1, 2).at_midnight
     )
   end
-  let(:user) { create :user, name: "O'Hara", organization: resource.component.participatory_space.organization }
+  let(:user) { create(:user, name: "O'Hara", organization: resource.component.participatory_space.organization) }
   let(:user_name) { user.name }
   let(:participatory_space) { action_log.participatory_space }
   let(:participatory_space_title) { h(participatory_space.title["en"]) }
-  let(:resource) { create :dummy_resource }
+  let(:resource) { create(:dummy_resource) }
   let(:resource_title) { h(translated(resource.title)) }
   let(:action) { :create }
   let(:version_double) { double(present?: false) }

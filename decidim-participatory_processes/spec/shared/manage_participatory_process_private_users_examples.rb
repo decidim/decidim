@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 shared_examples "manage participatory process private users examples" do
-  let(:other_user) { create :user, organization:, email: "my_email@example.org" }
+  let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
 
-  let!(:participatory_space_private_user) { create :participatory_space_private_user, user:, privatable_to: participatory_process }
+  let!(:participatory_space_private_user) { create(:participatory_space_private_user, user:, privatable_to: participatory_process) }
 
   before do
     switch_to_host(organization.host)
@@ -40,8 +40,8 @@ shared_examples "manage participatory process private users examples" do
       find(".card-title a.import").click
 
       # The CSV has no headers
-      expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("my_user@example.org", "My User Name", participatory_process, user)
-      expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("my_private_user@example.org", "My Private User Name", participatory_process, user)
+      expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("john.doe@example.org", "John Doe", participatory_process, user)
+      expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("jane.doe@example.org", "Jane Doe", participatory_process, user)
       dynamically_attach_file(:participatory_space_private_user_csv_import_file, Decidim::Dev.asset("import_participatory_space_private_users.csv"))
       perform_enqueued_jobs { click_button "Upload" }
 
@@ -51,19 +51,19 @@ shared_examples "manage participatory process private users examples" do
 
   describe "when managing different users" do
     before do
-      create :participatory_space_private_user, user: other_user, privatable_to: participatory_process
+      create(:participatory_space_private_user, user: other_user, privatable_to: participatory_process)
       visit current_path
     end
 
     it "deletes a assembly_private_user" do
       within find("#private_users tr", text: other_user.email) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm(admin: true) { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "#private_users table" do
-        expect(page).to have_no_content(other_user.email)
+        expect(page).not_to have_content(other_user.email)
       end
     end
 

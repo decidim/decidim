@@ -32,7 +32,7 @@ module Decidim
               context "when the signature end time is not modified" do
                 let(:signature_end_date) { initiative.signature_end_date }
 
-                it "doesn't notify the followers" do
+                it "does not notify the followers" do
                   expect(Decidim::EventsManager).not_to receive(:publish)
 
                   command.call

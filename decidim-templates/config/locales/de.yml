@@ -1,4 +1,11 @@
 de:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Titel
+      template:
+        description: Beschreibung
+        name: Name
   decidim:
     admin:
       menu:
@@ -6,19 +13,19 @@ de:
       templates:
         apply:
           error: Es gab ein Problem beim Anwenden dieser Vorlage.
-          success: Vorlage erfolgreich angewendet
+          success: Vorlage erfolgreich angewendet.
         copy:
           error: Beim Kopieren dieser Vorlage ist ein Problem aufgetreten.
-          success: Vorlage erfolgreich kopiert
+          success: Vorlage erfolgreich kopiert.
         create:
           error: Es gab ein Problem beim Erstellen dieser Vorlage.
-          success: Vorlage erfolgreich erstellt
+          success: Vorlage erfolgreich erstellt.
         destroy:
-          success: Vorlage erfolgreich gelöscht
+          success: Vorlage erfolgreich gelöscht.
         empty: Es gibt noch keine Vorlagen.
         update:
           error: Bei der Aktualisierung dieser Vorlage ist ein Problem aufgetreten.
-          success: Vorlage erfolgreich aktualisiert
+          success: Vorlage erfolgreich aktualisiert.
       titles:
         template_types:
           questionnaires: Fragebogenvorlagen
@@ -34,6 +41,15 @@ de:
         name: Vorlage
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Speichern
+            template_title: Vorlageninformation
+          index:
+            confirm_delete: Möchten Sie diese Vorlage wirklich löschen?
+            title: Nachrichten blockieren
+          template_chooser:
+            select_template: Wählen Sie eine Antwortvorlage aus
         questionnaire_templates:
           choose:
             create_from_template: Aus Vorlage erstellen
@@ -43,7 +59,7 @@ de:
             skip_template: Überspringen
           edit:
             edit: Bearbeiten
-            empty: Es gibt noch keine Fragen
+            empty: Es gibt noch keine Fragen.
             questionnaire: Fragebogen
           form:
             save: Speichern
@@ -56,5 +72,12 @@ de:
             current_step: Schritt %{step}
             of_total_steps: von %{total_steps}
             tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
+      admin_log:
+        template:
+          create: "%{user_name} hat die Umfragevorlage %{resource_name} erstellt"
+          delete: "%{user_name} hat die Umfragevorlage %{resource_name} gelöscht"
+          duplicate: "%{user_name} hat die Umfragevorlage %{resource_name} dupliziert"
+          update: "%{user_name} hat die Umfragevorlage %{resource_name} aktualisiert"
       template_types:
+        block_user: Nachrichten blockieren
         questionnaires: Fragebögen

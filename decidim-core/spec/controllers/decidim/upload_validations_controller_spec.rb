@@ -24,9 +24,9 @@ module Decidim
 
     describe "#create" do
       it "validates" do
-        post :create, params: params
+        post(:create, params:)
 
-        expect(response.status).to eq(200)
+        expect(response).to have_http_status(:ok)
         expect(parsed_response).to eq([])
       end
     end

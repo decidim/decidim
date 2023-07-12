@@ -11,15 +11,22 @@ fr-CA:
         decidim_area_id: Périmètre d'assemblée
         description: Description
         developer_group: Organisateur
+        document: Document
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
         local_area: Espace d'organisation
         meta_scope: Échelle
         participatory_process_group_id: Groupe de processus
+        participatory_process_type_id: Type de processus
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
+        private_space: Processus privé
         promoted: Mise en avant
         published_at: Publiée à
         related_process_ids: Concertations liées
@@ -67,7 +74,7 @@ fr-CA:
         participatory_process:
           attributes:
             document:
-              allowed_file_content_types: 'Type de document invalide. Les formats acceptés sont: %{types}'
+              allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
     models:
       decidim/participatory_process_step_activated_event: Étape activée
       decidim/participatory_process_step_changed_event: Étape modifiée
@@ -95,6 +102,7 @@ fr-CA:
           all_processes: Afficher tous les processus
           process_groups: Groupes de processus
         import_process: Importer
+        moderate: Modérer
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
@@ -169,8 +177,17 @@ fr-CA:
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Blocs de contenu actifs
+          add: Ajouter un bloc de contenu
+          destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
           inactive_content_blocks: Blocs de contenu inactifs
+          title: Contenus de la page
       participatory_process_group_landing_page_content_blocks:
+        create:
+          error: Un problème est survenu lors de la création de ce bloc de contenu.
+          success: Le bloc de contenu a été créé avec succès.
+        destroy:
+          error: Un problème est survenu lors de la suppression de ce bloc de contenu.
+          success: Bloc de contenu supprimé avec succès.
         edit:
           update: Mettre à jour
       participatory_process_groups:
@@ -212,8 +229,8 @@ fr-CA:
         default_title: Introduction
         destroy:
           error:
-            active_step: Vous ne pouvez pas supprimer l'étape active de la concertation.
-            last_step: Vous ne pouvez pas supprimer la dernière étape de la concertation.
+            active_step: Vous ne pouvez pas supprimer l'étape active.
+            last_step: Vous ne pouvez pas supprimer la dernière étape d'une concertation.
           success: L'étape de la concertation a été supprimée avec succès.
         edit:
           title: Modifier l'étape de la concertation
@@ -346,7 +363,7 @@ fr-CA:
     log:
       value_types:
         participatory_process_type_presenter:
-          not_found: 'Le type de concertation n''a pas été trouvé dans la base de données (ID: %{id})'
+          not_found: 'Le type de concertation n''a pas été trouvé dans la base de données (ID: %{id}).'
     menu:
       processes: Concertations
     metrics:
@@ -464,8 +481,8 @@ fr-CA:
               one: 1 concertation à venir
               other: "%{count} concertations à venir"
           explanations:
-            no_active: Aucune concertation active
-            no_active_nor_upcoming: Aucune concertation active ni à venir
+            no_active: Aucune concertation active.
+            no_active_nor_upcoming: Aucune concertation active ni à venir.
             no_active_nor_upcoming_callout: Il n'y a pas de concertations actives ni à venir. Voici une liste des concertations passées.
           filter_by: Afficher
           names:

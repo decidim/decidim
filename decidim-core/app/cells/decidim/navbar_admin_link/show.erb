@@ -1,6 +1,4 @@
-<div class="topbar__admin__link <%= link_class %>">
-  <%= link_to link_url do %>
-    <%= icon link_icon_name, icon_options %>
-    <span><%= link_name %></span>
-  <% end %>
-</div>
+<%= link_to link_url, class: "admin-bar__button" do %>
+  <span><%= link_name %></span>
+  <%= icon link_icon_name, icon_options %>
+<% end %>

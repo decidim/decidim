@@ -10,7 +10,7 @@ module Decidim
       # Value presenters are dynamically found from the value type
       # set in the `fields_mapping` method in the resource presenter.
       # If the value is a symbol, the system will try to infer the
-      # correct presenter and use it. If it's a String, it will treat
+      # correct presenter and use it. If it is a String, it will treat
       # it as a class name, and will try to fetch that presenter.
       # If the system fails in either case, it will use the `DefaultPresenter`.
       #
@@ -25,7 +25,7 @@ module Decidim
         end
 
         # Public: Presents the value in a specific format. In this method
-        # you can use any view helper you need, but it's important to return
+        # you can use any view helper you need, but it is important to return
         # an HTML-safe String.
         #
         # Returns an HTML-safe String.

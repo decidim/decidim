@@ -32,6 +32,11 @@ shared_examples "manage partners examples" do
           with: "Partner name"
         )
 
+        select(
+          "Collaborator",
+          from: :conference_partner_partner_type
+        )
+
         find("*[type=submit]").click
       end
 
@@ -40,18 +45,33 @@ shared_examples "manage partners examples" do
 
       within "#partners table" do
         expect(page).to have_content("Partner name")
+        expect(page).to have_content("Collaborator")
+      end
+    end
+
+    context "when the partner type is already a Collaborator" do
+      let!(:conference_partner) { create(:partner, partner_type: "collaborator", conference:) }
+
+      it "returns the correct partner type in the edit" do
+        visit decidim_admin_conferences.edit_conference_partner_path(conference, conference_partner)
+        within ".edit_partner" do
+          expect(page).to have_select(
+            :conference_partner_partner_type,
+            selected: "Collaborator"
+          )
+        end
       end
     end
 
     it "deletes the conference partner" do
       within find("#partners tr", text: conference_partner.name) do
-        accept_confirm { find("a.action-icon--remove").click }
+        accept_confirm(admin: true) { find("a.action-icon--remove").click }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "#partners table" do
-        expect(page).to have_no_content(conference_partner.name)
+        expect(page).not_to have_content(conference_partner.name)
       end
     end
   end

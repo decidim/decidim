@@ -41,7 +41,7 @@ module Decidim
           end
         end
 
-        context "when the result doesn't belong to the component" do
+        context "when the result does not belong to the component" do
           let!(:result) { create(:result, component: create(:accountability_component)) }
 
           it "returns null" do

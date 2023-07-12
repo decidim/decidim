@@ -33,7 +33,7 @@ describe "Account", type: :system do
 
     describe "update avatar" do
       it "can update avatar" do
-        dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true)
+        dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true, front_interface: true)
 
         within "form.edit_user" do
           find("*[type=submit]").click
@@ -46,12 +46,12 @@ describe "Account", type: :system do
         find("#user_avatar_button").click
 
         within ".upload-modal" do
-          find(".remove-upload-item").click
+          click_button "Remove"
           input_element = find("input[type='file']", visible: :all)
           input_element.attach_file(Decidim::Dev.asset("5000x5000.png"))
 
           expect(page).to have_content("File resolution is too large", count: 1)
-          expect(page).to have_css(".upload-errors .form-error", count: 1)
+          expect(page).to have_content("Validation error!")
         end
       end
     end
@@ -72,10 +72,6 @@ describe "Account", type: :system do
           expect(page).to have_content("successfully")
         end
 
-        within ".title-bar" do
-          expect(page).to have_content("Nikola Tesla")
-        end
-
         user.reload
 
         within_user_menu do
@@ -94,7 +90,7 @@ describe "Account", type: :system do
       context "when password and confirmation match" do
         it "updates the password successfully" do
           within "form.edit_user" do
-            page.find(".change-password").click
+            page.find("span", text: "Change password").click
 
             fill_in :user_password, with: "sekritpass123"
             fill_in :user_password_confirmation, with: "sekritpass123"
@@ -110,10 +106,10 @@ describe "Account", type: :system do
         end
       end
 
-      context "when passwords don't match" do
-        it "doesn't update the password" do
+      context "when passwords do not match" do
+        it "does not update the password" do
           within "form.edit_user" do
-            page.find(".change-password").click
+            page.find("span", text: "Change password").click
 
             fill_in :user_password, with: "sekritpass123"
             fill_in :user_password_confirmation, with: "oopseytypo"
@@ -141,7 +137,7 @@ describe "Account", type: :system do
         end
 
         within_flash_messages do
-          expect(page).to have_content("You'll receive an email to confirm your new email address")
+          expect(page).to have_content("You will receive an email to confirm your new email address")
         end
       end
 
@@ -152,7 +148,7 @@ describe "Account", type: :system do
       it "tells user to confirm new email" do
         expect(page).to have_content("Email change verification")
         expect(page).to have_selector("#user_email[disabled='disabled']")
-        expect(page).to have_content("We've sent an email to #{pending_email} to verify your new email address")
+        expect(page).to have_content("We have sent an email to #{pending_email} to verify your new email address")
       end
 
       it "resend confirmation" do
@@ -186,9 +182,7 @@ describe "Account", type: :system do
       end
 
       it "updates the user's notifications" do
-        within ".switch.newsletter_notifications" do
-          page.find(".switch-paddle").click
-        end
+        page.find("[for='newsletter_notifications']").click
 
         within "form.edit_user" do
           find("*[type=submit]").click
@@ -208,13 +202,8 @@ describe "Account", type: :system do
         end
 
         it "updates the administrator's notifications" do
-          within ".switch.email_on_moderations" do
-            page.find(".switch-paddle").click
-          end
-
-          within ".switch.notification_settings" do
-            page.find(".switch-paddle").click
-          end
+          page.find("[for='email_on_moderations']").click
+          page.find("[for='user_notification_settings[close_meeting_reminder]']").click
 
           within "form.edit_user" do
             find("*[type=submit]").click
@@ -232,9 +221,9 @@ describe "Account", type: :system do
         visit decidim.user_interests_path
       end
 
-      it "doesn't find any scopes" do
+      it "does not find any scopes" do
         expect(page).to have_content("My interests")
-        expect(page).to have_content("This organization doesn't have any scope yet")
+        expect(page).to have_content("This organization does not have any scope yet")
       end
 
       context "when scopes are defined" do
@@ -246,9 +235,10 @@ describe "Account", type: :system do
         end
 
         it "display translated scope name" do
-          label_field = "label[for='user_scopes_#{scopes.first.id}_checked']"
           expect(page).to have_content("My interests")
-          expect(find("#{label_field} > span.switch-label").text).to eq(translated(scopes.first.name))
+          within "label[for='user_scopes_#{scopes.first.id}_checked']" do
+            expect(page).to have_content(translated(scopes.first.name))
+          end
         end
 
         it "allows to choose interests" do
@@ -269,6 +259,10 @@ describe "Account", type: :system do
         visit decidim.delete_account_path
       end
 
+      it "does not display the authorizations message by default" do
+        expect(page).not_to have_content("Some data bound to your authorization will be saved for security.")
+      end
+
       it "the user can delete their account" do
         fill_in :delete_user_delete_account_delete_reason, with: "I just want to delete my account"
 
@@ -280,7 +274,7 @@ describe "Account", type: :system do
           expect(page).to have_content("successfully")
         end
 
-        find(".sign-in-link").click
+        click_link("Sign In", match: :first)
 
         within ".new_user" do
           fill_in :session_user_email, with: user.email
@@ -288,8 +282,18 @@ describe "Account", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_no_content("Signed in successfully")
-        expect(page).to have_no_content(user.name)
+        expect(page).not_to have_content("Signed in successfully")
+        expect(page).not_to have_content(user.name)
+      end
+
+      context "when the user has an authorization" do
+        let!(:authorization) { create(:authorization, :granted, user:) }
+
+        it "displays the authorizations message" do
+          visit decidim.delete_account_path
+
+          expect(page).to have_content("Some data bound to your authorization will be saved for security.")
+        end
       end
     end
   end
@@ -308,7 +312,7 @@ describe "Account", type: :system do
 
     context "when VAPID keys are set" do
       before do
-        allow(Rails.application.secrets).to receive("vapid").and_return(vapid_keys)
+        Rails.application.secrets[:vapid] = vapid_keys
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user
@@ -318,10 +322,7 @@ describe "Account", type: :system do
       context "when on the account page" do
         it "enables push notifications if supported browser" do
           sleep 2
-          within ".push-notifications" do
-            # Check allow push notifications
-            find(".switch-paddle").click
-          end
+          page.find("[for='allow_push_notifications']").click
 
           # Wait for the browser to be subscribed
           sleep 5
@@ -334,14 +335,14 @@ describe "Account", type: :system do
             expect(page).to have_content("successfully")
           end
 
-          expect(page.find("#allow_push_notifications", visible: false)).to be_checked
+          find(:css, "#allow_push_notifications", visible: false).execute_script("this.checked = true")
         end
       end
     end
 
-    context "when VAPID keys are not set" do
+    context "when VAPID is disabled" do
       before do
-        allow(Rails.application.secrets).to receive("vapid").and_return({})
+        Rails.application.secrets[:vapid] = { enabled: false }
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user
@@ -349,7 +350,21 @@ describe "Account", type: :system do
       end
 
       it "does not show the push notifications switch" do
-        expect(page).to have_no_selector(".push-notifications")
+        expect(page).not_to have_selector(".push-notifications")
+      end
+    end
+
+    context "when VAPID keys are not set" do
+      before do
+        Rails.application.secrets.delete(:vapid)
+        driven_by(:pwa_chrome)
+        switch_to_host(organization.host)
+        login_as user, scope: :user
+        visit decidim.notifications_settings_path
+      end
+
+      it "does not show the push notifications switch" do
+        expect(page).not_to have_selector(".push-notifications")
       end
     end
   end

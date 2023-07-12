@@ -342,8 +342,6 @@ pt:
         working_group: Grupo de trabalho
       index:
         title: Reuniões
-      last_activity:
-        new_assembly: Nova reunião
       pages:
         home:
           highlighted_assemblies:
@@ -421,9 +419,6 @@ pt:
         related_assemblies: Reuniões relacionadas
     statistics:
       assemblies_count: Reuniões
-  errors:
-    messages:
-      cannot_be_blank: não pode estar em branco
   layouts:
     decidim:
       assemblies:

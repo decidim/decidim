@@ -44,7 +44,6 @@ pl:
           description_own: Utworzyłeś %{score} testów.
           name: Testy
           next_level_in: Stwórz %{score} dodatkowych testów, aby przejść do następnego poziomu!
-          unearned_another: Ten użytkownik nie utworzył jeszcze żadnych testów.
           unearned_own: Nie stworzyłeś jeszcze żadnych testów.
     resource_links:
       test_link:

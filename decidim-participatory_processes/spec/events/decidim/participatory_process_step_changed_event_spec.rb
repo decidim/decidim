@@ -10,7 +10,7 @@ describe Decidim::ParticipatoryProcessStepChangedEvent do
   let(:event_name) { "decidim.events.participatory_process.step_changed" }
   let(:participatory_process) { resource.participatory_process }
   let(:participatory_space) { resource.participatory_process }
-  let(:resource) { create :participatory_process_step }
+  let(:resource) { create(:participatory_process_step) }
   let(:resource_path) do
     decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process_slug: participatory_process.slug)
   end

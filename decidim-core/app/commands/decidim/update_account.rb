@@ -55,10 +55,11 @@ module Decidim
 
       @user.password = @form.password
       @user.password_confirmation = @form.password_confirmation
+      @user.password_updated_at = Time.current
     end
 
     def notify_followers
-      return if (@user.previous_changes.keys & %w(about personal_url)).empty?
+      return unless @user.previous_changes.keys.intersect?(%w(about personal_url))
 
       Decidim::EventsManager.publish(
         event: "decidim.events.users.profile_updated",

@@ -10,7 +10,7 @@ module Decidim
       end
 
       let!(:voting) { create(:voting) }
-      let!(:scope) { create :scope, organization: voting.organization }
+      let!(:scope) { create(:scope, organization: voting.organization) }
 
       describe "#serialize" do
         let(:serialized) { subject.serialize }

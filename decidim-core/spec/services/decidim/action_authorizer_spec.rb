@@ -105,7 +105,7 @@ module Decidim
             end
           end
 
-          context "when options doesn't match one authorization" do
+          context "when options does not match one authorization" do
             let(:options) { { postal_code: "789" } }
 
             it "returns an authorization status collection including unauthorized" do
@@ -117,7 +117,7 @@ module Decidim
         end
       end
 
-      context "when organization doesnt have authorization handler available" do
+      context "when organization does not have authorization handler available" do
         let(:permission) do
           {
             "authorization_handlers" => {
@@ -126,7 +126,7 @@ module Decidim
           }
         end
 
-        it "doesn't require it" do
+        it "does not require it" do
           expect(response).to be_ok
           expect(response.statuses.count).to eq(0)
         end
@@ -170,7 +170,7 @@ module Decidim
         context "when the authorization has not expired" do
           before { authorization.update!(granted_at: 1.minute.ago) }
 
-          context "when it doesn't have options" do
+          context "when it does not have options" do
             let(:options) { {} }
 
             it "returns ok" do
@@ -178,7 +178,7 @@ module Decidim
             end
           end
 
-          context "when has options that doesn't match the authorization" do
+          context "when has options that does not match the authorization" do
             let(:options) { { postal_code: "789" } }
 
             it "returns an authorization status collection including unauthorized" do
@@ -235,7 +235,7 @@ module Decidim
             end
           end
 
-          context "when custom action authorizer options are present and don't match the authorization" do
+          context "when custom action authorizer options are present and do not match the authorization" do
             let(:options) { { allowed_postal_codes: "2345,4567" } }
 
             it "returns an authorization status collection including unauthorized" do
@@ -342,7 +342,7 @@ module Decidim
         end
       end
 
-      context "when the user doesn't have a valid authorization" do
+      context "when the user does not have a valid authorization" do
         let(:name) { "bar_handler" }
 
         it "returns an authorization status collection including missing" do

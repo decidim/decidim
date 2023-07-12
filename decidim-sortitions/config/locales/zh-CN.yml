@@ -58,10 +58,6 @@ zh-CN:
             title: 取消吸附性
           create:
             error: 出现了一个问题，造成了新的怨恨。
-            success: 排序成功创建
-          destroy:
-            error: 不能取消排序。
-            success: 排序成功取消
           edit:
             title: 更新有关分类的信息
             update: 更新
@@ -78,7 +74,6 @@ zh-CN:
             selected_proposals: 选择绘图提案
           update:
             error: 有一个问题是更新厌恶。
-            success: 排序成功更新
       admin_log:
         sortition:
           create: "%{user_name} 在 %{resource_name} 中创建了 %{space_name} 个排序。"

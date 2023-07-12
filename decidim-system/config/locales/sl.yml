@@ -11,9 +11,6 @@ sl:
       admins:
         create:
           error: Pojavila se je težava pri kreiranju skrbnika.
-          success: Skrbnik uspešno kreiran
-        destroy:
-          success: Skrbnik uspešno izbrisan
         edit:
           title: Uredi skrbnika
           update: Posodobi
@@ -24,7 +21,6 @@ sl:
           title: Nov skrbnik
         update:
           error: Pojavila se je težava pri urejanju skrbnika.
-          success: Skrbnik uspešno posodobljen
       menu:
         admins: Skrbniki
         dashboard: Nadzorna plošča

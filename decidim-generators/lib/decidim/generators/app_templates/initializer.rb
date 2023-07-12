@@ -40,6 +40,11 @@ Decidim.configure do |config|
   # Enable the service worker. By default is disabled in development and enabled in the rest of environments
   config.service_worker_enabled = Rails.application.secrets.decidim[:service_worker_enabled].present?
 
+  # Sets the list of static pages' slugs that can include content blocks.
+  # By default is only enabled in the terms-of-service static page to allow a summary to be added and include
+  # sections with a two-pane view
+  config.page_blocks = Rails.application.secrets.decidim[:page_blocks].presence || %w(terms-of-service)
+
   # Map and Geocoder configuration
   #
   # == HERE Maps ==
@@ -333,6 +338,9 @@ Decidim.configure do |config|
   #
   # config.machine_translation_service = "MyTranslationService"
 
+  # Defines the social networking services used for social sharing
+  config.social_share_services = Rails.application.secrets.decidim[:social_share_services]
+
   config.redesign_active = Rails.application.secrets.decidim[:redesign_active] if Rails.application.secrets.decidim[:redesign_active].present?
 
   # Defines the name of the cookie used to check if the user allows Decidim to
@@ -369,6 +377,10 @@ Decidim.configure do |config|
   #   }
   # ]
 
+  # Defines additional content security policies following the structure
+  # Read more: https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy
+  config.content_security_policies_extra = {}
+
   # Admin admin password configurations
   Rails.application.secrets.dig(:decidim, :admin_password, :strong).tap do |strong_pw|
     # When the strong password is not configured, default to true
@@ -387,7 +399,8 @@ Decidim.configure do |config|
   end
   config.follow_http_x_forwarded_host = Rails.application.secrets.decidim[:follow_http_x_forwarded_host].present?
   config.maximum_conversation_message_length = Rails.application.secrets.decidim[:maximum_conversation_message_length].to_i
-  config.password_blacklist = Rails.application.secrets.decidim[:password_blacklist] if Rails.application.secrets.decidim[:password_blacklist].present?
+  config.password_similarity_length = Rails.application.secrets.decidim[:password_similarity_length] if Rails.application.secrets.decidim[:password_similarity_length].present?
+  config.denied_passwords = Rails.application.secrets.decidim[:denied_passwords] if Rails.application.secrets.decidim[:denied_passwords].present?
   config.allow_open_redirects = Rails.application.secrets.decidim[:allow_open_redirects] if Rails.application.secrets.decidim[:allow_open_redirects].present?
 end
 
@@ -465,7 +478,7 @@ end
 
 if Decidim.module_installed? :elections
   Decidim::Elections.configure do |config|
-    config.setup_minimum_hours_before_start = Rails.application.secrets.dig(:elections, :setup_minimum_hours_before_start).presence || 3
+    config.setup_minimum_hours_before_start = Rails.application.secrets.dig(:elections, :setup_minimum_hours_before_start).presence || 1
     config.start_vote_maximum_hours_before_start = Rails.application.secrets.dig(:elections, :start_vote_maximum_hours_before_start).presence || 6
     config.voter_token_expiration_minutes = Rails.application.secrets.dig(:elections, :voter_token_expiration_minutes).presence || 120
   end

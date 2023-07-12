@@ -1,7 +1,7 @@
-.budget-list{
+.budget-list {
   margin-bottom: 2rem;
 
-  &__item{
+  &__item {
     padding: 0;
     background: $card-bg;
     border: $border;
@@ -9,31 +9,31 @@
     overflow: hidden;
     display: flex;
 
-    &:first-child{
+    &:first-child {
       border-top-left-radius: $card-border-radius;
       border-top-right-radius: $card-border-radius;
     }
 
-    &:last-child{
+    &:last-child {
       border-bottom-left-radius: $card-border-radius;
       border-bottom-right-radius: $card-border-radius;
       border-bottom: $border;
     }
 
-    &-cell{
+    &-cell {
       display: grid;
       grid-template-columns: 1fr 40px;
 
-      .budget-list__data{
+      .budget-list__data {
         grid-column: span 2;
         background: none;
       }
 
-      @include breakpoint(medium){
+      @include breakpoint(medium) {
         grid-template-columns: 1fr 40px 15em;
         grid-template-rows: 1fr;
 
-        .budget-list__data{
+        .budget-list__data {
           background: $card-secondary-bg;
           grid-column: 3;
         }
@@ -41,16 +41,16 @@
     }
   }
 
-  &__image{
+  &__image {
     overflow: hidden;
     width: 3.5em;
     height: 3.5rem;
     flex-shrink: 0;
-    margin-top: $card-padding-small * .7;
-    margin-bottom: $card-padding-small * .7;
-    margin-left: $card-padding-small * .5;
+    margin-top: $card-padding-small * 0.7;
+    margin-bottom: $card-padding-small * 0.7;
+    margin-left: $card-padding-small * 0.5;
 
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       width: 6rem;
       height: 4rem;
       flex-shrink: 0;
@@ -58,7 +58,7 @@
       margin-right: 0;
     }
 
-    img{
+    img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -66,27 +66,27 @@
     }
   }
 
-  &__text{
-    padding: $card-padding-small * .5;
+  &__text {
+    padding: $card-padding-small * 0.5;
     flex-grow: 1;
 
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       padding: $card-padding;
       display: flex;
       align-items: center;
 
-      &.flex-horizontal{
+      &.flex-horizontal {
         flex-direction: column;
         align-items: flex-start;
       }
     }
 
-    .card__text--status{
+    .card__text--status {
       display: block;
     }
   }
 
-  &__data{
+  &__data {
     flex-shrink: 0;
     align-self: stretch;
     display: flex;
@@ -97,10 +97,10 @@
     font-size: 85%;
     line-height: 1;
     color: $muted;
-    padding: $card-padding-small * .5;
+    padding: $card-padding-small * 0.5;
     background: $card-secondary-bg;
 
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       min-width: 7rem;
       flex-direction: row;
       justify-content: flex-end;
@@ -108,45 +108,45 @@
       padding: 1rem $card-padding;
     }
 
-    .loading-spinner{
+    .loading-spinner {
       margin: 0 !important;
       position: relative;
 
-      &::before{
+      &::before {
         position: absolute;
       }
     }
 
-    &:last-child{
+    &:last-child {
       margin-bottom: 0;
     }
   }
 
-  &__data__icon{
-    .icon{
+  &__data__icon {
+    .icon {
       width: 20px;
       height: 20px;
       fill: $muted;
     }
 
-    &:hover{
-      .icon{
+    &:hover {
+      .icon {
         fill: $anchor-color;
       }
     }
   }
 
-  &__data__number{
+  &__data__number {
     @extend .card-data__item__number;
 
     font-size: 1.5rem;
     line-height: 1.2;
   }
 
-  &__data__votes{
+  &__data__votes {
     @extend .card-data__item__number;
 
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       flex-grow: 1;
       font-size: 1.2rem;
       margin-left: 1rem;
@@ -156,20 +156,20 @@
     }
   }
 
-  &__data--added{
+  &__data--added {
     background-color: tint($success, 80%);
   }
 
-  &__title{
+  &__title {
     font-size: $global-font-size;
   }
 
-  &__number{
-    @include breakpoint(medium down){
+  &__number {
+    @include breakpoint(medium down) {
       font-size: 1rem;
     }
 
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       flex-grow: 1;
       font-size: 1.2rem;
       margin-left: 1rem;
@@ -179,7 +179,7 @@
     }
   }
 
-  &__action{
+  &__action {
     margin-bottom: 0;
     border-radius: 50%;
     align-self: center;
@@ -191,7 +191,7 @@
     justify-content: center;
     align-items: center;
 
-    &--disabled{
+    &--disabled {
       pointer-events: none;
     }
   }

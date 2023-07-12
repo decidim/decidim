@@ -13,13 +13,12 @@ module Decidim
           member do
             post :close
           end
-          resources :versions, only: [:show, :index]
-          resource :widget, only: :show, path: "embed"
+          resources :versions, only: [:show]
         end
         root to: "debates#index"
       end
 
-      initializer "decidim_changes" do
+      initializer "decidim_debates.settings_changes" do
         config.to_prepare do
           Decidim::SettingsChange.subscribe "debates" do |changes|
             Decidim::Debates::SettingsChangeJob.perform_later(
@@ -31,12 +30,12 @@ module Decidim
         end
       end
 
-      initializer "decidim_meetings.add_cells_view_paths" do
+      initializer "decidim_debates.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Debates::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Debates::Engine.root}/app/views") # for partials
       end
 
-      initializer "decidim.debates.commented_debates_badge" do
+      initializer "decidim_debates.commented_debates_badge" do
         Decidim::Gamification.register_badge(:commented_debates) do |badge|
           badge.levels = [1, 5, 10, 30, 50]
 
@@ -45,7 +44,7 @@ module Decidim
           badge.reset = lambda do |user|
             debates = Decidim::Comments::Comment.where(
               author: user,
-              decidim_root_commentable_type: "Decidim::Debates::Debate"\
+              decidim_root_commentable_type: "Decidim::Debates::Debate"
             )
             debates.pluck(:decidim_root_commentable_id).uniq.count
           end
@@ -100,6 +99,20 @@ module Decidim
 
       initializer "decidim_debates.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_debates.authorization_transfer" do
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:debates) do |transfer|
+            transfer.move_records(Decidim::Debates::Debate, :decidim_author_id)
+          end
+        end
+      end
+
+      initializer "decidim_debates.moderation_content" do
+        ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
+          Decidim::Debates::HideAllCreatedByAuthorJob.perform_later(**data)
+        end
       end
     end
   end

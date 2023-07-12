@@ -18,7 +18,11 @@
           <% scope_types.each do |scope_type| %>
             <tr>
               <td>
-                <%= translated_attribute(scope_type.name) %>
+                <% if allowed_to? :update, :scope_type, scope_type: scope_type %>
+                  <%= link_to translated_attribute(scope_type.name), [:edit, scope_type] %>
+                <% else %>
+                  <%= translated_attribute(scope_type.name) %>
+                <% end %>
               </td>
               <td>
                 <%= translated_attribute(scope_type.plural) %>

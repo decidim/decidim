@@ -1,31 +1,33 @@
-<div class="section agenda-section">
-  <div class="flex--sbe">
-    <h2 class="section-heading"><%= translated_attribute(meeting.agenda.title) %></h2>
+<section data-meeting-agenda>
+  <div class="meeting__agenda-title">
+    <%= icon "list-ordered" %>
+    <h2 class="h4"><%= translated_attribute(meeting.agenda.title) %></h2>
   </div>
-  <div class="card">
-    <div class="card__content scroll">
-      <% agenda_items_times = calculate_start_and_end_time_of_agenda_items(meeting.agenda.agenda_items.first_class, meeting) %>
-      <% meeting.agenda.agenda_items.first_class.each_with_index do |agenda_item, index| %>
-        <h5 class="agenda-item--title heading5">
-          <strong><%= translated_attribute(agenda_item.title) %></strong>&nbsp;
-          <span class="text-small"><%= display_duration_agenda_items(agenda_item.id, index, agenda_items_times) %></span>
-        </h5>
-        <hr class="reset m-none mb-s">
-        <p><%= translated_attribute(agenda_item.description).html_safe %></p>
 
-        <% if agenda_item.agenda_item_children.presence %>
-          <% parent_start_time = agenda_items_times[index][:start_time] %>
-          <% agenda_item_children_times = calculate_start_and_end_time_of_agenda_items(agenda_item.agenda_item_children, meeting, parent_start_time) %>
+  <% agenda_items_times = calculate_start_and_end_time_of_agenda_items(meeting.agenda.agenda_items.first_class, meeting) %>
+  <% meeting.agenda.agenda_items.first_class.each_with_index do |agenda_item, index| %>
+  <div class="meeting__agenda-item">
+    <h3 class="meeting__agenda-item__title">
+      <span><%= translated_attribute(agenda_item.title) %></span>
+      <span><%= display_duration_agenda_items(agenda_item.id, index, agenda_items_times) %></span>
+    </h3>
 
-          <% agenda_item.agenda_item_children.each_with_index do |agenda_item_child, index_child| %>
-            <h6 class="heading6">
-              <strong><%= translated_attribute(agenda_item_child.title) %></strong>&nbsp;
-              <span class="text-small"><%= display_duration_agenda_items(agenda_item_child.id, index_child, agenda_item_children_times) %></span>
-            </h6>
-            <p><%= translated_attribute(agenda_item_child.description).html_safe %></p>
-          <% end %>
-        <% end %>
+    <div class="meeting__agenda-item__description editor-content"><%= decidim_sanitize(translated_attribute(agenda_item.description)).html_safe %></div>
+
+    <% if agenda_item.agenda_item_children.presence %>
+      <% parent_start_time = agenda_items_times[index][:start_time] %>
+      <% agenda_item_children_times = calculate_start_and_end_time_of_agenda_items(agenda_item.agenda_item_children, meeting, parent_start_time) %>
+
+      <% agenda_item.agenda_item_children.each_with_index do |agenda_item_child, index_child| %>
+        <div class="meeting__agenda-subitem">
+          <h4 class="meeting__agenda-item__title">
+            <span><%= translated_attribute(agenda_item_child.title) %></span>
+            <span><%= display_duration_agenda_items(agenda_item_child.id, index_child, agenda_item_children_times) %></span>
+          </h4>
+          <div class="meeting__agenda-item__description"><%= decidim_sanitize(translated_attribute(agenda_item_child.description)).html_safe %></div>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
-</div>
+  <% end %>
+</section>

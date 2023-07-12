@@ -13,9 +13,9 @@ module Decidim::Accountability
         current_component:
       }
     end
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
-    let(:result) { create :result, component: current_component }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
+    let(:result) { create(:result, component: current_component) }
 
     let(:entry_date) { "12/3/2017" }
     let(:title) do

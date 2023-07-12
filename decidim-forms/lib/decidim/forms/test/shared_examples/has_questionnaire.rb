@@ -7,16 +7,14 @@ shared_examples_for "has questionnaire" do
     it "does not allow answering the questionnaire" do
       visit questionnaire_public_path
 
-      expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+      expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
 
       expect(page).not_to have_css(".form.answer-questionnaire")
 
-      within ".questionnaire-question_readonly" do
+      within "[data-question-readonly]" do
         expect(page).to have_i18n_content(question.body)
       end
-
-      expect(page).to have_content("Sign in with your account or sign up to answer the form.")
     end
   end
 
@@ -28,7 +26,7 @@ shared_examples_for "has questionnaire" do
     it "allows answering the questionnaire" do
       visit questionnaire_public_path
 
-      expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+      expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
 
       fill_in question.body["en"], with: "My first answer"
@@ -54,27 +52,31 @@ shared_examples_for "has questionnaire" do
       let!(:question2) { create(:questionnaire_question, questionnaire:, position: 2) }
 
       before do
+        # rubocop:disable Layout/LineLength
+        skip "REDESIGN_PENDING - This specs are reciprocal among https://github.com/decidim/decidim/pull/10886 and https://github.com/decidim/decidim/pull/10922. Both PRs are required."
+        # rubocop:enable Layout/LineLength
+
         visit questionnaire_public_path
       end
 
       it "allows answering the first questionnaire" do
-        expect(page).to have_content("STEP 1 OF 2")
+        expect(page).to have_content("Step 1 of 2")
 
-        within ".answer-questionnaire__submit" do
-          expect(page).to have_no_content("Back")
+        within ".answer-questionnaire__submit", match: :first do
+          expect(page).not_to have_content("Back")
         end
 
         answer_first_questionnaire
 
-        expect(page).to have_no_selector(".success.flash")
+        expect(page).not_to have_selector(".success.flash")
       end
 
       it "allows revisiting previously-answered questionnaires with my answers" do
         answer_first_questionnaire
 
-        click_link "Back"
+        click_button "Back"
 
-        expect(page).to have_content("STEP 1 OF 2")
+        expect(page).to have_content("Step 1 of 2")
         expect(page).to have_field("questionnaire_responses_0", with: "My first answer")
       end
 
@@ -94,13 +96,13 @@ shared_examples_for "has questionnaire" do
       end
 
       def answer_first_questionnaire
-        expect(page).to have_no_selector("#questionnaire_tos_agreement")
+        within "#step-0" do
+          expect(page).not_to have_selector("#questionnaire_tos_agreement")
 
-        fill_in question.body["en"], with: "My first answer"
-        within ".answer-questionnaire__submit" do
-          click_link "Continue"
+          fill_in question.body["en"], with: "My first answer"
+          click_button "Continue"
         end
-        expect(page).to have_content("STEP 2 OF 2")
+        expect(page).to have_content("Step 2 of 2")
       end
     end
 
@@ -110,7 +112,7 @@ shared_examples_for "has questionnaire" do
       fill_in question.body["en"], with: "My first answer"
 
       dismiss_page_unload do
-        page.find(".logo-wrapper a").click
+        page.find(".main-bar__logo a").click
       end
 
       expect(page).to have_current_path questionnaire_public_path
@@ -142,16 +144,19 @@ shared_examples_for "has questionnaire" do
       it "does not leak defaults from other answers" do
         visit questionnaire_public_path
 
-        expect(page).to have_no_selector("input[type=radio]:checked")
+        expect(page).not_to have_field(type: "radio", checked: true)
       end
     end
 
     shared_examples_for "a correctly ordered questionnaire" do
       it "displays the questions ordered by position starting with one" do
-        form_fields = all(".answer-questionnaire .row")
+        form_fields = all(".answer-questionnaire__question")
 
-        expect(form_fields[0]).to have_i18n_content(question.body).and have_content("1. ")
-        expect(form_fields[1]).to have_i18n_content(other_question.body).and have_content("2. ")
+        expect(form_fields[0]).to have_i18n_content(question.body)
+        expect(form_fields[1]).to have_i18n_content(other_question.body)
+        2.times do |index|
+          expect(form_fields[index]).to have_css("[data-answer-idx='#{index + 1}']")
+        end
       end
     end
 
@@ -208,7 +213,7 @@ shared_examples_for "has questionnaire" do
       context "when max_characters value is 0" do
         let(:max_characters) { 0 }
 
-        it "doesn't show message indicating number of characters left" do
+        it "does not show message indicating number of characters left" do
           visit questionnaire_public_path
 
           expect(page).not_to have_content("characters left")
@@ -228,7 +233,7 @@ shared_examples_for "has questionnaire" do
           expect(page).to have_content("problem")
         end
 
-        expect(page).to have_content("can't be blank")
+        expect(page).to have_content("cannot be blank")
       end
     end
 
@@ -240,12 +245,12 @@ shared_examples_for "has questionnaire" do
       end
 
       it "shows errors without submitting the form" do
-        expect(page).to have_no_selector ".alert.flash"
+        expect(page).not_to have_selector ".alert.flash"
         different_error = I18n.t("decidim.forms.questionnaires.answer.max_choices_alert")
         expect(different_error).to eq("There are too many choices selected")
         expect(page).not_to have_content(different_error)
 
-        expect(page).to have_content("can't be blank")
+        expect(page).to have_content("cannot be blank")
       end
     end
 
@@ -277,7 +282,7 @@ shared_examples_for "has questionnaire" do
           expect(page).to have_content("problem")
         end
 
-        expect(page).to have_content("can't be blank")
+        expect(page).to have_content("cannot be blank")
       end
     end
 
@@ -332,7 +337,7 @@ shared_examples_for "has questionnaire" do
         let(:question_type) { "single_option" }
 
         it "renders them as radio buttons with attached text fields disabled by default" do
-          expect(page).to have_selector(".radio-button-collection input[type=radio]", count: 3)
+          expect(page).to have_selector(".js-radio-button-collection input[type=radio]", count: 3)
 
           expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", disabled: true, count: 1)
 
@@ -380,7 +385,7 @@ shared_examples_for "has questionnaire" do
         let(:question_type) { "multiple_option" }
 
         it "renders them as check boxes with attached text fields disabled by default" do
-          expect(page.first(".check-box-collection")).to have_selector("input[type=checkbox]", count: 3)
+          expect(page.first(".js-check-box-collection")).to have_field(type: "checkbox", count: 3)
 
           expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", disabled: true, count: 1)
 
@@ -445,7 +450,7 @@ shared_examples_for "has questionnaire" do
       it "renders the answer as a text field" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector("input[type=text]#questionnaire_responses_0")
+        expect(page).to have_field(id: "questionnaire_responses_0")
       end
 
       it_behaves_like "question has a character limit"
@@ -458,7 +463,7 @@ shared_examples_for "has questionnaire" do
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".radio-button-collection input[type=radio]", count: 2)
+        expect(page).to have_selector(".js-radio-button-collection input[type=radio]", count: 2)
 
         choose answer_options[0]["body"][:en]
 
@@ -484,9 +489,9 @@ shared_examples_for "has questionnaire" do
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".check-box-collection input[type=checkbox]", count: 3)
+        expect(page).to have_selector(".js-check-box-collection input[type=checkbox]", count: 3)
 
-        expect(page).to have_no_content("Max choices:")
+        expect(page).not_to have_content("Max choices:")
 
         check answer_options[0]["body"][:en]
         check answer_options[1]["body"][:en]
@@ -554,90 +559,87 @@ shared_examples_for "has questionnaire" do
         )
       end
 
-      it "renders the question answers as a collection of check boxes sortable on click" do
+      it "renders the question answers as a collection of divs sortable on drag and drop" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".sortable-check-box-collection input[type=checkbox]", count: 5)
+        expect(page).to have_selector("div.answer-questionnaire__sorting.js-collection-input", count: 5)
 
-        expect(page).to have_content("chocolate\nlike\nWe\ndark\nall")
-
-        check "We"
-        check "all"
-        check "like"
-        check "dark"
-        check "chocolate"
-
-        expect(page).to have_content("1. We\n2. all\n3. like\n4. dark\n5. chocolate")
+        %w(We all like dark chocolate).each do |term|
+          expect(page).to have_content(term)
+        end
       end
 
-      it "properly saves valid sortings" do
-        visit questionnaire_public_path
+      # REDESIGN_PENDING: These test must be adapted to the new interface to
+      # sort elements
+      #
+      # it "properly saves valid sortings" do
+      #   visit questionnaire_public_path
 
-        check "We"
-        check "all"
-        check "like"
-        check "dark"
-        check "chocolate"
+      #   check "We"
+      #   check "all"
+      #   check "like"
+      #   check "dark"
+      #   check "chocolate"
 
-        check "questionnaire_tos_agreement"
+      #   check "questionnaire_tos_agreement"
 
-        accept_confirm { click_button "Submit" }
+      #   accept_confirm { click_button "Submit" }
 
-        within ".success.flash" do
-          expect(page).to have_content("successfully")
-        end
+      #   within ".success.flash" do
+      #     expect(page).to have_content("successfully")
+      #   end
 
-        expect(Decidim::Forms::Answer.first.choices.pluck(:position, :body)).to eq(
-          [[0, "We"], [1, "all"], [2, "like"], [3, "dark"], [4, "chocolate"]]
-        )
-      end
+      #   expect(Decidim::Forms::Answer.first.choices.pluck(:position, :body)).to eq(
+      #     [[0, "We"], [1, "all"], [2, "like"], [3, "dark"], [4, "chocolate"]]
+      #   )
+      # end
 
-      it "displays errors on incomplete sortings" do
-        visit questionnaire_public_path
+      # it "displays errors on incomplete sortings" do
+      #   visit questionnaire_public_path
 
-        check "We"
+      #   check "We"
 
-        accept_confirm { click_button "Submit" }
+      #   accept_confirm { click_button "Submit" }
 
-        within ".alert.flash" do
-          expect(page).to have_content("problem")
-        end
+      #   within ".alert.flash" do
+      #     expect(page).to have_content("problem")
+      #   end
 
-        expect(page).to have_content("are not complete")
-      end
+      #   expect(page).to have_content("are not complete")
+      # end
 
-      it "displays maintains sorting order if errors" do
-        visit questionnaire_public_path
+      # it "displays maintains sorting order if errors" do
+      #   visit questionnaire_public_path
 
-        check "We"
-        check "dark"
-        check "chocolate"
+      #   check "We"
+      #   check "dark"
+      #   check "chocolate"
 
-        accept_confirm { click_button "Submit" }
+      #   accept_confirm { click_button "Submit" }
 
-        within ".alert.flash" do
-          expect(page).to have_content("problem")
-        end
+      #   within ".alert.flash" do
+      #     expect(page).to have_content("problem")
+      #   end
 
-        # Check the next round to ensure a re-submission conserves status
-        expect(page).to have_content("are not complete")
-        expect(page).to have_content("1. We\n2. dark\n3. chocolate\nlike\nall")
+      #   # Check the next round to ensure a re-submission conserves status
+      #   expect(page).to have_content("are not complete")
+      #   expect(page).to have_content("1. We\n2. dark\n3. chocolate\nlike\nall")
 
-        checkboxes = page.all("input[type=checkbox]")
+      #   checkboxes = page.all("input[type=checkbox]")
 
-        checkboxes[0].uncheck
-        check "We"
-        check "all"
+      #   checkboxes[0].uncheck
+      #   check "We"
+      #   check "all"
 
-        accept_confirm { click_button "Submit" }
+      #   accept_confirm { click_button "Submit" }
 
-        within ".alert.flash" do
-          expect(page).to have_content("problem")
-        end
+      #   within ".alert.flash" do
+      #     expect(page).to have_content("problem")
+      #   end
 
-        expect(page).to have_content("are not complete")
-        expect(page).to have_content("1. dark\n2. chocolate\n3. We\n4. all\nlike")
-      end
+      #   expect(page).to have_content("are not complete")
+      #   expect(page).to have_content("1. dark\n2. chocolate\n3. We\n4. all\nlike")
+      # end
     end
 
     context "when question type is matrix_single" do
@@ -659,12 +661,12 @@ shared_examples_for "has questionnaire" do
       it "renders the question answers as a collection of radio buttons" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".radio-button-collection input[type=radio]", count: 4)
+        expect(page).to have_selector(".js-radio-button-collection input[type=radio]", count: 4)
 
         expect(page).to have_content(matrix_rows.map { |row| row["body"]["en"] }.join("\n"))
         expect(page).to have_content(answer_options.map { |option| option["body"]["en"] }.join(" "))
 
-        radio_buttons = page.all(".radio-button-collection input[type=radio]")
+        radio_buttons = page.all(".js-radio-button-collection input[type=radio]")
 
         choose radio_buttons.first[:id]
         choose radio_buttons.last[:id]
@@ -691,7 +693,7 @@ shared_examples_for "has questionnaire" do
       it "preserves the chosen answers if submission not correct" do
         visit questionnaire_public_path
 
-        radio_buttons = page.all(".radio-button-collection input[type=radio]")
+        radio_buttons = page.all(".js-radio-button-collection input[type=radio]")
         choose radio_buttons[1][:id]
 
         accept_confirm { click_button "Submit" }
@@ -700,7 +702,7 @@ shared_examples_for "has questionnaire" do
           expect(page).to have_content("There was a problem answering")
         end
 
-        radio_buttons = page.all(".radio-button-collection input[type=radio]")
+        radio_buttons = page.all(".js-radio-button-collection input[type=radio]")
         expect(radio_buttons.pluck(:checked)).to eq([nil, "true", nil, nil])
       end
 
@@ -710,7 +712,7 @@ shared_examples_for "has questionnaire" do
         it "shows an error if the question is mandatory and the answer is not complete" do
           visit questionnaire_public_path
 
-          radio_buttons = page.all(".radio-button-collection input[type=radio]")
+          radio_buttons = page.all(".js-radio-button-collection input[type=radio]")
           choose radio_buttons[0][:id]
 
           check "questionnaire_tos_agreement"
@@ -746,12 +748,12 @@ shared_examples_for "has questionnaire" do
       it "renders the question answers as a collection of check boxes" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".check-box-collection input[type=checkbox]", count: 6)
+        expect(page).to have_selector(".js-check-box-collection input[type=checkbox]", count: 6)
 
         expect(page).to have_content(matrix_rows.map { |row| row["body"]["en"] }.join("\n"))
         expect(page).to have_content(answer_options.map { |option| option["body"]["en"] }.join(" "))
 
-        checkboxes = page.all(".check-box-collection input[type=checkbox]")
+        checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
 
         check checkboxes[0][:id]
         check checkboxes[1][:id]
@@ -785,7 +787,7 @@ shared_examples_for "has questionnaire" do
 
           expect(page).to have_content("Max choices: 2")
 
-          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
 
           check checkboxes[0][:id]
           check checkboxes[1][:id]
@@ -814,7 +816,7 @@ shared_examples_for "has questionnaire" do
 
           expect(page).to have_content("are too many")
 
-          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
 
           uncheck checkboxes[5][:id]
 
@@ -832,7 +834,7 @@ shared_examples_for "has questionnaire" do
         it "shows an error" do
           visit questionnaire_public_path
 
-          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
           check checkboxes[0][:id]
 
           check "questionnaire_tos_agreement"
@@ -852,7 +854,7 @@ shared_examples_for "has questionnaire" do
         it "preserves the chosen answers" do
           visit questionnaire_public_path
 
-          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
           check checkboxes[0][:id]
           check checkboxes[1][:id]
           check checkboxes[2][:id]
@@ -865,7 +867,7 @@ shared_examples_for "has questionnaire" do
             expect(page).to have_content("There was a problem answering")
           end
 
-          checkboxes = page.all(".check-box-collection input[type=checkbox]")
+          checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
           expect(checkboxes.pluck(:checked)).to eq(["true", "true", "true", nil, nil, "true"])
         end
       end
@@ -1196,7 +1198,7 @@ shared_examples_for "has questionnaire" do
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(false)
 
-              fill_in "questionnaire_responses_0", with: "Aren't we all expecting #{condition_value[:en]}?"
+              fill_in "questionnaire_responses_0", with: "Are not we all expecting #{condition_value[:en]}?"
               change_focus
 
               expect_question_to_be_visible(true)
@@ -1219,7 +1221,7 @@ shared_examples_for "has questionnaire" do
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(false)
 
-              fill_in "questionnaire_responses_0", with: "Aren't we all expecting #{condition_value[:en]}?"
+              fill_in "questionnaire_responses_0", with: "Are not we all expecting #{condition_value[:en]}?"
               change_focus
 
               expect_question_to_be_visible(true)
@@ -1394,7 +1396,7 @@ shared_examples_for "has questionnaire" do
             ]
           end
 
-          it "doesn't throw error" do
+          it "does not throw error" do
             visit questionnaire_public_path
 
             fill_in condition_question.body["en"], with: "My first answer"

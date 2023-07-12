@@ -50,8 +50,8 @@
           </div>
           <div class="tabs-content" data-tabs-content="conference-day-tabs">
             <% 3.times do |i| %>
-            <div class="programme-day tabs-panel<%= " is-active" if i == 0 %>" id="conference-day-tab<%= i %>">
-              <% time = Time.new(2018, 1, 1, 9, 0, 0) %>
+            <div class="programme-day tabs-panel<%= " is-active" if i.zero? %>" id="conference-day-tab<%= i %>">
+              <% time = Time.zone.local(2018, 1, 1, 9, 0, 0) %>
               <%= render partial: page_path("conferences") + "/conference-programme-item", locals: { s: time.advance(minutes: 30), e: time.advance(hours: 2) } %>
               <%= render partial: page_path("conferences") + "/conference-programme-item", locals: { timebreak: true, s: time.advance(hours: 2), e: time.advance(hours: 2, minutes: 30) } %>
               <%= render partial: page_path("conferences") + "/conference-programme-item", locals: { s: time.advance(hours: 2, minutes: 30), e: time.advance(hours: 4, minutes: 30) } %>

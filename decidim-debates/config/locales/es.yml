@@ -10,6 +10,7 @@ es:
         end_time: Fecha de finalización
         information_updates: Actualizaciones de información
         instructions: Instrucciones para participar
+        scope_id: Ámbito
         start_time: Fecha de inicio
         title: Título
         user_group_id: Crea un debate como
@@ -172,8 +173,8 @@ es:
         versions_list:
           back_to_resource: Volver al debate
       last_activity:
-        debate_updated_at_html: "<span>Debate actualizado a las %{link}</span>"
-        new_debate_at_html: "<span>Nuevo debate en %{link}</span>"
+        debate_updated: 'Debate actualizado:'
+        new_debate: 'Nuevo debate:'
       models:
         debate:
           fields:
@@ -207,7 +208,7 @@ es:
           email_intro: '¡Ya puedes crear nuevos debates en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Los debates ya estan disponibles en %{participatory_space_title}
-          notification_title: Ya puedes empezar <a href="%{resource_path}">nuevos debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Ahora puedes empezar <a href="%{resource_path}">nuevos debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         debate_closed:
           affected_user:
             email_intro: 'Se ha cerrado el debate "%{resource_title}". Puedes leer las conclusiones en su página:'

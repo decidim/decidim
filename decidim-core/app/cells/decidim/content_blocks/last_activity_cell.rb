@@ -19,7 +19,7 @@ module Decidim
       # polymorphic relations to different kind of models, and these models
       # might not be available (a proposal might have been hidden or withdrawn).
       #
-      # Since these conditions can't always be filtered with a database search
+      # Since these conditions cannot always be filtered with a database search
       # we ask for more activities than we actually need and then loop until there
       # are enough of them.
       #
@@ -56,10 +56,7 @@ module Decidim
       end
 
       def activities
-        @activities ||= ActionLog.where(
-          organization: current_organization,
-          visibility: %w(public-only all)
-        ).with_new_resource_type("all").order(created_at: :desc).limit(activities_to_show * 6)
+        @activities ||= LastActivity.new(current_organization, current_user:).query.limit(activities_to_show * 6)
       end
 
       def activities_to_show

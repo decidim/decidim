@@ -7,7 +7,7 @@ module Decidim
       def proposal_reason_callout_announcement
         {
           title: proposal_reason_callout_title,
-          body: decidim_sanitize_editor(translated_attribute(@proposal.answer))
+          body: decidim_sanitize_editor_admin(translated_attribute(@proposal.answer))
         }
       end
 
@@ -33,18 +33,6 @@ module Decidim
                    end
 
         t(i18n_key, scope: "decidim.proposals.proposals.show")
-      end
-
-      def filter_proposals_state_values
-        Decidim::CheckBoxesTreeHelper::TreeNode.new(
-          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.proposals.application_helper.filter_state_values.all")),
-          [
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", t("decidim.proposals.application_helper.filter_state_values.not_answered")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected"))
-          ]
-        )
       end
 
       def proposal_has_costs?

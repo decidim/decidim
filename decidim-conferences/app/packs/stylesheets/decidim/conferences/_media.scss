@@ -1,0 +1,13 @@
+.conference__media {
+  &-section {
+    @apply mt-16 last:mb-16 md:last:mb-36 xl:max-w-[75%] space-y-10;
+
+    p {
+      @apply mt-4 text-gray-2 text-md;
+    }
+  }
+
+  &-links {
+    @apply mt-10 space-y-8;
+  }
+}

@@ -181,9 +181,9 @@ shared_examples "Managing component permissions" do
     end
 
     let(:edit_resource_permissions_path) do
-      ::Decidim::EngineRouter.admin_proxy(participatory_space).edit_component_permissions_path(component.id,
-                                                                                               resource_name: resource.resource_manifest.name,
-                                                                                               resource_id: resource.id)
+      Decidim::EngineRouter.admin_proxy(participatory_space).edit_component_permissions_path(component.id,
+                                                                                             resource_name: resource.resource_manifest.name,
+                                                                                             resource_id: resource.id)
     end
 
     let(:component_settings) { nil }
@@ -205,7 +205,7 @@ shared_examples "Managing component permissions" do
     context "when resources permissions are disabled" do
       let(:component_settings) { { resources_permissions_enabled: false } }
 
-      it "doesn't show the resource permissions settings" do
+      it "does not show the resource permissions settings" do
         expect(page).not_to have_content(resource.title)
       end
     end

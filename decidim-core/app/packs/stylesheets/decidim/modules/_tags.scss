@@ -4,38 +4,38 @@ $tags-border: $border;
 
 /* Tags */
 
-.tags{
+.tags {
   list-style: none;
   margin: 0 0 1rem;
   font-size: 90%;
 
-  li{
+  li {
     display: inline-block;
-    margin-right: .3rem;
-    margin-bottom: .5rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.5rem;
   }
 
-  a{
+  a {
     display: inline-block;
     border: $tags-border;
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
 
-    &:hover{
+    &:hover {
       text-decoration: underline;
     }
   }
 }
 
-.tags:last-child{
-  margin-bottom: -.5rem;
+.tags:last-child {
+  margin-bottom: -0.5rem;
 }
 
-.tags--inline{
+.tags--inline {
   display: inline;
 }
 
-.tags--list{
-  li{
+.tags--list {
+  li {
     display: block;
   }
 }

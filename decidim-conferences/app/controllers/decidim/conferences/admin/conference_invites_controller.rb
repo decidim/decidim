@@ -11,7 +11,7 @@ module Decidim
         helper_method :conference
 
         def index
-          enforce_permission_to :read_invites, :conference, conference: conference
+          enforce_permission_to(:read_invites, :conference, conference:)
 
           @query = params[:q]
           @status = params[:status]
@@ -19,13 +19,13 @@ module Decidim
         end
 
         def new
-          enforce_permission_to :invite_attendee, :conference, conference: conference
+          enforce_permission_to(:invite_attendee, :conference, conference:)
 
           @form = form(ConferenceRegistrationInviteForm).instance
         end
 
         def create
-          enforce_permission_to :invite_attendee, :conference, conference: conference
+          enforce_permission_to(:invite_attendee, :conference, conference:)
 
           @form = form(ConferenceRegistrationInviteForm).from_params(params)
 

@@ -17,7 +17,7 @@ module Decidim
     # affected_users - a collection of `Decidim::Users` that are affected by the
     #   event and will receive a notification about it.
     # followers - a collection of `Decidim::Users` that should be notified about
-    #   the event, even though it doesn't affect them directly
+    #   the event, even though it does not affect them directly
     # force_send - boolean indicating if EventPublisherJob should skip the
     #   `notifiable?` check it performs before notifying. Defaults to __false__.
     # extra - a Hash with extra information to be included in the notification.

@@ -7,6 +7,8 @@ en:
         offline: Offline
         offline_explanation: Instructions for offline verification
         online: Online
+      confirmation:
+        verification_code: Verification code
       id_document_information:
         document_number: Document number (with letter)
         document_type: Type of the document
@@ -15,6 +17,8 @@ en:
         document_type: Type of your document
         user: Participant
         verification_attachment: Scanned copy of your document
+      mobile_phone:
+        mobile_phone_number: Mobile phone number
       offline_confirmation:
         email: Participant email
       postal_letter_address:
@@ -24,6 +28,12 @@ en:
       postal_letter_postage:
         full_address: Full address
         verification_code: Verification code
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.
   decidim:
     admin:
       menu:
@@ -32,12 +42,12 @@ en:
           button: Revoke all
           button_before: Revoke before date
           destroy:
-            confirm: Revoke before date authorizations can not be undone. Are you sure you want to continue?
-            confirm_all: Revoke all the authorizations can not be undone. Are you sure you want to continue?
-          destroy_nok: There's been a problem while revoking authorizations.
+            confirm: Revoke before date authorizations cannot be undone. Are you sure you want to continue?
+            confirm_all: Revoke all the authorizations cannot be undone. Are you sure you want to continue?
+          destroy_nok: There has been a problem while revoking authorizations.
           destroy_ok: All matched authorizations have been revocated successfully.
           info: There are a total of %{count} verified participants.
-          no_data: No verified participants
+          no_data: No verified participants.
           title: Authorizations revocation
         authorization_workflows: Authorizations
     admin_log:
@@ -49,14 +59,14 @@ en:
       admin:
         csv_census:
           help:
-          - Admins upload a CSV with the emails of the accepted participants
-          - Only participants with an email in that CSV file can get verified
+          - Admins upload a CSV with the emails of the accepted participants.
+          - Only participants with an email in that CSV file can get verified.
         id_documents:
           help:
           - Users fill in their identity information and upload a copy of their document.
           - You fill in the information present in the uploaded image.
           - The information should match whatever the user filled in.
-          - If you can't clearly see the information or you can't get it verified, you can reject the request and the user will be able to fix it.
+          - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
         postal_letter:
           help:
           - Participants request a verification code to be sent to their address.
@@ -64,17 +74,17 @@ en:
           - You mark the letter as sent.
           - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
       csv_census:
-        explanation: Get verified using the organization's census
+        explanation: Get verified using the organization's census.
         name: Organization's census
       direct: Direct
       help: Help
       id_documents:
-        explanation: Upload your identity documents so we can check your identity
+        explanation: Upload your identity documents so we can check your identity.
         name: Identity documents
       multistep: Multi-Step
       name: Name
       postal_letter:
-        explanation: We'll send you a postal letter with a code that you'll have to enter so we can verify your address
+        explanation: We will send you a postal letter with a code that you will have to enter so we can verify your address.
         name: Code by postal letter
     events:
       verifications:
@@ -90,11 +100,12 @@ en:
           no_data_stored: No data stored.
         create:
           error: There was a problem creating the authorization.
-          success: You've been successfully authorized.
+          success: You have been successfully authorized.
+          transferred: 'We have recovered the following participation data based on your authorization:'
           unconfirmed: You need to confirm your email in order to authorize yourself.
         destroy:
           error: There was a problem deleting the authorization.
-          success: You've successfully deleted the authorization.
+          success: You have successfully deleted the authorization.
         first_login:
           actions:
             another_dummy_authorization_handler: Verify against another example of authorization handler
@@ -108,17 +119,19 @@ en:
           verify_with_these_options: 'These are the available options to verify your identity:'
         index:
           expired_verification: Verification expired
+          granted_verification: Granted verification
+          introduce_code: Introduce code
           pending_verification: Pending verification
           show_renew_info: Click to renew verification
-          unauthorized_verification: New verification
+          subscribe: Subscribe
+          unauthorized_methods: Verification methods
         new:
           authorize: Send
           authorize_with: Verify with %{authorizer}
         renew_modal:
           cancel: Cancel
-          close: close
           continue: Continue
-          info_renew: If you want to update the data, continue with the renewal
+          info_renew: If you want to update the data, continue with the renewal.
           title: Renew Verification
         skip_verification: You can skip this for now and %{link}
         start_exploring: start exploring
@@ -127,20 +140,23 @@ en:
           census:
             create:
               error: There was an error importing census.
-              success: Successfully imported %{count} items (%{errors} errors)
+              success: Successfully imported %{count} items (%{errors} errors).
             destroy_all:
-              success: All census data have been deleted
+              success: All census data have been deleted.
           destroy:
-            confirm: Delete all the census can not be undone. Are you sure you want to continue?
+            confirm: Delete all the census cannot be undone. Are you sure you want to continue?
             title: Delete all census data
           index:
-            data: There are %{count} records loaded in total. Last upload date was on %{due_date}
+            data: There are %{count} records loaded in total. Last upload date was on %{due_date}.
             empty: There are no census data. Use the form below to import it using a CSV file.
             title: Current census data
           instructions:
             body: To do this you must enter system administration and add the csv_census authorizations to the organization
             title: You need to activate the CSV census for this organization
           new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
             file: ".csv file with emails data"
             info: 'Must be a file in CSV format with only one column with the email address:'
             submit: Upload file
@@ -167,19 +183,19 @@ en:
               update: Update
             update:
               error: There was a problem updating the configuration.
-              success: Configuration successfully updated
+              success: Configuration successfully updated.
           confirmations:
             create:
-              error: Verification doesn't match. Please try again or reject the verification so the participant can amend it
-              success: Participant successfully verified
+              error: Verification does not match. Please try again or reject the verification so the participant can amend it.
+              success: Participant successfully verified.
             new:
               introduce_user_data: Introduce the data in the picture
               reject: Reject
               verify: Verify
           offline_confirmations:
             create:
-              error: Verification doesn't match. Please try again or tell the participant to amend it
-              success: Participant successfully verified
+              error: Verification does not match. Please try again or tell the participant to amend it.
+              success: Participant successfully verified.
             new:
               cancel: Cancel
               introduce_user_data: Introduce the participant email and the document data
@@ -192,7 +208,7 @@ en:
               verification_number: 'Verification #%{n}'
           rejections:
             create:
-              success: Verification rejected. Participant will be prompted to amend their documents
+              success: Verification rejected. Participant will be prompted to amend their documents.
         authorizations:
           choose:
             choose_a_type: 'Please select how you want to be verified:'
@@ -200,22 +216,22 @@ en:
             online: Online
             title: Verify yourself using your identity document
           create:
-            error: There was a problem uploading your document
-            success: Document successfully uploaded
+            error: There was a problem uploading your document.
+            success: Document successfully uploaded.
           edit:
-            being_reviewed: We're reviewing your documents. You'll be verified shortly
+            being_reviewed: We are reviewing your documents. You will be verified shortly.
             offline: Use offline verification
             online: Use online verification
-            rejection_clarity: Make sure the information is clearly visible in the uploaded image
-            rejection_correctness: Make sure the information entered is correct
-            rejection_notice: There was a problem with your verification. Please try again
+            rejection_clarity: Make sure the information is clearly visible in the uploaded image.
+            rejection_correctness: Make sure the information entered is correct.
+            rejection_notice: There was a problem with your verification. Please try again.
             send: Request verification again
           new:
             send: Request verification
             title: Upload your identity document
           update:
-            error: There was a problem reuploading your document
-            success: Document successfully reuploaded
+            error: There was a problem reuploading your document.
+            success: Document successfully reuploaded.
         dni: DNI
         nie: NIE
         passport: Passport
@@ -232,41 +248,41 @@ en:
               verification_code: Verification code
           postages:
             create:
-              error: Error marking letter as sent
-              success: Letter successfully marked as sent
+              error: Error marking letter as sent.
+              success: Letter successfully marked as sent.
         authorizations:
           create:
-            error: There was a problem with your request
-            success: Thanks! We'll send a verification code to your address
+            error: There was a problem with your request.
+            success: Thanks! We will send a verification code to your address.
           edit:
             send: Confirm
-            title: Introduce the verification code you received
-            waiting_for_letter: We'll be sending a letter to your address with your verification code soon
+            title: Introduce the verification code you received.
+            waiting_for_letter: We will send a letter to your address with your verification code soon.
           new:
             send: Send me a letter
             title: Request your verification code
           update:
-            error: Your verification code doesn't match ours. Please double-check the letter we sent to you
-            success: Congratulations. You've been successfully verified
+            error: Your verification code does not match ours. Please double-check the letter we sent to you.
+            success: Congratulations. You have been successfully verified.
       sms:
         authorizations:
           create:
-            error: There was a problem with your request
-            success: Thanks! We've sent an SMS to your phone.
+            error: There was a problem with your request.
+            success: Thanks! We have sent an SMS to your phone.
           destroy:
             success: Verification code sucessfully reset. Please re-enter your phone number.
           edit:
             confirm_destroy: Are you sure you want to reset the verification code?
             destroy: Reset verification code
-            resend: Didn't receive the verification code?
+            resend: Did not receive the verification code?
             send: Confirm
             title: Introduce the verification code you received
           new:
             send: Send me an SMS
             title: Request your verification code
           update:
-            error: Your verification code doesn't match ours. Please double-check the SMS we sent you.
-            success: Congratulations. You've been successfully verified.
+            error: Your verification code does not match ours. Please double-check the SMS we sent you.
+            success: Congratulations. You have been successfully verified.
   errors:
     messages:
       uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers

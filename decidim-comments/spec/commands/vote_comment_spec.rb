@@ -6,7 +6,7 @@ module Decidim
   module Comments
     describe VoteComment do
       describe "call" do
-        let(:organization) { create :organization }
+        let(:organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:component) { create(:component, participatory_space: participatory_process) }
         let(:commentable) { create(:dummy_resource, component:) }
@@ -23,7 +23,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a comment vote" do
+          it "does not create a comment vote" do
             expect do
               command.call
             end.not_to change(CommentVote, :count)
@@ -115,7 +115,7 @@ module Decidim
                 expect { command.call }.to broadcast(:invalid)
               end
 
-              it "doesn't create a comment vote" do
+              it "does not create a comment vote" do
                 expect do
                   command.call
                 end.not_to change(CommentVote, :count)

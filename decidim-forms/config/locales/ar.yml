@@ -16,8 +16,6 @@ ar:
             choices:
               missing: ليست كاملة
               too_many: كثير جدا
-        questionnaire:
-          request_invalid: حدث خطأ أثناء معالجة الطلب. الرجاء إعادة المحاولة ثانية
   decidim:
     forms:
       admin:
@@ -55,9 +53,6 @@ ar:
             description: الوصف
           update:
             invalid: كانت هناك مشكلة في حفظ النموذج.
-      errors:
-        answer:
-          body: لا يمكن أن يكون الجسم فارغًا
       question_types:
         long_answer: اجابة طويلة
         multiple_option: خيار متعدد

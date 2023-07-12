@@ -1,1 +1,4 @@
 da:
+  locale:
+    name: Dansk
+    name_with_error: Dansk (fejl!)

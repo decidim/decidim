@@ -3,11 +3,11 @@
 require "spec_helper"
 
 describe "Admin manages answers", type: :system do
-  let!(:proposals) { create_list :proposal, 3, :accepted, component: origin_component }
-  let!(:origin_component) { create :proposal_component, participatory_space: current_component.participatory_space }
-  let(:election) { create :election, component: current_component }
-  let(:question) { create :question, election: }
-  let(:answer) { create :election_answer, question: }
+  let!(:proposals) { create_list(:proposal, 3, :accepted, component: origin_component) }
+  let!(:origin_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }
+  let(:election) { create(:election, component: current_component) }
+  let(:question) { create(:question, election:) }
+  let(:answer) { create(:election_answer, question:) }
   let(:manifest_name) { "elections" }
 
   include_context "when managing a component as an admin"
@@ -85,12 +85,12 @@ describe "Admin manages answers", type: :system do
     let(:election) { create(:election, :created, component: current_component) }
 
     it "cannot add a new answer" do
-      expect(page).to have_no_content("New Answer")
+      expect(page).not_to have_content("New Answer")
     end
   end
 
   context "when max selections is higher than answers count" do
-    let(:question) { create :question, election:, max_selections: 5 }
+    let(:question) { create(:question, election:, max_selections: 5) }
 
     it "shows alert" do
       expect(page).to have_content("You need 4 more answer/s")
@@ -129,7 +129,7 @@ describe "Admin manages answers", type: :system do
 
       it "cannot update the answer" do
         within find("tr", text: translated(answer.title)) do
-          expect(page).to have_no_selector(".action-icon--edit")
+          expect(page).not_to have_selector(".action-icon--edit")
         end
       end
     end
@@ -157,14 +157,14 @@ describe "Admin manages answers", type: :system do
 
       it "cannot delete the question" do
         within find("tr", text: translated(answer.title)) do
-          expect(page).to have_no_selector(".action-icon--remove")
+          expect(page).not_to have_selector(".action-icon--remove")
         end
       end
     end
   end
 
   context "when answer has votes" do
-    let!(:election) { create :election, :tally_ended, component: current_component }
+    let!(:election) { create(:election, :tally_ended, component: current_component) }
     let!(:question) { election.questions.first }
     let!(:answer) { question.answers.first }
 
@@ -185,7 +185,7 @@ describe "Admin manages answers", type: :system do
       end
 
       within find("tr", text: translated(answer.title)) do
-        first(".action-icon").click
+        first(".icon--check").click
       end
 
       within find("tr", text: translated(answer.title)) do

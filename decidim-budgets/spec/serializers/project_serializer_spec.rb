@@ -6,7 +6,7 @@ module Decidim::Budgets
   describe ProjectSerializer do
     let(:budget) { create(:budget) }
     let(:serialized) { subject.run }
-    let(:attachment) { create :attachment, attached_to: project }
+    let(:attachment) { create(:attachment, attached_to: project) }
     let(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: project.participatory_space) }
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }
     let(:category) { create(:category, participatory_space: budget.component.participatory_space) }

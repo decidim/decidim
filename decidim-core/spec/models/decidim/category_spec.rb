@@ -24,7 +24,7 @@ module Decidim
 
       it "adds an error" do
         subject.valid?
-        expect(subject.errors[:parent_id]).to eq ["can't be inside of a subcategory"]
+        expect(subject.errors[:parent_id]).to eq ["cannot be inside of a subcategory"]
       end
     end
 

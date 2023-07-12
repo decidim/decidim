@@ -52,7 +52,7 @@ module Decidim
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create a new endorsement for the resource" do
+        it "does not create a new endorsement for the resource" do
           expect do
             command.call
           end.not_to change(Endorsement, :count)

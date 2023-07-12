@@ -44,7 +44,7 @@ shared_examples_for "a new development application" do
     end
 
     # Check that important node modules were installed
-    expect(Pathname.new("#{test_app}/node_modules/@rails/webpacker")).to be_directory
+    expect(Pathname.new("#{test_app}/node_modules/shakapacker")).to be_directory
 
     # Check that the configuration tweaks are applied properly
     expect(File.read("#{test_app}/config/spring.rb")).to match(%r{^require "decidim/spring"})
@@ -166,7 +166,8 @@ shared_context "with application env vars" do
       "DECIDIM_SESSION_TIMEOUT_INTERVAL" => "33",
       "DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST" => "true",
       "DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH" => "1234",
-      "DECIDIM_PASSWORD_BLACKLIST" => "i-dont-like-this-password, i-dont,like,this,one,either, password123456",
+      "DECIDIM_PASSWORD_SIMILARITY_LENGTH" => "4",
+      "DECIDIM_DENIED_PASSWORDS" => "i-do-not-like-this-password, i-do-not,like,this,one,either, password123456",
       "DECIDIM_ALLOW_OPEN_REDIRECTS" => "true",
       "DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS" => "93",
       "DECIDIM_ADMIN_PASSWORD_MIN_LENGTH" => "18",
@@ -289,7 +290,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim session_timeout_interval) => 10,
       %w(decidim follow_http_x_forwarded_host) => false,
       %w(decidim maximum_conversation_message_length) => 1000,
-      %w(decidim password_blacklist) => [],
+      %w(decidim password_similarity_length) => 4,
+      %w(decidim denied_passwords) => [],
       %w(decidim allow_open_redirects) => false,
       %w(decidim admin_password expiration_days) => 90,
       %w(decidim admin_password min_length) => 15,
@@ -337,7 +339,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim initiatives max_time_in_validating_state) => 60,
       %w(decidim initiatives print_enabled) => "auto",
       %w(decidim initiatives do_not_require_authorization) => false,
-      %w(elections setup_minimum_hours_before_start) => 3,
+      %w(elections setup_minimum_hours_before_start) => 1,
       %w(elections start_vote_maximum_hours_before_start) => 6,
       %w(elections voter_token_expiration_minutes) => 120,
       %w(elections votings check_census_max_requests) => 5,
@@ -393,7 +395,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim session_timeout_interval) => 33,
       %w(decidim follow_http_x_forwarded_host) => true,
       %w(decidim maximum_conversation_message_length) => 1234,
-      %w(decidim password_blacklist) => ["i-dont-like-this-password", "i-dont,like,this,one,either", "password123456"],
+      %w(decidim password_similarity_length) => 4,
+      %w(decidim denied_passwords) => ["i-do-not-like-this-password", "i-do-not,like,this,one,either", "password123456"],
       %w(decidim allow_open_redirects) => true,
       %w(decidim admin_password expiration_days) => 93,
       %w(decidim admin_password min_length) => 18,
@@ -487,7 +490,8 @@ shared_examples_for "an application with configurable env vars" do
       "session_timeout_interval" => 10,
       "follow_http_x_forwarded_host" => false,
       "maximum_conversation_message_length" => 1000,
-      "password_blacklist" => [],
+      "password_similarity_length" => 4,
+      "denied_passwords" => [],
       "allow_open_redirects" => false,
       "etherpad" => nil,
       "maps" => nil
@@ -523,7 +527,8 @@ shared_examples_for "an application with configurable env vars" do
       "session_timeout_interval" => 33,
       "follow_http_x_forwarded_host" => true,
       "maximum_conversation_message_length" => 1234,
-      "password_blacklist" => ["i-dont-like-this-password", "i-dont,like,this,one,either", "password123456"],
+      "password_similarity_length" => 4,
+      "denied_passwords" => ["i-do-not-like-this-password", "i-do-not,like,this,one,either", "password123456"],
       "allow_open_redirects" => true,
       "etherpad" => {
         "server" => "http://a-etherpad-server.com",
@@ -688,7 +693,7 @@ shared_examples_for "an application with configurable env vars" do
       "Rails.application.config.log_level" => "fatal",
       "Rails.application.config.action_controller.asset_host" => "http://assets.example.org",
       "Rails.application.config.active_storage.service" => "test",
-      "Decidim::AssetRouter.new(nil).send(:default_options)" => { "host" => "https://cdn.example.org" },
+      "Decidim::AssetRouter::Storage.new(nil).send(:default_options)" => { "host" => "https://cdn.example.org" },
       "Decidim::Api::Schema.default_max_page_size" => 31,
       "Decidim::Api::Schema.max_complexity" => 3001,
       "Decidim::Api::Schema.max_depth" => 11
@@ -882,7 +887,7 @@ shared_examples_for "an application with extra configurable env vars" do
 
   let(:elections_initializer_off) do
     {
-      "setup_minimum_hours_before_start" => 3,
+      "setup_minimum_hours_before_start" => 1,
       "start_vote_maximum_hours_before_start" => 6,
       "voter_token_expiration_minutes" => 120
     }

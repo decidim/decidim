@@ -1,0 +1,31 @@
+<% verification = capture do %>
+  <%= icon auth_icon || "login-circle-line", class: "verification__icon#{" is-granted" if local_assigns[:is_granted].present?}" %>
+  <div class="verification__text">
+    <h2 class="h5 text-secondary">
+      <%= title %>
+    </h2>
+    <span>
+      <%= explanation %>
+    </span>
+  </div>
+  <% if local_assigns[:is_granted].present? && remote_url.present? %>
+    <%= icon "refresh-line", class: "w-6 h-6 flex-none text-secondary fill-current" %>
+  <% elsif local_assigns[:url].present? %>
+    <%= icon "arrow-right-s-line", class: "w-6 h-6 flex-none text-secondary fill-current" %>
+  <% end %>
+<% end %>
+
+<% if local_assigns[:url].present? %>
+  <a href="<%= url %>" class="verification" title="<%= button_text %>" data-verification>
+    <%= verification %>
+  </a>
+<% elsif remote_url.present? %>
+  <div class="verification" data-verification data-dialog-open="renew-modal" data-dialog-remote-url="<%= remote_url %>">
+    <%= verification %>
+  </div>
+  <%= decidim_modal id: "renew-modal", class:"verification-modal", remote: true %>
+<% else %>
+  <div class="verification verification__no_clickable">
+    <%= verification %>
+  </div>
+<% end %>

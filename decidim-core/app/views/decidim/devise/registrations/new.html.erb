@@ -6,14 +6,14 @@
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="flex justify-center">
-    <h1 class="h1 decorator my-12"><%= t("decidim.devise.registrations.new.sign_up") %></h1>
+    <h1 class="h3 md:h1 decorator my-12"><%= t("decidim.devise.registrations.new.sign_up") %></h1>
   </div>
 
   <div class="login__info">
     <p>
       <%= t("decidim.devise.registrations.new.subtitle") %>
     </p>
-    <p>
+    <p class="font-semibold">
       <%= t("decidim.devise.registrations.new.already_have_an_account?") %>
       <%= link_to t("decidim.devise.registrations.new.sign_in"), new_user_session_path %>
     </p>
@@ -23,7 +23,7 @@
     <%= form_required_explanation %>
   </div>
 
-  <div class="border-t-2 border-background">
+  <div class="login__omniauth-container">
     <% cache current_organization do %>
       <%= render "decidim/devise/shared/omniauth_buttons" %>
     <% end %>
@@ -32,7 +32,7 @@
   <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: registration_path(resource_name), html: { id: "register-form" }) do |f| %>
     <%= invisible_captcha %>
 
-    <div class="login__form">
+    <div class="form__wrapper">
       <%= f.text_field :name, help_text: t("decidim.devise.registrations.new.username_help"), autocomplete: "name", placeholder: "John Doe" %>
 
       <%= f.text_field :nickname, help_text: t("decidim.devise.registrations.new.nickname_help", organization: current_organization.name), autocomplete: "nickname", placeholder: "johndoe" %>
@@ -44,32 +44,34 @@
       <%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text) %>
     </div>
 
-    <div id="card__tos" class="login__form-block">
+    <div id="card__tos" class="form__wrapper-block">
       <h4 class="h4"><%= t("decidim.devise.registrations.new.tos_title") %></h4>
 
-      <p>
-        <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
-      </p>
+      <div class="tos-text">
+        <% terms_of_service_summary_content_blocks.each do |content_block| %>
+          <%= cell content_block.manifest.cell, content_block %>
+        <% end %>
+      </div>
 
-      <%= f.check_box :tos_agreement, label: t("decidim.devise.registrations.new.tos_agreement", link: link_to(t("decidim.devise.registrations.new.terms"), page_path("terms-and-conditions"))), label_options: { class: "login__form-checkbox-label" } %>
+      <%= f.check_box :tos_agreement, label: t("decidim.devise.registrations.new.tos_agreement", link: link_to(t("decidim.devise.registrations.new.terms"), page_path("terms-of-service"))), label_options: { class: "form__wrapper-checkbox-label" } %>
     </div>
 
-    <div id="card__newsletter" class="login__form-block">
+    <div id="card__newsletter" class="form__wrapper-block">
       <h4 class="h4"><%= t("decidim.devise.registrations.new.newsletter_title") %></h4>
-      <%= f.check_box :newsletter, label: t("decidim.devise.registrations.new.newsletter"), checked: @form.newsletter, label_options: { class: "login__form-checkbox-label" } %>
+      <%= f.check_box :newsletter, label: t("decidim.devise.registrations.new.newsletter"), checked: @form.newsletter, label_options: { class: "form__wrapper-checkbox-label" } %>
     </div>
 
-    <div class="login__form-block">
+    <div class="form__wrapper-block">
       <button type="submit" class="button button__lg button__secondary">
         <%= t("decidim.devise.registrations.new.sign_up") %>
         <%= icon "arrow-right-line", class: "fill-current" %>
       </button>
     </div>
-  <% end %>
 
-  <div class="login__links">
-    <%= render "decidim/devise/shared/redesigned_links" %>
-  </div>
+    <div class="login__links">
+      <%= render "decidim/devise/shared/redesigned_links" %>
+    </div>
+  <% end %>
 <% end %>
 
 <%= render "decidim/devise/shared/newsletter_modal" %>

@@ -6,7 +6,7 @@ module Decidim
   module Consultations
     module Admin
       describe UpdateQuestion do
-        let(:question) { create :question }
+        let(:question) { create(:question) }
         let(:params) do
           {
             question: {
@@ -56,7 +56,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the consultation" do
+          it "does not update the consultation" do
             command.call
             question.reload
 

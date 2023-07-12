@@ -14,8 +14,8 @@ module Decidim::Meetings
         current_participatory_space: participatory_process
       }
     end
-    let(:participatory_process) { create :participatory_process, organization: }
-    let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
+    let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
     let(:title) { Faker::Lorem.sentence(word_count: 1) }
     let(:description) { Faker::Lorem.sentence(word_count: 3) }
     let(:short_description) { Faker::Lorem.sentence(word_count: 1) }
@@ -29,7 +29,7 @@ module Decidim::Meetings
     let(:parent_scope) { create(:scope, organization:) }
     let(:scope) { create(:subscope, parent: parent_scope) }
     let(:scope_id) { scope.id }
-    let(:category) { create :category, participatory_space: participatory_process }
+    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:category_id) { category.id }
     let(:private_meeting) { false }
     let(:transparent) { true }
@@ -188,7 +188,7 @@ module Decidim::Meetings
       end
     end
 
-    describe "when online meeting url is present and the meeting is embedded and the url can't be embedded" do
+    describe "when online meeting url is present and the meeting is embedded and the url cannot be embedded" do
       let(:online_meeting_url) { "https://example.org/decidim" }
       let(:iframe_embed_type) { "embed_in_meeting_page" }
 

@@ -29,7 +29,7 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create a newsletter" do
+        it "does not create a newsletter" do
           expect do
             command.call
           end.not_to change(Decidim::Newsletter, :count)

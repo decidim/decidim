@@ -8,9 +8,9 @@ describe "Organizations", type: :system do
   shared_examples "form hiding advanced settings" do
     it "hides advanced settings" do
       expect(page).to have_content "Show advanced settings"
-      expect(page).to have_no_content "SMTP settings"
-      expect(page).to have_no_content "Omniauth settings"
-      expect(page).to have_no_content "File upload settings"
+      expect(page).not_to have_content "SMTP settings"
+      expect(page).not_to have_content "Omniauth settings"
+      expect(page).not_to have_content "File upload settings"
     end
   end
 
@@ -46,11 +46,11 @@ describe "Organizations", type: :system do
       end
 
       context "with invalid data" do
-        it "doesn't create an organization" do
+        it "does not create an organization" do
           fill_in "Name", with: "Bad"
           click_button "Create organization & invite admin"
 
-          expect(page).to have_content("There's an error in this field")
+          expect(page).to have_content("There is an error in this field")
         end
       end
     end
@@ -89,7 +89,7 @@ describe "Organizations", type: :system do
         fill_in "Name", with: "Citizens Rule!"
         fill_in "Host", with: "www.example.org"
         fill_in "Secondary hosts", with: "foobar.example.org\n\rbar.example.org"
-        choose "Don't allow participants to register, but allow existing participants to login"
+        choose "Do not allow participants to register, but allow existing participants to login"
         check "Example authorization (Direct)"
 
         click_button "Show advanced settings"

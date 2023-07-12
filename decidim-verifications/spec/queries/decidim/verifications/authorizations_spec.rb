@@ -7,7 +7,7 @@ describe Decidim::Verifications::Authorizations do
   let(:user) { create(:user, organization:) }
   let(:user2) { create(:user, organization:) }
   let(:user3) { create(:user, organization:) }
-  let(:organization) { create :organization }
+  let(:organization) { create(:organization) }
 
   let!(:granted_for_user_and_method) do
     create(:authorization, :granted, name:, user:)

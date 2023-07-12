@@ -1,41 +1,44 @@
 <% add_decidim_page_title(proposal_wizard_step_title(action_name)) %>
 
-<div class="row">
-  <%= render partial: "wizard_aside" %>
+<% append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
+<% append_javascript_pack_tag "decidim_proposals" %>
 
-  <div class="columns large-9">
-    <%= render partial: "wizard_header", locals: { callout_help_text_class: "warning" } %>
-    <div class="card card__content">
-      <div class="row column view-header">
-        <h3 class="heading3"><%= present(@proposal).title(links: true, html_escape: true) %></h3>
-        <% unless component_settings.participatory_texts_enabled? %>
-          <%= cell("decidim/coauthorships", @proposal, has_actions: false, size: 3, context: { current_user: current_user }) %>
-        <% end %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-        <%= render_proposal_body(@proposal) %>
-      </div>
-      <div class="row column">
-        <%= cell "decidim/proposals/proposal_tags", @proposal %>
-      </div>
-    </div>
-    <% if component_settings.geocoding_enabled? %>
-      <% if has_position?(@proposal) %>
-      <div class="row column">
-        <h3 class="section-heading"><%= t("decidim.application.geocoding.geocoded_address") %></h3>
-            <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
-      </div>
-      <% end %>
+  <%= render partial: "wizard_header", locals: { callout_help_text_class: "warning" } %>
+
+  <div class="proposal__container my-10">
+    <h2 class="h3 text-secondary"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
+
+    <% unless component_settings.participatory_texts_enabled? %>
+      <%= cell "decidim/coauthorships", @proposal %>
     <% end %>
-    <div class="row column">
-      <%= attachments_for @proposal %>
+
+    <div class="editor-content">
+      <%= render_proposal_body(@proposal) %>
     </div>
 
-    <div class="p-l">
-      <div class="row column flex-center">
-        <%= link_to t(".modify"), edit_draft_proposal_path(@proposal) %>
-        <%= button_to t(".publish"), publish_proposal_path(@proposal), method: :post, class: "button button--nomargin small" %>
+    <% if component_settings.geocoding_enabled? && has_position?(@proposal) %>
+      <div class="static-map__container">
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
       </div>
-    </div>
+    <% end %>
+
+    <%= cell "decidim/tab_panels", tab_panel_items %>
+    <%= cell "decidim/tags", @proposal %>
   </div>
-  <div class="columns large-3"></div>
-</div>
+
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= link_to destroy_draft_proposal_path(@proposal), method: :delete, class: "button button__sm md:button__lg button__text-secondary", data: { confirm: t("discard_confirmation", scope: "decidim.proposals.proposals.edit_draft") } do %>
+      <%= icon "arrow-left-line" %>
+      <span><%= t("discard", scope: "decidim.proposals.proposals.edit_draft") %></span>
+    <% end %>
+
+    <%= link_to t("modify", scope: "decidim.proposals.proposals.preview"), edit_draft_proposal_path(@proposal), class: "button button__sm md:button__lg button__transparent-secondary md:ml-auto" %>
+
+    <%= button_to publish_proposal_path(@proposal), method: :post, class: "button button__sm md:button__lg button__secondary w-full md:w-fit" do %>
+      <span><%= t("publish", scope: "decidim.proposals.proposals.preview") %></span>
+      <%= icon "arrow-right-line" %>
+    <% end %>
+  </div>
+<% end %>

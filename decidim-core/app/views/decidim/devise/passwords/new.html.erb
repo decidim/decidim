@@ -3,25 +3,25 @@
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
   <div class="flex justify-center">
-    <h1 class="h1 decorator my-12"><%= t("devise.passwords.new.forgot_your_password") %></h1>
+    <h1 class="h3 md:h1 decorator my-12"><%= t("devise.passwords.new.forgot_your_password") %></h1>
   </div>
 
   <%= decidim_form_for(resource, namespace: "password", as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 
-    <div class="login__form">
+    <div class="form__wrapper">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "hi@email.com" %>
     </div>
 
-    <div class="login__form-block">
+    <div class="form__wrapper-block">
       <button type="submit" class="button button__lg button__secondary">
         <%= t("devise.passwords.new.send_me_reset_password_instructions") %>
         <%= icon "arrow-right-line", class: "fill-current" %>
       </button>
     </div>
-  <% end %>
 
-  <div class="login__links">
-    <%= render "decidim/devise/shared/redesigned_links" %>
-  </div>
+    <div class="login__links">
+      <%= render "decidim/devise/shared/redesigned_links" %>
+    </div>
+  <% end %>
 
 <% end %>

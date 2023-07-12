@@ -4,9 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe ApplicationController, type: :controller do
-    let!(:organization) { create :organization }
-    let!(:user) { create :user, :confirmed, organization: }
-    let(:tos_path) { "/pages/terms-and-conditions" }
+    let!(:organization) { create(:organization) }
+    let!(:user) { create(:user, :confirmed, organization:) }
+    let(:tos_path) { "/pages/terms-of-service" }
 
     controller Decidim::ApplicationController do
       def show
@@ -26,7 +26,7 @@ module Decidim
       request.env["decidim.current_organization"] = organization
       routes.draw do
         get "show" => "decidim/application#show"
-        get "pages/terms-and-conditions" => "decidim/application#tos"
+        get "pages/terms-of-service" => "decidim/application#tos"
         get "unauthorized" => "decidim/application#unauthorized"
       end
     end
@@ -56,7 +56,7 @@ module Decidim
         expect(controller.helpers.redirect_url).to eq("/@example.org")
       end
 
-      it "doesn't allow other URLs" do
+      it "does not allow other URLs" do
         get :show, params: { redirect_url: "http://www.example.org" }
 
         expect(controller.helpers.redirect_url).to be_nil
@@ -121,7 +121,7 @@ module Decidim
         end
 
         context "and the user should agree to the terms of service" do
-          let!(:user) { create :user, :confirmed, organization:, accepted_tos_version: nil }
+          let!(:user) { create(:user, :confirmed, organization:, accepted_tos_version: nil) }
 
           it "redirects the user to the terms of service page and stores the location" do
             get :show

@@ -1,31 +1,28 @@
-<div class="wrapper">
-  <div class="row">
-    <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_aside ) %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-    <div class="columns large-6">
-      <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_header ) %>
+  <%= render partial: "wizard_header" %>
 
-      <div class="card">
-        <div class="card__content">
-          <%= decidim_form_for(@form, url: amends_path, method: :post) do |form| %>
-            <%= form.hidden_field :amendable_gid %>
+  <%= decidim_form_for(@form, url: amends_path, method: :post) do |form| %>
+    <%= form.hidden_field :amendable_gid %>
 
-            <%= render partial: "edit_form_fields", locals: { form: form, original: :amendable } %>
+    <div class="form__wrapper">
+      <%= render partial: "edit_form_fields", locals: { form:, original: :amendable } %>
 
-            <% if current_organization.user_groups_enabled? && current_user.user_groups.verified.any? %>
-              <div class="field">
-                <%= user_group_select_field form, :user_group_id, label: t("new.amendment_author", scope: "decidim.amendments") %>
-              </div>
-            <% end %>
-
-            <div class="actions">
-              <%= form.submit t(".send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
-            </div>
-          <% end %>
-        </div>
-      </div>
+      <% if current_organization.user_groups_enabled? && current_user.user_groups.verified.any? %>
+        <%= user_group_select_field form, :user_group_id, label: t("new.amendment_author", scope: "decidim.amendments") %>
+      <% end %>
     </div>
 
-    <div class="columns large-3"></div>
-  </div>
-</div>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to wizard_aside_back_url(amendable), class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line" %>
+        <%= t("back", scope: "decidim.wizard_step_form.wizard_aside") %>
+      <% end %>
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
+        <span><%= t("send", scope: "decidim.amendments.new") %></span>
+        <%= icon "arrow-right-line" %>
+      </button>
+    </div>
+  <% end %>
+
+<% end %>

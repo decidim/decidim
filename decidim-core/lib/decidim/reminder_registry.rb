@@ -4,7 +4,7 @@ module Decidim
   # This class acts as a registry for reminders. Each reminder needs a name,
   # and a generator class, that will be used for generating the actual sendable reminders.
   # Reminder times could be used to define intervals between reminders, so that user
-  # isn't reminded too often. In addition, you can register form and command classes
+  # is not reminded too often. In addition, you can register form and command classes
   # for additional features, such as order reminders can be sent manually from the admin panel.
   # Notice that if you implement admin panel functionality, you should add 118n messages too.
   #
@@ -32,7 +32,7 @@ module Decidim
       if reminder_exists?(reminder_name)
         raise(
           ReminderAlreadyRegistered,
-          "There's a reminder already registered with the name `:#{reminder_name}`, must be unique"
+          "There is a reminder already registered with the name `:#{reminder_name}`, must be unique"
         )
       end
 

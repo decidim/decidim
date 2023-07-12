@@ -12,7 +12,7 @@ Decidim.register_component(:meetings) do |component|
   component.data_portable_entities = ["Decidim::Meetings::Registration"]
 
   component.on(:before_destroy) do |instance|
-    raise StandardError, "Can't remove this component" if Decidim::Meetings::Meeting.where(component: instance).any?
+    raise StandardError, "Cannot remove this component" if Decidim::Meetings::Meeting.where(component: instance).any?
   end
 
   component.register_resource(:meeting) do |resource|
@@ -83,7 +83,7 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :default_registration_terms, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :comments_max_length, type: :integer, required: false
+    settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :registration_code_enabled, type: :boolean, default: true
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :enable_pads_creation, type: :boolean, default: false

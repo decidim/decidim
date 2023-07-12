@@ -31,8 +31,8 @@ module Decidim
           .where(organization: @organization)
           .where(
             Arel.sql("GREATEST(#{title_similarity}, #{description_similarity}) >= ?").to_s,
-            form.title,
-            form.description,
+            translated_attribute(form.title),
+            translated_attribute(form.description),
             Decidim::Initiatives.similarity_threshold
           )
           .limit(Decidim::Initiatives.similarity_limit)

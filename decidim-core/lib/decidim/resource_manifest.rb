@@ -4,7 +4,7 @@ module Decidim
   # Components inside a component can expose different Resources, these resources
   # will be used to be linked between each other and other possible components.
   #
-  # This class sets a scheme to expose these resources. It shouldn't be
+  # This class sets a scheme to expose these resources. It should not be
   # used directly, you should use `register_resource` inside a component.
   #
   # Example:
@@ -23,8 +23,11 @@ module Decidim
     # The parent component manifest
     attribute :component_manifest, Decidim::ComponentManifest
 
-    # The ActiveRecord class name of the model we're exposing
+    # The ActiveRecord class name of the model we are exposing
     attribute :model_class_name, String
+
+    # The scope name of the content blocks associated with the resource
+    attribute :content_blocks_scope_name, String
 
     # The name of the named Rails route to create the url to the resource.
     # When not explicitly set, it will use the model name.
@@ -49,7 +52,7 @@ module Decidim
     # An example would be `vote` on a specific proposal, or `join` on a meeting.
     #
     # A resource can expose as many actions as it wants and the admin panel will
-    # generate a UI to handle them. There's a set of controller helpers available
+    # generate a UI to handle them. There is a set of controller helpers available
     # as well that allows checking for those permissions.
     attribute :actions, Array[String]
 

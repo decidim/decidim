@@ -92,14 +92,12 @@ module Decidim::Verifications
     end
 
     describe "with 4 organization's granted auths (only 1 impersonated) and 2 ungranted auths created a month ago." do
-      before do
-        create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user0)
-        create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user1)
-        create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user2)
-        create(:authorization, created_at: prev_month, granted_at: nil, name: Faker::Name.name, user: user3)
-        create(:authorization, created_at: prev_month, granted_at: nil, name: Faker::Name.name, user: user4)
-        create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user5)
-      end
+      let!(:authorization1) { create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user0) }
+      let!(:authorization2) { create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user1) }
+      let!(:authorization3) { create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user2) }
+      let!(:authorization4) { create(:authorization, created_at: prev_month, granted_at: nil, name: Faker::Name.name, user: user3) }
+      let!(:authorization5) { create(:authorization, created_at: prev_month, granted_at: nil, name: Faker::Name.name, user: user4) }
+      let!(:authorization6) { create(:authorization, created_at: prev_month, granted_at: prev_month, name: Faker::Name.name, user: user5) }
 
       context "when no before date. When destroy impersonated_only auths" do
         let(:before_date) { nil }
@@ -119,7 +117,7 @@ module Decidim::Verifications
       end
 
       context "when before date, week ago. When destroy impersonated_only auths" do
-        it "doesn't destroy any ungranted auth" do
+        it "does not destroy any ungranted auth" do
           expect do
             subject.call
           end.not_to change(no_granted_authorizations, :count)
@@ -163,7 +161,7 @@ module Decidim::Verifications
       context "when before date, year ago. When destroy impersonated_only auths" do
         let(:before_date) { prev_year }
 
-        it "doesn't destroy any ungranted auth. None" do
+        it "does not destroy any ungranted auth. None" do
           expect do
             subject.call
           end.not_to change(no_granted_authorizations, :count)
@@ -221,6 +219,30 @@ module Decidim::Verifications
           expect { subject.call }.to change(Decidim::ActionLog, :count)
           action_log = Decidim::ActionLog.last
           expect(action_log.version).to be_present
+        end
+
+        context "with authorization transfers attached to some of the authorizations" do
+          let!(:authorization_trasfer1) { create(:authorization_transfer, organization:, authorization: authorization1) }
+          let!(:authorization_trasfer2) { create(:authorization_transfer, organization:, authorization: authorization1) }
+          let!(:authorization_trasfer3) { create(:authorization_transfer, organization:, authorization: authorization2) }
+
+          before do
+            create_list(:authorization_transfer_record, 2, transfer: authorization_trasfer1)
+            create_list(:authorization_transfer_record, 2, transfer: authorization_trasfer2)
+            create(:authorization_transfer_record, transfer: authorization_trasfer3)
+          end
+
+          it "destroy all granted auths" do
+            expect do
+              subject.call
+            end.to change(granted_authorizations, :count).from(4).to(0)
+          end
+
+          it "destroy all authorization transfers" do
+            expect do
+              subject.call
+            end.to change(Decidim::AuthorizationTransfer, :count).from(3).to(0)
+          end
         end
       end
 

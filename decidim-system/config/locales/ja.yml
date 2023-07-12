@@ -43,9 +43,9 @@ ja:
       admins:
         create:
           error: 新しい管理者の作成中に問題が発生しました。
-          success: 管理者が正常に作成されました
+          success: 管理者が正常に作成されました。
         destroy:
-          success: 管理者が正常に削除されました
+          success: 管理者を削除しました。
         edit:
           title: 管理者を編集
           update: 更新
@@ -56,13 +56,14 @@ ja:
           title: 新しい管理者
         update:
           error: 管理者の更新中に問題が発生しました。
-          success: 管理者が正常に更新されました
+          success: 管理者が正常に更新されました。
       dashboard:
         show:
           current_organizations: 現在の組織
       default_pages:
         placeholders:
           content: 管理ダッシュボードの %{page} 静的ページに意味のあるコンテンツを追加してください。
+          summary: 管理者ダッシュボードの静的ページ %{page} に意味のある概要を追加してください。
           title: '%{page} のデフォルトのタイトル'
       menu:
         admins: 管理者
@@ -144,8 +145,8 @@ ja:
         index:
           title: 組織
         new:
-          reference_prefix_hint: 参照プレフィックスは、すべての組織でリソースを一意に識別するために使用されます。
-          secondary_hosts_hint: 新しい行にそれぞれ入力してください
+          reference_prefix_hint: 参照プレフィックスは、すべての組織をまたがってリソースを一意に識別するために使用されます。
+          secondary_hosts_hint: 新しい行にそれぞれ入力します。
           title: 新しい組織
         omniauth_settings:
           decidim:
@@ -169,7 +170,7 @@ ja:
           fieldsets:
             sender: 送信者
           instructions:
-            from_label: 'メール送信者は "your-organization-name <your-organization@example.org>"になります。メールアドレスをラベルとして使用する場合は空白のままにしてください。'
+            from_label: 'メール送信者は以下のようになります: "あなたの組織名 <your-organization@example.org>". ''メールアドレス'' をラベルとして使用する場合は空白のままにします.'
           placeholder:
             from_email: your-organization@example.org
             from_label: 組織名
@@ -179,7 +180,7 @@ ja:
         users_registration_mode:
           disabled: 外部アカウントでのみアクセスできます
           enabled: 参加者に登録とログインを許可する
-          existing: 参加者が登録することはできませんが、既存の参加者がログインできるようにします
+          existing: 参加者が登録することはできませんが、既存の参加者はログインできるようにします
       shared:
         notices:
           no_organization_warning_html: 開始するには組織を作成する必要があります。先に進む前に %{guide} を読んでください。

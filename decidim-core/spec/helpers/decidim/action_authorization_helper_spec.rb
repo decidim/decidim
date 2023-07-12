@@ -7,6 +7,7 @@ module Decidim
     let(:component) { create(:component) }
     let(:resource) { nil }
     let(:permissions_holder) { nil }
+    let(:redesign_enabled) { false }
     let(:user) { create(:user) }
     let(:action) { "foo" }
     let(:status) { double(ok?: authorized) }
@@ -19,6 +20,9 @@ module Decidim
       allow(helper).to receive(:current_component).and_return(component)
       allow(helper).to receive(:current_user).and_return(user)
       allow(helper).to receive(:action_authorized_to).with(action, resource:, permissions_holder:).and_return(status)
+      # rubocop:disable RSpec/AnyInstance
+      allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
+      # rubocop:enable RSpec/AnyInstance
     end
 
     shared_examples "an action authorization widget helper" do |params|

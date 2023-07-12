@@ -1,0 +1,6 @@
+<% content_for :title do %>
+  <%= t("templates", scope: "decidim.admin.titles") %>
+<% end %>
+<%= decidim_form_for(@form, url: block_user_templates_path, html: { class: "form new_user_block_template" }) do |f| %>
+  <%= render partial: "form", object: f %>
+<% end %>

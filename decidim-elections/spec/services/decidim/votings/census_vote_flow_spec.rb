@@ -107,9 +107,7 @@ module Decidim::Votings
     end
 
     context "with time dependant validations" do
-      around do |example|
-        travel_to(now) { example.run }
-      end
+      before { travel_to(now) }
 
       let(:now) { Time.new(2000, 1, 1, 0, 0, 0, 0) }
       let(:valid_token) { "IBSjHn9uZObqElyMIc+8kDdyoyFSp7Sk5Hotc6miRSdmRHEUpEqtoWnHxAw1WPYMnWjFHdqvnlmSvhLJ6nFTUCFuUQ/BTSP/B8esCC+S12WIkpkbV2KVUt7POTjUefvbL0tL2TgDrpnjVa1iYuEhzUeMHbqTiy3skZ1hicc9G6HkWjKzj+PEVDbe9lZi1n2e7O3myZSYDdNvjfu7JaKQ5ghUP7pY1PDoqVgKq5nyonUwY1Y+dr82gM1Qtz8unxLmhoDg07GIH1bvw2oeAvhZQMdo9IuV8VckDr+8eEAfZ9ugVnxRHPx6P8XKry/TDeeADuhqfd62x7UiLjx3FRMIvqoMQAvJACwbWmWGP0zWtrS/zk9au0Vlj7kHmOmpAwT+rkQHGkyI+mWruv0ynniFqDm9R/CMJSmowpWwi1nExiLLhPNrl7EqP1GrVJSsZIczt0PNA3keTrsAqZPuyFStwdaGS9lKv1n+5WFHT/Pp2bLDNSpSdaD0I/72n99R--anVGgqjxutnUceeM--Pir5PKYxQ4DBfaQ1GAmGzg==" }
@@ -176,19 +174,19 @@ module Decidim::Votings
       context "when the access code is invalid" do
         let(:login_params_changes) { { access_code: "an invalid code" } }
 
-        it { expect(subject.error_message).to eq("The given data doesn't match any voter.") }
+        it { expect(subject.error_message).to eq("The given data does not match any voter.") }
       end
 
       context "when the document type is invalid" do
         let(:login_params_changes) { { document_type: "Passport" } }
 
-        it { expect(subject.error_message).to eq("The given data doesn't match any voter.") }
+        it { expect(subject.error_message).to eq("The given data does not match any voter.") }
       end
 
       context "when the birthdate is invalid" do
         let(:login_params_changes) { { day: 15 } }
 
-        it { expect(subject.error_message).to eq("The given data doesn't match any voter.") }
+        it { expect(subject.error_message).to eq("The given data does not match any voter.") }
       end
     end
 

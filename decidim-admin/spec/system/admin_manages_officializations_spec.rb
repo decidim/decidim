@@ -48,6 +48,24 @@ describe "Admin manages officializations", type: :system do
     it_behaves_like "paginating a collection"
   end
 
+  describe "blocked users" do
+    let!(:user) { create(:user, :blocked, organization:) }
+
+    before do
+      within ".secondary-nav" do
+        click_link "Participants"
+      end
+    end
+
+    context "when user is blocked" do
+      it "cannot be officialized" do
+        within "tr[data-user-id=\"#{user.id}\"]" do
+          expect(page).not_to have_link("Officialize")
+        end
+      end
+    end
+  end
+
   describe "officializating users" do
     context "when not yet officialized" do
       let!(:user) { create(:user, organization:) }
@@ -182,7 +200,7 @@ describe "Admin manages officializations", type: :system do
         click_link user.name
       end
 
-      within ".profile--sidebar" do
+      within "div.profile__details" do
         expect(page).to have_content(user.name)
       end
     end
@@ -202,7 +220,7 @@ describe "Admin manages officializations", type: :system do
         click_link user.nickname
       end
 
-      within ".profile--sidebar" do
+      within "div.profile__details" do
         expect(page).to have_content(user.name)
       end
     end

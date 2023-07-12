@@ -47,7 +47,7 @@ Decidim implements two type of authorization methods:
   to implement it. "Simple" here means that the authorization can be granted
   with the submission of a single form. For example, to validate a user against
   a census API you will need a form with some fields that your users will use to
-  authenticate against a census (for example, an ID and a Postal Code). You'll
+  authenticate against a census (for example, an ID and a Postal Code). You will
   implement this with a form class. See the documentation for the [parent
   class][authorization handler base class] or have a look at some live examples,
   such as:
@@ -98,7 +98,7 @@ Decidim implements two type of authorization methods:
     authorization process.
 
 * _Renewable authorizations_.
-  By default a participant can't renew its authorization, but this can be enabled when registering the workflow, the time between renewals can be configured (one day by default).
+  By default a participant cannot renew its authorization, but this can be enabled when registering the workflow, the time between renewals can be configured (one day by default).
 
   Optionally to change the renew modal content part of the data stored, you can set a new value for the cell used to render the metadata.
 
@@ -126,7 +126,7 @@ In order to setup Decidim with SMS verification you need to:
 1. Create a class that accepts two parameters when initializing it (mobile phone and code) and a method named `deliver_code` that will send an SMS and return a truthy or falsey value if the delivery was OK or not.
 1. Set the `sms_gateway_service` configuration variable to the name of the class that you just created (use a String, not the actual class) at `config/initializers/decidim.rb`.
 
-Keep in mind that Decidim won't store a free text version of the mobile phone, only a hashed
+Keep in mind that Decidim will not store a free text version of the mobile phone, only a hashed
 version so we can avoid duplicates and guarantee the users' privacy.
 
 You can find an example [here][example SMS gateway].
@@ -211,7 +211,7 @@ for additional technical details.
 ## How Handlers work
 
 For a workflow to be visible in the user's profile, the organization must have
-it in it's `available_authorizations` and the given handler must exist.
+it in it is `available_authorizations` and the given handler must exist.
 The name of the handler must match the authorization name plus the "Hander"
 suffix. It also has to be in the `Decidim::Verifications` namespace.
 

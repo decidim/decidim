@@ -6,8 +6,8 @@ module Decidim::Admin
   describe UpdateStaticPage do
     describe "call" do
       let(:organization) { create(:organization) }
-      let(:page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization:) }
-      let(:user) { create :user, :admin, :confirmed, organization: }
+      let(:page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
+      let(:user) { create(:user, :admin, :confirmed, organization:) }
       let(:form) do
         StaticPageForm.from_params(
           static_page: page.attributes.merge(
@@ -38,7 +38,7 @@ module Decidim::Admin
           expect(action_log.version.object_changes).to include "tos_version"
         end
 
-        it "updates the the organization's terms-and-conditions version setting" do
+        it "updates the the organization's terms-of-service version setting" do
           command.call
           organization.reload
           page.reload

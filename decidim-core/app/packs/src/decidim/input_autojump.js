@@ -4,7 +4,7 @@ $(() => {
 
   // Initialize
   $inputs.on("keydown", (event) => {
-    // Don't do anything if there is selected text
+    // Do not do anything if there is selected text
     if (event.target.selectionStart !== event.target.selectionEnd) {
       return;
     }

@@ -31,10 +31,10 @@ describe Decidim::Proposals::Import::ProposalCreator do
       current_participatory_space: participatory_process
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: }
-  let(:component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
-  let(:scope) { create :scope, organization: }
-  let(:category) { create :category, participatory_space: participatory_process }
+  let(:participatory_process) { create(:participatory_process, organization:) }
+  let(:component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
+  let(:scope) { create(:scope, organization:) }
+  let(:category) { create(:category, participatory_space: participatory_process) }
 
   it "removes the IDs from the hash" do
     expect(subject.instance_variable_get(:@data)).not_to have_key(:id)
@@ -49,10 +49,9 @@ describe Decidim::Proposals::Import::ProposalCreator do
 
   describe "#resource_attributes" do
     it "returns the attributes hash" do
-      # rubocop:disable Style/HashSyntax
       expect(subject.resource_attributes).to eq(
-        :"title/en" => data[:"title/en"],
-        :"body/en" => data[:"body/en"],
+        "title/en": data[:"title/en"],
+        "body/en": data[:"body/en"],
         category: data[:category],
         scope: data[:scope],
         address: data[:address],
@@ -61,7 +60,6 @@ describe Decidim::Proposals::Import::ProposalCreator do
         component: data[:component],
         published_at: data[:published_at]
       )
-      # rubocop:enable Style/HashSyntax
     end
   end
 

@@ -10,6 +10,7 @@ module Decidim
     include UserGroups
     include FormFactory
     include Messaging::ConversationHelper
+    include HasProfileBreadcrumb
 
     before_action :authenticate_user!
     before_action :ensure_profile_manager
@@ -26,7 +27,7 @@ module Decidim
 
     # shows a conversation thread and presents a form to reply in ajax
     def show
-      enforce_permission_to :show, :conversation, interlocutor: user, conversation: conversation
+      enforce_permission_to(:show, :conversation, interlocutor: user, conversation:)
 
       conversation.mark_as_read(current_user)
     end
@@ -34,7 +35,7 @@ module Decidim
     # receive replies in ajax, messages are returned through the view update.js.erb and printed
     # over the form instead of using flash messages
     def update
-      enforce_permission_to :update, :conversation, interlocutor: user, conversation: conversation
+      enforce_permission_to(:update, :conversation, interlocutor: user, conversation:)
 
       @form = form(Messaging::MessageForm).from_params(params, sender: user)
 

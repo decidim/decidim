@@ -1,41 +1,41 @@
 // Custom mixins and functions
 
 /// Slightly lighten a color
-@function tint($color, $percentage){
+@function tint($color, $percentage) {
   @return mix(white, $color, $percentage);
 }
 
 /// Slightly darken a color
-@function shade($color, $percentage){
+@function shade($color, $percentage) {
   @return mix(black, $color, $percentage);
 }
 
 //Small caps
-@mixin smallcaps{
+@mixin smallcaps {
   text-transform: uppercase;
   font-weight: 600;
-  letter-spacing: .1em;
-  font-size: .9em;
+  letter-spacing: 0.1em;
+  font-size: 0.9em;
 }
 
 //Small emphasis
-@mixin smallemphasis{
+@mixin smallemphasis {
   font-weight: 600;
-  letter-spacing: .1em;
-  font-size: .9em;
+  letter-spacing: 0.1em;
+  font-size: 0.9em;
 }
 
 // Status modifier mixin
 $palette: $foundation-palette;
 
-@mixin modifiers($vars, $colors: $palette){
+@mixin modifiers($vars, $colors: $palette) {
   $map: map-merge($palette, $colors);
 
-  @each $key, $value in $map{
-    &.#{$key}{
+  @each $key, $value in $map {
+    &.#{$key} {
       @content;
 
-      @each $property in $vars{
+      @each $property in $vars {
         #{$property}: map-get($map, $key);
       }
     }
@@ -43,13 +43,13 @@ $palette: $foundation-palette;
 }
 
 // helpers
-$margin-xs: .5rem;
+$margin-xs: 0.5rem;
 $margin-s: 1rem;
 $margin-sm: 2rem;
 $margin-m: 3rem;
 $margin-l: 5rem;
 
-$size:(
+$size: (
   none: 0,
   xs: $margin-xs,
   s: $margin-s,
@@ -58,27 +58,27 @@ $size:(
   l: $margin-l
 ) !default;
 
-$property:(
+$property: (
   p: padding,
   m: margin
 ) !default;
 
-$side:(
+$side: (
   t: top,
   r: right,
   b: bottom,
   l: left
 ) !default;
 
-@mixin make-spaces(){
-  @each $p-key, $prop in $property{
-    @each $v-key, $value in $size{
-      .#{$p-key}-#{$v-key}{
+@mixin make-spaces() {
+  @each $p-key, $prop in $property {
+    @each $v-key, $value in $size {
+      .#{$p-key}-#{$v-key} {
         #{$prop}: #{$value} !important;
       }
 
-      @each $s-key, $side in $side{
-        .#{$p-key}#{$s-key}-#{$v-key}{
+      @each $s-key, $side in $side {
+        .#{$p-key}#{$s-key}-#{$v-key} {
           #{$prop}-#{$side}: #{$value} !important;
         }
       }
@@ -88,34 +88,34 @@ $side:(
 
 @include make-spaces();
 
-@mixin animation($animation){
+@mixin animation($animation) {
   -webkit-animation: $animation;
   -o-animation: $animation;
   animation: $animation;
 }
 
-@mixin spinner($size, $orbit, $satellite, $time){
-  @include animation( animation-spin $time infinite linear );
+@mixin spinner($size, $orbit, $satellite, $time) {
+  @include animation(animation-spin $time infinite linear);
   @include square($size);
 
   box-sizing: border-box;
   border-radius: 50%;
-  border: floor(($size * .125)) solid $orbit;
+  border: floor(($size * 0.125)) solid $orbit;
   border-right-color: $satellite;
   display: inline-block;
   position: relative;
 }
 
-@mixin size($width, $height){
+@mixin size($width, $height) {
   width: $width;
   height: $height;
 }
 
-@mixin square($size){
+@mixin square($size) {
   @include size($size, $size);
 }
 
-@mixin skip-button(){
+@mixin skip-button() {
   left: -999px;
   position: absolute;
   top: auto;
@@ -125,7 +125,7 @@ $side:(
   z-index: -999;
 
   &:focus,
-  &:active{
+  &:active {
     background-color: $primary-color;
     color: $white;
     left: 0;
@@ -142,10 +142,14 @@ $side:(
   }
 }
 
-@keyframes animation-spin{
-  to{ transform: rotate(1turn); }
+@keyframes animation-spin {
+  to {
+    transform: rotate(1turn);
+  }
 }
 
-@-webkit-keyframes animation-spin{
-  to{ -webkit-transform: rotate(1turn); }
+@-webkit-keyframes animation-spin {
+  to {
+    -webkit-transform: rotate(1turn);
+  }
 }

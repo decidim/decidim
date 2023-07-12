@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe "Follow users", type: :system do
   let!(:organization) { create(:organization) }
-  let(:user) { create :user, :confirmed, organization: }
-  let!(:followable) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
+  let!(:followable) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -17,8 +17,8 @@ describe "Follow users", type: :system do
       it "makes the user follow the user" do
         visit decidim.profile_path(followable.nickname)
         expect do
-          click_button "Follow"
-          expect(page).to have_content "Stop following"
+          click_link "Follow"
+          expect(page).to have_content(/stop following/i)
         end.to change(Decidim::Follow, :count).by(1)
       end
     end
@@ -33,7 +33,7 @@ describe "Follow users", type: :system do
       it "makes the user follow the user" do
         visit decidim.profile_path(followable.nickname)
         expect do
-          click_button "Stop following"
+          click_link "Stop following"
           expect(page).to have_content "Follow"
         end.to change(Decidim::Follow, :count).by(-1)
       end

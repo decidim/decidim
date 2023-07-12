@@ -27,6 +27,14 @@ module Decidim
       end)
     end
 
+    def redesigned_linked_resources_for(resource, type, link_name)
+      linked_resources = resource.linked_resources(type, link_name).group_by { |linked_resource| linked_resource.class.name }
+
+      safe_join(linked_resources.map do |klass, resources|
+        render(partial: klass.constantize.resource_manifest.template, locals: { resources: })
+      end)
+    end
+
     # Gets the classes linked to the given class for the `current_component`, and formats
     # them in a nice way so that they can be used in a form. Resulting format looks like
     # this, considering the given class is related to `Decidim::Meetings::Meeting`:
@@ -45,7 +53,7 @@ module Decidim
       return [] unless klass.respond_to?(:linked_classes_for)
 
       klass.linked_classes_for(current_component).map do |k|
-        [k.underscore, t(k.demodulize.underscore, scope: "decidim.filters.linked_classes")]
+        [k.underscore, content_tag(:span, t(k.demodulize.underscore, scope: "decidim.filters.linked_classes"))]
       end
     end
 
@@ -62,7 +70,7 @@ module Decidim
     #
     # Returns an Array of Arrays of Strings.
     def linked_classes_filter_values_for(klass)
-      [["", t("all", scope: "decidim.filters.linked_classes")]] + linked_classes_for(klass)
+      [["", content_tag(:span, t("all", scope: "decidim.filters.linked_classes"))]] + linked_classes_for(klass)
     end
 
     # Returns an instance of ResourceLocatorPresenter with the given resource

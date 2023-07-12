@@ -49,7 +49,7 @@ module Decidim
           it "updates the election" do
             allow(controller).to receive(:election_question_answers_path).and_return("/answers")
 
-            patch :update, params: params
+            patch(:update, params:)
 
             expect(flash[:notice]).not_to be_empty
             expect(response).to have_http_status(:found)
@@ -68,7 +68,7 @@ module Decidim
               end
 
               it "displays the editing form with errors" do
-                patch :update, params: params
+                patch(:update, params:)
 
                 expect(flash[:alert]).not_to be_empty
                 expect(response).to have_http_status(:ok)

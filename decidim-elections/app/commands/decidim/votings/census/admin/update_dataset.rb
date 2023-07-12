@@ -20,7 +20,7 @@ module Decidim
 
           # Executes the command. Broadcast this events:
           # - :ok when everything is valid
-          # - :invalid when the input wasn't valid and couldn't proceed
+          # - :invalid when the input was not valid and could not proceed
           #
           # Returns nothing.
           def call

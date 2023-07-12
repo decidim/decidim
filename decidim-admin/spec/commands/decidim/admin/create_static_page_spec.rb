@@ -6,7 +6,7 @@ module Decidim::Admin
   describe CreateStaticPage do
     describe "call" do
       let(:organization) { create(:organization) }
-      let(:user) { create :user, :admin, :confirmed, organization: }
+      let(:user) { create(:user, :admin, :confirmed, organization:) }
       let(:form) do
         StaticPageForm
           .from_model(build(:static_page))
@@ -23,7 +23,7 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create a page" do
+        it "does not create a page" do
           expect do
             command.call
           end.not_to change(Decidim::StaticPage, :count)

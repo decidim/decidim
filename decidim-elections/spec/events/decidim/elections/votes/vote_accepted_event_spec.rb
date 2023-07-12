@@ -31,7 +31,7 @@ describe Decidim::Elections::Votes::VoteAcceptedEvent do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-        .to eq("You have received this notification because you've voted for the #{resource_name} election.")
+        .to eq("You have received this notification because you have voted for the #{resource_name} election.")
     end
   end
 

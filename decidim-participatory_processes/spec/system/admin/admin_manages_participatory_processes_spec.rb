@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory processes", versioning: true, type: :system do
+describe "Admin manages participatory processes", type: :system, versioning: true do
   include_context "when admin administrating a participatory process"
 
   let!(:participatory_process_groups) do
@@ -27,6 +27,10 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
 
     before do
       click_link "New process"
+    end
+
+    %w(short_description description announcement).each do |field|
+      it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process-#{field}-tabs']", "full"
     end
 
     it "creates a new participatory process" do
@@ -93,7 +97,9 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
     end
 
     it "update a participatory process without images does not delete them" do
-      click_link translated(participatory_process3.title)
+      within find("tr", text: translated(participatory_process3.title)) do
+        click_link "Configure"
+      end
       click_submenu_link "Info"
       click_button "Update"
 

@@ -36,7 +36,7 @@ module Decidim
         context "when otherwise" do
           let(:locale) { "foo" }
 
-          it "doesn't change the user's locale" do
+          it "does not change the user's locale" do
             post :create, params: { locale: }
             expect(user.locale).to eq("en")
           end

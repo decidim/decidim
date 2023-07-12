@@ -6,9 +6,9 @@ describe "User edit meeting", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:meeting) { create :meeting, :published, title: { en: "Meeting title with #hashtag" }, description: { en: "Meeting description" }, author: user, component: }
+  let!(:user) { create(:user, :confirmed, organization: participatory_process.organization) }
+  let!(:another_user) { create(:user, :confirmed, organization: participatory_process.organization) }
+  let!(:meeting) { create(:meeting, :published, title: { en: "Meeting title with #hashtag" }, description: { en: "Meeting description" }, author: user, component:) }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:component) do
@@ -36,9 +36,9 @@ describe "User edit meeting", type: :system do
       click_link translated(meeting.title)
       click_link "Edit meeting"
 
-      expect(page).to have_content "EDIT YOUR MEETING"
+      expect(page).to have_content "Edit Your Meeting"
 
-      within "form.edit_meeting" do
+      within "form.meetings_form" do
         fill_in :meeting_title, with: new_title
         fill_in :meeting_description, with: new_description
         click_button "Update"
@@ -52,7 +52,7 @@ describe "User edit meeting", type: :system do
       it_behaves_like(
         "a record with front-end geocoding address field",
         Decidim::Meetings::Meeting,
-        within_selector: ".edit_meeting",
+        within_selector: "form.meetings_form",
         address_field: :meeting_address
       ) do
         let(:geocoded_address_value) { meeting.address }
@@ -65,7 +65,7 @@ describe "User edit meeting", type: :system do
           click_link translated(meeting.title)
           click_link "Edit meeting"
 
-          expect(page).to have_content "EDIT YOUR MEETING"
+          expect(page).to have_content "Edit Your Meeting"
         end
       end
     end
@@ -77,9 +77,9 @@ describe "User edit meeting", type: :system do
         click_link translated(meeting.title)
         click_link "Edit meeting"
 
-        expect(page).to have_content "EDIT YOUR MEETING"
+        expect(page).to have_content "Edit Your Meeting"
 
-        within "form.edit_meeting" do
+        within "form.meetings_form" do
           fill_in :meeting_description, with: " "
           click_button "Update"
         end
@@ -91,21 +91,21 @@ describe "User edit meeting", type: :system do
     context "when rich_text_editor_in_public_views is disabled" do
       before { organization.update(rich_text_editor_in_public_views: false) }
 
-      it "displays the description not wrapped in ql-editor div" do
+      it "displays the description not wrapped in ProseMirror div" do
         visit_component
 
         click_link translated(meeting.title)
         click_link "Edit meeting"
 
-        expect(page).to have_content "EDIT YOUR MEETING"
+        expect(page).to have_content "Edit Your Meeting"
 
-        within "form.edit_meeting" do
-          expect(page).to have_no_css("div.ql-editor")
+        within "form.meetings_form" do
+          expect(page).not_to have_css("div.editor-input")
         end
 
         within "textarea#meeting_description" do
           expect(page).to have_content translated(meeting.description)
-          expect(page).to have_no_content '<div class="ql-editor ql-reset-decidim">'
+          expect(page).not_to have_content '<div class="editor-input">'
         end
       end
     end
@@ -120,7 +120,7 @@ describe "User edit meeting", type: :system do
       visit_component
 
       click_link translated(meeting.title)
-      expect(page).to have_no_content("Edit meeting")
+      expect(page).not_to have_content("Edit meeting")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")

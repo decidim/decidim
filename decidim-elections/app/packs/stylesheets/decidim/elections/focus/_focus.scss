@@ -1,12 +1,12 @@
-.focus{
-  $top-padding: .5rem;
+.focus {
+  $top-padding: 0.5rem;
 
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: $light-gray;
 
-  &__top{
+  &__top {
     padding: $top-padding 1rem;
     background-color: $white;
     position: sticky;
@@ -15,7 +15,7 @@
     display: flex;
   }
 
-  &__top_warning{
+  &__top_warning {
     background: $alert;
     color: white;
     text-align: center;
@@ -23,105 +23,105 @@
     padding: 2px 0;
   }
 
-  &__brand{
+  &__brand {
     display: flex;
     align-items: center;
 
-    img{
+    img {
       max-height: 20px;
     }
   }
 
-  &__user{
+  &__user {
     margin: 0 15px 0 auto;
     padding-right: 0;
     display: flex;
     align-items: center;
   }
 
-  &__exit{
+  &__exit {
     display: flex;
     align-items: center;
     line-height: 1;
     margin: -$top-padding 0;
-    padding: .5rem .25rem .5rem 1rem;
-    border-left: 1px solid rgba(black, .2);
+    padding: 0.5rem 0.25rem 0.5rem 1rem;
+    border-left: 1px solid rgba(black, 0.2);
   }
 
-  &__x-icon{
+  &__x-icon {
     font-size: 2rem;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
     color: $muted;
 
-    a:hover &{
+    a:hover & {
       color: inherit;
     }
   }
 
-  &__header{
+  &__header {
     background-color: $dark-gray;
     color: $white;
     padding: 1rem;
 
-    &-title{
+    &-title {
       margin-bottom: 0;
     }
   }
 
-  &__step{
+  &__step {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
   }
 
-  &__steps{
+  &__steps {
     text-transform: uppercase;
     font-size: 80%;
-    letter-spacing: .05em;
+    letter-spacing: 0.05em;
     color: $light-gray;
   }
 
-  &__content{
+  &__content {
     flex-grow: 1;
     display: flex;
 
-    .row{
+    .row {
       flex-grow: 1;
     }
   }
 
-  &__footer{
+  &__footer {
     margin-top: auto;
     padding: 1rem;
     background-color: $white;
 
-    .row{
+    .row {
       display: flex;
       align-items: baseline;
       width: 100%;
     }
 
-    .button{
+    .button {
       margin-bottom: 0;
     }
   }
 
-  &__back{
+  &__back {
     font-weight: 600;
 
-    svg{
-      font-size: .7em;
-      margin-right: .3em;
+    svg {
+      font-size: 0.7em;
+      margin-right: 0.3em;
       vertical-align: 0;
     }
   }
 
-  &__next{
+  &__next {
     margin-left: auto;
 
-    svg{
-      font-size: .7em;
-      margin-left: .3em;
+    svg {
+      font-size: 0.7em;
+      margin-left: 0.3em;
       vertical-align: 0;
     }
   }

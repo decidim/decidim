@@ -23,7 +23,7 @@ module Decidim
       # badge if the progress gets lost somehow. The lambda receives a user as an
       # argument.
       #
-      # It might not be possible sometimes, so it's fine to leave it empty.
+      # It might not be possible sometimes, so it is fine to leave it empty.
       attribute :reset, Proc
 
       validates :name, :levels, presence: true

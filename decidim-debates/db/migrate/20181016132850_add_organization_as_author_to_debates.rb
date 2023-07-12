@@ -13,7 +13,6 @@ class AddOrganizationAsAuthorToDebates < ActiveRecord::Migration[5.2]
   def change
     add_column :decidim_debates_debates, :decidim_author_type, :string
 
-    Debate.reset_column_information
     Debate.find_each do |debate|
       if debate.decidim_author_id.present?
         debate.decidim_author_type = "Decidim::UserBaseEntity"

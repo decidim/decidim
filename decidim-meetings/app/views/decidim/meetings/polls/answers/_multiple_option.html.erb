@@ -4,10 +4,10 @@
   <%= label_tag do %>
     <%= check_box_tag "answer[choices][#{idx}][body]",
                       translated_attribute(answer_option.body),
-                      choice.present?, disabled: disabled %>
+                      choice.present?, disabled: %>
 
     <%= translated_attribute(answer_option.body) %>
 
-    <%= hidden_field_tag "answer[choices][#{idx}][answer_option_id]", answer_option.id, disabled: disabled %>
+    <%= hidden_field_tag "answer[choices][#{idx}][answer_option_id]", answer_option.id, disabled: %>
   <% end %>
 <% end %>

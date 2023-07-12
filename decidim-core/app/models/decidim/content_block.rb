@@ -11,7 +11,7 @@ module Decidim
     belongs_to :organization, foreign_key: :decidim_organization_id, class_name: "Decidim::Organization"
     has_many :attachments, foreign_key: "decidim_content_block_id", class_name: "Decidim::ContentBlockAttachment", inverse_of: :content_block, dependent: :destroy
 
-    delegate :public_name_key, :has_settings?, :settings_form_cell, :cell, to: :manifest
+    delegate :public_name_key, :has_settings?, :settings_form_cell, :cell, :component_manifest_name, to: :manifest
 
     before_save :save_images
     after_save :reload_images
@@ -47,8 +47,8 @@ module Decidim
 
     # Public: Holds access to the images related to the content block. This
     # method generates a dynamic class that encapsulates the uploaders for the
-    # content block images, and eases the access to them. It's a little bit
-    # hacky, but it's the only way I could come up with in order to let content
+    # content block images, and eases the access to them. It is a little bit
+    # hacky, but it is the only way I could come up with in order to let content
     # block images have different uploaders.
     #
     # Examples:
@@ -128,7 +128,7 @@ module Decidim
       end
     end
 
-    # Internal: Since we're using the `images_container` hack to hold the
+    # Internal: Since we are using the `images_container` hack to hold the
     # uploaders, we need to manually trigger it to save the attached images.
     def save_images
       images_container.save

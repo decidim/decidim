@@ -1,60 +1,59 @@
-.login{
-  &__info{
-    @apply text-gray-2 text-lg space-y-4 mb-10 prose-a:text-secondary prose-a:underline last:[&>*]:font-semibold;
+.login {
+  &__info {
+    @apply text-gray-2 text-lg space-y-4 mb-10 prose-a:text-secondary prose-a:underline;
   }
 
-  &__info-required{
+  &__info-required {
     @apply mb-10 text-gray-2 text-sm;
   }
 
-  &__omniauth{
-    @apply flex flex-col items-center gap-8 py-10 text-gray-2 font-semibold;
+  &__omniauth {
+    @apply flex flex-col items-center gap-8 text-gray-2 font-semibold w-fit mx-auto;
 
-    &-button{
-      @apply border border-gray shadow-[0_4px_6px_rgba(211,211,211,0.25)] justify-start gap-8 text-lg min-w-[50%];
+    &-container {
+      @apply border-t-2 border-background pt-10;
+    }
 
-      svg{
-        @apply w-6 h-6 fill-current;
+    &-button {
+      @apply button button__xl border border-gray shadow-[0_4px_6px_rgba(211,211,211,0.25)] justify-start gap-8 text-lg w-full;
+
+      svg {
+        @apply w-6 h-6 fill-current flex-none;
       }
     }
 
-    &-separator{
-      @apply flex items-center justify-center gap-12 after:content-[''] before:content-[''] after:h-px before:h-px after:bg-background before:bg-background after:grow before:grow;
+    &-separator {
+      @apply mt-10 flex items-center justify-center gap-12 after:content-[''] before:content-[''] after:h-px before:h-px after:bg-background before:bg-background after:grow before:grow;
+    }
+
+    &__horizontal {
+      @apply flex-row flex-wrap [&>a]:w-auto;
     }
   }
 
-  &__form{
-    @apply flex flex-col py-10 gap-10;
-
-    &-block{
-      @apply py-10 border-t-2 border-background flex flex-col py-10 gap-4 only:[&_button]:ml-auto [&_p]:text-gray-2;
-    }
-
-    &-checkbox-label{
-      @apply text-md text-gray-2 font-normal prose-a:text-secondary prose-a:underline cursor-pointer;
-    }
-
-    & label:not(&-checkbox-label),
-    &-block label:not(&-checkbox-label){
-      @apply font-semibold text-lg;
-    }
-
-    .help-text{
-      @apply mt-4;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"]{
-      @apply w-full block mt-4;
-    }
-  }
-
-  &__links{
+  &__links {
     @apply flex flex-col gap-4 py-10 border-t-2 border-background;
 
-    a{
+    a {
       @apply w-fit text-secondary hover:underline;
+    }
+  }
+
+  &__modal {
+    &-links {
+      @apply flex flex-col md:flex-row justify-between items-start md:items-center [&>a]:text-secondary;
+    }
+
+    [data-announcement] {
+      @apply mt-4;
+    }
+  }
+
+  &__modal &__omniauth {
+    @apply mt-6;
+
+    &-separator {
+      @apply last:mt-0 last:invisible;
     }
   }
 }

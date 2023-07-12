@@ -7,7 +7,7 @@ module Decidim
     describe PagesController, type: :controller do
       routes { Decidim::Core::Engine.routes }
 
-      let(:organization) { create :organization }
+      let(:organization) { create(:organization) }
 
       before do
         request.env["decidim.current_organization"] = organization
@@ -40,7 +40,7 @@ module Decidim
         end
       end
 
-      context "when a page doesn't exist" do
+      context "when a page does not exist" do
         it "redirects to the 404" do
           expect { get :show, params: { id: "some-page" } }
             .to raise_error(ActiveRecord::RecordNotFound)
@@ -71,7 +71,7 @@ module Decidim
         end
 
         context "when authenticated" do
-          let!(:user) { create :user, :confirmed, organization: }
+          let!(:user) { create(:user, :confirmed, organization:) }
 
           before do
             sign_in user

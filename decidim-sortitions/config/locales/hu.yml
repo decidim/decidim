@@ -59,10 +59,6 @@ hu:
             title: Sorsolás törlése
           create:
             error: Hiba történt egy új sorsolás létrehozásakor.
-            success: Sorsolás létrehozása sikeres
-          destroy:
-            error: Nem lehet törölni a sorsolást.
-            success: Sorsolás törlése sikeres
           edit:
             title: Sorsolással kapcsolatos információk frissítése
             update: Frissítés
@@ -73,14 +69,12 @@ hu:
           index:
             title: Sorsolások
           new:
-            confirm: A következő gomb megnyomásával a platform rögzíti a dátumot és az időt (másodperces pontossággal), és a kockadobással együtt ezt az információt véletlenszerű kiválasztáshoz használja fel. Az akció visszafordíthatatlan, a gombra kattintva a sorsolás eredménye ezen űrlapon megadott adatokkal együtt kerül közzétételre és nem módosítható, kérjük figyelmesen ellenőrizze a tartalmat
             create: Létrehozás
             title: Új sorsolás
           show:
             selected_proposals: Sorsolásra kiválasztott javaslatok
           update:
             error: Hiba történt a sorsolás frissítése során.
-            success: Sorsolás frissítése sikeres
       admin_log:
         sortition:
           create: "%{user_name} létrehozta a(z) %{resource_name} sorsolást itt: %{space_name}"

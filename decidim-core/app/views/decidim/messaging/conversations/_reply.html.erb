@@ -1,12 +1,9 @@
-<div class="conversation-reply conversation-reply--offset">
-  <h2 class="section-heading">
-    <%= t(".title") %>
-  </h2>
-
-  <%= decidim_form_for form, url: decidim.conversation_path(conversation.id), method: :put, remote: true do |f| %>
-    <%= f.label :body, nil, class: "show-for-sr" %>
-    <%= f.text_area :body, label: false, rows: 4, required: true, placeholder: t(".placeholder"), data: { input_emoji: true } %>
-
-    <%= f.submit t(".send"), class: "button pull-right", data: { disable: true } %>
+<div class="conversation__reply-container">
+  <% if conversation.with_deleted_users?(current_user) %>
+    <%= cell("decidim/announcement", t("decidim.messaging.conversations.show.deleted_accounts"), callout_class: "warning") %>
+  <% elsif conversation.accept_user?(current_user) %>
+    <%= render "reply_form", form:, conversation: %>
+  <% else %>
+    <%= cell("decidim/announcement", t("decidim.messaging.conversations.show.not_allowed"), callout_class: "warning") %>
   <% end %>
 </div>

@@ -512,7 +512,17 @@
         },
         "weight": 0,
         "permissions": null,
-        "published_at": "2020-01-22 07:55:04 UTC"
+        "published_at": "2020-01-22 07:55:04 UTC",
+        "specific_data": {
+          "body": {
+            "en": "English content",
+            "ca": "Catalan content",
+            "es": "Spanish content",
+            "machine_translations": {
+              "es": "Machine translation spanish content"
+            }
+          }
+        }
       },
       {
         "manifest_name": "proposals",

@@ -15,8 +15,8 @@ end
 
 shared_examples "Endorse resource system specs" do
   def expect_page_not_to_include_endorsements
-    expect(page).to have_no_button("Endorse")
-    expect(page).to have_no_css("#resource-#{resource.id}-endorsements-count")
+    expect(page).not_to have_button("Like")
+    expect(page).not_to have_css("#resource-#{resource.id}-endorsements-count")
   end
 
   def expect_endorsements_count(count)
@@ -36,7 +36,7 @@ shared_examples "Endorse resource system specs" do
     let(:component_traits) { [:with_votes_enabled, :with_endorsements_disabled] }
 
     context "when the user is not logged in" do
-      it "doesn't show the endorse resource button and counts" do
+      it "does not show the endorse resource button and counts" do
         visit_resource
         expect_page_not_to_include_endorsements
       end
@@ -47,7 +47,7 @@ shared_examples "Endorse resource system specs" do
         login_as user, scope: :user
       end
 
-      it "doesn't show the endorse resource button and counts" do
+      it "does not show the endorse resource button and counts" do
         visit_resource
         expect_page_not_to_include_endorsements
       end
@@ -56,7 +56,7 @@ shared_examples "Endorse resource system specs" do
 
   context "when endorsements are enabled but blocked" do
     let(:component_traits) { [:with_endorsements_enabled, :with_endorsements_blocked] }
-    let(:disabled_button_selector) { Decidim.redesign_active ? "a.button[disabled='true']" : ".buttons__row span[disabled]" }
+    let(:disabled_button_selector) { Decidim.redesign_active ? "[data-buttons] button[disabled='true']" : "[data-buttons] span[disabled]" }
 
     it "shows the endorsements count and the endorse button is disabled" do
       visit_resource
@@ -70,8 +70,8 @@ shared_examples "Endorse resource system specs" do
     context "when the user is not logged in" do
       it "is given the option to sign in" do
         visit_resource
-        within ".buttons__row", match: :first do
-          click_button "Endorse"
+        within "[data-buttons]", match: :first do
+          click_button "Like"
         end
 
         expect(page).to have_css("#loginModal", visible: :visible)
@@ -86,9 +86,9 @@ shared_examples "Endorse resource system specs" do
       context "when the resource is not endorsed yet" do
         it "is able to endorse the resource" do
           visit_resource
-          within ".buttons__row" do
-            click_button "Endorse"
-            expect(page).to have_button("Endorsed")
+          within "[data-buttons]" do
+            click_button "Like"
+            expect(page).to have_button("Dislike")
           end
 
           expect_endorsements_count(1)
@@ -100,9 +100,9 @@ shared_examples "Endorse resource system specs" do
 
         it "is not able to endorse it again" do
           visit_resource
-          within ".buttons__row" do
-            expect(page).to have_button("Endorsed")
-            expect(page).to have_no_button("Endorse ")
+          within "[data-buttons]" do
+            expect(page).to have_button("Dislike")
+            expect(page).not_to have_button("Like")
           end
 
           expect_endorsements_count(1)
@@ -110,9 +110,9 @@ shared_examples "Endorse resource system specs" do
 
         it "is able to undo the endorsement" do
           visit_resource
-          within ".buttons__row" do
-            click_button "Endorsed"
-            expect(page).to have_button("Endorse")
+          within "[data-buttons]" do
+            click_button "Dislike"
+            expect(page).to have_button("Like")
           end
 
           expect_endorsements_count(0)
@@ -139,8 +139,8 @@ shared_examples "Endorse resource system specs" do
         context "when user is NOT verified" do
           it "is NOT able to endorse" do
             visit_resource
-            within ".buttons__row", match: :first do
-              click_button "Endorse"
+            within "[data-buttons]", match: :first do
+              click_button "Like"
             end
             expect(page).to have_css("#authorizationModal", visible: :visible)
           end
@@ -157,10 +157,10 @@ shared_examples "Endorse resource system specs" do
 
           it "IS able to endorse", :slow do
             visit_resource
-            within ".buttons__row", match: :first do
-              click_button "Endorse"
+            within "[data-buttons]", match: :first do
+              click_button "Like"
             end
-            expect(page).to have_button("Endorsed")
+            expect(page).to have_button("Dislike")
           end
         end
       end

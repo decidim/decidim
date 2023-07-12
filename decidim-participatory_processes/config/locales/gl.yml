@@ -185,9 +185,6 @@ gl:
           success: Paso de proceso participativo creouse con éxito.
         default_title: Introdución
         destroy:
-          error:
-            active_step: Non se pode eliminar o paso activo.
-            last_step: Non se pode eliminar o último paso dun proceso.
           success: Paso de proceso participativo eliminado con éxito.
         edit:
           title: Edita paso de proceso participativo
@@ -398,8 +395,6 @@ gl:
               one: 1 proceso seguinte
               other: "%{count} próximos procesos"
           explanations:
-            no_active: Non hai procesos activos
-            no_active_nor_upcoming: Non hai procesos activos nin futuros
             no_active_nor_upcoming_callout: Non hai procesos activos nin próximos. Aquí tes unha lista dos últimos.
           names:
             active: Activo

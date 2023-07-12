@@ -44,7 +44,6 @@ zh-CN:
           description_own: 您已创建了 %{score} 个测试。
           name: 测试
           next_level_in: 再创建 %{score} 个测试以达到下一关！
-          unearned_another: 此参与者尚未创建任何测试。
           unearned_own: 您还没有创建测试。
     resource_links:
       test_link:

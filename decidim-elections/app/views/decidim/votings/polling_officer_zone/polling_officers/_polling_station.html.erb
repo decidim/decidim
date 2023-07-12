@@ -38,7 +38,7 @@
                   new_polling_officer_election_in_person_vote_path(polling_officer, election),
                   class: "button small" %>
 
-        <% closure = polling_officer.polling_station.closures.find_by(election: election) %>
+        <% closure = polling_officer.polling_station.closures.find_by(election:) %>
         <% if closure %>
           <% if closure.results_phase? %>
             <%= link_to t("polling_station.count_votes", scope: "decidim.votings.polling_officer_zone.polling_officers.index"),

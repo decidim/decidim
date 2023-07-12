@@ -1,0 +1,19 @@
+<button class="photo" data-dialog-open="media-picture-<%= index %>">
+  <div class="photo__img"><%= image_thumb %></div>
+  <div class="photo__title"><%= title %></div>
+  <div class="photo__description"><%= short_description %></div>
+</button>
+
+<%= decidim_modal id: "media-picture-#{index}", class: "photo-modal" do %>
+  <div data-dialog-container>
+    <%= icon "image-line" %>
+    <h3 id="dialog-title-media-picture-<%= index %>" data-dialog-title><%= t("title", scope: "decidim.application.photo") %></h3>
+    <div>
+      <div class="photo-modal__img">
+        <%= image_big %>
+      </div>
+      <div class="photo-modal__title"><%= title %></div>
+      <div class="photo-modal__description"><%= decidim_sanitize_editor description %></div>
+    </div>
+  </div>
+<% end %>

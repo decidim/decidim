@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim::Conferences
   describe Admin::UpdateDiploma do
     describe "call" do
-      let(:my_conference) { create :conference }
-      let(:user) { create :user, :admin, :confirmed, organization: my_conference.organization }
+      let(:my_conference) { create(:conference) }
+      let(:user) { create(:user, :admin, :confirmed, organization: my_conference.organization) }
 
       let(:params) do
         {
@@ -41,7 +41,7 @@ module Decidim::Conferences
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't update the diploma configuration" do
+        it "does not update the diploma configuration" do
           command.call
           my_conference.reload
 

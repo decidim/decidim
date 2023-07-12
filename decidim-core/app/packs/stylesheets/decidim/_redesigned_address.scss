@@ -1,0 +1,25 @@
+.address {
+  @apply space-y-2 text-gray-2;
+
+  &__container {
+    @apply flex items-start gap-1;
+
+    & > svg {
+      @apply flex-none text-gray fill-current mt-0.5;
+    }
+  }
+
+  &__location {
+    @apply text-md font-semibold;
+  }
+
+  &__address,
+  &__hints {
+    @apply text-sm break-words;
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}

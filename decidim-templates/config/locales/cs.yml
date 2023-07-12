@@ -13,19 +13,19 @@ cs:
       templates:
         apply:
           error: Při použití této šablony došlo k chybě.
-          success: Šablona byla úspěšně použita
+          success: Šablona byla úspěšně použita.
         copy:
           error: Při kopírování této šablony došlo k chybě.
-          success: Šablona byla úspěšně zkopírována
+          success: Šablona byla úspěšně zkopírována.
         create:
           error: Při vytváření této šablony došlo k chybě.
-          success: Šablona byla úspěšně vytvořena
+          success: Šablona byla úspěšně vytvořena.
         destroy:
-          success: Šablona byla úspěšně odstraněna
+          success: Šablona byla úspěšně odstraněna.
         empty: Zatím nejsou žádné šablony.
         update:
           error: Při aktualizaci této šablony došlo k chybě.
-          success: Šablona byla úspěšně aktualizována
+          success: Šablona byla úspěšně aktualizována.
       titles:
         template_types:
           questionnaires: Šablony dotazníků
@@ -41,6 +41,15 @@ cs:
         name: Šablona
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Uložit
+            template_title: Informace o šabloně
+          index:
+            confirm_delete: Opravdu chcete tuto šablonu odstranit?
+            title: Blokovat zprávy uživatele
+          template_chooser:
+            select_template: Vyberte šablonu odpovědi
         questionnaire_templates:
           choose:
             create_from_template: Vytvořit ze šablony
@@ -50,7 +59,7 @@ cs:
             skip_template: Přeskočit
           edit:
             edit: Upravit
-            empty: Zatím nejsou žádné otázky
+            empty: Zatím nejsou žádné otázky.
             questionnaire: Dotazník
           form:
             save: Uložit
@@ -70,4 +79,5 @@ cs:
           duplicate: "%{user_name} zkopíroval šablonu dotazníku %{resource_name}"
           update: "%{user_name} aktualizoval šablonu dotazníku %{resource_name}"
       template_types:
+        block_user: Blokovat zprávy uživatele
         questionnaires: Dotazníky

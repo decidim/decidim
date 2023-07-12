@@ -1,0 +1,94 @@
+= ActiveStorage
+
+Decidim uses https://edgeguides.rubyonrails.org/active_storage_overview.html[ActiveStorage] as the backend to store any user uploaded content. This allows Decidim implementers to easily plug Decidim to different kinds of storage APIs, such as Amazon S3, Google Cloud Storage or Azure Storage. By default, the user uploaded content will be stored to the same file disk where the Decidim application is running at. The default behavior may be problematic with some PaaS providers, such as Heroku.
+
+In order to plug Decidim into a storage provider of your choice, you need to generate the Decidim application using the `--storage` modifier as explained at the xref:configure:index.adoc[configuration guide]. You will also need to provide the correct configuration options for the selected storage provider as explained at the xref:configure:environment_variables.adoc[environment variables guide].
+
+== Dynamic file uploads
+
+Decidim allows participants to upload files dynamically from their browsers to the website using the upload modals where participants can drag and drop the files to or select them from their computer. With the default configuration using a local file storage, this feature does not require any additional configuration. With external storage providers, you have to configure those storages properly to support the client-side file uploads to Decidim.
+
+In order to make the dynamic client-side uploads work with external storage providers, you also need to configure the CORS policies correctly. Example configurations for different storage providers are provided in the following sections which are based on the https://edgeguides.rubyonrails.org/active_storage_overview.html#cross-origin-resource-sharing-cors-configuration[official Rails documentation].
+
+=== Amazon S3
+
+Locate the bucket, go into the "Permissions" tab and find the section titled "CORS" from there. Edit the "CORS" settings and add the following configuration options to the editable field (replace `https://www.example.com` with the actual domain of your service):
+
+
+[source,json]
+----
+[
+  {
+    "AllowedHeaders": [
+      "*"
+    ],
+    "AllowedMethods": [
+      "PUT"
+    ],
+    "AllowedOrigins": [
+      "https://www.example.com"
+    ],
+    "ExposeHeaders": [
+      "Origin",
+      "Content-Type",
+      "Content-MD5",
+      "Content-Disposition"
+    ],
+    "MaxAgeSeconds": 3600
+  }
+]
+----
+
+Read more at https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html[Amazon S3 CORS documentation].
+
+===  Google Cloud Storage
+
+Google Cloud Storage requires you to use the `gsutil` command line tool to set the CORS policy on your bucket. First you need to know the name of your bucket and then use the following command (replace `your-bucket-name` with the actual name of the bucket):
+
+[source,bash]
+----
+gsutil cors set cors.json gs://your-bucket-name
+----
+
+Before running that command you need to have a `cors.json` file in the same directory where you are runnign the command from with the following content (replace `https://www.example.com` with the actual domain of your service):
+
+[source,json]
+----
+[
+  {
+    "origin": ["https://www.example.com"],
+    "method": ["PUT"],
+    "responseHeader": ["Origin", "Content-Type", "Content-MD5", "Content-Disposition"],
+    "maxAgeSeconds": 3600
+  }
+]
+----
+
+Read more at https://cloud.google.com/storage/docs/configuring-cors[Google Cloud Storage CORS documentation].
+
+=== Azure Storage
+
+Locate the storage account from the Azure Portal and go to the "Resource sharing (CORS)" section under "Settings. Fill in the following configuration options in the "Blob service" tab of that section (replace `https://www.example.com` with the actual domain of your service):
+
+- **Allowed origins**: https://www.example.com
+- **Allowed methods**: PUT
+- **Allowed headers**: *
+- **Exposed headers**: Origin, Content-Type, Content-MD5, x-ms-blob-content-disposition, x-ms-blob-type
+- **Max age**: 3600
+
+When using the Azure REST API, you can use the `Set Blob Service Properties` operation with the following rule definitions to achieve the same (replace `https://www.example.com` with the actual domain of your service):
+
+[source,xml]
+----
+<Cors>
+  <CorsRule>
+    <AllowedOrigins>https://www.example.com</AllowedOrigins>
+    <AllowedMethods>PUT</AllowedMethods>
+    <AllowedHeaders>*</AllowedHeaders>
+    <ExposedHeaders>Origin, Content-Type, Content-MD5, x-ms-blob-content-disposition, x-ms-blob-type</ExposedHeaders>
+    <MaxAgeInSeconds>3600</MaxAgeInSeconds>
+  </CorsRule>
+</Cors>
+----
+
+Read more at https://docs.microsoft.com/en-us/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services[Azure Storage CORS documentation].

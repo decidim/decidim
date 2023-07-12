@@ -59,8 +59,8 @@ But beware, it takes a long time... :)
 
 === Running specs in parallel
 
-We've configured the https://github.com/grosser/parallel_tests[parallel_tests gem]. For
-using it, you'll need to follow these steps:
+We have configured the https://github.com/grosser/parallel_tests[parallel_tests gem]. For
+using it, you will need to follow these steps:
 
 . Configure the TEST_ENV_NUMBER environment variable with the number of processes that you want to run in parallel.
 . Run the commands to prepare the test database

@@ -150,12 +150,12 @@ describe "Election log", :slow, type: :system do
   describe "verify election" do
     include_context "with test bulletin board"
 
-    context "when election doesn't have correct bb_status" do
+    context "when election does not have correct bb_status" do
       let(:election) { create(:election, :bb_test, :tally_ended, component:) }
 
       it "does not show instructions to verify election" do
         expect(page).to have_content("Verify Election results")
-        expect(page).to have_content("The verifiable election file and SHA256 checksum aren't available yet")
+        expect(page).to have_content("The verifiable election file and SHA256 checksum are not available yet")
         expect(page).to have_content("NOT READY")
       end
     end

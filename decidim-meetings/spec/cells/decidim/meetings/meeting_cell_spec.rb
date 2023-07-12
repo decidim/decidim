@@ -7,13 +7,14 @@ module Decidim::Meetings
     controller Decidim::Meetings::MeetingsController
 
     let!(:meeting) { create(:meeting, :published) }
+    let(:meetings_selector) { "[id^='meetings__meeting_']" }
 
     let(:the_cell) { cell("decidim/meetings/meeting", meeting) }
     let(:cell_html) { the_cell.call }
 
     context "when rendering" do
       it "renders the card" do
-        expect(cell_html).to have_css(".card--meeting")
+        expect(cell_html).to have_css(meetings_selector)
       end
     end
 

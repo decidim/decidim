@@ -1,4 +1,4 @@
-.main-nav{
+.main-nav {
   width: 120px;
   min-height: 100%;
   background-color: $dark-gray;
@@ -6,40 +6,40 @@
   text-align: center;
 }
 
-.main-nav ul{
+.main-nav ul {
   list-style: none;
   margin-left: 0;
 
-  a{
+  a {
     padding-top: 1rem;
-    padding-bottom: .8rem;
-    border-bottom: 1px solid rgba(white, .2);
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(white, 0.2);
 
-    li:first-child > &{
-      border-top: 1px solid rgba(white, .2);
+    li:first-child > & {
+      border-top: 1px solid rgba(white, 0.2);
     }
 
     display: block;
     color: $medium-gray;
-    font-size: .7rem;
+    font-size: 0.7rem;
 
-    &:hover{
+    &:hover {
       background-color: lighten($dark-gray, 10);
     }
   }
 
-  .is-active a{
+  .is-active a {
     color: $body-font-color;
     background-color: $white;
     box-shadow: inset 5px 0 0 $brand;
     border-bottom-color: $dark-gray;
   }
 
-  .icon{
+  .icon {
     width: 24px;
     height: 24px;
     display: block;
     margin: 0 auto;
-    opacity: .5;
+    opacity: 0.5;
   }
 }

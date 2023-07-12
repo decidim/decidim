@@ -85,6 +85,7 @@ describe "Admin filters user_groups", type: :system do
     let!(:group) do
       create(:user_group, organization:, users: [user, another_user],
                           name: "ZZZupper group",
+                          nickname: "ZZZupper",
                           document_number: "9999999999",
                           phone: "999.999.9999").reload
     end
@@ -170,6 +171,24 @@ describe "Admin filters user_groups", type: :system do
 
     context "with name asc" do
       before { visit decidim_admin.user_groups_path(q: { s: "name asc" }) }
+
+      it "hides the result" do
+        expect(group.users.size).to eq(2)
+        expect(page).not_to have_content(group.name)
+      end
+    end
+
+    context "with nickname desc" do
+      before { visit decidim_admin.user_groups_path(q: { s: "nickname desc" }) }
+
+      it "displays the result" do
+        expect(group.users.size).to eq(2)
+        expect(page).to have_content(group.name)
+      end
+    end
+
+    context "with nickname asc" do
+      before { visit decidim_admin.user_groups_path(q: { s: "nickname asc" }) }
 
       it "hides the result" do
         expect(group.users.size).to eq(2)

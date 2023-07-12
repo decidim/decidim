@@ -5,6 +5,8 @@ Decidim::Core::Engine.routes.draw do
 
   get "/offline", to: "offline#show"
 
+  get "/favicon.ico", to: "favicon#show"
+
   devise_for :users,
              class_name: "Decidim::User",
              module: :devise,
@@ -13,11 +15,29 @@ Decidim::Core::Engine.routes.draw do
                invitations: "decidim/devise/invitations",
                sessions: "decidim/devise/sessions",
                confirmations: "decidim/devise/confirmations",
-               registrations: "decidim/devise/registrations",
                passwords: "decidim/devise/passwords",
                unlocks: "decidim/devise/unlocks",
                omniauth_callbacks: "decidim/devise/omniauth_registrations"
-             }
+             },
+             skip: [:registrations]
+
+  # Manually define the registration routes because otherwise the default "edit"
+  # route would be exposed through Devise while we already have the edit and
+  # destroy routes available through the account pages.
+  resource(
+    :registration,
+    only: [:new, :create],
+    as: :user_registration,
+    path: "/users",
+    path_names: { new: "sign_up" },
+    controller: "devise/registrations"
+  ) do
+    # The "cancel" route forces the session data which is usually expired after
+    # sign in to be expired now. This is useful if the user wants to cancel
+    # OAuth signing in/up in the middle of the process, removing all OAuth
+    # session data. @see [Devise::RegistrationsController#cancel]
+    get :cancel
+  end
 
   devise_for :user_groups,
              class_name: "Decidim::UserGroup",
@@ -91,12 +111,10 @@ Decidim::Core::Engine.routes.draw do
     resources :groups, except: [:destroy, :index, :show] do
       resources :join_requests, only: [:create, :update, :destroy], controller: "user_group_join_requests"
       resources :invites, only: [:index, :create, :update, :destroy], controller: "group_invites"
-      resources :users, only: [:index, :destroy], controller: "group_members", as: "manage_users" do
+      resources :users, only: [:destroy], controller: "group_members", as: "manage_users" do
         member do
           post :promote
         end
-      end
-      resources :admins, only: [:index], controller: "group_admins", as: "manage_admins" do
         member do
           post :demote
         end
@@ -116,8 +134,9 @@ Decidim::Core::Engine.routes.draw do
     get "badges", to: "profiles#badges", as: "profile_badges"
     get "groups", to: "profiles#groups", as: "profile_groups"
     get "members", to: "profiles#members", as: "profile_members"
+    get "group_members", to: "profiles#group_members", as: "profile_group_members"
+    get "group_admins", to: "profiles#group_admins", as: "profile_group_admins"
     get "activity", to: "user_activities#index", as: "profile_activity"
-    get "timeline", to: "user_timeline#index", as: "profile_timeline"
     resources :conversations, except: [:destroy], controller: "user_conversations", as: "profile_conversations"
   end
 
@@ -135,7 +154,7 @@ Decidim::Core::Engine.routes.draw do
   get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
 
   get "/static_map", to: "static_map#show", as: :static_map
-  put "/pages/terms-and-conditions/accept", to: "tos#accept_tos", as: :accept_tos
+  put "/pages/terms-of-service/accept", to: "tos#accept_tos", as: :accept_tos
 
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all

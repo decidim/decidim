@@ -9,7 +9,7 @@ module Decidim
     # followed with an underscore, then it is not considered.
     #
     # @see BaseParser Examples of how to use a content parser
-    class HashtagParser < BaseParser
+    class HashtagParser < TagParser
       # Class used as a container for metadata
       #
       # @!attribute hashtags
@@ -18,38 +18,38 @@ module Decidim
 
       # Matches a hashtag if it starts with a letter or number
       # and only contains letters, numbers or underscores.
-      HASHTAG_REGEX = /\s\K\B#([[:alnum:]](?:[[:alnum:]]|_)*)\b/i
+      HASHTAG_REGEX = /(?:\A|\s\K)\B#([[:alnum:]](?:[[:alnum:]]|_)*)\b/i
 
-      # Replaces hashtags name with new or existing hashtags models global ids.
-      #
-      # @return [String] the content with the hashtags replaced by global ids
-      def rewrite
-        content.gsub(HASHTAG_REGEX) do |match|
+      def metadata
+        Metadata.new(content_tags.map { |content_hashtag| hashtag(content_hashtag) }.uniq)
+      end
+
+      private
+
+      def tag_data_type
+        "hashtag"
+      end
+
+      def replace_tags(text)
+        text.gsub(HASHTAG_REGEX) do |match|
           "#{hashtag(match[1..-1]).to_global_id}/#{extra_hashtags? ? "_" : ""}#{match[1..-1]}"
         end
       end
 
-      def metadata
-        Metadata.new(content_hashtags.map { |content_hashtag| hashtag(content_hashtag) }.uniq)
+      def scan_tags(text)
+        text.scan(HASHTAG_REGEX)
       end
-
-      private
 
       def hashtag(name)
         hashtags[name.downcase] ||= Decidim::Hashtag.create(organization: current_organization, name: name.downcase)
       end
 
       def hashtags
-        @hashtags ||=
-          existing_hashtags.index_by(&:name)
+        @hashtags ||= existing_hashtags.index_by(&:name)
       end
 
       def existing_hashtags
-        @existing_hashtags ||= Decidim::Hashtag.where(organization: current_organization, name: content_hashtags.map(&:downcase))
-      end
-
-      def content_hashtags
-        @content_hashtags ||= content.scan(HASHTAG_REGEX).flatten.uniq
+        @existing_hashtags ||= Decidim::Hashtag.where(organization: current_organization, name: content_tags.map(&:downcase))
       end
 
       def current_organization

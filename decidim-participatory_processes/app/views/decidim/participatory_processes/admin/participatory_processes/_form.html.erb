@@ -34,7 +34,7 @@
     </div>
 
     <div class="row column">
-      <%= form.translated :editor, :description, toolbar: :full, lines: 25 %>
+      <%= form.translated :editor, :description %>
     </div>
 
     <div class="row column">
@@ -169,7 +169,7 @@
     <div class="row column">
       <%= form.select(
         :related_process_ids,
-        @form.processes.order(title: :asc).map{|process| [translated_attribute(process.title), process.id]},
+        @form.processes.order(title: :asc).map { |process| [translated_attribute(process.title), process.id] },
         { include_blank: true },
         { multiple: true, class: "chosen-select" }
       ) %>
@@ -201,4 +201,4 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_participatory_processes_admin" %>
+<%= append_javascript_pack_tag "decidim_participatory_processes_admin" %>

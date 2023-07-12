@@ -26,7 +26,7 @@ describe "SMS code request", type: :system do
     end
 
     it "allows the user to request a code by sms to get verified" do
-      expect(page).to have_content("Thanks! We've sent an SMS to your phone")
+      expect(page).to have_content("Thanks! We have sent an SMS to your phone.")
     end
   end
 end

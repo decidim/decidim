@@ -58,7 +58,7 @@ We would like to have all branches following this namings:
 | When adding missing tests, refactoring tests, improving coverage, etc.
 
 | backport/
-| We only offer support for the last mayor version.
+| We only offer support for the last two mayor version. Learn more about xref:develop:backports.adoc[Backports].
 |===
 
 After the prefix we recommend to add some words that describe what the change is doing, like a summary of the Pull Request title. For instance, some good branch names are:
@@ -67,7 +67,7 @@ After the prefix we recommend to add some words that describe what the change is
 . feature/add-pagination-to-moderated-users
 . fix/free-text-choice-answer
 
-The rationale behind this is that we don't like to have the issue number (`fix/9123` or just `9123`) as that difficults working with `git`. 
+The rationale behind this is that we do not like to have the issue number (`fix/9123` or just `9123`) as that difficults working with `git`.
 
 == Git commit messages and Pull Request titles
 
@@ -94,6 +94,11 @@ In the past we kept a file for all the development of a given version but that w
 
 For releases we follow https://semver.org/[Semantic Versioning recommendations]. Some details in our case:
 
-* Until v1 there could be changes in the API. We'll let you know on the Release Notes for a given version
+* Until v1 there could be changes in the API. We will let you know on the Release Notes for a given version
 * Upgrading on patch versions should be safe (for instance from 0.20.0 to 0.20.1). The only things that we add are bug fixes and new languages.
 
+== Accessibility
+
+Most Decidim websites are under different regulations that require these services to follow accessibility guidelines to make them available to as wide audiences as possible. All user interface changes need to follow the accessibility guidelines.
+
+For more information, refer to the xref:develop:guide_accessibility.adoc[Decidim accessibility guide].

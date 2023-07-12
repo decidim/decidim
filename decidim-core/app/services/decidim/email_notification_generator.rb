@@ -4,7 +4,7 @@ module Decidim
   # This class handles system events affecting resources and generates a
   # notification for each recipient by scheduling a new
   # `Decidim::NotificationMailer` job for each of them. This way we can
-  # easily control which jobs fail and retry them, so that we don't have
+  # easily control which jobs fail and retry them, so that we do not have
   # duplicated notifications.
   class EmailNotificationGenerator
     # Initializes the class.
@@ -13,9 +13,9 @@ module Decidim
     # event_class - A class that wraps the event.
     # resource - an instance of a class implementing the `Decidim::Resource` concern.
     # followers - a collection of Users that receive the notification because
-    #   they're following it
+    #   they are following it
     # affected_users - a collection of Users that receive the notification because
-    #   they're affected by it
+    #   they are affected by it
     # extra - a Hash with extra information to be included in the notification.
     # rubocop:disable Metrics/ParameterLists
     def initialize(event, event_class, resource, followers, affected_users, extra)
@@ -63,7 +63,7 @@ module Decidim
     # Returns nothing.
     def send_email_to(recipient, user_role:)
       return unless recipient
-      return unless recipient.notifications_sending_frequency == "real_time"
+      return unless should_send_email?(recipient)
       return if resource.respond_to?(:can_participate?) && !resource.can_participate?(recipient)
 
       wait_time = 0
@@ -79,6 +79,12 @@ module Decidim
           extra
         )
         .deliver_later(wait: wait_time)
+    end
+
+    def should_send_email?(recipient)
+      return extra[:force_email] if extra.has_key?(:force_email)
+
+      recipient.notifications_sending_frequency == "real_time"
     end
 
     def component

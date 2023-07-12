@@ -61,9 +61,9 @@ en:
             invalid: There was a problem saving the survey.
             success: Survey successfully saved.
       last_activity:
-        new_survey_at_html: "<span>New survey at %{link}</span>"
+        new_survey: 'New survey:'
       surveys:
         answer:
           invalid: There was a problem answering the survey.
-          spam_detected: There was a problem answering the form. Maybe you've been too quick, can you try again?
+          spam_detected: There was a problem answering the form. Maybe you have been too quick, can you try again?
           success: Survey successfully answered.

@@ -2,6 +2,9 @@
 
 require "spec_helper"
 
+# REDESIGN_PENDING: This file is repeated in decidim-assemblies/spec/cells/decidim/assemblies/statistics_cell_spec.rb
+# Both should be removed and merge in the core
+
 module Decidim::ParticipatoryProcesses
   describe Decidim::StatisticsCell, type: :cell do
     controller Decidim::ApplicationController
@@ -17,16 +20,8 @@ module Decidim::ParticipatoryProcesses
     end
 
     context "when rendering" do
-      it "renders the statistics wrapper" do
-        expect(subject).to have_css(".section-statistics")
-      end
-
-      it "renders the title" do
-        expect(subject).to have_css("h3.section-heading", text: "Statistics")
-      end
-
       it "renders each stat" do
-        expect(subject).to have_css(".statistic__data", count: 3)
+        expect(subject).to have_css("[data-statistic]", count: 3)
       end
     end
   end

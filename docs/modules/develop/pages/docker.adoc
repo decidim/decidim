@@ -1,6 +1,6 @@
 = Decidim on Docker
 
-There's an https://github.com/orgs/decidim/packages/container/package/decidim[image available for a default Decidim app], with core modules. It gets updated with each new version release.
+There is an https://github.com/orgs/decidim/packages/container/package/decidim[image available for a default Decidim app], with core modules. It gets updated with each new version release.
 
 The https://github.com/decidim/docker/blob/master/Dockerfile-deploy[Dockerfile] and https://github.com/decidim/docker/blob/master/docker-compose.yml[a basic docker-compose.yml file] are both available on the https://github.com/decidim/docker[decidim/docker repo], in case you'd like to use them as starting points for your own customized images and deployments.
 

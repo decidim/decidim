@@ -60,9 +60,9 @@ ca:
             invalid: S'ha produït un error en desar l'enquesta.
             success: Enquesta desada correctament.
       last_activity:
-        new_survey_at_html: "<span>Nova enquesta a %{link}</span>"
+        new_survey: 'Nova enquesta:'
       surveys:
         answer:
           invalid: S'ha produït un error en respondre l'enquesta.
-          spam_detected: Hi ha hagut un problema contestant el formulari. Potser has estat massa ràpid, ho pots tornar a intentar?
+          spam_detected: Hi ha hagut un problema responent el formulari. Potser has anat massa ràpid, ho pots tornar a intentar?
           success: Enquesta resposta correctament.

@@ -196,9 +196,6 @@ nl:
           success: Participatief processtap is succesvol gecreëerd.
         default_title: Introductie
         destroy:
-          error:
-            active_step: Kan de actieve stap niet verwijderen.
-            last_step: Kan de laatste stap van een proces niet verwijderen.
           success: Participatieve processtap succesvol verwijderd.
         edit:
           title: Bewerk processtap
@@ -416,8 +413,6 @@ nl:
               one: 1 aankomend inspraakproces
               other: "%{count} aankomende processen"
           explanations:
-            no_active: Geen actieve processen
-            no_active_nor_upcoming: Geen actieve of aankomende processen
             no_active_nor_upcoming_callout: Er zijn geen actieve of aankomende processen. Hier is een lijst met de vorige.
           names:
             active: Actief

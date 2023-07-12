@@ -2,7 +2,7 @@
 
 module Decidim
   # Interaction between a user and an organization is done via a
-  # ParticipatoryProcess. It's a unit of action from the Organization point of
+  # ParticipatoryProcess. It is a unit of action from the Organization point of
   # view that groups several components (proposals, debates...) distributed in
   # steps that get enabled or disabled depending on which step is currently
   # active.
@@ -101,7 +101,7 @@ module Decidim
       end
     }
 
-    scope :with_type, ->(type_id) { where(decidim_participatory_process_type_id: type_id) }
+    scope :with_any_type, ->(*type_ids) { where(decidim_participatory_process_type_id: type_ids) }
 
     searchable_fields({
                         scope_id: :decidim_scope_id,
@@ -122,7 +122,7 @@ module Decidim
       where(promoted: true)
     end
 
-    # Return processes that DON'T belong to a process group.
+    # Return processes that DO NOT belong to a process group.
     def self.groupless
       where(decidim_participatory_process_group_id: nil)
     end
@@ -207,7 +207,7 @@ module Decidim
     ransacker_i18n :title
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_date, :with_area, :with_scope, :with_type]
+      [:with_date, :with_any_area, :with_any_scope, :with_any_type]
     end
   end
 end

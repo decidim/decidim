@@ -17,6 +17,9 @@ module Decidim
           member do
             put :withdraw
           end
+          collection do
+            get :year_calendar
+          end
           resources :meeting_closes, only: [:edit, :update] do
             get :proposals_picker, on: :collection
           end
@@ -28,8 +31,7 @@ module Decidim
               post :answer
             end
           end
-          resources :versions, only: [:show, :index]
-          resource :widget, only: :show, path: "embed"
+          resources :versions, only: [:show]
           resource :live_event, only: :show
           namespace :polls do
             resources :questions, only: [:index, :update]
@@ -42,7 +44,7 @@ module Decidim
         end
       end
 
-      initializer "decidim.content_processors" do |_app|
+      initializer "decidim_meetings.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:meeting]
         end
@@ -57,7 +59,7 @@ module Decidim
         # meeting for the given participatory space.
         Decidim.view_hooks.register(:upcoming_meeting_for_card, priority: Decidim::ViewHooks::LOW_PRIORITY) do |view_context|
           published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
-          upcoming_meeting = Decidim::Meetings::Meeting.where(component: published_components).upcoming.order(:start_time, :end_time).first
+          upcoming_meeting = Decidim::Meetings::Meeting.where(component: published_components).published.upcoming.order(:start_time, :end_time).first
 
           next unless upcoming_meeting
 
@@ -125,12 +127,30 @@ module Decidim
       end
 
       initializer "decidim_meetings.register_reminders" do
-        Decidim.reminders_registry.register(:close_meeting) do |reminder_registry|
-          reminder_registry.generator_class_name = "Decidim::Meetings::CloseMeetingReminderGenerator"
+        config.after_initialize do
+          Decidim.reminders_registry.register(:close_meeting) do |reminder_registry|
+            reminder_registry.generator_class_name = "Decidim::Meetings::CloseMeetingReminderGenerator"
 
-          reminder_registry.settings do |settings|
-            settings.attribute :reminder_times, type: :array, default: [3.days, 7.days]
+            reminder_registry.settings do |settings|
+              settings.attribute :reminder_times, type: :array, default: [3.days, 7.days]
+            end
           end
+        end
+      end
+
+      initializer "decidim_meetings.authorization_transfer" do
+        config.to_prepare do
+          Decidim::AuthorizationTransfer.register(:meetings) do |transfer|
+            transfer.move_records(Decidim::Meetings::Meeting, :decidim_author_id)
+            transfer.move_records(Decidim::Meetings::Registration, :decidim_user_id)
+            transfer.move_records(Decidim::Meetings::Answer, :decidim_user_id)
+          end
+        end
+      end
+
+      initializer "decidim_meetings.moderation_content" do
+        ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
+          Decidim::Meetings::HideAllCreatedByAuthorJob.perform_later(**data)
         end
       end
     end

@@ -39,7 +39,7 @@ shared_examples "manage conference speakers examples" do
   end
 
   context "with existing user" do
-    let!(:speaker_user) { create :user, organization: conference.organization }
+    let!(:speaker_user) { create(:user, organization: conference.organization) }
 
     it "creates a new conference speaker" do
       find(".card-title a.new").click
@@ -89,13 +89,13 @@ shared_examples "manage conference speakers examples" do
 
     it "deletes the conference speaker" do
       within find("#conference_speakers tr", text: conference_speaker.full_name) do
-        accept_confirm { find("a.action-icon--remove").click }
+        accept_confirm(admin: true) { find("a.action-icon--remove").click }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "#conference_speakers table" do
-        expect(page).to have_no_content(conference_speaker.full_name)
+        expect(page).not_to have_content(conference_speaker.full_name)
       end
     end
   end

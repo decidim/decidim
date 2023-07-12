@@ -2,7 +2,7 @@
 
 module Decidim
   # Interaction between a user and an organization can be done via an Assembly.
-  # It's a unit of action from the Organization point of view that groups
+  # It is a unit of action from the Organization point of view that groups
   # several components (proposals, debates...) that can be enabled or disabled.
   #
   # An assembly can have children. This is implemented using a PostgreSQL extension: LTREE
@@ -37,7 +37,6 @@ module Decidim
     include Decidim::HasArea
     include Decidim::FilterableResource
 
-    SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     CREATED_BY = %w(city_council public others).freeze
 
     translatable_fields :title, :subtitle, :short_description, :description, :developer_group, :meta_scope, :local_area,
@@ -82,6 +81,8 @@ module Decidim
 
     after_create :set_parents_path
     after_update :set_parents_path, :update_children_paths, if: :saved_change_to_parent_id?
+
+    scope :with_any_type, ->(*type_ids) { where(decidim_assemblies_type_id: type_ids) }
 
     searchable_fields({
                         scope_id: :decidim_scope_id,
@@ -159,7 +160,7 @@ module Decidim
     end
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_area, :with_scope]
+      [:with_any_area, :with_any_scope, :with_any_type]
     end
 
     private

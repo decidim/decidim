@@ -6,10 +6,11 @@
     <%= proposal.id %><br>
   </td>
   <td>
-    <%= link_to(
-     decidim_html_escape(present(proposal).title).html_safe,
-     proposal_path(proposal)
-    ) %><br>
+    <% if allowed_to? :edit, :proposal, proposal: proposal %>
+      <%= link_to present(proposal).title(html_escape: true), edit_proposal_path(proposal) %><br>
+    <% else %>
+      <%= present(proposal).title(html_escape: true) %><br>
+    <% end %>
   </td>
   <td>
     <% if proposal.category %>
@@ -69,8 +70,8 @@
 
     <%= icon_with_link_to_proposal(proposal) %>
 
-    <%= resource_permissions_link(proposal) %>
+    <%= icon_link_to "eye", resource_locator(proposal).path, t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank %>
 
-   <%= icon_link_to "eye", resource_locator(proposal).path, t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank %>
+    <%= resource_permissions_link(proposal) %>
   </td>
 </tr>

@@ -21,7 +21,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -52,8 +52,8 @@ module Decidim
 
         attr_reader :form, :conference, :current_user
 
-        def conference_speaker_with_attributes
-          attrs = form.attributes.slice(
+        def conference_speaker_attributes
+          @conference_speaker_attributes ||= form.attributes.slice(
             "full_name",
             "twitter_handle",
             "personal_url",
@@ -67,9 +67,12 @@ module Decidim
           ).merge(
             attachment_attributes(:avatar)
           )
+        end
+
+        def conference_speaker_with_attributes
           conference_speaker = conference.speakers.build
           conference_speaker.conference = conference
-          conference_speaker.assign_attributes(attrs)
+          conference_speaker.assign_attributes(conference_speaker_attributes)
           conference_speaker
         end
 
@@ -86,7 +89,7 @@ module Decidim
           @conference_speaker = Decidim.traceability.create!(
             Decidim::ConferenceSpeaker,
             current_user,
-            conference_speaker_with_attributes.attributes,
+            conference_speaker_attributes,
             log_info
           )
         end

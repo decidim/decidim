@@ -31,7 +31,7 @@ describe Decidim::Meetings::SendCloseMeetingReminderJob do
     let(:meeting) { create(:meeting, :published, :closed, component:) }
     let!(:reminder_record) { create(:reminder_record, reminder:, remindable: meeting) }
 
-    it "doesn't send the email" do
+    it "does not send the email" do
       expect(mailer_class)
         .not_to receive(:close_meeting_reminder)
 

@@ -5,7 +5,7 @@
   </p>
   <% if notification.resource_path.present? && notification.resource_title.present? %>
     <p class="email-button email-button__cta">
-      <%= link_to notification.resource_title, notification.resource_url %>
+      <%= link_to decidim_sanitize(notification.resource_title, strip_tags: true), notification.resource_url %>
     </p>
   <% end %>
 </div>

@@ -9,12 +9,13 @@
         <%= icon "arrow-down-s-line", class: "w-4 h-4 text-gray fill-current" %>
       </summary>
 
-      <ul id="<%= menu_id %>" class="dropdown bottom z-10 py-1" role="menu" aria-labelledby="<%= menu_id %>-control">
+      <ul id="<%= menu_id %>" class="dropdown dropdown__bottom" role="menu" aria-labelledby="<%= menu_id %>-control">
         <% Decidim::Paginable::OPTIONS.each do |per_page_option| %>
-          <li class="text-gray-2 px-4 hover:bg-secondary hover:text-white transition" role="presentation">
+          <li role="presentation">
             <%= link_to per_page_option,
                         url_for(params.to_unsafe_h.merge(page: nil, per_page: per_page_option)),
-                        data: { per_page_option: per_page_option },
+                        data: { per_page_option: },
+                        class: "dropdown__item",
                         title: t("decidim.shared.results_per_page.title"),
                         role: "menuitem" %>
           </li>

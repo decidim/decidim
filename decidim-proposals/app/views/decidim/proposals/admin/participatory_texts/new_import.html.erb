@@ -23,7 +23,7 @@
           <fieldset>
             <legend> <%= t(".document_legend", valid_mime_types: mime_types_with_document_examples).html_safe %> </legend>
               <div class="row column">
-                <%= form.upload :document, optional: false %>
+                <%= form.upload :document, required: true %>
               </div>
           </fieldset>
         </div>

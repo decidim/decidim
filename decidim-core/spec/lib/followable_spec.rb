@@ -15,7 +15,7 @@ module Decidim
         expect(subject.followers).to include(follow.user)
       end
 
-      context "when the resource doesn't have a participatory space" do
+      context "when the resource does not have a participatory space" do
         let(:resource) { create(:user) }
 
         it "returns their followers" do

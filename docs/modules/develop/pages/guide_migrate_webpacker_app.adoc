@@ -6,7 +6,7 @@ NOTE: this recipe might not work for all the cases, it tries to cover the generi
 
 == About Webpacker
 
-It's recommended to understand how Webpacker works. More information:
+It is recommended to understand how Webpacker works. More information:
 
 * https://github.com/rails/webpacker#usage[Webpacker README]
 * https://edgeguides.rubyonrails.org/webpacker.html[Rails Webpacker guide]
@@ -56,7 +56,7 @@ app/packs:
   └── images
 ----
 
-If it's not the case you must create it. Then, copy Decidim customizable assets
+If it is not the case you must create it. Then, copy Decidim customizable assets
 
 * Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_application.js[decidim_application.js] to `app/packs/src/decidim/decidim_application.js`
 * Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_application.scss[decidim_application.scss] to `app/packs/stylesheets/decidim/decidim_application.scss`
@@ -98,7 +98,7 @@ So, if you have a file in a subdirectory such as `app/packs/images/subfolder/tes
 
 Existing stylesheets should be moved from `app/assets/stylesheets` to `app/packs/stylesheets` and imported with `@import` into `decidim_application.scss`. Take into account that you might need to adjust a bit the paths of the `@import` to adjust them to the new locations.
 
-If that CSS file is replacing a Decidim file, there's no need to add it to `decidim_application.scss`.
+If that CSS file is replacing a Decidim file, there is no need to add it to `decidim_application.scss`.
 
 If any of the CSS is re-defining CSS vars add them to `_decidim-settings.scss`.
 
@@ -106,11 +106,11 @@ If any of the CSS is re-defining CSS vars add them to `_decidim-settings.scss`.
 
 Existing javascripts should be moved from `app/assets/javascsripts` to `app/packs/src` and imported with `import` into `decidim_application.js`. Take into account that you might need to adjust a bit the paths of the `import` to adjust them to the new locations.
 
-If that JS file is replacing a Decidim file, there's no need to add it to `decidim_application.js`
+If that JS file is replacing a Decidim file, there is no need to add it to `decidim_application.js`
 
 === Update Rails helpers
 
-`javascript_include_tag` and `stylesheet_link_tag` have been replaced by `javascript_pack_tag` and `stylesheet_pack_tag`. This only needs to be done if you're modifying the `application.html` file or partial in your layout.
+`javascript_include_tag` and `stylesheet_link_tag` have been replaced by `javascript_pack_tag` and `stylesheet_pack_tag`. This only needs to be done if you are modifying the `application.html` file or partial in your layout.
 
 For images, if they are in `app/packs/images` you need to replace `ìmage_tag` with `image_pack_tag`.
 
@@ -118,7 +118,7 @@ For images, if they are in `app/packs/images` you need to replace `ìmage_tag` w
 
 Sometimes assets are included in `vendor/assets/` folder or imported from gems. For each specific one you should check:
 
-1. if the asset is a javascript that is available as npm package the recommendation is to add it to package.json with `npm install`. If it's not available you might want to copy it to `app/packs/src` and import it.
+1. if the asset is a javascript that is available as npm package the recommendation is to add it to package.json with `npm install`. If it is not available you might want to copy it to `app/packs/src` and import it.
 2. if the asset is a stylesheet it should be copied to `app/packs/stylesheets` and imported with `@import...` from `_decidim-settings.scss`. Alternatively you can use the optional asset includes as described below to include these in the Decidim main SCSS files.
 
 === Migrate uploads to ActiveStorage
@@ -215,7 +215,7 @@ namespace :deploy do
 end
 ----
 
-Also, in the case of Capistrano it's interesting to add to the shared_paths the following folders:
+Also, in the case of Capistrano it is interesting to add to the shared_paths the following folders:
 
 * `storage` *IMPORTANT!*
 * `tmp/webpacker-cache`
@@ -233,7 +233,7 @@ npm ERR! ERESOLVE unable to resolve dependency tree
 npm ERR!
 ----
 
-Then you need to check again that you're using the correct Node.js and NPM versions.
+Then you need to check again that you are using the correct Node.js and NPM versions.
 
 In some case it might be that some packages are not well resolved when installing NPM modules. If you get messages like:
 
@@ -244,7 +244,7 @@ In some case it might be that some packages are not well resolved when installin
 ...
 ----
 
-These might be due some kind of corruption in your `package-json.lock` file, you can try either to remove this file and recreate it with `npm install` or to add the package `@rails/webpacker` manually in your `package.json` file next to the `@decidim/webpacker` package:
+These might be due some kind of corruption in your `package-lock.json` file, you can try either to remove this file and recreate it with `npm install` or to add the package `@rails/webpacker` manually in your `package.json` file next to the `@decidim/webpacker` package:
 
 [source,json]
 ----

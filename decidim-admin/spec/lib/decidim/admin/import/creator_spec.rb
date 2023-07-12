@@ -7,7 +7,7 @@ module Decidim::Admin::Import
     subject { described_class.new(unknown_resource) }
     let(:unknown_resource) { { field: "foo" } }
 
-    it "cant finish without implementation for a resource" do
+    it "cannot finish without implementation for a resource" do
       expect { subject.finish! }.to raise_error(NotImplementedError)
     end
   end

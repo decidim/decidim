@@ -7,28 +7,24 @@
   </head>
 
   <body class="text-black text-md form-defaults">
+    <!--noindex--><!--googleoff: all-->
+    <%= cell("decidim/data_consent", current_organization) %>
     <%= render partial: "layouts/decidim/impersonation_warning" %>
-    <%= render partial: "layouts/decidim/data_consent_warning" %>
     <%= render partial: "layouts/decidim/omnipresent_banner" %>
-    <%= render partial: "layouts/decidim/timeout_modal" %>
+    <%= render partial: "layouts/decidim/redesigned_timeout_modal" %>
     <%= render partial: "layouts/decidim/offline_banner" %>
-
-    <!-- DEBUG HELPER -->
-    <script>function toggleCSS() {
-      const node = document.querySelector("[rel=stylesheet][href*='/decidim_core']")
-      node.getAttribute('disabled') === "true" ? node.removeAttribute('disabled') : node.setAttribute('disabled', "true")
-    }</script>
-    <div class="fixed inline-block top-4 z-10 bg-white border-2 p-2 my-2 -ml-2">
-      <label class="cursor-pointer" for="tcss"><input type="checkbox" name="tcss" id="tcss" onclick="toggleCSS()">Hide legacy CSS stylesheet</label>
-    </div>
+    <!--googleon: all--><!--/noindex-->
 
     <%= render "layouts/decidim/redesigned_wrapper" do %>
       <%= yield %>
     <% end %>
 
-    <%= render partial: "decidim/shared/confirm_modal" %>
-    <%= render partial: "decidim/shared/login_modal" unless current_user %>
-    <%= render partial: "decidim/shared/authorization_modal" %>
+    <%= render partial: redesign_enabled? ? "decidim/shared/redesigned_confirm_modal" : "decidim/shared/confirm_modal" %>
+    <%= render partial: "decidim/shared/redesigned_login_modal" unless current_user %>
+    <%= render partial: "decidim/shared/redesigned_authorization_modal" %>
+    <%= render partial: "decidim/shared/redesigned_share_modal" %>
     <%= render partial: "layouts/decidim/redesigned_decidim_javascript" %>
+    <%= render partial: "layouts/decidim/data_consent_warning" %>
+
   </body>
 </html>

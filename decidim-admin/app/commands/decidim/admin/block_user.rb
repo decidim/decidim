@@ -20,17 +20,32 @@ module Decidim
         return broadcast(:invalid) unless form.valid?
 
         transaction do
-          block!
+          find_or_create_moderation!
           register_justification!
+          block!
           notify_user!
         end
+        publish_hide_event if form.hide?
 
         broadcast(:ok, form.user)
       end
 
       private
 
-      attr_reader :form
+      attr_reader :form, :current_blocking
+
+      def publish_hide_event
+        event_name = "decidim.system.events.hide_user_created_content"
+        ActiveSupport::Notifications.publish(event_name, {
+                                               author: current_blocking.user,
+                                               justification: current_blocking.justification,
+                                               current_user: current_blocking.blocking_user
+                                             })
+      end
+
+      def find_or_create_moderation!
+        Decidim::UserModeration.find_or_create_by!(user: form.user)
+      end
 
       def register_justification!
         @current_blocking = UserBlock.create!(
@@ -65,7 +80,7 @@ module Decidim
         ) do
           form.user.blocked = true
           form.user.blocked_at = Time.current
-          form.user.blocking = @current_blocking
+          form.user.block_id = @current_blocking.id
           form.user.extended_data["user_name"] = form.user.name
           form.user.name = "Blocked user"
           form.user.save!

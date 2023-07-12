@@ -4,22 +4,14 @@ require "spec_helper"
 
 module Decidim
   describe UpdatePassword do
-    subject { described_class.new(user, form) }
-
     let(:command) { described_class.new(user, form) }
-    let(:user) { create(:user) }
-    let(:form) do
-      double(
-        password:,
-        password_confirmation: password,
-        invalid?: invalid
-      )
-    end
-    let(:password) { "decidim111222" }
-    let(:invalid) { false }
+    let(:user) { create(:user, :confirmed, password_updated_at: 1.week.ago) }
+    let(:password) { "updatedP4ssw0rd123456789" }
+    let(:password_confirmation) { "updatedP4ssw0rd123456789" }
+    let(:form) { Decidim::PasswordForm.from_params(password:, password_confirmation:) }
 
     context "when invalid" do
-      let(:invalid) { true }
+      let(:password_confirmation) { "foo" }
 
       it "broadcasts invalid" do
         expect { command.call }.to broadcast(:invalid)
@@ -33,9 +25,14 @@ module Decidim
 
       it "updates the users's password" do
         original_password = user.encrypted_password
-        command.call
+        expect { command.call }.to change(user, :password)
         user.reload
         expect(user.encrypted_password).not_to eq(original_password)
+      end
+
+      it "sets the password_updated_at to the current time" do
+        expect { command.call }.to broadcast(:ok)
+        expect(user.reload.password_updated_at).to be_between(2.seconds.ago, Time.current)
       end
 
       context "and the password has errors" do

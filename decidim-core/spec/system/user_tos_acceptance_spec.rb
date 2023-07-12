@@ -5,7 +5,7 @@ require "spec_helper"
 describe "UserTosAcceptance", type: :system do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :confirmed, organization:) }
-  let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization:) }
+  let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
   let(:btn_accept) { "I agree with these terms" }
   let(:btn_refuse) { "Refuse the terms" }
 
@@ -24,7 +24,7 @@ describe "UserTosAcceptance", type: :system do
       it "redirects to the TOS page" do
         expect(page).to have_current_path(decidim.page_path(tos_page))
         expect(page).to have_content translated(tos_page.title)
-        expect(page.find(".card__content p", obscured: false)).to have_content strip_tags(translated(tos_page.content))
+        expect(page.find("div.editor-content", obscured: false)).to have_content strip_tags(translated(tos_page.content))
       end
 
       it "renders an announcement requiring to review the TOS" do
@@ -32,7 +32,7 @@ describe "UserTosAcceptance", type: :system do
       end
 
       it "renders an announcement advising that TOS has been updated" do
-        expect(page).to have_content("We've updated our Terms of Service, please review them.")
+        expect(page).to have_content("We have updated our Terms of Service, please review them.")
       end
 
       it "shows a button to Agree the updated Terms" do
@@ -50,7 +50,7 @@ describe "UserTosAcceptance", type: :system do
       end
 
       it "renders a success announcement" do
-        expect(page).to have_content("Great! You have accepted the terms and conditions.")
+        expect(page).to have_content("Great! You have accepted the terms of service.")
         expect(page).to have_css(".flash.success")
       end
     end
@@ -62,7 +62,7 @@ describe "UserTosAcceptance", type: :system do
 
       it "renders a modal" do
         expect(page).to have_css("#tos-refuse-modal")
-        expect(page).to have_content("Do you really refuse the updated Terms and Conditions?")
+        expect(page).to have_content("Do you really refuse the updated terms of service?")
       end
 
       context "with the refuse modal has different options" do
@@ -81,7 +81,7 @@ describe "UserTosAcceptance", type: :system do
 
         it "shows an option to logout" do
           within "#tos-refuse-modal" do
-            expect(page).to have_button("I'll review it later")
+            expect(page).to have_button("I will review it later")
             expect(page).to have_tag("form", action: decidim.destroy_user_session_path)
           end
         end

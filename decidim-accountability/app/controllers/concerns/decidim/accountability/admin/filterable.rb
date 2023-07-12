@@ -39,7 +39,7 @@ module Decidim
             }
           end
 
-          # Can't user `super` here, because it does not belong to a superclass
+          # Cannot user `super` here, because it does not belong to a superclass
           # but to a concern.
           def dynamically_translated_filters
             [:scope_id_eq, :category_id_eq, :status_id_eq]

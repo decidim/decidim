@@ -225,9 +225,6 @@ uk:
           few: голоси з
           many: голосів з
           other: голосів з
-      question_votes:
-        create:
-          error: При голосуванні щодо питання сталися помилки
       regular_questions:
         title: Питання цієї консультації
       show:

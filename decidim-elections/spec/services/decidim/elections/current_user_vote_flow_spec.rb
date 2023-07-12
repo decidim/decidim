@@ -73,9 +73,7 @@ module Decidim::Elections
     end
 
     context "with time dependant validations" do
-      around do |example|
-        travel_to(now) { example.run }
-      end
+      before { travel_to(now) }
 
       let(:now) { Time.new(2000, 1, 1, 0, 0, 0, 0) }
       let(:valid_token) { "M3TF3yp1KNfxclpeKGkbvIsjezpKtETOu3iEniMxWkJ86Af0d2GQZB4Yx2PbZNE9WdfleiAYaVuRq+fiC179DzWc+NzlwsdaK6WHjBte2G9LcEr7XnOhIEVcPfLI3G9jdJkL+JTxPt2T3PQnHDNnNAvcCU2sf+bWwekECGzuEZHknpM605Y2qRQfZG78Y6F17pv7u7S0e+z/CzakCcTVwOphcf2x9n+8Sy/Of7zMPO+Rbrl2KImIfpetXSvuEMcH4g/T2omCvtDvDyCPR8e8jHvlp4fAdiDU8nRX28M/xa6Vkx15MjOVfcS/NqrNMU7IxWN+xXimaausObOSkuwgb2Jq0wtoXCcDiw/SgVdr1y+o+LzqfqX+gqFL7nAgQA96WJ2SVHDo0TLybTeiPBV1MQwM/gJbRyaIjvfMKt0Q0EkPkUfJxLbt/MtUizmitLUWVNsCwqJkkV3x--rMnBzxE1CoHEpKEB--IdLlo8iGMec4qhii0/Lzwg==" }

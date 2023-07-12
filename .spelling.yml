@@ -1,0 +1,91 @@
+exclude_paths:
+  - \.(gem|jpg|jpeg|png|ico|pdf|odt|xlsx|jwk|pem)$
+  - config/locales/((?!en).)*\.yml
+  - decidim-dev/lib/decidim/dev/assets/participatory_text.md
+  - decidim-core/lib/decidim/db/common-passwords.txt
+  - decidim-initiatives/spec/types/initiative_type_spec.rb
+  - decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md
+
+forbidden:
+  arent: are not
+  "aren't": are not
+  "aren’t": are not
+  cant: cannot
+  "can't": cannot
+  "can’t": cannot
+  "can not": cannot
+  couldnt: could not
+  "couldn't": could not
+  "couldn’t": could not
+  didnt: did not
+  "didn't": did not
+  "didn’t": did not
+  doesnt: does not
+  "doesn't": does not
+  "doesn’t": does not
+  dont: do not
+  "don't": do not
+  "don’t": do not
+  hasnt: has not
+  "hasn't": has not
+  "hasn’t": has not
+  havent: have not
+  "haven't": have not
+  "haven’t": have not
+  isnt: is not
+  "isn't": is not
+  "isn’t": is not
+  shouldnt: should not
+  "shouldn't": should not
+  "shouldn’t": should not
+  wasnt: was not
+  "wasn't": was not
+  "wasn’t": was not
+  werent: were not
+  "weren't": were not
+  "weren’t": were not
+  wont: will not
+  "won't": will not
+  "won’t": will not
+  "we're": we are
+  "we’re": we are
+  "we've": we have
+  "we’ve": we have
+  "we'll": we will
+  "we’ll": we will
+  "that's": that is
+  "that’s": that is
+  "there's": there is
+  "there’s": there is
+  "you've": you have
+  "you’ve": you have
+  "I've": I have
+  "I’ve": I have
+  "I'm": I am
+  "I’m": I am
+  "they've": they have
+  "they’ve": they have
+  "would've": would have
+  "would’ve": would have
+  "you're": you are
+  "you’re": you are
+  "they're": they are
+  "they’re": they are
+  "it's": it is
+  "it’s": it is
+  "here's": here is
+  "here’s": here is
+  "what's": what is
+  "what’s": what is
+  "where's": where is
+  "where’s": where is
+  "it'll": it will
+  "it’ll": it will
+  "you'll": you will
+  "you’ll": you will
+  "they'll": they will
+  "they’ll": they will
+  "I'll": I will
+  "I’ll": I will
+  "those'll": those will
+  "those’ll": those will

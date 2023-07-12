@@ -1,0 +1,59 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Development app
+    init: |
+      (
+        [ $(sudo pg_lsclusters -h | wc -l) -eq 0 ] && (
+          sudo mkdir -p /workspace/etc/postgresql /workspace/var/lib/postgresql &&
+          sudo chown -R postgres:postgres /workspace/etc/postgresql /workspace/var/lib/postgresql &&
+          sudo pg_createcluster $PGVERSION main
+        ) || echo "Database exists"
+      ) &&
+      sudo service postgresql start &&
+      (
+        [ $(sudo su postgres -c "psql -At -c \"SELECT COUNT(usename) FROM pg_user WHERE usename = '${DATABASE_USERNAME}'\"") -eq 0 ] && (
+          sudo su postgres -c "psql -c 'CREATE USER $DATABASE_USERNAME SUPERUSER'" &&
+          sudo su postgres -c "psql -c \"ALTER ROLE $DATABASE_USERNAME WITH PASSWORD '${DATABASE_PASSWORD}'\""
+        ) || echo "Database user exists"
+      ) &&
+      mkdir -p .vscode &&
+      echo '{"workbench.startupEditor": "none"}' > .vscode/settings.json &&
+      bundle install --jobs 4 &&
+      bundle exec rake development_app &&
+      echo 'Rails.application.config.hosts << ENV.fetch("RAILS_DEVELOPMENT_HOST", "")' > development_app/config/initializers/gitpod.rb &&
+      echo 'Rails.application.config.action_mailer.default_url_options = { protocol: "https" }' >> development_app/config/initializers/gitpod.rb &&
+      cd development_app &&
+      ./bin/rails decidim:pwa:generate_vapid_keys | grep VAPID_ >> ../.rbenv-vars &&
+      echo "Compiling assets, please wait a moment..." &&
+      ./bin/webpacker
+    command: |
+      sudo service postgresql start &&
+      { [ $(basename $PWD) == "development_app" ] || cd development_app ; } &&
+      ./bin/rails runner 'Decidim::Organization.first.update!(host: ENV.fetch("RAILS_DEVELOPMENT_HOST", "localhost"))' &&
+      ./bin/rails s -b 0.0.0.0
+
+ports:
+  - name: Web App
+    description: The main application web server
+    port: 3000
+    onOpen: open-preview
+    visibility: public
+  - name: Webpacker
+    description: The webpacker dev server for asset reloading
+    port: 3035
+    onOpen: ignore
+    visibility: public
+  - name: Database
+    description: PostgreSQL database server
+    port: 5432
+    onOpen: ignore
+    visibility: private
+
+github:
+  prebuilds:
+    addCheck: true
+    master: false
+    pullRequests: true
+    pullRequestsFromForks: true

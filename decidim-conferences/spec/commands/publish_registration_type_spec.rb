@@ -6,9 +6,9 @@ module Decidim::Conferences
   describe Admin::PublishRegistrationType do
     subject { described_class.new(registration_type, user) }
 
-    let(:conference) { create :conference }
-    let!(:registration_type) { create :registration_type, :unpublished, conference: }
-    let(:user) { create :user, organization: conference.organization }
+    let(:conference) { create(:conference) }
+    let!(:registration_type) { create(:registration_type, :unpublished, conference:) }
+    let(:user) { create(:user, organization: conference.organization) }
 
     context "when the registration type is nil" do
       let(:registration_type) { nil }
@@ -19,7 +19,7 @@ module Decidim::Conferences
     end
 
     context "when the registration type is published" do
-      let(:registration_type) { create :registration_type }
+      let(:registration_type) { create(:registration_type) }
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)

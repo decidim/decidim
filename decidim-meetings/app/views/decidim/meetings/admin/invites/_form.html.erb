@@ -12,10 +12,10 @@
 
   <div class="grid-x grid-margin-x">
     <div class="auto cell attendee-fields--new-user">
-      <%= form.text_field :name, disabled: disabled %>
+      <%= form.text_field :name, disabled: %>
     </div>
     <div class="auto cell attendee-fields--new-user">
-      <%= form.text_field :email, disabled: disabled %>
+      <%= form.text_field :email, disabled: %>
     </div>
 
     <div class="auto cell attendee-fields--user-picker">
@@ -27,10 +27,10 @@
 
     <div class="shrink cell">
       <div class="text-center mt-sm">
-        <%= form.submit t(".invite"), disabled: disabled %>
+        <%= form.submit t(".invite"), disabled: %>
       </div>
     </div>
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_meetings_admin" %>
+<%= append_javascript_pack_tag "decidim_meetings_admin" %>

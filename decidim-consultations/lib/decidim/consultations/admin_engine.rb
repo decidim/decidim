@@ -53,7 +53,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_consultations.admin_consultation_menu" do
+      initializer "decidim_consultations_admin.consultation_menu" do
         Decidim.menu :admin_consultation_menu do |menu|
           menu.add_item :edit_consultation,
                         I18n.t("info", scope: "decidim.admin.menu.consultations_submenu"),
@@ -75,7 +75,7 @@ module Decidim
                         if: allowed_to?(:read, :question)
         end
       end
-      initializer "decidim_consultations.admin_menu" do
+      initializer "decidim_consultations_admin.menu" do
         Decidim.menu :admin_menu do |menu|
           menu.add_item :consultations,
                         I18n.t("menu.consultations", scope: "decidim.admin"),
@@ -87,7 +87,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_consultations.admin_question_menu" do
+      initializer "decidim_consultations_admin.question_menu" do
         Decidim.menu :admin_question_menu do |menu|
           menu.add_item :edit_consultation,
                         I18n.t("consultation", scope: "decidim.admin.menu.questions_submenu"),
@@ -109,7 +109,7 @@ module Decidim
                         active: is_active_link?(decidim_admin_consultations.results_consultation_path(current_participatory_space.consultation))
         end
       end
-      initializer "decidim_consultations.admin_questions_menu" do
+      initializer "decidim_consultations_admin.questions_menu" do
         Decidim.menu :admin_questions_menu do |menu|
           menu.add_item :edit_question,
                         I18n.t("info", scope: "decidim.admin.menu.questions_submenu"),
@@ -154,7 +154,7 @@ module Decidim
                         if: allowed_to?(:read, :attachment)
         end
       end
-      initializer "decidim_consultations.admin_consultation_components_menu" do
+      initializer "decidim_consultations_admin.consultation_components_menu" do
         Decidim.menu :admin_consultation_components_menu do |menu|
           current_participatory_space.components.each do |component|
             caption = translated_attribute(component.name)

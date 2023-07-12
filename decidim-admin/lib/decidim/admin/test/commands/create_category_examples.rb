@@ -36,7 +36,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a category" do
+          it "does not create a category" do
             expect do
               command.call
             end.not_to change(Category, :count)

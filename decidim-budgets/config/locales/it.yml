@@ -35,12 +35,6 @@ it:
         title: Azioni
       admin:
         budgets:
-          create:
-            invalid: C'è stato un problema durante la creazione di questo progetto
-            success: Budget creato con successo
-          destroy:
-            invalid: Si è verificato un errore durante l'eliminazione di questo budget
-            success: Budget eliminato con successo
           edit:
             title: Modifica budget
             update: Aggiorna budget
@@ -53,9 +47,6 @@ it:
           new:
             create: Crea un bilancio
             title: Nuovo budget
-          update:
-            invalid: Si è verificato un errore durante l'aggiornamento di questo budget
-            success: Budget aggiornato con successo
         exports:
           projects: Progetti
         models:
@@ -64,11 +55,6 @@ it:
           project:
             name: Progetto
         projects:
-          create:
-            invalid: C'è stato un problema durante la creazione di questo progetto.
-            success: OK, progetto creato.
-          destroy:
-            success: Progetto eliminato con successo
           edit:
             title: Modifica il progetto
             update: Aggiorna
@@ -80,13 +66,7 @@ it:
           new:
             create: Crea
             title: Nuovo progetto
-          update:
-            invalid: C'è stato un problema durante l'aggiornamento di questo progetto.
-            success: OK, progetto aggiornato.
         proposals_imports:
-          create:
-            invalid: C'è stato un problema nell'importazione delle proposte nei progetti
-            success: "%{number} proposte importate con successo nei progetti"
           new:
             create: Importa proposte per progetti
             no_components: Non ci sono altri componenti della proposta in questo spazio partecipativo per importare le proposte in progetti.
@@ -108,23 +88,16 @@ it:
         close_modal: Chiudi modalità
         continue: Prosegui
         more_information: Altre informazioni
-      budget_list_item:
-        voting_finished: Hai votato in questo budget
-        voting_started: Hai iniziato a votare in questo budget
       budgets_list:
         cancel_order:
           more_than_one: elimina il tuo voto su %{name} e ricomincia
           only_one: cancella il tuo voto e ricomincia.
-        finished_message: Hai terminato il processo di votazione. Grazie per aver partecipato!
         highlighted_cta: Vota su %{name}
-        if_change_opinion: Se hai cambiato idea, puoi
         my_budgets: I miei budget
         progress: Chiusura voto
         show: Vedi progetti
         vote: Vota
-        voted_on: Hai votato il %{links}
       limit_announcement:
-        cant_vote: Non puoi votare su questo budget. <a href="%{landing_path}">Prova con un altro budget</a>.
         limit_reached: Hai voti attivi in %{links}. Per votare su questo budget devi <a href="%{landing_path}">eliminare il tuo voto e ricominciare da</a>.
       models:
         budget:
@@ -160,7 +133,6 @@ it:
           assigned: 'Assegnato:'
           cancel_order: Cancella il tuo voto e ricomincia.
           checked_out:
-            description: Hai già votato per il budget. Se hai cambiato idea puoi %{cancel_link}.
             title: Voto di budget completato.
           minimum_projects_rule:
             description: A quali progetti pensi che dovremmo destinare un budget? Seleziona almeno %{minimum_number} progetti che desideri e vota in base alle tue preferenze per definirne il budget.
@@ -219,19 +191,14 @@ it:
           random: Ordine sparso
           selected: Selezionato
         project:
-          add: Aggiungi progetto %{resource_name} al tuo voto
-          remove: Rimuovi il progetto %{resource_name} dal tuo voto
           selected: Selezionato
           view: vista
           votes:
             one: voto
             other: voti
-          you_voted: Hai votato
         project_budget_button:
           add: Aggiungi al tuo voto
-          add_descriptive: Aggiungi progetto %{resource_name} al tuo voto
           added: Aggiunto al tuo voto
-          added_descriptive: Progetto %{resource_name} aggiunto al tuo voto
         projects_for: Progetti per %{name}
         show:
           budget: Budget
@@ -247,10 +214,6 @@ it:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
-            form:
-              errors:
-                budget_voting_rule_only_one: Deve essere abilitata solo una regola di voto
-                budget_voting_rule_required: È richiesta una regola di voto
             landing_page_content: Pagina iniziale dei budget
             more_information_modal: Finestra modale "Maggiori informazioni"
             projects_per_page: Progetti per pagina
@@ -290,13 +253,6 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. Puoi smettere di ricevere notifiche cliccando il link precedente.
           email_subject: Il budget %{resource_title} è ora attivo per %{participatory_space_title}.
           notification_title: Il budget <a href="%{resource_path}">%{resource_title}</a> è ora attivo per %{participatory_space_title}.
-    orders:
-      checkout:
-        error: C'è stato un errore durante l'acquisizione del voto.
-        success: OK, il tuo voto è stato acquisito.
-      destroy:
-        error: C'è stato un errore durante la cancellazione del voto.
-        success: OK, il tuo voto è stato cancellato.
     resource_links:
       included_proposals:
         project_proposal: Proposte incluse in questo progetto

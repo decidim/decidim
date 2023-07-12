@@ -29,7 +29,7 @@ fr:
         promoter_group: Organisateur
         question_context: Contexte
         reference: Référence
-        scope: Périmètre d'application
+        scope: Secteur
         slug: Identifiant
         subtitle: Sous-titre
         vote: Système de vote externe
@@ -51,7 +51,7 @@ fr:
         decidim/consultations/vote:
           attributes:
             question:
-              invalid_num_votes: Nombre de voix invalide
+              invalid_num_votes: Le nombre de votes est invalide.
     models:
       decidim/consultation:
         one: Consultation
@@ -153,7 +153,7 @@ fr:
             one: Réponse
             other: Réponses
       question_configuration:
-        disable_external_voting: Veuillez désactiver le vote externe pour les configurations avancées
+        disable_external_voting: Veuillez désactiver le vote externe pour les configurations avancées.
         form:
           help: Configurez plusieurs choix de questions en augmentant le nombre maximum de réponses qu'un participant peut sélectionner. La valeur maximale par défaut est 1, ce qui signifie qu'une seule réponse peut être sélectionnée.
           title: Configuration avancée
@@ -265,8 +265,8 @@ fr:
       index:
         title: Votations
       last_activity:
-        new_consultation: Nouvelle consultation
-        new_question_at_html: "<span>Nouvelle question à %{link}</span>"
+        new_consultation: 'Nouvelle consultation :'
+        new_question: 'Nouvelle question :'
       pages:
         home:
           highlighted_consultations:
@@ -300,7 +300,7 @@ fr:
             votes: Votes
       question_votes:
         create:
-          error: Il y a eu des erreurs lors du vote sur la question
+          error: Il y a eu un problème lors du vote de la question.
           success: Vous pouvez le modifier jusqu'à la fin de la consultation. Seul le dernier vote sera accepté.
           title_error: Erreur de vote !
           title_success: Vote enregistré avec succès
@@ -358,6 +358,10 @@ fr:
         title: 'Consultation : confirmer le soutien'
     resources:
       consultations:
+        actions:
+          comment: Commenter
+          vote: Voter
+      question:
         actions:
           comment: Commenter
           vote: Voter

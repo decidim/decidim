@@ -16,7 +16,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if comment isn't authored by current_user.
+      # - :invalid if comment is not authored by current_user.
       #
       # Returns nothing.
       def call

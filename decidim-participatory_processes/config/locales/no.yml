@@ -205,9 +205,6 @@
           success: Medvirkningsfasen er blitt opprettet.
         default_title: Introduksjon
         destroy:
-          error:
-            active_step: Kan ikke slette den aktive fasen.
-            last_step: Kan ikke slette den siste fasen av en prosess.
           success: Medvirkningsfasen ble slettet.
         edit:
           title: Rediger medvirkningsfase
@@ -433,8 +430,6 @@
               one: 1 kommende prosess
               other: "%{count} kommende prosesser"
           explanations:
-            no_active: Ingen aktive prosesser
-            no_active_nor_upcoming: Ingen aktive eller kommende prosesser
             no_active_nor_upcoming_callout: Det er ingen aktive eller kommende prosesser. Her er en liste over de som har vært.
           filter_by: Vis
           names:

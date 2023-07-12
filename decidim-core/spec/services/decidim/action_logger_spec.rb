@@ -5,13 +5,13 @@ require "spec_helper"
 describe Decidim::ActionLogger do
   subject { described_class.log(action, user, resource, version_id, extra) }
 
-  let(:organization) { create :organization }
+  let(:organization) { create(:organization) }
   let(:version_id) { 1 }
   let(:extra) { {} }
-  let(:user) { create :user, organization:, current_sign_in_ip: "127.0.0.1" }
-  let(:participatory_space) { create :participatory_process, organization: }
-  let(:component) { create :component, participatory_space: }
-  let(:resource) { create :dummy_resource, component: }
+  let(:user) { create(:user, organization:, current_sign_in_ip: "127.0.0.1") }
+  let(:participatory_space) { create(:participatory_process, organization:) }
+  let(:component) { create(:component, participatory_space:) }
+  let(:resource) { create(:dummy_resource, component:) }
   let(:action) { "create" }
   let(:action_log) { Decidim::ActionLog.last }
 
@@ -130,11 +130,11 @@ describe Decidim::ActionLogger do
       end
 
       context "when the resource has no scope" do
-        let(:resource) { create :dummy_resource, component:, scope: nil }
+        let(:resource) { create(:dummy_resource, component:, scope: nil) }
 
         context "when the space has a scope" do
-          let(:participatory_space) { create :participatory_process, organization:, scope: }
-          let(:scope) { create :scope, organization: }
+          let(:participatory_space) { create(:participatory_process, organization:, scope:) }
+          let(:scope) { create(:scope, organization:) }
 
           it "saves the participatory_space scope" do
             subject
@@ -143,7 +143,7 @@ describe Decidim::ActionLogger do
         end
 
         context "when the space has no scope" do
-          it "doesn't save any scope" do
+          it "does not save any scope" do
             subject
             expect(action_log.scope).to be_nil
           end
@@ -154,8 +154,8 @@ describe Decidim::ActionLogger do
     describe "area" do
       context "when the resource has no area" do
         context "when the space has an area" do
-          let(:participatory_space) { create :assembly, organization:, area: }
-          let(:area) { create :area, organization: }
+          let(:participatory_space) { create(:assembly, organization:, area:) }
+          let(:area) { create(:area, organization:) }
 
           it "saves the participatory_space area" do
             subject
@@ -164,7 +164,7 @@ describe Decidim::ActionLogger do
         end
 
         context "when the space has no area" do
-          it "doesn't save any area" do
+          it "does not save any area" do
             subject
             expect(action_log.area).to be_nil
           end

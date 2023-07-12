@@ -14,7 +14,7 @@ import MapDragMarkerController from "src/decidim/map/controller/drag_marker"
  *
  * An example how to use in the ERB view:
  *   <%= dynamic_map_for type: "custom" do %>
- *     <%= javascript_pack_tag "map_customization" %>
+ *     <%= append_javascript_pack_tag "map_customization" %>
  *   <% end %>
  *
  * And then the actual customization at `map_customization.js.es6`:
@@ -22,7 +22,8 @@ import MapDragMarkerController from "src/decidim/map/controller/drag_marker"
  *   window.Decidim.createMapController = (mapId, config) => {
  *     if (config.type === "custom") {
  *       // Obviously you need to implement CustomMapController for this to
- *       // work.
+ *       // work. You can find an example at:
+ *       // decidim-dev/app/packs/src/decidim/dev/test/custom_map_factory.js
  *       return new window.Decidim.CustomMapController(mapId, config);
  *     }
  *

@@ -2,7 +2,7 @@
 
 module Decidim
   # Use this class as a scrubber to sanitize user input. The default
-  # scrubbed provided by Rails does not allow `iframe`s, and we're using
+  # scrubbed provided by Rails does not allow `iframe`s, and we are using
   # them to embed videos, so we need to provide a whole new scrubber.
   #
   # Example:

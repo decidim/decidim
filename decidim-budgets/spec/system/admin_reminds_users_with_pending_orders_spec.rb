@@ -45,7 +45,7 @@ describe "Admin reminds users with pending orders", type: :system do
       expect(last_email_link).to eq("http://#{organization.host}:#{Capybara.server_port}/processes/#{component.participatory_space.slug}/f/#{component.id}/")
     end
 
-    it "doesnt send reminders twice" do
+    it "does not send reminders twice" do
       perform_enqueued_jobs { click_button "Send" }
       expect(page).to have_content("2 users will be reminded")
       click_link "Send voting reminders"

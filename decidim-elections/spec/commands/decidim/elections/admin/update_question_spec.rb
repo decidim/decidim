@@ -5,10 +5,10 @@ require "spec_helper"
 describe Decidim::Elections::Admin::UpdateQuestion do
   subject { described_class.new(form, question) }
 
-  let(:election) { create :election }
-  let(:question) { create :question, election:, random_answers_order: false }
+  let(:election) { create(:election) }
+  let(:question) { create(:question, election:, random_answers_order: false) }
   let(:organization) { election.component.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:form) do
     double(
       invalid?: invalid,
@@ -52,7 +52,7 @@ describe Decidim::Elections::Admin::UpdateQuestion do
   end
 
   context "when the election has started" do
-    let(:election) { create :election, :started }
+    let(:election) { create(:election, :started) }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)

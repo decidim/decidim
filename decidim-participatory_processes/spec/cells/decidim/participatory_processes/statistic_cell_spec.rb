@@ -12,7 +12,7 @@ module Decidim::ParticipatoryProcesses
       let(:model) { { stat_title: :participants_count, stat_number: 123 } }
 
       it "renders the stat wrapper" do
-        expect(subject).to have_css(".statistic__data")
+        expect(subject).to have_css("[data-statistic]")
       end
 
       it "renders the stat title" do
@@ -28,7 +28,7 @@ module Decidim::ParticipatoryProcesses
       let(:model) { { stat_title: :comments_count, stat_number: 50 } }
 
       it "renders the stat wrapper" do
-        expect(subject).to have_css(".statistic__data")
+        expect(subject).to have_css("[data-statistic]")
       end
 
       it "renders the stat title for comments" do

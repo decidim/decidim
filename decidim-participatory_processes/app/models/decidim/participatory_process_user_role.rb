@@ -6,47 +6,18 @@ module Decidim
   class ParticipatoryProcessUserRole < ApplicationRecord
     include Traceable
     include Loggable
+    include ParticipatorySpaceUser
 
-    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
     belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id", class_name: "Decidim::ParticipatoryProcess", optional: true
-
     alias participatory_space participatory_process
 
-    ROLES = %w(admin collaborator moderator valuator).freeze
-    validates :role, inclusion: { in: ROLES }, uniqueness: { scope: [:user, :participatory_process] }
-    validate :user_and_participatory_process_same_organization
+    scope :for_space, ->(participatory_space) { where(participatory_process: participatory_space) }
+
+    validates :role, inclusion: { in: ParticipatorySpaceUser::ROLES }, uniqueness: { scope: [:user, :participatory_process] }
+    def target_space_association = :participatory_process
 
     def self.log_presenter_class_for(_log)
       Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessUserRolePresenter
-    end
-
-    ransacker :name do
-      Arel.sql(%{("decidim_users"."name")::text})
-    end
-
-    ransacker :nickname do
-      Arel.sql(%{("decidim_users"."nickname")::text})
-    end
-
-    ransacker :email do
-      Arel.sql(%{("decidim_users"."email")::text})
-    end
-
-    ransacker :invitation_accepted_at do
-      Arel.sql(%{("decidim_users"."invitation_accepted_at")::text})
-    end
-
-    ransacker :last_sign_in_at do
-      Arel.sql(%{("decidim_users"."last_sign_in_at")::text})
-    end
-
-    private
-
-    # Private: check if the process and the user have the same organization
-    def user_and_participatory_process_same_organization
-      return if !participatory_process || !user
-
-      errors.add(:participatory_process, :invalid) unless user.organization == participatory_process.organization
     end
   end
 end

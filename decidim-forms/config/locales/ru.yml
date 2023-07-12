@@ -26,9 +26,6 @@ ru:
             up: Вверх
           update:
             invalid: При попытке сохранить форму произошли ошибки.
-      errors:
-        answer:
-          body: Основной текст не может быть пустым
       question_types:
         long_answer: Длинный ответ
         multiple_option: Несколько вариантов

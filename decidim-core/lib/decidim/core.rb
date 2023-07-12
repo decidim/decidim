@@ -16,6 +16,7 @@ module Decidim
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
+  autoload :RedesignedFilterFormBuilder, "decidim/redesigned_filter_form_builder"
   autoload :ComponentManifest, "decidim/component_manifest"
   autoload :NotificationSettingManifest, "decidim/notification_setting_manifest"
   autoload :ParticipatorySpaceManifest, "decidim/participatory_space_manifest"
@@ -61,6 +62,7 @@ module Decidim
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :ContentBlockRegistry, "decidim/content_block_registry"
   autoload :ContentBlockManifest, "decidim/content_block_manifest"
+  autoload :ContentBlocks, "decidim/content_blocks"
   autoload :MetricRegistry, "decidim/metric_registry"
   autoload :MetricManifest, "decidim/metric_manifest"
   autoload :MetricOperation, "decidim/metric_operation"
@@ -110,16 +112,28 @@ module Decidim
   autoload :AttributeObject, "decidim/attribute_object"
   autoload :Query, "decidim/query"
   autoload :Command, "decidim/command"
+  autoload :SocialShareServiceManifest, "decidim/social_share_service_manifest"
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
   autoload :RedesignLayout, "decidim/redesign_layout"
   autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
+  autoload :BlockRegistry, "decidim/block_registry"
   autoload :DependencyResolver, "decidim/dependency_resolver"
+  autoload :Upgrade, "decidim/upgrade"
+  autoload :ParticipatorySpaceUser, "decidim/participatory_space_user"
+  autoload :ModerationTools, "decidim/moderation_tools"
+  autoload :ContentSecurityPolicy, "decidim/content_security_policy"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
   def self.seed!
+    # After running the migrations, some records may have loaded their column
+    # caches at different stages of the migration process, so in order to
+    # prevent any "undefined method" errors if these tasks are run
+    # consecutively, reset the column cache before the migrations.
+    reset_all_column_information
+
     # Faker needs to have the `:en` locale in order to work properly, so we
     # must enforce it during the seeds.
     original_locale = I18n.available_locales
@@ -159,6 +173,17 @@ module Decidim
     I18n.available_locales = original_locale
   end
 
+  # Finds all currently loaded Decidim ActiveRecord classes and resets their
+  # column information.
+  def self.reset_all_column_information
+    ActiveRecord::Base.descendants.each do |cls|
+      next if cls.name.nil? # abstract classes registered during tests
+      next if cls.abstract_class? || !cls.name.match?(/^Decidim::/)
+
+      cls.reset_column_information
+    end
+  end
+
   # Exposes a configuration option: The application name String.
   config_accessor :application_name
 
@@ -178,7 +203,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
+    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
   end
 
   # Exposes a configuration option: The application default locale.
@@ -234,10 +259,10 @@ module Decidim
       ref = ""
 
       if resource.is_a?(Decidim::HasComponent) && component.present?
-        # It's a component resource
+        # It is a component resource
         ref = component.participatory_space.organization.reference_prefix
       elsif resource.is_a?(Decidim::Participable)
-        # It's a participatory space
+        # It is a participatory space
         ref = resource.organization.reference_prefix
       end
 
@@ -309,7 +334,7 @@ module Decidim
     30.minutes
   end
 
-  # If set to true, users have option to "remember me". Notice that expire_session_after won't take
+  # If set to true, users have option to "remember me". Notice that expire_session_after will not take
   # effect when the user wants to be remembered.
   config_accessor :enable_remember_me do
     true
@@ -365,10 +390,15 @@ module Decidim
     # "MyTranslationService"
   end
 
+  # Social Networking services used for social sharing
+  config_accessor :social_share_services do
+    %w(Twitter Facebook WhatsApp Telegram)
+  end
+
   # If set to true redesigned versions of layouts and cells will be used by
   # default
   config_accessor :redesign_active do
-    false
+    ENV.fetch("REDESIGN_ENABLED", "true") == "true"
   end
 
   # The Decidim::Exporters::CSV's default column separator
@@ -452,9 +482,14 @@ module Decidim
     ]
   end
 
-  # Blacklisted passwords. Array may contain strings and regex entries.
-  config_accessor :password_blacklist do
+  # Denied passwords. Array may contain strings and regex entries.
+  config_accessor :denied_passwords do
     []
+  end
+
+  # Ignores strings similar to email / domain on password validation if too short
+  config_accessor :password_similarity_length do
+    4
   end
 
   # Defines if admins are required to have stronger passwords than other users
@@ -484,6 +519,18 @@ module Decidim
   # Enable/Disable the service worker
   config_accessor :service_worker_enabled do
     Rails.env.exclude?("development")
+  end
+
+  # List of static pages' slugs that can include content blocks
+  config_accessor :page_blocks do
+    %w(terms-of-service)
+  end
+
+  # List of additional content security policies to be appended to the default ones
+  # This is useful for adding custom CSPs for external services like Here Maps, YouTube, etc.
+  # Read more: https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy
+  config_accessor :content_security_policies_extra do
+    {}
   end
 
   # Public: Registers a global engine. This method is intended to be used
@@ -559,6 +606,16 @@ module Decidim
     resource_registry.register(name, &)
   end
 
+  # Public: Registers a social share service.
+  #
+  # Returns nothing.
+  def self.register_social_share_service(name, &)
+    social_share_services_registry.register(name, &)
+  end
+
+  # Public: Registers a notification setting.
+  #
+  # Returns nothing.
   def self.notification_settings(name, &)
     notification_settings_registry.register(name, &)
   end
@@ -626,6 +683,7 @@ module Decidim
     @participatory_space_registry ||= ManifestRegistry.new(:participatory_spaces)
   end
 
+  # Public: Stores the registry of reminders
   def self.reminders_registry
     @reminders_registry ||= ReminderRegistry.new
   end
@@ -635,6 +693,12 @@ module Decidim
     @resource_registry ||= ManifestRegistry.new(:resources)
   end
 
+  # Public: Stores the registry of social shares services
+  def self.social_share_services_registry
+    @social_share_services_registry ||= ManifestRegistry.new(:social_share_services)
+  end
+
+  # Public: Stores the registry of notifications settings
   def self.notification_settings_registry
     @notification_settings_registry ||= ManifestRegistry.new(:notification_settings)
   end
@@ -642,6 +706,11 @@ module Decidim
   # Public: Stores the registry for user permissions
   def self.permissions_registry
     @permissions_registry ||= PermissionsRegistry.new
+  end
+
+  # Public: Stores the registry for authorization transfer handlers
+  def self.authorization_transfer_registry
+    @authorization_transfer_registry ||= BlockRegistry.new
   end
 
   # Public: Stores an instance of StatsRegistry

@@ -25,13 +25,15 @@ describe "Polling Officer zone", type: :system do
 
     expect(page).to have_content("Polling Officer zone")
 
-    click_link "Polling Officer zone"
+    within "#dropdown-menu" do
+      click_link "Polling Officer zone"
+    end
   end
 
   shared_examples "a polling officer registers an in person vote" do
     include_context "with test bulletin board"
 
-    let(:questions_title) { "They're entitled to vote in the following questions:" }
+    let(:questions_title) { "They are entitled to vote in the following questions:" }
     let(:census_verified) { "This participant has not voted in person yet." }
 
     it "can identify a person and register their vote", :slow do
@@ -67,7 +69,7 @@ describe "Polling Officer zone", type: :system do
   it_behaves_like "a polling officer registers an in person vote"
 
   context "when the participant already voted online" do
-    let!(:vote) { create :vote, election:, voter_id: }
+    let!(:vote) { create(:vote, election:, voter_id:) }
     let(:voter_id) { vote_flow.voter_id }
     let(:vote_flow) do
       ret = Decidim::Votings::CensusVoteFlow.new(election)
@@ -82,7 +84,7 @@ describe "Polling Officer zone", type: :system do
   end
 
   context "when the participant already voted in person" do
-    let!(:in_person_vote) { create :in_person_vote, :accepted, election:, polling_officer:, voter_id: }
+    let!(:in_person_vote) { create(:in_person_vote, :accepted, election:, polling_officer:, voter_id:) }
     let(:voter_id) { vote_flow.voter_id }
     let(:vote_flow) do
       ret = Decidim::Votings::CensusVoteFlow.new(election)
@@ -90,7 +92,7 @@ describe "Polling Officer zone", type: :system do
       ret
     end
 
-    it "doesn't allow them to vote" do
+    it "does not allow them to vote" do
       click_link "Identify a person"
 
       fill_person_data
@@ -108,7 +110,7 @@ describe "Polling Officer zone", type: :system do
   end
 
   context "when there is a pending in person vote to be registered" do
-    let!(:in_person_vote) { create :in_person_vote, election:, polling_officer: }
+    let!(:in_person_vote) { create(:in_person_vote, election:, polling_officer:) }
 
     it "redirects to the waiting page" do
       click_link "Identify a person"

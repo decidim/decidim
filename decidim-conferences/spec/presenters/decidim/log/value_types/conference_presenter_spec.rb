@@ -6,7 +6,7 @@ describe Decidim::Log::ValueTypes::ConferencePresenter, type: :helper do
   subject { described_class.new(value, helper) }
 
   let(:value) { conference.id }
-  let!(:conference) { create :conference }
+  let!(:conference) { create(:conference) }
 
   before do
     helper.extend(Decidim::ApplicationHelper)
@@ -26,7 +26,7 @@ describe Decidim::Log::ValueTypes::ConferencePresenter, type: :helper do
       let(:value) { conference.id + 1 }
 
       it "shows a string explaining the problem" do
-        expect(subject.present).to eq "The conference was not found on the database (ID: #{value})"
+        expect(subject.present).to eq "The conference was not found on the database (ID: #{value})."
       end
     end
   end

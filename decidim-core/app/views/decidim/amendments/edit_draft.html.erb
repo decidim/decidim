@@ -1,31 +1,29 @@
-<div class="wrapper">
-  <div class="row">
-    <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_aside ) %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-    <div class="columns large-6">
-      <%= cell("decidim/amendable/wizard_step_form", amendable, view: :wizard_header ) %>
+  <%= render partial: "wizard_header" %>
 
-      <div class="card">
-        <div class="card__content">
-          <%= decidim_form_for(@form, url: update_draft_amend_path(amendment), method: :patch) do |form| %>
-            <%= render partial: "edit_form_fields", locals: { form: form, original: :emendation } %>
+  <%= decidim_form_for(@form, url: update_draft_amend_path(amendment), method: :patch) do |form| %>
+    <div class="form__wrapper">
+      <%= render partial: "edit_form_fields", locals: { form:, original: :emendation } %>
 
-            <% if current_organization.user_groups_enabled? && current_user.user_groups.verified.any? %>
-              <div class="field">
-                <%= user_group_select_field form, :user_group_id, label: t("new.amendment_author", scope: "decidim.amendments") %>
-              </div>
-            <% end %>
-
-            <div class="row column flex-center">
-              <%= link_to t(".discard"), destroy_draft_amend_path(amendment), method: :delete, data: { confirm: t(".discard_confirmation") } %>
-
-              <%= form.submit t(".send"), class: "button  button--nomargin small", data: { disable: true } %>
-            </div>
-          <% end %>
-        </div>
-      </div>
+      <% if current_organization.user_groups_enabled? && current_user.user_groups.verified.any? %>
+        <%= user_group_select_field form, :user_group_id, label: t("new.amendment_author", scope: "decidim.amendments") %>
+      <% end %>
     </div>
 
-    <div class="columns large-3"></div>
-  </div>
-</div>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= link_to wizard_aside_back_url(amendable), class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line" %>
+        <%= t("back", scope: "decidim.wizard_step_form.wizard_aside") %>
+      <% end %>
+      <%= link_to destroy_draft_amend_path(amendment), method: :delete, class: "button button__sm md:button__lg button__transparent-secondary" do %>
+        <span><%= t("discard", scope: "decidim.amendments.edit_draft") %></span>
+      <% end %>
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
+        <span><%= t("send", scope: "decidim.amendments.edit_draft") %></span>
+        <%= icon "arrow-right-line" %>
+      </button>
+    </div>
+  <% end %>
+
+<% end %>

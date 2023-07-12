@@ -51,28 +51,26 @@ class ConsentManager {
   triggerIframes() {
     if (this.allAccepted()) {
       document.querySelectorAll(".disabled-iframe").forEach((original) => {
-        let newElement = this.transformElement(original, "iframe");
-        newElement.className = original.classList.toString().replace("disabled-iframe", "");
-        original.parentElement.appendChild(newElement);
-        original.remove();
-      })
+        if (original.childNodes && original.childNodes.length) {
+          const content = Array.from(original.childNodes).find((childNode) => {
+            return childNode.nodeType === Node.COMMENT_NODE;
+          });
+          if (!content) {
+            return;
+          }
+          const newElement = document.createElement("div");
+          newElement.innerHTML = content.nodeValue;
+          original.parentNode.replaceChild(newElement.firstElementChild, original);
+        }
+      });
     } else {
       document.querySelectorAll("iframe").forEach((original) => {
-        const newElement = this.transformElement(original, "div");
-        newElement.className = `disabled-iframe ${original.classList.toString()}`;
-        original.parentElement.appendChild(newElement);
-        original.remove();
-      })
+        const newElement = document.createElement("div");
+        newElement.className = "disabled-iframe";
+        newElement.appendChild(document.createComment(`${original.outerHTML}`));
+        original.parentNode.replaceChild(newElement, original);
+      });
     }
-  }
-
-  transformElement(original, targetType) {
-    const newElement = document.createElement(targetType);
-    ["src", "allow", "frameborder", "style", "loading"].forEach((attribute) => {
-      newElement.setAttribute(attribute, original.getAttribute(attribute));
-    })
-
-    return newElement;
   }
 
   triggerWarnings() {
@@ -83,6 +81,7 @@ class ConsentManager {
 
       let cloned = this.warningElement.cloneNode(true);
       cloned.classList.remove("hide");
+      cloned.hidden = false;
       original.appendChild(cloned);
     });
   }
@@ -100,7 +99,7 @@ class ConsentManager {
   }
 
   updateModalSelections() {
-    const categoryElements = this.modal.querySelectorAll(".category-wrapper");
+    const categoryElements = this.modal.querySelectorAll("[data-id]");
 
     categoryElements.forEach((categoryEl) => {
       const categoryInput = categoryEl.querySelector("input");

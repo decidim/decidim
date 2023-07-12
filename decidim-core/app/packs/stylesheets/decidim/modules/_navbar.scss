@@ -1,9 +1,9 @@
 /* Variables */
 
 $navbar-bg: $dark-gray;
-$navbar-bg-hover: rgba(white, .02);
+$navbar-bg-hover: rgba(white, 0.02);
 $navbar-bg-focus: $primary;
-$navbar-color: rgba(white, .5);
+$navbar-color: rgba(white, 0.5);
 $navbar-color-hover: $white;
 $navbar-active-color: $white;
 $navbar-active-bg: $navbar-bg-hover;
@@ -12,12 +12,12 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 
 /* Navigation */
 
-.navbar{
+.navbar {
   background: $navbar-bg;
 
   a,
-  .button{
-    &:focus{
+  .button {
+    &:focus {
       outline-color: var(--highlight-alternative);
     }
   }
@@ -25,30 +25,30 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 
 /* Title bar */
 
-.title-bar{
+.title-bar {
   position: relative;
 
-  @include breakpoint(smallmedium down){
+  @include breakpoint(smallmedium down) {
     border-top: 2.125rem solid $dark-gray;
   }
 
-  .skip{
+  .skip {
     @include skip-button;
 
-    &:focus{
+    &:focus {
       outline-color: var(--highlight-alternative);
     }
   }
 
   a,
-  .button{
-    &:focus{
+  .button {
+    &:focus {
       outline-color: var(--highlight-alternative);
     }
   }
 }
 
-.logo-cityhall{
+.logo-cityhall {
   position: absolute;
   z-index: 1;
   right: 0;
@@ -56,26 +56,26 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   margin-top: -1.95rem;
   text-align: right;
 
-  img{
+  img {
     width: auto;
     height: 22px !important;
   }
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     top: 50%;
     margin-top: -19px;
 
-    img{
+    img {
       height: 38px !important;
     }
   }
 }
 
-.topbar__search{
+.topbar__search {
   position: relative;
   max-width: 220px; // Safari fix
 
-  input{
+  input {
     color: $navbar-color-hover;
     border-color: transparent;
     box-shadow: none;
@@ -83,70 +83,67 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     margin-top: 8px;
     display: inline-block;
     border-radius: 4px 0 0 4px;
-    transition: .3s all;
+    transition: 0.3s all;
     height: 2.5rem; //matches input group button height
 
-    &:focus{
+    &:focus {
       color: $navbar-color-hover;
       box-shadow: none;
       background: $navbar-active-bg;
       outline-color: var(--highlight-alternative);
     }
 
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       background: $navbar-bg;
     }
   }
 
-  .input-group-button{
+  .input-group-button {
     position: relative;
     height: 1px; // Fix for Safari and Firefox
     vertical-align: top;
   }
 
   // Fix for Safari and Firefox
-  .button-wrapper{
+  .button-wrapper {
     position: relative;
     width: 100%;
     height: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
   }
 
-  button{
+  button {
     padding: 5px 10px;
     border-radius: 0 $button-radius $button-radius 0;
-    transition: .3s all;
+    transition: 0.3s all;
   }
 
-  form:first-child{
+  form:first-child {
     display: inline-flex;
   }
 
-  .input-group{
+  .input-group {
     margin-bottom: 0;
   }
 
-  &:not(:focus-within){
-    button{
+  &:not(:focus-within) {
+    button {
       background-color: $navbar-active-bg;
-      color: rgba(white, .5);
+      color: rgba(white, 0.5);
 
-      @include breakpoint(medium){
+      @include breakpoint(medium) {
         background: $navbar-bg;
       }
     }
   }
 
-  &:focus-within{
-    input{
+  &:focus-within {
+    input {
       background-color: $light-gray;
       color: $body-font-color;
       border: 0;
 
-      &::placeholder{
+      &::placeholder {
         color: $dark-medium-gray;
       }
     }
@@ -156,76 +153,76 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 // Hack to fix the top bar display for IE11
 // This cannot be applied to other browsers as the focus borders would be
 // invisible if overflow is hidden on the search element.
-@media all and (-ms-high-contrast: none){
+@media all and (-ms-high-contrast: none) {
   *::-ms-backdrop,
-  .topbar__search{
+  .topbar__search {
     overflow: hidden;
   }
 }
 
 /* Top bar */
-.topbar{
+.topbar {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 
   // Fix for Safari
-  > div{
+  > div {
     flex: 0 0 auto;
     display: flex;
 
-    &.logo-wrapper{
+    &.logo-wrapper {
       flex: 1 0 auto;
     }
   }
 }
 
-.logo-wrapper{
+.logo-wrapper {
   line-height: 0;
 
-  a{
+  a {
     display: inline-block;
   }
 
-  img{
+  img {
     display: block;
     max-height: 33px;
 
-    @include breakpoint(mediumlarge){
+    @include breakpoint(mediumlarge) {
       max-height: 45px;
     }
   }
 }
 
 /* Dropmenus in topbar */
-.topbar__dropmenu{
+.topbar__dropmenu {
   display: inline-block;
   vertical-align: middle;
   padding-top: 0;
   margin-left: 2rem;
 
-  .dropdown > li > a{
+  .dropdown > li > a {
     background: transparent;
     padding-left: 0;
   }
 
-  .dropdown{
+  .dropdown {
     display: inline-block;
     vertical-align: middle;
   }
 
-  .is-dropdown-submenu{
+  .is-dropdown-submenu {
     z-index: 701;
     text-align: left;
     padding: 0;
     background-color: $white;
     border: 1px solid $light-gray;
     border-radius: 4px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     min-width: 150px;
 
     &::after,
-    &::before{
+    &::before {
       bottom: 100%;
       left: 50%;
       border: solid transparent;
@@ -236,143 +233,143 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
       pointer-events: none;
     }
 
-    &::after{
+    &::after {
       border-color: rgba($light-gray, 0);
       border-bottom-color: $white;
       border-width: 10px;
       margin-left: -10px;
     }
 
-    &::before{
+    &::before {
       border-color: rgba($light-gray, 0);
       border-bottom-color: $white;
       border-width: 11px;
       margin-left: -11px;
     }
 
-    li{
-      padding: $global-padding * .5;
+    li {
+      padding: $global-padding * 0.5;
 
-      a{
-        padding: .5rem;
+      a {
+        padding: 0.5rem;
         color: $anchor-color;
 
         &:hover,
-        &:focus{
+        &:focus {
           color: lighten($body-font-color, 20);
           text-decoration: underline;
         }
       }
 
-      &:not(:last-child){
+      &:not(:last-child) {
         border-bottom: $border;
       }
 
       &:hover,
-      &:focus{
+      &:focus {
         cursor: pointer;
-        background-color: rgba(var(--secondary-rgb), .05);
+        background-color: rgba(var(--secondary-rgb), 0.05);
         text-decoration: underline;
       }
     }
   }
 
   // Arrow center position
-  #topbar__language-choose .is-dropdown-submenu{
+  #topbar__language-choose .is-dropdown-submenu {
     transform: translateX(-12%);
     top: 110%;
   }
 
-  #topbar__user-notifications .is-dropdown-submenu{
+  #topbar__user-notifications .is-dropdown-submenu {
     transform: translateX(-47%);
     top: 110%;
   }
 
-  #topbar__user-profile .is-dropdown-submenu{
+  #topbar__user-profile .is-dropdown-submenu {
     transform: translateX(-40%);
     top: 110%;
   }
 }
 
 //Foundation overwrites
-.topbar__dropmenu > ul > li > a{
+.topbar__dropmenu > ul > li > a {
   color: $medium-gray;
 
-  &:hover{
+  &:hover {
     text-decoration: underline;
   }
 
-  &::after{
+  &::after {
     margin-top: -1px !important;
     border-top-color: $medium-gray !important;
   }
 }
 
-.language-choose{
-  @include breakpoint(smallmedium down){
-    font-size: .8rem;
+.language-choose {
+  @include breakpoint(smallmedium down) {
+    font-size: 0.8rem;
     position: absolute;
     top: -2.2rem;
-    left: .5rem;
+    left: 0.5rem;
     margin-left: 0;
 
     &:hover,
-    &:focus{
+    &:focus {
       text-decoration: underline;
     }
 
-    .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+    .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
       border-width: 3px;
       right: 10px;
       margin-top: 0;
 
       &:hover,
-      &:focus{
+      &:focus {
         text-decoration: underline;
       }
     }
   }
 }
 
-.topbar__user{
+.topbar__user {
   display: inline-block;
   padding-right: 2.5rem;
   margin-left: 2rem;
 
-  @media (min-width: (1300 * .0625) + em){
+  @media (min-width: (1300 * 0.0625) + em) {
     padding-right: 0;
   }
 }
 
-.topbar__user__logged{
+.topbar__user__logged {
   text-align: right;
   padding-right: 2.5rem;
   display: none;
 
   // hide caret down
-  .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+  .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
     display: none;
   }
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     display: block;
 
-    .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+    .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
       display: block;
 
       &:hover,
-      &:focus{
+      &:focus {
         text-decoration: underline;
       }
     }
   }
 
-  @media (min-width: (1300 * .0625) + em){
+  @media (min-width: (1300 * 0.0625) + em) {
     padding-right: 0;
   }
 }
 
-.topbar__user__logged__picture{
+.topbar__user__logged__picture {
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
@@ -380,31 +377,31 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   object-fit: cover;
 }
 
-.topbar__user__logged__name{
+.topbar__user__logged__name {
   color: $body-font-color;
 
-  > *{
+  > * {
     display: block;
   }
 }
 
 .topbar__notifications,
-.topbar__conversations{
+.topbar__conversations {
   margin-right: 1rem;
   vertical-align: -4px;
 
-  .icon{
+  .icon {
     fill: $white;
-    opacity: .3;
+    opacity: 0.3;
   }
 
-  &.is-active .icon{
+  &.is-active .icon {
     fill: $warning;
     opacity: 1;
   }
 }
 
-.topbar__notifications__item{
+.topbar__notifications__item {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -413,100 +410,100 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 
   @include flexgap(1rem);
 
-  strong{
+  strong {
     color: $anchor-color;
   }
 
-  :last-child{
+  :last-child {
     flex: 1;
 
-    > *{
+    > * {
       display: block;
     }
   }
 }
 
-.topbar__notifications__item--more{
+.topbar__notifications__item--more {
   text-align: center;
   background-color: $light-gray-dark;
   color: $anchor-color;
   font-size: 90%;
 }
 
-.topbar__user__login{
+.topbar__user__login {
   text-align: right;
   line-height: 1.2;
 
-  a{
+  a {
     color: $medium-gray;
     font-weight: 600;
 
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       margin-left: 1rem;
     }
 
-    &:hover{
+    &:hover {
       text-decoration: underline;
     }
   }
 
-  a::before{
+  a::before {
     content: "";
-    margin-left: .5rem;
-    margin-right: .5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     display: inline-block;
     width: 1px;
     height: 2px;
     border-left: $border;
     vertical-align: middle;
 
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       display: none;
     }
   }
 
-  a:first-of-type{
-    @include breakpoint(medium){
+  a:first-of-type {
+    @include breakpoint(medium) {
       margin-left: 0;
     }
 
-    &::before{
+    &::before {
       display: none;
     }
   }
 }
 
 /* Menu icon and off-canvas */
-.topbar__menu{
+.topbar__menu {
   text-align: right;
   font-size: 20px;
-  margin-right: .1rem;
+  margin-right: 0.1rem;
 
-  button{
+  button {
     color: inherit;
   }
 }
 
-.topbar__admin__link{
-  a{
+.topbar__admin__link {
+  a {
     color: $medium-gray;
 
-    &:hover{
+    &:hover {
       background: $navbar-bg-hover;
       color: $navbar-color-hover;
     }
   }
 
-  ~ .topbar__admin__link{
+  ~ .topbar__admin__link {
     margin-left: 1rem;
   }
 }
 
-.usermenu-off-canvas-holder .usermenu-off-canvas{
+.usermenu-off-canvas-holder .usermenu-off-canvas {
   border-top: 1px solid;
   border-bottom: 1px solid;
 
-  &.is-dropdown-submenu{
+  &.is-dropdown-submenu {
     display: block;
     position: static;
     background: transparent;
@@ -514,13 +511,13 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     border-right: 0;
   }
 
-  a{
+  a {
     display: block;
     padding: 1em 2em;
     color: $navbar-color;
 
     &:hover,
-    &:focus{
+    &:focus {
       background: $navbar-bg-hover;
       color: $navbar-color-hover;
       text-decoration: underline;
@@ -528,7 +525,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   }
 }
 
-.off-canvas .topbar__user__login{
+.off-canvas .topbar__user__login {
   text-align: center;
   margin-top: 1rem;
   padding-top: 1rem;
@@ -538,18 +535,18 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
 }
 
 /* Main nav */
-.main-nav ul{
+.main-nav ul {
   position: relative;
   padding: 0;
   margin: 0;
   list-style: none;
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
     display: flex;
 
-    > li{
+    > li {
       display: inline-block;
       flex: 1;
       text-align: center;
@@ -557,36 +554,36 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   }
 }
 
-.main-nav__link a{
+.main-nav__link a {
   position: relative;
   display: block;
   padding: 1em 2em;
   color: $navbar-color;
 
-  &:hover{
+  &:hover {
     background: $navbar-bg-hover;
     color: $navbar-color-hover;
     text-decoration: underline;
   }
 
-  &:focus{
+  &:focus {
     z-index: 1;
     color: $navbar-color-hover;
     text-decoration: underline;
     outline-offset: -2px;
   }
 
-  @include breakpoint(medium){
-    padding: .75em 2em;
+  @include breakpoint(medium) {
+    padding: 0.75em 2em;
   }
 }
 
-.main-nav__link--active a{
+.main-nav__link--active a {
   box-shadow: $navbar-active-shadow-small;
   color: $navbar-active-color;
   background: $navbar-active-bg;
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     box-shadow: $navbar-active-shadow-medium;
   }
 }

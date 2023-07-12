@@ -196,9 +196,6 @@ pt-BR:
           success: Passo do processo participativo criado com sucesso.
         default_title: Introdução
         destroy:
-          error:
-            active_step: Não é possível excluir a etapa ativa.
-            last_step: Não é possível excluir o último passo de um processo.
           success: Etapa do processo participativo excluída com sucesso.
         edit:
           title: Edite o passo do processo participativo
@@ -418,8 +415,6 @@ pt-BR:
               one: 1 processo futuro
               other: "%{count} processos futuros"
           explanations:
-            no_active: Nenhum processo ativo
-            no_active_nor_upcoming: Não há processos ativos nem futuros
             no_active_nor_upcoming_callout: Não há processos ativos nem futuros. Aqui está uma lista dos últimos.
           names:
             active: Ativo

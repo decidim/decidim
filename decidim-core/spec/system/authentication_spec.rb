@@ -14,7 +14,7 @@ describe "Authentication", type: :system do
   describe "Sign Up" do
     context "when using email and password" do
       it "creates a new User" do
-        find(".sign-up-link").click
+        click_link("Sign Up")
 
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
@@ -39,7 +39,7 @@ describe "Authentication", type: :system do
       end
 
       it "keeps the locale settings" do
-        find(".sign-up-link").click
+        click_link("Sign Up")
 
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
@@ -59,7 +59,7 @@ describe "Authentication", type: :system do
 
     context "when being a robot" do
       it "denies the sign up" do
-        find(".sign-up-link").click
+        click_link("Sign Up")
 
         within ".new_user" do
           page.execute_script("$($('.new_user > div > input')[0]).val('Ima robot :D')")
@@ -104,9 +104,9 @@ describe "Authentication", type: :system do
 
       context "when the user has confirmed the email in facebook" do
         it "creates a new User without sending confirmation instructions" do
-          find(".sign-up-link").click
+          click_link("Sign Up")
 
-          click_link "Sign in with Facebook"
+          find(".login__omniauth-button.button--facebook").click
 
           expect(page).to have_content("Successfully")
           expect_user_logged
@@ -142,11 +142,11 @@ describe "Authentication", type: :system do
         OmniAuth.config.camelizations.delete("twitter")
       end
 
-      context "when the response doesn't include the email" do
+      context "when the response does not include the email" do
         it "redirects the user to a finish signup page" do
-          find(".sign-up-link").click
+          click_link("Sign Up")
 
-          click_link "Sign in with Twitter"
+          find(".button--twitter").click
 
           expect(page).to have_content("Successfully")
           expect(page).to have_content("Please complete your profile")
@@ -158,11 +158,11 @@ describe "Authentication", type: :system do
         end
 
         context "and a user already exists with the given email" do
-          it "doesn't allow it" do
+          it "does not allow it" do
             create(:user, :confirmed, email: "user@from-twitter.com", organization:)
-            find(".sign-up-link").click
+            click_link("Sign Up")
 
-            click_link "Sign in with Twitter"
+            find(".button--twitter").click
 
             expect(page).to have_content("Successfully")
             expect(page).to have_content("Please complete your profile")
@@ -182,9 +182,8 @@ describe "Authentication", type: :system do
         let(:email) { "user@from-twitter.com" }
 
         it "creates a new User" do
-          find(".sign-up-link").click
-
-          click_link "Sign in with Twitter"
+          click_link("Sign Up")
+          find(".login__omniauth-button.button--twitter").click
 
           expect_user_logged
         end
@@ -218,7 +217,7 @@ describe "Authentication", type: :system do
       end
 
       it "creates a new User" do
-        find(".sign-up-link").click
+        click_link("Sign Up")
 
         click_link "Sign in with Google"
 
@@ -230,7 +229,7 @@ describe "Authentication", type: :system do
       let!(:user) { create(:user, nickname: "Nick", organization:) }
 
       it "show an error message" do
-        find(".sign-up-link").click
+        click_link("Sign Up")
 
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
@@ -255,8 +254,8 @@ describe "Authentication", type: :system do
         expect(page).not_to have_content("Sign Up")
       end
 
-      it "don't allow the user to sign up" do
-        find(".sign-in-link").click
+      it "do not allow the user to sign up" do
+        click_link("Sign In", match: :first)
         expect(page).not_to have_content("Create an account")
       end
     end
@@ -284,10 +283,11 @@ describe "Authentication", type: :system do
     end
 
     it "sends a welcome notification" do
-      find("a.topbar__notifications").click
+      within_user_menu do
+        click_link "Notifications"
+      end
 
-      within "#notifications" do
-        expect(page).to have_content("Welcome")
+      within "[data-notifications]" do
         expect(page).to have_content("thanks for joining #{organization.name}")
       end
 
@@ -318,7 +318,7 @@ describe "Authentication", type: :system do
 
     describe "Sign in" do
       it "authenticates an existing User" do
-        find(".sign-in-link").click
+        click_link("Sign In", match: :first)
 
         within ".new_user" do
           fill_in :session_user_email, with: user.email
@@ -327,18 +327,18 @@ describe "Authentication", type: :system do
         end
 
         expect(page).to have_content("Signed in successfully")
-        expect(page).to have_content(user.name)
+        expect_current_user_to_be(user)
       end
 
       it "caches the omniauth buttons correctly with different languages", :caching do
-        find(".sign-in-link").click
-        expect(page).to have_content("Sign in with Facebook")
+        click_link("Sign In", match: :first)
+        expect(page).to have_link("Sign in with Facebook")
 
         within_language_menu do
           click_link "Català"
         end
 
-        expect(page).to have_content("Inicia sessió amb Facebook")
+        expect(page).to have_link("Inicia sessió amb Facebook")
       end
     end
 
@@ -422,11 +422,11 @@ describe "Authentication", type: :system do
 
       it "signs out the user" do
         within_user_menu do
-          find(".sign-out-link").click
+          click_link("Sign out")
         end
 
         expect(page).to have_content("Signed out successfully.")
-        expect(page).to have_no_content(user.name)
+        expect(page).not_to have_content(user.name)
       end
     end
 
@@ -438,7 +438,7 @@ describe "Authentication", type: :system do
         describe "before locking" do
           before do
             visit decidim.root_path
-            find(".sign-in-link").click
+            click_link("Sign In", match: :first)
 
             (maximum_attempts - 2).times do
               within ".new_user" do
@@ -449,7 +449,7 @@ describe "Authentication", type: :system do
             end
           end
 
-          it "doesn't show the last attempt warning before locking the account" do
+          it "does not show the last attempt warning before locking the account" do
             within ".new_user" do
               fill_in :session_user_email, with: user.email
               fill_in :session_user_password, with: "not-the-pasword"
@@ -463,7 +463,7 @@ describe "Authentication", type: :system do
         describe "locks the account" do
           before do
             visit decidim.root_path
-            find(".sign-in-link").click
+            click_link("Sign In", match: :first)
 
             (maximum_attempts - 1).times do
               within ".new_user" do
@@ -560,19 +560,19 @@ describe "Authentication", type: :system do
 
     describe "Sign in" do
       it "authenticates an existing User" do
-        find(".sign-in-link").click
+        click_link("Sign In", match: :first)
 
-        click_link "Sign in with Facebook"
+        find(".login__omniauth-button.button--facebook").click
 
         expect(page).to have_content("Successfully")
-        expect(page).to have_content(user.name)
+        expect_current_user_to_be(user)
       end
 
       context "when sign up is disabled" do
         let(:organization) { create(:organization, users_registration_mode: :existing) }
 
-        it "doesn't allow the user to sign up" do
-          find(".sign-in-link").click
+        it "does not allow the user to sign up" do
+          click_link("Sign In", match: :first)
           expect(page).not_to have_content("Sign Up")
         end
       end
@@ -580,24 +580,40 @@ describe "Authentication", type: :system do
       context "when sign in is disabled" do
         let(:organization) { create(:organization, users_registration_mode: :disabled) }
 
-        it "doesn't allow the user to sign up" do
-          find(".sign-in-link").click
+        it "does not allow the user to sign up" do
+          click_link("Sign In", match: :first)
           expect(page).not_to have_content("Sign Up")
         end
 
-        it "doesn't allow the user to sign in as a regular user, only through external accounts" do
-          find(".sign-in-link").click
+        it "does not allow the user to sign in as a regular user, only through external accounts" do
+          click_link("Sign In", match: :first)
           expect(page).not_to have_content("Email")
-          expect(page).to have_css(".button--facebook")
+          within("div.login__omniauth") do
+            expect(page).to have_link("Facebook")
+          end
         end
 
         it "authenticates an existing User" do
-          find(".sign-in-link").click
+          click_link("Sign In", match: :first)
 
-          click_link "Sign in with Facebook"
+          find(".login__omniauth-button.button--facebook").click
 
           expect(page).to have_content("Successfully")
-          expect(page).to have_content(user.name)
+          expect_current_user_to_be(user)
+        end
+
+        context "when admin password is expired" do
+          let(:user) { create(:user, :confirmed, :admin, password_updated_at: 91.days.ago, organization:) }
+
+          before do
+            allow(Decidim.config).to receive(:admin_password_expiration_days).and_return(90)
+          end
+
+          it "can log in without being prompted to change the password" do
+            click_link("Sign In", match: :first)
+            click_link "Sign in with Facebook"
+            expect(page).to have_content("Successfully")
+          end
         end
       end
     end
@@ -609,7 +625,7 @@ describe "Authentication", type: :system do
     describe "Sign Up" do
       context "when using the same email" do
         it "creates a new User" do
-          find(".sign-up-link").click
+          click_link("Sign Up")
 
           within ".new_user" do
             fill_in :registration_user_email, with: user.email
@@ -660,9 +676,9 @@ describe "Authentication", type: :system do
     describe "Sign Up" do
       context "when the user has confirmed the email in facebook" do
         it "creates a new User without sending confirmation instructions" do
-          find(".sign-up-link").click
+          click_link("Sign Up")
 
-          click_link "Sign in with Facebook"
+          find(".login__omniauth-button.button--facebook").click
 
           expect(page).to have_content("Successfully")
           expect_user_logged
@@ -679,7 +695,7 @@ describe "Authentication", type: :system do
 
     describe "Sign in" do
       it "authenticates the right user" do
-        find(".sign-in-link").click
+        click_link("Sign In", match: :first)
 
         within ".new_user" do
           fill_in :session_user_email, with: user.email
@@ -688,8 +704,16 @@ describe "Authentication", type: :system do
         end
 
         expect(page).to have_content("successfully")
-        expect(page).to have_content("Right user")
+        expect_current_user_to_be(user)
+        expect(page).not_to have_content("Wrong user")
       end
     end
   end
+end
+
+def expect_current_user_to_be(user)
+  within_user_menu do
+    click_link "My public profile"
+  end
+  expect(page).to have_content(user.name)
 end

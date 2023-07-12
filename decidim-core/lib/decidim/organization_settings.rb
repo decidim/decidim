@@ -104,10 +104,9 @@ module Decidim
         {
           "upload" => {
             "allowed_file_extensions" => {
-              "default" => %w(jpg jpeg gif png bmp pdf rtf txt),
-              "admin" => %w(jpg jpeg gif png bmp pdf doc docx xls xlsx ppt pptx ppx rtf txt odt ott odf otg ods ots),
-              "image" => %w(jpg jpeg gif png bmp),
-              "favicon" => %w(png)
+              "default" => %w(jpg jpeg png pdf rtf txt),
+              "admin" => %w(jpg jpeg png pdf doc docx xls xlsx ppt pptx ppx rtf txt odt ott odf otg ods ots),
+              "image" => %w(jpg jpeg png)
             },
             "allowed_content_types" => {
               "default" => %w(
@@ -218,7 +217,7 @@ module Decidim
     #     "upload" => {
     #       "allowed_file_extensions" => {
     #         "default" => %w(jpg jpeg),
-    #         "admin" => %w(jpg jpeg gif png)
+    #         "admin" => %w(jpg jpeg png)
     #       }
     #     },
     #     "another_thing" => {
@@ -234,7 +233,7 @@ module Decidim
     # instance:
     #
     #   - upload_allowed_file_extensions #=> ["jpg", "jpeg"]
-    #   - upload_allowed_file_extensions_admin #=> ["jpg", "jpeg", "gif", "png"]
+    #   - upload_allowed_file_extensions_admin #=> ["jpg", "jpeg", "png"]
     #   - another_thing_bleep #=> "bloop"
     #   - another_thing_foo_bar #=> 1
     #   - another_thing_foo_baz #=> 2

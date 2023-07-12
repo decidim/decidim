@@ -1,6 +1,6 @@
 @import "decidim/admin/utils/_settings";
 
-.highligted-content-banner{
+.highligted-content-banner {
   background-size: cover;
   position: relative;
   z-index: 0;
@@ -8,34 +8,34 @@
   margin-bottom: 2rem;
   margin-top: 2rem;
 
-  &::after{
+  &::after {
     content: "";
     display: block;
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba($black, .6);
+    background-color: rgba($black, 0.6);
   }
 
-  .highligted-content-banner__container{
+  .highligted-content-banner__container {
     position: relative;
     z-index: 1;
     padding: 3rem 0;
 
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       padding: 4rem 0;
     }
 
-    @include breakpoint(mediumlarge){
+    @include breakpoint(mediumlarge) {
       padding: 5rem 0;
     }
 
-    @include breakpoint(large){
+    @include breakpoint(large) {
       padding: 6rem 0;
     }
 
-    .row{
+    .row {
       max-width: 100rem;
     }
   }

@@ -1,8 +1,8 @@
-.loading-spinner{
+.loading-spinner {
   height: 25px;
   text-align: center;
 
-  &::before{
+  &::before {
     @include spinner(25px, $medium-gray, var(--primary), 800ms);
 
     content: "";
@@ -10,10 +10,10 @@
   }
 }
 
-span.loading-spinner{
+span.loading-spinner {
   height: 15px;
 
-  &::before{
+  &::before {
     @include spinner(15px, $medium-gray, var(--primary), 800ms);
   }
 }

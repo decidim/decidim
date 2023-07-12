@@ -1,28 +1,28 @@
-.conference-programme{
-  .programme-selector{
+.conference-programme {
+  .programme-selector {
     border-bottom: $border;
-    padding-bottom: $global-margin * .5;
+    padding-bottom: $global-margin * 0.5;
     color: $muted;
     font-size: rem-calc(19);
     display: flex;
     align-items: center;
 
-    @include breakpoint(small only){
+    @include breakpoint(small only) {
       flex-direction: column;
       text-align: center;
     }
 
     //Override foundation
-    .tabs{
-      @include flexgap(.5rem, column);
+    .tabs {
+      @include flexgap(0.5rem, column);
 
-      @include breakpoint(medium){
-        @include flexgap(.5rem);
+      @include breakpoint(medium) {
+        @include flexgap(0.5rem);
       }
     }
   }
 
-  .programme-day > .row{
+  .programme-day > .row {
     padding: $global-padding * 2 0;
     border-bottom: $border;
     border-bottom-style: dashed;
@@ -30,79 +30,79 @@
 
   //Override foundation
   .tabs,
-  .tabs-content{
+  .tabs-content {
     background: transparent;
   }
 
   //Override foundation
-  .tabs-title{
-    > a{
+  .tabs-title {
+    > a {
       padding: 0;
 
-      &:hover{
+      &:hover {
         background: transparent;
       }
     }
 
-    > a[aria-selected='true']{
+    > a[aria-selected="true"] {
       background: transparent;
     }
 
-    &:not(.is-active) .button{
-      opacity: .4;
+    &:not(.is-active) .button {
+      opacity: 0.4;
     }
   }
 
-  .programme-header{
+  .programme-header {
     display: flex;
     align-items: baseline;
 
-    @include breakpoint(small only){
+    @include breakpoint(small only) {
       flex-direction: column;
     }
   }
 
-  .programme-time{
+  .programme-time {
     font-size: rem-calc(19);
     font-weight: $global-weight-bold;
   }
 
-  .programme-title{
+  .programme-title {
     font-size: rem-calc(24);
     color: $secondary;
     font-weight: $global-weight-bold;
 
-    @include breakpoint(small only){
+    @include breakpoint(small only) {
       @include ellipsis();
     }
   }
 
-  .programme-resume{
+  .programme-resume {
     font-size: rem-calc(14);
     color: $muted;
   }
 
-  .programme-extra{
+  .programme-extra {
     color: $muted;
     font-size: rem-calc(14);
 
     // except 2nd child
-    > .row:not(:nth-child(2)){
-      margin-top: $global-margin * .5;
+    > .row:not(:nth-child(2)) {
+      margin-top: $global-margin * 0.5;
     }
 
     // Fix position list-item beneath collapsible-list
-    @include breakpoint(medium up){
-      > .row:nth-child(2){
-        margin-top: -$global-margin * .5;
+    @include breakpoint(medium up) {
+      > .row:nth-child(2) {
+        margin-top: -$global-margin * 0.5;
       }
     }
 
-    .row:not(.speakers-list) span{
-      opacity: .6;
+    .row:not(.speakers-list) span {
+      opacity: 0.6;
     }
 
-    .speakers-list{
+    .speakers-list {
       min-height: 35px;
     }
   }

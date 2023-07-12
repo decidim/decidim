@@ -38,13 +38,13 @@ describe "Identity document online review", type: :system do
     submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX")
 
     expect(page).to have_content("Participant successfully verified")
-    expect(page).to have_no_content("Verification #")
+    expect(page).not_to have_content("Verification #")
   end
 
-  it "shows an error when information doesn't match" do
+  it "shows an error when information does not match" do
     submit_verification_form(doc_type: "NIE", doc_number: "XXXXXXXY")
 
-    expect(page).to have_content("Verification doesn't match")
+    expect(page).to have_content("Verification does not match")
     expect(page).to have_content("Introduce the data in the picture")
   end
 
@@ -53,7 +53,7 @@ describe "Identity document online review", type: :system do
 
     it "dismisses the verification from the list" do
       expect(page).to have_content("Verification rejected. Participant will be prompted to amend their documents")
-      expect(page).to have_no_content("Verification #")
+      expect(page).not_to have_content("Verification #")
     end
 
     context "and the user logs back in" do
@@ -103,7 +103,7 @@ describe "Identity document online review", type: :system do
   def submit_reupload_form(doc_type:, doc_number:, file_name:)
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
-    dynamically_attach_file(:id_document_upload_verification_attachment, Decidim::Dev.asset(file_name))
+    dynamically_attach_file(:id_document_upload_verification_attachment, Decidim::Dev.asset(file_name), front_interface: true)
 
     click_button "Request verification again"
   end

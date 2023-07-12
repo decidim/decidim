@@ -214,7 +214,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the questionnaire" do
+          it "does not update the questionnaire" do
             expect(questionnaire).not_to receive(:update!)
             command.call
           end
@@ -256,7 +256,7 @@ module Decidim
 
             expect(questionnaire.questions[4].question_type).to eq("matrix_single")
             expect(questionnaire.questions[4].answer_options[0].free_text).to be(true)
-            (0..1).each do |idx|
+            2.times do |idx|
               expect(questionnaire.questions[4].matrix_rows[idx].body["en"]).to eq(form_params["questions"]["4"]["matrix_rows"][idx.to_s]["body"]["en"])
               expect(questionnaire.questions[4].matrix_rows[idx].position).to eq(idx)
             end

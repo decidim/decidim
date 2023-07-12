@@ -9,13 +9,13 @@ module Decidim
     include_context "when a resource is ready for global search"
 
     let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization:) }
-    let(:current_component) { create :proposal_component, organization:, participatory_space: }
+    let(:component) { create(:proposal_component, organization:, participatory_space:) }
     let!(:proposal) do
       create(
         :proposal,
         :draft,
-        skip_injection: true,
-        component: current_component,
+        title: Decidim::Faker::Localized.sentence(word_count: 3),
+        component:,
         scope: scope1,
         body: description1,
         users: [author]
@@ -26,9 +26,7 @@ module Decidim
       context "when implementing Searchable" do
         context "when on create" do
           context "when proposals are NOT official" do
-            let(:proposal2) do
-              create(:proposal, skip_injection: true, component: current_component)
-            end
+            let(:proposal2) { create(:proposal, component:) }
 
             it "does not index a SearchableResource after Proposal creation when it is not official" do
               searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: [proposal.id, proposal2.id])
@@ -47,6 +45,17 @@ module Decidim
               organization.available_locales.each do |locale|
                 searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale:)
                 expect_searchable_resource_to_correspond_to_proposal(searchable, proposal, locale)
+              end
+            end
+
+            context "with enriched content" do
+              before do
+                proposal.update(title: { "en" => "Proposal <strong>title</strong>" })
+              end
+
+              it "does indexes a SearchableResource with stripped title" do
+                searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: "en")
+                expect(searchable.attributes["content_a"]).to eq "Proposal title"
               end
             end
           end
@@ -94,6 +103,17 @@ module Decidim
               searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: proposal.id)
               expect(searchables).to be_empty
             end
+
+            context "with enriched content" do
+              before do
+                proposal.update(title: { "en" => "Proposal <strong>title</strong>" })
+              end
+
+              it "inserts a SearchableResource after Proposal is published with stripped title" do
+                searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: "en")
+                expect(searchable.attributes["content_a"]).to eq "Proposal title"
+              end
+            end
           end
         end
 
@@ -114,10 +134,10 @@ module Decidim
         let!(:proposal2) do
           create(
             :proposal,
-            component: current_component,
+            component:,
             scope: scope1,
             title: Decidim::Faker.name,
-            body: "Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!"
+            body: "Chewie, I will be waiting for your signal. Take care, you two. May the Force be with you. Ow!"
           )
         end
 
@@ -131,7 +151,7 @@ module Decidim
             on(:ok) do |results_by_type|
               results = results_by_type[proposal.class.name]
               expect(results[:count]).to eq 2
-              expect(results[:results]).to match_array [proposal, proposal2]
+              expect(results[:results]).to contain_exactly(proposal, proposal2)
             end
             on(:invalid) { raise("Should not happen") }
           end
@@ -169,8 +189,8 @@ module Decidim
         "content_d" => I18n.transliterate(translated(proposal.body, locale:)),
         "locale" => locale,
         "decidim_organization_id" => proposal.component.organization.id,
-        "decidim_participatory_space_id" => current_component.participatory_space_id,
-        "decidim_participatory_space_type" => current_component.participatory_space_type,
+        "decidim_participatory_space_id" => component.participatory_space_id,
+        "decidim_participatory_space_type" => component.participatory_space_type,
         "decidim_scope_id" => proposal.decidim_scope_id,
         "resource_id" => proposal.id,
         "resource_type" => "Decidim::Proposals::Proposal"

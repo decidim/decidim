@@ -1,7 +1,7 @@
-<details class="meeting-polls__question text-medium" data-question="<%= question.id %>" <%= "open" if local_assigns.fetch(:open_question, nil) == question %>>
+<details class="meeting-polls__question" data-question="<%= question.id %>" <%= "open" if local_assigns.fetch(:open_question, nil) == question %>>
   <% if question.published? %>
-    <%= render partial: "decidim/meetings/polls/questions/published_question", locals: { question: question, form: local_assigns.fetch(:form, nil) } %>
+    <%= render partial: "decidim/meetings/polls/questions/published_question", locals: { question:, form: local_assigns.fetch(:form, nil) } %>
   <% elsif question.closed? %>
-    <%= render partial: "decidim/meetings/polls/questions/closed_question", locals: { question: question } %>
+    <%= render partial: "decidim/meetings/polls/questions/closed_question", locals: { question: } %>
   <% end %>
 </details>

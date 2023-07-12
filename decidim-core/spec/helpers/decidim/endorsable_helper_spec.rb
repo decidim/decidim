@@ -64,38 +64,38 @@ module Decidim
         # rubocop:enable RSpec/AnyInstance
       end
 
-      context "when it's a user" do
-        context "and they haven't endorsed yet" do
-          it { is_expected.not_to include("selected") }
+      context "when it is a user" do
+        context "and they have not endorsed yet" do
+          it { is_expected.not_to include("is-selected") }
         end
 
         context "and they have already endorsed" do
           let!(:endorsement) { create(:endorsement, resource:, author: user) }
 
-          it { is_expected.to include("selected") }
+          it { is_expected.to include("is-selected") }
         end
       end
 
-      context "when it's a user group" do
+      context "when it is a user group" do
         let(:another_user) { create(:user, :confirmed, organization:) }
         let!(:user_group) { create(:user_group, verified_at: Time.current, organization:) }
         let!(:membership) { create(:user_group_membership, user_group:, user:, role: "admin") }
         let!(:another_membership) { create(:user_group_membership, user_group:, user: another_user, role: "admin") }
 
-        context "and they haven't endorsed yet" do
-          it { is_expected.not_to include("selected") }
+        context "and they have not endorsed yet" do
+          it { is_expected.not_to include("is-selected") }
         end
 
         context "and they have already endorsed" do
           let!(:endorsement) { create(:endorsement, resource:, author: user, user_group:) }
 
-          it { is_expected.to include("selected") }
+          it { is_expected.to include("is-selected") }
         end
 
         context "and another admin of the group have already endorsed" do
           let!(:endorsement) { create(:endorsement, resource:, author: another_user, user_group:) }
 
-          it { is_expected.to include("selected") }
+          it { is_expected.to include("is-selected") }
         end
       end
     end

@@ -28,8 +28,8 @@
           <div class="cell small-2"><strong>End date</strong></div>
         </div>
         <div class="grid-x text-muted">
-          <div class="cell small-2"><%= Faker::Time.forward(7).strftime("%m/%d/%Y %R") %></div>
-          <div class="cell small-2"><%= Faker::Time.forward(7).strftime("%m/%d/%Y %R") %></div>
+          <div class="cell small-2"><%= Faker::Time.forward(days: 7).strftime("%m/%d/%Y %R") %></div>
+          <div class="cell small-2"><%= Faker::Time.forward(days: 7).strftime("%m/%d/%Y %R") %></div>
         </div>
       </div>
     </div>

@@ -179,9 +179,6 @@ ar:
           success: تم إنشاء مرحلة العملية التشاركية بنجاح.
         default_title: المقدمة
         destroy:
-          error:
-            active_step: لا يمكن حذف المرحلة النشطة.
-            last_step: لا يمكن حذف المرحلة الأخيرة من العملية.
           success: تم حذف مرحلة العملية التشاركية بنجاح.
         edit:
           title: تحرير مرحلة العملية التشاركية
@@ -285,6 +282,8 @@ ar:
         title: العمليات التشاركية
     participatory_process_groups:
       content_blocks:
+        metadata:
+          name: البيانات الوصفية
         stats:
           name: نشاط
       show:
@@ -369,8 +368,6 @@ ar:
               many: "%{count} العمليات القادمة"
               other: "%{count} العمليات القادمة"
           explanations:
-            no_active: لا توجد عمليات نشطة
-            no_active_nor_upcoming: لا توجد عمليات نشطة ولا قادمة
             no_active_nor_upcoming_callout: لا توجد عمليات نشطة ولا قادمة. وهنا لائحة من الماضي.
           names:
             active: نشيط

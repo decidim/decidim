@@ -11,9 +11,11 @@ module Decidim
     extend ActiveSupport::Concern
     include FormFactory
     include UserGroups
+    include HasAccountBreadcrumb
 
     included do
       helper Decidim::UserProfileHelper
+      redesign active: true
       layout "layouts/decidim/user_profile"
 
       helper_method :available_verification_workflows

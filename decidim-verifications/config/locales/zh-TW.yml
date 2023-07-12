@@ -1,1 +1,281 @@
 zh-TW:
+  activemodel:
+    attributes:
+      config:
+        available_methods: 可用的方法
+        offline: 離線
+        offline_explanation: 離線驗證說明
+        online: 線上
+      id_document_information:
+        document_number: 文件編號(含字母)
+        document_type: 文件類型
+      id_document_upload:
+        document_number: 文件編號(含字母)
+        document_type: 您的文件類型
+        user: 參與者
+        verification_attachment: 您的文件的掃描副本
+      offline_confirmation:
+        email: 參與者電子郵件
+      postal_letter_address:
+        full_address: 完整地址
+      postal_letter_confirmation:
+        verification_code: 驗證碼
+      postal_letter_postage:
+        full_address: 完整地址
+        verification_code: 驗證碼
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: 匯入檔案格式有誤，請小心閱讀教學並且確認檔案是使用 UTF-8 編碼
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: '"如果程序已經開始進行，且您希望撤銷先前程序的權限，此選項會很有用。'
+          button: 全部撤銷
+          button_before: 撤銷日期之前
+          destroy:
+            confirm: 撤銷在指定日期之前的授權無法撤消。您確定要繼續嗎？
+            confirm_all: 撤銷所有授權後無法還原，確定要繼續嗎？
+          destroy_nok: 撤銷授權時發生問題。
+          destroy_ok: 所有匹配的授權已成功撤銷。
+          info: 總共有 %{count} 名已驗證的參與者。
+          no_data: 沒有經過驗證的參與者.
+          title: 授權撤銷
+        authorization_workflows: 授權
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} 更新了身份文件授權配置"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} 透過離線身份文件授權認證驗證了 %{resource_name}"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help:
+            - 管理員上傳一個包含已接受參與者電子郵件的 CSV 檔案.
+            - 只有在 CSV 檔案中的電子郵件被列出的參與者才能取得驗證。
+        id_documents:
+          help:
+            - 使用者填寫身份資訊並上傳其證件的掃描副本。
+            - 您填寫上傳圖像中的資訊。
+            - 上傳的資訊應與使用者填寫的資訊相符。
+            - 如果您無法清楚地看到該信息或無法進行驗證，您可以拒絕該請求，用戶將能夠修正它。
+        postal_letter:
+          help:
+            - 參與者請求將驗證碼發送至其地址。
+            - 您將信件連同驗證碼發送至其地址。
+            - 您將信件標記為已發送。
+            - 一旦您將信件標記為已發送，參與者便能輸入驗證碼並通過驗證。
+      csv_census:
+        explanation: 使用組織人口普查的方式進行驗證.
+        name: 組織的普查
+      direct: 直接
+      help: 幫助
+      id_documents:
+        explanation: 上傳您的身分證明文件，以便我們可以檢查您的身分證明.
+        name: 身分證件
+      multistep: 多步驟
+      name: 姓名
+      postal_letter:
+        explanation: 我們將會寄送一封郵寄信件給您，信中包含一個代碼，請在平台上輸入此代碼以驗證您的地址.
+        name: 郵件信函驗證碼
+    events:
+      verifications:
+        verify_with_managed_user:
+          email_intro: 該參與者<a href="%{resource_url}">%{resource_title}</a>嘗試使用另一個參與者(<a href="%{managed_user_url}">%{managed_user_name}</a>) 的資料進行驗證。
+          email_outro: 請檢查<a href="%{conflicts_url}">驗證衝突清單</a>，並聯繫參與者驗證其詳細資料以解決問題。
+          email_subject: 對其他參與者的驗證嘗試失敗
+          notification_title: 該參與者<a href="%{resource_path}">%{resource_title}</a>嘗試使用另一個參與者(<a href="%{managed_user_path}">%{managed_user_name}</a>) 的資料進行驗證。
+    verifications:
+      authorizations:
+        authorization_metadata:
+          info: '這是目前驗證的資料:'
+          no_data_stored: 沒有存儲任何資料。
+        create:
+          error: 創建授權時出現問題。
+          success: 你已經成功被授權。
+          transferred: '基於您的授權，我們已恢復以下參與資料：'
+          unconfirmed: 您需要確認您的電子郵件以授權。
+        destroy:
+          error: 刪除授權時出現問題。
+          success: 您已成功刪除授權。
+        first_login:
+          actions:
+            another_dummy_authorization_handler: 使用另一個授權處理器進行驗證
+            csv_census: 根據組織的人口統計進行驗證
+            dummy_authorization_handler: 根據範例授權處理器進行驗證
+            dummy_authorization_workflow: 根據範例授權工作流程進行驗證
+            id_documents: 通過上傳身份證明文件進行驗證
+            postal_letter: 通過郵寄獲得驗證碼進行驗證
+            sms: 通過收到SMS短信驗證碼進行驗證
+          title: 驗證你的身份
+          verify_with_these_options: '這是可以驗證您身份的可用選項:'
+        index:
+          expired_verification: 驗證已過期
+          granted_verification: 已授權驗證
+          introduce_code: 輸入代碼
+          pending_verification: 待驗證
+          show_renew_info: 點擊更新驗證
+          subscribe: 訂閱
+          unauthorized_methods: 驗證方式
+        new:
+          authorize: 發送
+          authorize_with: 使用 %{authorizer} 驗證
+        renew_modal:
+          cancel: 取消
+          continue: 繼續
+          info_renew: 如果您想要更新資料，請繼續進行更新。
+          title: 更新驗證
+        skip_verification: 您現在可以跳過這個步驟，並%{link}
+        start_exploring: 開始探索
+      csv_census:
+        admin:
+          census:
+            create:
+              error: 匯入戶籍普查資料時發生錯誤。
+              success: 成功匯入 %{count} 項目(%{errors} 錯誤).
+            destroy_all:
+              success: 所有戶籍數據都已刪除.
+          destroy:
+            confirm: 刪除所有戶籍資料將無法還原，您確定要繼續嗎？
+            title: 刪除所有戶籍資料
+          index:
+            data: 總共載入了 %{count} 筆記錄。最後上傳日期為 %{due_date}。
+            empty: 目前沒有戶籍資料。使用下面的表格，使用 CSV 檔案進行匯入。
+            title: 目前戶籍資料
+          instructions:
+            body: 您需要進入系統管理，並向組織添加 csv_census 授權以進行操作。
+            title: 您需要為此組織啟用 CSV 戶籍調查。
+          new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
+            file: "帶有電子郵件數據的.csv 文件"
+            info: '必須是一個 CSV 格式的文件，僅包含一列電子郵件地址：'
+            submit: 上傳檔案
+            title: 上傳新的調查
+        authorizations:
+          new:
+            error: 我們無法驗證您的帳戶或您不在該組織的人口普查中。
+            success: 您的帳戶已經成功驗證。
+      dummy_authorization:
+        extra_explanation:
+          postal_codes:
+            other: "參與僅限於具有郵政編碼%{postal_codes} 的參與者。\n參與僅限於具有以下任何郵政編碼的參與者：%{postal_codes}。"
+          scope: 參與資格限制於具有 %{scope_name} 范圍的參與者。
+          user_postal_codes:
+            other: "參與資格限制於具有郵政編碼 %{postal_codes} 的參與者，而您的郵政編碼為 %{user_postal_code}。\n參與資格限制於具有以下任一郵政編碼的參與者：%{postal_codes}。而您的郵政編碼為 %{user_postal_code}。"
+          user_scope: 參與限制僅限於範圍為 %{scope_name} 的參與者，而您的範圍為 %{user_scope_name}。
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: 身份文件配置
+              update: 更新
+            update:
+              error: 更新配置時發生問題。
+              success: 配置成功更新。
+          confirmations:
+            create:
+              error: 驗證不符合。請再試一次或拒絕驗證，以便參與者進行修正。
+              success: 參與者驗證成功.
+            new:
+              introduce_user_data: 輸入圖片中的數據
+              reject: 拒絕
+              verify: 驗證
+          offline_confirmations:
+            create:
+              error: 驗證不符合。請再試一次或告知參與者進行修改。
+              success: 參與者驗證成功.
+            new:
+              cancel: 取消
+              introduce_user_data: 輸入參與者電子郵件和文件資料
+              verify: 驗證
+          pending_authorizations:
+            index:
+              config: 配置
+              offline_verification: 離線驗證
+              title: 等待線上驗證
+              verification_number: '驗證 #%{n}'
+          rejections:
+            create:
+              success: 驗證被拒絕。參與者將被提示修改其文件。
+        authorizations:
+          choose:
+            choose_a_type: '請選擇您想要的驗證方式:'
+            offline: 離線
+            online: 線上
+            title: 使用身分證件進行驗證
+          create:
+            error: 上傳您的文件時出現問題。
+            success: 文件已成功上傳。
+          edit:
+            being_reviewed: 我們正在審核您的文件。您的身份驗證將很快完成。
+            offline: 使用離線驗證
+            online: 使用線上驗證
+            rejection_clarity: 請確認上傳的圖片中資訊清晰可見.
+            rejection_correctness: 請確認輸入資訊是否正確.
+            rejection_notice: 您的驗證出現問題。請再試一次。
+            send: 再次申請驗證
+          new:
+            send: 申請驗證
+            title: 上傳您的身份證件
+          update:
+            error: 重新上傳您的文件時發生問題.
+            success: 文件已成功重新上傳.
+        dni: DNI
+        nie: NIE
+        passport: 護照
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: 地址
+              letter_sent_at: 信件發送時間
+              mark_as_sent: 標記為已傳送
+              not_yet_sent: 尚未發送
+              title: 進行中的驗證
+              username: 暱稱
+              verification_code: 驗證碼
+          postages:
+            create:
+              error: 標記信函寄送時發生錯誤.
+              success: 信件已成功標記為已寄出.
+        authorizations:
+          create:
+            error: 您的請求發生問題.
+            success: 謝謝！我們會寄送一個驗證碼到您的地址.
+          edit:
+            send: 確認
+            title: 請輸入您收到的驗證碼。
+            waiting_for_letter: 我們將會儘快寄送一封信件到您的地址，附上驗證碼。
+          new:
+            send: 寄送信件給我
+            title: 重新申請驗證碼
+          update:
+            error: 您的驗證碼與我們的不符。請再次檢查我們寄給您的信件.
+            success: 恭喜您！您已成功通過驗證。
+      sms:
+        authorizations:
+          create:
+            error: 您的請求發生問題.
+            success: 感謝您！我們已經發送了一個SMS簡訊到您的手機。
+          destroy:
+            success: 驗證碼已成功重設。請重新輸入您的電話號碼。
+          edit:
+            confirm_destroy: 您確定要重置驗證碼嗎？
+            destroy: 重置驗證代碼
+            resend: 未收到驗證碼嗎？
+            send: 確認
+            title: 請輸入您收到的驗證碼。
+          new:
+            send: 發送簡訊給我
+            title: 重新申請驗證碼
+          update:
+            error: 您的驗證碼與我們的不符。請仔細檢查我們發送給您的SMS簡訊。
+            success: 恭喜您！您已成功通過驗證。
+  errors:
+    messages:
+      uppercase_only_letters_numbers: 必須全為大寫字母和/或數字

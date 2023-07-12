@@ -8,8 +8,8 @@ module Decidim::Conferences
 
     let(:form_klass) { Admin::PartnerForm }
     let!(:conference) { create(:conference) }
-    let(:partner) { create :partner, :main_promotor, conference: }
-    let!(:current_user) { create :user, :confirmed, organization: conference.organization }
+    let(:partner) { create(:partner, :main_promotor, conference:) }
+    let!(:current_user) { create(:user, :confirmed, organization: conference.organization) }
     let(:logo) do
       ActiveStorage::Blob.create_and_upload!(
         io: File.open(Decidim::Dev.asset("avatar.jpg")),

@@ -2,15 +2,13 @@
 
 module Decidim
   module Consultations
-    # This module, when injected into a controller, ensures there's a
+    # This module, when injected into a controller, ensures there is a
     # question available and deducts it from the context.
     module NeedsQuestion
       def self.enhance_controller(instance_or_module)
         instance_or_module.class_eval do
           helper_method :current_question, :previous_question, :next_question, :previous_published_question, :next_published_question,
                         :current_consultation, :current_participatory_space, :stats, :sorted_results
-
-          helper Decidim::WidgetUrlsHelper
         end
       end
 

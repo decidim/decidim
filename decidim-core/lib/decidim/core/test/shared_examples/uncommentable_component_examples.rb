@@ -9,7 +9,7 @@ shared_examples "an uncommentable component" do
            participatory_space:)
   end
 
-  it "doesn't displays comments count" do
+  it "does not displays comments count" do
     component.update!(settings: { comments_enabled: false })
 
     visit_component

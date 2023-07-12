@@ -16,7 +16,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -47,20 +47,9 @@ module Decidim
         def proposals
           @proposals = Decidim::Proposals::Proposal
                        .where(component: origin_component)
-                       .where(state: proposal_states)
+                       .where(state: @form.states)
           @proposals = @proposals.where(scope: proposal_scopes) unless proposal_scopes.empty?
           @proposals
-        end
-
-        def proposal_states
-          @proposal_states = @form.states
-
-          if @form.states.include?("not_answered")
-            @proposal_states.delete("not_answered")
-            @proposal_states.push(nil)
-          end
-
-          @proposal_states
         end
 
         def proposal_scopes
@@ -76,7 +65,10 @@ module Decidim
         end
 
         def proposal_already_copied?(original_proposal, target_component)
-          original_proposal.linked_resources(:proposals, "copied_from_component").any? do |proposal|
+          # Note: we are including also proposals from unpublished components
+          # because otherwise duplicates could be created until the component is
+          # published.
+          original_proposal.linked_resources(:proposals, "copied_from_component", component_published: false).any? do |proposal|
             proposal.component == target_component
           end
         end

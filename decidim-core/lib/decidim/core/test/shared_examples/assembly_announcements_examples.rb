@@ -2,7 +2,7 @@
 
 shared_examples "manage assemblies announcements" do
   it "can customize a general announcement for the assembly" do
-    click_link translated(assembly.title)
+    click_link "Configure"
 
     fill_in_i18n_editor(
       :assembly_announcement,

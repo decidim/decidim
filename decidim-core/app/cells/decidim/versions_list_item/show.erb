@@ -1,20 +1,4 @@
-<div class="card--list__item">
-  <div class="card--list__text">
-    <div>
-      <%= link_to version_path do %>
-        <h4 class="card--list__heading heading6">
-          <%= i18n_version_index %>
-        </h4>
-      <% end %>
-      <div class="author-data">
-        <%= render_resource_editor(version) %>
-        <%= l version.created_at, format: :decidim_short %>
-      </div>
-    </div>
-  </div>
-  <div class="card--list__data">
-    <%= link_to version_path, class: "card--list__data__icon" do %>
-      <%= icon "chevron-right", role: "img", aria_label: t("decidim.versions_list_item.back") %>
-    <% end %>
-  </div>
-</div>
+<%= link_to version_path, class: "version__list #{params[:id] == index.to_s ? "is-active" : ""}", **html_options do %>
+  <%= i18n_version_index %>
+  <%= icon "checkbox-circle-line" %>
+<% end %>

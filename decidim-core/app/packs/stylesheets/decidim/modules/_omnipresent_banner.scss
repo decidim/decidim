@@ -1,26 +1,26 @@
-.omnipresent-banner{
+.omnipresent-banner {
   background-color: var(--primary);
   color: $white;
   text-align: center;
   padding: 1rem;
   font-size: 1.2em;
 
-  .omnipresent-banner-title{
+  .omnipresent-banner-title {
     font-weight: bold;
     margin-right: 1em;
   }
 
-  .omnipresent-banner-short-description{
-    margin-right: .5em;
+  .omnipresent-banner-short-description {
+    margin-right: 0.5em;
     margin-left: 1em;
   }
 
-  a{
+  a {
     color: $white;
   }
 
   a:hover,
-  a:focus{
-    color: rgba($white, .8);
+  a:focus {
+    color: rgba($white, 0.8);
   }
 }

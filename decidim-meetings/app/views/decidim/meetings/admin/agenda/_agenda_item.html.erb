@@ -21,7 +21,7 @@
   </div>
 
   <div class="card-section">
-    <%= render "agenda_item_fields", tabs_id: tabs_id, form: form, agenda_item: agenda_item %>
+    <%= render "agenda_item_fields", tabs_id:, form:, agenda_item: %>
 
     <div class="card">
       <div class="card-divider">
@@ -32,7 +32,7 @@
           <div class="meeting-agenda-item-childs-list">
             <% agenda_item.agenda_item_children.each do |agenda_item_child| %>
               <%= fields_for "meeting_agenda[agenda_items][#{agenda_item.to_param}][agenda_item_children][]", agenda_item_child do |agenda_item_child_form| %>
-                <%= render "agenda_item_child", form: agenda_item_child_form, tabs_id: tabs_id, tabs_id_child: tabs_id_for_agenda_item_child(agenda_item_child), editable: true %>
+                <%= render "agenda_item_child", form: agenda_item_child_form, tabs_id:, tabs_id_child: tabs_id_for_agenda_item_child(agenda_item_child), editable: true %>
               <% end %>
             <% end %>
           </div>

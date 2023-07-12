@@ -8,7 +8,7 @@ shared_examples "manage assemblies" do
     let(:assembly_parent_id_options) { page.find("#assembly_parent_id").find_all("option").map(&:value) }
 
     before do
-      click_link translated(assembly.title)
+      click_link "Configure"
     end
 
     it "updates an assembly" do
@@ -45,7 +45,9 @@ shared_examples "manage assemblies" do
 
   describe "updating an assembly without images" do
     before do
-      click_link translated(assembly.title)
+      within find("tr", text: translated(assembly.title)) do
+        click_link "Configure"
+      end
     end
 
     it "update an assembly without images does not delete them" do
@@ -61,15 +63,16 @@ shared_examples "manage assemblies" do
 
   describe "previewing assemblies" do
     context "when the assembly is unpublished" do
-      let!(:assembly) { create(:assembly, :unpublished, organization:, parent: parent_assembly) }
+      let!(:assembly) { create(:assembly, :unpublished, :with_content_blocks, organization:, parent: parent_assembly) }
 
       it "allows the user to preview the unpublished assembly" do
         within find("tr", text: translated(assembly.title)) do
           click_link "Preview"
         end
 
-        expect(page).to have_css(".process-header")
-        expect(page).to have_content(translated(assembly.title))
+        within(".participatory-space__container") do
+          expect(page).to have_content(translated(assembly.title))
+        end
       end
     end
 
@@ -97,7 +100,9 @@ shared_examples "manage assemblies" do
     let!(:assembly) { create(:assembly, :unpublished, organization:, parent: parent_assembly) }
 
     before do
-      click_link translated(assembly.title)
+      within find("tr", text: translated(assembly.title)) do
+        click_link "Configure"
+      end
     end
 
     it "publishes the assembly" do
@@ -115,7 +120,9 @@ shared_examples "manage assemblies" do
     let!(:assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
     before do
-      click_link translated(assembly.title)
+      within find("tr", text: translated(assembly.title)) do
+        click_link "Configure"
+      end
     end
 
     it "unpublishes the assembly" do
@@ -132,7 +139,7 @@ shared_examples "manage assemblies" do
   context "when there are multiple organizations in the system" do
     let!(:external_assembly) { create(:assembly, parent: parent_assembly) }
 
-    it "doesn't let the admin manage assemblies form other organizations" do
+    it "does not let the admin manage assemblies form other organizations" do
       within "table" do
         expect(page).not_to have_content(external_assembly.title["en"])
       end
@@ -147,7 +154,7 @@ shared_examples "manage assemblies" do
     end
 
     it "disables the scope for the assembly" do
-      click_link translated(assembly.title)
+      click_link "Configure"
 
       uncheck :assembly_scopes_enabled
 

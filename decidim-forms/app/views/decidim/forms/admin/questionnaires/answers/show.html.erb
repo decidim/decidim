@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t ".title", number: current_idx %>
       <div class="button--title">
-        <%= link_to_unless last?,  t("actions.next", scope: "decidim.forms.admin.questionnaires.answers").html_safe, next_url, rel: "next", class: "button tiny button--title next" %>
+        <%= link_to_unless last?, t("actions.next", scope: "decidim.forms.admin.questionnaires.answers").html_safe, next_url, rel: "next", class: "button tiny button--title next" %>
       </div>
       <div class="button--title">
         <%= link_to_unless first?, t("actions.previous", scope: "decidim.forms.admin.questionnaires.answers").html_safe, prev_url, rel: "prev", class: "button tiny button--title prev" %>
@@ -20,10 +20,10 @@
         <thead>
           <tr>
             <th><%= t("session_token", scope: "decidim.forms.user_answers_serializer") %></th>
-            <th><%= t("user_status",   scope: "decidim.forms.user_answers_serializer") %></th>
-            <th><%= t("ip_hash",       scope: "decidim.forms.user_answers_serializer") %></th>
-            <th><%= t("completion",    scope: "decidim.forms.user_answers_serializer") %></th>
-            <th><%= t("created_at",    scope: "decidim.forms.user_answers_serializer") %></th>
+            <th><%= t("user_status", scope: "decidim.forms.user_answers_serializer") %></th>
+            <th><%= t("ip_hash", scope: "decidim.forms.user_answers_serializer") %></th>
+            <th><%= t("completion", scope: "decidim.forms.user_answers_serializer") %></th>
+            <th><%= t("created_at", scope: "decidim.forms.user_answers_serializer") %></th>
             <th></th>
           </tr>
         </thead>

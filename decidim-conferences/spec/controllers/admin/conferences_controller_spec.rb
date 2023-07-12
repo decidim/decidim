@@ -30,6 +30,7 @@ module Decidim
             slogan: conference.slogan,
             description: conference.description,
             short_description: conference.short_description,
+            weight: conference.weight,
             slug: conference.slug,
             start_date: conference.start_date,
             end_date: conference.end_date,
@@ -42,7 +43,8 @@ module Decidim
           expect(Decidim::Conferences::Admin::ConferenceForm).to receive(:from_params).with(hash_including(id: conference.id.to_s)).and_call_original
           patch :update, params: { slug: conference.id, conference: conference_params }
 
-          expect(response).to be_successful
+          expect(response).to have_http_status(:found)
+          expect(response).to redirect_to edit_conference_path(conference)
         end
       end
     end

@@ -1,0 +1,21 @@
+.authorization-modal {
+  @apply pb-16 pr-16;
+
+  &__verification {
+    p {
+      @apply text-gray-2 text-lg;
+    }
+
+    p + * {
+      @apply mt-8;
+    }
+
+    li {
+      @apply font-semibold;
+    }
+
+    &-container {
+      @apply mt-8 space-y-8;
+    }
+  }
+}

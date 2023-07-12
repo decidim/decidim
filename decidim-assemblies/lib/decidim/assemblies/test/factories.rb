@@ -91,6 +91,22 @@ FactoryBot.define do
     trait :opaque do
       is_transparent { false }
     end
+
+    trait :with_content_blocks do
+      transient { blocks_manifests { [:hero] } }
+
+      after(:create) do |assembly, evaluator|
+        evaluator.blocks_manifests.each do |manifest_name|
+          create(
+            :content_block,
+            organization: assembly.organization,
+            scope_name: :assembly_homepage,
+            manifest_name:,
+            scoped_resource_id: assembly.id
+          )
+        end
+      end
+    end
   end
 
   factory :assembly_user_role, class: "Decidim::AssemblyUserRole" do
@@ -105,6 +121,7 @@ FactoryBot.define do
     end
 
     organization { assembly.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :assembly_user_role,
@@ -120,6 +137,7 @@ FactoryBot.define do
     end
 
     organization { assembly.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :assembly_user_role,
@@ -135,6 +153,7 @@ FactoryBot.define do
     end
 
     organization { assembly.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :assembly_user_role,
@@ -150,6 +169,7 @@ FactoryBot.define do
     end
 
     organization { assembly.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :assembly_user_role,

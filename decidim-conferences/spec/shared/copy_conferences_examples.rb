@@ -2,7 +2,7 @@
 
 shared_examples "copy conferences" do
   let!(:conference) { create(:conference, organization:) }
-  let!(:component) { create :component, manifest_name: :dummy, participatory_space: conference }
+  let!(:component) { create(:component, manifest_name: :dummy, participatory_space: conference) }
   let!(:category) do
     create(
       :category,
@@ -60,7 +60,9 @@ shared_examples "copy conferences" do
 
       expect(page).to have_content("successfully")
 
-      click_link "Copy conference"
+      within find("tr", text: "Copy conference") do
+        click_link "Configure"
+      end
       click_link "Categories"
 
       within ".table-list" do
@@ -76,7 +78,9 @@ shared_examples "copy conferences" do
 
       expect(page).to have_content("successfully")
 
-      click_link "Copy conference"
+      within find("tr", text: "Copy conference") do
+        click_link "Configure"
+      end
       click_link "Components"
 
       within ".table-list" do

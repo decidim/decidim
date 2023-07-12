@@ -1,0 +1,5 @@
+fa:
+  activemodel:
+    attributes:
+      oauth_application:
+        organization_name: حساب

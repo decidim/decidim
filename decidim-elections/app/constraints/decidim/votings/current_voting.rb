@@ -2,7 +2,7 @@
 
 module Decidim
   module Votings
-    # This class infers the current voting we're scoped to by
+    # This class infers the current voting we are scoped to by
     # looking at the request parameters and the organization in the request
     # environment, and injects it into the environment.
     class CurrentVoting

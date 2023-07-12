@@ -6,6 +6,20 @@ describe "Admin manages questions", type: :system do
   include_context "when administrating a consultation"
 
   describe "creating a question" do
+    context "when displaying the form" do
+      before do
+        switch_to_host(organization.host)
+        login_as user, scope: :user
+        visit decidim_admin_consultations.consultation_questions_path(consultation)
+        click_link("New question")
+      end
+
+      %w(question_context what_is_decided).each do |field|
+        it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='question-#{field}-tabs']", "full"
+      end
+      it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='question-title-tabs']", "basic"
+    end
+
     it "creates a new question" do
       switch_to_host(organization.host)
       login_as user, scope: :user

@@ -1,7 +1,7 @@
 <%
-  @sections = [
-    "Proposals", "Meetings", "Members", "Processes", "Assemblies", "Initiatives"
-  ]
+  @sections = %w(
+    Proposals Meetings Members Processes Assemblies Initiatives
+  )
 %>
 <label class="text-medium mb-s">Jump to:</label>
 <div class="card card--secondary">
@@ -24,7 +24,9 @@
     </div>
   </div>
 </div>
-<% actives = 12; pasts = 12; futures = 12; %>
+<% actives = 12
+   pasts = 12
+   futures = 12 %>
 <div class="row collapse order-by">
   <div class="text-uppercase text-right">
     <span class="order-by__tabs">

@@ -1,33 +1,33 @@
-.conference-registration{
+.conference-registration {
   @extend .card;
 
   padding: $global-padding;
 
-  .registration__text{
-    > *{
+  .registration__text {
+    > * {
       display: block;
     }
 
-    strong{
+    strong {
       font-size: rem-calc(18);
     }
 
-    span{
+    span {
       font-size: rem-calc(14);
       color: $muted;
     }
   }
 
-  .registration__buttons{
+  .registration__buttons {
     @include flexgap($global-margin);
 
-    @include breakpoint(medium down){
+    @include breakpoint(medium down) {
       margin-top: $global-margin;
     }
 
     flex-shrink: 0;
 
-    > :first-child{
+    > :first-child {
       border: $border;
     }
   }

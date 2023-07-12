@@ -7,12 +7,12 @@ module Decidim
     describe UnvoteQuestion do
       subject { described_class.new(question, user) }
 
-      let(:organization) { create :organization }
-      let(:consultation) { create :consultation, organization: }
-      let(:question) { create :question, consultation: }
-      let(:response) { create :response, question: }
-      let(:user) { create :user, organization: }
-      let!(:vote) { create :vote, author: user, question:, response: }
+      let(:organization) { create(:organization) }
+      let(:consultation) { create(:consultation, organization:) }
+      let(:question) { create(:question, consultation:) }
+      let(:response) { create(:response, question:) }
+      let(:user) { create(:user, organization:) }
+      let!(:vote) { create(:vote, author: user, question:, response:) }
 
       context "when user unvotes the question" do
         it "broadcasts ok" do

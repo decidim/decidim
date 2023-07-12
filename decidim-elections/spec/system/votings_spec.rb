@@ -11,7 +11,7 @@ describe "Votings", type: :system do
   end
 
   context "with only one voting in the votings space" do
-    let!(:single_voting) { create :voting, :published, organization: }
+    let!(:single_voting) { create(:voting, :published, organization:) }
 
     before do
       visit decidim_votings.votings_path
@@ -55,7 +55,7 @@ describe "Votings", type: :system do
 
         it "lists the votings ordered by created at" do
           within ".order-by" do
-            expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+            expect(page).to have_selector("div.order-by a", text: "Random")
             page.find("a", text: "Random").click
             click_link "Most recent"
           end
@@ -76,7 +76,7 @@ describe "Votings", type: :system do
 
       it "shows all votings" do
         within ".order-by" do
-          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          expect(page).to have_selector("div.order-by a", text: "Random")
         end
 
         expect(page).to have_selector(".card--voting", count: 2)
@@ -111,7 +111,7 @@ describe "Votings", type: :system do
           fill_in "filter[search_text_cont]", with: translated(voting.title)
 
           # The form should be auto-submitted when filter box is filled up, but
-          # somehow it's not happening. So we workaround that be explicitly
+          # somehow it is not happening. So we workaround that be explicitly
           # clicking on "Search" until we find out why.
           find(".icon--magnifying-glass").click
         end
@@ -179,7 +179,7 @@ describe "Votings", type: :system do
 
       it "I see an alert" do
         expect(page).to have_content("Currently, there are no scheduled votings, but here you can find the finished votings listed.")
-        expect(page).to have_selector(".announcement", count: 1)
+        expect(page).to have_selector(".callout[data-announcement]", count: 1)
       end
     end
   end

@@ -110,7 +110,7 @@ export default class PollComponent {
 
   /**
    * Initializes the state of a single question with two types of modifications:
-   *   - sets the is-new class if the question is new (doesn't exist in the internal list)
+   *   - sets the is-new class if the question is new (does not exist in the internal list)
    *   - sets the state to open if it was open in the internal list
    * @private
    * @param {jQuery} $el - The HTML container for the questionnaire.

@@ -22,7 +22,7 @@ module Decidim
   #   contained in any of them as spaces.
   # :scopes - a collection of `Decidim::Scope`. It will return any activity that
   #   took place in any of those scopes.
-  class PublicActivities < Decidim::Query
+  class PublicActivities < LastActivity
     def initialize(organization, options = {})
       @organization = organization
       @resource_name = options[:resource_name]
@@ -33,26 +33,19 @@ module Decidim
     end
 
     def query
-      query = ActionLog
-              .where(visibility:)
-              .where(organization:)
+      query = base_query
 
       query = query.where(user:) if user
       query = query.where(resource_type: resource_name) if resource_name.present?
 
       query = filter_follows(query)
-      query = filter_hidden(query)
-
-      query.order(created_at: :desc)
+      query = filter_moderated(query)
+      filter_spaces(query)
     end
 
     private
 
-    attr_reader :organization, :resource_name, :user, :current_user, :follows, :scopes
-
-    def visibility
-      %w(public-only all)
-    end
+    attr_reader :resource_name, :user, :follows, :scopes
 
     def filter_follows(query)
       conditions = []
@@ -77,50 +70,6 @@ module Decidim
       end
 
       query.where(chained_conditions)
-    end
-
-    def filter_hidden(query)
-      # Filter out the items that have been moderated.
-      query = query.joins(
-        <<~SQL.squish
-          LEFT JOIN decidim_moderations
-            ON decidim_moderations.decidim_reportable_type = decidim_action_logs.resource_type
-            AND decidim_moderations.decidim_reportable_id = decidim_action_logs.resource_id
-            AND decidim_moderations.hidden_at IS NOT NULL
-        SQL
-      ).where(decidim_moderations: { id: nil })
-
-      # Filter out the private space items that should not be visible for the
-      # current user.
-      current_user_id = current_user&.id.to_i
-      Decidim.participatory_space_manifests.map do |manifest|
-        klass = manifest.model_class_name.constantize
-        next unless klass.include?(Decidim::HasPrivateUsers)
-
-        table = klass.table_name
-        query = query.joins(
-          Arel.sql(
-            <<~SQL.squish
-              LEFT JOIN #{table}
-                ON decidim_action_logs.participatory_space_type = '#{manifest.model_class_name}'
-                AND #{table}.id = decidim_action_logs.participatory_space_id
-              LEFT JOIN decidim_participatory_space_private_users AS #{manifest.name}_private_users
-                ON #{manifest.name}_private_users.privatable_to_type = '#{manifest.model_class_name}'
-                AND #{table}.id = #{manifest.name}_private_users.privatable_to_id
-            SQL
-          ).to_s
-        ).where(
-          Arel.sql(
-            <<~SQL.squish
-              #{table}.id IS NULL OR
-              #{table}.private_space = 'f' OR
-              #{manifest.name}_private_users.decidim_user_id = #{current_user_id}
-            SQL
-          ).to_s
-        )
-      end
-
-      query
     end
 
     def followed_users_conditions(follows)

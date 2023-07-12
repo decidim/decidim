@@ -53,7 +53,7 @@ module Decidim
     end
 
     def meet_push_notifications_requirements?
-      Rails.application.secrets.vapid[:enabled]
+      Rails.application.secrets.dig(:vapid, :enabled) || false
     end
   end
 end

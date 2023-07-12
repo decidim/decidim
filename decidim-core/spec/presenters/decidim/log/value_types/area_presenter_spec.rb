@@ -6,7 +6,7 @@ describe Decidim::Log::ValueTypes::AreaPresenter, type: :helper do
   subject { described_class.new(value, helper) }
 
   let(:value) { area.id }
-  let!(:area) { create :area }
+  let!(:area) { create(:area) }
 
   before do
     helper.extend(Decidim::ApplicationHelper)
@@ -22,7 +22,7 @@ describe Decidim::Log::ValueTypes::AreaPresenter, type: :helper do
       end
     end
 
-    context "when the area isn't found" do
+    context "when the area is not found" do
       let(:value) { area.id + 1 }
 
       it "shows a string explaining the problem" do

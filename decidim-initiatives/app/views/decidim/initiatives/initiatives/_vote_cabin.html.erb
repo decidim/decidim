@@ -1,14 +1,14 @@
 <% if initiative.accepts_online_votes? %>
     <%= render partial: "decidim/initiatives/initiatives/vote_button",
                locals: {
-                   initiative: initiative,
-                   vote_label: t(".vote"),
-                   unvote_label: t(".already_voted"),
-                   verification_label: t(".verification_required"),
-                   steps: signature_has_steps?
+                 initiative:,
+                 vote_label: t("vote", scope: "decidim.initiatives.initiatives.vote_cabin"),
+                 unvote_label: t("already_voted", scope: "decidim.initiatives.initiatives.vote_cabin"),
+                 verification_label: t("verification_required", scope: "decidim.initiatives.initiatives.vote_cabin"),
+                 steps: signature_has_steps?
                } %>
 <% else %>
-  <button class='button expanded light button--sc disabled' disabled>
-    <%= t(".votes_blocked") %>
+  <button class='button button__lg button__secondary w-full' disabled>
+    <%= t("votes_blocked", scope: "decidim.initiatives.initiatives.vote_cabin") %>
   </button>
 <% end %>

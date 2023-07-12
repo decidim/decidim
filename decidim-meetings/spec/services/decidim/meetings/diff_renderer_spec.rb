@@ -3,13 +3,13 @@
 require "spec_helper"
 
 describe Decidim::Meetings::DiffRenderer, versioning: true do
-  let!(:meeting) { create :meeting }
+  let!(:meeting) { create(:meeting) }
   let!(:old_values) { meeting.attributes }
   let(:version) { meeting.versions.last }
 
   let!(:start_time) { 1.day.ago }
   let!(:end_time) { Time.zone.now }
-  let!(:user_group) { create :user_group, organization: meeting.organization }
+  let!(:user_group) { create(:user_group, organization: meeting.organization) }
   let!(:scope) { create(:scope, organization: meeting.organization) }
 
   before do
@@ -37,7 +37,7 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
 
     it "calculates the fields that have changed" do
       expect(subject.keys)
-        .to match_array [:title_en, :description_ca, :address, :location_ca, :location_en, :location_hints_ca, :location_hints_en, :start_time, :end_time, :decidim_scope_id]
+        .to contain_exactly(:title_en, :description_ca, :address, :location_ca, :location_en, :location_hints_ca, :location_hints_en, :start_time, :end_time, :decidim_scope_id)
     end
 
     it "has the old and new values for each field" do
@@ -98,8 +98,8 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
         location_en: "Location (English)",
         location_hints_ca: "Location hints (Català)",
         location_hints_en: "Location hints (English)",
-        start_time: "Start Time",
-        end_time: "End Time",
+        start_time: "Start time",
+        end_time: "End time",
         decidim_scope_id: "Scope"
       }
       labels = subject.to_h { |attribute, data| [attribute.to_sym, data[:label]] }
@@ -128,8 +128,8 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
           location_en: "Location (English)",
           location_hints_ca: "Location hints (ca)",
           location_hints_en: "Location hints (English)",
-          start_time: "Start Time",
-          end_time: "End Time",
+          start_time: "Start time",
+          end_time: "End time",
           decidim_scope_id: "Scope"
         }
         labels = subject.to_h { |attribute, data| [attribute.to_sym, data[:label]] }

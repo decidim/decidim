@@ -35,11 +35,11 @@
           <% if i.even? && u===0 %>
             <strong><%= Faker::Name.name %></strong><br>
           <% end %>
-          <%= Faker::Lorem.sentence(Faker::Number.between(from: 5, to: 20)) %>
+          <%= Faker::Lorem.sentence(word_count: Faker::Number.between(from: 5, to: 20)) %>
         </div>
       </article>
       <% end %>
-      <span class="text-small<%= " pull-right" if i.odd? %>"><%= Faker::Date.between(from: 10.days.ago, to: Date.today).strftime("%-m %b") %></span>
+      <span class="text-small<%= " pull-right" if i.odd? %>"><%= Faker::Date.between(from: 10.days.ago, to: Time.zone.today).strftime("%-m %b") %></span>
     </div>
   </div>
   <% end %>

@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Proposals", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
-  let!(:user) { create :user, :confirmed, organization: }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let!(:component) do
     create(:proposal_component,
            :with_creation_enabled,
@@ -43,7 +43,9 @@ describe "Proposals", type: :system do
 
       it "has helper character counter" do
         within "form.new_proposal" do
-          expect(find(".editor").sibling(".form-input-extra-before")).to have_content("At least 15 characters", count: 1)
+          editor = find(".editor")
+          page.scroll_to(editor)
+          expect(editor.sibling("[id^=characters_]:not([id$=_sr])")).to have_content("At least 15 characters", count: 1)
         end
       end
     end

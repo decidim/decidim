@@ -38,7 +38,6 @@ hu:
           description_own: Létrehoztad a(z) %{score} teszteket.
           name: Tesztek
           next_level_in: Hozz létre még %{score} tesztet a következő szint eléréséhez!
-          unearned_another: Ez a felhasználó még nem hozott létre teszteket.
           unearned_own: Még nem hoztál létre teszteket.
     resource_links:
       test_link:

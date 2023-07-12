@@ -98,7 +98,7 @@ module Decidim
         end
       end
 
-      context "when there's a user" do
+      context "when there is a user" do
         let(:model) { create(:conference_speaker, :with_user) }
 
         describe "user" do

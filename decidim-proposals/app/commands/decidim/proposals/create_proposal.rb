@@ -4,7 +4,6 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user creates a new proposal.
     class CreateProposal < Decidim::Command
-      include ::Decidim::AttachmentMethods
       include HashtagsMethods
 
       # Public: Initializes the command.
@@ -21,7 +20,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the proposal.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we could not proceed.
       #
       # Returns nothing.
       def call

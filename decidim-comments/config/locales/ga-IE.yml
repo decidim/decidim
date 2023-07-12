@@ -15,7 +15,6 @@ ga:
         other: Vótaí
   decidim:
     comments:
-      comments_title: Tráchtanna
       view: Amharc
     components:
       add_comment_form:

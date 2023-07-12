@@ -5,11 +5,20 @@ module Decidim
     # The main admin application controller for initiatives
     class ApplicationController < Decidim::ApplicationController
       include NeedsPermission
+      include RedesignLayout
+      redesign active: true
 
       register_permissions(::Decidim::Initiatives::ApplicationController,
                            ::Decidim::Initiatives::Permissions,
                            ::Decidim::Admin::Permissions,
                            ::Decidim::Permissions)
+
+      before_action do
+        if Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
+          flash[:alert] = t("index.uninitialized", scope: "decidim.initiatives")
+          redirect_to(decidim.root_path)
+        end
+      end
 
       def permissions_context
         super.merge(

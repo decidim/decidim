@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Comments
     describe CommentByFollowedUserEvent do
-      include_context "when it's a comment event"
+      include_context "when it is a comment event"
       let(:author) { comment.author }
       let(:resource) { comment.root_commentable }
       let(:event_name) { "decidim.events.comments.comment_by_followed_user" }

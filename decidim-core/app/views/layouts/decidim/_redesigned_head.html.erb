@@ -2,7 +2,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <% available_locales.each do |locale| %>
-  <link rel="alternate" href="<%= url_for(request.parameters.merge(locale: locale)) %>" hreflang="<%= locale %>">
+  <link rel="alternate" href="<%= url_for(request.parameters.merge(locale:)) %>" hreflang="<%= locale %>">
 <% end %>
 
 <meta name="twitter:card" content="summary_large_image">
@@ -26,6 +26,7 @@
 <%= apple_favicon %>
 <link rel="manifest" href="/manifest.webmanifest">
 
+<%= prepend_javascript_pack_tag "redesigned_decidim_core", defer: false %>
 <%= stylesheet_pack_tag "redesigned_decidim_core", media: "all" %>
 <%= yield :css_content %>
 
@@ -35,3 +36,4 @@
 <%= render partial: "layouts/decidim/head_extra" %>
 <%== current_organization.header_snippets if Decidim.enable_html_header_snippets %>
 <%= snippets.display(:head) %>
+<%= content_for :header_snippets %>

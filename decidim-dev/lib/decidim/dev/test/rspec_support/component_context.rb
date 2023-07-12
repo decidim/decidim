@@ -1,5 +1,25 @@
 # frozen_string_literal: true
 
+shared_examples "has mandatory config setting" do |mandatory_field|
+  let(:edit_component_path) do
+    Decidim::EngineRouter.admin_proxy(component.participatory_space).edit_component_path(component.id)
+  end
+
+  before do
+    visit edit_component_path
+    component.update(settings: { mandatory_field => "" })
+    visit edit_component_path
+  end
+
+  it "does not allow updating the component" do
+    click_button "Update"
+
+    within ".#{mandatory_field}_container" do
+      expect(page).to have_content("There is an error in this field")
+    end
+  end
+end
+
 shared_context "with a component" do
   let(:manifest) { Decidim.find_component_manifest(manifest_name) }
   let(:user) { create :user, :confirmed, organization: }

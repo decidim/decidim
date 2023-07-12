@@ -1,4 +1,4 @@
-.opinion-toggle{
+.opinion-toggle {
   margin: 2rem 0;
   display: flex;
   text-align: center;
@@ -6,50 +6,50 @@
 
 .opinion-toggle--ok,
 .opinion-toggle--ko,
-.opinion-toggle--meh{
-  &.is-inactive{
-    opacity: .3;
+.opinion-toggle--meh {
+  &.is-inactive {
+    opacity: 0.3;
   }
 }
 
-.opinion-toggle--ok{
+.opinion-toggle--ok {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 
   &:hover,
   &:focus,
-  &.is-active{
+  &.is-active {
     background-color: $success;
   }
 
-  .icon{
+  .icon {
     vertical-align: middle;
   }
 }
 
-.opinion-toggle--ko{
+.opinion-toggle--ko {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 
   &:hover,
   &:focus,
-  &.is-active{
+  &.is-active {
     background-color: $alert;
   }
 
-  .icon{
+  .icon {
     vertical-align: middle;
   }
 }
 
-.opinion-toggle--meh{
+.opinion-toggle--meh {
   border-radius: 0;
-  padding-left: .5em;
-  padding-right: .5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 
   &:hover,
   &:focus,
-  &.is-active{
+  &.is-active {
     background-color: var(--secondary);
   }
 }

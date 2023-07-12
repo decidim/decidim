@@ -57,7 +57,7 @@ gem "decidim-dev", git: "https://github.com/decidim/decidim", branch: "release/0
 
 == DRY
 
-You can also work with variables in your Gemfile so you can keep it DRY (Don't Repeat Yourself):
+You can also work with variables in your Gemfile so you can keep it DRY (Do not Repeat Yourself):
 
 [source,ruby]
 ----

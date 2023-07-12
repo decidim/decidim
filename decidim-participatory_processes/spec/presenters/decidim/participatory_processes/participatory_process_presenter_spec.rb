@@ -9,7 +9,7 @@ module Decidim
     let!(:process) { create(:participatory_process) }
 
     describe "#hero_image_url" do
-      context "when there's no image" do
+      context "when there is no image" do
         before do
           process.hero_image.purge
         end
@@ -28,7 +28,7 @@ module Decidim
     end
 
     describe "#banner_image_url" do
-      context "when there's no image" do
+      context "when there is no image" do
         before do
           process.banner_image.purge
         end

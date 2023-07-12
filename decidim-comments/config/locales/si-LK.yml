@@ -9,8 +9,6 @@ si:
         one: අදහස
         other: අදහස්
   decidim:
-    comments:
-      comments_title: අදහස්
     components:
       add_comment_form:
         form:

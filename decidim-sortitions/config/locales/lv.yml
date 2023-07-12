@@ -61,10 +61,6 @@ lv:
             title: Izlozes atcelšana
           create:
             error: Jaunas izlozes izveides laikā radās problēma.
-            success: Izloze ir veiksmīgi izveidota
-          destroy:
-            error: Nevarēja atcelt izlozi.
-            success: Izloze ir veiksmīgi atcelta
           edit:
             title: Atjaunināt informāciju par izlozi
             update: Atjaunināt
@@ -81,7 +77,6 @@ lv:
             selected_proposals: Priekšlikumi, kas atlasīti izlozei
           update:
             error: Izlozes atjaunināšanas laikā radās problēma.
-            success: Izloze ir veiksmīgi atjaunināta.
       admin_log:
         sortition:
           create: "%{user_name} izveidoja %{resource_name} izlozi telpā %{space_name}."

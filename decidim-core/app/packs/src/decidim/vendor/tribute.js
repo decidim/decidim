@@ -242,12 +242,12 @@ function () {
     value: function showMenuFor(element, scrollTo) {
       var _this2 = this;
 
-      // Only proceed if menu isn't already shown for the current element & mentionText
+      // Only proceed if menu is not already shown for the current element & mentionText
       if (this.isActive && this.current.element === element && this.current.mentionText === this.currentMentionTextSnapshot) {
         return;
       }
 
-      this.currentMentionTextSnapshot = this.current.mentionText; // create the menu if it doesn't exist.
+      this.currentMentionTextSnapshot = this.current.mentionText; // create the menu if it does not exist.
 
       if (!this.menu) {
         this.menu = this.createMenu();
@@ -1711,7 +1711,7 @@ function () {
     value: function traverse(string, pattern, stringIndex, patternIndex, patternCache) {
       // if the pattern search at end
       if (pattern.length === patternIndex) {
-        // calculate score and copy the cache containing the indices where it's found
+        // calculate score and copy the cache containing the indices where it is found
         return {
           score: this.calculateScore(patternCache),
           cache: patternCache.slice()

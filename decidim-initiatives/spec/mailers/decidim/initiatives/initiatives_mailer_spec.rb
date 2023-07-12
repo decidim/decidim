@@ -5,6 +5,9 @@ require "spec_helper"
 module Decidim
   module Initiatives
     describe InitiativesMailer, type: :mailer do
+      include Decidim::TranslationsHelper
+      include Decidim::SanitizeHelper
+
       let(:organization) { create(:organization, host: "1.lvh.me") }
       let(:initiative) { create(:initiative, organization:) }
       let(:router) { Decidim::Initiatives::Engine.routes.url_helpers }
@@ -15,12 +18,12 @@ module Decidim
 
         context "when the promoting committee is enabled" do
           it "renders the headers" do
-            expect(mail.subject).to eq("Your initiative '#{initiative.title["en"]}' has been created")
+            expect(mail.subject).to eq("Your initiative '#{translated(initiative.title)}' has been created")
             expect(mail.to).to eq([initiative.author.email])
           end
 
           it "renders the body" do
-            expect(mail.body.encoded).to match(initiative.title["en"])
+            expect(mail.body.encoded).to include(decidim_html_escape(translated(initiative.title)))
           end
 
           it "renders the promoter committee help" do
@@ -35,15 +38,15 @@ module Decidim
           let(:initiative) { create(:initiative, organization:, scoped_type:) }
 
           it "renders the headers" do
-            expect(mail.subject).to eq("Your initiative '#{initiative.title["en"]}' has been created")
+            expect(mail.subject).to eq("Your initiative '#{translated(initiative.title)}' has been created")
             expect(mail.to).to eq([initiative.author.email])
           end
 
           it "renders the body" do
-            expect(mail.body.encoded).to match(initiative.title["en"])
+            expect(mail.body.encoded).to include(decidim_html_escape(translated(initiative.title)))
           end
 
-          it "doesn't render the promoter committee help" do
+          it "does not render the promoter committee help" do
             expect(mail.body).not_to match("Forward the following link to invite people to the promoter committee")
           end
         end
@@ -58,12 +61,12 @@ module Decidim
         let(:mail) { described_class.notify_state_change(initiative, initiative.author) }
 
         it "renders the headers" do
-          expect(mail.subject).to eq("The initiative #{initiative.title["en"]} has changed its status")
+          expect(mail.subject).to eq("The initiative #{translated(initiative.title)} has changed its status")
           expect(mail.to).to eq([initiative.author.email])
         end
 
         it "renders the body" do
-          expect(mail.body).to match("The initiative #{initiative.title["en"]} has changed its status to: #{I18n.t(initiative.state, scope: "decidim.initiatives.admin_states")}")
+          expect(mail.body).to include("The initiative #{decidim_sanitize(translated(initiative.title))} has changed its status to: #{I18n.t(initiative.state, scope: "decidim.initiatives.admin_states")}")
         end
       end
 
@@ -71,12 +74,12 @@ module Decidim
         let(:mail) { described_class.notify_progress(initiative, initiative.author) }
 
         it "renders the headers" do
-          expect(mail.subject).to eq("Summary about the initiative: #{initiative.title["en"]}")
+          expect(mail.subject).to eq("Summary about the initiative: #{translated(initiative.title)}")
           expect(mail.to).to eq([initiative.author.email])
         end
 
         it "renders the body" do
-          expect(mail.body.encoded).to match(initiative.title["en"])
+          expect(mail.body.encoded).to include(decidim_sanitize(translated(initiative.title)))
         end
       end
     end

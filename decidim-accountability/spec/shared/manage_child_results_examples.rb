@@ -74,12 +74,14 @@ RSpec.shared_examples "manage child results" do
   describe "deleting a result" do
     before do
       visit current_path
-      click_link translated(result.title)
+      within ".table-list__actions" do
+        click_link "New Result"
+      end
     end
 
     it "deletes a result" do
       within find("tr", text: translated(child_result.title)) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm(admin: true) { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

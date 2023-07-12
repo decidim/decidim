@@ -36,8 +36,8 @@ module Decidim
       # link_name     - The String name of the link between this model and the target resource.
       #
       # Returns an ActiveRecord::Relation.
-      def linked_resources(resource_name, link_name)
-        scope = sibling_scope(resource_name)
+      def linked_resources(resource_name, link_name, component_published: true)
+        scope = sibling_scope(resource_name, component_published:)
 
         from = scope
                .joins(:resource_links_from)
@@ -56,14 +56,15 @@ module Decidim
       # resource_name - The String name of the resource manifest exposed by a component.
       #
       # Returns an ActiveRecord::Relation.
-      def sibling_scope(resource_name)
+      def sibling_scope(resource_name, component_published: true)
         manifest = Decidim.find_resource_manifest(resource_name)
         return self.class.none unless manifest
 
         scope = manifest.resource_scope(component)
         scope = scope.where("#{self.class.table_name}.id != ?", id) if manifest.model_class == self.class
         scope = scope.not_hidden if manifest.model_class.respond_to?(:not_hidden)
-        scope.includes(:component).where.not(decidim_components: { published_at: nil })
+        scope = scope.includes(:component).where.not(decidim_components: { published_at: nil }) if component_published
+        scope
       end
 
       # Links the given resources to this model, replaces any previous links with the same name.

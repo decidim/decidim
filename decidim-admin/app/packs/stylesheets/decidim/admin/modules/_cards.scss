@@ -1,30 +1,30 @@
 $card-padding-small: 1rem;
 
-.card-title{
+.card-title {
   @include smallemphasis;
 
-  button:not(.clear){
+  button:not(.clear) {
     @include smallemphasis;
   }
 
   // clearfix if there is no flex--* class in the same element
-  &:not([class*="flex--"]){
+  &:not([class*="flex--"]) {
     @include clearfix;
   }
 
   font-size: 1rem;
   width: 100%;
 
-  &--nocaps{
+  &--nocaps {
     text-transform: lowercase;
     letter-spacing: 0;
 
-    &::first-letter{
+    &::first-letter {
       text-transform: uppercase;
     }
   }
 
-  .data-picker{
+  .data-picker {
     font-weight: normal;
     letter-spacing: 0;
     margin-bottom: 0;
@@ -32,53 +32,53 @@ $card-padding-small: 1rem;
   }
 }
 
-.card-footer{
+.card-footer {
   padding: $card-padding;
-  border-top: 1px solid rgba(black, .1);
+  border-top: 1px solid rgba(black, 0.1);
 
-  .button--remove{
+  .button--remove {
     margin-left: auto;
   }
 }
 
-.card__icon-open{
+.card__icon-open {
   display: none;
 }
 
-.card--collapsed{
+.card--collapsed {
   .card-section,
-  .card-footer{
+  .card-footer {
     display: none;
   }
 
-  .card__icon-close{
+  .card__icon-close {
     display: none;
   }
 
-  .card__icon-open{
+  .card__icon-open {
     display: block;
   }
 }
 
-.card--list__item{
+.card--list__item {
   display: flex;
   align-items: center;
   padding-left: $card-padding-small;
 
-  .card--list--mini &{
+  .card--list--mini & {
     padding-left: $card-padding-small;
   }
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     padding-left: $card-padding;
   }
 }
 
-.card--list__icon{
+.card--list__icon {
   display: none;
   fill: $anchor-color;
 
-  @include breakpoint(medium){
+  @include breakpoint(medium) {
     margin-right: 1rem;
     display: block;
     width: 30px;
@@ -87,7 +87,7 @@ $card-padding-small: 1rem;
   }
 }
 
-.card--list__text{
+.card--list__text {
   flex-grow: 1;
   flex-shrink: 1;
   display: inline-flex;
@@ -95,32 +95,32 @@ $card-padding-small: 1rem;
   align-items: center;
   padding: 1rem 1rem 1rem 0;
 
-  .card--list--mini &{
-    padding: .5rem .5rem .5rem 0;
+  .card--list--mini & {
+    padding: 0.5rem 0.5rem 0.5rem 0;
   }
 
-  .author{
-    margin-top: .3rem;
+  .author {
+    margin-top: 0.3rem;
     margin-right: 1rem;
   }
 }
 
-.card--list__heading{
+.card--list__heading {
   margin-bottom: 0;
   display: block;
 }
 
-.card-divider{
-  @include modifiers(background){
+.card-divider {
+  @include modifiers(background) {
     color: $white;
   }
 }
 
-.card-divider--reduced{
+.card-divider--reduced {
   // height adjust
-  padding: (($global-padding * .5) + rem-calc(.7)) $global-padding;
+  padding: (($global-padding * 0.5) + rem-calc(0.7)) $global-padding;
 }
 
-.card.with-overflow{
+.card.with-overflow {
   overflow: visible;
 }

@@ -7,7 +7,7 @@ module Decidim
     subject { described_class.new(params) }
 
     let(:organization) { create(:organization) }
-    let(:scope1) { create :scope, organization: }
+    let(:scope1) { create(:scope, organization:) }
     let!(:user) { create(:user, nickname: "the_solitary_man", name: "Neil Diamond", organization:) }
 
     describe "Indexing of users" do
@@ -23,7 +23,7 @@ module Decidim
           context "when User has been deleted" do
             let!(:user) { create(:user, :deleted, name: "Neil Diamond", organization:) }
 
-            it "doesn't inserts a SearchableResource" do
+            it "does not inserts a SearchableResource" do
               organization.available_locales.each do |locale|
                 searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale:)
 
@@ -35,7 +35,7 @@ module Decidim
           context "when User has been blocked" do
             let!(:user) { create(:user, :blocked, name: "Neil Diamond", organization:) }
 
-            it "doesn't inserts a SearchableResource" do
+            it "does not inserts a SearchableResource" do
               organization.available_locales.each do |locale|
                 searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale:)
 
@@ -59,7 +59,7 @@ module Decidim
           end
 
           context "when User has been deleted" do
-            it "doesn't updates the associated SearchableResource" do
+            it "does not updates the associated SearchableResource" do
               searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id)
               expect(searchable).not_to be_nil
               user.update!({
@@ -75,7 +75,7 @@ module Decidim
           end
 
           context "when User has been blocked" do
-            it "doesn't updates the associated SearchableResource" do
+            it "does not updates the associated SearchableResource" do
               searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id)
               expect(searchable).not_to be_nil
               user.update!({
@@ -132,7 +132,7 @@ module Decidim
         context "when User has been deleted" do
           let!(:user2) { create(:user, :deleted, name: "Neil Young", organization:) }
 
-          it "doesn't returns User results" do
+          it "does not returns User results" do
             expect_searched_user_results("Neil", 1, [user])
           end
         end
@@ -140,7 +140,7 @@ module Decidim
         context "when User has been blocked" do
           let!(:user2) { create(:user, :blocked, name: "Neil Young", organization:) }
 
-          it "doesn't returns User results" do
+          it "does not returns User results" do
             expect_searched_user_results("Neil", 1, [user])
           end
         end

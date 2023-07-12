@@ -20,7 +20,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a survey" do
+          it "does not create a survey" do
             expect do
               command.call
             end.not_to change(Survey, :count)

@@ -21,8 +21,6 @@ is-IS:
           project:
             name: Verkefni
         projects:
-          create:
-            success: Verkefni búin til með góðum árangri
           edit:
             title: Breyta verkefnum
             update: Uppfæra
@@ -32,8 +30,6 @@ is-IS:
             title: Verkefni
           new:
             create: Búa til
-          update:
-            success: Verkefnið hefur verið uppfært
       admin_log:
         project:
           create: "%{user_name} búið til %{resource_name} verkefnið í %{space_name} rúminu"
@@ -59,7 +55,6 @@ is-IS:
           assigned: 'Úthlutað:'
           cancel_order: Eyðu atkvæðagreiðslunni og farðu yfir
           checked_out:
-            description: Þú hefur þegar kosið fyrir fjárhagsáætlunina. Ef þú hefur skipt um skoðun geturðu %{cancel_link}.
             title: Fjárhagsleg atkvæði lokið
           title: Þú ákveður fjárhagsáætlunina
         count:

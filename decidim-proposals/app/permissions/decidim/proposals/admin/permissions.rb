@@ -112,7 +112,7 @@ module Decidim
           component_settings.participatory_texts_enabled?
         end
 
-        # There's no special condition to create proposal notes, only
+        # There is no special condition to create proposal notes, only
         # users with access to the admin section can do it.
         def can_create_proposal_note?
           allow! if permission_action.subject == :proposal_note

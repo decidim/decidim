@@ -9,9 +9,9 @@ module Decidim::Conferences
     let!(:organization) { create(:organization) }
 
     let!(:published_conferences) do
-      create(:conference, :published, organization:, start_date: 1.year.ago, end_date: 1.year.ago + 3.days)
-      create(:conference, :published, organization:, start_date: 30.days.ago, end_date: 30.days.ago + 7.days)
-      create(:conference, :published, organization:, start_date: 7.days.from_now, end_date: 7.days.from_now + 4.days)
+      create(:conference, :published, organization:, weight: 2)
+      create(:conference, :published, organization:, weight: 3)
+      create(:conference, :published, organization:, weight: 1)
     end
 
     let!(:unpublished_conferences) do
@@ -35,8 +35,8 @@ module Decidim::Conferences
         expect(subject).not_to include(*foreign_conferences)
       end
 
-      it "order conferences by start date" do
-        expect(subject.to_a.first.start_date).to eq 7.days.from_now.to_date
+      it "order conferences by weight" do
+        expect(subject.to_a.first.weight).to eq 1
       end
     end
   end

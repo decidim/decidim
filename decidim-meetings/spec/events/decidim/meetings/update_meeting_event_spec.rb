@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Meetings::UpdateMeetingEvent do
-  let(:resource) { create :meeting, title: { en: "It's my meeting" } }
+  let(:resource) { create(:meeting, title: { en: "It is my meeting" }) }
   let(:resource_title) { translated(resource.title) }
   let(:event_name) { "decidim.events.meetings.meeting_updated" }
 

@@ -166,7 +166,7 @@ module Decidim
         context "with votes disabled" do
           let(:votes_enabled) { false }
 
-          it "doesn't show most_voted option to sort" do
+          it "does not show most_voted option to sort" do
             expect(view.available_orders).not_to include("most_voted")
           end
         end
@@ -182,7 +182,7 @@ module Decidim
         context "with endorsements disabled" do
           let(:endorsements_enabled) { false }
 
-          it "doesn't show most_endorsed option to sort" do
+          it "does not show most_endorsed option to sort" do
             expect(view.available_orders).not_to include("most_endorsed")
           end
         end
@@ -198,7 +198,7 @@ module Decidim
         context "with comments disabled" do
           let(:comments_enabled) { false }
 
-          it "doesn't show most_commented option to sort" do
+          it "does not show most_commented option to sort" do
             expect(view.available_orders).not_to include("most_commented")
           end
         end

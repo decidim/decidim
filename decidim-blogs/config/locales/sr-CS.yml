@@ -1,10 +1,5 @@
 sr:
   decidim:
-    blogs:
-      posts:
-        show:
-          back: Nazad na listu
-          comments: Komentari
     components:
       blogs:
         settings:

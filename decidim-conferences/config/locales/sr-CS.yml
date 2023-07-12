@@ -5,11 +5,6 @@ sr:
         conference_user_role:
           roles:
             valuator: Procenjivač
-    conferences:
-      photo:
-        image:
-          attributes:
-            alt: Slika
     events:
       conferences:
         role_assigned:

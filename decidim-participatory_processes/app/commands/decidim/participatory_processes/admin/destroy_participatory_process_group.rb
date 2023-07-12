@@ -17,7 +17,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when the record could be deleted.
-        # - :invalid when the record couldn't be deleted.
+        # - :invalid when the record could not be deleted.
         #
         # Returns nothing.
         def call

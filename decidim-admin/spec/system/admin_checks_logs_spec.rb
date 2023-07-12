@@ -6,7 +6,7 @@ describe "Admin checks logs", type: :system do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
-  let!(:action_logs) { create_list :action_log, 3, organization: }
+  let!(:action_logs) { create_list(:action_log, 3, organization:) }
 
   before do
     switch_to_host(organization.host)

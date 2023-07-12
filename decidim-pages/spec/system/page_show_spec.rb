@@ -27,6 +27,7 @@ describe "Show a page", type: :system do
       end
 
       it_behaves_like "accessible page"
+      it_behaves_like "has embedded video in description", :body
 
       it "renders the content of the page" do
         expect(page).to have_content("Content")

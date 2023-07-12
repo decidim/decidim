@@ -4,10 +4,7 @@ module Decidim
   class UserActivityCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
     include CellsPaginateHelper
-    include Decidim::LayoutHelper
     include Decidim::Core::Engine.routes.url_helpers
-    include ActionView::Helpers::FormOptionsHelper
-    include Decidim::FiltersHelper
 
     def show
       render :show
@@ -19,6 +16,10 @@ module Decidim
 
     def resource_types
       context[:resource_types]
+    end
+
+    def filter
+      context[:filter]
     end
   end
 end

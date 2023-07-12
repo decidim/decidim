@@ -7,9 +7,12 @@ module Decidim
     include UserGroups
     include FilterResource
     include Flaggable
+    include HasProfileBreadcrumb
 
     helper Decidim::ResourceHelper
     helper_method :activities, :resource_types, :user
+
+    redesign active: true
 
     def index
       raise ActionController::RoutingError, "Missing user: #{params[:nickname]}" unless user
@@ -48,6 +51,10 @@ module Decidim
 
     def default_filter_params
       { resource_type: nil }
+    end
+
+    def all_value
+      "all"
     end
 
     def resource_types

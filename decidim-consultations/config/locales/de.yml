@@ -51,7 +51,7 @@ de:
         decidim/consultations/vote:
           attributes:
             question:
-              invalid_num_votes: Die Anzahl der Stimmen ist ungültig
+              invalid_num_votes: Die Anzahl der Stimmen ist ungültig.
     models:
       decidim/consultation:
         one: Beratung
@@ -94,7 +94,7 @@ de:
         create:
           error: Beim Erstellen einer neuen Konsultation ist ein Fehler aufgetreten.
           success: Beratung erfolgreich erstellt.
-        deprecation_warning: Das Beratungsmodul wird in naher Zukunft veraltet sein. Wir arbeiten an der nächsten, kryptographisch sicheren Version namens Votings.
+        deprecation_warning: Das Beratungsmodul wird in naher Zukunft veraltet sein. Wir arbeiten an der nächsten, kryptographisch sicheren Version namens Abstimmungen.
         edit:
           update: Aktualisieren
         form:
@@ -153,7 +153,7 @@ de:
             one: Antwort
             other: Antworten
       question_configuration:
-        disable_external_voting: Bitte deaktivieren Sie externe Abstimmung für erweiterte Konfigurationen
+        disable_external_voting: Bitte deaktivieren Sie externe Abstimmung für erweiterte Konfigurationen.
         form:
           help: Sie können Multiple-Choice-Fragen einstellen, indem Sie die maximale Anzahl von Antworten für Teilnehmer erhöhen. Der Standardwert ist 1, was bedeutet dass nur eine Antwort als Stimme abgegeben werden kann.
           title: Erweiterte Konfiguration
@@ -265,8 +265,8 @@ de:
       index:
         title: Konsultationen
       last_activity:
-        new_consultation: Neue Konsultation
-        new_question_at_html: "<span>Neue Frage bei %{link}</span>"
+        new_consultation: 'Neue Konsultation:'
+        new_question: 'Neue Frage:'
       pages:
         home:
           highlighted_consultations:
@@ -300,7 +300,7 @@ de:
             votes: Stimmen
       question_votes:
         create:
-          error: Es gab Fehler bei der Abstimmung der Frage
+          error: Es gab Fehler bei der Abstimmung der Frage.
           success: Sie können dies bis zum Ende der Konsultation ändern. Nur die letzte Stimme wird akzeptiert.
           title_error: Abstimmungsfehler!
           title_success: Stimme erfolgreich registriert
@@ -361,6 +361,10 @@ de:
         actions:
           comment: Kommentar
           vote: Abstimmung
+      question:
+        actions:
+          comment: Kommentieren
+          vote: Abstimmen
     statistics:
       consultations_count: Beratungen
       votes_count: Stimmen

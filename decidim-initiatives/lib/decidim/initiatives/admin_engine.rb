@@ -83,19 +83,25 @@ module Decidim
         end
       end
 
-      initializer "decidim_initiaves.admin_menu" do
+      initializer "decidim_initiatives_admin.menu" do
         Decidim.menu :admin_menu do |menu|
           menu.add_item :initiatives,
                         I18n.t("menu.initiatives", scope: "decidim.admin"),
                         decidim_admin_initiatives.initiatives_path,
                         icon_name: "chat",
                         position: 2.4,
-                        active: :inclusive,
+                        active: is_active_link?(decidim_admin_initiatives.initiatives_path) ||
+                                is_active_link?(decidim_admin_initiatives.initiatives_types_path) ||
+                                is_active_link?(
+                                  decidim_admin_initiatives.edit_initiatives_setting_path(
+                                    Decidim::InitiativesSettings.find_or_create_by!(organization: current_organization)
+                                  )
+                                ),
                         if: allowed_to?(:enter, :space_area, space_name: :initiatives)
         end
       end
 
-      initializer "admin_decidim_initiatives.admin_components_menu" do
+      initializer "decidim_initiatives_admin.components_menu" do
         Decidim.menu :admin_initiatives_components_menu do |menu|
           current_participatory_space.components.each do |component|
             caption = translated_attribute(component.name)
@@ -112,7 +118,7 @@ module Decidim
         end
       end
 
-      initializer "admin_decidim_initiative.admin_menu" do
+      initializer "decidim_initiatives_admin.initiative_menu" do
         Decidim.menu :admin_initiative_menu do |menu|
           menu.add_item :edit_initiative,
                         I18n.t("menu.information", scope: "decidim.admin"),
@@ -147,7 +153,7 @@ module Decidim
         end
       end
 
-      initializer "admin_decidim_initiatives.admin_menu" do
+      initializer "decidim_initiatives_admin.initiatives_menu" do
         Decidim.menu :admin_initiatives_menu do |menu|
           menu.add_item :initiatives,
                         I18n.t("menu.initiatives", scope: "decidim.admin"),

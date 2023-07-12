@@ -25,6 +25,8 @@ describe "Admin manages votings", type: :system do
       end
     end
 
+    it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='voting-description-tabs']", "full"
+
     it "creates a new voting" do
       page.execute_script("$('#voting_start_time').focus()")
       page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
@@ -125,7 +127,9 @@ describe "Admin manages votings", type: :system do
     let(:elections_component) { create(:elections_component, participatory_space: voting) }
 
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "updates a voting" do
@@ -146,7 +150,7 @@ describe "Admin manages votings", type: :system do
       end
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).not_to have_admin_callout("You don't have any election configured")
+      expect(page).not_to have_admin_callout("You do not have any election configured")
 
       within ".container" do
         expect(page).to have_selector("input[value='My new title']")
@@ -158,7 +162,9 @@ describe "Admin manages votings", type: :system do
 
   describe "updating a voting with invalid values" do
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "does not update the voting" do
@@ -180,18 +186,20 @@ describe "Admin manages votings", type: :system do
 
   describe "updating a voting with invalid image" do
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "shows an error inside the upload modal" do
       find("#voting_banner_image_button").click
 
       within ".upload-modal" do
-        find(".remove-upload-item").click
+        click_button "Remove"
         input_element = find("input[type='file']", visible: :all)
         input_element.attach_file(image_invalid_path)
 
-        expect(page).to have_content("file should be one of image/jpeg, image/png", count: 1)
+        expect(page).to have_content("only files with the following extensions are allowed: jpeg, jpg, png", count: 1)
         expect(page).to have_css(".upload-errors .form-error", count: 1)
       end
     end
@@ -205,7 +213,9 @@ describe "Admin manages votings", type: :system do
     end
 
     it "does not delete them" do
-      click_link translated(voting3.title)
+      within find("tr", text: translated(voting3.title)) do
+        click_link "Configure"
+      end
 
       within ".edit_voting" do
         find("*[type=submit]").click
@@ -243,7 +253,9 @@ describe "Admin manages votings", type: :system do
     let!(:voting) { create(:voting, :unpublished, organization:) }
 
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "publishes the voting" do
@@ -261,7 +273,9 @@ describe "Admin manages votings", type: :system do
     let!(:voting) { create(:voting, :published, organization:) }
 
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "unpublishes the voting" do
@@ -282,7 +296,7 @@ describe "Admin manages votings", type: :system do
       visit decidim_admin_votings.votings_path
     end
 
-    it "doesn't let the admin manage votings from other organizations" do
+    it "does not let the admin manage votings from other organizations" do
       within "table" do
         expect(page).not_to have_content(external_voting.title["en"])
       end
@@ -291,7 +305,9 @@ describe "Admin manages votings", type: :system do
 
   it "renders the sub nav to manage voting's settings" do
     within ".table-list" do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     within ".secondary-nav--subnav" do

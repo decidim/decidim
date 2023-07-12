@@ -11,8 +11,16 @@
     <%= cell("decidim/announcement", announcement_body, callout_class: current_user.admin_terms_accepted? ? "success" : "warning" ) %>
   <% end %>
 
+  <% if count_pending_moderations.positive? && allowed_to?(:read, :global_moderation) %>
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-12 medium-6 large-4">
+        <%= render "pending_moderations" %>
+      </div>
+    </div>
+  <% end %>
+
   <div class="grid-x grid-margin-x">
-    <% if current_user.admin? && current_user.organization&.id == current_organization.id %>
+    <% if allowed_to? :read, :users_statistics %>
       <div class="cell small-12 medium-6 large-4">
         <%= render(
           partial: "decidim/admin/users_statistics/users_count",
@@ -30,7 +38,7 @@
         <%= render(
           partial: "decidim/admin/metrics/metrics",
           locals: {
-            metrics_presenter: metrics_presenter,
+            metrics_presenter:,
             show_link_to_more: true
           }
         ) %>
@@ -50,7 +58,7 @@
   <% if current_user.admin_terms_accepted? %>
     <p class="text-right">
       <small>
-        <%= link_to( t("title", scope: "decidim.admin.admin_terms_of_use"), admin_terms_show_path) %>
+        <%= link_to( t("title", scope: "decidim.admin.admin_terms_of_service"), admin_terms_show_path) %>
       </small>
     </p>
   <% end %>

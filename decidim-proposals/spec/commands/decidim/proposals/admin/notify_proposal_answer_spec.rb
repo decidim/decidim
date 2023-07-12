@@ -33,8 +33,8 @@ module Decidim
               event: "decidim.events.proposals.proposal_accepted",
               event_class: Decidim::Proposals::AcceptedProposalEvent,
               resource: proposal,
-              affected_users: match_array([proposal.creator_author]),
-              followers: match_array([follower])
+              affected_users: contain_exactly(proposal.creator_author),
+              followers: contain_exactly(follower)
             )
 
           subject
@@ -59,8 +59,8 @@ module Decidim
                 event: "decidim.events.proposals.proposal_rejected",
                 event_class: Decidim::Proposals::RejectedProposalEvent,
                 resource: proposal,
-                affected_users: match_array([proposal.creator_author]),
-                followers: match_array([follower])
+                affected_users: contain_exactly(proposal.creator_author),
+                followers: contain_exactly(follower)
               )
 
             subject
@@ -72,14 +72,14 @@ module Decidim
         end
 
         context "when the proposal is not answered after being accepted" do
-          let(:proposal) { create(:proposal, state: nil, answered_at: Time.current, state_published_at: Time.current) }
+          let(:proposal) { create(:proposal, answered_at: Time.current, state_published_at: Time.current) }
           let(:initial_state) { "accepted" }
 
           it "broadcasts ok" do
             expect { subject }.to broadcast(:ok)
           end
 
-          it "doesn't notify the proposal followers" do
+          it "does not notify the proposal followers" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
@@ -98,15 +98,23 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "doesn't notify the proposal followers" do
+          it "does not notify the proposal followers" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
             subject
           end
 
-          it "doesn't modify the accepted proposals counter" do
+          it "does not modify the accepted proposals counter" do
             expect { subject }.not_to(change { Gamification.status_for(current_user, :accepted_proposals).score })
+          end
+        end
+
+        context "when the proposal is nil" do
+          let(:command) { described_class.new(nil, initial_state) }
+
+          it "broadcasts invalid" do
+            expect { subject }.to broadcast(:invalid)
           end
         end
       end

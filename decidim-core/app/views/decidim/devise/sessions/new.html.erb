@@ -3,10 +3,10 @@
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
   <div class="flex justify-center">
-    <h1 class="h1 decorator my-12"><%= t("devise.sessions.new.sign_in") %></h1>
+    <h1 class="h3 md:h1 decorator my-12"><%= t("devise.sessions.new.sign_in") %></h1>
   </div>
 
-  <div class="login__info">
+  <div class="login__info font-semibold">
     <% if current_organization.sign_up_enabled? %>
       <p>
         <%= t("decidim.devise.sessions.new.are_you_new?") %>
@@ -23,7 +23,7 @@
     <% end %>
   </div>
 
-  <div class="border-t-2 border-background">
+  <div class="login__omniauth-container">
     <% cache current_organization do %>
       <%= render "decidim/devise/shared/omniauth_buttons" %>
     <% end %>
@@ -31,26 +31,27 @@
 
   <% if current_organization.sign_in_enabled? %>
     <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name) ) do |f| %>
-      <div class="login__form">
+      <div class="form__wrapper">
         <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
 
         <%= f.password_field :password, autocomplete: "current-password", placeholder: "••••••" %>
 
         <% if devise_mapping.rememberable? %>
-          <%= f.check_box :remember_me, label_options: { class: "login__form-checkbox-label" } %>
+          <%= f.check_box :remember_me, label_options: { class: "form__wrapper-checkbox-label" } %>
         <% end %>
       </div>
 
-      <div class="login__form-block">
+      <div class="form__wrapper-block">
         <button type="submit" class="button button__lg button__secondary">
           <%= t("devise.sessions.new.sign_in") %>
           <%= icon "arrow-right-line", class: "fill-current" %>
         </button>
       </div>
+
+      <div class="login__links">
+        <%= render "decidim/devise/shared/redesigned_links" %>
+      </div>
     <% end %>
 
-    <div class="login__links">
-      <%= render "decidim/devise/shared/redesigned_links" %>
-    </div>
   <% end %>
 <% end %>

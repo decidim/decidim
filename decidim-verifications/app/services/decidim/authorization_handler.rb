@@ -12,11 +12,11 @@ module Decidim
   #
   # It also sets two default attributes, `user` and `handler_name`.
   class AuthorizationHandler < Form
-    # The user that is trying to authorize, it's initialized with the
+    # The user that is trying to authorize, it is initialized with the
     # `current_user` from the controller.
     attribute :user, Decidim::User
 
-    # The String name of the handler, should not be modified since it's used to
+    # The String name of the handler, should not be modified since it is used to
     # infer the class name of the authorization handler.
     attribute :handler_name, String
 
@@ -27,6 +27,39 @@ module Decidim
     # unique_id returns nil.
     def unique_id
       nil
+    end
+
+    # Defines whether the authorization is unique or if there is a duplicate for
+    # this particular authorization that matches the same unique_id.
+    #
+    # @return [Boolean] A boolean indicating if the authorization has a
+    #   duplicate.
+    def unique?
+      unique_id.nil? || duplicate.blank?
+    end
+
+    # Defines whether the duplicate authorizations can be transferred to a new
+    # user.
+    #
+    # @return [Boolean] A boolean indicating whether the authorization can be
+    #   transferred.
+    def transferrable?
+      duplicate.present? && duplicate.user.deleted?
+    end
+
+    # Fetches the duplicate record of the same authorization currently belonging
+    # to other user than the user being authorized.
+    #
+    # @return [Decidim::Authorization, nil] The duplicate authorization record
+    #   based on the unique ID or nil if there is no duplicate.
+    def duplicate
+      return unless user
+
+      Authorization.find_by(
+        user: User.where.not(id: user.id).where(organization: user.organization),
+        name: handler_name,
+        unique_id:
+      )
     end
 
     # The attributes of the handler that should be exposed as form input when
@@ -51,8 +84,15 @@ module Decidim
       "#{handler_name.sub!(/_handler$/, "")}/form"
     end
 
+    def authorization_attributes
+      {
+        unique_id:,
+        metadata:
+      }
+    end
+
     # Any data that the developer would like to inject to the `metadata` field
-    # of an authorization when it's created. Can be useful if some of the
+    # of an authorization when it is created. Can be useful if some of the
     # params the user sent with the authorization form want to be persisted for
     # future use.
     #
@@ -67,7 +107,7 @@ module Decidim
 
     #
     # Any data to be injected in the `verification_metadata` field of an
-    # authorization when it's created. This data will be used for multi-step
+    # authorization when it is created. This data will be used for multi-step
     # verificaton workflows in order to confirm the authorization.
     #
     # Returns a Hash.
@@ -117,16 +157,8 @@ module Decidim
 
     private
 
-    def duplicates
-      Authorization.where(
-        user: User.where.not(id: user.id).where(organization: user.organization),
-        name: handler_name,
-        unique_id:
-      )
-    end
-
     def uniqueness
-      return true if unique_id.nil? || duplicates.none?
+      return true if unique?
 
       errors.add(:base, I18n.t("decidim.authorization_handlers.errors.duplicate_authorization"))
 

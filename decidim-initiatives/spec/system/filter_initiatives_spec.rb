@@ -3,18 +3,18 @@
 require "spec_helper"
 
 describe "Filter Initiatives", :slow, type: :system do
-  let(:organization) { create :organization }
-  let(:type1) { create :initiatives_type, organization: }
-  let(:type2) { create :initiatives_type, organization: }
-  let(:type3) { create :initiatives_type, organization: }
-  let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
-  let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
-  let(:scoped_type3) { create :initiatives_type_scope, type: type3, scope: nil }
-  let(:area_type1) { create(:area_type, organization:) }
-  let(:area_type2) { create(:area_type, organization:) }
-  let(:area1) { create(:area, area_type: area_type1, organization:) }
-  let(:area2) { create(:area, area_type: area_type1, organization:) }
-  let(:area3) { create(:area, area_type: area_type2, organization:) }
+  let!(:organization) { create(:organization) }
+  let!(:type1) { create(:initiatives_type, organization:) }
+  let!(:type2) { create(:initiatives_type, organization:) }
+  let!(:type3) { create(:initiatives_type, organization:) }
+  let!(:scoped_type1) { create(:initiatives_type_scope, type: type1) }
+  let!(:scoped_type2) { create(:initiatives_type_scope, type: type2) }
+  let!(:scoped_type3) { create(:initiatives_type_scope, type: type3, scope: nil) }
+  let!(:area_type1) { create(:area_type, organization:) }
+  let!(:area_type2) { create(:area_type, organization:) }
+  let!(:area1) { create(:area, area_type: area_type1, organization:) }
+  let!(:area2) { create(:area, area_type: area_type1, organization:) }
+  let!(:area3) { create(:area, area_type: area_type2, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -37,36 +37,36 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting all scopes" do
       it "lists all initiatives", :slow do
-        within ".filters .with_any_scope_check_boxes_tree_filter" do
-          check "All"
+        within "#panel-dropdown-menu-scope" do
+          click_filter_item "All"
         end
 
-        expect(page).to have_css(".card--initiative", count: 4)
-        expect(page).to have_content("4 INITIATIVES")
+        expect(page).to have_css(".card__grid", count: 4)
+        expect(page).to have_content("4 initiatives")
       end
     end
 
     context "when selecting the global scope" do
       it "lists the filtered initiatives", :slow do
-        within ".filters .with_any_scope_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Global"
+        within "#panel-dropdown-menu-scope" do
+          click_filter_item "All"
+          click_filter_item "Global"
         end
 
-        expect(page).to have_css(".card--initiative", count: 1)
-        expect(page).to have_content("1 INITIATIVE")
+        expect(page).to have_css(".card__grid", count: 1)
+        expect(page).to have_content("1 initiative")
       end
     end
 
     context "when selecting one scope" do
       it "lists the filtered initiatives", :slow do
-        within ".filters .with_any_scope_check_boxes_tree_filter" do
-          uncheck "All"
-          check scoped_type1.scope_name[I18n.locale.to_s]
+        within "#panel-dropdown-menu-scope" do
+          click_filter_item "All"
+          click_filter_item scoped_type1.scope_name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".card--initiative", count: 2)
-        expect(page).to have_content("2 INITIATIVES")
+        expect(page).to have_css(".card__grid", count: 2)
+        expect(page).to have_content("2 initiatives")
       end
     end
   end
@@ -91,79 +91,79 @@ describe "Filter Initiatives", :slow, type: :system do
     context "when selecting all states" do
       it "lists all initiatives", :slow do
         stub_const("Decidim::Paginable::OPTIONS", [100])
-        within ".filters .with_any_state_check_boxes_tree_filter" do
-          uncheck "All"
-          check "All"
+        within "#panel-dropdown-menu-state" do
+          click_filter_item "All"
+          click_filter_item "All"
         end
 
-        expect(page).to have_css(".card--initiative", count: 11)
-        expect(page).to have_content("11 INITIATIVES")
+        expect(page).to have_css(".card__grid", count: 11)
+        expect(page).to have_content("11 initiatives")
       end
     end
 
     context "when selecting the open state" do
       it "lists the open initiatives", :slow do
-        within ".filters .with_any_state_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Open"
+        within "#panel-dropdown-menu-state" do
+          click_filter_item "All"
+          click_filter_item "Open"
         end
 
-        expect(page).to have_css(".card--initiative", count: 5)
-        expect(page).to have_content("5 INITIATIVES")
+        expect(page).to have_css(".card__grid", count: 5)
+        expect(page).to have_content("5 initiatives")
       end
     end
 
     context "when selecting the closed state" do
       it "lists the closed initiatives" do
-        within ".filters .with_any_state_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Closed"
+        within "#panel-dropdown-menu-state" do
+          click_filter_item "Open"
+          click_filter_item "Closed"
         end
 
-        expect(page).to have_css(".card--initiative", count: 6)
-        expect(page).to have_content("6 INITIATIVES")
+        expect(page).to have_css(".card__grid", count: 6)
+        expect(page).to have_content("6 initiatives")
       end
     end
 
     context "when selecting the accepted state" do
       it "lists the accepted initiatives" do
-        within ".filters .with_any_state_check_boxes_tree_filter" do
-          uncheck "All"
-          within ".filters__has-subfilters" do
+        within "#panel-dropdown-menu-state" do
+          click_filter_item "Open"
+          within "label", text: "Closed" do
             click_button
           end
-          check "Enough signatures"
+          click_filter_item "Enough signatures"
         end
 
-        expect(page).to have_css(".card--initiative", count: 3)
-        expect(page).to have_content("3 INITIATIVES")
+        expect(page).to have_css(".card__grid", count: 3)
+        expect(page).to have_content("3 initiatives")
       end
     end
 
     context "when selecting the rejected state" do
       it "lists the rejected initiatives" do
-        within ".filters .with_any_state_check_boxes_tree_filter" do
-          uncheck "All"
-          within ".filters__has-subfilters" do
+        within "#panel-dropdown-menu-state" do
+          click_filter_item "Open"
+          within "label", text: "Closed" do
             click_button
           end
-          check "Not enough signatures"
+          click_filter_item "Not enough signatures"
         end
 
-        expect(page).to have_css(".card--initiative", count: 2)
-        expect(page).to have_content("2 INITIATIVES")
+        expect(page).to have_css(".card__grid", count: 2)
+        expect(page).to have_content("2 initiatives")
       end
     end
 
     context "when selecting the answered state" do
       it "lists the answered initiatives" do
-        within ".filters .with_any_state_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Answered"
+        within "#panel-dropdown-menu-state" do
+          click_filter_item "Open"
+          click_filter_item "Answered"
         end
 
-        expect(page).to have_css(".card--initiative", count: 1)
-        expect(page).to have_content("1 INITIATIVE")
+        expect(page).to have_css(".card__grid", count: 1)
+        expect(page).to have_content("1 initiative")
       end
     end
   end
@@ -181,14 +181,14 @@ describe "Filter Initiatives", :slow, type: :system do
         visit decidim_initiatives.initiatives_path
       end
 
-      it "doesn't display TYPE filter" do
+      it "does not display TYPE filter" do
         expect(page).not_to have_content(/Type/i)
-        expect(page).not_to have_css(".filters__section.with_any_type_check_boxes_tree_filter")
+        expect(page).not_to have_css("#panel-dropdown-menu-type")
       end
 
       it "lists all initiatives", :slow do
-        expect(page).to have_css(".card--initiative", count: 3)
-        expect(page).to have_content("3 INITIATIVES")
+        expect(page).to have_css(".card__grid", count: 3)
+        expect(page).to have_content("3 initiatives")
       end
     end
 
@@ -208,24 +208,24 @@ describe "Filter Initiatives", :slow, type: :system do
 
       context "when selecting all types" do
         it "lists all initiatives", :slow do
-          within ".filters .with_any_type_check_boxes_tree_filter" do
-            check "All"
+          within "#panel-dropdown-menu-type" do
+            click_filter_item "All"
           end
 
-          expect(page).to have_css(".card--initiative", count: 3)
-          expect(page).to have_content("3 INITIATIVES")
+          expect(page).to have_css(".card__grid", count: 3)
+          expect(page).to have_content("3 initiatives")
         end
       end
 
       context "when selecting one type" do
         it "lists the filtered initiatives", :slow do
-          within ".filters .with_any_type_check_boxes_tree_filter" do
-            uncheck "All"
-            check type1.title[I18n.locale.to_s]
+          within "#panel-dropdown-menu-type" do
+            click_filter_item "All"
+            click_filter_item type1.title[I18n.locale.to_s]
           end
 
-          expect(page).to have_css(".card--initiative", count: 2)
-          expect(page).to have_content("2 INITIATIVES")
+          expect(page).to have_css(".card__grid", count: 2)
+          expect(page).to have_content("2 initiatives")
         end
       end
     end
@@ -248,43 +248,43 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting all areas" do
       it "lists all initiatives", :slow do
-        within ".filters .with_any_area_check_boxes_tree_filter" do
-          uncheck "All"
-          check "All"
+        within "#panel-dropdown-menu-area" do
+          click_filter_item "All"
+          click_filter_item "All"
         end
 
-        expect(page).to have_css(".card--initiative", count: 4)
-        expect(page).to have_content("4 INITIATIVES")
+        expect(page).to have_css(".card__grid", count: 4)
+        expect(page).to have_content("4 initiatives")
       end
     end
 
     context "when selecting one area" do
       it "lists the filtered initiatives", :slow do
-        within ".filters .with_any_area_check_boxes_tree_filter" do
-          uncheck "All"
-          within all(".filters__has-subfilters").first do
+        within "#panel-dropdown-menu-area" do
+          click_filter_item "All"
+          within "label", text: area_type1.name[I18n.locale.to_s] do
             click_button
           end
-          within all(".filters__has-subfilters").last do
+          within "label", text: area_type2.name[I18n.locale.to_s] do
             click_button
           end
-          check area1.name[I18n.locale.to_s]
+          click_filter_item area1.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".card--initiative", count: 2)
-        expect(page).to have_content("2 INITIATIVES")
+        expect(page).to have_css(".card__grid", count: 2)
+        expect(page).to have_content("2 initiatives")
       end
     end
 
     context "when selecting one area type" do
       it "lists the filtered initiatives", :slow do
-        within ".filters .with_any_area_check_boxes_tree_filter" do
-          uncheck "All"
-          check area_type1.name[I18n.locale.to_s]
+        within "#panel-dropdown-menu-area" do
+          click_filter_item "All"
+          click_filter_item area_type1.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".card--initiative", count: 3)
-        expect(page).to have_content("3 INITIATIVES")
+        expect(page).to have_css(".card__grid", count: 3)
+        expect(page).to have_content("3 initiatives")
       end
     end
   end
@@ -295,7 +295,7 @@ describe "Filter Initiatives", :slow, type: :system do
         visit decidim_initiatives.initiatives_path
       end
 
-      it "can't be filtered by author" do
+      it "cannot be filtered by author" do
         within "form.new_filter" do
           expect(page).not_to have_content(/Author/i)
         end
@@ -303,7 +303,7 @@ describe "Filter Initiatives", :slow, type: :system do
     end
 
     context "when logged in" do
-      let(:user) { create :user, :confirmed, organization: }
+      let(:user) { create(:user, :confirmed, organization:) }
 
       before do
         create_list(:initiative, 2, organization:, author: user)
@@ -323,23 +323,23 @@ describe "Filter Initiatives", :slow, type: :system do
 
       context "when selecting any author" do
         it "lists all initiatives", :slow do
-          within ".filters .author_collection_radio_buttons_filter" do
-            choose "Any"
+          within "#panel-dropdown-menu-author" do
+            click_filter_item "Any"
           end
 
-          expect(page).to have_css(".card--initiative", count: 3)
-          expect(page).to have_content("3 INITIATIVES")
+          expect(page).to have_css(".card__grid", count: 3)
+          expect(page).to have_content("3 initiatives")
         end
       end
 
       context "when selecting my initiatives" do
         it "lists the filtered initiatives", :slow do
-          within ".filters .author_collection_radio_buttons_filter" do
-            choose "My initiatives"
+          within "#panel-dropdown-menu-author" do
+            click_filter_item "My initiatives"
           end
 
-          expect(page).to have_css(".card--initiative", count: 3)
-          expect(page).to have_content("3 INITIATIVES")
+          expect(page).to have_css(".card__grid", count: 3)
+          expect(page).to have_content("3 initiatives")
         end
       end
     end

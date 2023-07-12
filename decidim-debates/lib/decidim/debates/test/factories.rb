@@ -20,7 +20,7 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
     information_updates { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
     instructions { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
-    component { build(:component, manifest_name: "debates") }
+    component { build(:debates_component) }
     author { component.try(:organization) }
 
     trait :open_ama do
@@ -67,7 +67,8 @@ FactoryBot.define do
     participatory_space { create(:participatory_process, :with_steps, organization:) }
     settings do
       {
-        comments_enabled: true
+        comments_enabled: true,
+        comments_max_length: organization.comments_max_length
       }
     end
 

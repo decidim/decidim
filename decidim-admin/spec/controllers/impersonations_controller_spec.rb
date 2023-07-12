@@ -23,7 +23,7 @@ module Decidim
       context "when creating a new impersonation" do
         shared_examples "successful authorization" do
           it "successfully creates a new impersonation log entry and redirects to home" do
-            post :create, params: params
+            post(:create, params:)
 
             authorization = Decidim::Authorization.last
             expect(Decidim::ImpersonationLog.where(
@@ -60,7 +60,7 @@ module Decidim
           it_behaves_like "successful authorization"
 
           it "creates a new managed user with the correct authorization" do
-            post :create, params: params
+            post(:create, params:)
 
             authorization = Decidim::Authorization.last
             expect(authorization.metadata).to include(
@@ -83,7 +83,7 @@ module Decidim
           it_behaves_like "successful authorization"
 
           it "creates a new managed user" do
-            post :create, params: params
+            post(:create, params:)
 
             expect(Decidim::User.where(name: managed_user_name).count).to eq(2)
             expect(
@@ -108,7 +108,7 @@ module Decidim
           it_behaves_like "successful authorization"
 
           it "creates a new managed user" do
-            post :create, params: params
+            post(:create, params:)
 
             expect(
               Decidim::User.where(
@@ -141,7 +141,7 @@ module Decidim
           it_behaves_like "successful authorization"
 
           it "takes control of the previously identified managed user and updates the metadata" do
-            post :create, params: params
+            post(:create, params:)
 
             expect(
               Decidim::User.where(
@@ -177,7 +177,7 @@ module Decidim
           end
 
           it "fails the authorization" do
-            post :create, params: params
+            post(:create, params:)
 
             expect(
               Decidim::User.where(

@@ -1,17 +1,22 @@
-<ul class="no-bullet-indented">
   <% scopes.each do |scope| %>
-    <li>
-      <div class="switch tiny switch-with-label">
-        <%= f.fields_for "scopes[]", scope do |form| %>
-          <%= form.label "checked" do %>
-            <%= form.check_box "checked", label: false, class: "switch-input" %>
-            <span class="switch-paddle"></span>
-            <span class="switch-label"><%= translated_attribute scope.name %></span>
-          <% end %>
-          <%= form.hidden_field "id", value: scope.id %>
-        <% end %>
-      </div>
-      <%= render partial: "scopes", locals: { scopes: scope.children, f: f } %>
-    </li>
-  <% end %>
-</ul>
+  <div class="toggle__switch-trigger mb-4">
+    <%= f.fields_for "scopes[]", scope do |form| %>
+      <%= form.hidden_field "id", value: scope.id %>
+      <%= form.label("checked", nil, class: "toggle__switch-toggle") do %>
+        <span>
+          <%= form.check_box "checked", label: false %>
+          <span class="toggle__switch-toggle-content">
+          </span>
+          <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+          <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+        </span>
+        <span class="toggle__switch-trigger-text">
+          <%= translated_attribute scope.name %>
+        </span>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="ml-4 mb-2">
+    <%= render partial: "scopes", locals: { scopes: scope.children, f: } %>
+  </div>
+<% end %>

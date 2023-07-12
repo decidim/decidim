@@ -6,9 +6,9 @@ module Decidim::Admin
   describe UpdateAreaType do
     subject { described_class.new(area_type, form, user) }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization) }
     let(:user) { create(:user, organization:) }
-    let(:area_type) { create :area_type, organization: }
+    let(:area_type) { create(:area_type, organization:) }
     let(:name) { Decidim::Faker::Localized.literal("new name") }
     let(:plural) { Decidim::Faker::Localized.literal("new names") }
 

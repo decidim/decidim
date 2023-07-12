@@ -9,7 +9,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   seeds_root = File.join(__dir__, "seeds")
 
   # Since we usually migrate and seed in the same process, make sure
-  # that we don't have invalid or cached information after a migration.
+  # that we do not have invalid or cached information after a migration.
   decidim_tables = ActiveRecord::Base.connection.tables.select do |table|
     table.starts_with?("decidim_")
   end
@@ -19,6 +19,24 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
 
   smtp_label = ENV.fetch("SMTP_FROM_LABEL", Faker::Twitter.unique.screen_name)
   smtp_email = ENV.fetch("SMTP_FROM_EMAIL", Faker::Internet.email)
+
+  primary_color, secondary_color = [
+    ["#4CAF50", "#A0309E"],
+    ["#E91E63", "#1EE9A5"],
+    ["#009688", "#D12C26"],
+    ["#FF9800", "#00BCD4"]
+  ].sample
+
+  colors = {
+    alert: "#ec5840",
+    highlight: "#be6400",
+    "highlight-alternative": "#ff5731",
+    primary: primary_color,
+    secondary: secondary_color,
+    success: "#57d685",
+    theme: "#ef604d",
+    warning: "#ffae00"
+  }
 
   organization = Decidim::Organization.first || Decidim::Organization.create!(
     name: Faker::Company.name,
@@ -50,7 +68,8 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     badges_enabled: true,
     user_groups_enabled: true,
     send_welcome_notification: true,
-    file_upload_settings: Decidim::OrganizationSettings.default(:upload)
+    file_upload_settings: Decidim::OrganizationSettings.default(:upload),
+    colors:
   )
 
   if organization.top_scopes.none?
@@ -126,6 +145,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(sentence_count: 2),
     accepted_tos_version: organization.tos_version + 1.hour,
+    newsletter_notifications_at: Time.current,
     password_updated_at: Time.current,
     admin_terms_accepted_at: Time.current
   }
@@ -144,7 +164,8 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
       tos_agreement: true,
       personal_url: Faker::Internet.url,
       about: Faker::Lorem.paragraph(sentence_count: 2),
-      accepted_tos_version: organization.tos_version + 1.hour
+      accepted_tos_version: organization.tos_version + 1.hour,
+      newsletter_notifications_at: Time.current
     )
   end
 
@@ -171,7 +192,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   Decidim::Messaging::Conversation.start!(
     originator: admin,
     interlocutors: [regular_user],
-    body: "Hey! I'm glad you like Decidim"
+    body: "Hey! I am glad you like Decidim"
   )
 
   Decidim::User.find_each do |user|

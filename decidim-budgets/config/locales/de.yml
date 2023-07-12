@@ -6,15 +6,18 @@ de:
         description: Beschreibung
         title: Titel
         total_budget: Gesamtbudget
-        weight: Bestellposition
+        weight: Reihenfolge
       project:
         budget_amount: Höhe des Budgets
         decidim_category_id: Kategorie
         decidim_scope_id: Umfang
         description: Beschreibung
         proposal_ids: Ähnliche Vorschläge
+        proposals: Vorschläge
         selected: Zur Implementierung ausgewählt
         title: Titel
+      proposals_import:
+        scope_id: Themenbereich
   activerecord:
     models:
       decidim/budgets/project:
@@ -44,15 +47,16 @@ de:
         import: Vorschläge in Projekte importieren
         new: Neue(r/s) %{name}
         preview: Vorschau
+        send_voting_reminders: Abstimmungserinnerungen versenden
         title: Aktionen
       admin:
         budgets:
           create:
-            invalid: Beim Erstellen dieses Budgets ist ein Problem aufgetreten
-            success: Budget erfolgreich erstellt
+            invalid: Beim Erstellen dieses Budgets ist ein Problem aufgetreten.
+            success: Budget erfolgreich erstellt.
           destroy:
-            invalid: Es gab ein Problem beim Löschen dieses Budgets
-            success: Budget erfolgreich gelöscht
+            invalid: Es gab ein Problem beim Löschen dieses Budgets.
+            success: Budget erfolgreich gelöscht.
           edit:
             title: Budget bearbeiten
             update: Budget aktualisieren
@@ -66,8 +70,8 @@ de:
             create: Budget erstellen
             title: Neues Budget
           update:
-            invalid: Es gab ein Problem beim Aktualisieren dieses Budgets
-            success: Budget erfolgreich aktualisiert
+            invalid: Es gab ein Problem beim Aktualisieren dieses Budgets.
+            success: Budget erfolgreich aktualisiert.
         exports:
           projects: Projekte
         models:
@@ -77,10 +81,10 @@ de:
             name: Projekt
         projects:
           create:
-            invalid: Beim Erstellen dieses Projekts ist ein Problem aufgetreten
-            success: Projekt erfolgreich erstellt
+            invalid: Beim Erstellen dieses Projekts ist ein Problem aufgetreten.
+            success: Projekt erfolgreich erstellt.
           destroy:
-            success: Projekt erfolgreich gelöscht
+            success: Projekt erfolgreich gelöscht.
           edit:
             title: Projekt bearbeiten
             update: Aktualisieren
@@ -89,11 +93,11 @@ de:
             cancel: Abbrechen
             change_category: Kategorie ändern
             change_scope: Themenbereich ändern
-            change_selected: Auswahl ändern
-            deselect_implementation: Auswahl aufheben
+            change_selected: Ausgewählten Status ändern
+            deselect_implementation: Von umzusetzenden Projekten abwählen
             finished_orders: Abgeschlossene Stimmen
             pending_orders: Ausstehende Stimmen
-            select_for_implementation: Auswählen
+            select_for_implementation: Zur Umsetzung auswählen
             selected: Ausgewählt
             title: Projekte
             update: Aktualisieren
@@ -102,30 +106,37 @@ de:
             create: Erstellen
             title: Neues Projekt
           update:
-            invalid: Beim Aktualisieren dieses Projekts ist ein Problem aufgetreten
-            success: Projekt erfolgreich aktualisiert
+            invalid: Beim Aktualisieren dieses Projekts ist ein Problem aufgetreten.
+            success: Projekt erfolgreich aktualisiert.
           update_category:
             invalid: 'Diese Projekte gehörten bereits zur Kategorie %{subject_name}: %{projects}.'
-            select_a_category: Bitte wählen Sie eine Kategorie aus
-            select_a_project: Bitte wählen Sie ein Projekt
+            select_a_category: Bitte wählen Sie eine Kategorie aus.
+            select_a_project: Bitte wählen Sie ein Projekt.
             success: 'Die folgenden Projekte wurden erfolgreich zur Kategorie %{subject_name} hinzugefügt: %{projects}.'
           update_scope:
             invalid: 'Diese Projekte gehörten bereits zum Themenbereich %{subject_name}: %{projects}.'
-            select_a_project: Bitte wählen Sie ein Projekt
-            select_a_scope: Bitte wählen Sie einen Themenbereich
+            select_a_project: Bitte wählen Sie ein Projekt.
+            select_a_scope: Bitte wählen Sie einen Themenbereich.
             success: 'Die folgenden Projekte wurden erfolgreich zum Themenbereich %{subject_name} hinzugefügt: %{projects}.'
           update_selected:
-            invalid: 'Diese Projekte wurden bereits zur Umsetzung ausgewählt: %{projects}.'
-            select_a_project: Bitte wählen Sie ein Projekt
-            select_a_selection: Bitte wähle einen Umsetzungsstatus
-            success: 'Ausgewählte Projekte erfolgreich geändert: %{projects}.'
+            invalid:
+              selected: 'Diese Projekte wurden bereits für die Umsetzung ausgewählt: %{projects}.'
+              unselected: 'Diese Projekte wurden bereits von den umzusetzenden Projekten abgewählt: %{projects}.'
+            select_a_project: Bitte wählen Sie ein Projekt.
+            select_a_selection: Bitte wählen Sie einen Umsetzungsstatus.
+            success:
+              selected: 'Diese Projekte wurden erfolgreich für die Umsetzung ausgewählt: %{projects}.'
+              unselected: 'Diese Projekte wurden erfolgreich von den umzusetzenden Projekten abgewählt: %{projects}.'
         proposals_imports:
           create:
-            invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten
-            success: "%{number} Vorschläge wurden erfolgreich in Projekte importiert"
+            invalid: Beim Importieren der Vorschläge zu den Projekten ist ein Problem aufgetreten.
+            success: "%{number} Vorschläge wurden erfolgreich zu den Projekten importiert."
           new:
             create: Importieren Sie Vorschläge in Projekte
+            default_budget: Standardbudget
+            import_all_accepted_proposals: Alle akzeptierten Vorschläge importieren
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
+            origin_component_id: Ursprungskomponente
             select_component: Bitte wählen Sie eine Komponente aus
             title: Vorschläge importieren
         reminders:
@@ -151,22 +162,22 @@ de:
         continue: Weiter
         more_information: Mehr Informationen
       budget_list_item:
-        voting_finished: Sie haben bei diesem Budget abgestimmt
-        voting_started: Sie haben damit begonnen, bei diesem Budget abzustimmen
+        voting_finished: Sie haben bei diesem Budget abgestimmt.
+        voting_started: Sie haben damit begonnen, bei diesem Budget abzustimmen.
       budgets_list:
         cancel_order:
           more_than_one: lösche deine Stimme am %{name} und beginne neu
           only_one: Löschen Sie Ihre Stimme und beginnen Sie von vorne.
         finished_message: Sie haben den Abstimmungsprozess beendet. Vielen Dank für Ihre Teilnahme!
         highlighted_cta: Über %{name} abstimmen
-        if_change_opinion: Wenn sie ihr Meinung geändert haben, können sie
+        if_change_opinion: Wenn Sie ihr Meinung geändert haben, können Sie
         my_budgets: Meine Budgets
         progress: Abstimmung beenden
         show: Projekte ansehen
         vote: Abstimmen
-        voted_on: Sie haben über %{links} abgestimmt
+        voted_on: 'Sie haben über abgestimmt folgende Projekte abgestimmt: %{links}.'
       last_activity:
-        new_vote_at_html: "<span>Neue Budgetverteilung unter %{link}</span>"
+        new_vote_at: Neue Budgetabstimmung bei
       limit_announcement:
         cant_vote: Sie können nicht über dieses Budget abstimmen. <a href="%{landing_path}">Versuchen Sie es mit einem anderen Budget</a>.
         limit_reached: Sie haben aktive Stimmen in %{links}. Um über dieses Budget abstimmen zu können, müssen Sie <a href="%{landing_path}">Ihre Stimme löschen und neu </a> beginnen.
@@ -197,10 +208,10 @@ de:
           title: Bestätigung der Abstimmung
         budget_excess:
           budget_excess:
-            description: Mit diesem Projekt überschreiten Sie das maximale Budget. Deshalb kann es nicht hinzugefügt werden. Entfernen Sie ein bereits ausgewähltes Projekt um diesem Projekt eine Stimme zu geben.
+            description: Wenn Sie dieses Projekt hinzufügen, überschreiten Sie das maximale Budget und kann deshalb nicht hinzugefügt werden. Entfernen Sie ein bereits ausgewähltes Projekt um diesem Projekt eine Stimme zu geben.
             title: Maximales Budget überschritten
           close: Schließen
-          description: Mit diesem Projekt überschreiten Sie das maximale Budget. Deshalb kann es nicht hinzugefügt werden. Entfernen Sie ein bereits ausgewähltes Projekt um diesem Projekt eine Stimme zu geben.
+          description: Wenn Sie dieses Projekt hinzufügen, überschreiten Sie das maximale Budget. Wenn Sie möchten, können Sie ein bereits ausgewähltes Projekt entfernen, um diesem Projekt eine Stimme zu geben.
           ok: OK
           projects_excess:
             description: Mit diesem Projekt überschreiten Sie die maximale Anzahl auszuwählende Projekte. Deshalb kann es nicht hinzugefügt werden. Entfernen Sie ein bereits ausgewähltes Projekt um diesem Projekt eine Stimme zu geben.
@@ -210,7 +221,7 @@ de:
           assigned: 'Zugewiesen:'
           cancel_order: Löschen Sie Ihre Stimme und beginnen Sie von vorne
           checked_out:
-            description: Sie haben bereits für die Verteilung dieses Budget gestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
+            description: Sie haben bereits über dieses Budget abgestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
             title: Budget-Abstimmung abgeschlossen
           minimum_projects_rule:
             description: Welche Projekte sollen finanziert werden? Wählen Sie mindestens %{minimum_number} Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
@@ -253,6 +264,8 @@ de:
           filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
+        index:
+          view_project: Projekt anzeigen
         order_progress:
           vote: Abstimmung
         order_selected_projects:
@@ -269,19 +282,19 @@ de:
           random: Zufällige Anordnung
           selected: Ausgewählt
         project:
-          add: Projekt %{resource_name} Ihrer Stimme hinzufügen
-          remove: Projekt %{resource_name} aus deiner Stimme entfernen
+          add: Projekt %{resource_name} zu Ihrer Abstimmung hinzufügen.
+          remove: Projekt %{resource_name} aus Ihrer Abstimmung entfernen.
           selected: Ausgewählt
           view: Anzeigen
           votes:
             one: Abstimmung
             other: Abstimmungen
-          you_voted: Du hast für dieses gestimmt
+          you_voted: Sie haben dafür gestimmt
         project_budget_button:
           add: Zur Abstimmung hinzufügen
-          add_descriptive: Projekt %{resource_name} Ihrer Stimme hinzufügen
+          add_descriptive: Projekt %{resource_name} zu Ihrer Abstimmung hinzufügen.
           added: Zu deiner Abstimmung hinzugefügt
-          added_descriptive: Projekt %{resource_name} wurde zu deiner Abstimmung hinzugefügt
+          added_descriptive: Project %{resource_name} zu Ihrer Abstimmung hinzugefügt.
         projects_for: Projekte für %{name}
         show:
           budget: Budget
@@ -308,8 +321,9 @@ de:
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             form:
               errors:
-                budget_voting_rule_only_one: Nur eine Abstimmungsregel kann aktiviert sein
-                budget_voting_rule_required: Es ist eine Abstimmungsregel notwendig
+                budget_voting_rule_only_one: Nur eine Abstimmungsregel kann aktiviert sein.
+                budget_voting_rule_required: Es ist eine Abstimmungsregel notwendig.
+            geocoding_enabled: Geocoding aktiviert
             landing_page_content: Budgets Landingpage
             more_information_modal: Weitere Informationen
             projects_per_page: Projekte pro Seite
@@ -352,11 +366,11 @@ de:
           notification_title: Das Budget <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
     orders:
       checkout:
-        error: Während der Bearbeitung Ihrer Abstimmung ist ein Fehler aufgetreten
-        success: Ihre Stimme wurde erfolgreich angenommen
+        error: Bei der Bearbeitung Ihrer Stimme ist ein Problem aufgetreten.
+        success: Ihre Stimme wurde erfolgreich abgegeben.
       destroy:
-        error: Bei der Absage der Abstimmung ist ein Fehler aufgetreten
-        success: Ihre Abstimmung wurde erfolgreich abgebrochen
+        error: Beim Löschen Ihrer Stimme ist ein Problem aufgetreten.
+        success: Ihre Stimme wurde erfolgreich gelöscht.
     resource_links:
       included_proposals:
         project_proposal: Vorschläge in diesem Projekt

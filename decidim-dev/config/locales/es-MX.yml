@@ -14,6 +14,12 @@ es-MX:
       dummy:
         settings:
           global:
+            guided: Entrada guiada
+            guided_help: Texto de ayuda
+            guided_readonly: Entrada deshabilitada
+            guided_rich: Entrada guiada enriquecida
+            guided_rich_help_html: Texto de <strong>ayuda</strong> HTML
+            guided_rich_readonly_html: Texto de <strong>ayuda</strong> HTML para la entrada deshabilitada
             readonly_attribute: Atributo de sólo lectura
             test: Test A
             test_choices:
@@ -46,7 +52,7 @@ es-MX:
           description_own: Has creado %{score} pruebas.
           name: Pruebas
           next_level_in: '¡Crea %{score} pruebas más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha creado ninguna prueba.
+          unearned_another: Esta participante aún no ha creado ninguna prueba.
           unearned_own: No has creado ninguna prueba todavía.
     resource_links:
       test_link:

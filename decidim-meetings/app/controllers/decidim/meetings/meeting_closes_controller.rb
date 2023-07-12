@@ -9,14 +9,16 @@ module Decidim
 
       helper_method :meeting
 
+      redesign active: true
+
       def edit
-        enforce_permission_to :close, :meeting, meeting: meeting
+        enforce_permission_to(:close, :meeting, meeting:)
 
         @form = form(CloseMeetingForm).from_model(meeting)
       end
 
       def update
-        enforce_permission_to :close, :meeting, meeting: meeting
+        enforce_permission_to(:close, :meeting, meeting:)
 
         @form = form(CloseMeetingForm).from_params(params.merge(proposals: meeting.sibling_scope(:proposals)))
 

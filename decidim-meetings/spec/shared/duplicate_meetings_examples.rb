@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "duplicate meetings" do
-  let(:form) { Decidim::Meetings::Admin::MeetingCopyForm.from_model(meeting).with_context(context) }
+  let(:form) { Decidim::Meetings::Admin::MeetingForm.from_model(meeting).with_context(context) }
   let(:context) { { current_organization: meeting.organization, current_component: meeting.component } }
   let(:copy_meeting) { Decidim::Meetings::Admin::CopyMeeting.new(form, meeting) }
 

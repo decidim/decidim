@@ -30,7 +30,7 @@ module Decidim
       let(:mail) { described_class.password_change(user, {}) }
 
       let(:mail_subject) { "Contrasenya modificada" }
-      let(:body) { "Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament" }
+      let(:body) { "Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada" }
       let(:default_subject) { "Password changed" }
       let(:default_body) { "contacting you to notify you that your password has been changed" }
 
@@ -43,9 +43,9 @@ module Decidim
         described_class.invitation_instructions(user, "foo", invitation_instructions: "organization_admin_invitation_instructions")
       end
 
-      let(:mail_subject) { "Has estat convidada a gestionar #{user.organization.name}" }
+      let(:mail_subject) { "T'han convidat a administrar #{user.organization.name}" }
       let(:body) { "Acceptar invitaci" }
-      let(:default_subject) { "You've been invited to manage #{user.organization.name}" }
+      let(:default_subject) { "You have been invited to manage #{user.organization.name}" }
       let(:default_body) { "Accept invitation" }
 
       include_examples "localised email"

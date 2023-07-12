@@ -96,7 +96,7 @@ module Decidim
 
       private
 
-      # Private: When a row uses weight 1 and there's more than one, weight shouldn't be considered
+      # Private: When a row uses weight 1 and there is more than one, weight should not be considered
       # Handle special case when all children weight are nil
       def children_use_weighted_progress?
         return false if children.pluck(:weight).all?(&:nil?)
