@@ -1310,6 +1310,7 @@ en:
           headline: Current state of %{organization}
         sub_hero:
           register: Register
+          register_title: Sign up to create an account
       index:
         standalone_pages: Pages
         subheading: Navigate through the help pages of %{name}
