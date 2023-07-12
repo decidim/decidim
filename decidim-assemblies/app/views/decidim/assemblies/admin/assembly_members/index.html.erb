@@ -1,12 +1,4 @@
 <div class='card' id="assembly_members">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= t("assembly_members.index.assembly_members_title", scope: "decidim.admin") %>
-      <% if allowed_to? :create, :assembly_member %>
-         <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.assembly_member.name", scope: "decidim.admin")), new_assembly_member_path(current_assembly), class: "button tiny button--title new" %>
-      <% end %>
-    </h2>
-  </div>
   <div class="filters__section">
     <div class="fcell filter">
       <span class="dropdown-menu-inverted_label"><%= t(".filter_by") %> :</span>

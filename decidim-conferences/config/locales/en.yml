@@ -203,6 +203,7 @@ en:
           registration_types: Registration Types
           registrations: Registrations
           user_registrations: User Registrations
+          see_conference: See conference
       models:
         conference:
           fields:
