@@ -43,8 +43,7 @@ module Decidim
       def login
         @form = form(Census::LoginForm).from_params(params, election:)
 
-        render :login,
-               layout: "decidim/election_votes"
+        render :login
       end
 
       def show_check_census

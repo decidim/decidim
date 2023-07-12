@@ -46,8 +46,9 @@ edit_link(
     <% announcement_not_found = { title: t("decidim.votings.votings.check_census.error.title"), body: t("decidim.votings.votings.check_census.error.info", census_contact_information: ) } %>
 
     <%= cell("decidim/announcement", announcement_not_found, callout_class: "alert" ) %>
+  <% end %>
 
-  <% else %>
+  <% if !success %>
     <%= decidim_form_for(@form, url: voting_check_census_path, html: { class: "form", autocomplete: "off" }) do |f| %>
       <%= form_required_explanation %>
 

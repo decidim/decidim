@@ -14,7 +14,7 @@
         <%= t("no_email", scope: "decidim.votings.votings.access_code_modal") %>
       </button>
     <% else %>
-      <%= button_to t("email", scope: "decidim.votings.votings.access_code_modal", email:), "/", class: "button button__sm md:button__lg button__secondary" %>
+      <%= button_to t("email", scope: "decidim.votings.votings.access_code_modal", email:), voting_send_access_code_path(datum.dataset.voting, datum_id: datum, medium: "email"), class: "button button__sm md:button__lg button__secondary" %>
     <% end %>
 
     <% if sms.empty? %>
@@ -22,7 +22,7 @@
         <%= t("no_sms", scope: "decidim.votings.votings.access_code_modal") %>
       </button>
     <% else %>
-      <%= button_to t("sms", scope: "decidim.votings.votings.access_code_modal", sms:), "/", class: "button button__sm md:button__lg button__secondary" %>
+      <%= button_to t("sms", scope: "decidim.votings.votings.access_code_modal", sms:), voting_send_access_code_path(datum.dataset.voting, datum_id: datum, medium: "sms"), class: "button button__sm md:button__lg button__secondary" %>
     <% end %>
   </div>
 <% end %>
