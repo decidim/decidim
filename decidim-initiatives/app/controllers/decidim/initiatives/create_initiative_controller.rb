@@ -118,7 +118,6 @@ module Decidim
       end
 
       def current_initiative
-
         @current_initiative ||= Initiative.where(organization: current_organization).find_by(id: session[:initiative_id] || nil)
       end
 
