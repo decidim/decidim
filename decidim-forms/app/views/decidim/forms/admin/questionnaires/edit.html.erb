@@ -1,4 +1,4 @@
-<% add_decidim_page_title(t("title", scope: "decidim.forms.admin.questionnaires.edit")) %>
+<% add_decidim_page_title(edit_questionnaire_title) %>
 
 <% if templates_defined? && choose_template? %>
   <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t("decidim.forms.admin.questionnaires.edit.title") } %>

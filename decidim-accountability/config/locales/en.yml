@@ -258,11 +258,19 @@ en:
           status_id_eq:
             label: Status
       titles:
+<<<<<<< HEAD
         import_projects: Import projects
         new_CSV_import: New CSV import
         new_result: New result
         new_status: New status
         statuses: Statuses
+=======
+          new_result: New result
+          statuses: Statuses
+          new_status: New status
+          import_results: Import results from CSV
+          import_projects: Import Projects to Accountability
+>>>>>>> ebcd7a278a55910b5c2c78e7aa8813e2595d6ada
     components:
       accountability:
         actions:
