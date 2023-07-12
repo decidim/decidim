@@ -48,10 +48,9 @@ describe "Explore elections", :slow, type: :system do
         within "[data-filters]" do
           fill_in "filter[search_text_cont]", with: translated(elections.first.title)
 
-          # The form should be auto-submitted when filter box is filled up, but
-          # somehow it is not happening. So we workaround that be explicitly
-          # clicking on "Search" until we find out why.
-          click_button "Search"
+          within "div.filter-search" do
+            click_button
+          end
         end
 
         expect(page).to have_content("1 election")
@@ -68,7 +67,7 @@ describe "Explore elections", :slow, type: :system do
         visit_component
 
         within "#panel-dropdown-menu-date" do
-          uncheck "All"
+          uncheck "Active"
           check "Finished"
         end
 
@@ -78,7 +77,7 @@ describe "Explore elections", :slow, type: :system do
         end
 
         within "#panel-dropdown-menu-date" do
-          uncheck "All"
+          uncheck "Finished"
           check "Active"
         end
 
@@ -87,7 +86,7 @@ describe "Explore elections", :slow, type: :system do
         end
 
         within "#panel-dropdown-menu-date" do
-          uncheck "All"
+          uncheck "Active"
           check "Upcoming"
         end
 
@@ -97,6 +96,7 @@ describe "Explore elections", :slow, type: :system do
         end
 
         within "#panel-dropdown-menu-date" do
+          check "All"
           uncheck "All"
         end
 
