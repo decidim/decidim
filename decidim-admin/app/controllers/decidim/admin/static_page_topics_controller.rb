@@ -64,9 +64,7 @@ module Decidim
       private
 
       def topic
-        @topic ||= StaticPageTopic.where(
-          organization: current_organization
-        ).find(params[:id])
+        @topic ||= current_organization.static_page_topics.find(params[:id])
       end
     end
   end
