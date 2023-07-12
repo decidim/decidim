@@ -4,9 +4,13 @@
   [data-target*="dropdown"] > svg:first-of-type {
     @apply inline-block;
   }
+}
 
-  .dropdown__trigger{
-    @apply flex items-center gap-x-2;
+.main .title-bar .dropdown__trigger{
+  @apply block;
+
+  svg{
+    @apply fill-black;
   }
 }
 

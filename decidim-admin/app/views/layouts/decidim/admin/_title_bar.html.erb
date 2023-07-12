@@ -11,6 +11,7 @@
       <div class="topbar__dropmenu language-choose relative">
         <%= button_tag  id: "admin-dropdown-menu-trigger", data: { component: 'dropdown', target: 'admin-dropdown-menu-language' }, class: 'dropdown__trigger' do %>
             <%= t("name", scope: "locale") %>
+            <%= icon "arrow-down-s-line" %>
         <% end %>
 
         <div id="admin-dropdown-menu-language">
@@ -26,7 +27,10 @@
     <% end %>
 
     <div class="user-login relative">
-      <%= button_tag current_user.email, id: "admin-dropdown-menu-login-trigger", data: { component: 'dropdown', target: 'admin-dropdown-menu-login' }, name: current_user.email , class: 'dropdown__trigger' %>
+      <%= button_tag current_user.email, id: "admin-dropdown-menu-login-trigger", data: { component: 'dropdown', target: 'admin-dropdown-menu-login' } , class: 'dropdown__trigger' do %>
+        <%= current_user.email %>
+        <%= icon "arrow-down-s-line" %>
+      <% end %>
       <div id="admin-dropdown-menu-login">
         <ul class="dropdown dropdown__bottom">
           <li class="dropdown__item">
