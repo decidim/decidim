@@ -110,10 +110,9 @@ describe "Votings", type: :system do
         within "[data-filters]" do
           fill_in "filter[search_text_cont]", with: translated(voting.title)
 
-          # The form should be auto-submitted when filter box is filled up, but
-          # somehow it is not happening. So we workaround that be explicitly
-          # clicking on "Search" until we find out why.
-          click_button "Search"
+          within "div.filter-search" do
+            click_button
+          end
         end
 
         expect(page).to have_css("#votings-count", text: "1 voting")
