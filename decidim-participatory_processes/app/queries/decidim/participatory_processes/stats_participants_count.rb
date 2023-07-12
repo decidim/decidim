@@ -42,6 +42,8 @@ module Decidim
       end
 
       def comments_query
+        return [] unless Decidim.module_installed?(:comments)
+
         Decidim::Comments::Comment
           .where(decidim_participatory_space_type: Decidim::ParticipatoryProcess.class.name)
           .where(decidim_participatory_space_id: participatory_space_ids)
@@ -50,6 +52,8 @@ module Decidim
       end
 
       def debates_query
+        return [] unless Decidim.module_installed?(:debates)
+
         Decidim::Debates::Debate
           .where(
             component: space_components,
@@ -61,6 +65,8 @@ module Decidim
       end
 
       def meetings_query
+        return [] unless Decidim.module_installed?(:meetings)
+
         meetings = Decidim::Meetings::Meeting.where(component: space_components).not_hidden
         registrations = Decidim::Meetings::Registration.where(decidim_meeting_id: meetings).distinct.pluck(:decidim_user_id)
         organizers = meetings.where(decidim_author_type: Decidim::UserBaseEntity.name).distinct.pluck(:decidim_author_id)
@@ -76,6 +82,8 @@ module Decidim
       end
 
       def proposals_query
+        return [] unless Decidim.module_installed?(:proposals)
+
         Decidim::Coauthorship
           .where(
             coauthorable: proposals_components,
@@ -86,6 +94,8 @@ module Decidim
       end
 
       def proposal_supports_query
+        return [] unless Decidim.module_installed?(:proposals)
+
         Decidim::Proposals::ProposalVote
           .where(
             proposal: proposals_components
@@ -96,6 +106,8 @@ module Decidim
       end
 
       def project_supports_query
+        return [] unless Decidim.module_installed?(:budgets)
+
         Decidim::Budgets::Order.joins(budget: [:component])
                                .where(budget: {
                                         decidim_components: { id: space_components.pluck(:id) }
