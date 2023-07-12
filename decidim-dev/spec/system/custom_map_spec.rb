@@ -41,6 +41,10 @@ describe "Custom map", type: :system do
   end
 
   shared_examples "working custom map" do
+    before do
+      allow(page.config).to receive(:raise_server_errors).and_return(false)
+    end
+
     it "allows overriding the map controller" do
       expect(page).to have_content("Custom map started")
       expect(page).to have_content("Custom map ready")
