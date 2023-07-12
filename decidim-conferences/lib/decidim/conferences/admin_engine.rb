@@ -219,7 +219,7 @@ module Decidim
       end
 
       initializer "decidim_conferences_admin.menu" do
-        Decidim.menu :admin_menu do |menu|
+        Decidim.menu :admin_menu_modules do |menu|
           menu.add_item :conferences,
                         I18n.t("menu.conferences", scope: "decidim.admin"),
                         decidim_admin_conferences.conferences_path,

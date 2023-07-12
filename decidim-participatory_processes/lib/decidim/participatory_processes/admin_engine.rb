@@ -99,7 +99,7 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes_admin.menu" do
-        Decidim.menu :admin_menu do |menu|
+        Decidim.menu :admin_menu_modules do |menu|
           menu.add_item :participatory_processes,
                         I18n.t("menu.participatory_processes", scope: "decidim.admin"),
                         decidim_admin_participatory_processes.participatory_processes_path,

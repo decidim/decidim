@@ -1,24 +1,39 @@
-.layout-nav .main-nav{
-  @apply bg-gray-2 w-[120px] text-center h-full;
+.layout-nav{
+  .main-nav{
+    @apply bg-gray-2 w-[120px] text-center last:pt-10;
+  }
+
+  .main-nav__modules{
+    @apply pb-10 pt-0 border-b;
+
+    border-color: #2A3745;
+  }
 }
 
 .main-nav ul{
-  @apply ml-0 list-none;
+  @apply list-none w-[90%] mx-auto;
+
+  li{
+    @apply pb-4;
+  }
 
   a{
-    @apply text-white py-4 block text-xs;
+    @apply text-white py-1 block text-xs w-full rounded bg-transparent transition;
+
     &:hover{
+      @apply underline;
+
       background-color:rgba(4, 11, 23, 0.3);
     }
   }
 
   .is-active a{
-    @apply text-white;
+    @apply text-white underline;
 
     background-color:rgba(4, 11, 23, 0.3);
   }
 
   svg{
-    @apply w-6 h-6 block mx-auto my-2 fill-background-4;
+    @apply w-6 h-6 block mx-auto mb-1 fill-background-4;
   }
 }

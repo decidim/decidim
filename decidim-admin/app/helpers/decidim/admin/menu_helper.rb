@@ -14,6 +14,16 @@ module Decidim
         )
       end
 
+      def main_menu_modules
+        @main_menu_modules ||= ::Decidim::MenuPresenter.new(
+          :admin_menu_modules,
+          self,
+          container_options: { class: "main-nav__modules" },
+          active_class: "is-active",
+          label: t("layouts.decidim.header.main_menu")
+        )
+      end
+
       def sidebar_menu(target_menu)
         ::Decidim::Admin::SecondaryMenuPresenter.new(
           target_menu,

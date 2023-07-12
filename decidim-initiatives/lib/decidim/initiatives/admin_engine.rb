@@ -84,7 +84,7 @@ module Decidim
       end
 
       initializer "decidim_initiatives_admin.menu" do
-        Decidim.menu :admin_menu do |menu|
+        Decidim.menu :admin_menu_modules do |menu|
           menu.add_item :initiatives,
                         I18n.t("menu.initiatives", scope: "decidim.admin"),
                         decidim_admin_initiatives.initiatives_path,

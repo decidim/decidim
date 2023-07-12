@@ -72,7 +72,7 @@ module Decidim
       end
 
       initializer "decidim_votings_admin.menu" do
-        Decidim.menu :admin_menu do |menu|
+        Decidim.menu :admin_menu_modules do |menu|
           menu.add_item :votings,
                         I18n.t("menu.votings", scope: "decidim.votings.admin"),
                         decidim_admin_votings.votings_path,

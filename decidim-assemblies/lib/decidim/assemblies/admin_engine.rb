@@ -101,7 +101,7 @@ module Decidim
       end
 
       initializer "decidim_assemblies_admin.menu" do
-        Decidim.menu :admin_menu do |menu|
+        Decidim.menu :admin_menu_modules do |menu|
           menu.add_item :assemblies,
                         I18n.t("menu.assemblies", scope: "decidim.admin"),
                         decidim_admin_assemblies.assemblies_path,
