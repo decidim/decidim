@@ -13,14 +13,29 @@ pt-BR:
         decidim_scope_id: Âmbito
         description: Descrição
         proposal_ids: Propostas relacionadas
+        proposals: Propostas
         selected: Selecionado para implementação
         title: Título
+      proposals_import:
+        scope_id: Escopo
   activerecord:
     models:
       decidim/budgets/project:
         one: Projeto
         other: Projetos
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Categoria
+          scope_id_eq:
+            label: Escopo
+          selected_at_null:
+            label: Selecionado
+            values:
+              'false': Selecionado para implementação
+              'true': Não selecionado para implementação
     budgets:
       actions:
         attachment_collections: Pastas
