@@ -1347,8 +1347,8 @@ zh-TW:
         conversations_info: 對話是私密的，沒有其他人可以看到。可以與平台上註冊的任何參與者或群組開始對話。
         from: 來自
         last_message: 最後訊息
-        modal_title: 新對話
-        new_conversation: 新對話
+        modal_title: 新的對話
+        new_conversation: 新的對話
         next: 下一個
         no_conversations_warning: 目前還沒有任何對話。
         no_results: 無結果
