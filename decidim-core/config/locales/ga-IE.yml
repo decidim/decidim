@@ -333,6 +333,10 @@ ga:
         sign_up: Cláraigh
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Cineál
       edit_link:
         edit: Eagar
       header:
