@@ -49,6 +49,11 @@ es-MX:
           create: "%{user_name} creó el post %{resource_name} en el blog de %{space_name}"
           delete: "%{user_name} ha eliminado el post %{resource_name} en el blog de %{space_name}"
           update: "%{user_name} ha actualizado el post %{resource_name} en el blog de %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Última publicación
+          name: Publicaciones
+          see_all: Per todas las publicaciones
       last_activity:
         new_post: 'Nueva publicación:'
       models:
