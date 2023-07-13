@@ -14,11 +14,11 @@
   @apply list-none w-[90%] mx-auto;
 
   li{
-    @apply pb-3;
+    @apply pb-2;
   }
 
   a{
-    @apply text-white py-1 block text-xs w-full rounded bg-transparent transition;
+    @apply text-white py-2 block text-xs w-full rounded bg-transparent transition;
 
     &:hover{
       @apply underline;

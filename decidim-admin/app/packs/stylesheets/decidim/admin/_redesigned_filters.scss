@@ -1,9 +1,9 @@
 .filters__section{
-  @apply flex flex-wrap gap-x-6 items-baseline mb-8;
+  @apply flex gap-x-6 items-center mb-8;
 
   & > .fcell{
     &.search{
-      @apply w-1/4 relative;
+      @apply w-full relative;
     }
   }
 
