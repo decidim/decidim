@@ -392,9 +392,6 @@ cs:
         description: Počet hlasů vygenerovaných v návrzích uživatelů
         object: hlasů
         title: Hlasy
-    participatory_spaces:
-      highlighted_proposals:
-        see_all: Zobrazit všechny (%{count})
     proposals:
       actions:
         answer_proposal: Odpověď na návrh
@@ -621,16 +618,12 @@ cs:
         rejected: Odmítnuto
         withdrawn: Staženo
       application_helper:
-        filter_category_values:
-          all: Vše
         filter_origin_values:
           all: Vše
           meetings: Setkání
           official: Oficiální
           participants: Účastníci
           user_groups: Skupiny uživatelů
-        filter_scope_values:
-          all: Vše
         filter_state_values:
           accepted: Přijato
           all: Vše
@@ -660,12 +653,6 @@ cs:
               ok: Vyjměte návrh spolupráce
               title: Následující akce je nevratná
             success: Kolaborativní návrh byl úspěšně zrušen.
-        count:
-          drafts_count:
-            one: "%{count} návrh spolupráce"
-            few: "%{count} návrh spolupráce"
-            many: "%{count} návrh spolupráce"
-            other: "%{count} návrh spolupráce"
         create:
           error: Při vytváření tohoto konceptu spolupráce došlo k chybě.
           success: Projekt spolupráce byl úspěšně vytvořen.
@@ -717,9 +704,7 @@ cs:
             error: Nemohl být odmítnut jako spolupracovník, zkuste to znovu později.
             success: "@%{user} byl úspěšně odmítnut jako spolupracovník."
         show:
-          back: Zadní
           edit: Úprava konceptu spolupráce
-          final_proposal: konečný návrh
           final_proposal_help_text: Tento návrh je dokončen. Můžete vidět konečný konečný návrh
           hidden_authors_count:
             one: a %{count} další osoba
@@ -729,10 +714,8 @@ cs:
           info-message: Toto je <strong>návrh spolupráce</strong> pro návrh. To znamená, že můžete jeho autorům pomoci utvářet návrh pomocí sekce komentáře níže nebo jej přímo vylepšit požádáním o přístup k jeho úpravě. Jakmile vám autoři udělí přístup, budete moci provést změny tohoto konceptu.
           publish: Publikovat
           publish_info: Publikujte tuto verzi konceptu nebo
-          published_proposal: zveřejněný návrh
           request_access: Požádat o přístup
           requested_access: Požadovaný přístup
-          version_history: viz historii verzí tohoto návrhu
           withdraw: stáhnout návrh
         states:
           open: Otevřeno
@@ -743,12 +726,8 @@ cs:
           success: Protokol o spolupráci byl úspěšně aktualizován.
         wizard_aside:
           back_from_collaborative_draft: Zpět na koncepty spolupráce
-          info: Při vytváření <strong>spolupráce návrhu</strong>.
         wizard_header:
           title: Vytvořte návrh spolupráce
-      content_blocks:
-        highlighted_proposals:
-          proposals: Návrhy
       create:
         error: Při ukládání návrhu došlo k chybám.
         success: Návrh byl úspěšně vytvořen. Uloženo jako návrh.
@@ -759,11 +738,6 @@ cs:
         new_proposal: 'Nový návrh:'
         proposal_updated: 'Návrh aktualizován:'
       models:
-        collaborative_draft:
-          fields:
-            authors: Autoři
-            comments: Komentáře
-            contributions: Příspěvky
         proposal:
           fields:
             category: Kategorie
@@ -786,7 +760,6 @@ cs:
         buttons:
           amend: Pozměnit
           comment: Komentář
-          comments: Komentáře
       proposal_votes:
         create:
           error: Při hlasování o návrhu došlo k chybám.
@@ -798,23 +771,14 @@ cs:
         complete:
           send: Poslat
           title: Dokončete svůj návrh
-        count:
-          proposals_count:
-            one: "%{count} návrh"
-            few: "%{count} návrhů"
-            many: "%{count} návrhů"
-            other: "%{count} návrhů"
         dynamic_map_instructions:
           description: Souřadnice budou aktualizovány po kliknutí na tlačítko 'náhled'. Adresa se však nemění.
           instructions: Můžete přesunout bod na mapě.
         edit:
           add_documents: Přidat dokumenty
-          add_image: Přidat obrázek
           attachment_legend: "(Volitelné) Přidání přílohy"
           back: Zadní
           edit_documents: Upravit dokumenty
-          edit_image: Upravit obrázek
-          gallery_legend: "(Volitelné) Přidejte obrázek na kartu návrhu"
           select_a_category: Vyberte kategorii
           send: Poslat
           title: Upravit návrh
@@ -836,11 +800,6 @@ cs:
           state: Stav
           type: Typ
           voted: Hlasoval
-        filters_small_view:
-          close_modal: Zavřít modální
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozvinout
         index:
           click_here: Zobrazit všechny návrhy
           collaborative_drafts_list: Přístup ke konceptům spolupráce
@@ -848,13 +807,6 @@ cs:
           see_all: Zobrazit všechny návrhy
           see_all_withdrawn: Podívejte se na všechny stažené návrhy
           text_banner: Zobrazujete seznam návrhů stažených jejich autory. %{go_back_link}.
-          view_proposal: Zobrazit návrh
-        linked_proposals:
-          proposal_votes:
-            one: hlasování
-            few: hlasů
-            many: hlasů
-            other: hlasů
         new:
           send: Pokračovat
           title: Vytvořte svůj návrh
@@ -867,11 +819,6 @@ cs:
           random: Náhodně
           recent: Nedávné
           with_more_authors: S více autory
-        participatory_texts:
-          index:
-            document_index: Index dokumentů
-          view_index:
-            see_index: Prohlédnout seznam
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -886,17 +833,13 @@ cs:
           publish: Publikovat
           title: Publikujte svůj návrh
         proposal:
-          creation_date: 'Tvorba: %{date}'
           view_proposal: Zobrazit návrh
         proposals:
           empty: Zatím nejsou žádné návrhy.
           empty_filters: Neexistuje žádný návrh s tímto kritériem.
         show:
           answer: Odpovědět
-          back_to: Zpět k
-          back_to_list: Zpět na seznam
           changes_at_title: Pozměňovací návrh k "%{title}"
-          comments: Komentáře
           edit_proposal: Upravit návrh
           estimated_cost: Odhadované náklady
           hidden_endorsers_count:
@@ -913,14 +856,9 @@ cs:
           proposal_accepted_reason: 'Tento návrh byl přijat, protože:'
           proposal_in_evaluation_reason: Tento návrh se hodnotí
           proposal_rejected_reason: 'Tento návrh byl zamítnut, protože:'
-          read_less: Číst méně
-          read_more: Číst více
-          report: Zpráva
           withdraw_btn_hint: Pokud změníte názor, můžete svůj návrh stáhnout, pokud jste nedostali žádnou podporu. Návrh není zrušen, objeví se v seznamu stažených návrhů.
           withdraw_confirmation_html: Jste si jisti, že chcete stáhnout tento návrh?<br><br><strong>Tuto akci nelze zrušit!</strong>
           withdraw_proposal: Návrh stáhnout
-        tags:
-          changed_from: "(změněn z <u>%{previous_name}</u> správcem)"
         update:
           title: Aktualizovat návrh
         vote_button:
@@ -952,8 +890,6 @@ cs:
           title: 'Hlasování podléhá těmto pravidlům:'
           vote_limit:
             description: Můžete hlasovat až pro %{limit} návrhů.
-            left: Zbývající
-            votes: Hlasy
         wizard_aside:
           back: Zadní
           back_from_step_1: Zpět k návrhům
@@ -987,12 +923,8 @@ cs:
         error: Při ukládání konceptu návrhu došlo k chybám.
         success: Návrh návrhu byl úspěšně aktualizován.
       versions:
-        collaborative_drafts:
-          back_to_resource: Vraťte se zpět do kolektivní schůzky
         index:
           title: Verze
-        proposals:
-          back_to_resource: Vraťte se k návrhu
       withdraw:
         errors:
           has_supports: Tento návrh nemůže být stažen, protože již získal hlasy pro.
