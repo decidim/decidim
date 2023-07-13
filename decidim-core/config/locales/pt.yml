@@ -1291,7 +1291,7 @@ pt:
         existing_error: Não foi possível criar a mensagem. A conversa já existe, por favor tente novamente agora.
         success: Conversa iniciada corretamente!
       index:
-        add_max_users: 'Adicionar utilizadores à conversa: 9 utilizadores no máx.'
+        add_max_users: 'Adicionar utilizadores à conversa: 9 utilizadores no máximo'
         add_users_placeholder: Pesquisar...
         close: Fechar
         conversations_info: As conversas são privadas, mais ninguém consegue vê-las. Uma conversa pode ser iniciada com quaisquer participantes ou grupos registados na plataforma.
