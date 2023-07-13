@@ -23,7 +23,7 @@ module Decidim
       end
 
       def initiative_type
-        @initiative_type ||= InitiativesType.find(params[:type_id])
+        @initiative_type ||= InitiativesType.where(organization: current_organization).find(params[:type_id])
       end
     end
   end
