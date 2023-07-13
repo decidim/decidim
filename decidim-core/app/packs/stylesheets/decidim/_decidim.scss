@@ -9,7 +9,7 @@
 @include foundation-prototype-spacing;
 
 @import "stylesheets/decidim/utils/fontface";
-@import "stylesheets/decidim/redesigned_rich_text";
+@import "stylesheets/decidim/rich_text";
 @import "stylesheets/decidim/utils/helpers";
 @import "stylesheets/decidim/utils/keyframes";
 @import "stylesheets/decidim/utils/mixins";
@@ -23,4 +23,4 @@
   REDESIGN_PENDING: remove this import
   It include only to pass the tests of the new a11y components
 */
-@import "stylesheets/decidim/redesigned_accordion.scss";
+@import "stylesheets/decidim/accordion.scss";

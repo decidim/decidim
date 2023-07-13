@@ -26,7 +26,7 @@ describe "Data consent scripts", type: :system do
         <html lang="en">
         <head>
           <title>Accessibility Test</title>
-          #{stylesheet_pack_tag "redesigned_decidim_core"}
+          #{stylesheet_pack_tag "decidim_core"}
           #{stylesheet_pack_tag "decidim_dev"}
           #{javascript_pack_tag "redesigned_decidim_core", "decidim_dev", defer: false}
         </head>
