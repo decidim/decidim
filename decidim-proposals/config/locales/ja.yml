@@ -831,8 +831,6 @@ ja:
           recent: 新しい順
           with_more_authors: 起案者の多い順
         participatory_texts:
-          index:
-            document_index: ドキュメントのインデックス
           view_index:
             see_index: インデックスを見る
         placeholder:
