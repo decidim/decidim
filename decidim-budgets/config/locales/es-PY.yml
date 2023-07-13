@@ -162,6 +162,7 @@ es-PY:
         continue: Continuar
         more_information: Más información
       budgets_list:
+        budgets: Presupuestos
         cancel_order:
           more_than_one: eliminar tu voto en %{name} y empezar de nuevo
           only_one: eliminar tu voto y empezar de nuevo.
@@ -170,8 +171,10 @@ es-PY:
         if_change_opinion: Si has cambiado de opinión, puedes %{cancel_link}.
         my_budgets: Mis presupuestos
         progress: Finalizar votación
+        remove_vote: Eliminar el voto
         show: Ver proyectos
         vote: Votar
+        voted_budgets: Presupuestos votados
         voted_on: Has votado a %{links}.
       last_activity:
         new_vote_at: Nueva votación presupuestaria en
@@ -214,8 +217,11 @@ es-PY:
             title: Se ha superado el número máximo de proyectos
         budget_summary:
           are_you_sure: '¿Estás seguro de que deseas cancelar tu voto?'
+          cancel_order: Borra tu voto
           checked_out:
+            description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes borrar tu voto.
             title: Voto enviado correctamente
+          vote: Votar presupuesto
         count:
           projects_count:
             one: 1 proyecto
@@ -234,6 +240,24 @@ es-PY:
             all: Todos
             not_selected: No seleccionado
             selected: Seleccionado
+        index:
+          back_to_budgets: volver a los presupuestos
+        order_progress:
+          assigned: Asignado
+          budget: Presupuesto
+          dynamic_help:
+            keep_adding_projects: Seguir añadiendo proyectos
+            minimum_reached: Has alcanzado el mínimo para poder votar
+            start_adding_projects: Empezar a añadir proyectos
+          minimum: Mínimo
+          minimum_projects_rule:
+            description: Selecciona al menos %{minimum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
+          projects_rule:
+            description: Selecciona al menos %{minimum_number} y hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
+          projects_rule_maximum_only:
+            description: Selecciona hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
+          vote_threshold_percent_rule:
+            description: Selecciona al menos %{minimum_budget} com los proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
         orders:
           highest_cost: Mayor coste
           label: Ordenar proyectos por
@@ -251,9 +275,15 @@ es-PY:
             other: votos
           you_voted: Has votado esto
         project_budget_button:
+          add: Añadir
           add_descriptive: Añade el proyecto %{resource_name} a tu voto.
+          added: Añadido
           added_descriptive: El proyecto %{resource_name} se ha añadido a tu voto.
+        project_filter:
+          added: Añadido
+          all: Todos
         projects_for: Proyectos de %{name}
+        select_projects: Selecciona proyectos
         show:
           budget: Presupuesto
       vote_reminder_mailer:
@@ -324,6 +354,8 @@ es-PY:
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto.
+        success_html: <p>Tu voto ha sido aceptado con éxito.</p> <p class="text-sm font-normal">Puedes <a class="text-secondary underline" href="%{rest_of_budgets_link}">explorar el resto de presupuestos</a>.</p>
+        success_no_left_budgets_html: Tu voto se ha aceptado correctamente.
       destroy:
         error: Se ha producido un error al cancelar tu voto.
         success: Tu voto se ha cancelado correctamente.
