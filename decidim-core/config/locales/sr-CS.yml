@@ -91,6 +91,14 @@ sr:
       results_per_page:
         title: Izaberite broj rezultata po stranici
     user_contact_disabled: Ovaj učesnik ne prihvata direktne poruke.
+    user_conversations:
+      index:
+        add_max_users: 'Dodajte korisnike u razgovor: najviše 9 korisnika'
+        add_users_placeholder: Pretraži...
+        modal_title: Novi razgovor
+        new_conversation: Novi razgovor
+        next: Slеdеćе
+        no_results: Nema rezultata
   errors:
     messages:
       invalid_time_zone: nije validna vremenska zona
