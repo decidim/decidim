@@ -10,7 +10,9 @@ shared_context "with map utility" do
 end
 
 shared_context "with frontend map builder" do
-  subject { described_class.new(template, options) }
+  subject { builder_class.new(template, options) }
+
+  let(:builder_class) { described_class }
 
   let(:template_class) do
     Class.new(ActionView::Base) do
@@ -102,6 +104,7 @@ shared_context "with frontend map elements" do
     # context.
     final_html = html_document
     Rails.application.routes.draw do
+      get "maptiles/:z/:x/:y.png", to: ->(_) { [200, {}, [final_html]] }
       get "test_dynamic_map", to: ->(_) { [200, {}, [final_html]] }
     end
 

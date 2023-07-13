@@ -1,3 +1,5 @@
+import "src/decidim/map/icon"
+
 import MapMarkersController from "src/decidim/map/controller/markers"
 import MapStaticController from "src/decidim/map/controller/static"
 import MapDragMarkerController from "src/decidim/map/controller/drag_marker"
@@ -22,7 +24,8 @@ import MapDragMarkerController from "src/decidim/map/controller/drag_marker"
  *   window.Decidim.createMapController = (mapId, config) => {
  *     if (config.type === "custom") {
  *       // Obviously you need to implement CustomMapController for this to
- *       // work.
+ *       // work. You can find an example at:
+ *       // decidim-dev/app/packs/src/decidim/dev/test/custom_map_factory.js
  *       return new window.Decidim.CustomMapController(mapId, config);
  *     }
  *

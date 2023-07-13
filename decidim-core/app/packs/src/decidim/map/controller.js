@@ -1,5 +1,3 @@
-import * as L from "leaflet";
-import "src/decidim/map/icon"
 import MapControllerRegistry from "src/decidim/map/controller_registry"
 
 export default class MapController {
