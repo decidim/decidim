@@ -205,6 +205,7 @@ fr-CA:
           categories: Catégories
           components: Composants
           info: Information
+          landing_page: Page d'accueil
           moderations: Modérations
           private_users: Utilisateurs privés
         assemblies_types: Types d'assemblée
@@ -331,6 +332,26 @@ fr-CA:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Périmètre d'assemblée
+          closing_date: Date de clôture
+          created_by: Créé par
+          creation_date: Date de création
+          data: Données de l'assemblée
+          developer_group: Organisateur
+          duration: Durée
+          included_at: Intégré à cette plateforme le
+          indefinite_duration: Indéfinie
+          local_area: Zone de l’organisation
+          meta_scope: Secteur
+          participatory_scope: Ce qui est décidé
+          participatory_structure: Modalités de décision
+          target: Qui participe
+          title: À propos de cette assemblée
+        filters:
+          names:
+            all: Toutes
+          type: Type
         show:
           title: À propos de cette assemblée
       assembly_members:
@@ -345,8 +366,16 @@ fr-CA:
         participatory: Organe participatif
         working_group: Groupe de travail
       content_blocks:
+        children_assemblies:
+          name: Assemblées
+        dates_metadata:
+          name: Métadonnées des dates
+        extra_data:
+          name: Type et durée
         highlighted_assemblies:
           name: Assemblées mises en avant
+        related_assemblies:
+          name: Assemblées liées
       created_by:
         city_council: Conseil municipal
         others: Autres
@@ -366,6 +395,10 @@ fr-CA:
       last_activity:
         new_assembly: 'Nouvelle assemblée :'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Assemblées actives
+            see_all_spaces: Voir toutes les assemblées
         user_profile:
           member_of:
             member_of: Membre de
@@ -429,6 +462,10 @@ fr-CA:
         index:
           children: 'Assemblées : '
           promoted_assemblies: Assemblées mises en avant
+        metadata:
+          children_item:
+            one: "%{count} assemblée"
+            other: "%{count} assemblées"
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblée"
