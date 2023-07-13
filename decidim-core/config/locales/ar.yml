@@ -255,7 +255,6 @@ ar:
         error: حدث خطأ أثناء قبول التعديل.
         success: تم قبول التعديل بنجاح.
       amendable:
-        amended_by: عدلت من قبل
         button: تعديل %{model_name}
         error: طرأ خطأ خلال تصليح هذا المورد.
         promote_button: ترقية إلى صفة %{model_name}
@@ -273,7 +272,6 @@ ar:
         success: تم حذف مسودة التعديل بنجاح.
       edit_draft:
         discard: تجاهل هذه المسودة
-        discard_confirmation: هل ترغب حقًا في تجاهل مسودة التعديل هذه؟
         send: معاينة
         title: تحرير مسودة التعديل
       emendation:
@@ -323,8 +321,6 @@ ar:
         download: نزّل الملف
       documents:
         related_documents: الوثائق ذات الصلة
-      geocoding:
-        geocoded_address: العنوان
       photo:
         alt: صورة الوسائط
         title: الصورة
@@ -332,7 +328,6 @@ ar:
         related_photos: الصور ذات الصلة
     author:
       avatar: 'الصورة الرمزية: %{name}'
-      avatar_multiuser: الصورة الرمزية الافاتار لمستخدمين عدة
       comments:
         zero: تعليقات
         one: تعليق
@@ -526,8 +521,6 @@ ar:
           nickname_help: الاسم المستعار الخاص بك في %{organization}. يمكن أن يحتوي فقط على أحرف وأرقام، و '-' و '_'.
           sign_in: تسجيل الدخول
           sign_up: انشئ حسابًا
-          sign_up_as:
-            legend: الاشتراك باسم
           subtitle: اشترك للمشاركة في المناقشات ودعم المقترحات.
           tos_agreement: بالتسجيل فإنك توافق على %{link}.
           tos_title: شروط الخدمة
@@ -542,7 +535,6 @@ ar:
         newsletter_modal:
           buttons:
             check: تحقق واستمر
-            close_modal: إغلاق مشروط
             uncheck: إبقاءه غير مختار
           title: الإخطارات الإخبارية
         omniauth_buttons:
@@ -551,7 +543,6 @@ ar:
       authorizations:
         new:
           authorize: إذن التطبيق
-          by_organization_link_html: <small class="heading-small">بواسطة %{link}</small>
           cancel: إلغاء
           publish_content: نشر المحتوى لك
           see_email: انظر البريد الإلكتروني الخاص بك
@@ -560,7 +551,6 @@ ar:
           this_application_will_be_able_to: 'سيكون هذا التطبيق قادرًا على:'
           this_application_will_not_be_able_to: 'لن يكون هذا التطبيق قادرًا على:'
           update_profile: تحديث ملفك الشخصي
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> يريد استخدام حسابك"
     download_your_data:
       export:
         ready: جاهز
@@ -906,12 +896,9 @@ ar:
           title: ماذا يمكنني أن أفعل في %{organization}؟
         title: المساعدة العامة
     last_activities:
-      activities:
-        no_activities_warning: لا يوجد نشاط
       all: جميع أنواع النشاط
       index:
         last_activity: النشاط الاخير
-        resource_type: نوع
     links:
       invalid_url: URL غير صالح
       warning:
@@ -1111,11 +1098,6 @@ ar:
         retry: إعادة المحاولة
     open_data:
       not_available_yet: ملفات Open Data ليست متاحة بعد ، يرجى المحاولة مرة أخرى بعد بضع دقائق.
-    own_user_groups:
-      index:
-        pending: قيد الانتظار
-        rejected: مرفوض
-        verified: التحقق
     pad_iframe:
       disclaimer: تتم كتابة محتويات هذه اللوحة من قبل المستخدمين المسجلين والتعبير عن آرائهم. لا يمكن تحميل %{organization} مسؤولية محتوياته.
       pad: ضمادة
@@ -1137,8 +1119,6 @@ ar:
         hero:
           participate: مشاركة
           welcome: مرحبًا بكم على %{organization}!
-        metrics:
-          headline: المشاركة في الأرقام
         statistics:
           headline: الحالة الحالية لـ %{organization}
         sub_hero:
@@ -1151,11 +1131,10 @@ ar:
       participatory_space:
         metrics:
           headline: المشاركة في الأرقام
-          link: عرض جميع الإحصاءات
     participatory_space_private_users:
       not_allowed: غير مسموح لك بمشاهدة هذا المحتوى
     profile:
-      view: رأي
+      deleted: مشارك محذوف
     profiles:
       show:
         activity: نشاط
@@ -1167,7 +1146,6 @@ ar:
         members: أفراد
         officialized: مشارك رسمي
         send_private_message: ارسال رسالة خاصة
-        view_full_profile: عرض الملف الشخصي الكامل
       sidebar:
         badges:
           info: يتم الحصول على الشارات من خلال أداء نشاط معين في النظام الأساسي.
@@ -1235,7 +1213,6 @@ ar:
       term_input_placeholder: بحث
     searches:
       filters:
-        back: العودة إلى النتائج
         jump_to: 'اقفز إلى:'
         state:
           active: نشيط
@@ -1248,13 +1225,6 @@ ar:
         filter_by: مصنف بواسطة
         unfold: كشف
       results:
-        results:
-          zero: "%{count} النتائج"
-          one: "%{count} النتيجة"
-          two: "%{count} النتائج"
-          few: "%{count} النتائج"
-          many: "%{count} النتائج"
-          other: "%{count} النتائج"
         view_all: عرض الكل (%{count})
     security:
       selfxss_warning:
@@ -1266,10 +1236,6 @@ ar:
         close_modal: اغلاق النموذج
         ok: حسناً
         title: تأكيد
-      embed_modal:
-        close_window: أغلق النافذة
-        embed: يرجى لصق هذا الرمز في صفحتك
-        embed_link: تضمين
       extended_navigation_bar:
         more: أكثر من
         unfold: كشف
@@ -1287,7 +1253,6 @@ ar:
         report: أبلغ عن
         spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.
         title: الإبلاغ عن مشكلة
-        visit_profile: إذا كنت ترغب أيضا في حظر المشارك وبقية محتوياته، انتقل إلى صفحة الملف الشخصي %{user_link}.
       flag_user_modal:
         already_reported: تم الإبلاغ عن هذا المحتوى وسيتم مراجعته من قبل مدير.
         close: إغلاق
@@ -1355,28 +1320,12 @@ ar:
         existing_error: تعذر إنشاء الرسالة. المحادثة موجودة بالفعل، الرجاء المحاولة مرة أخرى الآن.
         success: تم بدء المحادثة بنجاح!
       index:
-        add_max_users: 'يمكن إضافة مستخدمين إلى المحادثة: 9 مستخدمين كحد أقصى'
-        add_users_placeholder: البحث…
-        close: غلق
         conversations_info: المحادثات خاصة. لا يمكن لأحد آخر أن يراها. يمكن بدء محادثة مع أي مشارك أو مجموعة مسجلة على المنصة.
-        from: من
-        last_message: آخر رسالة
-        modal_title: محادثة جديدة
-        new_conversation: محادثة جديدة
-        next: التالي
         no_conversations_warning: لا توجد نقاشات بعد.
-        no_results: لا توجد نتائج
         time_ago: "منذ %{time}"
-      new:
-        title: بدء محادثة
       reply:
         placeholder: ردك...
         send: إرسال
-        title_reply: رد
-      show:
-        back: عرض كافة المحادثات
-        not_allowed: هذا المستخدم لم يعد يستقبل المزيد من الرسائل المباشرة.
-        title: محادثة مع %{usernames}
       update:
         error: لم يتم إرسال الرسالة. حاول مرة أخرى في وقت لاحق
     user_interests:
@@ -1399,29 +1348,12 @@ ar:
         back_to_resource: العودة
         changes_at_title: تغييرات في "%{title}"
         number_of_versions: الإصدارات
-        show_all_versions: عرض جميع الإصدارات
-        version_author: مؤلف الإصدار
         version_created_at: تم إنشاء الإصدار في
-        version_number: رقم الإصدار
-        version_number_out_of_total: "%{current_version} من أصل %{total_count}"
-    version_author:
-      show:
-        deleted: مشارك محذوف
     versions:
       resource_version:
         of_versions: "(من%{number})"
         see_other_versions: عرض اصدارات أخرى
         version: رقم الإصدار %{number}
-    versions_list:
-      show:
-        back_to_resource: العودة
-        changes_at_title: تغييرات في "%{title}"
-        number_of_versions: الإصدارات
-        title: الإصدارات
-    versions_list_item:
-      back: عرض جميع الإصدارات
-      show:
-        version_index: الإصدار %{index}
     welcome_notification:
       default_subject: شكرا لانضمامك {{organization}}!
     wizard_step_form:
@@ -1721,8 +1653,6 @@ ar:
         notifications_settings: إعدادات الإخطارات
         title: إعدادات المشارك
         user_groups: المجموعات
-      widget:
-        see_more: شاهد المزيد
   locale:
     name: العربية
     name_with_error: الإنجليزية (خطأ!)
@@ -1794,7 +1724,6 @@ ar:
     dropdown:
       choose_diff_view_html: 'عرض HTML:'
       choose_diff_view_mode: 'مقارنة وضع العرض:'
-      choose_diff_view_mode_menu: اختر وضع المقارنة
       option_escaped: فالتة
       option_split: جنبًا ﺇﻟﻰ ﺟﻨﺐ
       option_unescaped: غير فالتة
