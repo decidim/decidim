@@ -1482,7 +1482,7 @@ ar:
       index:
         add_max_users: 'يمكن إضافة مستخدمين إلى المحادثة: 9 مستخدمين كحد أقصى'
         add_users_placeholder: البحث…
-        close: غلق
+        close: قريب
         conversations_info: المحادثات خاصة. لا يمكن لأحد آخر أن يراها. يمكن بدء محادثة مع أي مشارك أو مجموعة مسجلة على المنصة.
         from: من
         last_message: آخر رسالة
@@ -1503,7 +1503,7 @@ ar:
         back: عرض كافة المحادثات
         deleted_accounts: لا يمكن أن يكون لديك محادثة مع حسابات محذوفة.
         not_allowed: هذا المستخدم لم يعد يستقبل المزيد من الرسائل المباشرة.
-        title: محادثة مع %{usernames}
+        title: المحادثة مع %{usernames}
       update:
         error: لم يتم إرسال الرسالة. حاول مرة أخرى في وقت لاحق
     user_interests:
@@ -1749,7 +1749,7 @@ ar:
             description: وصف
             name: اسم
             service: الخدمة
-            type: النوع
+            type: نوع
           items:
             _session_id:
               description: يسمح للمواقع بتذكر المستخدم داخل الموقع عندما ينتقل بين صفحات الويب.
