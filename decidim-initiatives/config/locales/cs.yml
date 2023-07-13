@@ -425,7 +425,7 @@ cs:
       form:
         add_attachments: Dokumenty
         attachment_legend: "(Volitelné) Přidat přílohu"
-        delete_attachment: Smazat
+        delete_attachment: Odstranit
       index:
         title: Iniciativy
         uninitialized: Iniciativy ještě nejsou nakonfigurovány správcem
@@ -470,7 +470,7 @@ cs:
           confirm_revoke: Jste si jist?
           invite_to_committee_help: Sdílejte tento odkaz pro pozvání ostatních účastníků do propagačního výboru
           no_members_yet: V propagačním výboru nejsou žádní členové
-          revoke: Odvolat
+          revoke: Zrušit
           title: Členové výboru
         count:
           title:
@@ -581,11 +581,6 @@ cs:
         status_change_for: Iniciativa %{title} změnila svůj stav
       last_activity:
         new_initiative: Nová iniciativa
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktivní iniciativy
-            see_all_initiatives: Zobrazit všechny iniciativy
       show:
         badge_name:
           accepted: Dostatek podpisů
