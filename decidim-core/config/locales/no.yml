@@ -1311,13 +1311,13 @@
         success: Samtalen startet vellykket!
       index:
         add_max_users: 'Legg til brukere i samtale: maks 9 brukere'
-        add_users_placeholder: Søk..
+        add_users_placeholder: Søk...
         close: Lukk
         conversations_info: Samtaler er private. Ingen andre kan se dem. En samtale kan startes med alle deltakere eller grupper som er registrert på plattformen.
         from: Fra
         last_message: Siste melding
-        modal_title: Ny samtale
-        new_conversation: Ny samtale
+        modal_title: Ny Samtale
+        new_conversation: Ny Samtale
         next: Neste
         no_conversations_warning: Det er ingen samtaler ennå.
         no_results: Ingen resultater
@@ -1373,7 +1373,7 @@
     versions_list:
       show:
         back_to_resource: Gå tilbake
-        changes_at_title: Endringer på "%{title}"
+        changes_at_title: Endringer på"%{title}
         number_of_versions: Versjoner
         title: Versjoner
     versions_list_item:
@@ -1555,6 +1555,10 @@
     timestamp_error_message: Beklager, det var for raskt! Vennligst, send inn på nytt.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Type
       edit_link:
         edit: Rediger
       footer:
