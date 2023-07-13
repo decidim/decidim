@@ -270,10 +270,6 @@ eu:
         rejected: Ez ditu lortu beharrezko sinadurak
         validating: Balidazio teknikoa
       application_helper:
-        filter_area_values:
-          all: Guztiak
-        filter_scope_values:
-          all: Guztiak
         filter_state_values:
           accepted: Sinadurak lortu ditu
           all: Guztiak
@@ -318,25 +314,15 @@ eu:
         previous_form:
           back: Back
           continue: Jarraitu
-          help: Zer ekimena osatzen dute? Idatzi izenburua eta deskribapena. Titulu labur eta zehatza eta proposatutako irtenbidean oinarritutako azalpena gomendatzen dugu.
-          more_information: "(Informazio gehiago)"
         promotal_committee:
-          back: Back
           more_information: "(Informazio gehiago)"
         select_initiative_type:
           back: Back
           choose_html: <strong>%{title}</strong>bat sortu nahi dut
-          more_information: "(Informazio gehiago)"
           select: Ekimen hau sustatu nahi dut
           select_initiative_type_help: Ekimenen bidez, parte-hartzaileek esku har dezakete erakundeak interes orokorraren aldeko ekintzak egin ditzan. Zein ekimen abiarazi nahi duzu?
         share_committee_link:
-          continue: Jarraitu
           invite_to_committee_help: Sustapen batzordearen parte izango duten pertsonei gonbidatzeko esteka
-        show_similar_initiatives:
-          back: Back
-          compare_help: Honako ekimen hauetako bat zurea bezalakoa baldin bada, onar ezazu. Zure proposamenak aukera gehiago izango ditu aurrera ateratzeko.
-          continue: Nire ekimena desberdina da
-          more_information: "(Informazio gehiago)"
       edit:
         accept: Onartu ekimena
         back: Atzera
@@ -373,11 +359,6 @@ eu:
           email_outro: 'Jakinarazpen hau jaso duzu %{resource_title} ekimenaren egilea zarelako'
           email_subject: "%{applicant_nickname} k zure ekimenarekin bat egin nahi du"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> k eskatu du <a href="%{resource_url}">%{resource_title}</a> zure ekimenaren batzorde bultzatzailearekin bat egitea. eskaera onartzeko edo ez onartzeko, egin klik hemen <a href="%{resource_url}/edit">aquí</a>.
-      form:
-        add_attachments: Dokumentuak
-        delete_attachment: Ezabatu
-      index:
-        title: Ekimenak
       initiative_signatures:
         fill_personal_data:
           continue: Jarraitu
@@ -400,8 +381,6 @@ eu:
         sms_phone:
           invalid: Telefono-zenbakia baliogabea edo baimenaren zain dago. Egiaztatu zure baimenak.
       initiatives:
-        author:
-          deleted: Ezabatutako
         author_list:
           hidden_authors_count:
             one: eta beste 1 pertsona
@@ -409,7 +388,6 @@ eu:
         committee_members:
           approve: Onartu
           confirm_revoke: Ziur zaude?
-          revoke: Baliogabetu
           title: Batzorde-kideak
         count:
           title:
@@ -470,12 +448,8 @@ eu:
         result:
           initiative_rejected_reason: Ekimen hau baztertu egin da laguntza faltagatik.
         show:
-          any_vote_method: Ekimen honek lineako eta aurrez aurreko sinadurak biltzen ditu.
           confirm: Ekimena bidaliko duzu administratzaile batek berrikus eta argitara dezan. Argitaratu ondoren, ezin izango duzu editatu. Ziur zaude?
           edit: Editatu
-          follow_description: Jakinarazpen bat jasotzen denean ekimen honetako berriak daude
-          offline_method: Ekimen honek aurrez aurreko sinadurak baino ez ditu biltzen.
-          print: Inprimatu ekimena
           send_to_technical_validation: Bidali baliozkotze teknikora
         signatures_count:
           one: " sinadura"
@@ -490,8 +464,6 @@ eu:
           count:
             one: SIGNATURE
             other: sinadurak
-          most_popular_initiative: Ekimen ezagunena
-          need_more_votes: Sinadura gehiago behar duzu
       initiatives_mailer:
         creation_subject: Zure herritarren ekimena '%{title}' sortu da
         initiative_link:
@@ -506,14 +478,8 @@ eu:
       modal:
         not_authorized:
           authorizations_page: Ikusi baimenak
-          close: Itxi
           explanation: Egiaztatuta egon behar zara ekimen berri bat sortzeko.
           title: Baimena behar da
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Ekimen aktiboak
-            see_all_initiatives: Ikusi ekimen guztiak
       show:
         badge_name:
           accepted: Beharrezko sinadurekin
@@ -526,9 +492,6 @@ eu:
         accepted: Onartu
         expired: iraungi
       unavailable_scope: Ez dago erabilgarri
-      versions:
-        shared:
-          back_to_resource: Itzuli ekimenera
     menu:
       initiatives: Ekimenak
     resources:
@@ -542,14 +505,10 @@ eu:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Back
         fill_data: Sortu
         finish: Amaitu
-        previous_form: start
         promotal_committee: Sustatzaile batzordea
         select_initiative_type: Aukeratu
-        show_similar_initiatives: konparatu
-        title: Sortu ekimen berria
       initiative_header:
         initiative_menu_item: Initiative
       initiative_signature_creation_header:
@@ -557,11 +516,8 @@ eu:
         fill_personal_data: Zure datuak osatzea
         finish: Amaitu
         finished: Ekimena sinadura sortu da
-        see_steps: ikusi urratsak
-        select_identity: Hautatu identitatea
         sms_code: SMS kodea egiaztatzea
         sms_phone_number: Telefono mugikorraren zenbakia
-        step: Step %{current} of %{total}
         title: Saioa hasi %{initiative_title}
       initiatives:
         initiative:
