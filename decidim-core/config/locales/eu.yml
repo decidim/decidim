@@ -200,7 +200,6 @@ eu:
         error: Errore bat gertatu da aldaketa onartuz.
         success: Aldaketa ongi onartu da.
       amendable:
-        amended_by: Aldatua
         button: Aldatu %{model_name}
         error: Errore bat gertatu da baliabidea aldatzen.
         promote_button: '%{model_name}suspertzea'
@@ -218,7 +217,6 @@ eu:
         success: Zuzenketa-zirriborroa zuzen ezabatu da.
       edit_draft:
         discard: Baztertu zirriborro hau
-        discard_confirmation: Ziur zaude zuzenketa-zirriborro hau baztertu nahi duzula?
         send: Aurrebista
         title: Editatu zuzenketa-zirriborroa
       emendation:
@@ -268,8 +266,6 @@ eu:
         download: Deskargatu fitxategia
       documents:
         related_documents: Honekin lotutako agiriak
-      geocoding:
-        geocoded_address: Helbidea
       photo:
         alt: Multimedia-irudia
         title: Irudia
@@ -277,7 +273,6 @@ eu:
         related_photos: Honekin lotutako argazkiak
     author:
       avatar: 'Avatarra: %{name}'
-      avatar_multiuser: Avatarra erabiltzaile batzuentzat
       comments:
         one: iruzkin
         other: iruzkinak
@@ -457,8 +452,6 @@ eu:
           nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
           sign_in: Sartu
           sign_up: Erregistratu
-          sign_up_as:
-            legend: Izena eman honako hau gisa
           subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
           tos_title: Zerbitzu-baldintzak
@@ -473,7 +466,6 @@ eu:
         newsletter_modal:
           buttons:
             check: Egiaztatu eta jarraitu
-            close_modal: Itxi modal
             uncheck: Mantendu markatu gabe
           title: Buletina jakinarazpenak
         omniauth_buttons:
@@ -482,7 +474,6 @@ eu:
       authorizations:
         new:
           authorize: Baimena eskatu
-          by_organization_link_html: <small class="heading-small"> %{link}</small>
           cancel: Utzi
           publish_content: Argitaratu zure edukia
           see_email: Ikusi zure helbide elektronikoa
@@ -491,7 +482,6 @@ eu:
           this_application_will_be_able_to: 'Aplikazio hau gai izango da:'
           this_application_will_not_be_able_to: 'Aplikazio honek ezin izango du:'
           update_profile: Eguneratu profila
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> zure kontua erabili nahi du"
     download_your_data:
       export:
         ready: prest
@@ -804,12 +794,9 @@ eu:
           title: Zer egin dezaket %{organization}?
         title: Laguntza orokorra
     last_activities:
-      activities:
-        no_activities_warning: Jarduera ez
       all: Jarduera mota guztiak
       index:
         last_activity: Azken jarduerak
-        resource_type: Mota
     links:
       invalid_url: URL baliogabea
       warning:
@@ -996,11 +983,6 @@ eu:
         retry: Saiatu berriro
     open_data:
       not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxian.
-    own_user_groups:
-      index:
-        pending: Zain
-        rejected: Ukatua
-        verified: Egiaztatuta
     pad_iframe:
       disclaimer: Kutxa honetako edukiak erregistratutako erabiltzaileek idatzita daude eta euren iritziak adierazi. %{organization} ezin da bere edukien erantzule izan.
       pad: pad
@@ -1022,8 +1004,6 @@ eu:
         hero:
           participate: Parte hartu
           welcome: Ongi etorri %{organization} erakundera!
-        metrics:
-          headline: Zifretan parte hartzea
         statistics:
           headline: '%{organization} erakundearen egungo egoera'
         sub_hero:
@@ -1036,11 +1016,10 @@ eu:
       participatory_space:
         metrics:
           headline: Zifretan parte hartzea
-          link: Erakutsi estatistiken guztiak
     participatory_space_private_users:
       not_allowed: Ez duzu edukia ikusteko baimenik
     profile:
-      view: Bistaratu
+      deleted: Erabiltzailea ezabatua
     profiles:
       show:
         activity: Jarduera
@@ -1052,7 +1031,6 @@ eu:
         members: Bazkideek
         officialized: Parte-hartzaile ofiziala
         send_private_message: Bidali mezu pribatua
-        view_full_profile: Ikusi profil osoa
       sidebar:
         badges:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
@@ -1115,7 +1093,6 @@ eu:
       term_input_placeholder: Bilatu
     searches:
       filters:
-        back: Itzuli emaitzara
         jump_to: 'Salto egin:'
         state:
           active: Aktiboak
@@ -1128,9 +1105,6 @@ eu:
         filter_by: Iragazi arabera
         unfold: Zabaldu
       results:
-        results:
-          one: "%{count} emaitza"
-          other: "%{count} emaitzak"
         view_all: Ikusi dena (%{count})
     security:
       selfxss_warning:
@@ -1142,10 +1116,6 @@ eu:
         close_modal: Itxi leihoa
         ok: Ados
         title: Baieztatu
-      embed_modal:
-        close_window: Itxi leihoa
-        embed: Mesedez, erantsi kode hau zure orrian
-        embed_link: Kapsulatu
       extended_navigation_bar:
         more: Gehiago
         unfold: Zabaldu
@@ -1163,7 +1133,6 @@ eu:
         report: Txostena
         spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
         title: Salatu arazo bat
-        visit_profile: Parte-hartzailea eta bere edukiak blokeatu nahi badituzu, joan %{user_link} profilaren orrira.
       flag_user_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         close: Itxi
@@ -1229,28 +1198,12 @@ eu:
         existing_error: Mezua ezin izan da sortu. Elkarrizketa bada, mesedez, saiatu berriro orain.
         success: Elkarrizketa zuzen hasi da!
       index:
-        add_max_users: 'Gehitu erabiltzaileak elkarrizketara: gehienez 9 erabiltzaile'
-        add_users_placeholder: Bilatu...
-        close: Itxi
         conversations_info: Elkarrizketak pribatuak dira. Beste inork ezin ditu ikusi. Elkarrizketa has daiteke plataforman erregistratutako edozein parte-hartzaile edo talderekin.
-        from: Nork
-        last_message: Azken mezua
-        modal_title: Elkarrizketa berria
-        new_conversation: Elkarrizketa berria
-        next: Hurrengoa
         no_conversations_warning: Oraindik ez dago elkarrizketarik.
-        no_results: Emaitzarik ez
         time_ago: "duela %{time}"
-      new:
-        title: Hasi elkarrizketa
       reply:
         placeholder: Zure erantzuna...
         send: Bidali
-        title_reply: Erantzun
-      show:
-        back: Erakutsi elkarrizketa guztiak
-        not_allowed: Erabiltzaile honek ez du mezu zuzenik onartzen.
-        title: Elkarrizketa honekin %{usernames}
       update:
         error: Mezua ez da bidali. Saiatu berriro geroago
     user_interests:
@@ -1272,29 +1225,12 @@ eu:
         back_to_resource: Atzera joan
         changes_at_title: Aldaketak hemen "%{title}"
         number_of_versions: Bertsioak
-        show_all_versions: Erakutsi bertsio guztiak
-        version_author: Bertsioaren egilea
         version_created_at: Bertsioaren data
-        version_number: Bertsioaren zenbakia
-        version_number_out_of_total: "%{total_count} etik %{current_version}"
-    version_author:
-      show:
-        deleted: Erabiltzailea ezabatua
     versions:
       resource_version:
         of_versions: "(%{number} etik)"
         see_other_versions: ikusi beste bertsio batzuk
         version: '%{number} bertsio zenbakia'
-    versions_list:
-      show:
-        back_to_resource: Joan atzera
-        changes_at_title: Aldaketak hemen "%{title}"
-        number_of_versions: Bertsioak
-        title: Bertsioak
-    versions_list_item:
-      back: Erakutsi bertsio guztiak
-      show:
-        version_index: '%{index} bertsioa'
     welcome_notification:
       default_subject: Eskerrik asko sartzeko {{organization}}!
     wizard_step_form:
@@ -1559,8 +1495,6 @@ eu:
         notifications_settings: Jakinarazpen-konfigurazioa
         title: Erabiltzaile-ezarpenak
         user_groups: Taldeak
-      widget:
-        see_more: Ikusi gehiago
   locale:
     name: Euskera
     name_with_error: Euskera (akatsa!)
