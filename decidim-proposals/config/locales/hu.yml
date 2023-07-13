@@ -655,6 +655,9 @@ hu:
           info: Épp egy <strong>közös vázlat</strong> hozol létre.
         wizard_header:
           title: Hozd létre a közös vázlatod
+      content_blocks:
+        highlighted_proposals:
+          proposals: Javaslatok
       create:
         error: Hiba történt a javaslat mentése során.
         success: Javaslat létrehozása sikeres. Vázlatként mentve.
@@ -763,8 +766,6 @@ hu:
           recent: Legutóbbi
           with_more_authors: Több szerző
         participatory_texts:
-          index:
-            document_index: Dokumentum index
           view_index:
             see_index: Lásd az indexet
         preview:
