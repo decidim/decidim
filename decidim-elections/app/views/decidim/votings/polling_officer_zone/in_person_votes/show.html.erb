@@ -1,12 +1,14 @@
-<div class="polling_officer_zone">
-  <div>
-    <%= link_to polling_officers_path do %>
-      <%= icon "caret-left", class: "icon--small", role: "img" %> <%= t(".back") %>
-    <% end %>
-  </div>
-  <h2><%= t(".title") %></h2>
+<%= append_javascript_pack_tag "decidim_votings" %>
+<%= append_stylesheet_pack_tag "decidim_votings" %>
 
-  <div class="in-person-vote-wrapper"
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h1 class="h3 md:h1 decorator inline-block text-left">
+      <%= t("title", scope: "decidim.votings.polling_officer_zone.in_person_votes.show") %>
+    </h1>
+  </div>
+
+  <div id="in-person-vote-wrapper"
     data-api-endpoint-url="<%= bulletin_board_server %>"
     data-message-id="<%= in_person_vote.message_id %>">
       <div class="evote__confirming" aria-hidden="true">
@@ -19,9 +21,8 @@
       <div class="evote__dot"></div>
     </div>
   </div>
+
   <%= form_tag polling_officer_election_in_person_vote_path(polling_officer, election, in_person_vote), method: :patch, class: "update_vote_status" %>
-</div>
+<% end %>
 
 <%= render "decidim/elections/shared/broken_promises_modal" %>
-
-<%= append_javascript_pack_tag "decidim_votings" %>
