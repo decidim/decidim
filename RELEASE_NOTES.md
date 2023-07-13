@@ -194,7 +194,7 @@ You can check more about the implementation in the [\#10700](https://github.com/
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
- with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
+with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
 
 ### 4.1. Automatically change active step in participatory processes
 
@@ -231,7 +231,7 @@ rm config/initializers/social_share_button.rb
 ```ruby
 # In config/initializers/decidim.rb
 Decidim.configure do |config|
-(...)
+  (...)
   config.social_share_services = Rails.application.secrets.decidim[:social_share_services]
 end
 ```
@@ -522,14 +522,18 @@ In order to do so, the administrator needs to go to the user's profile and click
 
 In order to hide all the Participant resources, keeping a separation of concerns, we have started to use `ActiveSupport::Notifications.publish` to notify the modules that the admin user has chosen to hide all the Participant's contributions.
 
-We are dispatching the following event:
+As of [\#11064](https://github.com/decidim/decidim/pull/11064) we are dispatching the following event:
 
 ```ruby
-event_name = "decidim.system.events.hide_user_created_content"
+event_name = "decidim.admin.block_user:after"
 ActiveSupport::Notifications.publish(event_name, {
-  author: current_blocking.user, # user to be blocked
-  justification: current_blocking.justification, # reason for blocking the user
-  current_user: current_blocking.blocking_user # admin user that is blocking the other user
+  resource: form.user, # user to be blocked
+  extra: {
+    event_author: form.current_user, # current admin user
+    locale:, # current locale
+    justification: form.justification, # reason for blocking the user
+    hide: form.hide? # true if the admin user has chosen to hide all the user's content
+  }
 })
 ```
 
@@ -537,7 +541,7 @@ The plugin creators could subscribe to this event and hide the content of the us
 
 ```ruby
 initializer "decidim_comments.moderation_content" do
-  ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
+  ActiveSupport::Notifications.subscribe("decidim.admin.block_user:after") do |_event_name, data|
     Decidim::Comments::HideAllCreatedByAuthorJob.perform_later(**data)
   end
 end
@@ -567,13 +571,15 @@ module Decidim
     class HideAllCreatedByAuthorJob < ::Decidim::HideAllCreatedByAuthorJob
       protected
 
-      def perform(author:, justification:, current_user:)
-        Decidim::YourModule::YourModel.not_hidden.from_author(author).find_each do |content|
-          hide_content(content, current_user, justification)
+      def perform(resource:, extra: {})
+        return unless extra.fetch(:hide, false)
+
+        Decidim::YourModule::YourModel.not_hidden.from_author(resource).find_each do |content|
+          hide_content(content, extra[:event_author], extra[:justification])
         end
 
-        Decidim::YourModule::YourSecondModel.not_hidden.from_author(author).find_each do |content|
-          hide_content(content, current_user, justification)
+        Decidim::YourModule::YourSecondModel.not_hidden.from_author(resource).find_each do |content|
+          hide_content(content, extra[:event_author], extra[:justification])
         end
       end
     end
@@ -581,7 +587,10 @@ module Decidim
 end
 ```
 
-You can read more about this change at PR [\#10111](https://github.com/decidim/decidim/pull/10111).
+You can read more about this change at PRs:
+
+- [\#10111](https://github.com/decidim/decidim/pull/10111)
+- [\#11064](https://github.com/decidim/decidim/pull/11064)
 
 ### 5.4. Extra context argument added to SMS gateway implementations
 
