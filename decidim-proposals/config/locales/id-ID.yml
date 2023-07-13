@@ -504,6 +504,9 @@ id:
           info: Anda membuat <strong>draf kolaboratif</strong>.
         wizard_header:
           title: Buat draf kolaboratif Anda
+      content_blocks:
+        highlighted_proposals:
+          proposals: Proposal
       create:
         error: Sudah ada kesalahan saat menyimpan proposal.
         success: Proposal berhasil dibuat. Disimpan sebagai Draf.
@@ -594,8 +597,6 @@ id:
           random: Acak
           recent: Baru
         participatory_texts:
-          index:
-            document_index: Indeks dokumen
           view_index:
             see_index: Lihat indeks
         preview:
