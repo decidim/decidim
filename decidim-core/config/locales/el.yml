@@ -1529,6 +1529,10 @@ el:
     timestamp_error_message: Συγνώμη, αυτό ήταν πολύ γρήγορο! Επαναλάβετε την υποβολή.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Τύπος
       edit_link:
         edit: Επεξεργασία
       footer:
