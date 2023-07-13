@@ -735,15 +735,15 @@ it:
           type: genere
           voted: Votata
         filters_small_view:
-          close_modal: Chiudi modalità
-          filter: Filtra
+          close_modal: Chiudi modale
+          filter: Filtro
           filter_by: Filtra per
-          unfold: Espandi
+          unfold: spiegare
         index:
           collaborative_drafts_list: Accedi alle bozze di collaborazione
           new_proposal: Nuova proposta
           see_all_withdrawn: Vedi tutte le proposte ritirate
-          view_proposal: Visualizza proposta
+          view_proposal: Visualizza la proposta
         linked_proposals:
           proposal_votes:
             one: voto
@@ -760,8 +760,6 @@ it:
           recent: le più recenti
           with_more_authors: Con più autori
         participatory_texts:
-          index:
-            document_index: Indice del documento
           view_index:
             see_index: Vedi indice
         placeholder:
