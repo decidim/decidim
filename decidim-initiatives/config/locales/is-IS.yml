@@ -170,6 +170,8 @@ is-IS:
       initiatives:
         author:
           deleted: Eytt
+        committee_members:
+          revoke: Afturkalla
         count:
           title:
             one: "%{count} frumkvæði"
@@ -207,11 +209,6 @@ is-IS:
         more_information: Hér hefur þú meiri upplýsingar um frumkvöðlunarferlið.
       last_activity:
         new_initiative: Nýtt frumkvæði
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Virk verkefni
-            see_all_initiatives: Sjá öll verkefni
       states:
         accepted: Samþykkt
         expired: Útrunnið
@@ -220,6 +217,7 @@ is-IS:
   layouts:
     decidim:
       initiative_creation_header:
+        back: Til baka
         fill_data: Búa til
         finish: Klára
         previous_form: Byrja
