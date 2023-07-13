@@ -1,5 +1,5 @@
 import axe from "axe-core"
-import icon from "src/decidim/icon"
+import icon from "src/decidim/redesigned_icon"
 
 const positionIndicators = () => {
   $(".decidim-accessibility-indicator").each((_i, el) => {
@@ -66,7 +66,7 @@ $(() => {
 
     if (results.violations.length < 1) {
       $badge.addClass("decidim-accessibility-success");
-      $(".decidim-accessibility-info", $badge).append(icon("check", { class: "w-4 h-4 fill-current" }));
+      $(".decidim-accessibility-info", $badge).append(icon("check-fill", { class: "w-4 h-4 fill-current" }));
       $report.append(`
         <div class="decidim-accessibility-report-item">
           <div class="decidim-accessibility-report-item-title">
@@ -78,7 +78,7 @@ $(() => {
     }
 
     $badge.addClass("decidim-accessibility-violation");
-    $(".decidim-accessibility-info", $badge).append(icon("warning", { class: "w-4 h-4 fill-current" })).append(`
+    $(".decidim-accessibility-info", $badge).append(icon("error-warning-fill", { class: "w-4 h-4 mr-1 fill-current" })).append(`
       <span class="decidim-accessibility-info-amount">
         ${results.violations.length}
       </span>
@@ -113,7 +113,7 @@ $(() => {
           const selector = target.replace(/#\\3([0-9]) /g, "#$1")
           const $target = $(selector);
           const $indicator = $(`
-            <div class="decidim-accessibility-indicator" aria-hidden="true">${icon("warning", { class: "w-4 h-4 fill-current" })}</div>
+            <div class="decidim-accessibility-indicator" aria-hidden="true">${icon("error-warning-fill", { class: "w-4 h-4 fill-current" })}</div>
           `);
           $indicator.data("accessibility-target", $target);
           $target.data("accessibility-indicator", $indicator);
