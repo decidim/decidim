@@ -252,7 +252,6 @@ ja:
         error: 修正を承認中にエラーが発生しました。
         success: 修正が正常に受け入れられました。
       amendable:
-        amended_by: 修正者
         button: '%{model_name} を修正'
         error: リソースの修正中にエラーが発生しました。
         help_text: '%{model_name} を変更することで、この %{amendable_fields} を改善します。'
@@ -272,7 +271,6 @@ ja:
         success: 修正案は正常に削除されました。
       edit_draft:
         discard: この下書きを破棄する
-        discard_confirmation: この修正案を破棄してもよろしいですか？
         send: プレビュー
         title: 修正案を編集
       emendation:
@@ -312,7 +310,6 @@ ja:
       review:
         back: 戻る
         heading: 修正を確認する
-        help_text: '%{model_name} の修正を確認しています。'
         send: 修正を承認する
       update_draft:
         error: 修正案の更新中に問題が発生しました。
@@ -332,8 +329,6 @@ ja:
         download: ファイルをダウンロード
       documents:
         related_documents: 関連ドキュメント
-      geocoding:
-        geocoded_address: 住所
       photo:
         alt: メディア画像
         title: 画像
@@ -341,7 +336,6 @@ ja:
         related_photos: 関連画像
     author:
       avatar: 'アバター: %{name}'
-      avatar_multiuser: 複数のユーザーのアバター
       comments:
         other: コメント
       endorsements:
@@ -538,8 +532,6 @@ ja:
           nickname_help: '%{organization} でのニックネームです。文字、数字、''-'' および ''_'' のみを使用できます。'
           sign_in: ログイン
           sign_up: 新規登録
-          sign_up_as:
-            legend: として登録
           subtitle: 参加するにはユーザ登録をしてください。
           terms: 利用規約
           tos_agreement: ユーザ登録することで、 %{link} に同意したことになります。
@@ -557,15 +549,7 @@ ja:
         newsletter_modal:
           buttons:
             check: 確認して続ける
-            close_modal: モーダルを閉じる
             uncheck: チェックを外してください
-          notice: |-
-            <p>本当にニュースレターを購読しなくて良いでしょうか？<br>
-            ニュースレターのチェックボックスを是非オンにしてください。<br>
-            重要なお知らせメールを受け取っていただくことは重要なことです。通知設定ページでいつでもこの設定を変更することができます。</p>
-            <p>チェックボックスにチェックを入れない場合、プラットフォーム内での新しい参加機会についての重要な情報を見逃してしまう可能性があります。<br>
-            それでもニュースレターの受信を避けたい場合は、私たちはその決定を尊重します。 </p>
-            <p>お読みいただきありがとうございます。</p>
           title: ニュースレター通知
         omniauth_buttons:
           or: または
@@ -573,9 +557,7 @@ ja:
       authorizations:
         new:
           authorize: アプリケーションを承認する
-          by_organization_link_html: <small class="heading-small">by %{link}</small>
           cancel: キャンセル
-          connect_your_account_html: <strong>%{organization}</strong> に登録し、アカウントを接続します。
           publish_content: コンテンツを公開する
           see_email: メールを見る
           see_name: 名前を確認してください
@@ -583,7 +565,6 @@ ja:
           this_application_will_be_able_to: 'このアプリケーションは次のことができます:'
           this_application_will_not_be_able_to: 'このアプリケーションは次のことができません：'
           update_profile: プロフィールを更新
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> があなたのアカウントを使用しようとしています"
     download_your_data:
       export:
         ready: 準備完了
@@ -976,12 +957,9 @@ ja:
         description: '%{organization} についてもっと読む'
         title: 一般的なヘルプ
     last_activities:
-      activities:
-        no_activities_warning: アクティビティがありません
       all: すべてのアクティビティ種別
       index:
         last_activity: 最後のアクティビティ
-        resource_type: タイプ
     links:
       invalid_url: 無効な URL
       warning:
@@ -1209,11 +1187,6 @@ ja:
         retry: 再試行
     open_data:
       not_available_yet: オープンデータファイルはまだ利用できません。数分後にもう一度お試しください。
-    own_user_groups:
-      index:
-        pending: 保留中
-        rejected: 拒否
-        verified: 確認済み
     pad_iframe:
       disclaimer: このパッドの内容は登録ユーザーによって書かれ、意見を表明します。 %{organization} はその内容について責任を負うことはできません。
       explanation: ミーティング中に共同でメモを取るためにこのパッドを使ってください。後で議事録が書き起こしやすくなります。
@@ -1236,8 +1209,6 @@ ja:
         hero:
           participate: 参加
           welcome: '%{organization} へようこそ！'
-        metrics:
-          headline: 指標
         statistics:
           headline: '%{organization} の現在の状態'
         sub_hero:
@@ -1250,7 +1221,6 @@ ja:
       participatory_space:
         metrics:
           headline: 指標
-          link: すべての指標を表示
       terms_of_service:
         accept:
           error: 利用規約に同意する際に問題が発生しました。
@@ -1263,7 +1233,6 @@ ja:
           modal_btn_continue: 利用規約に同意して続ける
           modal_btn_exit: 後で確認する
           modal_button: 利用規約に同意しない
-          modal_close: 閉じる
           modal_title: 更新された利用規約を本当に拒否しますか?
         required_review:
           alert: 利用規約を更新しました。ご確認ください。
@@ -1278,7 +1247,6 @@ ja:
     profile:
       deleted: 参加者を削除しました
       inaccessible_message: このプロファイルは利用規約違反のためアクセスできません！
-      view: 表示
     profiles:
       default_officialization_text_for_user_groups: このグループは公的に検証されており、その名前が実際の名前に対応していることが検証されています。
       default_officialization_text_for_users: この参加者は公的に検証されます。彼/彼女の名前または役割が実名・実際の役割に対応していることが確認されています。
@@ -1292,7 +1260,6 @@ ja:
         members: メンバー
         officialized: 正規参加者
         send_private_message: プライベートメッセージを送信
-        view_full_profile: 全プロファイルを表示
       sidebar:
         badges:
           info: バッジはプラットフォームで特定のアクティビティを実行することで獲得できます。
@@ -1362,7 +1329,6 @@ ja:
       term_input_placeholder: 検索
     searches:
       filters:
-        back: 結果に戻る
         jump_to: 'ジャンプ先:'
         state:
           active: アクティブ
@@ -1375,8 +1341,6 @@ ja:
         filter_by: フィルター
         unfold: 展開する
       results:
-        results:
-          other: "%{count} 件の結果"
         view_all: すべて表示 (%{count})
     security:
       selfxss_warning:
@@ -1388,10 +1352,6 @@ ja:
         close_modal: ウィンドウを閉じる
         ok: OK
         title: 確定
-      embed_modal:
-        close_window: ウィンドウを閉じる
-        embed: このコードをページに貼り付けてください
-        embed_link: 埋め込み
       extended_navigation_bar:
         more: もっと見る
         unfold: 展開する
@@ -1410,7 +1370,6 @@ ja:
         report: 報告
         spam: 本来の内容に関係が無い広告、詐欺や悪意のある処理などが含まれています。
         title: 不適切な内容を報告する
-        visit_profile: この参加者と残りの内容の部分もブロックしたい場合は、 %{user_link} プロフィールページにアクセスしてください。
       flag_user_modal:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         block: この参加者をブロック
@@ -1485,30 +1444,12 @@ ja:
         existing_error: メッセージを作成できませんでした。会話はすでに存在します。今すぐやり直してください。
         success: 会話が正常に開始されました！
       index:
-        add_max_users: '会話にユーザーを追加: 最大 9 人のユーザー'
-        add_users_placeholder: 検索...
-        close: 閉じる
         conversations_info: 会話はプライベートです。他の誰も見ることはできません。会話はプラットフォームに登録されている参加者またはグループで開始できます。
-        from: '差出人:'
-        last_message: 最後のメッセージ
-        modal_title: 新しい会話
-        new_conversation: 新しい会話
-        next: 次へ
         no_conversations_warning: 会話はまだありません。
-        no_results: 結果がありません
-        participant_with_disabled_message_reception: この参加者はメッセージの受信を無効にしています。
         time_ago: "%{time} 前"
-      new:
-        title: 会話を開始
       reply:
         placeholder: あなたの返信...
         send: 送信
-        title_reply: 返信
-      show:
-        back: すべての会話を表示
-        deleted_accounts: 削除されたアカウントと会話をすることはできません。
-        not_allowed: このユーザーはこれ以上のダイレクトメッセージを受け付けません。
-        title: '%{usernames} との会話'
       update:
         error: メッセージが送信されませんでした。後でもう一度お試しください。
     user_interests:
@@ -1533,29 +1474,12 @@ ja:
         back_to_resource: 戻る
         changes_at_title: 変更 "%{title}"
         number_of_versions: バージョン
-        show_all_versions: すべてのバージョンを表示
-        version_author: バージョンの作成者
         version_created_at: バージョン作成日時
-        version_number: バージョン番号
-        version_number_out_of_total: "%{current_version} / %{total_count}"
-    version_author:
-      show:
-        deleted: 削除された参加者
     versions:
       resource_version:
         of_versions: "/ %{number}"
         see_other_versions: 他のバージョンを見る
         version: バージョン %{number}
-    versions_list:
-      show:
-        back_to_resource: 戻る
-        changes_at_title: 変更 "%{title}"
-        number_of_versions: バージョン
-        title: バージョン
-    versions_list_item:
-      back: すべてのバージョンを表示
-      show:
-        version_index: バージョン %{index}
     welcome_notification:
       default_body: <p>{{name}} さん、{{organization}} への参加ありがとうございます！</p><ul><li>このサイトで何ができるかを概観したい場合は、<a href="{{help_url}}">ヘルプ</a>セクションをご覧ください。</li><li>目を通していただけると、最初のバッジを手に入れることができます。こちらは{{organization}} で参加することで手に入るすべてのバッジの<a href="{{badges_url}}">リスト</a>です。</li><li>そして、他の人々と一緒に{{organization}} に参加した経験を共有しましょう。提案を行い、コメントをし、議論を行い、共通の利益に貢献する方法を考え、説得するための根拠を提供し、読んで説得され、具体的かつ直接的に自分の意見を表現し、忍耐強く決定的に応答し、自分の考えを守り、協力して他の人々のアイデアに参加するために心を開いてください。</li></ul>
       default_subject: '{{organization}} に参加していただきありがとうございます！'
@@ -1925,8 +1849,6 @@ ja:
         notifications_settings: 通知の設定
         title: 参加者の設定
         user_groups: グループ
-      widget:
-        see_more: もっと見る
   locale:
     name: 日本語
     name_with_error: 日本語 (エラー!)
@@ -1999,7 +1921,6 @@ ja:
     dropdown:
       choose_diff_view_html: 'HTML ビューモード:'
       choose_diff_view_mode: 'ビューモードを比較:'
-      choose_diff_view_mode_menu: 比較モードを選択
       option_escaped: エスケープあり
       option_split: 並べて表示
       option_unescaped: エスケープなし
