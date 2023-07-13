@@ -401,7 +401,7 @@ eu:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> k eskatu du <a href="%{resource_url}">%{resource_title}</a> zure ekimenaren batzorde bultzatzailearekin bat egitea. eskaera onartzeko edo ez onartzeko, egin klik hemen <a href="%{resource_url}/edit">aquí</a>.
       form:
         add_attachments: Dokumentuak
-        delete_attachment: Ezabatu
+        delete_attachment: ezabatu
       index:
         title: Ekimenak
       initiative_signatures:
@@ -545,11 +545,6 @@ eu:
         status_change_for: '%{title} ekimena bere egoera aldatu du'
       last_activity:
         new_initiative: Ekimen berria
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Ekimen aktiboak
-            see_all_initiatives: Ikusi ekimen guztiak
       show:
         badge_name:
           accepted: Beharrezko sinadurekin
