@@ -813,9 +813,9 @@ es-MX:
           type: Tipo
           voted: Apoyadas
         filters_small_view:
-          close_modal: Cerrar ventana
+          close_modal: Cerrar modal
           filter: Filtrar
-          filter_by: Filtrar por
+          filter_by: Filtrado por
           unfold: Desplegar
         index:
           click_here: Ver todas las propuestas
@@ -842,8 +842,6 @@ es-MX:
           recent: Reciente
           with_more_authors: Con más autoras
         participatory_texts:
-          index:
-            document_index: Índice del documento
           view_index:
             see_index: Ver índice
         placeholder:
@@ -922,7 +920,7 @@ es-MX:
           vote_limit:
             description: Puedes apoyar hasta %{limit} propuestas.
             left: Restante
-            votes: Apoyos
+            votes: Votos
         wizard_aside:
           back: Volver
           back_from_step_1: Volver a propuestas
