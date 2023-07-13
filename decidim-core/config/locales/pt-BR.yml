@@ -165,7 +165,6 @@ pt-BR:
         error: Ocorreu um erro ao aceitar a alteração.
         success: A emenda foi aceita com sucesso.
       amendable:
-        amended_by: Alterada pela
         button: Emendar %{model_name}
         error: Houve um erro ao alterar este recurso.
         promote_button: Promover para %{model_name}
@@ -183,7 +182,6 @@ pt-BR:
         success: A proposta de alteração foi excluída com êxito.
       edit_draft:
         discard: Descarte este rascunho
-        discard_confirmation: Tem certeza de que deseja descartar este rascunho da alteração?
         send: Pré-visualização
         title: Editar o rascunho de alteração
       emendation:
@@ -233,13 +231,10 @@ pt-BR:
         download: Baixar arquivo
       documents:
         related_documents: Documentos relacionados
-      geocoding:
-        geocoded_address: Endereço
       photos:
         related_photos: Fotos relacionadas
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar para múltiplos usuários
       comments:
         one: comentário
         other: comentários
@@ -408,8 +403,6 @@ pt-BR:
           nickname_help: Seu alias em %{organization}. Só pode conter letras, números, '-' e '_'.
           sign_in: Iniciar sessão
           sign_up: Inscreva-se
-          sign_up_as:
-            legend: Inscreva-se como
           subtitle: Inscreva-se para participar de discussões e propostas de suporte.
           tos_agreement: Ao se inscrever, aceita %{link}.
           tos_title: Termos de serviço
@@ -424,7 +417,6 @@ pt-BR:
         newsletter_modal:
           buttons:
             check: Verificar e continuar
-            close_modal: Fechar modal
             uncheck: Manter desmarcado
           title: Notificações de newsletter
         omniauth_buttons:
@@ -433,7 +425,6 @@ pt-BR:
       authorizations:
         new:
           authorize: Autorizar aplicativo
-          by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
           publish_content: Publicar conteúdo para você
           see_email: Veja seu email
@@ -442,7 +433,6 @@ pt-BR:
           this_application_will_be_able_to: 'Esta aplicação será capaz de:'
           this_application_will_not_be_able_to: 'Esta aplicação não poderá:'
           update_profile: atualize seu perfil
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quer usar sua conta"
     download_your_data:
       export:
         ready: pronto
@@ -722,12 +712,9 @@ pt-BR:
           title: O que posso fazer em %{organization}?
         title: Ajuda Geral
     last_activities:
-      activities:
-        no_activities_warning: Sem atividades
       all: Todos os tipos de atividade
       index:
         last_activity: Última atividade
-        resource_type: Tipo
     links:
       invalid_url: URL inválido
       warning:
@@ -887,11 +874,6 @@ pt-BR:
         success: Suas configurações de notificações foram atualizadas com sucesso.
     open_data:
       not_available_yet: Os arquivos Open Data ainda não estão disponíveis. Tente novamente em alguns minutos.
-    own_user_groups:
-      index:
-        pending: Pendente
-        rejected: Rejeitadas
-        verified: Verificado
     pad_iframe:
       disclaimer: O conteúdo deste bloco é escrito por usuários registrados e expressa suas opiniões. %{organization} não pode ser responsabilizado pelo seu conteúdo.
       pad: Almofada
@@ -913,8 +895,6 @@ pt-BR:
         hero:
           participate: Participar
           welcome: Bem-vindo ao %{organization}!
-        metrics:
-          headline: Participação em números
         statistics:
           headline: Estado atual de %{organization}
         sub_hero:
@@ -927,11 +907,10 @@ pt-BR:
       participatory_space:
         metrics:
           headline: Participação em números
-          link: Mostrar todas as estatísticas
     participatory_space_private_users:
       not_allowed: Você não tem permissão para visualizar este conteúdo
     profile:
-      view: Vista
+      deleted: Usuário excluído
     profiles:
       show:
         activity: Atividade
@@ -943,7 +922,6 @@ pt-BR:
         members: Membros
         officialized: Participante oficial
         send_private_message: Enviar mensagem privada
-        view_full_profile: Ver o perfil completo
       sidebar:
         badges:
           info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
@@ -1002,7 +980,6 @@ pt-BR:
       term_input_placeholder: Pesquisa
     searches:
       filters:
-        back: Voltar aos resultados
         jump_to: 'Pule para:'
         state:
           active: Ativo
@@ -1015,9 +992,6 @@ pt-BR:
         filter_by: Filtrar por
         unfold: Desdobrar
       results:
-        results:
-          one: "%{count} resultado"
-          other: "%{count} resultados"
         view_all: Ver todos (%{count})
     security:
       selfxss_warning:
@@ -1029,10 +1003,6 @@ pt-BR:
         close_modal: Fechar modal
         ok: OK
         title: Confirmar
-      embed_modal:
-        close_window: Fechar janela
-        embed: Cole este código na sua página
-        embed_link: Embutir
       extended_navigation_bar:
         more: Mais
         unfold: Desdobrar
@@ -1109,28 +1079,12 @@ pt-BR:
         existing_error: A mensagem não pôde ser criada. A conversa já existe, tente novamente agora.
         success: Conversa iniciada com sucesso!
       index:
-        add_max_users: 'Adicionar usuários à conversa: máximo de 9 usuários'
-        add_users_placeholder: Procurar...
-        close: Fechar
         conversations_info: As conversas são privadas. Ninguém mais pode vê-las. Uma conversa pode ser iniciada com qualquer participante ou grupo registrado na plataforma.
-        from: De
-        last_message: Última mensagem
-        modal_title: Nova conversa
-        new_conversation: Nova conversa
-        next: Próxima
         no_conversations_warning: Ainda não há nenhuma conversa.
-        no_results: Nenhum resultado
         time_ago: "%{time} atrás"
-      new:
-        title: Iniciar uma conversa
       reply:
         placeholder: Sua resposta...
         send: Enviar
-        title_reply: Resposta
-      show:
-        back: Mostrar todas as conversas
-        not_allowed: Este usuário não aceita mais mensagens diretas.
-        title: Conversa com %{usernames}
       update:
         error: Mensagem não enviada. Tente mais tarde
     user_interests:
@@ -1152,29 +1106,12 @@ pt-BR:
         back_to_resource: Voltar
         changes_at_title: Alterações em "%{title}"
         number_of_versions: Versões
-        show_all_versions: Mostrar todas as versões
-        version_author: Autor da versão
         version_created_at: Versão criada em
-        version_number: Número da versão
-        version_number_out_of_total: "%{current_version} de %{total_count}"
-    version_author:
-      show:
-        deleted: Usuário excluído
     versions:
       resource_version:
         of_versions: "(de %{number})"
         see_other_versions: veja outras versões
         version: Número de versão %{number}
-    versions_list:
-      show:
-        back_to_resource: Voltar
-        changes_at_title: Alterações em "%{title}"
-        number_of_versions: Versões
-        title: Versões
-    versions_list_item:
-      back: Mostrar todas as versões
-      show:
-        version_index: Versão %{index}
     welcome_notification:
       default_subject: Obrigado por se juntar a {{organization}}!
     wizard_step_form:
@@ -1329,6 +1266,10 @@ pt-BR:
     timestamp_error_message: Desculpe, isso foi muito rápido! Reenvie.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Tipo
       edit_link:
         edit: Editar
       footer:
@@ -1381,8 +1322,6 @@ pt-BR:
         notifications_settings: Configurações de notificações
         title: Configurações do usuário
         user_groups: Grupos
-      widget:
-        see_more: Ver mais
   locale:
     name: Português brasileiro
     name_with_error: Português brasileiro (erro!)
