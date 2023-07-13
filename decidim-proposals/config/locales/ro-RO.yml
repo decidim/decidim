@@ -351,9 +351,6 @@ ro:
         description: Numărul de voturi pentru propuneri
         object: voturi
         title: Voturi
-    participatory_spaces:
-      highlighted_proposals:
-        see_all: Afișează toate propunerile (%{count})
     proposals:
       actions:
         answer_proposal: Răspundeți la propunere
@@ -533,16 +530,12 @@ ro:
         rejected: Respinse
         withdrawn: Retrase
       application_helper:
-        filter_category_values:
-          all: Toate
         filter_origin_values:
           all: Toate
           meetings: Întâlniri
           official: Oficial
           participants: Participanți
           user_groups: Grupuri
-        filter_scope_values:
-          all: Toate
         filter_state_values:
           accepted: Acceptate
           all: Toate
@@ -570,11 +563,6 @@ ro:
               ok: Retrage ciorna colaborativă
               title: Următoarea acţiune este ireversibilă
             success: Ciorna colaborativă a fost retrasă cu succes.
-        count:
-          drafts_count:
-            one: "%{count} ciornă colaborativă"
-            few: "%{count} ciorne colaborative"
-            other: "%{count} ciorne colaborative"
         create:
           success: Ciorna colaborativă a fost creată cu succes.
         edit:
@@ -620,9 +608,7 @@ ro:
           rejected_request:
             error: Nu ai putut fi respins drept colaborator, te rugăm să încerci din nou mai târziu.
         show:
-          back: Înapoi
           edit: Editează ciorna colaborativă
-          final_proposal: propunere finală
           final_proposal_help_text: Această ciornă este finalizată. Verifică propunerea finală
           hidden_authors_count:
             one: și încă %{count} persoană
@@ -630,10 +616,8 @@ ro:
             other: și încă %{count} persoane
           publish: Publică
           publish_info: Publică această versiune a ciornei sau
-          published_proposal: propunere publicată
           request_access: Cere acces
           requested_access: Acces solicitat
-          version_history: vezi istoricul versiunilor pentru această propunere
           withdraw: retrage ciorna
         states:
           open: Deschise
@@ -644,12 +628,8 @@ ro:
           success: Ciorna colaborativă a fost actualizată cu succes.
         wizard_aside:
           back_from_collaborative_draft: Înapoi la ciorne colaborative
-          info: Creezi o <strong>ciornă colaborativă</strong>.
         wizard_header:
           title: Creează ciorna ta colaborativă
-      content_blocks:
-        highlighted_proposals:
-          proposals: Propuneri
       create:
         error: A apărut o problemă la salvarea propunerii.
         success: Propunere creată cu succes. Salvată drept ciornă.
@@ -657,11 +637,6 @@ ro:
         error: A apărut o eroare la ștergerea ciornei colaborative.
         success: Ciorna de propunere a fost ştearsă cu succes.
       models:
-        collaborative_draft:
-          fields:
-            authors: Autori
-            comments: Comentarii
-            contributions: Contribuții
         proposal:
           fields:
             category: Categorie
@@ -682,7 +657,6 @@ ro:
         buttons:
           amend: Trimite un amendament
           comment: Comentariu
-          comments: Comentarii
       proposal_votes:
         create:
           error: A apăut o problemă în timpul votării propunerii.
@@ -694,18 +668,12 @@ ro:
         complete:
           send: Trimite
           title: Completează propunerea ta
-        count:
-          proposals_count:
-            one: "%{count} propunere"
-            few: "%{count} propuneri"
-            other: "%{count} propuneri"
         dynamic_map_instructions:
           description: Coordonatele vor fi actualizate când apeși pe butonul 'previzualizează'. Cu toate acestea, adresa nu se schimbă.
           instructions: Poți muta punctul de pe hartă.
         edit:
           attachment_legend: "(Opțional) Adaugă un atașament"
           back: Înapoi
-          gallery_legend: "(Opțional) Adaugă o imagine la cardul de propunere"
           select_a_category: Te rugăm selectează o categorie
           send: Trimite
           title: Editează propunerea
@@ -727,11 +695,6 @@ ro:
           state: Stadiu
           type: Tip
           voted: Votate
-        filters_small_view:
-          close_modal: Închide fereastra
-          filter: Filtrează
-          filter_by: Filtrează după
-          unfold: Extinde
         index:
           click_here: Afișează toate propunerile
           collaborative_drafts_list: Accesează ciorne colaborative
@@ -739,12 +702,6 @@ ro:
           see_all: Afișează toate propunerile
           see_all_withdrawn: Afișează toate propunerile retrase
           text_banner: Vizualizezi lista de propuneri retrase de autorii lor. %{go_back_link}.
-          view_proposal: Vizualizează propunerea
-        linked_proposals:
-          proposal_votes:
-            one: vot
-            few: voturi
-            other: voturi
         new:
           send: Continuă
         orders:
@@ -756,11 +713,6 @@ ro:
           random: Aleatoriu
           recent: Recente
           with_more_authors: Cu mai mulți autori
-        participatory_texts:
-          index:
-            document_index: Indexul documentului
-          view_index:
-            see_index: Vezi indexul
         placeholder:
           address: B-dul C. D. Loga, nr. 1, cod postal 300030
         preview:
@@ -774,14 +726,10 @@ ro:
           publish: Publică
           title: Publică propunerea ta
         proposal:
-          creation_date: 'Data creării: %{date}'
           view_proposal: Vizualizează propunerea
         show:
           answer: Răspuns
-          back_to: Înapoi la
-          back_to_list: Înapoi la listă
           changes_at_title: Amendament pentru „%{title}”
-          comments: Comentarii
           edit_proposal: Editează propunerea
           estimated_cost: Cost estimat
           hidden_endorsers_count:
@@ -797,14 +745,9 @@ ro:
           proposal_accepted_reason: 'Această propunere a fost acceptată deoarece:'
           proposal_in_evaluation_reason: Această propunere este în curs de evaluare
           proposal_rejected_reason: 'Această propunere a fost respinsă deoarece:'
-          read_less: Citește mai puțin
-          read_more: Citește mai mult
-          report: Raport
           withdraw_btn_hint: Îți poți retrage propunerea dacă te răzgândești, cu condiția să nu fi primit niciun vot. Propunerea nu va fi eliminată, ci va apărea pe lista propunerilor retrase.
           withdraw_confirmation_html: Sigur dorești să retragi această propunere?<br><br><strong>Această acțiune nu poate fi anulată!</strong>
           withdraw_proposal: Retrage propunerea
-        tags:
-          changed_from: "(un administrator a modificat numele anterior <u>%{previous_name}</u>)"
         update:
           title: Actualizează propunerea
         vote_button:
@@ -832,8 +775,6 @@ ro:
           title: 'Voturile sunt supuse următoarelor reguli:'
           vote_limit:
             description: Poți vota până la %{limit} propuneri.
-            left: Rămase
-            votes: Voturi
         wizard_aside:
           back: Înapoi
           back_from_step_1: Înapoi la propuneri
@@ -866,12 +807,8 @@ ro:
         error: A apărut o problemă la salvarea ciornei colaborative.
         success: Ciorna colaborativă a fost actualizată cu succes.
       versions:
-        collaborative_drafts:
-          back_to_resource: Înapoi la ciorna colaborativă
         index:
           title: Versiuni
-        proposals:
-          back_to_resource: Înapoi la propuneri
     resource_links:
       copied_from_component:
         proposal_proposal: Propuneri asociate
