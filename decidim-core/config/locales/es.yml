@@ -374,7 +374,7 @@ es:
           request_confirmation_instructions: Solicitar instrucciones de confirmación
           title: Confirma tu email
       show:
-        close_modal: Cierra modal
+        close_modal: Cerrar el modal
     block_user_mailer:
       notify:
         body_1: Tu cuenta ha sido bloqueda.
@@ -517,7 +517,7 @@ es:
         newsletter_modal:
           buttons:
             check: Verifica y continúa
-            close_modal: Cierra modal
+            close_modal: Cerrar el modal
             uncheck: Mantener desmarcado
           notice: |-
             <p>Hola, ¿seguro que no quieres recibir un boletín informativo?<br>
@@ -900,7 +900,7 @@ es:
         body_1: Estás a punto de visitar un enlace externo y te recomendamos que seas prudente respecto al contenido de páginas externas.
         body_2: Por favor, antes de seguir, comprueba que el enlace que estás a punto de visitar pertenece a un sitio seguro.
         cancel: Cancelar
-        close_modal: Cierra modal
+        close_modal: Cerrar el modal
         proceed: Continuar
         title: Abrir enlace externo
     log:
@@ -992,7 +992,7 @@ es:
           ok: De acuerdo
         index:
           ago: hace
-          close: Cierra modal
+          close: Cerrar el modal
           from: De
           groups: Mis grupos
           last_message: Último mensaje
@@ -1160,7 +1160,7 @@ es:
           modal_btn_continue: Aceptar los términos y condiciones de uso, y continuar
           modal_btn_exit: Lo revisaré más tarde
           modal_button: Rechazar los términos y condiciones de uso
-          modal_close: Cierra modal
+          modal_close: Cerrar el modal
           modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
         required_review:
           alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
@@ -1275,7 +1275,7 @@ es:
         ok: De acuerdo
         title: Confirmar
       embed_modal:
-        close_window: Cierra la ventana
+        close_window: Cerrar ventana
         embed: Por favor, pega este código en tu página
         embed_link: Incrusta
       extended_navigation_bar:
