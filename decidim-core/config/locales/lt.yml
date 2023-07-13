@@ -240,7 +240,6 @@ lt:
         error: Priimant pakeitimą įvyko klaida.
         success: Pakeitimas priimtas.
       amendable:
-        amended_by: Pakeitė
         button: Pakeisti %{model_name}
         error: Keičiant šį išteklių įvyko klaida.
         promote_button: Pakelti iki %{model_name}
@@ -258,7 +257,6 @@ lt:
         success: Pakeitimo juodraštis pašalintas.
       edit_draft:
         discard: Ištrinti šį juodraštį
-        discard_confirmation: Ar tikrai norite ištrinti šį pakeitimo juodraštį?
         send: Peržiūra
         title: Redaguoti Pakeitimo Juodraštį
       emendation:
@@ -305,13 +303,10 @@ lt:
         download: Atsisiųsti dokumentą
       documents:
         related_documents: Susiję dokumentai
-      geocoding:
-        geocoded_address: Adresas
       photos:
         related_photos: Susiję paveikslėliai
     author:
       avatar: 'Avataras: %{name}'
-      avatar_multiuser: Avataras keliems naudotojams
       comments:
         one: komentaras
         few: komentarai
@@ -488,8 +483,6 @@ lt:
           nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai, „-“ ir „_“.
           sign_in: Prisijungti
           sign_up: Užsiregistruoti
-          sign_up_as:
-            legend: Užsiregistruoti kaip
           subtitle: Užsiregistruokite, kad galėtumėte dalyvauti diskusijose ir paremti pasiūlymus.
           tos_agreement: Užsiregistruodami jūs sutinkate su %{link}.
           tos_title: Paslaugų teikimo sąlygos
@@ -504,7 +497,6 @@ lt:
         newsletter_modal:
           buttons:
             check: Pažymėti ir tęsti
-            close_modal: Uždaryti modalinį langą
             uncheck: Palikti nepažymėtą
           title: Pranešimai apie naujienlaiškį (-ius)
         omniauth_buttons:
@@ -513,7 +505,6 @@ lt:
       authorizations:
         new:
           authorize: Leisti naudoti programą
-          by_organization_link_html: <small class="heading-small"> %{link}</small>
           cancel: Atšaukti
           publish_content: Skelbti turinį už Jus
           see_email: Žiūrėti savo el. paštą
@@ -522,7 +513,6 @@ lt:
           this_application_will_be_able_to: 'Ši programa galės:'
           this_application_will_not_be_able_to: 'Ši programa negalės:'
           update_profile: Atnaujinkite savo profilį
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> nori naudoti Jūsų paskyrą"
     download_your_data:
       export:
         ready: Pasirengęs
@@ -857,12 +847,9 @@ lt:
           title: Ką galiu daryti %{organization}?
         title: Bendroji Pagalba
     last_activities:
-      activities:
-        no_activities_warning: Nėra veiklų
       all: Visos veiklos rūšys
       index:
         last_activity: Paskutinė veikla
-        resource_type: Tipas
     links:
       invalid_url: Klaidingas URL
       warning:
@@ -1056,11 +1043,6 @@ lt:
         retry: Bandykite dar kartą
     open_data:
       not_available_yet: Atvirųjų duomenų rinkmenomis dabar negalima naudotis. Bandykite dar kartą po kelių minučių.
-    own_user_groups:
-      index:
-        pending: Laukiama
-        rejected: Atmesta
-        verified: Patvirtinta
     pad_iframe:
       disclaimer: Šio rinkiklio turinį rašo registruoti naudotojai ir jis atspindi jų nuomonę. %{organization} neatsako už turinį.
       pad: Rinkiklis
@@ -1082,8 +1064,6 @@ lt:
         hero:
           participate: Dalyvauti
           welcome: Sveiki atvykę į %{organization}!
-        metrics:
-          headline: Rodikliai
         statistics:
           headline: Dabartinė %{organization} padėtis
         sub_hero:
@@ -1096,11 +1076,10 @@ lt:
       participatory_space:
         metrics:
           headline: Rodikliai
-          link: Rodyti visus rodiklius
     participatory_space_private_users:
       not_allowed: Jūs negalite peržiūrėti šio turinio
     profile:
-      view: Rodyti
+      deleted: Ištrintas dalyvis
     profiles:
       show:
         activity: Veikla
@@ -1112,7 +1091,6 @@ lt:
         members: Nariai
         officialized: Patikrintas dalyvis
         send_private_message: Siųsti asmeninę žinutę
-        view_full_profile: Žiūrėti visą profilį
       sidebar:
         badges:
           info: Ženkleliai pelnomi vykdant konkrečias veiklas platformoje.
@@ -1180,7 +1158,6 @@ lt:
       term_input_placeholder: Ieškoti
     searches:
       filters:
-        back: Grįžti į rezultatų puslapį
         jump_to: 'Pereiti į:'
         state:
           active: Aktyvūs
@@ -1193,11 +1170,6 @@ lt:
         filter_by: Filtruoti pagal
         unfold: Išskleisti
       results:
-        results:
-          one: "%{count} rezultatas"
-          few: "%{count} rezultatai"
-          many: "%{count} rezultatai"
-          other: "%{count} rezultatai"
         view_all: Peržiūrėti viską (%{count})
     security:
       selfxss_warning:
@@ -1209,10 +1181,6 @@ lt:
         close_modal: Uždaryti modalinį langą
         ok: Gerai
         title: Patvirtinti
-      embed_modal:
-        close_window: Uždaryti langą
-        embed: Įklijuokite šį kodą savo puslapyje
-        embed_link: Įterpti
       extended_navigation_bar:
         more: Daugiau
         unfold: Išskleisti
@@ -1291,28 +1259,12 @@ lt:
         existing_error: Pranešimo nepavyko sukurti. Pokalbis jau egzistuoja, dabar bandykite dar kartą.
         success: Pokalbis pradėtas!
       index:
-        add_max_users: 'Į pokalbį įtraukite naudotojus: ne daugaiu kaip 9'
-        add_users_placeholder: Ieškoti...
-        close: Uždaryti
         conversations_info: Pokalbiai yra privatūs. Niekas kitas jų negali matyti. Pokalbį galima pradėti su bet kuriuo registruotu platformos dalyviu arba grupe.
-        from: Nuo
-        last_message: Paskutinė žinutė
-        modal_title: Naujas pokalbis
-        new_conversation: Naujas pokalbis
-        next: Kitas
         no_conversations_warning: Pokalbių dar nėra.
-        no_results: Nėra rezultatų
         time_ago: "Prieš %{time}"
-      new:
-        title: Pradėti pokalbį
       reply:
         placeholder: Jūsų atsakymas...
         send: Siųsti
-        title_reply: Atsakyti
-      show:
-        back: Rodyti visus pokalbius
-        not_allowed: Šis naudotojas nebepriima tiesioginių pranešimų.
-        title: Pokalbis su %{usernames}
       update:
         error: Pranešimas neišsiųstas. Bandykite dar kartą vėliau
     user_interests:
@@ -1335,29 +1287,12 @@ lt:
         back_to_resource: Grįžti atgal
         changes_at_title: '„%{title}“ pakeitimai'
         number_of_versions: Versijos
-        show_all_versions: Rodyti visas versijas
-        version_author: Versijos autorius
         version_created_at: Versija sukurta
-        version_number: Versijos numeris
-        version_number_out_of_total: "%{current_version} iš %{total_count}"
-    version_author:
-      show:
-        deleted: Ištrintas dalyvis
     versions:
       resource_version:
         of_versions: "(iš%{number})"
         see_other_versions: žr. kitas versijas
         version: Versijos numeris %{number}
-    versions_list:
-      show:
-        back_to_resource: Grįžti atgal
-        changes_at_title: '„%{title}“ pakeitimai'
-        number_of_versions: Versijos
-        title: Versijos
-    versions_list_item:
-      back: Rodyti visas versijas
-      show:
-        version_index: Versija %{index}
     welcome_notification:
       default_subject: Dėkojame, kad prisijungėte prie {{organization}}!
     wizard_step_form:
@@ -1625,8 +1560,6 @@ lt:
         notifications_settings: Pranešimų nustatymai
         title: Dalyvio nuostatos
         user_groups: Grupės
-      widget:
-        see_more: Žr. daugiau
   locale:
     name: Lietuvių
     name_with_error: Lietuvių (klaida!)
@@ -1697,7 +1630,6 @@ lt:
     dropdown:
       choose_diff_view_html: 'HTML rodymo tipas:'
       choose_diff_view_mode: 'Palyginti rodymo tipus:'
-      choose_diff_view_mode_menu: Pasirinkti lyginimo tipą
       option_escaped: Pabėgę
       option_split: Rodoma greta
       option_unescaped: Unescaped
