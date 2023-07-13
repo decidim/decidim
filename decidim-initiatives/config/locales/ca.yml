@@ -311,7 +311,7 @@ ca:
         validating: Validació tècnica
       application_helper:
         filter_area_values:
-          all: Totes
+          all: Tots
         filter_scope_values:
           all: Tots
         filter_state_values:
@@ -419,7 +419,7 @@ ca:
       form:
         add_attachments: Documents
         attachment_legend: "(Opcional) Afegir un fitxer adjunt"
-        delete_attachment: Esborrar
+        delete_attachment: Suprimeix
       index:
         title: Iniciatives
         uninitialized: Les iniciatives no han estat configurades encara des de l'administració.
@@ -565,11 +565,6 @@ ca:
         status_change_for: La iniciativa %{title} ha canviat el seu estat
       last_activity:
         new_initiative: Nova iniciativa
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Iniciatives actives
-            see_all_initiatives: Veure totes les iniciatives
       show:
         badge_name:
           accepted: Amb les signatures necessàries
@@ -601,7 +596,7 @@ ca:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Tornar
+        back: Torna
         fill_data: Crear
         finish: Acabar
         previous_form: Començar
