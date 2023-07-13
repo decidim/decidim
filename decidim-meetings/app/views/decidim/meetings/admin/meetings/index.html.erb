@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t(".title") %>
       <div class="button--title">
-        <%= link_to t("actions.new", scope: "decidim.meetings", name: t("models.meeting.name", scope: "decidim.meetings.admin")), new_meeting_path, class: "button tiny button--simple" if allowed_to? :create, :meeting %>
+        <%= link_to t("actions.new", scope: "decidim.meetings", name: t("models.meeting.name", scope: "decidim.meetings.admin")), new_meeting_path, class: "button button__sm button__secondary" if allowed_to? :create, :meeting %>
         <%= export_dropdown %>
       </div>
     </h2>

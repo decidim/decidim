@@ -4,10 +4,10 @@
       <%= t "decidim.admin.titles.responses" %>
       <%= link_to t("actions.new_response", scope: "decidim.admin"),
                   new_response_path(current_question),
-                  class: "button tiny button--title" if allowed_to? :create, :response %>
+                  class: "button button__sm button__secondary" if allowed_to? :create, :response %>
       <%= link_to t("actions.response_groups", scope: "decidim.admin"),
                   response_groups_path(current_question),
-                  class: "button tiny button--title" if allowed_to? :create, :response_group, question: current_question %>
+                  class: "button button__sm button__secondary" if allowed_to? :create, :response_group, question: current_question %>
     </h2>
   </div>
   <div class="table-scroll">

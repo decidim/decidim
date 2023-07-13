@@ -4,8 +4,8 @@
       <h2 class="card-title">
         <% if topic %>
           <%= translated_attribute(topic.title) %>
-          <%= link_to t(".destroy"), [topic], class: "button tiny button--title destroy", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-          <%= link_to t(".edit"), [:edit, topic], class: "button tiny button--title new" %>
+          <%= link_to t(".destroy"), [topic], class: "button button__sm button__secondary destroy", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+          <%= link_to t(".edit"), [:edit, topic], class: "button button__sm button__secondary new" %>
         <% else %>
           <%= t(".without_topic") %>
         <% end %>

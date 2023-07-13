@@ -16,8 +16,8 @@
           <div class="card-footer">
             <h2 class="card-title">
               <%= t newsletter_template.public_name_key %>
-              <%= link_to(t(".preview_template"), newsletter_template_path(newsletter_template.name), class: "button tiny button--title") %>
-              <%= link_to(t(".use_template"), new_newsletter_template_newsletter_path(newsletter_template.name), class: "button tiny button--title") %>
+              <%= link_to(t(".preview_template"), newsletter_template_path(newsletter_template.name), class: "button button__sm button__secondary") %>
+              <%= link_to(t(".use_template"), new_newsletter_template_newsletter_path(newsletter_template.name), class: "button button__sm button__secondary") %>
             </h2>
           </div>
         </div>

@@ -4,10 +4,10 @@
       <%= t "decidim.admin.titles.response_groups" %>
       <%= link_to t("actions.new_response_group", scope: "decidim.admin"),
                   new_response_group_path(current_question),
-                  class: "button tiny button--title" if allowed_to? :create, :response_group, question: current_question %>
+                  class: "button button__sm button__secondary" if allowed_to? :create, :response_group, question: current_question %>
       <%= link_to t("actions.back_to_responses", scope: "decidim.admin"),
                   responses_path(current_question),
-                  class: "button tiny button--title" if allowed_to? :read, :response %>
+                  class: "button button__sm button__secondary" if allowed_to? :read, :response %>
     </h2>
   </div>
   <div class="card-section">

@@ -48,7 +48,7 @@
     <h2 class="card-title">
       <%= t "decidim.admin.titles.impersonatable_users" %>
       <% if allowed_to? :impersonate, :impersonatable_user, user: new_managed_user %>
-        <%= link_to t(".impersonate_new_managed_user"), new_impersonatable_user_impersonation_path(:new_managed_user), class: "button tiny button--title #{"disabled" if current_organization.available_authorizations.empty?}" %>
+        <%= link_to t(".impersonate_new_managed_user"), new_impersonatable_user_impersonation_path(:new_managed_user), class: "button button__sm button__secondary #{"disabled" if current_organization.available_authorizations.empty?}" %>
       <% end %>
     </h2>
   </div>

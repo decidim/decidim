@@ -2,7 +2,7 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= t(".title") %>
-      <%= link_to t("actions.new", scope: "decidim.accountability", name: t("models.status.name", scope: "decidim.accountability.admin")), new_status_path, class: "button tiny button--title" if allowed_to? :create, :status %>
+      <%= link_to t("actions.new", scope: "decidim.accountability", name: t("models.status.name", scope: "decidim.accountability.admin")), new_status_path, class: "button button__sm button__secondary" if allowed_to? :create, :status %>
     </h2>
   </div>
   <div class="table-scroll">

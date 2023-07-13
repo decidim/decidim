@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t "decidim.admin.titles.areas" %>
       <% if allowed_to? :create, :area %>
-        <%= link_to t("actions.add", scope: "decidim.admin"), new_area_path, class: "button tiny button--title new" %>
+        <%= link_to t("actions.add", scope: "decidim.admin"), new_area_path, class: "button button__sm button__secondary new" %>
       <% end %>
     </h2>
   </div>

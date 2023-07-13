@@ -2,9 +2,9 @@
   <div class="card-divider">
     <h2 class="card-title">
       <% if parent_scope %>
-        <%= scope_breadcrumbs(parent_scope).join(" - ").html_safe %> <%= link_to t("actions.add", scope: "decidim.admin"), new_scope_scope_path(parent_scope), class: "button tiny button--title" if allowed_to? :create, :scope %><%= link_to t("actions.edit", scope: "decidim.admin"), edit_scope_path(parent_scope), class: "button tiny button--title" if allowed_to? :edit, :scope, scope: parent_scope %>
+        <%= scope_breadcrumbs(parent_scope).join(" - ").html_safe %> <%= link_to t("actions.add", scope: "decidim.admin"), new_scope_scope_path(parent_scope), class: "button button__sm button__secondary" if allowed_to? :create, :scope %><%= link_to t("actions.edit", scope: "decidim.admin"), edit_scope_path(parent_scope), class: "button button__sm button__secondary" if allowed_to? :edit, :scope, scope: parent_scope %>
       <% else %>
-        <%= t "decidim.admin.titles.scopes" %> <%= link_to t("actions.add", scope: "decidim.admin"), new_scope_path, class: "button tiny button--title" if allowed_to? :create, :scope %>
+        <%= t "decidim.admin.titles.scopes" %> <%= link_to t("actions.add", scope: "decidim.admin"), new_scope_path, class: "button button__sm button__secondary" if allowed_to? :create, :scope %>
       <% end %>
     </h2>
   </div>
