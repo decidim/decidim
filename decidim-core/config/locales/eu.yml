@@ -1414,7 +1414,7 @@ eu:
         version: '%{number} bertsio zenbakia'
     versions_list:
       show:
-        back_to_resource: Joan atzera
+        back_to_resource: Atzera joan
         changes_at_title: Aldaketak hemen "%{title}"
         number_of_versions: Bertsioak
         title: Bertsioak
