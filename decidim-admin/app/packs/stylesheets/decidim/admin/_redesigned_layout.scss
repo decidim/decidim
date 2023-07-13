@@ -33,32 +33,6 @@ body{
     @apply w-4 h-4 fill-secondary inline-block;
   }
 
-  .form__wrapper{
-    @apply pt-0;
-
-    input[type="date"],
-    input[type="datetime-local"],
-    input[type="email"],
-    input[type="month"],
-    input[type="number"],
-    input[type="password"],
-    input[type="search"],
-    input[type="tel"],
-    input[type="text"],
-    input[type="time"],
-    input[type="url"],
-    input[type="week"],
-    select,
-    textarea {
-      @apply mb-4 mt-0;
-    }
-
-    & label:not(&-checkbox-label),
-    &-block label:not(&-checkbox-label){
-      @apply text-sm;
-    }
-  }
-
   .hide{
     @apply hidden;
   }

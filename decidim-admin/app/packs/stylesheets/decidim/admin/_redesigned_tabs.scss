@@ -44,7 +44,7 @@
 }
 
 .label--tabs{
-  @apply flex justify-between items-center;
+  @apply flex justify-between items-end;
 
   label{
     @apply inline-block;
