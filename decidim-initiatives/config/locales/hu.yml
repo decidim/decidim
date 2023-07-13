@@ -583,11 +583,6 @@ hu:
         status_change_for: A(z) %{title} kezdeményezés állapota változott
       last_activity:
         new_initiative: Új kezdeményezés
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktív kezdeményezések
-            see_all_initiatives: Összes kezdeményezés
       show:
         badge_name:
           accepted: Elegendő aláírás
@@ -621,7 +616,7 @@ hu:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Hát
+        back: Vissza
         fill_data: Létrehozás
         finish: Befejezés
         previous_form: Kezdés
