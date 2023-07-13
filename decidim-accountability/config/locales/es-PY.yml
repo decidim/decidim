@@ -291,6 +291,9 @@ es-PY:
         description: Número de resultados generados
         object: resultados
         title: Resultados
+    participatory_spaces:
+      highlighted_results:
+        see_all: Ver todos los resultados
     resource_links:
       included_projects:
         result_project: Proyectos incluidos en este resultado
