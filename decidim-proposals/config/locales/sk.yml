@@ -609,6 +609,9 @@ sk:
           info: Pri vytváraní <strong> spolupráca návrhu </strong>.
         wizard_header:
           title: Vytvorte návrh spolupráca
+      content_blocks:
+        highlighted_proposals:
+          proposals: Návrhy
       create:
         error: Pri ukladaní návrhu došlo k chybám.
         success: Návrh bol úspešne vytvorený. Uložené ako návrh.
@@ -689,7 +692,7 @@ sk:
           type: Typ
           voted: Hlasoval
         filters_small_view:
-          close_modal: Zatvoriť okno
+          close_modal: Zatvoriť modálne
           filter: Filter
           filter_by: Filtrovať podľa
           unfold: Rozbaliť
@@ -716,8 +719,6 @@ sk:
           recent: Nedávno
           with_more_authors: S viac autormi
         participatory_texts:
-          index:
-            document_index: Index dokumentov
           view_index:
             see_index: Pozri index
         preview:
