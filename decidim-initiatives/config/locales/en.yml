@@ -333,8 +333,6 @@ en:
         rejected: Not enough signatures
         validating: Technical validation
       application_helper:
-        filter_area_values:
-          all: All
         filter_state_values:
           accepted: Enough signatures
           all: All
