@@ -38,9 +38,6 @@ sl:
     shared:
       login_modal:
         sign_up: Registracija
-    user_conversations:
-      index:
-        add_users_placeholder: Išči...
     welcome_notification:
       default_subject: Hvala, ker ste se pridružili nači organizaciji {{organization}}!
   devise:
