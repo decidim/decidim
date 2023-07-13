@@ -424,7 +424,7 @@ de:
           request_confirmation_instructions: Bestätigungsanleitungen anfordern
           title: Bestätige deine E-Mail
       show:
-        close_modal: Modal schließen
+        close_modal: Fenster schließen
     block_user_mailer:
       notify:
         body_1: Ihr Account wurde gesperrt.
@@ -560,7 +560,7 @@ de:
         newsletter_modal:
           buttons:
             check: Kontakterlaubnis erteilen und fortfahren
-            close_modal: Modal schließen
+            close_modal: Fenster schließen
             uncheck: Ohne Kontakterlaubnis fortfahren
           notice: |-
             <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
@@ -978,7 +978,7 @@ de:
         body_1: Sie sind dabei einen externen Link zu besuchen und wir möchten, dass Sie hinsichtlich der Inhalte auf der externen Seite vorsichtig sind.
         body_2: Bitte überprüfen Sie den Link und stellen Sie sicher, dass es sich um eine vertrauenswürdige Seite handelt, bevor Sie fortfahren.
         cancel: Abbrechen
-        close_modal: Modal schließen
+        close_modal: Fenster schließen
         proceed: Fortfahren
         title: Externen Link öffnen
     log:
@@ -1071,7 +1071,7 @@ de:
           ok: OK
         index:
           ago: vor
-          close: Modal schließen
+          close: Fenster schließen
           from: Von
           groups: Meine Gruppen
           last_message: Letzte Nachricht
@@ -1263,7 +1263,7 @@ de:
           modal_btn_continue: Bedingungen akzeptieren und fortfahren
           modal_btn_exit: Ich werde es später überprüfen
           modal_button: Bedingungen ablehnen
-          modal_close: Modal schließen
+          modal_close: Fenster schließen
           modal_title: Lehnen Sie die aktualisierten Geschäftsbedingungen wirklich ab?
         required_review:
           alert: Wir haben unsere Nutzungsbedingungen aktualisiert. Bitte überprüfen Sie sie.
@@ -1492,7 +1492,7 @@ de:
         back: Alle Unterhaltungen anzeigen
         deleted_accounts: Sie können keine Unterhaltung mit gelöschten Konten führen.
         not_allowed: Dieser Benutzer akzeptiert keine Direktnachrichten mehr.
-        title: Unterhaltung mit %{usernames}
+        title: Gespräch mit %{usernames}
       update:
         error: Nachricht wurde nicht gesendet. Versuchen Sie es später noch einmal
     user_interests:
@@ -1727,7 +1727,7 @@ de:
             description: Beschreibung
             name: Name
             service: Service
-            type: Typ
+            type: Art
           items:
             _session_id:
               description: Ermöglicht es Websites, sich an Benutzer zu erinnern, wenn diese verschiedene Seiten aufrufen.
