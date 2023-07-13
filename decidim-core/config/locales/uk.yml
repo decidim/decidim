@@ -202,8 +202,6 @@ uk:
           newsletter_title: Дозвіл на зв'язок
           sign_in: Увійти
           sign_up: Зареєструватися
-          sign_up_as:
-            legend: Зареєструватися як
           subtitle: Зареєструйтесь, щоб брати участь у обговореннях та підтримувати пропозиції.
           tos_agreement: Реєструючись, ви приймаєте %{link}.
           tos_title: Умови участі
@@ -216,7 +214,6 @@ uk:
         newsletter_modal:
           buttons:
             check: Поставити галочку та продовжити
-            close_modal: Закрити віконце
           title: Сповіщення про новини
         omniauth_buttons:
           or: Або
@@ -224,7 +221,6 @@ uk:
       authorizations:
         new:
           authorize: Підтвердити додаток
-          by_organization_link_html: <small class="heading-small">через %{link}</small>
           cancel: Скасувати
           publish_content: Оприлюднювати за вас дописи
           see_email: Бачити вашу адресу ел-пошти
@@ -233,7 +229,6 @@ uk:
           this_application_will_be_able_to: 'Цей додаток зможе:'
           this_application_will_not_be_able_to: 'Цей додаток не зможе:'
           update_profile: Оновлювати ваш профіль
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> бажає використовувати ваш обліковий запис"
     download_your_data:
       export:
         ready: Готово
@@ -366,11 +361,6 @@ uk:
       update:
         error: При спробі оновити налаштування сповіщень сталася помилка.
         success: Ваші налаштування сповіщень успішно оновлено.
-    own_user_groups:
-      index:
-        pending: Очікує на розгляд
-        rejected: Відхилено
-        verified: Перевірено
     pages:
       home:
         extended:
@@ -396,7 +386,7 @@ uk:
     participatory_space_private_users:
       not_allowed: У вас нема прав на перегляд цього вмісту
     profile:
-      view: Переглянути
+      deleted: Видалений учасник
     profiles:
       show:
         followers: Ті, хто стежить
@@ -435,10 +425,6 @@ uk:
         filter_by: 'Відібрати за ознакою:'
         unfold: Розгорнути
     shared:
-      embed_modal:
-        close_window: Закрити вікно
-        embed: Будь ласка, вставте цей код на свою сторінку
-        embed_link: Вбудувати
       flag_modal:
         already_reported: Про цей вміст вже передано скаргу, і її перегляне адміністратор.
         close: Закрити
@@ -465,9 +451,6 @@ uk:
     user_conversations:
       update:
         error: Повідомлення не надіслано. Спробуйте ще раз пізніше
-    version_author:
-      show:
-        deleted: Видалений учасник
   devise:
     invitations:
       edit:
@@ -534,8 +517,6 @@ uk:
         my_data: Мої дані
         notifications_settings: Налаштування сповіщень
         title: Налаштування учасника
-      widget:
-        see_more: Читати далі
   locale:
     name: Українська
     name_with_error: Українська (помилка!)
