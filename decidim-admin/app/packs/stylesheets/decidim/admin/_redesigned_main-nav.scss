@@ -11,14 +11,14 @@
 }
 
 .main-nav ul{
-  @apply list-none w-[90%] mx-auto;
+  @apply list-none w-full;
 
   li{
     @apply pb-2;
   }
 
   a{
-    @apply text-white py-2 block text-xs w-full rounded bg-transparent transition;
+    @apply text-white py-2 block text-xs w-full bg-transparent transition;
 
     &:hover{
       @apply underline;
