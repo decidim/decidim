@@ -812,9 +812,9 @@ fi:
           type: Tyyppi
           voted: Kannatettu
         filters_small_view:
-          close_modal: Sulje ikkuna
-          filter: Suodata
-          filter_by: Suodata
+          close_modal: Sulje modaalinen
+          filter: Rajaa
+          filter_by: Rajaa hakua
           unfold: Avaa
         index:
           click_here: Näytä kaikki ehdotukset
@@ -841,8 +841,6 @@ fi:
           recent: Viimeisimmät
           with_more_authors: Eniten laatijoita
         participatory_texts:
-          index:
-            document_index: Asiakirjan hakemisto
           view_index:
             see_index: Näytä hakemisto
         placeholder:
@@ -921,7 +919,7 @@ fi:
           vote_limit:
             description: Voit kannattaa enintään %{limit} ehdotusta.
             left: Jäljellä
-            votes: Kannatusta
+            votes: Kannatukset
         wizard_aside:
           back: Takaisin
           back_from_step_1: Takaisin ehdotuksiin
