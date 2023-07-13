@@ -565,6 +565,11 @@ fi:
         status_change_for: Aloitteen %{title} tila on muuttunut
       last_activity:
         new_initiative: Uusi aloite
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktiiviset aloitteet
+            see_all_initiatives: Näytä kaikki aloitteet
       show:
         badge_name:
           accepted: Tarpeeksi allekirjoituksia
