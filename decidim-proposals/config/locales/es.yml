@@ -813,7 +813,7 @@ es:
           type: Tipo
           voted: Has dado apoyo
         filters_small_view:
-          close_modal: Cerrar ventana
+          close_modal: Cerrar la ventana
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
@@ -842,8 +842,6 @@ es:
           recent: Reciente
           with_more_authors: Con más autoras
         participatory_texts:
-          index:
-            document_index: Índice del documento
           view_index:
             see_index: Ver índice
         placeholder:
