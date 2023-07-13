@@ -841,6 +841,8 @@ fi:
           recent: Viimeisimmät
           with_more_authors: Eniten laatijoita
         participatory_texts:
+          index:
+            document_index: Asiakirjan sisällys
           view_index:
             see_index: Näytä hakemisto
         placeholder:
