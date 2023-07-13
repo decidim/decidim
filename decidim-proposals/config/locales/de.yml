@@ -845,6 +845,8 @@ de:
           recent: Kürzlich hinzugefügt
           with_more_authors: Mit mehr Autoren
         participatory_texts:
+          index:
+            document_index: Dokumentenindex
           view_index:
             see_index: Index anzeigen
         placeholder:
