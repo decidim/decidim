@@ -143,7 +143,6 @@ bg:
         error: Възникна грешка при одобряване на поправката.
         success: Поправката е одобрена успешно.
       amendable:
-        amended_by: Поправка от
         button: Променя %{model_name}
         error: Възникна грешка при промяната на ресурса.
         promote_button: Обяви като %{model_name}
@@ -161,7 +160,6 @@ bg:
         success: Черновата на поправката е успешно изтрита.
       edit_draft:
         discard: Отхвърляне на черновата
-        discard_confirmation: Сигурни ли сте, че искате да отхвърлите тази чернова на поправка?
         send: Преглед
         title: Редактирай чернова на поправка
       emendation:
@@ -352,8 +350,6 @@ bg:
           newsletter_title: Разрешение за контакт с Вас
           sign_in: Вход
           sign_up: Регистрация
-          sign_up_as:
-            legend: Регистрация като
           subtitle: Регистрирайте се за да участвате в обсъждания и поддържате предложения.
           tos_agreement: Регистрирайки се, приемате %{link}.
           tos_title: Общи условия
@@ -366,7 +362,6 @@ bg:
         newsletter_modal:
           buttons:
             check: Маркирай и продължи
-            close_modal: Затвори прозорчето
           title: Известия за новости
         omniauth_buttons:
           or: Или
@@ -374,7 +369,6 @@ bg:
       authorizations:
         new:
           authorize: Потвърди приложение
-          by_organization_link_html: <small class="heading-small"> чрез %{link}</small>
           cancel: Откажи
           publish_content: Публикувайте съдържание за вас
           see_email: Вижте Вашата ел. поща
@@ -383,7 +377,6 @@ bg:
           this_application_will_be_able_to: 'Това приложение ще може:'
           this_application_will_not_be_able_to: 'Това приложение не може:'
           update_profile: Обновете профила си
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> желае да ползва профила Ви"
     download_your_data:
       export:
         ready: Готов
@@ -637,12 +630,9 @@ bg:
           title: Какво мога да правя в %{organization}?
         title: Обща помощ
     last_activities:
-      activities:
-        no_activities_warning: Няма дейност
       all: Всички видове активност
       index:
         last_activity: Последна активност
-        resource_type: Тип
     log:
       base_presenter:
         create: "%{user_name} създаде %{resource_name}"
@@ -777,11 +767,6 @@ bg:
         success: Настройките Ви за известия са обновени успешно.
     open_data:
       not_available_yet: Файловете с отворени данни все още не са налице. Опитайте отново след няколко минути.
-    own_user_groups:
-      index:
-        pending: Предстоящ
-        rejected: Отхвърлен
-        verified: Проверен
     pad_iframe:
       disclaimer: Съдържанието в тази платформа, написано от участниците в нея изразява тяхното мнение. %{organization} не носи отговорност за това съдържание.
       pad: Платформа
@@ -803,8 +788,6 @@ bg:
         hero:
           participate: Участвайте
           welcome: Добре дошли в %{organization}!
-        metrics:
-          headline: Индикатори
         statistics:
           headline: Текущо състояние на %{organization}
         sub_hero:
@@ -817,11 +800,10 @@ bg:
       participatory_space:
         metrics:
           headline: Индикатори
-          link: Покажи всички индикатори
     participatory_space_private_users:
       not_allowed: Нямате права да преглеждате това съдържание
     profile:
-      view: Изглед
+      deleted: Изтрит участник
     profiles:
       show:
         activity: Дейност
@@ -831,7 +813,6 @@ bg:
         following: Следванния
         groups: Групи
         members: Членове
-        view_full_profile: Виж пълния профил
       sidebar:
         badges:
           info: Значките се заслужват чрез извършване на конкретна дейност в платформата.
@@ -876,7 +857,6 @@ bg:
       term_input_placeholder: Търсене
     searches:
       filters:
-        back: Върни се към резултатати
         jump_to: 'Отиди на:'
         state:
           active: Активни
@@ -889,15 +869,8 @@ bg:
         filter_by: Филтър по
         unfold: Разгъване
       results:
-        results:
-          one: "%{count} резултат"
-          other: "%{count} резултата"
         view_all: Виж всички (%{count})
     shared:
-      embed_modal:
-        close_window: Затвори прозореца
-        embed: Моля, поставете този код във вашата страница
-        embed_link: Вграждане
       extended_navigation_bar:
         more: Повече
         unfold: Разгъване
@@ -940,27 +913,12 @@ bg:
         existing_error: Съобщението не можа да бъде създадено. Разговорът вече съществува, моля опитайте отново сега.
         success: Разговорът започна успешно!
       index:
-        add_max_users: 'Добави участник в разговора: максимално 9'
-        add_users_placeholder: Търсене...
-        close: Затвори
         conversations_info: Разговорите са частни. никой друг не може да ги види. Разговор може да започне с всеки участник или група, регистрирана в платформата.
-        from: Oт
-        last_message: Последно съобщение
-        modal_title: Нов разговор
-        new_conversation: Нов разговор
-        next: Напред
         no_conversations_warning: Тук все още няма разговори.
-        no_results: Няма резултати
         time_ago: "преди %{time}"
-      new:
-        title: Започни разговор
       reply:
         placeholder: Вашият отговор...
         send: Изпрати
-        title_reply: Отговори
-      show:
-        not_allowed: Този участник не приема вече директни съобщения.
-        title: Разговор с %{usernames}
       update:
         error: Съобщението не е изпратено. Опитайте по-късно
     user_interests:
@@ -975,27 +933,11 @@ bg:
         back_to_resource: Назад
         changes_at_title: Промени в "%{title}"
         number_of_versions: Версии
-        show_all_versions: Покажи всички версии
-        version_author: Автор на версията
         version_created_at: Версията създадена на
-        version_number: Версия номер
-        version_number_out_of_total: "%{current_version} от общо %{total_count}"
-    version_author:
-      show:
-        deleted: Изтрит участник
     versions:
       resource_version:
         of_versions: "(от %{number})"
         version: Версия %{number}
-    versions_list:
-      show:
-        back_to_resource: Назад
-        changes_at_title: Промени в "%{title}"
-        number_of_versions: Версии
-        title: Версии
-    versions_list_item:
-      show:
-        version_index: Версия %{index}
     welcome_notification:
       default_subject: Благодарим за присъединяването към {{organization}}!
     wizard_step_form:
@@ -1144,6 +1086,10 @@ bg:
     timestamp_error_message: Извинете, това беше твърде бързо! Моля, изпратете отново.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Тип
       edit_link:
         edit: Редактирай
       footer:
@@ -1176,8 +1122,6 @@ bg:
         notifications_settings: Настройки на известията
         title: Настройки за участника
         user_groups: Групи
-      widget:
-        see_more: Виж още
   locale:
     name: български език
   password_validator:
