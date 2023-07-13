@@ -231,7 +231,6 @@ el:
         error: Παρουσιάστηκε σφάλμα κατά την αποδοχή της τροποποίησης.
         success: Η τροποποίηση έγινε δεκτή με επιτυχία.
       amendable:
-        amended_by: Τροποποιήθηκε από
         button: Τροποποίηση %{model_name}
         error: Υπήρξε σφάλμα κατά την τροποποίηση αυτού του στοιχείου.
         promote_button: Αναβάθμιση σε %{model_name}
@@ -249,7 +248,6 @@ el:
         success: Το πρόχειρο τροποποίησης διαγράφηκε επιτυχώς.
       edit_draft:
         discard: Διαγραφή πρόχειρου
-        discard_confirmation: Είστε βέβαιοι ότι θέλετε να απορρίψετε αυτό το πρόχειρο τροποποίησης;
         send: Προεπισκόπηση
         title: Επεξεργασία Πρόχειρου Τροποποίησης
       emendation:
@@ -296,8 +294,6 @@ el:
         download: Λήψη αρχείου
       documents:
         related_documents: Σχετικά έγγραφα
-      geocoding:
-        geocoded_address: Διεύθυνση
       photo:
         alt: Εικόνα πολυμέσων
       photos:
@@ -494,8 +490,6 @@ el:
           nickname_help: Το ψευδώνυμό σας στο %{organization}. Μπορεί να περιέχει μόνο γράμματα, αριθμούς, '-' και '_'.
           sign_in: Σύνδεση
           sign_up: Εγγραφή
-          sign_up_as:
-            legend: Εγγραφή ως
           subtitle: Εγγραφείτε για να συμμετάσχετε σε συζητήσεις και προτάσεις υποστήριξης.
           terms: όροι χρήσης υπηρεσίας
           tos_agreement: Με την εγγραφή σας συμφωνείτε με τους %{link}.
@@ -513,19 +507,7 @@ el:
         newsletter_modal:
           buttons:
             check: Επιλογή και συνέχεια
-            close_modal: Κλείσιμο βοηθητικού στοιχείου
             uncheck: Διατήρηση χωρίς επιλογή
-          notice: |-
-            <p>Είστε βέβαιοι ότι δεν θέλετε να λαμβάνετε ενημερωτικό δελτίο;<br>
-            Σκεφτείτε ξανά το ενδεχόμενο να επιλέξετε το πλαίσιο ελέγχου του ενημερωτικού δελτίου παρακάτω.<br>
-            Είναι πολύ σημαντικό για εμάς να λαμβάνετε περιστασιακά email
-            για σημαντικές ανακοινώσεις. Μπορείτε πάντα να αλλάξετε αυτήν
-            την επιλογή στη σελίδα ρυθμίσεων των ειδοποιήσεων.</p>
-            <p>Εάν δεν επιλέξετε το πλαίσιο, ενδέχεται να λείπουν σχετικές πληροφορίες
-            σχετικά με νέες ευκαιρίες συμμετοχής στην πλατφόρμα.<br>
-            Εάν εξακολουθείτε να θέλετε να αποφύγετε τη λήψη ενημερωτικών δελτίων, κατανοούμε
-            απόλυτα την απόφασή σας.</p>
-            <p>Ευχαριστούμε που διαβάσατε αυτό το μήνυμα!</p>
           title: Ειδοποιήσεις ενημερωτικών δελτίων
         omniauth_buttons:
           or: Ή
@@ -533,9 +515,7 @@ el:
       authorizations:
         new:
           authorize: Εξουσιοδότηση εφαρμογής
-          by_organization_link_html: <small class="heading-small">από %{link}</small>
           cancel: Ακύρωση
-          connect_your_account_html: Συνδέστε τον λογαριασμό σας πραγματοποιώντας είσοδο στον οργανισμό <strong>%{organization}</strong>.
           publish_content: Δημοσίευση περιεχομένου για εσάς
           see_email: Δείτε τα email σας
           see_name: Δείτε το όνομά σας
@@ -543,7 +523,6 @@ el:
           this_application_will_be_able_to: 'Αυτή η εφαρμογή θα μπορεί να:'
           this_application_will_not_be_able_to: 'Αυτή η εφαρμογή δεν θα μπορεί να:'
           update_profile: Ενημερώστε το προφίλ σας
-          wants_to_use_your_account_html: "Η εφαρμογή <strong>%{application_name}</strong> θέλει να χρησιμοποιήσει τον λογαριασμό σας"
     download_your_data:
       export:
         ready: Έτοιμο
@@ -874,12 +853,9 @@ el:
         description: Διαβάστε περισσότερα για το %{organization}.
         title: Γενική βοήθεια
     last_activities:
-      activities:
-        no_activities_warning: Δεν υπάρχει δραστηριότητα
       all: Όλοι οι τύποι δραστηριότητας
       index:
         last_activity: Τελευταία δραστηριότητα
-        resource_type: Τύπος
     links:
       invalid_url: Μη έγκυρο URL
       warning:
@@ -1042,11 +1018,6 @@ el:
         retry: Δοκιμάστε ξανά
     open_data:
       not_available_yet: Τα αρχεία Open Data δεν είναι ακόμη διαθέσιμα. Δοκιμάστε ξανά σε λίγα λεπτά.
-    own_user_groups:
-      index:
-        pending: Σε εκκρεμότητα
-        rejected: Απορρίφθηκε
-        verified: Επαληθεύτηκε
     pad_iframe:
       disclaimer: Τα περιεχόμενα αυτού του πίνακα σημειώσεων συντάσσονται από εγγεγραμμένους χρήστες και εκφράζουν τις απόψεις τους. Ο οργανισμός %{organization} δεν μπορεί να θεωρηθεί υπεύθυνος για το περιεχόμενό τους.
       explanation: Χρησιμοποιήστε αυτό το σημειωματάριο για να κρατήσετε σημειώσεις από κοινού κατά τη διάρκεια της συνεδρίασης, ώστε να μπορείτε να καταγράψετε πιο εύκολα τα πρακτικά στη συνέχεια.
@@ -1069,8 +1040,6 @@ el:
         hero:
           participate: Συμμετοχή
           welcome: Καλώς ορίσατε στον οργανισμό %{organization}!
-        metrics:
-          headline: Μετρικά
         statistics:
           headline: Τρέχουσα κατάσταση του οργανισμού %{organization}
         sub_hero:
@@ -1083,7 +1052,6 @@ el:
       participatory_space:
         metrics:
           headline: Μετρικά
-          link: Εμφάνιση όλων των μετρικών
       terms_of_service:
         accept:
           error: Παρουσιάστηκε πρόβλημα κατά την αποδοχή των όρων υπηρεσίας.
@@ -1096,7 +1064,6 @@ el:
           modal_btn_continue: Αποδοχή των όρων και συνέχεια
           modal_btn_exit: Θα τους διαβάσω αργότερα
           modal_button: Απόρριψη των όρων
-          modal_close: Κλείσιμο παραθύρου διαλόγου
           modal_title: Θέλετε όντως να απορρίψετε τους επικαιροποιημένους όρους και προϋποθέσεις;
         required_review:
           alert: Έχουμε ενημερώσει τους Όρους της Υπηρεσίας μας, παρακαλούμε να τους εξετάσετε.
@@ -1111,7 +1078,6 @@ el:
     profile:
       deleted: Διαγραμμένος συμμετέχων
       inaccessible_message: Αυτό το προφίλ δεν είναι προσβάσιμο λόγω παραβίασης όρων υπηρεσίας!
-      view: Προβολή
     profiles:
       default_officialization_text_for_user_groups: Αυτή η ομάδα έχει επαληθευτεί δημόσια, το όνομά της έχει επαληθευτεί ώστε να αντιστοιχεί στο πραγματικό της όνομα.
       default_officialization_text_for_users: Αυτός ο συμμετέχων έχει επαληθευτεί δημόσια, το όνομα ή ο ρόλος του έχει επαληθευτεί ώστε να αντιστοιχεί στο πραγματικό όνομα και τον ρόλο του.
@@ -1125,7 +1091,6 @@ el:
         members: Μέλη
         officialized: Επίσημος συμμετέχων
         send_private_message: Αποστολή προσωπικού μηνύματος
-        view_full_profile: Εμφάνιση πλήρους προφίλ
       sidebar:
         badges:
           info: Τα εμβλήματα κερδίζονται πραγματοποιώντας μια συγκεκριμένη δραστηριότητα στην πλατφόρμα.
@@ -1195,7 +1160,6 @@ el:
       term_input_placeholder: Αναζήτηση
     searches:
       filters:
-        back: Επιστροφή στα αποτελέσματα
         jump_to: 'Μετάβαση σε:'
         state:
           active: Ενεργές
@@ -1208,9 +1172,6 @@ el:
         filter_by: Φιλτράρισμα κατά
         unfold: Αποκάλυψη
       results:
-        results:
-          one: "%{count} αποτέλεσμα"
-          other: "%{count} αποτελέσματα"
         view_all: Προβολή όλων (%{count})
     security:
       selfxss_warning:
@@ -1222,10 +1183,6 @@ el:
         close_modal: Κλείσιμο παραθύρου
         ok: ΟΚ
         title: Επιβεβαίωση
-      embed_modal:
-        close_window: Κλείσιμο παραθύρου
-        embed: Επικολλήστε αυτόν τον κωδικό στη σελίδα σας
-        embed_link: Ενσωμάτωση
       extended_navigation_bar:
         more: Περισσότερα
         unfold: Αποκάλυψη
@@ -1278,27 +1235,12 @@ el:
         existing_error: Δεν ήταν δυνατή η δημιουργία του μηνύματος. Η συνομιλία υπάρχει ήδη. Δοκιμάστε ξανά τώρα.
         success: Η συνομιλία ξεκίνησε με επιτυχία!
       index:
-        add_max_users: 'Προσθήκη χρηστών στη συνομιλία: έως 9 χρήστες'
-        add_users_placeholder: Αναζήτηση...
-        close: Κλείσιμο
         conversations_info: Οι συνομιλίες είναι ιδιωτικές. Κανείς άλλος δεν μπορεί να τις δει. Μια συνομιλία μπορεί να ξεκινήσει με οποιονδήποτε συμμετέχοντα ή ομάδα εγγεγραμμένη στην πλατφόρμα.
-        from: Από
-        last_message: Τελευταίο μήνυμα
-        modal_title: Νέα συνομιλία
-        new_conversation: Νέα συνομιλία
-        next: Επόμενο
         no_conversations_warning: Δεν υπάρχουν ακόμη συνομιλίες.
-        no_results: Δεν υπάρχουν αποτελέσματα
         time_ago: "%{time} πριν"
-      new:
-        title: Έναρξη συνομιλίας
       reply:
         placeholder: Η απάντησή σας...
         send: Αποστολή
-        title_reply: Απάντηση
-      show:
-        not_allowed: Αυτός ο χρήστης δεν δέχεται πλέον άμεσα μηνύματα.
-        title: Συνομιλία με τους χρήστες %{usernames}
       update:
         error: Το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά αργότερα.
     user_interests:
@@ -1313,27 +1255,11 @@ el:
         back_to_resource: Επιστροφή
         changes_at_title: Αλλάζει σε «%{title}»
         number_of_versions: Εκδόσεις
-        show_all_versions: Εμφάνιση όλων των εκδόσεων
-        version_author: Συντάκτης έκδοσης
         version_created_at: Η έκδοση δημιουργήθηκε στις
-        version_number: Αριθμός έκδοσης
-        version_number_out_of_total: "%{current_version} από %{total_count}"
-    version_author:
-      show:
-        deleted: Διαγραμμένος συμμετέχων
     versions:
       resource_version:
         of_versions: "(από %{number})"
         version: Αριθμός έκδοσης %{number}
-    versions_list:
-      show:
-        back_to_resource: Επιστροφή
-        changes_at_title: Αλλάζει σε «%{title}»
-        number_of_versions: Εκδόσεις
-        title: Εκδόσεις
-    versions_list_item:
-      show:
-        version_index: Έκδοση %{index}
     welcome_notification:
       default_subject: Ευχαριστούμε για τη συμμετοχή σας στον οργανισμό {{organization}}!
     wizard_step_form:
@@ -1484,6 +1410,10 @@ el:
     timestamp_error_message: Συγνώμη, αυτό ήταν πολύ γρήγορο! Επαναλάβετε την υποβολή.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Τύπος
       edit_link:
         edit: Επεξεργασία
       footer:
@@ -1528,8 +1458,6 @@ el:
         notifications_settings: Ρυθμίσεις ειδοποιήσεων
         title: Ρυθμίσεις συμμετέχοντα
         user_groups: Ομάδες
-      widget:
-        see_more: Δείτε περισσότερα
   locale:
     name: Ελληνικά
     name_with_error: Ελληνικά (σφάλμα!)
