@@ -232,7 +232,6 @@ pl:
         error: Wystąpił błąd podczas akceptowania poprawki.
         success: Poprawka została zaakceptowana.
       amendable:
-        amended_by: Poprawione przez
         button: '%{model_name} - popraw'
         error: Wystąpił błąd podczas wnoszenia poprawki do tego zasobu.
         promote_button: '%{model_name} - promuj'
@@ -250,7 +249,6 @@ pl:
         success: Szkic poprawki został pomyślnie usunięty.
       edit_draft:
         discard: Odrzuć szkic
-        discard_confirmation: Czy na pewno chcesz odrzucić ten szkic poprawki?
         send: Podgląd
         title: Edytuj szkic poprawki
       emendation:
@@ -298,13 +296,10 @@ pl:
         download: Pobierz plik
       documents:
         related_documents: Materiały
-      geocoding:
-        geocoded_address: Adres
       photos:
         related_photos: Powiązane zdjęcia
     author:
       avatar: 'Awatar: %{name}'
-      avatar_multiuser: Awatar dla wielu użytkowników
       comments:
         one: komentarz
         few: komentarze
@@ -480,8 +475,6 @@ pl:
           nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
           sign_in: Zaloguj się
           sign_up: Zarejestruj się
-          sign_up_as:
-            legend: Zarejestruj się jako
           subtitle: Zarejestruj się, aby brać udział w dyskusjach i wspierać propozycje.
           tos_agreement: Rejestrując się, zgadzasz się na %{link}.
           tos_title: Warunki korzystania z Platformy
@@ -496,7 +489,6 @@ pl:
         newsletter_modal:
           buttons:
             check: Sprawdź i kontynuuj
-            close_modal: Zamknij okno
             uncheck: Pozostaw niezaznaczone
           title: Powiadomienia newslettera
         omniauth_buttons:
@@ -505,7 +497,6 @@ pl:
       authorizations:
         new:
           authorize: Autoryzuj aplikację
-          by_organization_link_html: '<small class="heading-small">autor: %{link}</small>'
           cancel: Anuluj
           publish_content: Opublikuj zawartość dla siebie
           see_email: Zobacz swój e-mail
@@ -514,7 +505,6 @@ pl:
           this_application_will_be_able_to: 'Ta aplikacja będzie mogła:'
           this_application_will_not_be_able_to: 'Ta aplikacja nie będzie mogła:'
           update_profile: Zaktualizuj swój profil
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce używać Twojego konta"
     download_your_data:
       export:
         ready: Gotowy
@@ -796,12 +786,9 @@ pl:
           title: Co mogę zrobić w %{organization}?
         title: Ogólna pomoc
     last_activities:
-      activities:
-        no_activities_warning: Brak aktywności
       all: Wszystkie typy aktywności
       index:
         last_activity: Ostatnia aktywność
-        resource_type: Typ
     links:
       warning:
         proceed: Dalej
@@ -961,11 +948,6 @@ pl:
         success: Ustawienia powiadomień zostały zaktualizowane.
     open_data:
       not_available_yet: Pliki Open Data nie są jeszcze dostępne. Spróbuj ponownie za kilka minut.
-    own_user_groups:
-      index:
-        pending: Oczekuje
-        rejected: Odrzucone
-        verified: Zweryfikowano
     pad_iframe:
       disclaimer: Zawartość tego pada napisana jest przez zarejestrowanych użytkowników i wyraża ich opinie. %{organization} nie może być pociągnięta do odpowiedzialności za jego zawartość.
       pad: Podkładka
@@ -987,8 +969,6 @@ pl:
         hero:
           participate: Weź udział
           welcome: Witamy w %{organization}!
-        metrics:
-          headline: Partycypacja w liczbach
         statistics:
           headline: Aktualny stan %{organization}
         sub_hero:
@@ -1001,11 +981,10 @@ pl:
       participatory_space:
         metrics:
           headline: Partycypacja w liczbach
-          link: Pokaż wszystkie statystyki
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
-      view: Zobacz
+      deleted: Usunięty użytkownik
     profiles:
       show:
         activity: Działalność
@@ -1017,7 +996,6 @@ pl:
         members: Członkowie
         officialized: Oficjalny użytkownik
         send_private_message: Wyślij wiadomość prywatną
-        view_full_profile: Zobacz pełny profil
       sidebar:
         badges:
           info: Odznaki zdobywa się wykonując określoną czynność na platformie.
@@ -1076,7 +1054,6 @@ pl:
       term_input_placeholder: Szukaj
     searches:
       filters:
-        back: Powrót do wyników
         jump_to: 'Skocz do:'
         state:
           active: Aktualny
@@ -1089,11 +1066,6 @@ pl:
         filter_by: Filtruj według
         unfold: Rozwiń
       results:
-        results:
-          one: "%{count} wynik"
-          few: "%{count} wyników"
-          many: "%{count} wyników"
-          other: "%{count} wyników"
         view_all: Zobacz wszystko (%{count})
     security:
       selfxss_warning:
@@ -1105,10 +1077,6 @@ pl:
         close_modal: Zamknij okno
         ok: OK
         title: Potwierdź
-      embed_modal:
-        close_window: Zamknij okno
-        embed: Proszę wkleić ten kod na swojej stronie
-        embed_link: Osadź
       extended_navigation_bar:
         more: Więcej
         unfold: Rozwiń
@@ -1181,28 +1149,12 @@ pl:
         existing_error: Nie można utworzyć wiadomości. Konwersacja już istnieje, spróbuj ponownie teraz.
         success: Konwersacja rozpoczęta!
       index:
-        add_max_users: 'Dodaj użytkowników do konwersacji: maksymalnie 9 użytkowników'
-        add_users_placeholder: Szukaj...
-        close: Zamknij
         conversations_info: Konwersacje są prywatne. Nikt inny ich nie widzi. Konwersację można rozpocząć z dowolnym użytkownikiem lub grupą zarejestrowanymi na platformie.
-        from: Od
-        last_message: Ostatnia wiadomość
-        modal_title: Nowa konwersacja
-        new_conversation: Nowa konwersacja
-        next: Dalej
         no_conversations_warning: Brak konwersacji.
-        no_results: Brak wyników
         time_ago: "%{time} temu"
-      new:
-        title: Rozpocznij konwersację
       reply:
         placeholder: Twoja odpowiedź...
         send: Wyślij
-        title_reply: Odpowiedz
-      show:
-        back: Pokaż wszystkie rozmowy
-        not_allowed: Ten użytkownik nie przyjmuje więcej bezpośrednich wiadomości.
-        title: Konwersacja z %{usernames}
       update:
         error: Wiadomość nie została wysłana. Spróbuj ponownie później
     user_interests:
@@ -1224,29 +1176,12 @@ pl:
         back_to_resource: Wróć
         changes_at_title: Zmiany w „%{title}”
         number_of_versions: Wersje
-        show_all_versions: Pokaż wszystkie wersje
-        version_author: Autor wersji
         version_created_at: Wersja utworzona
-        version_number: Numer wersji
-        version_number_out_of_total: "%{current_version} z %{total_count}"
-    version_author:
-      show:
-        deleted: Usunięty użytkownik
     versions:
       resource_version:
         of_versions: "(z %{number})"
         see_other_versions: zobacz inne wersje
         version: Numer wersji %{number}
-    versions_list:
-      show:
-        back_to_resource: Wróć
-        changes_at_title: Zmiany w „%{title}”
-        number_of_versions: Wersje
-        title: Wersje
-    versions_list_item:
-      back: Pokaż wszystkie wersje
-      show:
-        version_index: Wersja %{index}
     welcome_notification:
       default_subject: Dzięki za dołączenie do {{organization}}!
     wizard_step_form:
@@ -1407,6 +1342,10 @@ pl:
     timestamp_error_message: Przepraszam, to było za szybkie! Proszę przesłać ponownie.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Typ
       edit_link:
         edit: Edytuj
       footer:
@@ -1458,8 +1397,6 @@ pl:
         notifications_settings: Ustawienia powiadomień
         title: Ustawienia użytkownika
         user_groups: Grupy
-      widget:
-        see_more: Zobacz więcej
   locale:
     name: Polski
     name_with_error: Polski (błąd!)
