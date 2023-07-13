@@ -205,6 +205,7 @@ fi-pl:
           categories: Aihepiirit
           components: Komponentit
           info: Tiedot
+          landing_page: Laskeutumissivu
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
         assemblies_types: Ryhmien tyypit
@@ -331,6 +332,26 @@ fi-pl:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Alue
+          closing_date: Päättymispäivä
+          created_by: Tekijä
+          creation_date: Luontipäivä
+          data: Ryhmän tiedot
+          developer_group: Edistäjäryhmä
+          duration: Kesto
+          included_at: Sisältyy kohteeseen
+          indefinite_duration: Määrittelemätön
+          local_area: Organisaatioalue
+          meta_scope: Teema
+          participatory_scope: Mitä päätetään
+          participatory_structure: Miten päätetään
+          target: Kuka osallistuu
+          title: Tietoa tästä ryhmästä
+        filters:
+          names:
+            all: Kaikki
+          type: Tyyppi
         show:
           title: Tietoa tästä ryhmästä
       assembly_members:
@@ -345,8 +366,16 @@ fi-pl:
         participatory: Osallisuus
         working_group: Työryhmä
       content_blocks:
+        children_assemblies:
+          name: Ryhmät
+        dates_metadata:
+          name: Päivämäärien tiedot
+        extra_data:
+          name: Tyyppi ja kesto
         highlighted_assemblies:
           name: Tärkeimmät ryhmät
+        related_assemblies:
+          name: Liittyvät ryhmät
       created_by:
         city_council: Kaupunginvaltuusto
         others: Muut
@@ -366,6 +395,10 @@ fi-pl:
       last_activity:
         new_assembly: 'Uusi ryhmä:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Aktiiviset ryhmät
+            see_all_spaces: Näytä kaikki ryhmät
         user_profile:
           member_of:
             member_of: Jäsen ryhmässä
@@ -429,6 +462,10 @@ fi-pl:
         index:
           children: 'Ryhmät: '
           promoted_assemblies: Korostetut ryhmät
+        metadata:
+          children_item:
+            one: "%{count} ryhmä"
+            other: "%{count} ryhmää"
         order_by_assemblies:
           assemblies:
             one: "%{count} ryhmä"
