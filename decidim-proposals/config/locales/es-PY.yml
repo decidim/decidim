@@ -813,9 +813,9 @@ es-PY:
           type: Tipo
           voted: Votado
         filters_small_view:
-          close_modal: Cerrar ventana
+          close_modal: Cerrar modal
           filter: Filtrar
-          filter_by: Filtrar por
+          filter_by: Filtrado por
           unfold: Desplegar
         index:
           click_here: Ver todas las propuestas
@@ -842,8 +842,6 @@ es-PY:
           recent: Reciente
           with_more_authors: Con más autoras
         participatory_texts:
-          index:
-            document_index: Índice de documentos
           view_index:
             see_index: Ver índice
         placeholder:
