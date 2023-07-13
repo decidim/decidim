@@ -329,10 +329,6 @@ zh-TW:
         rejected: 不足夠的簽署數
         validating: 技術驗證
       application_helper:
-        filter_area_values:
-          all: 全部
-        filter_scope_values:
-          all: 全部
         filter_state_values:
           accepted: 足夠的簽署數
           all: 全部
@@ -359,7 +355,6 @@ zh-TW:
         fill_data:
           back: 返回
           continue: 繼續
-          decidim_user_group_id_help: 此計畫創建後，無法更改發起人身份。
           fill_data_help: "<ul> <li>檢閱您倡議的內容。標題是否易於理解？倡議的目標是否清晰明確？</li> <li>您需要選擇簽名的類型。是現場簽名、線上簽名還是兩者的組合？</li> <li>倡議的地理範圍是什麼？</li> </ul>"
           more_information: "(更多資訊)"
           select_area: 選擇一個地區
@@ -379,27 +374,17 @@ zh-TW:
         previous_form:
           back: 返回
           continue: 繼續
-          help: 倡議的內容是什麼？請記下標題和描述。我們建議使用簡短明瞭的標題和以提出解決方案為重點的描述。
-          more_information: "(更多資訊)"
         promotal_committee:
-          back: 返回
           individual_help_text: 這種倡議需要至少 %{committee_size} 人（證明者）組成推廣委員會。您必須與參與該倡議的其他人分享以下鏈接。當您的聯繫人收到此鏈接後，他們將需要按照指示進行相應步驟。
           more_information: "(更多資訊)"
         select_initiative_type:
           back: 返回
           choose_html: 我想要創建一個<strong>%{title}</strong>
-          more_information: "(更多資訊)"
           select: 我想推動這個倡議
           select_initiative_type_help: 倡議是參與者可以通過其來干預，以便組織可以為捍衛公共利益而采取行動的手段。您希望發起哪個倡議？
           verification_required: 驗證您的帳戶以推動這個倡議
         share_committee_link:
-          continue: 繼續
           invite_to_committee_help: 邀請成為推動委員會成員的人的連結
-        show_similar_initiatives:
-          back: 返回
-          compare_help: 如果以下任何一個倡議與您的倡議相似，我們鼓勵您簽署它。這樣，您的提案將更有可能被實現。
-          continue: 我的倡議與這些不同
-          more_information: "(更多資訊)"
       edit:
         accept: 接受倡議
         back: 返回
@@ -437,11 +422,8 @@ zh-TW:
           email_subject: "%{applicant_nickname} 想加入你的倡議"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> 申請加入你的倡議 <a href="%{resource_url}">%{resource_title}</a> 的推動委員會。點擊<a href="%{resource_url}/edit">這裡</a>接受或拒絕申請。
       form:
-        add_attachments: 文件
         attachment_legend: "(可選) 新增附件"
-        delete_attachment: 刪除
       index:
-        title: 倡議
         uninitialized: 尚未由管理員設置倡議。
       initiative_signatures:
         fill_personal_data:
@@ -471,8 +453,6 @@ zh-TW:
         sms_phone:
           invalid: 電話號碼無效或正在等待授權。請檢查您的授權。
       initiatives:
-        author:
-          deleted: 刪除
         author_list:
           hidden_authors_count:
             other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
@@ -481,7 +461,6 @@ zh-TW:
           confirm_revoke: 您確定嗎？
           invite_to_committee_help: 透過分享此連結，邀請其他參與者加入推廣委員會。
           no_members_yet: 推廣委員會中沒有成員.
-          revoke: 撤銷
           title: 委員會成員
         count:
           title:
@@ -542,12 +521,8 @@ zh-TW:
           answer_title: 這個倡議已經有回應了。
           initiative_rejected_reason: 此倡議因缺乏簽名而被拒絕。
         show:
-          any_vote_method: 此倡議收集線上和現場簽名。
           confirm: 您即將發送倡議給管理員進行審核和發佈。一旦發佈，您將無法編輯它。您確定要繼續嗎？"
           edit: 編輯
-          follow_description: 當這個倡議有新的消息時，您將收到通知。
-          offline_method: 這個倡議只收集現場簽名。
-          print: 列印倡議書
           send_to_technical_validation: 送交技術審核
         signatures_count:
           other: " 簽名"
@@ -560,8 +535,6 @@ zh-TW:
         votes_count:
           count:
             other: 簽名
-          most_popular_initiative: 最受歡迎的倡議
-          need_more_votes: 需要更多簽署支持
       initiatives_mailer:
         creation_subject: 您的倡議「%{title}」已被創建
         initiative_link:
@@ -578,14 +551,8 @@ zh-TW:
       modal:
         not_authorized:
           authorizations_page: 查看授權
-          close: 關閉
           explanation: 你需要先通過驗證才能創建新的倡議。
           title: 需要授權
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: 進行中的倡議
-            see_all_initiatives: 查看所有倡議
       show:
         badge_name:
           accepted: 足夠的簽署數
@@ -594,8 +561,6 @@ zh-TW:
           published: 已發佈
           rejected: 簽署數不足
           validating: 技術驗證
-      signature_interval:
-        title: 簽名收集期限
       states:
         accepted: 已接受
         expired: 已過期
@@ -603,9 +568,6 @@ zh-TW:
       update:
         error: 出現了一個錯誤.
         success: 倡議已成功更新.
-      versions:
-        shared:
-          back_to_resource: 回到倡議
     menu:
       initiatives: 倡議
     resources:
@@ -620,14 +582,10 @@ zh-TW:
   layouts:
     decidim:
       initiative_creation_header:
-        back: 返回
         fill_data: 建立
         finish: 完成
-        previous_form: 開始
         promotal_committee: 推動委員會
         select_initiative_type: 選擇
-        show_similar_initiatives: 比較
-        title: 創建新倡議
       initiative_header:
         initiative_menu_item: 倡議
       initiative_signature_creation_header:
@@ -635,11 +593,8 @@ zh-TW:
         fill_personal_data: 填寫您的資料
         finish: 完成
         finished: 倡議簽名已創建
-        see_steps: 看步驟
-        select_identity: 選擇身份
         sms_code: SMS短訊代碼驗證碼
         sms_phone_number: 行動電話號碼
-        step: 第 %{current} 步，共 %{total} 步
         title: 簽名 %{initiative_title}
       initiatives:
         initiative:
