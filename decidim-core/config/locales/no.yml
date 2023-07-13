@@ -174,7 +174,6 @@
         error: En feil oppstod under godkjenningen av endringen.
         success: Endringen ble godtatt.
       amendable:
-        amended_by: Endret av
         button: Endre %{model_name}
         error: Det oppsto feil under endringen av denne resurssen.
         promote_button: Promoter til %{model_name}
@@ -192,7 +191,6 @@
         success: Endrings utkastet ble slettet.
       edit_draft:
         discard: Forkast dette utkastet
-        discard_confirmation: Er du sikker på at du vil forkaste dette endrings utkastet?
         send: Forhåndsvisning
         title: Rediger endringsutkastet
       emendation:
@@ -239,13 +237,10 @@
         download: Last ned fil
       documents:
         related_documents: Grunnlagsdokumenter
-      geocoding:
-        geocoded_address: Adresse
       photos:
         related_photos: Illustrasjoner
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar for flere brukere
       comments:
         one: kommentar
         other: kommentarer
@@ -414,8 +409,6 @@
           nickname_help: Ditt alias i %{organization}, kan bare inneholde bokstaver, tall, '-' og '_'.
           sign_in: Logg inn
           sign_up: Registrer deg
-          sign_up_as:
-            legend: Registrer deg som
           subtitle: Registrer deg for å delta i diskusjoner og medvirkningsprosesser.
           tos_agreement: Ved å registrere deg godtar du til %{link}.
           tos_title: Vilkår for bruk
@@ -430,7 +423,6 @@
         newsletter_modal:
           buttons:
             check: Sjekk og fortsett
-            close_modal: Lukk modal
             uncheck: Hold usjekket
           title: Varsler om nyhetsbrev
         omniauth_buttons:
@@ -439,7 +431,6 @@
       authorizations:
         new:
           authorize: Autoriser søknad
-          by_organization_link_html: <small class="heading-small">av %{link}</small>
           cancel: Avbryt
           publish_content: Publiser innhold for deg
           see_email: Se din email
@@ -448,7 +439,6 @@
           this_application_will_be_able_to: 'Dette programmet vil kunne:'
           this_application_will_not_be_able_to: 'Dette programmet vil ikke kunne:'
           update_profile: Oppdater profilen din
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> ønsker å bruke profilen din"
     download_your_data:
       export:
         ready: Klar
@@ -732,12 +722,9 @@
           title: Hva kan jeg gjøre i %{organization}?
         title: Generell hjelp
     last_activities:
-      activities:
-        no_activities_warning: Ingen aktivitet
       all: Alle aktivitetstyper
       index:
         last_activity: Siste aktivitet
-        resource_type: Type
     links:
       invalid_url: Ugyldig URL
       warning:
@@ -906,11 +893,6 @@
         retry: Prøv igjen
     open_data:
       not_available_yet: Open Data-filene er ikke tilgjengelige ennå, prøv igjen om noen minutter.
-    own_user_groups:
-      index:
-        pending: Venter
-        rejected: Avvist
-        verified: Verifisert
     pad_iframe:
       disclaimer: Innholdet på denne padden er skrevet av registrerte brukere og uttrykker deres meninger. %{organization} kan ikke holdes ansvarlig for innholdet.
       pad: Pad
@@ -932,8 +914,6 @@
         hero:
           participate: Delta
           welcome: Velkommen til %{organization}!
-        metrics:
-          headline: Deltakelse i tall
         statistics:
           headline: Nåværende status for %{organization}
         sub_hero:
@@ -946,11 +926,10 @@
       participatory_space:
         metrics:
           headline: Deltakelse i tall
-          link: Vis all statistikk
     participatory_space_private_users:
       not_allowed: Du er ikke tillatt å se dette innholdet
     profile:
-      view: Vis
+      deleted: Slettet deltaker
     profiles:
       show:
         activity: Aktivitet
@@ -962,7 +941,6 @@
         members: Medlemmer
         officialized: Offisiell deltaker
         send_private_message: Send privat melding
-        view_full_profile: Vis hele profilen
       sidebar:
         badges:
           info: Merker tjenes med å utføre spesifikke aktivitet i plattformen.
@@ -1021,7 +999,6 @@
       term_input_placeholder: Søk
     searches:
       filters:
-        back: Tilbake til resultater
         jump_to: 'Hopp til:'
         state:
           active: Aktiv
@@ -1034,9 +1011,6 @@
         filter_by: Filtrer etter
         unfold: Åpne
       results:
-        results:
-          one: "%{count} resultat"
-          other: "%{count} resultater"
         view_all: Vis alle (%{count})
     security:
       selfxss_warning:
@@ -1048,10 +1022,6 @@
         close_modal: Lukk modal
         ok: Ok
         title: Bekreft
-      embed_modal:
-        close_window: Lukk vindu
-        embed: Lim inn denne koden på siden din
-        embed_link: Bygge inn
       extended_navigation_bar:
         more: Mer
         unfold: Åpne
@@ -1128,28 +1098,12 @@
         existing_error: Meldingen kunne ikke opprettes. Samtalen eksisterer allerede, prøv igjen nå.
         success: Samtalen startet vellykket!
       index:
-        add_max_users: 'Legg til brukere i samtale: maks 9 brukere'
-        add_users_placeholder: Søk..
-        close: Lukk
         conversations_info: Samtaler er private. Ingen andre kan se dem. En samtale kan startes med alle deltakere eller grupper som er registrert på plattformen.
-        from: Fra
-        last_message: Siste melding
-        modal_title: Ny samtale
-        new_conversation: Ny samtale
-        next: Neste
         no_conversations_warning: Det er ingen samtaler ennå.
-        no_results: Ingen resultater
         time_ago: "%{time} siden"
-      new:
-        title: Start en samtale
       reply:
         placeholder: Ditt svar...
         send: Send
-        title_reply: Svar
-      show:
-        back: Vis alle samtaler
-        not_allowed: Denne brukeren godtar ingen flere direktemeldinger.
-        title: Samtale med %{usernames}
       update:
         error: Melding ikke sendt. Prøv igjen senere
     user_interests:
@@ -1171,29 +1125,12 @@
         back_to_resource: Gå tilbake
         changes_at_title: Endringer på"%{title}
         number_of_versions: Versjoner
-        show_all_versions: Vis alle versjoner
-        version_author: Forfatter av versjonen
         version_created_at: Versjon opprettet på
-        version_number: Versjonsnummer
-        version_number_out_of_total: "%{current_version} av %{total_count}"
-    version_author:
-      show:
-        deleted: Slettet deltaker
     versions:
       resource_version:
         of_versions: "(av %{number})"
         see_other_versions: se andre versjoner
         version: Versjon %{number}
-    versions_list:
-      show:
-        back_to_resource: Gå tilbake
-        changes_at_title: Endringer på "%{title}"
-        number_of_versions: Versjoner
-        title: Versjoner
-    versions_list_item:
-      back: Vis alle versjoner
-      show:
-        version_index: Versjon %{index}
     welcome_notification:
       default_subject: Takk for at du ble med {{organization}}!
     wizard_step_form:
@@ -1348,6 +1285,10 @@
     timestamp_error_message: Beklager, det var for raskt! Vennligst, send inn på nytt.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Type
       edit_link:
         edit: Rediger
       footer:
@@ -1400,8 +1341,6 @@
         notifications_settings: Varslingsinnstillinger
         title: Deltaker innstillinger
         user_groups: Grupper
-      widget:
-        see_more: Se mer
   locale:
     name: Norsk
     name_with_error: Norsk (feil!)
