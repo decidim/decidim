@@ -368,9 +368,6 @@ lt:
         description: Paramos pasiūlymams skaičius
         object: balsai
         title: Balsai
-    participatory_spaces:
-      highlighted_proposals:
-        see_all: Žiūrėti visus pasiūlymus (%{count})
     proposals:
       actions:
         answer_proposal: Atsakyti į pasiūlymą
@@ -554,16 +551,12 @@ lt:
         rejected: Atmesta
         withdrawn: Atsiimta
       application_helper:
-        filter_category_values:
-          all: Visi
         filter_origin_values:
           all: Visi
           meetings: Susitikimai
           official: Oficialūs
           participants: Dalyviai
           user_groups: Grupės
-        filter_scope_values:
-          all: Visi
         filter_state_values:
           accepted: Priimta
           all: Visi
@@ -591,12 +584,6 @@ lt:
               ok: Atsiimti bendrąjį juodraštį
               title: Tai yra negrįžtamas veiksmas
             success: Bendrasis juodraštis atsiimtas.
-        count:
-          drafts_count:
-            one: "%{count} bendras projektas"
-            few: "%{count} bendri projektai"
-            many: "%{count} bendri projektai"
-            other: "%{count} bendri projektai"
         create:
           success: Bendrasis juodraštis sukurtas.
         edit:
@@ -644,9 +631,7 @@ lt:
           rejected_request:
             error: Nepavyko atmesti kaip bendraautoriaus. Bandykite dar kartą vėliau.
         show:
-          back: Atgal
           edit: Redaguoti bendrąjį juodraštį
-          final_proposal: galutinis pasiūlymas
           final_proposal_help_text: Šis juodraštis baigtas. Patikrinkite galutinį pasiūlymą
           hidden_authors_count:
             one: ir dar %{count} žmogus
@@ -655,10 +640,8 @@ lt:
             other: ir dar %{count} žmonės (-ių)
           publish: Paskelbti
           publish_info: Skelbti šią juodraščio versiją arba
-          published_proposal: paskelbtas pasiūlymas
           request_access: Prašyti prieigos
           requested_access: Prieigos prašymas pateiktas
-          version_history: peržiūrėti šio pasiūlymo ankstesnes versijas
           withdraw: atsiimti juodraštį
         states:
           open: Atviras
@@ -669,12 +652,8 @@ lt:
           success: Bendrasis juodraštis atnaujintas.
         wizard_aside:
           back_from_collaborative_draft: Grįžti į bendruosius juodraščius
-          info: Rengiate <strong>bendrąjį juodraštį</strong>.
         wizard_header:
           title: Sukurkite savo bendrąjį juodraštį
-      content_blocks:
-        highlighted_proposals:
-          proposals: Pasiūlymai
       create:
         error: Išsaugant šį pasiūlymą iškilo problema.
         success: Pasiūlymas sukurtas. Išsaugotas kaip Juodraštis.
@@ -685,11 +664,6 @@ lt:
         new_proposal: 'Naujas pasiūlymas:'
         proposal_updated: 'Pasiūlymas atnaujintas:'
       models:
-        collaborative_draft:
-          fields:
-            authors: Autoriai
-            comments: Komentarai
-            contributions: Papildymai
         proposal:
           fields:
             category: Kategorija
@@ -710,7 +684,6 @@ lt:
         buttons:
           amend: Pakeisti
           comment: Komentuoti
-          comments: Komentarai
       proposal_votes:
         create:
           error: Išreiškiant paramą pasiūlymui įvyko klaidų.
@@ -722,23 +695,14 @@ lt:
         complete:
           send: Siųsti
           title: Užbaikite savo pasiūlymą
-        count:
-          proposals_count:
-            one: "%{count} pasiūlymas"
-            few: "%{count} pasiūlymai"
-            many: "%{count} pasiūlymų"
-            other: "%{count} pasiūlymai"
         dynamic_map_instructions:
           description: Koordinatės bus atnaujintos paspaudus mygtuką „Peržiūrėti“. Tačiau adresas nesikeičia.
           instructions: Galite perkelti tašką žemėlapyje.
         edit:
           add_documents: Pridėti dokumentus
-          add_image: Pridėti paveikslėlį
           attachment_legend: "(Neprivaloma) Pridėti priedą"
           back: Atgal
           edit_documents: Redaguoti dokumentus
-          edit_image: Redaguoti atvaizdą
-          gallery_legend: "(Neprivaloma) Pridėkite vaizdą prie pasiūlymo kortelės"
           select_a_category: Pasirinkite kategoriją
           send: Siųsti
           title: Redaguoti pasiūlymą
@@ -760,11 +724,6 @@ lt:
           state: Būsena
           type: Tipas
           voted: Balsuota
-        filters_small_view:
-          close_modal: Uždaryti modalinį langą
-          filter: Filtruoti
-          filter_by: Filtruoti pagal
-          unfold: Išskleisti
         index:
           click_here: Žiūrėti visus pasiūlymus
           collaborative_drafts_list: Prieiga prie bendrų projektų (juodraščių)
@@ -772,13 +731,6 @@ lt:
           see_all: Žiūrėti visus pasiūlymus
           see_all_withdrawn: Žiūrėti visus atsiimtus pasiūlymus
           text_banner: Jūs žiūrite autorių atsiimtų pasiūlymų sąrašą. %{go_back_link}.
-          view_proposal: Žiūrėti pasiūlymą
-        linked_proposals:
-          proposal_votes:
-            one: balsas
-            few: balsai
-            many: balsų
-            other: balsai
         new:
           send: Tęsti
           title: Sukurti savo pasiūlymą
@@ -791,11 +743,6 @@ lt:
           random: Atsitiktinai
           recent: Naujausi
           with_more_authors: Turintys daug autorių
-        participatory_texts:
-          index:
-            document_index: Dokumentų rodyklė
-          view_index:
-            see_index: Žiūrėti rodyklę
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -810,14 +757,10 @@ lt:
           publish: Paskelbti
           title: Paskelbkite savo pasiūlymą
         proposal:
-          creation_date: 'Sukūrimo data: %{date}'
           view_proposal: Žiūrėti pasiūlymą
         show:
           answer: Atsakymas
-          back_to: Grįžti į
-          back_to_list: Grįžti į sąrašą
           changes_at_title: '„%{title}“ pakeitimas'
-          comments: Komentarai
           edit_proposal: Redaguoti pasiūlymą
           estimated_cost: Numatomos išlaidos
           hidden_endorsers_count:
@@ -834,14 +777,9 @@ lt:
           proposal_accepted_reason: 'Šis pasiūlymas buvo priimtas, nes:'
           proposal_in_evaluation_reason: Šis pasiūlymas šiuo metu vertinamas
           proposal_rejected_reason: 'Šis pasiūlymas buvo atmestas, nes:'
-          read_less: Suskleisti
-          read_more: Skaityti toliau
-          report: Pranešti
           withdraw_btn_hint: Persigalvoję galėsite atsiimti savo pasiūlymą, jeigu niekas už jį dar nebalsavo. Pasiūlymas nepašalinamas. Jis bus rodomas atsiimtų pasiūlymų sąraše.
           withdraw_confirmation_html: Ar tikrai norite atsiimti šį pasiūlymą? <br><br><strong>Šio veiksmo atšaukti negalima!</strong>
           withdraw_proposal: Atsiimti pasiūlymą
-        tags:
-          changed_from: "(administratorius pakeitė iš <u>%{previous_name}</u>)"
         update:
           title: Atnaujinti pasiūlymą
         vote_button:
@@ -870,8 +808,6 @@ lt:
           title: 'Paramai taikomos šios taisyklės:'
           vote_limit:
             description: Galite paremti iki %{limit} pasiūlymų.
-            left: Liko
-            votes: Balsai
         wizard_aside:
           back: Grįžti
           back_from_step_1: Grįžti į pasiūlymus
@@ -904,12 +840,8 @@ lt:
         error: Išsaugant bendrąjį juodraštį iškilo problema.
         success: Pasiūlymo juodraštis atnaujintas.
       versions:
-        collaborative_drafts:
-          back_to_resource: Grįžti į bendrąjį juodraštį
         index:
           title: Versijos
-        proposals:
-          back_to_resource: Grįžti į pasiūlymą
     resource_links:
       copied_from_component:
         proposal_proposal: Susiję pasiūlymai
