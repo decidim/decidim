@@ -332,10 +332,6 @@ fr-CA:
         rejected: Pas assez de signatures
         validating: Validation technique
       application_helper:
-        filter_area_values:
-          all: Tout
-        filter_scope_values:
-          all: Tout
         filter_state_values:
           accepted: Assez de signatures
           all: Tout
@@ -362,7 +358,6 @@ fr-CA:
         fill_data:
           back: Retour
           continue: Continuer
-          decidim_user_group_id_help: Il n'est pas possible de changer l'auteur de la pétition après sa création.
           fill_data_help: "<ul> <li>Vérifier le contenu de votre pétition : le titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de signature : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ?</li> </ul>"
           more_information: "(Plus d'informations)"
           select_area: Sélectionnez une zone
@@ -382,27 +377,17 @@ fr-CA:
         previous_form:
           back: Retour
           continue: Continuer
-          help: En quoi consiste l'initiative ? Saisissez son titre et sa description. Nous recommandons un titre court et synthétique et une description axée sur la solution proposée.
-          more_information: "(Plus d'informations)"
         promotal_committee:
-          back: Retour
           individual_help_text: Ce type de pétition nécessite un Comité de promotion composé d’au moins %{committee_size} personnes (garants). Pour réunir un comité de promotion, partagez le lien suivant aux personnes que vous souhaitez. Lorsque ces personnes recevront ce lien, elles devront suivre les étapes indiquées.
           more_information: "(Plus d'informations)"
         select_initiative_type:
           back: Retour
           choose_html: Je veux créer un <strong>%{title}</strong>
-          more_information: "(Plus d'informations)"
           select: Créer une initiative
           select_initiative_type_help: Les pétitions sont un moyen par lequel les participants peuvent intervenir afin que l'organisation puisse entreprendre des actions en faveur de l'intérêt général. Quelle pétition voulez-vous lancer?
           verification_required: Vérifiez votre compte pour créer une pétition
         share_committee_link:
-          continue: Continuer
           invite_to_committee_help: Lien pour inviter des personnes à faire partie du Comité de promotion
-        show_similar_initiatives:
-          back: Retour
-          compare_help: Si l'une des initiatives suivantes est similaire à la vôtre, nous vous encourageons à l'appuyer. Votre proposition aura ainsi plus de possibilités de se réaliser.
-          continue: Mon initiative est différente
-          more_information: "(Plus d'informations)"
       edit:
         accept: Accepter la pétition
         back: Retour
@@ -440,11 +425,8 @@ fr-CA:
           email_subject: "%{applicant_nickname} veut rejoindre le comité de promotion de votre pétition"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a postulé pour faire partie du comité de promotion de votre pétition <a href="%{resource_url}">%{resource_title}</a>. Pour accepter ou rejeter la demande, cliquez <a href="%{resource_url}/edit">ici</a>.
       form:
-        add_attachments: Pièces-jointes
         attachment_legend: "(Facultatif) Ajouter une pièce jointe"
-        delete_attachment: Supprimer
       index:
-        title: Pétitions
         uninitialized: Les pétitions ne sont pas encore configurées par un administrateur.
       initiative_signatures:
         fill_personal_data:
@@ -474,8 +456,6 @@ fr-CA:
         sms_phone:
           invalid: Le numéro de téléphone est invalide ou en attente d'autorisation. S'il vous plaît, vérifiez vos autorisations.
       initiatives:
-        author:
-          deleted: Supprimé
         author_list:
           hidden_authors_count:
             one: et 1 autre personne
@@ -485,7 +465,6 @@ fr-CA:
           confirm_revoke: Êtes-vous sûr(e) ?
           invite_to_committee_help: Partagez ce lien pour inviter d'autres utilisateurs au Comité de promotion.
           no_members_yet: Il n'y a pas encore de membres dans le Comité de promotion.
-          revoke: Révoquer
           title: Membres du Comité de promotion
         count:
           title:
@@ -548,12 +527,8 @@ fr-CA:
           answer_title: Cette pétition a reçu une réponse.
           initiative_rejected_reason: Cette initiative a été rejetée car elle n'a pas atteint le nombre de signatures requis dans le délai de collecte.
         show:
-          any_vote_method: Cette pétition recueille des signatures en ligne ainsi qu'en présentiel.
           confirm: Vous allez envoyer la pétition à un administrateur pour qu'il la consulte et la publie. Une fois publiée, vous ne serez plus en mesure de l'éditer. Êtes-vous sûr que votre pétition est prête ?
           edit: Modifier
-          follow_description: Recevoir une notification lorsqu'il y a des actualités sur cette initiative
-          offline_method: Cette pétition ne recueille que des signatures en présentiel.
-          print: Imprimer la pétition
           send_to_technical_validation: Envoyer à la validation technique
         signatures_count:
           one: " signature"
@@ -568,8 +543,6 @@ fr-CA:
           count:
             one: SIGNATURE
             other: SIGNATURES
-          most_popular_initiative: Initiative la plus populaire
-          need_more_votes: Besoin de plus de signatures
       initiatives_mailer:
         creation_subject: Votre initiative '%{title}' a été créée
         initiative_link:
@@ -586,14 +559,8 @@ fr-CA:
       modal:
         not_authorized:
           authorizations_page: Voir les autorisations
-          close: Fermer
           explanation: Vous devez être vérifié pour créer une nouvelle initiative.
           title: Autorisation requise
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Initiatives actives
-            see_all_initiatives: Voir toutes les initiatives
       show:
         badge_name:
           accepted: Assez de signatures
@@ -602,8 +569,6 @@ fr-CA:
           published: Publié
           rejected: Pas assez de signatures
           validating: Validation technique
-      signature_interval:
-        title: Période de collecte des signatures
       states:
         accepted: Acceptées
         expired: Expirées
@@ -611,9 +576,6 @@ fr-CA:
       update:
         error: Une erreur est survenue.
         success: La pétition a été mise à jour avec succès.
-      versions:
-        shared:
-          back_to_resource: Retour à l'initiative
     menu:
       initiatives: Pétitions
     resources:
@@ -628,14 +590,10 @@ fr-CA:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Retour
         fill_data: Complétez votre initiative
         finish: Publiez votre initiative
-        previous_form: Créez votre initiative
         promotal_committee: Comité de promotion
         select_initiative_type: Sélectionnez le type de d'initiative
-        show_similar_initiatives: Comparez avec les autres initiatives
-        title: Créer une nouvelle initiative
       initiative_header:
         initiative_menu_item: Pétition
       initiative_signature_creation_header:
@@ -643,11 +601,8 @@ fr-CA:
         fill_personal_data: Complétez vos données
         finish: terminer
         finished: Initiative signée avec succès
-        see_steps: voir les étapes
-        select_identity: Sélectionner une identité
         sms_code: Vérification du code SMS
         sms_phone_number: numéro de téléphone portable
-        step: Étape %{current} sur %{total}
         title: Signer %{initiative_title}
       initiatives:
         initiative:
