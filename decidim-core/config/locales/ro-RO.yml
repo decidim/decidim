@@ -1650,6 +1650,10 @@ ro:
     timestamp_error_message: Ne pare rău, acest lucru a fost prea rapid! Te rugăm să retrimiți.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Tip
       edit_link:
         edit: Editare
       footer:
