@@ -409,7 +409,7 @@ cs:
           request_confirmation_instructions: Požádejte o pokyny pro potvrzení
           title: Potvrdit svůj email
       show:
-        close_modal: Zavřít okno
+        close_modal: Zavřít modální
     block_user_mailer:
       notify:
         body_1: Váš účet byl zablokován.
@@ -554,7 +554,7 @@ cs:
         newsletter_modal:
           buttons:
             check: Zkontrolujte a pokračujte
-            close_modal: Zavřít okno
+            close_modal: Zavřít modální
             uncheck: Ponechat nezaškrtnuté
           notice: |-
             <p>Hej, jste si jisti, že nechcete dostávat zpravodaj?<br>
@@ -943,7 +943,7 @@ cs:
         body_1: Chystáte se navštívit externí odkaz a chtěli bychom, abyste byli opatrní, pokud jde o obsah na externím webu.
         body_2: Zkontrolujte prosím odkaz, který se chystáte navštívit, a než budete pokračovat, ujistěte se, že jste jej rozpoznali jako bezpečný web.
         cancel: Zrušit
-        close_modal: Zavřít okno
+        close_modal: Zavřít modální
         proceed: Pokračovat
         title: Otevřít externí odkaz
     log:
@@ -1035,7 +1035,7 @@ cs:
           ok: OK
         index:
           ago: před
-          close: Zavřít okno
+          close: Zavřít modální
           from: Od
           groups: Moje skupiny
           last_message: Poslední zpráva
@@ -1203,7 +1203,7 @@ cs:
           modal_btn_continue: Přijmout podmínky a pokračovat
           modal_btn_exit: Později to přezkoumám
           modal_button: Odmítnout podmínky
-          modal_close: Zavřít okno
+          modal_close: Zavřít modální
           modal_title: Opravdu odmítáte aktualizované smluvní podmínky?
         required_review:
           alert: Aktualizovali jsme Smluvní podmínky, přečtěte si je.
@@ -1428,7 +1428,7 @@ cs:
         back: Zobrazit všechny konverzace
         deleted_accounts: Nemůžete mít konverzaci s odstraněnými účty.
         not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
-        title: Konverzace s %{usernames}
+        title: Konverzace s číslem %{usernames}
       update:
         error: Zpráva nebyla odeslána. Zkuste to později
     user_interests:
@@ -1467,7 +1467,7 @@ cs:
         version: Verze %{number}
     versions_list:
       show:
-        back_to_resource: Vrátit se zpět
+        back_to_resource: Jít zpět
         changes_at_title: Změny v "%{title}"
         number_of_versions: Verze
         title: Verze
