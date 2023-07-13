@@ -313,7 +313,7 @@ sk:
           request_confirmation_instructions: Požiadajte o pokyny pre potvrdenie
           title: Potvrdiť svoj email
       show:
-        close_modal: Zatvoriť okno
+        close_modal: Zatvoriť modálne
     collapsible_list:
       hidden_elements_count:
         one: a %{count} ďalších
@@ -431,7 +431,7 @@ sk:
         newsletter_modal:
           buttons:
             check: Skontrolujte a pokračujte
-            close_modal: Zatvoriť okno
+            close_modal: Zatvoriť modálne
           notice: |-
             | - <P> Hej, ste si istí, že nechcete dostávať newsletter? <br> Označte zaškrtávacie políčko nižšie. <br> Pre nás je veľmi dôležité, aby ste obdržali príležitostné e-maily aby ste dostali dôležitá oznámenia, môžete to vždy zmeniť v nastavenia oznámenia. </ p> <P> Ak nezaškrtnete zaškrtávacie políčko, môže vám chýbať relevantné informácie o nových možnostiach účasti v rámci platformy. <br> Ak sa chcete aj naďalej vyhýbať prijímanie informačných spravodajcov, dokonale rozumieme vášmu rozhodnutiu. </ p> <P> Ďakujeme, že ste si to prečítali! </ P>
           title: Upozornenie na bulletin
@@ -759,7 +759,7 @@ sk:
         resource_type: Typ
     links:
       warning:
-        close_modal: Zatvoriť okno
+        close_modal: Zatvoriť modálne
     log:
       base_presenter:
         create: "%{user_name} vytvořeno %{resource_name}"
@@ -808,7 +808,7 @@ sk:
         create:
           error: Konverzace se nespustí. Zkuste to později znovu
         index:
-          close: Zatvoriť okno
+          close: Zatvoriť modálne
           new_conversation: Nová konverzácia
           next: Nasledujúce
           no_conversations: Nemáte zatím žádné konverzace
@@ -924,7 +924,7 @@ sk:
           participate: zúčastniť sa
           welcome: Vitajte na%{organization}!
         metrics:
-          headline: Metrika
+          headline: Metriky
         statistics:
           headline: Aktuálny stav %{organization}
         sub_hero:
@@ -948,7 +948,7 @@ sk:
         refuse:
           modal_body: Ak odmietnete, nebudete môcť používať platformu, môžete <a href="%{data_portability_path}"> sťahovať dáta </a> a / alebo <a href="%{delete_path}"> zmazať svoj účet </a>.
           modal_btn_exit: Neskôr to preskúmam
-          modal_close: Zatvoriť okno
+          modal_close: Zatvoriť modálne
           modal_title: Naozaj odmietate aktualizované zmluvné podmienky?
         required_review:
           alert: Aktualizovali sme Zmluvné podmienky, prečítajte si ich.
@@ -1037,7 +1037,7 @@ sk:
         view_all: Zobrazit všechny (%{count})
     shared:
       embed_modal:
-        close_window: Zátvor okno
+        close_window: Zavrieť okno
         embed: Vložte tento kód na svoju stránku
         embed_link: Vložiť
       extended_navigation_bar:
@@ -1079,6 +1079,16 @@ sk:
       comments_count: Komentáre
     user_contact_disabled: Tento účastník nepovoľuje posielanie priamych správ.
     user_conversations:
+      index:
+        add_max_users: 'Pridajte účastníkov do konverzácie: nanajvýš 9 účastníkov'
+        add_users_placeholder: Hľadať...
+        close: Zavrieť
+        modal_title: Nová konverzácia
+        new_conversation: Nová konverzácia
+        next: Nasledujúce
+        no_results: Žiadne výsledky
+      show:
+        title: Konverzace s číslem %{usernames}
       update:
         error: Zpráva nebyla odeslána. Zkuste to později znovu
     user_interests:
