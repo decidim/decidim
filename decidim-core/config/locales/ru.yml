@@ -128,7 +128,6 @@ ru:
         error: Произошла ошибка при принятии поправки.
         success: Поправка была успешно принята.
       amendable:
-        amended_by: Исправлено
         button: Изменить %{model_name}
         promote_button: Повысить до %{model_name}
       compare_draft:
@@ -267,8 +266,6 @@ ru:
           newsletter_title: Разрешение на связь с вами
           sign_in: Войти
           sign_up: Зарегистрироваться
-          sign_up_as:
-            legend: Зарегистрироваться как
           subtitle: Зарегистрируйтесь, чтобы участвовать в обсуждениях и поддерживать предложения.
           tos_agreement: Регистрируясь, вы принимаете %{link}.
           tos_title: Условия участия
@@ -281,7 +278,6 @@ ru:
         newsletter_modal:
           buttons:
             check: Поставить галочку и продолжить
-            close_modal: Закрыть окошко
           title: Уведомления о новостях
         omniauth_buttons:
           or: Или
@@ -289,7 +285,6 @@ ru:
       authorizations:
         new:
           authorize: Подтвердить приложение
-          by_organization_link_html: <small class="heading-small">по %{link}</small>
           cancel: Отменить
           publish_content: Обнародовать за вас сообщения
           see_email: Видеть ваш адрес электронной почты
@@ -298,7 +293,6 @@ ru:
           this_application_will_be_able_to: 'Это приложение сможет:'
           this_application_will_not_be_able_to: 'Это приложение не сможет:'
           update_profile: Обновить свой профиль
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> желает использовать вашу учетную запись"
     download_your_data:
       export:
         ready: Готово
@@ -479,11 +473,6 @@ ru:
       update:
         error: При попытке обновить настройки уведомлений произошла ошибка.
         success: Ваши настройки уведомлений были успешно обновлены.
-    own_user_groups:
-      index:
-        pending: В ожидании
-        rejected: Отклонено
-        verified: Проверено
     pages:
       home:
         extended:
@@ -509,7 +498,7 @@ ru:
     participatory_space_private_users:
       not_allowed: У вас нет прав на просмотр этого содержимого
     profile:
-      view: Посмотреть
+      deleted: Удаленный участник
     profiles:
       show:
         followers: Читают
@@ -555,10 +544,6 @@ ru:
         filter_by: 'Отобрать по признаку:'
         unfold: Развернуть
     shared:
-      embed_modal:
-        close_window: Закрыть окно
-        embed: Пожалуйста, вставьте этот код в свою страницу
-        embed_link: Встроить
       flag_modal:
         already_reported: На это содержимое уже пожаловались, и жалобу рассмотрит администратор.
         close: Закрыть
@@ -587,9 +572,6 @@ ru:
     user_conversations:
       update:
         error: Сообщение не отправлено. Попробуйте позже
-    version_author:
-      show:
-        deleted: Удаленный участник
     wizard_step_form:
       wizard_aside:
         back: Назад
@@ -721,8 +703,6 @@ ru:
         my_data: Мои данные
         notifications_settings: Настройки уведомлений
         title: Настройки участника
-      widget:
-        see_more: Читать подробнее
   locale:
     name: Русский
     name_with_error: Русский (ошибка!)
