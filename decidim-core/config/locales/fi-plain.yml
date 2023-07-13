@@ -84,6 +84,7 @@ fi-pl:
   date:
     formats:
       decidim_short: "%d.%m.%Y"
+      decidim_short_dashed: "%d.%m.%Y"
       decidim_short_with_month_name_short: "%d. %b %Y"
       decidim_with_day_and_month_name: "%A %d. %b %Y"
       decidim_with_month_name: "%B %d. %Y"
@@ -103,6 +104,23 @@ fi-pl:
       less_than_x_seconds:
         one: alle 1 sekunti
         other: alle %{count} sekuntia
+      short:
+        about_x_days: "%{count} pv"
+        about_x_hours: "%{count} t"
+        about_x_minutes: "%{count} min"
+        about_x_months: "%{count} kk"
+        about_x_years: "%{count} v"
+        almost_x_years: "%{count} v"
+        half_a_minute: 1 min
+        less_than_x_minutes: "%{count} min"
+        less_than_x_seconds: "%{count} s"
+        over_x_years: "%{count} v"
+        x_days: "%{count} pv"
+        x_hours: "%{count} t"
+        x_minutes: "%{count} min"
+        x_months: "%{count} kk"
+        x_seconds: "%{count} s"
+        x_years: "%{count} v"
       x_days:
         one: 1 päivä
         other: "%{count} päivää"
@@ -272,6 +290,10 @@ fi-pl:
         promote_confirm_text: Haluatko varmasti korostaa tätä muutosta?
         promote_help_text: Voit korostaa tämän muutoksen ja julkaista sen itsenäisenä kohteena %{model_name}.
         section_heading: Muutokset (%{count})
+      amendments:
+        title:
+          one: "%{count} muutos"
+          other: "%{count} muutosta"
       compare_draft:
         continue: Jatka
         no_similars_found: Samankaltaisia muutoksia ei löytynyt.
@@ -303,6 +325,7 @@ fi-pl:
           withdrawn: |-
             Tämä muutos kohteelle %{amendable_type} %{amendable_link}
             on peruutettu sen laatijan toimesta.
+      name: Muutos
       new:
         amendment_author: Muutoksen laatija
         send: Luo
@@ -341,11 +364,13 @@ fi-pl:
       document:
         download: Lataa tiedosto
       documents:
+        documents: Asiakirjat
         related_documents: Liittyvät dokumentit
       photo:
         alt: Mediakuva
         title: Kuva
       photos:
+        photos: Kuvat
         related_photos: Liittyvät kuvat
     author:
       avatar: 'Profiilikuva: %{name}'
@@ -477,6 +502,8 @@ fi-pl:
             dummy_step_translatable_text: Vaiheen käännettävän tekstin esimerkki
     contact: Ota yhteyttä
     content_blocks:
+      announcement:
+        name: Ilmoitus
       cta:
         name: Kuva, teksti ja toimintopainike (Call to Action)
       cta_settings_form:
@@ -486,6 +513,8 @@ fi-pl:
         description: Kuvaus
       footer_sub_hero:
         name: Alaosion esialueen banneri
+      global_menu:
+        name: Päänavigaatio
       hero:
         name: Hero-kuva
       hero_settings_form:
@@ -494,6 +523,9 @@ fi-pl:
       highlighted_content_banner:
         name: Tärkeä sisältöbanneri
       highlighted_elements_settings_form:
+        components:
+          all: Kaikki
+          label: 'Valitse komponentti:'
         orders:
           label: 'Lajittele tulokset:'
           random: Satunnainen
@@ -507,8 +539,20 @@ fi-pl:
         name: Viimeisin tapahtuma
         title: Viimeisin tapahtuma
         view_all: Näytä kaikki
+      last_activity_settings_form:
+        max_last_activity_users: Viimeaikaista toimintaa tehneiden käyttäjäprofiilien näytettävä enimmäismäärä
+      main_data:
+        name: Olennaisimmat tiedot
+      metadata:
+        name: Metatiedot
       metrics:
         name: Organisaation mittarit
+      participatory_space_metrics:
+        name: Tilastomittarit
+      participatory_space_stats:
+        name: Tilastot
+      social_networks_metadata:
+        name: Sosiaaliset verkostot
       static_page:
         section:
           name: Osio
@@ -528,6 +572,13 @@ fi-pl:
       actions:
         login_before_access: Kirjaudu tilillesi ennen käyttöä.
         unauthorized: Tiliäsi ei ole vahvistettu tämän toiminnon suorittamiseen.
+      application_helper:
+        filter_area_values:
+          all: Kaikki
+        filter_category_values:
+          all: Kaikki
+        filter_scope_values:
+          all: Kaikki
     datepicker:
       help_text: 'Odotettu muoto: %{datepicker_format}'
     devise:
@@ -566,6 +617,13 @@ fi-pl:
           buttons:
             check: Hyväksy yhteydenotto ja jatka
             uncheck: En halua uutiskirjeitä
+          notice: |-
+            <p>Oletko varma, että et halua saada uutiskirjeitä?
+            Ole hyvä ja harkitse uudelleen uutiskirjeiden tilausta.
+            Meille on erittäin tärkeää, että voit vastaanottaa silloin tällöin ​​sähköposteja tärkeistä tiedoteluontoisista asioista. Voit aina muuttaa mieltäsi ja estää uutiskirjeet käyttäjäprofiilisi ilmoitusasetusten kautta.</p>
+            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta palvelun uusista osallistumismahdollisuuksista.<br>
+            Mikäli silti haluat estää uutiskirjeiden vastaanottamisen, ymmärrämme täysin päätöksesi.</p>
+            <p>Kiitos, että jaksoit lukea tämän ilmoituksen!</p>
           title: Uutiskirjeitä koskeva ilmoitus
         omniauth_buttons:
           or: Tai
@@ -573,7 +631,9 @@ fi-pl:
       authorizations:
         new:
           authorize: Hyväksyn tietojeni käytön
+          by_organization_link_html: sovelluksessa %{link}
           cancel: Peruuta
+          connect_your_account_html: Yhdistä tilisi kirjautumalla sisään palveluun %{organization}.
           publish_content: Julkaista sisältöä puolestasi
           see_email: Nähdä sähköpostiosoitteesi
           see_name: Nähdä nimesi
@@ -581,6 +641,7 @@ fi-pl:
           this_application_will_be_able_to: 'Tämä sovellus voi:'
           this_application_will_not_be_able_to: 'Tämä sovellus ei voi:'
           update_profile: Päivittää profiiliasi
+          wants_to_use_your_account_html: "%{application_name} haluaa käyttää tiliäsi"
     download_your_data:
       export:
         ready: Valmis
@@ -779,6 +840,7 @@ fi-pl:
     filters:
       linked_classes:
         all: Kaikki
+        answer: Vastaus
         collaborative_draft: Yhdessä koostettu luonnos
         dummy_resource: Dummy-resurssit
         meeting: Tapaamiset
@@ -903,6 +965,7 @@ fi-pl:
       invite:
         error: Osallistujan kutsuminen epäonnistui.
         success: Osallistuja on kutsuttu.
+      pending_invitations: Odottavat pyynnöt
       reject:
         error: Kutsun hylkääminen epäonnistui.
         success: Kutsu on hylätty.
@@ -977,6 +1040,9 @@ fi-pl:
       all: Kaikki tapahtumatyypit
       index:
         last_activity: Viimeisin tapahtuma
+      name: Viimeisin toiminta
+    linked_resource_from:
+      included_in: Sisältyy kohteeseen
     links:
       invalid_url: Virheellinen URL-osoite
       warning:
@@ -1090,6 +1156,12 @@ fi-pl:
           send: Lähetä
         update:
           error: Viestiä ei voitu lähettää. Yritä myöhemmin uudelleen.
+    metadata:
+      progress:
+        active: Aktiiviset
+        finished: 'Päättynyt: %{end_date}'
+        not_started: Ei vielä aloitettu
+        remaining: "%{time_distance} jäljellä"
     metrics:
       download:
         csv: Lataa tiedot (CSV)
@@ -1199,6 +1271,7 @@ fi-pl:
         error: Ilmoitusasetustesi päivityksessä tapahtui virhe.
         success: Ilmoitusasetuksesi päivitettiin onnistuneesti.
     offline:
+      name: Offline
       show:
         message: Näyttää, että olet tällä hetkellä offline-tilassa. Yritä myöhemmin uudestaan.
         retry: Yritä uudestaan
@@ -1225,11 +1298,13 @@ fi-pl:
           register: Rekisteröidy
         hero:
           participate: Osallistu
+          participate_title: Osallistu prosesseihin alustalla
           welcome: Tervetuloa organisaatioon %{organization}!
         statistics:
           headline: '%{organization} numeroina'
         sub_hero:
           register: Rekisteröidy
+          register_title: Luo oma tili alustalle
       index:
         standalone_pages: Sivut
         subheading: Selaa palvelun %{name} tietosivuja
@@ -1238,6 +1313,7 @@ fi-pl:
       participatory_space:
         metrics:
           headline: Osallistuminen lukuina
+          link: Näytä kaikki
       terms_of_service:
         accept:
           error: Käyttöehtojen hyväksyminen epäonnistui.
@@ -1284,13 +1360,17 @@ fi-pl:
       user:
         actions:
           create_user_group: Luo ryhmä
+          disabled_message: Viesti
           edit_profile: Muokkaa profiilia
           edit_user_group: Muokkaa ryhmäprofiilia
           invite_user: Kutsu osallistuja
           join_user_group: Lähetä liittymispyyntö ryhmään
+          leave_user_group: Poistu ryhmästä
+          manage_user_group: Hallinnoi ryhmää
           manage_user_group_admins: Hallinnoi ylläpitäjiä
           manage_user_group_users: Hallinnoi jäseniä
           message: Viesti
+          resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudelleen
         confirmation_instructions_sent: Sähköpostivahvistuksen ohjeet lähetetty.
         create_user_group: Luo ryhmä
         edit_profile: Muokkaa profiilia
@@ -1341,12 +1421,14 @@ fi-pl:
       scopes_picker_input:
         select_scope: 'Valitse teema (tämänhetkinen valinta: %{current})'
     search:
+      name: Hae
       results: Hakutulokset
       results_found_for_term: 'Tulosten määrä haulle "%{term}": %{count}'
       term_input_placeholder: Hae
     searches:
       filters:
         jump_to: 'Siirry kohtaan:'
+        search: Hae
         state:
           active: Aktiiviset
           all: Kaikki
@@ -1355,6 +1437,7 @@ fi-pl:
       filters_small_view:
         close_modal: Sulje ikkuna
         filter: Suodata
+        filter_and_search: Suodata ja hae
         filter_by: Suodata
         unfold: Avaa
       results:
@@ -1411,7 +1494,9 @@ fi-pl:
         remove_recipient: Poista vastaanottaja %{name}
       participatory_space_filters:
         filters:
+          area: Alue
           areas: alueet
+          scope: Teema
           select_an_area: Valitse alue
       public_participation:
         public_participation: Näytä läsnäoloni julkisesti
@@ -1497,6 +1582,9 @@ fi-pl:
         of_versions: "(yhteensä %{number} kpl)"
         see_other_versions: näytä muut versiot
         version: Versio %{number}
+    versions_list_item:
+      show:
+        version_index: Versio %{index}/%{total}
     welcome_notification:
       default_body: <p>Hei {{name}}, kiitos liittymisestä palveluun {{organization}} ja tervetuloa!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä palvelussa, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, joita saat osallistuessasi palvelussa {{organization}}</li><li>Viimeisenä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa, jaa heidän kanssaan kokemuksiasi osallistumisestasi palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, vakuuta argumenteillasi, vakuutu kuuntelemalla ja lukemalla, ilmaise ideasi konkreettisella ja suoraviivaisella tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, tee yhteistyötä avoimin mielin ja osallistu muiden ihmisten ideoiden kehittämiseen.</li></ul>
       default_subject: Kiitos liittymisestäsi palveluun {{organization}}!
@@ -1764,6 +1852,9 @@ fi-pl:
     timestamp_error_message: Pahoittelut, olit liian nopea! Lähetä lomake uudestaan.
   layouts:
     decidim:
+      announcements:
+        close: Sulje
+        view_more: Lisätietoa
       data_consent:
         details:
           columns:
@@ -1819,8 +1910,13 @@ fi-pl:
         cc_by_license: Creative Commons -lisenssi
         data_consent_settings: Evästeasetukset
         decidim_logo: Decidim-logo
+        decidim_title: Decidim
         download_open_data: Lataa avoimet datatiedostot
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
+        resources: Resurssit
+        sign_in: Kirjaudu sisään
+        sign_up: Luo oma käyttäjätili
+        terms_and_conditions: Käyttöehdot
       header:
         close_menu: Sulje valikko
         main_menu: Päävalikko
@@ -1855,6 +1951,7 @@ fi-pl:
       user_menu:
         account: 'Käyttäjätili: %{name}'
         admin_dashboard: Hallintapaneeli
+        configuration: Asetukset
         conversations: Keskustelut
         notifications: Ilmoitukset
         profile: Oma käyttäjätili
@@ -1868,6 +1965,7 @@ fi-pl:
         my_data: Omat tiedot
         my_interests: Kiinnostuksen kohteeni
         notifications_settings: Ilmoitusten asetukset
+        profile: Profiili
         title: Käyttäjätilin asetukset
         user_groups: Ryhmät
   locale:
