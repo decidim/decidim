@@ -24,7 +24,8 @@ module Decidim::Conferences
         organization:
       )
     end
-    let(:related_process_ids) { [participatory_processes.map(&:id)] }
+    let(:related_processes_ids) { [participatory_processes.map(&:id)] }
+    let(:related_assemblies_ids) { [assemblies.map(&:id)] }
 
     let(:form) do
       instance_double(
@@ -53,8 +54,8 @@ module Decidim::Conferences
         registrations_enabled: false,
         available_slots: 0,
         registration_terms: { en: "registrations terms" },
-        participatory_processes_ids: related_process_ids,
-        assemblies_ids: assemblies.map(&:id)
+        participatory_processes_ids: related_processes_ids,
+        assemblies_ids: related_assemblies_ids
       )
     end
     let(:invalid) { false }
@@ -138,16 +139,16 @@ module Decidim::Conferences
       context "when sorting linked_participatory_space_resources" do
         let!(:process_one) { create(:participatory_process, organization:, weight: 2) }
         let!(:process_two) { create(:participatory_process, organization:, weight: 1) }
-        let(:related_process_ids) { [process_one.id, process_two.id] }
+        let(:related_processes_ids) { [process_one.id, process_two.id] }
         let!(:assembly_one) { create(:assembly, organization:) }
         let!(:assembly_two) { create(:assembly, organization:) }
-        let(:related_assembly_ids) { [assembly_one.id, assembly_two.id] }
+        let(:related_assemblies_ids) { [assembly_one.id, assembly_two.id] }
 
         it "sorts by created at" do
           subject.call
 
-          linked_processes = conference.linked_participatory_space_resources("Assemblies", "included_assemblies")
-          expect(linked_processes.first).to eq(assembly_two)
+          linked_assemblies = conference.linked_participatory_space_resources(:assemblies, "included_assemblies")
+          expect(linked_assemblies.first).to eq(assembly_one)
         end
 
         it "sorts by weight" do
@@ -161,17 +162,17 @@ module Decidim::Conferences
       context "when linking unpublished linked_participatory_space_resources" do
         let!(:process_one) { create(:participatory_process, :unpublished, organization:, weight: 2) }
         let!(:process_two) { create(:participatory_process, organization:, weight: 1) }
-        let(:related_process_ids) { [process_one.id, process_two.id] }
-        let!(:assembly_one) { create(:assembly, organization:) }
+        let(:related_processes_ids) { [process_one.id, process_two.id] }
+        let!(:assembly_one) { create(:assembly, :unpublished, organization:) }
         let!(:assembly_two) { create(:assembly, organization:) }
-        let(:related_assembly_ids) { [assembly_one.id, assembly_two.id] }
+        let(:related_assemblies_ids) { [assembly_one.id, assembly_two.id] }
 
-        it "does not include unpublished meetings" do
+        it "does not include unpublished assemblies" do
           subject.call
 
-          linked_processes = conference.linked_participatory_space_resources("Assemblies", "included_assemblies")
-          expect(linked_processes.first).to eq(assembly_two)
-          expect(linked_processes.size).to eq(1)
+          linked_assemblies = conference.linked_participatory_space_resources(:assemblies, "included_assemblies")
+          expect(linked_assemblies.first).to eq(assembly_two)
+          expect(linked_assemblies.size).to eq(1)
         end
       end
     end
