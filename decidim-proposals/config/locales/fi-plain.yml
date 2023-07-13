@@ -384,6 +384,10 @@ fi-pl:
         description: Ehdotuksiin kohdistuneiden äänten määrä
         object: äänet
         title: Äänet
+    participatory_spaces:
+      highlighted_proposals:
+        last: Viimeisimmät ehdotukset
+        see_all: Näytä kaikki ehdotukset
     proposals:
       actions:
         answer_proposal: Vastaa ehdotukseen
@@ -647,6 +651,8 @@ fi-pl:
           select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Muokkaa yhteistyöluonnosta
+        empty: Yhteistyöluonnoksia ei ole vielä
+        empty_filters: Haluehdoilla ei löytynyt yhtään yhteistyöluonnosta
         filters:
           all: Kaikki
           amendment: Muutokset
@@ -663,6 +669,7 @@ fi-pl:
           filter: Rajaa
           filter_by: Rajaa hakua
           unfold: Avaa
+        name: Yhteistyöluonnokset
         new:
           add_file: Lisää tiedosto
           edit_file: Muokkaa tiedostoa
@@ -690,6 +697,7 @@ fi-pl:
             success: "Käyttäjän @%{user} osallistumispyynnön hylkäys onnistui."
         show:
           edit: Muokkaa yhteistyöluonnosta
+          final_proposal: Lopullinen ehdotus
           final_proposal_help_text: Tämä luonnos on valmis. Voi katsoa lopullista ehdotusta
           hidden_authors_count:
             one: ja %{count} muu henkilö
@@ -697,6 +705,7 @@ fi-pl:
           info-message: Tämä on <strong>yhteistyöluonnos</strong> ehdotukselle. Tämä tarkoittaa, että voit auttaa laatijoita muodostamaan ehdotuksen alhaalta löytyvän kommentointitoiminnon avulla tai parantaa sitä suoraan pyytämällä muokkausoikeutta ehdotukseen. Kun laatijat antavat sinulle muokkausoikeuden, voit tehdä muutoksia tähän luonnokseen.
           publish: Julkaise
           publish_info: Julkaise tämän luonnosversio tai
+          published_proposal: Julkaistu ehdotus
           request_access: Pyydä käyttöoikeutta
           requested_access: Käyttöoikeutta pyydetty
           withdraw: peruuttaa luonnos
@@ -711,6 +720,9 @@ fi-pl:
           back_from_collaborative_draft: Takaisin yhteistyöluonnoksiin
         wizard_header:
           title: Luo yhteistyöluonnoksesi
+      content_blocks:
+        highlighted_proposals:
+          name: Ehdotukset
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
         success: Ehdotus luotiin tallennettu luonnoksena.
@@ -802,6 +814,9 @@ fi-pl:
           random: Satunnainen
           recent: Viimeisimmät
           with_more_authors: Eniten laatijoita
+        participatory_texts:
+          view_index:
+            document_index: Asiakirjan sisällys
         placeholder:
           address: Mannerheimintie 1 A, 00100 Helsinki
         preview:
@@ -867,6 +882,7 @@ fi-pl:
           title: 'Äänestykseen sovelletaan seuraavia sääntöjä:'
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
+            votes: 'Käytettävissä olevien kannatusten määrä: %{number}'
         wizard_aside:
           back: Takaisin
           back_from_step_1: Takaisin ehdotuksiin
