@@ -119,6 +119,8 @@ cs:
         few: méně než %{count} sekundami
         many: méně než %{count} sekundami
         other: méně než %{count} sekundami
+      short:
+        half_a_minute: 1 m
       x_days:
         one: 1 dnem
         few: "{{$count}} dny"
@@ -367,11 +369,13 @@ cs:
       document:
         download: Stáhnout soubor
       documents:
+        documents: Dokumenty
         related_documents: Související dokumenty
       photo:
         alt: Obrázek médií
         title: Obrázek
       photos:
+        photos: Obrázky
         related_photos: Související fotografie
     author:
       avatar: 'Avatar: %{name}'
@@ -509,6 +513,8 @@ cs:
             dummy_step_translatable_text: Zástupný krok textu k přeložení
     contact: Kontakt
     content_blocks:
+      announcement:
+        name: Oznámení
       cta:
         name: Tlačítko obrázek, text a Výzva k akci
       cta_settings_form:
@@ -518,6 +524,8 @@ cs:
         description: Popis
       footer_sub_hero:
         name: Zápatí pod hlavním pruhem
+      global_menu:
+        name: Globální menu
       hero:
         name: Hlavní obrázek
       hero_settings_form:
@@ -526,6 +534,9 @@ cs:
       highlighted_content_banner:
         name: Zvýrazněný obsahový pruh
       highlighted_elements_settings_form:
+        components:
+          all: Vše
+          label: 'Vyberte komponentu:'
         orders:
           label: 'Seřadit prvky podle:'
           random: Náhodně
@@ -539,8 +550,20 @@ cs:
         name: Poslední aktivita
         title: Poslední aktivita
         view_all: Zobrazit vše
+      last_activity_settings_form:
+        max_last_activity_users: Maximální počet uživatelských avatarů s nedávnou aktivitou k zobrazení
+      main_data:
+        name: Hlavní údaje
+      metadata:
+        name: Metadata
       metrics:
         name: Organizační metriky
+      participatory_space_metrics:
+        name: Metriky
+      participatory_space_stats:
+        name: Statistiky
+      social_networks_metadata:
+        name: Sociální sítě
       static_page:
         section:
           name: Sekce
@@ -560,6 +583,13 @@ cs:
       actions:
         login_before_access: Před přístupem se prosím přihlaste pomocí svého účtu.
         unauthorized: Nemáte oprávnění k provedení této akce.
+      application_helper:
+        filter_area_values:
+          all: Vše
+        filter_category_values:
+          all: Vše
+        filter_scope_values:
+          all: Vše
     datepicker:
       help_text: 'Očekávaný formát: %{datepicker_format}'
     devise:
@@ -605,7 +635,9 @@ cs:
       authorizations:
         new:
           authorize: Autorizovat aplikaci
+          by_organization_link_html: od %{link}
           cancel: Zrušit
+          connect_your_account_html: Připojte svůj účet přihlášením k %{organization}.
           publish_content: Publikujte obsah pro vás
           see_email: Podívejte se na svůj e-mail
           see_name: Zobrazte své jméno
@@ -613,6 +645,7 @@ cs:
           this_application_will_be_able_to: 'Tato aplikace bude schopna:'
           this_application_will_not_be_able_to: 'Tato aplikace nebude moci:'
           update_profile: Aktualizujte svůj profil
+          wants_to_use_your_account_html: "%{application_name} chce použít váš účet"
     download_your_data:
       export:
         ready: Připraven
@@ -812,6 +845,7 @@ cs:
     filters:
       linked_classes:
         all: Vše
+        answer: Odpověď
         collaborative_draft: Návrh spolupráce
         dummy_resource: Dummy prostředky
         meeting: Setkání
@@ -940,6 +974,7 @@ cs:
       invite:
         error: Při pozvání tohoto účastníka došlo k chybě.
         success: Účastník úspěšně pozván.
+      pending_invitations: Nevyřízené požadavky
       reject:
         error: Při odmítnutí této pozvánky došlo k chybě.
         success: Pozvánka byla úspěšně zamítnuta.
@@ -1014,6 +1049,9 @@ cs:
       all: Všechny typy aktivit
       index:
         last_activity: Poslední aktivita
+      name: Poslední aktivity
+    linked_resource_from:
+      included_in: Zahrnuto v
     links:
       invalid_url: Neplatná URL
       warning:
@@ -1127,6 +1165,11 @@ cs:
           send: Poslat
         update:
           error: Zpráva nebyla odeslána z důvodu chyby.
+    metadata:
+      progress:
+        active: Aktivní
+        finished: 'Dokončeno: %{end_date}'
+        not_started: Ještě nezačalo
     metrics:
       download:
         csv: Stáhnout data (CSV)
@@ -1236,6 +1279,7 @@ cs:
         error: Při aktualizaci nastavení oznámení došlo k chybě.
         success: Nastavení oznámení bylo úspěšně aktualizováno.
     offline:
+      name: Offline
       show:
         message: Vypadá to, že jste momentálně v režimu offline. Opakujte akci později.
         retry: Zkusit znovu
@@ -1262,11 +1306,13 @@ cs:
           register: Registrovat
         hero:
           participate: Účastnit se
+          participate_title: Účast na procesech platformy
           welcome: Vítejte na %{organization}!
         statistics:
           headline: Aktuální stav %{organization}
         sub_hero:
           register: Registrovat
+          register_title: Zaregistrujte se pro vytvoření účtu
       index:
         standalone_pages: Stránky
         subheading: Procházejte stránky nápovědy %{name}
@@ -1275,6 +1321,7 @@ cs:
       participatory_space:
         metrics:
           headline: Metriky
+          link: Zobrazit vše
       terms_of_service:
         accept:
           error: Při přijímání podmínek služby došlo k chybě.
