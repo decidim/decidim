@@ -30,6 +30,3 @@ pl:
           update:
             invalid: Podczas zapisywania strony wystąpił błąd.
             success: Strona została zapisana.
-      home:
-        sub_hero:
-          register_title: Zarejestruj się, aby utworzyć konto
