@@ -580,11 +580,6 @@ zh-TW:
         status_change_for: 倡議「%{title}」的狀態已更改。
       last_activity:
         new_initiative: 新的倡議
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: 進行中的倡議
-            see_all_initiatives: 查看所有倡議
       show:
         badge_name:
           accepted: 足夠的簽署數
