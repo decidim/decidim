@@ -332,10 +332,6 @@ fi-pl:
         rejected: Liian vähän allekirjoituksia
         validating: Teknisessä validoinnissa
       application_helper:
-        filter_area_values:
-          all: Kaikki
-        filter_scope_values:
-          all: Kaikki
         filter_state_values:
           accepted: Tarpeeksi allekirjoituksia
           all: Kaikki
@@ -362,7 +358,6 @@ fi-pl:
         fill_data:
           back: Takaisin
           continue: Jatka
-          decidim_user_group_id_help: Aloitteen laatijan muuttaminen ei ole mahdollista luonnin jälkeen.
           fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoitteet tarpeeksi selkeästi kuvattu?</li> <li>Sinun on valittava allekirjoitustapa. Palvelun ulkopuolella, verkossa tai molemmat.</li> <li>Mikä on aloitteen maantieteellinen laajuus?</li> </ul>"
           more_information: "(Lisää tietoa)"
           select_area: Valitse alue
@@ -382,27 +377,17 @@ fi-pl:
         previous_form:
           back: Takaisin
           continue: Jatka
-          help: Mitä asiaa aloite koskettaa? Kirjoita otsikko ja kuvaus. Suosittelemme lyhyttä ja ytimekästä otsikkoja sekä kuvausta, joka keskittyy ehdotettuun ratkaisuun.
-          more_information: "(Lisää tietoa)"
         promotal_committee:
-          back: Takaisin
           individual_help_text: Tämäntyyppinen aloite edellyttää, että kannatuskomitea koostuu vähintään %{committee_size} henkilöstä (todistajat). Sinun on jaettava seuraava linkki muiden tähän aloitteeseen osallistuvien ihmisten kanssa. Kun yhteyshenkilösi saavat tämän linkin, heidän on noudatettava esitettyjä ohjeita.
           more_information: "(Lisää tietoa)"
         select_initiative_type:
           back: Takaisin
           choose_html: Haluan luoda uuden <strong>%{title}</strong> aloitteen
-          more_information: "(Lisää tietoa)"
           select: Haluan tukea tätä aloitetta
           select_initiative_type_help: Aloitteita käytetään vaikuttamiseen organisaation tarkoitusperien edistämiseksi. Millaisen aloitteen haluat aloittaa?
           verification_required: Vahvista tilisi allekirjoittaaksesi tämän aloitteen
         share_committee_link:
-          continue: Jatka
           invite_to_committee_help: Kutsulinkki lähetettäväksi tukikomitean jäsenille
-        show_similar_initiatives:
-          back: Takaisin
-          compare_help: Jos jokin seuraavista aloitteista on samankaltainen omasi kanssa, suosittelemme, että kannatat sitä. Tällä tavoin aloitteellasi on enemmän mahdollisuuksia toteutua.
-          continue: Oma aloitteeni on erilainen
-          more_information: "(Lisää tietoa)"
       edit:
         accept: Hyväksy aloite
         back: Takaisin
@@ -440,11 +425,8 @@ fi-pl:
           email_subject: "%{applicant_nickname} haluaa liittyä mukaan aloitteeseesi"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> haki jäseneksi aloitteesi <a href="%{resource_url}">%{resource_title}</a> kannatuskomiteaan. Voit hyväksyä tai hylätä pyynnön <a href="%{resource_url}/edit">aloitteen muokkaussivulta</a>.
       form:
-        add_attachments: Asiakirjat
         attachment_legend: "(Valinnainen) Lisää liitetiedosto"
-        delete_attachment: Poista
       index:
-        title: Aloitteet
         uninitialized: Hallintakäyttäjä ei ole vielä määrittänyt aloitteiden asetuksia.
       initiative_signatures:
         fill_personal_data:
@@ -474,8 +456,6 @@ fi-pl:
         sms_phone:
           invalid: Puhelinnumero on virheellinen tai odottaa tarkastusta. Tarkista valtuutesi.
       initiatives:
-        author:
-          deleted: Poistettu
         author_list:
           hidden_authors_count:
             one: ja yksi muu henkilö
@@ -485,7 +465,6 @@ fi-pl:
           confirm_revoke: Oletko varma?
           invite_to_committee_help: Jaa tämä linkki ja kutsu muita käyttäjiä kannatuskomiteaan.
           no_members_yet: Kannatuskomiteassa ei ole jäseniä.
-          revoke: Peruuta
           title: Komitean jäsenet
         count:
           title:
@@ -548,12 +527,8 @@ fi-pl:
           answer_title: Tähän aloitteeseen on vastattu.
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei saanut tarpeeksi kannatusta.
         show:
-          any_vote_method: Tämä aloite kerää allekirjoituksia verkossa ja palvelun ulkopuolella.
           confirm: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
           edit: Muokkaa
-          follow_description: Vastaanota ilmoitus, kun tätä aloitetta koskevia uutisia julkaistaan
-          offline_method: Tämä aloite kerää allekirjoituksia ainoastaan palvelun ulkopuolella.
-          print: Tulosta aloite
           send_to_technical_validation: Lähetä tekniseen validointiin
         signatures_count:
           one: " allekirjoitus"
@@ -568,8 +543,6 @@ fi-pl:
           count:
             one: ALLEKIRJOITUS
             other: ALLEKIRJOITUSTA
-          most_popular_initiative: Suosituin aloite
-          need_more_votes: Tarvitsee lisää allekirjoituksia
       initiatives_mailer:
         creation_subject: Kansalaisaloitteesi "%{title}" on luotu
         initiative_link:
@@ -586,14 +559,8 @@ fi-pl:
       modal:
         not_authorized:
           authorizations_page: Näytä vahvistukset
-          close: Sulje
           explanation: Tilisi tulee vahvistaa luodaksesi uuden aloitteen.
           title: Vahvistus vaaditaan
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktiiviset aloitteet
-            see_all_initiatives: Katso kaikki aloitteet
       show:
         badge_name:
           accepted: Tarpeeksi allekirjoituksia
@@ -602,8 +569,6 @@ fi-pl:
           published: Julkaistu
           rejected: Liian vähän allekirjoituksia
           validating: Teknisessä tarkastuksessa
-      signature_interval:
-        title: Allekirjoituksen keräysaika
       states:
         accepted: Hyväksytyt
         expired: Vanhentuneet
@@ -611,9 +576,6 @@ fi-pl:
       update:
         error: Tapahtui virhe.
         success: Aloitteen päivitys onnistui.
-      versions:
-        shared:
-          back_to_resource: Takaisin aloitteeseen
     menu:
       initiatives: Aloitteet
     resources:
@@ -628,14 +590,10 @@ fi-pl:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Takaisin
         fill_data: Luo
         finish: Viimeistele
-        previous_form: Alku
         promotal_committee: Kannatuskomitea
         select_initiative_type: Valitse
-        show_similar_initiatives: Vertaile
-        title: Luo uusi aloite
       initiative_header:
         initiative_menu_item: Aloite
       initiative_signature_creation_header:
@@ -643,11 +601,8 @@ fi-pl:
         fill_personal_data: Täydennä tietosi
         finish: Viimeistele
         finished: Allekirjoitus luotu aloitteelle
-        see_steps: katso vaiheet
-        select_identity: Valitse identiteetti
         sms_code: Tekstiviestikoodin vahvistaminen
         sms_phone_number: Matkapuhelimen numero
-        step: Vaihe %{current} / %{total}
         title: Allekirjoita %{initiative_title}
       initiatives:
         initiative:
