@@ -762,7 +762,7 @@ ar:
           title: إنشاء مسودتك التعاونية
       content_blocks:
         highlighted_proposals:
-          proposals: الاقتراحات
+          proposals: اقتراحات
       create:
         error: كانت هناك مشكلة في حفظ الاقتراح.
         success: تم إنشاء الاقتراح بنجاح. تم الحفظ كمسودة.
@@ -885,8 +885,6 @@ ar:
           recent: الأخيرة
           with_more_authors: مع المزيد من المؤلفين
         participatory_texts:
-          index:
-            document_index: فهرس الوثيقة
           view_index:
             see_index: انظر الفهرس
         placeholder:
