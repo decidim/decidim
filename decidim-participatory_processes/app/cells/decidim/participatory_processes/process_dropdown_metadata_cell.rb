@@ -15,6 +15,16 @@ module Decidim
 
       private
 
+      def cache_hash
+        hash = []
+        hash << "decidim/process_dropdown_metadata"
+        hash << id
+        hash << current_user.try(:id).to_s
+        hash << I18n.locale.to_s
+
+        hash.join(Decidim.cache_key_separator)
+      end
+
       def step_title
         translated_attribute process.active_step&.title
       end

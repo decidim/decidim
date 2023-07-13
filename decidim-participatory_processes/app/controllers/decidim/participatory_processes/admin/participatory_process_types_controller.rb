@@ -86,7 +86,7 @@ module Decidim
         end
 
         def current_participatory_process_type
-          @current_participatory_process_type ||= Decidim::ParticipatoryProcessType.find(params[:id])
+          @current_participatory_process_type ||= collection.find(params[:id])
         end
 
         def collection
