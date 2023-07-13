@@ -588,6 +588,11 @@ de:
         status_change_for: Die Initiative %{title} hat ihren Status geändert
       last_activity:
         new_initiative: Neue Initiative
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktive Initiativen
+            see_all_initiatives: Alle Initiativen anzeigen
       show:
         badge_name:
           accepted: Ausreichend Unterschriften
