@@ -811,8 +811,6 @@ ro:
           recent: Recente
           with_more_authors: Cu mai mulți autori
         participatory_texts:
-          index:
-            document_index: Indexul documentului
           view_index:
             see_index: Vezi indexul
         placeholder:
