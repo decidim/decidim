@@ -29,14 +29,6 @@ module Decidim
           [Decidim::Conferences::Partner, "logo", Decidim::Cw::Conferences::PartnerLogoUploader, "logo"]
         ]
       end,
-      "Decidim::Consultation" => lambda do
-        [
-          [Decidim::Consultations::Question, "hero_image", Decidim::Cw::HeroImageUploader, "hero_image"],
-          [Decidim::Consultations::Question, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"],
-          [Decidim::Consultation, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"],
-          [Decidim::Consultation, "introductory_image", Decidim::Cw::BannerImageUploader, "introductory_image"]
-        ]
-      end,
       "Decidim::Votings::Voting" => lambda do
         [
           [Decidim::Votings::Voting, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"],
