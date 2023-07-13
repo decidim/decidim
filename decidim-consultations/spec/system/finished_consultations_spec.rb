@@ -6,6 +6,8 @@ describe "Finished consultations", type: :system do
   let(:organization) { create(:organization) }
 
   before do
+    skip "REDESIGN_DISABLED - The consultations module will be deprecated and is not redesigned"
+
     switch_to_host(organization.host)
   end
 
