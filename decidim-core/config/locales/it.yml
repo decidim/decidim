@@ -165,7 +165,6 @@ it:
         error: Si è verificato un errore durante l'accettazione dell'emendamento.
         success: L'emendamento è stato accettato con successo.
       amendable:
-        amended_by: Modificato da
         button: Modificare %{model_name}
         error: Si è verificato un errore durante la modifica di questa risorsa.
         promote_button: Promuovi a %{model_name}
@@ -183,7 +182,6 @@ it:
         success: La proposta di emendamento è stata eliminata con successo.
       edit_draft:
         discard: Scarta questa bozza
-        discard_confirmation: Sei sicuro di voler scartare questa bozza?
         send: Anteprima
         title: Modifica progetto di emendamento
       emendation:
@@ -233,13 +231,10 @@ it:
         download: Scarica file
       documents:
         related_documents: Documenti Relativi
-      geocoding:
-        geocoded_address: Indirizzo
       photos:
         related_photos: Immagini relative
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar per più utenti
       comments:
         one: commento
         other: Commenti
@@ -408,8 +403,6 @@ it:
           nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
           sign_in: Accedi
           sign_up: Registrati
-          sign_up_as:
-            legend: Registrati come
           subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
           tos_agreement: Iscrivendoti accetti i %{link} e dichiari di aver preso visione della privacy policy.
           tos_title: Termini di servizio
@@ -424,7 +417,6 @@ it:
         newsletter_modal:
           buttons:
             check: Controlla e continua
-            close_modal: Chiudi modalità
             uncheck: Mantieni deselezionato
           title: Iscrizioni alla newsletter
         omniauth_buttons:
@@ -433,7 +425,6 @@ it:
       authorizations:
         new:
           authorize: Autorizza l'applicazione
-          by_organization_link_html: <small class="heading-small">di %{link}</small>
           cancel: Annulla
           publish_content: Pubblica contenuti per te
           see_email: Vedi la tua email
@@ -442,7 +433,6 @@ it:
           this_application_will_be_able_to: 'Questa applicazione sarà in grado di:'
           this_application_will_not_be_able_to: 'Questa applicazione non sarà in grado di:'
           update_profile: Aggiorna il tuo profilo
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vuole utilizzare il tuo account"
     download_your_data:
       export:
         ready: Pronto
@@ -724,12 +714,9 @@ it:
           title: Cosa posso fare in %{organization}?
         title: Aiuto generale
     last_activities:
-      activities:
-        no_activities_warning: Nessuna attività
       all: Tutti i tipi di attività
       index:
         last_activity: L'ultima attività
-        resource_type: genere
     links:
       invalid_url: URL non valido
       warning:
@@ -895,11 +882,6 @@ it:
         retry: Riprova
     open_data:
       not_available_yet: I file Open Data non sono ancora disponibili, riprova tra qualche minuto.
-    own_user_groups:
-      index:
-        pending: In sospeso
-        rejected: Respinta
-        verified: Verificato
     pad_iframe:
       disclaimer: I contenuti di questo riquadro sono scritti da utenti registrati ed esprimono le loro opinioni. %{organization} non può essere ritenuto responsabile per il suo contenuto.
       pad: tampone
@@ -921,8 +903,6 @@ it:
         hero:
           participate: Partecipa
           welcome: Benvenuto su %{organization}!
-        metrics:
-          headline: Partecipazione in cifre
         statistics:
           headline: Statistiche su %{organization}
         sub_hero:
@@ -935,11 +915,10 @@ it:
       participatory_space:
         metrics:
           headline: Partecipazione in cifre
-          link: Mostra tutte le statistiche
     participatory_space_private_users:
       not_allowed: Non sei autorizzato a visualizzare questo contenuto
     profile:
-      view: vista
+      deleted: Utente eliminato
     profiles:
       show:
         activity: Attività
@@ -951,7 +930,6 @@ it:
         members: Utenti
         officialized: Partecipante ufficiale
         send_private_message: Invia messaggio privato
-        view_full_profile: Visualizza il profilo completo
       sidebar:
         badges:
           info: I badge vengono guadagnati eseguendo attività specifiche sulla piattaforma.
@@ -1010,7 +988,6 @@ it:
       term_input_placeholder: Ricerca
     searches:
       filters:
-        back: Torna ai risultati
         jump_to: 'Filtra per:'
         state:
           active: Attivo
@@ -1023,9 +1000,6 @@ it:
         filter_by: Filtra per
         unfold: spiegare
       results:
-        results:
-          one: "%{count} risultato"
-          other: "%{count} risultati"
         view_all: Visualizza tutto (%{count})
     security:
       selfxss_warning:
@@ -1037,10 +1011,6 @@ it:
         close_modal: Chiudi modalità
         ok: Ok
         title: Conferma
-      embed_modal:
-        close_window: Chiudi la finestra
-        embed: Se vuoi condividere un'anteprima di questa consultazione nella tua pagina puoi incollare questo codice
-        embed_link: Incorpora
       extended_navigation_bar:
         more: Di Più
         unfold: spiegare
@@ -1117,28 +1087,12 @@ it:
         existing_error: Il messaggio non può essere creato. La conversazione esiste già, riprova ora.
         success: Conversazione iniziata con successo!
       index:
-        add_max_users: 'Aggiungi utenti alla conversazione: massimo 9 utenti'
-        add_users_placeholder: Cerca...
-        close: Chiudi
         conversations_info: Le conversazioni sono private. Nessun altro può vederle. Una conversazione può essere avviata con qualsiasi partecipante o gruppo registrato sulla piattaforma.
-        from: Da
-        last_message: Ultimo messaggio
-        modal_title: Nuova conversazione
-        new_conversation: Nuova conversazione
-        next: Successivo
         no_conversations_warning: Non ci sono ancora conversazioni.
-        no_results: Nessun risultato
         time_ago: "%{time} fa"
-      new:
-        title: Inizia una conversazione
       reply:
         placeholder: La tua risposta...
         send: Invia
-        title_reply: Rispondi
-      show:
-        back: Tutte le conversazioni
-        not_allowed: Questo utente non accetta più messaggi diretti.
-        title: Conversazione con %{usernames}
       update:
         error: Messaggio non inviato. Riprova più tardi
     user_interests:
@@ -1160,29 +1114,12 @@ it:
         back_to_resource: Torna indietro
         changes_at_title: Modifiche a "%{title}"
         number_of_versions: Versioni
-        show_all_versions: Mostra tutte le versioni
-        version_author: Autore della versione
         version_created_at: Versione creata il
-        version_number: Numero della versione
-        version_number_out_of_total: "%{current_version} di %{total_count}"
-    version_author:
-      show:
-        deleted: Utente eliminato
     versions:
       resource_version:
         of_versions: "(di %{number})"
         see_other_versions: vedi altre versioni
         version: Versione %{number}
-    versions_list:
-      show:
-        back_to_resource: Torna indietro
-        changes_at_title: Modifiche a "%{title}"
-        number_of_versions: Versioni
-        title: Versioni
-    versions_list_item:
-      back: Mostra tutte le versioni
-      show:
-        version_index: Versione %{index}
     welcome_notification:
       default_subject: Grazie per esserti iscritto a {{organization}}!
     wizard_step_form:
@@ -1337,6 +1274,10 @@ it:
     timestamp_error_message: Mi dispiace, troppo veloce! Per favore, invia di nuovo.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: genere
       edit_link:
         edit: Modifica
       footer:
@@ -1389,8 +1330,6 @@ it:
         notifications_settings: Impostazioni delle notifiche
         title: Impostazioni utente
         user_groups: gruppi
-      widget:
-        see_more: vedi di più
   locale:
     name: Italiano
     name_with_error: Italiano (errore!)
@@ -1454,7 +1393,6 @@ it:
     dropdown:
       choose_diff_view_html: 'Modalità visualizzazione HTML:'
       choose_diff_view_mode: 'Modalità di visualizzazione confronto:'
-      choose_diff_view_mode_menu: Scegli la modalità di ricerca
       option_escaped: Escaped
       option_split: Affiancati
       option_unescaped: Unescaped
