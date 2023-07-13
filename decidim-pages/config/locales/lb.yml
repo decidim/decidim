@@ -28,6 +28,3 @@ lb:
           update:
             invalid: Beim Speichern der Seite sind Fehler aufgetreten.
             success: Seite erfolgreich gespeichert
-      home:
-        sub_hero:
-          register_title: Registrieren
