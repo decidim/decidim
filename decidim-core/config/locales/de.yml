@@ -265,7 +265,6 @@ de:
         error: Beim Akzeptieren der Änderung ist ein Fehler aufgetreten.
         success: Die Änderung wurde erfolgreich angenommen.
       amendable:
-        amended_by: Geändert durch
         button: '%{model_name} ändern'
         error: Bei der Änderung dieser Ressource ist ein Fehler aufgetreten.
         help_text: Verbessern Sie diese %{model_name} indem Sie ihre %{amendable_fields} ändern.
@@ -285,7 +284,6 @@ de:
         success: Der Änderungsvorschlag wurde erfolgreich gelöscht.
       edit_draft:
         discard: Änderungsvorschlag verwerfen
-        discard_confirmation: Sind Sie sicher, dass Sie diesen Änderungsvorschlag verwerfen möchten?
         send: Vorschau
         title: Änderungsvorschlag bearbeiten
       emendation:
@@ -325,7 +323,6 @@ de:
       review:
         back: Zurück
         heading: Überprüfen Sie die Änderung
-        help_text: Sie überprüfen eine Änderung zu %{model_name}.
         send: Akzeptieren Sie den Änderungsantrag
       update_draft:
         error: Es gab ein Problem bei der Aktualisierung des Änderungsvorschlags.
@@ -345,8 +342,6 @@ de:
         download: Datei herunterladen
       documents:
         related_documents: Zugehörige Dokumente
-      geocoding:
-        geocoded_address: Adresse
       photo:
         alt: Pressebild
         title: Bild
@@ -354,7 +349,6 @@ de:
         related_photos: Zugehörige Bilder
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar für mehrere Benutzer
       comments:
         one: Kommentar
         other: Kommentare
@@ -554,8 +548,6 @@ de:
           nickname_help: Ihr Pseudonym in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
           sign_in: Anmelden
           sign_up: Registrieren
-          sign_up_as:
-            legend: Registrieren als
           subtitle: Registrieren Sie sich, um an Diskussionen teilzunehmen und Vorschläge zu unterstützen.
           terms: die Nutzungsbedingungen
           tos_agreement: Mit der Anmeldung stimmen Sie %{link} zu.
@@ -573,15 +565,7 @@ de:
         newsletter_modal:
           buttons:
             check: Kontakterlaubnis erteilen und fortfahren
-            close_modal: Modal schließen
             uncheck: Ohne Kontakterlaubnis fortfahren
-          notice: |-
-            <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
-            Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
-            Für uns ist es sehr wichtig, die Möglichkeit zu haben Ihnen gelegentlich E-Mails mit wichtigen Ankündigungen schicken zu können. Sie können dies jederzeit in den Benachrichtigungseinstellungen ändern.</p>
-            <p>Wenn Sie das Kontrollkästchen nicht ankreuzen, verpassen Sie möglicherweise relevante Informationen zu neuen Beteiligungsmöglichkeiten auf der Plattform.<br>
-            Wenn Sie nach wie vor keinen Newsletter erhalten möchten, verstehen wir natürlich Ihre Entscheidung.</p>
-            <p>Danke fürs Lesen!</p>
           title: Newsletter Benachrichtigungen
         omniauth_buttons:
           or: Oder
@@ -589,9 +573,7 @@ de:
       authorizations:
         new:
           authorize: App zulassen
-          by_organization_link_html: <small class="heading-small">von %{link}</small>
           cancel: Abbrechen
-          connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei <strong>%{organization}</strong> anmelden.
           publish_content: Inhalte für Sie veröffentlichen
           see_email: Ihre E-Mail anzeigen
           see_name: Ihren Namen anzeigen
@@ -599,7 +581,6 @@ de:
           this_application_will_be_able_to: 'Diese Anwendung wird in der Lage sein:'
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
           update_profile: Profil aktualisieren
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
     download_your_data:
       export:
         ready: Bereit
@@ -994,12 +975,9 @@ de:
         description: Mehr lesen über %{organization}.
         title: Allgemeine Hilfe
     last_activities:
-      activities:
-        no_activities_warning: Keine Aktivität
       all: Alle Aktivitätstypen
       index:
         last_activity: Letzte Aktivität
-        resource_type: Art
     links:
       invalid_url: Ungültige URL
       warning:
@@ -1227,11 +1205,6 @@ de:
         retry: Wiederholen
     open_data:
       not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
-    own_user_groups:
-      index:
-        pending: Ausstehend
-        rejected: Abgelehnt
-        verified: Überprüft
     pad_iframe:
       disclaimer: Der Inhalt dieses Blocks wird von registrierten Benutzern verfasst und gibt deren Meinung wieder. %{organization} kann nicht für den Inhalt verantwortlich gemacht werden.
       explanation: Verwenden Sie dieses Pad, um während des Meetings gemeinsam Notizen zu machen, was die Protokollerstellung erleichtert.
@@ -1254,8 +1227,6 @@ de:
         hero:
           participate: Teilnehmen
           welcome: Willkommen bei %{organization}!
-        metrics:
-          headline: Teilnahme an Zahlen
         statistics:
           headline: Aktueller Zustand von %{organization}
         sub_hero:
@@ -1268,7 +1239,6 @@ de:
       participatory_space:
         metrics:
           headline: Teilnahme an Zahlen
-          link: Alle Statistiken anzeigen
       terms_of_service:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Problem aufgetreten.
@@ -1281,7 +1251,6 @@ de:
           modal_btn_continue: Bedingungen akzeptieren und fortfahren
           modal_btn_exit: Ich werde sie später prüfen
           modal_button: Bedingungen ablehnen
-          modal_close: Fenster schließen
           modal_title: Möchten Sie die aktualisierten Nutzungsbedingungen wirklich ablehnen?
         required_review:
           alert: Wir haben unsere Nutzungsbedingungen aktualisiert. Bitte überprüfen Sie sie.
@@ -1296,7 +1265,6 @@ de:
     profile:
       deleted: Gelöschter Teilnehmer
       inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
-      view: Anzeigen
     profiles:
       default_officialization_text_for_user_groups: Diese Benutzergruppe wurde öffentlich überprüft. Der Gruppenname entspricht ihrem tatsächlichen Namen.
       default_officialization_text_for_users: Dieser Teilnehmer ist öffentlich verifiziert, sein/ihr Name oder seine/ihre Rolle wurde auf Übereinstimmung mit dem wirklichen Namen und der wirklichen Rolle überprüft.
@@ -1310,7 +1278,6 @@ de:
         members: Mitglieder
         officialized: Offizieller Teilnehmer
         send_private_message: Private Nachricht senden
-        view_full_profile: Sehen Sie sich Vollständiges Profil anzeigen
       sidebar:
         badges:
           info: Abzeichen werden verdient, indem bestimmte Aktivitäten in der Plattform ausgeführt werden.
@@ -1380,7 +1347,6 @@ de:
       term_input_placeholder: Suche
     searches:
       filters:
-        back: Zurück zu den Ergebnissen
         jump_to: 'Springen zu:'
         state:
           active: Aktiv
@@ -1393,9 +1359,6 @@ de:
         filter_by: Filtern nach
         unfold: Entfalten
       results:
-        results:
-          one: "%{count} Ergebnis"
-          other: "%{count} Ergebnisse"
         view_all: Alle anzeigen (%{count})
     security:
       selfxss_warning:
@@ -1407,10 +1370,6 @@ de:
         close_modal: Fenster schließen
         ok: Ok
         title: Bestätigen
-      embed_modal:
-        close_window: Fenster schließen
-        embed: Bitte fügen Sie diesen Code in Ihre Seite ein
-        embed_link: Einbetten
       extended_navigation_bar:
         more: Mehr
         unfold: Entfalten
@@ -1429,7 +1388,6 @@ de:
         report: Bericht
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
         title: Ein Problem melden
-        visit_profile: Wenn Sie auch den Teilnehmer und den Rest seines Inhalts blockieren möchten, gehen Sie auf die Profilseite von %{user_link}.
       flag_user_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         block: Diesen Teilnehmer blockieren
@@ -1504,30 +1462,12 @@ de:
         existing_error: Die Nachricht konnte nicht erstellt werden. Die Unterhaltung besteht bereits, versuchen Sie es noch einmal.
         success: Unterhaltung erfolgreich gestartet!
       index:
-        add_max_users: 'Fügen Sie der Unterhaltung Benutzer hinzu: max. 9 Benutzer'
-        add_users_placeholder: Suche...
-        close: Schließen
         conversations_info: Unterhaltungen sind privat, niemand sonst kann sie anzeigen. Eine Unterhaltung kann von jedem auf der Plattform registrierten Teilnehmer oder jeder Gruppe gestartet werden.
-        from: Von
-        last_message: Letzte Nachricht
-        modal_title: Neue Unterhaltung
-        new_conversation: Neue Unterhaltung
-        next: Weiter
         no_conversations_warning: Es gibt noch keine Unterhaltungen.
-        no_results: Keine Ergebnisse
-        participant_with_disabled_message_reception: Dieser Teilnehmer hat Nachrichten deaktiviert.
         time_ago: "Vor %{time}"
-      new:
-        title: Eine Unterhaltung beginnen
       reply:
         placeholder: Ihre Antwort...
         send: Senden
-        title_reply: Antworten
-      show:
-        back: Alle Unterhaltungen anzeigen
-        deleted_accounts: Sie können keine Unterhaltung mit gelöschten Konten führen.
-        not_allowed: Dieser Benutzer akzeptiert keine Direktnachrichten mehr.
-        title: Unterhaltung mit %{usernames}
       update:
         error: Nachricht wurde nicht gesendet. Versuchen Sie es später noch einmal
     user_interests:
@@ -1552,29 +1492,12 @@ de:
         back_to_resource: Zurück
         changes_at_title: Änderungen an „%{title}“
         number_of_versions: Versionen
-        show_all_versions: Alle Versionen anzeigen
-        version_author: Autor dieser Version
         version_created_at: Version erstellt am
-        version_number: Versionsnummer
-        version_number_out_of_total: "%{current_version} von %{total_count}"
-    version_author:
-      show:
-        deleted: Gelöschter Benutzer
     versions:
       resource_version:
         of_versions: "(von %{number})"
         see_other_versions: Andere Versionen anzeigen
         version: Versionsnummer %{number}
-    versions_list:
-      show:
-        back_to_resource: Zurück
-        changes_at_title: Änderungen an „%{title}“
-        number_of_versions: Versionen
-        title: Versionen
-    versions_list_item:
-      back: Alle Versionen anzeigen
-      show:
-        version_index: Version %{index}
     welcome_notification:
       default_body: <p>Guten Tag {{name}}, vielen Dank dafür, dass Sie {{organization}} beigetreten sind und herzlich willkommen!</p><ul><li>Wenn Sie einen kurzen Überblick darüber bekommen möchten, was Sie hier tun können, schauen Sie sich den <a href="{{help_url}}">Hilfe-Abschnitt </a> an.</li><li>Sobald Sie ihn gelesen haben, bekommen Sie Ihr erstes Abzeichen. Hier finden Sie eine<a href="{{badges_url}}">Liste aller Abzeichen</a>, die Sie bei der Teilnahme auf {{organization}}</li> erhalten können<li>Folgen Sie anderen Menschen, teilen Sie die Erfahrung der Zusammenarbeit und Teilnahme auf {{organization}} mit ihnen. Machen Sie Vorschläge und Kommentare, nehmen Sie an Debatten teil, denken Sie darüber nach, wie Sie zum Gemeinwohl beitragen können, liefern Sie Argumente zum Überzeugen, hören und lesen Sie, um sich überzeugen zu lassen, drücken Sie Ihre Ideen auf konkrete und direkte Weise aus, reagieren Sie mit Geduld und Entschlossenheit, verteidigen Sie Ihre Ideen und bleiben Sie offen für die Zusammenarbeit und die Ideen anderer Menschen.</li></ul>
       default_subject: Danke, dass du {{organization}}beigetreten {{organization}} !
@@ -1948,8 +1871,6 @@ de:
         notifications_settings: Benachrichtigungseinstellungen
         title: Benutzereinstellungen
         user_groups: Gruppen
-      widget:
-        see_more: Mehr sehen
   locale:
     name: Deutsch
     name_with_error: Deutsch (Fehler!)
@@ -2022,7 +1943,6 @@ de:
     dropdown:
       choose_diff_view_html: 'HTML-Ansicht:'
       choose_diff_view_mode: 'Vergleichsansicht:'
-      choose_diff_view_mode_menu: Vergleichsmodus wählen
       option_escaped: aus der Seite herausgekommen
       option_split: Nebeneinander
       option_unescaped: aus der Seite nicht herausgekommen
