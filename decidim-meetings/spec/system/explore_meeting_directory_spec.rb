@@ -145,8 +145,6 @@ describe "Explore meeting directory", type: :system do
       let!(:user_group_meeting) { create(:meeting, :published, :user_group_author, component: components.first) }
 
       it "lists the filtered meetings" do
-        skip_unless_redesign_enabled
-
         visit directory
 
         within "#panel-dropdown-menu-origin" do
@@ -313,8 +311,6 @@ describe "Explore meeting directory", type: :system do
     end
 
     it "allows filtering by space" do
-      skip_unless_redesign_enabled
-
       expect(page).to have_content(assembly_meeting.title["en"])
 
       # Since in the first load all the meeting are present, we need cannot rely on

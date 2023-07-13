@@ -78,8 +78,6 @@ describe "Explore versions", type: :system, versioning: true do
     end
 
     it "shows the creation date" do
-      skip_unless_redesign_enabled("this test pass using redesigned version_author cell")
-
       within ".version__author" do
         expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
       end

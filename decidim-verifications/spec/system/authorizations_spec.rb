@@ -237,8 +237,6 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           end
 
           it "shows a modal with renew information" do
-            skip_unless_redesign_enabled("This test pass using redesigned modals")
-
             visit_authorizations
             page.find("div[data-dialog-open='renew-modal']", text: /Example authorization/).click
 
@@ -252,8 +250,6 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
           describe "and clicks on the button to renew" do
             it "shows the verification form to start again" do
-              skip_unless_redesign_enabled("This test pass using redesigned modals")
-
               visit_authorizations
               page.find("div[data-dialog-open='renew-modal']", text: /Example authorization/).click
               within "#renew-modal" do
@@ -288,8 +284,6 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         end
 
         it "can be renewed" do
-          skip_unless_redesign_enabled("This test pass using redesigned modals")
-
           visit_authorizations
 
           within ".authorizations-list" do
