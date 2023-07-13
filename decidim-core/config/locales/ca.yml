@@ -265,7 +265,6 @@ ca:
         error: S'ha produït un error en acceptar l'esmena.
         success: L’esmena ha estat acceptada correctament.
       amendable:
-        amended_by: Esmenat per
         button: Esmenar %{model_name}
         error: S'ha produït un error en modificar aquest recurs.
         help_text: Millora aquest %{model_name} modificant la seva %{amendable_fields}.
@@ -285,7 +284,6 @@ ca:
         success: L'esborrany d'esmena s'ha eliminat correctament.
       edit_draft:
         discard: Descarta aquest esborrany
-        discard_confirmation: Segur que vols descartar l'esborrany d'aquesta esmena?
         send: Vista prèvia
         title: Edita l'esborrany d'esmena
       emendation:
@@ -322,7 +320,6 @@ ca:
       review:
         back: Torna
         heading: Revisa l'esmena
-        help_text: Esteu revisant una esmena al %{model_name}.
         send: Accepta l'esmena
       update_draft:
         error: S'ha produït un error en actualitzar l'esborrany de l'esmena.
@@ -342,8 +339,6 @@ ca:
         download: Descarregar fitxer
       documents:
         related_documents: Documents relacionats
-      geocoding:
-        geocoded_address: Adreça
       photo:
         alt: Imatge pels mitjans
         title: Imatge
@@ -351,7 +346,6 @@ ca:
         related_photos: Imatges relacionades
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar per múltiples usuàries
       comments:
         one: comentari
         other: comentaris
@@ -551,8 +545,6 @@ ca:
           nickname_help: El teu àlies a %{organization}. Només pot contenir lletres, números, '-' and '_'.
           sign_in: Entra
           sign_up: Registra't
-          sign_up_as:
-            legend: Inscriure's com a
           subtitle: Crea un compte per poder participar en els debats i donar suport a les propostes.
           terms: els termes i condicions d'ús
           tos_agreement: En registrar-te acceptes %{link}.
@@ -570,15 +562,7 @@ ca:
         newsletter_modal:
           buttons:
             check: Marca i continua
-            close_modal: Tanca modal
             uncheck: Deixa desmarcada
-          notice: |-
-            <p>Hola, segur que no vols rebre un butlletí?<br>
-            Si us plau, pren en consideració marcar la casella de selecció de butlletí a continuació.<br>
-            Per a nosaltres és molt important que rebis correus electrònics ocasionals per fer avisos importants, sempre pots canviar-ho a la pàgina de configuració de les notificacions.</p>
-            <p>Si no marques la casella, pot ser que et falti informació rellevant sobre noves oportunitats de participació dins de la plataforma.<br>
-            Si encara vols evitar rebre butlletins, entenem perfectament la teva decisió.</p>
-            <p>Gràcies per llegir això.</p>
           title: Notificacions de butlletins
         omniauth_buttons:
           or: O
@@ -586,9 +570,7 @@ ca:
       authorizations:
         new:
           authorize: Autoritza l'aplicació
-          by_organization_link_html: <small class="heading-small">per %{link}</small>
           cancel: Cancel·lar
-          connect_your_account_html: Connecta el teu compte iniciant la sessió a <strong>%{organization}</strong>.
           publish_content: Publica el contingut per a tu
           see_email: Consulta el teu correu electrònic
           see_name: Veure el teu nom
@@ -596,7 +578,6 @@ ca:
           this_application_will_be_able_to: 'Aquesta aplicació podrà:'
           this_application_will_not_be_able_to: 'Aquesta aplicació no podrà:'
           update_profile: Actualitza el teu perfil
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vol utilitzar el teu compte"
     download_your_data:
       export:
         ready: Llest
@@ -991,12 +972,9 @@ ca:
         description: Llegeix més sobre %{organization}.
         title: Ajuda general
     last_activities:
-      activities:
-        no_activities_warning: Sense activitat
       all: Tots els tipus d'activitats
       index:
         last_activity: Última activitat
-        resource_type: Tipus
     links:
       invalid_url: URL no vàlida
       warning:
@@ -1224,11 +1202,6 @@ ca:
         retry: Torna-ho a provar
     open_data:
       not_available_yet: Els fitxers Open Data encara no estan disponibles, torna-ho a provar d'aquí a uns minuts.
-    own_user_groups:
-      index:
-        pending: Pendents
-        rejected: Rebutjades
-        verified: Verificada
     pad_iframe:
       disclaimer: Els continguts d'aquest pad han estat escrits per participants registrades i expressen les seves opinions. %{organization} no es fa responsable dels seu contingut.
       explanation: Utilitzeu aquest bloc per prendre notes durant la trobada de manera col·laborativa, així és més fàcil escriure l'acta després.
@@ -1251,8 +1224,6 @@ ca:
         hero:
           participate: Participa
           welcome: Benvinguda a %{organization}!
-        metrics:
-          headline: Mètriques
         statistics:
           headline: Estat actual de %{organization}
         sub_hero:
@@ -1265,7 +1236,6 @@ ca:
       participatory_space:
         metrics:
           headline: Mètriques
-          link: Mostra totes les mètriques
       terms_of_service:
         accept:
           error: S'ha produït un error en acceptar els termes i condicions d'ús.
@@ -1278,7 +1248,6 @@ ca:
           modal_btn_continue: Acceptar els termes i condicions d'ús, i continuar
           modal_btn_exit: Els revisaré més tard
           modal_button: Rebutjar els termes i condicions d'ús
-          modal_close: Tancar finestra
           modal_title: Confirmes que no acceptes els termes i condicions d'ús actualitzats?
         required_review:
           alert: Hem actualitzat els nostres Termes i Condicions d'ús, si us plau, revisa'ls.
@@ -1293,7 +1262,6 @@ ca:
     profile:
       deleted: Participant eliminada
       inaccessible_message: Aquest perfil és inaccessible a causa de la violació dels termes i condicions d'ús!
-      view: Veure
     profiles:
       default_officialization_text_for_user_groups: Aquest grup està verificat públicament, el seu nom s'ha verificat per correspondre amb el seu nom real.
       default_officialization_text_for_users: Aquesta participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals.
@@ -1307,7 +1275,6 @@ ca:
         members: Membres
         officialized: Participant oficial
         send_private_message: Enviar missatge privat
-        view_full_profile: Mostra el perfil complet
       sidebar:
         badges:
           info: Els distintius s'aconsegueixen mitjançant la realització d'activitats específiques a la plataforma.
@@ -1377,7 +1344,6 @@ ca:
       term_input_placeholder: Cercar
     searches:
       filters:
-        back: Torna als resultats
         jump_to: 'Salta a:'
         state:
           active: Actiu
@@ -1390,9 +1356,6 @@ ca:
         filter_by: Filtra per
         unfold: Desplega
       results:
-        results:
-          one: "%{count} resultat"
-          other: "%{count} resultats"
         view_all: Mostra-ho tot (%{count})
     security:
       selfxss_warning:
@@ -1404,10 +1367,6 @@ ca:
         close_modal: Tancar el modal
         ok: D'acord
         title: Confirmar
-      embed_modal:
-        close_window: Tanca la finestra
-        embed: Si us plau, enganxa aquest codi a la teva pàgina
-        embed_link: Incrusta
       extended_navigation_bar:
         more: Més
         unfold: Desplegar
@@ -1426,7 +1385,6 @@ ca:
         report: Denunciar
         spam: Conté "clickbait", publicitat o estafes.
         title: Reportar contingut inapropiat
-        visit_profile: Si també vols bloquejar a la participant i la resta dels seus continguts, ves a la pàgina de perfil de %{user_link}.
       flag_user_modal:
         already_reported: Aquest contingut ja ha estat reportat i serà revisat per una administradora.
         block: Eliminar aquesta participant
@@ -1501,30 +1459,12 @@ ca:
         existing_error: El missatge no s'ha pogut crear. La conversa ja existeix, si us plau torna-ho a provar ara.
         success: Conversa iniciada correctament!
       index:
-        add_max_users: 'Afegir usuàries a la conversa: màxim 9 usuàries'
-        add_users_placeholder: Cercar...
-        close: Tancar
         conversations_info: Les converses son privades. Ningú més les pot veure. Es pot iniciar una conversa amb qualsevol participant o grup registrat a la plataforma.
-        from: De
-        last_message: Darrer missatge
-        modal_title: Nova conversa
-        new_conversation: Nova conversa
-        next: Següent
         no_conversations_warning: Encara no hi ha cap conversa.
-        no_results: No hi ha resultats
-        participant_with_disabled_message_reception: Aquesta participant ha desactivat la recepció de missatges.
         time_ago: "Fa %{time}"
-      new:
-        title: Iniciar una conversa
       reply:
         placeholder: La teva resposta...
         send: Enviar
-        title_reply: Respondre
-      show:
-        back: Mostra totes les converses
-        deleted_accounts: No podeu tenir una conversa amb comptes eliminades.
-        not_allowed: Aquesta participant no accepta missatges directes.
-        title: Conversa amb %{usernames}
       update:
         error: Missatge no enviat. Torna-ho a provar més tard
     user_interests:
@@ -1549,29 +1489,12 @@ ca:
         back_to_resource: Torna enrere
         changes_at_title: Canvis a "%{title}"
         number_of_versions: Versions
-        show_all_versions: Mostra totes les versions
-        version_author: Autoria de la versió
         version_created_at: Versió creada el
-        version_number: Número de versió
-        version_number_out_of_total: "%{current_version} de %{total_count}"
-    version_author:
-      show:
-        deleted: Participant eliminada
     versions:
       resource_version:
         of_versions: "(de %{number})"
         see_other_versions: veure altres versions
         version: Versió %{number}
-    versions_list:
-      show:
-        back_to_resource: Torna enrere
-        changes_at_title: Canvis a "%{title}"
-        number_of_versions: Versions
-        title: Versions
-    versions_list_item:
-      back: Mostra totes les versions
-      show:
-        version_index: Versió %{index}
     welcome_notification:
       default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} et donem la benvinguda!</p><ul><li>Si vole fer-te una idea ràpida de que pots fer-hi, fes una ullada a la <a href="{{help_url}}">Secció d'ajuda</a>.</li><li>Una vegada l'hagis llegit rebràs la teva primera ensenya. Aquí trobaràs un <a href="{{badges_url}}">llistat de totes les ensenyes</a>que pots aconsegui participant a {{organization}}</li><li>. Per acabar, però no per això menys important, uneix-te a d'altres persones, comparteix amb elles d'estar compromesa i de participar a {{organization}}. Fes propostes, comentaris, debat, pensa en com contribuir a un bé comú, aporta arguments per mirar de convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i resta oberta de ment per a col·laborar i unir-te a les idees d'altra gent.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!
@@ -1944,8 +1867,6 @@ ca:
         notifications_settings: Configuració de les notificacions
         title: Configuració de la participant
         user_groups: Grups
-      widget:
-        see_more: Veure més
   locale:
     name: Català
     name_with_error: Català (error!)
@@ -2018,7 +1939,6 @@ ca:
     dropdown:
       choose_diff_view_html: 'Vista HTML:'
       choose_diff_view_mode: 'Mode de vista de comparació:'
-      choose_diff_view_mode_menu: Triar el mode de comparació
       option_escaped: Escapada
       option_split: Costat per costat
       option_unescaped: No escapada
