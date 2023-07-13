@@ -291,7 +291,6 @@ cs:
         error: Při přijímání změny došlo k chybě.
         success: Tento pozměňovací návrh byl úspěšně přijat.
       amendable:
-        amended_by: Pozměněno
         button: Změna %{model_name}
         error: Při změně tohoto zdroje došlo k chybě.
         help_text: Zlepšete tento %{model_name} upravením jeho %{amendable_fields}.
@@ -311,7 +310,6 @@ cs:
         success: Pozměňovací návrh byl úspěšně smazán.
       edit_draft:
         discard: Zahodit koncept
-        discard_confirmation: Opravdu chcete zahodit tento pozměňovací návrh?
         send: Náhled
         title: Upravit pozměňovací návrh
       emendation:
@@ -351,7 +349,6 @@ cs:
       review:
         back: Zadní
         heading: Přezkoumejte pozměňovací návrh
-        help_text: Přezkoumáváte pozměňovací návrh k %{model_name}.
         send: Přijmout pozměňovací návrh
       update_draft:
         error: Při aktualizaci pozměňovacího návrhu došlo k potížím.
@@ -371,8 +368,6 @@ cs:
         download: Stáhnout soubor
       documents:
         related_documents: Související dokumenty
-      geocoding:
-        geocoded_address: Adresa
       photo:
         alt: Obrázek médií
         title: Obrázek
@@ -380,7 +375,6 @@ cs:
         related_photos: Související fotografie
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar pro více uživatelů
       comments:
         one: komentář
         few: komentáře
@@ -586,8 +580,6 @@ cs:
           nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
           sign_in: Přihlásit se
           sign_up: Zaregistrovat se
-          sign_up_as:
-            legend: Zaregistrovat se jako
           subtitle: Registrujte se, abyste se mohli účastnit Diskusí a podpořit Návrhy.
           terms: podmínky poskytování služeb
           tos_agreement: Přihlášením souhlasíte s %{link}.
@@ -605,19 +597,7 @@ cs:
         newsletter_modal:
           buttons:
             check: Zkontrolujte a pokračujte
-            close_modal: Zavřít okno
             uncheck: Ponechat nezaškrtnuté
-          notice: |-
-            <p>Hej, jste si jisti, že nechcete dostávat zpravodaj?<br>
-            Zaškrtněte prosím zaškrtávací políčko níže.<br>
-            Pro nás je velmi důležité, abyste obdrželi příležitostné e-maily
-            abyste dostali důležitá oznámení, můžete to vždy změnit v
-            nastavení oznámení.</p>
-            <p>Pokud nezaškrtnete zaškrtávací políčko, může vám chybět relevantní informace
-            o nových příležitostech pro účast v rámci platformy.<br>
-            Pokud se chcete i nadále vyhýbat přijímání informačních zpravodajů, naprosto
-            rozumíme vašemu rozhodnutí.</p>
-            <p>Děkujeme, že jste si to přečetli!</p>
           title: Oznámení zpravodaje
         omniauth_buttons:
           or: Nebo
@@ -625,9 +605,7 @@ cs:
       authorizations:
         new:
           authorize: Autorizovat aplikaci
-          by_organization_link_html: <small class="heading-small">podle %{link}</small>
           cancel: Zrušit
-          connect_your_account_html: Připojte svůj účet přihlášením k <strong>%{organization}</strong>.
           publish_content: Publikujte obsah pro vás
           see_email: Podívejte se na svůj e-mail
           see_name: Zobrazte své jméno
@@ -635,7 +613,6 @@ cs:
           this_application_will_be_able_to: 'Tato aplikace bude schopna:'
           this_application_will_not_be_able_to: 'Tato aplikace nebude moci:'
           update_profile: Aktualizujte svůj profil
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce používat váš účet"
     download_your_data:
       export:
         ready: Připraven
@@ -1034,12 +1011,9 @@ cs:
         description: Přečtěte si více o %{organization}.
         title: Obecná nápověda
     last_activities:
-      activities:
-        no_activities_warning: Žádná aktivita
       all: Všechny typy aktivit
       index:
         last_activity: Poslední aktivita
-        resource_type: Typ
     links:
       invalid_url: Neplatná URL
       warning:
@@ -1267,11 +1241,6 @@ cs:
         retry: Zkusit znovu
     open_data:
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
-    own_user_groups:
-      index:
-        pending: Čekající
-        rejected: Odmítnuto
-        verified: Ověřeno
     pad_iframe:
       disclaimer: Obsah této podložky jsou napsány registrovanými uživateli a vyjadřují jejich názory. %{organization} nemůže být zodpovědný za jeho obsah.
       explanation: Do poznámkového bloku můžete během schůze společně psát poznámky, vytvořit zápis ze schůze pak bude snazší.
@@ -1294,8 +1263,6 @@ cs:
         hero:
           participate: Účastnit se
           welcome: Vítejte na %{organization}!
-        metrics:
-          headline: Metriky
         statistics:
           headline: Aktuální stav %{organization}
         sub_hero:
@@ -1308,7 +1275,6 @@ cs:
       participatory_space:
         metrics:
           headline: Metriky
-          link: Zobrazit všechny metriky
       terms_of_service:
         accept:
           error: Při přijímání podmínek služby došlo k chybě.
@@ -1321,7 +1287,6 @@ cs:
           modal_btn_continue: Přijmout podmínky a pokračovat
           modal_btn_exit: Přečtu si je později
           modal_button: Odmítnout podmínky
-          modal_close: Zavřít modal
           modal_title: Skutečně odmítáte aktualizované podmínky použití?
         required_review:
           alert: Aktualizovali jsme Podmínky služeb, přečtěte si je, prosím.
@@ -1336,7 +1301,6 @@ cs:
     profile:
       deleted: Vymazaný účastník
       inaccessible_message: Tento profil je nedostupný z důvodu porušení smluvních podmínek!
-      view: Zobrazit
     profiles:
       default_officialization_text_for_user_groups: Tato skupina uživatelů je veřejně ověřena a její název byl ověřen tak, aby odpovídal skutečnému názvu.
       default_officialization_text_for_users: Tento účastník byl veřejně ověřen, jeho jméno a role byly ověřeny a souhlasí se skutečným jménem a rolí.
@@ -1350,7 +1314,6 @@ cs:
         members: Členové
         officialized: Oficiální účastník
         send_private_message: Odeslat soukromou zprávu
-        view_full_profile: Zobrazit celý profil
       sidebar:
         badges:
           info: Odznaky jsou získávány prováděním konkrétní činnosti v platformě.
@@ -1420,7 +1383,6 @@ cs:
       term_input_placeholder: Vyhledávání
     searches:
       filters:
-        back: Zpět na výsledky
         jump_to: 'Přejít na:'
         state:
           active: Aktivní
@@ -1433,11 +1395,6 @@ cs:
         filter_by: Filtrovat podle
         unfold: Rozvinout
       results:
-        results:
-          one: "%{count} výsledek"
-          few: "%{count} výsledků"
-          many: "%{count} výsledků"
-          other: "%{count} výsledků"
         view_all: Zobrazit všechny (%{count})
     security:
       selfxss_warning:
@@ -1449,10 +1406,6 @@ cs:
         close_modal: Zavřít okno
         ok: OK
         title: Potvrdit
-      embed_modal:
-        close_window: Zavřete okno
-        embed: Vložte tento kód na svou stránku
-        embed_link: Vložit
       extended_navigation_bar:
         more: Více
         unfold: Rozvinout
@@ -1471,7 +1424,6 @@ cs:
         report: Zpráva
         spam: Obsahuje clickbait, reklama, podvody nebo skripty.
         title: Nahlásit problém
-        visit_profile: Pokud chcete také zablokovat účastníka a zbytek jeho obsahu, přejděte na stránku profilu %{user_link}.
       flag_user_modal:
         already_reported: Tento obsah je již nahlášen a bude přezkoumán administrátorem.
         block: Blokovat tohoto uživatele
@@ -1546,30 +1498,12 @@ cs:
         existing_error: Zprávu nelze vytvořit. Konverzace již existuje, zkuste to prosím znovu.
         success: Konverzace byla úspěšně spuštěna!
       index:
-        add_max_users: 'Přidat uživatele do konverzace: nejvýše 9 uživatelů'
-        add_users_placeholder: Hledat...
-        close: Zavřít
         conversations_info: Konverzace jsou soukromé. Nikdo je nemůže vidět. Konverzaci lze zahájit s kterýmkoli účastníkem nebo skupinou registrovanou na platformě.
-        from: Od
-        last_message: Poslední zpráva
-        modal_title: Nová konverzace
-        new_conversation: Nová konverzace
-        next: Další
         no_conversations_warning: Zatím nejsou žádné konverzace.
-        no_results: Žádné výsledky
-        participant_with_disabled_message_reception: Tento uživatel zakázal příjem zpráv.
         time_ago: "před %{time}"
-      new:
-        title: Zahájit konverzaci
       reply:
         placeholder: Vaše odpověď...
         send: Odeslat
-        title_reply: Odpovědět
-      show:
-        back: Zobrazit všechny konverzace
-        deleted_accounts: Nemůžete mít konverzaci s odstraněnými účty.
-        not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
-        title: Konverzace s %{usernames}
       update:
         error: Zpráva nebyla odeslána. Zkuste to později
     user_interests:
@@ -1594,29 +1528,12 @@ cs:
         back_to_resource: Jít zpět
         changes_at_title: Změny v "%{title}"
         number_of_versions: Verze
-        show_all_versions: Zobrazit všechny verze
-        version_author: Autor verze
         version_created_at: Verze vytvořena v
-        version_number: Číslo verze
-        version_number_out_of_total: "%{current_version} z %{total_count}"
-    version_author:
-      show:
-        deleted: Vymazaný účastník
     versions:
       resource_version:
         of_versions: "(z %{number})"
         see_other_versions: viz ostatní verze
         version: Verze %{number}
-    versions_list:
-      show:
-        back_to_resource: Vrátit se zpět
-        changes_at_title: Změny v "%{title}"
-        number_of_versions: Verze
-        title: Verze
-    versions_list_item:
-      back: Zobrazit všechny verze
-      show:
-        version_index: Verze %{index}
     welcome_notification:
       default_body: <p>Dobrý den, {{name}}, díky za připojení k {{organization}} a vítejte!</p><ul><li>Chcete-li získat rychlou představu o tom, co zde můžete udělat, podívejte se na sekci <a href="{{help_url}}">Nápověda</a>.</li><li>Až si ji přečtete, dostanete svůj první odznak. Zde je <a href="{{badges_url}}">seznam všech odznaků</a> které můžete získat, když se účastníte {{organization}}</li><li>v neposlední řadě se připojte k ostatním lidem, sdílejte s nimi zkušenost z toho, že jste se zapojili a zúčastnili se {{organization}}. Vypracujte návrhy, připomínky, diskusi, přemýšlejte o tom, jak přispívat ke společnému cíli, poskytněte argumenty, abyste přesvědčili, poslouchali a četli, abyste byli přesvědčeni, vyjadřovali své myšlenky konkrétním a přímým způsobem, reagovali trpělivě a rozhodovali, měli otevřenou mysl ke spolupráci a připojili se k jiným lidem.</li></ul>
       default_subject: Děkujeme, že jste se připojili k {{organization}}!
@@ -1996,8 +1913,6 @@ cs:
         notifications_settings: Nastavení oznámení
         title: Uživatelské nastavení
         user_groups: Skupiny
-      widget:
-        see_more: Vidět víc
   locale:
     name: Čeština
     name_with_error: Čeština (chyba!)
@@ -2070,7 +1985,6 @@ cs:
     dropdown:
       choose_diff_view_html: 'Režim HTML zobrazení:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
-      choose_diff_view_mode_menu: Vyberte režim porovnání
       option_escaped: Escapované
       option_split: Vedle sebe
       option_unescaped: Neošetřené Esc
