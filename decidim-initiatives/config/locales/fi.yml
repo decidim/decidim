@@ -359,6 +359,7 @@ fi:
           back: Takaisin
           continue: Jatka
           fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoitteet tarpeeksi selkeästi kuvattu?</li> <li>Sinun on valittava allekirjoitustapa. Palvelun ulkopuolella, verkossa tai molemmat.</li> <li>Mikä on aloitteen maantieteellinen laajuus?</li> </ul>"
+          initiative_type: Aloitteen tyyppi
           more_information: "(Lisää tietoa)"
           select_area: Valitse alue
           select_scope: Valitse teema
@@ -383,6 +384,8 @@ fi:
         select_initiative_type:
           back: Takaisin
           choose_html: Haluan luoda uuden <strong>%{title}</strong> aloitteen
+          more_information: Lisätietoa
+          new: Luo uusi aloite
           select: Haluan tukea tätä aloitetta
           select_initiative_type_help: Aloitteita käytetään vaikuttamiseen organisaation tarkoitusperien edistämiseksi. Millaisen aloitteen haluat aloittaa?
           verification_required: Vahvista tilisi allekirjoittaaksesi tämän aloitteen
@@ -425,7 +428,12 @@ fi:
           email_subject: "%{applicant_nickname} haluaa liittyä mukaan aloitteeseesi"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> haki jäseneksi aloitteesi <a href="%{resource_url}">%{resource_title}</a> kannatuskomiteaan. Voit hyväksyä tai hylätä pyynnön <a href="%{resource_url}/edit">aloitteen muokkaussivulta</a>.
       form:
+        add_documents: Lisää asiakirjoja
+        add_image: Lisää kuva
         attachment_legend: "(Valinnainen) Lisää liitetiedosto"
+        edit_documents: Muokkaa asiakirjoja
+        edit_image: Muokkaa kuvaa
+        image_legend: "(Vapaaehtoinen) Lisää kuva"
       index:
         uninitialized: Hallintakäyttäjä ei ole vielä määrittänyt aloitteiden asetuksia.
       initiative_signatures:
@@ -464,6 +472,7 @@ fi:
           approve: Hyväksy
           confirm_revoke: Oletko varma?
           invite_to_committee_help: Jaa tämä linkki ja kutsu muita käyttäjiä kannatuskomiteaan.
+          link: Linkki
           no_members_yet: Kannatuskomiteassa ei ole jäseniä.
           title: Komitean jäsenet
         count:
@@ -527,9 +536,15 @@ fi:
           answer_title: Tähän aloitteeseen on vastattu.
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei kerännyt tarpeeksi allekirjoituksia.
         show:
+          area: Alue
           confirm: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
           edit: Muokkaa
+          initiative_data: Aloitteen tiedot
+          scope: Teema
           send_to_technical_validation: Lähetä tekniseen validointiin
+          signature_collection: Allekirjoituksen keräämistapa
+          state: Tila
+          type: Tyyppi
         signatures_count:
           one: " allekirjoitus"
           other: " allekirjoitusta"
@@ -561,6 +576,11 @@ fi:
           authorizations_page: Näytä vahvistukset
           explanation: Tilisi tulee vahvistaa luodaksesi uuden aloitteen.
           title: Vahvistus vaaditaan
+      pages:
+        home:
+          highlighted_initiatives:
+            active_spaces: Aktiiviset aloitteet
+            see_all_spaces: Näytä kaikki aloitteet
       show:
         badge_name:
           accepted: Tarpeeksi allekirjoituksia
