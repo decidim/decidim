@@ -677,6 +677,8 @@ ru:
     statistics:
       comments_count: Комментариев
     user_conversations:
+      index:
+        close: Закрыть
       update:
         error: Сообщение не отправлено. Попробуйте позже
     version_author:
