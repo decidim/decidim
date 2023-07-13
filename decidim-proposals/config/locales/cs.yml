@@ -864,8 +864,6 @@ cs:
           recent: Nedávné
           with_more_authors: S více autory
         participatory_texts:
-          index:
-            document_index: Index dokumentů
           view_index:
             see_index: Prohlédnout seznam
         placeholder:
