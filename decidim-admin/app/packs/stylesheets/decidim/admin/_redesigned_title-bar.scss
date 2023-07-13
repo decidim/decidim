@@ -1,5 +1,5 @@
 .title-bar{
-  @apply py-2 px-8 flex items-center bg-tertiary text-black text-xs;
+  @apply py-1.5 px-8 flex items-center bg-tertiary text-black text-xs;
 
   [data-target*="dropdown"] > svg:first-of-type {
     @apply inline-block;
