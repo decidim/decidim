@@ -341,6 +341,9 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注 %{author_nickname}。您可以停止收到跟随上一个链接的通知。
           email_subject: '%{author_nickname} 认可的倡议'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议已被 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 认可。
+      form:
+        add_attachments: www.un.org/webcast
+        delete_attachment: 删除
       index:
         title: 倡议
       initiative_signatures:
@@ -376,6 +379,8 @@ zh-CN:
         author_list:
           hidden_authors_count:
             other: 和更多 %{count} 人
+        committee_members:
+          revoke: Revoke
         count:
           title:
             other: "%{count} 倡议"
@@ -446,11 +451,6 @@ zh-CN:
         status_change_for: 倡议 %{title} 改变了其状态
       last_activity:
         new_initiative: 新举措
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: 积极的倡议
-            see_all_initiatives: 查看所有倡议
       show:
         badge_name:
           accepted: 足够的签名
