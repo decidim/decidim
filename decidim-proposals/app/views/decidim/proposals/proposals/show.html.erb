@@ -58,7 +58,12 @@ extra_admin_link(
 
   <section class="layout-main__section">
     <% if @proposal.emendation? %>
-      <%= cell("decidim/diff", proposal_presenter.versions.last, path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) }) %>
+      <%= cell(
+            "decidim/diff",
+            proposal_presenter.versions.last,
+            header_level: :h2,
+            path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) }
+          ) %>
     <% elsif not ["section","subsection"].include? @proposal.participatory_text_level %>
       <div class="editor-content">
         <%= render_proposal_body(@proposal) %>
