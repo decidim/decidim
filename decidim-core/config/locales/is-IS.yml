@@ -314,7 +314,7 @@ is:
       scopes: Scopes
     shared:
       embed_modal:
-        close_window: Lokaðu glugga
+        close_window: Loka glugga
         embed: Vinsamlegast lítið þennan kóða á síðunni þinni
         embed_link: Fella inn
       flag_modal:
@@ -340,6 +340,8 @@ is:
         share: Deila
         share_link: Deila tengil
     user_conversations:
+      index:
+        close: Loka
       update:
         error: Skilaboð ekki send. Reyndu aftur seinna
   devise:
