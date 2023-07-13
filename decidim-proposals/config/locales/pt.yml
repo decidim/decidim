@@ -346,9 +346,6 @@ pt:
         description: Número de votos nas propostas
         object: votos
         title: Votos
-    participatory_spaces:
-      highlighted_proposals:
-        see_all: Ver todos (%{count})
     proposals:
       actions:
         answer_proposal: Responder a proposta
@@ -511,15 +508,11 @@ pt:
         rejected: Rejeitado
         withdrawn: Retirado
       application_helper:
-        filter_category_values:
-          all: Todos
         filter_origin_values:
           all: Todos
           meetings: Reuniões
           official: Oficial
           user_groups: Grupos
-        filter_scope_values:
-          all: Todos
         filter_state_values:
           accepted: Aceites
           all: Todos
@@ -547,10 +540,6 @@ pt:
               ok: Retirar o rascunho colaborativo
               title: A ação seguinte é irreversível
             success: Rascunho colaborativo retirado corretamente.
-        count:
-          drafts_count:
-            one: "%{count} rascunho colaborativo"
-            other: "%{count} rascunhos colaborativos"
         create:
           success: Rascunho colaborativo criado corretamente.
         edit:
@@ -596,19 +585,15 @@ pt:
           rejected_request:
             error: Não foi possível rejeitá-lo como colaborador, por favor tente novamente mais tarde.
         show:
-          back: Retroceder
           edit: Editar rascunho colaborativo
-          final_proposal: proposta final
           final_proposal_help_text: Este rascunho está terminado. Verifique a proposta final
           hidden_authors_count:
             one: e mais %{count} pessoa
             other: e mais %{count} pessoas
           publish: Publicar
           publish_info: Publicar esta versão do rascunho ou
-          published_proposal: proposta publicada
           request_access: Solicitar acesso
           requested_access: Acesso solicitado
-          version_history: ver o histórico de versões desta proposta
           withdraw: retirar o rascunho
         states:
           open: Aberto
@@ -619,12 +604,8 @@ pt:
           success: Rascunho colaborativo atualizado corretamente.
         wizard_aside:
           back_from_collaborative_draft: Retroceder para os rascunhos colaborativos
-          info: Está a criar um <strong>projeto colaborativo</strong>.
         wizard_header:
           title: Criar o seu rascunho colaborativo
-      content_blocks:
-        highlighted_proposals:
-          proposals: Propostas
       create:
         error: Ocorreu um problema ao guardar a proposta.
         success: Proposta criada corretamente. Guardado como Rascunho.
@@ -632,11 +613,6 @@ pt:
         error: Ocorreu um problema ao eliminar o rascunho colaborativo.
         success: O rascunho da proposta foi eliminado corretamente.
       models:
-        collaborative_draft:
-          fields:
-            authors: Autores
-            comments: Comentários
-            contributions: Contribuições
         proposal:
           fields:
             category: Categoria
@@ -657,7 +633,6 @@ pt:
         buttons:
           amend: Modificar
           comment: Comentar
-          comments: Comentários
       proposal_votes:
         create:
           error: Ocorreu um problema ao votar na proposta.
@@ -669,17 +644,12 @@ pt:
         complete:
           send: Enviar
           title: Concluir a sua proposta
-        count:
-          proposals_count:
-            one: "%{count} proposta"
-            other: "%{count} propostas"
         dynamic_map_instructions:
           description: As coordenadas serão actualizadas quando clicar no botão ‘pré-visualização’. No entanto, o endereço não será alterado.
           instructions: Pode mover o ponto no mapa.
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
-          gallery_legend: "(Opcional) Adicionar uma imagem ao cartão da proposta"
           select_a_category: Por favor selecione uma categoria
           send: Enviar
           title: Editar proposta
@@ -701,11 +671,6 @@ pt:
           state: Estado
           type: Tipo
           voted: Votado
-        filters_small_view:
-          close_modal: Fechar modal
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desdobrar
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Aceder a rascunhos colaborativos
@@ -713,11 +678,6 @@ pt:
           see_all: Ver todas as propostas
           see_all_withdrawn: Ver todas as propostas retiradas
           text_banner: Está a ver a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
-          view_proposal: Ver proposta
-        linked_proposals:
-          proposal_votes:
-            one: voto
-            other: votos
         new:
           send: Continuar
         orders:
@@ -729,11 +689,6 @@ pt:
           random: Aleatória
           recent: Recente
           with_more_authors: Com mais autores
-        participatory_texts:
-          index:
-            document_index: Índice de documentos
-          view_index:
-            see_index: Ver o índice
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -746,14 +701,10 @@ pt:
           publish: Publicar
           title: Publicar a sua proposta
         proposal:
-          creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta
         show:
           answer: Responder
-          back_to: Retroceder a
-          back_to_list: Retroceder para a lista
           changes_at_title: Modificação a "%{title}"
-          comments: Comentários
           edit_proposal: Editar proposta
           estimated_cost: Custo estimado
           hidden_endorsers_count:
@@ -768,14 +719,9 @@ pt:
           proposal_accepted_reason: 'Esta proposta foi aceite porque:'
           proposal_in_evaluation_reason: Esta proposta está sob avaliação
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
-          read_less: Ler menos
-          read_more: Ler mais
-          report: Relatório
           withdraw_btn_hint: Pode retirar a sua proposta se mudar de ideia, desde que não tenha recebido nenhum voto. A proposta não é eliminada, aparecerá na lista de propostas retiradas.
           withdraw_confirmation_html: Tem a certeza de que deseja retirar esta proposta?<br><br><strong>Esta ação não pode ser cancelada!</strong>
           withdraw_proposal: Retirar proposta
-        tags:
-          changed_from: "(modificada de <u>%{previous_name}</u> por um administrador)"
         update:
           title: Atualizar proposta
         vote_button:
@@ -802,8 +748,6 @@ pt:
           title: 'A votação está sujeita às seguintes regras:'
           vote_limit:
             description: Pode votar até %{limit} propostas.
-            left: Remanescente
-            votes: Votos
         wizard_aside:
           back: Retroceder
           back_from_step_1: Retroceder para as propostas
@@ -836,12 +780,8 @@ pt:
         error: Ocorreu um problema ao guardar o rascunho colaborativo.
         success: Rascunho da proposta atualizado corretamente.
       versions:
-        collaborative_drafts:
-          back_to_resource: Retroceder para o rascunho colaborativo
         index:
           title: Versões
-        proposals:
-          back_to_resource: Retroceder para a proposta
     resource_links:
       copied_from_component:
         proposal_proposal: Propostas relacionadas
