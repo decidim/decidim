@@ -145,25 +145,6 @@ describe "Proposals", type: :system do
     #   it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.large-9"
     # end
 
-    context "when it is a proposal with image" do
-      let!(:component) do
-        create(:proposal_component,
-               manifest:,
-               participatory_space: participatory_process)
-      end
-
-      let!(:proposal) { create(:proposal, component:) }
-      let!(:image) { create(:attachment, attached_to: proposal) }
-
-      it "shows the card image" do
-        skip "REDESIGN_PENDING - The card-l for proposals does not implement images. Delete this test if this is correct"
-        visit_component
-        within "#proposals__proposal_#{proposal.id}" do
-          expect(page).to have_selector(".card__image")
-        end
-      end
-    end
-
     context "when it is an official meeting proposal" do
       include_context "with rich text editor content"
       let!(:proposal) { create(:proposal, :official_meeting, body: content, component:) }
@@ -509,13 +490,6 @@ describe "Proposals", type: :system do
         expect(page).to have_selector("a", text: "Most supported")
         expect(page).to have_selector("#proposals .proposal-list__container .proposal-list-item:first-child", text: most_voted_proposal_title)
         expect(page).to have_selector("#proposals .proposal-list__container .proposal-list-item:last-child", text: less_voted_proposal_title)
-      end
-
-      it "shows a disabled vote button for each proposal, but no links to full proposals" do
-        skip "REDESIGN_PENDING - Voting from index is deprecated in proposals. Remove this test if this is correct"
-
-        expect(page).to have_button("Supports disabled", disabled: true, count: 2)
-        expect(page).not_to have_link("View proposal")
       end
     end
 
