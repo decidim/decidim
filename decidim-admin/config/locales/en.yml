@@ -1039,7 +1039,6 @@ en:
         dashboard: Dashboard
         edit_area_type: Edit area type
         edit_external_domains: External domain whitelist
-        edit_help_sections: Edit help sections
         edit_organization: Edit organization
         edit_organization_appearance: Edit homepage appearance
         edit_scope_type: Edit scope type
@@ -1049,20 +1048,16 @@ en:
         metrics: Metrics
         new_area: New area
         new_area_type: New area type
-        new_managable_participant: New managable participant
         new_newsletter: New newsletter
         new_page: New page
-        new_participant: New participant
         new_scope: New scope
         new_scope_type: New scope type
         new_topic: New topic
-        newsletter_example_preview: Example newsletter template
         newsletter_templates: Newsletter templates
         newsletters: Newsletters
         pages: Pages
         panel: Admin
         participants: Participants
-        scope_type: Scope type
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages
