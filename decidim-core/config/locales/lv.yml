@@ -146,7 +146,6 @@ lv:
         error: Grozījumu apstiprināšanas laikā radās kļūda.
         success: Grozījumi ir veiksmīgi apstiprināti.
       amendable:
-        amended_by: Grozījumus veica
         button: Grozīt %{model_name}
         error: Vienuma grozījumu veikšanas laikā radusies kļūda.
         promote_button: Paaugstināt līdz %{model_name}
@@ -164,7 +163,6 @@ lv:
         success: Grozījuma melnraksts tika veiksmīgi dzēsts.
       edit_draft:
         discard: Atmest šo melnrakstu
-        discard_confirmation: Vai tiešām vēlaties atmest šo grozījuma melnrakstu?
         send: Priekšskatīt
         title: Rediģēt grozījuma melnrakstu
       emendation:
@@ -349,8 +347,6 @@ lv:
           newsletter_title: Atļauja sazināties
           sign_in: Pieteikties
           sign_up: Reģistrēties
-          sign_up_as:
-            legend: Reģistrēties kā
           subtitle: Reģistrēties, lai piedalītos diskusijās un atbalstītu priekšlikumus.
           tos_agreement: Reģistrējoties jūs piekrītat %{link}.
           tos_title: Pakalpojumu sniegšanas noteikumi
@@ -363,7 +359,6 @@ lv:
         newsletter_modal:
           buttons:
             check: Pārbaudīt un turpināt
-            close_modal: Aizvērt modal
           title: Paziņojumi par informatīvajiem biļeteniem
         omniauth_buttons:
           or: vai
@@ -371,7 +366,6 @@ lv:
       authorizations:
         new:
           authorize: Autorizēt lietojumprogrammu
-          by_organization_link_html: <small class="heading-small">pa %{link}</small>
           cancel: Atcelt
           publish_content: Publicēt saturu jūsu vietā
           see_email: Redzēt jūsu e-pastu
@@ -380,7 +374,6 @@ lv:
           this_application_will_be_able_to: 'Lietojumprogramma varēs:'
           this_application_will_not_be_able_to: 'Lietojumprogramma nevarēs:'
           update_profile: Atjaunināt profilu
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vēlas izmantot jūsu kontu"
     download_your_data:
       export:
         ready: Gatavs
@@ -633,12 +626,9 @@ lv:
           title: Ko es varu darīt %{organization}?
         title: Vispārēja palīdzība
     last_activities:
-      activities:
-        no_activities_warning: Nav aktivitātes
       all: Visi aktivitātes veidi
       index:
         last_activity: Pēdējā aktivitāte
-        resource_type: Veids
     log:
       base_presenter:
         create: "%{user_name} izveidoja %{resource_name}"
@@ -773,11 +763,6 @@ lv:
         success: Jūsu paziņojumu iestatījumi tika veiksmīgi atjaunināti.
     open_data:
       not_available_yet: Atvērto datu faili vēl nav pieejami. Lūdzu, mēģiniet vēlreiz pēc dažām minūtēm.
-    own_user_groups:
-      index:
-        pending: Nepabeigts
-        rejected: Noraidīts
-        verified: Pārbaudīts
     pad_iframe:
       disclaimer: Šī kopdokumenta saturu veidojuši reģistrēti lietotāji, un tas pauž viņu viedokli. %{organization} nevar būt atbildīga par tās saturu.
       pad: Kopdokuments
@@ -797,8 +782,6 @@ lv:
         hero:
           participate: Piedalīties
           welcome: Laipni lūdzam %{organization}!
-        metrics:
-          headline: Rādītāji
         statistics:
           headline: '%{organization} pašreizējais stāvoklis'
         sub_hero:
@@ -811,11 +794,10 @@ lv:
       participatory_space:
         metrics:
           headline: Rādītāji
-          link: Rādīt visus rādītājus
     participatory_space_private_users:
       not_allowed: Jums nav atļauts skatīt šo saturu
     profile:
-      view: Apskatīt
+      deleted: Dzēsts dalībnieks
     profiles:
       show:
         activity: Aktivitāte
@@ -825,7 +807,6 @@ lv:
         following: Seko
         groups: Grupas
         members: Dalībnieki
-        view_full_profile: Skatīt pilnu profilu
       sidebar:
         badges:
           info: Žetoni tiek nopelnīti, veicot noteiktas darbības platformā.
@@ -870,7 +851,6 @@ lv:
       term_input_placeholder: Meklēt
     searches:
       filters:
-        back: Atpakaļ pie rezultātiem
         jump_to: 'Pārlēkt uz:'
         state:
           active: Aktīvas
@@ -883,16 +863,8 @@ lv:
         filter_by: Filtrēt pēc
         unfold: Atritināt
       results:
-        results:
-          zero: "%{count} rezultāti"
-          one: "%{count} rezultāts"
-          other: "%{count} rezultāti"
         view_all: Skatīt visus (%{count})
     shared:
-      embed_modal:
-        close_window: Aizvērt logu
-        embed: Lūdzu, ielīmējiet šo kodu savā lapā
-        embed_link: Iegult
       extended_navigation_bar:
         more: Vairāk
         unfold: Atritināt
@@ -934,27 +906,12 @@ lv:
         existing_error: Ziņojumu nevarēja izveidot. Saruna jau eksistē, lūdzu, mēģiniet vēlreiz.
         success: Saruna sākās veiksmīgi!
       index:
-        add_max_users: 'Pievienojiet lietotājus sarunai: ne vairāk par deviņiem lietotājiem'
-        add_users_placeholder: Meklēt...
-        close: Aizvērt
         conversations_info: Sarunas ir privātas. Neviens cits tās nevar redzēt. Sarunu var sākt ar jebkuru dalībnieku vai grupu, kas reģistrēta platformā.
-        from: "No"
-        last_message: Pēdējā ziņa
-        modal_title: Jauna saruna
-        new_conversation: Jauna saruna
-        next: Nākamais
         no_conversations_warning: Šeit vēl nav sarunu.
-        no_results: Nav rezultātu
         time_ago: "Pirms %{time}"
-      new:
-        title: Sākt sarunu
       reply:
         placeholder: Jūsu atbilde...
         send: Sūtīt
-        title_reply: Atbildēt
-      show:
-        not_allowed: Šis lietotājs vairs nepieņem tiešās ziņas.
-        title: Saruna ar %{usernames}
       update:
         error: Ziņojums nav nosūtīts. Pamēģini vēlreiz vēlāk
     user_interests:
@@ -969,26 +926,10 @@ lv:
         back_to_resource: Atgriezties
         changes_at_title: Izmaiņas "%{title}"
         number_of_versions: Versijas
-        show_all_versions: Rādīt visas versijas
-        version_author: Versijas autors
         version_created_at: Versija izveidota
-        version_number: Versijas numurs
-        version_number_out_of_total: "%{current_version} no %{total_count}"
-    version_author:
-      show:
-        deleted: Dzēsts dalībnieks
     versions:
       resource_version:
         of_versions: "(no %{number})"
-    versions_list:
-      show:
-        back_to_resource: Atgriezties
-        changes_at_title: Izmaiņas "%{title}"
-        number_of_versions: Versijas
-        title: Versijas
-    versions_list_item:
-      show:
-        version_index: Versija %{index}
     welcome_notification:
       default_subject: Paldies par pievienošanos {{organization}}!
     wizard_step_form:
@@ -1137,6 +1078,10 @@ lv:
     timestamp_error_message: Diemžēl tas bija par ātru! Lūdzu, iesniedziet atkārtoti.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Veids
       edit_link:
         edit: Labot
       footer:
@@ -1169,8 +1114,6 @@ lv:
         notifications_settings: Paziņojumu iestatījumi
         title: Dalībnieka iestatījumi
         user_groups: Grupas
-      widget:
-        see_more: Skatīt vairāk
   locale:
     name: Latviešu
     name_with_error: Latviešu (kļūda!)
