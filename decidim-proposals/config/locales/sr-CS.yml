@@ -103,12 +103,7 @@ sr:
             valuators: Procenjivači
       proposals:
         show:
-          back_to_list: Nazad na listu
           estimated_cost: Procenjen trošak
-          read_less: Pročitaj manje
-          read_more: Pročitaj više
-        tags:
-          changed_from: "(preimenovano iz <u>%{previous_name}</u> od strane administratora)"
       proposals_picker:
         choose_proposals: Izaberi predloge
         close: Zatvori
