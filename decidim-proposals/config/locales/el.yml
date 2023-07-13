@@ -384,9 +384,6 @@ el:
         description: Αριθμός υποστηρίξεων σε προτάσεις
         object: υποστηρίξεις
         title: Υποστηρίξεις
-    participatory_spaces:
-      highlighted_proposals:
-        see_all: Δείτε όλες τις προτάσεις (%{count})
     proposals:
       actions:
         answer_proposal: Απάντηση σε πρόταση
@@ -607,16 +604,12 @@ el:
         rejected: Απορρίφθηκε
         withdrawn: Αποσύρθηκε
       application_helper:
-        filter_category_values:
-          all: Όλα
         filter_origin_values:
           all: Όλα
           meetings: Συσκέψεις
           official: Επίσημη
           participants: Συμμετέχοντες
           user_groups: Ομάδες
-        filter_scope_values:
-          all: Όλα
         filter_state_values:
           accepted: Έγινε αποδοχή
           all: Όλα
@@ -646,10 +639,6 @@ el:
               ok: Απόσυρση του προσχεδίου συνεργασίας
               title: Η ακόλουθη ενέργεια είναι μη αναστρέψιμη
             success: Το προσχέδιο συνεργασίας αποσύρθηκε με επιτυχία.
-        count:
-          drafts_count:
-            one: "%{count} προσχέδιο συνεργασίας"
-            other: "%{count} προσχέδια συνεργασίας"
         create:
           error: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία του συνεργατικού προσχεδίου.
           success: Το προσχέδιο συνεργασίας δημιουργήθηκε με επιτυχία.
@@ -701,9 +690,7 @@ el:
             error: Δεν ήταν δυνατή η απόρριψη ως συνεργάτη. Δοκιμάστε ξανά αργότερα.
             success: "@%{user} έχει απορριφθεί με επιτυχία ως συνεργάτης."
         show:
-          back: Πίσω
           edit: Επεξεργασία προσχεδίου συνεργασίας
-          final_proposal: τελική πρόταση
           final_proposal_help_text: Αυτό το προσχέδιο ολοκληρώθηκε. Δείτε την τελική πρόταση
           hidden_authors_count:
             one: και %{count} ακόμη άτομο
@@ -711,10 +698,8 @@ el:
           info-message: Αυτό είναι ένα <strong>προσχέδιο συνεργασίας</strong> για μια πρόταση. Αυτό σημαίνει ότι μπορείτε να βοηθήσετε τους συντάκτες τους να διαμορφώσουν την πρόταση χρησιμοποιώντας την παρακάτω ενότητα σχολίων ή να την βελτιώσετε απευθείας ζητώντας πρόσβαση για να την επεξεργαστείτε. Μόλις οι συντάκτες σάς παραχωρήσουν πρόσβαση, θα μπορείτε να κάνετε αλλαγές σε αυτό το προσχέδιο.
           publish: Δημοσίευση
           publish_info: Δημοσίευση αυτής της έκδοσης του προσχεδίου ή
-          published_proposal: δημοσιευμένη πρόταση
           request_access: Αίτημα πρόσβασης
           requested_access: Ζητήθηκε πρόσβαση
-          version_history: δείτε το ιστορικό εκδόσεων για αυτήν την πρόταση
           withdraw: απόσυρση του προσχεδίου
         states:
           open: Ανοιχτή
@@ -725,12 +710,8 @@ el:
           success: Το προσχέδιο συνεργασίας ενημερώθηκε με επιτυχία.
         wizard_aside:
           back_from_collaborative_draft: Πίσω στα συνεργατικά προσχέδια
-          info: Δημιουργείτε ένα <strong>προσχέδιο συνεργασίας</strong>.
         wizard_header:
           title: Δημιουργήστε το προσχέδιο συνεργασίας σας
-      content_blocks:
-        highlighted_proposals:
-          proposals: Προτάσεις
       create:
         error: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της πρότασης.
         success: Η πρόταση δημιουργήθηκε με επιτυχία. Αποθηκεύτηκε ως Προσχέδιο.
@@ -741,11 +722,6 @@ el:
         new_proposal: 'Νέα πρόταση:'
         proposal_updated: 'Ενημέρωση πρότασης:'
       models:
-        collaborative_draft:
-          fields:
-            authors: Συντάκτες
-            comments: Σχόλια
-            contributions: Συνεισφορές
         proposal:
           fields:
             category: Κατηγορία
@@ -768,7 +744,6 @@ el:
         buttons:
           amend: Τροποποίηση
           comment: Σχόλιο
-          comments: Σχόλια
       proposal_votes:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την υποστήριξη της πρότασης.
@@ -780,21 +755,14 @@ el:
         complete:
           send: Αποστολή
           title: Ολοκληρώστε την πρότασή σας
-        count:
-          proposals_count:
-            one: "%{count} πρόταση"
-            other: "%{count} προτάσεις"
         dynamic_map_instructions:
           description: Οι συντεταγμένες θα ενημερώνονται όταν κάνετε κλικ στο κουμπί 'προεπισκόπηση'. Ωστόσο, η διεύθυνση δεν αλλάζει.
           instructions: Μπορείτε να μετακινήσετε το σημείο στο χάρτη.
         edit:
           add_documents: Προσθήκη εγγράφων
-          add_image: Προσθήκη εικόνας
           attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
           back: Πίσω
           edit_documents: Επεξεργασία εγγράφων
-          edit_image: Επεξεργασία εικόνας
-          gallery_legend: "(Προαιρετικό) Προσθέστε μια εικόνα στην κάρτα πρότασης"
           select_a_category: Επιλέξτε μια κατηγορία
           send: Αποστολή
           title: Επεξεργασία πρότασης
@@ -816,11 +784,6 @@ el:
           state: Κατάσταση
           type: Τύπος
           voted: Υποστηρίζεται
-        filters_small_view:
-          close_modal: Κλείσιμο βοηθητικού στοιχείου
-          filter: Φίλτρο
-          filter_by: Φιλτράρισμα κατά
-          unfold: Αποκάλυψη
         index:
           click_here: Δείτε όλες τις προτάσεις
           collaborative_drafts_list: Πρόσβαση σε προσχέδια συνεργασίας
@@ -828,11 +791,6 @@ el:
           see_all: Δείτε όλες τις προτάσεις
           see_all_withdrawn: Δείτε όλες τις προτάσεις που αποσύρθηκαν
           text_banner: Βλέπετε τη λίστα των προτάσεων που αποσύρονται από τους συντάκτες τους. %{go_back_link}.
-          view_proposal: Προβολή πρότασης
-        linked_proposals:
-          proposal_votes:
-            one: υποστήριξη
-            other: υποστηρίξεις
         new:
           send: Συνέχεια
           title: Δημιουργήστε την πρότασή σας
@@ -845,11 +803,6 @@ el:
           random: Τυχαία
           recent: Πρόσφατα
           with_more_authors: Με περισσότερους συντάκτες
-        participatory_texts:
-          index:
-            document_index: Ευρετήριο εγγράφων
-          view_index:
-            see_index: Δείτε το ευρετήριο
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -862,17 +815,13 @@ el:
           publish: Δημοσίευση
           title: Δημοσιεύστε την πρότασή σας
         proposal:
-          creation_date: 'Δημιουργία: %{date}'
           view_proposal: Προβολή πρότασης
         proposals:
           empty: Δεν υπάρχουν ακόμα προτάσεις.
           empty_filters: Δεν υπάρχουν προτάσεις με αυτά τα κριτήρια.
         show:
           answer: Απάντηση
-          back_to: Επιστροφή σε
-          back_to_list: Επιστροφή στη λίστα
           changes_at_title: Τροποποίηση σε «%{title}»
-          comments: Σχόλια
           edit_proposal: Επεξεργασία πρότασης
           estimated_cost: Εκτιμώμενο κόστος
           hidden_endorsers_count:
@@ -887,14 +836,9 @@ el:
           proposal_accepted_reason: 'Αυτή η πρόταση έγινε αποδεκτή επειδή:'
           proposal_in_evaluation_reason: Αυτή η πρόταση αξιολογείται
           proposal_rejected_reason: 'Αυτή η πρόταση απορρίφθηκε επειδή:'
-          read_less: Διαβάστε λιγότερα
-          read_more: Διαβάστε περισσότερα
-          report: Αναφορά
           withdraw_btn_hint: Μπορείτε να αποσύρετε την πρότασή σας εάν αλλάξετε γνώμη, εφόσον δεν έχετε λάβει υποστήριξη. Η πρόταση δεν διαγράφεται, θα εμφανιστεί στη λίστα των αποσυρμένων προτάσεων.
           withdraw_confirmation_html: Είστε σίγουροι ότι θέλετε να αποσύρετε αυτή την πρόταση; <br><br><strong> Αυτή η ενέργεια δεν ακυρώνεται!</strong>
           withdraw_proposal: Απόσυρση πρότασης
-        tags:
-          changed_from: "(άλλαξε από <u>%{previous_name}</u> από έναν διαχειριστή)"
         update:
           title: Ενημέρωση πρότασης
         vote_button:
@@ -924,8 +868,6 @@ el:
           title: 'Οι υποστηρίξεις υπόκεινται στους ακόλουθους κανόνες:'
           vote_limit:
             description: Μπορείτε να υποστηρίξετε έως και %{limit} προτάσεις.
-            left: Απομένουν
-            votes: Υποστηρίξεις
         wizard_aside:
           back: Πίσω
           back_from_step_1: Πίσω στις προτάσεις
@@ -959,12 +901,8 @@ el:
         error: Υπήρξε ένα πρόβλημα κατά την αποθήκευση του προσχεδίου συνεργασίας.
         success: Το προσχέδιο της πρότασης ενημερώθηκε με επιτυχία.
       versions:
-        collaborative_drafts:
-          back_to_resource: Επιστροφή στο προσχέδιο συνεργασίας
         index:
           title: Εκδόσεις
-        proposals:
-          back_to_resource: Επιστροφή στην πρόταση
       withdraw:
         errors:
           has_supports: Αυτή η πρόταση δεν μπορεί να αποσυρθεί, διότι έχει ήδη υποστηρίξεις.
