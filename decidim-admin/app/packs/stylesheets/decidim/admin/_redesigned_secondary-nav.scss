@@ -57,75 +57,77 @@
 
 .process-title,
 .voting-title{
-  @apply bg-gray-2 px-8 p-2 relative;
-}
+  @apply bg-gray-2 py-2 relative;
 
-.process-title .process-title-content{
-  .dropdown__trigger{
-    @apply flex underline px-2 pt-0.5 pb-1;
-
-    svg{
-      @apply block h-5 fill-white;
-    }
+  .container{
+    @apply py-0;
   }
 
-  .button{
-    @apply no-underline mb-0;
-  }
-}
-
-.process-title-content{
-  @apply flex items-center;
-
-  &-icon-home{
+  .process-title-content{
     @apply flex items-center;
 
-    svg{
-      @apply w-5 h-5 fill-white;
-    }
-  }
+    .dropdown__trigger{
+      @apply flex underline px-2 pt-0.5 pb-1;
 
-  &-breadcrumb{
-    @apply text-md font-bold text-white underline;
-
-    &-no-active{
-      @apply text-md text-white font-normal no-underline;
+      svg{
+        @apply block h-5 fill-white;
+      }
     }
 
-    &-container-left{
-      @apply flex items-center gap-x-4;
+    &-icon-home{
+      @apply flex items-center;
+
+      svg{
+        @apply w-5 h-5 fill-white;
+      }
     }
 
-    &-container-right{
-      @apply ml-auto flex items-center gap-x-4;
+    &-breadcrumb{
+      @apply text-md font-bold text-white underline;
 
-      &-link{
-        @apply button button__transparent flex items-center gap-x-1 px-1.5 py-1;
+      &-no-active{
+        @apply text-md text-white font-normal no-underline;
+      }
 
-        span{
-          @apply text-sm;
+      &-container-left{
+        @apply flex items-center gap-x-4;
+      }
+
+      &-container-right{
+        @apply ml-auto flex items-center gap-x-4;
+
+        &-link{
+          @apply button button__transparent flex items-center gap-x-1 px-1.5 py-1;
+
+          span{
+            @apply text-sm;
+          }
+        }
+
+        svg{
+          @apply w-4 h-4 fill-white;
+        }
+
+        .dropdown__item svg{
+          @apply fill-gray;
         }
       }
+    }
 
-      svg{
-        @apply w-4 h-4 fill-white;
-      }
+    &-dropdown{
+      .dropdown__item a{
+        @apply flex items-center gap-x-4 text-secondary;
 
-      .dropdown__item svg{
-        @apply fill-gray;
+        svg{
+          @apply fill-gray;
+        }
       }
     }
   }
+}
 
-  &-dropdown{
-    .dropdown__item a{
-      @apply flex items-center gap-x-4 text-secondary;
-
-      svg{
-        @apply fill-gray;
-      }
-    }
-  }
+.process-title-content .button{
+  @apply no-underline mb-0;
 }
 
 .secondary-nav__title,

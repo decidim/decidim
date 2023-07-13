@@ -1,5 +1,6 @@
 <% content_for :breadcrumb_nav do %>
-  <div class="process-title">
+<div class="process-title">
+  <div class="container">
     <div class="process-title-content">
       <div class="process-title-content-breadcrumb-container-left">
         <%= link_to decidim_admin.root_path, class: "process-title-content-icon-home", data: { "external-link": false } do %>
@@ -20,6 +21,7 @@
       </div>
     </div>
   </div>
+</div>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>

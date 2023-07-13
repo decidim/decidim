@@ -1,8 +1,12 @@
 .title-bar{
-  @apply py-1.5 px-8 flex items-center bg-tertiary text-black text-xs;
+  @apply bg-tertiary text-black text-xs;
 
   [data-target*="dropdown"] > svg:first-of-type {
     @apply inline-block;
+  }
+
+  .container{
+    @apply py-1.5 px-8 flex items-center;
   }
 }
 
@@ -19,7 +23,7 @@
 }
 
 .logo{
-  @apply p-4 block max-w-[80px] md:max-w-[120px] bg-gray-2 relative py-10;
+  @apply p-4 block max-w-[80px] md:max-w-[120px] bg-gray-2 relative pt-7 pb-8 min-h-[80px];
 
   img{
     @apply block;
