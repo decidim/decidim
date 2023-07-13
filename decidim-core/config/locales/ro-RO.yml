@@ -236,7 +236,6 @@ ro:
         error: S-a produs o eroare în timpul acceptării amendamentului.
         success: Amendamentul a fost acceptat cu succes.
       amendable:
-        amended_by: Amendament făcut de
         button: Fă un amendament pentru %{model_name}
         error: A apărut o eroare la trimiterea unui amendament pentru această resursă.
         promote_button: Promovează la %{model_name}
@@ -254,7 +253,6 @@ ro:
         success: Ciorna de amendament a fost ștearsă cu succes.
       edit_draft:
         discard: Renunță la această ciornă
-        discard_confirmation: Sigur dorești să renunți la această ciornă de amendament?
         send: Previzualizează
         title: Editează ciorna de amendament
       emendation:
@@ -304,8 +302,6 @@ ro:
         download: Descarcă fișier
       documents:
         related_documents: Documente asociate
-      geocoding:
-        geocoded_address: Adresă
       photo:
         alt: Imagine media
         title: Imagine
@@ -313,7 +309,6 @@ ro:
         related_photos: Imagini asociate
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar pentru mai mulți utilizatori
       comments:
         one: comentariu
         few: comentarii
@@ -497,8 +492,6 @@ ro:
           nickname_help: Pseudonimul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
           sign_in: Autentificare
           sign_up: Înscrie-te
-          sign_up_as:
-            legend: Înregistrează-te ca
           subtitle: Înscrie-te pentru a participa la discuții și pentru a vota propuneri.
           tos_agreement: Prin înregistrare ești de acord cu %{link}.
           tos_title: Condiții de utilizare
@@ -513,7 +506,6 @@ ro:
         newsletter_modal:
           buttons:
             check: Verifică și continuă
-            close_modal: Închide fereastra
             uncheck: Mențineți nebifat
           title: Notificări newsletter
         omniauth_buttons:
@@ -522,7 +514,6 @@ ro:
       authorizations:
         new:
           authorize: Autorizați cererea
-          by_organization_link_html: <small class="heading-small">de %{link}</small>
           cancel: Anulează
           publish_content: Publică conținut pentru tine
           see_email: Vezi e-mailul tău
@@ -531,7 +522,6 @@ ro:
           this_application_will_be_able_to: 'Această aplicație va putea să:'
           this_application_will_not_be_able_to: 'Această aplicație nu va putea să:'
           update_profile: Actualizeză-ți profilul
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vrea să folosească contul tău"
     download_your_data:
       export:
         ready: Gata
@@ -844,12 +834,9 @@ ro:
           title: Ce pot face în %{organization}?
         title: Ajutor General
     last_activities:
-      activities:
-        no_activities_warning: Nicio activitate
       all: Toate tipurile de activitate
       index:
         last_activity: Ultima activitate
-        resource_type: Tip
     links:
       invalid_url: URL invalid
       warning:
@@ -1036,11 +1023,6 @@ ro:
         retry: Încearcă din nou
     open_data:
       not_available_yet: Fişierele de date deschise nu sunt încă disponibile, vă rugăm să încercaţi din nou în câteva minute.
-    own_user_groups:
-      index:
-        pending: In asteptare
-        rejected: Respins
-        verified: Verificat
     pad_iframe:
       disclaimer: Conținutul acestui panou este scris de utilizatori înregistrați și își exprimă opiniile. %{organization} nu poate fi considerat responsabil pentru conținutul său.
       pad: Târg
@@ -1062,8 +1044,6 @@ ro:
         hero:
           participate: Participă
           welcome: Bine ai venit la %{organization}!
-        metrics:
-          headline: Indicatori
         statistics:
           headline: Starea curentă a %{organization}
         sub_hero:
@@ -1076,11 +1056,10 @@ ro:
       participatory_space:
         metrics:
           headline: Indicatori
-          link: Arată toate măsurătorile
     participatory_space_private_users:
       not_allowed: Nu aveţi permisiunea să vizualizaţi acest conţinut
     profile:
-      view: Vizualizare
+      deleted: Participant șters
     profiles:
       show:
         activity: Activitate
@@ -1092,7 +1071,6 @@ ro:
         members: Membri
         officialized: Participant oficial
         send_private_message: Trimite mesaj privat
-        view_full_profile: Vezi profilul complet
       sidebar:
         badges:
           info: Insignele sunt câștigate prin desfășurarea de activități specifice pe platformă.
@@ -1156,7 +1134,6 @@ ro:
       term_input_placeholder: Caută
     searches:
       filters:
-        back: Înapoi la rezultate
         jump_to: 'Sari la:'
         state:
           active: Activ
@@ -1169,10 +1146,6 @@ ro:
         filter_by: Filtrare după
         unfold: Desfășurat
       results:
-        results:
-          one: "%{count} rezultat"
-          few: "%{count} rezultate"
-          other: "%{count} rezultate"
         view_all: Vezi toate (%{count})
     security:
       selfxss_warning:
@@ -1184,10 +1157,6 @@ ro:
         close_modal: Închide fereastra
         ok: Ok
         title: Confirmare
-      embed_modal:
-        close_window: Închide fereastra
-        embed: Vă rugăm să inserați acest cod în pagina dvs.
-        embed_link: Încorporează
       extended_navigation_bar:
         more: Mai
         unfold: Desfășurat
@@ -1269,28 +1238,12 @@ ro:
         existing_error: Mesajul nu a putut fi creat. Conversaţia există deja, vă rugăm să încercaţi din nou acum.
         success: Conversația a început cu succes!
       index:
-        add_max_users: 'Adaugă utilizatori la conversație: maxim 9 utilizatori'
-        add_users_placeholder: Caută...
-        close: Inchide
         conversations_info: Conversațiile sunt private. nimeni altcineva nu le poate vedea. O conversație poate fi începută cu vreun participant sau grup înregistrat pe platformă.
-        from: De la
-        last_message: Ultimul mesaj
-        modal_title: Conversație nouă
-        new_conversation: Conversație nouă
-        next: Următoarea
         no_conversations_warning: Nu există încă conversații.
-        no_results: Niciun rezultat
         time_ago: "%{time} în urmă"
-      new:
-        title: Începe o conversație
       reply:
         placeholder: Răspunsul tău...
         send: Trimite
-        title_reply: Răspuns
-      show:
-        back: Arată toate conversațiile
-        not_allowed: Acest utilizator nu mai acceptă mesaje directe.
-        title: Conversație cu %{usernames}
       update:
         error: Mesajul nu a fost trimis. Încercați din nou mai târziu
     user_interests:
@@ -1312,29 +1265,12 @@ ro:
         back_to_resource: Mergi înapoi
         changes_at_title: Modificări la "%{title}"
         number_of_versions: Versiuni
-        show_all_versions: Arată toate versiunile
-        version_author: Autor versiune
         version_created_at: Versiune creată la
-        version_number: Număr versiune
-        version_number_out_of_total: "%{current_version} din %{total_count}"
-    version_author:
-      show:
-        deleted: Participant șters
     versions:
       resource_version:
         of_versions: "(din %{number})"
         see_other_versions: afișați alte versiuni
         version: Versiunea %{number}
-    versions_list:
-      show:
-        back_to_resource: Mergi înapoi
-        changes_at_title: Modificări la "%{title}"
-        number_of_versions: Versiuni
-        title: Versiuni
-    versions_list_item:
-      back: Arată toate versiunile
-      show:
-        version_index: Versiunea %{index}
     welcome_notification:
       default_subject: Îți mulțumim că te-ai alăturat {{organization}}!
     wizard_step_form:
@@ -1492,6 +1428,10 @@ ro:
     timestamp_error_message: Ne pare rău, acest lucru a fost prea rapid! Te rugăm să retrimiți.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Tip
       edit_link:
         edit: Editare
       footer:
@@ -1544,8 +1484,6 @@ ro:
         notifications_settings: Setări notificări
         title: Setările participantului
         user_groups: Grupuri
-      widget:
-        see_more: Vezi mai multe
   locale:
     name: Română
     name_with_error: Română (eroare!)
