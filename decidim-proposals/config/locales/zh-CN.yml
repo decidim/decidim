@@ -295,9 +295,6 @@ zh-CN:
         description: 支持提议的数量
         object: 支持
         title: 支持
-    participatory_spaces:
-      highlighted_proposals:
-        see_all: 查看所有建议 (%{count})
     proposals:
       actions:
         answer_proposal: 答复建议
@@ -451,15 +448,11 @@ zh-CN:
         rejected: 已拒绝
         withdrawn: 取出
       application_helper:
-        filter_category_values:
-          all: 所有的
         filter_origin_values:
           all: 所有的
           meetings: 会议
           official: 官方的
           user_groups: 群組
-        filter_scope_values:
-          all: 所有的
         filter_state_values:
           accepted: 已接受
           all: 所有的
@@ -487,9 +480,6 @@ zh-CN:
               ok: 撤回协作草稿
               title: 以下操作是不可逆的
             success: 协作草案已成功撤销。
-        count:
-          drafts_count:
-            other: "%{count} 协作草稿"
         create:
           success: 协作草稿成功创建。
         edit:
@@ -535,18 +525,14 @@ zh-CN:
           rejected_request:
             error: 无法以协作者身份拒绝，请稍后再试。
         show:
-          back: 后退
           edit: 编辑协作草稿
-          final_proposal: 最后提案
           final_proposal_help_text: 这个草稿已完成。查看最后建议
           hidden_authors_count:
             other: 和更多 %{count} 人
           publish: 发布
           publish_info: 发布此版本的草稿或
-          published_proposal: 已发布的提案
           request_access: 请求访问
           requested_access: 访问请求
-          version_history: 查看此建议的版本历史记录
           withdraw: 撤回草案
         states:
           open: 打开
@@ -557,7 +543,6 @@ zh-CN:
           success: 协作草稿已成功更新。
         wizard_aside:
           back_from_collaborative_draft: 返回协作草稿
-          info: 您正在创建一个 <strong>协作草案</strong>。
         wizard_header:
           title: 创建您的协作草稿
       create:
@@ -567,11 +552,6 @@ zh-CN:
         error: 删除合作草案时出现问题。
         success: 提案草案已成功删除。
       models:
-        collaborative_draft:
-          fields:
-            authors: 作者
-            comments: 评论
-            contributions: 二. 捐款
         proposal:
           fields:
             category: 类别
@@ -592,7 +572,6 @@ zh-CN:
         buttons:
           amend: 修改：
           comment: 评论
-          comments: 评论
       proposal_votes:
         create:
           error: 有一个问题支持这项提议。
@@ -604,13 +583,9 @@ zh-CN:
         complete:
           send: 发送
           title: 完成您的提议
-        count:
-          proposals_count:
-            other: "%{count} 个提议"
         edit:
           attachment_legend: "(可选) 添加附件"
           back: 后退
-          gallery_legend: "(可选) 添加图像到提案卡"
           select_a_category: 请选择一个类别
           send: 发送
           title: 编辑提案
@@ -632,19 +607,10 @@ zh-CN:
           state: 状态
           type: 类型
           voted: 支持的
-        filters_small_view:
-          close_modal: 关闭模式
-          filter: 筛选器
-          filter_by: 筛选方式
-          unfold: 展开...
         index:
           collaborative_drafts_list: 访问协作草稿
           new_proposal: 新提案
           see_all_withdrawn: 查看所有已撤销的提案
-          view_proposal: 查看提案
-        linked_proposals:
-          proposal_votes:
-            other: 支持
         new:
           send: 继续
         orders:
@@ -656,11 +622,6 @@ zh-CN:
           random: 随机播放
           recent: 最近的
           with_more_authors: 有更多作者
-        participatory_texts:
-          index:
-            document_index: 文档索引
-          view_index:
-            see_index: 查看索引
         preview:
           modify: 修改提案
           proposal_edit_before_minutes:
@@ -668,14 +629,10 @@ zh-CN:
           publish: 发布
           title: 发布您的提议
         proposal:
-          creation_date: '创建: %{date}'
           view_proposal: 查看提案
         show:
           answer: 答案
-          back_to: 返回到
-          back_to_list: 返回列表
           changes_at_title: 对"%{title}" 的修正
-          comments: 评论
           edit_proposal: 编辑提案
           estimated_cost: 估计费用
           hidden_endorsers_count:
@@ -689,14 +646,9 @@ zh-CN:
           proposal_accepted_reason: '这一提议已被接受，原因是：'
           proposal_in_evaluation_reason: 这项建议正在评估
           proposal_rejected_reason: '这一提议被否决，理由是：'
-          read_less: 阅读更多
-          read_more: 阅读更多
-          report: 报告
           withdraw_btn_hint: 如果您改变主意，只要您没有得到任何支持，您可以撤回您的建议。 该提案未予删除，将列入撤回的提案清单。
           withdraw_confirmation_html: 您确定要撤回此建议吗？<br><br><strong>此操作不能取消！</strong>
           withdraw_proposal: 撤回提案
-        tags:
-          changed_from: "(来自 <u>%{previous_name}</u> 由管理员修改)"
         update:
           title: 更新提议
         vote_button:
@@ -722,8 +674,6 @@ zh-CN:
           title: '支持受以下规则约束：'
           vote_limit:
             description: 您可以最多支持 %{limit} 个建议。
-            left: 剩余时间
-            votes: 支持
         wizard_aside:
           back: 后退
           back_from_step_1: 回到提议
@@ -756,12 +706,8 @@ zh-CN:
         error: 保存合作草稿时出现问题。
         success: 建议草稿已成功更新。
       versions:
-        collaborative_drafts:
-          back_to_resource: 返回协作草稿
         index:
           title: 版本
-        proposals:
-          back_to_resource: 返回提案
     resource_links:
       copied_from_component:
         proposal_proposal: 有关提议
