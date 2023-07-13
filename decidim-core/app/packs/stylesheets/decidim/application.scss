@@ -1,8 +1,98 @@
-@import "stylesheets/decidim/decidim";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --primary: #e02d2d;
+  --primary-rgb: 224 45 45;
+  --secondary: #155abf;
+  --secondary-rgb: 21 90 191;
+  --tertiary: #ebc34b;
+  --tertiary-rgb: 235 195 75;
+  --success: #28a745;
+  --success-rgb: 40 167 69;
+  --warning: #ffb703;
+  --warning-rgb: 255 183 3;
+  --alert: #e7131a;
+  --alert-rgb: 231 19 26;
+}
+
+@layer base {
+  @import "stylesheets/decidim/fonts.scss";
+  @import "stylesheets/decidim/typography.scss";
+}
+
+// The CSS components must work identically all along the application,
+// no matter which view are being displayed in.
+@layer components {
+  @import "stylesheets/decidim/layout.scss";
+  @import "stylesheets/decidim/buttons.scss";
+  @import "stylesheets/decidim/labels.scss";
+  @import "stylesheets/decidim/forms.scss";
+  @import "stylesheets/decidim/dropdown.scss";
+  @import "stylesheets/decidim/login_box.scss";
+  @import "stylesheets/decidim/callout.scss";
+  @import "stylesheets/decidim/accordion.scss";
+  @import "stylesheets/decidim/tos.scss";
+  @import "stylesheets/decidim/vertical_tabs.scss";
+  @import "stylesheets/decidim/flash.scss";
+  @import "stylesheets/decidim/map.scss";
+  @import "stylesheets/decidim/filters.scss";
+  @import "stylesheets/decidim/tags.scss";
+  @import "stylesheets/decidim/tabs_x.scss";
+  // REDESIGN_PENDING: remove this file
+  @import "stylesheets/decidim/drawer.scss";
+  // REDESIGN_PENDING: rename this file and its contents to avoid misunderstandings
+  @import "stylesheets/decidim/drawer_metadata.scss";
+  @import "stylesheets/decidim/modal.scss";
+  @import "stylesheets/decidim/modal_share.scss";
+  @import "stylesheets/decidim/modal_flag.scss";
+  @import "stylesheets/decidim/modal_identities.scss";
+  @import "stylesheets/decidim/modal_authorization.scss";
+  @import "stylesheets/decidim/modal_update.scss";
+  @import "stylesheets/decidim/modal_tos_refuse.scss";
+  @import "stylesheets/decidim/modal_fingerprint.scss";
+  @import "stylesheets/decidim/address.scss";
+  @import "stylesheets/decidim/statistics.scss";
+  @import "stylesheets/decidim/content_blocks.scss";
+  @import "stylesheets/decidim/documents.scss";
+  @import "stylesheets/decidim/floating_help.scss";
+  @import "stylesheets/decidim/cards.scss";
+  @import "stylesheets/decidim/floating_help.scss";
+  @import "stylesheets/decidim/metrics.scss";
+  @import "stylesheets/decidim/order-by.scss";
+  @import "stylesheets/decidim/photos.scss";
+  @import "stylesheets/decidim/endorsers_list.scss";
+  @import "stylesheets/decidim/activity.scss";
+  @import "stylesheets/decidim/tooltip.scss";
+  @import "stylesheets/decidim/author.scss";
+  @import "stylesheets/decidim/order-by.scss";
+  @import "stylesheets/decidim/wizard_steps.scss";
+  @import "stylesheets/decidim/progress-bar.scss";
+  @import "stylesheets/decidim/spinner.scss";
+  @import "stylesheets/decidim/toggle_switch.scss";
+  @import "stylesheets/decidim/hero.scss";
+  @import "stylesheets/decidim/actions.scss";
+}
+
+// On the other hand, the following styles match with specific routes
+@import "stylesheets/decidim/header.scss";
+@import "stylesheets/decidim/login.scss";
+@import "stylesheets/decidim/pages.scss";
+@import "stylesheets/decidim/notifications.scss";
+@import "stylesheets/decidim/profile.scss";
+@import "stylesheets/decidim/conversations.scss";
+@import "stylesheets/decidim/versions.scss";
+@import "stylesheets/decidim/home.scss";
+@import "stylesheets/decidim/search.scss";
+@import "stylesheets/decidim/cookies.scss";
+// participatory spaces are quite similar between processes and assemblies (different modules), so their stylesheets are placed in the core
+@import "stylesheets/decidim/participatory_spaces.scss";
+@import "stylesheets/decidim/omnipresent_banner.scss";
 
 // This imports all the Decidim module stylesheet imports registered at
 // `config/assets.rb` of the module for the "app" group.
-@import "!decidim-style-imports[app]";
+// @import "!decidim-style-imports[app]";
 
 // Application specific styles: https://docs.decidim.org/en/customize/styles/#_webpacker
 @import "stylesheets/decidim/decidim_application";
