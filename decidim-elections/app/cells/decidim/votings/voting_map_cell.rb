@@ -9,7 +9,7 @@ module Decidim
       delegate :snippets, to: :controller
 
       def show
-        # return unless Decidim::Map.available?(:geocoding, :dynamic)
+        return unless Decidim::Map.available?(:geocoding, :dynamic)
 
         render
       end
