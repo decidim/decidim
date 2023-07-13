@@ -151,7 +151,6 @@ sk:
         error: Pri prijímaní zmeny došlo k chybe.
         success: Tento pozmeňovací návrh bol úspešne prijatý.
       amendable:
-        amended_by: Zmenil
         button: Zmena %{model_name}
         error: Pri zmene tohto zdroja sa vyskytla chyba.
         promote_button: Propagujte na %{model_name}
@@ -169,7 +168,6 @@ sk:
         success: Pozmeňovací návrh bol úspešne zmazaný.
       edit_draft:
         discard: Zahodiť koncept
-        discard_confirmation: Naozaj chcete zahodiť tento pozmeňovací návrh?
         send: Náhľad
         title: Upraviť pozmeňovací návrh
       emendation:
@@ -364,8 +362,6 @@ sk:
           newsletter_title: Povolenie kontaktu
           sign_in: Prihlásiť sa
           sign_up: Zaregistrovať sa
-          sign_up_as:
-            legend: Zaregistrovať sa ako
           subtitle: Registrujte sa, aby ste sa zúčastnili diskusií a návrhov podpory.
           tos_agreement: Prihlásením súhlasíte s%{link}.
           tos_title: Podmienky používania
@@ -378,7 +374,6 @@ sk:
         newsletter_modal:
           buttons:
             check: Skontrolujte a pokračujte
-            close_modal: Zatvoriť okno
           title: Upozornenie na bulletin
         omniauth_buttons:
           or: Alebo
@@ -386,7 +381,6 @@ sk:
       authorizations:
         new:
           authorize: Povoliť aplikáciu
-          by_organization_link_html: <small class = "heading-small"> podľa %{link} </ small>
           cancel: Zrušiť
           publish_content: Publikujte obsah pre vás
           see_email: Pozrite sa na svoj e-mail
@@ -395,7 +389,6 @@ sk:
           this_application_will_be_able_to: 'Táto aplikácia bude schopná:'
           this_application_will_not_be_able_to: 'Táto aplikácia nebude môcť:'
           update_profile: Aktualizujte svoj profil
-          wants_to_use_your_account_html: "<strong>%{application_name} </strong> chce používať váš účet"
     download_your_data:
       export:
         ready: Pripravený
@@ -641,12 +634,9 @@ sk:
           title: Čo môžem robiť v %{organization}?
         title: Všeobecná nápoveda
     last_activities:
-      activities:
-        no_activities_warning: Žiadna aktivita
       all: Všetky typy aktivit
       index:
         last_activity: Posledná aktivita
-        resource_type: Typ
     log:
       base_presenter:
         create: "%{user_name} vytvořeno %{resource_name}"
@@ -761,11 +751,6 @@ sk:
         success: Nastavenie oznámenie bolo úspešne aktualizované.
     open_data:
       not_available_yet: Súbory Open Data ešte nie sú k dispozícii. Skúste to znova za pár minút.
-    own_user_groups:
-      index:
-        pending: čakajúci
-        rejected: Odmietnuté
-        verified: Overené
     pad_iframe:
       disclaimer: Obsah tejto podložky sú napísané registrovanými užívateľmi a vyjadrujú ich názory. %{Organization} nemôže byť zodpovedný za jeho obsah.
       pad: Podložka
@@ -787,8 +772,6 @@ sk:
         hero:
           participate: zúčastniť sa
           welcome: Vitajte na%{organization}!
-        metrics:
-          headline: Metrika
         statistics:
           headline: Aktuálny stav %{organization}
         sub_hero:
@@ -801,11 +784,10 @@ sk:
       participatory_space:
         metrics:
           headline: Metriky
-          link: Zobraziť všetky metriky
     participatory_space_private_users:
       not_allowed: Nemáte povolenie na zobrazenie tohto obsahu
     profile:
-      view: Pohľad
+      deleted: Vymazaný účastník
     profiles:
       show:
         activity: Aktivita
@@ -814,7 +796,6 @@ sk:
         following: Nasleduje
         groups: Skupiny
         members: Členovia
-        view_full_profile: Zobraziť celý profil
       sidebar:
         badges:
           info: Odznaky získate za určité aktivity a účasť na platforme.
@@ -859,7 +840,6 @@ sk:
       term_input_placeholder: Vyhľadávanie
     searches:
       filters:
-        back: Späť na výsledky
         jump_to: 'Skočit do:'
         state:
           active: Aktívne
@@ -872,17 +852,8 @@ sk:
         filter_by: Filtrovať podľa
         unfold: Rozbaliť
       results:
-        results:
-          one: "%{count} výsledek"
-          few: "%{count} výsledků"
-          many: "%{count} výsledků"
-          other: "%{count} výsledků"
         view_all: Zobrazit všechny (%{count})
     shared:
-      embed_modal:
-        close_window: Zátvor okno
-        embed: Vložte tento kód na svoju stránku
-        embed_link: Vložiť
       extended_navigation_bar:
         more: Viac
         unfold: Rozbaliť
@@ -930,9 +901,6 @@ sk:
       update:
         error: Počas aktualizácie vašich záujmov došlo k chybe.
         success: Vaše záujmy boli úspešne aktualizované.
-    version_author:
-      show:
-        deleted: Vymazaný účastník
     welcome_notification:
       default_subject: Ďakujeme, že ste sa pripojili k {{organization}}!
     wizard_step_form:
@@ -1085,6 +1053,10 @@ sk:
     timestamp_error_message: Prepáčte, bolo to príliš rýchle! Znovu odošlite.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Typ
       edit_link:
         edit: Upraviť
       footer:
@@ -1117,8 +1089,6 @@ sk:
         notifications_settings: Nastavenie oznámenia
         title: Užívateľské nastavenia
         user_groups: Skupiny
-      widget:
-        see_more: Vidieť viac
   locale:
     name: Slovenčina
     name_with_error: Slovenčina (chyba!)
