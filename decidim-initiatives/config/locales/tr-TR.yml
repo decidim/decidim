@@ -515,11 +515,6 @@ tr:
         status_change_for: Girişim %{title} durumu değişti
       last_activity:
         new_initiative: Yeni girişim
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktif girişimler
-            see_all_initiatives: Tüm girişimleri görün
       show:
         badge_name:
           accepted: Yeterince imza
