@@ -365,9 +365,6 @@ eu:
         description: Erabiltzaileek proposatutako sortutako boto kopurua
         object: botoak
         title: Botoak
-    participatory_spaces:
-      highlighted_proposals:
-        see_all: Ikusi (%{count}) proposamenak
     proposals:
       actions:
         answer_proposal: Erantzun proposamenari
@@ -562,16 +559,12 @@ eu:
         rejected: Ukatua
         withdrawn: Kendu
       application_helper:
-        filter_category_values:
-          all: guztiak
         filter_origin_values:
           all: guztiak
           meetings: Bilerak
           official: Ofiziala
           participants: Parte-hartzaileak
           user_groups: Erabiltzaile taldeak
-        filter_scope_values:
-          all: guztiak
         filter_state_values:
           accepted: Onartuta
           all: Guztiak
@@ -599,10 +592,6 @@ eu:
               ok: Lankidetza zirriborroa kendu
               title: Hurrengo ekintza atzeraezina da
             success: Kolaborazio zirriborroa kendu da.
-        count:
-          drafts_count:
-            one: "%{count} lankidetza zirriborroa"
-            other: "%{count} zirriborro kolaboratiboa"
         create:
           error: Arazo bat izan da lankidetza-zirriborroak sortzean.
           success: Zirriborro kolaboratiboa sortu da.
@@ -651,19 +640,15 @@ eu:
           rejected_request:
             error: Ezin izan da laguntzailea baztertu, saiatu berriro geroago.
         show:
-          back: Atzera
           edit: Editatu lankidetza zirriborroa
-          final_proposal: azken proposamena
           final_proposal_help_text: Abisua amaitu da. Azken bukatutako proposamena ikus dezakezu
           hidden_authors_count:
             one: eta pertsona %{count} gehiago
             other: eta beste %{count} pertsona
           publish: Argitaratu
           publish_info: Argitaratu zirriborroaren bertsio hau edo
-          published_proposal: argitaratutako proposamena
           request_access: Sarrera beharrezkoa
           requested_access: Sarbidea beharrezkoa
-          version_history: ikusi proposamen honetarako bertsioaren historia
           withdraw: kendu zirriborroa
         states:
           open: Zabalik
@@ -674,12 +659,8 @@ eu:
           success: Ziriboro kolaboratiboa ondo eguneratu da.
         wizard_aside:
           back_from_collaborative_draft: Itzuli zirriborro kolaboratzaileetara
-          info: <strong>Zirriborro kolaboratiboa</strong> sortzen ari zara.
         wizard_header:
           title: Sortu zure lankidetza zirriborroa
-      content_blocks:
-        highlighted_proposals:
-          proposals: Proposamenak
       create:
         error: Erroreak gertatu dira proposamena gordetzean.
         success: Onartutako proposamena. Zirriborro gisa gorde da.
@@ -690,11 +671,6 @@ eu:
         new_proposal: 'Proposamen berria:'
         proposal_updated: 'Poposamena eguneratua:'
       models:
-        collaborative_draft:
-          fields:
-            authors: Egileak
-            comments: Oharrak
-            contributions: Ekarpenak
         proposal:
           fields:
             category: Kategoria
@@ -715,7 +691,6 @@ eu:
         buttons:
           amend: Zuzendu
           comment: Iruzkina
-          comments: Iruzkinak
       proposal_votes:
         create:
           error: Akatsen bat gertatu da proposamena bozkatzean.
@@ -727,21 +702,14 @@ eu:
         complete:
           send: Bidali
           title: Osatu zue proposamena
-        count:
-          proposals_count:
-            one: "%{count} proposamen"
-            other: "%{count} proposamen"
         dynamic_map_instructions:
           description: Koordenatuak eguneratu egingo dira 'aurrebistaratu' botoian klik egiten duzunean. Baina helbidea ez da aldatzen.
           instructions: Kokapena mugitu ahal duzu mapan.
         edit:
           add_documents: Dokumentuak atxikutu
-          add_image: Argazki bat atxikutu
           attachment_legend: "(Aukerakoa) Gehitu eranskina"
           back: Atzera
           edit_documents: Editatu dokumentuak
-          edit_image: Irudia editatu
-          gallery_legend: "(Aukerakoa) Gehitu irudi bat proposamen-txartelari"
           select_a_category: Hautatu kategoria bat
           send: Bidali
           title: Editatu proposamena
@@ -763,11 +731,6 @@ eu:
           state: Egoera
           type: Mota
           voted: Bozkatuta
-        filters_small_view:
-          close_modal: Itxi leihoa
-          filter: Iragazi
-          filter_by: 'Iragazi honen arabera:'
-          unfold: Zabaldu
         index:
           click_here: Ikusi proposamen guztiak
           collaborative_drafts_list: Sar zaitez elkarlanerako zirriborroak
@@ -775,11 +738,6 @@ eu:
           see_all: Ikusi proposamen guztiak
           see_all_withdrawn: Ikusi erretiratutako proposamen guztiak
           text_banner: Ikusten ari zara egileek bertan behera utzitako proposamenak %{go_back_link}.
-          view_proposal: Ikusi proposamena
-        linked_proposals:
-          proposal_votes:
-            one: proiektuaren alde egin
-            other: babesak
         new:
           send: Jarraitu
           title: Sortu zure proposamena
@@ -792,11 +750,6 @@ eu:
           random: Ausazkoa eran
           recent: Berrienak
           with_more_authors: Egile gehiagorekin
-        participatory_texts:
-          index:
-            document_index: Dokumentuaren indizea
-          view_index:
-            see_index: Ikusi indizea
         placeholder:
           address: 37 Homewood Drive Brownsburg, hemen 46112
         preview:
@@ -809,14 +762,10 @@ eu:
           publish: Argitaratu
           title: Argitaratu zure proposamena
         proposal:
-          creation_date: 'Sortze data'
           view_proposal: Ikusi proposamena
         show:
           answer: Erantzuna
-          back_to: Itzuli
-          back_to_list: Itzuli zerrendara
           changes_at_title: Zuzenketa honi "%{title}"
-          comments: Iruzkinak
           edit_proposal: Editatu proposamena
           estimated_cost: Gutxi gorabeherako kostua
           hidden_endorsers_count:
@@ -831,14 +780,9 @@ eu:
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
-          read_less: Irakurri gutxiago
-          read_more: Irakurri gehiago
-          report: Salatu
           withdraw_btn_hint: Zure proposamena atzera bota dezakezu iritziz aldatzen baduzu, babesik jaso ez duzun bitartean. Proposamena ez da ezabatzen, baztertutako proposamenen zerrendan agertuko da.
           withdraw_confirmation_html: Ziur zaude proposamen hau kendu nahi duzula? <br><br><strong>Ekintza hau ezin da desegin!</strong>
           withdraw_proposal: Ezabatu proposamena
-        tags:
-          changed_from: "(<u>%{previous_name}</u> hemendik ebaluatzaile batek aldatua)"
         update:
           title: Eguneratu proposamena
         vote_button:
@@ -865,8 +809,6 @@ eu:
           title: 'Bozkek arau hauek bete behar dituzte:'
           vote_limit:
             description: '%{limit} proposamenari bozkatu ahal zaizkio.'
-            left: Geratzen diren hiru aukerak
-            votes: Babesak
         wizard_aside:
           back: Atzera
           back_from_step_1: Itzuli proposamenetara
@@ -899,12 +841,8 @@ eu:
         error: Arazoak izan dira proposamenaren aurrebista gordetzean.
         success: Proposamenaren zirriborroa eguneratu da.
       versions:
-        collaborative_drafts:
-          back_to_resource: Itzuli lankidetza zirriborrora
         index:
           title: Bertsioak
-        proposals:
-          back_to_resource: Joan proposamenera
     resource_links:
       copied_from_component:
         proposal_proposal: Lotutako proposamenak
