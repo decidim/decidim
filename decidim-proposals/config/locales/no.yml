@@ -334,9 +334,6 @@
         description: Antall støtter til forslag
         object: støtter
         title: Støtter
-    participatory_spaces:
-      highlighted_proposals:
-        see_all: Vis alle (%{count})
     proposals:
       actions:
         answer_proposal: Svar på forslag
@@ -491,15 +488,11 @@
         rejected: Avvist
         withdrawn: Trukket tilbake
       application_helper:
-        filter_category_values:
-          all: Alle
         filter_origin_values:
           all: Alle
           meetings: Møter
           official: Offisiell
           user_groups: Grupper
-        filter_scope_values:
-          all: Alle
         filter_state_values:
           accepted: Aksepterte
           all: Alle
@@ -527,10 +520,6 @@
               ok: Trakk tilbake samarbeids utkastet
               title: Følgende handling kan ikke gjøres om
             success: Samarbeids utkast trukket.
-        count:
-          drafts_count:
-            one: "%{count} samarbeids utkast"
-            other: "%{count} samarbeids utkaster"
         create:
           success: Samarbeids utkast opprettet.
         edit:
@@ -576,19 +565,15 @@
           rejected_request:
             error: Kunne ikke bli avvist som en samarbeidspartner, Prøv igjen senere.
         show:
-          back: Tilbake
           edit: Rediger samarbeids utkastet
-          final_proposal: endelig forslag
           final_proposal_help_text: Dette utkastet er ferdig. Sjekk ut det endelige forslaget
           hidden_authors_count:
             one: og %{count} til person
             other: og %{count} flere personer
           publish: Publiser
           publish_info: Publiser denne versjonen av utkastet eller
-          published_proposal: publisert forslag
           request_access: Be om tilgang
           requested_access: Tilgang forespurt
-          version_history: se versjonshistorikk for dette forslaget
           withdraw: trekk tilbake utkastet
         states:
           open: Åpen
@@ -597,8 +582,6 @@
         update:
           error: Det oppstod et problem med å lagre samarbeids utkastet.
           success: Samarbeids utkast oppdatert.
-        wizard_aside:
-          info: Du oppretter et <strong>samarbeids utkast</strong>.
         wizard_header:
           title: Opprett ditt samarbeids utkast
       create:
@@ -608,11 +591,6 @@
         error: Det oppsto et problem med å slette samarbeids utkastet.
         success: Forslags utkastet ble slettet.
       models:
-        collaborative_draft:
-          fields:
-            authors: Forfattere
-            comments: Kommentarer
-            contributions: Bidragene
         proposal:
           fields:
             category: Kategori
@@ -630,7 +608,6 @@
         buttons:
           amend: Endre
           comment: Kommentar
-          comments: Kommentarer
       proposal_votes:
         create:
           error: Det oppstod et problem med å støtte forslaget.
@@ -642,10 +619,6 @@
         complete:
           send: Send
           title: Fullfør forslaget
-        count:
-          proposals_count:
-            one: "%{count} forslag"
-            other: "%{count} forslag"
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
@@ -670,22 +643,12 @@
           state: Status
           type: Type
           voted: Støttet
-        filters_small_view:
-          close_modal: Lukk modal
-          filter: Filter
-          filter_by: Filtrer etter
-          unfold: Åpne
         index:
           collaborative_drafts_list: Lag utkast sammen med andre
           new_proposal: Nytt forslag
           see_all: Se alle forslag
           see_all_withdrawn: Se alle tilbaketrukne forslag
           text_banner: Du ser en liste med forslag tilbaketrukket av deres forfattere. %{go_back_link}.
-          view_proposal: Se forslag
-        linked_proposals:
-          proposal_votes:
-            one: støtte
-            other: støtter
         new:
           send: Fortsett
         orders:
@@ -697,11 +660,6 @@
           random: Tilfeldig
           recent: Nylig
           with_more_authors: Med flere forfattere
-        participatory_texts:
-          index:
-            document_index: Dokument indeks
-          view_index:
-            see_index: Se index
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -714,14 +672,10 @@
           publish: Publiser
           title: Publiser forslaget ditt
         proposal:
-          creation_date: 'Opprettet: %{date}'
           view_proposal: Se forslag
         show:
           answer: Svar
-          back_to: Tilbake til
-          back_to_list: Tilbake til listen
           changes_at_title: Endring til "%{title}"
-          comments: Kommentarer
           edit_proposal: Rediger forslaget
           estimated_cost: Estimert kostnad
           hidden_endorsers_count:
@@ -736,14 +690,9 @@
           proposal_accepted_reason: 'Dette forslaget ble akseptert fordi:'
           proposal_in_evaluation_reason: Dette forslaget blir evaluert
           proposal_rejected_reason: 'Dette forslaget ble avvist fordi:'
-          read_less: Vis mindre
-          read_more: Les mer
-          report: Rapport
           withdraw_btn_hint: Du kan trekke tilbake forslaget ditt hvis du ombestemmer deg, så lenge du ikke har fått noe støtte. Forslaget er ikke slettet, den vil vises i listen av tilbaketrukne forslag.
           withdraw_confirmation_html: Er du sikker på at du vil trekke tilbake dette forslaget?<br><br><strong>Denne handlingen kan ikke avbrytes!</strong>
           withdraw_proposal: Trekk tilbake forslag
-        tags:
-          changed_from: "(endret fra <u>%{previous_name}</u> av en administrator)"
         update:
           title: Oppdater forslag
         vote_button:
@@ -770,8 +719,6 @@
           title: 'Støtter er underlagt følgende regler:'
           vote_limit:
             description: Du kan støtte opptil %{limit} forslag.
-            left: Gjenstår
-            votes: Støtter
         wizard_aside:
           back: Tilbake
           back_from_step_1: Tilbake til forslag
@@ -802,12 +749,8 @@
         error: Det oppstod et problem med å lagre samarbeids utkastet.
         success: Forslags utkastet ble oppdatert.
       versions:
-        collaborative_drafts:
-          back_to_resource: Gå tilbake til samarbeids utkast
         index:
           title: Versjoner
-        proposals:
-          back_to_resource: Gå tilbake til forslag
     resource_links:
       copied_from_component:
         proposal_proposal: Relaterte forslag
