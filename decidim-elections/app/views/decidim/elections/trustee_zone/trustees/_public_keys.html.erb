@@ -11,7 +11,7 @@
 <h2 class="h3"><%= t("elections.title", scope: "decidim.elections.trustee_zone.trustees.show") %></h2>
 
 <% if trustee.elections.any? %>
-  <%= render partial: "elections" %>
+  <%= render partial: "table" %>
 <% else %>
   <%= cell("decidim/announcement", t("elections.no_elections", scope: "decidim.elections.trustee_zone.trustees.show"), callout_class: "warning" ) %>
 <% end %>
