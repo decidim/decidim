@@ -139,7 +139,6 @@ gl:
         error: Produciuse un erro ao aceptar a emenda.
         success: A modificación foi aceptada con éxito.
       amendable:
-        amended_by: Modificado por
         button: Modificar %{model_name}
         error: Produciuse un erro ao modificar este recurso.
         promote_button: Promoción a %{model_name}
@@ -177,13 +176,10 @@ gl:
     application:
       documents:
         related_documents: Documentos relacionados
-      geocoding:
-        geocoded_address: Enderezo
       photos:
         related_photos: Fotos relacionadas
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar para varios usuarios
       comments:
         one: comentario
         other: comentarios
@@ -299,8 +295,6 @@ gl:
           newsletter_title: Permiso de contacto
           sign_in: Iniciar sesión
           sign_up: Rexistrarse
-          sign_up_as:
-            legend: Rexístrate como
           subtitle: Rexístrate para participar en discusións e propostas de apoio.
           tos_agreement: Ao rexistrarte, aceptas %{link}.
           tos_title: Condicións de servicio
@@ -313,7 +307,6 @@ gl:
         newsletter_modal:
           buttons:
             check: Comprobar e continuar
-            close_modal: Pechar modal
           title: Notificacións de boletín informativo
         omniauth_buttons:
           or: Ou
@@ -321,7 +314,6 @@ gl:
       authorizations:
         new:
           authorize: Autorizar a aplicación
-          by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
           publish_content: Publica contido por ti
           see_email: Vexa o teu correo electrónico
@@ -330,7 +322,6 @@ gl:
           this_application_will_be_able_to: 'Esta aplicación poderá:'
           this_application_will_not_be_able_to: 'Esta aplicación non poderá:'
           update_profile: Actualiza o teu perfil
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quere usar a túa conta"
     download_your_data:
       export:
         ready: Listo
@@ -588,12 +579,9 @@ gl:
           title: Que podo facer en %{organization}?
         title: Axuda xeral
     last_activities:
-      activities:
-        no_activities_warning: Non hai actividade
       all: Todos os tipos de actividade
       index:
         last_activity: Última actividade
-        resource_type: Tipo
     links:
       invalid_url: URL non válido
       warning:
@@ -697,11 +685,6 @@ gl:
         retry: Tentar de novo
     open_data:
       not_available_yet: Os ficheiros Open Data aínda non están dispoñibles. Téntao de novo nuns minutos.
-    own_user_groups:
-      index:
-        pending: Pendente
-        rejected: Rexeitado
-        verified: Verificado
     pad_iframe:
       disclaimer: Os contidos deste pad son escritos por usuarios rexistrados e expresan as súas opinións. %{organization} non se responsabiliza dos seus contidos.
       pad: Pad
@@ -723,8 +706,6 @@ gl:
         hero:
           participate: Participar
           welcome: Benvido a %{organization}.
-        metrics:
-          headline: Participación en números
         statistics:
           headline: Estado actual de %{organization}
         sub_hero:
@@ -737,11 +718,10 @@ gl:
       participatory_space:
         metrics:
           headline: Participación en números
-          link: Mostrar todas as estatísticas
     participatory_space_private_users:
       not_allowed: Non tes permiso para ver este contido
     profile:
-      view: Ver
+      deleted: Usuario eliminado
     profiles:
       show:
         activity: Actividade
@@ -750,7 +730,6 @@ gl:
         following: Segue
         groups: Grupos
         members: Membros
-        view_full_profile: Ver o perfil completo
       sidebar:
         badges:
           info: As insignias obtéñense realizando actividades específicas na plataforma.
@@ -792,7 +771,6 @@ gl:
       term_input_placeholder: Busca
     searches:
       filters:
-        back: Voltar aos resultados
         jump_to: 'Ir a:'
         state:
           active: Activo
@@ -805,15 +783,8 @@ gl:
         filter_by: Filtrar por
         unfold: Despregar
       results:
-        results:
-          one: "%{count} resultado"
-          other: "%{count} resultados"
         view_all: Ver todos (%{count})
     shared:
-      embed_modal:
-        close_window: Pechar ventá
-        embed: Pega este código na túa páxina
-        embed_link: Inserir
       extended_navigation_bar:
         more: Máis
         unfold: Despregar
@@ -866,8 +837,6 @@ gl:
       participants_count: Participantes
       users_count: Participantes
     user_conversations:
-      show:
-        back: Amosar todas as conversas
       update:
         error: Mensaxe non enviada. Téntao de novo máis tarde
     user_interests:
@@ -880,11 +849,6 @@ gl:
     user_report_mailer:
       notify:
         details: Detalles fornecidos polo usuario
-    version_author:
-      show:
-        deleted: Usuario eliminado
-    versions_list_item:
-      back: Amosar todas as versións
     welcome_notification:
       default_subject: Grazas por unirte a {{organization}}!
   devise:
@@ -1025,6 +989,10 @@ gl:
     timestamp_error_message: Sentímolo, iso foi demasiado rápido. Reenvío de novo.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Tipo
       edit_link:
         edit: Editar
       footer:
@@ -1062,8 +1030,6 @@ gl:
         notifications_settings: Configuración de notificacións
         title: Configuración do usuario
         user_groups: Grupos
-      widget:
-        see_more: Ver máis
   locale:
     name: Galego
   password_validator:
@@ -1112,9 +1078,6 @@ gl:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
-  versions:
-    dropdown:
-      choose_diff_view_mode_menu: Escoller o modo de comparación
   views:
     pagination:
       truncate: "&hellip;"
