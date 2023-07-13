@@ -252,7 +252,6 @@ zh-TW:
         error: 接受修正案時發生錯誤。
         success: 修正案已成功接受。
       amendable:
-        amended_by: 修改人
         button: 修正 %{model_name}
         error: 在修改此資源時發生錯誤。
         help_text: 透過修改 %{amendable_fields}，來改善這個 %{model_name}.
@@ -272,7 +271,6 @@ zh-TW:
         success: 修正案草稿已成功刪除。
       edit_draft:
         discard: 放棄此草案
-        discard_confirmation: 您確定要丟棄此修正案草稿嗎？
         send: 預覽
         title: 編輯修正案草稿
       emendation:
@@ -309,7 +307,6 @@ zh-TW:
       review:
         back: 返回
         heading: 審查修正案
-        help_text: 你正在審查對 %{model_name} 的修正案。
         send: 接受修正案
       update_draft:
         error: 更新修正案草稿時遇到問題。
@@ -329,8 +326,6 @@ zh-TW:
         download: 下載檔案
       documents:
         related_documents: 相關的檔案
-      geocoding:
-        geocoded_address: 地址
       photo:
         alt: 媒體圖片
         title: 圖片
@@ -338,7 +333,6 @@ zh-TW:
         related_photos: 相關影像
     author:
       avatar: '頭像： %{name}'
-      avatar_multiuser: 多個使用者的頭像
       comments:
         other: 評論
       endorsements:
@@ -535,8 +529,6 @@ zh-TW:
           nickname_help: 在 %{organization} 中的別名。只能包含字母、數字、'-' 和 '_'。
           sign_in: 登入
           sign_up: 註冊登記
-          sign_up_as:
-            legend: 註冊登記為
           subtitle: 註冊以參與討論並支持提案。
           terms: 此服務條款
           tos_agreement: 通過註冊，您同意遵守 %{link}。
@@ -554,16 +546,7 @@ zh-TW:
         newsletter_modal:
           buttons:
             check: 檢查並繼續
-            close_modal: 關閉視窗
             uncheck: 保持未勾選
-          notice: |-
-            <p>嗨，您確定不想收到電子報嗎？<br>
-            請再考慮勾選下面的電子報選項。<br>
-            對我們來說，讓您能收到偶爾的電子郵件，以便發布重要公告非常重要。
-            您可以隨時在通知設置頁面上更改此選項。</p>
-            <p>如果您不勾選此框，您可能會錯過有關平台上新的參與機會的相關信息。<br>
-            如果您仍然想避免收到電子報，我們完全理解您的決定。</p>
-            <p>感謝您閱讀此內容！</p>
           title: 電子報通知
         omniauth_buttons:
           or: 或
@@ -571,9 +554,7 @@ zh-TW:
       authorizations:
         new:
           authorize: 授權應用程式
-          by_organization_link_html: <small class="heading-small">由 %{link} 提供</small>
           cancel: 取消
-          connect_your_account_html: 透過登入<strong>%{organization}</strong>連接您的帳戶.
           publish_content: 代表您發佈內容
           see_email: 查看您的電子郵件
           see_name: 查看你的名稱
@@ -581,7 +562,6 @@ zh-TW:
           this_application_will_be_able_to: '此應用程式將可以：'
           this_application_will_not_be_able_to: '這個應用程式無法：'
           update_profile: 更新您的個人檔案
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> 希望使用您的帳戶"
     download_your_data:
       export:
         ready: 準備就緒
@@ -973,12 +953,9 @@ zh-TW:
         description: 閱讀更多有關 %{organization} 的資訊.
         title: 一般幫助
     last_activities:
-      activities:
-        no_activities_warning: 沒有活動
       all: 所有活動類型
       index:
         last_activity: 最後活動
-        resource_type: 類別
     links:
       invalid_url: 無效網址 URL
       warning:
@@ -1206,11 +1183,6 @@ zh-TW:
         retry: 重試
     open_data:
       not_available_yet: 開放數據檔案尚未可用，請稍後再試。
-    own_user_groups:
-      index:
-        pending: 等待中
-        rejected: 已拒絕
-        verified: 已驗證
     pad_iframe:
       disclaimer: 此筆記內容由註冊用戶撰寫並表達其意見。%{organization} 對其內容不承擔責任。"
       explanation: 使用此區塊共同協作撰寫會議紀錄，以便之後更輕鬆地撰寫會議記錄。
@@ -1233,8 +1205,6 @@ zh-TW:
         hero:
           participate: 參與
           welcome: 歡迎來到 %{organization}！
-        metrics:
-          headline: 指標
         statistics:
           headline: '%{organization} 的目前狀態'
         sub_hero:
@@ -1247,7 +1217,6 @@ zh-TW:
       participatory_space:
         metrics:
           headline: 指標
-          link: 顯示所有指標
       terms_of_service:
         accept:
           error: 接受服務條款時出現問題。
@@ -1260,7 +1229,6 @@ zh-TW:
           modal_btn_continue: 接受條款並繼續
           modal_btn_exit: 我稍後會再查看。
           modal_button: 拒絕條款
-          modal_close: 關閉視窗
           modal_title: 您真的拒絕接受更新的服務條款嗎？
         required_review:
           alert: 我們已更新我們的服務條款，請您查閱。
@@ -1275,7 +1243,6 @@ zh-TW:
     profile:
       deleted: 已刪除的參與者
       inaccessible_message: 由於違反服務條款，此個人資料無法存取！
-      view: 檢視
     profiles:
       default_officialization_text_for_user_groups: 這個社群已公開驗證，其名稱已經被證實符合其真實名稱。
       default_officialization_text_for_users: 這個參與者已經公開驗證，其名稱或角色已被證實與其真實名稱或角色相符。
@@ -1289,7 +1256,6 @@ zh-TW:
         members: 成員
         officialized: 正式認證參與者
         send_private_message: 發送私人訊息
-        view_full_profile: 查看完整個人資料
       sidebar:
         badges:
           info: 徽章是通過在平台上執行特定活動而獲得的。
@@ -1359,7 +1325,6 @@ zh-TW:
       term_input_placeholder: 搜尋
     searches:
       filters:
-        back: 返回至結果
         jump_to: '跳到：'
         state:
           active: 啟動
@@ -1372,8 +1337,6 @@ zh-TW:
         filter_by: 篩選條件
         unfold: 展開
       results:
-        results:
-          other: "One\n%{count} 個結果\n\nOther\n%{count} 個結果"
         view_all: 查看全部(%{count})
     security:
       selfxss_warning:
@@ -1385,10 +1348,6 @@ zh-TW:
         close_modal: 關閉視窗
         ok: 好的
         title: 確認
-      embed_modal:
-        close_window: 關閉視窗
-        embed: 請將此代碼粘貼到您的頁面中。
-        embed_link: 嵌入
       extended_navigation_bar:
         more: 更多
         unfold: 展開
@@ -1407,7 +1366,6 @@ zh-TW:
         report: 報告
         spam: 包含點閱率誘導、廣告、詐騙或自動腳本。
         title: 檢舉不當內容
-        visit_profile: 如果您也想封鎖該參與者及其其餘內容，請前往 %{user_link} 的個人檔案頁面。
       flag_user_modal:
         already_reported: 此內容已被舉報，將由管理員進行審查。
         block: 封鎖此參與者
@@ -1482,30 +1440,12 @@ zh-TW:
         existing_error: 無法建立訊息。該對話已存在，請現在重試。
         success: 對話成功開始！
       index:
-        add_max_users: '將使用者加入對話：最多可加入 9 名使用者。'
-        add_users_placeholder: 搜尋...
-        close: 關閉
         conversations_info: 對話是私密的，沒有其他人可以看到。可以與平台上註冊的任何參與者或群組開始對話。
-        from: 來自
-        last_message: 最後訊息
-        modal_title: 新對話
-        new_conversation: 新對話
-        next: 下一個
         no_conversations_warning: 目前還沒有任何對話。
-        no_results: 無結果
-        participant_with_disabled_message_reception: 此參與者已停用訊息接收功能.
         time_ago: "%{time} 之前"
-      new:
-        title: 開始對話
       reply:
         placeholder: 您的回覆...
         send: 發送
-        title_reply: 回覆
-      show:
-        back: 顯示所有對話
-        deleted_accounts: 你不能與已刪除的帳戶進行對話。
-        not_allowed: 此使用者不再接受私訊。
-        title: 與 %{usernames} 的對話
       update:
         error: 訊息未送出，請稍後再試。
     user_interests:
@@ -1530,29 +1470,12 @@ zh-TW:
         back_to_resource: 返回
         changes_at_title: '"%{title}" 的更改'
         number_of_versions: 版本
-        show_all_versions: 顯示所有版本
-        version_author: 版本作者
         version_created_at: 版本建立於
-        version_number: 版本號碼
-        version_number_out_of_total: "第 %{current_version} 版(共 %{total_count} 版)"
-    version_author:
-      show:
-        deleted: 已刪除的參與者
     versions:
       resource_version:
         of_versions: "(的%{number})"
         see_other_versions: 查看其他版本
         version: 版本號碼 %{number}
-    versions_list:
-      show:
-        back_to_resource: 返回
-        changes_at_title: '"%{title}" 的更改'
-        number_of_versions: 版本
-        title: 版本
-    versions_list_item:
-      back: 顯示所有版本
-      show:
-        version_index: 版本 %{index}
     welcome_notification:
       default_body: <p>嗨 {{name}}，感謝您加入 {{organization}}，歡迎！</p><ul><li>如果您想快速了解此處的功能，請查看<a href="{{help_url}}">幫助</a>部分。</li><li>閱讀後，您將獲得第一個徽章。這裡是{{organization}} 中您可以參加的所有徽章的<a href="{{badges_url}}">清單</a></li><li>最後但並非最不重要的，加入其他人，分享與他們參與 {{organization}} 的經驗。提出建議，評論，辯論，考慮如何為共同利益做出貢獻，提供論據以說服，耐心聆聽並閱讀以取得信服，以具體且直接的方式表達您的想法，以耐心和決定力回應，捍衛您的想法，保持開放的態度以協作和加入其他人的想法。</li></ul>
       default_subject: 感謝您加入 {{organization}}！
@@ -1864,8 +1787,6 @@ zh-TW:
         notifications_settings: 通知設定
         title: 參與者設定
         user_groups: 群組
-      widget:
-        see_more: 查看更多
   locale:
     name: 英文
     name_with_error: 英文 (錯誤！)
@@ -1938,7 +1859,6 @@ zh-TW:
     dropdown:
       choose_diff_view_html: 'HTML 檢視模式:'
       choose_diff_view_mode: '比較檢視模式'
-      choose_diff_view_mode_menu: 選擇比較模式
       option_escaped: 已轉義
       option_split: 並排顯示
       option_unescaped: 未轉義
