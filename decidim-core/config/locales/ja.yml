@@ -1705,7 +1705,7 @@ ja:
             description: 説明
             name: 名前
             service: サービス
-            type: 種別
+            type: タイプ
           items:
             _session_id:
               description: ウェブページ間を移動したときにウェブサイト内のユーザーをウェブサイトが記憶できるようにします。
