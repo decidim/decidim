@@ -14,13 +14,7 @@ edit_link(
 <% content_for :aside do %>
   <h1 class="h3 md:h1 decorator"><%= t("decidim.menu.votings") %></h1>
 
-  <% filter_sections = [].tap do |f|
-      f.append(method: :with_any_date, collection: date_filter_values, label_scope: "decidim.votings.votings.filters", id: "date")
-    end
-
-     search_variable = :search_text_cont %>
-
-  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: } do %>
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont } do %>
     <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
   <% end %>
 <% end %>

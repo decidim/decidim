@@ -16,6 +16,10 @@ module Decidim
         )
       end
 
+      def filter_sections
+        @filter_sections ||= [{ method: :with_any_date, collection: date_filter_values, label_scope: "decidim.votings.votings.filters", id: "date" }]
+      end
+
       def voting_nav_items(participatory_space)
         components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
 
