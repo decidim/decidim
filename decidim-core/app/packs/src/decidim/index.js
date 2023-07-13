@@ -1,56 +1,120 @@
-/* eslint-disable no-invalid-this */
+/* eslint-disable max-lines */
 
+/**
+ * External dependencies
+ */
+
+// external deps with no initialization
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+import "jquery"
+
+// external deps that require initialization
+import Rails from "@rails/ujs"
 import svg4everybody from "svg4everybody"
-import formDatePicker from "src/decidim/form_datepicker"
-import fixDropdownMenus from "src/decidim/dropdowns_menus"
-import Configuration from "src/decidim/configuration"
-import ExternalLink from "src/decidim/external_link"
-import updateExternalDomainLinks from "src/decidim/external_domain_warning"
-import scrollToLastChild from "src/decidim/scroll_to_last_child"
-import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input_character_counter"
-import FormValidator from "src/decidim/form_validator"
-import DataPicker from "src/decidim/data_picker"
-import FormFilterComponent from "src/decidim/form_filter"
-import addInputEmoji, { EmojiButton } from "src/decidim/input_emoji"
-import dialogMode from "src/decidim/dialog_mode"
-import FocusGuard from "src/decidim/focus_guard"
-import backToListLink from "src/decidim/back_to_list"
-import markAsReadNotifications from "src/decidim/notifications"
-import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
+import morphdom from "morphdom"
 
-// NOTE: new libraries required to give functionality to redesigned views
-import Accordions from "a11y-accordion-component";
-import Dropdowns from "a11y-dropdown-component";
-import Dialogs from "a11y-dialog-component";
-import RemoteModal from "src/decidim/ajax_modals"
-// end new libraries
+// vendor customizated scripts (bad practice: these ones should be removed eventually)
+import "./vendor/foundation-datepicker"
+import "./foundation_datepicker_locales"
+import "./vendor/modernizr"
 
-window.Decidim = window.Decidim || {};
-window.Decidim.config = new Configuration()
-window.Decidim.ExternalLink = ExternalLink;
-window.Decidim.InputCharacterCounter = InputCharacterCounter;
-window.Decidim.FormValidator = FormValidator;
-window.Decidim.DataPicker = DataPicker;
-window.Decidim.addInputEmoji = addInputEmoji;
-window.Decidim.EmojiButton = EmojiButton;
+/**
+ * Local dependencies
+ */
 
-window.Decidim.Accordions = Accordions;
-window.Decidim.Dropdowns = Dropdowns;
+// local deps with no initialization
+import "./input_tags"
+import "./input_hashtags"
+import "./input_mentions"
+import "./input_multiple_mentions"
+import "./input_autojump"
+import "./history"
+import "./callout"
+import "./clipboard"
+import "./append_elements"
+import "./user_registrations"
+import "./account_form"
+import "./append_redirect_url_to_modals"
+import "./form_attachments"
+import "./form_remote"
+import "./delayed"
+import "./vizzs"
+import "./responsive_horizontal_tabs"
+import "./security/selfxss_warning"
+import "./session_timeouter"
+import "./confirm"
+import "./results_listing"
+import "./impersonation"
+import "./gallery"
+import "./direct_uploads/upload_field"
+import "./data_consent"
+import "./sw"
+import changeReportFormBehavior from "./change_report_form_behavior"
+
+
+// local deps that require initialization
+import formDatePicker from "./form_datepicker"
+import fixDropdownMenus from "./dropdowns_menus"
+import Configuration from "./configuration"
+import ExternalLink from "./external_link"
+import updateExternalDomainLinks from "./external_domain_warning"
+import scrollToLastChild from "./scroll_to_last_child"
+import InputCharacterCounter, { createCharacterCounter } from "./input_character_counter"
+import FormValidator from "./form_validator"
+import DataPicker from "./data_picker"
+import FormFilterComponent from "./form_filter"
+import addInputEmoji, { EmojiButton } from "./input_emoji"
+import dialogMode from "./dialog_mode"
+import FocusGuard from "./focus_guard"
+import backToListLink from "./back_to_list"
+import markAsReadNotifications from "./notifications"
+import RemoteModal from "./ajax_modals"
+import selectActiveIdentity from "./identity_selector_dialog"
+import createTooltip from "./tooltips"
+import createToggle from "./toggle"
+import {
+  createAccordion,
+  createDialog,
+  createDropdown,
+  Dialogs
+} from "./a11y"
+
+// bad practice: window namespace should avoid be populated as much as possible
+// rails-translations could be referrenced through a single Decidim.I18n object
+window.Decidim = window.Decidim || {
+  config: new Configuration(),
+  ExternalLink,
+  InputCharacterCounter,
+  FormValidator,
+  DataPicker,
+  addInputEmoji,
+  EmojiButton,
+  Dialogs
+};
+
+window.morphdom = morphdom
+
+Rails.start()
 
 /**
  * Initializer event for those script who require to be triggered
  * when the page is loaded
+ *
+ * @param {HTMLElement} element target node
+ * @returns {void}
  */
-// If no jQuery is used the Tribute feature used in comments to autocomplete
-// mentions stops working
-// document.addEventListener("DOMContentLoaded", () => {
-$(() => {
-
+const initializer = (element = document) => {
   window.theDataPicker = new DataPicker($(".data-picker"));
-  window.focusGuard = new FocusGuard(document.querySelector("body"));
 
-  $(document).foundation();
-  $(document).on("open.zf.reveal", (ev) => {
+  let focusContainer = element;
+  if (element === document) {
+    focusContainer = document.querySelector("body");
+  }
+  window.focusGuard = new FocusGuard(focusContainer);
+
+  $(element).foundation();
+  $(element).on("open.zf.reveal", (ev) => {
     dialogMode($(ev.target));
   });
 
@@ -92,44 +156,69 @@ $(() => {
   });
 
   $("form.new_filter").each(function () {
+    // eslint-disable-next-line no-invalid-this
     const formFilter = new FormFilterComponent($(this));
 
     formFilter.mountComponent();
   })
-  document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
 
-  document.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
+  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
     // both functions (updateExternalDomainLinks and ExternalLink) are related, so if we disable one, the other also
     updateExternalDomainLinks(elem)
 
-    return new ExternalLink($(elem))
+    return new ExternalLink(elem)
   })
 
-  addInputEmoji()
+  addInputEmoji(element)
 
-  backToListLink(document.querySelectorAll(".js-back-to-list"));
+  backToListLink(element.querySelectorAll(".js-back-to-list"));
 
   markAsReadNotifications()
 
   scrollToLastChild()
 
-  // NOTE: new libraries required to give functionality to redesigned views
-  const screens = {md: "768px"};
-  Object.keys(screens).forEach((key) => (window.matchMedia(`(min-width: ${screens[key]})`).matches) && document.querySelectorAll(`[data-controls][data-open-${key}]`).forEach((elem) => (elem.dataset.open = elem.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())])))
-  Accordions.init();
-  Dropdowns.init();
-  document.querySelectorAll("[data-dialog]").forEach(
-    (elem) => {
-      const { dataset: { dialog } } = elem
-      return new Dialogs(`[data-dialog="${dialog}"]`, {
-        openingSelector: `[data-dialog-open="${dialog}"]`,
-        closingSelector: `[data-dialog-close="${dialog}"]`,
-        // optional parameters (whenever exists the id, it will add the tagging)
-        ...(Boolean(elem.querySelector(`#dialog-title-${dialog}`)) && { labelledby: `dialog-title-${dialog}` }),
-        ...(Boolean(elem.querySelector(`#dialog-desc-${dialog}`)) && { describedby: `dialog-desc-${dialog}` })
-      })
-    }
-  );
-  document.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
-  // end new libraries
+  // https://github.com/jonathanlevaillant/a11y-accordion-component
+  element.querySelectorAll('[data-component="accordion"]').forEach((component) => createAccordion(component))
+
+  // https://github.com/jonathanlevaillant/a11y-dropdown-component
+  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => createDropdown(component))
+
+  // https://github.com/jonathanlevaillant/a11y-dialog-component
+  element.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component))
+
+  // Initialize available remote modals (ajax-fetched contents)
+  element.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
+
+  // Add event listeners to identity modal
+  element.querySelectorAll("[data-user-identity]").forEach((elem) => selectActiveIdentity(elem))
+
+  // Initialize data-tooltips
+  element.querySelectorAll("[data-tooltip]").forEach((elem) => createTooltip(elem))
+
+  // Initialize data-toggles
+  element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
+
+  document.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
+}
+
+// If no jQuery is used the Tribute feature used in comments to autocomplete
+// mentions stops working
+// document.addEventListener("DOMContentLoaded", () => {
+$(() => initializer());
+
+// Run initializer action over the new DOM elements
+document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
+document.addEventListener("ajax:loaded", ({ detail }) => initializer(detail));
+
+// Run initializer action over the new DOM elements (for example after comments polling)
+document.addEventListener("comments:loaded", (event) => {
+  const commentsIds = event.detail.commentsIds;
+  if (commentsIds) {
+    commentsIds.forEach((commentId) => {
+      const commentsContainer = document.getElementById(`comment_${commentId}`);
+      if (commentsContainer) {
+        initializer(commentsContainer)
+      }
+    });
+  }
 });

@@ -7,10 +7,10 @@
  * @augments Component
  */
 
-import delayed from "src/decidim/delayed"
-import CheckBoxesTree from "src/decidim/check_boxes_tree"
-import { registerCallback, unregisterCallback, pushState, replaceState, state } from "src/decidim/history"
-import DataPicker from "src/decidim/data_picker"
+import delayed from "./delayed"
+import CheckBoxesTree from "./check_boxes_tree"
+import { registerCallback, unregisterCallback, pushState, replaceState, state } from "./history"
+import DataPicker from "./data_picker"
 
 export default class FormFilterComponent {
   constructor($form) {
@@ -23,7 +23,6 @@ export default class FormFilterComponent {
 
     this._updateInitialState();
     this._onFormChange = delayed(this, this._onFormChange.bind(this));
-    this._onFormSubmit = delayed(this, this._onFormSubmit.bind(this));
     this._onPopState = this._onPopState.bind(this);
 
     if (window.Decidim.PopStateHandler) {
@@ -43,7 +42,6 @@ export default class FormFilterComponent {
     if (this.mounted) {
       this.mounted = false;
       this.$form.off("change", "input, select", this._onFormChange);
-      this.$form.off("submit", this._onFormSubmit);
 
       unregisterCallback(`filters-${this.id}`)
     }
@@ -59,12 +57,11 @@ export default class FormFilterComponent {
       this.mounted = true;
       let queue = 0;
 
-      let contentContainer = $(this.$form.closest(".filters").parent().find(".skip").attr("href"));
+      let contentContainer = $("main");
       if (contentContainer.length === 0 && this.$form.data("remoteFill")) {
         contentContainer = this.$form.data("remoteFill");
       }
       this.$form.on("change", "input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])", this._onFormChange);
-      this.$form.on("submit", this._onFormSubmit);
 
       this.currentFormRequest = null;
       this.$form.on("ajax:beforeSend", (e) => {
@@ -78,14 +75,14 @@ export default class FormFilterComponent {
         }
       });
 
-      this.$form.on("ajax:success", () => {
+      $(document).on("ajax:success", () => {
         queue -= 1;
         if (queue <= 0 && contentContainer.length > 0) {
           contentContainer.removeClass("spinner-container");
         }
       });
 
-      this.$form.on("ajax:error", () => {
+      $(document).on("ajax:error", () => {
         queue -= 1;
         if (queue <= 0 && contentContainer.length > 0) {
           contentContainer.removeClass("spinner-container");
@@ -257,16 +254,14 @@ export default class FormFilterComponent {
 
     // Only one instance should submit the form on browser history navigation
     if (this.popStateSubmiter) {
-      Rails.fire(this.$form[0], "submit", { from: "pop" });
+      Rails.fire(this.$form[0], "submit");
     }
 
     this.changeEvents = true;
   }
 
   /**
-   * Handles the logic to decide whether the form should be submitted or not
-   * after a form change event. The form is only submitted when changes have
-   * occurred.
+   * Handles the logic to update the current location after a form change event.
    * @private
    * @returns {Void} - Returns nothing.
    */
@@ -275,7 +270,7 @@ export default class FormFilterComponent {
       return;
     }
 
-    const [newPath] = this._currentStateAndPath();
+    const [newPath, newState] = this._currentStateAndPath();
     const path = this._getLocation(false);
 
     if (newPath === path) {
@@ -283,23 +278,6 @@ export default class FormFilterComponent {
     }
 
     Rails.fire(this.$form[0], "submit");
-  }
-
-  /**
-   * Saves the current state of the search on form submit to update the search
-   * parameters to the URL and store the picker states.
-   * @private
-   * @param {jQuery.Event} ev The event that caused the form to submit.
-   * @returns {Void} - Returns nothing.
-   */
-  _onFormSubmit(ev) {
-    const eventDetail = ev.originalEvent.detail;
-    if (eventDetail && eventDetail.from === "pop") {
-      return;
-    }
-
-    const [newPath, newState] = this._currentStateAndPath();
-
     pushState(newPath, newState);
     this._saveFilters(newPath);
   }
@@ -311,7 +289,7 @@ export default class FormFilterComponent {
    */
   _currentStateAndPath() {
     const formAction = this.$form.attr("action");
-    const params = this.$form.find(":not(.ignore-filters)").find("select:not(.ignore-filter), input:not(.ignore-filter)").serialize();
+    const params = this.$form.find("input:not(.ignore-filter)").serialize();
 
     let path = "";
     let currentState = {};
@@ -336,7 +314,7 @@ export default class FormFilterComponent {
    * @returns {String} - Returns a unique identifier
    */
   _getUID() {
-    return `filter-form-${new Date().getUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
+    return `filter-form-${new Date().setUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
   }
 
   /**
