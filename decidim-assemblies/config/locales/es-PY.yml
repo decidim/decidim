@@ -205,6 +205,7 @@ es-PY:
           categories: Categorías
           components: Componentes
           info: Información
+          landing_page: Página de inicio
           moderations: Moderaciones
           private_users: Usuarios privados
         assemblies_types: Tipos de asamblea
@@ -331,6 +332,26 @@ es-PY:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Área
+          closing_date: Fecha de finalización
+          created_by: Creado por
+          creation_date: Fecha de creación
+          data: Administradora de la asamblea
+          developer_group: Grupo promotor
+          duration: Duración
+          included_at: Incluido el
+          indefinite_duration: Indefinida
+          local_area: Área de organización
+          meta_scope: Ámbito
+          participatory_scope: Qué se decide
+          participatory_structure: Cómo se decide
+          target: Quién participa
+          title: Acerca de esta asamblea
+        filters:
+          names:
+            all: Todas
+          type: Tipo
         show:
           title: Acerca de esta asamblea
       assembly_members:
@@ -345,8 +366,16 @@ es-PY:
         participatory: Participativo
         working_group: Grupo de trabajo
       content_blocks:
+        children_assemblies:
+          name: Asambleas
+        dates_metadata:
+          name: Metadatos de fechas
+        extra_data:
+          name: Tipo y duración
         highlighted_assemblies:
           name: Asambleas destacadas
+        related_assemblies:
+          name: Asambleas relacionadas
       created_by:
         city_council: Ayuntamiento
         others: Otros
@@ -366,6 +395,10 @@ es-PY:
       last_activity:
         new_assembly: 'Nueva asamblea:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Asambleas activas
+            see_all_spaces: Ver todas las asambleas
         user_profile:
           member_of:
             member_of: Miembro de
@@ -429,6 +462,10 @@ es-PY:
         index:
           children: 'Asambleas: '
           promoted_assemblies: Asambleas destacadas
+        metadata:
+          children_item:
+            one: "%{count} asamblea"
+            other: "%{count} asambleas"
         order_by_assemblies:
           assemblies:
             one: "%{count} asamblea"
