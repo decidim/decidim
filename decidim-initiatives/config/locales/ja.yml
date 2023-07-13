@@ -580,11 +580,6 @@ ja:
         status_change_for: イニシアチブ %{title} のステータスが変更されました
       last_activity:
         new_initiative: 新たなイニシアチブを作成
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: 積極的なイニシアチブ
-            see_all_initiatives: すべてのイニシアチブを見る
       show:
         badge_name:
           accepted: 十分な署名
