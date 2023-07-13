@@ -62,7 +62,6 @@ eo:
       accepted:
         success: La amendo estis akceptita sukcese.
       amendable:
-        amended_by: Modifita de
         button: Amendi %{model_name}
         error: Okazis eraro ŝanĝante ĉi tiun rimedon.
       edit_draft:
