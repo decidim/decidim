@@ -816,8 +816,8 @@ ca:
           type: Tipus
           voted: Has donat suport
         filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtra
+          close_modal: Tanca la finestra
+          filter: Filtre
           filter_by: Filtra per
           unfold: Desplega
         index:
@@ -845,8 +845,6 @@ ca:
           recent: Recent
           with_more_authors: Amb més autores
         participatory_texts:
-          index:
-            document_index: Índex del document
           view_index:
             see_index: Veure índex
         placeholder:
