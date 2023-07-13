@@ -384,9 +384,6 @@ de:
         description: Anzahl der Unterstützungen zu Vorschlägen
         object: Unterstützer
         title: Unterstützer
-    participatory_spaces:
-      highlighted_proposals:
-        see_all: Alle anzeigen (%{count})
     proposals:
       actions:
         answer_proposal: Vorschlag beantworten
@@ -607,16 +604,12 @@ de:
         rejected: Abgelehnt
         withdrawn: Zurückgezogen
       application_helper:
-        filter_category_values:
-          all: Alle
         filter_origin_values:
           all: Alle
           meetings: Meetings
           official: Offiziell
           participants: Teilnehmer
           user_groups: Benutzergruppen
-        filter_scope_values:
-          all: Alle
         filter_state_values:
           accepted: Angenommen
           all: Alle
@@ -646,10 +639,6 @@ de:
               ok: Ziehen Sie den gemeinsamen Entwurf zurück
               title: Die folgende Aktion ist irreversibel
             success: Kollaborativer Entwurf erfolgreich zurückgezogen.
-        count:
-          drafts_count:
-            one: "%{count} kollaborativer Entwurf"
-            other: "%{count} kollaborativer Entwurf"
         create:
           error: Beim Erstellen dieses kollaborativen Entwurfs ist ein Problem aufgetreten.
           success: Collaborative Draft wurde erfolgreich erstellt.
@@ -701,9 +690,7 @@ de:
             error: Konnte nicht als Mitarbeiter abgelehnt werden, versuche es später erneut.
             success: "@%{user} wurde als Mitwirkende erfolgreich abgelehnt."
         show:
-          back: Zurück
           edit: Bearbeiten Sie den gemeinsamen Entwurf
-          final_proposal: Endgültiger Vorschlag
           final_proposal_help_text: Dieser Entwurf ist fertig. Sie können den endgültigen fertigen Vorschlag sehen
           hidden_authors_count:
             one: und %{count} weitere Person
@@ -711,10 +698,8 @@ de:
           info-message: Dies ist ein <strong>kollaborativen Entwurf</strong> für einen Vorschlag. Das bedeutet, dass Sie den Autoren helfen können, den Vorschlag zu gestalten, indem Sie den unten stehenden Kommentarabschnitt verwenden, oder ihn direkt verbessern, indem Sie Zugriff anfordern, um ihn zu bearbeiten. Sobald die Autoren Ihnen Zugriff gewähren, können Sie Änderungen an diesem Entwurf vornehmen.
           publish: Veröffentlichen
           publish_info: Veröffentlichen Sie diese Version des Entwurfs oder
-          published_proposal: Veröffentlichter Vorschlag
           request_access: Zugangsanfragen
           requested_access: Zugriff angefordert
-          version_history: Änderungsverlauf für diesen Vorschlag
           withdraw: den Entwurf zurückziehen
         states:
           open: Öffnen
@@ -725,12 +710,8 @@ de:
           success: Collaborative Draft wurde erfolgreich aktualisiert.
         wizard_aside:
           back_from_collaborative_draft: Zurück zu gemeinschaftlichen Entwürfen
-          info: Sie erstellen einen <strong>gemeinsamen Entwurf</strong>.
         wizard_header:
           title: Erstellen Sie Ihren gemeinsamen Entwurf
-      content_blocks:
-        highlighted_proposals:
-          proposals: Vorschläge
       create:
         error: Beim Speichern des Vorschlags ist ein Fehler aufgetreten.
         success: Der Vorschlag wurde erfolgreich erstellt. Gespeichert als Entwurf.
@@ -741,11 +722,6 @@ de:
         new_proposal: 'Neuer Vorschlag:'
         proposal_updated: 'Vorschlag aktualisiert:'
       models:
-        collaborative_draft:
-          fields:
-            authors: Autoren
-            comments: Bemerkungen
-            contributions: Beiträge
         proposal:
           fields:
             category: Kategorie
@@ -768,7 +744,6 @@ de:
         buttons:
           amend: Ändern
           comment: Kommentar
-          comments: Bemerkungen
       proposal_votes:
         create:
           error: Es gab Fehler bei der Abstimmung des Vorschlags.
@@ -780,21 +755,14 @@ de:
         complete:
           send: Senden
           title: Vorschlag vervollständigen
-        count:
-          proposals_count:
-            one: "%{count} Vorschlag"
-            other: "%{count} Vorschläge"
         dynamic_map_instructions:
           description: Die Koordinaten werden aktualisiert, wenn Sie auf "Vorschau" klicken. Die angegebene Adresse wird sich jedoch nicht ändern.
           instructions: Sie können den Marker auf der Karte verschieben.
         edit:
           add_documents: Dokumente hinzufügen
-          add_image: Bild hinzufügen
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
           edit_documents: Dokumente bearbeiten
-          edit_image: Bild bearbeiten
-          gallery_legend: "(Optional) Ein Bild zur Vorschlagskarte hinzufügen"
           select_a_category: Bitte wählen sie eine Kategorie
           send: Abschicken
           title: Vorschlag bearbeiten
@@ -816,11 +784,6 @@ de:
           state: Zustand
           type: Art
           voted: Gewählt
-        filters_small_view:
-          close_modal: Modal schließen
-          filter: Filter
-          filter_by: Filtern nach
-          unfold: Aufklappen
         index:
           click_here: Alle Vorschläge ansehen
           collaborative_drafts_list: Greifen Sie auf gemeinsame Entwürfe zu
@@ -828,11 +791,6 @@ de:
           see_all: Alle Vorschläge ansehen
           see_all_withdrawn: Sehen Sie sich alle zurückgezogenen Vorschläge an
           text_banner: Hier sehen Sie alle Vorschläge, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
-          view_proposal: Vorschlag anzeigen
-        linked_proposals:
-          proposal_votes:
-            one: Abstimmung
-            other: Stimmen
         new:
           send: Fortsetzen
           title: Ihren Vorschlag erstellen
@@ -845,11 +803,6 @@ de:
           random: Zufällig
           recent: Kürzlich hinzugefügt
           with_more_authors: Mit mehr Autoren
-        participatory_texts:
-          index:
-            document_index: Dokumentenindex
-          view_index:
-            see_index: Index anzeigen
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -862,17 +815,13 @@ de:
           publish: Veröffentlichen
           title: Vorschlag veröffentlichen
         proposal:
-          creation_date: 'Erstellt am %{date}'
           view_proposal: Vorschlag anzeigen
         proposals:
           empty: Es gibt noch keine Vorschläge.
           empty_filters: Es gibt keine Vorschläge mit diesen Kriterien.
         show:
           answer: Antworten
-          back_to: Zurück zu
-          back_to_list: Zurück zur Liste
           changes_at_title: Ergänzung zu „%{title}“
-          comments: Kommentare
           edit_proposal: Vorschlag bearbeiten
           estimated_cost: Geschätzte Kosten
           hidden_endorsers_count:
@@ -887,14 +836,9 @@ de:
           proposal_accepted_reason: 'Dieser Vorschlag wurde angenommen, weil:'
           proposal_in_evaluation_reason: Dieser Vorschlag wird evaluiert
           proposal_rejected_reason: 'Dieser Vorschlag wurde abgelehnt, weil:'
-          read_less: Weniger lesen
-          read_more: Weiterlesen
-          report: Melden
           withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Unterstützung erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
           withdraw_confirmation_html: Sind Sie sicher, dass Sie diesen Vorschlag zurückziehen möchten?<br><br><strong>Diese Aktion kann nicht abgebrochen werden!</strong>
           withdraw_proposal: Vorschlag zurückziehen
-        tags:
-          changed_from: "(geändert von <u>%{previous_name}</u> durch einen Administrator)"
         update:
           title: Vorschlag aktualisieren
         vote_button:
@@ -924,8 +868,6 @@ de:
           title: 'Die Abstimmung unterliegt folgenden Regeln:'
           vote_limit:
             description: Sie können bis zu %{limit} Vorschläge abstimmen.
-            left: Verbleibend
-            votes: Stimmen
         wizard_aside:
           back: Zurück
           back_from_step_1: Zurück zu Vorschlägen
@@ -959,12 +901,8 @@ de:
         error: Beim Speichern des Vorschlagsentwurfs ist ein Fehler aufgetreten.
         success: Der Vorschlagsentwurf wurde erfolgreich aktualisiert.
       versions:
-        collaborative_drafts:
-          back_to_resource: Kehren Sie zum gemeinsamen Entwurf zurück
         index:
           title: Versionen
-        proposals:
-          back_to_resource: Gehen Sie zurück zum Vorschlag
       withdraw:
         errors:
           has_supports: Dieser Vorschlag kann nicht zurückgezogen werden, da er bereits unterstützt wird.
