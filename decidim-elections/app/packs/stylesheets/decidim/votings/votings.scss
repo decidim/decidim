@@ -10,4 +10,16 @@
       @apply border-4 border-background rounded p-4 mt-4 first:mt-0;
     }
   }
+
+  &__polling-station {
+    @apply space-y-4 py-4;
+
+    & > * {
+      @apply flex items-center gap-2;
+    }
+
+    & + & {
+      @apply mt-4;
+    }
+  }
 }

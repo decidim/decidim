@@ -54,7 +54,7 @@ describe "Polling Officer zone", type: :system do
     it "can access the new results form for the polling station" do
       visit decidim.decidim_votings_polling_officer_zone_path
 
-      within ".card__polling_station" do
+      within "[data-polling-station]" do
         expect(page).to have_content(translated(election.title))
         expect(page).to have_content("Count votes")
       end
