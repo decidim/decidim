@@ -272,10 +272,6 @@ pl:
         rejected: Niewystarczająca liczba podpisów
         validating: Weryfikacja techniczna
       application_helper:
-        filter_area_values:
-          all: Wszystkie
-        filter_scope_values:
-          all: Wszystkie
         filter_state_values:
           accepted: Wystarczająca liczba podpisów
           all: Wszystkie
@@ -320,26 +316,16 @@ pl:
         previous_form:
           back: Wróć
           continue: Dalej
-          help: Z czego składa się inicjatywa? Zapisz tytuł i opis. Zalecamy krótki i zwięzły tytuł oraz opis koncentrujący się na proponowanym rozwiązaniu.
-          more_information: "(Więcej informacji)"
         promotal_committee:
-          back: Wróć
           individual_help_text: Tego rodzaju inicjatywa obywatelska wymaga Komisji Organizacyjnej, która składa się z co najmniej %{committee_size} osób. Udostępnij poniższy link innym osobom, które są częścią tej inicjatywy. Gdy Twoi znajomi otrzymają ten link, będą musieli wykonać wskazane kroki.
           more_information: "(Więcej informacji)"
         select_initiative_type:
           back: Wróć
           choose_html: Chcę utworzyć <strong>%{title}</strong>
-          more_information: "(Więcej informacji)"
           select: Chcę utworzyć inicjatywę tego typu
           select_initiative_type_help: Inicjatywy są środkiem, za pomocą którego uczestnicy mogą interweniować tak, aby organizacja mogła podejmować działania w obronie interesu ogólnego. Którą inicjatywę chcesz uruchomić?
         share_committee_link:
-          continue: Dalej
           invite_to_committee_help: Link do zaproszenia osób, które będą częścią komitetu organizacyjnego
-        show_similar_initiatives:
-          back: Wróć
-          compare_help: Jeśli którakolwiek z poniższych inicjatyw jest podobna do Twojej, zachęcamy do jej wspierania. Twoja propozycja będzie miała więcej możliwości do bycia przyjęta i procedowaną.
-          continue: Moja inicjatywa jest inna
-          more_information: "(Więcej informacji)"
       edit:
         accept: Akceptuj inicjatywę
         back: Wróć
@@ -376,11 +362,6 @@ pl:
           email_outro: 'Otrzymałeś to powiadomienie, ponieważ jesteś autorem inicjatywy %{resource_title}'
           email_subject: "%{applicant_nickname} chce dołączyć do Twojej inicjatywy"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy <a href="%{resource_url}">%{resource_title}</a>. Aby zaakceptować lub odrzucić kliknij <a href="%{resource_url}/edit">tutaj</a>.
-      form:
-        add_attachments: Dokumenty
-        delete_attachment: Usuń
-      index:
-        title: Inicjatywy
       initiative_signatures:
         fill_personal_data:
           continue: Dalej
@@ -403,8 +384,6 @@ pl:
         sms_phone:
           invalid: Numer telefonu jest nieprawidłowy lub oczekuje na autoryzację. Sprawdź swoje autoryzacje.
       initiatives:
-        author:
-          deleted: Usunięto
         author_list:
           hidden_authors_count:
             one: i jeszcze 1 osoba
@@ -414,7 +393,6 @@ pl:
         committee_members:
           approve: Zatwierdź
           confirm_revoke: Jesteś pewny?
-          revoke: Odwołaj
           title: Członkowie komitetu
         count:
           title:
@@ -479,12 +457,8 @@ pl:
         result:
           initiative_rejected_reason: Ta inicjatywa została odrzucona ze względu na brak podpisów.
         show:
-          any_vote_method: Ta inicjatywa zbiera podpisy online i na piśmie.
           confirm: Zamierzasz wysłać inicjatywę administratorowi, aby ją przejrzał i opublikował. Po opublikowaniu nie będziesz mógł jej edytować. Czy jesteś pewien?
           edit: Edytuj
-          follow_description: Otrzymuj powiadomienie, gdy pojawią się wiadomości dotyczące tej inicjatywy
-          offline_method: Ta inicjatywa zbiera jedynie podpisy na piśmie.
-          print: Drukuj inicjatywę
           send_to_technical_validation: Wyślij do weryfikacji technicznej
         signatures_count:
           one: " podpis"
@@ -503,8 +477,6 @@ pl:
             few: Podpisy
             many: Podpisy
             other: Podpisy
-          most_popular_initiative: Najbardziej popularna inicjatywa
-          need_more_votes: Potrzeba więcej podpisów
       initiatives_mailer:
         creation_subject: Twoja inicjatywa "%{title}" została utworzona
         initiative_link:
@@ -519,14 +491,8 @@ pl:
       modal:
         not_authorized:
           authorizations_page: Zobacz autoryzacje
-          close: Zamknij
           explanation: Musisz zostać zweryfikowany/-a, aby stworzyć nową inicjatywę.
           title: Wymagana autoryzacja
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktualne inicjatywy
-            see_all_initiatives: Zobacz wszystkie inicjatywy
       show:
         badge_name:
           accepted: Wystarczająca liczba podpisów
@@ -539,9 +505,6 @@ pl:
         accepted: Przyjęto
         expired: Przedawnione
       unavailable_scope: Niedostępny zakres
-      versions:
-        shared:
-          back_to_resource: Wróć do inicjatywy
     menu:
       initiatives: Inicjatywy
     resources:
@@ -555,14 +518,10 @@ pl:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Wróć
         fill_data: Utwórz
         finish: Koniec
-        previous_form: Początek
         promotal_committee: Komitet organizacyjny
         select_initiative_type: Wybierz
-        show_similar_initiatives: Porównaj
-        title: Utwórz nową inicjatywę
       initiative_header:
         initiative_menu_item: Inicjatywa
       initiative_signature_creation_header:
@@ -570,11 +529,8 @@ pl:
         fill_personal_data: Uzupełnij swoje dane
         finish: Koniec
         finished: Utworzono podpis pod inicjatywą
-        see_steps: zobacz kroki
-        select_identity: Wybierz tożsamość
         sms_code: Weryfikacja kodem SMS
         sms_phone_number: Numer telefonu komórkowego
-        step: Krok %{current} z %{total}
         title: Podpisz %{initiative_title}
       initiatives:
         initiative:
