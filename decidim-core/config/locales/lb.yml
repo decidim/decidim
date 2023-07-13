@@ -165,7 +165,6 @@ lb:
         error: Beim Akzeptéieren vun der Ännerung ass e Feeler opgetrueden.
         success: D'Ännerung gouf ugeholl.
       amendable:
-        amended_by: Geännert duerch
         button: '%{model_name} änneren'
         error: Beim Änneren vun dëser Ressource ass e Feeler opgetrueden.
         promote_button: Zu engem %{model_name} befërderen
@@ -183,7 +182,6 @@ lb:
         success: D'Virbereedung fir d'Ännerung gouf geläscht.
       edit_draft:
         discard: Virschlag fir Ännerung verwerfen
-        discard_confirmation: Bass du sécher, dass du dësen Ännerungs-Virschlag läsche wëlls?
         send: Virausbléck
         title: Ännerungs-Virschlag beaarbechten
       emendation:
@@ -233,13 +231,10 @@ lb:
         download: Datei erof lueden
       documents:
         related_documents: Dokumenter déi dobäi gehéieren
-      geocoding:
-        geocoded_address: Adress
       photos:
         related_photos: Biller déi dobäi gehéieren
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar für méi Benotzer
       comments:
         one: Kommentar
         other: Kommentare
@@ -408,8 +403,6 @@ lb:
           nickname_help: Däin Pseudonym an %{organization}. Dierf nëmmen aus Buschtawen, Zuelen, _ an - bestoen.
           sign_in: Umelden
           sign_up: Registréieren
-          sign_up_as:
-            legend: Registréieren als
           subtitle: Registréier dech fir bei Diskussiounen mat ze maachen an Virschléi ze ënnerstëtzen.
           tos_agreement: Mat der Umeldung erkläers du dech mat %{link} averstane.
           tos_title: Konditiounen vum Service
@@ -424,7 +417,6 @@ lb:
         newsletter_modal:
           buttons:
             check: Iwwerpréiwen an weider maachen
-            close_modal: Modal zou maachen
             uncheck: Ouni Kontakt-Erlabnis weidermaachen
           title: Newsletter Matdeelungen
         omniauth_buttons:
@@ -433,7 +425,6 @@ lb:
       authorizations:
         new:
           authorize: Applikatioun zouloossen
-          by_organization_link_html: <small class="heading-small">vun %{link}</small>
           cancel: Ofbriechen
           publish_content: Inhalt fir Iech verëffentlechen
           see_email: Kuck deng Email
@@ -442,7 +433,6 @@ lb:
           this_application_will_be_able_to: 'Dës Applikatioun mécht:'
           this_application_will_not_be_able_to: 'Diese Applikatioun kann net:'
           update_profile: Profil aktualiséieren
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> well däin Kont benotzen"
     download_your_data:
       export:
         ready: Fäerdeg
@@ -718,12 +708,9 @@ lb:
           title: Wat kann ech an der %{organization} maachen?
         title: Allgemeng Hëllef
     last_activities:
-      activities:
-        no_activities_warning: Keng Aktivitéit
       all: All Zorten vun Aktivitéit
       index:
         last_activity: Lescht Aktivitéit
-        resource_type: Zort
     links:
       invalid_url: Ongülteg URL
       warning:
@@ -883,11 +870,6 @@ lb:
         success: Deng Astellungen fir Noriichten goufen aktualiséiert.
     open_data:
       not_available_yet: Open Data-Dateien sinn nach net verfügbar. Probéier w. e. g. an e puer Minutten op en Néits.
-    own_user_groups:
-      index:
-        pending: Ausstoend
-        rejected: Verworf
-        verified: Iwwerpréift
     pad_iframe:
       disclaimer: Den Inhalt vun dësem Pad, gouf vun registréierten Benotzer verfaasst an gëtten Auteuren hir Meenung erëm. D'%{organization} kann net fir den Inhalt verantwortlech gemaach ginn.
       pad: Pad
@@ -909,8 +891,6 @@ lb:
         hero:
           participate: Matmaachen
           welcome: Wëllkomm %{organization}!
-        metrics:
-          headline: Statistiken
         statistics:
           headline: Aktuellen Stand vun %{organization}
         sub_hero:
@@ -923,11 +903,10 @@ lb:
       participatory_space:
         metrics:
           headline: Statistiken
-          link: All Statistiken uweisen
     participatory_space_private_users:
       not_allowed: Dir ass et net erlaabt dësen Inhalt ze gesinn
     profile:
-      view: Uweisen
+      deleted: Teilnehmer geläscht
     profiles:
       show:
         activity: Aktivitéit
@@ -939,7 +918,6 @@ lb:
         members: Memberen
         officialized: Offiziellen Teilnehmer
         send_private_message: Privat Noriicht schécken
-        view_full_profile: Kuck den vollstännegen Profil
       sidebar:
         badges:
           info: Ofzeechen kann een sech verdéngen, andeems een bestëmmten Aktivitéiten op der Plattform duerchféiert.
@@ -998,7 +976,6 @@ lb:
       term_input_placeholder: Sich
     searches:
       filters:
-        back: Zréck zu den Resultater
         jump_to: 'Weidergoen op:'
         state:
           active: Aktiv
@@ -1011,9 +988,6 @@ lb:
         filter_by: Filtern nach
         unfold: Opklappen
       results:
-        results:
-          one: "%{count} Resultat"
-          other: "%{count} Resultater"
         view_all: Alles uweisen (%{count})
     security:
       selfxss_warning:
@@ -1025,10 +999,6 @@ lb:
         close_modal: Modal zou maachen
         ok: Ok
         title: Bestätegen
-      embed_modal:
-        close_window: Fënster zou maachen
-        embed: Dëse Code w. e. g. an deng Säit asetzen
-        embed_link: Abannen
       extended_navigation_bar:
         more: Méi
         unfold: Opklappen
@@ -1105,28 +1075,12 @@ lb:
         existing_error: Dës Noriicht konnt net erstallt ginn. D'Konversatioun besteet schon, probéier elo nach eng Kéier.
         success: Konversatioun gestart!
       index:
-        add_max_users: 'Setz denger Konversatioun nei Teilnehmer bäi: max. 9 Teilnehmer'
-        add_users_placeholder: Sich...
-        close: Zoumaachen
         conversations_info: Konversatiounen sinn privat, keen aneren kann se gesinn. Eng Konversatioun kann vun all registréierten Benotzer op der Plattform oder all Grupp ugefaange ginn.
-        from: Vum
-        last_message: Lescht Noriicht
-        modal_title: Nei Konversatioun
-        new_conversation: Nei Konversatioun
-        next: Weider
         no_conversations_warning: Et gëtt nach keng Konversatiounen.
-        no_results: Keng Resultater
         time_ago: "Virun %{time}"
-      new:
-        title: Eng Konversatioun ufänken
       reply:
         placeholder: Deng Äntwert...
         send: Senden
-        title_reply: Äntweren
-      show:
-        back: All d'Konversatiounen uweisen
-        not_allowed: Dësen Benotzer akzeptéiert keng direkt Noriichten méi.
-        title: Konversatioun mat %{usernames}
       update:
         error: Noriicht gouf net geschéckt. Probéier méi spéit nach eng Kéier
     user_interests:
@@ -1148,29 +1102,12 @@ lb:
         back_to_resource: Zréck goen
         changes_at_title: Ännerungen beim %{title}
         number_of_versions: Versiounen
-        show_all_versions: All Versiounen uweisen
-        version_author: Auteur vun der Versioun
         version_created_at: Versioun gouf erstallt
-        version_number: Versioun Nummer
-        version_number_out_of_total: "%{current_version} vun %{total_count}"
-    version_author:
-      show:
-        deleted: Teilnehmer geläscht
     versions:
       resource_version:
         of_versions: "(vun %{number})"
         see_other_versions: aner Versiounen kucken
         version: Versioun Nummer %{number}
-    versions_list:
-      show:
-        back_to_resource: Zréck goen
-        changes_at_title: Ännerungen beim %{title}
-        number_of_versions: Versiounen
-        title: Versiounen
-    versions_list_item:
-      back: All Versiounen uweisen
-      show:
-        version_index: Versioun %{index}
     welcome_notification:
       default_subject: Merci, dass du {{organization}} bäigetrueden bass {{organization}}!
     wizard_step_form:
@@ -1325,6 +1262,10 @@ lb:
     timestamp_error_message: Pardon dat wo ze séier! W. e. g. op en Neits areechen.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Zort
       edit_link:
         edit: Editéieren
       footer:
@@ -1377,8 +1318,6 @@ lb:
         notifications_settings: Astellung fir Noriichten
         title: Astellung fir Benotzer
         user_groups: Gruppen
-      widget:
-        see_more: Méi uweisen
   locale:
     name: Lëtzebuergesch
     name_with_error: Lëtzebuergesch (Fehler!)
