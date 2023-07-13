@@ -1402,6 +1402,9 @@ hu:
       create:
         success: A beszélgetés sikeresen elindult!
       index:
+        add_max_users: 'Felhasználók hozzáadása a beszélgetéshez: legfeljebb 9 felhasználó'
+        add_users_placeholder: Keres...
+        close: Bezárás
         conversations_info: A beszélgetések privátak. Senki más nem láthatja őket. Bármelyik, a platformon regisztrált résztvevővel vagy csoporttal beszélgetést kezdeményezhet.
         from: Feladó
         last_message: Utolsó üzenet
@@ -1422,7 +1425,7 @@ hu:
         back: Beszélgetések megtekintése
         deleted_accounts: Törölt fiókkal nem lehet beszélgetni itt.
         not_allowed: Ez a felhasználó nem fogad el több közvetlen üzenetet.
-        title: Beszélgetés %{usernames} nevű felhasználóval
+        title: 'Beszélgetés vele: %{usernames}'
       update:
         error: Üzenet elküldése sikertelen. Próbáld újra később
     user_interests:
@@ -1654,7 +1657,7 @@ hu:
             description: Leírás
             name: Név
             service: Szolgáltatás
-            type: Típus
+            type: típus
           items:
             _session_id:
               description: Lehetővé teszi a weboldalak számára, hogy emlékezzenek a felhasználóra a weboldalon belül, amikor az a weboldalak között mozog.
