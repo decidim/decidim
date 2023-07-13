@@ -192,7 +192,6 @@ sv:
         error: Ett fel uppstod när ändringen skulle godkännas.
         success: Ändringen har godkänts.
       amendable:
-        amended_by: Ändrad av
         button: Ändra %{model_name}
         error: Det gick inte att ändra resursen.
         promote_button: Gör till %{model_name}
@@ -210,7 +209,6 @@ sv:
         success: Utkastet till ändringsförslag har raderats.
       edit_draft:
         discard: Släng utkastet
-        discard_confirmation: Vill du ta bort utkastet till ändringsförslag?
         send: Förhandsvisa
         title: Redigera utkast till ändringsförslag
       emendation:
@@ -259,13 +257,10 @@ sv:
         download: Hämta fil
       documents:
         related_documents: Relaterade dokument
-      geocoding:
-        geocoded_address: Adress
       photos:
         related_photos: Relaterade bilder
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar för flera användare
       comments:
         one: kommentar
         other: kommentarer
@@ -436,8 +431,6 @@ sv:
           nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
           sign_in: Logga in
           sign_up: Registrera dig
-          sign_up_as:
-            legend: Registrera dig som
           subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
           tos_agreement: Genom att registrera dig godkänner du %{link}.
           tos_title: Användarvillkor
@@ -452,7 +445,6 @@ sv:
         newsletter_modal:
           buttons:
             check: Kontrollera och fortsätt
-            close_modal: Stäng modal
             uncheck: Behåll avmarkeringen
           title: Notiser till nyhetsbrev
         omniauth_buttons:
@@ -461,7 +453,6 @@ sv:
       authorizations:
         new:
           authorize: Auktorisera ansökan
-          by_organization_link_html: <small class="heading-small">av %{link}</small>
           cancel: Avbryt
           publish_content: Publicera innehåll åt dig
           see_email: Se din e-postadress
@@ -470,7 +461,6 @@ sv:
           this_application_will_be_able_to: 'Detta program kommer att kunna:'
           this_application_will_not_be_able_to: 'Det här programmet kommer inte att kunna:'
           update_profile: Uppdatera din profil
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vill använda ditt konto"
     download_your_data:
       export:
         ready: Klar
@@ -780,12 +770,9 @@ sv:
           title: Vad kan jag göra i %{organization}?
         title: Allmän hjälp
     last_activities:
-      activities:
-        no_activities_warning: Ingen aktivitet
       all: Alla aktivitetstyper
       index:
         last_activity: Senaste aktivitet
-        resource_type: Typ
     links:
       invalid_url: Ogiltig URL
       warning:
@@ -964,11 +951,6 @@ sv:
         retry: Försök igen
     open_data:
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
-    own_user_groups:
-      index:
-        pending: Avvaktande
-        rejected: Avvisad
-        verified: Verifierad
     pad_iframe:
       disclaimer: Innehållet i detta memo är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
       pad: Memo
@@ -990,8 +972,6 @@ sv:
         hero:
           participate: Delta
           welcome: Välkommen till %{organization}!
-        metrics:
-          headline: Deltagande i siffror
         statistics:
           headline: Aktuellt läge för %{organization}
         sub_hero:
@@ -1004,11 +984,10 @@ sv:
       participatory_space:
         metrics:
           headline: Metrik
-          link: Visa alla metrik
     participatory_space_private_users:
       not_allowed: Du har inte rätt att se det här innehållet
     profile:
-      view: Visa
+      deleted: Raderad deltagare
     profiles:
       show:
         activity: Aktivitet
@@ -1020,7 +999,6 @@ sv:
         members: Medlemmar
         officialized: Officiell deltagare
         send_private_message: Skicka privat meddelande
-        view_full_profile: Visa fullständig profil
       sidebar:
         badges:
           info: Man får märken genom att utföra olika aktiviteter på plattformen.
@@ -1087,7 +1065,6 @@ sv:
       term_input_placeholder: Sök
     searches:
       filters:
-        back: Tillbaka till resultat
         jump_to: 'Gå till:'
         state:
           active: Aktiva
@@ -1100,9 +1077,6 @@ sv:
         filter_by: Filtrera efter
         unfold: Vik ut
       results:
-        results:
-          one: "%{count} resultat"
-          other: "%{count} resultat"
         view_all: Visa alla (%{count})
     security:
       selfxss_warning:
@@ -1114,10 +1088,6 @@ sv:
         close_modal: Stäng modal
         ok: Ok
         title: Bekräfta
-      embed_modal:
-        close_window: Stäng fönstret
-        embed: Klistra in den här koden på din sida
-        embed_link: Bädda in
       extended_navigation_bar:
         more: Mer
         unfold: Veckla ut
@@ -1194,28 +1164,12 @@ sv:
         existing_error: Meddelandet kunde inte skapas. Konversationen finns redan, försök igen nu.
         success: Samtalet startades framgångsrikt!
       index:
-        add_max_users: 'Lägg till användare till konversation: max 9 användare'
-        add_users_placeholder: Sök...
-        close: Stäng
         conversations_info: Konversationer är privata. Ingen annan kan se dem. En konversation kan startas med någon deltagare eller grupp som är registrerad på plattformen.
-        from: Från
-        last_message: Senaste meddelande
-        modal_title: Ny konversation
-        new_conversation: Ny konversation
-        next: Nästa
         no_conversations_warning: Det finns inga konversationer än.
-        no_results: Inga resultat
         time_ago: "%{time} sedan"
-      new:
-        title: Starta en konversation
       reply:
         placeholder: Ditt svar...
         send: Skicka
-        title_reply: Svara
-      show:
-        back: Visa alla samtal
-        not_allowed: Den här användaren accepterar inte fler direkta meddelanden.
-        title: Konversation med %{usernames}
       update:
         error: Meddelandet skickades inte. Försök igen senare
     user_interests:
@@ -1238,29 +1192,12 @@ sv:
         back_to_resource: Gå tillbaka
         changes_at_title: Ändringar på "%{title}"
         number_of_versions: Versioner
-        show_all_versions: Visa alla versioner
-        version_author: Version författare
         version_created_at: Version skapad den
-        version_number: Versionsnummer
-        version_number_out_of_total: "%{current_version} av %{total_count}"
-    version_author:
-      show:
-        deleted: Raderad deltagare
     versions:
       resource_version:
         of_versions: "(av %{number})"
         see_other_versions: visa andra versioner
         version: Versionsnummer %{number}
-    versions_list:
-      show:
-        back_to_resource: Gå tillbaka
-        changes_at_title: Ändringar på "%{title}"
-        number_of_versions: Versioner
-        title: Versioner
-    versions_list_item:
-      back: Visa alla versioner
-      show:
-        version_index: Version %{index}
     welcome_notification:
       default_subject: Tack för att du gick med i {{organization}}!
     wizard_step_form:
@@ -1502,8 +1439,6 @@ sv:
         notifications_settings: Meddelandeinställningar
         title: Deltagarinställningar
         user_groups: Grupper
-      widget:
-        see_more: Visa mer
   locale:
     name: Svenska
     name_with_error: Svenska (fel!)
