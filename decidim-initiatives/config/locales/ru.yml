@@ -215,6 +215,8 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Инициатива поддержана %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> поддержал почин <a href="%{resource_path}">%{resource_title}</a>.
+      form:
+        delete_attachment: Удалить
       index:
         title: Почины
       initiative_votes:
@@ -229,6 +231,8 @@ ru:
             few: и еще %{count} людей
             many: и еще %{count} человек
             other: и еще %{count} человек
+        committee_members:
+          revoke: Отозвать
         count:
           title:
             one: "%{count} почин"
@@ -288,11 +292,6 @@ ru:
         status_change_for: Состояние почина %{title} изменилось
       last_activity:
         new_initiative: Добавить почин
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Действующие почины
-            see_all_initiatives: Просмотреть все инициативы
       states:
         accepted: Принятые
         expired: Истекшие
@@ -301,6 +300,7 @@ ru:
   layouts:
     decidim:
       initiative_creation_header:
+        back: Вернуться
         fill_data: Создать
         finish: Закончить
         previous_form: Начать
