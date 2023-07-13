@@ -84,6 +84,7 @@ de:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A, %d. %b %Y"
       decidim_with_month_name: "%d %B %Y"
@@ -103,6 +104,19 @@ de:
       less_than_x_seconds:
         one: weniger als eine Sekunde
         other: weniger als %{count} Sekunden
+      short:
+        about_x_days: "%{count} T."
+        about_x_hours: "%{count} Std."
+        about_x_minutes: "%{count} Min."
+        about_x_months: "%{count} Mo."
+        about_x_years: "%{count} J."
+        almost_x_years: "%{count} J."
+        half_a_minute: 1 Min.
+        less_than_x_minutes: "%{count} Min."
+        less_than_x_seconds: "%{count} Sek."
+        over_x_years: "%{count} J."
+        x_days: "%{count} T."
+        x_hours: "%{count} Std."
       x_days:
         one: 1 Tag
         other: "%{count} Tage"
