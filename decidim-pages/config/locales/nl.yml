@@ -28,6 +28,3 @@ nl:
           update:
             invalid: Er zijn fouten opgetreden bij het opslaan van de pagina.
             success: Pagina is succesvol opgeslagen.
-      home:
-        sub_hero:
-          register_title: Meld je aan voor een account
