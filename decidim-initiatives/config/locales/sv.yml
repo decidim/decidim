@@ -274,10 +274,6 @@ sv:
         rejected: Inte tillräckligt med signaturer
         validating: Teknisk validering
       application_helper:
-        filter_area_values:
-          all: Alla
-        filter_scope_values:
-          all: Alla
         filter_state_values:
           accepted: Tillräckligt många underskrifter
           all: Alla
@@ -312,24 +308,14 @@ sv:
         previous_form:
           back: Tillbaka
           continue: Fortsätt
-          help: Vad består initiativet av? Skriv ner titeln och beskrivningen. Vi rekommenderar en kort och tydlig titel och en beskrivning som lägger fokus på den föreslagna lösningen.
-          more_information: "(Mer information)"
         promotal_committee:
-          back: Tillbaka
           more_information: "(Mer information)"
         select_initiative_type:
           back: Tillbaka
           choose_html: Jag vill skapa ett <strong>%{title}</strong>
-          more_information: "(Mer information)"
           select: Jag vill arbeta för detta initiativ
         share_committee_link:
-          continue: Fortsätt
           invite_to_committee_help: Länk för att bjuda in personer till kampanjutskottet
-        show_similar_initiatives:
-          back: Tillbaka
-          compare_help: Om något av följande initiativ liknar ditt, uppmanar vi dig att skriva under det. Det ger ditt förslag fler chanser att genomföras.
-          continue: Mitt initiativ är annorlunda
-          more_information: "(Mer information)"
       edit:
         back: Tillbaka
         confirm: Är du säker?
@@ -350,11 +336,6 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: '%{author_nickname} instämmer i Initiativet'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> instämde i initiativet <a href="%{resource_path}">%{resource_title}</a>.
-      form:
-        add_attachments: Dokument
-        delete_attachment: Radera
-      index:
-        title: Initiativ
       initiative_signatures:
         fill_personal_data:
           continue: Fortsätt
@@ -377,8 +358,6 @@ sv:
         sms_phone:
           invalid: Telefonnumret är ogiltigt eller har ännu inte godkänts. Kontrollera dina godkännanden.
       initiatives:
-        author:
-          deleted: Raderade
         author_list:
           hidden_authors_count:
             one: och ytterligare en person
@@ -386,7 +365,6 @@ sv:
         committee_members:
           approve: Godkänn
           confirm_revoke: Är du säker?
-          revoke: Återkalla
           title: Kommittémedlemmar
         count:
           title:
@@ -444,10 +422,7 @@ sv:
         result:
           initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på underskrifter.
         show:
-          any_vote_method: Detta initiativ samlar in både digitala och fysiska underskrifter.
           edit: Redigera
-          follow_description: Få ett meddelande när det finns nyheter om detta initiativ
-          print: Skriva ut initiativet
           send_to_technical_validation: Skicka till teknisk validering
         signatures_count:
           one: " underskrift"
@@ -462,8 +437,6 @@ sv:
           count:
             one: UNDERSKRIFT
             other: UNDERSKRIFTER
-          most_popular_initiative: Mest populära initiativ
-          need_more_votes: Behöver fler underskrifter
       initiatives_mailer:
         creation_subject: Ditt initiativ "%{title}" har skapats
         initiative_link:
@@ -478,14 +451,8 @@ sv:
       modal:
         not_authorized:
           authorizations_page: Visa behörigheter
-          close: Stäng
           explanation: Du måste verifieras för att skapa ett nytt initiativ.
           title: Auktorisering krävs
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Pågående initiativ
-            see_all_initiatives: Visa alla initiativ
       show:
         badge_name:
           accepted: Nog med signaturer
@@ -498,9 +465,6 @@ sv:
         accepted: Godkända
         expired: Utgångna
       unavailable_scope: Ej tillgängligt omfång
-      versions:
-        shared:
-          back_to_resource: Gå tillbaka till initiativet
     menu:
       initiatives: Initiativ
     resources:
@@ -515,14 +479,10 @@ sv:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Tillbaka
         fill_data: Skapa
         finish: Avsluta
-        previous_form: Start
         promotal_committee: Kampanjutskott
         select_initiative_type: Välj
-        show_similar_initiatives: Jämför
-        title: Skapa nytt initiativ
       initiative_header:
         initiative_menu_item: Initiativ
       initiative_signature_creation_header:
@@ -530,11 +490,8 @@ sv:
         fill_personal_data: Komplettera dina uppgifter
         finish: Slutför
         finished: Skapat underskrift till initiativet
-        see_steps: visa steg
-        select_identity: Välj identitet
         sms_code: Verifiering med SMS-kod
         sms_phone_number: Mobiltelefonnummer
-        step: Steg %{current} av %{total}
         title: Skriv under %{initiative_title}
       initiatives:
         initiative:
