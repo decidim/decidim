@@ -183,15 +183,9 @@ is-IS:
           origin: Uppruni
           related_to: Tengjast
           search: Leita
-        filters_small_view:
-          close_modal: Loka mát
-          filter: Sía
-          filter_by: Sía eftir
-          unfold: Fella út
         index:
           new_proposal: Ný tillaga
           see_all_withdrawn: Sjá öll afturkallað tillögur
-          view_proposal: Skoða tillögu
         new:
           send: Haltu áfram
         orders:
@@ -206,16 +200,13 @@ is-IS:
           publish: Birta
           title: Birta tillöguna þína
         proposal:
-          creation_date: 'Sköpun: %{date}'
           view_proposal: Skoða tillögu
         show:
           answer: Svara
-          comments: Athugasemdir
           edit_proposal: Breyta tillögu
           proposal_accepted_reason: 'Þessi tillaga hefur verið samþykkt vegna þess að:'
           proposal_in_evaluation_reason: Þessi tillaga er metin
           proposal_rejected_reason: 'Þessi tillaga hefur verið hafnað vegna þess að:'
-          report: Skýrsla
           withdraw_btn_hint: Þú getur afturkallað tillöguna þína ef þú skiptir um skoðun, svo lengi sem þú hefur ekki fengið stuðning. Tillagan er ekki eytt, hún mun birtast á lista yfir afturkallað tillögur.
           withdraw_proposal: Afturkalla tillögu
         votes_count:
@@ -225,8 +216,6 @@ is-IS:
             description: Hver tillaga getur safnast meira en %{limit} styður
           proposal_limit:
             description: Þú getur búið til allt að %{limit} tillögur.
-          vote_limit:
-            left: Eftirstöðvar
         wizard_aside:
           back: Til baka
           info: Þú ert að búa til <strong>tillögu</strong>.
