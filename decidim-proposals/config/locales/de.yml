@@ -816,7 +816,7 @@ de:
           type: Art
           voted: Gewählt
         filters_small_view:
-          close_modal: Modal schließen
+          close_modal: Dialog schließen
           filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
@@ -845,8 +845,6 @@ de:
           recent: Kürzlich hinzugefügt
           with_more_authors: Mit mehr Autoren
         participatory_texts:
-          index:
-            document_index: Dokumentenindex
           view_index:
             see_index: Index anzeigen
         placeholder:
@@ -871,7 +869,7 @@ de:
           back_to: Zurück zu
           back_to_list: Zurück zur Liste
           changes_at_title: Ergänzung zu „%{title}“
-          comments: Kommentare
+          comments: Bemerkungen
           edit_proposal: Vorschlag bearbeiten
           endorsements_list: Liste der Befürworter
           estimated_cost: Geschätzte Kosten
@@ -925,7 +923,7 @@ de:
           vote_limit:
             description: Sie können bis zu %{limit} Vorschläge abstimmen.
             left: Verbleibend
-            votes: Stimmen
+            votes: Unterstützer
         wizard_aside:
           back: Zurück
           back_from_step_1: Zurück zu Vorschlägen
