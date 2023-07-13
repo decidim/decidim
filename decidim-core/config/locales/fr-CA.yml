@@ -265,7 +265,6 @@ fr-CA:
         error: Une erreur s'est produite lors de l'acceptation de l'amendement.
         success: L'amendement a été accepté avec succès.
       amendable:
-        amended_by: Modifié par
         button: Modifier %{model_name}
         error: Une erreur s'est produite lors de la modification de cette ressource.
         help_text: Améliorer ce %{model_name} en modifiant ses %{amendable_fields}.
@@ -285,7 +284,6 @@ fr-CA:
         success: Le projet d'amendement a été créé avec succès.
       edit_draft:
         discard: Supprimer ce brouillon
-        discard_confirmation: Êtes-vous sûr de vouloir supprimer ce projet d'amendement ?
         send: Aperçu
         title: Modifier le projet d'amendement
       emendation:
@@ -325,7 +323,6 @@ fr-CA:
       review:
         back: Retour
         heading: Examiner l'amendement
-        help_text: Vous examinez un amendement de %{model_name}.
         send: Accepter l'amendement
       update_draft:
         error: Une erreur s'est produite lors de la modification de ce projet d'amendement.
@@ -345,8 +342,6 @@ fr-CA:
         download: Télécharger le fichier
       documents:
         related_documents: Documents à consulter
-      geocoding:
-        geocoded_address: Adresse
       photo:
         alt: Image média
         title: Image
@@ -354,7 +349,6 @@ fr-CA:
         related_photos: Photos associées
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar pour plusieurs utilisateurs
       comments:
         one: commentaire
         other: commentaires
@@ -554,8 +548,6 @@ fr-CA:
           nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
           sign_in: Se connecter
           sign_up: S'inscrire
-          sign_up_as:
-            legend: S'inscrire en tant que
           subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
           terms: Conditions d'Utilisation
           tos_agreement: En vous inscrivant, vous acceptez %{link}.
@@ -573,18 +565,7 @@ fr-CA:
         newsletter_modal:
           buttons:
             check: Oui, je souhaite m'inscrire à la newsletter
-            close_modal: Fermer la fenêtre
             uncheck: Garder décoché
-          notice: |-
-            <p>Êtes-vous sûr de ne pas vouloir recevoir de newsletter ?<br>
-            Nous vous suggérons de cocher la case pour recevoir la newsletter.<br>
-            Il est très important pour nous que vous puissiez recevoir des e-mails occasionnels
-            pour vous faire part des annonces importantes. Vous pourrez toujours modifier votre choix dans vos paramètres de notifications.</p>
-            <p>Si vous ne cochez pas la case, vous risquez de manquer des informations pertinentes
-            sur les nouvelles opportunités participatives de la plateforme.<br>
-            Si vous voulez toujours ne pas recevoir de newsletters, nous comprenons parfaitement
-            votre décision.</p>
-            <p>Merci de votre lecture !</p>
           title: Inscription à la newsletter
         omniauth_buttons:
           or: Ou
@@ -592,9 +573,7 @@ fr-CA:
       authorizations:
         new:
           authorize: Autoriser l'application
-          by_organization_link_html: <small class="heading-small">par %{link}</small>
           cancel: Annuler
-          connect_your_account_html: Connectez votre compte en vous connectant à <strong>%{organization}</strong>.
           publish_content: Publier du contenu pour vous
           see_email: Voir votre email
           see_name: Voir votre nom
@@ -602,7 +581,6 @@ fr-CA:
           this_application_will_be_able_to: 'Cette application sera capable de :'
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
     download_your_data:
       export:
         ready: Prêt
@@ -997,12 +975,9 @@ fr-CA:
         description: En savoir plus sur %{organization}.
         title: Aide générale
     last_activities:
-      activities:
-        no_activities_warning: Aucune activité
       all: Tous les types d'activité
       index:
         last_activity: Dernière Activité
-        resource_type: Type
     links:
       invalid_url: URL invalide
       warning:
@@ -1230,11 +1205,6 @@ fr-CA:
         retry: Réessayer
     open_data:
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
-    own_user_groups:
-      index:
-        pending: En attente
-        rejected: Non retenue
-        verified: Vérifié
     pad_iframe:
       disclaimer: Le contenu de ce bloc-notes est écrit par les utilisateurs enregistrés et exprime leurs opinions. %{organization} ne peut être tenu responsable de son contenu.
       explanation: Utilisez ce pavé numérique pour prendre des notes en collaboration pendant la réunion afin de faciliter la rédaction minute après minute.
@@ -1257,8 +1227,6 @@ fr-CA:
         hero:
           participate: Participez
           welcome: Bienvenue sur %{organization} !
-        metrics:
-          headline: Participation en chiffres
         statistics:
           headline: État actuel de %{organization}
         sub_hero:
@@ -1271,7 +1239,6 @@ fr-CA:
       participatory_space:
         metrics:
           headline: Participation en chiffres
-          link: Afficher toutes les statistiques
       terms_of_service:
         accept:
           error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation.
@@ -1284,7 +1251,6 @@ fr-CA:
           modal_btn_continue: Accepter les conditions et continuer
           modal_btn_exit: Je les examinerai plus tard
           modal_button: Refuser les conditions d'utilisation
-          modal_close: Fermer la boîte de dialogue
           modal_title: Êtes-vous sûr de vouloir refuser les conditions d'utilisation mises à jour ?
         required_review:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
@@ -1297,9 +1263,8 @@ fr-CA:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.
         success: Mot de passe mis à jour avec succès.
     profile:
-      deleted: Utilisateur supprimé
+      deleted: Utilisateur ayant supprimé son compte
       inaccessible_message: Ce profil est inaccessible en raison d'une violation des conditions d'utilisation !
-      view: Voir
     profiles:
       default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
       default_officialization_text_for_users: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel.
@@ -1313,7 +1278,6 @@ fr-CA:
         members: Membres
         officialized: Participant officiel
         send_private_message: Envoyer un message privé
-        view_full_profile: Voir le profil complet
       sidebar:
         badges:
           info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
@@ -1383,7 +1347,6 @@ fr-CA:
       term_input_placeholder: Rechercher
     searches:
       filters:
-        back: Retour aux résultats
         jump_to: 'Aller à:'
         state:
           active: actif
@@ -1396,9 +1359,6 @@ fr-CA:
         filter_by: Filtrer par
         unfold: Voir plus
       results:
-        results:
-          one: "%{count} résultat"
-          other: "%{count} résultats"
         view_all: Tout voir (%{count})
     security:
       selfxss_warning:
@@ -1410,10 +1370,6 @@ fr-CA:
         close_modal: Fermer la fenêtre modale
         ok: Ok
         title: Valider
-      embed_modal:
-        close_window: Fermer la fenêtre
-        embed: Veuillez coller ce code dans votre page
-        embed_link: Intégrer
       extended_navigation_bar:
         more: Plus
         unfold: Afficher
@@ -1432,7 +1388,6 @@ fr-CA:
         report: Signaler
         spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un problème
-        visit_profile: Si vous voulez également bloquer le participant et le reste de son contenu, allez sur la page de profil de %{user_link}.
       flag_user_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         block: Bloquer ce participant
@@ -1507,30 +1462,12 @@ fr-CA:
         existing_error: Le message n'a pas pu être créé. La conversation existe déjà, veuillez réessayer maintenant.
         success: La conversation a commencé avec succès !
       index:
-        add_max_users: 'Ajouter des utilisateurs à la conversation: 9 utilisateurs max'
-        add_users_placeholder: Chercher...
-        close: Fermer
         conversations_info: Les conversations sont privées. Personne d'autre ne peut les voir. Une conversation peut être lancée avec n'importe quel participant ou groupe enregistré sur la plateforme.
-        from: De
-        last_message: Dernier message
-        modal_title: Nouvelle conversation
-        new_conversation: Nouvelle conversation
-        next: Suivant
         no_conversations_warning: Il n'y a pas encore de conversations.
-        no_results: Aucun résultat
-        participant_with_disabled_message_reception: Ce participant a désactivé la réception de message.
         time_ago: "il y a %{time}"
-      new:
-        title: Démarrer une conversation
       reply:
         placeholder: Votre réponse...
         send: Envoyer
-        title_reply: Répondre
-      show:
-        back: Afficher toutes les conversations
-        deleted_accounts: Vous ne pouvez pas avoir de conversation avec des comptes supprimés.
-        not_allowed: Cet utilisateur n'accepte plus de messages directs.
-        title: Conversation avec %{usernames}
       update:
         error: Message non envoyé. Réessayez plus tard
     user_interests:
@@ -1555,29 +1492,12 @@ fr-CA:
         back_to_resource: Revenir en arrière
         changes_at_title: Changements à%{title}"
         number_of_versions: Versions
-        show_all_versions: Afficher toutes les versions
-        version_author: Auteur de la version
         version_created_at: Version créée le
-        version_number: Numéro de version
-        version_number_out_of_total: "%{current_version} sur %{total_count}"
-    version_author:
-      show:
-        deleted: Utilisateur ayant supprimé son compte
     versions:
       resource_version:
         of_versions: "(sur %{number})"
         see_other_versions: voir les autres versions
         version: Version %{number}
-    versions_list:
-      show:
-        back_to_resource: Revenir en arrière
-        changes_at_title: Changements à%{title}"
-        number_of_versions: Versions
-        title: Versions
-    versions_list_item:
-      back: Afficher toutes les versions
-      show:
-        version_index: Version %{index}
     welcome_notification:
       default_body: <p>Bonjour {{name}}, merci d'avoir rejoint {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>En somme, rejoignez d'autres personnes, partagez avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, lancez des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées dans un esprit ouvert pour collaborer et enrichir les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!
@@ -1950,8 +1870,6 @@ fr-CA:
         notifications_settings: Paramètres des notifications
         title: Paramètres utilisateur
         user_groups: Groupes
-      widget:
-        see_more: Voir plus
   locale:
     name: Français canadien
     name_with_error: Français canadien (erreur !)
@@ -2024,7 +1942,6 @@ fr-CA:
     dropdown:
       choose_diff_view_html: 'Mode d''affichage HTML :'
       choose_diff_view_mode: 'Sélectionner le mode de vue :'
-      choose_diff_view_mode_menu: Choisissez le mode de comparaison
       option_escaped: Echappé
       option_split: Côte à côte
       option_unescaped: Non échappé
