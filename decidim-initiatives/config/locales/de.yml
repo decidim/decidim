@@ -359,6 +359,7 @@ de:
           back: Zurück
           continue: Fortsetzen
           fill_data_help: "<ul> <li>Inhalt Ihrer Initiative überprüfen. Ist Ihr Titel leicht verständlich? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Was ist die geografische Reichweite der Initiative? Stadt, Bezirk?</li> </ul>"
+          initiative_type: Initiativentyp
           more_information: "(Weitere Informationen)"
           select_area: Wählen Sie einen Bereich aus
           select_scope: Wählen Sie einen Bereich aus
@@ -383,6 +384,8 @@ de:
         select_initiative_type:
           back: Zurück
           choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
+          more_information: Mehr Informationen
+          new: Neue Initiative erstellen
           select: Ich möchte diese Initiative fördern
           select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürger eingreifen können, damit die Organisation Maßnahmen zur Verteidigung des Allgemeininteresses ergreifen kann, die in den Zuständigkeitsbereich der Stadtverwaltung fallen. Welche Initiative möchten Sie starten?
           verification_required: Bestätigen Sie Ihr Konto, um die Initiative zu unterstützen
@@ -425,7 +428,12 @@ de:
           email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       form:
+        add_documents: Dokumente hinzufügen
+        add_image: Bild hinzufügen
         attachment_legend: "(Optional) Anhang hinzufügen"
+        edit_documents: Dokumente bearbeiten
+        edit_image: Bild bearbeiten
+        image_legend: "(Optional) Bild hinzufügen"
       index:
         uninitialized: Initiativen wurden noch nicht von einem Admin konfiguriert.
       initiative_signatures:
@@ -464,6 +472,7 @@ de:
           approve: Genehmigen
           confirm_revoke: Bist du dir sicher?
           invite_to_committee_help: Teilen Sie diesen Link, um andere Teilnehmer zum Unterstützungskomitee einzuladen.
+          link: Link
           no_members_yet: Es gibt keine Mitglieder im Unterstützungskomitee.
           title: Ausschussmitglieder
         count:
@@ -527,9 +536,15 @@ de:
           answer_title: Diese Initiative wurde beantwortet.
           initiative_rejected_reason: Diese Initiative wurde wegen fehlender Unterstützung abgelehnt.
         show:
+          area: Gebiet
           confirm: Sie werden die Initiative an einen Administrator senden, welcher sie zu überprüft und veröffentlicht. Sobald die Initiative veröffentlicht ist, können Sie sie nicht bearbeiten. Sind Sie sicher?
           edit: Bearbeiten
+          initiative_data: Initiativdaten
+          scope: Bereich
           send_to_technical_validation: Zur technischen Validierung senden
+          signature_collection: Unterschriftssammlung
+          state: Status
+          type: Typ
         signatures_count:
           one: " Unterschrift"
           other: " Signaturen"
@@ -561,6 +576,11 @@ de:
           authorizations_page: Autorisierungen anzeigen
           explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
           title: Autorisierung erforderlich
+      pages:
+        home:
+          highlighted_initiatives:
+            active_spaces: Aktive Initiativen
+            see_all_spaces: Alle Initiativen anzeigen
       show:
         badge_name:
           accepted: Ausreichend Unterschriften
