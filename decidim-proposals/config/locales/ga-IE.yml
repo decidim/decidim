@@ -136,15 +136,11 @@ ga:
         accepted: Glactha
         rejected: Diúltaithe
       application_helper:
-        filter_category_values:
-          all: Uile
         filter_origin_values:
           all: Uile
           meetings: Cruinnithe
           official: Oifigiúil
           user_groups: Grúpaí
-        filter_scope_values:
-          all: Uile
         filter_state_values:
           accepted: Glactha
           all: Uile
@@ -184,18 +180,10 @@ ga:
             accept_request: Glac
             reject_request: Diúltaigh
         show:
-          back: Ar Ais
           publish: Foilsigh
         states:
           open: Oscail
-      content_blocks:
-        highlighted_proposals:
-          proposals: Moltaí
       models:
-        collaborative_draft:
-          fields:
-            authors: Údair
-            comments: Tráchtanna
         proposal:
           fields:
             category: Catagóir
@@ -211,7 +199,6 @@ ga:
         buttons:
           amend: Leasaigh
           comment: Trácht
-          comments: Tráchtanna
       proposals:
         compare:
           continue: Lean ar aghaidh
@@ -232,9 +219,6 @@ ga:
           search: Cuardaigh
           state: Stádas
           type: Cineál
-        filters_small_view:
-          filter: Scag
-          unfold: Oscail
         new:
           send: Lean ar aghaidh
         orders:
@@ -245,14 +229,8 @@ ga:
           publish: Foilsigh
         show:
           answer: Freagra
-          back_to: Siar
-          comments: Tráchtanna
-          report: Tuairiscigh
         vote_button:
           vote: Tacaigh le
-        voting_rules:
-          vote_limit:
-            votes: Tacaíochtaí
         wizard_aside:
           back: Ar Ais
         wizard_steps:
