@@ -307,9 +307,6 @@ tr:
         description: Tekliflere verilen desteklerin sayısı
         object: destekler
         title: Destekler
-    participatory_spaces:
-      highlighted_proposals:
-        see_all: Tüm teklifleri görün (%{count})
     proposals:
       actions:
         answer_proposal: Cevap önerisi
@@ -469,15 +466,11 @@ tr:
         rejected: Reddedildi
         withdrawn: Geri çekildi
       application_helper:
-        filter_category_values:
-          all: Tümü
         filter_origin_values:
           all: Tümü
           meetings: Toplantılar
           official: Resmi
           user_groups: Gruplar
-        filter_scope_values:
-          all: Tümü
         filter_state_values:
           accepted: Kabul Edildi
           all: Tümü
@@ -505,10 +498,6 @@ tr:
               ok: İşbirliği taslağını geri çekme
               title: Aşağıdaki işlem geri alınamaz
             success: Ortak taslak başarıyla geri çekildi.
-        count:
-          drafts_count:
-            one: "%{count} ortak taslak"
-            other: "%{count} ortak taslak"
         create:
           success: Ortak taslak başarıyla oluşturuldu.
         edit:
@@ -554,19 +543,15 @@ tr:
           rejected_request:
             error: Ortak çalışan olarak reddedilemedi, lütfen daha sonra tekrar deneyin.
         show:
-          back: Geri
           edit: Ortak taslak düzenle
-          final_proposal: son teklif
           final_proposal_help_text: Bu taslak bitti. Son teklife göz atın
           hidden_authors_count:
             one: ve %{count} kişi daha
             other: ve %{count} kişi daha
           publish: Yayınla
           publish_info: Taslağın bu sürümünü yayınlayın veya
-          published_proposal: yayınlanan teklif
           request_access: Erişim talep et
           requested_access: Erişim istendi
-          version_history: bu teklifin sürüm geçmişini gör
           withdraw: taslağı geri çekmek
         states:
           open: Açık
@@ -577,12 +562,8 @@ tr:
           success: Ortak taslak başarıyla güncellendi.
         wizard_aside:
           back_from_collaborative_draft: Ortak çalışmaya dayalı taslaklara dön
-          info: <strong> Ortak çalışmaya dayalı bir taslak </strong> oluşturuyorsunuz.
         wizard_header:
           title: Ortak çalışmaya dayalı taslağınızı oluşturun
-      content_blocks:
-        highlighted_proposals:
-          proposals: Teklifler
       create:
         error: Teklif kaydedilirken bir sorun oluştu.
         success: Teklif başarıyla oluşturuldu. Taslak olarak kaydedildi.
@@ -590,11 +571,6 @@ tr:
         error: Ortak çalışma taslağı silinirken bir sorun oluştu.
         success: Teklif taslağı başarıyla silindi.
       models:
-        collaborative_draft:
-          fields:
-            authors: Yazarlar
-            comments: Yorumlar
-            contributions: Katkılar
         proposal:
           fields:
             category: Kategori
@@ -615,7 +591,6 @@ tr:
         buttons:
           amend: Düzelt
           comment: Yorum Yap
-          comments: Yorumlar
       proposal_votes:
         create:
           error: Teklifi destekleyen bir sorun vardı.
@@ -627,14 +602,9 @@ tr:
         complete:
           send: Gönder
           title: Teklifinizi tamamlayın
-        count:
-          proposals_count:
-            one: "%{count} teklif"
-            other: "%{count} teklif"
         edit:
           attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
-          gallery_legend: "(İsteğe bağlı) Teklif kartına bir resim ekleyin"
           select_a_category: Lütfen bir kategori seçin
           send: Gönder
           title: Teklifi düzenle
@@ -656,20 +626,10 @@ tr:
           state: Statü
           type: tip
           voted: Desteklenmiş
-        filters_small_view:
-          close_modal: Pencereyi kapat
-          filter: Filtrele
-          filter_by: Şuna göre filtrele
-          unfold: Aç
         index:
           collaborative_drafts_list: Ortak çalışmaya dayalı taslaklara erişin
           new_proposal: Yeni teklif
           see_all_withdrawn: Geri çekilen tüm tekliflere bakın
-          view_proposal: Teklifi görüntüle
-        linked_proposals:
-          proposal_votes:
-            one: destek
-            other: destekler
         new:
           send: Devam et
         orders:
@@ -681,11 +641,6 @@ tr:
           random: Rastgele
           recent: En son
           with_more_authors: Daha fazla yazarlı
-        participatory_texts:
-          index:
-            document_index: Belge indeksi
-          view_index:
-            see_index: Endeksi görmek
         placeholder:
           address: Teklif adresi
         preview:
@@ -696,14 +651,10 @@ tr:
           publish: Yayınla
           title: Teklifinizi yayınlayın
         proposal:
-          creation_date: 'Oluşturma: %{date}'
           view_proposal: Teklifi görüntüle
         show:
           answer: Cevap
-          back_to: Geri
-          back_to_list: Listeye geri dön
           changes_at_title: Değişiklikler "%{title}"
-          comments: Yorumlar
           edit_proposal: Teklifi düzenle
           estimated_cost: Tahmini maliyet
           hidden_endorsers_count:
@@ -718,14 +669,9 @@ tr:
           proposal_accepted_reason: 'Bu teklif kabul edildi çünkü:'
           proposal_in_evaluation_reason: Bu teklif değerlendiriliyor
           proposal_rejected_reason: 'Bu teklif reddedildi çünkü:'
-          read_less: Daha az oku
-          read_more: Daha fazla oku
-          report: Rapor
           withdraw_btn_hint: Herhangi bir destek almadığınız sürece fikrinizi değiştirirseniz teklifinizi geri çekebilirsiniz. Teklif silinmemiş, iptal edilen teklifler listesinde görünecektir.
           withdraw_confirmation_html: Bu teklifi geri çekmek istediğinizden emin misiniz? <br> <br> <strong> Bu eylem iptal edilemez! </strong>
           withdraw_proposal: Teklifi geri çek
-        tags:
-          changed_from: "(bir yönetici tarafından <u>%{previous_name} </u> yerine değiştirildi)"
         update:
           title: Teklif güncelleme
         vote_button:
@@ -752,8 +698,6 @@ tr:
           title: 'Oylama aşağıdaki kurallara tabidir:'
           vote_limit:
             description: En fazla %{limit} teklife oy verebilirsiniz.
-            left: Kalan
-            votes: oy
         wizard_aside:
           back: Geri
           back_from_step_1: Teklifte geri dön
@@ -786,12 +730,8 @@ tr:
         error: Teklif taslağını kaydederken hatalar oluştu.
         success: Teklif taslağı başarıyla güncellendi.
       versions:
-        collaborative_drafts:
-          back_to_resource: İşbirliği taslağına geri dönün
         index:
           title: Sürümler
-        proposals:
-          back_to_resource: Teklife geri dön
     resource_links:
       copied_from_component:
         proposal_proposal: İlgili teklifler
