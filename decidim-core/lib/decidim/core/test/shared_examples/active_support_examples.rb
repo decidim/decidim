@@ -8,9 +8,6 @@ shared_examples "fires an ActiveSupport::Notification event" do |fired_event|
     command.call
 
     expect(@tested_notification).to eq(true)
-  rescue RSpec::Expectations::ExpectationNotMetError => e
-    ActiveSupport::Notifications.unsubscribe(subscriber)
-    raise e
   ensure
     ActiveSupport::Notifications.unsubscribe(subscriber)
   end
