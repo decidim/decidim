@@ -160,7 +160,6 @@ tr:
         error: Değişikliği kabul ederken bir hata oluştu.
         success: Değişiklik başarıyla kabul edildi.
       amendable:
-        amended_by: Tarafından değiştirildi
         button: '%{model_name} üzerinde değişiklik yapın'
         error: Bu kaynağı değiştiren bir hata oluştu.
         promote_button: '%{model_name} olarak yükselt'
@@ -178,7 +177,6 @@ tr:
         success: Değişiklik taslağı başarıyla silindi.
       edit_draft:
         discard: Bu taslağı sil
-        discard_confirmation: Bu değişiklik taslağını iptal etmek istediğinizden emin misiniz?
         send: Önizleme
         title: Değişiklik Taslağını Düzenle
       emendation:
@@ -404,8 +402,6 @@ tr:
           nickname_help: Takma adınız %{organization}. Yalnızca harf, rakam, "-" ve "_" içerebilir.
           sign_in: Oturum aç
           sign_up: kaydol
-          sign_up_as:
-            legend: Olarak kaydol
           subtitle: Tartışmalara katılmak ve teklifleri desteklemek için kaydolun.
           tos_agreement: Kaydolarak %{link}kabul ediyorsunuz.
           tos_title: Kullanım Şartları
@@ -418,7 +414,6 @@ tr:
         newsletter_modal:
           buttons:
             check: Kontrol et ve devam et
-            close_modal: Yakın kalıcı
             uncheck: İşaretlemeyin
           title: Bülten bildirimleri
         omniauth_buttons:
@@ -427,7 +422,6 @@ tr:
       authorizations:
         new:
           authorize: Uygulamayı yetkilendir
-          by_organization_link_html: <small class="heading-small">x %{link}</small>
           cancel: İptal etmek
           publish_content: İçeriği sizin için yayınlayın
           see_email: E-postanızı görün
@@ -436,7 +430,6 @@ tr:
           this_application_will_be_able_to: 'Bu uygulama şunları yapabilecek:'
           this_application_will_not_be_able_to: 'Bu uygulama mümkün olmayacaktır:'
           update_profile: profilinizi güncelleyin
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> hesabınızı kullanmak istiyor"
     download_your_data:
       export:
         ready: Hazır
@@ -713,12 +706,9 @@ tr:
           title: '%{organization} ne yapabilirim?'
         title: Genel Yardım
     last_activities:
-      activities:
-        no_activities_warning: Aktivite yok
       all: Tüm aktivite türleri
       index:
         last_activity: Son Aktivite
-        resource_type: Türü
     log:
       base_presenter:
         create: "%{user_name}, %{resource_name} oluşturdu"
@@ -868,11 +858,6 @@ tr:
         success: Bildirim ayarlarınız başarıyla güncellendi.
     open_data:
       not_available_yet: Açık Veri dosyaları henüz mevcut değil, lütfen birkaç dakika içinde tekrar deneyin.
-    own_user_groups:
-      index:
-        pending: Bekliyor
-        rejected: Reddedildi
-        verified: Doğrulanmış
     pad_iframe:
       disclaimer: B içerikler kayıtlı kullanıcılar tarafından yazılır ve görüşlerini ifade eder. %{organization}, içeriğinden sorumlu tutulamaz.
       pad: Tablet
@@ -894,8 +879,6 @@ tr:
         hero:
           participate: Katıl
           welcome: '%{organization} hoşgeldin!'
-        metrics:
-          headline: Metrikler
         statistics:
           headline: Mevcut durum %{organization}
         sub_hero:
@@ -908,11 +891,10 @@ tr:
       participatory_space:
         metrics:
           headline: Metrikler
-          link: Bütün istatistikleri göster
     participatory_space_private_users:
       not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
     profile:
-      view: Görünüm
+      deleted: Silinmiş kullanıcı
     profiles:
       show:
         activity: Aktivite
@@ -923,7 +905,6 @@ tr:
         groups: Gruplar
         members: Üyeler
         officialized: Resmi katılımcı
-        view_full_profile: Tam Profili Gör
       sidebar:
         badges:
           info: Rozetler, platformda belirli etkinlikler gerçekleştirilerek kazanılır.
@@ -982,7 +963,6 @@ tr:
       term_input_placeholder: Arama
     searches:
       filters:
-        back: Sonuçlara dön
         jump_to: 'Atlamak:'
         state:
           active: Aktif
@@ -995,9 +975,6 @@ tr:
         filter_by: Tarafından filtre
         unfold: açılmak
       results:
-        results:
-          one: "%{count} sonuç"
-          other: "%{count} sonuç"
         view_all: Tümünü görüntüle (%{count})
     security:
       selfxss_warning:
@@ -1009,10 +986,6 @@ tr:
         close_modal: Pencereyi kapat
         ok: TAMAM
         title: Onayla
-      embed_modal:
-        close_window: Pencereyi kapat
-        embed: Lütfen bu kodu sayfanıza yapıştırın
-        embed_link: Göm
       extended_navigation_bar:
         more: Daha
         unfold: açılmak
@@ -1075,27 +1048,12 @@ tr:
         existing_error: Mesaj oluşturulamadı. Konuşma zaten mevcut, lütfen şimdi tekrar deneyin.
         success: Görüşme başarıyla başladı!
       index:
-        add_max_users: 'Kullanıcıları görüşmeye ekleyin: En fazla 9 kullanıcı'
-        add_users_placeholder: Arama...
-        close: Kapat
         conversations_info: Görüşmeler özeldir, onları başka kimse göremez. Platforma kayıtlı herhangi bir katılımcı veya grup ile görüşme başlatılabilir.
-        from: Gönderen
-        last_message: Son mesaj
-        modal_title: Yeni görüşme
-        new_conversation: Yeni görüşme
-        next: Sonraki
         no_conversations_warning: Henüz bir görüşme yok.
-        no_results: Sonuç bulunamadı
         time_ago: "%{time} önce"
-      new:
-        title: Bir görüşme başlatın
       reply:
         placeholder: Cevabınız...
         send: Gönder
-        title_reply: Cevapla
-      show:
-        not_allowed: Bu kullanıcı artık doğrudan mesaj kabul etmiyor.
-        title: '%{usernames} ile görüşme'
       update:
         error: Mesaj gönderilmedi. Daha sonra tekrar deneyin
     user_interests:
@@ -1117,28 +1075,12 @@ tr:
         back_to_resource: Geri git
         changes_at_title: '"%{title}" üzerindeki değişiklikler'
         number_of_versions: Sürümler
-        show_all_versions: Tüm sürümleri göster
-        version_author: Sürüm yazarı
         version_created_at: Sürüm oluşturuldu
-        version_number: Sürüm numarası
-        version_number_out_of_total: "%{total_count} üzerinden %{current_version}"
-    version_author:
-      show:
-        deleted: Silinmiş kullanıcı
     versions:
       resource_version:
         of_versions: "(%{number})"
         see_other_versions: diğer sürümlere bak
         version: Sürüm numarası %{number}
-    versions_list:
-      show:
-        back_to_resource: Geri git
-        changes_at_title: '"%{title}" üzerindeki değişiklikler'
-        number_of_versions: Sürümler
-        title: Sürümler
-    versions_list_item:
-      show:
-        version_index: Sürüm %{index}
     welcome_notification:
       default_subject: '{{organization}}katıldığınız için teşekkürler!'
     wizard_step_form:
@@ -1289,6 +1231,10 @@ tr:
     timestamp_error_message: Üzgünüm, bu çok hızlıydı! Lütfen yeniden gönderin.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Türü
       edit_link:
         edit: Düzenle
       footer:
@@ -1333,8 +1279,6 @@ tr:
         notifications_settings: Bildirimler ayarları
         title: Kullanıcı ayarları
         user_groups: Gruplar
-      widget:
-        see_more: Daha fazla gör
   locale:
     name: Türkçe
     name_with_error: Türkçe (hata!)
