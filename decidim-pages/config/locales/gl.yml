@@ -28,6 +28,3 @@ gl:
           update:
             invalid: Produciuse un erro ao gardar a páxina.
             success: A páxina gardouse correctamente.
-      home:
-        sub_hero:
-          register_title: Rexistrarse para crear unha conta
