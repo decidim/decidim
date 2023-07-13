@@ -67,8 +67,7 @@ describe "Explore versions", type: :system, versioning: true do
       click_link("Version 2 of 2")
     end
 
-    # REDESIGN_PENDING: The accessibility should be tested after complete redesign
-    # it_behaves_like "accessible page"
+    it_behaves_like "accessible page"
 
     it "shows the creation date" do
       within ".version__author" do
