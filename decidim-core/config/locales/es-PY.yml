@@ -265,7 +265,6 @@ es-PY:
         error: Ocurrió un error al aceptar la enmienda.
         success: La enmienda ha sido aceptada correctamente.
       amendable:
-        amended_by: Enmendado por
         button: Enmendar %{model_name}
         error: Se ha producido un error al modificar este recurso.
         help_text: Mejora este %{model_name} modificando su %{amendable_fields}.
@@ -285,7 +284,6 @@ es-PY:
         success: El borrador de la propuesta fue eliminado correctamente.
       edit_draft:
         discard: Descartar este borrador
-        discard_confirmation: '¿Está seguro de que desea descartar este borrador de enmienda?'
         send: Vista previa
         title: Editar borrador de enmienda
       emendation:
@@ -325,7 +323,6 @@ es-PY:
       review:
         back: Volver
         heading: Revisar la enmienda
-        help_text: Estás revisando una enmienda al %{model_name}.
         send: Aceptar enmienda
       update_draft:
         error: Se ha producido un error al actualizar el borrador de enmienda.
@@ -345,8 +342,6 @@ es-PY:
         download: Descargar archivo
       documents:
         related_documents: Documentos relacionados
-      geocoding:
-        geocoded_address: Dirección
       photo:
         alt: Imagen para los medios
         title: Imagen
@@ -354,7 +349,6 @@ es-PY:
         related_photos: Fotos relacionadas
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar para varias usuarias
       comments:
         one: comentario
         other: comentarios
@@ -554,8 +548,6 @@ es-PY:
           nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
           sign_in: Entra
           sign_up: Regístrate
-          sign_up_as:
-            legend: Inscribirse como
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
           terms: los términos y condiciones de uso
           tos_agreement: Al registrarte aceptas %{link}.
@@ -573,15 +565,7 @@ es-PY:
         newsletter_modal:
           buttons:
             check: Verificar y continuar
-            close_modal: Cerrar modal
             uncheck: Mantener desmarcado
-          notice: |-
-            <p>Hola, ¿seguro que no quieres recibir un boletín informativo?<br>
-            Por favor, considera volver a marcar la casilla de selección del boletín a continuación.<br>
-            Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer avisos importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
-            <p>Si no marcas la casilla, es posible que te pierdas información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
-            Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
-            <p>¡Gracias por leer esto!</p>
           title: Notificaciones de boletines
         omniauth_buttons:
           or: O
@@ -589,9 +573,7 @@ es-PY:
       authorizations:
         new:
           authorize: Autorice la aplicación
-          by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
-          connect_your_account_html: Conecte tu cuenta iniciando sesión en <strong>%{organization}</strong>.
           publish_content: Publique contenido para usted
           see_email: Ver tu correo electrónico
           see_name: Ver tu nombre
@@ -599,7 +581,6 @@ es-PY:
           this_application_will_be_able_to: 'Esta aplicación podrá:'
           this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
           update_profile: Actualiza tu perfil
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar tu cuenta"
     download_your_data:
       export:
         ready: Listo
@@ -994,12 +975,9 @@ es-PY:
         description: Lee más sobre %{organization}.
         title: Ayuda general
     last_activities:
-      activities:
-        no_activities_warning: Ninguna actividad
       all: Todos los tipos de actividad
       index:
         last_activity: Última actividad
-        resource_type: Tipo
     links:
       invalid_url: Dirección URL no válida
       warning:
@@ -1227,11 +1205,6 @@ es-PY:
         retry: Reintentar
     open_data:
       not_available_yet: Los ficheros de datos abiertos aún no están disponibles, inténtalo de nuevo en unos minutos.
-    own_user_groups:
-      index:
-        pending: Pendientes
-        rejected: Rechazados
-        verified: Verificada
     pad_iframe:
       disclaimer: Los contenidos de este panel están escritos por usuarios registrados y expresan sus opiniones. %{organization} no se hace responsable de su contenido.
       explanation: Usa este bloc para tomar notas de manera colaborativa durante el encuentro, para que sea más fácil escribir el acta después.
@@ -1254,8 +1227,6 @@ es-PY:
         hero:
           participate: Participar
           welcome: Bienvenido a %{organization}!
-        metrics:
-          headline: Participación en cifras
         statistics:
           headline: Estado actual de %{organization}
         sub_hero:
@@ -1268,7 +1239,6 @@ es-PY:
       participatory_space:
         metrics:
           headline: Participación en cifras.
-          link: Mostrar todas las estadísticas
       terms_of_service:
         accept:
           error: Se ha producido un error al aceptar los términos y condiciones de uso.
@@ -1281,7 +1251,6 @@ es-PY:
           modal_btn_continue: Aceptar los términos y condiciones de uso, y continuar
           modal_btn_exit: Los revisaré más tarde
           modal_button: Rechazar los términos y condiciones de uso
-          modal_close: Cerrar ventana
           modal_title: '¿Confirmas que no aceptas los términos y condiciones de uso actualizados?'
         required_review:
           alert: Hemos actualizado nuestros Términos y Condiciones, por favor, revísalos.
@@ -1294,9 +1263,8 @@ es-PY:
         error: Ha habido un problema al actualizar la contraseña.
         success: La contraseña se ha actualizado correctamente.
     profile:
-      deleted: Participante eliminada
+      deleted: Usuario eliminado
       inaccessible_message: '¡Este perfil es inaccesible debido a la violación de términos y condiciones de uso!'
-      view: Ver
     profiles:
       default_officialization_text_for_user_groups: Este grupo está verificado públicamente, su nombre se ha verificado para que se corresponda con su nombre real.
       default_officialization_text_for_users: Esta participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre y función reales.
@@ -1310,7 +1278,6 @@ es-PY:
         members: Miembros
         officialized: Participante oficial
         send_private_message: Envia mensaje privado
-        view_full_profile: Ver todo el perfil
       sidebar:
         badges:
           info: Las insignias se obtienen realizando una actividad específica en la plataforma.
@@ -1380,7 +1347,6 @@ es-PY:
       term_input_placeholder: Buscar
     searches:
       filters:
-        back: Volver a resultados
         jump_to: 'Salta a:'
         state:
           active: Activo
@@ -1393,9 +1359,6 @@ es-PY:
         filter_by: Filtrar por
         unfold: Desplegar
       results:
-        results:
-          one: "%{count} resultado"
-          other: "%{count} resultados"
         view_all: Ver todo (%{count})
     security:
       selfxss_warning:
@@ -1407,10 +1370,6 @@ es-PY:
         close_modal: Cerrar el modal
         ok: De acuerdo
         title: Confirmar
-      embed_modal:
-        close_window: Cerrar ventana
-        embed: Por favor, pega este código en tu página
-        embed_link: Incrustar
       extended_navigation_bar:
         more: Más
         unfold: Desplegar
@@ -1429,7 +1388,6 @@ es-PY:
         report: Denunciar
         spam: Contiene clickbait, publicidad o estafas.
         title: Denunciar un problema
-        visit_profile: Si también quieres bloquear al participante y el resto de sus contenidos, ve a la página de perfil de %{user_link}.
       flag_user_modal:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
         block: Eliminar a esta participante
@@ -1504,30 +1462,12 @@ es-PY:
         existing_error: El mensaje no se ha podido crear. La conversación ya existe, por favor inténtalo de nuevo ahora.
         success: '¡Conversación iniciada correctamente!'
       index:
-        add_max_users: 'Añadir usuarias a la conversación: máximo 9 usuarias'
-        add_users_placeholder: Buscar...
-        close: Cerar
         conversations_info: Las conversaciones son privadas. Nadie más puede verlas. Se puede iniciar una conversación con cualquier participante o grupo registrado en la plataforma.
-        from: 'De:'
-        last_message: Último mensaje
-        modal_title: Nueva conversación
-        new_conversation: Nueva conversación
-        next: Siguente
         no_conversations_warning: Aún no hay ninguna conversación.
-        no_results: No hay resultados
-        participant_with_disabled_message_reception: Esta participante ha desactivado la recepción de mensajes.
         time_ago: "Hace %{time}"
-      new:
-        title: Iniciar una conversación
       reply:
         placeholder: Tu respuesta...
         send: Enviar
-        title_reply: Responder
-      show:
-        back: Ver todas las conversaciones
-        deleted_accounts: No puedes tener una conversación con cuentas eliminadas.
-        not_allowed: Esta participante no acepta mensajes directos.
-        title: Conversación con %{usernames}
       update:
         error: Mensaje no enviado. Inténtalo de nuevo más tarde
     user_interests:
@@ -1552,29 +1492,12 @@ es-PY:
         back_to_resource: Volver atrás
         changes_at_title: Cambios en "%{title}"
         number_of_versions: Versiones
-        show_all_versions: Mostrar todas las versiones
-        version_author: Autoría de la versión
         version_created_at: Versión creada el
-        version_number: Número de versión
-        version_number_out_of_total: "%{current_version} de %{total_count}"
-    version_author:
-      show:
-        deleted: Usuario eliminado
     versions:
       resource_version:
         of_versions: "(de %{number})"
         see_other_versions: ver otras versiones
         version: Versión %{number}
-    versions_list:
-      show:
-        back_to_resource: Volver atrás
-        changes_at_title: Cambios en "%{title}"
-        number_of_versions: Versiones
-        title: Versiones
-    versions_list_item:
-      back: Mostrar todas las versiones
-      show:
-        version_index: Versión %{index}
     welcome_notification:
       default_body: <p>¡Hola {{name}}, gracias por unirte a {{organization}} te damos la bienvenida!</p><ul><li>Si quieres hacerte una idea rápida de que puedes hacer, echa un vistazo a la <a href="{{help_url}}">Sección de ayuda</a>.</li><li>Una vez la hayas leído recibirás tu primera insignia. Aquí encontrarás un <a href="{{badges_url}}">listado de todas las insignias</a>que puedes conseguir participando en {{organization}}</li><li>. Para terminar, pero no por ello menos importante, únete a otras personas, comparte con ellas de estar comprometida y de participar en {{organization}}. Haz propuestas, comentarios, debate, piensa en cómo contribuir a un bien común, aporta argumentos para tratar de convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y permanece abierta de mente para colaborar y unirte a las ideas de otra gente.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
@@ -1947,8 +1870,6 @@ es-PY:
         notifications_settings: Configuracion de notificaciones
         title: Ajustes de usuario
         user_groups: Los grupos
-      widget:
-        see_more: Ver más
   locale:
     name: Castellano
     name_with_error: Castellano (¡error!)
@@ -2021,7 +1942,6 @@ es-PY:
     dropdown:
       choose_diff_view_html: 'Modo de vista HTML:'
       choose_diff_view_mode: 'Comparar el modo de visualización:'
-      choose_diff_view_mode_menu: Elegir el modo de comparación
       option_escaped: Escapado
       option_split: En paralelo
       option_unescaped: Desescapado
