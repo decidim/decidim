@@ -165,7 +165,6 @@ nl:
         error: Er is een fout opgetreden bij het accepteren van het amendement.
         success: Het amendement is met succes aangenomen.
       amendable:
-        amended_by: Gewijzigd door
         button: Wijzigen %{model_name}
         error: Er is een fout opgetreden bij het wijzigen van deze bron.
         promote_button: Promoot naar %{model_name}
@@ -183,7 +182,6 @@ nl:
         success: Amendement ontwerp is succesvol verwijderd.
       edit_draft:
         discard: Verwijder dit concept
-        discard_confirmation: Weet u zeker dat u dit amendementsontwerp wilt verwijderen?
         send: Voorbeeld
         title: Wijzig amendement concept
       emendation:
@@ -233,13 +231,10 @@ nl:
         download: Bestand downloaden
       documents:
         related_documents: Gerelateerde documenten
-      geocoding:
-        geocoded_address: Adres
       photos:
         related_photos: Gerelateerde foto 's
     author:
       avatar: 'Profiel: %{name}'
-      avatar_multiuser: Profiel voor meerdere gebruikers
       comments:
         one: commentaar
         other: commentaren
@@ -405,8 +400,6 @@ nl:
           nickname_help: Je alias in %{organization}. Kan alleen letters, cijfers, '-' en '_' bevatten.
           sign_in: Aanmelden
           sign_up: Registratie
-          sign_up_as:
-            legend: Aanmelden als
           subtitle: Meld je aan om deel te nemen aan discussies en om voorstellen te steunen.
           tos_agreement: Door het aanmelden gaat u akkoord met %{link}.
           tos_title: Servicevoorwaarden
@@ -419,7 +412,6 @@ nl:
         newsletter_modal:
           buttons:
             check: Controleer en ga door
-            close_modal: Sluit venster
             uncheck: Uitgeschakeld houden
           title: Nieuwsbriefmeldingen
         omniauth_buttons:
@@ -428,7 +420,6 @@ nl:
       authorizations:
         new:
           authorize: Aanvraag toestaan
-          by_organization_link_html: <small class="heading-small">door %{link}</small>
           cancel: Annuleer
           publish_content: Publiceer inhoud voor jou
           see_email: Bekijk jouw e-mail
@@ -437,7 +428,6 @@ nl:
           this_application_will_be_able_to: 'Deze applicatie krijgt toegang tot:'
           this_application_will_not_be_able_to: 'Deze applicatie krijgt geen toegang tot:'
           update_profile: update je profiel
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil toegang tot je account"
     download_your_data:
       export:
         ready: Klaar
@@ -715,12 +705,9 @@ nl:
           title: Wat kan ik doen in %{organization}?
         title: Algemene hulp
     last_activities:
-      activities:
-        no_activities_warning: Geen activiteit
       all: Alle soorten activiteiten
       index:
         last_activity: Laatste Activiteit
-        resource_type: Type
     links:
       invalid_url: Ongeldige URL
       warning:
@@ -890,11 +877,6 @@ nl:
         retry: Probeer opnieuw
     open_data:
       not_available_yet: De Open Data-bestanden zijn nog niet beschikbaar. Probeer het over een paar minuten opnieuw.
-    own_user_groups:
-      index:
-        pending: In behandeling
-        rejected: Geweigerd
-        verified: Geverifieerd
     pad_iframe:
       disclaimer: De inhoud van dit notitieblok is geschreven door geregistreerde gebruikers en geeft hun mening weer. %{organization} kan niet verantwoordelijk worden gehouden voor de inhoud ervan.
       pad: Notitieblok
@@ -916,8 +898,6 @@ nl:
         hero:
           participate: Deelnemen
           welcome: Welkom op het portaal van de burgerinspraak %{organization}!
-        metrics:
-          headline: Deelname in cijfers
         statistics:
           headline: Huidige stand van %{organization}
         sub_hero:
@@ -930,11 +910,10 @@ nl:
       participatory_space:
         metrics:
           headline: Deelname in cijfers
-          link: Toon alle statistieken
     participatory_space_private_users:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
-      view: Bekijk
+      deleted: Verwijderde deelnemer
     profiles:
       show:
         activity: Activiteit
@@ -945,7 +924,6 @@ nl:
         groups: Groepen
         members: Leden
         officialized: Officiële gebruiker
-        view_full_profile: Bekijk volledig profiel
       sidebar:
         badges:
           info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
@@ -1004,7 +982,6 @@ nl:
       term_input_placeholder: Zoeken
     searches:
       filters:
-        back: Terug naar resultaten
         jump_to: 'Spring naar:'
         state:
           active: Actief
@@ -1017,9 +994,6 @@ nl:
         filter_by: Filteren op
         unfold: Ontvouwen
       results:
-        results:
-          one: "%{count} resultaat"
-          other: "%{count} resultaten"
         view_all: Bekijk alles (%{count})
     security:
       selfxss_warning:
@@ -1031,10 +1005,6 @@ nl:
         close_modal: Sluit venster
         ok: Ok
         title: Bevestigen
-      embed_modal:
-        close_window: Sluit venster
-        embed: Plak deze code alstublieft in uw pagina
-        embed_link: Insluiten
       extended_navigation_bar:
         more: Meer
         unfold: Ontvouwen
@@ -1099,28 +1069,12 @@ nl:
         existing_error: Het bericht kon niet worden aangemaakt. Het gesprek bestaat al, probeer het nu opnieuw.
         success: Gesprek is succesvol gestart!
       index:
-        add_max_users: 'Gebruikers toevoegen aan gesprek: maximaal 9 gebruikers'
-        add_users_placeholder: Zoeken...
-        close: Afsluiten
         conversations_info: Gesprekken zijn privé. Niemand anders kan ze zien. Een gesprek kan worden gestart met elke geregistreerde deelnemer of groep op het platform.
-        from: van
-        last_message: Laatste bericht
-        modal_title: Nieuwe conversatie
-        new_conversation: Nieuwe conversatie
-        next: Volgende
         no_conversations_warning: Er zijn nog geen gesprekken.
-        no_results: Geen resultaten gevonden
         time_ago: "%{time} geleden"
-      new:
-        title: Gesprek starten
       reply:
         placeholder: Jouw antwoord...
         send: Verzenden
-        title_reply: Beantwoorden
-      show:
-        back: Toon alle gesprekken
-        not_allowed: Deze gebruiker accepteert geen directe berichten meer.
-        title: Gesprek met %{usernames}
       update:
         error: Bericht niet verzonden. Probeer het later opnieuw
     user_interests:
@@ -1135,28 +1089,11 @@ nl:
         back_to_resource: Ga terug
         changes_at_title: Veranderingen op "%{title}"
         number_of_versions: versies
-        show_all_versions: Toon alle versies
-        version_author: Versie auteur
         version_created_at: Versie gemaakt op
-        version_number: Versie nummer
-        version_number_out_of_total: "%{current_version} van de %{total_count}"
-    version_author:
-      show:
-        deleted: Verwijderde deelnemer
     versions:
       resource_version:
         of_versions: "(van %{number})"
         version: Versienummer %{number}
-    versions_list:
-      show:
-        back_to_resource: Ga terug
-        changes_at_title: Veranderingen op "%{title}"
-        number_of_versions: versies
-        title: versies
-    versions_list_item:
-      back: Toon alle versies
-      show:
-        version_index: Versie %{index}
     welcome_notification:
       default_subject: Bedankt dat je lid bent geworden van {{organization}}!
     wizard_step_form:
@@ -1373,8 +1310,6 @@ nl:
         notifications_settings: Notificaties instellen
         title: Gebruikersinstellingen
         user_groups: Gebruikersgroepen
-      widget:
-        see_more: Zie meer
   locale:
     name: Nederlands
     name_with_error: Nederlands (fout!)
