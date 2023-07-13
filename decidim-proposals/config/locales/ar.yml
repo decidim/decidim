@@ -381,9 +381,6 @@ ar:
         description: عدد الدعم للمقترحات
         object: الدعم
         title: الدعم
-    participatory_spaces:
-      highlighted_proposals:
-        see_all: شاهد الكل (%{count})
     proposals:
       actions:
         answer_proposal: الرد على المُقتَرَح
@@ -589,16 +586,12 @@ ar:
         rejected: مرفوض
         withdrawn: سحب
       application_helper:
-        filter_category_values:
-          all: الكل
         filter_origin_values:
           all: الكل
           meetings: اجتماعات
           official: الرسمية
           participants: المشاركون
           user_groups: المجموعات
-        filter_scope_values:
-          all: الكل
         filter_state_values:
           accepted: وافقت
           all: الكل
@@ -626,14 +619,6 @@ ar:
               ok: سحب المسودة التعاونية
               title: الإجراء التالي لا رجعة فيه
             success: تم سحب مشروع تعاوني بنجاح.
-        count:
-          drafts_count:
-            zero: "%{count} مسودات تعاونية"
-            one: "%{count} مشروع تعاوني"
-            two: "%{count} مسودات تعاونية"
-            few: "%{count} مسودات تعاونية"
-            many: "%{count} مسودات تعاونية"
-            other: "%{count} مسودات تعاونية"
         create:
           error: طرأت مشكلة خلال إنشاء هذه المسودة التعاونية.
           success: تم إنشاء مشروع تعاوني بنجاح.
@@ -682,9 +667,7 @@ ar:
           rejected_request:
             error: لا يمكن الرفض كمتعاون ، يرجى المحاولة مرة أخرى لاحقًا.
         show:
-          back: الى الخلف
           edit: تحرير المسودة التعاونية
-          final_proposal: الاقتراح النهائي
           final_proposal_help_text: انتهى هذا المشروع. تحقق من الاقتراح النهائي
           hidden_authors_count:
             zero: و %{count} المزيد من الناس
@@ -695,10 +678,8 @@ ar:
             other: و %{count} المزيد من الناس
           publish: نشر
           publish_info: نشر هذا الإصدار من المسودة أو
-          published_proposal: الاقتراح المنشور
           request_access: طلب الدخول
           requested_access: طلب الوصول
-          version_history: انظر تاريخ الإصدار لهذا الاقتراح
           withdraw: سحب المشروع
         states:
           open: افتح
@@ -709,12 +690,8 @@ ar:
           success: تم تحديث المسودة التعاونية بنجاح.
         wizard_aside:
           back_from_collaborative_draft: العودة إلى المسودات التعاونية
-          info: إنك لعلى خلق <strong>مشروع تعاوني</strong>.
         wizard_header:
           title: إنشاء مسودتك التعاونية
-      content_blocks:
-        highlighted_proposals:
-          proposals: الاقتراحات
       create:
         error: كانت هناك مشكلة في حفظ الاقتراح.
         success: تم إنشاء الاقتراح بنجاح. تم الحفظ كمسودة.
@@ -725,11 +702,6 @@ ar:
         new_proposal: 'اقتراح جديد:'
         proposal_updated: 'تم تحديث الاقتراح:'
       models:
-        collaborative_draft:
-          fields:
-            authors: المؤلفون
-            comments: تعليقات
-            contributions: مساهمات
         proposal:
           fields:
             category: الفئة
@@ -750,7 +722,6 @@ ar:
         buttons:
           amend: تعديل
           comment: تعليق
-          comments: تعليقات
       proposal_votes:
         create:
           error: كانت هناك مشكلة في دعم الاقتراح.
@@ -762,25 +733,14 @@ ar:
         complete:
           send: إرسال
           title: أكمل اقتراحك
-        count:
-          proposals_count:
-            zero: "%{count} مقترحات"
-            one: "%{count} اقتراح"
-            two: "%{count} مقترحات"
-            few: "%{count} مقترحات"
-            many: "%{count} مقترحات"
-            other: "%{count} مقترحات"
         dynamic_map_instructions:
           description: سيتم تحديث الإحداثيات لدى النقر على زر "السابق". غير أن العنوان لن يتغير.
           instructions: يمكنك تحريك النقطة على الخريطة.
         edit:
           add_documents: إضافة وثائق
-          add_image: إضافة صورة
           attachment_legend: "(اختياري) إضافة مرفق"
           back: الى الخلف
           edit_documents: تحرير الوثائق
-          edit_image: تعديل الصورة
-          gallery_legend: "(اختياري) إضافة صورة إلى بطاقة الاقتراح"
           select_a_category: الرجاء تحديد الفئة
           send: إرسال
           title: تعديل الاقتراح
@@ -802,11 +762,6 @@ ar:
           state: الحالة
           type: نوع
           voted: أيد
-        filters_small_view:
-          close_modal: إغلاق مشروط
-          filter: منقي
-          filter_by: مصنف بواسطة
-          unfold: كشف
         index:
           click_here: عرض جميع الاقتراحات
           collaborative_drafts_list: الوصول إلى المسودات التعاونية
@@ -814,15 +769,6 @@ ar:
           see_all: عرض جميع الاقتراحات
           see_all_withdrawn: الاطلاع على جميع المقترحات المسحوبة
           text_banner: أنت تتطلع على قائمة الاقتراحات المسحوبة من قبل مؤلفيها. %{go_back_link}.
-          view_proposal: عرض الاقتراح
-        linked_proposals:
-          proposal_votes:
-            zero: الدعم
-            one: الدعم
-            two: الدعم
-            few: الدعم
-            many: الدعم
-            other: الدعم
         new:
           send: استمر
           title: إنشاء اقتراحك
@@ -835,11 +781,6 @@ ar:
           random: عشوائية
           recent: الأخيرة
           with_more_authors: مع المزيد من المؤلفين
-        participatory_texts:
-          index:
-            document_index: فهرس الوثيقة
-          view_index:
-            see_index: انظر الفهرس
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -856,14 +797,10 @@ ar:
           publish: نشر
           title: نشر اقتراحك
         proposal:
-          creation_date: 'الإنشاء: %{date}'
           view_proposal: عرض الاقتراح
         show:
           answer: إجابة
-          back_to: ارجع الى
-          back_to_list: العودة إلى القائمة
           changes_at_title: تعديل على "%{title}"
-          comments: تعليقات
           edit_proposal: تعديل الاقتراح
           estimated_cost: التكلفة التقديرية
           hidden_endorsers_count:
@@ -882,14 +819,9 @@ ar:
           proposal_accepted_reason: 'تم قبول هذا الاقتراح بسبب:'
           proposal_in_evaluation_reason: هذا الاقتراح قيد التقييم
           proposal_rejected_reason: 'تم رفض هذا الاقتراح بسبب:'
-          read_less: اقرأ أقل
-          read_more: اقرأ المزيد
-          report: أبلغ عن
           withdraw_btn_hint: يمكنك سحب اقتراحك إذا غيرت رأيك ، طالما أنك لم تتلق أي دعم. لم يتم حذف الاقتراح ، وسوف يظهر في قائمة المقترحات المسحوبة.
           withdraw_confirmation_html: هل أنت متأكد من أنك تريد سحب هذا الاقتراح؟<br><br><strong>لا يمكن إلغاء هذا الإجراء!</strong>
           withdraw_proposal: سحب الاقتراح
-        tags:
-          changed_from: "(تغيرت من <u>%{previous_name}</u> من قبل المدير)"
         update:
           title: تحديث الإقتراح
         vote_button:
@@ -920,8 +852,6 @@ ar:
           title: 'الدعامات تخضع للقواعد التالية:'
           vote_limit:
             description: يمكنك دعم ما يصل إلى %{limit} مقترحات.
-            left: متبق
-            votes: الدعم
         wizard_aside:
           back: الى الخلف
           back_from_step_1: العودة إلى الاقتراحات
@@ -954,12 +884,8 @@ ar:
         error: حدثت مشكلة في حفظ المسودة التعاونية.
         success: تم تحديث مسودة الاقتراح بنجاح.
       versions:
-        collaborative_drafts:
-          back_to_resource: العودة إلى المسودة التعاونية
         index:
           title: إصدارات
-        proposals:
-          back_to_resource: العودة إلى الاقتراح
     resource_links:
       copied_from_component:
         proposal_proposal: المقترحات ذات الصلة
