@@ -39,6 +39,10 @@
   .dropdown.menu{
     z-index: 5;
 
+    li{
+      @apply pl-0;
+    }
+
     & > li.is-dropdown-submenu-parent > a{
       padding-right: 1rem;
       background-color: var(--secondary);

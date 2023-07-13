@@ -29,7 +29,10 @@
   }
 
   .button--title{
-    float: right;
+    @apply flex justify-end gap-x-4 items-center;
+    .dropdown{
+      @apply relative;
+    }
   }
 }
 
