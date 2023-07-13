@@ -417,7 +417,7 @@ de:
           email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       form:
-        add_attachments: Dokumente
+        add_attachments: Unterlagen
         attachment_legend: "(Optional) Anhang hinzufügen"
         delete_attachment: Löschen
       index:
@@ -565,11 +565,6 @@ de:
         status_change_for: Die Initiative %{title} hat ihren Status geändert
       last_activity:
         new_initiative: Neue Initiative
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktive Initiativen
-            see_all_initiatives: Sehen Sie alle Initiativen
       show:
         badge_name:
           accepted: Ausreichend Unterschriften
