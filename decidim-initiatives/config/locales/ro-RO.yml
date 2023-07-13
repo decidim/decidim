@@ -369,7 +369,7 @@ ro:
           back: Înapoi
           continue: Continuă
           help: În ce constă inițiativa? Scrie titlul și descrierea. Recomandăm un titlu scurt și concis și o descriere axată pe soluția propusă.
-          more_information: "(Mai multe informații)"
+          more_information: "(Informaţii principale)"
         promotal_committee:
           back: Înapoi
           individual_help_text: Acest tip de inițiativă necesită o Comisie de promovare formată din cel puțin %{committee_size} de persoane (atestatori). Trebuie să diseminezi următorul link cu celelalte persoane care fac parte din această inițiativă. Când persoanele de contact primesc acest link vor trebui să urmeze pașii indicați.
@@ -377,7 +377,7 @@ ro:
         select_initiative_type:
           back: Înapoi
           choose_html: Vreau să creez un <strong>%{title}</strong>
-          more_information: "(Mai multe informații)"
+          more_information: "(Informaţii principale)"
           select: Doresc să promovez această iniţiativă
           select_initiative_type_help: Inițiativele reprezintă un mijloc prin care participanții pot interveni astfel încât organizația să poată întreprinde acțiuni de apărare a interesului general. Ce inițiativă dorești să lansezi?
         share_committee_link:
@@ -427,7 +427,7 @@ ro:
       form:
         add_attachments: Documente
         attachment_legend: "(Opțional) Adaugă un atașament"
-        delete_attachment: Șterge
+        delete_attachment: Ștergere
       index:
         title: Inițiative
       initiative_signatures:
@@ -576,11 +576,6 @@ ro:
         status_change_for: Inițiativa %{title} și-a schimbat statutul
       last_activity:
         new_initiative: Inițiativă nouă
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Inițiative active
-            see_all_initiatives: Vezi toate inițiativele
       show:
         badge_name:
           accepted: Semnături suficiente
