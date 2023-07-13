@@ -23,7 +23,9 @@ describe "Polling Officer zone", type: :system do
 
     expect(page).to have_content("Polling Officer zone")
 
-    click_link "Polling Officer zone"
+    within "#dropdown-menu" do
+      click_link "Polling Officer zone"
+    end
 
     expect(page).to have_content("You are not assigned to any Polling Station yet.")
   end

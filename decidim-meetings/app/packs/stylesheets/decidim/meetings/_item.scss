@@ -1,0 +1,177 @@
+.meeting {
+  &__filter {
+    &-container {
+      @apply self-stretch;
+    }
+  }
+
+  &__calendar {
+    @apply w-14 flex flex-col justify-start rounded bg-background text-center;
+
+    &:only-child &-month {
+      @apply rounded-t;
+    }
+
+    &-container {
+      @apply grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_1fr] items-center gap-0 md:gap-x-5 border-4 border-background rounded md:h-[120px] overflow-hidden;
+
+      > *:nth-child(2) {
+        @apply p-4 md:p-0;
+
+        &:not(:last-child) {
+          @apply col-span-2 md:col-auto order-2 md:order-1;
+        }
+
+        &:last-child {
+          @apply md:col-span-2 pr-4;
+        }
+      }
+
+      > *:nth-child(3) {
+        @apply order-1 md:order-2 h-[116px] md:h-full;
+      }
+    }
+
+    &-month {
+      @apply bg-primary uppercase text-white text-xs rounded-tl;
+    }
+
+    &-day {
+      @apply text-black text-2xl font-bold;
+    }
+
+    &-time {
+      @apply text-black text-xs;
+    }
+
+    &-month,
+    &-day,
+    &-time {
+      @apply inline-flex items-center justify-evenly empty:[&>span]:hidden;
+    }
+
+    &-separator {
+      @apply mx-2 font-normal text-sm;
+    }
+
+    &__lg {
+      @apply w-fit justify-center [&>*]:px-2;
+    }
+
+    &__lg &-month {
+      @apply py-1 text-md;
+    }
+
+    &__lg &-day {
+      @apply text-5xl;
+    }
+
+    &__lg &-time {
+      @apply text-md pb-2;
+    }
+  }
+
+  &__author {
+    @apply flex items-center gap-4;
+  }
+
+  &__grid {
+    @apply grid grid-cols-4 gap-x-12 gap-y-4;
+  }
+
+  &__online {
+    @apply bg-background grid place-items-center p-8 space-y-4 text-gray-2 text-center text-lg;
+  }
+
+  &__agenda {
+    &-title {
+      @apply flex gap-1 items-center;
+
+      svg {
+        @apply w-6 h-6 text-tertiary fill-current;
+      }
+    }
+
+    &-item {
+      @apply mt-6 bg-background rounded p-4 text-gray-2;
+
+      &__title {
+        @apply text-lg inline-flex gap-1 first:[&>*]:font-bold;
+      }
+
+      &__description {
+        @apply mt-2 text-md text-gray-2;
+      }
+    }
+
+    &-subitem {
+      @apply ml-4 mt-4;
+    }
+
+    &-subitem &-item__title {
+      @apply text-md;
+    }
+  }
+
+  &__aside {
+    &-progress {
+      @apply text-sm text-gray-2 text-center space-y-1;
+
+      progress {
+        @apply block w-full h-1 appearance-none rounded-full overflow-hidden bg-gray;
+
+        &::-webkit-progress-value {
+          @apply bg-success;
+        }
+
+        &::-webkit-progress-bar {
+          @apply bg-white;
+        }
+
+        &::-moz-progress-bar {
+          @apply bg-success;
+        }
+      }
+    }
+
+    &-block {
+      @apply bg-background rounded p-2 [&>*]:flex [&>*]:gap-1 first:[&>*>*]:flex-none last:[&>*>*]:space-y-1;
+
+      & + & {
+        @apply mt-4;
+      }
+
+      &__title {
+        @apply text-gray-2 text-sm font-semibold;
+      }
+
+      &__text {
+        @apply text-gray-2 text-sm;
+      }
+
+      &__large {
+        @apply text-gray-2 text-xl font-bold;
+      }
+
+      &__list {
+        @apply ml-4 list-disc text-gray-2 text-sm;
+      }
+    }
+
+    &-actions {
+      @apply flex flex-wrap justify-center gap-x-2;
+    }
+  }
+
+  &__registration-modal {
+    &__terms {
+      @apply text-xs text-gray-2;
+    }
+  }
+
+  &__cancelation-modal {
+    &__description {
+      @apply mt-8 mb-16 text-lg text-gray-2;
+    }
+  }
+}

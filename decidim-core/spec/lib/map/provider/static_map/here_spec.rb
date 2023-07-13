@@ -27,9 +27,9 @@ module Decidim
               ).to eq(
                 apiKey: "key1234",
                 c: "#{latitude}, #{longitude}",
-                z: 15,
-                w: 120,
-                h: 120,
+                z: Decidim::Map::StaticMap::DEFAULT_ZOOM,
+                w: Decidim::Map::StaticMap::DEFAULT_SIZE,
+                h: Decidim::Map::StaticMap::DEFAULT_SIZE,
                 f: 1
               )
             end
@@ -71,9 +71,9 @@ module Decidim
                   app_id: "appid123",
                   app_code: "secret456",
                   c: "#{latitude}, #{longitude}",
-                  z: 15,
-                  w: 120,
-                  h: 120,
+                  z: Decidim::Map::StaticMap::DEFAULT_ZOOM,
+                  w: Decidim::Map::StaticMap::DEFAULT_SIZE,
+                  h: Decidim::Map::StaticMap::DEFAULT_SIZE,
                   f: 1
                 )
               end

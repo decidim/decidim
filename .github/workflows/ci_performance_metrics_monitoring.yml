@@ -85,7 +85,7 @@ jobs:
         name: Run Rails server
         working-directory: ./development_app/
       - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v8
+        uses: treosh/lighthouse-ci-action@v10
         with:
           runs: 3 # run more than once to warm up the application
           uploadArtifacts: true

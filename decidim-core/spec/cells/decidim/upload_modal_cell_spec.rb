@@ -150,8 +150,10 @@ describe Decidim::UploadModalCell, type: :cell do
   end
 
   context "when multiple attachments are present" do
-    let(:file1) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
-    let(:file2) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+    let(:filename1) { "Exampledocument.pdf" }
+    let(:filename2) { "city.jpeg" }
+    let(:file1) { Decidim::Dev.test_file(filename1, "application/pdf") }
+    let(:file2) { Decidim::Dev.test_file(filename2, "image/jpeg") }
     let(:attachments) { [upload_test_file(file1), upload_test_file(file2)] }
 
     it "renders the attachments" do
@@ -171,6 +173,25 @@ describe Decidim::UploadModalCell, type: :cell do
         expect(images.count).to be(2)
         expect(images[0]["src"]).to match(%r{/city.jpeg$})
         expect(images[1]["src"]).to match(%r{/city2.jpeg$})
+      end
+    end
+
+    context "when attachment is titled" do
+      let(:attachments) { [create(:attachment, file: file1), create(:attachment, file: file2)] }
+      let(:titled) { true }
+
+      before do
+        allow(form).to receive(:hidden_field).and_return(
+          %(<input type="hidden" name="#{attribute}[]" value="#{attachments[0].id}">)
+        )
+      end
+
+      it "renders the attachments" do
+        expect(subject).to have_css(".attachment-details", count: 2)
+        expect(subject).to have_selector("[data-filename='#{filename1}']")
+
+        details = subject.find(".attachment-details", match: :first)
+        expect(details).to have_content("#{attachments[0].title["en"]} (#{filename1})")
       end
     end
 

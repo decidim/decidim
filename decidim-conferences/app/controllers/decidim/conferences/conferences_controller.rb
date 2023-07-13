@@ -6,12 +6,12 @@ module Decidim
     # public layout.
     class ConferencesController < Decidim::Conferences::ApplicationController
       include ParticipatorySpaceContext
+      include Paginable
 
       redesign_participatory_space_layout only: :show
 
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
-      helper Decidim::WidgetUrlsHelper
       helper Decidim::SanitizeHelper
       helper Decidim::ResourceReferenceHelper
       helper Decidim::Conferences::PartnersHelper
@@ -50,7 +50,9 @@ module Decidim
         @conferences ||= OrganizationPrioritizedConferences.new(current_organization, current_user)
       end
 
-      alias collection conferences
+      def collection
+        @collection ||= paginate(conferences.query)
+      end
 
       def promoted_conferences
         @promoted_conferences ||= conferences | PromotedConferences.new

@@ -13,8 +13,7 @@ module Decidim
           member do
             post :close
           end
-          resources :versions, only: [:show, :index]
-          resource :widget, only: :show, path: "embed"
+          resources :versions, only: [:show]
         end
         root to: "debates#index"
       end

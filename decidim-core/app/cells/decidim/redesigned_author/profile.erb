@@ -1,9 +1,0 @@
-<% if profile_path? %>
-  <%= link_to profile_path, class: "flex items-center gap-2.5" do %>
-    <%= render :profile_inline %>
-  <% end %>
-<% else %>
-  <div class="flex items-center gap-2.5">
-    <%= render :profile_inline %>
-  </div>
-<% end %>

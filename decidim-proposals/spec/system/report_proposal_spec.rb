@@ -6,7 +6,7 @@ describe "Report Proposal", type: :system do
   include_context "with a component"
 
   let(:manifest_name) { "proposals" }
-  let!(:proposals) { create_list(:proposal, 3, component:) }
+  let!(:proposals) { create_list(:proposal, 3, :participant_author, component:) }
   let(:reportable) { proposals.first }
   let(:reportable_path) { resource_locator(reportable).path }
 
@@ -28,16 +28,25 @@ describe "Report Proposal", type: :system do
     it "reports the resource" do
       visit reportable_path
 
-      expect(page).to have_selector(".author-data__extra")
+      if Decidim.redesign_active
+        expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
+        find(%(button[data-dialog-open="flagModal"])).click
+        expect(page).to have_css(".flag-modal", visible: :visible)
 
-      within ".author-data__extra", match: :first do
-        click_button
-      end
+        within ".flag-modal" do
+          click_button "Report"
+        end
+      else
+        expect(page).to have_selector(".author-data__extra")
 
-      expect(page).to have_css(".flag-modal", visible: :visible)
+        within ".author-data__extra", match: :first do
+          click_button
+        end
+        expect(page).to have_css(".modal__report", visible: :visible)
 
-      within ".flag-modal" do
-        click_button "Report"
+        within ".modal__report" do
+          click_button "Report"
+        end
       end
 
       expect(page).to have_content "report has been created"

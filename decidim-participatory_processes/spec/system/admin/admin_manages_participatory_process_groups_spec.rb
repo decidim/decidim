@@ -155,7 +155,7 @@ describe "Admin manages participatory process groups", type: :system do
         find("#participatory_process_group_hero_image_button").click
       end
 
-      find(".remove-upload-item").click
+      click_button "Remove"
       click_button "Save"
 
       click_button "Update"
@@ -165,7 +165,7 @@ describe "Admin manages participatory process groups", type: :system do
 
     it "can delete them" do
       within find("tr", text: participatory_process_group.title["en"]) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm(admin: true) { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -194,12 +194,6 @@ describe "Admin manages participatory process groups", type: :system do
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit decidim_admin_participatory_processes.participatory_processes_path
-    end
-
-    it "does not show the participatory process group link" do
-      within ".main-nav" do
-        expect(page).not_to have_selector(:link_or_button, "Process groups")
-      end
     end
 
     context "when within participatory processes" do

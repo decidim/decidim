@@ -3,6 +3,6 @@
     <%= form.hidden_field :id, value: @collaborative_draft.id %>
     <%= form.hidden_field :state, value: @collaborative_draft.state %>
     <%= form.hidden_field :requester_user_id, value: requester.id %>
-    <%= form.submit accept_request_button_label, class: "button hollow secondary small", data: { disable: true } %>
+    <%= form.submit accept_request_button_label, class: "button button__sm button__secondary w-full", data: { disable: true } %>
   <% end %>
 <% end %>
