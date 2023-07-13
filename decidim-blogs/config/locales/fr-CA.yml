@@ -49,6 +49,11 @@ fr-CA:
           create: "%{user_name} a créé l'article de blog %{resource_name} dans %{space_name}"
           delete: "%{user_name} a supprimé l'article de blog %{resource_name} dans %{space_name}"
           update: "%{user_name} a mis à jour l'article de blog %{resource_name} dans %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Dernière publication
+          name: Articles
+          see_all: Voir tous les articles
       last_activity:
         new_post: 'Nouvel article :'
       models:
