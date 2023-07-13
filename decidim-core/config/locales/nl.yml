@@ -334,7 +334,7 @@ nl:
           request_confirmation_instructions: Bevestigingsinstructies aanvragen
           title: bevestig je email
       show:
-        close_modal: Sluit venster
+        close_modal: Modal sluiten
     block_user_mailer:
       notify:
         body_1: Je account werd geblokkeerd
@@ -466,7 +466,7 @@ nl:
         newsletter_modal:
           buttons:
             check: Controleer en ga door
-            close_modal: Sluit venster
+            close_modal: Modal sluiten
             uncheck: Uitgeschakeld houden
           notice: |-
             <p>Hé, weet je zeker dat je geen nieuwsbrief wilt ontvangen?<br>
@@ -839,7 +839,7 @@ nl:
         body_1: Je staat op het punt om een externe link te bezoeken, wees voorzichtig met de inhoud van de externe site.
         body_2: Controleer de link, zorg ervoor dat je deze herkent als een veilige site voor je verdergaat.
         cancel: Annuleer
-        close_modal: Sluit venster
+        close_modal: Modal sluiten
         proceed: Doorgaan
         title: Externe link openen
     log:
@@ -929,7 +929,7 @@ nl:
           ok: OK
         index:
           ago: geleden
-          close: Sluit venster
+          close: Modal sluiten
           from: van
           groups: Mijn groepen
           last_message: Laatste bericht
@@ -1090,7 +1090,7 @@ nl:
           legend: Ga akkoord met de gebruiksvoorwaarden
         refuse:
           modal_btn_exit: Ik zal het later bekijken
-          modal_close: Sluit venster
+          modal_close: Modal sluiten
           modal_title: Weig je de bijgewerkte Algemene voorwaarden echt af?
         required_review:
           alert: We hebben onze Servicevoorwaarden bijgewerkt. Bekijk ze alstublieft.
@@ -1274,7 +1274,7 @@ nl:
       index:
         add_max_users: 'Gebruikers toevoegen aan gesprek: maximaal 9 gebruikers'
         add_users_placeholder: Zoeken...
-        close: Afsluiten
+        close: Sluit
         conversations_info: Gesprekken zijn privé. Niemand anders kan ze zien. Een gesprek kan worden gestart met elke geregistreerde deelnemer of groep op het platform.
         from: van
         last_message: Laatste bericht
