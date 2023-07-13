@@ -369,7 +369,9 @@ fi-pl:
       pages:
         home:
           highlighted_assemblies:
+            active_assemblies: Aktiiviset ryhmät
             assemblies_button_title: Linkki kaikkien ryhmien sivulle
+            see_all_assemblies: Näytä kaikki ryhmät
         user_profile:
           member_of:
             member_of: Jäsen ryhmässä
@@ -384,6 +386,7 @@ fi-pl:
         developer_group: Perustajaryhmä
         duration: Kesto
         included_at: Mukana osoitteessa
+        indefinite_duration: Määrittelemätön
         internal_organisation: Sisäinen organisaatio
         is_transparent:
           'false': läpinäkymätön
