@@ -145,7 +145,6 @@ zh-CN:
         error: 接受修改时发生错误。
         success: 修正已被成功接受。
       amendable:
-        amended_by: 修改者
         button: 修改 %{model_name}
         error: 修改此资源时出错。
         promote_button: 提升至 %{model_name}
@@ -163,7 +162,6 @@ zh-CN:
         success: 修正草案已成功删除。
       edit_draft:
         discard: 丢弃这个草稿
-        discard_confirmation: 您确定要放弃这个修正草案吗？
         send: 预览
         title: 编辑修正草案
       emendation:
@@ -349,8 +347,6 @@ zh-CN:
           newsletter_title: 联系人权限
           sign_in: 登录
           sign_up: 注册
-          sign_up_as:
-            legend: 注册为
           subtitle: 注册参加讨论和支持建议。
           tos_agreement: 通过注册您同意 %{link}。
           tos_title: 服务条款
@@ -363,7 +359,6 @@ zh-CN:
         newsletter_modal:
           buttons:
             check: 检查并继续
-            close_modal: 关闭模式
             uncheck: 保持未选中的
           title: 通讯通知
         omniauth_buttons:
@@ -372,7 +367,6 @@ zh-CN:
       authorizations:
         new:
           authorize: 授权应用程序
-          by_organization_link_html: <small class="heading-small">由 %{link}</small>
           cancel: 取消
           publish_content: 发布您的内容
           see_email: 查看您的电子邮件
@@ -381,7 +375,6 @@ zh-CN:
           this_application_will_be_able_to: '此应用程序将能够：'
           this_application_will_not_be_able_to: '此应用程序将无法：'
           update_profile: 更新您的个人资料
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> 想要使用您的帐户"
     download_your_data:
       export:
         ready: 准备好
@@ -647,12 +640,9 @@ zh-CN:
           title: 我可以在 %{organization} 中做什么？
         title: 常规帮助
     last_activities:
-      activities:
-        no_activities_warning: 没有活动
       all: 所有活动类型
       index:
         last_activity: 上次活动
-        resource_type: 类型
     log:
       base_presenter:
         create: "%{user_name} 创建了 %{resource_name}"
@@ -800,11 +790,6 @@ zh-CN:
         success: 您的通知设置已成功更新。
     open_data:
       not_available_yet: 打开数据文件尚不可用，请几分钟后再试。
-    own_user_groups:
-      index:
-        pending: 待定
-        rejected: 已拒绝
-        verified: 已验证
     pad_iframe:
       disclaimer: 这个板块的内容由注册用户撰写并表达他们的意见。 %{organization} 不能对其内容负责。
       pad: 平板
@@ -826,8 +811,6 @@ zh-CN:
         hero:
           participate: 参与
           welcome: 欢迎使用 %{organization}！
-        metrics:
-          headline: 指标
         statistics:
           headline: 当前状态 %{organization}
         sub_hero:
@@ -840,11 +823,10 @@ zh-CN:
       participatory_space:
         metrics:
           headline: 指标
-          link: 显示所有指标
     participatory_space_private_users:
       not_allowed: 您无权查看此内容
     profile:
-      view: 查看
+      deleted: 删除参与者
     profiles:
       show:
         activity: 活动
@@ -855,7 +837,6 @@ zh-CN:
         groups: 群組
         members: 成员
         officialized: 官方参与者
-        view_full_profile: 查看完整资料
       sidebar:
         badges:
           info: 徽章是通过在平台上执行特定活动赚取的。
@@ -911,7 +892,6 @@ zh-CN:
       term_input_placeholder: 搜索
     searches:
       filters:
-        back: 返回结果
         jump_to: '跳转到：'
         state:
           active: 已启用
@@ -924,8 +904,6 @@ zh-CN:
         filter_by: 筛选方式
         unfold: 展开...
       results:
-        results:
-          other: "%{count} 个结果"
         view_all: 查看所有 (%{count})
     security:
       selfxss_warning:
@@ -937,10 +915,6 @@ zh-CN:
         close_modal: 关闭模式
         ok: 好的
         title: 确认
-      embed_modal:
-        close_window: 关闭窗口
-        embed: 请将此代码粘贴到您的页面
-        embed_link: 嵌入
       extended_navigation_bar:
         more: 更多
         unfold: 展开...
@@ -995,27 +969,12 @@ zh-CN:
         existing_error: 无法创建消息。对话已经存在，请现在重试。
         success: 对话已成功启动！
       index:
-        add_max_users: '将用户添加到对话中：最大9个用户'
-        add_users_placeholder: 搜索...
-        close: 关闭
         conversations_info: 对话是私密的。没有其他人可以看到他们。对话可以与在平台上注册的任何参与者或群组开始。
-        from: 来自
-        last_message: 最后一条消息
-        modal_title: 新建对话
-        new_conversation: 新建对话
-        next: 下一个
         no_conversations_warning: 还没有对话。
-        no_results: 没有结果
         time_ago: "%{time} 前"
-      new:
-        title: 开始对话
       reply:
         placeholder: 您的回复...
         send: 发送
-        title_reply: 答复
-      show:
-        not_allowed: 此用户不接受任何更多的直接消息。
-        title: 与 %{usernames} 的对话
       update:
         error: 消息发送失败，请稍后再试
     user_interests:
@@ -1030,28 +989,12 @@ zh-CN:
         back_to_resource: 后退
         changes_at_title: 更改于 "%{title}"
         number_of_versions: 版本
-        show_all_versions: 显示所有版本
-        version_author: 版本作者
         version_created_at: 版本创建于
-        version_number: 版本号
-        version_number_out_of_total: "%{current_version} 中的 %{total_count}"
-    version_author:
-      show:
-        deleted: 删除参与者
     versions:
       resource_version:
         of_versions: "( %{number})"
         see_other_versions: 查看其他版本
         version: 版本号 %{number}
-    versions_list:
-      show:
-        back_to_resource: 后退
-        changes_at_title: 更改于 "%{title}"
-        number_of_versions: 版本
-        title: 版本
-    versions_list_item:
-      show:
-        version_index: 版本 %{index}
     welcome_notification:
       default_subject: 感谢您加入 {{organization}}！
     wizard_step_form:
@@ -1200,6 +1143,10 @@ zh-CN:
     timestamp_error_message: 对不起，这太快了！请重新提交。
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: 类型
       edit_link:
         edit: 编辑
       footer:
@@ -1244,8 +1191,6 @@ zh-CN:
         notifications_settings: 通知设置
         title: 参与者设置
         user_groups: 群組
-      widget:
-        see_more: 查看更多
   locale:
     name: 中文
     name_with_error: 中文(错误!)
