@@ -384,9 +384,6 @@ ca:
         description: Nombre de suports a les propostes
         object: suports
         title: Suports
-    participatory_spaces:
-      highlighted_proposals:
-        see_all: Veure tots (%{count})
     proposals:
       actions:
         answer_proposal: Respondre a la proposta
@@ -607,16 +604,12 @@ ca:
         rejected: Rebutjada
         withdrawn: Retirada
       application_helper:
-        filter_category_values:
-          all: Totes
         filter_origin_values:
           all: Totes
           meetings: Trobades
           official: Oficial
           participants: Participants
           user_groups: Grups
-        filter_scope_values:
-          all: Totes
         filter_state_values:
           accepted: Acceptada
           all: Totes
@@ -646,10 +639,6 @@ ca:
               ok: Retira l'esborrany col·laboratiu
               title: La següent acció és irreversible
             success: L'esborrany col·laboratiu s'ha retirat correctamente.
-        count:
-          drafts_count:
-            one: "%{count} esborrany de col·laboració"
-            other: "%{count} esborrany de col·laboració"
         create:
           error: S'ha produït un error en crear aquest esborrany col·laboratiu.
           success: Esborrany col·laboratiu creat correctament.
@@ -701,9 +690,7 @@ ca:
             error: No s'ha pogut rebutjar com a contribuïdora, si us plau tornau-ho a provar més tard.
             success: "S'ha rebutjat amb èxit a @%{user} com a col·laboradora."
         show:
-          back: Torna
           edit: Edita l'esborrany col·laboratiu
-          final_proposal: proposta final
           final_proposal_help_text: Aquest esborrany està finalitzat. Consulta la proposta final
           hidden_authors_count:
             one: i %{count} persona més
@@ -711,10 +698,8 @@ ca:
           info-message: Aquest és un <strong>esborrany col·laboratiu</strong> per a una proposta. Això significa que pots ajudar les seves autores a modelar la proposta, utilitzant la secció de comentaris a continuació, o a millorar-la demanant accés per editar-la directament. Un vegada les autores et donin accés, podràs fer canvis en aquest esborrany.
           publish: Publica
           publish_info: Publica aquesta versió de l'esborrany o
-          published_proposal: proposta publicada
           request_access: Sol·licitud d'accés
           requested_access: S'ha sol·licitat l'accés
-          version_history: veure l'historial de versions d'aquesta proposta
           withdraw: retira l'esborrany
         states:
           open: Obert
@@ -725,12 +710,8 @@ ca:
           success: L'esborrany col·laboratiu s'ha actualitzat correctament.
         wizard_aside:
           back_from_collaborative_draft: Tornar a l'esborrany col·laboratiu
-          info: Estàs creant un <strong>esborrany col·laboratiu</strong>.
         wizard_header:
           title: Crea el teu esborrany col·laboratiu
-      content_blocks:
-        highlighted_proposals:
-          proposals: Propostes
       create:
         error: Hi ha hagut un error en desar la proposta.
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
@@ -741,11 +722,6 @@ ca:
         new_proposal: 'Nova proposta:'
         proposal_updated: 'Proposta actualitzada:'
       models:
-        collaborative_draft:
-          fields:
-            authors: Autores
-            comments: Comentaris
-            contributions: Aportacions
         proposal:
           fields:
             category: Categoria
@@ -768,7 +744,6 @@ ca:
         buttons:
           amend: Esmena
           comment: Comentari
-          comments: Comentaris
       proposal_votes:
         create:
           error: Hi ha hagut un error en donar suport a la proposta.
@@ -780,21 +755,14 @@ ca:
         complete:
           send: Enviar
           title: Completa la teva proposta
-        count:
-          proposals_count:
-            one: "%{count} proposta"
-            other: "%{count} propostes"
         dynamic_map_instructions:
           description: Les coordenades s'actualitzaran quan facis clic en el botó 'previsualitzar'. No obstant això, la direcció no canvia.
           instructions: Pots moure la ubicació en el mapa.
         edit:
           add_documents: Afegir documents
-          add_image: Afegir imatge
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
           back: Torna
           edit_documents: Editar documents
-          edit_image: Editar imatge
-          gallery_legend: "(Opcional) Afegir una imatge a la targeta de proposta"
           select_a_category: Si us plau, selecciona una categoria
           send: Envia
           title: Edita proposta
@@ -816,11 +784,6 @@ ca:
           state: Estat
           type: Tipus
           voted: Has donat suport
-        filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Desplega
         index:
           click_here: Veure totes les propostes
           collaborative_drafts_list: Accedeix a esborranys col·laboratius
@@ -828,11 +791,6 @@ ca:
           see_all: Veure totes les propostes
           see_all_withdrawn: Veure totes les propostes retirades
           text_banner: Estàs veient un llistat de propostes retirades per les seves autores. %{go_back_link}.
-          view_proposal: Veure proposta
-        linked_proposals:
-          proposal_votes:
-            one: suport
-            other: suports
         new:
           send: Continua
           title: Crea la teva proposta
@@ -845,11 +803,6 @@ ca:
           random: Aleatori
           recent: Recent
           with_more_authors: Amb més autores
-        participatory_texts:
-          index:
-            document_index: Índex del document
-          view_index:
-            see_index: Veure índex
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -862,17 +815,13 @@ ca:
           publish: Publica
           title: Publica la teva proposta
         proposal:
-          creation_date: 'Data de creació: %{date}'
           view_proposal: Veure proposta
         proposals:
           empty: Encara no hi ha cap proposta.
           empty_filters: No hi ha cap proposta amb aquest criteri.
         show:
           answer: Resposta
-          back_to: Torna
-          back_to_list: Torna al llistat
           changes_at_title: Esmena a "%{title}"
-          comments: Comentaris
           edit_proposal: Edita proposta
           estimated_cost: Cost estimat
           hidden_endorsers_count:
@@ -887,14 +836,9 @@ ca:
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
-          read_less: Llegir menys
-          read_more: Llegir més
-          report: Denúncia
           withdraw_btn_hint: Pots retirar la teva proposta si canvies d'opinió, sempre que no hagis rebut cap suport. La proposta no s'esborra, apareixerà a la llista de propostes retirades.
           withdraw_confirmation_html: Segur que vols retirar aquesta proposta? <br><br><strong>Aquesta acció no es pot desfer!</strong>
           withdraw_proposal: Retirar proposta
-        tags:
-          changed_from: "(modificat de <u>%{previous_name}</u> per una administradora)"
         update:
           title: Actualitzar la proposta
         vote_button:
@@ -924,8 +868,6 @@ ca:
           title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
-            left: Restant
-            votes: Suports
         wizard_aside:
           back: Torna
           back_from_step_1: Tornar a propostes
@@ -959,12 +901,8 @@ ca:
         error: Hi ha hagut un error en desar l'esborrany col·laboratiu.
         success: L'esborrany col·laboratiu s'ha actualitzat correctament.
       versions:
-        collaborative_drafts:
-          back_to_resource: Torna a l'esborrany col·laboratiu
         index:
           title: Versions
-        proposals:
-          back_to_resource: Torna a la proposta
       withdraw:
         errors:
           has_supports: Aquesta proposta no es pot retirar perquè ja compta amb suports.
