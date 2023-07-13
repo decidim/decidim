@@ -15,7 +15,7 @@
         <span class="text-white">/</span>
         <%= link_to t("decidim.votings.admin.titles.votings"), decidim_admin_votings.votings_path, data: { "external-link": false }, class: "process-title-content-breadcrumb-no-active" %>
         <span class="text-white">/</span>
-        <%= link_to translated_attribute(current_participatory_space.title), decidim_votings.voting_path(current_participatory_space), data: { "external-link": false }, class: 'process-title-content-breadcrumb' %>
+        <%= link_to translated_attribute(current_participatory_space.title), decidim_admin_votings.edit_voting_path(current_participatory_space), data: { "external-link": false }, class: 'process-title-content-breadcrumb' %>
       </div>
     </div>
   </div>
