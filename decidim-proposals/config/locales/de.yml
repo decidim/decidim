@@ -384,6 +384,10 @@ de:
         description: Anzahl der Unterstützungen zu Vorschlägen
         object: Unterstützer
         title: Unterstützer
+    participatory_spaces:
+      highlighted_proposals:
+        last: Letzte Vorschläge
+        see_all: Alle Vorschläge anzeigen
     proposals:
       actions:
         answer_proposal: Vorschlag beantworten
@@ -648,6 +652,8 @@ de:
           select_a_category: Bitte wählen Sie eine Kategorie
           send: Abschicken
           title: Gemeinsamen Entwurf bearbeiten
+        empty: Es gibt noch keine kollaborative Entwürfe
+        empty_filters: Es gibt keinen kollaborativen Entwurf mit diesen Kriterien
         filters:
           all: Alle
           amendment: Änderungsanträge
@@ -664,6 +670,7 @@ de:
           filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
+        name: Kollaborativer Entwurf
         new:
           add_file: Datei hinzufügen
           edit_file: Datei bearbeiten
@@ -691,6 +698,7 @@ de:
             success: "@%{user} wurde als Mitwirkende erfolgreich abgelehnt."
         show:
           edit: Bearbeiten Sie den gemeinsamen Entwurf
+          final_proposal: Endgültiger Vorschlag
           final_proposal_help_text: Dieser Entwurf ist fertig. Sie können den endgültigen fertigen Vorschlag sehen
           hidden_authors_count:
             one: und %{count} weitere Person
@@ -698,6 +706,7 @@ de:
           info-message: Dies ist ein <strong>kollaborativen Entwurf</strong> für einen Vorschlag. Das bedeutet, dass Sie den Autoren helfen können, den Vorschlag zu gestalten, indem Sie den unten stehenden Kommentarabschnitt verwenden, oder ihn direkt verbessern, indem Sie Zugriff anfordern, um ihn zu bearbeiten. Sobald die Autoren Ihnen Zugriff gewähren, können Sie Änderungen an diesem Entwurf vornehmen.
           publish: Veröffentlichen
           publish_info: Veröffentlichen Sie diese Version des Entwurfs oder
+          published_proposal: Veröffentlichter Vorschlag
           request_access: Zugangsanfragen
           requested_access: Zugriff angefordert
           withdraw: den Entwurf zurückziehen
@@ -712,6 +721,9 @@ de:
           back_from_collaborative_draft: Zurück zu gemeinschaftlichen Entwürfen
         wizard_header:
           title: Erstellen Sie Ihren gemeinsamen Entwurf
+      content_blocks:
+        highlighted_proposals:
+          name: Vorschläge
       create:
         error: Beim Speichern des Vorschlags ist ein Fehler aufgetreten.
         success: Der Vorschlag wurde erfolgreich erstellt. Gespeichert als Entwurf.
@@ -803,6 +815,9 @@ de:
           random: Zufällig
           recent: Kürzlich hinzugefügt
           with_more_authors: Mit mehr Autoren
+        participatory_texts:
+          view_index:
+            document_index: Dokumentenindex
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -868,6 +883,7 @@ de:
           title: 'Die Abstimmung unterliegt folgenden Regeln:'
           vote_limit:
             description: Sie können bis zu %{limit} Vorschläge abstimmen.
+            votes: Noch %{number} Unterstützungen verbleibend
         wizard_aside:
           back: Zurück
           back_from_step_1: Zurück zu Vorschlägen
