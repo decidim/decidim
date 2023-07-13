@@ -117,6 +117,10 @@ de:
         over_x_years: "%{count} J."
         x_days: "%{count} T."
         x_hours: "%{count} Std."
+        x_minutes: "%{count} Min."
+        x_months: "%{count} Mo."
+        x_seconds: "%{count} Sek."
+        x_years: "%{count} J."
       x_days:
         one: 1 Tag
         other: "%{count} Tage"
@@ -286,6 +290,10 @@ de:
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
         promote_help_text: Sie können diese Änderung fördern und als unabhängige %{model_name} veröffentlichen.
         section_heading: Änderungen (%{count})
+      amendments:
+        title:
+          one: "%{count} Anpassung"
+          other: "%{count} Anpassungen"
       compare_draft:
         continue: Fortfahren
         no_similars_found: Keine ähnlichen Entwürfe gefunden.
@@ -317,6 +325,7 @@ de:
           withdrawn: |-
             Diese Änderung für %{amendable_type} %{proposal_link}
             wurde vom Autor zurückgezogen.
+      name: Anpassung
       new:
         amendment_author: Änderungsautor
         send: Erstellen
@@ -355,11 +364,13 @@ de:
       document:
         download: Datei herunterladen
       documents:
+        documents: Dokumente
         related_documents: Zugehörige Dokumente
       photo:
         alt: Pressebild
         title: Bild
       photos:
+        photos: Bilder
         related_photos: Zugehörige Bilder
     author:
       avatar: 'Avatar: %{name}'
@@ -491,6 +502,8 @@ de:
             dummy_step_translatable_text: Übersetzbarer Blindtext des Schritts
     contact: Kontakt
     content_blocks:
+      announcement:
+        name: Ankündigung
       cta:
         name: Bild, Text und Call to Action-Schaltfläche
       cta_settings_form:
@@ -500,6 +513,8 @@ de:
         description: Beschreibung
       footer_sub_hero:
         name: Fußzeile sub hero Banner
+      global_menu:
+        name: Globales Menü
       hero:
         name: Hauptbild
       hero_settings_form:
@@ -508,6 +523,9 @@ de:
       highlighted_content_banner:
         name: Hervorgehobenes Inhaltsbanner
       highlighted_elements_settings_form:
+        components:
+          all: Alle
+          label: 'Komponente auswählen:'
         orders:
           label: 'Elemente sortieren nach:'
           random: Zufällig
@@ -521,8 +539,20 @@ de:
         name: Letzte Aktivität
         title: Letzte Aktivität
         view_all: Alle ansehen
+      last_activity_settings_form:
+        max_last_activity_users: Maximale Anzahl anzuzeigender Avatare mit Aktivität in letzter Zeit
+      main_data:
+        name: Hauptdaten
+      metadata:
+        name: Metadaten
       metrics:
         name: Organisationsmetriken
+      participatory_space_metrics:
+        name: Metriken
+      participatory_space_stats:
+        name: Statistiken
+      social_networks_metadata:
+        name: Soziale Netzwerke
       static_page:
         section:
           name: Abschnitt
@@ -542,6 +572,13 @@ de:
       actions:
         login_before_access: Bitte melden Sie sich mit Ihrem Konto an, um auf diese Seite zuzugreifen.
         unauthorized: Sie sind nicht berechtigt, diese Aktion auszuführen.
+      application_helper:
+        filter_area_values:
+          all: Alle
+        filter_category_values:
+          all: Alle
+        filter_scope_values:
+          all: Alle
     datepicker:
       help_text: 'Erwartetes Format: %{datepicker_format}'
     devise:
@@ -580,6 +617,17 @@ de:
           buttons:
             check: Kontakterlaubnis erteilen und fortfahren
             uncheck: Ohne Kontakterlaubnis fortfahren
+          notice: |-
+            <p>Hallo, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?
+            Bitte prüfen Sie noch einmal, ob Sie das Kästchen mit der Bestellung des Newsletters nicht doch ankreuzen möchten.
+            Es ist sehr wichtig für uns, dass Sie gelegentlich E-Mails erhalten können, 
+            damit wir Ihnen wichtige Informationen mitteilen können. Sie können die
+            Seite mit den Einstellungen für Mitteilungen jederzeit ändern.</p>
+            <p>Wenn Sie das Kästchen nicht ankreuzen, könnten Sie vielleicht wichtige Informationen
+             über neue Möglichkeiten der Teilnahme an der Plattform verpassen.<br>
+            Wenn Sie dennoch keinen Newsletter erhalten möchten, 
+            haben wir vollstes Verständnis für Ihre Entscheidung.</p>
+            <p>Vielen Dank, dass Sie sich die Zeit zum Lesen genommen haben!</p>
           title: Newsletter Benachrichtigungen
         omniauth_buttons:
           or: Oder
@@ -587,7 +635,9 @@ de:
       authorizations:
         new:
           authorize: App zulassen
+          by_organization_link_html: per %{link}
           cancel: Abbrechen
+          connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei %{organization} anmelden.
           publish_content: Inhalte für Sie veröffentlichen
           see_email: Ihre E-Mail anzeigen
           see_name: Ihren Namen anzeigen
@@ -595,6 +645,7 @@ de:
           this_application_will_be_able_to: 'Diese Anwendung wird in der Lage sein:'
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
           update_profile: Profil aktualisieren
+          wants_to_use_your_account_html: "%{application_name} möchte Ihr Konto verwenden"
     download_your_data:
       export:
         ready: Bereit
@@ -794,6 +845,7 @@ de:
     filters:
       linked_classes:
         all: Alle
+        answer: Antwort
         collaborative_draft: Kollaborativer Entwurf
         dummy_resource: Dummy-Ressourcen
         meeting: Meetings
@@ -918,6 +970,7 @@ de:
       invite:
         error: Bei der Einladung dieses Teilnehmers ist ein Problem aufgetreten.
         success: Teilnehmer erfolgreich eingeladen.
+      pending_invitations: Ausstehende Anfragen
       reject:
         error: Beim Ablehnen dieser Einladung ist ein Fehler aufgetreten.
         success: Einladung erfolgreich abgelehnt.
@@ -992,6 +1045,9 @@ de:
       all: Alle Aktivitätstypen
       index:
         last_activity: Letzte Aktivität
+      name: Letzte Aktivitäten
+    linked_resource_from:
+      included_in: Enthalten in
     links:
       invalid_url: Ungültige URL
       warning:
@@ -1105,6 +1161,12 @@ de:
           send: Senden
         update:
           error: Nachricht wurde aufgrund eines Fehlers nicht gesendet.
+    metadata:
+      progress:
+        active: Aktiv
+        finished: 'Beendet am: %{end_date}'
+        not_started: Noch nicht begonnen
+        remaining: "%{time_distance} verbleibend"
     metrics:
       download:
         csv: Daten herunterladen (CSV)
@@ -1214,6 +1276,7 @@ de:
         error: Beim Aktualisieren der Benachrichtigungseinstellungen ist ein Fehler aufgetreten.
         success: Ihre Benachrichtigungseinstellungen wurden erfolgreich aktualisiert.
     offline:
+      name: Offline
       show:
         message: Es sieht so aus, als ob Sie momentan offline sind. Bitte versuchen Sie es später erneut.
         retry: Wiederholen
@@ -1240,11 +1303,13 @@ de:
           register: Registrieren
         hero:
           participate: Teilnehmen
+          participate_title: Beteiligen Sie sich an den Prozessen auf dieser Plattform
           welcome: Willkommen bei %{organization}!
         statistics:
           headline: Aktueller Zustand von %{organization}
         sub_hero:
           register: Registrieren
+          register_title: Registrieren Sie sich um ein Konto anzulegen
       index:
         standalone_pages: Seiten
         subheading: Navigieren Sie durch die Hilfeseiten von %{name}
@@ -1253,6 +1318,7 @@ de:
       participatory_space:
         metrics:
           headline: Teilnahme an Zahlen
+          link: Alle anzeigen
       terms_of_service:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Problem aufgetreten.
@@ -1299,13 +1365,17 @@ de:
       user:
         actions:
           create_user_group: Gruppe erstellen
+          disabled_message: Nachricht
           edit_profile: Profil bearbeiten
           edit_user_group: Gruppenprofil bearbeiten
           invite_user: Teilnehmer einladen
           join_user_group: Gruppenbeitritt anfragen
+          leave_user_group: Gruppe verlassen
+          manage_user_group: Gruppe verwalten
           manage_user_group_admins: Admins verwalten
           manage_user_group_users: Mitglieder verwalten
           message: Nachricht
+          resend_email_confirmation_instructions: E-Mail-Bestätigungsanweisungen erneut versenden
         confirmation_instructions_sent: E-Mail-Bestätigungsanweisungen gesendet.
         create_user_group: Gruppe erstellen
         edit_profile: Profil bearbeiten
@@ -1356,12 +1426,14 @@ de:
       scopes_picker_input:
         select_scope: 'Wählen Sie einen Bereich (aktuell: %{current})'
     search:
+      name: Suchen
       results: Suchergebnisse
       results_found_for_term: '%{count} Ergebnisse für die Suche: "%{term}"'
       term_input_placeholder: Suche
     searches:
       filters:
         jump_to: 'Springen zu:'
+        search: Suchen
         state:
           active: Aktiv
           all: Alles
@@ -1370,6 +1442,7 @@ de:
       filters_small_view:
         close_modal: Fenster schließen
         filter: Filter
+        filter_and_search: Filtern und suchen
         filter_by: Filtern nach
         unfold: Entfalten
       results:
@@ -1426,7 +1499,9 @@ de:
         remove_recipient: Empfänger %{name} entfernen
       participatory_space_filters:
         filters:
+          area: Gebiet
           areas: Bereiche
+          scope: Thema
           select_an_area: Wählen Sie einen Bereich aus
       public_participation:
         public_participation: Meine Teilnahme öffentlich anzeigen
@@ -1512,6 +1587,9 @@ de:
         of_versions: "(von %{number})"
         see_other_versions: Andere Versionen anzeigen
         version: Versionsnummer %{number}
+    versions_list_item:
+      show:
+        version_index: Version %{index} von %{total}
     welcome_notification:
       default_body: <p>Guten Tag {{name}}, vielen Dank dafür, dass Sie {{organization}} beigetreten sind und herzlich willkommen!</p><ul><li>Wenn Sie einen kurzen Überblick darüber bekommen möchten, was Sie hier tun können, schauen Sie sich den <a href="{{help_url}}">Hilfe-Abschnitt </a> an.</li><li>Sobald Sie ihn gelesen haben, bekommen Sie Ihr erstes Abzeichen. Hier finden Sie eine<a href="{{badges_url}}">Liste aller Abzeichen</a>, die Sie bei der Teilnahme auf {{organization}}</li> erhalten können<li>Folgen Sie anderen Menschen, teilen Sie die Erfahrung der Zusammenarbeit und Teilnahme auf {{organization}} mit ihnen. Machen Sie Vorschläge und Kommentare, nehmen Sie an Debatten teil, denken Sie darüber nach, wie Sie zum Gemeinwohl beitragen können, liefern Sie Argumente zum Überzeugen, hören und lesen Sie, um sich überzeugen zu lassen, drücken Sie Ihre Ideen auf konkrete und direkte Weise aus, reagieren Sie mit Geduld und Entschlossenheit, verteidigen Sie Ihre Ideen und bleiben Sie offen für die Zusammenarbeit und die Ideen anderer Menschen.</li></ul>
       default_subject: Danke, dass du {{organization}}beigetreten {{organization}} !
@@ -1779,6 +1857,9 @@ de:
     timestamp_error_message: Entschuldigung, das war zu schnell! Bitte erneut einreichen
   layouts:
     decidim:
+      announcements:
+        close: Schliessen
+        view_more: Mehr Informationen
       data_consent:
         details:
           columns:
@@ -1834,8 +1915,13 @@ de:
         cc_by_license: Creative Commons Lizenz
         data_consent_settings: Cookie Einstellungen
         decidim_logo: Decidim-Logo
+        decidim_title: Decidim
         download_open_data: Open Data Dateien herunterladen
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
+        resources: Ressourcen
+        sign_in: Anmelden
+        sign_up: Registrieren
+        terms_and_conditions: Nutzungsbedingungen
       header:
         close_menu: Menü schließen
         main_menu: Hauptmenü
@@ -1870,6 +1956,7 @@ de:
       user_menu:
         account: 'Benutzerkonto: %{name}'
         admin_dashboard: Admin-Dashboard
+        configuration: Konfiguration
         conversations: Gespräche
         notifications: Benachrichtigungen
         profile: Mein Konto
@@ -1883,6 +1970,7 @@ de:
         my_data: Meine Daten
         my_interests: Meine Interessen
         notifications_settings: Benachrichtigungseinstellungen
+        profile: Profil
         title: Benutzereinstellungen
         user_groups: Gruppen
   locale:
