@@ -26,8 +26,8 @@ describe Decidim::Elections::Admin::DestroyQuestion do
     expect(action_log.version.event).to eq "destroy"
   end
 
-  context "when the election has started" do
-    let(:election) { create(:election, :started) }
+  context "when the election has been created in the bulletin board" do
+    let(:election) { create(:election, :ongoing) }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)
