@@ -160,6 +160,7 @@ ja:
         continue: 続行
         more_information: 詳細情報
       budgets_list:
+        budgets: 予算
         cancel_order:
           more_than_one: '%{name} への投票を削除してからやり直してください'
           only_one: 投票を削除してやり直してください
@@ -168,8 +169,10 @@ ja:
         if_change_opinion: 'もし気が変わった場合は、以下を行うことができます:'
         my_budgets: 私の予算
         progress: 投票を終了
+        remove_vote: 投票を削除
         show: プロジェクトを表示
         vote: 投票
+        voted_budgets: 投票された予算
         voted_on: '%{links} に投票しました。'
       last_activity:
         new_vote_at: 新しい予算投票日時
@@ -212,8 +215,11 @@ ja:
             title: プロジェクト数の上限を超えました
         budget_summary:
           are_you_sure: 投票をキャンセルしてもよろしいですか？
+          cancel_order: 投票を削除する
           checked_out:
+            description: すでに予算に投票しています。気が変わった場合は、投票を削除できます。
             title: 予算投票が完了しました
+          vote: 予算の投票
         count:
           projects_count:
             other: "%{count} プロジェクト"
@@ -231,6 +237,24 @@ ja:
             all: 全て
             not_selected: 未選択
             selected: 選択済
+        index:
+          back_to_budgets: 予算に戻る
+        order_progress:
+          assigned: 割り当て済み
+          budget: 予算
+          dynamic_help:
+            keep_adding_projects: プロジェクトを追加したままにする
+            minimum_reached: 投票できる最小値に達しました
+            start_adding_projects: プロジェクトの追加を開始
+          minimum: 最小
+          minimum_projects_rule:
+            description: 希望するプロジェクトを %{minimum_number} 件以上選択し、好ましいと思う予算を決めて投票します。
+          projects_rule:
+            description: 希望するプロジェクトを最小 %{minimum_number} 件、最大 %{maximum_number} 件選択し、好ましいと思う予算を決めて投票します。
+          projects_rule_maximum_only:
+            description: 希望するプロジェクトを %{maximum_number} 件まで選択し、好ましいと思う予算を決めて投票します。
+          vote_threshold_percent_rule:
+            description: 希望するプロジェクトに %{minimum_budget} 以上の予算を割り当てて、好ましいと思う予算を決めて投票します。
         orders:
           highest_cost: 最高コスト
           label: 'プロジェクトを注文:'
@@ -247,9 +271,15 @@ ja:
             other: 投票
           you_voted: あなたの投票
         project_budget_button:
+          add: 追加
           add_descriptive: プロジェクト %{resource_name} を投票に追加します。
+          added: 追加済
           added_descriptive: プロジェクト %{resource_name} が投票に追加されました。
+        project_filter:
+          added: 追加済
+          all: すべて
         projects_for: '%{name} のプロジェクト'
+        select_projects: プロジェクトを選択
         show:
           budget: 予算
       vote_reminder_mailer:
@@ -319,6 +349,8 @@ ja:
     orders:
       checkout:
         error: 投票処理中に問題が発生しました。
+        success_html: <p>あなたの投票は正常に受理されました。</p> <p class="text-sm font-normal"> <a class="text-secondary underline" href="%{rest_of_budgets_link}">残りの予算</a>を探索できます。</p>
+        success_no_left_budgets_html: 投票が正常に受理されました。
       destroy:
         error: 投票の取り消し中に問題が発生しました。
         success: 投票をキャンセルしました。
