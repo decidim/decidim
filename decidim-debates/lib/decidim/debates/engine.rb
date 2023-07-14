@@ -99,7 +99,7 @@ module Decidim
 
       initializer "decidim_debates.register_events" do
         config.to_prepare do
-          Decidim::EventsManager.subscribe("decidim.debates.create_debate:after") do |_event_name, data|
+          ActiveSupport::Notifications.subscribe("decidim.debates.create_debate:after") do |_event_name, data|
             Decidim::EventsManager.publish(
               event: "decidim.events.debates.debate_created",
               event_class: Decidim::Debates::CreateDebateEvent,
@@ -142,7 +142,7 @@ module Decidim
 
       initializer "decidim_debates.moderation_content" do
         config.to_prepare do
-          Decidim::EventsManager.subscribe("decidim.admin.block_user:after") do |_event_name, data|
+          ActiveSupport::Notifications.subscribe("decidim.admin.block_user:after") do |_event_name, data|
             Decidim::Debates::HideAllCreatedByAuthorJob.perform_later(**data)
           end
         end
