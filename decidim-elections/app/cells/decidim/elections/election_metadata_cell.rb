@@ -2,7 +2,7 @@
 
 module Decidim
   module Elections
-    # This cell renders metadata for an instance of a Proposal
+    # This cell renders metadata for an instance of an Election
     class ElectionMetadataCell < Decidim::CardMetadataCell
       def initialize(*)
         super
