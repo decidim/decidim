@@ -202,6 +202,7 @@ ja:
           categories: カテゴリ
           components: コンポーネント
           info: 情報
+          landing_page: ランディングページ
           moderations: モデレーション
           private_users: プライベートユーザー
         assemblies_types: 参加スペース種別
@@ -328,6 +329,26 @@ ja:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: エリア
+          closing_date: 終了日
+          created_by: 作成者
+          creation_date: 作成日
+          data: 参加スペースデータ
+          developer_group: プロモーターグループ
+          duration: 期間
+          included_at: 含まれた日時
+          indefinite_duration: 無期限
+          local_area: 組織エリア
+          meta_scope: スコープ
+          participatory_scope: 決めること
+          participatory_structure: 決定方法
+          target: 参加者
+          title: この参加スペースについて
+        filters:
+          names:
+            all: すべて
+          type: 種別
         show:
           title: この参加スペースについて
       assembly_members:
@@ -342,8 +363,16 @@ ja:
         participatory: 参加者
         working_group: ワーキンググループ
       content_blocks:
+        children_assemblies:
+          name: 参加スペース
+        dates_metadata:
+          name: 日付のメタデータ
+        extra_data:
+          name: 種別と期間
         highlighted_assemblies:
           name: ハイライトされた参加スペース
+        related_assemblies:
+          name: 関連する参加スペース
       created_by:
         city_council: 市議会
         others: その他
@@ -363,6 +392,10 @@ ja:
       last_activity:
         new_assembly: '新しい参加スペース:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: アクティブな参加スペース
+            see_all_spaces: すべての参加スペースを表示
         user_profile:
           member_of:
             member_of: メンバー
@@ -426,6 +459,9 @@ ja:
         index:
           children: '参加スペース: '
           promoted_assemblies: ハイライトされた参加スペース
+        metadata:
+          children_item:
+            other: "%{count} 個の参加スペース"
         order_by_assemblies:
           assemblies:
             other: "%{count} 個の参加スペース"
