@@ -84,6 +84,7 @@ es:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
@@ -103,6 +104,23 @@ es:
       less_than_x_seconds:
         one: hace menos de un segundo
         other: hace menos de %{count} segundos
+      short:
+        about_x_days: "%{count} día/s"
+        about_x_hours: "%{count} hora/s"
+        about_x_minutes: "%{count} minuto/s"
+        about_x_months: "%{count} mes/es"
+        about_x_years: "%{count} año/s"
+        almost_x_years: "%{count} año/s"
+        half_a_minute: 1 minuto
+        less_than_x_minutes: "%{count} minutos/s"
+        less_than_x_seconds: "%{count} segundo/s"
+        over_x_years: "%{count} año/s"
+        x_days: "%{count} día/s"
+        x_hours: "%{count} hora/s"
+        x_minutes: "%{count} minutos/s"
+        x_months: "%{count} mes/es"
+        x_seconds: "%{count} segundo/s"
+        x_years: "%{count} año/s"
       x_days:
         one: 1 día
         other: "%{count} días"
@@ -272,6 +290,10 @@ es:
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
         promote_help_text: Puedes promocionar esta enmienda y publicarla como una %{model_name} independiente.
         section_heading: Enmiendas (%{count})
+      amendments:
+        title:
+          one: "%{count} enmienda"
+          other: "%{count} enmiendas"
       compare_draft:
         continue: Continuar
         no_similars_found: No se encontraron enmiendas similares.
@@ -300,6 +322,7 @@ es:
           rejected: Esta enmienda para la %{amendable_type} %{proposal_link} ha sido rechazada el <strong>%{date}</strong>.
           withdrawn: |-
             Esta enmienda para la %{amendable_type} %{proposal_link} ha sido retirada por su autora.
+      name: Enmienda
       new:
         amendment_author: Autora de la enmienda
         send: Crear
@@ -338,11 +361,13 @@ es:
       document:
         download: Descargar archivo
       documents:
+        documents: Documentos
         related_documents: Documentos relacionados
       photo:
         alt: Imagen para los medios
         title: Imagen
       photos:
+        photos: Imágenes
         related_photos: Imágenes relacionadas
     author:
       avatar: 'Avatar: %{name}'
@@ -474,6 +499,8 @@ es:
             dummy_step_translatable_text: Fase de ejemplo traducible
     contact: Contacto
     content_blocks:
+      announcement:
+        name: Aviso
       cta:
         name: Imagen, texto y botón de acción
       cta_settings_form:
@@ -483,6 +510,8 @@ es:
         description: Descripción
       footer_sub_hero:
         name: Banner de sub-hero de pie de página
+      global_menu:
+        name: Menú global
       hero:
         name: Imagen del hero
       hero_settings_form:
@@ -491,6 +520,9 @@ es:
       highlighted_content_banner:
         name: Banner de contenido destacado
       highlighted_elements_settings_form:
+        components:
+          all: Todos
+          label: 'Seleccionar componente:'
         orders:
           label: 'Ordenar elementos por:'
           random: Aleatorio
@@ -504,8 +536,20 @@ es:
         name: Última actividad
         title: Última actividad
         view_all: Ver todo
+      last_activity_settings_form:
+        max_last_activity_users: Número máximo de avatares de participantes con actividad reciente a mostrar
+      main_data:
+        name: Datos principales
+      metadata:
+        name: Metadatos
       metrics:
         name: Métricas de la organización
+      participatory_space_metrics:
+        name: Métricas
+      participatory_space_stats:
+        name: Estadísticas
+      social_networks_metadata:
+        name: Redes sociales
       static_page:
         section:
           name: Sección
@@ -525,6 +569,13 @@ es:
       actions:
         login_before_access: Por favor, inicia sesión con tu cuenta antes de acceder.
         unauthorized: No tienes autorización para realizar esta acción.
+      application_helper:
+        filter_area_values:
+          all: Todas
+        filter_category_values:
+          all: Todas
+        filter_scope_values:
+          all: Todos
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
     devise:
@@ -563,6 +614,13 @@ es:
           buttons:
             check: Verifica y continúa
             uncheck: Mantener desmarcado
+          notice: |-
+            <p>Hola, ¿seguro que no quieres recibir un boletín informativo?<br>
+            Por favor, considera volver a marcar la casilla de selección del boletín a continuación.
+            Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer avisos importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
+            <p>Si no marcas la casilla, es posible que te pierdas información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
+            Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
+            <p>¡Gracias por leer esto!</p>
           title: Notificaciones de boletines
         omniauth_buttons:
           or: O
@@ -571,6 +629,7 @@ es:
         new:
           authorize: Autoriza la aplicación
           cancel: Cancelar
+          connect_your_account_html: Conecte tu cuenta iniciando sesión en %{organization}.
           publish_content: Publique contenido para tí
           see_email: Consulta tu correo electrónico
           see_name: Consulta tu nombre
@@ -578,6 +637,7 @@ es:
           this_application_will_be_able_to: 'Esta aplicación podrá:'
           this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
           update_profile: Actualiza tu perfil
+          wants_to_use_your_account_html: "%{application_name} quiere usar tu cuenta"
     download_your_data:
       export:
         ready: Listo
