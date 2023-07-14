@@ -380,6 +380,10 @@ ja:
         description: 提案へのサポート数
         object: サポート
         title: サポート
+    participatory_spaces:
+      highlighted_proposals:
+        last: 最近の提案
+        see_all: すべての提案を表示
     proposals:
       actions:
         answer_proposal: 提案に回答
@@ -641,6 +645,8 @@ ja:
           select_a_category: カテゴリを選択してください
           send: 送信
           title: 共同草案を編集
+        empty: 共同草案はまだありません
+        empty_filters: この基準との共同草案はありません
         filters:
           all: すべて
           amendment: 修正
@@ -657,6 +663,7 @@ ja:
           filter: フィルター
           filter_by: フィルター
           unfold: 展開する
+        name: 共同草案
         new:
           add_file: ファイルを追加
           edit_file: ファイルを編集
@@ -684,12 +691,14 @@ ja:
             success: "@%{user} さんはコラボレーターとして正常に拒否されました。"
         show:
           edit: 共同草案を編集
+          final_proposal: 最終提案
           final_proposal_help_text: この草案は終了しました。最終提案を確認してください。
           hidden_authors_count:
             other: '%{count} 人以上'
           info-message: これは提案のための<strong>共同草案</strong>です。コメントセクションを使用して著者に提案を形成するのを手伝うことができます。また、編集アクセスを要求することで直接改善することもできます。著者がアクセスを許可したら、このドラフトを変更できるようになります。
           publish: 公開
           publish_info: このバージョンの草案を公開するか、
+          published_proposal: 公開された提案
           request_access: アクセスを要求する
           requested_access: アクセスがリクエストされました
           withdraw: 草案を撤回する
@@ -704,6 +713,9 @@ ja:
           back_from_collaborative_draft: 共同草案に戻る
         wizard_header:
           title: 共同草案を作成する
+      content_blocks:
+        highlighted_proposals:
+          name: 提案
       create:
         error: 提案を保存する際に問題がありました。
         success: 提案は正常に作成されました。草案として保存されました。
@@ -795,6 +807,9 @@ ja:
           random: ランダム
           recent: 新しい順
           with_more_authors: 起案者の多い順
+        participatory_texts:
+          view_index:
+            document_index: ドキュメントの目次
         placeholder:
           address: インディアナ州 ホームウッドドライブブラウンズバーグ 37, 46112
         preview:
@@ -857,6 +872,7 @@ ja:
           title: 'サポートは以下のルールに従います:'
           vote_limit:
             description: 最大 %{limit} 件の提案をサポートできます。
+            votes: 残り %{number} サポート
         wizard_aside:
           back: 戻る
           back_from_step_1: 提案に戻る
