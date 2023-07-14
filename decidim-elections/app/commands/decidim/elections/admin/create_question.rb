@@ -14,7 +14,7 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          return broadcast(:election_started) if form.election.started?
+          return broadcast(:election_started) if form.election.blocked?
           return broadcast(:invalid) if form.invalid?
 
           create_question!
