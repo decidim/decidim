@@ -14,7 +14,7 @@ ja:
         scope_id: スコープ
         signature_end_date: 署名の収集期間の終了
         signature_start_date: 署名の収集期間の開始
-        signature_type: 署名のコレクションタイプ
+        signature_type: 署名の収集種別
         signature_type_values:
           any: ハイブリッド
           offline: 対面
@@ -356,6 +356,7 @@ ja:
           back: 戻る
           continue: 続ける
           fill_data_help: "<ul> <li>イニシアチブの内容を確認しましょう。タイトルはわかりやすいでしょうか? イニシアチブの目的は明確でしょうか? </li> <li>署名の種別を選択する必要があります。対面署名、オンライン署名、または両方の組み合わせのいずれかです。</li> <li>イニシアチブの地理的範囲はどうなりますか?</li></ul>"
+          initiative_type: イニシアチブ種別
           more_information: "(詳細)"
           select_area: エリアを選択
           select_scope: スコープを選択
@@ -380,6 +381,8 @@ ja:
         select_initiative_type:
           back: 戻る
           choose_html: <strong>%{title}</strong> を作成したい
+          more_information: 詳細情報
+          new: 新しいイニシアチブを作成
           select: 私はこのイニシアチブを推進したいです
           select_initiative_type_help: イニシアチブとは、一般的な利益を守るために組織が行動を起こすよう、参加者が介入するための手段です。 どのようなイニシアチブを立ち上げたいですか？
           verification_required: このイニシアチブを推進するためにあなたのアカウントを確認してください
@@ -422,7 +425,12 @@ ja:
           email_subject: "%{applicant_nickname} があなたのイニシアチブに参加しようとしています"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> があなたのイニシアチブの推進委員会に申請しました <a href="%{resource_url}">%{resource_title}</a>. 受け入れるか拒否するには <a href="%{resource_url}/edit">ここ</a>をクリックしてください。
       form:
+        add_documents: ドキュメントを追加
+        add_image: 画像を追加
         attachment_legend: "(オプション) 添付ファイルを追加"
+        edit_documents: ドキュメントを編集
+        edit_image: 画像を編集
+        image_legend: "(オプション) 画像を追加"
       index:
         uninitialized: イニシアチブは管理者によってまだ設定されていません。
       initiative_signatures:
@@ -460,6 +468,7 @@ ja:
           approve: 承認
           confirm_revoke: 本当によろしいですか？
           invite_to_committee_help: 他の参加者を推進委員会に招待するために、このリンクを共有してください。
+          link: リンク
           no_members_yet: 推進委員会にはメンバーがいません。
           title: 委員会メンバー
         count:
@@ -521,9 +530,15 @@ ja:
           answer_title: このイニシアチブに回答がありました。
           initiative_rejected_reason: このイニシアチブは、署名がないために拒否されました。
         show:
+          area: エリア
           confirm: イニシアチブを提出し、管理者がレビューして公開することになります。一度公開すると編集できなくなりますが、よろしいですか？
           edit: 編集
+          initiative_data: イニシアチブデータ
+          scope: スコープ
           send_to_technical_validation: 技術検証に提出する
+          signature_collection: 署名の収集
+          state: 状態
+          type: 種別
         signatures_count:
           other: " 署名"
         vote_cabin:
@@ -553,6 +568,11 @@ ja:
           authorizations_page: 権限を表示
           explanation: 新しいイニシアチブを作成するには、認証が必要です。
           title: 認証が必要です
+      pages:
+        home:
+          highlighted_initiatives:
+            active_spaces: 活動中のイニシアチブ
+            see_all_spaces: すべてのイニシアチブを表示
       show:
         badge_name:
           accepted: 十分な署名
