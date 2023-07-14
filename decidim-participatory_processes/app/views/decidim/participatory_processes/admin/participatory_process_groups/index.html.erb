@@ -1,18 +1,32 @@
-<%= admin_tabs(:admin_participatory_processes_menu).render %>
-
+<% content_for :breadcrumb_nav do %>
 <div class="process-title">
-  <div class="process-title-content">
-    <%= link_to t("decidim.admin.titles.participatory_process_groups"), decidim_participatory_processes.participatory_processes_path, target: "_blank" %>
+  <div class="container">
+    <div class="process-title-content">
+      <div class="process-title-content-breadcrumb-container-left">
+        <%= link_to decidim_admin.root_path, class: "process-title-content-icon-home", data: { "external-link": false } do %>
+          <%= icon "home-gear-line" %>
+        <% end %>
+        <span class="text-white">/</span>
+        <%= link_to t("decidim.admin.titles.participatory_process_groups"), decidim_admin_participatory_processes.participatory_processes_path, data: { "external-link": false }, class: "process-title-content-breadcrumb" %>
+      </div>
+      <div class="process-title-content-breadcrumb-container-right">
+        <% if allowed_to? :create, :process_group %>
+          <%= link_to [:new, :participatory_process_group], class: "process-title-content-breadcrumb-container-right-link" do %>
+            <%= icon "add-line" %>
+            <span>
+              <%= t("actions.new_process_group", scope: "decidim.admin") %>
+            </span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
+<% end %>
+
+<%= admin_tabs(:admin_participatory_processes_menu).render %>
 
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= t "decidim.admin.titles.participatory_process_groups" %>
-      <%= link_to t("actions.new_process_group", scope: "decidim.admin"), [:new, :participatory_process_group], class: "button button__sm button__secondary new" if allowed_to? :create, :process_group %>
-    </h2>
-  </div>
   <div class="table-scroll">
     <table class="table-list">
       <thead>
