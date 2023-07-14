@@ -565,6 +565,11 @@ ca:
         status_change_for: La iniciativa %{title} ha canviat el seu estat
       last_activity:
         new_initiative: Nova iniciativa
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Iniciatives actives
+            see_all_initiatives: Veure totes les iniciatives
       show:
         badge_name:
           accepted: Amb les signatures necessàries
