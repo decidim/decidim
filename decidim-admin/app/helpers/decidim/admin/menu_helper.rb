@@ -34,6 +34,16 @@ module Decidim
         )
       end
 
+      def admin_tabs(target_menu)
+        ::Decidim::MenuPresenter.new(
+          target_menu,
+          self,
+          container_options: { class: "tab-x-container" },
+          element_class: "tab-x",
+          active_class: "is-active"
+        )
+      end
+
       def aside_menu(target_menu)
         ::Decidim::Admin::AsideMenuPresenter.new(target_menu, self)
       end
