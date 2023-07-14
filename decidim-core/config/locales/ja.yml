@@ -600,6 +600,14 @@ ja:
           buttons:
             check: 確認して続ける
             uncheck: チェックを外してください
+          notice: |-
+            <p>ニュースレターを購読しなくてもよいのでしょうか？
+            以下のニュースレターのチェックボックスにチェックを入れることを改めてご検討ください。
+            重要なお知らせメールを受け取れるようにするのは、運営にとって大変重要なことであり、
+            いつでも通知設定ページでこの設定を変更できます。</p>
+            <p>チェックボックスにチェックを入れない場合、プラットフォーム内の新しい参加機会に関する重要な情報を見逃す可能性があります。<br>
+            それでもニュースレターを読みたくない場合は、その決定を尊重します。</p>
+            <p>最後までお読みいただき、ありがとうございます。</p>
           title: ニュースレター通知
         omniauth_buttons:
           or: または
@@ -817,6 +825,7 @@ ja:
     filters:
       linked_classes:
         all: すべて
+        answer: 回答
         collaborative_draft: 共同草案
         dummy_resource: ダミーリソース
         meeting: ミーティング
@@ -939,6 +948,7 @@ ja:
       invite:
         error: 参加者を招待する際に問題が発生しました。
         success: 参加者の招待に成功しました。
+      pending_invitations: 保留中のリクエスト
       reject:
         error: この招待を却下する際に問題が発生しました。
         success: 招待を却下しました。
@@ -1013,6 +1023,9 @@ ja:
       all: すべてのアクティビティ種別
       index:
         last_activity: 最後のアクティビティ
+      name: 最後のアクティビティ
+    linked_resource_from:
+      included_in: 含まれるリスト
     links:
       invalid_url: 無効な URL
       warning:
@@ -1126,6 +1139,12 @@ ja:
           send: 送信
         update:
           error: エラーが発生したため、メッセージは送信されませんでした。
+    metadata:
+      progress:
+        active: アクティブ
+        finished: '完了: %{end_date}'
+        not_started: まだ開始していません
+        remaining: "残り %{time_distance}"
     metrics:
       download:
         csv: ダウンロードデータ(CSV)
@@ -1235,6 +1254,7 @@ ja:
         error: 通知設定の更新中に問題が発生しました。
         success: 通知設定が正常に更新されました。
     offline:
+      name: オフライン
       show:
         message: 現在オフラインのようです。後ほど改めてお試しください。
         retry: 再試行
@@ -1261,11 +1281,13 @@ ja:
           register: 登録
         hero:
           participate: 参加
+          participate_title: プラットフォームのプロセスに参加する
           welcome: '%{organization} へようこそ！'
         statistics:
           headline: '%{organization} の現在の状態'
         sub_hero:
           register: 登録
+          register_title: サインアップしてアカウントを作成
       index:
         standalone_pages: ページ
         subheading: '%{name} のヘルプページをナビゲートします'
@@ -1274,6 +1296,7 @@ ja:
       participatory_space:
         metrics:
           headline: 指標
+          link: すべて表示
       terms_of_service:
         accept:
           error: 利用規約に同意する際に問題が発生しました。
@@ -1320,13 +1343,17 @@ ja:
       user:
         actions:
           create_user_group: グループを作成
+          disabled_message: メッセージ
           edit_profile: プロフィールを編集
           edit_user_group: グループプロフィールを編集
           invite_user: 参加者を招待
           join_user_group: グループへの参加リクエスト
+          leave_user_group: グループから退出する
+          manage_user_group: グループを管理
           manage_user_group_admins: 管理者の管理
           manage_user_group_users: メンバーの管理
           message: メッセージ
+          resend_email_confirmation_instructions: 確認メールを再送する
         confirmation_instructions_sent: メール確認の手順を送信しました。
         create_user_group: グループを作成
         edit_profile: プロフィールを編集
@@ -1377,12 +1404,14 @@ ja:
       scopes_picker_input:
         select_scope: 'スコープを選択 (現在: %{current})'
     search:
+      name: 検索
       results: 検索結果
       results_found_for_term: '%{count} 検索結果: "%{term}"'
       term_input_placeholder: 検索
     searches:
       filters:
         jump_to: 'ジャンプ先:'
+        search: 検索
         state:
           active: アクティブ
           all: すべて
@@ -1391,6 +1420,7 @@ ja:
       filters_small_view:
         close_modal: モーダルを閉じる
         filter: フィルター
+        filter_and_search: フィルターと検索
         filter_by: フィルター
         unfold: 展開する
       results:
@@ -1447,7 +1477,9 @@ ja:
         remove_recipient: 受信者 %{name} を削除
       participatory_space_filters:
         filters:
+          area: エリア
           areas: エリア
+          scope: スコープ
           select_an_area: エリアを選択
       public_participation:
         public_participation: 参加を公開する
@@ -1533,6 +1565,9 @@ ja:
         of_versions: "/ %{number}"
         see_other_versions: 他のバージョンを見る
         version: バージョン %{number}
+    versions_list_item:
+      show:
+        version_index: バージョン %{index} / %{total}
     welcome_notification:
       default_body: <p>{{name}} さん、{{organization}} への参加ありがとうございます！</p><ul><li>このサイトで何ができるかを概観したい場合は、<a href="{{help_url}}">ヘルプ</a>セクションをご覧ください。</li><li>目を通していただけると、最初のバッジを手に入れることができます。こちらは{{organization}} で参加することで手に入るすべてのバッジの<a href="{{badges_url}}">リスト</a>です。</li><li>そして、他の人々と一緒に{{organization}} に参加した経験を共有しましょう。提案を行い、コメントをし、議論を行い、共通の利益に貢献する方法を考え、説得するための根拠を提供し、読んで説得され、具体的かつ直接的に自分の意見を表現し、忍耐強く決定的に応答し、自分の考えを守り、協力して他の人々のアイデアに参加するために心を開いてください。</li></ul>
       default_subject: '{{organization}} に参加していただきありがとうございます！'
@@ -1796,6 +1831,9 @@ ja:
     timestamp_error_message: 申し訳ありませんが、早すぎます！再提出してください。
   layouts:
     decidim:
+      announcements:
+        close: 閉じる
+        view_more: 詳しい情報
       data_consent:
         details:
           columns:
@@ -1851,8 +1889,13 @@ ja:
         cc_by_license: クリエイティブコモンズライセンス
         data_consent_settings: Cookieの設定
         decidim_logo: Decidim ロゴ
+        decidim_title: Decidim
         download_open_data: オープンデータファイルをダウンロード
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
+        resources: リソース
+        sign_in: ログイン
+        sign_up: 新規登録
+        terms_and_conditions: 利用規約
       header:
         close_menu: メニューを閉じる
         main_menu: メインメニュー
@@ -1887,6 +1930,7 @@ ja:
       user_menu:
         account: 'ユーザーアカウント: %{name}'
         admin_dashboard: 管理ダッシュボード
+        configuration: 設定
         conversations: 会話
         notifications: 通知
         profile: マイアカウント
@@ -1900,6 +1944,7 @@ ja:
         my_data: 自分のデータ
         my_interests: 興味のあるもの
         notifications_settings: 通知の設定
+        profile: プロフィール
         title: 参加者の設定
         user_groups: グループ
   locale:
