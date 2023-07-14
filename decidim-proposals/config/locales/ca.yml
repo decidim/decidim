@@ -842,6 +842,8 @@ ca:
           recent: Recent
           with_more_authors: Amb més autores
         participatory_texts:
+          index:
+            document_index: Índex del document
           view_index:
             see_index: Veure índex
         placeholder:
