@@ -149,8 +149,10 @@ module Decidim
       end
 
       initializer "decidim_meetings.moderation_content" do
-        ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
-          Decidim::Meetings::HideAllCreatedByAuthorJob.perform_later(**data)
+        config.to_prepare do
+          Decidim::EventsManager.subscribe("decidim.admin.block_user:after") do |_event_name, data|
+            Decidim::Meetings::HideAllCreatedByAuthorJob.perform_later(**data)
+          end
         end
       end
     end
