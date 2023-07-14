@@ -2,7 +2,7 @@
   @apply bg-transparent flex items-center gap-x-1;
 
   li{
-    @apply float-none p-1 rounded-t-sm text-secondary text-xs;
+    @apply p-0.5 rounded-t-sm text-secondary text-xs;
 
     background-color: rgba(243, 244, 247, 1);
 
