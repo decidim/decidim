@@ -628,6 +628,7 @@ es:
       authorizations:
         new:
           authorize: Autoriza la aplicación
+          by_organization_link_html: por %{link}
           cancel: Cancelar
           connect_your_account_html: Conecte tu cuenta iniciando sesión en %{organization}.
           publish_content: Publique contenido para tí
@@ -837,6 +838,7 @@ es:
     filters:
       linked_classes:
         all: Todas
+        answer: Respuesta
         collaborative_draft: Borrador colaborativo
         dummy_resource: Recursos de prueba
         meeting: Encuentros
@@ -961,6 +963,7 @@ es:
       invite:
         error: Se ha producido un error al invitar a esta participante.
         success: Participante invitada correctamente.
+      pending_invitations: Solicitudes pendientes
       reject:
         error: Se ha producido un error al rechazar esta invitación.
         success: Invitación rechazada correctamente.
@@ -1035,6 +1038,9 @@ es:
       all: Todos los tipos de actividad
       index:
         last_activity: Última actividad
+      name: Últimas actividades
+    linked_resource_from:
+      included_in: Incluido en
     links:
       invalid_url: Dirección URL no válida
       warning:
@@ -1148,6 +1154,12 @@ es:
           send: Enviar
         update:
           error: El mensaje no se ha enviado debido a un error.
+    metadata:
+      progress:
+        active: Activas
+        finished: 'Terminado el: %{end_date}'
+        not_started: Aún no ha comenzado
+        remaining: "queda %{time_distance}"
     metrics:
       download:
         csv: Descargar datos (CSV)
@@ -1257,6 +1269,7 @@ es:
         error: Se ha producido un error al actualizar la configuración de las notificaciones.
         success: La configuración de las notificaciones se ha actualizado correctamente.
     offline:
+      name: Sin conexión
       show:
         message: Parece que estás desconectada. Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
@@ -1283,11 +1296,13 @@ es:
           register: Regístrate
         hero:
           participate: Participa
+          participate_title: Participa en los procesos de la plataforma
           welcome: Bienvenida a %{organization}!
         statistics:
           headline: Estado actual de %{organization}
         sub_hero:
           register: Regístrate
+          register_title: Regístrate para crear una cuenta
       index:
         standalone_pages: Páginas
         subheading: Navegar por las páginas de ayuda de %{name}
@@ -1296,6 +1311,7 @@ es:
       participatory_space:
         metrics:
           headline: Métricas
+          link: Mostrar todas
       terms_of_service:
         accept:
           error: Se ha producido un error al aceptar los términos y condiciones de uso.
@@ -1342,13 +1358,17 @@ es:
       user:
         actions:
           create_user_group: Crear un grupo
+          disabled_message: Mensaje
           edit_profile: Editar el perfil
           edit_user_group: Editar el perfil del grupo
           invite_user: Invitar a una participante
           join_user_group: Solicitar unirse al grupo
+          leave_user_group: Salir del grupo
+          manage_user_group: Gestionar el grupo
           manage_user_group_admins: Gestionar administradoras
           manage_user_group_users: Gestionar miembros
           message: Mensaje
+          resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         create_user_group: Crea un grupo
         edit_profile: Edita el perfil
@@ -1399,12 +1419,14 @@ es:
       scopes_picker_input:
         select_scope: 'Seleccionar un ámbito (actualmente: %{current})'
     search:
+      name: Buscar
       results: Resultados de la búsqueda
       results_found_for_term: '%{count} Resultados de la búsqueda: "%{term}"'
       term_input_placeholder: Buscar
     searches:
       filters:
         jump_to: 'Salta a:'
+        search: Buscar
         state:
           active: Activo
           all: Todos
@@ -1413,6 +1435,7 @@ es:
       filters_small_view:
         close_modal: Cerrar el modal
         filter: Filtra
+        filter_and_search: Filtrar y buscar
         filter_by: Filtra por
         unfold: Desplega
       results:
@@ -1469,7 +1492,9 @@ es:
         remove_recipient: Eliminar destinataria %{name}
       participatory_space_filters:
         filters:
+          area: Área
           areas: Áreas
+          scope: Ámbito
           select_an_area: Selecciona una area
       public_participation:
         public_participation: Mostrar mi asistencia públicamente
@@ -1555,6 +1580,9 @@ es:
         of_versions: "(de %{number})"
         see_other_versions: ver otras versiones
         version: Versión %{number}
+    versions_list_item:
+      show:
+        version_index: Versión %{index} de %{total}
     welcome_notification:
       default_body: <p>¡Hola {{name}}, gracias por unirte a {{organization}} te damos la bienvenida!</p><ul><li>Si quieres hacerte una idea rápida de que puedes hacer, echa un vistazo a la <a href="{{help_url}}">Sección de ayuda</a>.</li><li>Una vez la hayas leído recibirás tu primera insignia. Aquí encontrarás un <a href="{{badges_url}}">listado de todas las insignias</a>que puedes conseguir participando en {{organization}}</li><li>. Para terminar, pero no por ello menos importante, únete a otras personas, comparte con ellas de estar comprometida y de participar en {{organization}}. Haz propuestas, comentarios, debate, piensa en cómo contribuir a un bien común, aporta argumentos para tratar de convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y permanece abierta de mente para colaborar y unirte a las ideas de otra gente.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
@@ -1821,6 +1849,9 @@ es:
     timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelve a enviar.
   layouts:
     decidim:
+      announcements:
+        close: Cerrar
+        view_more: Más información
       data_consent:
         details:
           columns:
@@ -1876,8 +1907,13 @@ es:
         cc_by_license: Con licencia Creative Commons
         data_consent_settings: Configuración de cookies
         decidim_logo: Logo Decidim
+        decidim_title: Decidim
         download_open_data: Descargar ficheros de datos abiertos
         made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
+        resources: Recursos
+        sign_in: Entra
+        sign_up: Regístrate
+        terms_and_conditions: Términos y condiciones
       header:
         close_menu: Cerrar menú
         main_menu: Menú principal
@@ -1912,6 +1948,7 @@ es:
       user_menu:
         account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración
+        configuration: Configuración
         conversations: Conversaciones
         notifications: Notificaciones
         profile: Mi cuenta
@@ -1925,6 +1962,7 @@ es:
         my_data: Mis datos
         my_interests: Mis intereses
         notifications_settings: Configuración de las notificaciones
+        profile: Perfil
         title: Configuración de la participante
         user_groups: Grupos
   locale:
