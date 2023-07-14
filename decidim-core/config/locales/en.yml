@@ -573,6 +573,13 @@ en:
       actions:
         login_before_access: Please, login with your account before access.
         unauthorized: You are not authorized to perform this action.
+      application_helper:
+        filter_area_values:
+          all: All
+        filter_category_values:
+          all: All
+        filter_scope_values:
+          all: All
     datepicker:
       help_text: 'Expected format: %{datepicker_format}'
     devise:
@@ -1297,11 +1304,13 @@ en:
           register: Register
         hero:
           participate: Participate
+          participate_title: Participate in the platform's processes
           welcome: Welcome to %{organization}!
         statistics:
           headline: Current state of %{organization}
         sub_hero:
           register: Register
+          register_title: Sign up to create an account
       index:
         standalone_pages: Pages
         subheading: Navigate through the help pages of %{name}
