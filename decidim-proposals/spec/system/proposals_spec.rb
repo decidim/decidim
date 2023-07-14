@@ -70,9 +70,6 @@ describe "Proposals", type: :system do
       expect(page).to have_content(strip_tags(translated(proposal.body)).strip)
       expect(page).to have_author(proposal.creator_author.name)
       expect(page).to have_content(proposal.reference)
-      # REDESIGN_PENDING - Remove the following example if is correct that the
-      # publication date should not appear
-      # expect(page).to have_creation_date(I18n.l(proposal.published_at, format: :decidim_short))
     end
 
     context "when process is not related to any scope" do
@@ -316,10 +313,6 @@ describe "Proposals", type: :system do
       let!(:proposal) { create(:proposal, :with_answer, :rejected, component:) }
 
       it "shows the rejection reason" do
-        # REDESIGN_PENDING - This test fails because unchecking all options
-        # make the controller to use the default filter which excludes
-        # "Rejected" items. The expected behavior is to select all items, not
-        # filtered by status
         visit_component
         uncheck "Accepted"
         uncheck "Evaluating"
@@ -510,9 +503,6 @@ describe "Proposals", type: :system do
 
         visit_component
 
-        # REDESIGN_PENDING - Voting from index is deprecated in proposals. Remove this test if this is correct
-        # expect(page).not_to have_button("Supports disabled", disabled: true)
-        # expect(page).not_to have_button("Vote")
         expect(page).to have_css(".proposal-list-item", count: 2)
       end
     end
