@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     module ContentBlocks
-      # VotingsMetricChartsPresenter is not implemented yet. This cell won't
+      # VotingsMetricChartsPresenter is not implemented yet. This cell will not
       # display anything if metrics method is blank
       class MetricsCell < Decidim::ContentBlocks::ParticipatorySpaceMetricsCell
         def metrics
