@@ -48,6 +48,11 @@ ja:
           create: "%{user_name} が %{space_name} でブログ投稿 %{resource_name} を作成しました"
           delete: "%{user_name} がブログ投稿 %{resource_name} を %{space_name} から削除しました"
           update: "%{user_name} が %{space_name} のブログ投稿 %{resource_name} を更新しました"
+      content_blocks:
+        highlighted_posts:
+          last_published: 最近公開された投稿
+          name: 投稿
+          see_all: すべての投稿を表示
       last_activity:
         new_post: '新しい投稿:'
       models:
