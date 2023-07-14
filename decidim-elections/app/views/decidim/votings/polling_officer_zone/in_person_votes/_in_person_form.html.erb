@@ -19,9 +19,9 @@
       <%= f.label t(".date_of_birth") %>
 
       <div class="flex gap-2">
-        <%= f.text_field :day, placeholder: t(".day_placeholder"), "data-autojump" => true, "data-max-length" => 2, "data-jump-next" => "#in_person_month" %>
-        <%= f.text_field :month, placeholder: t(".month_placeholder"), "data-autojump" => true, "data-max-length" => 2, "data-jump-prev" => "#in_person_day", "data-jump-next" => "#in_person_year" %>
-        <%= f.text_field :year, placeholder: t(".year_placeholder"), "data-autojump" => true, "data-max-length" => 4, "data-jump-prev" => "#in_person_month" %>
+        <%= f.text_field :day, placeholder: t(".day_placeholder"), label: t(".day"), "data-autojump" => true, "data-max-length" => 2, "data-jump-next" => "#in_person_month" %>
+        <%= f.text_field :month, placeholder: t(".month_placeholder"), label: t(".month"), "data-autojump" => true, "data-max-length" => 2, "data-jump-prev" => "#in_person_day", "data-jump-next" => "#in_person_year" %>
+        <%= f.text_field :year, placeholder: t(".year_placeholder"), label: t(".year"), "data-autojump" => true, "data-max-length" => 4, "data-jump-prev" => "#in_person_month" %>
       </div>
     </div>
   </div>
