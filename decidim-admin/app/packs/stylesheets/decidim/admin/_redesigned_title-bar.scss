@@ -6,7 +6,7 @@
   }
 
   .container{
-    @apply py-1.5 px-8 flex items-center;
+    @apply pt-2.5 pb-2 px-8 flex items-center;
   }
 }
 
@@ -35,7 +35,7 @@
 }
 
 .tool-bar{
-  @apply ml-auto gap-x-4 flex items-center;
+  @apply ml-auto gap-x-4 flex items-center text-sm;
 
   .user-login,
   .language-choose{
