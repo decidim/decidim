@@ -628,6 +628,7 @@ ca:
       authorizations:
         new:
           authorize: Autoritza l'aplicació
+          by_organization_link_html: per %{link}
           cancel: Cancel·lar
           connect_your_account_html: Connecta el teu compte iniciant la sessió a %{organization}.
           publish_content: Publica el contingut per a tu
@@ -962,6 +963,7 @@ ca:
       invite:
         error: S'ha produït un error en convidar aquesta participant.
         success: Participant convidada correctament.
+      pending_invitations: Sol·licituds pendents
       reject:
         error: S'ha produït un error en rebutjar aquesta invitació.
         success: Invitació rebutjada correctament.
@@ -1036,6 +1038,9 @@ ca:
       all: Tots els tipus d'activitats
       index:
         last_activity: Última activitat
+      name: Darreres activitats
+    linked_resource_from:
+      included_in: Inclòs a
     links:
       invalid_url: URL no vàlida
       warning:
@@ -1149,6 +1154,12 @@ ca:
           send: Enviar
         update:
           error: El missatge no s'ha enviat a causa d'un error.
+    metadata:
+      progress:
+        active: Actives
+        finished: 'Finalitzat el: %{end_date}'
+        not_started: No s'ha iniciat encara
+        remaining: "resta %{time_distance}"
     metrics:
       download:
         csv: Descarregar les dades (csv)
@@ -1258,6 +1269,7 @@ ca:
         error: S'ha produït un error en actualitzar la configuració de les notificacions.
         success: La configuració de les notificacions s'ha actualitzat correctament.
     offline:
+      name: Sense connexió
       show:
         message: Sembla que estàs desconnectada. Si us plau, torna a intentar-ho més tard.
         retry: Torna-ho a provar
@@ -1284,11 +1296,13 @@ ca:
           register: Registra't
         hero:
           participate: Participa
+          participate_title: Participa en els processos de la plataforma
           welcome: Benvinguda a %{organization}!
         statistics:
           headline: Estat actual de %{organization}
         sub_hero:
           register: Registra't
+          register_title: Registra't per crear un compte
       index:
         standalone_pages: Pàgines
         subheading: Navega per les pàgines d'ajuda de %{name}
@@ -1297,6 +1311,7 @@ ca:
       participatory_space:
         metrics:
           headline: Mètriques
+          link: Mostrar totes
       terms_of_service:
         accept:
           error: S'ha produït un error en acceptar els termes i condicions d'ús.
@@ -1343,13 +1358,17 @@ ca:
       user:
         actions:
           create_user_group: Crear un grup
+          disabled_message: Missatge
           edit_profile: Editar el perfil
           edit_user_group: Editar el perfil del grup
           invite_user: Convidar participant
           join_user_group: Sol·licitar unir-se al grup
+          leave_user_group: Surt del grup
+          manage_user_group: Gestiona el grup
           manage_user_group_admins: Gestionar administradores
           manage_user_group_users: Gestionar membres
           message: Missatge
+          resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
         confirmation_instructions_sent: Instruccions de confirmació enviades per correu electrònic.
         create_user_group: Crea un grup
         edit_profile: Edita el perfil
@@ -1400,12 +1419,14 @@ ca:
       scopes_picker_input:
         select_scope: 'Selecciona un àmbit (actualment: %{current})'
     search:
+      name: Cercar
       results: Resultat de la cerca
       results_found_for_term: '%{count} Resultats de la cerca: "%{term}"'
       term_input_placeholder: Cercar
     searches:
       filters:
         jump_to: 'Salta a:'
+        search: Cercar
         state:
           active: Actiu
           all: Tots
@@ -1414,6 +1435,7 @@ ca:
       filters_small_view:
         close_modal: Tancar el modal
         filter: Filtra
+        filter_and_search: Filtrar i cercar
         filter_by: Filtra per
         unfold: Desplega
       results:
@@ -1470,7 +1492,9 @@ ca:
         remove_recipient: Eliminar destinatària %{name}
       participatory_space_filters:
         filters:
+          area: Àrea
           areas: Àrees
+          scope: Àmbit
           select_an_area: Selecciona una àrea
       public_participation:
         public_participation: Mostra públicament la meva assistència
@@ -1556,6 +1580,9 @@ ca:
         of_versions: "(de %{number})"
         see_other_versions: veure altres versions
         version: Versió %{number}
+    versions_list_item:
+      show:
+        version_index: Versió %{index} de %{total}
     welcome_notification:
       default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} et donem la benvinguda!</p><ul><li>Si vole fer-te una idea ràpida de que pots fer-hi, fes una ullada a la <a href="{{help_url}}">Secció d'ajuda</a>.</li><li>Una vegada l'hagis llegit rebràs la teva primera ensenya. Aquí trobaràs un <a href="{{badges_url}}">llistat de totes les ensenyes</a>que pots aconsegui participant a {{organization}}</li><li>. Per acabar, però no per això menys important, uneix-te a d'altres persones, comparteix amb elles d'estar compromesa i de participar a {{organization}}. Fes propostes, comentaris, debat, pensa en com contribuir a un bé comú, aporta arguments per mirar de convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i resta oberta de ment per a col·laborar i unir-te a les idees d'altra gent.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!
@@ -1822,6 +1849,9 @@ ca:
     timestamp_error_message: Ho sentim, has estat massa ràpid! Si us plau, torna a enviar-ho.
   layouts:
     decidim:
+      announcements:
+        close: Tancar
+        view_more: Més informació
       data_consent:
         details:
           columns:
@@ -1877,8 +1907,13 @@ ca:
         cc_by_license: Amb llicència Creative Commons
         data_consent_settings: Configuració de les galetes
         decidim_logo: Logo Decidim
+        decidim_title: Decidim
         download_open_data: Descarrega els fitxers de dades obertes
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
+        resources: Recursos
+        sign_in: Entra
+        sign_up: Registra't
+        terms_and_conditions: Termes i condicions
       header:
         close_menu: Tancar menú
         main_menu: Menú principal
@@ -1913,6 +1948,7 @@ ca:
       user_menu:
         account: 'Compte d''usuària: %{name}'
         admin_dashboard: Tauler d'administració
+        configuration: Configuració
         conversations: Converses
         notifications: Notificacions
         profile: El meu compte
@@ -1926,6 +1962,7 @@ ca:
         my_data: Les meves dades
         my_interests: Els meus interessos
         notifications_settings: Configuració de les notificacions
+        profile: Perfil
         title: Configuració de la participant
         user_groups: Grups
   locale:
