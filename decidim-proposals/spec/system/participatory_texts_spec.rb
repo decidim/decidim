@@ -32,8 +32,6 @@ describe "Participatory texts", type: :system do
 
   shared_examples_for "lists all the proposals ordered" do
     it "by position" do
-      skip "REDESIGN_PENDING - This feature redesign will be done in other PR"
-
       visit_component
       expect(page).to have_css("section[id^='proposal']", count: proposals.count)
       proposals.each_with_index do |proposal, index|
@@ -43,8 +41,6 @@ describe "Participatory texts", type: :system do
 
     context "when participatory text level is not article" do
       it "not renders the participatory text body" do
-        skip "REDESIGN_PENDING - This feature redesign will be done in other PR"
-
         proposal_section = proposals.first
         proposal_section.participatory_text_level = "section"
         proposal_section.save!
@@ -55,8 +51,6 @@ describe "Participatory texts", type: :system do
 
     context "when participatory text level is article" do
       it "renders the proposal body" do
-        skip "REDESIGN_PENDING - This feature redesign will be done in other PR"
-
         proposal_article = proposals.last
         proposal_article.participatory_text_level = "article"
         proposal_article.save!
@@ -70,8 +64,6 @@ describe "Participatory texts", type: :system do
     let(:amend_button_disabled?) { page.find("a", text: "Amend")[:disabled].present? }
 
     it "shows the Amend button and amendments counter inside the proposal div" do
-      skip "REDESIGN_PENDING - This feature redesign will be done in other PR"
-
       visit_component
       proposal_title = translated(proposals.first.title)
       find("#proposals section[id^='proposal']", text: proposal_title).hover
