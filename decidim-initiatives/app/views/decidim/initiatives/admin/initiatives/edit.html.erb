@@ -5,10 +5,14 @@
 </div>
 <div class="item__edit">
   <div class="item__edit-menu">
-    <%= link_to t("title", scope: "decidim.initiatives.admin.initiatives.form"), decidim_admin_initiatives.edit_initiative_path(current_participatory_space, anchor: t("title", scope: "decidim.initiatives.admin.initiatives.form")), class: "item__edit-menu-anchor" %>
-    <%= link_to t("settings", scope: "decidim.initiatives.admin.initiatives.form"), decidim_admin_initiatives.edit_initiative_path(current_participatory_space, anchor: t("settings", scope: "decidim.initiatives.admin.initiatives.form")), class: "item__edit-menu-anchor" %>
-    <%= link_to t("attachments", scope: "decidim.initiatives.admin.initiatives.form"), decidim_admin_initiatives.edit_initiative_path(current_participatory_space, anchor: t("attachments", scope: "decidim.initiatives.admin.initiatives.form")), class: "item__edit-menu-anchor" %>
-
+    <div class="item__edit-menu-sticky">
+      <p class="item__edit-menu-title">
+        <%= t("sections", scope: "decidim.assemblies.admin.assemblies.form") %>
+      </p>
+      <%= link_to t("title", scope: "decidim.initiatives.admin.initiatives.form"), decidim_admin_initiatives.edit_initiative_path(current_participatory_space, anchor: t("title", scope: "decidim.initiatives.admin.initiatives.form")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("settings", scope: "decidim.initiatives.admin.initiatives.form"), decidim_admin_initiatives.edit_initiative_path(current_participatory_space, anchor: t("settings", scope: "decidim.initiatives.admin.initiatives.form")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("attachments", scope: "decidim.initiatives.admin.initiatives.form"), decidim_admin_initiatives.edit_initiative_path(current_participatory_space, anchor: t("attachments", scope: "decidim.initiatives.admin.initiatives.form")), class: "item__edit-menu-anchor" %>
+    </div>
   </div>
 
   <div class="item__edit-form">

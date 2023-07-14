@@ -5,17 +5,19 @@
 </div>
 <div class="item__edit">
   <div class="item__edit-menu">
-    <p class="text-black font-semibold mb-3">
-      <%= t("sections", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-    </p>
-    <%= link_to t("title", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("title", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
-    <%= link_to t("duration", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("duration", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
-    <%= link_to t("images", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("images", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
-    <%= link_to t("metadata", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("metadata", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
-    <%= link_to t("filters", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("filters", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
-    <%= link_to t("visbility", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("visbility", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
-    <%= link_to t("related_processes", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("related_processes", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
-    <%= link_to t("other", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("other", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
+    <div class="item__edit-menu-sticky">
+      <p class="item__edit-menu-title">
+        <%= t("sections", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+      </p>
+      <%= link_to t("title", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("title", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("duration", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("duration", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("images", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("images", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("metadata", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("metadata", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("filters", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("filters", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("visbility", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("visbility", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("related_processes", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("related_processes", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("other", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space, anchor: t("other", scope: "decidim.participatory_processes.admin.participatory_processes.form")), class: "item__edit-menu-anchor" %>
+    </div>
   </div>
 
   <div class="item__edit-form">

@@ -1,10 +1,15 @@
 <div class="form__wrapper">
-  <div class="card">
+  <div class="card" data-component="accordion" id="accordion-<%= t('title', scope: 'decidim.initiatives.admin.initiatives.form') %>">
     <div class="card-divider">
-      <h2 id="<%= t('title', scope: 'decidim.initiatives.admin.initiatives.form') %>" class="card-title"><%= t ".title" %></h2>
+      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t('title', scope: 'decidim.initiatives.admin.initiatives.form') %>" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="<%= t('title', scope: 'decidim.initiatives.admin.initiatives.form') %>">
+          <%= t("title", scope: "decidim.initiatives.admin.initiatives.form") %>
+        </h2>
+      </button>
     </div>
 
-    <div class="card-section">
+    <div id="panel-<%= t('title', scope: 'decidim.initiatives.admin.initiatives.form') %>" class="card-section">
       <div class="row column">
         <%= form.translated :text_field, :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
       </div>
@@ -21,12 +26,17 @@
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" data-component="accordion" id="accordion-<%= t('settings', scope: 'decidim.initiatives.admin.initiatives.form') %>">
     <div class="card-divider">
-      <h2 id="<%= t('settings', scope: 'decidim.initiatives.admin.initiatives.form') %>" class="card-title"><%= t ".settings" %></h2>
+      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t('settings', scope: 'decidim.initiatives.admin.initiatives.form') %>" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="<%= t('settings', scope: 'decidim.initiatives.admin.initiatives.form') %>">
+          <%= t("settings", scope: "decidim.initiatives.admin.initiatives.form") %>
+        </h2>
+      </button>
     </div>
 
-    <div class="card-section">
+    <div id="panel-<%= t('settings', scope: 'decidim.initiatives.admin.initiatives.form') %>" class="card-section">
       <div class="row">
         <div class="columns xlarge-6">
           <%= form.select :state,
@@ -106,12 +116,17 @@
       <% end %>
     </div>
   </div>
-  <div class="card">
+  <div class="card" data-component="accordion" id="accordion-<%= t('attachments', scope: 'decidim.initiatives.admin.initiatives.form') %>">
     <div class="card-divider">
-      <h2 id="<%= t('attachments', scope: 'decidim.initiatives.admin.initiatives.form') %>" class="card-title"><%= t ".attachments" %></h2>
+      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t('attachments', scope: 'decidim.initiatives.admin.initiatives.form') %>" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="<%= t('attachments', scope: 'decidim.initiatives.admin.initiatives.form') %>">
+          <%= t("attachments", scope: "decidim.initiatives.admin.initiatives.form") %>
+        </h2>
+      </button>
     </div>
 
-    <div class="card-section">
+    <div id="panel-<%= t('attachments', scope: 'decidim.initiatives.admin.initiatives.form') %>" class="card-section">
       <div class="row">
         <% if allowed_to?(:read, :attachment, initiative: current_participatory_space) %>
           <%= render partial: "initiative_attachments", locals: { current_initiative:, current_participatory_space: } %>

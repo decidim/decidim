@@ -76,5 +76,13 @@
     &-anchor{
       @apply block underline mb-3 text-secondary text-sm;
     }
+
+    &-title{
+      @apply text-black font-semibold mb-3;
+    }
+
+    &-sticky{
+      @apply sticky top-0;
+    }
   }
 }

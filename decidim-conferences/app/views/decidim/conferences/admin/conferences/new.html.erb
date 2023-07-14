@@ -6,10 +6,10 @@
 
 <div class="item__edit">
   <div class="item__edit-menu">
-    <p class="text-black font-semibold mb-3">
-    <%= t("conferences.form.sections", scope: "decidim.admin") %>
-  Secciones</p>
-    <%= link_to t("conferences.form.title", scope: "decidim.admin"), new_conference_path, anchor: t("conferences.form.title", scope: "decidim.admin"), class: "item__edit-menu-anchor" %>
+    <div class="item__edit-menu-sticky">
+      <p class="item__edit-menu-title"><%= t("conferences.form.sections", scope: "decidim.admin") %></p>
+      <%= link_to t("conferences.form.title", scope: "decidim.admin"), new_conference_path, anchor: t("conferences.form.title", scope: "decidim.admin"), class: "item__edit-menu-anchor" %>
+    </div>
   </div>
 
   <div class="item__edit-form">

@@ -5,7 +5,12 @@
 </div>
 <div class="item__edit">
   <div class="item__edit-menu">
-    <%= link_to t('title', scope: 'decidim.votings.admin.votings.form'), decidim_admin_votings.edit_voting_path(current_participatory_space, anchor: t("title", scope: "decidim.votings.admin.votings.form")), class: "item__edit-menu-anchor" %>
+    <div class="item__edit-menu-sticky">
+      <p class="item__edit-menu-title">
+        <%= t("sections", scope: "decidim.assemblies.admin.assemblies.form") %>
+      </p>
+      <%= link_to t('title', scope: 'decidim.votings.admin.votings.form'), decidim_admin_votings.edit_voting_path(current_participatory_space, anchor: t("title", scope: "decidim.votings.admin.votings.form")), class: "item__edit-menu-anchor" %>
+    </div>
   </div>
 
   <div class="item__edit-form">

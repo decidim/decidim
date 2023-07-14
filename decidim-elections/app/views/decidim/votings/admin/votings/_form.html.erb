@@ -1,12 +1,15 @@
 <div class="form__wrapper">
-  <div class="card">
+  <div class="card" data-component="accordion" id="accordion-<%= t('title', scope: 'decidim.votings.admin.votings.form') %>">
     <div class="card-divider">
-      <h2 id="<%= t('title', scope: 'decidim.votings.admin.votings.form') %>" class="card-title">
-        <%= t(".title") %>
-      </h2>
+      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t('title', scope: 'decidim.votings.admin.votings.form') %>" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="<%= t('title', scope: 'decidim.votings.admin.votings.form') %>">
+          <%= t("title", scope: "decidim.votings.admin.votings.form") %>
+        </h2>
+      </button>
     </div>
 
-    <div class="card-section">
+    <div id="panel-<%= t('title', scope: 'decidim.votings.admin.votings.form') %>" class="card-section">
       <div class="row column">
         <%= form.translated :text_field, :title, autofocus: true %>
       </div>
