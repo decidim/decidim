@@ -39,7 +39,6 @@ module Decidim
           target_menu,
           self,
           container_options: { class: "tab-x-container" },
-          element_class: "tab-x",
           active_class: "is-active"
         )
       end

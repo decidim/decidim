@@ -36,4 +36,40 @@
   svg{
     @apply w-5 h-5 block mx-auto mb-1 fill-background-4;
   }
+
+  &.tab-x-container{
+    @apply mb-6;
+
+    svg{
+      @apply mx-0 inline-block;
+    }
+
+    li{
+      @apply pb-0;
+    }
+
+    a{
+      @apply w-full flex gap-2 justify-center items-center text-md text-gray-2 border-gray border-b-2 py-2 rounded-t cursor-pointer;
+
+      svg{
+        @apply fill-gray-2 w-4 h-4 mb-0;
+      }
+
+      &:hover {
+        @apply bg-white text-secondary border-secondary;
+
+        svg {
+          @apply fill-secondary;
+        }
+      }
+    }
+
+    .is-active a{
+      @apply bg-white text-secondary border-secondary;
+
+      svg {
+        @apply fill-secondary;
+      }
+    }
+  }
 }
