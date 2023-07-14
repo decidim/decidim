@@ -84,6 +84,7 @@ ca:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
@@ -103,6 +104,23 @@ ca:
       less_than_x_seconds:
         one: fa menys d'un segon
         other: fa menys de %{count} segons
+      short:
+        about_x_days: "%{count} dia/es"
+        about_x_hours: "%{count} hora/es"
+        about_x_minutes: "%{count} minut/s"
+        about_x_months: "%{count} mes/os"
+        about_x_years: "%{count} any/s"
+        almost_x_years: "%{count} any/s"
+        half_a_minute: 1 minut
+        less_than_x_minutes: "%{count} minut/s"
+        less_than_x_seconds: "%{count} segon/s"
+        over_x_years: "%{count} any/s"
+        x_days: "%{count} dia/es"
+        x_hours: "%{count} hora/es"
+        x_minutes: "%{count} minut/s"
+        x_months: "%{count} mes/os"
+        x_seconds: "%{count} segon/s"
+        x_years: "%{count} any/s"
       x_days:
         one: 1 dia
         other: "%{count} dies"
@@ -272,6 +290,10 @@ ca:
         promote_confirm_text: Segur que vols promoure aquesta esmena?
         promote_help_text: Pots promocionar aquesta esmena com a una %{model_name} independent.
         section_heading: Esmenes (%{count})
+      amendments:
+        title:
+          one: "%{count} esmena"
+          other: "%{count} esmenes"
       compare_draft:
         continue: Continua
         no_similars_found: No s’han trobat esmenes semblants.
@@ -300,6 +322,7 @@ ca:
           rejected: L' esmena de la %{amendable_type} %{proposal_link} ha estat rebutjada el <strong>%{date}</strong>.
           withdrawn: |-
             L' esmena de la %{amendable_type} %{proposal_link} ha estat retirada per l'autora.
+      name: Esmena
       new:
         amendment_author: Autora de l'esmena
         send: Crear
@@ -338,11 +361,13 @@ ca:
       document:
         download: Descarregar fitxer
       documents:
+        documents: Documents
         related_documents: Documents relacionats
       photo:
         alt: Imatge pels mitjans
         title: Imatge
       photos:
+        photos: Imatges
         related_photos: Imatges relacionades
     author:
       avatar: 'Avatar: %{name}'
@@ -474,6 +499,8 @@ ca:
             dummy_step_translatable_text: Text de fase traduïble de proves
     contact: Contacte
     content_blocks:
+      announcement:
+        name: Avís
       cta:
         name: Imatge, text i botó d'acció
       cta_settings_form:
@@ -483,6 +510,8 @@ ca:
         description: Descripció
       footer_sub_hero:
         name: Peu de pàgina sub-hero
+      global_menu:
+        name: Menú global
       hero:
         name: Imatge del hero
       hero_settings_form:
@@ -491,6 +520,9 @@ ca:
       highlighted_content_banner:
         name: Banner de contingut destacat
       highlighted_elements_settings_form:
+        components:
+          all: Tots
+          label: 'Seleccionar component:'
         orders:
           label: 'Ordena els elements per:'
           random: Aleatori
@@ -504,8 +536,20 @@ ca:
         name: Última activitat
         title: Última activitat
         view_all: Veure-ho tot
+      last_activity_settings_form:
+        max_last_activity_users: Número màxim d'avatars de participants amb activitat recent a mostrar
+      main_data:
+        name: Dades principals
+      metadata:
+        name: Metadades
       metrics:
         name: Mètriques de l'organització
+      participatory_space_metrics:
+        name: Mètriques
+      participatory_space_stats:
+        name: Estadístiques
+      social_networks_metadata:
+        name: Xarxes socials
       static_page:
         section:
           name: Secció
@@ -525,6 +569,13 @@ ca:
       actions:
         login_before_access: Si us plau, inicia sessió amb el teu compte abans d'accedir.
         unauthorized: No tens autorització per realitzar aquesta acció.
+      application_helper:
+        filter_area_values:
+          all: Totes
+        filter_category_values:
+          all: Totes
+        filter_scope_values:
+          all: Tots
     datepicker:
       help_text: 'Format esperat: %{datepicker_format}'
     devise:
@@ -563,6 +614,13 @@ ca:
           buttons:
             check: Marca i continua
             uncheck: Deixa desmarcada
+          notice: |-
+            <p>Hola, segur que no vols rebre un butlletí informatiu?<br>
+            Si us plau, pren en consideració marcar la casella de selecció de butlletí a continuació.
+            Per a nosaltres és molt important que rebis correus electrònics ocasionals per fer avisos importants, sempre pots canviar-ho a la pàgina de configuració de les notificacions.</p>
+            <p>Si no marques la casella, pot ser que et falti informació rellevant sobre noves oportunitats de participació dins de la plataforma.<br>
+            Si encara vols evitar rebre butlletins, entenem perfectament la teva decisió.</p>
+            <p>Gràcies per llegir això.</p>
           title: Notificacions de butlletins
         omniauth_buttons:
           or: O
@@ -571,6 +629,7 @@ ca:
         new:
           authorize: Autoritza l'aplicació
           cancel: Cancel·lar
+          connect_your_account_html: Connecta el teu compte iniciant la sessió a %{organization}.
           publish_content: Publica el contingut per a tu
           see_email: Consulta el teu correu electrònic
           see_name: Veure el teu nom
@@ -578,6 +637,7 @@ ca:
           this_application_will_be_able_to: 'Aquesta aplicació podrà:'
           this_application_will_not_be_able_to: 'Aquesta aplicació no podrà:'
           update_profile: Actualitza el teu perfil
+          wants_to_use_your_account_html: "%{application_name} vol utilitzar el teu compte"
     download_your_data:
       export:
         ready: Llest
@@ -777,6 +837,7 @@ ca:
     filters:
       linked_classes:
         all: Totes
+        answer: Resposta
         collaborative_draft: Esborrany col·laboratiu
         dummy_resource: Recursos de prova
         meeting: Trobades
