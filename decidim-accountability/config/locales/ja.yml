@@ -286,6 +286,9 @@ ja:
         description: 生成した結果の数
         object: 結果
         title: 結果
+    participatory_spaces:
+      highlighted_results:
+        see_all: すべての結果を表示
     resource_links:
       included_projects:
         result_project: この結果に含まれるプロジェクト
