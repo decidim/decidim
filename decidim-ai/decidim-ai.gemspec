@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 3.1"
 
   s.name = "decidim-ai"
-  s.summary = "Decidim assemblies module"
+  s.summary = "A Decidim module with AI tools"
   s.description = "A Decidim module with AI tools"
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
