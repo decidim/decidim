@@ -2,4 +2,62 @@ kaa:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Jaǵday
         decidim_category_id: Kategoriya
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Nátiyje
+        other: Nátiyje
+  decidim:
+    accountability:
+      actions:
+        attachment_collections: Papkalar
+        destroy: Óshiriw
+        edit: Ózgeris kirgiziw
+        preview: Aldınnan kóriw
+        title: Háreketler
+      admin:
+        exports:
+          results: Nátiyjeler
+        import_results:
+          new:
+            import: Importlaw
+        models:
+          result:
+            name: Nátiyje
+          status:
+            name: Jaǵday
+        results:
+          index:
+            title: Nátiyjeler
+        statuses:
+          new:
+            title: Jańa jaǵday
+      content_blocks:
+        highlighted_results:
+          results: Nátiyjeler
+          unspecified: Kórsetilmegen
+      import_mailer:
+        import:
+          errors: Qátelikler
+      models:
+        result:
+          fields:
+            category: Kategoriya
+            created_at: Jaratıldı
+            status: Jaǵday
+        timeline_entry:
+          fields:
+            entry_date: Sáne
+    admin:
+      filters:
+        results:
+          status_id_eq:
+            label: Jaǵday
+    metrics:
+      results:
+        object: nátiyjeler
+        title: Nátiyjeler
+    statistics:
+      results_count: Nátiyjeler
