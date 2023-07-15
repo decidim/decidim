@@ -4,6 +4,18 @@ require "spec_helper"
 
 module Decidim
   module Ai
+    describe ".language_detection_service" do
+      subject { Decidim::Ai.language_detection_service.constantize.new("This is a test") }
+
+      it "returns a language detection service" do
+        expect(subject).to be_a(Decidim::Ai::LanguageDetectionService)
+      end
+
+      it "returns the corect language code" do
+        expect(subject.language_code).to eq("en")
+      end
+    end
+
     describe ".create_reporting_users" do
       let!(:organization) { create(:organization) }
 

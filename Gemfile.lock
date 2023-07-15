@@ -32,6 +32,7 @@ PATH
       devise-i18n (~> 1.2)
       devise_invitable (~> 2.0)
     decidim-ai (0.28.0.dev)
+      cld (~> 0.11)
       decidim-core (= 0.28.0.dev)
     decidim-api (0.28.0.dev)
       commonmarker (~> 0.23.0, >= 0.23.9)
@@ -315,6 +316,8 @@ GEM
       actionpack (>= 5.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
+    cld (0.13.0)
+      ffi
     colorize (0.8.1)
     commonmarker (0.23.9)
     concurrent-ruby (1.2.2)

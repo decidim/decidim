@@ -4,7 +4,26 @@ require "decidim/ai/engine"
 
 module Decidim
   module Ai
+    autoload :LanguageDetectionService, "decidim/ai/language_detection_service"
+
     include ActiveSupport::Configurable
+
+    # Language detection service class.
+    #
+    # If you want to autodetect the language of the content, you can use a class service having the following contract
+    #
+    # class LanguageDetectionService
+    #   def initialize(text)
+    #     @text = text
+    #   end
+    #
+    #   def language_code
+    #     CLD.detect_language(@text).fetch(:code)
+    #   end
+    # end
+    config_accessor :language_detection_service do
+      "Decidim::Ai::LanguageDetectionService"
+    end
 
     # This is the email address used by the spam engine to
     # properly identify the user that will report users and content
