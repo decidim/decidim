@@ -70,10 +70,15 @@ pt-BR:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      short:
+        half_a_minute: 1 min
   decidim:
     accessibility:
       external_link: Link externo
@@ -170,6 +175,10 @@ pt-BR:
         promote_button: Promover para %{model_name}
         promote_confirm_text: Tem certeza de que deseja promover essa emenda?
         section_heading: Alterações (%{count})
+      amendments:
+        title:
+          one: "%{count} comentário"
+          other: "%{count} comentários"
       compare_draft:
         continue: Continuar
         no_similars_found: Não foram encontradas emendas similares.
@@ -201,6 +210,7 @@ pt-BR:
           withdrawn: |-
             Esta emenda para o %{amendable_type} %{amendable_link}
             foi retirada pelo autor.
+      name: Emenda
       new:
         amendment_author: Autor de alteração
         send: Criar
@@ -230,8 +240,10 @@ pt-BR:
       document:
         download: Baixar arquivo
       documents:
+        documents: Documentos
         related_documents: Documentos relacionados
       photos:
+        photos: Imagens
         related_photos: Fotos relacionadas
     author:
       avatar: 'Avatar: %{name}'
@@ -349,6 +361,8 @@ pt-BR:
             dummy_step_translatable_text: Texto traduzível de Etapa falso
     contact: Contato
     content_blocks:
+      announcement:
+        name: Avisos
       cta:
         name: Imagens, textos e botões de chamada para ação
       cta_settings_form:
@@ -358,6 +372,8 @@ pt-BR:
         description: Descrição
       footer_sub_hero:
         name: Rodapé do sub-herói banner
+      global_menu:
+        name: Menu global
       hero:
         name: Imagem do herói
       hero_settings_form:
@@ -366,6 +382,8 @@ pt-BR:
       highlighted_content_banner:
         name: Banner de conteúdo destacado
       highlighted_elements_settings_form:
+        components:
+          all: Todos
         orders:
           label: 'Classificar elementos por:'
           random: Aleatório
