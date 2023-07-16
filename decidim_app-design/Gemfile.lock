@@ -71,7 +71,7 @@ PATH
       devise (~> 4.7)
       devise-i18n (~> 1.2)
       diffy (~> 3.3)
-      doorkeeper (>= 5.6.6)
+      doorkeeper (~> 5.6, >= 5.6.6)
       doorkeeper-i18n (~> 4.0)
       file_validators (~> 3.0)
       fog-local (~> 0.6)
