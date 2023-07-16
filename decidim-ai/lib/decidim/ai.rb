@@ -5,6 +5,11 @@ require "decidim/ai/engine"
 module Decidim
   module Ai
     autoload :LanguageDetectionService, "decidim/ai/language_detection_service"
+    autoload :StrategyRegistry, "decidim/ai/strategy_registry"
+
+    module SpamContent
+      autoload :BaseStrategy, "decidim/ai/spam_content/base_strategy"
+    end
 
     include ActiveSupport::Configurable
 
@@ -29,6 +34,10 @@ module Decidim
     # properly identify the user that will report users and content
     config_accessor :reporting_user_email do
       "reporting.user@domain.tld"
+    end
+
+    def self.spam_detection_strategy
+      @spam_detection ||= Decidim::Ai::StrategyRegistry.new
     end
 
     def self.create_reporting_users!

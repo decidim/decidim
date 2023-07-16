@@ -16,6 +16,12 @@ module Decidim
       end
     end
 
+    describe ".spam_detection_strategy" do
+      it "return strategy class" do
+        expect(Decidim::Ai.spam_detection_strategy).to be_a(Decidim::Ai::StrategyRegistry)
+      end
+    end
+
     describe ".create_reporting_users" do
       let!(:organization) { create(:organization) }
 
