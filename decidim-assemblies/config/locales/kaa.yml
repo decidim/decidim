@@ -30,6 +30,9 @@ kaa:
           update: Jańalaw
         new:
           create: Jaratıw
+      assembly_user_roles:
+        edit:
+          update: Jańalaw
       menu:
         assemblies_settings: Sazlawlar
         assemblies_submenu:
@@ -47,6 +50,9 @@ kaa:
           form:
             images: Súwretler
             other: Basqa
+        assemblies_settings:
+          edit:
+            update: Jańalaw
         assembly_members:
           index:
             search: Izlew
