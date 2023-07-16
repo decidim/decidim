@@ -26,6 +26,7 @@ kaa:
     admin:
       actions:
         add: Qosıw
+        browse: Kóriw
         import: Importlaw
       area_types:
         edit:
