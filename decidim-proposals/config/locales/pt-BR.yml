@@ -572,6 +572,9 @@ pt-BR:
           back_from_collaborative_draft: Voltar para rascunhos colaborativos
         wizard_header:
           title: Crie seu rascunho colaborativo
+      content_blocks:
+        highlighted_proposals:
+          name: Propostas
       create:
         error: Ocorreu erros ao salvar a proposta.
         success: Proposta criada com sucesso. Salvo como um rascunho.
@@ -652,6 +655,9 @@ pt-BR:
           random: Aleatório
           recent: Recente
           with_more_authors: Com mais autores
+        participatory_texts:
+          view_index:
+            document_index: Índice de Documentos
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
