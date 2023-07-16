@@ -74,6 +74,9 @@ kaa:
           values:
             'false': 'Yaq'
             'true': 'Awa'
+      help_sections:
+        form:
+          save: Saqlaw
       impersonatable_users:
         index:
           search: Izlew
@@ -161,6 +164,9 @@ kaa:
       resource_permissions:
         edit:
           submit: Jiberiw
+      scope_types:
+        edit:
+          update: Jańalaw
       scopes:
         edit:
           update: Jańalaw
@@ -172,6 +178,9 @@ kaa:
         gallery:
           add_images: Súwretlerdi qosıw
           delete_image: Súwretti óshiriw
+      static_pages:
+        edit:
+          update: Jańalaw
       titles:
         users: Qatnasıwshılar
       users_statistics:
