@@ -1392,16 +1392,11 @@ en:
           finished: Finished
           ongoing: Ongoing
           upcoming: Upcoming
-        footer_button_text:
-          participate: Participate
-          view: View
-          vote: Vote
         unspecified: Not specified
         voting_type:
           hybrid: Hybrid
           in_person: In person
           online: Online
-        voting_types_label: Voting type
   layouts:
     decidim:
       election_votes_header:
