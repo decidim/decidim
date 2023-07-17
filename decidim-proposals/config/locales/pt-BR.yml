@@ -314,6 +314,9 @@ pt-BR:
         description: Número de votos gerados em propostas de usuários
         object: votos
         title: Votos
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Ver todas as propostas
     proposals:
       actions:
         answer_proposal: Responder proposta
