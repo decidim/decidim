@@ -41,6 +41,10 @@ module Decidim::Votings
         expect(subject).to have_css(".card__grid-text", text: translated(voting.title))
       end
 
+      it "renders the banner image" do
+        expect(subject).to have_css(".card__grid-img img")
+      end
+
       describe "render different states" do
         context "when the voting is ongoing" do
           let!(:voting) { create(:voting, :ongoing) }

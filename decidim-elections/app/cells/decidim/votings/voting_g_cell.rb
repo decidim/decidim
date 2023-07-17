@@ -7,6 +7,10 @@ module Decidim
     class VotingGCell < Decidim::CardGCell
       private
 
+      def resource_image_path
+        model.attached_uploader(:banner_image).path
+      end
+
       def metadata_cell
         "decidim/votings/voting_metadata"
       end
