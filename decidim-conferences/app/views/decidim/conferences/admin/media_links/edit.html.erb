@@ -1,4 +1,4 @@
-<% add_decidim_page_title(translated_attribute(@media_link.title)) %>
+<% add_decidim_page_title(t("media_links.edit.title", scope: "decidim.admin")) %>
 <%= decidim_form_for(@form, url: conference_media_link_path(@media_link.conference, @media_link), html: { class: "form edit_media_link" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t("media_links.edit.title", scope: "decidim.admin") } %>
 

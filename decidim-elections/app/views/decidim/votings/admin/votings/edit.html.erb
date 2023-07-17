@@ -1,4 +1,4 @@
-<% add_decidim_page_title(translated_attribute(current_voting.title)) %>
+<% add_decidim_page_title(t("votings.edit.update", scope: "decidim.votings.admin")) %>
 <%= decidim_form_for @form,
                      method: :patch,
                      url: voting_path(@current_voting),

@@ -1,4 +1,4 @@
-<% add_decidim_page_title(t("new_conference_admin", scope: "decidim.admin.titles")) %>
+<% add_decidim_page_title(t("conference_user_roles.new.title", scope: "decidim.admin")) %>
 <%= decidim_form_for(@form, html: { class: "form new_conference_user_role" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t("conference_user_roles.new.title", scope: "decidim.admin") } %>
 

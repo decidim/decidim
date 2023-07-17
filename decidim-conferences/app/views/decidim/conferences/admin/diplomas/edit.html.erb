@@ -1,4 +1,4 @@
-<% add_decidim_page_title(t("title", scope: "decidim.conferences.admin.diplomas.edit")) %>
+<% add_decidim_page_title(t("diplomas.edit.title", scope: "decidim.conferences.admin")) %>
 <%= decidim_form_for(@form, url: conference_diploma_path, html: { class: "form edit_conference_diploma" })  do |f| %>
   <%= render partial: "form", object: f, locals: { title: t("diplomas.edit.title", scope: "decidim.conferences.admin") } %>
 

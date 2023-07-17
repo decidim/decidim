@@ -1,4 +1,4 @@
-<% add_decidim_page_title(translated_attribute(@partner.name)) %>
+<% add_decidim_page_title(t("partners.edit.title", scope: "decidim.admin")) %>
 <%= decidim_form_for(@form, url: conference_partner_path(@partner.conference, @partner), html: { class: "form edit_partner" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t("partners.edit.title", scope: "decidim.admin") } %>
 
