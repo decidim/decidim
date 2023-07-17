@@ -1031,7 +1031,6 @@ en:
           success: Page updated successfully.
       titles:
         admin_log: Admin log
-        administrators: Administrators
         area_types: Area types
         areas: Areas
         authorization_workflows: Verification methods
@@ -1039,22 +1038,13 @@ en:
         dashboard: Dashboard
         edit_area_type: Edit area type
         edit_external_domains: External domain whitelist
-        edit_organization: Edit organization
         edit_organization_appearance: Edit homepage appearance
-        edit_scope_type: Edit scope type
         global_moderations: Global moderations
         impersonatable_users: Manageable participants
         impersonations: Participants management
         metrics: Metrics
         new_area: New area
         new_area_type: New area type
-        new_newsletter: New newsletter
-        new_page: New page
-        new_scope: New scope
-        new_scope_type: New scope type
-        new_topic: New topic
-        newsletter_templates: Newsletter templates
-        newsletters: Newsletters
         pages: Pages
         panel: Admin
         participants: Participants
@@ -1064,7 +1054,6 @@ en:
         statistics: Activity
         user_groups: Groups
         users: Administrators
-        verify_user_groups: Verfiy user groups
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.

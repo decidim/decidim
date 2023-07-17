@@ -288,23 +288,10 @@ en:
           error: There was a problem updating a registration type for this conference.
           success: Conference registration type successfully updated.
       titles:
-        conference_admins: Conference admins
-        conference_invites: Invites
-        conference_partners: Partners
-        conference_registrations: Registrations
-        conference_speakers: Conference speakers
         conferences: Conferences
+        conference_invites: Invites
         duplicate_conference: Duplicate conference
         edit_conference_speaker: Update conference speaker
-        media_links: Media Links
-        new_conference: New conference
-        new_conference_admin: New conference admin
-        new_conference_invite: Invite participant
-        new_conference_partner: New partner
-        new_conference_speaker: New conference speaker
-        new_media_link: Media Link
-        new_registration_type: New registration type
-        registration_types: Registration types
     admin_log:
       conference:
         create: "%{user_name} created the %{resource_name} conference"
