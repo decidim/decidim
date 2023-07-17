@@ -577,7 +577,6 @@ en:
         static_pages: Pages
         user_groups: Groups
         users: Participants
-        see_processes: See processes
         see_site: See site
       metrics:
         metrics:

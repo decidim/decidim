@@ -50,6 +50,10 @@ module Decidim
           render layout: "decidim/admin/participatory_process"
         end
 
+        def show
+          render layout: "decidim/admin/participatory_process"
+        end
+
         def update
           enforce_permission_to :update, :process, process: current_participatory_process
           @form = form(ParticipatoryProcessForm).from_params(

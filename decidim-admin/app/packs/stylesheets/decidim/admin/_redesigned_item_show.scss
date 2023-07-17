@@ -21,6 +21,14 @@
     @apply h-full border-l border-gray pl-8;
   }
 
+  .card{
+    @apply mb-6;
+  }
+
+  .card-section{
+    @apply p-6;
+  }
+
   &-title{
     @apply text-lg font-semibold text-black mb-6;
   }
