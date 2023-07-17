@@ -178,76 +178,6 @@ describe "Participatory Processes", type: :system do
             end
           end
         end
-
-        context "when the active step has CTA text and url set" do
-          # REDESIGN_PENDING - The process card-g is not expected to display
-          # CTA. Delete the test if this is correct or implement and
-          # adapt the tests
-          let(:cta_path) { "my_path" }
-          let(:cta_text) { { en: "Take action!", ca: "Take action!", es: "Take action!" } }
-
-          before do
-            skip "REDESIGN_PENDING - Remove or implement and adapt the tests"
-
-            active_step.update!(cta_path:, cta_text:)
-          end
-
-          it "shows a CTA button" do
-            visit decidim_participatory_processes.participatory_processes_path
-
-            within "#participatory_process_#{participatory_process.id}" do
-              expect(page).to have_link("Take action!")
-            end
-          end
-
-          context "when cta_text is empty in current locale" do
-            let(:cta_text) { { en: "", ca: "Take action!", es: "Take action!" } }
-
-            it "displays the regular cta button" do
-              visit decidim_participatory_processes.participatory_processes_path
-
-              within "#participatory_process_#{participatory_process.id}" do
-                expect(page).not_to have_link("Take action!")
-                expect(page).to have_link("More info")
-              end
-            end
-          end
-
-          context "when process is promoted" do
-            let(:cta_text) { { en: "Take promoted action!", ca: "Take promoted action!", es: "Take promoted action!" } }
-            let!(:active_step) do
-              create(:participatory_process_step,
-                     :active,
-                     participatory_process: promoted_process,
-                     title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
-            end
-
-            it "shows a CTA button" do
-              skip "REDESIGN_DETAILS: CTA button may be deprecated after redesign integration"
-
-              visit decidim_participatory_processes.participatory_processes_path
-
-              within "#highlighted-processes" do
-                expect(page).to have_link("Take promoted action!")
-              end
-            end
-          end
-
-          context "when user switch locale" do
-            before do
-              visit decidim_participatory_processes.participatory_processes_path
-              within_language_menu do
-                click_link "Català"
-              end
-            end
-
-            it "displays the regular cta button" do
-              within "#participatory_process_#{participatory_process.id}" do
-                expect(page).to have_link("Take action!", href: "/processes/#{participatory_process.slug}/my_path")
-              end
-            end
-          end
-        end
       end
 
       context "when there are promoted participatory process groups" do
@@ -274,46 +204,6 @@ describe "Participatory Processes", type: :system do
             expect(page).to have_content(translated(promoted_group.title, locale: :en))
             expect(page).to have_selector("[id^='participatory_process_highlight']", count: 1)
             expect(page).to have_selector("[id^='participatory_process_group_highlight']", count: 1)
-          end
-        end
-
-        context "and promoted group has defined a CTA content block" do
-          let(:cta_settings) do
-            {
-              button_url: "https://example.org/action",
-              button_text_en: "cta text",
-              description_en: "cta description"
-            }
-          end
-
-          before do
-            create(
-              :content_block,
-              organization:,
-              scope_name: :participatory_process_group_homepage,
-              scoped_resource_id: promoted_group.id,
-              manifest_name: :cta,
-              settings: cta_settings
-            )
-            visit decidim_participatory_processes.participatory_processes_path
-          end
-
-          it "shows a CTA button inside group card" do
-            skip "REDESIGN_DETAILS: CTA button may be deprecated after redesign integration"
-
-            within("#highlighted-processes") do
-              expect(page).to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
-            end
-          end
-
-          context "and promoted group belongs to another organization" do
-            let!(:promoted_group) { create(:participatory_process_group, :promoted, :with_participatory_processes) }
-
-            it "shows a CTA button inside group card" do
-              within("#highlighted-processes") do
-                expect(page).not_to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
-              end
-            end
           end
         end
       end
