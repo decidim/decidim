@@ -471,6 +471,7 @@ pt-BR:
     errors:
       internal_server_error:
         title: Houve um problema com o nosso servidor
+        unknown: Desconhecido
       not_found:
         back_home: Voltar ao início
         content_doesnt_exist: Este endereço está incorreto ou foi excluído.
@@ -1302,6 +1303,9 @@ pt-BR:
         download_open_data: Baixar arquivos Open Data
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
         resources: Recursos
+        sign_in: Entrar
+        sign_up: Cadastre-se
+        terms_and_conditions: Termos e Condições
       header:
         close_menu: Fechar menu
         main_menu: Menu principal
@@ -1332,6 +1336,7 @@ pt-BR:
       user_menu:
         account: 'Conta de usuário: %{name}'
         admin_dashboard: Painel de administração
+        configuration: Configurações
         conversations: Conversas
         notifications: Notificações
         profile: Minha conta
@@ -1345,6 +1350,7 @@ pt-BR:
         my_data: Meus dados
         my_interests: Meus interesses
         notifications_settings: Configurações de notificações
+        profile: Perfil
         title: Configurações do usuário
         user_groups: Grupos
   locale:
