@@ -1036,15 +1036,12 @@ en:
         authorization_workflows: Verification methods
         conflicts: Verification conflicts
         dashboard: Dashboard
-        edit_area_type: Edit area type
         edit_external_domains: External domain whitelist
         edit_organization_appearance: Edit homepage appearance
         global_moderations: Global moderations
         impersonatable_users: Manageable participants
         impersonations: Participants management
         metrics: Metrics
-        new_area: New area
-        new_area_type: New area type
         pages: Pages
         panel: Admin
         participants: Participants
