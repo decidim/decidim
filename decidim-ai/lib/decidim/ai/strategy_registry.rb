@@ -5,7 +5,7 @@ module Decidim
     class StrategyRegistry
       class StrategyAlreadyRegistered < StandardError; end
 
-      def register(name, klass, options = {})
+      def register_analyzer(name, klass, options = {})
         if strategies[name].present?
           raise(
             StrategyAlreadyRegistered,
@@ -23,6 +23,8 @@ module Decidim
       def all
         strategies
       end
+
+      delegate :empty?, :size, :each, :clear, to: :strategies
 
       private
 
