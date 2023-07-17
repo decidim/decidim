@@ -57,11 +57,11 @@ module Decidim
       html_properties = options.with_indifferent_access.transform_keys(&:dasherize).slice("width", "height", "aria-label", "role", "aria-hidden", "class", "style")
       html_properties = default_html_properties.merge(html_properties)
 
-      href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/remixicon.symbol.svg")
+      icon_path = application_path("media/images/#{name}.svg")
+      return unless icon_path
 
-      content_tag :svg, html_properties do
-        content_tag :use, nil, "href" => "#{href}#ri-#{name}", tabindex: -1
-      end
+      asset = File.read(icon_path)
+      asset.gsub("<svg ", "<svg#{tag_builder.tag_options(html_properties)} ").html_safe
     end
 
     def legacy_icon(name, options = {})
@@ -132,6 +132,7 @@ module Decidim
       # ActionView::Helpers::AssetUrlHelper#compute_asset_host.
       img_path = asset_pack_path(path, host: "", protocol: :relative)
       path = Rails.public_path.join(img_path.sub(%r{^/}, ""))
+
       return unless File.exist?(path)
 
       path
