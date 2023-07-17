@@ -99,9 +99,7 @@ describe "Participatory Processes", type: :system do
         visit decidim_participatory_processes.participatory_processes_path
       end
 
-      # REDESIGN_PENDING: Uncomment this test when redesign of this page
-      # finished. The headings increasing levels is correct there
-      # it_behaves_like "accessible page"
+      it_behaves_like "accessible page"
 
       context "and accessing from the homepage" do
         let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
@@ -124,9 +122,7 @@ describe "Participatory Processes", type: :system do
           visit decidim_participatory_processes.participatory_processes_path
         end
 
-        # REDESIGN_PENDING: Uncomment this test when redesign of this page
-        # finished. The headings increasing levels is correct there
-        # it_behaves_like "accessible page"
+        it_behaves_like "accessible page"
 
         it "lists all the highlighted processes" do
           within "#highlighted-processes" do
