@@ -1,3 +1,5 @@
+codecov:
+  token: bc15b944-6b42-420a-b3f9-a5a8fb214326
 comment: false
 ignore:
   - "decidim-*/lib/decidim/**/engine.rb"

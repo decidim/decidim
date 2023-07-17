@@ -87,14 +87,15 @@ jobs:
           CODECOV_TOKEN: ${{ inputs.codecov_token }}
           DISPLAY: ":99"
           CI: "true"
+          SIMPLECOV: "true"
           PARALLEL_TEST_PROCESSORS: 2
           WEBPACKER_RUNTIME_COMPILE: "false"
       - uses: codecov/codecov-action@v3
         name: Upload coverage
         with:
           token: ${{ inputs.codecov_token }}
-          name: ${{ inputs.working-directory }}-${{ github.sha }}-${{ inputs.test_command }}
-          flags: ${{ inputs.working-directory }}-${{ github.sha }}-${{ inputs.test_command }}
+          name: ${{ inputs.working-directory }}-${{ github.run_id }}
+          flags: ${{ inputs.working-directory }}-${{ github.run_id }}
       - uses: actions/upload-artifact@v3
         if: always()
         with:
