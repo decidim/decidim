@@ -384,6 +384,7 @@ pt-BR:
       highlighted_elements_settings_form:
         components:
           all: Todos
+          label: 'Selecione componente:'
         orders:
           label: 'Classificar elementos por:'
           random: Aleatório
@@ -397,6 +398,8 @@ pt-BR:
         name: Última atividade
         title: Última atividade
         view_all: Ver tudo
+      metadata:
+        name: Metadados
       metrics:
         name: Métricas da organização
       stats:
@@ -1284,6 +1287,8 @@ pt-BR:
     timestamp_error_message: Desculpe, isso foi muito rápido! Reenvie.
   layouts:
     decidim:
+      announcements:
+        view_more: Mais informações
       data_consent:
         details:
           columns:
@@ -1293,8 +1298,10 @@ pt-BR:
       footer:
         cc_by_license: Licença Creative Commons
         decidim_logo: Logo Decidim
+        decidim_title: Decidim
         download_open_data: Baixar arquivos Open Data
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
+        resources: Recursos
       header:
         close_menu: Fechar menu
         main_menu: Menu principal
