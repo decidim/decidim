@@ -11,7 +11,9 @@
           <%= icon "home-gear-line" %>
         <% end %>
         <span class="text-white">/</span>
-        <%= link_to t("decidim.admin.titles.initiatives"), decidim_admin_initiatives.initiatives_path, data: { "external-link": false }, class: "process-title-content-breadcrumb" %>
+        <span class="process-title-content-breadcrumb">
+          <%= t("decidim.admin.titles.initiatives") %>
+        </span>
       </div>
       <div class="process-title-content-breadcrumb-container-right">
         <div class="inline-block relative">

@@ -7,7 +7,9 @@
           <%= icon "home-gear-line" %>
         <% end %>
         <span class="text-white">/</span>
-        <%= link_to t("decidim.admin.titles.assemblies"), decidim_admin_assemblies.assemblies_path, data: { "external-link": false }, class: "process-title-content-breadcrumb" %>
+        <span class="process-title-content-breadcrumb">
+          <%= t("decidim.admin.titles.assemblies") %>
+        </span>
       </div>
       <div class="process-title-content-breadcrumb-container-right">
         <% if allowed_to? :create, :assembly %>
