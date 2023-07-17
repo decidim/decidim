@@ -40,7 +40,7 @@
           <td class="table-list__date"><%= initiative.published_at? ? l(initiative.published_at, format: :short) : "" %></td>
           <td class="table-list__actions">
             <% if allowed_to? :edit, :initiative, initiative: initiative %>
-              <%= icon_link_to "pencil",
+              <%= icon_link_to "pencil-line",
                                decidim_admin_initiatives.edit_initiative_path(initiative.to_param),
                                t("actions.configure", scope: "decidim.admin"),
                                class: "action-icon--edit" %>
@@ -49,19 +49,9 @@
             <% end %>
 
             <% if allowed_to?(:answer, :initiative, initiative: initiative) %>
-              <%= icon_link_to "comment-square", edit_initiative_answer_path(initiative.slug), t("actions.answer", scope: "decidim.initiatives"), class: "action-icon action-icon--answer" %>
+              <%= icon_link_to "chat-1-line", edit_initiative_answer_path(initiative.slug), t("actions.answer", scope: "decidim.initiatives"), class: "action-icon action-icon--answer" %>
             <% else %>
-              <%= icon "comment-square", scope: "decidim.admin", class: "action-icon action-icon--disabled", role: "img", "aria-hidden": true %>
-            <% end %>
-
-            <% if allowed_to? :read, :initiative, initiative: initiative %>
-              <%= icon_link_to "print",
-                               decidim_initiatives.print_initiative_path(initiative),
-                               t(".print"),
-                               class: "action-icon--print",
-                               target: :blank %>
-            <% else %>
-              <span class="action-space icon"></span>
+              <%= icon "chat-1-line", scope: "decidim.admin", class: "action-icon action-icon--disabled", role: "img", "aria-hidden": true %>
             <% end %>
 
             <% if allowed_to? :preview, :initiative, initiative: initiative %>
@@ -69,7 +59,8 @@
                                decidim_initiatives.initiative_path(initiative.to_param),
                                t(".preview"),
                                class: "action-icon--preview",
-                               target: "_blank" %>
+                               target: "_blank",
+                               data: { "external-link": false } %>
             <% else %>
               <span class="action-space icon"></span>
             <% end %>
