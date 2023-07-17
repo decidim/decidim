@@ -221,6 +221,7 @@ ignore_unused:
   - decidim.votings.votings.filters.*
   - decidim.votings.votings.orders.*
   - decidim.votings.votings_m.badge_name.*
+  - decidim.votings.votings_m.voting_type.*
   - decidim.initiatives.admin_log.*
   - decidim.initiatives.initiatives.orders.*
   - decidim.initiatives.states.*
