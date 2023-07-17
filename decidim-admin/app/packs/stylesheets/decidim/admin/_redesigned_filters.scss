@@ -40,28 +40,28 @@
     z-index: 5;
 
     li{
-      @apply pl-0;
+      @apply p-0;
+    }
+
+    .button{
+      @apply drop-shadow-none;
     }
 
     & > li.is-dropdown-submenu-parent > a{
-      padding-right: 1rem;
-      background-color: var(--secondary);
-      color: #fff;
+      @apply px-8 py-2 text-white bg-secondary;
 
       &::after{
         border-top-color: #fff;
       }
 
       &:hover{
-        background-color: var(--secondary);
-        color: #fff;
+        @apply text-white bg-secondary;
       }
     }
 
     li.is-active > a,
     li.is-active li.is-submenu-item > a:hover{
-      background-color: var(--secondary);
-      color: #fff;
+      @apply text-white bg-secondary;
     }
 
     .menu.vertical li.is-active.opens-right > a::after{
