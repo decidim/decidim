@@ -362,7 +362,7 @@ describe "Participatory Processes", type: :system do
         context "when attachments blocks enabled" do
           let(:blocks_manifests) { [:related_documents, :related_images] }
 
-          it_behaves_like "has attachments" do
+          it_behaves_like "has attachments content blocks" do
             let(:attached_to) { participatory_process }
           end
 
