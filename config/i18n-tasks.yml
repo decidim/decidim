@@ -180,6 +180,7 @@ ignore_unused:
   - decidim.elections.connection.failed.*
   - decidim.elections.orders.*
   - decidim.elections.election_m.*
+  - decidim.elections.votes.header.*
   - decidim.proposals.admin_log.*
   - decidim.log.base_presenter.*
   - decidim.admin_log.*

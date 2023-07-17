@@ -22,13 +22,7 @@
       </div>
 
       <ol id="wizard-steps" class="wizard-steps">
-        <%
-          # i18n-tasks-use t('decidim.elections.votes.header.register')
-          # i18n-tasks-use t('decidim.elections.votes.header.election')
-          # i18n-tasks-use t('decidim.elections.votes.header.confirm')
-          # i18n-tasks-use t('decidim.elections.votes.header.ballot_decision')
-        %>
-        <% %w(register election confirm ballot_decision).each_with_index do |wizard_step, i| %>
+        <% wizard_steps.each_with_index do |wizard_step, i| %>
           <li data-step="step-<%= wizard_step %>" <%= "aria-current=step" if i.zero? %>><%= t(wizard_step, scope: "decidim.elections.votes.header") %></li>
         <% end %>
       </ol>
