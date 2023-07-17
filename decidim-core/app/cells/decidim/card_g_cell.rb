@@ -34,11 +34,17 @@ module Decidim
       options[:highlight] == true
     end
 
+    def skip_id?
+      options[:skip_id] == true
+    end
+
     def classes
       @classes ||= highlight? ? HIGHLIGHT_CSS : DEFAULT_CSS
     end
 
     def resource_id
+      return if skip_id?
+
       "#{id_base_name}#{"_highlight" if highlight?}_#{resource.id}"
     end
 
