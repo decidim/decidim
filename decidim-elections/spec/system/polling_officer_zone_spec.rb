@@ -145,7 +145,6 @@ describe "Polling Officer zone", type: :system do
           click_button "Ok, continue"
         end
 
-
         expect(page).to have_content("Closure signed successfully")
       end
     end
