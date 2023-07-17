@@ -28,12 +28,12 @@
     @apply relative;
 
     [type="search"]{
-      @apply border-0 shadow-none rounded w-full p-2;
+      @apply border-0 shadow-none rounded w-full py-1 px-4;
     }
   }
 
   .input-group-button{
-    @apply absolute right-2 top-0 h-full top-1.5;
+    @apply absolute right-4 top-0 h-full top-1;
   }
 
   .dropdown.menu{
@@ -48,7 +48,7 @@
     }
 
     & > li.is-dropdown-submenu-parent > a{
-      @apply px-8 py-2 text-white bg-secondary;
+      @apply px-4 py-1 text-white bg-secondary;
 
       &::after{
         border-top-color: #fff;
