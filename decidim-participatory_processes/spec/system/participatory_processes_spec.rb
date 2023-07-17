@@ -232,13 +232,22 @@ describe "Participatory Processes", type: :system do
 
       context "when requesting the process path" do
         context "when hero, main_data and phase and duration blocks are enabled" do
-          let(:blocks_manifests) { [:process_hero, :main_data, :extra_data] }
+          let(:blocks_manifests) { [:process_hero, :main_data, :extra_data, :metadata] }
 
           it "shows the details of the given process" do
             within "[data-content]" do
+              expect(page).to have_content("About this process")
               expect(page).to have_content(translated(participatory_process.title, locale: :en))
               expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
+              expect(page).to have_content(translated(participatory_process.description, locale: :en))
               expect(page).to have_content(translated(participatory_process.short_description, locale: :en))
+              expect(page).to have_content(translated(participatory_process.meta_scope, locale: :en))
+              expect(page).to have_content(translated(participatory_process.developer_group, locale: :en))
+              expect(page).to have_content(translated(participatory_process.local_area, locale: :en))
+              expect(page).to have_content(translated(participatory_process.target, locale: :en))
+              expect(page).to have_content(translated(participatory_process.participatory_scope, locale: :en))
+              expect(page).to have_content(translated(participatory_process.participatory_structure, locale: :en))
+              expect(page).to have_content(I18n.l(participatory_process.start_date, format: :decidim_short_with_month_name_short))
               expect(page).to have_content(I18n.l(participatory_process.end_date, format: :decidim_short_with_month_name_short))
               expect(page).to have_content(participatory_process.hashtag)
             end
