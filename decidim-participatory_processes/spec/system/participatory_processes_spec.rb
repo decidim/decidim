@@ -247,6 +247,9 @@ describe "Participatory Processes", type: :system do
               expect(page).to have_content(participatory_process.hashtag)
             end
           end
+
+          it_behaves_like "has embedded video in description", :base_description
+          it_behaves_like "has embedded video in description", :short_description
         end
 
         context "when attachments blocks enabled" do
@@ -398,11 +401,6 @@ describe "Participatory Processes", type: :system do
             expect(page).not_to have_content(translated(private_assembly.title))
           end
         end
-
-        # REDESIGN_PENDING - These examples have to be moved to the details
-        # page
-        # it_behaves_like "has embedded video in description", :base_description
-        # it_behaves_like "has embedded video in description", :short_description
       end
     end
   end
