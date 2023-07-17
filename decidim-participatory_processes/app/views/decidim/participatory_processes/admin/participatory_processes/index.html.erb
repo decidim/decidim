@@ -30,7 +30,7 @@
           <td>
             <% if process.promoted? %>
               <span data-tooltip class="icon-state icon-highlight" data-disable-hover="false" title="<%= t("models.participatory_process.fields.promoted", scope: "decidim.admin") %>">
-                <%= icon "star-line" %>
+                <%= icon "star-s-fill" %>
               </span>
             <% end %>
             <% if allowed_to? :update, :process, process: process %>
