@@ -147,6 +147,36 @@ module Decidim
           end
         end
 
+        context "when time zone is UTC" do
+          let(:time_zone) { "UTC" }
+          let(:created_at) { Time.new(2000, 1, 2, 3, 4, 5, 0) }
+
+          before do
+            questionable.organization.update!(time_zone:)
+            answers.first.update!(created_at:)
+          end
+
+          it "Time uses configured time zone in exported data" do
+            key = I18n.t(:created_at, scope: "decidim.forms.user_answers_serializer")
+            expect(serialized[key]).to eq "2000-01-02 03:04:05"
+          end
+        end
+
+        context "when time zone is non-UTC" do
+          let(:time_zone) { "Hawaii" }
+          let(:created_at) { Time.new(2000, 1, 2, 3, 4, 5, 0) }
+
+          before do
+            questionable.organization.update!(time_zone:)
+            answers.first.update!(created_at:)
+          end
+
+          it "Time uses configured time zone in exported data" do
+            key = I18n.t(:created_at, scope: "decidim.forms.user_answers_serializer")
+            expect(serialized[key]).to eq "2000-01-01 17:04:05"
+          end
+        end
+
         context "when the questionnaire body is very long" do
           let!(:questionnaire) { create(:questionnaire, questionnaire_for: questionable, description: questionnaire_description) }
           let(:questionnaire_description) do
