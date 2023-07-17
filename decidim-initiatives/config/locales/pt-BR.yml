@@ -294,6 +294,7 @@ pt-BR:
           back: Costas
           continue: Continuar
           fill_data_help: "<ul> <li>Revise o conteúdo de sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa?</li> </ul>"
+          initiative_type: Tipo de iniciativa
           more_information: "(Mais Informações)"
           select_area: Selecione uma área
           select_scope: Selecione um âmbito
@@ -318,6 +319,8 @@ pt-BR:
         select_initiative_type:
           back: Costas
           choose_html: Eu quero criar um <strong>%{title}</strong>
+          more_information: Mais informações
+          new: Criar iniciativa
           select: Eu quero promover essa iniciativa
           select_initiative_type_help: As iniciativas são um meio através do qual os participantes podem intervir para que a organização possa empreender acções em defesa do interesse geral. Qual iniciativa você quer lançar?
         share_committee_link:
@@ -358,6 +361,12 @@ pt-BR:
           email_outro: 'Você recebeu esta notificação porque você é o autor desta iniciativa: %{resource_title}'
           email_subject: "%{applicant_nickname} quer participar de sua iniciativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> se candidatou ao comitê de promotores da sua iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceitar ou rejeitar, clique <a href="%{resource_url}/edit">aqui</a>.
+      form:
+        add_documents: Adicionar Documentos
+        add_image: Adicionar imagem
+        edit_documents: Editar documentos
+        edit_image: Editar imagem
+        image_legend: "(Opcional) Adicionar um anexo"
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
@@ -387,6 +396,7 @@ pt-BR:
         committee_members:
           approve: Aprovar
           confirm_revoke: Você tem certeza?
+          link: Link
           title: Membros do Comitê
         count:
           title:
@@ -447,9 +457,15 @@ pt-BR:
         result:
           initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de suporte.
         show:
+          area: Área
           confirm: Você vai enviar a iniciativa para um administrador revisá-lo e publicá-lo. Uma vez publicado, você não será capaz de editá-lo. Você tem certeza?
           edit: Editar
+          initiative_data: Dados da iniciativa
+          scope: Escopo
           send_to_technical_validation: Enviar para validação técnica
+          signature_collection: Coleção de assinaturas
+          state: Estado
+          type: Tipo
         signatures_count:
           one: " assinatura"
           other: " assinaturas"
@@ -479,6 +495,11 @@ pt-BR:
           authorizations_page: Ver autorizações
           explanation: Você precisa ser verificado para criar uma nova iniciativa.
           title: Autorização necessária
+      pages:
+        home:
+          highlighted_initiatives:
+            active_spaces: Iniciativas ativas
+            see_all_spaces: Ver todas as iniciativas
       show:
         badge_name:
           accepted: Assinaturas suficientes
