@@ -2,7 +2,7 @@
 
 module Decidim
   module Votings
-    class VotingMapCell < VotingMCell
+    class VotingMapCell < VotingGCell
       include Decidim::MapHelper
       include Decidim::Votings::MapHelper
 
