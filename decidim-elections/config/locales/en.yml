@@ -1203,7 +1203,6 @@ en:
             info_text: 'Please introduce the total number of ballots (envelopes) recounted in this Polling Station:'
             modal_ballots_count_error:
               btn_validate_total: Validate total recount of ballots
-              close_modal: Close
               info_explanation_text: 'Please review the total number of ballots. If the total number is incorrect, you must provide an explanation for the Monitoring Committee:'
               info_text: The total number of ballots (envelopes) introduced does not match the record of people that has voted in this Polling Station.
               message_for_monitoring_committee: Message for the Monitoring Committee
@@ -1221,14 +1220,12 @@ en:
           sign:
             cancel: Cancel
             check_box: I have reviewed this and is the same as the physical electoral closure certificate
-            close_modal: Close
             confirm: Ok, continue
             error: An error occurred, please try again.
             heading: Vote recount - Sign closure
             info_text: If you continue you can no longer modify any of the information, this action cannot be undone.
             submit: Sign the closure
             success: Closure signed successfully.
-            title: Action cannot be undone
           update:
             error: An error occurred updating the closure results, please try again later.
             success: Closure results successfully updated.
@@ -1389,7 +1386,6 @@ en:
           invalid: There was a problem sending the Access Code.
           success: Your Access Code got send successfully.
         show:
-          dates: Dates
           title: About this voting
       votings_m:
         badge_name:
