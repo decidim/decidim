@@ -54,10 +54,10 @@ module Decidim
 
           # If there are more pages, then we call ourselves redundantly to fetch the next page
           next_json = more_pages?(headers) ? json_response(next_page(headers), json) : []
+
           if json.is_a?(Array)
-            json.concat(next_json).uniq do |issue|
-              issue.key?("number") ? issue["number"] : issue
-            end
+            # For some reason we have duplicated values, so we deduplicate them
+            json.concat(next_json).uniq { |issue| issue.has_key?("number") ? issue["number"] : issue }
           else
             json
           end
