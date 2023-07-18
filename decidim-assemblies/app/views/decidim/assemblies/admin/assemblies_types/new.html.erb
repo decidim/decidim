@@ -1,4 +1,4 @@
-<% add_decidim_page_title(t("new_assembly_type", scope: "decidim.admin.titles")) %>
+<% add_decidim_page_title(t("assemblies_types.new.title", scope: "decidim.admin")) %>
 <%= decidim_form_for(@form, html: { class: "form new_assembly_type" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t("assemblies_types.new.title", scope: "decidim.admin") } %>
 
