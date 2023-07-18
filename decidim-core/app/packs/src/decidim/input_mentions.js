@@ -1,5 +1,6 @@
 /* eslint no-unused-vars: 0 */
 import Tribute from "src/decidim/vendor/tribute"
+import icon from "src/decidim/redesigned_icon"
 
 const mentionsInitializer = () => {
   const $mentionContainer = $(".js-mentions");
@@ -75,12 +76,10 @@ const mentionsInitializer = () => {
       }
       return item.original.nickname;
     },
-    menuItemTemplate: function(item) {
+    menuItemTemplate: async function(item) {
       let svg = "";
       if (window.Decidim && item.original.__typename === "UserGroup") {
-        const iconsPath =  window.Decidim.config.get("icons_path");
-
-        svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use href="${iconsPath}#icon-members"/></svg></span>`;
+        svg = `<span class="is-group">${item.original.membersCount}x ${await icon("team-line")}`;
       }
       return `
       <span class="author__avatar"><img src="${item.original.avatarUrl}" alt="author-avatar"></span>

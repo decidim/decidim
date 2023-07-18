@@ -26,18 +26,18 @@ export default class ExternalLink {
     }
   }
 
-  setup(node) {
+  async setup(node) {
     const span = document.createElement("span");
 
     span.dataset.externalLink = true;
-    span.innerHTML = `${this.generateIcon()}${this.generateScreenReaderLabel()}`
+    span.innerHTML = `${await this.generateIcon()}${this.generateScreenReaderLabel()}`
     span.classList.add("inline-block", "mx-0.5");
 
     return node.appendChild(span);
   }
 
-  generateIcon() {
-    return icon("external-link-line", { class: "fill-current" });
+  async generateIcon() {
+    return await icon("external-link-line", { class: "fill-current" });
   }
 
   generateScreenReaderLabel() {

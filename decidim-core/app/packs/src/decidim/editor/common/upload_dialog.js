@@ -243,7 +243,7 @@ export default class UploadDialog {
         items.innerHTML = `
           <li data-filename="${file.name}" data-state="validated">
             <div data-template="error">
-              <div>${icon("error-warning-line")}</div>
+              <div>${await icon("error-warning-line")}</div>
               <div>
                 <span>${file.name}</span>
                 <span>${locales.validation_error}</span>

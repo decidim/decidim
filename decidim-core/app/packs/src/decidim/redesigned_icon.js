@@ -11,7 +11,7 @@ const DEFAULT_ATTRIBUTES = {
  * @private
  * @returns {Void} - Returns nothing.
  */
-export default function icon(iconKey, attributes = {}) {
+export default async function icon(iconKey, attributes = {}) {
   const iconAttributes = { ...DEFAULT_ATTRIBUTES, ...attributes };
   const htmlAttributes = { width: "0.75em", height: "0.75em" };
 
@@ -25,16 +25,12 @@ export default function icon(iconKey, attributes = {}) {
     }
   });
 
-  const svg = document.createElement("svg")
-  const use = document.createElement("use")
-  const title = document.createElement("title")
+  const { default: path } = await import(`../../images/decidim/icons/${iconKey}.svg`)
+  const file = await fetch(path).then((response) => response.text())
 
-  title.innerHTML = iconAttributes.title || iconAttributes.ariaLabel || iconKey
-  use.setAttribute("href", `${window.Decidim.config.get("icons_path")}#ri-${iconKey}`)
-  Object.entries(htmlAttributes).forEach(([key, value]) => svg.setAttribute(key, value))
+  const placeholder = document.createElement("div")
+  placeholder.innerHTML = file;
+  Object.entries(htmlAttributes).forEach(([key, value]) => placeholder.firstElementChild.setAttribute(key, value))
 
-  svg.appendChild(title)
-  svg.appendChild(use)
-
-  return svg.outerHTML;
+  return placeholder.firstElementChild.outerHTML;
 }

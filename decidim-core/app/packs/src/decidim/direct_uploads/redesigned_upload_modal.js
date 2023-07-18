@@ -163,14 +163,14 @@ export default class UploadModal {
     }
   }
 
-  createUploadItem(file, errors, opts = {}) {
+  async createUploadItem(file, errors, opts = {}) {
     const okTemplate = `
       <img src="" alt="${file.name}" />
       <span>${truncateFilename(file.name)}</span>
     `
 
     const errorTemplate = `
-      <div>${icon("error-warning-line")}</div>
+      <div>${await icon("error-warning-line")}</div>
       <div>
         <span>${truncateFilename(file.name)}</span>
         <span>${this.locales.validation_error}</span>
