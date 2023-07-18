@@ -1034,13 +1034,11 @@ en:
         area_types: Area types
         areas: Areas
         authorization_workflows: Verification methods
-        components: Components
         dashboard: Dashboard
         edit_landing_page: Page contents
         impersonatable_users: Manageable participants
         impersonations: Participants management
         metrics: Metrics
-        new_component: Add component
         panel: Admin
         participants: Participants
         scope_types: Scope types

@@ -257,12 +257,6 @@ en:
             label: Scope
           status_id_eq:
             label: Status
-      titles:
-        import_projects: Import Projects to Accountability
-        import_results: Import results from CSV
-        new_result: New result
-        new_status: New status
-        statuses: Statuses
     components:
       accountability:
         actions:

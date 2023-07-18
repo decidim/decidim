@@ -134,14 +134,6 @@ en:
           values:
             'false': Not validated
             'true': Validated
-      titles:
-        ballot_styles: Ballot styles
-        census: Census
-        elections: Elections
-        new_ballot_style: New ballot style
-        new_election: New election
-        new_trustee: New trustee
-        trustees: Trustees
     components:
       elections:
         actions:

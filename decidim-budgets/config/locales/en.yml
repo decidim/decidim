@@ -37,12 +37,6 @@ en:
             values:
               'false': Selected for implementation
               'true': Not selected for implementation
-      titles:
-        budgets: Budgets
-        import_proposals: Import proposals
-        new_budget: New budget
-        new_project: New project
-        projects: Projects
     budgets:
       actions:
         attachment_collections: Folders
