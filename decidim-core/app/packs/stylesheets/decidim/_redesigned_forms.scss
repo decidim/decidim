@@ -67,7 +67,7 @@
 }
 
 .help-text {
-  @apply block text-md text-gray-2 font-normal prose-a:text-secondary prose-a:underline;
+  @apply block text-sm text-gray-2 font-normal prose-a:text-secondary prose-a:underline opacity-75;
 }
 
 .form__wrapper {
