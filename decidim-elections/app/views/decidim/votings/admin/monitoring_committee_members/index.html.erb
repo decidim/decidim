@@ -25,9 +25,13 @@
             </td>
             <td class="table-list__actions">
               <% if allowed_to? :delete, :monitoring_committee_member, voting: current_voting, monitoring_committee_member: monitoring_committee_member %>
-                <%= icon_link_to "circle-x", voting_monitoring_committee_member_path(current_voting, monitoring_committee_member), t("actions.destroy", scope: "decidim.votings.monitoring_committee_members"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.monitoring_committee_members") } %>
+                <%= with_tooltip t("actions.destroy", scope: "decidim.votings.monitoring_committee_members"), class: "top" do %>
+                  <%= icon_link_to "delete-bin-line", voting_monitoring_committee_member_path(current_voting, monitoring_committee_member), t("actions.destroy", scope: "decidim.votings.monitoring_committee_members"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.monitoring_committee_members") } %>
+                <% end %>
               <% else %>
-                <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.votings.monitoring_committee_members") %>
+                <%= with_tooltip t("actions.destroy", scope: "decidim.votings.monitoring_committee_members"), class: "top" do %>
+                  <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.votings.monitoring_committee_members") %>
+                <% end %>
               <% end %>
             </td>
           </tr>

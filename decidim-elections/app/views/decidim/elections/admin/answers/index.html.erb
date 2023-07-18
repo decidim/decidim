@@ -74,9 +74,13 @@
                 <% end %>
 
                 <% if allowed_to? :delete, :answer, election: election, question: question, answer: answer %>
-                  <%= icon_link_to "circle-x", election_question_answer_path(election, question, answer), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
+                  <%= with_tooltip t("actions.confirm_destroy", scope: "decidim.elections"), class: "top" do %>
+                    <%= icon_link_to "delete-bin-line", election_question_answer_path(election, question, answer), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
+                  <% end %>
                 <% else %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.elections") %>
+                  <%= with_tooltip t("actions.destroy", scope: "decidim.elections"), class: "top" do %>
+                    <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.elections") %>
+                  <% end %>
                 <% end %>
               </td>
             </tr>

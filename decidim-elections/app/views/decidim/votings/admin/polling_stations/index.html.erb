@@ -44,9 +44,13 @@
               <% end %>
 
               <% if allowed_to? :delete, :polling_station, voting: current_voting, polling_station: polling_station %>
-                <%= icon_link_to "circle-x", voting_polling_station_path(current_voting, polling_station), t("actions.destroy", scope: "decidim.votings.polling_stations"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.polling_stations") } %>
+                <%= with_tooltip t("actions.destroy", scope: "decidim.votings.polling_stations"), class: "top" do %>
+                  <%= icon_link_to "delete-bin-line", voting_polling_station_path(current_voting, polling_station), t("actions.destroy", scope: "decidim.votings.polling_stations"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.polling_stations") } %>
+                <% end %>
               <% else %>
-                <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.votings.polling_stations") %>
+                <%= with_tooltip t("actions.destroy", scope: "decidim.votings.polling_stations"), class: "top" do %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.votings.polling_stations") %>
+                <% end %>
               <% end %>
             </td>
           </tr>

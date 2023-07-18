@@ -41,12 +41,9 @@
             <%= free_resource_permissions_link(initiative_type) %>
 
             <% if allowed_to? :destroy, :initiative_type, initiative_type: initiative_type %>
-              <%= icon_link_to "circle-x",
-                               initiative_type,
-                               t("actions.destroy", scope: "decidim.admin"),
-                               class: "action-icon--remove",
-                               method: :delete,
-                               data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+              <%= with_tooltip t("actions.confirm_destroy", scope: "decidim.admin"), class: "top" do %>
+                <%= icon_link_to "delete-bin-line", initiative_type, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+              <% end %>
             <% else %>
               <span class="action-space icon"></span>
             <% end %>

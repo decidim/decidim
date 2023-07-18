@@ -47,10 +47,9 @@
             <%= resource_permissions_link(sortition) %>
 
             <% if allowed_to? :destroy, :sortition, sortition: sortition %>
-              <%= icon_link_to "circle-x",
-                               confirm_destroy_sortition_path(sortition),
-                               t("actions.destroy", scope: "decidim.sortitions.admin"),
-                               class: "action-icon--remove" %>
+              <%= with_tooltip t("actions.destroy", scope: "decidim.sortitions.admin"), class: "top" do %>
+                <%= icon_link_to "delete-bin-line", confirm_destroy_sortition_path(sortition), t("actions.destroy", scope: "decidim.sortitions.admin"), class: "action-icon--remove" %>
+              <% end %>
             <% else %>
                <span class="action-space icon"></span>
             <% end %>

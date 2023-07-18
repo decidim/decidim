@@ -62,7 +62,9 @@
               <%= resource_permissions_link(debate) %>
 
               <% if allowed_to? :delete, :debate, debate: debate %>
-                <%= icon_link_to "circle-x", debate_path(debate), t("actions.destroy", scope: "decidim.debates"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.debates") } %>
+                <%= with_tooltip t("actions.destroy", scope: "decidim.debates"), class: "top" do %>
+                  <%= icon_link_to "delete-bin-line", debate_path(debate), t("actions.destroy", scope: "decidim.debates"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.debates") } %>
+                <% end %>
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>

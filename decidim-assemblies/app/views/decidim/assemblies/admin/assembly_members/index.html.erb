@@ -72,7 +72,9 @@
               <% end %>
 
               <% if allowed_to? :destroy, :assembly_member, member: member %>
-                <%= icon_link_to "circle-x", assembly_member_path(current_assembly, member), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                <%= with_tooltip t("actions.confirm_destroy", scope: "decidim.admin"), class: "top" do %>
+                  <%= icon_link_to "delete-bin-line", assembly_member_path(current_assembly, member), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                <% end %>
               <% end %>
             </td>
           </tr>

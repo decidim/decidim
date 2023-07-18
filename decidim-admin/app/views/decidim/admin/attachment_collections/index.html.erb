@@ -31,11 +31,13 @@
 
                 <% if allowed_to? :destroy, :attachment_collection, attachment_collection: attachment_collection %>
                   <% if attachment_collection.unused? %>
-                    <%= icon_link_to "circle-x", polymorphic_path([collection_for, attachment_collection]), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                    <%= with_tooltip t("actions.destroy", scope: "decidim.admin"), class: "top" do %>
+                      <%= icon_link_to "delete-bin-line", polymorphic_path([collection_for, attachment_collection]), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                    <% end %>
                   <% else %>
-                    <span class="action-icon" title="<%= t("attachment_collections.index.attachment_collection_used", scope: "decidim.admin") %>" data-tooltip="true" data-disable-hover="false">
-                      <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", "aria-hidden": true %>
-                    </span>
+                    <%= with_tooltip t("attachment_collections.index.attachment_collection_used", scope: "decidim.admin"), class: "top" do %>
+                      <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", "aria-hidden": true %>
+                    <% end %>
                   <% end %>
                 <% end %>
               </td>

@@ -46,7 +46,9 @@
                   <%= with_tooltip t(".reofficialize"), class: "top" do %>
                     <%= icon_link_to "pencil-line", new_officialization_path(user_id: user.id), t(".reofficialize"), class: "action-icon--new" %>
                   <% end %>
-                  <%= icon_link_to "circle-x", officialization_path(user.id), t(".unofficialize"), method: :delete, class: "action-icon--reject" %>
+                  <%= with_tooltip t(".unofficialize"), class: "top" do %>
+                    <%= icon_link_to "delete-bin-line", officialization_path(user.id), t(".unofficialize"), method: :delete, class: "action-icon--reject" %>
+                  <% end %>
                 <% else %>
                   <%= icon_link_to "circle-check", new_officialization_path(user_id: user.id), t(".officialize"), class: "action-icon--verify" %>
                   <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".reofficialize") %>

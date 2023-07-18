@@ -68,7 +68,9 @@
       <% end %>
 
       <% if allowed_to? :destroy, :component, component: component %>
-        <%= icon_link_to "circle-x", url_for(action: :destroy, id: component, controller: "components"), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete %>
+        <%= with_tooltip t("actions.destroy", scope: "decidim.admin"), class: "top" do %>
+          <%= icon_link_to "delete-bin-line", url_for(action: :destroy, id: component, controller: "components"), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete %>
+        <% end %>
       <% else %>
         <span class="action-space icon"></span>
       <% end %>

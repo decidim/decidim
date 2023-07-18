@@ -45,12 +45,9 @@
               <% end %>
 
               <% if allowed_to? :revoke, :initiative_committee_member, request: request %>
-                <%= icon_link_to "circle-x",
-                                 revoke_initiative_committee_request_path(current_initiative, request),
-                                 t(".revoke"),
-                                 class: "action-icon--remove",
-                                 method: :delete,
-                                 data: { confirm: t(".confirm_revoke") } %>
+                <%= with_tooltip t(".revoke"), class: "top" do %>
+                  <%= icon_link_to "delete-bin-line", revoke_initiative_committee_request_path(current_initiative, request), t(".revoke"), class: "action-icon--remove", method: :delete, data: { confirm: t(".confirm_revoke") } %>
+                <% end %>
               <% end %>
             </td>
           </tr>

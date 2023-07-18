@@ -54,7 +54,9 @@
               <% end %>
 
               <% if allowed_to? :destroy, :assembly_user_role, user_role: role %>
-                <%= icon_link_to "circle-x", assembly_user_role_path(current_assembly, role), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                <%= with_tooltip t("actions.destroy", scope: "decidim.admin"), class: "top" do %>
+                  <%= icon_link_to "delete-bin-line", assembly_user_role_path(current_assembly, role), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                <% end %>
               <% end %>
             </td>
           </tr>

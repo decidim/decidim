@@ -38,7 +38,9 @@
                 <% end %>
 
                 <% if allowed_to?(:destroy, :template, questionnaire_template: template) %>
-                  <%= icon_link_to "circle-x", questionnaire_template_path(template), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
+                  <%= with_tooltip t(".confirm_delete"), class: "top" do %>
+                    <%= icon_link_to "delete-bin-line", questionnaire_template_path(template), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
+                  <% end %>
                 <% end %>
               </td>
             </tr>

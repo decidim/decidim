@@ -32,7 +32,9 @@
                 <%= icon_link_to "clipboard", copy_block_user_template_path(template), t("actions.duplicate", scope: "decidim.admin"), method: :post %>
               <% end %>
               <% if allowed_to?(:destroy, :template, questionnaire_template: template) %>
-                <%= icon_link_to "circle-x", block_user_template_path(template), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
+                <%= with_tooltip t(".confirm_delete"), class: "top" do %>
+                  <%= icon_link_to "delete-bin-line", block_user_template_path(template), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
+                <% end %>
               <% end %>
             </td>
           </tr>

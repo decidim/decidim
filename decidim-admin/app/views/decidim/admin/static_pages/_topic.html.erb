@@ -49,7 +49,9 @@
                 <% end %>
 
                 <% if allowed_to? :destroy, :static_page, static_page: page %>
-                  <%= icon_link_to "circle-x", page, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                  <%= with_tooltip t("actions.destroy", scope: "decidim.admin"), class: "top" do %>
+                    <%= icon_link_to "delete-bin-line", page, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                  <% end %>
                 <% end %>
               </td>
             </tr>

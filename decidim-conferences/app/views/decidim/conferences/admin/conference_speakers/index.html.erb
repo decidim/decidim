@@ -56,7 +56,9 @@
               <% end %>
 
               <% if allowed_to? :destroy, :conference_speaker, speaker: speaker %>
-                <%= icon_link_to "circle-x", conference_speaker_path(current_conference, speaker), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                <%= with_tooltip t("actions.destroy", scope: "decidim.admin"), class: "top" do %>
+                  <%= icon_link_to "delete-bin-line", conference_speaker_path(current_conference, speaker), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                <% end %>
               <% end %>
             </td>
           </tr>

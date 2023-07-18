@@ -144,7 +144,9 @@
 
               <% if allowed_to? :destroy, :meeting, meeting: meeting %>
                 <% if present(meeting).authored_proposals.empty? %>
-                  <%= icon_link_to "circle-x", meeting_path(meeting), t("actions.destroy", scope: "decidim.meetings"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings") } %>
+                  <%= with_tooltip t("actions.destroy", scope: "decidim.meetings"), class: "top" do %>
+                    <%= icon_link_to "delete-bin-line", meeting_path(meeting), t("actions.destroy", scope: "decidim.meetings"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings") } %>
+                  <% end %>
                 <% else %>
                   <%=
                     content_tag(:button,
