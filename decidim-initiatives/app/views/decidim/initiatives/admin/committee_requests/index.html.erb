@@ -39,10 +39,9 @@
             </td>
             <td class="table-list__actions">
               <% if allowed_to? :approve, :initiative_committee_member, request: request %>
-                <%= icon_link_to "check",
-                                 approve_initiative_committee_request_path(current_initiative, request),
-                                 t(".approve"),
-                                 class: "action-icon--check" %>
+                <%= with_tooltip t(".approve"), class: "top" do %>
+                  <%= icon_link_to "check-line", approve_initiative_committee_request_path(current_initiative, request), t(".approve"), class: "action-icon--check" %>
+                <% end %>
               <% end %>
 
               <% if allowed_to? :revoke, :initiative_committee_member, request: request %>

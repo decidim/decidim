@@ -43,7 +43,9 @@
             <td>
               <% if allowed_to?(:confirm, :conference_registration, conference_registration: registration) %>
                 <% if !registration.confirmed? %>
-                  <%= icon_link_to "check", confirm_conference_conference_registration_path(current_conference, registration), t("actions.confirm", scope: "decidim.admin"), class: "action-icon--publish", method: :post %>
+                  <%= with_tooltip t("actions.confirm", scope: "decidim.admin"), class: "top" do %>
+                    <%= icon_link_to "check-line", confirm_conference_conference_registration_path(current_conference, registration), t("actions.confirm", scope: "decidim.admin"), class: "action-icon--publish", method: :post %>
+                  <% end %>
                 <% end %>
               <% end %>
             </td>

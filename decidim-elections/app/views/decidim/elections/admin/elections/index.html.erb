@@ -69,7 +69,9 @@
                 <% end %>
               <% else %>
                 <% if allowed_to?(:publish, :election, election: election) %>
-                  <%= icon_link_to "check", url_for(action: :publish, id: election, controller: "elections"), t("actions.publish", scope: "decidim.elections"), class: "action-icon--publish", method: :put %>
+                  <%= with_tooltip t("actions.publish", scope: "decidim.elections"), class: "top" do %>
+                    <%= icon_link_to "check-line", url_for(action: :publish, id: election, controller: "elections"), t("actions.publish", scope: "decidim.elections"), class: "action-icon--publish", method: :put %>
+                  <% end %>
                 <% else %>
                   <%= icon "check", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.publish", scope: "decidim.elections") %>
                 <% end %>

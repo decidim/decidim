@@ -128,7 +128,9 @@
                     <%= icon_link_to "close-circle-line", unpublish_meeting_path(meeting), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish", data: { confirm: t("actions.unpublish", scope: "decidim.admin") } %>
                   <% end %>
                 <% else %>
-                  <%= icon_link_to "check", publish_meeting_path(meeting), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish" %>
+                  <%= with_tooltip t("actions.publish", scope: "decidim.admin"), class: "top" do %>
+                    <%= icon_link_to "check-line", publish_meeting_path(meeting), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish" %>
+                  <% end %>
                 <% end %>
               <% else %>
                 <span class="action-space icon"></span>

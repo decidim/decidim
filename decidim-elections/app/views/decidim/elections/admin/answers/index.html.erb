@@ -67,7 +67,9 @@
                       <%= icon_link_to "close-circle-line", unselect_election_question_answer_path(election, question, answer), t("answers.select.disable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
                     <% end %>
                   <% else %>
-                    <%= icon_link_to "check", select_election_question_answer_path(election, question, answer), t("answers.select.enable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
+                    <%= with_tooltip t("answers.select.enable", scope: "decidim.elections.admin"), class: "top" do %>
+                      <%= icon_link_to "check-line", select_election_question_answer_path(election, question, answer), t("answers.select.enable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
+                    <% end %>
                   <% end %>
                 <% end %>
 
