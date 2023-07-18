@@ -847,6 +847,7 @@ pt-BR:
           success: Arquivo CSV enviado com sucesso, estamos enviando um e-mail de convite para os participantes. Isso pode demorar um pouco.
         new:
           destroy:
+            button: Excluir todos os participantes privados
             empty: Você não tem participantes privados.
             explanation: Você tem %{count} participantes privados.
             title: Excluir participantes privados
@@ -855,6 +856,7 @@ pt-BR:
           upload: Upload
       reminders:
         create:
+          error: Ocorreu um problema ao criar lembretes.
           success:
             one: "%{count} usuário será lembrado."
             other: "%{count} usuários serão lembrados."
@@ -978,6 +980,7 @@ pt-BR:
         static_pages: Páginas
         statistics: Atividade
         user_groups: Grupos de usuários
+        users: Administradores
       user_group:
         csv_verify:
           invalid: Ocorreu um erro ao ler o arquivo CSV.
@@ -1056,9 +1059,11 @@ pt-BR:
         moderation:
           fields:
             created_at: Data de criação
+            deleted_resource: Recurso excluído
             hidden_at: Escondido em
             participatory_space: Espaço participativo
             report_count: Contagem
+            reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL de conteúdo relatado
             reports: Denúncias
