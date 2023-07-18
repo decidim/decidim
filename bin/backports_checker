@@ -16,6 +16,7 @@ class BackportsCheckerCLI < Thor
   HELP
   option :github_token, required: true, desc: <<~HELP
     Required. Github Personal Access Token (PAT). It can be obtained from https://github.com/settings/tokens/new. You will need to create one with `public_repo` access.
+    Alternatively, you can use the `gh` CLI tool to authenticate with `gh auth token` (i.e. --github-token=$(gh auth token))
   HELP
   option :last_version_number, required: true, desc: <<~HELP
     Required. The version number of the last supported version that you want to do the backports to. It must have the format MAJOR.MINOR.
