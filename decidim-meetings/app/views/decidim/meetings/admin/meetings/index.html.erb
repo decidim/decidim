@@ -75,7 +75,9 @@
             <%= td_resource_scope_for(meeting.scope) %>
             <td class="table-list__actions">
               <% if allowed_to? :update, :meeting, meeting: meeting %>
-                <%= icon_link_to "pencil", edit_meeting_path(meeting), t("actions.edit", scope: "decidim.meetings"), class: "action-icon--edit" %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.meetings"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", edit_meeting_path(meeting), t("actions.edit", scope: "decidim.meetings"), class: "action-icon--edit" %>
+                <% end %>
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>

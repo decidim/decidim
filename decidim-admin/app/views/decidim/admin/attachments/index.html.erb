@@ -37,7 +37,9 @@
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :attachment, attachment: attachment %>
-                  <%= icon_link_to "pencil", edit_polymorphic_path([attached_to, attachment]), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                  <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
+                    <%= icon_link_to "pencil-line", edit_polymorphic_path([attached_to, attachment]), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                  <% end %>
                 <% end %>
 
                 <% if allowed_to? :destroy, :attachment, attachment: attachment %>

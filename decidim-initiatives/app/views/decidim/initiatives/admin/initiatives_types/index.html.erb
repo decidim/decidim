@@ -28,10 +28,12 @@
           <td><%= l initiative_type.created_at, format: :short %></td>
           <td class="table-list__actions">
             <% if allowed_to? :update, :initiative_type, initiative_type: initiative_type %>
-              <%= icon_link_to "pencil",
-                               edit_initiatives_type_path(initiative_type),
-                               t("actions.configure", scope: "decidim.admin"),
-                               class: "action-icon--edit" %>
+              <%= with_tooltip t("actions.configure", scope: "decidim.admin"), class: "top" do %>
+                <%= icon_link_to "pencil-line",
+                                 edit_initiatives_type_path(initiative_type),
+                                 t("actions.configure", scope: "decidim.admin"),
+                                 class: "action-icon--edit" %>
+              <% end %>
             <% else %>
               <span class="action-space icon"></span>
             <% end %>

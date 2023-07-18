@@ -38,7 +38,9 @@
             </td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :conference, conference: conference %>
-                <%= icon_link_to "pencil", edit_conference_path(conference), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+                <%= with_tooltip t("actions.configure", scope: "decidim.admin"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", edit_conference_path(conference), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+                <% end %>
               <% end %>
 
               <% if allowed_to? :create, :conference, conference: conference %>

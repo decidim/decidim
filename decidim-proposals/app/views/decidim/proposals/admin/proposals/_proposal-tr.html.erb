@@ -68,7 +68,9 @@
 
   <td class="table-list__actions">
     <% if allowed_to? :edit, :proposal, proposal: proposal %>
-      <%= icon_link_to "pencil", edit_proposal_path(proposal), t("actions.edit_proposal", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
+      <%= with_tooltip t("actions.edit_proposal", scope: "decidim.proposals"), class: "top" do %>
+        <%= icon_link_to "pencil-line", edit_proposal_path(proposal), t("actions.edit_proposal", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
+      <% end %>
     <% else %>
       <span class="action-space icon"></span>
     <% end %>

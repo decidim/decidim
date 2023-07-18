@@ -66,7 +66,9 @@
             </td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :assembly_member, member: member %>
-                <%= icon_link_to "pencil", edit_assembly_member_path(current_assembly, member), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", edit_assembly_member_path(current_assembly, member), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                <% end %>
               <% end %>
 
               <% if allowed_to? :destroy, :assembly_member, member: member %>

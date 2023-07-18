@@ -52,7 +52,9 @@
             </td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :process_group, process_group: group %>
-                <%= icon_link_to "pencil", [:edit, group], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", [:edit, group], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                <% end %>
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>

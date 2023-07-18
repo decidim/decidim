@@ -42,7 +42,9 @@
             <%= td_resource_scope_for(debate.scope) %>
             <td class="table-list__actions">
               <% if allowed_to? :update, :debate, debate: debate %>
-                <%= icon_link_to "pencil", edit_debate_path(debate), t("actions.edit", scope: "decidim.debates"), class: "action-icon--edit" %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.debates"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", edit_debate_path(debate), t("actions.edit", scope: "decidim.debates"), class: "action-icon--edit" %>
+                <% end %>
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>

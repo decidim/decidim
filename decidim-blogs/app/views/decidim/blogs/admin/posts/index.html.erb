@@ -42,7 +42,9 @@
             </td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :blogpost, blog_post: post %>
-                <%= icon_link_to "pencil", edit_post_path(post), t("actions.edit", scope: "decidim.blogs"), class: "action-icon--edit" %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.blogs"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", edit_post_path(post), t("actions.edit", scope: "decidim.blogs"), class: "action-icon--edit" %>
+                <% end %>
               <% end %>
 
               <% if allowed_to? :update, :blogpost, blog_post: post %>

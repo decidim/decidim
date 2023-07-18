@@ -25,7 +25,9 @@
             <td><%= status.progress %></td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :status, status: status %>
-                <%= icon_link_to "pencil", edit_status_path(status), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.accountability"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", edit_status_path(status), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
+                <% end %>
               <% end %>
 
               <% if allowed_to? :destroy, :status, status: status %>

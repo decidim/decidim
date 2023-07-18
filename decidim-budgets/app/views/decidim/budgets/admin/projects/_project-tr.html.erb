@@ -30,7 +30,9 @@
   </td>
   <td class="table-list__actions">
     <% if allowed_to? :update, :project, project: project %>
-      <%= icon_link_to "pencil", resource_locator([budget, project]).edit, t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
+      <%= with_tooltip t("actions.edit", scope: "decidim.budgets"), class: "top" do %>
+        <%= icon_link_to "pencil-line", resource_locator([budget, project]).edit, t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
+      <% end %>
     <% end %>
 
     <% if allowed_to? :update, :project, project: project %>

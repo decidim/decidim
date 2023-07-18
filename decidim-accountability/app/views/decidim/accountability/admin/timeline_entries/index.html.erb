@@ -22,7 +22,9 @@
             <td><%= translated_attribute(timeline_entry.title) %></td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :timeline_entry, timeline_entry: timeline_entry %>
-                <%= icon_link_to "pencil", edit_result_timeline_entry_path(timeline_entry.result, timeline_entry), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.accountability"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", edit_result_timeline_entry_path(timeline_entry.result, timeline_entry), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
+                <% end %>
               <% end %>
 
               <% if allowed_to? :destroy, :timeline_entry, timeline_entry: timeline_entry %>

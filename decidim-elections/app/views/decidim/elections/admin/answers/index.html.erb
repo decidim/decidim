@@ -54,7 +54,9 @@
               <% end %>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :answer, election: election, question: question, answer: answer %>
-                  <%= icon_link_to "pencil", edit_election_question_answer_path(election, question, answer), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
+                  <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
+                    <%= icon_link_to "pencil-line", edit_election_question_answer_path(election, question, answer), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
+                  <% end %>
                 <% else %>
                   <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.elections") %>
                 <% end %>

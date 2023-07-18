@@ -40,7 +40,9 @@
             <td><%= t("steps.#{election.bb_status || "create_election"}.title", scope: "decidim.elections.admin") %></td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :election, election: election %>
-                <%= icon_link_to "pencil", edit_election_path(election), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", edit_election_path(election), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
+                <% end %>
               <% else %>
                 <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.elections") %>
               <% end %>

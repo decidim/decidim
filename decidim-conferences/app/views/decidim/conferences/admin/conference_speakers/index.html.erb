@@ -50,7 +50,9 @@
             </td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :conference_speaker, speaker: speaker %>
-                <%= icon_link_to "pencil", edit_conference_speaker_path(current_conference, speaker), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", edit_conference_speaker_path(current_conference, speaker), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                <% end %>
               <% end %>
 
               <% if allowed_to? :destroy, :conference_speaker, speaker: speaker %>

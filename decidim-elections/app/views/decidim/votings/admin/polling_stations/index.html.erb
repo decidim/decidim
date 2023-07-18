@@ -34,9 +34,13 @@
             </td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :polling_station, voting: current_voting, polling_station: polling_station %>
-                <%= icon_link_to "pencil", edit_voting_polling_station_path(current_voting, polling_station), t("actions.edit", scope: "decidim.votings.polling_stations"), class: "action-icon--edit" %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.votings.polling_stations"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", edit_voting_polling_station_path(current_voting, polling_station), t("actions.edit", scope: "decidim.votings.polling_stations"), class: "action-icon--edit" %>
+                <% end %>
               <% else %>
-                <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.votings.polling_stations") %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.votings.polling_stations"), class: "top" do %>
+                  <%= icon "pencil-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.votings.polling_stations") %>
+                <% end %>
               <% end %>
 
               <% if allowed_to? :delete, :polling_station, voting: current_voting, polling_station: polling_station %>

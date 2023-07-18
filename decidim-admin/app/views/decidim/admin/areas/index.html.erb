@@ -32,7 +32,9 @@
             </td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :area, area: area %>
-                <%= icon_link_to "pencil", [:edit, area], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", [:edit, area], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
+                <% end %>
               <% end %>
 
               <% if allowed_to? :destroy, :area, area: area %>

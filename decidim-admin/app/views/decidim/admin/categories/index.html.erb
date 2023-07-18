@@ -24,7 +24,9 @@
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :category, category: category %>
-                  <%= icon_link_to "pencil", edit_category_path(current_participatory_space, category), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                  <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
+                    <%= icon_link_to "pencil-line", edit_category_path(current_participatory_space, category), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                  <% end %>
                 <% end %>
 
                 <% if allowed_to? :destroy, :category, category: category %>
@@ -45,7 +47,9 @@
                 </td>
                 <td class="table-list__actions">
                 <% if allowed_to? :update, :category, category: subcategory %>
-                  <%= icon_link_to "pencil", edit_category_path(current_participatory_space, subcategory), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                  <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
+                    <%= icon_link_to "pencil-line", edit_category_path(current_participatory_space, subcategory), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                  <% end %>
                 <% end %>
 
                 <% if allowed_to? :destroy, :category, category: subcategory %>

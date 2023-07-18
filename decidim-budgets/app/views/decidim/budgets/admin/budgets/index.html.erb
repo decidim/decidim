@@ -47,9 +47,13 @@
             <%= td_resource_scope_for(budget.scope) %>
             <td class="table-list__actions">
               <% if allowed_to? :update, :budget, budget: budget %>
-                <%= icon_link_to "pencil", edit_budget_path(budget), t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.budgets"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", edit_budget_path(budget), t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
+                <% end %>
               <% else %>
-                <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.budgets") %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.budgets"), class: "top" do %>
+                  <%= icon "pencil-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.budgets") %>
+                <% end %>
               <% end %>
 
               <%= icon_link_to "list", budget_projects_path(budget), t("actions.edit_projects", scope: "decidim.budgets"), class: "action-icon--edit-projects" %>

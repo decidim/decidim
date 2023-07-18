@@ -45,7 +45,9 @@
             </td>
             <td class="table-list__actions">
               <% if allowed_to?(:update, :newsletter, newsletter: newsletter) && !newsletter.sent? %>
-                <%= icon_link_to "pencil", decidim_admin.edit_newsletter_path(newsletter), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", decidim_admin.edit_newsletter_path(newsletter), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
+                <% end %>
               <% end %>
 
               <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>

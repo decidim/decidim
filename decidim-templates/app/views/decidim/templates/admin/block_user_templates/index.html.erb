@@ -24,7 +24,9 @@
             <td><%= l template.created_at, format: :long %></td>
             <td class="table-list__actions">
               <% if allowed_to?(:update, :template, questionnaire_template: template) %>
-                <%= icon_link_to "pencil", edit_block_user_template_path(template), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
+                  <%= icon_link_to "pencil", edit_block_user_template_path(template), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
+                <% end %>
               <% end %>
               <% if allowed_to?(:copy, :template, questionnaire_template: template) %>
                 <%= icon_link_to "clipboard", copy_block_user_template_path(template), t("actions.duplicate", scope: "decidim.admin"), method: :post %>

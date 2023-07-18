@@ -48,7 +48,9 @@
               <% end %>
 
               <% if allowed_to? :update, :conference_user_role, user_role: role %>
-                <%= icon_link_to "pencil", edit_conference_user_role_path(current_conference, role), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
+                  <%= icon_link_to "pencil-line", edit_conference_user_role_path(current_conference, role), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                <% end %>
               <% end %>
 
               <% if allowed_to? :destroy, :conference_user_role, user_role: role %>
