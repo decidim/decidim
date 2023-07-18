@@ -12,20 +12,14 @@
         <%= link_to translated_attribute(participatory_process_group.title), decidim_admin_participatory_processes.participatory_process_group_path(participatory_process_group), data: { "external-link": false }, class: "process-title-content-breadcrumb" %>
       </div>
       <div class="process-title-content-breadcrumb-container-right">
-        <%= link_to decidim_participatory_processes.participatory_process_group_path(participatory_process_group), class: "process-title-content-breadcrumb-container-right-link" do %>
-          <%= icon "eye-line" %>
-          <span>
-            <%= t("see_process", scope: "decidim.admin.actions") %>
-          </span>
-        <% end %>
-        <div class="inline-block relative">
-          <%= button_tag id: "processes-group-dropdown-menu-trigger", data: { component: 'dropdown', target: 'processes-group-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
-            <%= icon "more-line" %>
+        <% if allowed_to? :create, :process_group %>
+          <%= link_to [:new, :participatory_process_group], class: "process-title-content-breadcrumb-container-right-link" do %>
+            <%= icon "add-line" %>
+            <span>
+              <%= t("actions.new_process_group", scope: "decidim.admin") %>
+            </span>
           <% end %>
-          <div id="processes-group-dropdown-menu-settings" class="process-title-content-dropdown">
-            <%= sidebar_menu(:admin_participatory_process_group_menu).render %>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

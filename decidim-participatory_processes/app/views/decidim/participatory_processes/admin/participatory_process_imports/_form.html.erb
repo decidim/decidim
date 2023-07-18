@@ -1,25 +1,23 @@
-<div class="card" id="processes">
-  <div class="card-divider">
-    <h2 class="card-title"><%= title %></h2>
-  </div>
-  <div class="card-section">
-    <div class="row column">
-      <div class="row">
-        <div class="column xlarge-8">
-          <%= form.translated :text_field, :title, autofocus: true %>
-        </div>
-        <div class="column xlarge-4 slug">
-          <%= form.text_field :slug %>
-          <p class="help-text"><%== t(".slug_help", url: decidim_form_slug_url(:processes, form.object.slug)) %></p>
-        </div>
-        <div class="column xlarge-8">
-          <fieldset>
-            <legend><%= t(".document_legend") %> </legend>
-              <div class="row column">
-                <%= form.upload :document, required: true, button_class: "button button__sm button__transparent-secondary" %>
-              </div>
-          </fieldset>
-        </div>
+<div class="form__wrapper">
+  <div class="card" id="processes">
+    <div class="card-divider">
+      <h2 class="card-title"><%= title %></h2>
+    </div>
+    <div class="card-section">
+      <div class="row column xlarge-8">
+        <%= form.translated :text_field, :title, autofocus: true %>
+      </div>
+      <div class="row column xlarge-4 slug">
+        <%= form.text_field :slug %>
+        <p class="help-text"><%== t(".slug_help", url: decidim_form_slug_url(:processes, form.object.slug)) %></p>
+      </div>
+      <div class="row column xlarge-8">
+        <fieldset>
+          <legend><%= t(".document_legend") %> </legend>
+            <div class="row column">
+              <%= form.upload :document, required: true, button_class: "button button__sm button__transparent-secondary" %>
+            </div>
+        </fieldset>
       </div>
       <div class="card">
         <div class="card-divider">

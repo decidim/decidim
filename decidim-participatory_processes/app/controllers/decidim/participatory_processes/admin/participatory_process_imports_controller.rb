@@ -4,6 +4,9 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       class ParticipatoryProcessImportsController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
+
+        layout "decidim/admin/participatory_processes"
+
         def new
           enforce_permission_to :import, :process
           @form = form(ParticipatoryProcessImportForm).instance
