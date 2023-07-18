@@ -89,5 +89,5 @@ jobs:
         name: Upload coverage
         with:
           token: ${{ env.CODECOV_TOKEN }}
-          name: decidim-generators-flags
-          flags: decidim-generators-flags
+          name: decidim-generators
+          flags: decidim-generators
