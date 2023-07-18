@@ -82,11 +82,15 @@
       }
     }
 
+    a.process-title-content-breadcrumb:hover{
+      @apply cursor-pointer hover:backdrop-brightness-75 focus:backdrop-brightness-75;
+    }
+
     &-breadcrumb{
-      @apply text-md font-bold text-white underline;
+      @apply text-md text-white rounded py-1 px-2 bg-transparent;
 
       &-no-active{
-        @apply text-md text-white font-normal no-underline;
+        @apply text-md text-white;
       }
 
       &-container-left{

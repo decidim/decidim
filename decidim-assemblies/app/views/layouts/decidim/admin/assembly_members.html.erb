@@ -8,9 +8,9 @@
           <%= icon "home-gear-line" %>
         <% end %>
         <span class="text-white">/</span>
-        <%= link_to t("decidim.admin.titles.assemblies"), decidim_admin_assemblies.assemblies_path, data: { "external-link": false }, class: "process-title-content-breadcrumb-no-active" %>
+        <%= link_to t("decidim.admin.titles.assemblies"), decidim_admin_assemblies.assemblies_path, data: { "external-link": false }, class: "process-title-content-breadcrumb" %>
         <span class="text-white">/</span>
-        <%= link_to translated_attribute(current_participatory_space.title), decidim_assemblies.assembly_path(current_participatory_space), data: { "external-link": false }, class: 'process-title-content-breadcrumb-no-active' %>
+        <%= link_to translated_attribute(current_participatory_space.title), decidim_assemblies.assembly_path(current_participatory_space), data: { "external-link": false }, class: 'process-title-content-breadcrumb' %>
         <span class="text-white">/</span>
         <span class="process-title-content-breadcrumb"><%= t("assembly_members.index.assembly_members_title", scope: "decidim.admin") %></span>
       </div>
