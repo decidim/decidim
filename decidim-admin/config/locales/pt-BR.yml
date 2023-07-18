@@ -1035,9 +1035,11 @@ pt-BR:
         moderation:
           fields:
             created_at: Data de criação
+            deleted_resource: Recurso excluído
             hidden_at: Escondido em
             participatory_space: Espaço participativo
             report_count: Contagem
+            reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL de conteúdo relatado
             reports: Denúncias
