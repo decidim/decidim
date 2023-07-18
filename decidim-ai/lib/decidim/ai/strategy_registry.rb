@@ -5,7 +5,7 @@ module Decidim
     class StrategyRegistry
       class StrategyAlreadyRegistered < StandardError; end
 
-      def register_analyzer(name, klass, options = {})
+      def register_analyzer(name:, strategy:, options: {})
         if strategies[name].present?
           raise(
             StrategyAlreadyRegistered,
@@ -13,7 +13,7 @@ module Decidim
           )
         end
 
-        strategies[name] = klass.new(options)
+        strategies[name] = strategy.new(options)
       end
 
       def for(name)

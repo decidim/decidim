@@ -6,14 +6,13 @@ describe Decidim::Ai::SpamDetectionService do
   subject { described_class.new }
 
   let(:registry) { Decidim::Ai.spam_detection_registry }
+  let(:base_strategy) { { name: :base, strategy: Decidim::Ai::SpamContent::BaseStrategy } }
+  let(:dummy_strategy) { { name: :dummy, strategy: Decidim::Ai::SpamContent::BaseStrategy } }
 
   before do
-    registry.register_analyzer(:base, Decidim::Ai::SpamContent::BaseStrategy)
-    registry.register_analyzer(:dummy, Decidim::Ai::SpamContent::BaseStrategy)
-  end
-
-  after do
     registry.clear
+    registry.register_analyzer(**base_strategy)
+    registry.register_analyzer(**dummy_strategy)
   end
 
   describe "train" do
@@ -39,7 +38,7 @@ describe Decidim::Ai::SpamDetectionService do
       expect(registry.for(:base)).to receive(:untrain).with(:spam, "text")
       expect(registry.for(:dummy)).to receive(:untrain).with(:spam, "text")
 
-      subject.untrain(:spam, "text")
+      subject.classify("text")
     end
   end
 

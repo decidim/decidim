@@ -8,11 +8,11 @@ module Decidim
           @options = options
         end
 
-        def classify(content); end
+        def classify(_content); end
 
-        def train!(classification, content); end
+        def train(_classification, _content); end
 
-        def untrain!(classification, content); end
+        def untrain(_classification, _content); end
       end
     end
   end
