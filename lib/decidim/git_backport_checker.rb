@@ -11,7 +11,7 @@ module Decidim
   # so we can check which PRs have pending backports
   class GitBackportChecker
     # @param token [String] token for GitHub authentication
-    # @param days_to_check_from [Integer] the number of days from when we will start the check
+    # @param days_to_check_from [Integer] the number of days since the pull requests were updated from when we will start the check
     # @param last_version_number [String] the version number of the last release that we want to make the backport to
     def initialize(token:, days_to_check_from:, last_version_number:)
       @token = token

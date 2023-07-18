@@ -8,13 +8,13 @@ module Decidim
     module Querier
       # Makes a GET request for the list of Issues or Pull Requests in GitHub.
       # They must comply the following conditions:
-      # * To be created in the period between the days to check from and today. (90 days by default)
+      # * To be updated in the period between the days to check from and today. (90 days by default)
       # * To have the label that we are querying ("type: fix" by default)
       # * To not have any of the excluded labels (["backport", "no-backport"] by default)
       # * To have been merged
       #
       # @param token [String] token for GitHub authentication
-      # @param days_to_check_from [Integer] the number of days from when we will start the check
+      # @param days_to_check_from [Integer] the number of days since the pull requests were updated from when we will start the check
       # @param label [String] the label that we want to search by
       # @param exclude_labels [Array] the labels that we want to exclude in the search
       #
