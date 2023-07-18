@@ -31,7 +31,7 @@ module Decidim
         #
         # @return [Hash]
         def call
-          parse json_response
+          parse json_response("https://api.github.com/repos/decidim/decidim/issues")
         end
 
         private

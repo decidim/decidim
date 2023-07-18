@@ -2,6 +2,7 @@
 
 require "json"
 require "faraday"
+require "uri"
 
 module Decidim
   module GithubManager
@@ -22,10 +23,6 @@ module Decidim
           raise "Not implemented"
         end
 
-        def uri
-          raise "Not implemented"
-        end
-
         private
 
         attr_reader :token
@@ -34,15 +31,46 @@ module Decidim
           nil
         end
 
-        def response
-          Faraday.get(uri, headers, { Authorization: "token #{token}" })
+        def authorization_header
+          { Authorization: "token #{token}" }
         end
 
-        def json_response
-          json = JSON.parse(response.body)
+        def request(uri)
+          response = Faraday.get(uri, headers, authorization_header)
+
+          { body: response.body, headers: response.headers }
+        end
+
+        # Get's the JSON response from a URI
+        # Supports pagination
+        #
+        # @param uri {String} - The URL that we want to get the JSON response from
+        # @param old_json {Array} - The Array with the old_json or an empty Array if it's the first time that we're calling this method
+        def json_response(uri, old_json = [])
+          body, headers = request(uri).values_at(:body, :headers)
+          json = JSON.parse(body)
+          json.concat(old_json) if json.is_a?(Array)
           raise InvalidMetadataError if json.is_a?(Hash) && json["message"] == "Bad credentials"
 
-          json
+          # If there are more pages, then we call ourselves redundantly to fetch the next page
+          next_json = more_pages?(headers) ? json_response(next_page(headers), json) : []
+          if json.is_a?(Array)
+            json.concat(next_json).uniq do |issue|
+              issue.key?("number") ? issue["number"] : issue
+            end
+          else
+            json
+          end
+        end
+
+        def more_pages?(headers)
+          return false if headers["link"].nil?
+
+          headers["link"].include?('rel="next"')
+        end
+
+        def next_page(headers)
+          URI.extract(headers["link"].split(",").select { |url| url.end_with?('rel="next"') }[0])[0]
         end
       end
     end

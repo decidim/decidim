@@ -18,19 +18,13 @@ module Decidim
         #
         # @return [Hash]
         def call
-          data = json_response
+          data = json_response("https://api.github.com/repos/decidim/decidim/issues/#{@issue_id}")
           return unless data["number"]
 
-          parse(json_response)
+          parse(data)
         end
 
         private
-
-        attr_reader :issue_id
-
-        def uri
-          "https://api.github.com/repos/decidim/decidim/issues/#{issue_id}"
-        end
 
         # Parses the response of an Issue or Pull Request in GitHub
         #

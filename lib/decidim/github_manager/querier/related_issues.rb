@@ -19,19 +19,13 @@ module Decidim
         #
         # @return [Hash]
         def call
-          parse(json_response)
+          parse(json_response("https://api.github.com/repos/decidim/decidim/issues/#{@issue_id}/timeline"))
         end
 
         private
 
-        attr_reader :issue_id
-
         def headers
           { per_page: 100 }
-        end
-
-        def uri
-          "https://api.github.com/repos/decidim/decidim/issues/#{issue_id}/timeline"
         end
 
         # Parses the response of an Issue or Pull Request in GitHub
