@@ -59,19 +59,25 @@
           <td class="table-list__actions">
 
             <% if allowed_to? :create, :process, process: process %>
-              <%= icon_link_to "download-line", participatory_process_export_path(process), t("actions.export", scope: "decidim.admin"), method: :post, class: "action-icon--export" %>
+              <%= with_tooltip t("actions.export", scope: "decidim.admin"), class: "top" do %>
+                <%= icon_link_to "download-line", participatory_process_export_path(process), t("actions.export", scope: "decidim.admin"), method: :post, class: "action-icon--export" %>
+              <% end %>
             <% else %>
               <span class="action-space icon"></span>
             <% end %>
 
             <% if allowed_to? :create, :process, process: process %>
-              <%= icon_link_to "file-copy-line", new_participatory_process_copy_path(process), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
+              <%= with_tooltip t("actions.duplicate", scope: "decidim.admin"), class: "top" do %>
+                <%= icon_link_to "file-copy-line", new_participatory_process_copy_path(process), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
+              <% end %>
             <% else %>
               <span class="action-space icon"></span>
             <% end %>
 
             <% if allowed_to? :preview, :process, process: process %>
-              <%= icon_link_to "eye-line", decidim_participatory_processes.participatory_process_path(process), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview" %>
+              <%= with_tooltip t("actions.preview", scope: "decidim.admin"), class: "top" do %>
+                <%= icon_link_to "eye-line", decidim_participatory_processes.participatory_process_path(process), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview" %>
+              <% end %>
             <% else %>
               <span class="action-space icon"></span>
             <% end %>

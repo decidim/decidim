@@ -1,5 +1,5 @@
 [role="tooltip"] {
-  @apply absolute bg-black z-10 p-4 w-max max-w-xs rounded text-left text-white;
+  @apply absolute bg-black z-10 p-2 w-max max-w-xs rounded text-left text-white;
 
   & > * {
     @apply relative z-20;
