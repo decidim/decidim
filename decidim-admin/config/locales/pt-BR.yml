@@ -377,6 +377,7 @@ pt-BR:
             'true': 'Sim'
         moderated_users:
           reports_reason_eq:
+            label: Razão da denúncia
             values:
               does_not_belong: Não pertence
               offensive: Ofensivo
@@ -415,6 +416,7 @@ pt-BR:
         search_label: Buscar
         search_placeholder:
           name_or_nickname_or_email_cont: Pesquise %{collection} por e-mail, nome ou apelido.
+          report_count_eq: Número de denúncias
           reported_id_string_or_reported_content_cont: Pesquisar %{collection} por id ou conteúdo reportável.
           title_cont: Pesquisar %{collection} por título.
           user_name_or_user_email_cont: Pesquise %{collection} por nome ou e-mail.
@@ -481,6 +483,16 @@ pt-BR:
           invalid_indexes:
             lines:
               detail: Por favor, verifique se essas linhas estão formatadas corretamente e contém registros válidos.
+              message:
+                one: Ocorreu um erro no arquivo de importação na linha %{indexes}.
+                other: Erros encontrados no arquivo de importação nas linhas %{indexes}.
+            records:
+              detail: Por favor, verifique se essas linhas estão formatadas corretamente e contém registros válidos.
+              message:
+                one: Encontrado um erro no arquivo de importação para registros com os números de ordem %{indexes}.
+                other: Erros encontrados no arquivo de importação para registros com ordem número %{indexes}.
+          missing_headers:
+            detail: Por favor, verifique se o arquivo contém colunas obrigatórias.
         error: Houve um problema durante a importação
         new:
           accepted_mime_types:
@@ -490,6 +502,7 @@ pt-BR:
           actions:
             back: Voltar
           download_example: Baixar exemplo
+          download_example_format: Exemplo como %{name}
           file_legend: Adicionar um arquivo de importação que será analisado.
           import: Importar
         notice: "%{number} %{resource_name} importado com sucesso"
@@ -662,6 +675,7 @@ pt-BR:
       newsletters:
         create:
           error: Ocorreu um erro ao criar este boletim informativo.
+          success: Boletim informativo criado com Sucesso. Por favo, revise o antes de enviar.
         deliver:
           error: Houve um erro na entrega deste boletim informativo.
           success: Newsletter entregue com sucesso.
@@ -744,6 +758,7 @@ pt-BR:
           title: Oficializar o usuário "%{name}"
         show_email_modal:
           close_modal: Fechar Modal
+          description: Se você precisar entrar em contato com um participante diretamente você pode clicar no botão Mostrar para ver o endereço de e-mail. Esta ação será registrada.
           email_address: Endereço de E-mail
           full_name: Nome completo
           hidden: oculto
