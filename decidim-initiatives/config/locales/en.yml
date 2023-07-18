@@ -147,7 +147,6 @@ en:
             timestamp: Timestamp
       titles:
         initiatives: Initiatives
-        initiatives_settings: Settings for initiatives
         initiatives_types: Initiative types
     events:
       initiatives:

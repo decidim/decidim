@@ -1034,11 +1034,9 @@ en:
         area_types: Area types
         areas: Areas
         authorization_workflows: Verification methods
-        conflicts: Verification conflicts
         dashboard: Dashboard
         edit_external_domains: External domain whitelist
         edit_organization_appearance: Edit homepage appearance
-        global_moderations: Global moderations
         impersonatable_users: Manageable participants
         impersonations: Participants management
         metrics: Metrics

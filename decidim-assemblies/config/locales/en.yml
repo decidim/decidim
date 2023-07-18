@@ -247,10 +247,8 @@ en:
             valuator: Valuator
       titles:
         assemblies: Assemblies
-        assemblies_settings: Settings for assemblies
         assemblies_types: Assemblies types
         assemblies_types_edit: Edit assembly type
-        new_assembly: New assembly
         new_assembly_type: New assembly type
     admin_log:
       assembly:
