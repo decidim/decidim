@@ -48,7 +48,7 @@
     }
 
     & > li.is-dropdown-submenu-parent > a{
-      @apply px-4 py-1 text-white bg-secondary;
+      @apply pl-4 pr-8 py-1 text-white bg-secondary;
 
       &::after{
         border-top-color: #fff;
