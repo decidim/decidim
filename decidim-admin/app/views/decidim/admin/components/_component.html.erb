@@ -27,9 +27,10 @@
       <% else %>
         <span class="action-space icon"></span>
       <% end %>
-
       <% if allowed_to? :update, :component, component: component %>
-        <%= icon_link_to "cog", url_for(action: :edit, id: component, controller: "components"), t("actions.configure", scope: "decidim.admin"), class: "action-icon--configure" %>
+        <%= with_tooltip t("actions.configure", scope: "decidim.admin"), class: "top" do %>
+          <%= icon_link_to "settings-4-line", url_for(action: :edit, id: component, controller: "components"), t("actions.configure", scope: "decidim.admin"), class: "action-icon--configure" %>
+        <% end %>
       <% else %>
         <span class="action-space icon"></span>
       <% end %>
