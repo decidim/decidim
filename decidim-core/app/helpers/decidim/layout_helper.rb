@@ -89,6 +89,7 @@ module Decidim
         html_properties["aria-hidden"] = true
       end
 
+      # REDESIGN_PENDING: remove legacy icon file once this method has been wiped
       href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg")
 
       content_tag :svg, html_properties do
