@@ -46,7 +46,9 @@
 
               <% if allowed_to?(:update, :registration_type, registration_type: registration_type) %>
                 <% if registration_type.published? %>
-                  <%= icon_link_to "x", conference_registration_type_publish_path(current_conference, registration_type), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :delete %>
+                  <%= with_tooltip t("actions.unpublish", scope: "decidim.admin"), class: "top" do %>
+                    <%= icon_link_to "close-circle-line", conference_registration_type_publish_path(current_conference, registration_type), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :delete %>
+                  <% end %>
                 <% else %>
                   <%= icon_link_to "check", conference_registration_type_publish_path(current_conference, registration_type), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :post %>
                 <% end %>

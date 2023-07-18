@@ -124,7 +124,9 @@
 
               <% if allowed_to? :update, :meeting, meeting: meeting %>
                 <% if meeting.published? %>
-                  <%= icon_link_to "x", unpublish_meeting_path(meeting), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish", data: { confirm: t("actions.unpublish", scope: "decidim.admin") } %>
+                  <%= with_tooltip t("actions.unpublish", scope: "decidim.admin"), class: "top" do %>
+                    <%= icon_link_to "close-circle-line", unpublish_meeting_path(meeting), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish", data: { confirm: t("actions.unpublish", scope: "decidim.admin") } %>
+                  <% end %>
                 <% else %>
                   <%= icon_link_to "check", publish_meeting_path(meeting), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish" %>
                 <% end %>

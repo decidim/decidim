@@ -61,7 +61,9 @@
 
               <% if election.published? %>
                 <% if allowed_to?(:unpublish, :election, election: election) %>
-                  <%= icon_link_to "x", url_for(action: :unpublish, id: election, controller: "elections"), t("actions.unpublish", scope: "decidim.elections"), class: "action-icon--unpublish", method: :put %>
+                  <%= with_tooltip t("actions.unpublish", scope: "decidim.admin"), class: "top" do %>
+                    <%= icon_link_to "close-circle-line", url_for(action: :unpublish, id: election, controller: "elections"), t("actions.unpublish", scope: "decidim.elections"), class: "action-icon--unpublish", method: :put %>
+                  <% end %>
                 <% else %>
                   <%= icon "x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.unpublish", scope: "decidim.elections") %>
                 <% end %>
