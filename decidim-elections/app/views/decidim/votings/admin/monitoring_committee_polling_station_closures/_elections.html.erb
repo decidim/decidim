@@ -19,7 +19,9 @@
               <%= link_to translated_attribute(election.title), voting_monitoring_committee_polling_station_closures_path(current_voting, election_id: election.id) %>
             </td>
             <td class="table-list__actions">
-              <%= icon_link_to "eye", voting_monitoring_committee_polling_station_closures_path(current_voting, election_id: election.id), t("actions.view", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures"), class: "action-icon--edit" %>
+              <%= with_tooltip t("actions.view", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures"), class: "top" do %>
+                <%= icon_link_to "eye-line", voting_monitoring_committee_polling_station_closures_path(current_voting, election_id: election.id), t("actions.view", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures"), class: "action-icon--edit" %>
+              <% end %>
             </td>
           </tr>
         <% end %>

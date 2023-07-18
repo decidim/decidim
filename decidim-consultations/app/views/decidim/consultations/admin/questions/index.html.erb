@@ -63,11 +63,9 @@
               <% end %>
 
               <% if allowed_to? :preview, :question, question: question %>
-                <%= icon_link_to "eye",
-                                 decidim_consultations.question_path(question),
-                                 t("actions.preview", scope: "decidim.admin"),
-                                 class: "action-icon--preview",
-                                 target: "_blank" %>
+                <%= with_tooltip t("actions.preview", scope: "decidim.admin"), class: "top" do %>
+                  <%= icon_link_to "eye-line", decidim_consultations.question_path(question), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: "_blank" %>
+                <% end %>ç
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>

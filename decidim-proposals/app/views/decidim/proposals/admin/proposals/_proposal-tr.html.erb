@@ -77,7 +77,9 @@
 
     <%= icon_with_link_to_proposal(proposal) %>
 
-    <%= icon_link_to "eye", resource_locator(proposal).path, t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank %>
+    <%= with_tooltip t("actions.preview", scope: "decidim.proposals.admin"), class: "top" do %>
+      <%= icon_link_to "eye-line", resource_locator(proposal).path, t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank %>
+    <% end %>
 
     <%= resource_permissions_link(proposal) %>
   </td>

@@ -43,7 +43,9 @@
       <%= icon_link_to "paperclip", project_attachments_path(project), t("actions.attachments", scope: "decidim.budgets"), class: "action-icon--attachments" %>
     <% end %>
 
-    <%= icon_link_to "eye", resource_locator([budget, project]).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview" %>
+    <%= with_tooltip t("actions.preview", scope: "decidim.budgets"), class: "top" do %>
+      <%= icon_link_to "eye-line", resource_locator([budget, project]).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview" %>
+    <% end %>
 
     <%= resource_permissions_link(project) %>
 

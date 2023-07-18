@@ -48,7 +48,9 @@
               <% end %>
 
               <% if allowed_to? :preview, :conference, conference: conference %>
-                <%= icon_link_to "eye", decidim_conferences.conference_path(conference), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview" %>
+                <%= with_tooltip t("actions.preview", scope: "decidim.admin"), class: "top" do %>
+                  <%= icon_link_to "eye-line", decidim_conferences.conference_path(conference), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview" %>
+                <% end %>
               <% end %>
 
               <% if allowed_to? :read, :moderation, conference: conference %>
