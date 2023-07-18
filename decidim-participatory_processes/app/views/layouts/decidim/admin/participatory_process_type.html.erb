@@ -1,14 +1,24 @@
-<% content_for :sidebar_menu_nav do %>
-  <%= sidebar_menu(:admin_participatory_processes_menu).render %>
+<% content_for :breadcrumb_nav do %>
+<div class="process-title">
+  <div class="container">
+    <div class="process-title-content">
+      <div class="process-title-content-breadcrumb-container-left">
+        <%= link_to decidim_admin.root_path, class: "process-title-content-icon-home", data: { "external-link": false } do %>
+          <%= icon "home-gear-line" %>
+        <% end %>
+        <span class="text-white">/</span>
+        <%= link_to t("decidim.admin.titles.participatory_processes"), decidim_admin_participatory_processes.participatory_processes_path, data: { "external-link": false }, class: "process-title-content-breadcrumb" %>
+        <span class="text-white">/</span>
+        <span class="process-title-content-breadcrumb">
+          <%= t("decidim.admin.titles.participatory_process_types") %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>
-  <div class="process-title">
-    <div class="process-title-content">
-      <%= link_to t("decidim.admin.titles.participatory_processes"), decidim_participatory_processes.participatory_processes_path, target: "_blank" %>
-    </div>
-  </div>
-
   <div class="process-content">
     <%= yield %>
   </div>
