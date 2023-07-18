@@ -7,7 +7,8 @@ require "active_support/testing/time_helpers"
 describe Decidim::GithubManager::Querier::ByLabel do
   include ActiveSupport::Testing::TimeHelpers
 
-  let(:querier) { described_class.new(token: "abc") }
+  let(:querier) { described_class.new(token: "abc", days_to_check_from:) }
+  let(:days_to_check_from) { 90 }
   let(:date) { Date.new(2020, 1, 1) }
   let(:stubbed_url) { "https://api.github.com/repos/decidim/decidim/issues?labels=type:%20fix&per_page=100&since=2019-10-03&state=closed" }
   let(:stubbed_headers) { {} }
@@ -102,6 +103,26 @@ describe Decidim::GithubManager::Querier::ByLabel do
       let(:result) do
         [
           { id: 12_345, title: "Fix whatever" }
+        ]
+      end
+
+      it "returns a valid result" do
+        expect(querier.call).to eq result
+      end
+    end
+
+    context "when it was merged before the days_to_check_from" do
+      let(:stubbed_body) do
+        <<~RESPONSE
+          [
+            {"number": 12345, "title": "Fix whatever", "labels": [{"name": "type: fix"}, {"name": "module: admin"}], "pull_request": { "merged_at": "2017-04-23T01:01:01Z" }},
+            {"number": 98765, "title": "Fix another thing", "labels": [{"name": "type: fix"}, {"name": "module: core"}], "pull_request": { "merged_at": "2020-01-01T01:01:01Z" }}
+          ]
+        RESPONSE
+      end
+      let(:result) do
+        [
+          { id: 98_765, title: "Fix another thing" }
         ]
       end
 

@@ -20,7 +20,7 @@ class BackportsCheckerCLI < Thor
   option :last_version_number, required: true, desc: <<~HELP
     Required. The version number of the last supported version that you want to do the backports to. It must have the format MAJOR.MINOR.
   HELP
-  option :days_to_check_from, required: false, default: 90, type: :numeric, desc: "How many days since the pull requests were updated we will check from."
+  option :days_to_check_from, required: false, default: 90, type: :numeric, desc: "How many days since the pull requests were merged we will check from."
   default_task :backports_checker
 
   def backports_checker
