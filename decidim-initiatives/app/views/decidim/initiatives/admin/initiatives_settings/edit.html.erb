@@ -1,4 +1,4 @@
-<% add_decidim_page_title(t("initiatives_settings", scope: "decidim.admin.titles")) %>
+<% add_decidim_page_title(t("decidim.initiatives.admin.initiatives_settings.form.title")) %>
 
 <%= decidim_form_for(@form, html: { class: "form edit_initiatives_settings" }, url: initiatives_setting_path, method: :put) do |f| %>
   <%= render partial: "form", object: f %>
