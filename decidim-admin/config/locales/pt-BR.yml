@@ -803,6 +803,7 @@ pt-BR:
           show: Mostrar
           title: Mostrar endereço de e-mail do participante
         unblock:
+          error: Ocorreu um erro ao desbloquear o participante.
           success: Participante desbloqueado com sucesso.
       organization:
         edit:
@@ -825,7 +826,13 @@ pt-BR:
           update: Atualizar
         form:
           colors:
+            choose_color: Escolha a cor primária
             colors_title: Cores da organização
+            explanation: Esta ferramenta ajuda você a escolher um esquema de cores, composto de tons igualmente espaçados ao redor da roda de cor, que será usado no site da organização.
+            legend_html: Cores principais do aplicativo, com base no <a href="https://www.color-meanings.com/triadic-colors/">algoritmo Triadic</a>. A cor <i>secundária</i> é calculada automaticamente a partir da cor primária e da saturação que você escolheu.
+            saturation: Saturação
+            title: Seletor de cores
+            update_suggested_colors: Atualizar cores sugeridas
           cta_button_path_help: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           homepage_appearance_title: Editar a aparência da página inicial
@@ -880,6 +887,7 @@ pt-BR:
           success: Arquivo CSV enviado com sucesso, estamos enviando um e-mail de convite para os participantes. Isso pode demorar um pouco.
         new:
           destroy:
+            button: Excluir todos os participantes privados
             confirm: Tem certeza que deseja excluir todos os participantes privados? Esta ação não pode ser desfeita, não será possível recuperá-los.
             empty: Você não tem participantes privados.
             explanation: Você tem %{count} participantes privados.
@@ -889,6 +897,7 @@ pt-BR:
           upload: Upload
       reminders:
         create:
+          error: Ocorreu um problema ao criar lembretes.
           success:
             one: "%{count} usuário será lembrado."
             other: "%{count} usuários serão lembrados."
@@ -923,6 +932,8 @@ pt-BR:
         create:
           error: Ocorreu um erro ao criar um novo âmbito.
           success: Âmbito criado com sucesso.
+        destroy:
+          success: Âmbito excluído com sucesso.
         edit:
           title: Editar âmbito
           update: Atualizar
@@ -942,6 +953,7 @@ pt-BR:
           error: Houve um problema ao destruir o token.
           success: Token excluído com sucesso.
         share_tokens:
+          empty: Não há tokens ativos.
           help: Esses tokens são usados para compartilhar publicamente esse recurso não publicado para qualquer usuário. Eles estarão ocultos quando o recurso estiver publicado. Clique no ícone de compartilhamento do token para visitar a URL compartilhável.
           title: Compartilhar tokens
       shared:
@@ -954,6 +966,8 @@ pt-BR:
         create:
           error: Ocorreu um erro ao criar um novo tópico.
           success: Tópico criado com sucesso.
+        destroy:
+          success: Tópico destruído com sucesso.
         edit:
           title: Editar tópico
           update: Atualizar tópico
@@ -967,16 +981,26 @@ pt-BR:
         actions:
           view: Ver página pública
         content_blocks:
+          active_content_blocks: Blocos de conteúdo ativo
           add: Adicionar bloco de conteúdo
+          create:
+            error: Ocorreu um problema ao tentar criar esse bloco de conteúdo.
+            success: Bloco de conteúdo criado com sucesso.
+          destroy:
+            error: Ocorreu um problema ao tentar excluir esse bloco de conteúdo.
+            success: Bloco de conteúdo excluído com sucesso.
+          destroy_confirmation: Tem certeza que deseja excluir esse bloco de conteúdo?
           edit:
             update: Atualizar
           inactive_content_blocks: Blocos de conteúdo inativos
+          title: Conteúdo da página
         create:
           error: Ocorreu um erro ao criar uma nova página.
           success: Página criada com sucesso.
         destroy:
           success: Página excluída com sucesso
         edit:
+          changed_notably_help: Se marcada, os usuários serão notificados para aceitar os novos termos de serviço.
           title: Editar página
           update: Atualizar
         form:
@@ -990,6 +1014,7 @@ pt-BR:
         topic:
           destroy: Remover tópico
           edit: Editar tópico
+          empty: Não há página sob este tópico.
           without_topic: Páginas sem tópico
         update:
           error: Ocorreu um erro ao atualizar esta página.
@@ -1010,13 +1035,17 @@ pt-BR:
         static_pages: Páginas
         statistics: Atividade
         user_groups: Grupos de usuários
+        users: Administradores
       user_group:
         csv_verify:
           invalid: Ocorreu um erro ao ler o arquivo CSV.
+          success: O arquivo CSV foi enviado com sucesso, estamos verificando os grupos de usuários que correspondem aos critérios. Isso pode demorar um pouco.
         reject:
           invalid: Ocorreu um erro ao rejeitar esse grupo de usuários.
+          success: Grupo de usuários rejeitado com sucesso.
         verify:
           invalid: Ocorreu um erro ao verificar este grupo de usuários.
+          success: Grupo de usuários verificado com sucesso.
       user_groups:
         index:
           state:
@@ -1028,6 +1057,9 @@ pt-BR:
         new:
           example_file: 'Arquivo de exemplo:'
           explanation: Envie seu arquivo CSV. Deve ter os e-mails oficiais dos grupos de usuários em sua organização na primeira coluna do arquivo, sem cabeçalhos. Somente grupos de usuários que confirmaram seus e-mails e que tenham um e-mail aparecendo no arquivo CSV serão validados.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Envie seu arquivo CSV
           upload: Envio
       users:
@@ -1084,10 +1116,14 @@ pt-BR:
       models:
         moderation:
           fields:
+            deleted_resource: Recurso excluído
             hidden_at: Escondido em
             participatory_space: Espaço participativo
+            report_count: Número de denúncias
+            reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL de conteúdo relatado
+            reports: Motivo
             visit_url: URL de visita
         report:
           fields:
@@ -1100,6 +1136,8 @@ pt-BR:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderações globais
         newsletters:
           title: Boletins informativos
         settings:
