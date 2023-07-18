@@ -289,7 +289,6 @@ en:
           success: Conference registration type successfully updated.
       titles:
         conferences: Conferences
-        duplicate_conference: Duplicate conference
     admin_log:
       conference:
         create: "%{user_name} created the %{resource_name} conference"
