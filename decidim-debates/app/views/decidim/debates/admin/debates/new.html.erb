@@ -1,4 +1,4 @@
-<% add_decidim_page_title(t("title", scope: "decidim.debates.admin.debates.new")) %>
+<% add_decidim_page_title(t(".title")) %>
 <%= decidim_form_for(@form, html: { class: "form new_debate" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 

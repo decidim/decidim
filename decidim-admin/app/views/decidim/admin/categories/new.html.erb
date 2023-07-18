@@ -1,4 +1,4 @@
-<% add_decidim_page_title(t("title", scope: "decidim.admin.categories.new")) %>
+<% add_decidim_page_title(t("categories.new.title", scope: "decidim.admin")) %>
 <%= decidim_form_for(@form, url: categories_path(current_participatory_space), html: { class: "form new_category" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t("categories.new.title", scope: "decidim.admin") } %>
 

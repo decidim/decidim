@@ -1,4 +1,4 @@
-<% add_decidim_page_title(translated_attribute(current_ballot_style.code)) %>
+<% add_decidim_page_title(t(".title")) %>
 <%= decidim_form_for([current_voting, @form], url: { action: "update" }, html: { class: "form edit_ballot_style" })  do |f| %>
   <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 
