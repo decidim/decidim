@@ -3,7 +3,10 @@ pt-BR:
     attributes:
       assemblies_setting:
         enable_organization_chart: Habilitar gráfico de organização
+      assemblies_type:
+        title: Título
       assembly:
+        announcement: Avisos
         area_id: Área
         assembly_type: Tipo de assembleia
         assembly_type_other: Tipo de montagem outro
@@ -22,12 +25,16 @@ pt-BR:
         decidim_scope_id: Âmbito
         description: Descrição
         developer_group: Grupo promotor
+        document: Documento
         domain: Domínio
         duration: Duração
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Imagem inicial
+        import_attachments: Importar anexos
+        import_categories: Importar categorias
+        import_components: Importar componentes
         included_at: Incluído em
         instagram: Instagram
         internal_organisation: Organização interna
@@ -61,8 +68,10 @@ pt-BR:
         designation_date: Data de designação
         full_name: Nome completo
         gender: Gênero
+        non_user_avatar: Avatar
         position: Posição
         user_id: Usuário ou grupo
+        weight: Posição do pedido
       assembly_user_role:
         email: E-mail
         name: Nome
@@ -175,6 +184,9 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar um usuário para esta montagem.
           success: Usuário atualizado com sucesso para esta montagem.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipo de assembleia
       menu:
         assemblies: Assembleias
         assemblies_settings: Configurações
@@ -187,6 +199,7 @@ pt-BR:
           categories: Categorias
           components: Componentes
           info: Informações
+          landing_page: Página principal
           moderations: Moderação
           private_users: Usuários particulares
         assemblies_types: Tipos de assembleia
@@ -305,6 +318,20 @@ pt-BR:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        description:
+          local_area: Área de organização
+          meta_scope: Escopo
+          participatory_scope: O que é decidido
+          participatory_structure: Como é decidido
+          target: Quem participa
+          title: Sobre este assembly
+        filters:
+          names:
+            all: Todos
+          type: Tipo
+        show:
+          title: Sobre este assembly
       assembly_members:
         index:
           members: Membros
@@ -317,8 +344,16 @@ pt-BR:
         participatory: Participativo
         working_group: Grupo de trabalho
       content_blocks:
+        children_assemblies:
+          name: Assembleias
+        dates_metadata:
+          name: Metadados dos dados
+        extra_data:
+          name: Tipo e duração
         highlighted_assemblies:
           name: Assembleias em destaque
+        related_assemblies:
+          name: Assembleias Relacionadas
       created_by:
         city_council: Câmara Municipal
         others: Outras
@@ -335,7 +370,13 @@ pt-BR:
         working_group: Grupo de trabalho
       index:
         title: Assembleias
+      last_activity:
+        new_assembly: 'Nova assembleia:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Assembleias ativas
+            see_all_spaces: Ver todas as assembleias 
         user_profile:
           member_of:
             member_of: Membro de
@@ -347,6 +388,7 @@ pt-BR:
           'true': transparente
         private_space: Esta é uma assembleia privada
         related_participatory_processes: Processos participativos relacionados
+        social_networks_title: Visite assembleia em
     assembly_members:
       assembly_member:
         designated_on: Designado em
@@ -356,6 +398,7 @@ pt-BR:
       assemblies:
         create_assembly_member:
           email_intro: Um administrador da assembleia<a href="%{resource_url}">%{resource_name}</a> adicionou você como um de seus membros.
+          email_outro: Você recebeu esta notificação porque foi convidado para um assembleia. Verifique a <a href="%{resource_url}">página de assembleia</a> para contribuir!
           email_subject: Você foi convidado para ser um membro da assembleia %{resource_name}!
           notification_title: Você foi registrado como um membro da Assembleia <a href="%{resource_path}">%{resource_name}</a>. Verifique a <a href="%{resource_path}">página do assembleia</a> para contribuir!
       assembly:
@@ -397,6 +440,10 @@ pt-BR:
         index:
           children: 'Assembleias: '
           promoted_assemblies: Montagens destacadas
+        metadata:
+          children_item:
+            one: "Assembleia %{count}"
+            other: "Assembleia %{count}"
         order_by_assemblies:
           assemblies:
             one: "Assembly %{count}"
