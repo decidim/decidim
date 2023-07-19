@@ -1,15 +1,19 @@
-<div class="section">
-  <div class="row column">
-    <h3 class="section-heading">
-      <%= t("decidim.elections.elections.count.elections_count", count: elections_count) %>
-    </h3>
+<div class="content-block__title">
+  <%# REDESIGN_PENDING: implement accordingly %>
+  <h2 class="h2 decorator"><%= t("decidim.elections.elections.count.elections_count", count: elections_count) %></h2>
+  <div class="label text-lg"><%= elections_count %></div>
 
-    <%= cell(
-        "decidim/collapsible_list",
-        elections,
-        cell_options: {},
-        list_class: "row small-up-1 medium-up-3 card-grid",
-        size: elections_count
-      ) %>
-  </div>
-</section>
+  <%# REDESIGN_PENDING: implement accordingly %>
+  <% if show_all_path.present? %>
+    <%= link_to show_all_path, class: "button button__sm button__text-secondary" do %>
+      <span><%= t("decidim.assemblies.pages.home.highlighted_assemblies.see_all_spaces") %></span>
+      <%= icon "arrow-right-line" %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="participatory-space__block-grid">
+  <% elections.each do |election| %>
+    <%= card_for(election) %>
+  <% end %>
+</div>

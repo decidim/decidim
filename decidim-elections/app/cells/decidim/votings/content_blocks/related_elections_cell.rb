@@ -6,14 +6,6 @@ module Decidim
       class RelatedElectionsCell < Decidim::ViewModel
         delegate :current_participatory_space, to: :controller
 
-        def show
-          if single?
-            render :single
-          else
-            render :show
-          end
-        end
-
         private
 
         def published_election_component_ids
