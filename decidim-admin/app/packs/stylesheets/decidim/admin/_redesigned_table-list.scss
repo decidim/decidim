@@ -113,7 +113,7 @@
 }
 
 .table-list__actions {
-  @apply text-center flex justify-center gap-x-2;
+  @apply text-center whitespace-nowrap;
 
   a:not(:last-child){
     @apply pr-2;
@@ -121,6 +121,10 @@
 
   &:last-child {
     @apply text-right;
+  }
+
+  span{
+    @apply mr-1;
   }
 
   svg{
