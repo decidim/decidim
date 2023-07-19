@@ -10,7 +10,7 @@ module Decidim
         return unless resource.allow_resource_permissions? && allowed_to?(:update, :component, component: resource.component)
 
         current_participatory_space_admin_proxy = ::Decidim::EngineRouter.admin_proxy(current_participatory_space)
-        icon_link_to "key",
+        icon_link_to "key-2-line",
                      current_participatory_space_admin_proxy.edit_component_permissions_path(
                        current_component.id,
                        resource_name: resource.resource_manifest.name,
