@@ -111,15 +111,19 @@
       @apply font-normal pb-16;
 
       &__list {
-        @apply space-y-6;
+        @apply space-y-6 relative;
 
         &-container {
           @apply mt-8 flex flex-col md:flex-row gap-6 md:gap-0 divide-background-3 md:divide-x md:[&>*]:px-10 first:[&>*]:pl-0 last:[&>*]:pr-0;
         }
+
+        > * {
+          @apply relative before:absolute before:w-px before:-z-10 before:left-[18px] before:bg-gray-3 before:h-[calc(100%+1.5rem)] last:before:h-[36px] before:-top-[18px] first:before:top-[18px];
+        }
       }
 
       &__step {
-        @apply flex items-baseline gap-2 relative before:absolute before:w-px before:-z-10 before:left-[18px] before:bg-gray-3 before:h-[calc(100%+1.5rem)] last:before:h-[36px] before:-top-[18px] first:before:top-[18px];
+        @apply flex items-baseline gap-2 text-left;
 
         > :first-child {
           @apply flex-none w-9 h-9 rounded-full inline-grid place-items-center text-secondary bg-background;
