@@ -30,7 +30,7 @@ module Decidim
         end
 
         def confirm
-          enforce_permission_to(:confirm, :conference_registration, conference_registration:)
+          enforce_permission_to(:confirm, :conference_registration, conference_registration: conference_registration)
 
           ConfirmConferenceRegistration.call(conference_registration, current_user) do
             on(:ok) do
