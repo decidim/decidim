@@ -1,9 +1,29 @@
-<%= decidim_form_for(@form, html: { class: "form edit_result" }) do |f| %>
-  <%= render partial: "form", object: f, locals: { title: t(".title") } %>
-
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".update") %>
-  </div>
+<% content_for :breadcrumb_nav_item do %>
+  <span class="text-white">/</span>
+  <%= link_to t("components", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.components_path(current_participatory_space), data: { "external-link": false }, class: "process-title-content-breadcrumb" %>
+  <span class="text-white">/</span>
+  <span class="process-title-content-breadcrumb">
+    <%= t(".title") %>
+  </span>
 <% end %>
+<div class="item__edit">
+  <div class="item__edit-menu">
+    <div class="item__edit-menu-sticky">
+      <p class="item__edit-menu-title">
+        <%= t("sections", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+      </p>
+    </div>
+  </div>
+
+  <div class="item__edit-form">
+     <%= decidim_form_for(@form, html: { class: "form-defaults form edit_result" }) do |f| %>
+       <%= render partial: "form", object: f, locals: { title: t(".title") } %>
+
+       <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+         <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
+       </div>
+     <% end %>
+   </div>
+</div>
 
 <%= append_javascript_pack_tag "decidim_accountability_admin" %>

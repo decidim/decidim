@@ -89,13 +89,17 @@
               <% end %>
 
               <% if allowed_to? :update, :meeting, meeting: meeting %>
-                <%= icon_link_to "folder", meeting_attachment_collections_path(meeting), t("actions.attachment_collections", scope: "decidim.meetings"), class: "action-icon--attachment_collections" %>
+                <%= with_tooltip t("actions.attachment_collections", scope: "decidim.meetings"), class: "top" do %>
+                  <%= icon_link_to "folder-line", meeting_attachment_collections_path(meeting), t("actions.attachment_collections", scope: "decidim.meetings"), class: "action-icon--attachment_collections" %>
+                <% end %>
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>
 
               <% if allowed_to? :update, :meeting, meeting: meeting %>
-                <%= icon_link_to "paperclip", meeting_attachments_path(meeting), t("actions.attachments", scope: "decidim.meetings"), class: "action-icon--attachments" %>
+                <%= with_tooltip t("actions.attachments", scope: "decidim.meetings"), class: "top" do %>
+                  <%= icon_link_to "attachment-line", meeting_attachments_path(meeting), t("actions.attachments", scope: "decidim.meetings"), class: "action-icon--attachments" %>
+                <% end %>
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>
@@ -112,7 +116,6 @@
                 <%= icon_link_to "calendar", meeting.agenda.present? ? edit_meeting_agenda_path(meeting, meeting.agenda) : new_meeting_agenda_path(meeting), t("actions.agenda", scope: "decidim.meetings"), class: "action-icon--agenda" %>
                 <%= icon_link_to "list", edit_meeting_poll_path(meeting), t("actions.manage_poll", scope: "decidim.meetings"), class: "action-icon--manage-poll-questionnaire" %>
               <% else %>
-                <span class="action-space icon"></span>
                 <span class="action-space icon"></span>
               <% end %>
 

@@ -12,6 +12,7 @@
         <%= link_to t("decidim.admin.titles.participatory_processes"), decidim_admin_participatory_processes.participatory_processes_path, data: { "external-link": false }, class: "process-title-content-breadcrumb" %>
         <span class="text-white">/</span>
         <%= link_to translated_attribute(current_participatory_space.title), decidim_admin_participatory_processes.participatory_process_path(current_participatory_space), data: { "external-link": false }, class: 'process-title-content-breadcrumb' %>
+        <%= yield :breadcrumb_nav_item %>
       </div>
       <div class="process-title-content-breadcrumb-container-right">
         <%= link_to decidim_participatory_processes.participatory_process_path(current_participatory_space), class: "process-title-content-breadcrumb-container-right-link" do %>

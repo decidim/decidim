@@ -36,11 +36,15 @@
     <% end %>
 
     <% if allowed_to? :update, :project, project: project %>
-        <%= icon_link_to "folder", project_attachment_collections_path(project), t("actions.attachment_collections", scope: "decidim.budgets"), class: "action-icon--attachment_collections" %>
+      <%= with_tooltip t("actions.attachment_collections", scope: "decidim.budgets"), class: "top" do %>
+        <%= icon_link_to "folder-line", project_attachment_collections_path(project), t("actions.attachment_collections", scope: "decidim.budgets"), class: "action-icon--attachment_collections" %>
+      <% end %>
     <% end %>
 
     <% if allowed_to? :update, :project, project: project %>
-      <%= icon_link_to "paperclip", project_attachments_path(project), t("actions.attachments", scope: "decidim.budgets"), class: "action-icon--attachments" %>
+      <%= with_tooltip t("actions.attachments", scope: "decidim.budgets"), class: "top" do %>
+        <%= icon_link_to "attachment-line", project_attachments_path(project), t("actions.attachments", scope: "decidim.budgets"), class: "action-icon--attachments" %>
+      <% end %>
     <% end %>
 
     <%= with_tooltip t("actions.preview", scope: "decidim.budgets"), class: "top" do %>

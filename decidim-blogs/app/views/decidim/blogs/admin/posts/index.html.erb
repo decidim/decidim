@@ -48,11 +48,15 @@
               <% end %>
 
               <% if allowed_to? :update, :blogpost, blog_post: post %>
-                  <%= icon_link_to "folder", post_attachment_collections_path(post), t("actions.attachment_collections", scope: "decidim.meetings"), class: "action-icon--attachment_collections" %>
+                <%= with_tooltip t("actions.attachment_collections", scope: "decidim.meetings"), class: "top" do %>
+                  <%= icon_link_to "folder-line", post_attachment_collections_path(post), t("actions.attachment_collections", scope: "decidim.meetings"), class: "action-icon--attachment_collections" %>
+                <% end %>
               <% end %>
 
               <% if allowed_to? :update, :blogpost, blog_post: post %>
-                <%= icon_link_to "paperclip", post_attachments_path(post), t("actions.attachments", scope: "decidim.meetings"), class: "action-icon--attachments" %>
+                <%= with_tooltip t("actions.attachments", scope: "decidim.meetings"), class: "top" do %>
+                  <%= icon_link_to "attachment-line", post_attachments_path(post), t("actions.attachments", scope: "decidim.meetings"), class: "action-icon--attachments" %>
+                <% end %>
               <% end %>
 
               <%= with_tooltip t("actions.preview", scope: "decidim.admin"), class: "top" do %>
