@@ -48,11 +48,7 @@
     }
 
     & > li.is-dropdown-submenu-parent > a{
-      @apply pl-4 pr-8 py-1 text-white bg-secondary;
-
-      &::after{
-        border-top-color: #fff;
-      }
+      @apply px-4 py-1 text-white bg-secondary flex items-center gap-x-2;
 
       &:hover{
         @apply text-white bg-secondary;
@@ -64,9 +60,10 @@
       @apply text-white bg-secondary;
     }
 
-    .menu.vertical li.is-active.opens-right > a::after{
-      border-left-color: #fff;
+    .dropdown-filter-icon{
+      @apply fill-white w-5 h-5 p-0;
     }
+
   }
 }
 

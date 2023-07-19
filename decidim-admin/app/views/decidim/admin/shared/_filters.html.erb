@@ -4,6 +4,7 @@
       <li>
         <a href="#" class="dropdown button">
           <%= t("filter_label", scope: "decidim.admin.filters") %>
+          <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
         </a>
         <%= dropdown_submenu(submenu_options_tree(i18n_ctx)) %>
       </li>

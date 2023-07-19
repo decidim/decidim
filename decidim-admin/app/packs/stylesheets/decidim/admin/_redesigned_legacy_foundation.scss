@@ -17,20 +17,6 @@ li.opens-left>.is-dropdown-submenu {
   padding-right: 1.5rem
 }
 
-.dropdown.menu>li.is-dropdown-submenu-parent>a::after {
-  display: block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 6px;
-  content: '';
-  border-bottom-width: 0;
-  border-color: #1779ba transparent transparent;
-  right: 5px;
-  left: auto;
-  margin-top: -3px
-}
-
 [data-whatinput=mouse] .dropdown.menu a {
   outline: 0
 }
