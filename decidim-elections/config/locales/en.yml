@@ -767,6 +767,9 @@ en:
           title: What are votings?
     menu:
       votings: Votings
+    participatory_spaces:
+      related_elections:
+        see_all: See all elections
     statistics:
       elections_count: Elections
       votings_count: Votings

@@ -103,9 +103,14 @@ module Decidim
         end
 
         Decidim.content_blocks.register(:voting_landing_page, :related_elections) do |content_block|
-          content_block.cell = "decidim/votings/content_blocks/related_elections"
+          content_block.cell = "decidim/elections/content_blocks/related_elections"
+          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
           content_block.public_name_key = "decidim.votings.admin.content_blocks.related_elections.name"
-          content_block.default!
+          content_block.component_manifest_name = "elections"
+
+          content_block.settings do |settings|
+            settings.attribute :component_id, type: :select, default: nil
+          end
         end
 
         Decidim.content_blocks.register(:voting_landing_page, :polling_stations) do |content_block|
