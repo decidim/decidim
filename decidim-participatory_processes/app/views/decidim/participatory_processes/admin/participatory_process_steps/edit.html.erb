@@ -10,7 +10,7 @@
       <p class="item__edit-menu-title">
         <%= t("sections", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
       </p>
-      <%= link_to t("title", scope: "decidim.admin.participatory_process_steps.edit"), decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space, anchor: t("title", scope: "decidim.admin.participatory_process_steps.edit")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("title", scope: "decidim.admin.participatory_process_steps.edit"), edit_participatory_process_step_path(current_participatory_process, anchor: t("title", scope: "decidim.admin.participatory_process_steps.edit")), class: "item__edit-menu-anchor" %>
     </div>
   </div>
 

@@ -11,7 +11,7 @@
       <p class="item__edit-menu-title">
         <%= t("sections", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
       </p>
-      <%= link_to t("actions.new_process_step", scope: "decidim.admin"), new_participatory_process_step_path(current_participatory_process, anchor: t("title", scope: "decidim.admin.participatory_process_steps.edit")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("participatory_process_steps.new.title", scope: "decidim.admin"), new_participatory_process_step_path(current_participatory_process, anchor: t("participatory_process_steps.new.title", scope: "decidim.admin")), class: "item__edit-menu-anchor" %>
     </div>
   </div>
 

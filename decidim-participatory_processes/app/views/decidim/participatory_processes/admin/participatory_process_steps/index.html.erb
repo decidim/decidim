@@ -1,9 +1,9 @@
 <div class="card" id="steps">
   <div class="card-divider">
-    <h2 class="card-title">
+    <h2 class="card-title flex items-center">
       <%= t("participatory_process_steps.index.steps_title", scope: "decidim.admin") %>
       <% if allowed_to? :create, :process_step %>
-        <%= link_to t("actions.new_process_step", scope: "decidim.admin"), new_participatory_process_step_path(current_participatory_process), class: "button button__sm button__secondary" %>
+        <%= link_to t("actions.new_process_step", scope: "decidim.admin"), new_participatory_process_step_path(current_participatory_process), class: "button button__sm button__secondary ml-auto" %>
       <% end %>
     </h2>
   </div>
@@ -22,11 +22,13 @@
           <% current_participatory_process.steps.each do |step| %>
             <tr data-id="<%= step.id %>">
               <td>
-                <span class="table-list__actions"><%= icon("move", class: "action-icon") %></span>
-                <% if step.active? %>
-                  <span class="icon-active"></span>
-                <% end %>
-                <%= link_to translated_attribute(step.title), edit_participatory_process_step_path(current_participatory_process, step) %><br>
+                <div class="flex items-center gap-x-2">
+                  <%= icon "drag-move-2-line" %>
+                  <% if step.active? %>
+                    <span class="icon-active"></span>
+                  <% end %>
+                  <%= link_to translated_attribute(step.title), edit_participatory_process_step_path(current_participatory_process, step) %><br>
+                </div>
               </td>
               <td>
                 <% if step.start_date %>
@@ -48,7 +50,9 @@
                 <% end %>
 
                 <% if allowed_to?(:activate, :process_step, process_step: step) && !step.active? %>
-                  <%= icon_link_to "circle-check", participatory_process_step_activate_path(current_participatory_process, step), t("actions.activate", scope: "decidim.admin"), class: "action-icon--activate", method: :post %>
+                  <%= with_tooltip t("actions.activate", scope: "decidim.admin"), class: "top" do %>
+                    <%= icon_link_to "check-line", participatory_process_step_activate_path(current_participatory_process, step), t("actions.activate", scope: "decidim.admin"), class: "action-icon--activate", method: :post %>
+                  <% end %>
                 <% else %>
                   <span class="action-space icon"></span>
                 <% end %>
