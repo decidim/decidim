@@ -280,7 +280,7 @@ module Decidim
     describe "#needs_password_update?" do
       subject { user.needs_password_update? }
 
-      let(:user) { create(:user, :confirmed, organization:) }
+      let(:user) { create(:user, :confirmed, organization: organization) }
       let(:password_expired_time) { Decidim.config.admin_password_expiration_days.days.ago - 1.second }
 
       context "with participant" do
@@ -290,7 +290,7 @@ module Decidim
       end
 
       context "with admin" do
-        let(:user) { create(:user, :confirmed, :admin, organization:, password_updated_at:) }
+        let(:user) { create(:user, :confirmed, :admin, organization: organization, password_updated_at: password_updated_at) }
         let(:password_updated_at) { Time.current }
 
         context "when the password has been recently updated" do
@@ -315,7 +315,7 @@ module Decidim
           it { is_expected.to be(true) }
 
           context "when the user has identities" do
-            let!(:identity) { create(:identity, user:) }
+            let!(:identity) { create(:identity, user: user) }
 
             it { is_expected.to be(false) }
           end
