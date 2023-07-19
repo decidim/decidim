@@ -1,10 +1,12 @@
 <div class='card' id="private_users">
   <div class="card-divider">
-    <h2 class="card-title">
+    <h2 class="card-title flex">
       <%= t(".title") %>
       <% if allowed_to? :create, :space_private_user %>
-        <%= link_to t(".import_via_csv"), new_participatory_space_private_users_csv_imports_path, class: "button button__sm button__secondary import" %>
-        <%= link_to t("actions.participatory_space_private_user.new", scope: "decidim.admin"), url_for(action: :new), class: "button button__sm button__secondary new" %>
+        <div class="ml-auto">
+          <%= link_to t(".import_via_csv"), new_participatory_space_private_users_csv_imports_path, class: "button button__sm button__secondary import" %>
+          <%= link_to t("actions.participatory_space_private_user.new", scope: "decidim.admin"), url_for(action: :new), class: "button button__sm button__secondary new" %>
+        </div>
       <% end %>
     </h2>
   </div>
