@@ -6,9 +6,10 @@ describe Decidim::BackportsReporter::CLIReport do
   subject { described_class.new(report:, last_version_number:).call }
 
   let(:report) do
-    [{ id: 1234, title:, related_issues: [] }]
+    [{ id: 1234, title:, related_issues: }]
   end
   let(:title) { "Fix the world" }
+  let(:related_issues) { [] }
   let(:last_version_number) { "0.27" }
 
   describe ".call" do
@@ -51,10 +52,8 @@ describe Decidim::BackportsReporter::CLIReport do
     end
 
     context "with related_issues" do
-      context "when it is not a backport" do
-        let(:report) do
-          [{ id: 1234, title: "Fix the world", related_issues: [id: 9876, title: "Whatever", state: "closed"] }]
-        end
+      context "when there is not a backport" do
+        let(:related_issues) { [{ id: 9876, title: "Whatever", state: "closed" }] }
 
         it "returns a valid response" do
           response = <<~RESPONSE
@@ -66,16 +65,32 @@ describe Decidim::BackportsReporter::CLIReport do
         end
       end
 
-      context "when it is a backport" do
-        let(:report) do
-          [{ id: 1234, title: "Fix the world", related_issues: [id: 9876, title: 'Backport "Fix the world" to v0.26', state: "merged"] }]
-        end
+      context "when there is a backport" do
+        let(:related_issues) { [{ id: 9876, title: 'Backport "Fix the world" to v0.26', state: "merged" }] }
 
         it "returns a valid response" do
           response = <<~RESPONSE
             |   ID   |                                        Title                                        | Backport v0.27 | Backport v0.26 |
             |--------|-------------------------------------------------------------------------------------|----------------|----------------|
             | #1234 | Fix the world                                                                       |      None      |      \e[34m#9876\e[0m     |
+          RESPONSE
+          expect(subject).to eq response
+        end
+      end
+
+      context "when there are two backports" do
+        let(:related_issues) do
+          [
+            { id: 9876, title: 'Backport "Fix the world" to v0.26', state: "merged" },
+            { id: 9875, title: 'Backport "Fix the world" to v0.27', state: "merged" }
+          ]
+        end
+
+        it "returns a valid response" do
+          response = <<~RESPONSE
+            |   ID   |                                        Title                                        | Backport v0.27 | Backport v0.26 |
+            |--------|-------------------------------------------------------------------------------------|----------------|----------------|
+            | #1234 | Fix the world                                                                       |      \e[34m#9875\e[0m     |      \e[34m#9876\e[0m     |
           RESPONSE
           expect(subject).to eq response
         end
