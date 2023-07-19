@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "active_support/core_ext/string/filters"
 require_relative "report"
 
 module Decidim
@@ -15,7 +16,7 @@ module Decidim
 
       def output_line(line)
         output = "| ##{line[:id]} "
-        output += "| #{line[:title].ljust(84, " ")}"
+        output += "| #{line[:title].truncate(83).ljust(84, " ")}"
         output += "| #{format_backport(line[:related_issues], "v#{last_version_number}")}"
         output += "| #{format_backport(line[:related_issues], "v#{penultimate_version_number}")}|\n"
         output
