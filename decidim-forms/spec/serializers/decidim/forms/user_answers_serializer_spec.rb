@@ -159,7 +159,7 @@ module Decidim
           before do
             users.each do |user|
               questions.each do |question|
-                create(:answer, questionnaire:, question:, user:)
+                create(:answer, questionnaire: questionnaire, question: question, user: user)
               end
             end
           end
