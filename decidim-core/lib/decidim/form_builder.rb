@@ -174,7 +174,6 @@ module Decidim
     #                      or 'full' (optional) (default: 'basic')
     #           :lines - The Integer to indicate how many lines should editor have (optional) (default: 10)
     #           :disabled - Whether the editor should be disabled
-    #           :editor_images - Allow attached images (optional) (default: false)
     #
     # Renders a container with both hidden field and editor container
     def editor(name, options = {})
@@ -192,9 +191,12 @@ module Decidim
         template += label(name, label_text + required_for_attribute(name)) if options.fetch(:label, true)
         template += hidden_field(name, hidden_options)
         template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if hashtaggable}", data: {
-          toolbar: toolbar,
-          disabled: options[:disabled]
-        }.merge(editor_images_options(options)), style: "height: #{lines}rem")
+                                  toolbar: toolbar,
+                                  disabled: options[:disabled],
+                                  editor_images: true,
+                                  upload_images_path: Decidim::Core::Engine.routes.url_helpers.editor_images_path,
+                                  drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images")
+                                }, style: "height: #{lines}rem")
         template += error_for(name, options) if error?(name)
         template.html_safe
       end
@@ -907,15 +909,6 @@ module Decidim
           end
         end
       end
-    end
-
-    def editor_images_options(options)
-      return {} unless options[:editor_images]
-
-      {
-        upload_images_path: Decidim::Core::Engine.routes.url_helpers.editor_images_path,
-        drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images")
-      }
     end
   end
 end
