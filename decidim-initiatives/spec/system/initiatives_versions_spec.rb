@@ -75,13 +75,6 @@ describe "Explore versions", type: :system, versioning: true do
 
     it_behaves_like "accessible page"
 
-    it "allows going back to the versions list" do
-      skip "REDESIGN_PENDING: Once redesigned this page will contain a call to the versions_list cell with links to each one"
-
-      click_link "Show all versions"
-      expect(page).to have_current_path "#{initiative_path}/versions"
-    end
-
     it "shows the creation date" do
       within ".version__author" do
         expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
