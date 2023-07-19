@@ -30,7 +30,8 @@
 
   .button--title{
     @apply flex justify-end gap-x-4 items-center;
-    .dropdown{
+    .dropdown,
+    &.dropdown{
       @apply relative;
     }
   }
