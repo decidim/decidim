@@ -137,14 +137,7 @@ const mentionsInitializer = () => {
     setupEvents($(element));
   });
 
-  // tribute.attach($mentionContainer);
-  // Add a small timeout in order for any elements attached to the mentions
-  // element to initialize themselves.
-  setTimeout(function() {
-    $mentionContainer.each((index, item) => {
-      tribute.attach(item);
-    });
-  }, 1000);
+  tribute.attach($mentionContainer);
 }
 
 $(() => mentionsInitializer());
