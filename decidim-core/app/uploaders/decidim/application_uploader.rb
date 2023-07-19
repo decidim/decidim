@@ -30,6 +30,8 @@ module Decidim
       else
         model.send(mounted_as)
       end
+    rescue ActiveStorage::InvariableError
+      model.send(mounted_as)
     end
 
     def attached?
