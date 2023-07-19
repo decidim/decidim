@@ -30,6 +30,7 @@ jobs:
     name: Build test application
   main:
     strategy:
+      fail-fast: false
       matrix:
         test-command:
           - REDESIGN_ENABLED="false" bundle exec rspec spec/system/admin
