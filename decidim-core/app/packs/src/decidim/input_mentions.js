@@ -80,10 +80,10 @@ const mentionsInitializer = () => {
       if (window.Decidim && item.original.__typename === "UserGroup") {
         const iconsPath =  window.Decidim.config.get("icons_path");
 
-        svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use href="${iconsPath}#icon-members"/></svg></span>`;
+        svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use href="${iconsPath}#ri-team-line"/></svg></span>`;
       }
       return `
-      <span class="author__avatar"><img src="${item.original.avatarUrl}" alt="author-avatar"></span>
+        <img src="${item.original.avatarUrl}" alt="author-avatar">
         <strong>${item.original.nickname}</strong>
         <small>${item.original.name}</small>
         ${svg}
