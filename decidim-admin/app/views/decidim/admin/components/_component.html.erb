@@ -22,7 +22,7 @@
 
       <% if allowed_to? :share, :component, component: component %>
         <%= with_tooltip t("actions.share", scope: "decidim.admin"), class: "top" do %>
-          <%= icon_link_to "share-line", url_for(action: :share, id: component, controller: "components"), t("actions.share", scope: "decidim.admin"), class: "action-icon--share", target: "_blank" %>
+          <%= icon_link_to "share-line", url_for(action: :share, id: component, controller: "components"), t("actions.share", scope: "decidim.admin"), class: "action-icon--share" %>
         <% end %>
       <% else %>
         <span class="action-space icon"></span>

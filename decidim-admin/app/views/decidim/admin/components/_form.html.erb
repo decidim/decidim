@@ -1,19 +1,37 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title"><%= title %></h2>
+<div class="form__wrapper">
+  <div class="card" data-component="accordion" id="accordion-<%= title %>">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-<%= title %>" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="<%= title %>">
+          <%= title %>
+        </h2>
+      </button>
+    </div>
+
+    <div id="panel-<%= title %>" class="card-section">
+      <div class="row column">
+        <%= form.translated :text_field, :name, autofocus: true %>
+      </div>
+      <div class="row column">
+        <%= form.number_field :weight %>
+      </div>
+    </div>
   </div>
+  <% if form.object.settings? %>
+    <div class="card" data-component="accordion" id="accordion-<%= t ".global_settings" %>">
+      <div class="card-divider">
+        <button class="card-divider-button" data-open="true" data-controls="panel-<%= t ".global_settings" %>" type="button">
+          <%= icon "arrow-right-s-line" %>
+          <h2 class="card-title" id="<%= t ".global_settings" %>">
+            <%= t ".global_settings" %>
+          </h2>
+        </button>
+      </div>
 
-  <div class="card-section">
-    <div class="row column">
-      <%= form.translated :text_field, :name, autofocus: true %>
-      <%= form.number_field :weight %>
-
-      <% if form.object.settings? %>
-        <fieldset class="global-settings">
-          <div class="card">
-            <div class="card-divider">
-              <legend><%= t ".global_settings" %></legend>
-            </div>
+      <div id="panel-<%= t ".global_settings" %>" class="card-section">
+        <div class="row column">
+          <fieldset class="global-settings">
             <div class="card-section">
               <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
                 <%= render partial: "decidim/admin/components/settings_fields",
@@ -25,16 +43,25 @@
                            } %>
               <% end %>
             </div>
-          </div>
-        </fieldset>
-      <% end %>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if current_participatory_space.has_steps? %>
+    <div class="card" data-component="accordion" id="accordion-<%= t '.step_settings' %>">
+      <div class="card-divider">
+        <button class="card-divider-button" data-open="true" data-controls="panel-<%= t '.step_settings' %>" type="button">
+          <%= icon "arrow-right-s-line" %>
+          <h2 class="card-title" id="<%= t '.step_settings' %>">
+            <%= t '.step_settings' %>
+          </h2>
+        </button>
+      </div>
 
-      <% if current_participatory_space.has_steps? %>
-        <fieldset class="step-settings">
-          <div class="card">
-            <div class="card-divider">
-              <legend><%= t ".step_settings" %></legend>
-            </div>
+      <div id="panel-<%= t '.step_settings' %>" class="card-section">
+        <div class="row column">
+          <fieldset class="step-settings">
             <div class="card-section">
               <% current_participatory_space.steps.each do |step| %>
                 <fieldset class="step-settings-<%= step.id %>">
@@ -55,14 +82,24 @@
                 </fieldset>
               <% end %>
             </div>
-          </div>
-        </fieldset>
-      <% elsif form.object.default_step_settings? %>
-        <fieldset class="default-step-settings">
-          <div class="card">
-            <div class="card-divider">
-              <legend><%= t ".default_step_settings" %></legend>
-            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  <% elsif form.object.default_step_settings? %>
+    <div class="card"  data-component="accordion" id="accordion-<%= t ".default_step_settings" %>">
+      <div class="card-divider">
+        <button class="card-divider-button" data-open="true" data-controls="panel-<%= t ".default_step_settings" %>" type="button">
+          <%= icon "arrow-right-s-line" %>
+          <h2 class="card-title" id="<%= t ".default_step_settings" %>">
+            <%= t ".default_step_settings" %>
+          </h2>
+        </button>
+      </div>
+
+      <div id="panel-<%= t ".default_step_settings" %>" class="card-section">
+        <div class="row column">
+          <fieldset class="default-step-settings">
             <div class="card-section">
               <%= form.fields_for :default_step_settings, form.object.default_step_settings do |settings_fields| %>
                 <%= render partial: "decidim/admin/components/settings_fields",
@@ -74,13 +111,18 @@
                            } %>
               <% end %>
             </div>
-          </div>
-        </fieldset>
-      <% end %>
-
-      <% if component && component.persisted? && !component.published? %>
-        <%= render partial: "decidim/admin/share_tokens/share_tokens", locals: { share_tokens: form.object.share_tokens } %>
-      <% end %>
+          </fieldset>
+        </div>
+      </div>
     </div>
-  </div>
+  <% end %>
+  <% if component && component.persisted? && !component.published? %>
+    <div class="card" data-component="accordion" id="accordion-<%= title %>">
+      <div id="panel-<%= title %>" class="card-section">
+        <div class="row column">
+            <%= render partial: "decidim/admin/share_tokens/share_tokens", locals: { share_tokens: form.object.share_tokens } %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
