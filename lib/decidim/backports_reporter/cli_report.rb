@@ -15,7 +15,7 @@ module Decidim
       end
 
       def output_line(line)
-        output = "| ##{line[:id]} "
+        output = "| ##{line[:id].to_s.center(5)} "
         output += "| #{line[:title].truncate(83).ljust(84, " ")}"
         output += "| #{format_backport(line[:related_issues], "v#{last_version_number}")}"
         output += "| #{format_backport(line[:related_issues], "v#{penultimate_version_number}")}|\n"
