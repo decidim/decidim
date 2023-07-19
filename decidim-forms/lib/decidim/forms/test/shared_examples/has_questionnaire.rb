@@ -569,30 +569,25 @@ shared_examples_for "has questionnaire" do
         end
       end
 
-      # REDESIGN_PENDING: These test must be adapted to the new interface to
-      # sort elements
-      #
-      # it "properly saves valid sortings" do
-      #   visit questionnaire_public_path
+      it "properly saves valid sortings" do
+        visit questionnaire_public_path
 
-      #   check "We"
-      #   check "all"
-      #   check "like"
-      #   check "dark"
-      #   check "chocolate"
+        %w(We all like dark chocolate).reverse.each do |text|
+          find("div.answer-questionnaire__sorting", text:).drag_to(find("div.answer-questionnaire__sorting", match: :first))
+        end
 
-      #   check "questionnaire_tos_agreement"
+        check "questionnaire_tos_agreement"
 
-      #   accept_confirm { click_button "Submit" }
+        accept_confirm { click_button "Submit" }
 
-      #   within ".success.flash" do
-      #     expect(page).to have_content("successfully")
-      #   end
+        within ".success.flash" do
+          expect(page).to have_content("successfully")
+        end
 
-      #   expect(Decidim::Forms::Answer.first.choices.pluck(:position, :body)).to eq(
-      #     [[0, "We"], [1, "all"], [2, "like"], [3, "dark"], [4, "chocolate"]]
-      #   )
-      # end
+        expect(Decidim::Forms::Answer.first.choices.pluck(:position, :body)).to eq(
+          [[0, "We"], [1, "all"], [2, "like"], [3, "dark"], [4, "chocolate"]]
+        )
+      end
 
       # it "displays errors on incomplete sortings" do
       #   visit questionnaire_public_path
