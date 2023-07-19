@@ -588,53 +588,6 @@ shared_examples_for "has questionnaire" do
           [[0, "We"], [1, "all"], [2, "like"], [3, "dark"], [4, "chocolate"]]
         )
       end
-
-      # it "displays errors on incomplete sortings" do
-      #   visit questionnaire_public_path
-
-      #   check "We"
-
-      #   accept_confirm { click_button "Submit" }
-
-      #   within ".alert.flash" do
-      #     expect(page).to have_content("problem")
-      #   end
-
-      #   expect(page).to have_content("are not complete")
-      # end
-
-      # it "displays maintains sorting order if errors" do
-      #   visit questionnaire_public_path
-
-      #   check "We"
-      #   check "dark"
-      #   check "chocolate"
-
-      #   accept_confirm { click_button "Submit" }
-
-      #   within ".alert.flash" do
-      #     expect(page).to have_content("problem")
-      #   end
-
-      #   # Check the next round to ensure a re-submission conserves status
-      #   expect(page).to have_content("are not complete")
-      #   expect(page).to have_content("1. We\n2. dark\n3. chocolate\nlike\nall")
-
-      #   checkboxes = page.all("input[type=checkbox]")
-
-      #   checkboxes[0].uncheck
-      #   check "We"
-      #   check "all"
-
-      #   accept_confirm { click_button "Submit" }
-
-      #   within ".alert.flash" do
-      #     expect(page).to have_content("problem")
-      #   end
-
-      #   expect(page).to have_content("are not complete")
-      #   expect(page).to have_content("1. dark\n2. chocolate\n3. We\n4. all\nlike")
-      # end
     end
 
     context "when question type is matrix_single" do
