@@ -333,6 +333,26 @@ module Decidim
                   "# config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]"
       end
 
+      def dev_performance_config
+        gsub_file "config/environments/development.rb", /^end\n$/, <<~CONFIG
+
+            # Performance configs for local testing
+            if ENV.fetch("RAILS_BOOST_PERFORMANCE", false).to_s == "true"
+              # Indicate boost performance mode
+              config.boost_performance = true
+              # Enable caching and eager load
+              config.eager_load = true
+              config.cache_classes = true
+              # Logging
+              config.log_level = :info
+              config.action_view.logger = nil
+              # Compress the HTML responses with gzip
+              config.middleware.use Rack::Deflater
+            end
+          end
+        CONFIG
+      end
+
       def authorization_handler
         return unless options[:demo]
 
