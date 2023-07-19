@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Blogs component" do # rubocop:disable RSpec/DescribeClass
   let!(:component) { create(:meeting_component) }
   let(:organization) { component.organization }
-  let!(:current_user) { create(:user, :confirmed, :admin, organization:) }
+  let!(:current_user) { create(:user, :confirmed, :admin, organization: organization) }
 
   describe "on edit", type: :system do
     let(:edit_component_path) do

@@ -39,9 +39,9 @@ describe "Admin manages organization", type: :system do
       visit decidim_admin.edit_organization_path
       expect(find("#organization_comments_max_length")[:required]).to eq("true")
 
-      expect(page).not_to have_content("There is an error in this field.")
+      expect(page).not_to have_content("There's an error in this field.")
       fill_in :organization_comments_max_length, with: ""
-      expect(page).to have_content("There is an error in this field.")
+      expect(page).to have_content("There's an error in this field.")
     end
 
     context "when using the rich text editor" do
