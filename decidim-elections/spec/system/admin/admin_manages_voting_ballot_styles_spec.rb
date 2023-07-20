@@ -56,7 +56,7 @@ describe "Admin manages ballot styles", type: :system do
 
     it "can delete a ballot style" do
       within find("tr", text: ballot_style.code) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm(admin: true) { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

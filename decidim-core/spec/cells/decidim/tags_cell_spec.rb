@@ -54,6 +54,13 @@ describe Decidim::TagsCell, type: :cell do
       expect(html).to have_content(translated(scope.name))
     end
 
+    it "renders the correct filtering link" do
+      html = cell("decidim/tags", proposal_scoped, context: { extra_classes: ["tags--proposal"] }).call
+      path = Decidim::ResourceLocatorPresenter.new(proposal_scoped).index
+      query = { filter: { with_any_scope: [scope.id] } }.to_query
+      expect(html).to have_css(%(a[href="#{path}?#{query}"]))
+    end
+
     it "renders the subscope of a proposal" do
       html = cell("decidim/tags", proposal_subscoped, context: { extra_classes: ["tags--proposal"] }).call
       expect(html).to have_css(".tags.tags--proposal")
@@ -78,6 +85,13 @@ describe Decidim::TagsCell, type: :cell do
       html = cell("decidim/tags", proposal_categorized, context: { extra_classes: ["tags--proposal"] }).call
       expect(html).to have_css(".tags.tags--proposal")
       expect(html).to have_content(translated(category.name))
+    end
+
+    it "renders the correct filtering link" do
+      html = cell("decidim/tags", proposal_categorized, context: { extra_classes: ["tags--proposal"] }).call
+      path = Decidim::ResourceLocatorPresenter.new(proposal_categorized).index
+      query = { filter: { with_any_category: [category.id] } }.to_query
+      expect(html).to have_css(%(a[href="#{path}?#{query}"]))
     end
 
     it "renders the subcategory of a proposal" do

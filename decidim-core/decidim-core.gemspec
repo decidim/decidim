@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
   s.add_dependency "devise", "~> 4.7"
   s.add_dependency "devise-i18n", "~> 1.2"
   s.add_dependency "diffy", "~> 3.3"
-  s.add_dependency "doorkeeper", ">= 5.6.6"
+  s.add_dependency "doorkeeper", "~> 5.6", ">= 5.6.6"
   s.add_dependency "doorkeeper-i18n", "~> 4.0"
   s.add_dependency "file_validators", "~> 3.0"
   s.add_dependency "fog-local", "~> 0.6"
