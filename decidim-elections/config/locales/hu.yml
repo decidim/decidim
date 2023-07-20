@@ -223,6 +223,8 @@ hu:
                 invalid_public_key: A feltöltött fájlban található azonosító kulcsok nem egyeznek a tárolt nyilvános azonosítókulccsal.
               upload_legend: A szerver rendelkezik az nyilvános azonosító kulcsaiddal, de a böngésződ még mindig nem. Az azonosító kulcsaidat tartalmazó fájlt importálnod kell a számítógépére a generálás után létrehozott biztonsági másolatból.
       votes:
+        confirm:
+          answer: Válasz
         modal:
           proposal_header: 'Javaslatok:'
         onboarding_modal:
@@ -267,3 +269,6 @@ hu:
           date: Dátum
         login:
           start_voting: Szavazás kezdete
+      votings_m:
+        footer_button_text:
+          vote: Szavazás
