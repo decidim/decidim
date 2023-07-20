@@ -323,13 +323,7 @@ ro:
           active: Activ
           all: Toate
           finished: Finalizat
-          search: Caută
           upcoming: Urmează
-        filters_small_view:
-          close_modal: Închidere
-          filter: Filtrare
-          filter_by: Filtrează după
-          unfold: Desfășurat
         preview:
           available_answers: 'Răspunsuri disponibile:'
           description: 'Acestea sunt întrebările pe care le veți găsi în procesul de votare:'
@@ -343,7 +337,6 @@ ro:
             change_vote: Schimbă-ți votul
             vote: Începe să votezi
             vote_again: Votează din nou
-          back: Alegeri disponibile
           callout:
             already_voted: Ai votat deja pentru aceste alegeri. Îți poți schimba votul sau îl poți verifica.
             vote_rejected: Nu am putut verifica votul. Te rugăm să reiei procesul de votare.
@@ -435,31 +428,24 @@ ro:
             success: Cheia publică de identificare a fost stocată cu succes.
       votes:
         ballot_decision:
-          audit: "(scrutin de audit)"
           back: Începe procesul de votare din nou
           ballot_hash: 'Identificatorul dvs. de vot este:'
         confirm:
-          answer: Răspuns
           answer_number: răspunde la %{number}
           confirm: Confirmare
           edit: editează
           header: Confirmă votul tău
           intro: Iată un rezumat al votului pe care urmează să îl exprimați. <br> Vă rugăm să confirmați votul sau să editați răspunsurile.
           nota_option: Necompletat
-          question: Întrebarea %{count}
         confirmed:
           back: Înapoi la alegeri
           experience: Cum a fost experiența ta?
           feedback: Oferă-ne un feedback
           header: Votare confirmată
           lead: Votul tău a fost adăugat!
-          text: 'Poți verifica dacă votul tău a fost adăugat cu succes în urna de vot cu următorul identificator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Pentru a verifica, copiați identificatorul și lipiți-l pe pagina <a href="%{link}">pentru verificarea votului</a>
         failed:
           header: Vot eșuat
-        header:
-          confirm: Confirmă votul tău
-          confirmed: Votare confirmată
         messages:
           invalid_token: Sesiunea din cabina de vot nu este validă. Încercați să votați din nou.
           not_allowed: Nu aveţi voie să votaţi asupra acestor alegeri în acest moment.
@@ -470,9 +456,7 @@ ro:
           more_information: Mai multe informații
           preview_alert: Aceasta este o previzualizare a cabinei de votare.
           question_steps: Întrebarea %{current_step} din %{total_steps}
-          selections: "%{selected} din %{max_selections}<br> selecții"
         onboarding_modal:
-          close: Închidere
           create_account: Creează cont
           no_account: Nu, mulțumesc.
         voting_step:
@@ -509,12 +493,6 @@ ro:
           new:
             create: Creează
             title: Creează stil de vot
-        content_blocks:
-          landing_page:
-            attachments_and_folders:
-              name: Atașamente și dosare aferente votării
-            elections:
-              name: Alegeri cu votare
         index:
           not_published: Anulează publicarea
           published: Publicate
@@ -657,7 +635,6 @@ ro:
           ask_for_a_new_one: Cere unul nou.
           form_title: 'Completați următorul formular pentru a accesa votul:'
           start_voting: Începe să votezi
-          step: Identificare
           title: Mă identifică cu datele mele de recensământ de vot
   layouts:
     decidim:
