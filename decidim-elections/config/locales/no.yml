@@ -414,7 +414,6 @@
           active: Aktiv
           all: Alt
           finished: Fullført
-          search: Søk
           upcoming: Kommende
         filters_small_view:
           close_modal: Lukk dialogboks
@@ -460,6 +459,7 @@
               tally:
                 cast: Opptelling ferdig
                 share: Opptellingsandel
+            start_icon: Ikon som indikerer en startknapp for å starte generering av valgnøklene
             title: Opptelling for %{election}
           update:
             error: Valgstatusen ble ikke oppdatert.
@@ -549,9 +549,24 @@
         menu:
           votings_submenu:
             monitoring_committee: Kontrollgruppe
+      polling_officer_zone:
+        closures:
+          new:
+            modal_ballots_count_error:
+              close_modal: Lukk
+          sign:
+            close_modal: Lukk
       votings:
+        elections_log:
+          election_log: Valglogg
         login:
           start_voting: Start avstemning
+        show:
+          dates: Datoer
+      votings_m:
+        footer_button_text:
+          view: Vis
+          vote: Stem
   layouts:
     decidim:
       election_votes_header:
