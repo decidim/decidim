@@ -15,13 +15,13 @@
   }
 }
 
-.proposal {
-  /* overwrite defaults */
-  .static-map,
-  [data-decidim-map] {
-    @apply aspect-[5/1];
-  }
+/* overwrite defaults */
+.static-map,
+[data-decidim-map] {
+  @apply aspect-[5/1];
+}
 
+.proposal {
   &__voting-rules {
     @apply flex flex-col md:flex-row justify-between items-center gap-2 md:gap-8 prose max-w-full last:[&>*:not(:only-child)]:flex-none last:[&>*:not(:only-child)]:w-1/4;
   }
