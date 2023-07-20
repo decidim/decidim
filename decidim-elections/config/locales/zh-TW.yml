@@ -804,28 +804,8 @@ zh-TW:
           highlighted_votings:
             max_results: 顯示的最大元素數量
           landing_page:
-            attachments_and_folders:
-              name: 投票附件與資料夾
             description:
               name: 投票說明
-            elections:
-              name: 投票選舉
-            header:
-              name: 投票標題
-            html_block_1:
-              name: 投票 Html 區塊 1
-            html_block_2:
-              name: 投票 Html 區塊 2
-            html_block_3:
-              name: 投票 Html 區塊 3
-            metrics:
-              name: 投票指標
-            polling_stations:
-              name: 投票的投票站
-            stats:
-              name: 投票統計
-            timeline:
-              name: 投票時間軸
         index:
           not_published: 尚未發布
           published: 已發佈
@@ -1144,8 +1124,6 @@ zh-TW:
         highlighted_votings:
           name: 重點顯示的投票
         landing_page:
-          description:
-            title: 關於本次投票
           metrics:
             heading: 指標
           polling_stations:
@@ -1162,8 +1140,6 @@ zh-TW:
       pages:
         home:
           highlighted_votings:
-            active_votings: 活躍的投票
-            see_all_votings: 查看所有投票
             votings_button_title: 鏈接到顯示所有投票的投票頁面
       polling_officer_zone:
         closures:
