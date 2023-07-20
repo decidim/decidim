@@ -35,8 +35,8 @@ describe Decidim::Ai::SpamDetectionService do
 
   describe "classify" do
     it "classifies using all strategies" do
-      expect(registry.for(:base)).to receive(:untrain).with(:spam, "text")
-      expect(registry.for(:dummy)).to receive(:untrain).with(:spam, "text")
+      expect(registry.for(:base)).to receive(:classify).with("text")
+      expect(registry.for(:dummy)).to receive(:classify).with("text")
 
       subject.classify("text")
     end
