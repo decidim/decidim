@@ -163,7 +163,7 @@ module Decidim
       end
 
       def current_initiative
-        @current_initiative ||= Initiative.where(organization: current_organization).find_by(id: session[:initiative_id] || nil)
+        Initiative.where(organization: current_organization).find_by(id: session_initiative[:id]) if session_initiative.has_key?(:id)
       end
 
       def initiative_type
