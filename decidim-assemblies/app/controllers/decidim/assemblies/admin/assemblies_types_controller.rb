@@ -95,7 +95,7 @@ module Decidim
         end
 
         def current_assembly_type
-          @current_assembly_type ||= AssembliesType.find(params[:id])
+          @current_assembly_type ||= available_assemblies_types.find(params[:id])
         end
 
         def assembly_type_form
