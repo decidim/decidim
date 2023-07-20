@@ -272,10 +272,6 @@
   }
 
   &__content {
-    .user-mention {
-      @apply text-sm font-semibold text-secondary;
-    }
-
     &--label {
       @apply inline-block mb-2;
     }
