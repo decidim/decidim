@@ -21,7 +21,7 @@
           placeholder: t(".monitoring_committee_notes_placeholder")
         ) %>
 
-      <div class="button--double form-general-submit">
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
         <%= form.submit t("actions.validate", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures") %>
       </div>
     <% end %>

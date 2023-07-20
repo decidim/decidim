@@ -3,7 +3,7 @@
                      url: consultation_path(current_consultation),
                      html: { class: "form edit_consultation" } do |f| %>
   <%= render partial: "form", object: f %>
-  <div class="button--double form-general-submit">
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
     <%= f.submit t("consultations.edit.update", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
 
     <% if allowed_to? :publish, :consultation, consultation: current_consultation %>

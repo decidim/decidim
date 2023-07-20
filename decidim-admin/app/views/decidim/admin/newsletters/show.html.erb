@@ -14,7 +14,7 @@
     </iframe>
   </div>
 </div>
-<div class="button--double form-general-submit">
+<div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
   <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) %>
     <% unless @newsletter.sent? %>
       <%= link_to t("actions.edit", scope: "decidim.admin"), [:edit, @newsletter], class: "button" %>

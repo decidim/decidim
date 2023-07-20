@@ -2,7 +2,7 @@
   <%= render partial: "decidim/meetings/admin/poll/form", object: form %>
 
   <% if questionnaire.questions_editable? %>
-    <div class="button--double form-general-submit">
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
       <%= form.submit t("save", scope: "decidim.forms.admin.questionnaires.edit"), class: "button" %>
     </div>
   <% end %>

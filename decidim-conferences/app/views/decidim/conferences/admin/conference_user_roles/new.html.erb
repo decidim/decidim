@@ -1,7 +1,7 @@
 <%= decidim_form_for(@form, html: { class: "form new_conference_user_role" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t("conference_user_roles.new.title", scope: "decidim.admin") } %>
 
-  <div class="button--double form-general-submit">
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
     <%= f.submit t("conference_user_roles.new.create", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
   </div>
 <% end %>

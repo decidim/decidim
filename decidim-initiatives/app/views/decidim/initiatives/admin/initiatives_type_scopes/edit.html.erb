@@ -10,7 +10,7 @@
                            url: initiatives_type_initiatives_type_scope_path(params[:initiatives_type_id], current_initiative_type_scope),
                            html: { class: "form edit_initiative_type_scope" } do |f| %>
         <%= render partial: "form", object: f %>
-        <div class="button--double form-general-submit">
+        <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
           <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
 
           <% if allowed_to? :destroy, :initiative_type_scope, initiative_type_scope: current_initiative_type_scope %>
