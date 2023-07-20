@@ -7,7 +7,10 @@
   </button>
 </div>
 
-<div id="main-dropdown-menu" class="menu-bar__breadcrumb-desktop__dropdown-content" aria-hidden="true">
+<div id="main-dropdown-menu" class="menu-bar__breadcrumb-desktop__dropdown-content" aria-hidden="true"
+  ontransitionend="this.allowReopen = false; this.style.pointerEvents = 'none'"
+  ontransitionstart="this.allowReopen = true; this.style.pointerEvents = 'auto'"
+  onmouseenter="this.allowReopen && this.getAttribute('aria-hidden') === 'true' && document.querySelector('#main-dropdown-summary').click()">
   <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_main_dropdown", locals: { id: "breadcrumb-main-dropdown-desktop" } %>
 </div>
 

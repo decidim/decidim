@@ -16,7 +16,10 @@
           <span class="sr-only"><%= t("layouts.decidim.header.user_menu") %></span>
         </button>
       </div>
-      <div id="secondary-dropdown-menu-<%= i %>" class="menu-bar__breadcrumb-desktop__dropdown-content-secondary" aria-hidden="true">
+      <div id="secondary-dropdown-menu-<%= i %>" class="menu-bar__breadcrumb-desktop__dropdown-content-secondary" aria-hidden="true"
+        ontransitionend="this.allowReopen = false; this.style.pointerEvents = 'none'"
+        ontransitionstart="this.allowReopen = true; this.style.pointerEvents = 'auto'"
+        onmouseenter="this.allowReopen && this.getAttribute('aria-hidden') === 'true' && document.querySelector('#secondary-dropdown-summary-<%= i %>').click()">
         <%= cell item[:dropdown_cell], item[:resource] %>
       </div>
     </div>

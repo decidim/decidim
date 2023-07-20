@@ -244,12 +244,14 @@ header {
 
       /* overwrite default dropdown styles */
       [id*="dropdown-menu"] {
+        @apply cursor-auto;
+
         &[aria-hidden="true"] {
-          @apply md:opacity-0 pointer-events-none transition duration-300 delay-300 [&>*]:invisible;
+          @apply md:opacity-0 transition duration-300 delay-300 [&>*]:pointer-events-none;
         }
 
         &[aria-hidden="false"] {
-          @apply md:opacity-100 pointer-events-auto transition duration-300 [&>*]:visible;
+          @apply md:opacity-100 transition duration-300 [&>*]:pointer-events-auto;
         }
       }
 
