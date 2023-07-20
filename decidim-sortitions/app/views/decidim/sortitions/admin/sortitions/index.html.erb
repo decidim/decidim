@@ -41,7 +41,7 @@
             <% end %>
 
             <%= with_tooltip t("actions.show", scope: "decidim.sortitions.admin"), class: "top" do %>
-              <%= icon_link_to "eye-line", sortition_path(sortition), t("actions.show", scope: "decidim.sortitions.admin"), class: "action-icon--preview" %>
+              <%= icon_link_to "eye-line", sortition_path(sortition), t("actions.show", scope: "decidim.sortitions.admin"), class: "action-icon--preview", target: "_blank" %>
             <% end %>
 
             <%= resource_permissions_link(sortition) %>

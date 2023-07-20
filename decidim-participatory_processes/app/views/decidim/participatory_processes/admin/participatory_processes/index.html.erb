@@ -76,7 +76,7 @@
 
             <% if allowed_to? :preview, :process, process: process %>
               <%= with_tooltip t("actions.preview", scope: "decidim.admin"), class: "top" do %>
-                <%= icon_link_to "eye-line", decidim_participatory_processes.participatory_process_path(process), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview" %>
+                <%= icon_link_to "eye-line", decidim_participatory_processes.participatory_process_path(process), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: "_blank" %>
               <% end %>
             <% else %>
               <span class="action-space icon"></span>
