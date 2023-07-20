@@ -17,6 +17,7 @@ nl:
       voting:
         end_time: Stemmen eindigt
         start_time: Stemmen begint
+        voting_type: Soort stemronde
     errors:
       models:
         answer:
@@ -287,7 +288,6 @@ nl:
             change_vote: Wijzig je stem
             vote: Begin met stemmen
             vote_again: Stem nogmaals
-          back: Beschikbare verkiezingen
           callout:
             already_voted: Je hebt al gestemd in deze verkiezing. Je kunt je stem wijzigen of controleren.
             pending_vote: Jouw stem wordt uitgebracht op de server.
@@ -339,7 +339,6 @@ nl:
           backup_modal:
             description: Deze verkiezing wordt in het Bulletin Board aangemaakt. Het is erg belangrijk dat elke Trustee die eraan deelneemt een back-up van deze sleutels maakt en deze op een veilige plaats opslaat. Daarna gaat het proces verder.
             download_election_keys: Sleutels downloaden
-            download_icon: Icoon dat een downloadactie aangeeft
             title: Maak een backup van verkiezingssleutels voor %{election}
           key_ceremony_steps:
             back: Terug
@@ -354,7 +353,6 @@ nl:
               task: Taak
             process_warning: Zodra het proces is gestart, mag je de pagina niet verlaten totdat het proces is afgerond. Het duurt enkele minuten, omdat alle Trustees verbonden moeten zijn om het te voltooien.
             start: Begin
-            start_icon: Icoon met startknop om verkiezingssleutels aan te maken
             status:
               completed: Voltooid
               pending: In afwachting
@@ -364,7 +362,6 @@ nl:
             description: De Bulletin Board beschikt over informatie van jou als Trustee bij deze verkiezingen. Om het proces voort te zetten, upload eerst het back-upbestand dat aangemaakt is tijdens de vorige sessie.
             title: Herstel verkiezingssleutels voor %{election}
             upload_election_keys: Upload verkiezingssleutels
-            upload_icon: Icoon dat een downloadactie aangeeft
           tally_started_steps:
             description: De resultaten voor deze verkiezingen worden berekend in de Bulletin Board. Om dit proces te voltooien, is uw deelname als Trustee nodig.
         menu:
@@ -410,20 +407,17 @@ nl:
           header: Aan het stemmen...
           text: Je stem wordt uitgebracht in de stembus.
         confirm:
-          answer: Beantwoorden
           answer_number: antwoord %{number}
           confirm: Bevestigen
           edit: bewerken
           header: Bevestig uw stem
           intro: Hier is een samenvatting van de stem die u gaat uitbrengen. <br> Bevestig uw stem of bewerk uw antwoorden.
-          question: Vraag %{count}
         confirmed:
           back: Terug naar verkiezingen
           experience: Hoe was uw ervaring?
           feedback: Geef ons feedback
           header: Stem bevestigd
           lead: Je stem is opgeslagen!
-          text: 'U kunt controleren of uw stem succesvol is toegevoegd aan de stembus met het volgende identificatie: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Om het te controleren, kopieer de identificatiecode en plak ze in de <a href="%{link}">pagina voor het controleren van stemmen</a>
         create:
           error: Er was een probleem bij het uitbrengen van de stem, probeer het opnieuw.
@@ -435,13 +429,6 @@ nl:
           lead: Je stem is niet uitgebracht!
           text: Er is iets mis gegaan, probeer het alsjeblief nog een keer.
           try_again: Probeer opnieuw
-        header:
-          ballot_decision: Stem uitbrengen of stem controleren
-          casting: Aan het stemmen
-          confirm: Bevestig uw stem
-          confirmed: Stem bevestigd
-          encrypting: Versleutelen van de stem
-          failed: Stem mislukt
         messages:
           invalid_token: Je sessie in het stemhokje is niet geldig. Probeer opnieuw te stemmen.
           not_allowed: U mag op dit moment niet stemmen over deze verkiezingen.
@@ -452,9 +439,7 @@ nl:
           more_information: Meer informatie
           preview_alert: Dit is een voorbeeld van de stembooth.
           question_steps: Vraag %{current_step} van %{total_steps}
-          selections: "%{selected} van %{max_selections}<br> selecties"
         onboarding_modal:
-          close: Sluit venster
           create_account: Account aanmaken
           no_account: Nee, bedankt.
         update:
@@ -536,29 +521,6 @@ nl:
         content_blocks:
           highlighted_votings:
             max_results: Maximum aantal elementen dat kan worden weergegeven
-          landing_page:
-            attachments_and_folders:
-              name: Stemronde bijlagen en mappen
-            description:
-              name: Beschrijving stemronde
-            elections:
-              name: Stemronde verkiezingen
-            header:
-              name: Stemronde koptekst
-            html_block_1:
-              name: Voting html blok 1
-            html_block_2:
-              name: Voting html blok 2
-            html_block_3:
-              name: Voting html blok 3
-            metrics:
-              name: Stemronde cijfers
-            polling_stations:
-              name: Stembureaus
-            stats:
-              name: Stemronde statistieken
-            timeline:
-              name: Stemronde tijdlijn
         index:
           not_published: Niet-gepubliceerd
           published: Gepubliceerd
@@ -797,25 +759,15 @@ nl:
         highlighted_votings:
           name: Stemrondes in de kijker
         landing_page:
-          metrics:
-            heading: Cijfers
           polling_stations:
             heading: Stembureaus
             no_polling_stations: Er zijn nog geen stembureaus.
-          timeline:
-            heading: Tijdslijn
       monitoring_committee_members:
         actions:
           confirm_destroy: Weet je het zeker?
           destroy: Verwijderen
           new: Nieuw lid
           title: Acties
-      pages:
-        home:
-          highlighted_votings:
-            active_votings: Actieve stemrondes
-            see_all_votings: Bekijk alle stemrondes
-            votings_button_title: Link naar de pagina Votings waarop alle stemrondes worden weergegeven
       polling_officer_zone:
         closures:
           back_to_polling_stations: Terug naar stembureaus
@@ -847,7 +799,6 @@ nl:
             info_text: 'Voer het totale aantal stemmen (enveloppen) in dat in dit stembureau werden herteld:'
             modal_ballots_count_error:
               btn_validate_total: Bevestig de totale hertelling van de stemmen
-              close_modal: Sluit
               message_for_monitoring_committee: Bericht aan het Comité van toezicht
               review_recount: Controleer de hertelling
               text_area_placeholder: Schrijf je bericht
@@ -862,7 +813,6 @@ nl:
             info_text: Stembureau sluiting van de verkiezing.
           sign:
             cancel: Annuleer
-            close_modal: Sluiten
             confirm: Ok, verdergaan
             error: Er is een fout opgetreden, probeer het opnieuw.
             heading: Stem hertelling - Onderteken sluiting
@@ -978,9 +928,7 @@ nl:
           year: Jaar
           year_placeholder: JJJJ
         elections_log:
-          bb_status: Verkiezingsstatus
           description: Het verkiezingslogboek toont je alle relevante informatie over elke stemming. Zo is bijvoorbeeld de status van de sleutelceremonie of telling, en of de resultaten al bekend zijn gemaakt. Klik op de verkiezing waarover je de logboekinformatie wilt hebben.
-          election_log: Verkiezingslogboek
           title: Verkiezingslogboek
         filters:
           active: Actief
@@ -988,9 +936,6 @@ nl:
           finished: Afgelopen
           search: Zoeken
           upcoming: Gepland
-        filters_small_view:
-          close_modal: Sluit venster
-          filter: Filter
         index:
           no_votings: Er zijn geen stemrondes die voldoen aan jouw zoekcriteria.
           only_finished: Momenteel zijn er geen geplande stemrondes, maar hier vind je alle afgelopen stemrondes.
@@ -1000,17 +945,12 @@ nl:
           ask_for_a_new_one: Vraag om een nieuwe.
           form_title: 'Vul het onderstaande formulier in om toegang te krijgen tot de stemming:'
           start_voting: Begin met stemmen
-          step: Identificatie
           title: Mezelf identificeren aan de hand van mijn stemlijstgegevens
       votings_m:
-        footer_button_text:
-          participate: Deelnemen
-          vote: Stemmen
         voting_type:
           hybrid: Hybride
           in_person: In persoon
           online: Online
-        voting_types_label: Soort stemronde
   layouts:
     decidim:
       election_votes_header:
@@ -1023,5 +963,4 @@ nl:
         index:
           promoted_votings: Stemrondes in de kijker
         promoted_voting:
-          more_info: Meer informatie
           vote: Stem
