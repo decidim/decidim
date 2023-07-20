@@ -388,13 +388,7 @@ lt:
           all: Visi
           date: Data
           finished: Užbaigta
-          search: Ieškoti
           upcoming: Artėjantys
-        filters_small_view:
-          close_modal: Uždaryti modalinį langą
-          filter: Filtruoti
-          filter_by: Filtruoti pagal
-          unfold: Išskleisti
         preview:
           available_answers: 'Galimi atsakymai:'
           description: 'Balsavimo procese rasite šiuos klausimus:'
@@ -414,7 +408,6 @@ lt:
             change_vote: Pakeisti balsą
             vote: Pradėti balsavimą
             vote_again: Balsuoti dar kartą
-          back: Galimi rinkimai
           callout:
             already_voted: Šiuose rinkimuose jau balsavote. Galite pakeisti arba patikrinti savo balsą.
             pending_vote: Jūsų balsas įkeliamas į serverį.
@@ -471,7 +464,6 @@ lt:
           backup_modal:
             description: Šie rinkimai sukūriami Skelbimų Lentoje. Labai svarbu, kad kiekvienas dalyvaujantis patikėtinis susikurtų atsarginę raktų kopiją ir juos laikytų saugioje vietoje. Po to, procesas tęsis.
             download_election_keys: Parsisiųsti raktus
-            download_icon: Ikona indikuojanti parsisiuntimo veiksmą
             title: Atsarginiai rinkimų raktai %{election}
           key_ceremony_steps:
             back: Atgal
@@ -486,7 +478,6 @@ lt:
               task: Užduotis
             process_warning: Kai procesas prasidės neturėtumėt išeiti iš puslapio iki proceso pabaigos. Tai gali užtrukti keletą minučių, kol visi patikėtiniai prisijungs ir įvykdys.
             start: Pradėti
-            start_icon: Ikona indikuojanti pradžios mygtuką skirtą rinkimų raktų generavimo pradžiai
             status:
               completed: Baigta
               pending: Laukiama
@@ -496,7 +487,6 @@ lt:
             description: Skelbimų Lenta turi informacijų iš Jūsų, kaip patikėtinio, apie rinkimus. Norėdami tęsti procesą pirmiausiai įkelkite atsargos rinkmeną sugeneruotą praeitos sesijos metu.
             title: Atkurti %{election} rinkimų raktus
             upload_election_keys: Įkelti rinkimų raktus
-            upload_icon: Ikona indikuojanti parsisiuntimo veiksmą
           tally_started_steps:
             back: Atgal
             description: Šių rinkimų rezultatai skaičiuojami Skelbimų lentoje. Norint užbaigti šį procesą, būtinas jūsų, kaip Patikėtinio, dalyvavimas.
@@ -510,7 +500,6 @@ lt:
               task: Užduotis
             process_warning: Kai procesas prasidės neturėtumėt išeiti iš puslapio iki proceso pabaigos. Tai gali užtrukti keletą minučių, kol visi patikėtiniai prisijungs ir įvykdys.
             start: Pradėti
-            start_icon: Ikona indikuojanti pradžios mygtuką skirtą rinkimų raktų generavimo pradžiai
             status:
               completed: Baigta
               pending: Laukiama
@@ -553,7 +542,6 @@ lt:
             success: Jūsų viešas atpažinimo raktas sėkmingai išsaugotas.
       votes:
         ballot_decision:
-          audit: "Audituoti biuletenį"
           back: Vėl pradėti balsavimo procesą
           ballot_hash: 'Biuletenio identifikacinis kodas:'
           cast: Užpildykite biuletenį norėdami baigti balsavimą
@@ -562,21 +550,18 @@ lt:
           header: Biuletenis įskaitomas...
           text: Biuletenis yra užskaitomas balsadėžėje.
         confirm:
-          answer: Atsakymas
           answer_number: '%{number} atsakymas'
           confirm: Patvirtinti
           edit: redaguoti
           header: Patvirtinkite savo balsą
           intro: Toliau pateikiama balsavimo, kurį rengiatės atlikti, santrauka. <br> Patvirtinkite savo balsą arba pakeiskite savo atsakymus.
           nota_option: Tuščia
-          question: Klausimas %{count}
         confirmed:
           back: Atgal į rinkimus
           experience: Kokia buvo Jūsų patirtis?
           feedback: Pasidalinkite savo nuomone
           header: Balsas patvirtintas
           lead: Jūsų balsas įskaičiuotas!
-          text: 'Galite patikrinti, ar jūsų balsas pateko į balsadėžę, pasinaudodami šiuo identifikatoriumi: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Norėdami patikrinti, kopijuokite identifikatorių ir jį įklijuokite <a href="evote-verify">balsavimo patikros puslapyje</a>
         create:
           error: Užskaitant balsą iškilo problema. Prašau pabandykite iš naujo.
@@ -588,13 +573,6 @@ lt:
           lead: Jūsų balsas nebuvo įskaičiuotas!
           text: Įvyko klaida. Bandykite dar kartą.
           try_again: Bandykite dar kartą
-        header:
-          ballot_decision: Balsuokite arba audituokite savo balsą
-          casting: Biuletenis įskaitomas
-          confirm: Patvirtinkite savo balsą
-          confirmed: Balsas patvirtintas
-          encrypting: Biuletenis šifruojamas
-          failed: Balsavimas nepavyko
         messages:
           invalid_token: Jūsų sesija balsavimo kabinoje nėra validi. Pabandykite balsuoti iš naujo.
           not_allowed: Dabar balsuoti šiuose rinkimuose negalite.
@@ -607,9 +585,7 @@ lt:
           nota_option: Nei vienas iš pasiūlytų variantų
           preview_alert: Tai – balsavimo kabinos peržiūra.
           question_steps: '%{current_step} klausimas iš %{total_steps}'
-          selections: "%{selected} iš %{max_selections}<br> pasirinkčių"
         onboarding_modal:
-          close: Uždaryti modalinį langą
           create_account: Sukurti paskyrą
           description: Ar norite susikurti naują paskyrą šioje platformoje? Galėsite dalyvauti procesuose ir būti aktyvi(-us) organizacijos narė(-ys).
           no_account: Ne, ačiū.
@@ -703,29 +679,6 @@ lt:
         content_blocks:
           highlighted_votings:
             max_results: Didžiausias rodomų elementų skaičius
-          landing_page:
-            attachments_and_folders:
-              name: Balsavimo prisegimai ir aplankai
-            description:
-              name: Balsavimo aprašymas
-            elections:
-              name: Balsavimo rinkimai
-            header:
-              name: Balsavimo antraštė
-            html_block_1:
-              name: Balsavimo html blokas 1
-            html_block_2:
-              name: Balsavimo html blokas 2
-            html_block_3:
-              name: Balsavimo html blokas 3
-            metrics:
-              name: Balsavimo rodikliai
-            polling_stations:
-              name: Balsavimo punktai
-            stats:
-              name: Balsavimo statistika
-            timeline:
-              name: Balsavimo laiko juosta
         index:
           not_published: Nebeskelbiama
           published: Paskelbta
@@ -997,27 +950,15 @@ lt:
         highlighted_votings:
           name: Paryškinti balsavimai
         landing_page:
-          description:
-            title: Apie šį balsavimą
-          metrics:
-            heading: Rodikliai
           polling_stations:
             heading: Balsavimo punktai
             no_polling_stations: Balsavimo punktų dar nėra.
-          timeline:
-            heading: Laiko juosta
       monitoring_committee_members:
         actions:
           confirm_destroy: Ar esate tikri?
           destroy: Ištrinti
           new: Naujas narys
           title: Veiksmai
-      pages:
-        home:
-          highlighted_votings:
-            active_votings: Aktyvūs balsavimai
-            see_all_votings: Žiūrėti visus balsavimus
-            votings_button_title: Nuoroda į puslapį „Balsavimai“, kuriame pateikiami visi balsavimai
       polling_officer_zone:
         closures:
           back_to_polling_stations: Atgal į balsavimo punktus
@@ -1049,7 +990,6 @@ lt:
             info_text: 'Pridėkite visų biuletenių (vokų) skaičių perskaičiuotą balsavimo punkte:'
             modal_ballots_count_error:
               btn_validate_total: Patvirtinti biuletenių perskaičiavimą
-              close_modal: Uždaryti
               info_explanation_text: 'Prašau peržiūrėkite visą biuletenių skaičių. Jei suminis skaičius neteisingas, prašau pateikite paaiškinimą priežiūros komitetui:'
               message_for_monitoring_committee: Žinutė priežiūros komitetui
               review_recount: Peržiūrėti perskaičiavimą
@@ -1065,7 +1005,6 @@ lt:
             info_text: Balsavimo punkto rinkimų užbaigimas.
           sign:
             cancel: Atšaukti
-            close_modal: Uždaryti
             confirm: Gerai, testi
             error: Įvyko klaida, pamėginkite dar kartą.
             heading: Balsų perskaičiavimas - Pasirašykite užbaigimą
@@ -1199,9 +1138,7 @@ lt:
             many: "%{count} balsavimai"
             other: "%{count} balsavimai"
         elections_log:
-          bb_status: Rinkimų būsena
           description: Rinkimų ataskaitoje bus pateikta visa aktuali informacija apie kiekvieną balsavimą. Pavyzdžiui pagrindinės ceremonijos būsena, taškai arba jeigu rezultatai jau paskelbti. Spustelėkite ant rinkimų, apie kuriuos norite gauti informaciją.
-          election_log: Rinkimų ataskaita
           title: Rinkimų ataskaita
         filters:
           active: Aktyvūs
@@ -1210,11 +1147,6 @@ lt:
           finished: Užbaigta
           search: Ieškoti
           upcoming: Artėjantys
-        filters_small_view:
-          close_modal: Uždaryti modalinį langą
-          filter: Filtruoti
-          filter_by: Filtruoti pagal
-          unfold: Išskleisti
         index:
           no_votings: Jūsų paieškos kriterijus atitinkančių balsavimų nerasta.
           only_finished: Dabar suplanuotų balsavimų nėra, tačiau čia galite rasti visų įvykusių balsavimų sąrašą.
@@ -1225,29 +1157,21 @@ lt:
           ask_for_a_new_one: Prašyti naujo.
           form_title: 'Norėdami prisijungti prie balsavimo, užpildykite šią formą:'
           start_voting: Pradėti balsavimą
-          step: Identifikacija
           title: Identifikuoti save pagal mano balsavimo surašymo duomenis
         orders:
           label: 'Rūšiuoti balsus pagal:'
           random: Atsitiktinai
           recent: Naujausia
-        show:
-          dates: Datos
       votings_m:
         badge_name:
           finished: Užbaigta
           ongoing: Vykstantys
           upcoming: Artėjantys
-        footer_button_text:
-          participate: Dalyvauti
-          view: Peržiūrėti
-          vote: Balsuoti
         unspecified: Nepatikslinta
         voting_type:
           hybrid: Hibridinis
           in_person: Fizinis
           online: Virtualus
-        voting_types_label: Balsavimo tipas
   layouts:
     decidim:
       election_votes_header:
@@ -1260,5 +1184,4 @@ lt:
         index:
           promoted_votings: Paryškinti balsavimai
         promoted_voting:
-          more_info: Daugiau informacijos
           vote: Balsuoti
