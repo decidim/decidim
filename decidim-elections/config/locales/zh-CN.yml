@@ -122,13 +122,7 @@ zh-CN:
           active: 已启用
           all: 所有的
           finished: 已完成
-          search: 搜索
           upcoming: 即将到来的
-        filters_small_view:
-          close_modal: 关闭模式
-          filter: 筛选器
-          filter_by: 筛选方式
-          unfold: 展开...
         show:
           preview: 预览
           voting_period_status:
@@ -155,23 +149,17 @@ zh-CN:
         recent: 最近的
       votes:
         confirm:
-          answer: 答案
           answer_number: 答案 %{number}
           confirm: 确认
           edit: 编辑
           header: 确认您的投票
           intro: 这是您要投的票的摘要。 <br> 请确认您的投票或编辑您的答案。
           nota_option: 空白
-          question: 问题 %{count}
         confirmed:
           back: 回到选举
           experience: 您的体验如何？
           feedback: 给我们一些反馈
           header: 已确认投票
-          text: '您可以检查您的投票是否已成功地添加到选票箱，其标识符如下： <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-        header:
-          confirm: 确认您的投票
-          confirmed: 已确认投票
         messages:
           not_allowed: 此时您无权投票于此次选举。
         modal:
@@ -183,7 +171,6 @@ zh-CN:
           nota_option: 空白/上面没有内容
           preview_alert: 这是投票站的预览。
           question_steps: '%{current_step} 的 %{total_steps} 问题'
-          selections: "%{selected} 的 %{max_selections}<br> 选择"
         voting_step:
           back: 后退
           continue: 下一个
