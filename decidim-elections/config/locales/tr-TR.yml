@@ -149,13 +149,7 @@ tr:
           active: Aktif
           all: Tümü
           finished: Bitti
-          search: Arama
           upcoming: Yakında
-        filters_small_view:
-          close_modal: Pencereyi kapat
-          filter: Filtrele
-          filter_by: Şuna göre filtrele
-          unfold: Aç
         preview:
           title: Seçim soruları
         results:
@@ -165,7 +159,6 @@ tr:
             one: "%{count} oy"
             other: "%{count} oy"
         show:
-          back: Mevcut seçimler
           preview: Önizleme
           voting_period_status:
             finished: Oylama %{start_time} tarihinde başladı ve %{end_time} tarihinde sona erdi
@@ -230,23 +223,17 @@ tr:
             success: Tanımlama genel anahtarınız başarıyla saklandı.
       votes:
         confirm:
-          answer: Cevap
           answer_number: '%{number} cevap'
           confirm: Onayla
           edit: düzenle
           header: Oyunu onayla
           intro: İşte kullanmak üzere olduğunuz oyların bir özeti. <br> Lütfen oyunuzu onaylayın veya yanıtlarınızı düzenleyin.
           nota_option: Boş
-          question: '%{count} soru'
         confirmed:
           back: Seçimlere dön
           experience: Şu ana kadarki deneyiminiz nasıl?
           feedback: Bize geri bildirim verin
           header: Oy onaylandı
-          text: 'Aşağıdaki tanımlayıcıyla oyunuzun başarıyla oy sandığına eklenip eklenmediğini kontrol edebilirsiniz: <strong class = "evote__poll-id">%{e_vote_poll_id} </strong>'
-        header:
-          confirm: Oyunu onayla
-          confirmed: Oy onaylandı
         messages:
           not_allowed: Şu anda bu seçim için oy kullanmanıza izin verilmiyor.
         modal:
@@ -258,7 +245,6 @@ tr:
           nota_option: Yukarıdakilerin hiçbiri
           preview_alert: Bu, oylama kabininin bir önizlemesidir.
           question_steps: Soru %{current_step}/%{total_steps}
-          selections: "%{selected}/%{max_selections} <br> seçim"
         voting_step:
           back: Geri
           continue: Sonraki
