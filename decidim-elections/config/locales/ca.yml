@@ -684,10 +684,10 @@ ca:
         header:
           ballot_decision: Envia o audita el teu vot
           casting: El vot s'està dipositant
-          confirm: Confirma el teu vot
+          confirm: Confirmar el teu vot
           confirmed: Vot confirmat
           encrypting: El vot s'està xifrant
-          failed: Error en el vot
+          failed: Vot fallit
         messages:
           invalid_token: La sessió de la cabina de votació no és vàlida. Prova de votar de nou.
           not_allowed: No pots votar en aquesta votació en aquest moment.
@@ -813,28 +813,8 @@ ca:
           highlighted_votings:
             max_results: Quantitat màxima d'elements per mostrar
           landing_page:
-            attachments_and_folders:
-              name: Arxius i carpetes de la votació
             description:
               name: Descripció de la votació
-            elections:
-              name: Eleccions de la votació
-            header:
-              name: Capçalera de la votació
-            html_block_1:
-              name: Bloc html 1 de votació
-            html_block_2:
-              name: Bloc html 2 de votació
-            html_block_3:
-              name: Bloc html 3 de votació
-            metrics:
-              name: Mètriques de la votació
-            polling_stations:
-              name: Punts de votació
-            stats:
-              name: Estadístiques de la votació
-            timeline:
-              name: Calendari de la votació
         index:
           not_published: Despublicada
           published: Publicada
@@ -1167,8 +1147,6 @@ ca:
       pages:
         home:
           highlighted_votings:
-            active_votings: Votacions actives
-            see_all_votings: Veure totes les votacions
             votings_button_title: Enllaç a la pàgina de Votacions que les mostra totes
       polling_officer_zone:
         closures:
@@ -1404,7 +1382,7 @@ ca:
         footer_button_text:
           participate: Participa
           view: Veure
-          vote: Vota
+          vote: Votar
         unspecified: Sense especificar
         voting_type:
           hybrid: Híbrida
