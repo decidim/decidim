@@ -416,7 +416,6 @@
           active: Aktiv
           all: Alt
           finished: Fullført
-          search: Søk
           upcoming: Kommende
         filters_small_view:
           close_modal: Lukk dialogboks
@@ -573,14 +572,28 @@
           votings_submenu:
             monitoring_committee: Kontrollgruppe
       polling_officer_zone:
+        closures:
+          new:
+            modal_ballots_count_error:
+              close_modal: Lukk
+          sign:
+            close_modal: Lukk
         in_person_votes:
           complete_voting:
             questions_title: 'Hun har stemmerett i følgende spørsmål:'
           in_person_form:
             census_not_present_description: Hun må gå til folketellingskontoret eller ta kontakt med kundestøtten.
       votings:
+        elections_log:
+          election_log: Valglogg
         login:
           start_voting: Start avstemning
+        show:
+          dates: Datoer
+      votings_m:
+        footer_button_text:
+          view: Vis
+          vote: Stem
   layouts:
     decidim:
       election_votes_header:
