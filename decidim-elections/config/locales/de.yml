@@ -813,8 +813,28 @@ de:
           highlighted_votings:
             max_results: Maximale Anzahl angezeigte Elemente
           landing_page:
+            attachments_and_folders:
+              name: Abstimmungsanhänge und Ordner
             description:
               name: Beschreibung der Abstimmung
+            elections:
+              name: Wahlen der Abstimmung
+            header:
+              name: Abstimmungsheader
+            html_block_1:
+              name: Abstimmung HTML Block 1
+            html_block_2:
+              name: Abstimmung HTML Block 2
+            html_block_3:
+              name: Abstimmung HTML Block 3
+            metrics:
+              name: Abstimmungsmetriken
+            polling_stations:
+              name: Stimmlokale
+            stats:
+              name: Abstimmungsstatistiken
+            timeline:
+              name: Abstimmungszeitfolge
         index:
           not_published: Unveröffentlicht
           published: Veröffentlicht
@@ -1129,6 +1149,8 @@ de:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
         landing_page:
+          description:
+            title: Über diese Abstimmung
           metrics:
             heading: Metriken
           polling_stations:
@@ -1145,6 +1167,8 @@ de:
       pages:
         home:
           highlighted_votings:
+            active_votings: Aktive Abstimmungen
+            see_all_votings: Alle Abstimmungen ansehen
             votings_button_title: Link zur Seite die alle Abstimmungen anzeigt
       polling_officer_zone:
         closures:
