@@ -44,7 +44,7 @@ de:
         show_check_census: '"Überprüfe Erhebung"-Seite anzeigen'
         start_time: Abstimmung beginnt
         title: Titel
-        voting_type: Art der Abstimmung
+        voting_type: Abstimmungsart
     errors:
       models:
         answer:
@@ -475,7 +475,7 @@ de:
           all: Alle
           date: Datum
           finished: Abgeschlossen
-          search: Suche
+          search: Suchen
           upcoming: Anstehend
         filters_small_view:
           close_modal: Dialog schließen
@@ -818,28 +818,8 @@ de:
           highlighted_votings:
             max_results: Maximale Anzahl angezeigte Elemente
           landing_page:
-            attachments_and_folders:
-              name: Materialien und Verzeichnisse zur Abstimmung
             description:
               name: Beschreibung der Abstimmung
-            elections:
-              name: Wahlen
-            header:
-              name: Überschrift
-            html_block_1:
-              name: Abstimmung HTML Block 1
-            html_block_2:
-              name: Abstimmung HTML Block 2
-            html_block_3:
-              name: Abstimmung HTML Block 3
-            metrics:
-              name: Abstimmungsmetriken
-            polling_stations:
-              name: Wahllokale
-            stats:
-              name: Abstimmungsstatistiken
-            timeline:
-              name: Abstimmungs-Timeline
         index:
           not_published: Unveröffentlicht
           published: Veröffentlicht
@@ -1160,8 +1140,6 @@ de:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
         landing_page:
-          description:
-            title: Über diese Abstimmung
           metrics:
             heading: Metriken
           polling_stations:
@@ -1178,8 +1156,6 @@ de:
       pages:
         home:
           highlighted_votings:
-            active_votings: Aktive Abstimmungen
-            see_all_votings: Alle Abstimmungen ansehen
             votings_button_title: Link zur Seite die alle Abstimmungen anzeigt
       polling_officer_zone:
         closures:
@@ -1231,7 +1207,7 @@ de:
           sign:
             cancel: Abbrechen
             check_box: Ich habe dies geprüft und es ist dasselbe wie das physische Abschlusszertifikat
-            close_modal: Schliessen
+            close_modal: Schließen
             confirm: OK, fortfahren
             error: Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
             heading: Neuzählung - Schliessung signieren
@@ -1415,8 +1391,8 @@ de:
           upcoming: Zukünftig
         footer_button_text:
           participate: Mitmachen
-          view: Anzeigen
-          vote: Abstimmen
+          view: Ansicht
+          vote: Abstimmung
         unspecified: Keine Angabe
         voting_type:
           hybrid: Hybrid
