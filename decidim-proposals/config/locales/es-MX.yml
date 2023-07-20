@@ -845,6 +845,8 @@ es-MX:
           recent: Reciente
           with_more_authors: Con más autoras
         participatory_texts:
+          index:
+            document_index: Índice del documento
           view_index:
             see_index: Ver índice
         placeholder:
