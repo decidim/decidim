@@ -19,6 +19,7 @@ it:
       voting:
         end_time: La votazione termina il
         start_time: La votazione inizia il
+        voting_type: Tipo di votazione
     errors:
       models:
         answer:
@@ -406,7 +407,7 @@ it:
           active: Attiva
           all: Tutti
           finished: Completata
-          search: Cerca
+          search: Ricerca
           upcoming: Imminente
         filters_small_view:
           close_modal: Chiudi finestra
@@ -521,6 +522,7 @@ it:
               tally:
                 cast: Invio del conteggio
                 share: Condivisione del conteggio
+            start_icon: Icona che indica un pulsante avvia per avviare la generazione delle chiavi elettorali
             title: Conteggio di %{election}
           update:
             error: Lo stato delle elezioni non è stato aggiornato.
@@ -730,28 +732,8 @@ it:
           highlighted_votings:
             max_results: Quantità massima di elementi da mostrare
           landing_page:
-            attachments_and_folders:
-              name: Allegati e cartelle della votazione
             description:
               name: Descrizione del voto
-            elections:
-              name: Votazioni elettorali
-            header:
-              name: Intestazione delle votazioni
-            html_block_1:
-              name: Votazioni html blocco 1
-            html_block_2:
-              name: Votazioni html blocco 2
-            html_block_3:
-              name: Votazioni html blocco 3
-            metrics:
-              name: Metriche di voto
-            polling_stations:
-              name: Seggi elettorali
-            stats:
-              name: Statistiche di voto
-            timeline:
-              name: Calendario delle votazioni
         index:
           not_published: Non Pubblicato
           published: Pubblicato
@@ -1049,8 +1031,6 @@ it:
         highlighted_votings:
           name: Votazioni evidenziate
         landing_page:
-          description:
-            title: Informazioni su questa votazione
           metrics:
             heading: Statistiche
           polling_stations:
@@ -1067,8 +1047,6 @@ it:
       pages:
         home:
           highlighted_votings:
-            active_votings: Votazioni attive
-            see_all_votings: Vedi tutte le votazioni
             votings_button_title: Link alla pagina Votazioni che mostra tutte le votazioni
       polling_officer_zone:
         closures:
@@ -1102,7 +1080,7 @@ it:
             info_text: 'Si prega di introdurre il numero totale di schede (buste) contate in questa stazione di sondaggio:'
             modal_ballots_count_error:
               btn_validate_total: Convalida il totale delle votazioni
-              close_modal: Chiudi
+              close_modal: Chiuso
               info_text: Il numero totale di schede (buste) introdotte non corrisponde al record di persone che hanno votato in questa Polling Station.
               message_for_monitoring_committee: Messaggio per il comitato di sorveglianza
               review_recount: Rivedi il conto
@@ -1119,7 +1097,7 @@ it:
           sign:
             cancel: Annulla
             check_box: Ho recensito questo ed è lo stesso del certificato di chiusura elettorale fisico
-            close_modal: Chiudi
+            close_modal: Chiuso
             confirm: Ok, continua
             error: Si è verificato un errore, riprova.
             heading: Resoconto dei voti - Chiusura dei segni
@@ -1251,7 +1229,7 @@ it:
         elections_log:
           bb_status: Stato elettorale
           description: Il registro elettorale vi mostrerà tutte le informazioni pertinenti su ogni voto. Per esempio, lo stato della cerimonia chiave o tally o se i risultati sono già stati pubblicati. Fare clic sull'elezione in cui si desidera le informazioni di registro.
-          election_log: Registro Delle Elezioni
+          election_log: Registro delle elezioni
           title: Registro elettorale
         filters:
           active: Attivo
