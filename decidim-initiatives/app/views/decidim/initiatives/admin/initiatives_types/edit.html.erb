@@ -1,15 +1,31 @@
-<%= decidim_form_for(@form, html: { class: "form edit_initiative_type" }) do |f| %>
-  <%= render partial: "form", object: f %>
-  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t "decidim.admin.titles.initiatives_types" %>
+  </h2>
+</div>
 
-    <% if allowed_to? :destroy, :initiative_type, initiative_type: current_initiative_type %>
-      <%= link_to t(".destroy"), current_initiative_type,
-                  method: :delete,
-                  class: "alert button",
-                  data: { confirm: t(".confirm_destroy") } %>
+<div class="item__edit">
+  <div class="item__edit-menu">
+    <div class="item__edit-menu-sticky">
+      <p class="item__edit-menu-title">
+        <%= t("sections", scope: "decidim.assemblies.admin.assemblies.form") %>
+      </p>
+    </div>
+  </div>
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, html: { class: "form-defaults form edit_initiative_type" }) do |f| %>
+      <%= render partial: "form", object: f %>
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+        <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
+
+        <% if allowed_to? :destroy, :initiative_type, initiative_type: current_initiative_type %>
+          <%= link_to t(".destroy"), current_initiative_type,
+                      method: :delete,
+                      class: "button button__sm md:button__lg button__secondary",
+                      data: { confirm: t(".confirm_destroy") } %>
+        <% end %>
+      </div>
+      <%= render partial: "initiative_type_scopes", locals: { initiative_type: current_initiative_type } %>
     <% end %>
   </div>
-  <br>
-  <%= render partial: "initiative_type_scopes", locals: { initiative_type: current_initiative_type } %>
-<% end %>
+</div>

@@ -1,22 +1,20 @@
-<div class="form__wrapper">
-  <div class="card">
-    <div class="card-divider">
-      <h2 class="card-title"><%= t ".title" %></h2>
-    </div>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t ".title" %></h2>
+  </div>
 
-    <div class="card-section">
-      <div class="row column">
-        <%= decidim_form_for @form,
-                             url: initiatives_type_initiatives_type_scopes_path(params[:initiatives_type_id]),
-                             html: { class: "form new_initiatives_type_scopes" } do |f| %>
-          <%= render partial: "form", object: f %>
+  <div class="card-section">
+    <div class="row column">
+      <%= decidim_form_for @form,
+                           url: initiatives_type_initiatives_type_scopes_path(params[:initiatives_type_id]),
+                           html: { class: "form new_initiatives_type_scopes" } do |f| %>
+        <%= render partial: "form", object: f %>
 
-          <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-            <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
-            <%= link_to t(".back"), edit_initiatives_type_path(params[:initiatives_type_id]), class: "button" %>
-          </div>
-        <% end %>
-      </div>
+        <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+          <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
+          <%= link_to t(".back"), edit_initiatives_type_path(params[:initiatives_type_id]), class: "button" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

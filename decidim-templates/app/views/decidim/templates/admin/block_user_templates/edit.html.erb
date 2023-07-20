@@ -1,3 +1,7 @@
-<%= decidim_form_for(@form, url: block_user_template_path, html: { class: "form edit_user_block_template" }) do |f| %>
-  <%= render partial: "form", object: f %>
-<% end %>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: block_user_template_path, html: { class: "form-defaults form edit_user_block_template" }) do |f| %>
+      <%= render partial: "form", object: f %>
+    <% end %>
+  </div>
+</div>

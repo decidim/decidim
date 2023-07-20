@@ -1,7 +1,17 @@
-<%= decidim_form_for([budget, @form], html: { class: "form new_project" }) do |f| %>
-  <%= render partial: "form", object: f, locals: { title: "#{translated_attribute(budget.title)} &gt; #{t(".title")}" } %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= "#{translated_attribute(budget.title)} &gt; #{t(".title")}" %>
+  </h2>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for([budget, @form], html: { class: "form-defaults form new_project" }) do |f| %>
+      <%= render partial: "form", object: f, locals: { title: "#{translated_attribute(budget.title)} &gt; #{t(".title")}" } %>
 
-  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+        <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
+

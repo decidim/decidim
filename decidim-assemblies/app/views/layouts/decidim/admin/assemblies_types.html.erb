@@ -1,0 +1,33 @@
+<% content_for :breadcrumb_nav do %>
+<div class="process-title">
+  <div class="container">
+    <div class="process-title-content">
+      <div class="process-title-content-breadcrumb-container-left">
+        <%= link_to decidim_admin.root_path, class: "process-title-content-icon-home", data: { "external-link": false } do %>
+          <%= icon "home-gear-line" %>
+        <% end %>
+        <span class="text-white">/</span>
+        <span class="process-title-content-breadcrumb">
+          <%= t("decidim.admin.titles.assemblies") %>
+        </span>
+      </div>
+      <div class="process-title-content-breadcrumb-container-right">
+        <% if allowed_to? :create, :assembly_type %>
+          <%= link_to [:new, :assemblies_type], class: "process-title-content-breadcrumb-container-right-link" do %>
+            <%= icon "add-line", class: "w-4 h-4" %>
+            <span>
+              <%= t("actions.new_assembly_type", scope: "decidim.admin") %>
+            </span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <div class="process-content">
+    <%= yield %>
+  </div>
+<% end %>

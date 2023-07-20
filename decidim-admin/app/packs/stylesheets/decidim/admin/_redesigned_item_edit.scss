@@ -86,3 +86,7 @@
     }
   }
 }
+
+.item__edit-1col{
+  @apply grid grid-cols-[80%_20%];
+}

@@ -1,11 +1,17 @@
 <% if templates_defined? && choose_template? %>
   <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t("decidim.forms.admin.questionnaires.edit.title") } %>
 <% else %>
-  <%= decidim_form_for(@form, url: update_url, method: :put, html: { class: "form edit_questionnaire" }) do |form| %>
-    <%= render partial: "decidim/forms/admin/questionnaires/form", object: form %>
 
-    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-      <%= form.submit t(".save"), class: "button button__sm md:button__lg button__secondary" %>
-    </div>
-  <% end %>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: update_url, method: :put, html: { class: "form-defaults form edit_questionnaire" }) do |form| %>
+        <%= render partial: "decidim/forms/admin/questionnaires/form", object: form %>
+
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+        <%= form.submit t(".save"), class: "button button__sm md:button__lg button__secondary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <% end %>

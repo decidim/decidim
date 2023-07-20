@@ -1,11 +1,24 @@
-<h2 class="process-title-summary">
-  <%= t ".title" %>
-</h2>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t ".title" %>
+  </h2>
+</div>
 
-<%= decidim_form_for(@form, html: { class: "form new_initiatives_types" }) do |f| %>
-  <%= render partial: "form", object: f %>
-
-  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
+<div class="item__edit">
+  <div class="item__edit-menu">
+    <div class="item__edit-menu-sticky">
+      <p class="item__edit-menu-title">
+        <%= t("sections", scope: "decidim.assemblies.admin.assemblies.form") %>
+      </p>
+    </div>
   </div>
-<% end %>
+  <div class="item__edit-form">
+  <%= decidim_form_for(@form, html: { class: "form form-defaults new_initiatives_types" }) do |f| %>
+    <%= render partial: "form", object: f %>
+
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
+    </div>
+  <% end %>
+  </div>
+</div>

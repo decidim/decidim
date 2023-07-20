@@ -1,8 +1,25 @@
-<%= decidim_form_for(@form, url: meeting_agenda_index_path(meeting), html: { method: :post, class: "form new_agenda" }) do |f| %>
-
-  <%= render partial: "form", object: f, locals: { title: t(".title") } %>
-
-  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-      <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t(".title") %>
+  </h2>
+</div>
+<div class="item__edit">
+  <div class="item__edit-menu">
+    <div class="item__edit-menu-sticky">
+      <p class="item__edit-menu-title">
+        <%= t("sections", scope: "decidim.assemblies.admin.assemblies.form") %>
+      </p>
+    </div>
   </div>
-<% end %>
+
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: meeting_agenda_index_path(meeting), html: { method: :post, class: "form new_agenda" }) do |f| %>
+
+      <%= render partial: "form", object: f, locals: { title: t(".title") } %>
+
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+          <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,6 +1,10 @@
-<%= decidim_form_for(@form, html: { class: "form edit_initiatives_settings" }, url: initiatives_setting_path, method: :put) do |f| %>
-  <%= render partial: "form", object: f %>
-  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, html: { class: "form form-defaults edit_initiatives_settings" }, url: initiatives_setting_path, method: :put) do |f| %>
+      <%= render partial: "form", object: f %>
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+        <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
