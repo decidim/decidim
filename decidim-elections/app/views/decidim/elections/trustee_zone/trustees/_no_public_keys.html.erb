@@ -1,0 +1,30 @@
+<h2 class="h3"><%= t("identification_keys.title", scope: "decidim.elections.trustee_zone.trustees.show") %></h2>
+
+<p><%= t("identification_keys.generate_legend", scope: "decidim.elections.trustee_zone.trustees.show") %></p>
+
+<ol class="election-trustee__list">
+  <li><%= t("identification_keys.generate_legend_1", scope: "decidim.elections.trustee_zone.trustees.show") %></li>
+  <li><%= t("identification_keys.generate_legend_2", scope: "decidim.elections.trustee_zone.trustees.show") %></li>
+  <li><%= t("identification_keys.generate_legend_3", scope: "decidim.elections.trustee_zone.trustees.show") %></li>
+  <li><%= t("identification_keys.generate_legend_4", scope: "decidim.elections.trustee_zone.trustees.show") %></li>
+</ol>
+
+<div id="submit_identification_keys" class="election-trustee__submit" hidden>
+  <h3 class="h4"><%= t("identification_keys.submit_title", scope: "decidim.elections.trustee_zone.trustees.show") %></h3>
+
+  <p><%= t("identification_keys.submit_legend", scope: "decidim.elections.trustee_zone.trustees.show") %></p>
+
+  <button class="button button__sm button__transparent-secondary">
+    <span><%= t("identification_keys.cancel", scope: "decidim.elections.trustee_zone.trustees.show") %></span>
+  </button>
+
+  <label class="button button__sm button__secondary" for="submit_identification_public_key">
+    <%= t("identification_keys.submit", scope: "decidim.elections.trustee_zone.trustees.show") %>
+  </label>
+</div>
+
+<div id="generate_identification_keys">
+  <button class="button button__sm md:button__lg button__primary" data-error="<%= t("identification_keys.generate_error", scope: "decidim.elections.trustee_zone.trustees.show") %>">
+    <span><%= t("identification_keys.generate", scope: "decidim.elections.trustee_zone.trustees.show") %></span>
+  </button>
+</div>
