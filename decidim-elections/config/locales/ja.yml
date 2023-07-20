@@ -44,7 +44,7 @@ ja:
         show_check_census: '「センサスの確認」ページを表示'
         start_time: 投票開始
         title: タイトル
-        voting_type: 投票タイプ
+        voting_type: 投票方式
     errors:
       models:
         answer:
@@ -584,7 +584,7 @@ ja:
               task: タスク
             process_warning: 処理が開始された後は、処理が終了するまでこのページを閉じないでください。 すべての受託者が接続し完了するまで、しばらくかかることがあります。
             start: 開始
-            start_icon: アイコンは、選挙キーの生成を開始するためのスタートボタンを示します
+            start_icon: アイコンは、選挙キーの生成を開始するための開始ボタンを示します
             status:
               completed: 完了
               pending: 保留
@@ -806,28 +806,8 @@ ja:
           highlighted_votings:
             max_results: 表示する要素の最大量
           landing_page:
-            attachments_and_folders:
-              name: 投票の添付ファイルとフォルダ
             description:
               name: 投票の説明
-            elections:
-              name: 投票する選挙
-            header:
-              name: 投票のヘッダー
-            html_block_1:
-              name: 投票htmlブロック1
-            html_block_2:
-              name: 投票htmlブロック2
-            html_block_3:
-              name: 投票htmlブロック3
-            metrics:
-              name: 投票メトリクス
-            polling_stations:
-              name: 投票ステーション
-            stats:
-              name: 投票の統計
-            timeline:
-              name: 投票のタイムライン
         index:
           not_published: 未公開
           published: 公開済み
@@ -1147,8 +1127,6 @@ ja:
         highlighted_votings:
           name: 注目の投票
         landing_page:
-          description:
-            title: この投票について
           metrics:
             heading: メトリクス
           polling_stations:
@@ -1165,8 +1143,6 @@ ja:
       pages:
         home:
           highlighted_votings:
-            active_votings: アクティブな投票
-            see_all_votings: すべての投票を表示
             votings_button_title: すべての投票を表示する投票ページへのリンク
       polling_officer_zone:
         closures:
