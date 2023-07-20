@@ -30,12 +30,8 @@
                 <td><%= l share_token.created_at, format: :short %></td>
                 <td><%= l share_token.expires_at, format: :short if share_token.expires_at.present? %></td>
                 <td class="table-list__actions">
-                  <%= with_tooltip t("actions.share", scope: "decidim.admin.share_tokens"), class: "top" do %>
-                    <%= icon_link_to "share-line", share_token.url, t("actions.share", scope: "decidim.admin.share_tokens"), class: "action-icon--share", target: "_blank" %>
-                  <% end %>
-                  <%= with_tooltip t("actions.destroy", scope: "decidim.admin.share_tokens"), class: "top" do %>
-                    <%= icon_link_to "delete-bin-line", decidim_admin.share_token_path(share_token, url: request.fullpath), t("actions.destroy", scope: "decidim.admin.share_tokens"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin.share_tokens") } %>
-                  <% end %>
+                  <%= icon_link_to "share-line", share_token.url, t("actions.share", scope: "decidim.admin.share_tokens"), class: "action-icon--share", target: "_blank" %>
+                  <%= icon_link_to "delete-bin-line", decidim_admin.share_token_path(share_token, url: request.fullpath), t("actions.destroy", scope: "decidim.admin.share_tokens"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin.share_tokens") } %>
                 </td>
               </tr>
             <% end %>

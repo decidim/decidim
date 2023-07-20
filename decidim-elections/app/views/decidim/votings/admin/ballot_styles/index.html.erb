@@ -45,13 +45,9 @@
             </td>
             <td class="table-list__actions">
             <% if allowed_to? :update, :ballot_style, ballot_style: ballot_style, voting: current_voting %>
-                <%= with_tooltip t("actions.edit", scope: "decidim.votings.admin.ballot_styles.index"), class: "top" do %>
-                  <%= icon_link_to "pencil-line", edit_voting_ballot_style_path(current_voting, ballot_style), t("actions.edit", scope: "decidim.votings.admin.ballot_styles.index"), class: "action-icon--edit" %>
-                <% end %>
+                <%= icon_link_to "pencil-line", edit_voting_ballot_style_path(current_voting, ballot_style), t("actions.edit", scope: "decidim.votings.admin.ballot_styles.index"), class: "action-icon--edit" %>
               <% else %>
-                <%= with_tooltip t("actions.edit", scope: "decidim.votings.admin.ballot_styles.index"), class: "top" do %>
-                  <%= icon "pencil-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.votings.admin.ballot_styles.index") %>
-                <% end %>
+                <%= icon "pencil-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.votings.admin.ballot_styles.index") %>
               <% end %>
 
               <% if allowed_to? :delete, :ballot_style, ballot_style: ballot_style, voting: current_voting %>

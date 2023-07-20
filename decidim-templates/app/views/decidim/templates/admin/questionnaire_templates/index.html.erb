@@ -28,9 +28,7 @@
               <td><%= l template.created_at, format: :long %></td>
               <td class="table-list__actions">
                 <% if allowed_to?(:update, :template, questionnaire_template: template) %>
-                   <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
-                    <%= icon_link_to "pencil-line", edit_questionnaire_template_path(template), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
-                  <% end %>
+                  <%= icon_link_to "pencil-line", edit_questionnaire_template_path(template), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
                 <% end %>
 
                 <% if allowed_to?(:copy, :template, questionnaire_template: template) %>
@@ -38,9 +36,7 @@
                 <% end %>
 
                 <% if allowed_to?(:destroy, :template, questionnaire_template: template) %>
-                  <%= with_tooltip t(".confirm_delete"), class: "top" do %>
-                    <%= icon_link_to "delete-bin-line", questionnaire_template_path(template), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
-                  <% end %>
+                  <%= icon_link_to "delete-bin-line", questionnaire_template_path(template), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
                 <% end %>
               </td>
             </tr>

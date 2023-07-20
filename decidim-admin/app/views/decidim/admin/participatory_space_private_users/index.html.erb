@@ -56,9 +56,7 @@
                 <% end %>
 
                 <% if allowed_to? :destroy, :space_private_user, private_user: private_user %>
-                  <%= with_tooltip t("actions.destroy", scope: "decidim.admin"), class: "top" do %>
-                    <%= icon_link_to "delete-bin-line", participatory_space_private_user_path(current_participatory_space, private_user), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-                  <% end %>
+                  <%= icon_link_to "delete-bin-line", participatory_space_private_user_path(current_participatory_space, private_user), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                 <% end %>
               </td>
             </tr>

@@ -32,15 +32,11 @@
             </td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :media_link, media_link: media_link %>
-                <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
-                  <%= icon_link_to "pencil-line", edit_conference_media_link_path(current_conference, media_link), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
-                <% end %>
+                <%= icon_link_to "pencil-line", edit_conference_media_link_path(current_conference, media_link), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
               <% end %>
 
               <% if allowed_to? :destroy, :media_link, media_link: media_link %>
-                <%= with_tooltip t("actions.destroy", scope: "decidim.admin"), class: "top" do %>
-                  <%= icon_link_to "delete-bin-line", conference_media_link_path(current_conference, media_link), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-                <% end %>
+                <%= icon_link_to "delete-bin-line", conference_media_link_path(current_conference, media_link), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
               <% end %>
             </td>
           </tr>

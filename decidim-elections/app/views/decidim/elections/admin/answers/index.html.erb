@@ -54,33 +54,23 @@
               <% end %>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :answer, election: election, question: question, answer: answer %>
-                  <%= with_tooltip t("actions.edit", scope: "decidim.admin"), class: "top" do %>
-                    <%= icon_link_to "pencil-line", edit_election_question_answer_path(election, question, answer), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
-                  <% end %>
+                  <%= icon_link_to "pencil-line", edit_election_question_answer_path(election, question, answer), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
                 <% else %>
                   <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.elections") %>
                 <% end %>
 
                 <% if election.results? %>
                   <% if answer.selected %>
-                    <%= with_tooltip t("answers.select.disable", scope: "decidim.elections.admin"), class: "top" do %>
-                      <%= icon_link_to "close-circle-line", unselect_election_question_answer_path(election, question, answer), t("answers.select.disable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
-                    <% end %>
+                    <%= icon_link_to "close-circle-line", unselect_election_question_answer_path(election, question, answer), t("answers.select.disable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
                   <% else %>
-                    <%= with_tooltip t("answers.select.enable", scope: "decidim.elections.admin"), class: "top" do %>
-                      <%= icon_link_to "check-line", select_election_question_answer_path(election, question, answer), t("answers.select.enable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
-                    <% end %>
+                    <%= icon_link_to "check-line", select_election_question_answer_path(election, question, answer), t("answers.select.enable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
                   <% end %>
                 <% end %>
 
                 <% if allowed_to? :delete, :answer, election: election, question: question, answer: answer %>
-                  <%= with_tooltip t("actions.confirm_destroy", scope: "decidim.elections"), class: "top" do %>
-                    <%= icon_link_to "delete-bin-line", election_question_answer_path(election, question, answer), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
-                  <% end %>
+                  <%= icon_link_to "delete-bin-line", election_question_answer_path(election, question, answer), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
                 <% else %>
-                  <%= with_tooltip t("actions.destroy", scope: "decidim.elections"), class: "top" do %>
-                    <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.elections") %>
-                  <% end %>
+                  <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.elections") %>
                 <% end %>
               </td>
             </tr>

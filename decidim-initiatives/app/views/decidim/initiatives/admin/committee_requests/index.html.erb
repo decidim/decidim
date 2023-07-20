@@ -39,15 +39,11 @@
             </td>
             <td class="table-list__actions">
               <% if allowed_to? :approve, :initiative_committee_member, request: request %>
-                <%= with_tooltip t(".approve"), class: "top" do %>
-                  <%= icon_link_to "check-line", approve_initiative_committee_request_path(current_initiative, request), t(".approve"), class: "action-icon--check" %>
-                <% end %>
+                <%= icon_link_to "check-line", approve_initiative_committee_request_path(current_initiative, request), t(".approve"), class: "action-icon--check" %>
               <% end %>
 
               <% if allowed_to? :revoke, :initiative_committee_member, request: request %>
-                <%= with_tooltip t(".revoke"), class: "top" do %>
-                  <%= icon_link_to "delete-bin-line", revoke_initiative_committee_request_path(current_initiative, request), t(".revoke"), class: "action-icon--remove", method: :delete, data: { confirm: t(".confirm_revoke") } %>
-                <% end %>
+                <%= icon_link_to "delete-bin-line", revoke_initiative_committee_request_path(current_initiative, request), t(".revoke"), class: "action-icon--remove", method: :delete, data: { confirm: t(".confirm_revoke") } %>
               <% end %>
             </td>
           </tr>

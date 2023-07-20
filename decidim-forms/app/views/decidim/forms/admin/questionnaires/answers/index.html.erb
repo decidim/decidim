@@ -36,9 +36,7 @@
             <td><%= l participant.answered_at, format: :short %></td>
             <td class="table-list__actions">
               <% if allowed_to? :show, :questionnaire_answers %>
-                <%= with_tooltip t("actions.show", scope: "decidim.forms.admin.questionnaires.answers"), class: "top" do %>
-                  <%= icon_link_to "eye-line", questionnaire_participant_answers_url(participant.session_token), t("actions.show", scope: "decidim.forms.admin.questionnaires.answers"), class: "action-icon--eye", target: "_blank", data: { "external-link": false } %>
-                <% end %>
+                <%= icon_link_to "eye-line", questionnaire_participant_answers_url(participant.session_token), t("actions.show", scope: "decidim.forms.admin.questionnaires.answers"), class: "action-icon--eye", target: "_blank", data: { "external-link": false } %>
               <% end %>
               <% if allowed_to? :export_response, :questionnaire_answers %>
                 <%= icon_link_to "data-transfer-download", questionnaire_export_response_url(participant.session_token), t("actions.export", scope: "decidim.forms.admin.questionnaires.answers"), class: "action-icon--data-transfer-download" %>
