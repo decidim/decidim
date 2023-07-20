@@ -1,23 +1,25 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= link_to "#{t ".initiatives"} > ", initiatives_path %>
-      <%= decidim_sanitize translated_attribute(initiative.title) %>
-    </h2>
-  </div>
+<div class="form__wrapper">
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title">
+        <%= link_to "#{t ".initiatives"} > ", initiatives_path %>
+        <%= decidim_sanitize translated_attribute(initiative.title) %>
+      </h2>
+    </div>
 
-  <div class="card-section">
-    <div class="row column">
-      <strong><%= t ".description" %>: </strong> <%= decidim_sanitize_editor translated_attribute(initiative.description) %>
-    </div>
-    <div class="row column">
-      <strong><%= t ".created_at" %>: </strong> <%= l initiative.created_at, format: :decidim_short %>
-    </div>
-    <div class="row column">
-      <strong><%= t ".state" %>: </strong> <%= I18n.t(initiative.state, scope: "decidim.initiatives.admin_states") %>
-    </div>
-    <div class="row column">
-      <strong><%= t ".initiative_votes_count" %>: </strong> <%= initiative.online_votes_count %>
+    <div class="card-section">
+      <div class="row column">
+        <strong><%= t ".description" %>: </strong> <%= decidim_sanitize_editor translated_attribute(initiative.description) %>
+      </div>
+      <div class="row column">
+        <strong><%= t ".created_at" %>: </strong> <%= l initiative.created_at, format: :decidim_short %>
+      </div>
+      <div class="row column">
+        <strong><%= t ".state" %>: </strong> <%= I18n.t(initiative.state, scope: "decidim.initiatives.admin_states") %>
+      </div>
+      <div class="row column">
+        <strong><%= t ".initiative_votes_count" %>: </strong> <%= initiative.online_votes_count %>
+      </div>
     </div>
   </div>
 </div>
