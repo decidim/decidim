@@ -632,7 +632,7 @@ eu:
           ballot_decision: Eman edo ikuskatu zure botoa
           casting: Botoa ematen ari da
           confirm: Baieztatu botoa
-          confirmed: Botoa baieztatu da
+          confirmed: Baieztatutako botoa
           encrypting: Botoa zifratzen ari da
           failed: Boto okerra
         messages:
@@ -758,28 +758,8 @@ eu:
           highlighted_votings:
             max_results: Erakusteko gehieneko elementu kopurua
           landing_page:
-            attachments_and_folders:
-              name: Erantsitako artxiboak eta bozketako karpetak
             description:
               name: Bozketaren deskribapena
-            elections:
-              name: Bozketako aukerak
-            header:
-              name: Bozketaren goiburua
-            html_block_1:
-              name: Bozketaren html 1 blokea
-            html_block_2:
-              name: Bozketaren html 2 blokea
-            html_block_3:
-              name: Bozketaren html 3 blokea
-            metrics:
-              name: Bozketaren metrikak
-            polling_stations:
-              name: Bozketa-guneak
-            stats:
-              name: Boto-estatistikak
-            timeline:
-              name: Bozketaren egutegia
         index:
           not_published: Desargitaratua
           published: Argitaratua
@@ -1098,8 +1078,6 @@ eu:
       pages:
         home:
           highlighted_votings:
-            active_votings: Bozketa aktiboak
-            see_all_votings: Ikusi bozketa guztiak
             votings_button_title: Lotura guztiak erakusten dituen Bozketen orrialdera
       polling_officer_zone:
         closures:
