@@ -476,13 +476,7 @@ fr:
           all: Toutes
           date: Date
           finished: Terminées
-          search: Rechercher
           upcoming: À venir
-        filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtrer
-          filter_by: Filtrer par
-          unfold: Voir plus
         preview:
           available_answers: 'Réponses disponibles :'
           description: 'Voici les questions que vous trouverez dans le processus de vote :'
@@ -500,7 +494,6 @@ fr:
             change_vote: Changer votre vote
             vote: Commencer à voter
             vote_again: Voter à nouveau
-          back: Élections disponibles
           callout:
             already_voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
             pending_vote: Votre vote est en cours de validation sur le serveur.
@@ -558,7 +551,6 @@ fr:
           backup_modal:
             description: Cette élection est en cours de création dans le Panneau d'affichage. Il est très important que chaque garant qui y participe fasse une sauvegarde de ces clés et les stocke dans un endroit sûr. Ensuite, le processus se poursuit.
             download_election_keys: Télécharger les clés
-            download_icon: Icône indiquant une action de téléchargement
             title: Sauvegarder les clés d'élection pour %{election}
           key_ceremony_steps:
             back: Retour
@@ -573,7 +565,6 @@ fr:
               task: Tâche
             process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les garants doivent être connectés pour le compléter.
             start: Démarrer
-            start_icon: Icône indiquant un bouton de démarrage pour démarrer la génération des clés d'élection
             status:
               completed: Terminé
               pending: En attente
@@ -583,7 +574,6 @@ fr:
             description: Le Panneau d'affichage a des informations pour vous en temps que garant de cette élection. Pour continuer le processus, commencer par télécharger le fichier de sauvegarde généré pendant la session précédente.
             title: Restaurer les clés d'élection pour %{election}
             upload_election_keys: Télécharger les clés d'élection
-            upload_icon: Icône indiquant une action de téléchargement
           tally_started_steps:
             back: Retour
             description: Les résultats de cette élection sont calculés dans le Panneau d'affichage et pour compléter ce processus, votre participation en tant que garant est nécessaire.
@@ -597,7 +587,6 @@ fr:
               task: Tâche
             process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les garants doivent être connectés pour le compléter.
             start: Démarrer
-            start_icon: Icône indiquant un bouton de démarrage pour démarrer la génération des clés d'élection
             status:
               completed: Terminé
               pending: En attente
@@ -650,7 +639,6 @@ fr:
             success: Votre clé d'identification publique a bien été stockée.
       votes:
         ballot_decision:
-          audit: "(Auditer le bulletin de vote)"
           back: Recommencer le processus de vote
           ballot_hash: 'L''identifiant de votre bulletin est :'
           cast: Remplir le bulletin pour terminer votre vote
@@ -660,21 +648,18 @@ fr:
           header: Vote en cours...
           text: Votre bulletin a bien été pris en compte.
         confirm:
-          answer: Répondre
           answer_number: répondre à %{number}
           confirm: Valider
           edit: éditer
           header: Confirmer votre vote
           intro: Voici un résumé du vote que vous êtes sur le point d'envoyer. <br> Veuillez confirmer votre vote ou modifier vos réponses.
           nota_option: Vide
-          question: Question %{count}
         confirmed:
           back: Retour aux élections
           experience: Comment a été votre expérience?
           feedback: Donnez-nous votre avis
           header: Vote confirmé
           lead: Votre vote a été comptabilisé !
-          text: 'Vous pouvez vérifier que votre vote a bien été ajouté aux urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Pour vérifier que votre vote a bien été pris en compte, copiez l'identifiant et collez-le sur la <a href="%{link}">page de vérification de vote</a>
         create:
           error: Un problème s'est produit lors de la validation du vote. Veuillez réessayer.
@@ -686,13 +671,6 @@ fr:
           lead: Votre vote n'a pas été exprimé !
           text: Une erreur est survenue, veuillez réessayer.
           try_again: Réessayez
-        header:
-          ballot_decision: Validez ou auditez votre vote
-          casting: Vote en cours
-          confirm: Confirmer votre vote
-          confirmed: Vote confirmé
-          encrypting: Chiffrement du vote
-          failed: Le vote a échoué
         messages:
           invalid_token: Votre session dans l'isoloir n'est pas valide. Essayez de voter à nouveau.
           not_allowed: Vous n'êtes pas autorisé à voter sur cette élection pour le moment.
@@ -705,9 +683,7 @@ fr:
           nota_option: Vide / Aucune des options ci-dessus
           preview_alert: Ceci est un aperçu de la cabine de vote.
           question_steps: Question %{current_step} sur %{total_steps}
-          selections: "%{selected} sur %{max_selections}<br> sélections"
         onboarding_modal:
-          close: Fermer la fenêtre de dialogue
           create_account: S'inscrire
           description: Voulez-vous créer un compte sur la plateforme ? Vous pourrez participer aux concertations et prendre une part active dans l'organisation.
           no_account: Non, merci.
@@ -818,29 +794,6 @@ fr:
         content_blocks:
           highlighted_votings:
             max_results: Nombre maximum d'éléments à afficher
-          landing_page:
-            attachments_and_folders:
-              name: Pièces jointes et dossiers du vote
-            description:
-              name: Description du vote
-            elections:
-              name: Élections
-            header:
-              name: Header du vote
-            html_block_1:
-              name: Bloc HTML 1 du Vote
-            html_block_2:
-              name: Bloc HTML 2 du Vote
-            html_block_3:
-              name: Bloc HTML 3 du Vote
-            metrics:
-              name: Métriques de vote
-            polling_stations:
-              name: Bureaux de vote
-            stats:
-              name: Statistiques du vote
-            timeline:
-              name: Calendrier du vote
         index:
           not_published: Non publié
           published: Publié
@@ -1170,27 +1123,15 @@ fr:
         highlighted_votings:
           name: Élections mises en avant
         landing_page:
-          description:
-            title: À propos de ce vote
-          metrics:
-            heading: Métriques
           polling_stations:
             heading: Bureaux de vote
             no_polling_stations: Il n'y a pas encore de bureau de vote.
-          timeline:
-            heading: Chronologie
       monitoring_committee_members:
         actions:
           confirm_destroy: Êtes-vous sûr?
           destroy: Supprimer
           new: Nouveau membre
           title: Actions
-      pages:
-        home:
-          highlighted_votings:
-            active_votings: Votations en cours
-            see_all_votings: Voir toutes les votations
-            votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
       polling_officer_zone:
         closures:
           back_to_polling_stations: Retourner aux bureaux de vote
@@ -1223,7 +1164,6 @@ fr:
             info_text: 'Veuillez introduire le nombre total de bulletins de vote (enveloppes) recomptés dans ce Bureau de vote:'
             modal_ballots_count_error:
               btn_validate_total: Valider le nombre total de bulletins
-              close_modal: Fermer
               info_explanation_text: 'Veuillez examiner le nombre total de bulletins de vote. Si le nombre total est incorrect, vous devez fournir une explication pour le comité de suivi :'
               info_text: Le nombre total de bulletins de vote ne correspond pas au nombre de personnes ayant voté dans ce bureau de vote.
               message_for_monitoring_committee: Message pour le comité de suivi
@@ -1241,14 +1181,12 @@ fr:
           sign:
             cancel: Annuler
             check_box: Après vérification, ce certificat est identique au certificat physique de clôture des élections
-            close_modal: Clore
             confirm: Ok, continuer
             error: Une erreur est survenue, veuillez réessayer.
             heading: Recomptage des voix - Signer la fermeture
             info_text: Cette action est irréversible. Si vous continuez, vous ne pourrez plus modifier les informations.
             submit: Signer la fermeture
             success: Fermeture signée avec succès.
-            title: Cette action est irréversible
           update:
             error: Une erreur s'est produite lors de la mise à jour des résultats de fermeture, veuillez réessayer plus tard.
             success: Résultats de fermeture mis à jour avec succès.
@@ -1379,9 +1317,7 @@ fr:
             one: "%{count} élection"
             other: "%{count} élections"
         elections_log:
-          bb_status: État actuel de l'élection
           description: Le journal des élections vous montrera toutes les informations pertinentes sur chaque vote. Par exemple, le statut de la cérémonie de génération des clés ou du dépouillement ou si les résultats sont déjà publiés. Cliquez sur l'élection à propos de laquelle vous voulez des informations.
-          election_log: Logs de l'élection
           title: Journal de l'élection
         filters:
           active: Actifs
@@ -1390,11 +1326,6 @@ fr:
           finished: Terminées
           search: Rechercher
           upcoming: À venir
-        filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtrer
-          filter_by: Filtrer par
-          unfold: Dérouler
         index:
           no_votings: Aucun vote ne correspond à votre recherche.
           only_finished: À l'heure actuelle, il n'y a pas de votes planifiés, mais vous trouverez ici une liste de tous les votes passées.
@@ -1406,7 +1337,6 @@ fr:
           dont_have_access_code: Vous n'avez pas de code d'accès?
           form_title: 'Remplissez le formulaire suivant pour accéder au vote :'
           start_voting: Commencer à voter
-          step: Identification
           title: Je m'identifie avec mes données de recensement de vote
         no_census_contact_information: Il n'y a pas encore d'informations de contact.
         orders:
@@ -1416,23 +1346,16 @@ fr:
         send_access_code:
           invalid: Un problème est survenu lors de l'envoi du code d'accès.
           success: Votre code d'accès a été envoyé avec succès.
-        show:
-          dates: Dates
       votings_m:
         badge_name:
           finished: Passées
           ongoing: En cours
           upcoming: À venir
-        footer_button_text:
-          participate: Participer
-          view: Voir
-          vote: Voter
         unspecified: Non précisées
         voting_type:
           hybrid: Hybride
           in_person: En présentiel
           online: En ligne
-        voting_types_label: Type de vote
   layouts:
     decidim:
       election_votes_header:
@@ -1445,5 +1368,4 @@ fr:
         index:
           promoted_votings: Votations mises en avant
         promoted_voting:
-          more_info: Plus d'informations
           vote: Voter
