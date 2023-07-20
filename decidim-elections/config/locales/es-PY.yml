@@ -818,28 +818,8 @@ es-PY:
           highlighted_votings:
             max_results: Cantidad máxima de elementos a mostrar
           landing_page:
-            attachments_and_folders:
-              name: Archivos adjuntos y carpetas de la votación
             description:
               name: Descripción de la votación
-            elections:
-              name: Elecciones de la votación
-            header:
-              name: Cabecera de la votación
-            html_block_1:
-              name: Bloque html 1 de la votación
-            html_block_2:
-              name: Bloque html 2 de la votación
-            html_block_3:
-              name: Bloque html 3 de la votación
-            metrics:
-              name: Métricas de votación
-            polling_stations:
-              name: Puntos de votación
-            stats:
-              name: Estadísticas de votación
-            timeline:
-              name: Calendario de votación
         index:
           not_published: Despublicada
           published: Publicada
@@ -1159,8 +1139,6 @@ es-PY:
         highlighted_votings:
           name: Votaciones destacadas
         landing_page:
-          description:
-            title: Sobre esta votación
           metrics:
             heading: Métricas
           polling_stations:
@@ -1177,8 +1155,6 @@ es-PY:
       pages:
         home:
           highlighted_votings:
-            active_votings: Votaciones activas
-            see_all_votings: Ver todas las votaciones
             votings_button_title: Enlace a la página de Votaciones que las muestra todas
       polling_officer_zone:
         closures:
