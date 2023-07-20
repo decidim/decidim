@@ -116,8 +116,7 @@ describe "Proposals", type: :system do
               fill_in :proposal_body, with: "Cities need more people, not more cars"
               fill_in_geocoding :proposal_address, with: address
 
-              # REDESIGN_PENDING - The map should work in redesign
-              # expect(page).to have_css("[data-decidim-map]")
+              expect(page).to have_css("[data-decidim-map]")
               expect(page).to have_content("You can move the point on the map.")
 
               select translated(category.name), from: :proposal_category_id
