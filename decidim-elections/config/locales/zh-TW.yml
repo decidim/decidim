@@ -461,13 +461,7 @@ zh-TW:
           all: 全部
           date: 日期
           finished: 已完成
-          search: 搜尋
           upcoming: 即將舉行
-        filters_small_view:
-          close_modal: 關閉視窗
-          filter: 篩選
-          filter_by: 篩選條件
-          unfold: 展開
         preview:
           available_answers: '可選答案:'
           description: '以下是您在投票過程中會遇到的問題:'
@@ -484,7 +478,6 @@ zh-TW:
             change_vote: 更改您的選票
             vote: 開始投票
             vote_again: 再次投票
-          back: 可投票的選舉
           callout:
             already_voted: 您已經在此選舉中投票，您可以更改您的選票或進行驗證。
             pending_vote: 您的投票正在服務器上進行。
@@ -542,7 +535,6 @@ zh-TW:
           backup_modal:
             description: 這次選舉正在公告欄上創建。對於參與其中的每個受託人來說，創建備份並將其存放在安全的地方非常重要。之後，過程將繼續進行。
             download_election_keys: 下載金鑰
-            download_icon: 下載操作的圖示
             title: 備份 %{election} 的選舉金鑰
           key_ceremony_steps:
             back: 返回
@@ -557,7 +549,6 @@ zh-TW:
               task: 任務
             process_warning: 一旦開始此過程，請勿離開此頁面，直到過程結束。所有參與者都應該連接以完成此過程，需要幾分鐘的時間。
             start: 開始
-            start_icon: 開始選舉密鑰生成的圖示按鈕
             status:
               completed: 已完成
               pending: 等待中
@@ -567,7 +558,6 @@ zh-TW:
             description: 選舉公告板已收到您作為受託人在此選舉中的相關資訊。為了繼續進行過程，您需要先上傳上一次備份的檔案。
             title: 還原 %{election} 的選舉金鑰
             upload_election_keys: 上傳選舉金鑰
-            upload_icon: 下載操作的圖示
           tally_started_steps:
             back: 返回
             description: 這次選舉的結果正在公告欄中計算中。為了完成這個過程，需要您作為一名受託人進行參與。
@@ -581,7 +571,6 @@ zh-TW:
               task: 任務
             process_warning: 一旦開始此過程，請勿離開此頁面，直到過程結束。所有參與者都應該連接以完成此過程，需要幾分鐘的時間。
             start: 開始
-            start_icon: 開始選舉密鑰生成的圖示按鈕
             status:
               completed: 已完成
               pending: 等待中
@@ -634,7 +623,6 @@ zh-TW:
             success: 您的識別公鑰已成功存儲。
       votes:
         ballot_decision:
-          audit: "（審核選票）"
           back: 重新開始投票流程
           ballot_hash: '您的選票識別碼是:'
           cast: 提交選票以完成投票
@@ -644,21 +632,18 @@ zh-TW:
           header: 正在投票中...
           text: 您的選票正在投入投票箱中。
         confirm:
-          answer: 回答
           answer_number: 答案 %{number}
           confirm: 確認
           edit: 編輯
           header: 確認您的選票
           intro: 以下是您即將投票的摘要。 <br> 請確認您的選票或編輯您的回答。
           nota_option: 空白
-          question: 問題 %{count}
         confirmed:
           back: 回到選舉
           experience: 您的經驗如何？
           feedback: 給我們一些回饋
           header: 投票已確認
           lead: 您己投票!
-          text: '你可以使用以下識別碼檢查你的投票是否已成功添加到投票箱中：<strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: 複製此識別碼，並將其貼到<a href="%{link}">投票驗證頁面</a>以進行檢查。
         create:
           error: 投票時發生問題，請再試一次。
@@ -670,13 +655,6 @@ zh-TW:
           lead: 您的投票尚未完成！
           text: 出現錯誤，請再試一次。
           try_again: 再試一次
-        header:
-          ballot_decision: 投票或查核您的選票
-          casting: 正在投票
-          confirm: 確認您的選票
-          confirmed: 投票已確認
-          encrypting: 正在加密投票
-          failed: 投票失敗
         messages:
           invalid_token: 您在投票站的會話無效。請再次嘗試投票。
           not_allowed: 您目前無法在此選舉中投票。
@@ -689,9 +667,7 @@ zh-TW:
           nota_option: 空白/以上皆非
           preview_alert: 這是投票站的預覽畫面。
           question_steps: 第 %{current_step} 問題，共 %{total_steps} 題
-          selections: "%{selected} 項已選擇，最多可 %{max_selections} <br>項選擇"
         onboarding_modal:
-          close: 關閉視窗
           create_account: 建立帳戶
           description: 您想在平台上建立新帳戶嗎？您將能夠參與流程並成為組織的積極一員。
           no_account: 不用了，謝謝。
@@ -802,29 +778,6 @@ zh-TW:
         content_blocks:
           highlighted_votings:
             max_results: 顯示的最大元素數量
-          landing_page:
-            attachments_and_folders:
-              name: 投票附件與資料夾
-            description:
-              name: 投票說明
-            elections:
-              name: 投票選舉
-            header:
-              name: 投票標題
-            html_block_1:
-              name: 投票 Html 區塊 1
-            html_block_2:
-              name: 投票 Html 區塊 2
-            html_block_3:
-              name: 投票 Html 區塊 3
-            metrics:
-              name: 投票指標
-            polling_stations:
-              name: 投票的投票站
-            stats:
-              name: 投票統計
-            timeline:
-              name: 投票時間軸
         index:
           not_published: 尚未發布
           published: 已發佈
@@ -1152,27 +1105,15 @@ zh-TW:
         highlighted_votings:
           name: 重點顯示的投票
         landing_page:
-          description:
-            title: 關於本次投票
-          metrics:
-            heading: 指標
           polling_stations:
             heading: 投票站
             no_polling_stations: 目前尚未設置投票站。
-          timeline:
-            heading: 時間軸
       monitoring_committee_members:
         actions:
           confirm_destroy: 您確定嗎？
           destroy: 刪除
           new: 新成員
           title: 操作
-      pages:
-        home:
-          highlighted_votings:
-            active_votings: 活躍的投票
-            see_all_votings: 查看所有投票
-            votings_button_title: 鏈接到顯示所有投票的投票頁面
       polling_officer_zone:
         closures:
           back_to_polling_stations: 返回投票站
@@ -1205,7 +1146,6 @@ zh-TW:
             info_text: '請輸入在此投票站重新點數的選票總數（信封數）：'
             modal_ballots_count_error:
               btn_validate_total: 驗證選票總數重新點數
-              close_modal: 關閉
               info_explanation_text: '請檢查選票總數是否正確。如果總數不正確，您必須向監察委員會提供解釋：'
               info_text: 總票數(信封) 輸入的總數與在此投票站投票的人數記錄不符。
               message_for_monitoring_committee: 監察委員會留言
@@ -1223,14 +1163,12 @@ zh-TW:
           sign:
             cancel: 取消
             check_box: 我已經檢查過了，與實體選舉結束憑證相同。
-            close_modal: 關閉
             confirm: 好的，繼續
             error: 發生錯誤，請再試一次
             heading: 重新點票 - 簽署結束文件
             info_text: 如果您繼續進行，則無法修改任何資訊，此操作無法撤消。
             submit: 簽署選舉結束
             success: 選舉結束簽署成功。
-            title: 這個操作無法撤銷
           update:
             error: 更新選舉結束結果時出錯，請稍後再試。
             success: 選舉結束結果已成功更新。
@@ -1360,9 +1298,7 @@ zh-TW:
           title:
             other: "%{count} 票"
         elections_log:
-          bb_status: 選舉狀態
           description: 選舉日誌將顯示有關每次投票的所有相關信息。例如，金鑰儀式或計票的狀態，或者結果是否已經發佈。點擊您想要查看日誌信息的選舉。
-          election_log: 選舉紀錄
           title: 選舉紀錄
         filters:
           active: 生效
@@ -1371,11 +1307,6 @@ zh-TW:
           finished: 已完成
           search: 搜尋
           upcoming: 即將舉行
-        filters_small_view:
-          close_modal: 關閉視窗
-          filter: 篩選
-          filter_by: 篩選條件
-          unfold: 展開
         index:
           no_votings: 沒有符合您搜尋條件的投票。
           only_finished: 目前沒有已安排的投票，但您可以在此找到已完成的投票列表。
@@ -1387,7 +1318,6 @@ zh-TW:
           dont_have_access_code: 沒有存存取代碼？
           form_title: '填寫以下表格以訪問投票：'
           start_voting: 開始投票
-          step: 識別
           title: 使用投票選民名單資料進行身分驗證
         no_census_contact_information: 目前尚未提供聯繫資訊。
         orders:
@@ -1397,23 +1327,16 @@ zh-TW:
         send_access_code:
           invalid: 發送存取代碼時出現問題。
           success: 您的存取代碼已成功發送。
-        show:
-          dates: 日期
       votings_m:
         badge_name:
           finished: 已完成
           ongoing: 進行中
           upcoming: 即將舉行
-        footer_button_text:
-          participate: 參與
-          view: 檢視
-          vote: 投票
         unspecified: 未指定
         voting_type:
           hybrid: 混合
           in_person: 親自
           online: 線上
-        voting_types_label: 投票類別
   layouts:
     decidim:
       election_votes_header:
@@ -1426,5 +1349,4 @@ zh-TW:
         index:
           promoted_votings: 重點顯示的投票
         promoted_voting:
-          more_info: 更多資訊
           vote: 投票
