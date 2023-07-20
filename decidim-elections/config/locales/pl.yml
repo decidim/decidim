@@ -20,6 +20,7 @@ pl:
         banner_image: Banner
         end_time: Głosowanie kończy się
         start_time: Głosowanie rozpoczyna się
+        voting_type: Typ głosowania
     errors:
       models:
         answer:
@@ -541,6 +542,7 @@ pl:
               tally:
                 cast: Suma oddanych głosów
                 share: Udostępnij ustalony wynik głosowania
+            start_icon: Ikona wskazująca przycisk startu dla tworzenia kluczy wyborczych
             title: Wynik głosowania dla %{election}
           update:
             error: Status wyborów nie został zaktualizowany.
@@ -595,7 +597,7 @@ pl:
           header: Oddawanie głosu...
           text: Twoja karta do głosowania jest składana do urny wyborczej.
         confirm:
-          answer: Odpowiedz
+          answer: Odpowiedź
           answer_number: odpowiedz %{number}
           confirm: Potwierdź
           edit: edytuj
@@ -625,7 +627,7 @@ pl:
           ballot_decision: Oddaj głos, albo sprawdź poprawność szyfrowania Twojego głosu
           casting: Oddawanie głosu
           confirm: Potwierdź swój głos
-          confirmed: Głos potwierdzony
+          confirmed: Oddanie głosu potwierdzone
           encrypting: Szyfrowanie głosu
           failed: Oddanie głosu nie powiodło się
         messages:
@@ -750,28 +752,8 @@ pl:
           highlighted_votings:
             max_results: Maksymalna ilość elementów do wyświetlenia
           landing_page:
-            attachments_and_folders:
-              name: Załączniki i foldery do głosowania
             description:
               name: Opis głosowania
-            elections:
-              name: Wybory
-            header:
-              name: Nagłówek głosowania
-            html_block_1:
-              name: Pierwszy blok html głosowania
-            html_block_2:
-              name: Drugi blok html głosowania
-            html_block_3:
-              name: Trzeci blok html głosowania
-            metrics:
-              name: Metryka głosowania
-            polling_stations:
-              name: Lokale wyborcze
-            stats:
-              name: Statystyki głosowania
-            timeline:
-              name: Oś czasu głosowania
         index:
           not_published: Nie opublikowano
           published: Opublikowano
@@ -1066,8 +1048,6 @@ pl:
       pages:
         home:
           highlighted_votings:
-            active_votings: Aktywne głosowania
-            see_all_votings: Zobacz wszystkie głosowania
             votings_button_title: Link do strony Głosowań wyświetla wszystkie głosowania
       polling_officer_zone:
         closures:
@@ -1287,7 +1267,7 @@ pl:
           invalid: Wystąpił błąd podczas wysyłania kodu dostępu
           success: Twój kod dostępu został wysłany pomyślnie
         show:
-          dates: Daty
+          dates: Data
       votings_m:
         badge_name:
           finished: Zakończone
@@ -1296,7 +1276,7 @@ pl:
         footer_button_text:
           participate: Dołącz
           view: Zobacz
-          vote: Głosuj
+          vote: Głosowanie
         unspecified: Nie określono
         voting_type:
           hybrid: Hybrydowe
