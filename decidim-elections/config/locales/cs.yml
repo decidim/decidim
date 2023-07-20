@@ -1165,6 +1165,7 @@ cs:
       pages:
         home:
           highlighted_votings:
+            see_all_votings: Zobrazit všechna hlasování
             votings_button_title: Odkaz na stránku hlasování zobrazující všechna hlasování
       polling_officer_zone:
         closures:
