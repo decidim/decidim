@@ -465,13 +465,7 @@ ja:
           all: 全て
           date: 日付
           finished: 完了
-          search: 検索
           upcoming: 今後の予定
-        filters_small_view:
-          close_modal: ウィンドウを閉じる
-          filter: 絞り込み
-          filter_by: 絞り込み条件
-          unfold: 展開
         preview:
           available_answers: '利用可能な回答:'
           description: 'これらは投票プロセスでの質問内容です。'
@@ -488,7 +482,6 @@ ja:
             change_vote: 投票の変更
             vote: 投票の開始
             vote_again: 再投票
-          back: 利用可能な選挙
           callout:
             already_voted: すでにこの選挙に投票しました。投票の変更と確認ができます。
             pending_vote: あなたの投票はサーバー上で行われています。
@@ -546,7 +539,6 @@ ja:
           backup_modal:
             description: この選挙は、掲示板で作成されています。 それに参加しているすべての受託者がこれらのキーのバックアップコピーを作成し、安全な場所に保存することが非常に重要です。 その後、処理が続行されます。
             download_election_keys: ダウンロードキー
-            download_icon: ダウンロードアクションを示すアイコン
             title: '%{election} のバックアップ選挙キー'
           key_ceremony_steps:
             back: 戻る
@@ -561,7 +553,6 @@ ja:
               task: タスク
             process_warning: プロセスが開始された後は、プロセスが終了するまでこのページを終了しないでください。 すべての受託者が連結され完了されるまで、数分かかることがあります。
             start: 開始
-            start_icon: アイコンは、選挙キーの生成を開始するための開始ボタンを示します
             status:
               completed: 完了
               pending: 保留中
@@ -571,7 +562,6 @@ ja:
             description: 掲示板には、今回の選挙の受託者としての情報が掲載されます。 処理を続行するには、最初に前回のセッションで生成されたバックアップファイルをアップロードします。
             title: '%{election} の選挙用キーを復元'
             upload_election_keys: 選挙用キーをアップロード
-            upload_icon: ダウンロードアクションを示すアイコン
           tally_started_steps:
             back: 戻る
             description: この選挙の結果は、掲示板上で計算されます。この処理を完了するには、受託者として参加すること必要があります。
@@ -585,7 +575,6 @@ ja:
               task: タスク
             process_warning: 処理が開始された後は、処理が終了するまでこのページを閉じないでください。 すべての受託者が接続し完了するまで、しばらくかかることがあります。
             start: 開始
-            start_icon: アイコンは、選挙キーの生成を開始するためのスタートボタンを示します
             status:
               completed: 完了
               pending: 保留
@@ -638,7 +627,6 @@ ja:
             success: 公開識別キーが正常に保存されました。
       votes:
         ballot_decision:
-          audit: "(監査投票)"
           back: 投票プロセスを再度開始
           ballot_hash: '投票用紙の識別子:'
           cast: 投票を完了するには投票を行ってください
@@ -648,21 +636,18 @@ ja:
           header: 投票中…
           text: あなたの投票は投票箱に投じられています。
         confirm:
-          answer: 回答
           answer_number: 回答 %{number}
           confirm: 確定
           edit: 編集
           header: 投票を確定
           intro: あなたが投じようとしている投票の概要です。 <br> 投票を確定するか、回答を編集してください。
           nota_option: 空白
-          question: 質問 %{count}
         confirmed:
           back: 選挙に戻る
           experience: ご利用いただき、どう思われますか?
           feedback: フィードバックを送る
           header: 投票が確定されました
           lead: あなたの投票が行われました!
-          text: '投票が投票箱に正常に追加されたことを、次の識別子で確認できます: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: 確認するには、識別子をコピーして <a href="%{link}">投票検証ページ</a> に貼り付けます
         create:
           error: 投票を行う際に問題が発生しました。もう一度やり直してください。
@@ -674,13 +659,6 @@ ja:
           lead: 投票は行われませんでした！
           text: 問題が発生しました。もう一度やり直してください。
           try_again: 再実行
-        header:
-          ballot_decision: 投票を行うか監査する
-          casting: 投票の実行中
-          confirm: 投票を確定
-          confirmed: 投票が確定されました
-          encrypting: 投票の暗号化
-          failed: 投票に失敗しました
         messages:
           invalid_token: 投票ブースでのセッションが無効です。もう一度投票してください。
           not_allowed: 現在、この選挙に投票することはできません。
@@ -693,9 +671,7 @@ ja:
           nota_option: 空白、もしくは上記のどれでもない
           preview_alert: これは投票ブースのプレビューです。
           question_steps: '%{current_step} / %{total_steps} の質問'
-          selections: "%{selected} / %{max_selections}<br> の選択"
         onboarding_modal:
-          close: 閉じる
           create_account: アカウントの作成
           description: プラットフォームに新しいアカウントを作成しますか？ プロセスに参加し、組織の積極的な一員になることができます。
           no_account: いいえ結構です。
@@ -806,29 +782,6 @@ ja:
         content_blocks:
           highlighted_votings:
             max_results: 表示する要素の最大量
-          landing_page:
-            attachments_and_folders:
-              name: 投票の添付ファイルとフォルダ
-            description:
-              name: 投票の説明
-            elections:
-              name: 投票する選挙
-            header:
-              name: 投票のヘッダー
-            html_block_1:
-              name: 投票htmlブロック1
-            html_block_2:
-              name: 投票htmlブロック2
-            html_block_3:
-              name: 投票htmlブロック3
-            metrics:
-              name: 投票メトリクス
-            polling_stations:
-              name: 投票ステーション
-            stats:
-              name: 投票の統計
-            timeline:
-              name: 投票のタイムライン
         index:
           not_published: 未公開
           published: 公開済み
@@ -1157,27 +1110,15 @@ ja:
         highlighted_votings:
           name: 注目の投票
         landing_page:
-          description:
-            title: この投票について
-          metrics:
-            heading: メトリクス
           polling_stations:
             heading: 投票所
             no_polling_stations: 投票所がまだありません。
-          timeline:
-            heading: タイムライン
       monitoring_committee_members:
         actions:
           confirm_destroy: 本当に削除してよろしいですか？
           destroy: 削除
           new: 新規メンバー
           title: アクション
-      pages:
-        home:
-          highlighted_votings:
-            active_votings: アクティブな投票
-            see_all_votings: すべての投票を表示
-            votings_button_title: すべての投票を表示する投票ページへのリンク
       polling_officer_zone:
         closures:
           back_to_polling_stations: 投票所に戻る
@@ -1210,7 +1151,6 @@ ja:
             info_text: 'こちらの投票所で再集計された総投票数（封筒）を入力してください:'
             modal_ballots_count_error:
               btn_validate_total: 投票の再集計を検証します。
-              close_modal: 閉じる
               info_explanation_text: '投票の合計数を確認してください。合計数が正しくない場合は、監視委員会に説明する必要があります。'
               info_text: 投票所で投票した人数の記録と、投票の（封筒の）総数が一致しません。
               message_for_monitoring_committee: 監視委員会へのメッセージ
@@ -1228,14 +1168,12 @@ ja:
           sign:
             cancel: キャンセル
             check_box: 私はこれを確認し、物理的な選挙閉鎖証明書と同じであることを確認しました。
-            close_modal: 閉じる
             confirm: はい、続行します
             error: エラーが発生しました。もう一度やり直してください。
             heading: 投票の再集計 - 閉鎖を署名
             info_text: 続行すると、情報を変更できなくなります。このアクションは取り消せません。
             submit: 閉鎖に署名する
             success: 閉鎖の署名に成功しました。
-            title: このアクションは取り消せません
           update:
             error: 閉鎖結果の更新中にエラーが発生しました。後でもう一度お試しください。
             success: 閉鎖結果が正常に更新されました。
@@ -1365,9 +1303,7 @@ ja:
           title:
             other: "%{count} 票"
         elections_log:
-          bb_status: 選挙状況
           description: 選挙ログには、各投票に関するすべての関連情報が表示されます。 例えば、キーセレモニーや集計の状態、または結果がすでに公開されているがどうかなどです。 ログ情報を表示する選挙をクリックしてください。
-          election_log: 選挙ログ
           title: 選挙ログ
         filters:
           active: 有効
@@ -1376,11 +1312,6 @@ ja:
           finished: 完了
           search: 検索
           upcoming: 今後の予定
-        filters_small_view:
-          close_modal: 閉じる
-          filter: フィルター
-          filter_by: 絞り込み条件
-          unfold: 展開する
         index:
           no_votings: 検索条件に一致する投票はありません。
           only_finished: 現在、予定された投票はありませんが、ここでは記載されている完了した投票を探すことができます。
@@ -1392,7 +1323,6 @@ ja:
           dont_have_access_code: アクセスコードがありませんか？
           form_title: '投票にアクセスするには、次のフォームに入力してください:'
           start_voting: 投票の開始
-          step: 識別
           title: 自分の投票センサスのデータで自分を特定する
         no_census_contact_information: 連絡先はまだありません。
         orders:
@@ -1402,23 +1332,16 @@ ja:
         send_access_code:
           invalid: アクセスコードの送信中に問題が発生しました。
           success: アクセスコードが正常に送信されました。
-        show:
-          dates: 日付
       votings_m:
         badge_name:
           finished: 完了
           ongoing: 進行中
           upcoming: 今後の予定
-        footer_button_text:
-          participate: 参加
-          view: 表示
-          vote: 投票
         unspecified: 指定されていません
         voting_type:
           hybrid: ハイブリッド
           in_person: 対面
           online: オンライン
-        voting_types_label: 投票方式
   layouts:
     decidim:
       election_votes_header:
@@ -1431,5 +1354,4 @@ ja:
         index:
           promoted_votings: 強調された投票
         promoted_voting:
-          more_info: 詳細情報
           vote: 投票
