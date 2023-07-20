@@ -384,6 +384,10 @@ es-MX:
         description: Número de apoyos generados en las propuestas por los usuarios
         object: votos
         title: Votos
+    participatory_spaces:
+      highlighted_proposals:
+        last: Propuestas más recientes
+        see_all: Ver todas las propuestas
     proposals:
       actions:
         answer_proposal: Responder a la propuesta
@@ -648,6 +652,8 @@ es-MX:
           select_a_category: Por favor seleccione una categoría
           send: Enviar
           title: Editar borrador colaborativo
+        empty: Todavía no hay borradores colaborativos
+        empty_filters: No hay un borrador de colaboración con este criterio
         filters:
           all: Todas
           amendment: Enmiendas
@@ -664,6 +670,7 @@ es-MX:
           filter: Filtrar
           filter_by: Filtrado por
           unfold: Desplegar
+        name: Borradores colaborativos
         new:
           add_file: Añadir archivo
           edit_file: Editar fichero
@@ -691,6 +698,7 @@ es-MX:
             success: "Se ha rechazado con éxito @%{user} como colaboradora."
         show:
           edit: Editar borrador colaborativo
+          final_proposal: Propuesta final
           final_proposal_help_text: Este borrador está terminado. Puedes ver la propuesta final terminada
           hidden_authors_count:
             one: y %{count} persona más
@@ -698,6 +706,7 @@ es-MX:
           info-message: Este es un <strong>borrador colaborativo</strong> para una propuesta. Esto significa que puedes ayudar a sus autoras a dar forma a la propuesta usando la sección de comentarios que se encuentra debajo o mejorarla directamente solicitando acceso para editarla. Una vez que las autoras te den acceso, podrás realizar cambios en este borrador.
           publish: Publicar
           publish_info: Publicar esta versión del borrador o
+          published_proposal: Propuesta publicada
           request_access: Solicitar acceso
           requested_access: Acceso solicitado
           withdraw: retirar el borrador
@@ -712,6 +721,9 @@ es-MX:
           back_from_collaborative_draft: Volver al borrador colaborativo
         wizard_header:
           title: Crea tu borrador colaborativo
+      content_blocks:
+        highlighted_proposals:
+          name: Propuestas
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada con éxito. Guardada como borrador.
@@ -803,6 +815,9 @@ es-MX:
           random: Aleatorio
           recent: Reciente
           with_more_authors: Con más autoras
+        participatory_texts:
+          view_index:
+            document_index: Índice del documento
         placeholder:
           address: 37 Homewood Drive Brownsburg, EN 46112
         preview:
@@ -868,6 +883,7 @@ es-MX:
           title: 'La recogida de apoyos se rige por las siguientes normas:'
           vote_limit:
             description: Puedes apoyar hasta %{limit} propuestas.
+            votes: Queda/n %{number} apoyo/s
         wizard_aside:
           back: Volver
           back_from_step_1: Volver a propuestas
