@@ -22,5 +22,5 @@
       <%= card_for meeting, context: { show_space: true } %>
     <% end %>
   </div>
-  <%= decidim_paginate meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>
+  <%= decidim_paginate meetings, order_start_time: params[:order_start_time], with_any_scope: params[:with_any_scope] %>
 <% end %>

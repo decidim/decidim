@@ -35,7 +35,7 @@
     <%= card_for meeting %>
   <% end %>
 </div>
-<%= decidim_paginate meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>
+<%= decidim_paginate meetings, order_start_time: params[:order_start_time], with_any_scope: params[:with_any_scope] %>
 
 <div class="row">
   <div class="text-right">

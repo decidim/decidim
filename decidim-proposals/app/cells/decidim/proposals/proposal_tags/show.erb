@@ -2,7 +2,7 @@
   <ul class="tags tags--proposal tags--list">
     <% if category.present? %>
       <li>
-        <%= link_to resource_locator(model).index(filter: { category_id: [category.id.to_s] }), title: t("decidim.tags.filter_results_for_category", resource: translated_attribute(category.name)) do %>
+        <%= link_to resource_locator(model).index(filter: { with_any_category: [category.id.to_s] }), title: t("decidim.tags.filter_results_for_category", resource: translated_attribute(category.name)) do %>
           <span class="show-for-sr"><%= t "decidim.tags.filter_results_for_category", resource: translated_attribute(category.name) %></span>
           <span aria-hidden="true"><%= translated_attribute(category.name) %></span>
         <% end %>
@@ -17,7 +17,7 @@
 
     <% if has_visible_scopes?(model) %>
       <li>
-        <%= link_to resource_locator(model).index(filter: { scope_id: [scope.id] }), title: t("decidim.tags.filter_results_for_scope", resource: translated_attribute(scope.name)) do %>
+        <%= link_to resource_locator(model).index(filter: { with_any_scope: [scope.id] }), title: t("decidim.tags.filter_results_for_scope", resource: translated_attribute(scope.name)) do %>
           <span class="show-for-sr"><%= t "decidim.tags.filter_results_for_scope", resource: translated_attribute(scope.name) %></span>
           <span aria-hidden="true"><%= translated_attribute(scope.name) %></span>
         <% end %>
