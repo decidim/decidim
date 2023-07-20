@@ -153,12 +153,6 @@ describe "Explore meeting directory", type: :system do
         end
 
         expect(page).to have_css(meetings_selector, count: 1)
-        # REDESIGN_PENDING: The redesigned card_l cell is not expected to show
-        # the author, only display if a meeting is official
-        #
-        # within meetings_selector do
-        #   expect(page).to have_content(user_group_meeting.normalized_author.name)
-        # end
       end
     end
 
