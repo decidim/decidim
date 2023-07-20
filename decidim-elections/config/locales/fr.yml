@@ -659,7 +659,7 @@ fr:
           header: Vote en cours...
           text: Votre bulletin a bien été pris en compte.
         confirm:
-          answer: Répondre
+          answer: Réponse
           answer_number: répondre à %{number}
           confirm: Valider
           edit: éditer
@@ -818,28 +818,8 @@ fr:
           highlighted_votings:
             max_results: Nombre maximum d'éléments à afficher
           landing_page:
-            attachments_and_folders:
-              name: Pièces jointes et dossiers du vote
             description:
               name: Description du vote
-            elections:
-              name: Élections
-            header:
-              name: Header du vote
-            html_block_1:
-              name: Bloc HTML 1 du Vote
-            html_block_2:
-              name: Bloc HTML 2 du Vote
-            html_block_3:
-              name: Bloc HTML 3 du Vote
-            metrics:
-              name: Métriques de vote
-            polling_stations:
-              name: Bureaux de vote
-            stats:
-              name: Statistiques du vote
-            timeline:
-              name: Calendrier du vote
         index:
           not_published: Non publié
           published: Publié
@@ -1160,8 +1140,6 @@ fr:
         highlighted_votings:
           name: Élections mises en avant
         landing_page:
-          description:
-            title: À propos de ce vote
           metrics:
             heading: Métriques
           polling_stations:
@@ -1178,8 +1156,6 @@ fr:
       pages:
         home:
           highlighted_votings:
-            active_votings: Votations en cours
-            see_all_votings: Voir toutes les votations
             votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
       polling_officer_zone:
         closures:
@@ -1231,7 +1207,7 @@ fr:
           sign:
             cancel: Annuler
             check_box: J'ai passé en revue ce certificat, il est identique à celui de fermeture des élections physiques
-            close_modal: Clore
+            close_modal: Fermer
             confirm: Ok, continuer
             error: Une erreur est survenue, veuillez réessayer.
             heading: Recomptage des voix - Signer la fermeture
@@ -1371,7 +1347,7 @@ fr:
         elections_log:
           bb_status: État actuel de l'élection
           description: Le journal des élections vous montrera toutes les informations pertinentes sur chaque vote. Par exemple, le statut de la cérémonie de génération des clés ou du dépouillement ou si les résultats sont déjà publiés. Cliquez sur l'élection à propos de laquelle vous voulez des informations.
-          election_log: Logs de l'élection
+          election_log: Journal de l'élection
           title: Journal de l'élection
         filters:
           active: Actifs
