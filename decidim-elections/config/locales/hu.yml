@@ -216,6 +216,8 @@ hu:
             verify_here: Itt ellenőrizheted szavazatod.
             will_verify: A választás megkezdését követően ellenőrizheted szavazatod.
       votes:
+        confirm:
+          answer: Válasz
         modal:
           proposal_header: 'Javaslatok:'
         onboarding_modal:
@@ -259,3 +261,6 @@ hu:
             access_link: e-mailen keresztül.
         login:
           start_voting: Szavazás kezdete
+      votings_m:
+        footer_button_text:
+          vote: Szavazás
