@@ -30,6 +30,7 @@ eu:
         end_time: Bozketaren amaiera-data
         start_time: Bozketaren hasiera-data
         title: Izenburua
+        voting_type: Bozketa mota
     errors:
       models:
         answer:
@@ -331,13 +332,7 @@ eu:
           active: Aktibo
           all: Guztiak
           finished: Amaituta
-          search: Bilatu
           upcoming: Hurrengoak
-        filters_small_view:
-          close_modal: Itxi leihoa
-          filter: Iragazi
-          filter_by: Iragazi honen arabera
-          unfold: Zabaldu
         preview:
           available_answers: 'Aukerako erantzunak:'
           description: 'Bozketa-prozesuan galdera hauek aurkituko dituzu:'
@@ -355,7 +350,6 @@ eu:
             change_vote: Aldatu zure botoa
             vote: Botoa ematen hasi
             vote_again: Berriro eman botoa
-          back: Aukera eskuragarriak
           callout:
             already_voted: Jada botoa eman duzu aukera honetan. Zure botoa alda dezakezu edo egiaztatu.
             pending_vote: Zure botoa ematen ari da zerbitzarian.
@@ -413,7 +407,6 @@ eu:
           backup_modal:
             description: Aukera hori Iragarki Taulan sortzen ari da. Oso garrantzitsua da bertan parte hartzen duen bermatzaile bakoitzak gako horien segurtasun-kopia bat sortzea eta leku seguruan gordetzea. Ondoren, prozesuak aurrera egingo du.
             download_election_keys: Deskargatu gakoak
-            download_icon: Ikonoak deskargatzeko ekintza adierazten du
             title: Gakoen segurtasun-kopia %{election} aukeraketarako
           key_ceremony_steps:
             back: Atzera
@@ -428,7 +421,6 @@ eu:
               task: Eginkizuna
             process_warning: Prozesua hasi ondoren, ez duzu orrialde honetatik atera behar prozesua amaitu arte. Zenbait minutu beharko ditu, bermatzaile guztiek konektatuta egon behar baitute hura osatzeko.
             start: Hasi
-            start_icon: Ikonoak hasteko botoia adierazten du aukera bateko gakoak sortzen hasteko
             status:
               completed: Osatuta
               pending: Zain
@@ -438,7 +430,6 @@ eu:
             description: Iragarki Taulak zure informazioa du aukera horren bermatzaile gisa. Prozesuarekin jarraitzeko, lehenengo igo aurreko saioan sortutako segurtasun-kopiaren fitxategia.
             title: Berriztu gakoak %{election} aukerarako
             upload_election_keys: Igo aukeraren gakoak
-            upload_icon: Ikonoak deskargatzeko ekintza adierazten du
           tally_started_steps:
             description: Aukera horren emaitzak Iragarki Taulan kalkulatzen ari dira. Prozesu hori osatzeko, bermatzaile gisa parte hartu behar duzu.
             keys:
@@ -483,7 +474,6 @@ eu:
             success: Zure identifikazio-gako publikoa zuzen gorde da.
       votes:
         ballot_decision:
-          audit: "( Ikuskatu boto-papera )"
           back: Hasi berriro bozkatzeko prozesua
           ballot_hash: 'Boto-paperaren identifikatzailea hau da:'
           header: 'Boto-papera zifratu da: bidali edo ikuskatu'
@@ -491,21 +481,18 @@ eu:
           header: Botoa ematen ari da...
           text: Zure bozketa-papera hautetsontzian jartzen ari da.
         confirm:
-          answer: Erantzuna
           answer_number: '%{number} erantzun'
           confirm: Baieztatu
           edit: editatu
           header: Baieztatu botoa
           intro: Hemen duzu emango duzun botoaren laburpena. < br> Mesedez, berretsi zure botoa edo editatu zure erantzunak.
           nota_option: Hutsik
-          question: '%{count} galdera'
         confirmed:
           back: Itzuli bozketetara
           experience: Nola baloratzen duzu esperientzia?
           feedback: Emaguzu zure iritzia
           header: Baieztatutako botoa
           lead: Zure botoa eman da!
-          text: 'Egiaztatu ahal duzu zure botoa zuzen sartu dela hautesontzian honako identifikatzailearekin: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: 'Egiaztatzeko, kopiatu identifikatzailea eta itsatsi hemen: <a href="%{link}">página de verificación de voto</a>'
         create:
           error: Arazo bat izan da botoa ematean. Mesedez, saiatu berriro.
@@ -517,13 +504,6 @@ eu:
           lead: Ez duzu eman botoa!
           text: Zerbait txarto irten da, mesedez, saiatu berriro.
           try_again: Saiatu berriro
-        header:
-          ballot_decision: Eman edo ikuskatu zure botoa
-          casting: Botoa ematen ari da
-          confirm: Baieztatu botoa
-          confirmed: Botoa baieztatu da
-          encrypting: Botoa zifratzen ari da
-          failed: Boto okerra
         messages:
           invalid_token: Bozketa-kabinan egindako saioa ez da baliozkoa. Saiatu berriro bozkatzen.
           not_allowed: Une honetan ezin duzu botoa eman bozketa honetan.
@@ -536,9 +516,7 @@ eu:
           nota_option: Zuriz / Aurreko bat ere ez
           preview_alert: Hau bozketa-kabinaren aurrebista da.
           question_steps: '%{total_steps} etik %{current_step} galdera'
-          selections: "Aukeratuta <br> %{selected} de %{max_selections}"
         onboarding_modal:
-          close: Itxi leihoa
           create_account: Sortu Kontua
           no_account: Ez, eskerrik asko.
         update:
@@ -626,29 +604,6 @@ eu:
         content_blocks:
           highlighted_votings:
             max_results: Erakusteko gehieneko elementu kopurua
-          landing_page:
-            attachments_and_folders:
-              name: Erantsitako artxiboak eta bozketako karpetak
-            description:
-              name: Bozketaren deskribapena
-            elections:
-              name: Bozketako aukerak
-            header:
-              name: Bozketaren goiburua
-            html_block_1:
-              name: Bozketaren html 1 blokea
-            html_block_2:
-              name: Bozketaren html 2 blokea
-            html_block_3:
-              name: Bozketaren html 3 blokea
-            metrics:
-              name: Bozketaren metrikak
-            polling_stations:
-              name: Bozketa-guneak
-            stats:
-              name: Boto-estatistikak
-            timeline:
-              name: Bozketaren egutegia
         index:
           not_published: Desargitaratua
           published: Argitaratua
@@ -901,25 +856,15 @@ eu:
         highlighted_votings:
           name: Bozketa nabarmenduak
         landing_page:
-          metrics:
-            heading: Metrikak
           polling_stations:
             heading: Bozketa-guneak
             no_polling_stations: Oraindik ez dago bozketa-gunerik.
-          timeline:
-            heading: Denbora-lerroa
       monitoring_committee_members:
         actions:
           confirm_destroy: Ziur zaude?
           destroy: Ezabatu
           new: Kide berria
           title: Ekintzak
-      pages:
-        home:
-          highlighted_votings:
-            active_votings: Bozketa aktiboak
-            see_all_votings: Ikusi bozketa guztiak
-            votings_button_title: Lotura guztiak erakusten dituen Bozketen orrialdera
       polling_officer_zone:
         closures:
           back_to_polling_stations: Itzuli bozketa-guneetara
@@ -951,7 +896,6 @@ eu:
             info_text: 'Mesedez, sartu bozketa-puntu honetan birzenbatutako boto-txartelen (gutun-azalen) kopuru osoa:'
             modal_ballots_count_error:
               btn_validate_total: Baliozkotu boto-paperen zenbaketa osoa
-              close_modal: Itxi
               message_for_monitoring_committee: Mezua Jarraipen Batzordearentzat
               review_recount: Berrikusi zenbaketa
               text_area_placeholder: Mesedez, idatzi zure mezua
@@ -966,7 +910,6 @@ eu:
             info_text: Bozketa-guneko bozketaren itxiera.
           sign:
             cancel: Utzi
-            close_modal: Itxi
             confirm: Ados, jarraitu
             error: Arazo bat izan da, mesedez, saiatu berriro.
             heading: Botoen zenbaketa - Sinatu itxiera
@@ -1091,9 +1034,7 @@ eu:
             one: "Boto %{count}"
             other: "%{count} boto"
         elections_log:
-          bb_status: Aukeraren egoera
           description: Aukeraren erregistroak bozketa bakoitzari buruzko informazio garrantzitsu guztia erakutsiko dizu. Adibidez, gako-zeremoniaren edo zenbaketaren egoera edo emaitzak argitaratuta dauden. Egin klik erregistroari buruzko informazioa nahi duzun aukeran.
-          election_log: Aukeraketaren erregistroa
           title: Aukeraketaren erregistroa
         filters:
           active: Aktibo
@@ -1101,11 +1042,6 @@ eu:
           finished: Amaituta
           search: Bilatu
           upcoming: Hurrengoak
-        filters_small_view:
-          close_modal: Itxi leihoa
-          filter: Iragazi
-          filter_by: Iragazi honen arabera
-          unfold: Zabaldu
         index:
           no_votings: Ez dago bilaketa-irizpideekin bat datorren bozketarik.
           only_finished: Orain ez dago bozketa programaturik, baina hemen zerrendan amaitutako bozketak ikus ditzakezu.
@@ -1116,29 +1052,21 @@ eu:
           ask_for_a_new_one: Eskatu berri bat.
           form_title: 'Bete ezazu ondoko galdetegia bozketan sartzeko:'
           start_voting: Botoa ematen hasi
-          step: Identifikazioa
           title: Neure burua identifikatu erroldako nire datuekin
         orders:
           label: 'Ordenatu bozketak honen arabera:'
           random: Ausazkoa
           recent: Azkenak
-        show:
-          dates: Datak
       votings_m:
         badge_name:
           finished: Amaituta
           ongoing: Bidean
           upcoming: Laster
-        footer_button_text:
-          participate: Parte hartu
-          view: Ikusi
-          vote: Eman botoa
         unspecified: Zehaztu gabe
         voting_type:
           hybrid: Hibridoa
           in_person: Aurrez aurre
           online: Lineakoa
-        voting_types_label: Bozketa mota
   layouts:
     decidim:
       election_votes_header:
@@ -1151,5 +1079,4 @@ eu:
         index:
           promoted_votings: Bozketa nabarmenduak
         promoted_voting:
-          more_info: Informazio gehiago
           vote: Eman botoa
