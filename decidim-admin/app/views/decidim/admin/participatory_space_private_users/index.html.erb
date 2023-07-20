@@ -52,7 +52,7 @@
               </td>
               <td class="table-list__actions">
                 <% if allowed_to?(:invite, :space_private_user, private_user: private_user) && private_user.user.invited_to_sign_up? %>
-                  <%= icon_link_to "reload", resend_invitation_participatory_space_private_user_path(current_participatory_space, private_user), t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
+                  <%= icon_link_to "refresh-line", resend_invitation_participatory_space_private_user_path(current_participatory_space, private_user), t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
                 <% end %>
 
                 <% if allowed_to? :destroy, :space_private_user, private_user: private_user %>

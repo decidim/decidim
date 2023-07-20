@@ -32,7 +32,7 @@
                 <% end %>
 
                 <% if allowed_to?(:copy, :template, questionnaire_template: template) %>
-                  <%= icon_link_to "clipboard", copy_questionnaire_template_path(template), t("actions.duplicate", scope: "decidim.admin"), method: :post %>
+                  <%= icon_link_to "clipboard-line", copy_questionnaire_template_path(template), t("actions.duplicate", scope: "decidim.admin"), method: :post %>
                 <% end %>
 
                 <% if allowed_to?(:destroy, :template, questionnaire_template: template) %>

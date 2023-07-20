@@ -56,7 +56,7 @@
                 <% if allowed_to? :update, :answer, election: election, question: question, answer: answer %>
                   <%= icon_link_to "pencil-line", edit_election_question_answer_path(election, question, answer), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
                 <% else %>
-                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.elections") %>
+                  <%= icon "pencil-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.elections") %>
                 <% end %>
 
                 <% if election.results? %>

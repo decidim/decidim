@@ -42,7 +42,7 @@
               <% end %>
 
               <% if allowed_to? :create, :conference, conference: conference %>
-                <%= icon_link_to "clipboard", new_conference_copy_path(conference), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
+                <%= icon_link_to "clipboard-line", new_conference_copy_path(conference), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
               <% end %>
 
               <% if allowed_to? :preview, :conference, conference: conference %>
@@ -50,7 +50,7 @@
               <% end %>
 
               <% if allowed_to? :read, :moderation, conference: conference %>
-                <%= icon_link_to "flag", moderations_path(conference), t("actions.moderate", scope: "decidim.admin"), class: "action-icon--moderate" %>
+                <%= icon_link_to "flag-line", moderations_path(conference), t("actions.moderate", scope: "decidim.admin"), class: "action-icon--moderate" %>
               <% end %>
             </td>
           </tr>

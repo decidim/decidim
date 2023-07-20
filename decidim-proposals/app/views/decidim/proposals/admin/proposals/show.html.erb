@@ -246,7 +246,7 @@
 
                   <% if allowed_to? :unassign_from_valuator, :proposals, valuator: assignment.valuator %>
                     <%= icon_link_to(
-                      "circle-x",
+                      "delete-bin-line",
                       proposal_valuation_assignment_path(proposal, assignment.valuator_role),
                       t(".remove_assignment"),
                       method: :delete,

@@ -8,7 +8,7 @@
   <div class="card-section moderation-details">
     <div class="callout warning">
       <%= icon "info" %>
-      <span class="callout-text"><%= t(".callout_html", icon: icon("flag")) %></span>
+      <span class="callout-text"><%= t(".callout_html", icon: icon("flag-line")) %></span>
     </div>
     <dl>
       <dt><%= t("models.moderation.fields.reported_content_url", scope: "decidim.moderations") %></dt>
@@ -80,7 +80,7 @@
               <td><%= report.locale.present? ? locale_name(report.locale) : "" %></td>
               <td><%= report.details&.truncate(250) %></td>
               <td class="actions">
-                <%= icon_link_to "fullscreen-enter",
+                <%= icon_link_to "fullscreen-line",
                                   moderation_report_path(moderation_id: moderation, id: report.id),
                                   t("actions.expand", scope: "decidim.moderations"),
                                   class: "action-icon--expand" %>

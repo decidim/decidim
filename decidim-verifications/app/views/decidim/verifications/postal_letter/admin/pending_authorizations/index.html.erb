@@ -32,10 +32,10 @@
             </td>
             <td>
               <% if authorization.letter_sent? %>
-                <%= icon "circle-check",
+                <%= icon "checkbox-circle-line",
                          class: "action-icon action-icon--disabled" %>
               <% else %>
-                <%= icon_link_to "circle-check",
+                <%= icon_link_to "checkbox-circle-line",
                                  pending_authorization_postage_path(authorization.id),
                                  t(".mark_as_sent"),
                                  method: :post,

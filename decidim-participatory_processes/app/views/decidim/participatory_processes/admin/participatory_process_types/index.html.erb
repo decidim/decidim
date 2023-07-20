@@ -31,7 +31,7 @@
           <td class="table-list__actions">
             <% if allowed_to?(:update, :participatory_process_type, participatory_process_type: participatory_process_type) %>
               <%= icon_link_to(
-                    "pencil",
+                    "pencil-line",
                     edit_participatory_process_type_path(participatory_process_type),
                     t("actions.edit", scope: "decidim.admin"),
                     class: "action-icon--new"
@@ -39,7 +39,7 @@
             <% end %>
             <% if allowed_to?(:destroy, :participatory_process_type, participatory_process_type: participatory_process_type) %>
               <%= icon_link_to(
-                    "circle-x",
+                    "delete-bin-line",
                     participatory_process_type_path(participatory_process_type),
                     t("actions.destroy", scope: "decidim.admin"),
                     class: "action-icon--remove",

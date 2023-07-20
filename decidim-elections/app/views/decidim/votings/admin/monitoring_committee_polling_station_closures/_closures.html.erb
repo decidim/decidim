@@ -54,10 +54,10 @@
                 <% elsif closure.signed? && allowed_to?(:validate, :monitoring_committee_polling_station_closure, voting: current_voting, closure: closure) %>
                     <%= icon_link_to "check-line", edit_voting_monitoring_committee_polling_station_closure_path(current_voting, closure), t("actions.validate", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures"), class: "action-icon--validate" %>
                 <% else %>
-                  <%= icon "check", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.validate", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures") %>
+                  <%= icon "check-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.validate", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures") %>
                 <% end %>
               <% else %>
-                <%= icon "eye", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.view", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures") %>
+                <%= icon "eye-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.view", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures") %>
               <% end %>
             </td>
           </tr>

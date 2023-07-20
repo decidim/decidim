@@ -81,7 +81,7 @@
               <% end %>
 
               <% if allowed_to? :copy, :meeting, meeting: meeting %>
-                <%= icon_link_to "clipboard", new_meeting_copy_path(meeting), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
+                <%= icon_link_to "clipboard-line", new_meeting_copy_path(meeting), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>
@@ -100,21 +100,21 @@
 
               <% if allowed_to? :update, :meeting, meeting: meeting %>
                 <% if meeting.registration_disabled? %>
-                  <%= icon "people", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.registrations", scope: "decidim.meetings") %>
+                  <%= icon "group-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.registrations", scope: "decidim.meetings") %>
                 <% else %>
-                  <%= icon_link_to "people", meeting.on_this_platform? ? edit_meeting_registrations_path(meeting) : meeting.registration_url, t("actions.registrations", scope: "decidim.meetings"), class: "action-icon--registrations" %>
+                  <%= icon_link_to "group-line", meeting.on_this_platform? ? edit_meeting_registrations_path(meeting) : meeting.registration_url, t("actions.registrations", scope: "decidim.meetings"), class: "action-icon--registrations" %>
                 <% end %>
               <% end %>
 
               <% if allowed_to? :update, :meeting, meeting: meeting %>
-                <%= icon_link_to "calendar", meeting.agenda.present? ? edit_meeting_agenda_path(meeting, meeting.agenda) : new_meeting_agenda_path(meeting), t("actions.agenda", scope: "decidim.meetings"), class: "action-icon--agenda" %>
-                <%= icon_link_to "list", edit_meeting_poll_path(meeting), t("actions.manage_poll", scope: "decidim.meetings"), class: "action-icon--manage-poll-questionnaire" %>
+                <%= icon_link_to "calendar-line", meeting.agenda.present? ? edit_meeting_agenda_path(meeting, meeting.agenda) : new_meeting_agenda_path(meeting), t("actions.agenda", scope: "decidim.meetings"), class: "action-icon--agenda" %>
+                <%= icon_link_to "list-line", edit_meeting_poll_path(meeting), t("actions.manage_poll", scope: "decidim.meetings"), class: "action-icon--manage-poll-questionnaire" %>
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>
 
               <% if allowed_to? :close, :meeting, meeting: meeting %>
-                <%= icon_link_to "lock-locked", edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), t("actions.close", scope: "decidim.meetings"), class: "action-icon--close" %>
+                <%= icon_link_to "lock-line" , edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), t("actions.close", scope: "decidim.meetings"), class: "action-icon--close" %>
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>
@@ -146,7 +146,7 @@
                       content_tag(:span,
                                   data: { tooltip: true, disable_hover: false, click_open: false },
                                   title: t("actions.destroy", scope: "decidim.meetings")) do
-                        icon("circle-x")
+                        icon("delete-bin-line")
                       end
                     end
                   %>

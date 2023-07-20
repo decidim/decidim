@@ -29,9 +29,9 @@
             <td class="table-list__actions">
               <% if allowed_to?(:block, :admin_user, user: user) %>
                 <% if user.blocked? %>
-                  <%= icon_link_to "ban", user_block_path(user_id: user.id), t(".unblock"), class: "action-icon action-icon--disabled", method: :delete %>
+                  <%= icon_link_to "user-forbid-line", user_block_path(user_id: user.id), t(".unblock"), class: "action-icon action-icon--disabled", method: :delete %>
                 <% else %>
-                  <%= icon_link_to "ban", new_user_block_path(user_id: user.id), t(".block"), class: "action-icon action-icon" %>
+                  <%= icon_link_to "user-forbid-line", new_user_block_path(user_id: user.id), t(".block"), class: "action-icon action-icon" %>
                 <% end %>
               <% end %>
               <% if allowed_to? :show_email, :user, user: user %>
@@ -42,13 +42,13 @@
                   <%= icon_link_to "envelope-closed", current_or_new_conversation_path_with(user), t("decidim.contact"), class:"action-icon--new" %>
                 <% end %>
                 <% if user.officialized? %>
-                  <%= icon "circle-check", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".officialize") %>
+                  <%= icon "checkbox-circle-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".officialize") %>
                   <%= icon_link_to "pencil-line", new_officialization_path(user_id: user.id), t(".reofficialize"), class: "action-icon--new" %>
                   <%= icon_link_to "delete-bin-line", officialization_path(user.id), t(".unofficialize"), method: :delete, class: "action-icon--reject" %>
                 <% else %>
-                  <%= icon_link_to "circle-check", new_officialization_path(user_id: user.id), t(".officialize"), class: "action-icon--verify" %>
-                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".reofficialize") %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".unofficialize") %>
+                  <%= icon_link_to "checkbox-circle-line", new_officialization_path(user_id: user.id), t(".officialize"), class: "action-icon--verify" %>
+                  <%= icon "pencil-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".reofficialize") %>
+                  <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".unofficialize") %>
                 <% end %>
               <% end %>
             </td>

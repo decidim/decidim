@@ -23,7 +23,7 @@
             <td><%= conflict.managed_user.name %></td>
             <td><%= conflict.times %></td>
             <td><%= t(conflict.solved, scope: "decidim.admin.conflicts") %></td>
-            <td><%= icon_link_to "transfer", decidim_admin.edit_conflict_path(conflict), t("title", scope: "decidim.admin.conflicts.transfer") %></td>
+            <td><%= icon_link_to "download-line", decidim_admin.edit_conflict_path(conflict), t("title", scope: "decidim.admin.conflicts.transfer") %></td>
           </tr>
         <% end %>
       </tbody>

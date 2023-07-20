@@ -51,9 +51,9 @@
               <% end %>
 
               <% if allowed_to? :delete, :ballot_style, ballot_style: ballot_style, voting: current_voting %>
-                <%= icon_link_to "trash", voting_ballot_style_path(current_voting, ballot_style), t("actions.destroy", scope: "decidim.votings.admin.ballot_styles.index"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.admin.ballot_styles.index") } %>
+                <%= icon_link_to "delete-bin-line", voting_ballot_style_path(current_voting, ballot_style), t("actions.destroy", scope: "decidim.votings.admin.ballot_styles.index"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.admin.ballot_styles.index") } %>
               <% else %>
-                <%= icon "trash", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.votings.admin.ballot_styles.index") %>
+                <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.votings.admin.ballot_styles.index") %>
               <% end %>
             </td>
           </tr>

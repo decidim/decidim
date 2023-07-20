@@ -42,7 +42,7 @@
               <% if allowed_to? :delete, :polling_station, voting: current_voting, polling_station: polling_station %>
                 <%= icon_link_to "delete-bin-line", voting_polling_station_path(current_voting, polling_station), t("actions.destroy", scope: "decidim.votings.polling_stations"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.polling_stations") } %>
               <% else %>
-                <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.votings.polling_stations") %>
+                <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.votings.polling_stations") %>
               <% end %>
             </td>
           </tr>

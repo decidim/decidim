@@ -44,7 +44,7 @@
             </td>
             <td class="table-list__actions">
               <% if allowed_to?(:invite, :assembly_user_role, user_role: role) && role.user.invited_to_sign_up? %>
-                <%= icon_link_to "reload", resend_invitation_assembly_user_role_path(current_assembly, role), t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
+                <%= icon_link_to "refresh-line", resend_invitation_assembly_user_role_path(current_assembly, role), t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
               <% end %>
 
               <% if allowed_to? :update, :assembly_user_role, user_role: role %>

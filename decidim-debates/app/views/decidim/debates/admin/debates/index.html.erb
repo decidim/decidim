@@ -48,7 +48,7 @@
               <% end %>
 
               <% if allowed_to? :close, :debate, debate: debate %>
-                <%= icon_link_to "lock-locked", edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), t("actions.close", scope: "decidim.debates"), class: "action-icon--close" %>
+                <%= icon_link_to "lock-line" , edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), t("actions.close", scope: "decidim.debates"), class: "action-icon--close" %>
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>

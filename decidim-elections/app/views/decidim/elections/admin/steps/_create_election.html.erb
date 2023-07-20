@@ -9,7 +9,7 @@
         <% if form.errors.include?(key) %>
           <li><%= icon "x", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
         <% else %>
-          <li><%= icon "check", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></li>
+          <li><%= icon "check-line", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></li>
         <% end %>
       <% end %>
     </ul>
@@ -21,7 +21,7 @@
           <% if form.errors.include?(key) %>
             <li><%= icon "x", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
           <% else %>
-            <li><%= icon "check", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></li>
+            <li><%= icon "check-line", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></li>
           <% end %>
         <% end %>
       </ul>

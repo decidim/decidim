@@ -49,7 +49,7 @@
               <td class="table-list__actions">
                 <%= f.button type: :button, formaction: election_step_path(election, current_step, trustee_id: trustee.id),
                              class: "button button__sm button__secondary alert hollow hide js-report-missing-trustee" do %>
-                  <%= icon "circle-x" %> <%= t(".mark_as_missing") %>
+                  <%= icon "delete-bin-line" %> <%= t(".mark_as_missing") %>
                 <% end %>
               </td>
             </tr>
