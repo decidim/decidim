@@ -359,6 +359,7 @@ es-PY:
           back: Volver
           continue: Continuar
           fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. En persona, en línea o una combinación de ambos</li> <li>¿Cuál es el alcance geográfico de la iniciativa?</li> </ul>"
+          initiative_type: Tipo de iniciativa
           more_information: "(Más información)"
           select_area: Selecciona una área
           select_scope: Seleccione un alcance
@@ -383,6 +384,8 @@ es-PY:
         select_initiative_type:
           back: Volver
           choose_html: Quiero crear un <strong>%{title}</strong>
+          more_information: Más información
+          new: Crea una nueva iniciativa
           select: Quiero promover esta iniciativa.
           select_initiative_type_help: Las iniciativas son un medio por el que las participantes pueden intervenir para que la organización emprenda acciones en defensa del interés general. ¿Qué iniciativa quieres lanzar?
           verification_required: Verifica tu cuenta para impulsar la iniciativa
@@ -425,7 +428,12 @@ es-PY:
           email_subject: "%{applicant_nickname} quiere unirse a tu iniciativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha solicitado unirse al comité promotor de tu iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceptar o rechazar la solicitud haz clic <a href="%{resource_url}/edit">aquí</a>.
       form:
+        add_documents: Añadir documentos
+        add_image: Añadir imagen
         attachment_legend: "(Opcional) Añadir un archivo adjunto"
+        edit_documents: Editar documentos
+        edit_image: Editar imagen
+        image_legend: "(Opcional) Añadir una imágen"
       index:
         uninitialized: Las iniciativas aún no están configuradas desde la administración.
       initiative_signatures:
@@ -464,6 +472,7 @@ es-PY:
           approve: Aprobar
           confirm_revoke: '¿Estás seguro/a?'
           invite_to_committee_help: Comparte este enlace para invitar a otras participantes a la comisión promotora.
+          link: Enlace
           no_members_yet: La comisión promotora no tiene miembros.
           title: Miembros del comité
         count:
@@ -527,9 +536,15 @@ es-PY:
           answer_title: Se ha respondido a esta iniciativa.
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de apoyo.
         show:
+          area: Área
           confirm: Vas a enviar la iniciativa para que una administrador ala revise y publique. Una vez publicada no podrás editarla. ¿Estás segura?
           edit: Editar
+          initiative_data: Datos sobre la iniciativa
+          scope: Ámbito
           send_to_technical_validation: Enviar a validación técnica
+          signature_collection: Firmas recogidas
+          state: Estado
+          type: Tipo
         signatures_count:
           one: " firma"
           other: " firmas"
@@ -561,6 +576,11 @@ es-PY:
           authorizations_page: Ver autorizaciones
           explanation: Debes estar verificado para crear una nueva iniciativa.
           title: Autorización requerida
+      pages:
+        home:
+          highlighted_initiatives:
+            active_spaces: Iniciativas activas
+            see_all_spaces: Ver todas las iniciativas
       show:
         badge_name:
           accepted: Con las firmas necesarias
