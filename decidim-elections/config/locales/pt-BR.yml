@@ -389,7 +389,7 @@ pt-BR:
           active: Ativo
           all: Todos
           finished: Finalizado
-          search: Pesquisa
+          search: Pesquisar
           state: Status
           upcoming: Próximos
         filters_small_view:
@@ -734,28 +734,8 @@ pt-BR:
           highlighted_votings:
             max_results: Quantidade máxima de elementos para mostrar
           landing_page:
-            attachments_and_folders:
-              name: Anexos e pastas de votação
             description:
               name: Descrição da votação
-            elections:
-              name: Eleição
-            header:
-              name: Cabeçalho do voto
-            html_block_1:
-              name: Bloco de votação html 1
-            html_block_2:
-              name: Bloco de votação html 2
-            html_block_3:
-              name: Bloco de votação html 3
-            metrics:
-              name: Métricas de votação
-            polling_stations:
-              name: Estações de votação
-            stats:
-              name: Estatísticas de votação
-            timeline:
-              name: Linha do tempo da votação
         index:
           not_published: Despublicado
           published: Publicado
@@ -1056,8 +1036,6 @@ pt-BR:
       pages:
         home:
           highlighted_votings:
-            active_votings: Votações Ativas
-            see_all_votings: Ver todos os votações
             votings_button_title: Link para a Página de Votação exibindo todos os votos
       polling_officer_zone:
         closures:
@@ -1091,7 +1069,7 @@ pt-BR:
             info_text: 'Por favor, introduza o número total de votos (envelopes) recontados nesta Estação de Enquete:'
             modal_ballots_count_error:
               btn_validate_total: Validar a recontagem total de votos
-              close_modal: Fechar
+              close_modal: Fechado
               info_text: O número total de votos (envelopes) introduzidos não corresponde ao registro de pessoas que votaram nesta Estação.
               message_for_monitoring_committee: Mensagem para o Comitê de Monitoramento
               review_recount: Revisar a recontagem
@@ -1108,7 +1086,7 @@ pt-BR:
           sign:
             cancel: Cancelar
             check_box: Eu revisei isso e é o mesmo que o certificado de fechamento eleitoral físico
-            close_modal: Fechar
+            close_modal: Fechado
             confirm: Ok, continuar
             error: Ocorreu um erro. Por favor, tente novamente.
             heading: Recontagem de votos - Assinatura de encerramento
@@ -1242,7 +1220,7 @@ pt-BR:
         elections_log:
           bb_status: Status da eleição
           description: O registro das eleições mostrar-lhe-á todas as informações relevantes sobre cada votação. Por exemplo, o estatuto da cerimonia chave, ou apuração ou se os resultados já estão publicados. Clique sobre a eleição sobre a qual você quer as informações de registro.
-          election_log: Log da Eleição
+          election_log: Log de Eleições
           title: Log da Eleição
         filters:
           active: Ativo
@@ -1287,7 +1265,7 @@ pt-BR:
         footer_button_text:
           participate: Participar
           view: Visualizar
-          vote: Votar
+          vote: Voto
         unspecified: Não especificado
         voting_type:
           hybrid: Híbrido
