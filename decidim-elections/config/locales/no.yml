@@ -333,10 +333,7 @@
           active: Aktiv
           all: Alt
           finished: Fullført
-          search: Søk
           upcoming: Kommende
-        filters_small_view:
-          close_modal: Lukk dialogboks
         show:
           action_button:
             change_vote: Endre stemmen din
@@ -361,7 +358,6 @@
               task: Oppgave
             process_warning: Når prosessen er startet, bør du ikke gå ut av denne siden før prosessen er ferdig. Det vil ta flere minutter fordi alle tillitsmenn skal kobles til dette for å fullføre.
             start: Start
-            start_icon: Ikon som indikerer en startknapp for å starte generering av valgnøklene
             status:
               completed: Fullført
               pending: Ventende
@@ -371,7 +367,6 @@
             description: Oppslagstavlen har informasjon fra deg som tillitsmann om dette valget. For å fortsette prosessen, last opp sikkerhetskopien generert i løpet av forrige sesjon.
             title: Gjenopprett valgnøkler for %{election}
             upload_election_keys: Last opp valgnøkler
-            upload_icon: Ikon som indikerer en nedlastningshandling
           tally_started_steps:
             description: Resultatet av valget utregnes i oppslagstavlen. For å fullføre denne prosessen må du delta som en tillitsmann.
             keys:
@@ -412,22 +407,16 @@
               upload: Last opp dine identifikasjonsnøkler
       votes:
         confirm:
-          answer: Svar
           answer_number: svar %{number}
           confirm: Bekreft
           edit: rediger
           header: Bekreft stemmen din
           intro: Her er et sammendrag av stemmen du er i ferd med å avgi. <br> Bekreft stemmen din eller rediger svarene dine.
-          question: Spørsmål %{count}
         confirmed:
           back: Tilbake til valg
           experience: Hvordan var opplevelsen din?
           feedback: Gi oss en tilbakemelding
           header: Avstemning bekreftet
-          text: 'Du kan sjekke at stemmen din har blitt lagt til i stemmeboksen med følgende identifikator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-        header:
-          confirm: Bekreft stemmen din
-          confirmed: Avstemning bekreftet
         messages:
           not_allowed: Du har ikke lov til å stemme på dette valget for øyeblikket.
         modal:
@@ -437,7 +426,6 @@
           more_information: Mer informasjon
           preview_alert: Dette er en forhåndsvisning av stemmebåsen.
           question_steps: Spørsmål %{current_step} av %{total_steps}
-          selections: "%{selected} av %{max_selections}<br> valg"
         verify:
           success:
             header: Stemme plassert!
