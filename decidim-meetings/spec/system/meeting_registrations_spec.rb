@@ -304,8 +304,6 @@ describe "Meeting registrations", type: :system do
         end
 
         it "shows errors for invalid file" do
-          skip "REDESIGN_PENDING: using the new upload modal breaks the submit, here it was using a plain input file"
-
           visit questionnaire_public_path
 
           dynamically_attach_file("questionnaire_responses_0_add_documents", Decidim::Dev.asset("verify_user_groups.csv"), front_interface: true)
