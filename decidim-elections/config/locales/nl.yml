@@ -351,6 +351,7 @@ nl:
             started: Het stemproces is begonnen.
           vote_title: Stemproces
         filters:
+          search: Zoeken
           state: Status
         preview:
           available_answers: 'Beschikbare antwoorden:'
@@ -661,28 +662,8 @@ nl:
           highlighted_votings:
             max_results: Maximum aantal elementen dat kan worden weergegeven
           landing_page:
-            attachments_and_folders:
-              name: Stemronde bijlagen en mappen
             description:
               name: Beschrijving stemronde
-            elections:
-              name: Stemronde verkiezingen
-            header:
-              name: Stemronde koptekst
-            html_block_1:
-              name: Voting html blok 1
-            html_block_2:
-              name: Voting html blok 2
-            html_block_3:
-              name: Voting html blok 3
-            metrics:
-              name: Stemronde cijfers
-            polling_stations:
-              name: Stembureaus
-            stats:
-              name: Stemronde statistieken
-            timeline:
-              name: Stemronde tijdlijn
         index:
           not_published: Niet-gepubliceerd
           published: Gepubliceerd
@@ -982,8 +963,6 @@ nl:
       pages:
         home:
           highlighted_votings:
-            active_votings: Actieve stemrondes
-            see_all_votings: Bekijk alle stemrondes
             votings_button_title: Link naar de pagina Votings waarop alle stemrondes worden weergegeven
       polling_officer_zone:
         closures:
@@ -1017,7 +996,7 @@ nl:
             info_text: 'Voer het totale aantal stemmen (enveloppen) in dat in dit stembureau werden herteld:'
             modal_ballots_count_error:
               btn_validate_total: Bevestig de totale hertelling van de stemmen
-              close_modal: Sluit
+              close_modal: Afsluiten
               info_text: Het totale aantal ingevoerde stemmen (enveloppen) komt niet overeen met de lijst van mensen die in dit stembureau hebben gestemd.
               message_for_monitoring_committee: Bericht aan het Comité van toezicht
               review_recount: Controleer de hertelling
@@ -1034,7 +1013,7 @@ nl:
           sign:
             cancel: Annuleer
             check_box: Ik heb dit nagekeken en is hetzelfde als het fysieke verkiezingssluitingscertificaat
-            close_modal: Sluiten
+            close_modal: Afsluiten
             confirm: Ok, verdergaan
             error: Er is een fout opgetreden, probeer het opnieuw.
             heading: Stem hertelling - Onderteken sluiting
@@ -1190,7 +1169,7 @@ nl:
       votings_m:
         footer_button_text:
           participate: Deelnemen
-          vote: Stemmen
+          vote: Stemming
         voting_type:
           hybrid: Hybride
           in_person: In persoon
