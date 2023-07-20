@@ -710,28 +710,8 @@ el:
           highlighted_votings:
             max_results: Μέγιστος αριθμός στοιχείων προς εμφάνιση
           landing_page:
-            attachments_and_folders:
-              name: Συνημμένα και φάκελοι ψηφοφορίας
             description:
               name: Περιγραφή ψηφοφορίας
-            elections:
-              name: Ψηφοφορίες των εκλογών
-            header:
-              name: Επικεφαλίδα ψηφοφορίας
-            html_block_1:
-              name: Ψηφοφορία html μπλοκ 1
-            html_block_2:
-              name: Ψηφοφορία html μπλοκ 2
-            html_block_3:
-              name: Ψηφοφορία html μπλοκ 3
-            metrics:
-              name: Μετρικές ψηφοφορίας
-            polling_stations:
-              name: Εκλογικά τμήματα ψηφοφορίας
-            stats:
-              name: Στατιστικά ψηφοφορίας
-            timeline:
-              name: Χρονοδιάγραμμα ψηφοφορίας
         index:
           not_published: Αδημοσίευτο
           published: Δημοσιεύθηκε
@@ -994,8 +974,6 @@ el:
         highlighted_votings:
           name: Επισημασμένες ψηφοφορίες
         landing_page:
-          description:
-            title: Σχετικά με αυτή την ψηφοφορία
           metrics:
             heading: Μετρήσεις
           polling_stations:
@@ -1012,8 +990,6 @@ el:
       pages:
         home:
           highlighted_votings:
-            active_votings: Ενεργές ψηφοφορίες
-            see_all_votings: Δείτε όλες τις ψηφοφορίες
             votings_button_title: Σύνδεσμος προς τη σελίδα που εμφανίζει όλες τις ψηφοφορίες
       polling_officer_zone:
         closures:
@@ -1192,7 +1168,7 @@ el:
         elections_log:
           bb_status: Κατάσταση εκλογών
           description: Το αρχείο καταγραφής εκλογών θα σας δείξει όλες τις σχετικές πληροφορίες για κάθε ψηφοφορία. Για παράδειγμα, η κατάσταση της διαδικασίας κλειδιού ή αν τα αποτελέσματα δημοσιεύθηκαν ήδη. Κάντε κλικ στις εκλογές που θέλετε τις πληροφορίες καταγραφής.
-          election_log: Αρχείο καταγραφής εκλογών
+          election_log: Καταγραφή Εκλογών
           title: Αρχείο καταγραφής εκλογών
         filters:
           active: Ενεργό
