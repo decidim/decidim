@@ -19,6 +19,7 @@ pt:
       voting:
         end_time: A votação termina
         start_time: A votação inicia
+        voting_type: Tipo de votação
     errors:
       models:
         answer:
@@ -528,6 +529,7 @@ pt:
               tally:
                 cast: Registar a contagem
                 share: Partilhar a contagem
+            start_icon: Ícone que indica um botão de início para iniciar a geração de chaves eleitorais
             title: Contagem para %{election}
           update:
             error: O estado da eleição não foi actualizado.
@@ -582,7 +584,7 @@ pt:
           header: A registar o voto...
           text: O seu boletim de voto está a ser registado na urna de voto.
         confirm:
-          answer: Responder
+          answer: Resposta
           answer_number: resposta %{number}
           confirm: Confirmar
           edit: editar
@@ -737,28 +739,8 @@ pt:
           highlighted_votings:
             max_results: Montante máximo dos projectos a mostrar
           landing_page:
-            attachments_and_folders:
-              name: Anexos e pastas de votação
             description:
               name: Descrição da votação
-            elections:
-              name: Eleições de votação
-            header:
-              name: Cabeçalho de votação
-            html_block_1:
-              name: Bloco html de votação 1
-            html_block_2:
-              name: Bloco html de votação 2
-            html_block_3:
-              name: Bloco html de votação 3
-            metrics:
-              name: Métricas da votação
-            polling_stations:
-              name: Assembleias de voto
-            stats:
-              name: Estatísticas da votação
-            timeline:
-              name: Cronologia da votação
         index:
           not_published: Publicação removida
           published: Publicado
@@ -1072,8 +1054,6 @@ pt:
       pages:
         home:
           highlighted_votings:
-            active_votings: Votações activas
-            see_all_votings: Ver todas as votações
             votings_button_title: Ligação para a página de Votações que mostra todas as votações
       polling_officer_zone:
         closures:
