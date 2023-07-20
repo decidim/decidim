@@ -651,7 +651,7 @@ fi-pl:
           header: Kirjataan ääntä...
           text: Ääntäsi lähetetään sähköiseen ääniuurnaan.
         confirm:
-          answer: Vastaa
+          answer: Vastaus
           answer_number: 'vastaus #%{number}'
           confirm: Vahvista
           edit: muokkaa
@@ -813,28 +813,8 @@ fi-pl:
           highlighted_votings:
             max_results: Näytettävien elementtien enimmäismäärä
           landing_page:
-            attachments_and_folders:
-              name: Äänestyksen liitteet ja kansiot
             description:
               name: Äänestyksen kuvaus
-            elections:
-              name: Äänestyksen vaalit
-            header:
-              name: Äänestyksen otsikko
-            html_block_1:
-              name: Äänestyksen HTML-lohko 1
-            html_block_2:
-              name: Äänestyksen HTML-lohko 2
-            html_block_3:
-              name: Äänestyksen HTML-lohko 3
-            metrics:
-              name: Äänestyksen tilastomittarit
-            polling_stations:
-              name: Äänestyspaikat
-            stats:
-              name: Äänestyksen tilastot
-            timeline:
-              name: Äänestyksen aikajana
         index:
           not_published: Julkaisematon
           published: Julkaistu
@@ -1149,8 +1129,6 @@ fi-pl:
         highlighted_votings:
           name: Korostetut äänestykset
         landing_page:
-          description:
-            title: Tietoa tästä äänestyksestä
           metrics:
             heading: Tilastomittarit
           polling_stations:
@@ -1167,8 +1145,6 @@ fi-pl:
       pages:
         home:
           highlighted_votings:
-            active_votings: Aktiiviset äänestykset
-            see_all_votings: Näytä kaikki äänestykset
             votings_button_title: Linkki kaikkien äänestysten sivulle
       polling_officer_zone:
         closures:
