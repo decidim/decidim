@@ -639,6 +639,7 @@ de:
             success: Ihr öffentlicher Identifikationsschlüssel wurde erfolgreich gespeichert.
       votes:
         ballot_decision:
+          audit: Stimmzettel überprüfen
           back: Abstimmungsvorgang erneut starten
           ballot_hash: 'Ihre Wahlurnen-ID ist:'
           cast: Stimmzettel abgeben, um Ihre Stimme abzuschließen
@@ -660,6 +661,7 @@ de:
           feedback: Gib uns dein Feedback
           header: Abstimmung bestätigt
           lead: Ihre Stimme wurde abgegeben!
+          text: 'Sie können mit folgendem Identifikator überprüfen, ob Ihre Stimme erfolgreich zur Wahlurne hinzugefügt wurde: '
           verify_link: Um dies zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="%{link}">Bestätigungsseite</a> ein
         create:
           error: Beim Abgeben dieser Stimme ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
@@ -671,6 +673,12 @@ de:
           lead: Ihre Stimme wurde nicht abgegeben!
           text: Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.
           try_again: Erneut versuchen
+        header:
+          ballot_decision: Abstimmen
+          confirm: Bestätigen
+          election: Wahl
+          register: Registrieren
+          vote_for: Über %{title} abstimmen
         messages:
           invalid_token: Ihre Sitzung in der Abstimmung ist nicht gültig. Versuchen Sie, erneut abzustimmen.
           not_allowed: Sie dürfen zur Zeit nicht an dieser Wahl teilnehmen.
@@ -683,6 +691,7 @@ de:
           nota_option: Nichts davon
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
+          selections: "%{selected} von %{max_selections} ausgewählt"
         onboarding_modal:
           create_account: Konto erstellen
           description: Möchten Sie ein neues Konto auf der Plattform erstellen? Sie können an den Prozessen teilnehmen und aktiv an der Organisation teilnehmen.
@@ -755,6 +764,9 @@ de:
           title: Was sind Abstimmungen?
     menu:
       votings: Abstimmungen
+    participatory_spaces:
+      related_elections:
+        see_all: Alle Wahlen anzeigen
     statistics:
       elections_count: Wahlen
       votings_count: Abstimmungen
@@ -792,8 +804,30 @@ de:
             invalid: Beim Aktualisieren dieser Wahlkategorie ist ein Problem aufgetreten.
             success: Wahlkategorie erfolgreich aktualisiert.
         content_blocks:
+          attachments_and_folders:
+            name: Abstimmungsanhänge und Ordner
+          header:
+            name: Abstimmungsheader
           highlighted_votings:
             max_results: Maximale Anzahl angezeigte Elemente
+          html_block_1:
+            name: Abstimmung HTML Block 1
+          html_block_2:
+            name: Abstimmung HTML Block 2
+          html_block_3:
+            name: Abstimmung HTML Block 3
+          main_data:
+            name: Titel und Beschreibung
+          metrics:
+            name: Abstimmungsmetriken
+          polling_stations:
+            name: Stimmlokale
+          related_elections:
+            name: Wahlen der Abstimmung
+          stats:
+            name: Abstimmungsstatistiken
+          timeline:
+            name: Abstimmungszeitfolge
         index:
           not_published: Unveröffentlicht
           published: Veröffentlicht
@@ -1132,6 +1166,11 @@ de:
           destroy: Entfernen
           new: Neues Mitglied
           title: Aktionen
+      pages:
+        home:
+          highlighted_votings:
+            active_spaces: Aktive Abstimmungen
+            see_all_spaces: Alle Abstimmungen ansehen
       polling_officer_zone:
         closures:
           back_to_polling_stations: Zurück zu den Wahllokalen
@@ -1346,6 +1385,8 @@ de:
         send_access_code:
           invalid: Beim Versenden des Zugangscodes ist ein Problem aufgetreten.
           success: Ihr Zugangscode wurde erfolgreich versandt.
+        show:
+          title: Über diese Abstimmung
       votings_m:
         badge_name:
           finished: Abgeschlossen
