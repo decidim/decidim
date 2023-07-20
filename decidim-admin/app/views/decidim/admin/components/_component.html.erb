@@ -45,7 +45,7 @@
         <% if component.manifest.actions.empty? %>
           <%= icon "key-2-line", class: "action-icon action-icon--disabled" %>
         <% else %>
-          <%= icon_link_to "key-line", url_for(action: :edit, component_id: component, controller: "component_permissions"), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
+          <%= icon_link_to "key-2-line", url_for(action: :edit, component_id: component, controller: "component_permissions"), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
         <% end %>
       <% else %>
         <span class="action-space icon"></span>

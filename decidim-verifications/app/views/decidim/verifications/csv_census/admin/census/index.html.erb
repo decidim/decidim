@@ -32,7 +32,7 @@
     <%= decidim_form_for @form, url: census_path, multipart: true do |form| %>
       <%= label_tag :file, t("admin.new.file", scope: "decidim.verifications.csv_census") %>
       <%= form.file_field :file %>
-      <%= submit_tag t("admin.new.submit", scope: "decidim.verifications.csv_census"), class: "button" %>
+      <%= submit_tag t("admin.new.submit", scope: "decidim.verifications.csv_census"), class: "button button__sm md:button__lg button__secondary" %>
     <% end %>
   </div>
 </div>

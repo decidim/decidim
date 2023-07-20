@@ -17,11 +17,11 @@
 <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
   <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) %>
     <% unless @newsletter.sent? %>
-      <%= link_to t("actions.edit", scope: "decidim.admin"), [:edit, @newsletter], class: "button" %>
+      <%= link_to t("actions.edit", scope: "decidim.admin"), [:edit, @newsletter], class: "button button__sm md:button__lg button__secondary" %>
     <% end %>
-    <%= link_to t(".send_me_a_test_email"), send_to_user_newsletter_path(@newsletter), class: "button hollow", method: :post %>
+    <%= link_to t(".send_me_a_test_email"), send_to_user_newsletter_path(@newsletter), class: "button button__sm md:button__lg button__secondary hollow", method: :post %>
     <% unless @newsletter.sent? %>
-      <%= link_to t(".select_recipients_to_deliver"), select_recipients_to_deliver_newsletter_path(@newsletter), class: "button alert" %>
+      <%= link_to t(".select_recipients_to_deliver"), select_recipients_to_deliver_newsletter_path(@newsletter), class: "button button__sm md:button__lg button__secondary alert" %>
     <% end %>
   <% end %>
 </div>

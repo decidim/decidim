@@ -31,13 +31,13 @@
     <% if allowed_to?(:update, :initiative, initiative: current_initiative) %>
       <%= aria_selected_link_to t(".edit"),
                                 decidim_admin_initiatives.initiative_attachments_path(current_participatory_space),
-                                class: "button" %>
+                                class: "button button__sm md:button__lg button__secondary" %>
       <%= aria_selected_link_to t(".new"),
                                 decidim_admin_initiatives.new_initiative_attachment_path(current_participatory_space),
-                                class: "button" %>
+                                class: "button button__sm md:button__lg button__secondary" %>
     <% else %>
-      <%= link_to t(".edit"), "#", class: "button muted disabled" %>
-      <%= link_to t(".new"), "#", class: "button muted disabled" %>
+      <%= link_to t(".edit"), "#", class: "button button__sm md:button__lg button__secondary muted disabled" %>
+      <%= link_to t(".new"), "#", class: "button button__sm md:button__lg button__secondary muted disabled" %>
     <% end %>
   </div>
 </div>

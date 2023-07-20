@@ -16,11 +16,11 @@
           <% if allowed_to? :destroy, :initiative_type_scope, initiative_type_scope: current_initiative_type_scope %>
               <%= link_to t(".destroy"), initiatives_type_initiatives_type_scope_path(params[:initiatives_type_id], current_initiative_type_scope),
                           method: :delete,
-                          class: "alert button",
+                          class: "button button__sm md:button__lg button__secondary",
                           data: { confirm: t(".confirm_destroy") } %>
           <% end %>
 
-          <%= link_to t(".back"), edit_initiatives_type_path(params[:initiatives_type_id]), class: "button" %>
+          <%= link_to t(".back"), edit_initiatives_type_path(params[:initiatives_type_id]), class: "button button__sm md:button__lg button__secondary" %>
         </div>
       <% end %>
     </div>

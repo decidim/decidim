@@ -23,7 +23,7 @@
 
       <% if @form.main_button? %>
         <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-          <%= f.button type: :submit, class: "button", disabled: @form.invalid? do %>
+          <%= f.button type: :submit, class: "button button__sm md:button__lg button__secondary", disabled: @form.invalid? do %>
             <% if @form.pending_action %>
               <span class='loading-spinner'></span> <%= t("steps.processing", scope: "decidim.elections.admin") %>
             <% else %>
