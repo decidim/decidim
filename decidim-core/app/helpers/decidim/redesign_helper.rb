@@ -7,11 +7,11 @@ module Decidim
     # method will be unnecessary and the dialog-open key should be used
     # directly instead of calling this
     def modal_open_key
-      redesign_enabled? ? "dialog-open" : "open"
+      !respond_to?(:redesign_enabled?) || redesign_enabled? ? "dialog-open" : "open"
     end
 
     def modal_remote_key
-      redesign_enabled? ? "dialog-remote-url" : "open-url"
+      !respond_to?(:redesign_enabled?) || redesign_enabled? ? "dialog-remote-url" : "open-url"
     end
 
     def data_modal_open_key

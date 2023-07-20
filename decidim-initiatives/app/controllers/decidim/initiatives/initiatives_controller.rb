@@ -5,7 +5,7 @@ module Decidim
     # This controller contains the logic regarding participants initiatives
     class InitiativesController < Decidim::Initiatives::ApplicationController
       include ParticipatorySpaceContext
-      redesign_participatory_space_layout only: [:show]
+      participatory_space_layout only: [:show]
 
       helper Decidim::AttachmentsHelper
       helper Decidim::FiltersHelper
