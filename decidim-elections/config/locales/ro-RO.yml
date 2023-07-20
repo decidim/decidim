@@ -400,7 +400,6 @@ ro:
           active: Activ
           all: Toate
           finished: Finalizat
-          search: Caută
           upcoming: Urmează
         filters_small_view:
           close_modal: Închidere
@@ -556,6 +555,7 @@ ro:
         header:
           confirm: Confirmă votul tău
           confirmed: Votare confirmată
+          failed: Vot eșuat
         messages:
           invalid_token: Sesiunea din cabina de vot nu este validă. Încercați să votați din nou.
           not_allowed: Nu aveţi voie să votaţi asupra acestor alegeri în acest moment.
@@ -615,12 +615,6 @@ ro:
           new:
             create: Creează
             title: Creează stil de vot
-        content_blocks:
-          landing_page:
-            attachments_and_folders:
-              name: Atașamente și dosare aferente votării
-            elections:
-              name: Alegeri cu votare
         index:
           not_published: Anulează publicarea
           published: Publicate
@@ -723,7 +717,10 @@ ro:
         closures:
           new:
             modal_ballots_count_error:
+              close_modal: Inchide
               text_area_placeholder: Te rugăm să îți scrii mesajul
+          sign:
+            close_modal: Inchide
         in_person_votes:
           complete_voting:
             census_verified: Participantul nu a votat încă.
@@ -771,6 +768,7 @@ ro:
           year_placeholder: AAAA
         elections_log:
           description: Jurnalul alegerilor îți va arăta toate informațiile relevante aferente fiecărui proces de vot. De exemplu, rezultatul numărării voturilor și dacă acesstea sunt deja publicate. Apasă pe alegerile despre care vrei să aflii mai multe detalii.
+          election_log: Jurnal al alegerilor
         login:
           access_code: Cod de acces
           access_code_placeholder: Cod de acces
@@ -781,6 +779,12 @@ ro:
           step: Identificare
           title: Mă identifică cu datele mele de recensământ de vot
         no_census_contact_information: Nu există încă informații de contact
+        show:
+          dates: Date
+      votings_m:
+        footer_button_text:
+          view: Vizualizare
+          vote: Votează
   layouts:
     decidim:
       election_votes_header:
