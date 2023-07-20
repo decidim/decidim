@@ -48,7 +48,7 @@
     <% end %>
 
     <%= with_tooltip t("actions.preview", scope: "decidim.budgets"), class: "top" do %>
-      <%= icon_link_to "eye-line", resource_locator([budget, project]).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview" %>
+      <%= icon_link_to "eye-line", resource_locator([budget, project]).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview", data: { "external-link": false } %>
     <% end %>
 
     <%= resource_permissions_link(project) %>

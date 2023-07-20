@@ -51,7 +51,7 @@
               <% if closure.present? && closure.signed? %>
                 <% if closure.validated? && allowed_to?(:read, :monitoring_committee_polling_station_closure, voting: current_voting, closure: closure) %>
                   <%= with_tooltip t("actions.view", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures"), class: "top" do %>
-                    <%= icon_link_to "eye-line", voting_monitoring_committee_polling_station_closure_path(current_voting, closure), t("actions.view", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures"), class: "action-icon--view", target: "_blank" %>
+                    <%= icon_link_to "eye-line", voting_monitoring_committee_polling_station_closure_path(current_voting, closure), t("actions.view", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures"), class: "action-icon--view", target: "_blank", data: { "external-link": false } %>
                   <% end %>
                 <% elsif closure.signed? && allowed_to?(:validate, :monitoring_committee_polling_station_closure, voting: current_voting, closure: closure) %>
                   <%= with_tooltip t("actions.validate", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures"), class: "top" do %>

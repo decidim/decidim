@@ -59,7 +59,7 @@
               <%= icon_link_to "list", budget_projects_path(budget), t("actions.edit_projects", scope: "decidim.budgets"), class: "action-icon--edit-projects" %>
 
               <%= with_tooltip t("actions.preview", scope: "decidim.budgets"), class: "top" do %>
-                <%= icon_link_to "eye-line", resource_locator(budget).path, t("actions.preview", scope: "decidim.budgets"), class: "action-icon--preview", target: :blank %>
+                <%= icon_link_to "eye-line", resource_locator(budget).path, t("actions.preview", scope: "decidim.budgets"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
               <% end %>
 
               <% if allowed_to? :delete, :budget, budget: budget %>

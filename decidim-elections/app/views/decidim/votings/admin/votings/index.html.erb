@@ -55,7 +55,7 @@
 
               <% if allowed_to? :preview, :voting, voting: voting %>
                 <%= with_tooltip t("actions.preview", scope: "decidim.admin"), class: "top" do %>
-                  <%= icon_link_to "eye-line", decidim_votings.voting_path(voting), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: "_blank" %>
+                  <%= icon_link_to "eye-line", decidim_votings.voting_path(voting), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: "_blank", data: { "external-link": false } %>
                 <% end %>
               <% else %>
                 <span class="action-space icon"></span>

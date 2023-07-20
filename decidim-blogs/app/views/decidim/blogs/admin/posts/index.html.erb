@@ -60,7 +60,7 @@
               <% end %>
 
               <%= with_tooltip t("actions.preview", scope: "decidim.admin"), class: "top" do %>
-                <%= icon_link_to "eye-line", resource_locator(post).path, t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: :blank %>
+                <%= icon_link_to "eye-line", resource_locator(post).path, t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
               <% end %>
 
               <%= resource_permissions_link(post) %>

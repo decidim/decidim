@@ -78,7 +78,7 @@
               <% end %>
 
               <%= with_tooltip t("actions.preview", scope: "decidim.elections"), class: "top" do %>
-                <%= icon_link_to "eye-line", resource_locator(election).path, t("actions.preview", scope: "decidim.elections"), class: "action-icon--preview", target: :blank %>
+                <%= icon_link_to "eye-line", resource_locator(election).path, t("actions.preview", scope: "decidim.elections"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
               <% end %>
 
               <%= resource_permissions_link(election) %>

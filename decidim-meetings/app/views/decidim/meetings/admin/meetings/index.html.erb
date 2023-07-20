@@ -140,7 +140,7 @@
               <% end %>
 
               <%= with_tooltip t("actions.preview", scope: "decidim.meetings"), class: "top" do %>
-                <%= icon_link_to "eye-line", resource_locator(meeting).path, t("actions.preview", scope: "decidim.meetings"), class: "action-icon--preview", target: :blank %>
+                <%= icon_link_to "eye-line", resource_locator(meeting).path, t("actions.preview", scope: "decidim.meetings"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
               <% end %>
 
               <%= resource_permissions_link(meeting) %>

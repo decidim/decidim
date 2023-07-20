@@ -49,7 +49,7 @@
 
               <% if allowed_to? :preview, :conference, conference: conference %>
                 <%= with_tooltip t("actions.preview", scope: "decidim.admin"), class: "top" do %>
-                  <%= icon_link_to "eye-line", decidim_conferences.conference_path(conference), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: "_blank" %>
+                  <%= icon_link_to "eye-line", decidim_conferences.conference_path(conference), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: "_blank", data: { "external-link": false } %>
                 <% end %>
               <% end %>
 

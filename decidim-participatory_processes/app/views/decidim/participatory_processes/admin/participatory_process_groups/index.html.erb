@@ -60,7 +60,7 @@
               <% end %>
 
               <%= with_tooltip t("actions.preview", scope: "decidim.admin"), class: "top" do %>
-                <%= icon_link_to "eye-line", decidim_participatory_processes.participatory_process_group_path(group), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: "_blank" %>
+                <%= icon_link_to "eye-line", decidim_participatory_processes.participatory_process_group_path(group), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: "_blank", data: { "external-link": false } %>
               <% end %>
 
               <% if allowed_to? :destroy, :process_group, process_group: group %>
