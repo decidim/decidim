@@ -808,28 +808,8 @@ lt:
           highlighted_votings:
             max_results: Didžiausias rodomų elementų skaičius
           landing_page:
-            attachments_and_folders:
-              name: Balsavimo prisegimai ir aplankai
             description:
               name: Balsavimo aprašymas
-            elections:
-              name: Balsavimo rinkimai
-            header:
-              name: Balsavimo antraštė
-            html_block_1:
-              name: Balsavimo html blokas 1
-            html_block_2:
-              name: Balsavimo html blokas 2
-            html_block_3:
-              name: Balsavimo html blokas 3
-            metrics:
-              name: Balsavimo rodikliai
-            polling_stations:
-              name: Balsavimo punktai
-            stats:
-              name: Balsavimo statistika
-            timeline:
-              name: Balsavimo laiko juosta
         index:
           not_published: Nebeskelbiama
           published: Paskelbta
@@ -1144,8 +1124,6 @@ lt:
         highlighted_votings:
           name: Paryškinti balsavimai
         landing_page:
-          description:
-            title: Apie šį balsavimą
           metrics:
             heading: Rodikliai
           polling_stations:
@@ -1162,8 +1140,6 @@ lt:
       pages:
         home:
           highlighted_votings:
-            active_votings: Aktyvūs balsavimai
-            see_all_votings: Žiūrėti visus balsavimus
             votings_button_title: Nuoroda į puslapį „Balsavimai“, kuriame pateikiami visi balsavimai
       polling_officer_zone:
         closures:
