@@ -476,13 +476,7 @@ de:
           all: Alle
           date: Datum
           finished: Abgeschlossen
-          search: Suche
           upcoming: Anstehend
-        filters_small_view:
-          close_modal: Dialog schließen
-          filter: Filter
-          filter_by: Filtern nach
-          unfold: Aufklappen
         preview:
           available_answers: 'Verfügbare Antworten:'
           description: 'Dies sind die Fragen, die Sie im Abstimmungsverfahren finden werden:'
@@ -500,7 +494,6 @@ de:
             change_vote: Stimme ändern
             vote: Jetzt abstimmen
             vote_again: Erneut abstimmen
-          back: Verfügbare Wahlen
           callout:
             already_voted: Sie haben bei dieser Wahl bereits abgestimmt. Sie können Ihre Stimme ändern oder sie verifizieren.
             pending_vote: Deine Stimme wird auf dem Server abgegeben.
@@ -558,7 +551,6 @@ de:
           backup_modal:
             description: Diese Wahl wird im Bulletin Board erstellt. Es ist sehr wichtig dass alle Wahlhelfer, welche daran teilnehmen, eine Sicherungskopie dieser Schlüssel erstellen und sie an einem sicheren Ort speichern. Danach wird der Prozess fortgesetzt.
             download_election_keys: Schlüssel herunterladen
-            download_icon: Symbol, das eine Download-Aktion anzeigt
             title: Wahl-Schlüssel für %{election} sichern
           key_ceremony_steps:
             back: Zurück
@@ -573,7 +565,6 @@ de:
               task: Aufgabe
             process_warning: Sobald der Prozess gestartet ist, sollten Sie diese Seite nicht verlassen, bis der Prozess endet. Dies kann einige Minuten dauern, da alle Wahlhelfer verbunden sein müssen um den Prozess abzuschliessen.
             start: Start
-            start_icon: Symbol, das einen Startknopf anzeigt, um die Erzeugung der Wahl-Schlüssel zu starten
             status:
               completed: Abgeschlossen
               pending: Ausstehend
@@ -583,7 +574,6 @@ de:
             description: Das Bulletin Board hat Informationen von Ihnen als Wahlhelfer zu dieser Wahl. Um den Vorgang fortzusetzen, laden Sie zuerst die Sicherungsdatei hoch, die während der vorherigen Sitzung erstellt wurde.
             title: Wahl-Schlüssel für %{election} wiederherstellen
             upload_election_keys: Wahl-Schlüssel hochladen
-            upload_icon: Symbol, das eine Download-Aktion anzeigt
           tally_started_steps:
             back: Zurück
             description: Die Ergebnisse dieser Wahl werden im Bulletin Board berechnet. Um diesen Prozess abzuschließen ist Ihre Teilnahme als Wahlhelfer erforderlich.
@@ -597,7 +587,6 @@ de:
               task: Aufgabe
             process_warning: Sobald der Prozess gestartet ist, sollten Sie diese Seite nicht verlassen, bis der Prozess endet. Dies kann einige Minuten dauern, da alle Wahlhelfer verbunden sein müssen um den Prozess abzuschliessen.
             start: Starten
-            start_icon: Symbol, das einen Startknopf anzeigt, um die Erzeugung der Wahl-Schlüssel zu starten
             status:
               completed: Abgeschlossen
               pending: Ausstehend
@@ -650,7 +639,6 @@ de:
             success: Ihr öffentlicher Identifikationsschlüssel wurde erfolgreich gespeichert.
       votes:
         ballot_decision:
-          audit: "(Stimmzettel überprüfen)"
           back: Abstimmungsvorgang erneut starten
           ballot_hash: 'Ihre Wahlurnen-ID ist:'
           cast: Stimmzettel abgeben, um Ihre Stimme abzuschließen
@@ -660,21 +648,18 @@ de:
           header: Stimme wird abgegeben...
           text: Ihr Stimmzettel wird an der Wahlurne abgegeben.
         confirm:
-          answer: Antwort
           answer_number: Antwort %{number}
           confirm: Bestätigen
           edit: bearbeiten
           header: Bestätige deine Stimme
           intro: Hier ist eine Zusammenfassung der Wahl, die Sie abgeben möchten. <br> Bitte bestätigen Sie Ihre Stimme oder bearbeiten Sie Ihre Antworten.
           nota_option: Leer
-          question: Frage %{count}
         confirmed:
           back: Zurück zu den Wahlen
           experience: Wie war Ihre Erfahrung mit uns?
           feedback: Gib uns dein Feedback
           header: Abstimmung bestätigt
           lead: Ihre Stimme wurde abgegeben!
-          text: 'Sie können überprüfen, ob Ihre Stimme erfolgreich zur Wahlurne mit folgendem Identifikator hinzugefügt wurde: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Um dies zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="%{link}">Bestätigungsseite</a> ein
         create:
           error: Beim Abgeben dieser Stimme ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
@@ -686,13 +671,6 @@ de:
           lead: Ihre Stimme wurde nicht abgegeben!
           text: Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.
           try_again: Erneut versuchen
-        header:
-          ballot_decision: Stimme abgeben oder überprüfen
-          casting: Stimme wird abgegeben
-          confirm: Bestätige deine Stimme
-          confirmed: Abstimmung bestätigt
-          encrypting: Stimme wird verschlüsselt
-          failed: Abstimmung fehlgeschlagen
         messages:
           invalid_token: Ihre Sitzung in der Abstimmung ist nicht gültig. Versuchen Sie, erneut abzustimmen.
           not_allowed: Sie dürfen zur Zeit nicht an dieser Wahl teilnehmen.
@@ -705,9 +683,7 @@ de:
           nota_option: Nichts davon
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
-          selections: "%{selected} von %{max_selections}<br> ausgewählt"
         onboarding_modal:
-          close: Dialog schließen
           create_account: Konto erstellen
           description: Möchten Sie ein neues Konto auf der Plattform erstellen? Sie können an den Prozessen teilnehmen und aktiv an der Organisation teilnehmen.
           no_account: Nein, danke.
@@ -818,29 +794,6 @@ de:
         content_blocks:
           highlighted_votings:
             max_results: Maximale Anzahl angezeigte Elemente
-          landing_page:
-            attachments_and_folders:
-              name: Materialien und Verzeichnisse zur Abstimmung
-            description:
-              name: Beschreibung der Abstimmung
-            elections:
-              name: Wahlen
-            header:
-              name: Überschrift
-            html_block_1:
-              name: Abstimmung HTML Block 1
-            html_block_2:
-              name: Abstimmung HTML Block 2
-            html_block_3:
-              name: Abstimmung HTML Block 3
-            metrics:
-              name: Abstimmungsmetriken
-            polling_stations:
-              name: Wahllokale
-            stats:
-              name: Abstimmungsstatistiken
-            timeline:
-              name: Abstimmungs-Timeline
         index:
           not_published: Unveröffentlicht
           published: Veröffentlicht
@@ -1170,27 +1123,15 @@ de:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
         landing_page:
-          description:
-            title: Über diese Abstimmung
-          metrics:
-            heading: Metriken
           polling_stations:
             heading: Wahllokale
             no_polling_stations: Es gibt noch keine Wahllokale.
-          timeline:
-            heading: Zeitachse
       monitoring_committee_members:
         actions:
           confirm_destroy: Sind Sie sicher?
           destroy: Entfernen
           new: Neues Mitglied
           title: Aktionen
-      pages:
-        home:
-          highlighted_votings:
-            active_votings: Aktive Abstimmungen
-            see_all_votings: Alle Abstimmungen ansehen
-            votings_button_title: Link zur Seite die alle Abstimmungen anzeigt
       polling_officer_zone:
         closures:
           back_to_polling_stations: Zurück zu den Wahllokalen
@@ -1223,7 +1164,6 @@ de:
             info_text: 'Bitte geben Sie die Gesamtzahl der Umschläge ein, die in diesem Wahllokal neu gezählt wurden:'
             modal_ballots_count_error:
               btn_validate_total: Neue Gesamtzahl der Stimmen überprüfen
-              close_modal: Schließen
               info_explanation_text: 'Bitte überprüfen Sie die Gesamtzahl der Stimmzettel. Wenn die Gesamtzahl falsch ist, müssen Sie dem Wahlausschuss eine Erklärung abgeben:'
               info_text: Die Gesamtzahl eingehender Stimmen (Umschläge) stimmt nicht mit der Liste der Personen überein, welche in diesem Wahllokal abgestimmt haben.
               message_for_monitoring_committee: Nachricht für den Überwachungsausschuss
@@ -1241,14 +1181,12 @@ de:
           sign:
             cancel: Abbrechen
             check_box: Ich habe dies geprüft und es ist dasselbe wie das physische Abschlusszertifikat
-            close_modal: Schliessen
             confirm: OK, fortfahren
             error: Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
             heading: Neuzählung - Schliessung signieren
             info_text: Wenn Sie fortfahren, können Sie keine der Informationen mehr ändern. Diese Aktion kann nicht rückgängig gemacht werden.
             submit: Schliessung signieren
             success: Schliessung erfolgreich signiert.
-            title: Aktion kann nicht rückgängig gemacht werden
           update:
             error: Beim Aktualisieren der Abschluss-Resultate ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
             success: Abschluss-Resultate erfolgreich aktualisiert.
@@ -1379,9 +1317,7 @@ de:
             one: "%{count} Abstimmung"
             other: "%{count} Abstimmungen"
         elections_log:
-          bb_status: Wahlstatus
           description: Das Wahlprotokoll zeigt Ihnen alle relevanten Informationen über jede Abstimmung. Zum Beispiel den Status der Schlüsselzeremonie oder der Zählung, oder ob die Ergebnisse bereits veröffentlicht wurden. Klicken Sie auf die Wahl, deren Protokoll-Informationen Sie einsehen möchten.
-          election_log: Wahl-Protokoll
           title: Wahl-Protokoll
         filters:
           active: Aktiv
@@ -1390,11 +1326,6 @@ de:
           finished: Abgeschlossen
           search: Suchen
           upcoming: Zukünftig
-        filters_small_view:
-          close_modal: Dialog schließen
-          filter: Filter
-          filter_by: Filtern nach
-          unfold: Aufklappen
         index:
           no_votings: Keine Abstimmung gefunden, die Ihren Suchkriterien entspricht.
           only_finished: Momentan gibt es keine geplanten Abstimmungen, aber hier finden Sie alle abgeschlossenen Abstimmungen.
@@ -1406,7 +1337,6 @@ de:
           dont_have_access_code: Sie haben keinen Zugangscode?
           form_title: 'Füllen Sie das folgende Formular aus um auf die Abstimmung zuzugreifen:'
           start_voting: Jetzt abstimmen
-          step: Identifikation
           title: Mich via Erhebungsdaten identifizieren
         no_census_contact_information: Es sind noch keine Kontaktinformationen vorhanden.
         orders:
@@ -1416,23 +1346,16 @@ de:
         send_access_code:
           invalid: Beim Versenden des Zugangscodes ist ein Problem aufgetreten.
           success: Ihr Zugangscode wurde erfolgreich versandt.
-        show:
-          dates: Daten
       votings_m:
         badge_name:
           finished: Abgeschlossen
           ongoing: Aktuell
           upcoming: Zukünftig
-        footer_button_text:
-          participate: Mitmachen
-          view: Anzeigen
-          vote: Abstimmen
         unspecified: Keine Angabe
         voting_type:
           hybrid: Hybrid
           in_person: Persönlich
           online: Online
-        voting_types_label: Abstimmungsart
   layouts:
     decidim:
       election_votes_header:
@@ -1445,5 +1368,4 @@ de:
         index:
           promoted_votings: Hervorgehobene Abstimmungen
         promoted_voting:
-          more_info: Mehr Informationen
           vote: Abstimmen
