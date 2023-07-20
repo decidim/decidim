@@ -5,7 +5,7 @@
   <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
     <%= f.submit t("questions.edit.update", scope: "decidim.admin"),
-                 class: "button",
+                 class: "button button__sm md:button__lg button__secondary",
                  data: { disable_with: true } %>
 
     <% if allowed_to? :publish, :question, question: current_question %>
@@ -13,12 +13,12 @@
         <%= link_to t("actions.unpublish", scope: "decidim.admin"),
                     question_publish_path(current_question),
                     method: :delete,
-                    class: "button muted" %>
+                    class: "button button__sm md:button__lg button__secondary" %>
       <% else %>
         <%= link_to t("actions.publish", scope: "decidim.admin"),
                     question_publish_path(current_question),
                     method: :post,
-                    class: "button hollow" %>
+                    class: "button button__sm md:button__lg button__secondary" %>
       <% end %>
     <% end %>
 
@@ -26,7 +26,7 @@
       <%= link_to t("decidim.admin.actions.destroy"),
                   question_path(current_question),
                   method: :delete,
-                  class: "alert button",
+                  class: "button button__sm md:button__lg button__secondary",
                   data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
     <% end %>
   </div>

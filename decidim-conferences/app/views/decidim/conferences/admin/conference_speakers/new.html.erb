@@ -2,6 +2,6 @@
   <%= render partial: "form", object: f, locals: { title: t("conference_speakers.new.title", scope: "decidim.admin") } %>
 
   <div class="button--double form-general-submit">
-    <%= f.submit t("conference_speakers.new.create", scope: "decidim.admin") %>
+    <%= f.submit t("conference_speakers.new.create", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
   </div>
 <% end %>

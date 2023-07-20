@@ -4,19 +4,19 @@
                      html: { class: "form edit_consultation" } do |f| %>
   <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
-    <%= f.submit t("consultations.edit.update", scope: "decidim.admin"), class: "button" %>
+    <%= f.submit t("consultations.edit.update", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
 
     <% if allowed_to? :publish, :consultation, consultation: current_consultation %>
       <% if current_consultation.published? %>
         <%= link_to t("actions.unpublish", scope: "decidim.admin"),
                     consultation_publish_path(current_consultation),
                     method: :delete,
-                    class: "button muted" %>
+                    class: "button button__sm md:button__lg button__secondary" %>
       <% else %>
         <%= link_to t("actions.publish", scope: "decidim.admin"),
                     consultation_publish_path(current_consultation),
                     method: :post,
-                    class: "button hollow" %>
+                    class: "button button__sm md:button__lg button__secondary" %>
       <% end %>
     <% end %>
 

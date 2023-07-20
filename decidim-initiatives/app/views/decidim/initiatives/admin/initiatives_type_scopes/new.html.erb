@@ -11,7 +11,7 @@
         <%= render partial: "form", object: f %>
 
         <div class="button--double form-general-submit">
-          <%= f.submit t(".create") %>
+          <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
           <%= link_to t(".back"), edit_initiatives_type_path(params[:initiatives_type_id]), class: "button" %>
         </div>
       <% end %>

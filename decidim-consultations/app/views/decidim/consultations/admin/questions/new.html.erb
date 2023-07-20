@@ -8,6 +8,6 @@
   <%= render partial: "form", object: f %>
 
   <div class="button--double form-general-submit">
-    <%= f.submit t("questions.new.create", scope: "decidim.admin"), data: { disable_with: true } %>
+    <%= f.submit t("questions.new.create", scope: "decidim.admin"), data: { disable_with: true }, class: "button button__sm md:button__lg button__secondary" %>
   </div>
 <% end %>
