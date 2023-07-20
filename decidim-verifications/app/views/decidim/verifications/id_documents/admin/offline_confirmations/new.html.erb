@@ -18,7 +18,7 @@
   </div>
 
   <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= form.submit t(".verify") %>
-    <%= link_to t(".cancel"), root_path, class: "button hollow" %>
+    <%= form.submit t(".verify"), class: "button button__sm md:button__lg button__secondary" %>
+    <%= link_to t(".cancel"), root_path, class: "button button__sm md:button__lg button__secondary" %>
   </div>
 <% end %>

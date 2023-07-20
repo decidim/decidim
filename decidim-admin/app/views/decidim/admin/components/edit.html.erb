@@ -2,6 +2,6 @@
   <%= render partial: "form", object: form, locals: { component: @component, title: t(".title", name: t("#{@component.manifest.name}.name", scope: "decidim.components")) } %>
 
   <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= form.submit t(".update") %>
+    <%= form.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
   </div>
 <% end %>
