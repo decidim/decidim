@@ -15,7 +15,7 @@
         <%= yield :breadcrumb_nav_item %>
       </div>
       <div class="process-title-content-breadcrumb-container-right">
-        <%= link_to decidim_participatory_processes.participatory_process_path(current_participatory_space), class: "process-title-content-breadcrumb-container-right-link" do %>
+        <%= link_to decidim_participatory_processes.participatory_process_path(current_participatory_space), class: "process-title-content-breadcrumb-container-right-link", target: "_blank", data: { "external-link": false } do %>
           <%= icon "eye-line" %>
           <span>
             <%= t("see_process", scope: "decidim.admin.actions") %>
