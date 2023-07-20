@@ -107,40 +107,31 @@ describe "Proposals", type: :system do
         expect(page).to have_content("Official proposal")
       end
 
-      # REDESIGN_PENDING - The rich text editor is related with this test. This
-      # feature probably will be disabled. Remove these shared examples if
-      # correct
-      # it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
+      it_behaves_like "rendering safe content", ".editor-content"
     end
 
-    # REDESIGN_PENDING - The rich text editor is related with this test. This
-    # feature probably will be disabled. Remove these shared examples if
-    # correct
-    # context "when rich text editor is enabled for participants" do
-    #   let!(:proposal) { create(:proposal, body: content, component:) }
+    context "when rich text editor is enabled for participants" do
+      let!(:proposal) { create(:proposal, body: content, component:) }
 
-    #   before do
-    #     organization.update(rich_text_editor_in_public_views: true)
-    #     visit_component
-    #     click_link proposal_title
-    #   end
+      before do
+        organization.update(rich_text_editor_in_public_views: true)
+        visit_component
+        click_link proposal_title
+      end
 
-    #   it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
-    # end
+      it_behaves_like "rendering safe content", ".editor-content"
+    end
 
-    # REDESIGN_PENDING - The rich text editor is related with this test. This
-    # feature probably will be disabled. Remove these shared examples if
-    # correct
-    # context "when rich text editor is NOT enabled for participants" do
-    #   let!(:proposal) { create(:proposal, body: content, component:) }
+    context "when rich text editor is NOT enabled for participants" do
+      let!(:proposal) { create(:proposal, body: content, component:) }
 
-    #   before do
-    #     visit_component
-    #     click_link proposal_title
-    #   end
+      before do
+        visit_component
+        click_link proposal_title
+      end
 
-    #   it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.large-9"
-    # end
+      it_behaves_like "rendering unsafe content", ".editor-content"
+    end
 
     context "when it is an official meeting proposal" do
       include_context "with rich text editor content"
@@ -155,10 +146,7 @@ describe "Proposals", type: :system do
         expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(proposal.authors.first.title)))
       end
 
-      # REDESIGN_PENDING - The rich text editor is related with this test. This
-      # feature probably will be disabled. Remove these shared examples if
-      # correct
-      # it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
+      it_behaves_like "rendering safe content", ".editor-content"
     end
 
     context "when a proposal has comments" do
