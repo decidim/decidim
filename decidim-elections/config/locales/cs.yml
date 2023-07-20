@@ -684,6 +684,7 @@ cs:
           feedback: Dejte nám zpětnou vazbu
           header: Hlasování potvrzeno
           lead: Váš hlas byl odeslán!
+          text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: '
           verify_link: Chcete-li jej zkontrolovat, zkopírujte identifikátor a vložte jej na <a href="%{link}">stránku pro ověření hlasování</a>
         create:
           error: Při hlasování se vyskytl problém. Zkuste to prosím znovu.
@@ -695,6 +696,11 @@ cs:
           lead: Váš hlas nebyl odeslán!
           text: Něco se pokazilo, zkuste to prosím znovu.
           try_again: Zkuste to znovu
+        header:
+          confirm: Potvrdit
+          election: Volby
+          register: Registrovat
+          vote_for: Hlasujte pro %{title}
         messages:
           invalid_token: Vaše relace u hlasovacího místa není platná. Zkuste hlasovat znovu.
           not_allowed: V tuto chvíli vám není dovoleno hlasovat o těchto volbách.
@@ -707,6 +713,7 @@ cs:
           nota_option: Prázdná/Nic z výše uvedených
           preview_alert: To je náhled hlasovacího pultu.
           question_steps: Otázka %{current_step} z %{total_steps}
+          selections: "%{selected} z %{max_selections} výběru"
         onboarding_modal:
           create_account: Vytvořit účet
           description: Chcete vytvořit nový účet na platformě? Budete se moci účastnit procesů a být aktivní součástí organizace.
@@ -779,6 +786,9 @@ cs:
           title: Co jsou hlasování?
     menu:
       votings: Hlasování
+    participatory_spaces:
+      related_elections:
+        see_all: Zobrazit všechny volby
     statistics:
       elections_count: Volby
       votings_count: Hlasování
@@ -1156,6 +1166,10 @@ cs:
           destroy: Smazat
           new: Nový člen
           title: Akce
+      pages:
+        home:
+          highlighted_votings:
+            see_all_spaces: Zobrazit všechna hlasování
       polling_officer_zone:
         closures:
           back_to_polling_stations: Zpět do volební místnosti
