@@ -933,7 +933,6 @@ de:
           update: Aktualisieren
         new:
           create: Erstellen Sie den Geltungsbereichstyp
-          title: Neuer Umfang
         update:
           error: Beim Aktualisieren dieses Bereichstyps ist ein Fehler aufgetreten.
           success: Der Geltungsbereichstyp wurde erfolgreich aktualisiert
