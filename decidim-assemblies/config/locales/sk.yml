@@ -131,11 +131,6 @@ sk:
         publish: "%{user_name} vytvoril nový typ zhromaždenia %{resource_name}"
         unpublish: "%{user_name} zrušil publikovanie typu zhromaždenia %{resource_name}"
         update: "%{user_name} aktualizoval typ zhromaždenia %{resource_name}"
-    assemblies:
-      admin:
-        assemblies_types:
-          form:
-            title: Názov
     events:
       assemblies:
         create_assembly_member:
