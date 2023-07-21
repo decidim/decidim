@@ -590,7 +590,6 @@ lt:
         promotal_committee: Rėmėjų komitetas
         select_initiative_type: Pasirinkti
         show_similar_initiatives: Palyginti
-        step: '%{current} žingsnis iš %{total}'
         title: Sukurti naują iniciatyvą
       initiative_header:
         initiative_menu_item: Iniciatyva

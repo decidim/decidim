@@ -98,7 +98,7 @@ fr-CA:
             origin_component_id: Fonctionnalité d'origine
             select_component: Sélectionner une fonctionnalité
             success:
-              one: "1 project queued to be imported. You will be notified by email, once completed.\nProjet en attente d'importation. Vous serez notifié par courriel, une fois l'importation terminée."
+              one: Projet en attente d'importation. Vous serez notifié par courriel, une fois l'import terminé.
               other: "%{count} projets en attente d'importation. Vous serez notifié par email une fois l'import terminé."
             title: Importer des projets vers la fonctionnalité Suivi
         results:

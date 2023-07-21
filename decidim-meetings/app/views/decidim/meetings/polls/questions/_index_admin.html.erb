@@ -1,7 +1,7 @@
 <div class="meeting-polls__admin-label"><%= t(".admin_dashboard") %></div>
 
 <% questionnaire.questions.includes([:questionnaire]).each do |question| %>
-  <details class="meeting-polls__question--admin text-medium open" data-question="<%= question.id %>" <%= "open" if open_question == question.id %>>
+  <details class="meeting-polls__question meeting-polls__question--admin open" data-question="<%= question.id %>" <%= "open" if open_question == question.id %>>
     <summary><%= t(".question") %></summary>
 
     <%= form_tag(meeting_polls_question_path(meeting, question), method: :patch, remote: true) do %>
@@ -14,7 +14,7 @@
           <div><%= t(".question") %></div>
           <div>
             <% if question.unpublished? %>
-              <button class="button button--nomargin primary small"><%= t(".send") %></button>
+              <button class="button button__sm button__secondary"><%= t(".send") %></button>
             <% else %>
               <div><strong><%= t(".sent") %></strong></div>
               <div><%= pluralize(question.answers_count, t(".received_answer"), t(".received_answers")) %></div>
@@ -29,11 +29,11 @@
             <% end %>
 
             <% if question.unpublished? %>
-              <button class="button button--nomargin primary small margin-top-1" disabled><%= t(".send") %></button>
+              <button class="button button__sm button__secondary" disabled><%= t(".send") %></button>
             <% elsif question.published? %>
-              <button class="button button--nomargin primary small margin-top-1"><%= t(".send") %></button>
+              <button class="button button__sm button__secondary"><%= t(".send") %></button>
             <% elsif question.closed? %>
-              <div class="margin-top-1"><strong><%= t(".sent") %></strong></div>
+              <div class="mt-1"><strong><%= t(".sent") %></strong></div>
             <% end %>
           </div>
         </div>

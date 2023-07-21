@@ -4,6 +4,7 @@ module Decidim
   # View helpers related to the layout.
   module LayoutHelper
     include Decidim::ModalHelper
+    include Decidim::TooltipHelper
 
     # Public: Generates a set of meta tags that generate the different favicon
     # versions for an organization.
@@ -102,15 +103,6 @@ module Decidim
       redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
     end
 
-    # REDESIGN_PENDING: remove this helper
-    def arrow_link(text, url, args = {})
-      content_tag :a, href: url, class: "arrow-link #{args.with_indifferent_access[:class]}" do
-        inner = text
-        inner += redesigned_icon("arrow-right-line", class: "fill-current")
-        inner.html_safe
-      end
-    end
-
     # Outputs a SVG icon from an external file. It apparently renders an image
     # tag, but then a JS script kicks in and replaces it with an inlined SVG
     # version.
@@ -139,7 +131,10 @@ module Decidim
       # non-nil because otherwise it will be set to the asset host at
       # ActionView::Helpers::AssetUrlHelper#compute_asset_host.
       img_path = asset_pack_path(path, host: "", protocol: :relative)
-      Rails.public_path.join(img_path.sub(%r{^/}, ""))
+      path = Rails.public_path.join(img_path.sub(%r{^/}, ""))
+      return unless File.exist?(path)
+
+      path
     rescue ::Webpacker::Manifest::MissingEntryError
       nil
     end
@@ -189,8 +184,18 @@ module Decidim
     #
     # background-color: rgba(var(--primary-rgb), 0.5)
     def organization_colors
-      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex},#{v[3..4].hex},#{v[5..6].hex};" }.join
+      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex} #{v[3..4].hex} #{v[5..6].hex};" }.join
       render partial: "layouts/decidim/organization_colors", locals: { css: }
+    end
+
+    def current_user_unread_data
+      return {} if current_user.blank?
+
+      {}.tap do |d|
+        d.merge!(unread_notifications: true) if current_user.notifications.any?
+        d.merge!(unread_conversations: true) if current_user.unread_conversations.any?
+        d.merge!(unread_items: d.present?)
+      end
     end
 
     private

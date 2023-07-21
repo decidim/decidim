@@ -65,6 +65,7 @@ zh-TW:
           content: 請在管理員儀表板的 %{page} 靜態頁面上新增有意義的內容。
           summary: 請在管理員儀表板的 %{page} 靜態頁面上新增有意義的摘要
           title: 預設的 %{page} 標題
+        terms-of-service: 服務條款
       menu:
         admins: 管理員
         dashboard: 儀表板

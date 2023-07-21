@@ -24,15 +24,14 @@ describe "Space admin manages global moderations", type: :system do
     login_as user, scope: :user
   end
 
-  context "when the user did not accepted the admin ToS" do
+  context "when the user has not accepted the admin TOS" do
     before do
       user.update(admin_terms_accepted_at: nil)
       visit decidim_admin.moderations_path
     end
 
     it "has a message that they need to accept the admin TOS" do
-      expect(page).to have_content("You are not authorized")
-      expect(page).to have_content("Please take a moment to review the admin terms of service. Otherwise you will not be able to manage the platform")
+      expect(page).to have_content("Please take a moment to review the admin terms of service")
     end
 
     it "has only the Dashboard menu item in the main navigation" do
@@ -48,9 +47,7 @@ describe "Space admin manages global moderations", type: :system do
       end
 
       it "says that you are not authorized" do
-        within ".callout.alert" do
-          expect(page).to have_text("You are not authorized to perform this action")
-        end
+        expect(page).to have_text("Please take a moment to review the admin terms of service")
       end
     end
   end

@@ -30,6 +30,7 @@ describe "User group email confirmation", type: :system do
 
     it "allows demoting a user" do
       clear_emails
+      click_button "Manage group"
       click_link "Resend email confirmation instructions"
       expect(page).to have_content("Email confirmation instructions sent")
 

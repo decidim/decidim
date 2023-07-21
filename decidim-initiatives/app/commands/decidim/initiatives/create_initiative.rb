@@ -62,6 +62,7 @@ module Decidim
           author: current_user,
           scoped_type:,
           signature_type: form.type.signature_type,
+          decidim_user_group_id: form.decidim_user_group_id,
           state: "created"
         )
       end
@@ -91,7 +92,7 @@ module Decidim
             participatory_space: initiative
           )
 
-          initialize_pages(component) if component_name == :pages
+          initialize_pages(component) if component_name.in? ["pages", :pages]
         end
       end
 

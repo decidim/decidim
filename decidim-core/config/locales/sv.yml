@@ -91,24 +91,6 @@ sv:
         one: ungefär 1 månad
         other: ungefär %{count} månader
       half_a_minute: en halv minut
-      less_than_x_minutes:
-        one: mindre än en minut
-        other: mindre än %{count} minut
-      less_than_x_seconds:
-        one: just nu
-        other: mindre än %{count} sekunder
-      x_days:
-        one: 1 dag sedan
-        other: "%{count} dagar sedan"
-      x_hours:
-        one: 1 timme sedan
-        other: "%{count} timmar sedan"
-      x_minutes:
-        one: 1 min sedan
-        other: "%{count} min sedan"
-      x_seconds:
-        one: 1 sek. sedan
-        other: "%{count} sek. sedan"
   decidim:
     accessibility:
       external_link: Extern länk
@@ -885,7 +867,6 @@ sv:
           intro: 'De följande fel fanns i ditt meddelande:'
           ok: OK
         index:
-          ago: sedan
           new_conversation: Nytt samtal
           next: Nästa
           title: Samtal

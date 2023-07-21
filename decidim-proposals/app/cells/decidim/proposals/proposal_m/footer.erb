@@ -8,9 +8,7 @@
             progress_bar_progress,
             total: progress_bar_total,
             units_name: "decidim.proposals.proposals.votes_count.count",
-            element_id: "proposal-#{model.id}-votes-count",
-            subtitle_text: progress_bar_subtitle_text,
-            small: true
+            element_id: "proposal-#{model.id}-votes-count"
           ) %>
         <% end %>
         <%= render partial: "decidim/proposals/proposals/vote_button.html", locals: { proposal: model, from_proposals_list: true } %>

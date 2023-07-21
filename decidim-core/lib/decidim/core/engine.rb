@@ -39,13 +39,13 @@ require "diffy"
 require "ransack"
 require "wisper"
 require "webpacker"
-require "turbo-rails"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
 require "decidim/webpacker"
 
 require "decidim/api"
 require "decidim/middleware/strip_x_forwarded_host"
+require "decidim/middleware/static_dispatcher"
 require "decidim/middleware/current_organization"
 
 module Decidim
@@ -72,6 +72,18 @@ module Decidim
       end
 
       initializer "decidim_core.middleware" do |app|
+        if app.config.public_file_server.enabled
+          headers = app.config.public_file_server.headers || {}
+
+          app.config.middleware.swap(
+            ActionDispatch::Static,
+            Decidim::Middleware::StaticDispatcher,
+            app.paths["public"].first,
+            index: app.config.public_file_server.index_name,
+            headers:
+          )
+        end
+
         app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::CurrentOrganization
         app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::StripXForwardedHost
         app.config.middleware.use BatchLoader::Middleware
@@ -342,9 +354,10 @@ module Decidim
         end
       end
 
-      initializer "decidim_core.expire_sessions" do
-        Rails.application.config.session_store :cookie_store, secure: Decidim.config.force_ssl, expire_after: Decidim.config.expire_session_after
-        Rails.application.config.action_dispatch.cookies_same_site_protection = :lax
+      initializer "decidim_core.session_store" do |app|
+        next if app.config.session_store?
+
+        app.config.session_store :cookie_store, secure: Decidim.config.force_ssl, expire_after: Decidim.config.expire_session_after
       end
 
       initializer "decidim_core.register_resources" do
@@ -445,6 +458,12 @@ module Decidim
           content_block.default!
         end
 
+        Decidim.content_blocks.register(:homepage, :global_menu) do |content_block|
+          content_block.cell = "decidim/content_blocks/global_menu"
+          content_block.public_name_key = "decidim.content_blocks.global_menu.name"
+          content_block.default!
+        end
+
         Decidim.content_blocks.register(:homepage, :sub_hero) do |content_block|
           content_block.cell = "decidim/content_blocks/sub_hero"
           content_block.public_name_key = "decidim.content_blocks.sub_hero.name"
@@ -476,7 +495,7 @@ module Decidim
         end
 
         Decidim.content_blocks.register(:homepage, :metrics) do |content_block|
-          content_block.cell = "decidim/content_blocks/metrics"
+          content_block.cell = "decidim/content_blocks/organization_metrics"
           content_block.public_name_key = "decidim.content_blocks.metrics.name"
         end
 

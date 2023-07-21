@@ -351,6 +351,10 @@ ja:
         actions:
           comment: コメント
           vote: 投票
+      question:
+        actions:
+          comment: コメント
+          vote: 投票
     statistics:
       consultations_count: コンサルテーション
       votes_count: 投票

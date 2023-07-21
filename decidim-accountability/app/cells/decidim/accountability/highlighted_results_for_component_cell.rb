@@ -14,22 +14,37 @@ module Decidim
       include Decidim::LayoutHelper
       include Cell::ViewModel::Partial
 
+      delegate :snippets, to: :controller
+
       def show
-        render unless results_count.zero?
+        render unless items_blank?
+      end
+
+      def items_blank?
+        results_count.zero?
       end
 
       private
 
+      def results_count
+        @results_count ||= results.size
+      end
+
       def results
-        @results ||= Decidim::Accountability::Result.where(component: model).order_randomly((rand * 2) - 1)
+        @results ||= case options[:order]
+                     when "recent"
+                       Decidim::Accountability::Result.where(component: model).order_by_most_recent
+                     else
+                       Decidim::Accountability::Result.where(component: model).order_randomly(random_seed)
+                     end
+      end
+
+      def single_component?
+        @single_component ||= model.is_a?(Decidim::Component)
       end
 
       def results_to_render
-        @results_to_render ||= results.includes(:component, :status).limit(4)
-      end
-
-      def results_count
-        @results_count ||= results.count
+        @results_to_render ||= results.includes(:component, :status).limit(limit)
       end
 
       def cache_hash
@@ -42,6 +57,14 @@ module Decidim
 
       def cache_expiry_time
         10.minutes
+      end
+
+      def limit
+        4
+      end
+
+      def random_seed
+        (rand * 2) - 1
       end
     end
   end

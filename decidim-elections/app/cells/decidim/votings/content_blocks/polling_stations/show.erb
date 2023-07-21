@@ -1,0 +1,21 @@
+<section class="content-block">
+  <h2 class="h2 decorator">
+    <%= t("heading", scope: "decidim.votings.content_blocks.landing_page.polling_stations") %>
+  </h2>
+
+  <% if polling_stations.any? %>
+    <div class="voting__map">
+      <div>
+        <% polling_stations.each do |polling_station| %>
+          <div class="voting__map-address">
+            <%== cell("decidim/address", polling_station) %>
+          </div>
+        <% end %>
+      </div>
+
+      <%= cell "decidim/votings/voting_map", polling_stations %>
+    </div>
+  <% else %>
+    <%= t("no_polling_stations", scope: "decidim.votings.content_blocks.landing_page.polling_stations") %>
+  <% end %>
+</section>

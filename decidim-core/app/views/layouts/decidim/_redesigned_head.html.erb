@@ -26,7 +26,8 @@
 <%= apple_favicon %>
 <link rel="manifest" href="/manifest.webmanifest">
 
-<%= stylesheet_pack_tag "redesigned_decidim_core", "decidim_editor", media: "all" %>
+<%= prepend_javascript_pack_tag "redesigned_decidim_core", defer: false %>
+<%= stylesheet_pack_tag "redesigned_decidim_core", media: "all" %>
 <%= yield :css_content %>
 
 <%= invisible_captcha_styles %>
@@ -35,3 +36,4 @@
 <%= render partial: "layouts/decidim/head_extra" %>
 <%== current_organization.header_snippets if Decidim.enable_html_header_snippets %>
 <%= snippets.display(:head) %>
+<%= content_for :header_snippets %>

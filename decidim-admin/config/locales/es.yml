@@ -137,7 +137,7 @@ es:
         newsletter:
           attributes:
             base:
-              at_least_one_space: Seleccione al menos un espacio participativo.
+              at_least_one_space: Selecciona al menos un espacio participativo.
         organization:
           attributes:
             official_img_footer:
@@ -200,6 +200,7 @@ es:
         verify: Verificar
       admin_terms_of_service:
         accept:
+          error: Ha habido un error al aceptar los Términos y Condiciones de administración.
           success: '¡Genial! Has aceptado los términos del servicio de administración.'
         actions:
           accept: Estoy de acuerdo con los términos

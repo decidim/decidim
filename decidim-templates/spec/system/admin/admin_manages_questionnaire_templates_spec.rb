@@ -4,12 +4,16 @@ require "spec_helper"
 
 describe "Admin manages questionnaire templates", type: :system do
   let!(:organization) { create(:organization) }
-  let!(:user) { create(:user, :confirmed, organization:) }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_templates.questionnaire_templates_path
+  end
+
+  it_behaves_like "needs admin TOS accepted" do
+    let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
   end
 
   describe "listing templates" do
@@ -286,7 +290,7 @@ describe "Admin manages questionnaire templates", type: :system do
       within ".questionnaire-template-preview" do
         expect(page).to have_i18n_content(questionnaire.title, upcase: true)
         expect(page).to have_i18n_content(questionnaire.questions.first.body)
-        expect(page).to have_selector("input#questionnaire_responses_0")
+        expect(page).to have_field(id: "questionnaire_responses_0")
         expect(page).to have_selector("button[type=submit][disabled]")
       end
     end

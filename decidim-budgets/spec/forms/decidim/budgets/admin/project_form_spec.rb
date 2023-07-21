@@ -185,7 +185,7 @@ module Decidim::Budgets
       subject { form.scope }
 
       context "when the scope exists" do
-        it { is_expected.to be_kind_of(Decidim::Scope) }
+        it { is_expected.to be_a(Decidim::Scope) }
       end
 
       context "when the scope does not exist" do

@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t(".title")) %>
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
@@ -47,6 +48,10 @@
               <td class="table-list__actions">
                 <% if allowed_to?(:update, :newsletter, newsletter: newsletter) && !newsletter.sent? %>
                   <%= icon_link_to "pencil", decidim_admin.edit_newsletter_path(newsletter), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
+                <% end %>
+
+                <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
+                  <%= icon_link_to "share-boxed", decidim_admin.send_to_user_newsletter_path(newsletter), t("actions.send_me_a_test_email", scope: "decidim.admin"), class: "preview", method: :post %>
                 <% end %>
 
                 <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>

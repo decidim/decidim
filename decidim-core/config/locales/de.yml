@@ -29,11 +29,13 @@ de:
         password_confirmation: Bestätigen Sie Ihr Passwort
         personal_url: Persönliche URL
         remove_avatar: Avatar entfernen
+        tos_agreement: Nutzungsvereinbarung
     models:
       decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
       decidim/demoted_membership: Kein Gruppenadministrator mehr
       decidim/gamification/badge_earned_event: Abzeichen verdient
+      decidim/gamification/level_up_event: Du hast dein Level erhöht
       decidim/invited_to_group_event: Zur Gruppe eingeladen
       decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
@@ -93,24 +95,6 @@ de:
         one: etwa ein Monat
         other: etwa %{count} Monate
       half_a_minute: eine halbe Minute
-      less_than_x_minutes:
-        one: weniger als eine Minute
-        other: weingier als %{count} Minuten
-      less_than_x_seconds:
-        one: gerade eben
-        other: weniger als %{count} Sekunden
-      x_days:
-        one: Vor 1 Tag
-        other: "Vor %{count} Tagen"
-      x_hours:
-        one: Vor 1 Stunde
-        other: "Vor %{count} Stunden"
-      x_minutes:
-        one: Vor 1 Minute
-        other: "Vor %{count} Minuten"
-      x_seconds:
-        one: Vor 1 Sekunde
-        other: "Vor %{count} Sekunden"
   decidim:
     accessibility:
       external_link: Externer Link
@@ -149,6 +133,7 @@ de:
       actions:
         cancel: Stornieren
       password_change:
+        alert: Sie müssen Ihr Passwort ändern, um fortzufahren.
         notification: Administratoren müssen ihr Passwort alle %{days} Tage ändern.
     admin_log:
       area:
@@ -462,6 +447,17 @@ de:
         view_all: Alle ansehen
       metrics:
         name: Organisationsmetriken
+      static_page:
+        section:
+          name: Abschnitt
+          section_content: Inhalt
+        summary:
+          name: Zusammenfassung
+          summary_content: Inhalt
+        two_pane_section:
+          left_column: Linke Spalte
+          name: Zweispaltiger Abschnitt
+          right_column: Rechte Spalte
       stats:
         name: Organisationsstatistiken
       sub_hero:
@@ -539,10 +535,12 @@ de:
       internal_server_error:
         copied: Text Kopiert!
         copy_to_clipboard: In die Zwischenablage kopieren
+        date_and_time: Datum und Uhrzeit
         reference: Referenz
         title: Auf unserem Server ist ein Problem aufgetreten
         unknown: Unbekannt
         url: URL
+        user: User ID
       not_found:
         back_home: Zurück zur Startseite
         content_doesnt_exist: Diese Adresse ist falsch oder wurde entfernt.
@@ -864,6 +862,7 @@ de:
         publish_with_space: "%{user_name} veröffentlichte %{resource_name} in %{space_name}"
         unknown_action: "%{user_name} hat eine Aktion an %{resource_name} ausgeführt"
         unknown_action_with_space: "%{user_name} hat eine Aktion an %{resource_name} in %{space_name} ausgeführt"
+        unpublish_with_space: "%{user_name} hat die Veröffentlichung von %{resource_name} in %{space_name} aufgehoben"
         update: "%{user_name} hat %{resource_name} aktualisiert"
         update_permissions_with_space: "%{user_name} hat die Berechtigungen für %{resource_name} in %{space_name} aktualisiert"
         update_with_space: "%{user_name} hat %{resource_name} in %{space_name} aktualisiert"
@@ -894,29 +893,35 @@ de:
           admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
           greeting: Hallo, %{recipient}!
           intro: "%{manager} hat eine Unterhaltung im Namen von %{group} begonnen. Klicken Sie hier, um diese anzuzeigen:"
+          outro: Viel Spaß mit Decidim!
           subject: "%{manager} hat eine Unterhaltung als %{group} begonnen"
         comanagers_new_message:
           admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
           greeting: Hallo, %{recipient}!
           intro: "%{manager} hat Nachrichten in einer Unterhaltung im Namen von %{group} gesendet. Klicken Sie hier, um diese anzuzeigen:"
+          outro: Viel Spaß mit Decidim!
           subject: "%{manager} hat neue Nachrichten als %{group} gesendet"
         new_conversation:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat eine neue Unterhaltung mit Ihnen begonnen. Klicken Sie hier, um es zu sehen:"
+          outro: Viel Spaß mit Decidim!
           subject: "%{sender} hat ein Gespräch mit Ihnen begonnen"
         new_group_conversation:
           admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat eine neue Unterhaltung mit der Gruppe %{group} begonnen. Klicken Sie hier, um diese anzuzeigen:"
+          outro: Viel Spaß mit Decidim!
           subject: "%{sender} hat eine Unterhaltung mit %{group} begonnen"
         new_group_message:
           admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat neue Nachrichten in einer Unterhaltung mit der Gruppe %{group} gesendet. Klicken Sie hier, um diese anzuzeigen:"
+          outro: Viel Spaß mit Decidim!
           subject: "%{group} hat neue Nachrichten von %{sender}"
         new_message:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat neue Nachrichten in Ihrer Konversation gepostet. Klicken Sie hier, um sie zu sehen:"
+          outro: Viel Spaß mit Decidim!
           subject: Sie haben neue Nachrichten von %{sender}
       conversations:
         add_conversation_users:
@@ -930,10 +935,12 @@ de:
           intro: 'Es gab folgende Fehler bei Ihrer Nachricht:'
           ok: OK
         index:
-          ago: vor
           new_conversation: Neue Unterhaltung
           next: Weiter
           title: Nachrichten
+        reply_form:
+          placeholder: Ihre Antwort...
+          send: Senden
         show:
           back: Zurück zu allen Unterhaltungen
           chat_with: Unterhaltung mit
@@ -1015,6 +1022,8 @@ de:
         everything_followed: Alles was ich folge
         newsletter_notifications: Ich möchte Newsletter erhalten
         newsletters: Newsletter
+        notification_settings:
+          close_meeting_reminder: Ich möchte per E-Mail auf Zusammenfassungen von Veranstaltungen hingewiesen werden
         notifications_sending_frequencies:
           daily: Täglich
           none: Keine
@@ -1417,6 +1426,7 @@ de:
         confirm_new_password: Bestätige neues Passwort
         new_password: Neues Passwort
         password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
+        password_help_admin: "Das Passwort muss mindestens aus %{minimun_characters} Zeichen bestehen, nicht zu gewöhnlich (z. B. 123456) sein und es darf nicht Ihr Pseudonym oder Ihre E-Mail-Adresse enthalten."
         title: Passwort ändern
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
@@ -1523,6 +1533,7 @@ de:
             description: Beschreibung
             name: Name
             service: Service
+            type: Typ
           items:
             _session_id:
               description: Ermöglicht es Websites, sich an Benutzer zu erinnern, wenn diese verschiedene Seiten aufrufen.
@@ -1531,6 +1542,7 @@ de:
               description: Speichert Informationen über die vom Benutzer erlaubten Cookies auf dieser Website.
               service: Diese Website
             pwaInstallPromptSeen:
+              description: Speichert den Status, wenn die progressive Web-Anwendung (PWA) Installationsbenachrichtigung bereits vom Nutzenden gesehen wurde.
               service: Diese Website
           types:
             cookie: Cookie
@@ -1545,12 +1557,17 @@ de:
           accept_all: Alle akzeptieren
           accept_only_essential: Nur essentielle Cookies akzeptieren
           analytics:
+            description: Diese Cookies werden zur Messung und Analyse der Besuchenden der Website verwendet, um die Website zu verbessern.
             title: Analysen und Statistiken
+          description: Wir verwenden Cookies, um die grundlegenden Funktionalitäten der Website zu gewährleisten und Ihr Online-Erlebnis zu verbessern. Sie können jederzeit die Verwendung der Cookies konfigurieren und akzeptieren oder Ihre Zustimmungsoptionen ändern.
           essential:
+            description: Diese Cookies ermöglichen die Schlüsselfunktionalität der Website und helfen bei der Sicherheit ihrer Benutzenden. Sie werden automatisch im Browser gespeichert und können nicht deaktiviert werden.
             title: Notwendige
           marketing:
+            description: Diese Cookies sammeln Informationen darüber, wie Sie die Website nutzen und können verwendet werden, um Ihnen mehr personalisierte Marketing über die verschiedenen Webseiten, die Sie verwenden, zu bieten.
             title: Marketing
           preferences:
+            description: Diese Cookies ermöglichen es der Website, sich an die Entscheidungen zu erinnern, die Sie in der Vergangenheit auf dieser Website getroffen haben, um den Benutzenden der Website ein persönlicheres Erlebnis zu bieten.
             title: Präferenzen
           save_settings: Einstellungen speichern
           title: Cookie Einstellungen

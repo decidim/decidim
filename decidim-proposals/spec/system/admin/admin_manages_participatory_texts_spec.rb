@@ -56,7 +56,7 @@ describe "Admin manages participatory texts", type: :system do
   def move_some_sections; end
 
   def publish_participatory_text
-    find("button[name=commit]").click
+    click_button(name: "commit")
     expect(page).to have_content "All proposals have been published"
   end
 
@@ -85,8 +85,8 @@ describe "Admin manages participatory texts", type: :system do
   def validate_proposals
     proposals = Decidim::Proposals::Proposal.where(component: current_component)
     proposals.each do |proposal|
-      expect(proposal.title).to be_kind_of(Hash)
-      expect(proposal.body).to be_kind_of(Hash)
+      expect(proposal.title).to be_a(Hash)
+      expect(proposal.body).to be_a(Hash)
     end
   end
 
@@ -104,7 +104,7 @@ describe "Admin manages participatory texts", type: :system do
   end
 
   def discard_participatory_text_drafts
-    accept_confirm "Are you sure to discard the whole participatory text draft?" do
+    accept_confirm "Are you sure to discard the whole participatory text draft?", admin: true do
       click_link "Discard all"
     end
     expect(page).to have_content "All participatory text drafts have been discarded."

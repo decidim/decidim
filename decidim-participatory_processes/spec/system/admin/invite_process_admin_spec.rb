@@ -27,7 +27,7 @@ describe "Invite process administrator", type: :system do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_current_path "/admin/"
+      expect(page).to have_current_path "/admin/admin_terms/show"
       expect(page).to have_content("Dashboard")
 
       visit decidim_admin.admin_terms_show_path
@@ -44,7 +44,7 @@ describe "Invite process administrator", type: :system do
       end
 
       within ".secondary-nav" do
-        expect(page.text).to eq "View public page\nInfo\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations"
+        expect(page.text).to eq "View public page\nInfo\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations\nLanding page"
       end
     end
   end
@@ -76,7 +76,7 @@ describe "Invite process administrator", type: :system do
       end
 
       within ".secondary-nav" do
-        expect(page.text).to eq "View public page\nInfo\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations"
+        expect(page.text).to eq "View public page\nInfo\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations\nLanding page"
       end
     end
   end

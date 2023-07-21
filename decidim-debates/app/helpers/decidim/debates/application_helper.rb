@@ -11,6 +11,7 @@ module Decidim
       include Decidim::EndorsableHelper
       include Decidim::FollowableHelper
       include Decidim::CheckBoxesTreeHelper
+      include Decidim::DateRangeHelper
 
       # If the debate is official or the rich text editor is enabled on the
       # frontend, the debate description is considered as safe content.
@@ -42,34 +43,58 @@ module Decidim
       # Returns a TreeNode to be used in the list filters to filter debates by
       # its origin.
       def filter_origin_values
-        origin_values = []
-        origin_values << TreePoint.new("official", t("decidim.debates.debates.filters.official"))
-        origin_values << TreePoint.new("participants", t("decidim.debates.debates.filters.participants"))
-        origin_values << TreePoint.new("user_group", t("decidim.debates.debates.filters.user_groups")) if current_organization.user_groups_enabled?
+        origin_keys = %w(official participants)
+        origin_keys << "user_group" if current_organization.user_groups_enabled?
 
-        TreeNode.new(TreePoint.new("", t("decidim.debates.debates.filters.all")), origin_values)
+        origin_values = origin_keys.map { |key| [key, filter_text_for(t(key, scope: "decidim.debates.debates.filters"))] }
+        origin_values.prepend(["", all_filter_text])
+
+        filter_tree_from_array(origin_values)
       end
 
       # Options to filter Debates by activity.
       def activity_filter_values
-        base = [
-          ["all", t("decidim.debates.debates.filters.all")],
-          ["my_debates", t("decidim.debates.debates.filters.my_debates")]
-        ]
-        base += [["commented", t("decidim.debates.debates.filters.commented")]]
-        base
+        %w(all my_debates commented).map { |k| [k, filter_text_for(t(k, scope: "decidim.debates.debates.filters"))] }
       end
 
       # Returns a TreeNode to be used in the list filters to filter debates by
       # its state.
       def filter_debates_state_values
-        Decidim::CheckBoxesTreeHelper::TreeNode.new(
-          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.debates.debates.filters.all")),
-          [
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("open", t("decidim.debates.debates.filters.state_values.open")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("closed", t("decidim.debates.debates.filters.state_values.closed"))
-          ]
+        %w(open closed).map { |k| [k, filter_text_for(t(k, scope: "decidim.debates.debates.filters.state_values"))] }.prepend(
+          ["all", all_filter_text]
         )
+      end
+
+      def all_filter_text
+        filter_text_for(t("all", scope: "decidim.debates.debates.filters"))
+      end
+
+      def filter_sections
+        @filter_sections ||= begin
+          items = [{
+            method: :with_any_state,
+            collection: filter_debates_state_values,
+            label_scope: "decidim.meetings.meetings.filters",
+            id: "date",
+            type: :radio_buttons
+          }]
+          if current_component.has_subscopes?
+            items.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "scope")
+          end
+          if current_participatory_space.categories.any?
+            items.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.debates.debates.filters", id: "category")
+          end
+          items.append(method: :with_any_origin, collection: filter_origin_values, label_scope: "decidim.debates.debates.filters", id: "origin")
+          items.append(method: :activity, collection: activity_filter_values, label_scope: "decidim.debates.debates.filters", id: "activity") if current_user
+
+          items.reject { |item| item[:collection].blank? }
+        end
+      end
+
+      def search_variable = :search_text_cont
+
+      def component_name
+        (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.debates.name")
       end
     end
   end

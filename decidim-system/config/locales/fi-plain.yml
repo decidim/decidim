@@ -65,6 +65,7 @@ fi-pl:
           content: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
           summary: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
           title: Oletusotsikko sivulle %{page}
+        terms-of-service: Käyttöehdot
       menu:
         admins: Hallinnoijat
         dashboard: Hallintapaneeli

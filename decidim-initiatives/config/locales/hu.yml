@@ -572,7 +572,6 @@ hu:
         promotal_committee: Kezdeményező bizottság
         select_initiative_type: Válassz
         show_similar_initiatives: Összehasonlítás
-        step: '%{current} lépés a %{total} lépésből'
         title: Új kezdeményezés létrehozása
       initiative_header:
         initiative_menu_item: Kezdeményezés

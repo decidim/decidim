@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore results", versioning: true, type: :system do
+describe "Explore results", type: :system, versioning: true do
   include_context "with a component"
 
   let(:manifest_name) { "accountability" }
@@ -38,6 +38,12 @@ describe "Explore results", versioning: true, type: :system do
 
       # Revisit the path to load updated results
       visit path
+    end
+
+    it "shows the component name in the sidebar" do
+      within("aside") do
+        expect(page).to have_content(translated(component.name))
+      end
     end
 
     it "shows categories and subcategories with results" do
@@ -256,8 +262,6 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "shows the comments" do
-        skip "REDESIGN_PENDING - Comments integration pending"
-
         comments.each do |comment|
           expect(page).to have_content(comment.body.values.first)
         end
@@ -289,6 +293,11 @@ describe "Explore results", versioning: true, type: :system do
         click_link translated(proposal.title)
         expect(page).to have_i18n_content(result.title)
       end
+
+      it "a banner links back to the result" do
+        click_link translated(proposal.title)
+        expect(page).to have_content("Included in #{translated(result.title)}")
+      end
     end
 
     context "with linked projects" do
@@ -306,12 +315,14 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "shows related projects" do
+        click_button "Included projects"
         projects.each do |project|
           expect(page).to have_content(translated(project.title))
         end
       end
 
       it "the result is mentioned in the project page" do
+        click_button "Included projects"
         click_link translated(project.title)
         expect(page).to have_i18n_content(result.title)
       end
@@ -331,15 +342,20 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "shows related meetings" do
+        click_button "Included meetings"
         meetings.each do |meeting|
           expect(page).to have_i18n_content(meeting.title)
-          expect(page).to have_i18n_content(meeting.description, strip_tags: true)
         end
       end
 
       it "the result is mentioned in the meeting page" do
         click_link translated(meeting.title)
         expect(page).to have_i18n_content(result.title)
+      end
+
+      it "a banner links back to the result" do
+        click_link translated(meeting.title)
+        expect(page).to have_content("Included in #{translated(result.title)}")
       end
     end
 
@@ -376,12 +392,12 @@ describe "Explore results", versioning: true, type: :system do
       end
     end
 
-    it_behaves_like "has attachments" do
+    it_behaves_like "has redesigned attachments" do
       let(:attached_to) { result }
     end
   end
 end
 
 def select_tab(text)
-  find("li.tab-x", text:).click
+  find("li", text:).click
 end

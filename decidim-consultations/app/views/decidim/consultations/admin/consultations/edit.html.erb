@@ -1,3 +1,4 @@
+<% add_decidim_page_title(translated_attribute(current_consultation.title)) %>
 <%= decidim_form_for @form,
                      method: :patch,
                      url: consultation_path(current_consultation),

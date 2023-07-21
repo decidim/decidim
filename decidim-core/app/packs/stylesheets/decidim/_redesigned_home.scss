@@ -1,0 +1,105 @@
+.home {
+  &__section,
+  .content-block {
+    @apply py-8 md:py-12 container;
+
+    ~ .content-block {
+      @apply border-0;
+    }
+  }
+
+  .activity__container:not(:last-child) .activity:last-child {
+    @apply pb-4 mb-4 border-b border-gray-3;
+  }
+
+  &__section-content-block {
+    @apply flex flex-col gap-8 items-stretch;
+  }
+
+  &__section-title {
+    @apply h2 decorator;
+  }
+
+  &__section-image {
+    /* stylelint-disable-next-line number-leading-zero */
+    background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.7) 21.88%,
+        rgba(0, 0, 0, 0.46421) 60.94%,
+        rgba(0, 0, 0, 0.105) 100%
+      ),
+      var(--hero-image);
+
+    @apply bg-center bg-cover;
+  }
+
+  &__section-header {
+    @apply mb-6 md:mb-8 flex flex-col md:flex-row gap-y-6 md:gap-y-0 gap-x-1 items-start md:items-center;
+
+    .button {
+      @apply md:ml-auto;
+    }
+  }
+
+  &__section-content-banner {
+    @apply flex flex-col md:flex-row items-center;
+
+    &__title {
+      @apply h2 text-white;
+    }
+
+    .editor-content > * {
+      @apply text-white;
+    }
+  }
+
+  &__section-participate-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 my-12 md:gap-x-8 gap-y-4;
+
+    &__title {
+      @apply h3 mb-2 leading-6;
+    }
+
+    &__text {
+      @apply text-md text-gray-2;
+    }
+
+    &__block {
+      @apply grid grid-cols-[1.5rem_1fr] gap-2;
+    }
+
+    &__icon {
+      @apply w-6 h-6 fill-secondary;
+    }
+  }
+
+  &__menu {
+    @apply hidden md:block bg-primary py-4;
+  }
+
+  &__menu__container {
+    @apply flex flex-row justify-center;
+  }
+
+  &__menu-element {
+    @apply relative after:content-[''] after:h-full after:w-[1px] after:absolute after:top-0 after:left-0 after:bg-white after:opacity-60 last:before:content-[''] last:before:h-full last:before:w-[1px] last:before:absolute last:before:top-0 last:before:right-0 last:before:bg-white last:before:opacity-60;
+  }
+
+  &__menu-element--link {
+    @apply py-px px-8 text-white text-lg font-semibold w-full underline decoration-transparent hover:decoration-white transition duration-300 leading-[22px];
+  }
+
+  .initiatives__progress-bar {
+    .progress-bar__container {
+      @apply w-16;
+    }
+
+    .progress-bar__number {
+      @apply text-gray-2 font-normal text-sm;
+    }
+
+    .progress-bar__units {
+      @apply hidden;
+    }
+  }
+}

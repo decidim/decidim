@@ -98,23 +98,26 @@ ca:
         other: al voltant de %{count} mesos
       half_a_minute: mig minut
       less_than_x_minutes:
-        one: menys d’un minut
-        other: menys de %{count} minuts
+        one: fa menys d'un minut
+        other: fa menys de %{count} minuts
       less_than_x_seconds:
-        one: ara mateix
-        other: menys de %{count} segons
+        one: fa menys d'un segon
+        other: fa menys de %{count} segons
       x_days:
-        one: fa 1 dia
-        other: "fa %{count} dies"
+        one: 1 dia
+        other: "%{count} dies"
       x_hours:
-        one: fa 1 hora
-        other: "fa %{count} hores"
+        one: 1 hora
+        other: "%{count} hores"
       x_minutes:
-        one: fa 1 minut
-        other: "fa %{count} minuts"
+        one: 1 minut
+        other: "%{count} minuts"
+      x_months:
+        one: 1 mes
+        other: "%{count} mesos"
       x_seconds:
-        one: fa 1 segon
-        other: "fa %{count} segons"
+        one: 1 segon
+        other: "%{count} segons"
   decidim:
     accessibility:
       external_link: Enllaç extern
@@ -1089,7 +1092,6 @@ ca:
           intro: 'Hi ha els següents errors al vostre missatge:'
           ok: D'acord
         index:
-          ago: fa
           new_conversation: Nova conversa
           next: Següent
           no_conversations: Encara no tens cap conversa.
@@ -1715,6 +1717,63 @@ ca:
   doorkeeper:
     scopes:
       public: La teva informació pública.
+  editor:
+    extensions:
+      image:
+        altLabel: Text alternatiu per la imatge
+        nodeView:
+          resizer:
+            control:
+              resize: Redimensionar la imatge (%position%)
+            position:
+              bottomLeft: cantonada inferior esquerra
+              bottomRight: cantonada inferior dreta
+              topLeft: cantonada superior esquerra
+              topRight: cantonada superior dreta
+        uploadError: No s'ha pogut pujar l'arxiu.
+      link:
+        bubbleMenu:
+          edit: Editar
+          remove: Esborrar
+          url: URL
+        hrefLabel: URL de l'enllaç
+        targetLabel: Insereix enllaç
+        targets:
+          blank: Nova pestanya
+          default: Per defecte (en la mateixa pestanya)
+      videoEmbed:
+        titleLabel: Títol
+        urlLabel: URL del vídeo
+    inputDialog:
+      buttons:
+        cancel: Cancel·lar
+        remove: Esborrar
+        save: Desar
+      close: Tancar la finestra
+    toolbar:
+      control:
+        blockquote: Cita
+        bold: Negreta
+        bulletList: Llista desordenada
+        codeBlock: Bloc de codi
+        common:
+          eraseStyles: Esborrar els estils
+        hardBreak: Salt de línia
+        heading: Estil del text
+        image: Imatge
+        indent:
+          indent: Aumenta la sagnia
+          outdent: Reduir la sagnia
+        italic: Cursiva
+        link: Enllaç
+        orderedList: Llista ordenada
+        underline: Subratllat
+        videoEmbed: Incrustar vídeo
+      textStyle:
+        heading: Encapçalament %level%
+        normal: Normal
+    upload:
+      uploadedFile: Fitxer carregat
   emojis:
     button: Afegir emoji
     categories:
@@ -1765,6 +1824,7 @@ ca:
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
       too_short: és massa curt (menys %{count} caràcters)
+      url_format: El format d'aquesta URL és incorrecte
   forms:
     correct_errors: Hi ha errors al formulari, si us plau corregeix-los per continuar.
     length_validator:

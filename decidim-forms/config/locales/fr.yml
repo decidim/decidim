@@ -128,7 +128,7 @@ fr:
           update: "%{user_name} a modifié le questionnaire %{resource_name}"
       errors:
         answer:
-          body: "Body cannot be blank\nChamp obligatoire"
+          body: ne peut être vide
       images:
         dimensions: "%{width} x %{height} px"
         processors:

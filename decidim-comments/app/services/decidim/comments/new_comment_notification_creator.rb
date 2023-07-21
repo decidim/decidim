@@ -7,7 +7,7 @@ module Decidim
     #
     # - A user is mentioned in the comment
     # - My comment is replied
-    # - A user I'm following has created a comment/reply
+    # - A user I am following has created a comment/reply
     # - A new comment has been created on a resource, and I should be notified.
     #
     # A given user will only receive one of these notifications, for a given

@@ -34,14 +34,14 @@ describe "Admin manages proposals valuators", type: :system do
     end
 
     it "shows an update button" do
-      expect(page).to have_css("button#js-submit-assign-proposals-to-valuator", count: 1)
+      expect(page).to have_button(id: "js-submit-assign-proposals-to-valuator", count: 1)
     end
 
     context "when submitting the form" do
       before do
         within "#js-form-assign-proposals-to-valuator" do
           select valuator.name, from: :valuator_role_id
-          page.find("button#js-submit-assign-proposals-to-valuator").click
+          click_button(id: "js-submit-assign-proposals-to-valuator")
         end
       end
 
@@ -101,14 +101,14 @@ describe "Admin manages proposals valuators", type: :system do
     end
 
     it "shows an update button" do
-      expect(page).to have_css("button#js-submit-unassign-proposals-from-valuator", count: 1)
+      expect(page).to have_button(id: "js-submit-unassign-proposals-from-valuator", count: 1)
     end
 
     context "when submitting the form" do
       before do
         within "#js-form-unassign-proposals-from-valuator" do
           select valuator.name, from: :valuator_role_id
-          page.find("button#js-submit-unassign-proposals-from-valuator").click
+          click_button(id: "js-submit-unassign-proposals-from-valuator")
         end
       end
 
@@ -138,7 +138,7 @@ describe "Admin manages proposals valuators", type: :system do
       within "#valuators" do
         expect(page).to have_content(valuator.name)
 
-        accept_confirm do
+        accept_confirm admin: true do
           find("a.red-icon").click
         end
       end

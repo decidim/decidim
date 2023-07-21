@@ -499,9 +499,8 @@ en:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Active conferences
-            conferences_button_title: Link to the Conferences page displaying all the conferences
-            see_all_conferences: See all conferences
+            active_spaces: Conferences
+            see_all_spaces: See all conferences
       registration_types:
         index:
           choose_an_option: 'Choose your registration option:'
@@ -572,9 +571,6 @@ en:
     decidim:
       conference_hero:
         register: Register
-      conference_widgets:
-        show:
-          take_part: Take part
       conferences:
         conference:
           more_info: More info
@@ -585,9 +581,6 @@ en:
           conferences:
             one: "%{count} conference"
             other: "%{count} conferences"
-        promoted_conference:
-          more_info: More info
-          take_part: Take part
       conferences_nav:
         conference_menu_item: Information
         conference_partners_menu_item: Partners

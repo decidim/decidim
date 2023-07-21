@@ -3,10 +3,59 @@
     <h2 class="card-title"><%= t ".colors_title" %></h2>
   </div>
   <div class="card-section">
+
+    <details class="color-picker">
+      <summary>
+        <%= t(".title") %>
+      </summary>
+
+      <div class="color-picker__box">
+        <p><%= t(".explanation") %></p>
+
+        <label class="color-picker__label_choose">
+          <%= t(".choose_color") %>
+          <div id="primary-selector"></div>
+        </label>
+
+        <label class="color-picker__label_saturation" for="primary-saturation">
+          <%= t(".saturation") %>
+          <input id="primary-saturation" type="range" min="0" max="100">
+        </label>
+
+        <fieldset>
+          <legend><%= t(".legend_html") %></legend>
+
+          <label>
+            <%= t("primary_color", scope: "activemodel.attributes.organization") %>
+            <div class="color-picker__color color-picker__color_primary"></div>
+            <input id="preview-primary" type="hidden">
+          </label>
+
+          <label>
+            <%= t("secondary_color", scope: "activemodel.attributes.organization") %>
+            <div class="color-picker__color color-picker__color_secondary"></div>
+            <input id="preview-secondary" type="hidden">
+          </label>
+
+          <%# show when redesign active %>
+          <% if false %>
+            <label>
+              <%= t("tertiary_color", scope: "activemodel.attributes.organization") %>
+              <div class="color-picker__color color-picker__color_tertiary"></div>
+              <input id="preview-tertiary" type="hidden">
+            </label>
+          <% end %>
+
+          <button id="set-colors" class="button"><%= t(".update_suggested_colors") %></button>
+        </fieldset>
+      </div>
+
+    </details>
+
     <div class="callout warning">
       <p>
         <%= icon "warning" %>
-        <%= t ".colors_warning_html", link: "https://webaim.org/resources/contrastchecker" %>
+        <%= t ".colors_warning_html" %>
       </p>
     </div>
     <div class="organization-colors">
@@ -23,7 +72,7 @@
     <% if Decidim.enable_html_header_snippets %>
       <div class="row column">
         <%= form.text_area :header_snippets %>
-        <p class="help-text"><%= t(".header_snippets_help") %></p>
+        <p class="help-text"><%= t(".header_snippets_help_html") %></p>
       </div>
     <% end %>
   </div>

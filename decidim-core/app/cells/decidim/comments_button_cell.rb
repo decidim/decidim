@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class CommentsButtonCell < RedesignedButtonCell
+  class CommentsButtonCell < ButtonCell
     private
 
     def path

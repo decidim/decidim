@@ -65,6 +65,7 @@ cs:
           content: Přidejte smysluplný obsah na statickou stránku %{page} na ovládacím panelu administrátora.
           summary: Přidejte smysluplný obsah na statickou stránku %{page} na ovládacím panelu administrátora.
           title: Výchozí název pro %{page}
+        terms-of-service: Podmínky služby
       menu:
         admins: Správci
         dashboard: Ovládací panel

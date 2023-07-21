@@ -170,7 +170,7 @@ module Decidim
 
             it "keeps positions even when in different by order of reception" do
               matrix_rows_by_position = subject.matrix_rows_by_position
-              (0..2).each do |idx|
+              3.times do |idx|
                 question_matrix_row_form = matrix_rows_by_position[idx]
                 expect(question_matrix_row_form.body["en"]).to eq(matrix_rows[(idx + 1).to_s]["body"]["en"])
                 expect(question_matrix_row_form.position).to eq(matrix_rows[(idx + 1).to_s]["position"].to_i)

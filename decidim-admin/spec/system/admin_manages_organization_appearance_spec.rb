@@ -36,6 +36,24 @@ describe "Admin manages organization", type: :system do
       end
     end
 
+    context "when the color picker is used" do
+      it "changes the color on click" do
+        visit decidim_admin.edit_organization_appearance_path
+
+        expect(page).to have_css(".color-picker")
+        find(".color-picker summary").click
+        selector = find("#primary-selector")
+
+        selector.click(x: 23, y: 23)
+        expect(find("#preview-primary", visible: :all).value).to eq "#40b3bf"
+        expect(find("#preview-secondary", visible: :all).value).to eq "#bf40b3"
+
+        selector.click(x: 323, y: 13)
+        expect(find("#preview-primary", visible: :all).value).to eq "#6e40bf"
+        expect(find("#preview-secondary", visible: :all).value).to eq "#bf6f40"
+      end
+    end
+
     it "updates the values from the form" do
       visit decidim_admin.edit_organization_appearance_path
 

@@ -194,6 +194,9 @@ module Decidim
       editor_options = editor_options(editor_image, options)
       hidden_options = extract_validations(name, options).merge(options)
 
+      @template.append_stylesheet_pack_tag "decidim_editor"
+      @template.append_javascript_pack_tag "decidim_editor", defer: false
+
       content_tag(
         :div,
         class: "editor #{"hashtags__container" if editor_options[:editor]["class"].include?("js-hashtags")}",
@@ -427,7 +430,7 @@ module Decidim
       object_attachment = object.attachment.present?
       record = object_attachment ? object.attachment : object
       options = {
-        titled: true,
+        titled: options[:multiple],
         resource_class: "Decidim::Attachment",
         show_current: false,
         max_file_size: max_file_size(record, :file),

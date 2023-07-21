@@ -2,34 +2,22 @@
   <%= cell("decidim/announcement", callout_text) %>
 <% end %>
 
-<div>
-  <% if model.ongoing? %>
-    <% if vote_flow.login_path(new_election_vote_path) %>
-      <%= link_to vote_flow.login_path(new_election_vote_path), class: "button button--sc" do %>
-        <%= vote_action_button_text %>
-      <% end %>
-    <% else %>
-      <%= action_authorized_link_to :vote, new_election_vote_path, resource: model, class: "button button--sc" do %>
-        <%= vote_action_button_text %>
-      <% end %>
+<% if model.ongoing? %>
+  <% if vote_flow.login_path(new_election_vote_path) %>
+    <%= link_to vote_flow.login_path(new_election_vote_path), class: "button button__lg button__secondary w-full" do %>
+      <%= vote_action_button_text %>
     <% end %>
-  <% elsif !model.finished? %>
-    <span class="button button--sc disabled"><%= t("action_button.vote", scope: "decidim.elections.elections.show") %></span>
-  <% end %>
-
-  <% if preview_mode? && can_preview? %>
-    <%= link_to new_election_vote_path, class: "button button--sc" do %>
-      <%= t("preview", scope: "decidim.elections.elections.show") %>
+  <% else %>
+    <%= action_authorized_link_to :vote, new_election_vote_path, resource: model, class: "button button__lg button__secondary w-full" do %>
+      <%= vote_action_button_text %>
     <% end %>
   <% end %>
-</div>
-
-<div class="text-sm">
-<% if model.started? %>
-  <%= t("verify.already_voted", scope: "decidim.elections.elections.show") %>
-
-  <%= link_to t("verify.verify_here", scope: "decidim.elections.elections.show"), election_vote_verify_path %>
-<% else %>
-  <span class="disabled"><%= t("verify.will_verify", scope: "decidim.elections.elections.show") %></span>
+<% elsif !model.finished? %>
+  <button class="button button__lg button__secondary w-full" disabled><%= t("action_button.vote", scope: "decidim.elections.elections.show") %></button>
 <% end %>
-</div>
+
+<% if preview_mode? && can_preview? %>
+  <%= link_to new_election_vote_path, class: "button button__lg button__secondary w-full mt-4" do %>
+    <%= t("preview", scope: "decidim.elections.elections.show") %>
+  <% end %>
+<% end %>

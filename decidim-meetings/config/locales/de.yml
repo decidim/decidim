@@ -18,7 +18,9 @@ de:
         decidim_scope_id: Umfang
         decidim_user_group_id: Benutzergruppe
         description: Beschreibung
+        end_time: Endzeit
         id: ID
+        iframe_embed_type: iFrame-Einbettungstyp
         location: Ort
         location_hints: Standorthinweise
         online_meeting_url: Online Meeting URL
@@ -28,8 +30,11 @@ de:
         registration_email_custom_content: Angepasster Inhalt des Registrierungs-E-Mails
         registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
+        registration_type: Registrierungstyp
         registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
+        reserved_slots: Reservierte Slots für diese Veranstaltung
+        start_time: Startzeit
         title: Titel
         transparent: Transparent
         type_of_meeting: Art
@@ -45,6 +50,21 @@ de:
         name: Name
       validate_registration_code:
         code: Code
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Diese URL kann nicht in der Veranstaltungs- oder Live-Eventseite eingebettet werden.
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Die Dauer der Elemente überschreitet die Veranstaltungsdauer um %{count} Minuten.
+              too_many_minutes_child: Die Dauer des Unterpunkts überschreitet das Traktandum "%{parent_title}" um %{count} Minuten.
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Das mit dieser E-Mail verknüpfte Konto wurde bereits eingeladen.
     models:
       decidim/meetings/close_meeting_event: Sitzung geschlossen
       decidim/meetings/create_meeting_event: Sitzung
@@ -172,6 +192,9 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Die Sitzung "%{resource_title}" beginnt in weniger als 48 Stunden.
           notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> beginnt in weniger als 48 Stunden.
+    forms:
+      meetings:
+        attendees_count_help_text: Vergessen Sie nicht, die Gesamtzahl der Teilnehmenden an Ihrer Veranstaltung anzugeben, egal ob sie persönlich, online oder hybrid stattgefunden hat.
     gamification:
       badges:
         attended_meetings:
@@ -182,6 +205,7 @@ de:
           description_own: Sie haben an %{score} Sitzungen teilgenommen.
           name: Besuchte Sitzungen
           next_level_in: Nimm an %{score} weiteren Sitzungen teil, um das nächste Level zu erreichen!
+          unearned_another: Dieser Teilnehmende hat noch keine Veranstaltungen besucht.
           unearned_own: Sie haben noch kein Meeting besucht.
     meetings:
       actions:
@@ -215,6 +239,9 @@ de:
             down: Nieder
             remove: Löschen
             up: Oben
+          create:
+            invalid: Beim Erstellen des Traktandums ist ein Problem aufgetreten.
+            success: Traktandum erfolgreich erstellt.
           edit:
             title: Agenda bearbeiten
             update: Aktualisieren
@@ -226,6 +253,9 @@ de:
           new:
             create: Erstellen
             title: Neue Agenda
+          update:
+            invalid: Beim Aktualisieren des Traktandums ist ein Problem aufgetreten.
+            success: Traktandum erfolgreich aktualisiert.
         exports:
           answers: Antworten
           meeting_comments: Kommentare
@@ -256,32 +286,47 @@ de:
             filter_by: Filtern nach
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
+            registrations_disabled: Sie können keine Teilnehmende einladen, weil Registrierungen deaktiviert sind.
             search: Suche
         meeting_closes:
           edit:
             close: Schließen
             title: Sitzung beenden
         meetings:
+          close:
+            invalid: Beim Abschliessen dieser Veranstaltung ist ein Problem aufgetreten.
+            success: Veranstaltung erfolgreich abgeschlossen.
           create:
+            invalid: Beim Erstellen dieser Veranstaltung ist ein Problem aufgetreten.
             success: Sitzung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
           destroy:
+            invalid:
+              proposals_count:
+                one: Die Veranstaltung kann nicht gelöscht werden, da ein Vorschlag damit verbunden ist.
+                other: Die Veranstaltung kann nicht gelöscht werden, da %{count} Vorschläge damit verbunden sind.
             success: Das Meeting wurde erfolgreich gelöscht
           edit:
             title: Meeting bearbeiten
             update: Aktualisieren
           form:
             address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
+            disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungssystems ist Ihnen bewusst, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzenden dem externen Dienst zur Verfügung stellen.'
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
             location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+            select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
+            show_embedded_iframe_help: 'Nur wenige Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
           index:
             title: Meetings
           new:
             create: Erstellen
             title: Besprechung erstellen
+          publish:
+            invalid: Beim Veröffentlichen dieser Veranstaltung ist ein Fehler aufgetreten.
+            success: Veranstaltung erfolgreich veröffentlicht.
           service:
             description: Beschreibung
             down: Nieder
@@ -520,6 +565,8 @@ de:
             title: Titel
       polls:
         questions:
+          closed_question:
+            question_results: Umfrageergebnisse
           index:
             empty_questions: Während dieses Treffens werden einige Fragen gesendet und Sie werden sie beantworten können. Sie werden hier angezeigt.
           index_admin:

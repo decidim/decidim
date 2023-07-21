@@ -22,6 +22,8 @@ cs:
             choices:
               missing: nejsou úplné
               too_many: jsou příliš mnoho
+        questionnaire:
+          request_invalid: Při zpracování požadavku došlo k chybě. Zkuste to prosím znovu.
   decidim:
     forms:
       admin:

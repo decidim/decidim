@@ -59,7 +59,10 @@ de:
           update:
             invalid: Beim Speichern der Umfrage sind Fehler aufgetreten.
             success: Umfrage wurde erfolgreich gespeichert.
+      last_activity:
+        new_survey: 'Neue Umfrage:'
       surveys:
         answer:
           invalid: Bei der Beantwortung der Umfrage sind Fehler aufgetreten.
+          spam_detected: Bei der Beantwortung der Umfrage ist ein Fehler aufgetreten. Möglicherweise waren Sie zu schnell, können Sie es erneut versuchen?
           success: Umfrage erfolgreich beantwortet.
