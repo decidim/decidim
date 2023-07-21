@@ -934,7 +934,7 @@ en:
           update: Update
         new:
           create: Create scope type
-          title: New scope
+          title: New scope type
         update:
           error: There was a problem updating this scope type.
           success: Scope type updated successfully
@@ -1035,9 +1035,12 @@ en:
         areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
+        edit_external_domains: External domain whitelist
+        edit_organization_appearance: Edit homepage appearance
         impersonatable_users: Manageable participants
         impersonations: Participants management
         metrics: Metrics
+        pages: Pages
         panel: Admin
         participants: Participants
         scope_types: Scope types
