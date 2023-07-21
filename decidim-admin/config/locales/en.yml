@@ -1036,6 +1036,7 @@ en:
         authorization_workflows: Verification methods
         dashboard: Dashboard
         edit_external_domains: External domain whitelist
+        edit_landing_page: Page contents
         edit_organization_appearance: Edit homepage appearance
         impersonatable_users: Manageable participants
         impersonations: Participants management
