@@ -92,6 +92,7 @@ cs:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
@@ -331,6 +332,7 @@ cs:
           withdrawn: |-
             Tato změna pro číslo %{amendable_type} %{amendable_link}
             byla autorem stažena.
+      name: Pozměňovací návrh
       new:
         amendment_author: Autor změn
         send: Vytvořit
@@ -1368,13 +1370,17 @@ cs:
       user:
         actions:
           create_user_group: Vytvořit skupinu
+          disabled_message: Zpráva
           edit_profile: Upravit profil
           edit_user_group: Upravit profil skupiny
           invite_user: Pozvat účastníka
           join_user_group: Požádat o připojení ke skupině
+          leave_user_group: Opustit skupinu
+          manage_user_group: Spravovat skupinu
           manage_user_group_admins: Spravovat správce
           manage_user_group_users: Spravovat členy
           message: Zpráva
+          resend_email_confirmation_instructions: Znovu odeslat pokyny pro potvrzení e-mailu
         confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány.
         create_user_group: Vytvořit skupinu
         edit_profile: Editovat profil
@@ -1425,12 +1431,14 @@ cs:
       scopes_picker_input:
         select_scope: 'Vyberte oblast působnosti (v současné době: %{current})'
     search:
+      name: Hledat
       results: Výsledky hledání
       results_found_for_term: '%{count} Výsledky pro vyhledávání: "%{term}"'
       term_input_placeholder: Vyhledávání
     searches:
       filters:
         jump_to: 'Přejít na:'
+        search: Hledat
         state:
           active: Aktivní
           all: Vše
@@ -1439,6 +1447,7 @@ cs:
       filters_small_view:
         close_modal: Zavřít modální
         filter: Filtr
+        filter_and_search: Filtrovat a hledat
         filter_by: Filtrovat podle
         unfold: Rozvinout
       results:
