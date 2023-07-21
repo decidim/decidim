@@ -304,9 +304,6 @@ cs:
             update: Aktualizovat
           form:
             title: Nastavení pro Shromáždění
-        assemblies_types:
-          form:
-            title: Titul
         assembly_copies:
           form:
             slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na toto shromáždění. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
