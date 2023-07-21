@@ -340,6 +340,38 @@ tr:
             email_subject: '%{resource_name} için vekil birisiniz.'
             notification_title: <a href="%{participatory_space_url}">%{resource_name} </a> için vekil birisiniz.
     votings:
+      admin:
+        content_blocks:
+          landing_page:
+            attachments_and_folders:
+              name: Oylama ekleri ve klasörleri
+            elections:
+              name: Seçim ve Seçmenler
+            header:
+              name: Oylama Başlığı
+            html_block_1:
+              name: Oylama html bloğu 1
+            html_block_2:
+              name: Oylama html bloğu 2
+            html_block_3:
+              name: Oylama html bloğu 3
+            metrics:
+              name: Oylama Metrikleri
+            polling_stations:
+              name: Oy kullanma yeri
+            stats:
+              name: Oylama istatistikleri
+            timeline:
+              name: Oylama Zaman Çizelgesi
+      content_blocks:
+        landing_page:
+          description:
+            title: Bu Oylama Hakkında
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Aktif oylamalar
+            see_all_votings: Tüm Oylamaları Görün
       polling_officer_zone:
         closures:
           new:
