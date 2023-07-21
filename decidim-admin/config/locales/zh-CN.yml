@@ -595,7 +595,6 @@ zh-CN:
           update: 更新
         new:
           create: 创建范围类型
-          title: 新建范围
         update:
           error: 更新这个范围类型时出现问题。
           success: 范围类型更新成功
