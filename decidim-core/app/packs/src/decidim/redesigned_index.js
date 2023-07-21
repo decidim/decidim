@@ -151,7 +151,7 @@ const initializer = (element = document) => {
     event.preventDefault();
   });
 
-  formDatePicker();
+  formDatePicker(element);
 
   element.querySelectorAll(".editor-container").forEach((container) => window.createEditor(container));
 
