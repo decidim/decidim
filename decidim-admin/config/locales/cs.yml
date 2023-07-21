@@ -945,7 +945,6 @@ cs:
           update: Aktualizace
         new:
           create: Vytvořit typ oblasti působnosti
-          title: Nová oblast působnosti
         update:
           error: Při aktualizaci tohoto typu oblasti působnosti došlo k chybě.
           success: Typ oblasti působnosti byl úspěšně aktualizován
