@@ -933,7 +933,6 @@ ca:
           update: Actualitzar
         new:
           create: Crea tipus d'àmbit
-          title: Nou àmbit
         update:
           error: S'ha produït un error en actualitzar aquest tipus d'àmbit.
           success: Tipus d'àmbit actualitzat correctament
