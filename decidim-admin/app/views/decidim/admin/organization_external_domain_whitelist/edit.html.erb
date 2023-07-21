@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t("edit_external_domains", scope: "decidim.admin.titles")) %>
 <%= decidim_form_for(@form, html: { class: "form edit_organization_external_domain_whitelist" }, url: organization_external_domain_whitelist_path, method: :patch) do |f| %>
   <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
