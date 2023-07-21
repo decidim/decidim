@@ -33,6 +33,10 @@
       @apply mb-4;
     }
   }
+
+  .form-defaults select.chosen-select{
+    @apply bg-none;
+  }
 }
 
 .questionnaire-question{
