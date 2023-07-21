@@ -818,8 +818,26 @@ ca:
           highlighted_votings:
             max_results: Quantitat màxima d'elements per mostrar
           landing_page:
+            attachments_and_folders:
+              name: Arxius i carpetes de la votació
             description:
               name: Descripció de la votació
+            header:
+              name: Capçalera de la votació
+            html_block_1:
+              name: Bloc html 1 de la votació
+            html_block_2:
+              name: Bloc html 2 de la votació
+            html_block_3:
+              name: Bloc html 3 de la votació
+            metrics:
+              name: Mètriques de la votació
+            polling_stations:
+              name: Punts de votació
+            stats:
+              name: Estadístiques de la votació
+            timeline:
+              name: Calendari de la votació
         index:
           not_published: Despublicada
           published: Publicada
@@ -1139,6 +1157,8 @@ ca:
         highlighted_votings:
           name: Votacions destacades
         landing_page:
+          description:
+            title: Quant a aquesta votació
           metrics:
             heading: Mètriques
           polling_stations:
@@ -1155,6 +1175,8 @@ ca:
       pages:
         home:
           highlighted_votings:
+            active_votings: Votacions actives
+            see_all_votings: Veure totes les votacions
             votings_button_title: Enllaç a la pàgina de Votacions que les mostra totes
       polling_officer_zone:
         closures:
