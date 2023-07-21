@@ -895,7 +895,7 @@ hu:
           update: Frissítés
         new:
           create: Hatáskör típus létrehozása
-          title: Új hatáskor
+          title: Új hatáskör
         update:
           error: Hiba történt a hatáskör típus frissítése során.
           success: Hatáskör típus frissítése sikeres
