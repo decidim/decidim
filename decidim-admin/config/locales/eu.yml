@@ -824,7 +824,6 @@ eu:
           update: Eguneratu
         new:
           create: Sortu esparru mota
-          title: Esparru berria
         update:
           error: Errore bat gertatu da esparru mota hau eguneratzean.
           success: Esparru mota arrakastaz eguneratu da
