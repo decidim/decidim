@@ -111,9 +111,6 @@ ga:
         assemblies_settings:
           edit:
             update: Nuashonraigh
-        assemblies_types:
-          form:
-            title: Teideal
         assembly_members:
           index:
             filter:
