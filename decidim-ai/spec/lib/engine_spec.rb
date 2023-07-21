@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Ai
     describe ".spam_detection_service" do
-      subject { Decidim::Ai.spam_detection_service.constantize.new }
+      subject { Decidim::Ai.spam_detection_instance }
 
       it "returns a spam detection service" do
         expect(subject).to be_a(Decidim::Ai::SpamDetectionService)

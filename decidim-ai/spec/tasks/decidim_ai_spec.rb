@@ -12,4 +12,28 @@ describe "Executing Decidim Ai tasks" do
       end
     end
   end
+
+  describe "rake decidim:ai:load_plugin_dataset", type: :task do
+    context "when executing task" do
+      it "successfully loads the dataset" do
+        instance = Decidim::Ai::SpamDetectionService.new
+        allow(Decidim::Ai).to receive(:spam_detection_instance).and_return(instance)
+        expect(instance).to receive(:train).at_least(10).times
+
+        Rake::Task[:"decidim:ai:load_plugin_dataset"].invoke
+      end
+    end
+  end
+
+  describe "rake decidim:ai:load_application_dataset", type: :task do
+    context "when executing task" do
+      it "successfully loads the dataset" do
+        instance = Decidim::Ai::SpamDetectionService.new
+        allow(Decidim::Ai).to receive(:spam_detection_instance).and_return(instance)
+        expect(instance).to receive(:train).exactly(4).times
+
+        Rake::Task[:"decidim:ai:load_application_dataset"].invoke("spec/support/test.csv")
+      end
+    end
+  end
 end
