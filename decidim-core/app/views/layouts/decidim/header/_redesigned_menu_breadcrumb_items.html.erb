@@ -19,7 +19,7 @@
 
       <script>
         // NOTE: This hack is very specific and exclusively related with #secondary-dropdown-menu-<%= i %>, see https://github.com/decidim/decidim/pull/11253
-        // that's why is placed next along with the dropdown itself
+        // that is why is placed next along with the dropdown itself
         document.addEventListener("DOMContentLoaded", () => {
           const mainDropdownMenu = document.getElementById("secondary-dropdown-menu-<%= i %>")
           mainDropdownMenu.addEventListener("transitionend", ({ target }) => { target.allowReopen = false; target.style.pointerEvents = "none" })
