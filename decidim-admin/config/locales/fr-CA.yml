@@ -933,7 +933,6 @@ fr-CA:
           update: Mettre à jour
         new:
           create: Créer un type de secteur
-          title: Nouveau secteur
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce type de secteur.
           success: Type de secteur mis à jour avec succès
