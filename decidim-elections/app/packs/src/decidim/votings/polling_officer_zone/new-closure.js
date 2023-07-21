@@ -8,19 +8,17 @@ $(() => {
     const totalBallotsInputValue = parseInt($totalBallotsInput.val(), 10);
     const electionVotesInputValue = parseInt($electionVotesInput.val(), 10);
 
-
     if (totalBallotsInputValue === electionVotesInputValue) {
-      $submitBtn.removeClass("disabled hide");
-      $modalBtn.addClass("hide");
+      $submitBtn.find("button").attr("disabled", false);
+      $submitBtn.attr("hidden", false);
+      $modalBtn.attr("hidden", true);
     } else {
-      $submitBtn.addClass("hide");
-      $modalBtn.removeClass("hide");
+      $submitBtn.attr("hidden", true);
+      $modalBtn.attr("hidden", false);
     }
   };
 
   $totalBallotsInput.on("blur", checkValues);
-
-  $("#submit-verify-votes").addClass("disabled");
 
   $totalBallotsInput.on("keyup", function() {
     $("#modal-total-ballots-value").html(parseInt($totalBallotsInput.val(), 10));
@@ -30,6 +28,6 @@ $(() => {
   $("#envelopes_result_polling_officer_notes").on("keyup", function() {
     let modalPollingOfficerNotes = $("#envelopes_result_polling_officer_notes").val()
 
-    $("#btn-submit-from-modal").toggleClass("disabled", !modalPollingOfficerNotes.trim());
+    $("#btn-submit-from-modal").attr("disabled", !modalPollingOfficerNotes.trim());
   });
 });

@@ -1,0 +1,17 @@
+<div id="upload_identification_keys" class="space-y-4" <%= t("identification_keys.upload_error", scope: "decidim.elections.trustee_zone.trustees.show").map { |key, message| "data-#{key}=\"#{message}\"" } .join(" ").html_safe %>>
+  <h2 class="h3"><%= t("identification_keys.title", scope: "decidim.elections.trustee_zone.trustees.show") %></h2>
+
+  <p><%= t("identification_keys.upload_legend", scope: "decidim.elections.trustee_zone.trustees.show") %></p>
+
+  <button class="button button__sm md:button__lg button__primary">
+    <span><%= t("identification_keys.upload", scope: "decidim.elections.trustee_zone.trustees.show") %></span>
+  </button>
+</div>
+
+<h2 class="h3"><%= t("elections.title", scope: "decidim.elections.trustee_zone.trustees.show") %></h2>
+
+<% if trustee.elections.any? %>
+  <%= render partial: "table" %>
+<% else %>
+  <%= cell("decidim/announcement", t("elections.no_elections", scope: "decidim.elections.trustee_zone.trustees.show"), callout_class: "warning" ) %>
+<% end %>

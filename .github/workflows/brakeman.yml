@@ -25,6 +25,7 @@ concurrency:
 jobs:
   brakeman:
     strategy:
+      fail-fast: false
       matrix:
         working-directory:
           - decidim-accountability

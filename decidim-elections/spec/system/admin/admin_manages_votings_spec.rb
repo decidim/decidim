@@ -227,7 +227,7 @@ describe "Admin manages votings", type: :system do
   end
 
   describe "previewing votings" do
-    let!(:voting) { create(:voting, :unpublished, organization:) }
+    let!(:voting) { create(:voting, :unpublished, :with_content_blocks, organization:, blocks_manifests: [:title]) }
 
     it "allows the user to preview the unpublished voting" do
       within find("tr", text: translated(voting.title)) do
