@@ -933,7 +933,6 @@ es-MX:
           update: Actualizar
         new:
           create: Crear tipo de ámbito
-          title: Nuevo ámbito
         update:
           error: Se ha producido un error al actualizar este tipo de ámbito.
           success: Tipo de ámbito actualizado con éxito
