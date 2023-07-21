@@ -933,7 +933,6 @@ fi:
           update: Päivitä
         new:
           create: Luo teematyyppi
-          title: Uusi teema
         update:
           error: Teematyyppin päivitys epäonnistui.
           success: Teematyypin päivitys onnistui
