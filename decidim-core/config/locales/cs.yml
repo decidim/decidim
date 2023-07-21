@@ -1504,7 +1504,9 @@ cs:
         remove_recipient: Odebrat příjemce %{name}
       participatory_space_filters:
         filters:
+          area: Oblast
           areas: Oblasti
+          scope: Oblast působnosti
           select_an_area: Vyberte oblast
       public_participation:
         public_participation: Ukázat svou účast veřejně
@@ -1590,6 +1592,9 @@ cs:
         of_versions: "(z %{number})"
         see_other_versions: viz ostatní verze
         version: Verze %{number}
+    versions_list_item:
+      show:
+        version_index: Verze %{index} z %{total}
     welcome_notification:
       default_body: <p>Dobrý den, {{name}}, díky za připojení k {{organization}} a vítejte!</p><ul><li>Chcete-li získat rychlou představu o tom, co zde můžete udělat, podívejte se na sekci <a href="{{help_url}}">Nápověda</a>.</li><li>Až si ji přečtete, dostanete svůj první odznak. Zde je <a href="{{badges_url}}">seznam všech odznaků</a> které můžete získat, když se účastníte {{organization}}</li><li>v neposlední řadě se připojte k ostatním lidem, sdílejte s nimi zkušenost z toho, že jste se zapojili a zúčastnili se {{organization}}. Vypracujte návrhy, připomínky, diskusi, přemýšlejte o tom, jak přispívat ke společnému cíli, poskytněte argumenty, abyste přesvědčili, poslouchali a četli, abyste byli přesvědčeni, vyjadřovali své myšlenky konkrétním a přímým způsobem, reagovali trpělivě a rozhodovali, měli otevřenou mysl ke spolupráci a připojili se k jiným lidem.</li></ul>
       default_subject: Děkujeme, že jste se připojili k {{organization}}!
@@ -1863,6 +1868,9 @@ cs:
     timestamp_error_message: Promiňte, bylo to příliš rychlé! Znovu odešlete.
   layouts:
     decidim:
+      announcements:
+        close: Zavřít‏
+        view_more: Více informací
       data_consent:
         details:
           columns:
@@ -1918,8 +1926,13 @@ cs:
         cc_by_license: Licence Creative Commons
         data_consent_settings: Nastavení cookies
         decidim_logo: Logo Decidim
+        decidim_title: Decidim
         download_open_data: Stáhněte si soubory s otevřenými daty
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
+        resources: Zdroje
+        sign_in: Přihlásit se
+        sign_up: Registrovat
+        terms_and_conditions: Podmínky používání
       header:
         close_menu: Zavřít nabídku
         main_menu: Hlavní menu
@@ -1954,6 +1967,7 @@ cs:
       user_menu:
         account: 'Uživatelský účet: %{name}'
         admin_dashboard: Ovládací panel
+        configuration: Konfigurace
         conversations: Konverzace
         notifications: Oznámení
         profile: Můj účet
@@ -1967,6 +1981,7 @@ cs:
         my_data: Moje data
         my_interests: Mé zájmy
         notifications_settings: Nastavení oznámení
+        profile: Profil
         title: Uživatelské nastavení
         user_groups: Skupiny
   locale:
