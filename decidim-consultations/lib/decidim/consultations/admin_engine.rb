@@ -26,7 +26,7 @@ module Decidim
         end
 
         scope "/questions/:question_slug" do
-          resources :categories
+          resources :categories, except: [:show]
           resources :components do
             resource :permissions, controller: "component_permissions"
             member do

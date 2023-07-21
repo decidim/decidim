@@ -50,7 +50,7 @@ module Decidim
         end
 
         scope "/participatory_processes/:participatory_process_slug" do
-          resources :categories
+          resources :categories, except: [:show]
 
           resources :components do
             resource :permissions, controller: "component_permissions"
