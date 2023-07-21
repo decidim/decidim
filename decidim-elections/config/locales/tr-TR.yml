@@ -222,6 +222,8 @@ tr:
           update:
             success: Tanımlama genel anahtarınız başarıyla saklandı.
       votes:
+        ballot_decision:
+          audit: Oy kontrolü
         confirm:
           answer_number: '%{number} cevap'
           confirm: Onayla
@@ -234,6 +236,13 @@ tr:
           experience: Şu ana kadarki deneyiminiz nasıl?
           feedback: Bize geri bildirim verin
           header: Oy onaylandı
+          text: 'Aşağıdaki tanımlı kullanıcı için oyununuzun sandığa başarıyla eklendiğini kontrol edebilirsiniz: '
+        header:
+          ballot_decision: Kullanmak
+          confirm: Onaylamak
+          election: Seçim
+          register: Kayıt Olmak
+          vote_for: Oy vermek
         messages:
           not_allowed: Şu anda bu seçim için oy kullanmanıza izin verilmiyor.
         modal:
@@ -245,6 +254,7 @@ tr:
           nota_option: Yukarıdakilerin hiçbiri
           preview_alert: Bu, oylama kabininin bir önizlemesidir.
           question_steps: Soru %{current_step}/%{total_steps}
+          selections: "Maksimum {max_selections} seçenekten %{selected} tane seçildi"
         voting_step:
           back: Geri
           continue: Sonraki
@@ -266,6 +276,42 @@ tr:
             email_intro: Bir yönetici sizi %{resource_name} için güvenilen kişi olarak ekledi. Genel anahtarınızı <a href='%{trustee_zone_url}'> güvenilen bölgenizde </a> oluşturmalısınız
             email_subject: '%{resource_name} için vekil birisiniz.'
             notification_title: <a href="%{participatory_space_url}">%{resource_name} </a> için vekil birisiniz.
+    participatory_spaces:
+      related_elections:
+        see_all: Tüm seçimleri görünüz
+    votings:
+      admin:
+        content_blocks:
+          attachments_and_folders:
+            name: Oylama ekleri ve klasörleri
+          header:
+            name: Oylama Başlığı
+          html_block_1:
+            name: Oylama html bloğu 1
+          html_block_2:
+            name: Oylama html bloğu 2
+          html_block_3:
+            name: Oylama html bloğu 3
+          main_data:
+            name: Başlık ve Açıklama
+          metrics:
+            name: Oylama Metrikleri
+          polling_stations:
+            name: Oy kullanma yeri
+          related_elections:
+            name: Seçim ve Seçmenler
+          stats:
+            name: Oylama istatistikleri
+          timeline:
+            name: Oylama Zaman Çizelgesi
+      pages:
+        home:
+          highlighted_votings:
+            active_spaces: Aktif oylamalar
+            see_all_spaces: Tüm Oylamaları Görün
+      votings:
+        show:
+          title: Bu Oylama Hakkında
   layouts:
     decidim:
       election_votes_header:
