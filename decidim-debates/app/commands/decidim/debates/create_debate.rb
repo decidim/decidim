@@ -20,7 +20,7 @@ module Decidim
         end
         send_notification_to_author_followers
         send_notification_to_space_followers
-
+        follow_debate
         broadcast(:ok, debate)
       end
 
