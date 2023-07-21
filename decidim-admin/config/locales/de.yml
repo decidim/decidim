@@ -933,6 +933,7 @@ de:
           update: Aktualisieren
         new:
           create: Erstellen Sie den Geltungsbereichstyp
+          title: Neuer Bereichstyp
         update:
           error: Beim Aktualisieren dieses Bereichstyps ist ein Fehler aufgetreten.
           success: Der Geltungsbereichstyp wurde erfolgreich aktualisiert
@@ -1033,9 +1034,12 @@ de:
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
         dashboard: Instrumententafel
+        edit_external_domains: Externe Domain-Whitelist
+        edit_organization_appearance: Homepage-Erscheinungsbild bearbeiten
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
         metrics: Kriterien
+        pages: Seiten
         panel: Admin
         participants: Benutzer
         scope_types: Bereichstypen
