@@ -118,6 +118,26 @@ bundle exec rake decidim:webpacker:install
 
 This will make the necessary changes in the `config/webpacker.yml`, but also in the `config/webpack/` folder.
 
+### 3.5. Initialize content blocks on spaces or resources with landing page
+
+The processes and assemblies participatory spaces have changed the show page and now is composed using content blocks. For the new spaces created in this version a callback is executed creating the content blocks marked as `default!` in the engine for the corresponding homepage scope. To have the same initialization in the existing spaces there is a task to generate those blocks if not present already. Run the below command to generate default content blocks when not present for all spaces and resources with content blocks homepage (participatory processes, participatory process groups and assemblies):
+
+```console
+bundle exec rake decidim:content_blocks:initialize_default_content_blocks
+```
+
+The task has some optional arguments:
+
+* The first to specify the manifest name and generate the default content blocks only on the spaces or resources with the manifest name (`participatory_processes`, `participatory_process_group` or `assemblies`).
+* The second can be the id of a resource o space to apply only on the space or resource with the id. This argument is considered only if the manifest name argument is present.
+* The last argument only works on participatory spaces (assemblies and participatory processes) and when set as true the task also creates a content block for each published component on the space unless a block already exists for that component or the block exists for the component type and configured to display resources from all components of the same type.
+
+For example, to generate the default content blocks and also the components blocks on participatory spaces run the command with arguments:
+
+```console
+bundle exec rake decidim:content_blocks:initialize_default_content_blocks[,,true]
+```
+
 #### Note for development
 
 If you are using the `Procfile.dev` file, you will need to make sure that you have the following line in your configuration. If you have not altered the `Procfile.dev` file, you will not need to do anything, as we covered that part:
