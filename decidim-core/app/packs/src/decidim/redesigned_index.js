@@ -112,7 +112,7 @@ Rails.start()
  * @returns {void}
  */
 const initializer = (element = document) => {
-  window.theDataPicker = new DataPicker($(".data-picker"));
+  window.theDataPicker = new DataPicker($(".data-picker", element));
 
   let focusContainer = element;
   if (element === document) {
@@ -120,7 +120,9 @@ const initializer = (element = document) => {
   }
   window.focusGuard = new FocusGuard(focusContainer);
 
+  // REDESIGN_PENDING: deprecated
   $(element).foundation();
+  // REDESIGN_PENDING: deprecated - foundation events won't trigger
   $(element).on("open.zf.reveal", (ev) => {
     dialogMode($(ev.target));
   });
@@ -128,6 +130,7 @@ const initializer = (element = document) => {
   // Trap the focus within the mobile menu if the user enters it. This is an
   // accessibility feature forcing the focus within the offcanvas container
   // which holds the mobile menu.
+  // REDESIGN_PENDING: deprecated - foundation events won't trigger
   $("#offCanvas").on("openedEnd.zf.offCanvas", (ev) => {
     ev.target.querySelector(".main-nav a").focus();
     window.focusGuard.trap(ev.target);
@@ -135,24 +138,25 @@ const initializer = (element = document) => {
     window.focusGuard.disable();
   });
 
+  // REDESIGN_PENDING: deprecated
   fixDropdownMenus();
 
   svg4everybody();
 
   // Prevent data-open buttons e.g. from submitting the underlying form in
   // authorized action buttons.
+  // REDESIGN_PENDING: deprecated - foundation events won't trigger
+  // NOTE: in redesign, date-open attribute is valid for a11y-accordion-component, but the following context is deprecated
   $("[data-open]").on("click", (event) => {
     event.preventDefault();
   });
 
   formDatePicker();
 
-  document.querySelectorAll(".editor-container").forEach((container) => {
-    window.createEditor(container);
-  });
+  element.querySelectorAll(".editor-container").forEach((container) => window.createEditor(container));
 
   // initialize character counter
-  $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
+  $("input[type='text'], textarea, .editor>input[type='hidden']", element).each((_i, elem) => {
     const $input = $(elem);
 
     if (!$input.is("[minlength]") && !$input.is("[maxlength]")) {
@@ -162,7 +166,7 @@ const initializer = (element = document) => {
     createCharacterCounter($input);
   });
 
-  $("form.new_filter").each(function () {
+  $("form.new_filter", element).each(function () {
     // eslint-disable-next-line no-invalid-this
     const formFilter = new FormFilterComponent($(this));
 
@@ -180,9 +184,9 @@ const initializer = (element = document) => {
 
   backToListLink(element.querySelectorAll(".js-back-to-list"));
 
-  markAsReadNotifications()
+  markAsReadNotifications(element)
 
-  scrollToLastChild()
+  scrollToLastChild(element)
 
   // https://github.com/jonathanlevaillant/a11y-accordion-component
   element.querySelectorAll('[data-component="accordion"]').forEach((component) => createAccordion(component))
@@ -205,7 +209,7 @@ const initializer = (element = document) => {
   // Initialize data-toggles
   element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
 
-  document.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
+  element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
 }
 
 // If no jQuery is used the Tribute feature used in comments to autocomplete
