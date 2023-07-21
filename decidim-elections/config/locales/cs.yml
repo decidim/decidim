@@ -844,6 +844,14 @@ cs:
           landing_page:
             description:
               name: Popis hlasování
+            elections:
+              name: Hlasovací volby
+            polling_stations:
+              name: Volební místnosti hlasování
+            stats:
+              name: Statistiky hlasování
+            timeline:
+              name: Časová osa hlasování
         index:
           not_published: Nezveřejněno
           published: Zveřejněno
@@ -1164,6 +1172,8 @@ cs:
         highlighted_votings:
           name: Zvýrazněné hlasování
         landing_page:
+          description:
+            title: O tomto hlasování
           metrics:
             heading: Metriky
           polling_stations:
@@ -1180,6 +1190,7 @@ cs:
       pages:
         home:
           highlighted_votings:
+            active_votings: Aktivní hlasování
             see_all_votings: Zobrazit všechna hlasování
             votings_button_title: Odkaz na stránku hlasování zobrazující všechna hlasování
       polling_officer_zone:
