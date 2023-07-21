@@ -114,62 +114,62 @@ module Decidim
                         I18n.t("menu.configuration", scope: "decidim.admin"),
                         decidim_admin.edit_organization_path,
                         position: 1.0,
-                        if: allowed_to?(:update, :organization, organization: current_organization),
-                        active: is_active_link?(decidim_admin.edit_organization_path)
+                        icon: "pencil-line",
+                        if: allowed_to?(:update, :organization, organization: current_organization)
 
           menu.add_item :edit_organization_appearance,
                         I18n.t("menu.appearance", scope: "decidim.admin"),
                         decidim_admin.edit_organization_appearance_path,
                         position: 1.1,
-                        if: allowed_to?(:update, :organization, organization: current_organization),
-                        active: is_active_link?(decidim_admin.edit_organization_appearance_path)
+                        icon: "tools-line",
+                        if: allowed_to?(:update, :organization, organization: current_organization)
 
           menu.add_item :edit_organization_homepage,
                         I18n.t("menu.homepage", scope: "decidim.admin"),
                         decidim_admin.edit_organization_homepage_path,
                         position: 1.2,
-                        if: allowed_to?(:update, :organization, organization: current_organization),
-                        active: is_active_link?(decidim_admin.edit_organization_homepage_path, %r{^/admin/organization/homepage})
+                        icon: "home-gear-line",
+                        if: allowed_to?(:update, :organization, organization: current_organization)
 
           menu.add_item :scopes,
                         I18n.t("menu.scopes", scope: "decidim.admin"),
                         decidim_admin.scopes_path,
+                        icon: "price-tag-3-line",
                         position: 1.3,
-                        if: allowed_to?(:read, :scope),
-                        active: is_active_link?(decidim_admin.scopes_path)
+                        if: allowed_to?(:read, :scope)
           menu.add_item :scope_types,
                         I18n.t("menu.scope_types", scope: "decidim.admin"),
                         decidim_admin.scope_types_path,
+                        icon: "price-tag-3-line",
                         position: 1.4,
-                        if: allowed_to?(:read, :scope_type),
-                        active: is_active_link?(decidim_admin.scope_types_path)
+                        if: allowed_to?(:read, :scope_type)
           menu.add_item :areas,
                         I18n.t("menu.areas", scope: "decidim.admin"),
                         decidim_admin.areas_path,
+                        icon: "layout-masonry-line",
                         position: 1.5,
-                        if: allowed_to?(:read, :area),
-                        active: is_active_link?(decidim_admin.areas_path)
+                        if: allowed_to?(:read, :area)
 
           menu.add_item :area_types,
                         I18n.t("menu.area_types", scope: "decidim.admin"),
                         decidim_admin.area_types_path,
+                        icon: "layout-masonry-line",
                         position: 1.6,
-                        if: allowed_to?(:read, :area_type),
-                        active: is_active_link?(decidim_admin.area_types_path)
+                        if: allowed_to?(:read, :area_type)
 
           menu.add_item :help_sections,
                         I18n.t("menu.help_sections", scope: "decidim.admin"),
                         decidim_admin.help_sections_path,
+                        icon: "question-line",
                         position: 1.6,
-                        if: allowed_to?(:update, :help_sections),
-                        active: is_active_link?(decidim_admin.help_sections_path)
+                        if: allowed_to?(:update, :help_sections)
 
           menu.add_item :external_domain_whitelist,
                         I18n.t("menu.external_domain_whitelist", scope: "decidim.admin"),
                         decidim_admin.edit_organization_external_domain_whitelist_path,
+                        icon: "computer-line",
                         position: 1.7,
-                        if: allowed_to?(:update, :organization, organization: current_organization),
-                        active: is_active_link?(decidim_admin.edit_organization_external_domain_whitelist_path)
+                        if: allowed_to?(:update, :organization, organization: current_organization)
         end
       end
 
