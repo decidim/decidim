@@ -13,14 +13,13 @@
     </h2>
   </div>
 
-  <div class="card-section">
+  <div class="card-section-draggable-list">
     <div class="grid-container full">
       <div class="grid-x grid-margin-x card-grid">
-        <div class="cell small-6">
+        <div class="cell">
           <div class="card">
             <div class="card-section">
-              <h5><%= active_content_blocks_title %></h5>
-
+              <h5 class="draggable-list-title"><%= active_content_blocks_title %></h5>
               <ul class="draggable-list js-connect js-list-actives" data-sort-url="<%= resource_sort_url %>">
                 <% active_blocks.each do |content_block| %>
                   <%= cell resource_content_block_cell, content_block %>
@@ -29,11 +28,10 @@
             </div>
           </div>
         </div>
-
-        <div class="cell small-6">
+        <div class="cell">
           <div class="card">
             <div class="card-section">
-              <h5><%= inactive_content_blocks_title %></h5>
+              <h5 class="draggable-list-title"><%= inactive_content_blocks_title %></h5>
 
               <ul class="draggable-list js-connect js-list-availables">
                 <% inactive_blocks.each do |content_block_or_manifest| %>

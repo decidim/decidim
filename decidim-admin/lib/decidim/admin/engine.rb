@@ -230,7 +230,7 @@ module Decidim
           menu.add_item :edit_organization,
                         I18n.t("menu.settings", scope: "decidim.admin"),
                         decidim_admin.edit_organization_path,
-                        icon_name: "wrench",
+                        icon_name: "tools-line",
                         position: 7,
                         active: [
                           %w(
@@ -251,7 +251,7 @@ module Decidim
           menu.add_item :logs,
                         I18n.t("menu.admin_log", scope: "decidim.admin"),
                         decidim_admin.logs_path,
-                        icon_name: "dashboard",
+                        icon_name: "pages-line",
                         position: 10,
                         active: [%w(decidim/admin/logs), []],
                         if: allowed_to?(:read, :admin_log)
