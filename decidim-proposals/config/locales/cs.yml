@@ -392,6 +392,10 @@ cs:
         description: Počet hlasů vygenerovaných v návrzích uživatelů
         object: hlasů
         title: Hlasy
+    participatory_spaces:
+      highlighted_proposals:
+        last: Poslední návrhy
+        see_all: Zobrazit všechny návrhy
     proposals:
       actions:
         answer_proposal: Odpověď na návrh
@@ -662,6 +666,8 @@ cs:
           select_a_category: Vyberte kategorii
           send: Poslat
           title: Úprava konceptu spolupráce
+        empty: Zatím neexistují žádné koncepty spolupráce
+        empty_filters: Neexistuje žádný koncept spolupráce s těmito kritérii
         filters:
           all: Vše
           amendment: Změny
@@ -678,6 +684,7 @@ cs:
           filter: Filtr
           filter_by: Filtrovat podle
           unfold: Rozvinout
+        name: Koncepty spolupráce
         new:
           add_file: Přidat soubor
           edit_file: Upravit soubor
@@ -705,6 +712,7 @@ cs:
             success: "@%{user} byl úspěšně odmítnut jako spolupracovník."
         show:
           edit: Úprava konceptu spolupráce
+          final_proposal: Závěrečný návrh
           final_proposal_help_text: Tento návrh je dokončen. Můžete vidět konečný konečný návrh
           hidden_authors_count:
             one: a %{count} další osoba
@@ -714,6 +722,7 @@ cs:
           info-message: Toto je <strong>návrh spolupráce</strong> pro návrh. To znamená, že můžete jeho autorům pomoci utvářet návrh pomocí sekce komentáře níže nebo jej přímo vylepšit požádáním o přístup k jeho úpravě. Jakmile vám autoři udělí přístup, budete moci provést změny tohoto konceptu.
           publish: Publikovat
           publish_info: Publikujte tuto verzi konceptu nebo
+          published_proposal: Zveřejněný návrh
           request_access: Požádat o přístup
           requested_access: Požadovaný přístup
           withdraw: stáhnout návrh
@@ -728,6 +737,9 @@ cs:
           back_from_collaborative_draft: Zpět na koncepty spolupráce
         wizard_header:
           title: Vytvořte návrh spolupráce
+      content_blocks:
+        highlighted_proposals:
+          name: Návrhy
       create:
         error: Při ukládání návrhu došlo k chybám.
         success: Návrh byl úspěšně vytvořen. Uloženo jako návrh.
@@ -819,6 +831,9 @@ cs:
           random: Náhodně
           recent: Nedávné
           with_more_authors: S více autory
+        participatory_texts:
+          view_index:
+            document_index: Index dokumentu
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -890,6 +905,7 @@ cs:
           title: 'Hlasování podléhá těmto pravidlům:'
           vote_limit:
             description: Můžete hlasovat až pro %{limit} návrhů.
+            votes: Zbývá %{number} podpor
         wizard_aside:
           back: Zadní
           back_from_step_1: Zpět k návrhům
