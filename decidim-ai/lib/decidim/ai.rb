@@ -7,6 +7,7 @@ module Decidim
     autoload :LanguageDetectionService, "decidim/ai/language_detection_service"
     autoload :SpamDetectionService, "decidim/ai/spam_detection_service"
     autoload :StrategyRegistry, "decidim/ai/strategy_registry"
+    autoload :LoadDataset, "decidim/ai/load_dataset"
 
     module SpamContent
       autoload :BaseStrategy, "decidim/ai/spam_content/base_strategy"
@@ -101,6 +102,10 @@ module Decidim
     # properly identify the user that will report users and content
     config_accessor :reporting_user_email do
       "reporting.user@domain.tld"
+    end
+
+    def self.spam_detection_instance
+      @spam_detection_instance ||= spam_detection_service.constantize.new
     end
 
     def self.spam_detection_registry
