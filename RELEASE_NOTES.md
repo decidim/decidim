@@ -34,6 +34,24 @@ You can read more about this change on PR [\#10288](https://github.com/decidim/d
 
 ## 2. General notes
 
+## 2.1. Redesign
+
+TBD
+
+## 2.2. Consultation
+
+The consultations module has been fully removed from this version, so if you're using it in your application you need to remove it from your Gemfile:
+
+```console
+bundle remove decidim-consultations
+```
+
+If you're not using it, then you don't need to do anything.
+
+If you're maintaining a version of this module, please share the URL of the git repository by [creating an issue on the decidim.org website repository](https://github.com/decidim/decidim.org) so that we can update the [Modules page](https://decidim.org/modules).
+
+You can read more about this change on PR [#11171](https://github.com/decidim/decidim/pull/11171).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
