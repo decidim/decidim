@@ -35,10 +35,10 @@ module Decidim
         html_options ||= {}
 
         if current_user
-          html_options["data-open"] = "authorizationModal"
-          html_options["data-open-url"] = decidim_consultations.authorization_vote_modal_question_path(question)
+          html_options["data-dialog-open"] = "authorizationModal"
+          html_options["data-dialog-open-url"] = decidim_consultations.authorization_vote_modal_question_path(question)
         else
-          html_options["data-open"] = "loginModal"
+          html_options["data-dialog-open"] = "loginModal"
         end
 
         html_options["onclick"] = "event.preventDefault();"

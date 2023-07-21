@@ -29,7 +29,7 @@ Some highlights:
 
 * They have their https://github.com/City-of-Helsinki/decidim-helsinki/blob/b9a09e570eb6090dee93f2ee73b5951882c74755/Gemfile[Gemfile] with lots of modules with their own code. Some of them are also in ruybgems (like `decidim-access_requests`, `decidim-antivirus`, `decidim-mpassid`, `decidim-process_groups_content_block`, `decidim-suomifi`, `decidim-term_customizer`), others are only in Github (`decidim-accountability_simple`, `decidim-apiauth`, `decidim-combined_budgeting`, `decidim-plans`, `decidim-redirects`). They even use a module made by other organization in the community (`decidim-budgets_enhanced`)
 * They have their UI customized to their needs. See the https://github.com/City-of-Helsinki/decidim-helsinki/tree/a7396a312cc04198654a86d66c2a7de556c212af/app/assets/stylesheets[CSS] and https://github.com/City-of-Helsinki/decidim-helsinki/tree/a7396a312cc04198654a86d66c2a7de556c212af/app/views[HTML (views)].
-* They have an awesome READE explaining how it works and what changes have made.
+* They have an awesome README explaining how it works and what changes have made.
 
 === Decidim Barcelona
 

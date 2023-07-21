@@ -19,6 +19,10 @@ module Decidim
     # The ActiveRecord class name of the model we are exposing
     attribute :model_class_name, String
 
+    # The scope name of the content blocks associated with the participatory
+    # space
+    attribute :content_blocks_scope_name, String
+
     # The name of the named Rails route to create the url to the resource.
     # When not explicitly set, it will use the model name.
     attribute :route_name, String
@@ -38,6 +42,10 @@ module Decidim
     # The name of the class that handles the permissions for this space. It will
     # probably have the form of `Decidim::<MySpace>::Permissions`.
     attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
+
+    # The cell to use as dropdown in the breadcrumb element associated to the space.
+    # If this value is omitted or blank, no breadcrumb is displayed
+    attribute :breadcrumb_cell, String
 
     # The cell path to use to render the card of a resource.
     attribute :card, String

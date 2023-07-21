@@ -399,11 +399,8 @@ en:
           all: All
         filter_meeting_space_values:
           all: All
-        filter_scope_values:
-          all: All
       calendar_modal:
         calendar_url: Calendar URL
-        close_window: Close window
         copy_calendar_url: Copy
         copy_calendar_url_clarification: Copy calendar URL to clipboard
         copy_calendar_url_copied: Copied!
@@ -421,11 +418,10 @@ en:
       content_blocks:
         upcoming_meetings:
           name: Upcoming meetings
-          upcoming_meetings: Upcoming meetings
-          view_all_meetings: View all
       directory:
         meetings:
           index:
+            go_to_list: See the event list
             meetings: Meetings
             space_type: Participatory space
       iframe_access_level:
@@ -463,7 +459,6 @@ en:
         calendar_modal:
           add_to_calendar: Add to calendar
           apple: Add to Apple calendar
-          close_window: Close window
           full_details_html: For full details go to %{link}
           google: Add to Google calendar
           outlook: Add to Outlook calendar
@@ -493,8 +488,7 @@ en:
             all: All
             official: Official
             participants: Participants
-            user_groups: Groups
-          scope: Scope
+            user_group: Groups
           search: Search
           type: Type
           type_values:
@@ -502,11 +496,6 @@ en:
             hybrid: Hybrid
             in_person: In-person
             online: Online
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         form:
           address_help: 'Address: used by Geocoder to find the location'
           available_slots_help: Leave it to 0 if you have unlimited slots available
@@ -527,8 +516,11 @@ en:
           see_all: See all meetings
           see_all_withdrawn: See all withdrawn meetings
           text_banner: You are viewing the list of meetings withdrawn by their authors. %{go_back_link}.
-        meeting_minutes:
-          related_information: Related Information
+        meeting:
+          close_meeting: Close meeting
+          edit_close_meeting: Edit meeting report
+          edit_meeting: Edit meeting
+          join_meeting: Join meeting
         meetings:
           no_meetings_warning: No meetings match your search criteria or there is not any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
@@ -541,14 +533,9 @@ en:
           confirm: Confirm
         show:
           attendees: Attendees count
-          back: Back to list
-          close_meeting: Close meeting
           contributions: Contributions count
           date: Date
-          edit_close_meeting: Edit meeting report
-          edit_meeting: Edit meeting
-          going: You have signed up for this meeting
-          join: Join meeting
+          join: Register
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
           link_available_soon: Link available soon
@@ -573,8 +560,6 @@ en:
         update:
           invalid: There was a problem updating the meeting.
           success: You have updated the meeting successfully.
-      meetings_map:
-        view_meeting: View meeting
       models:
         invite:
           fields:
@@ -616,7 +601,8 @@ en:
             question_replied: Question replied
             reply_question: Reply question
       public_participants_list:
-        attending_participants: Attending participants
+        attending_organizations: Organizations
+        attending_participants: Participants
         hidden_participants_count:
           one: and %{count} more person
           other: and %{count} more people
@@ -648,8 +634,6 @@ en:
         private_meeting: Private meeting
         transparent: Transparent
         withdraw: Withdrawn
-      versions:
-        back_to_resource: Go back to meeting
       withdraw:
         error: An error ocurred while withdrawing the meeting.
         success: The meeting has been withdrawn successfully.
@@ -661,7 +645,7 @@ en:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Past meetings
-        see_all: See all meetings (%{count})
+        see_all: See all meetings
         upcoming_meetings: Upcoming meetings
       upcoming_meeting_for_card:
         upcoming_meeting: Upcoming meeting

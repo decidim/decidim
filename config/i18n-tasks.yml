@@ -114,7 +114,10 @@ ignore_missing:
   - actions.invalid_destroy.proposals_count
   - decidim.budgets.projects_helper.current_rule_explanation.*
   - decidim.budgets.projects_helper.current_rule_description.*
+  - decidim.budgets.projects_helper.current_rule_call_for_action_text.*
   - decidim.debates.debate_m.footer.commented_time_ago
+  - date.abbr_day_names
+  - date.month_names
   - explanation
 
 # Consider these keys used:
@@ -135,6 +138,7 @@ ignore_unused:
   - decidim.statistics.*
   - decidim.components.*
   - decidim.filters.linked_classes.*
+  - decidim.shared.participatory_space_filters.filters.*
   - decidim.follows.create.participatory_space
   - decidim.forms.errors.*
   - decidim.forms.file_help.*
@@ -176,6 +180,7 @@ ignore_unused:
   - decidim.elections.connection.failed.*
   - decidim.elections.orders.*
   - decidim.elections.election_m.*
+  - decidim.elections.votes.header.*
   - decidim.proposals.admin_log.*
   - decidim.log.base_presenter.*
   - decidim.admin_log.*
@@ -197,6 +202,16 @@ ignore_unused:
   - decidim.budgets.budget_information_modal.back_to
   - decidim.budgets.limit_announcement.cant_vote
   - decidim.budgets.limit_announcement.limit_reached
+  - decidim.budgets.projects.order_progress.dynamic_help.*
+  - decidim.budgets.projects.order_progress.minimum_projects_rule.*
+  - decidim.budgets.projects.order_progress.projects_rule.*
+  - decidim.budgets.projects.order_progress.projects_rule_maximum_only.*
+  - decidim.budgets.projects.order_progress.maximum_projects_rule.*
+  - decidim.budgets.projects.order_progress.vote_threshold_percent_rule.*
+  - decidim.orders.checkout.*
+  # REDESIGN_PENDING: The filters translations will be in use after filters
+  # integration in budgets. Remove the following line after doing it
+  - decidim.budgets.projects.filters.*
   - decidim.sortitions.admin_log.*
   - decidim.sortitions.sortitions.orders.*
   - decidim.consultations.admin_log.*
@@ -206,6 +221,7 @@ ignore_unused:
   - decidim.votings.votings.filters.*
   - decidim.votings.votings.orders.*
   - decidim.votings.votings_m.badge_name.*
+  - decidim.votings.votings_m.voting_type.*
   - decidim.initiatives.admin_log.*
   - decidim.initiatives.initiatives.orders.*
   - decidim.initiatives.states.*
@@ -223,6 +239,7 @@ ignore_unused:
   - password_validator.*
   - decidim.*.pages.home.highlighted_*.*
   - decidim.participatory_processes.participatory_processes.filters.*
+  - decidim.participatory_processes.participatory_processes.description.*
   - decidim.participatory_processes.show.related_assemblies
   - decidim.content_blocks.*.name
   - decidim.participatory_processes.content_blocks.*.name
@@ -232,6 +249,8 @@ ignore_unused:
   - decidim.consultations.content_blocks.*.name
   - decidim.meetings.content_blocks.*.name
   - decidim.votings.content_blocks.*.name
+  - decidim.blogs.content_blocks.*.name
+  - decidim.proposals.content_blocks.*.name
   - decidim.proposals.collaborative_drafts.show.hidden_authors_count.*
   - decidim.proposals.collaborative_drafts.orders*
   - decidim.proposals.collaborative_drafts.filters*
@@ -256,6 +275,8 @@ ignore_unused:
   - decidim.searches.filters.state.*
   - decidim.security.selfxss_warning.*
   - decidim.assemblies.filter.*
+  - decidim.assemblies.assemblies.description.*
+  - decidim.assemblies.assemblies.filters.*
   - decidim.initiatives.initiatives.votes_count.count.*
   - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
   - decidim.participatory_processes.admin.new_import.accepted_types.*
@@ -269,10 +290,6 @@ ignore_unused:
   - decidim.admin.admin_terms_of_service.required_review.alert
   - decidim.budgets.projects.orders.*
   - forms.length_validator.*
-  - layouts.decidim.widget.*
-  - layouts.decidim.assembly_widgets.*
-  - layouts.decidim.conference_widgets.*
-  - layouts.decidim.participatory_process_widgets.*
   - layouts.decidim.participatory_process_groups.*
   - decidim.newsletter_templates.basic_only_text.name
   - decidim.newsletter_templates.image_text_cta.name
@@ -282,17 +299,11 @@ ignore_unused:
   - decidim.versions_list.show.*
   - decidim.versions_list_item.show.*
   - decidim.accountability.results.show.stats.back_to_resource
-  - decidim.proposals.versions.collaborative_drafts.back_to_resource
-  - decidim.proposals.versions.proposals.back_to_resource
-  - decidim.initiatives.versions.shared.back_to_resource
   - decidim.meetings.actions.invalid_destroy.proposals_count.*
-  - decidim.meetings.versions.back_to_resource
   - layouts.decidim.participatory_processes.participatory_process.more_info
   - layouts.decidim.participatory_processes.participatory_process.more_info_about
   - layouts.decidim.participatory_processes.participatory_process.take_part
   - layouts.decidim.participatory_processes.participatory_process.take_part_in
-  - decidim.debates.debates.versions.*
-  - decidim.debates.debates.versions_list.*
   - decidim.debates.debates.show.edit_conclusions
   - activemodel.attributes.organization.machine_translation_display_priority_*
   - decidim.budgets.projects.budget_summary.minimum_projects_rule.*
@@ -306,8 +317,9 @@ ignore_unused:
   - decidim.elections.feedback.answer.*
   - decidim.elections.trustee_zone.elections.key_ceremony_steps.keys.*
   - decidim.elections.trustee_zone.elections.tally_started_steps.keys.*
+  - decidim.elections.elections.filters.*
   - decidim.votings.admin_log.*
-  - decidim.votings.admin.content_blocks.landing_page.*
+  - decidim.votings.admin.content_blocks.*
   - decidim.votings.census.admin.census.new.file_help.*
   - decidim.votings.census.document_types.*
   - decidim.devise.sessions.user.timed_out
@@ -354,8 +366,14 @@ ignore_unused:
   - layouts.decidim.conferences.conference.*
   - decidim.consultations.show.footer_button_text.*
   - decidim.admin.conflicts.*
+  - decidim.profiles.show.badges
+  - decidim.profiles.show.conversations
+  - decidim.profiles.show.groups
   - decidim.profiles.show.view_full_profile
   - layouts.decidim.assemblies.promoted_assembly.take_part
+  - versions.dropdown.option_*
+  - decidim.meetings.meetings.filters.*
+  - decidim.meetings.directory.meetings.index.space_type
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

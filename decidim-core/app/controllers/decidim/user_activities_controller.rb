@@ -7,6 +7,7 @@ module Decidim
     include UserGroups
     include FilterResource
     include Flaggable
+    include HasProfileBreadcrumb
 
     helper Decidim::ResourceHelper
     helper_method :activities, :resource_types, :user

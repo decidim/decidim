@@ -111,12 +111,10 @@ Decidim::Core::Engine.routes.draw do
     resources :groups, except: [:destroy, :index, :show] do
       resources :join_requests, only: [:create, :update, :destroy], controller: "user_group_join_requests"
       resources :invites, only: [:index, :create, :update, :destroy], controller: "group_invites"
-      resources :users, only: [:index, :destroy], controller: "group_members", as: "manage_users" do
+      resources :users, only: [:destroy], controller: "group_members", as: "manage_users" do
         member do
           post :promote
         end
-      end
-      resources :admins, only: [:index], controller: "group_admins", as: "manage_admins" do
         member do
           post :demote
         end
@@ -136,6 +134,8 @@ Decidim::Core::Engine.routes.draw do
     get "badges", to: "profiles#badges", as: "profile_badges"
     get "groups", to: "profiles#groups", as: "profile_groups"
     get "members", to: "profiles#members", as: "profile_members"
+    get "group_members", to: "profiles#group_members", as: "profile_group_members"
+    get "group_admins", to: "profiles#group_admins", as: "profile_group_admins"
     get "activity", to: "user_activities#index", as: "profile_activity"
     resources :conversations, except: [:destroy], controller: "user_conversations", as: "profile_conversations"
   end

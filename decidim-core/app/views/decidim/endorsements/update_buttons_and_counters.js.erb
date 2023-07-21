@@ -23,9 +23,9 @@
     <%# has to be updated to maintain the function of the button to open the modal. Otherwise the button has to be fully %>
     <%# updated because the form request also changes %>
     if ($endorsementIdentitiesButton.length == 0) {
-      $endorsementButton[0].outerHTML = '<%= j(cell("decidim/redesigned_endorsement_buttons", resource).show).strip.html_safe %>';
+      $endorsementButton[0].outerHTML = '<%= j(cell("decidim/endorsement_buttons", resource).show).strip.html_safe %>';
     } else {
-      $endorsementIdentitiesButton[0].innerHTML = '<%= j(cell("decidim/redesigned_endorsement_buttons", resource).button_content).strip.html_safe %>';
+      $endorsementIdentitiesButton[0].innerHTML = '<%= j(cell("decidim/endorsement_buttons", resource).button_content).strip.html_safe %>';
     }
   }
 <% else %>

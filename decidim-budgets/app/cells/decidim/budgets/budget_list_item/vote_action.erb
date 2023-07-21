@@ -1,0 +1,13 @@
+<% if voted? %>
+  <%= link_to(
+        budget_order_path(budget),
+        method: :delete,
+        class: "pl-4",
+        data: { confirm: t(:are_you_sure, scope: "decidim.budgets.projects.budget_summary") }
+      ) do %>
+      <%= icon "delete-bin-line", class: "inline-block align-middle text-gray fill-current" %>
+      <span class="inline-block align-middle underline text-alert">
+        <%= t("cancel_order", scope: "decidim.budgets.projects.budget_summary") %>
+      </span>
+  <% end %>
+<% end %>

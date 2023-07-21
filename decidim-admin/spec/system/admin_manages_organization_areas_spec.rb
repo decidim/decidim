@@ -100,7 +100,7 @@ describe "Organization Areas", type: :system do
 
   def click_delete_area
     within find("tr", text: translated(area.name)) do
-      accept_confirm { click_link "Delete" }
+      accept_confirm(admin: true) { click_link "Delete" }
     end
   end
 end

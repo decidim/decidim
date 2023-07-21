@@ -1,38 +1,43 @@
-<div class="<%= card_class %> budget-list__item budget-list__item-cell">
-  <div class="budget-list__text flex-horizontal">
-    <%= link_to budget_path(budget), class: link_class do %>
-      <h3 class="card--list__heading">
+<div class="<%= card_class %> card__highlight">
+  <div class="card__highlight-text md:w-[70%] p-0">
+    <%= link_to resource_path, class: "p-4" do %>
+      <h3 class="h3 text-secondary inline-block align-middle">
         <%= translated_attribute(title) %>
       </h3>
-    <% end %>
-
-    <div class="heading5">
-      <strong>
-        <%= budget_to_currency(total_budget) %>
-      </strong>
-    </div>
-
-    <%= decidim_sanitize html_truncate(translated_attribute(description), length: 140) %>
-  </div>
-
-  <% if !voting_finished? %>
-    <div class="budget-list__icon mr-s">
       <% if voted? %>
-        <span class="button tiny success card--list__check card--list__check--disabled card--list__check--inline">
-          <%= icon "check", class: "icon--small", role: "img", aria_label: t("decidim.budgets.budget_list_item.voting_finished") %>
-        </span>
-      <% elsif progress? %>
-        <span class="button tiny warning card--list__check card--list__check--disabled card--list__check--inline">
-          <%= icon "bookmark", class: "icon--small", role: "img", aria_label: t("decidim.budgets.budget_list_item.voting_started") %>
-        </span>
+        <%= icon "check-double-line", class: "inline-block align-middle fill-success ml-2 h-[1.5em] w-[1.5em]" %>
       <% end %>
-    </div>
-  <% end %>
-
-  <div class="budget-list__data">
-    <%= link_to budget_path(budget), class: "button button--sc expanded #{button_class} mb-none" do %>
-      <span><%= button_text %></span>
-      <%= icon "chevron-right", class: "icon--small", role: "img" %>
+      <div class="my-2">
+        <%= decidim_sanitize html_truncate(translated_attribute(description), length: 70) %>
+      </div>
+      <% unless voted? %>
+        <div class="divide-x-2 divide-gray-3">
+          <%= render :projects_count %>
+          <%= render :vote_action if voting_context? %>
+        </div>
+      <% end %>
+    <% end %>
+    <% if voted? %>
+      <div class="divide-x-2 divide-gray-3 p-4 pt-0">
+        <%= render :projects_count %>
+        <%= render :vote_action if voting_context? %>
+      </div>
     <% end %>
   </div>
+  <% if voting_context? %>
+    <%= link_to resource_path, class: "budget__card__highlight-vote" do %>
+      <div class="budget__card__highlight-vote__header">
+        <span class="budget__card__highlight-vote__text">
+          <%= t("name", scope: "decidim.budgets.admin.models.budget") %>
+        </span>
+        <span class="budget__card__highlight-vote__number">
+          <%= budget_to_currency(total_budget) %>
+        </span>
+      </div>
+      <%= button_tag class: "button button__sm #{button_class} #{voted? ? "button__transparent-secondary" : "button__secondary"} budget__card__highlight-vote__button" do %>
+        <span><%= button_text %></span>
+        <%= icon "arrow-right-line" %>
+      <% end %>
+    <% end %>
+  <% end %>
 </div>

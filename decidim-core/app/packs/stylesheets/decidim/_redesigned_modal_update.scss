@@ -28,6 +28,12 @@
           @apply w-24 flex-none flex justify-center;
         }
 
+        img:not([src^="data:image"]):not(
+            [src^="data:application/octet-stream"]
+          ) {
+          @apply hidden;
+        }
+
         span {
           @apply text-gray-2 text-sm;
         }
@@ -52,7 +58,7 @@
       }
 
       [data-template="titled"] div:not(:first-child) {
-        @apply flex items-stretch gap-12 [&>div]:flex [&>div]:flex-col [&>div]:gap-2 [&_label]:font-semibold;
+        @apply flex flex-col md:flex-row justify-start items-stretch gap-6 md:gap-12 grow [&>div]:flex [&>div]:flex-col [&>div]:gap-2 [&>input]:mt-0 [&_label]:font-semibold;
       }
 
       img {
@@ -100,7 +106,7 @@
   }
 
   &__text {
-    @apply text-sm text-gray-2 mt-4 mb-8 md:mb-20;
+    @apply text-sm text-gray-2 mt-4 mb-8;
 
     ul,
     ol {

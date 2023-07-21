@@ -430,7 +430,7 @@ module Decidim
       object_attachment = object.attachment.present?
       record = object_attachment ? object.attachment : object
       options = {
-        titled: true,
+        titled: options[:multiple],
         resource_class: "Decidim::Attachment",
         show_current: false,
         max_file_size: max_file_size(record, :file),

@@ -62,6 +62,7 @@ module Decidim
           author: current_user,
           scoped_type:,
           signature_type: form.type.signature_type,
+          decidim_user_group_id: form.decidim_user_group_id,
           state: "created"
         )
       end

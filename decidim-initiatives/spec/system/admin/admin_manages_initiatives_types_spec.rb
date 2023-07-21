@@ -77,7 +77,7 @@ describe "Admin manages initiatives types", type: :system do
   context "when deleting an initiative type" do
     it "deletes the initiative type" do
       within find("tr", text: translated(initiatives_type.title)) do
-        accept_confirm do
+        accept_confirm(admin: true) do
           page.find(".action-icon--remove").click
         end
       end

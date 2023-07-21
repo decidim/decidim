@@ -1,8 +1,0 @@
-<% tab_items.each do |tab_item| %>
-  <li class="profile__tab<%= " is-active" if is_active_link?(tab_item[:path]) %>">
-    <%= link_to tab_item[:path], title: tab_item[:text], class: "profile__tab-item" do %>
-      <%= icon tab_item[:icon], class: "w-4 h-4 fill-current" %>
-      <span><%= tab_item[:text] %></span>
-    <% end %>
-  </li>
-<% end %>

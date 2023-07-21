@@ -1,30 +1,10 @@
-<% add_decidim_page_title(t("user_groups", scope: "layouts.decidim.user_profile")) %>
-<% content_for(:subtitle) { t("user_groups", scope: "layouts.decidim.user_profile") } %>
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+  <% add_decidim_page_title(t("user_groups", scope: "layouts.decidim.user_profile")) %>
+  <% content_for(:subtitle) { t("user_groups", scope: "layouts.decidim.user_profile") } %>
 
-<div class="row column">
-  <section class="section">
-    <div class="card card--list">
-      <% @user_groups.each do |user_group| %>
-        <div class="card--list__item">
-          <div class="card--list__text">
-            <div>
-              <h5 class="card--list__heading">
-                <%= user_group.name %>
-              </h5>
-              <span class="text-small"><%= l(user_group.created_at, format: :long) %></span>
-              <% if user_group.verified? %>
-                <span class="success label"><%= t(".verified") %></span>
-              <% end %>
-              <% if user_group.rejected? %>
-                <span class="alert label"><%= t(".rejected") %></span>
-              <% end %>
-              <% if user_group.pending? %>
-                <span class="warning label"><%= t(".pending") %></span>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </section>
-</div>
+  <div class="profile__user-grid">
+    <% @user_groups.each do |user_group| %>
+      <%= card_for user_group %>
+    <% end %>
+  </div>
+<% end %>

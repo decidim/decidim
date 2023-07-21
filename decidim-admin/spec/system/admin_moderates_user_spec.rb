@@ -8,6 +8,7 @@ describe "Admin reports user", type: :system do
   let(:reportable_path) { decidim.profile_path(reportable.nickname) }
 
   before do
+    allow(Decidim).to receive(:redesign_active).and_return(true)
     switch_to_host(admin.organization.host)
     login_as admin, scope: :user
   end
@@ -16,9 +17,10 @@ describe "Admin reports user", type: :system do
     it "is redirected to admin panel" do
       visit reportable_path
 
-      expect(page).to have_selector(".profile--sidebar")
+      selector = Decidim.redesign_active ? ".profile__actions-secondary" : ".profile--sidebar"
+      expect(page).to have_selector(selector)
 
-      within ".profile--sidebar", match: :first do
+      within selector, match: :first do
         click_button
       end
 
@@ -39,9 +41,10 @@ describe "Admin reports user", type: :system do
     it "is redirected to admin panel" do
       visit reportable_path
 
-      expect(page).to have_selector(".profile--sidebar")
+      selector = Decidim.redesign_active ? ".profile__actions-secondary" : ".profile--sidebar"
+      expect(page).to have_selector(selector)
 
-      within ".profile--sidebar", match: :first do
+      within selector, match: :first do
         click_button
       end
 

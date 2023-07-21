@@ -1,19 +1,27 @@
-<div class="<%= author_classes %>">
-  <div class="author-data__main">
-    <%= render :profile %>
-  </div>
+<% data = has_tooltip? ? { tooltip: render(:profile_minicard).html_safe } : nil %>
+<div class="author" data-author>
+  <%= content_tag :div, class: "author__container#{" is-compact" if layout == :compact}", data: do %>
+    <% if layout == :compact %>
+      <%= render :avatar %>
 
-  <% if actionable? %>
-    <div class="author-data__extra">
-      <%= render :date %>
+      <div>
+        <%= render :name %>
 
-      <%= render :comments %>
+        <% context_actions.each do |action| %>
+          <%= render action %>
+        <% end %>
+      </div>
+    <% elsif layout == :avatar %>
+      <%= render :avatar %>
+    <% else %>
+      <%= render :avatar %>
+      <%= render :name %>
+    <% end %>
+  <% end %>
 
-      <%= render :endorsements %>
-
-      <%= render :flag %>
-
-      <%= render :withdraw %>
-    </div>
+  <% if layout == :default %>
+    <% context_actions.each do |action| %>
+      <%= render action %>
+    <% end %>
   <% end %>
 </div>

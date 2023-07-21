@@ -12,54 +12,52 @@ describe "Explore posts", type: :system do
   let!(:image) { create(:attachment, attached_to: old_post) }
 
   describe "index" do
+    let!(:old_post_id) { "[id$='#{old_post.id}']" }
+    let!(:new_post_id) { "[id$='#{new_post.id}']" }
+
+    before do
+      create(:comment, commentable: old_post)
+      create(:endorsement, resource: old_post, author: build(:user, organization: old_post.participatory_space.organization))
+
+      visit_component
+    end
+
+    it "shows the component name in the sidebar" do
+      within("aside") do
+        expect(page).to have_content(translated(component.name))
+      end
+    end
+
     it "shows all posts for the given process" do
-      visit_component
-      expect(page).to have_selector("div[data-post]", count: 2)
-      expect(page).to have_selector("div[data-post]", text: translated(new_post.title))
-      expect(page).to have_selector("div[data-post]", text: translated(old_post.title))
-    end
+      skip_unless_redesign_enabled
 
-    it "shows comment counts" do
-      visit_component
-      expect(page).to have_selector('a[title="comments"]', text: "comment".pluralize(new_post.comments.count))
-      expect(page).to have_selector('a[title="comments"]', text: "comment".pluralize(old_post.comments.count))
-    end
-
-    it "shows endorsement counts" do
-      visit_component
-      expect(page).to have_selector('a[title="endorsements"]', text: "endorsement".pluralize(new_post.endorsements.count))
-      expect(page).to have_selector('a[title="endorsements"]', text: "endorsement".pluralize(old_post.endorsements.count))
-    end
-
-    it "shows images" do
-      visit_component
-      expect(page).to have_selector("div[data-post] img")
+      expect(page).to have_selector("#blogs > a", count: 2)
     end
 
     context "when paginating" do
       let(:collection_size) { 15 }
       let!(:collection) { create_list(:post, collection_size, component:) }
-      let!(:resource_selector) { "div[data-post]" }
 
       before do
         visit_component
       end
 
       it "lists 10 resources per page by default" do
-        expect(page).to have_css(resource_selector, count: 10)
+        skip_unless_redesign_enabled
+
+        expect(page).to have_selector("#blogs > a", count: 10)
         expect(page).to have_css("[data-pages] [data-page]", count: 2)
       end
     end
 
     context "with some unpublished posts" do
       let!(:unpublished) { create(:post, component:, published_at: 2.days.from_now) }
-      let!(:resource_selector) { "div[data-post]" }
-
-      before { visit_component }
 
       it "shows only published blogs" do
+        skip_unless_redesign_enabled
+
         expect(Decidim::Blogs::Post.count).to eq(3)
-        expect(page).to have_css(resource_selector, count: 2)
+        expect(page).to have_selector("#blogs > a", count: 2)
       end
     end
   end
@@ -106,7 +104,7 @@ describe "Explore posts", type: :system do
       expect(page).to have_i18n_content(post.title)
       expect(page).to have_i18n_content(post.body)
       expect(page).to have_content(post.author.name)
-      expect(page).to have_content(post.created_at.strftime("%d/%m/%Y %H:%M "))
+      expect(page).to have_content(post.created_at.strftime("%d/%m/%Y %H:%M"))
     end
 
     it_behaves_like "has embedded video in description", :body

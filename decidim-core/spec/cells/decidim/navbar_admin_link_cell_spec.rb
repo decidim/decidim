@@ -25,7 +25,7 @@ describe Decidim::NavbarAdminLinkCell, type: :cell do
     end
 
     it "renders the icon: pencil-line" do
-      expect(subject).to have_css("svg.icon--pencil-line")
+      expect(subject).to have_css("svg [href*='#ri-pencil-line']")
     end
   end
 
@@ -47,7 +47,7 @@ describe Decidim::NavbarAdminLinkCell, type: :cell do
     end
 
     it "renders the custom icon: comment" do
-      expect(subject).to have_css("svg.icon--comment-square")
+      expect(subject).to have_css("svg [href*='#ri-comment-square']")
     end
   end
 end

@@ -1,0 +1,30 @@
+<h2 class="h2 decorator"><%= title_text %></h2>
+
+<div class="editor-content content-block__description">
+  <%= description_text %>
+</div>
+
+<% group_attributes1 = [processes_count_item, meta_scope_item].compact %>
+<% group_attributes2 = [hashtag_item, external_link_item].compact %>
+
+<div class="participatory-space-group__content-block-metadata">
+  <% group_attributes1.each do |item| %>
+    <% next if item.blank? %>
+
+    <span>
+      <%= icon item[:icon] %>
+      <%= item[:text] %>
+    </span>
+  <% end %>
+</div>
+
+<div class="participatory-space-group__content-block-metadata">
+  <% group_attributes2.each do |item| %>
+    <% next if item.blank? %>
+
+    <span>
+      <%= icon item[:icon] %>
+      <%= item[:text] %>
+    </span>
+  <% end %>
+</div>
