@@ -1035,6 +1035,7 @@ es:
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
         edit_external_domains: Listado de dominios externos permitidos
+        edit_landing_page: Contenidos de la página
         edit_organization_appearance: Editar apariencia de página de inicio
         impersonatable_users: Participantes que se pueden gestionar
         impersonations: Gestión de participantes
