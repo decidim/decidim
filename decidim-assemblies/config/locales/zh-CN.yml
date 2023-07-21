@@ -266,9 +266,6 @@ zh-CN:
             update: 更新
           form:
             title: 程序集设置
-        assemblies_types:
-          form:
-            title: 标题
         assembly_copies:
           form:
             slug_help: 'URL slugs 用于生成指向此程序集的 URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
