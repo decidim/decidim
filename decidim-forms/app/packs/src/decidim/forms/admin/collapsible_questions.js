@@ -1,13 +1,13 @@
 (() => {
   $("button.collapse-all").on("click", () => {
-    $(".collapsible").addClass("hide");
-    $(".question--collapse .icon-expand").removeClass("hide");
-    $(".question--collapse .icon-collapse").addClass("hide");
+    $(".collapsible").attr('aria-hidden', 'true');
+    $(".question--collapse .icon-expand").removeClass("hidden");
+    $(".question--collapse .icon-collapse").addClass("hidden");
   });
 
   $("button.expand-all").on("click", () => {
-    $(".collapsible").removeClass("hide");
-    $(".question--collapse .icon-expand").addClass("hide");
-    $(".question--collapse .icon-collapse").removeClass("hide");
+    $(".collapsible").attr('aria-hidden', 'false');
+    $(".question--collapse .icon-expand").addClass("hidden");
+    $(".question--collapse .icon-collapse").removeClass("hidden");
   });
 })(window);

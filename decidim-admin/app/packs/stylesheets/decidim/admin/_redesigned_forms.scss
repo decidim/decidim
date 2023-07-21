@@ -34,3 +34,26 @@
     }
   }
 }
+
+.questionnaire-question{
+  @apply bg-black;
+  button[aria-expanded="true"]{
+    .icon-collapse{
+      @apply hidden;
+    }
+
+    .icon-expand{
+      @apply block;
+    }
+  }
+
+  button[aria-expanded="false"]{
+    .icon-collapse{
+      @apply block;
+    }
+
+    .icon-expand{
+      @apply hidden;
+    }
+  }
+}

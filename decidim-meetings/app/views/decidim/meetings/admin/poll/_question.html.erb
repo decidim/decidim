@@ -6,28 +6,28 @@
     <h2 class="card-title">
       <span>
         <% if editable %>
-          <%== icon("move") %>
+          <%== icon("drag-move-2-fill") %>
         <% end %>
         <%= dynamic_title(translated_attribute(question.body), class: "question-title-statement", max_length: 50, omission: "...", placeholder: t("question", scope: "decidim.forms.admin.questionnaires.question")) %>
       </span>
 
       <button type="button" class="button small secondary button--title question--collapse" data-toggle="<%= id %>-question-card button--collapse-question-<%= id %> button--expand-question-<%= id %>">
         <span id="button--collapse-question-<%= id %>" data-toggler=".hide" class="icon-collapse <%= "hide" unless is_expanded %>">
-          <%== icon("caret-top", aria_label: t("collapse", scope: "decidim.forms.admin.questionnaires.question"), role: "img") %>
+          <%== icon("arrow-up-s-line", aria_label: t("collapse", scope: "decidim.forms.admin.questionnaires.question"), role: "img") %>
         </span>
 
         <span id="button--expand-question-<%= id %>" data-toggler=".hide" class="icon-expand <%= "hide" if is_expanded %>">
-          <%== icon("caret-bottom", aria_label: t("expand", scope: "decidim.forms.admin.questionnaires.question"), role: "img") %>
+          <%== icon("arrow-down-s-line", aria_label: t("expand", scope: "decidim.forms.admin.questionnaires.question"), role: "img") %>
         </span>
       </button>
 
       <% if editable %>
         <button class="button small alert hollow move-up-question button--title">
-          <%== "#{icon("arrow-top")} #{t("up", scope: "decidim.forms.admin.questionnaires.question")}" %>
+          <%== "#{icon("arrow-up-line")} #{t("up", scope: "decidim.forms.admin.questionnaires.question")}" %>
         </button>
 
         <button class="button small alert hollow move-down-question button--title">
-          <%== "#{icon("arrow-bottom")} #{t("down", scope: "decidim.forms.admin.questionnaires.question")}" %>
+          <%== "#{icon("arrow-down-line")} #{t("down", scope: "decidim.forms.admin.questionnaires.question")}" %>
         </button>
 
         <button class="button small alert hollow remove-question button--title">
