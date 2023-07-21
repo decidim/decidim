@@ -558,7 +558,6 @@ lv:
           update: Atjaunināt
         new:
           create: Izveidot darbības tvēruma veidu
-          title: Jauns tvērums
         update:
           error: Šī darbības tvēruma veida atjaunināšanas laikā radās problēma.
           success: Darbības tvēruma veids ir veiksmīgi atjaunināts
