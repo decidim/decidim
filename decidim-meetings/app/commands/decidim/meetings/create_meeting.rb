@@ -19,7 +19,10 @@ module Decidim
           create_meeting!
         end
 
+        create_follow_form_resource(form.current_user)
         schedule_upcoming_meeting_notification
+        send_notification
+
         broadcast(:ok, meeting)
       end
 
@@ -87,6 +90,20 @@ module Decidim
         Decidim::Meetings::UpcomingMeetingNotificationJob
           .set(wait_until: meeting.start_time - Decidim::Meetings.upcoming_meeting_notification)
           .perform_later(meeting.id, checksum)
+      end
+
+      def send_notification
+        Decidim::EventsManager.publish(
+          event: "decidim.events.meetings.meeting_created",
+          event_class: Decidim::Meetings::CreateMeetingEvent,
+          resource: meeting,
+          followers: meeting.participatory_space.followers
+        )
+      end
+
+      def create_follow_form_resource(user)
+        follow_form = Decidim::FollowForm.from_params(followable_gid: meeting.to_signed_global_id.to_s).with_context(current_user: user)
+        Decidim::CreateFollow.call(follow_form, user)
       end
     end
   end
