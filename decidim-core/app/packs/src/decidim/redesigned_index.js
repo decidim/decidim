@@ -122,34 +122,8 @@ const initializer = (element = document) => {
 
   // REDESIGN_PENDING: deprecated
   $(element).foundation();
-  // REDESIGN_PENDING: deprecated - foundation events won't trigger
-  $(element).on("open.zf.reveal", (ev) => {
-    dialogMode($(ev.target));
-  });
-
-  // Trap the focus within the mobile menu if the user enters it. This is an
-  // accessibility feature forcing the focus within the offcanvas container
-  // which holds the mobile menu.
-  // REDESIGN_PENDING: deprecated - foundation events won't trigger
-  $("#offCanvas").on("openedEnd.zf.offCanvas", (ev) => {
-    ev.target.querySelector(".main-nav a").focus();
-    window.focusGuard.trap(ev.target);
-  }).on("closed.zf.offCanvas", () => {
-    window.focusGuard.disable();
-  });
-
-  // REDESIGN_PENDING: deprecated
-  fixDropdownMenus();
 
   svg4everybody();
-
-  // Prevent data-open buttons e.g. from submitting the underlying form in
-  // authorized action buttons.
-  // REDESIGN_PENDING: deprecated - foundation events won't trigger
-  // NOTE: in redesign, date-open attribute is valid for a11y-accordion-component, but the following context is deprecated
-  $("[data-open]").on("click", (event) => {
-    event.preventDefault();
-  });
 
   formDatePicker(element);
 
