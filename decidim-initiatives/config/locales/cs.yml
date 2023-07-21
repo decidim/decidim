@@ -365,6 +365,7 @@ cs:
           back: Zpět
           continue: Pokračovat
           fill_data_help: "<ul> <li>Přečtěte si obsah vaší iniciativy. Je váš název snadno srozumitelný? Je cíl vaší iniciativy jasný?</li> <li>Musíte zvolit typ podpisu. Osobní, on-line nebo kombinace obou</li> <li>Jaká je geografická oblast působnosti?</li> </ul>"
+          initiative_type: Typ iniciativy
           more_information: "(Více informací)"
           select_area: Vybrat oblast
           select_scope: Zvolte rozsah
@@ -389,6 +390,8 @@ cs:
         select_initiative_type:
           back: Zpět
           choose_html: Chci vytvořit <strong>%{title}</strong>
+          more_information: Více informací
+          new: Vytvořit novou iniciativu
           select: Chci tuto iniciativu podpořit
           select_initiative_type_help: Iniciativy jsou prostředkem, kterým účastníci mohou zasáhnout, aby organizace mohla podniknout kroky na obranu obecného zájmu. Jakou iniciativu chcete spustit?
           verification_required: Ověřte svůj účet pro podporu této iniciativy
@@ -431,7 +434,12 @@ cs:
           email_subject: "%{applicant_nickname} se chce připojit k vaší iniciativě"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> požádal o funkci ve výboru vaší iniciativy <a href="%{resource_url}">%{resource_title}</a>. Chcete-li přijmout nebo odmítnout <a href="%{resource_url}/edit">, klepněte zde</a>.
       form:
+        add_documents: Přidat dokumenty
+        add_image: Přidat obrázek
         attachment_legend: "(Volitelné) Přidat přílohu"
+        edit_documents: Upravit dokumenty
+        edit_image: Upravit obrázek
+        image_legend: "(Volitelné) Přidat obrázek"
       index:
         uninitialized: Iniciativy ještě nejsou nakonfigurovány správcem.
       initiative_signatures:
@@ -472,6 +480,7 @@ cs:
           approve: Schválit
           confirm_revoke: Jste si jist?
           invite_to_committee_help: Sdílejte tento odkaz pro pozvání ostatních účastníků do propagačního výboru.
+          link: Odkaz
           no_members_yet: V předkladatelském výboru nejsou žádní členové.
           title: Členové výboru
         count:
@@ -539,9 +548,14 @@ cs:
           answer_title: Tato iniciativa byla zodpovězena.
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
         show:
+          area: Oblast
           confirm: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
           edit: Upravit
+          scope: Oblast působnosti
           send_to_technical_validation: Poslat na technické ověření
+          signature_collection: Sbírka podpisů
+          state: Stav
+          type: Typ
         signatures_count:
           one: " podpis"
           few: " podpisy"
@@ -577,6 +591,11 @@ cs:
           authorizations_page: Zobrazit autorizace
           explanation: Musíte být ověřen, abyste mohli vytvořit novou iniciativu.
           title: Vyžadována autorizace
+      pages:
+        home:
+          highlighted_initiatives:
+            active_spaces: Aktivní iniciativy
+            see_all_spaces: Zobrazit všechny iniciativy
       show:
         badge_name:
           accepted: Dostatek podpisů
