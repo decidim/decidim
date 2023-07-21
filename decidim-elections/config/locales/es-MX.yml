@@ -639,6 +639,7 @@ es-MX:
             success: Tu clave pública de identificación fue guardada con éxito.
       votes:
         ballot_decision:
+          audit: Auditar papeleta
           back: Comenzar de nuevo el proceso de votación
           ballot_hash: 'El indentificador de la papeleta es:'
           cast: Deposita la papeleta para terminar tu voto
@@ -660,6 +661,7 @@ es-MX:
           feedback: Danos tu opinión
           header: Voto confirmado
           lead: '¡Tu voto se ha emitido!'
+          text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: '
           verify_link: Para comprobarlo, copia el identificador y pégalo en la <a href="%{link}">página de verificación de voto</a>
         create:
           error: Hubo un problema al emitir el voto. Por favor, inténtalo de nuevo.
@@ -671,6 +673,11 @@ es-MX:
           lead: '¡Tu voto no ha sido emitido!'
           text: Algo salió mal, por favor inténtalo de nuevo.
           try_again: Inténtalo de nuevo
+        header:
+          confirm: Confirmar
+          election: Elección
+          register: Regístrate
+          vote_for: Vota por %{title}
         messages:
           invalid_token: Tu sesión en la cabina de votación no es válida. Intenta votar de nuevo.
           not_allowed: En este momento no puedes votar en esta votación.
@@ -683,6 +690,7 @@ es-MX:
           nota_option: En blanco / Ninguna de las anteriores
           preview_alert: Esta es una vista previa de la cabina de votación.
           question_steps: Pregunta %{current_step} de %{total_steps}
+          selections: "Seleccionada/s %{selected} de %{max_selections}"
         onboarding_modal:
           create_account: Crear Cuenta
           description: '¿Quieres crear una nueva cuenta en la plataforma? Podrás participar en los procesos y ser parte activa de la organización.'
@@ -755,6 +763,9 @@ es-MX:
           title: '¿Qué son las votaciones?'
     menu:
       votings: Votaciones
+    participatory_spaces:
+      related_elections:
+        see_all: Ver todas las elecciones
     statistics:
       elections_count: Elecciones
       votings_count: Votaciones
@@ -792,8 +803,28 @@ es-MX:
             invalid: Ha habido un problema al actualizar el estilo de papeleta.
             success: Se ha creado correctamente el estilo de papeleta.
         content_blocks:
+          attachments_and_folders:
+            name: Archivos y carpetas de la votación
+          header:
+            name: Cabecera de la votación
           highlighted_votings:
             max_results: Cantidad máxima de elementos a mostrar
+          html_block_1:
+            name: Bloque html 1 de la votación
+          html_block_2:
+            name: Bloque html 2 de la votación
+          html_block_3:
+            name: Bloque html 3 de la votación
+          main_data:
+            name: Titulo y descripción
+          metrics:
+            name: Métricas de la votación
+          polling_stations:
+            name: Puntos de votación
+          stats:
+            name: Estadísticas de la votación
+          timeline:
+            name: Calendario de la votación
         index:
           not_published: Despublicada
           published: Publicada
@@ -1131,6 +1162,11 @@ es-MX:
           destroy: Borrar
           new: Nuevo miembro
           title: Acciones
+      pages:
+        home:
+          highlighted_votings:
+            active_spaces: Votaciones activas
+            see_all_spaces: Ver todas las votaciones
       polling_officer_zone:
         closures:
           back_to_polling_stations: Volver a los puntos de votación
@@ -1345,6 +1381,8 @@ es-MX:
         send_access_code:
           invalid: Hubo un problema al enviar el código de acceso.
           success: Tu código de acceso se ha enviado correctamente.
+        show:
+          title: Acerca de esta votación
       votings_m:
         badge_name:
           finished: Finalizada
