@@ -4,7 +4,7 @@
       <div>
         <%= t(".title") %>
       </div>
-      <div class="flex--cc flex-gap--1">
+      <div class="flex items-center gap-x-4 ml-auto">
         <% if allowed_to? :remind, :order %>
           <%= link_to t("actions.send_voting_reminders", scope: "decidim.budgets"), admin_reminders_path(current_component, name: "orders"), class: "button button__sm button__secondary" %>
         <% end %>

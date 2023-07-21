@@ -13,7 +13,7 @@
     @apply flex items-center;
 
     .button{
-      @apply ml-auto;
+      @apply ml-auto relative;
     }
   }
 }
@@ -37,7 +37,7 @@
   }
 
   .button--title{
-    @apply flex justify-end gap-x-4 items-center;
+    @apply flex justify-end gap-x-4 items-center ml-auto;
     .dropdown,
     &.dropdown{
       @apply relative;
