@@ -64,6 +64,14 @@ module Decidim::Meetings
     end
 
     context "when everything is ok" do
+      it_behaves_like "fires an ActiveSupport::Notification event", "decidim.meetings.update_meeting:before" do
+        let(:command) { subject }
+      end
+
+      it_behaves_like "fires an ActiveSupport::Notification event", "decidim.meetings.update_meeting:after" do
+        let(:command) { subject }
+      end
+
       it "updates the meeting" do
         subject.call
 
