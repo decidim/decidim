@@ -36,8 +36,8 @@ module Decidim
         it "returns all content blocks" do
           subject.register_analyzer(**analyzer)
 
-          expect(subject.all).to be_a(Hash)
-          expect(subject.all.size).to be(1)
+          expect(subject.strategies).to be_a(Array)
+          expect(subject.size).to be(1)
         end
       end
     end

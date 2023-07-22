@@ -5,31 +5,27 @@ module Decidim
     class StrategyRegistry
       class StrategyAlreadyRegistered < StandardError; end
 
+      delegate :clear, :collect, :each, :size, to: :strategies
+      attr_reader :strategies
+
+      def initialize
+        @strategies = []
+      end
+
       def register_analyzer(name:, strategy:, options: {})
-        if strategies[name].present?
+        if self.for(name).present?
           raise(
             StrategyAlreadyRegistered,
             "There is a stategy already registered with the name `:#{name}`"
           )
         end
 
-        strategies[name] = strategy.new(options)
+        options = { name: }.merge(options)
+        strategies << strategy.new(options)
       end
 
       def for(name)
-        strategies[name]
-      end
-
-      def all
-        strategies
-      end
-
-      delegate :empty?, :size, :each, :clear, to: :strategies
-
-      private
-
-      def strategies
-        @strategies ||= {}
+        strategies.select { |k, _v| k.name == name }.first
       end
     end
   end

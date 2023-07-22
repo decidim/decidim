@@ -4,7 +4,10 @@ module Decidim
   module Ai
     module SpamContent
       class BaseStrategy
+        attr_reader :name
+
         def initialize(options = {})
+          @name = options.delete(:name)
           @options = options
         end
 
@@ -13,6 +16,10 @@ module Decidim
         def train(_classification, _content); end
 
         def untrain(_classification, _content); end
+
+        def log; end
+
+        def score; end
       end
     end
   end

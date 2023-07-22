@@ -16,6 +16,13 @@ module Decidim
 
     include ActiveSupport::Configurable
 
+    # You can configure the spam treshold for the spam detection service.
+    # The treshold is a float value between 0 and 1.
+    # The default value is 0.5
+    # Any value below the treshold will be considered spam.
+    config_accessor :spam_treshold do
+      0.5
+    end
     # Registered analyzers.
     # You can register your own analyzer by adding a new entry to this array.
     # The entry must be a hash with the following keys:

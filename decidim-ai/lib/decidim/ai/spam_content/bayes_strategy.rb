@@ -7,19 +7,41 @@ module Decidim
     module SpamContent
       class BayesStrategy < BaseStrategy
         def initialize(options = {})
-          @options = { adapter: :memory, params: {} }.deep_merge(options)
-          @backend = ClassifierReborn::Bayes.new :spam, :ham, backend: configured_backend
+          super
+          @options = { adapter: :memory, categories: %w(ham spam), params: {} }.deep_merge(options)
+
+          @available_categories = options[:categories]
+          @backend = ClassifierReborn::Bayes.new(*available_categories, backend: configured_backend)
         end
 
-        delegate :train, :untrain, :classify, to: :backend
+        delegate :train, :untrain, to: :backend
 
         def log
-          "The Classification engine marked this as ..."
+          return unless category
+
+          "The Classification engine marked this as #{category}"
+        end
+
+        def classify(content)
+          @category, @internal_score = backend.classify_with_score(content)
+          category
+        end
+
+        # The Bayes strategy returns a score between that can be lower than -1
+        # As per ClassifierReborn documentation, closest to 0 is being picked as the dominant category
+        #
+        # From original documentation:
+        #   Returns the scores in each category the provided +text+. E.g.,
+        #     b.classifications "I hate bad words and you"
+        #       =>  {"Uninteresting"=>-12.6997928013932, "Interesting"=>-18.4206807439524}
+        #   The largest of these scores (the one closest to 0) is the one picked out by #classify
+        def score
+          category.presence == "Spam" ? 1 : 0
         end
 
         private
 
-        attr_reader :backend, :options
+        attr_reader :backend, :options, :available_categories, :category, :internal_score
 
         def configured_backend
           if options[:adapter] == :redis

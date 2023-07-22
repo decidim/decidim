@@ -50,4 +50,13 @@ describe Decidim::Ai::SpamDetectionService do
       expect(subject.classification_log).to eq("base log\ndummy log")
     end
   end
+
+  describe "score" do
+    it "returns the average score of all strategies" do
+      allow(registry.for(:base)).to receive(:score).and_return(1)
+      allow(registry.for(:dummy)).to receive(:score).and_return(0)
+
+      expect(subject.score).to eq(0.5)
+    end
+  end
 end
