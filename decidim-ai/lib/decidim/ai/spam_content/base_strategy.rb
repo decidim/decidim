@@ -19,7 +19,7 @@ module Decidim
 
         def log; end
 
-        def score; end
+        def score = 0.0
       end
     end
   end

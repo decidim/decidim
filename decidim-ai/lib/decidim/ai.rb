@@ -21,7 +21,7 @@ module Decidim
     # The default value is 0.5
     # Any value below the treshold will be considered spam.
     config_accessor :spam_treshold do
-      0.5
+      0.75
     end
     # Registered analyzers.
     # You can register your own analyzer by adding a new entry to this array.

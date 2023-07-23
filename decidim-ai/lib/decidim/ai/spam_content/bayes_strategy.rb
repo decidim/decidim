@@ -14,13 +14,20 @@ module Decidim
           @backend = ClassifierReborn::Bayes.new(*available_categories, backend: configured_backend)
         end
 
-        delegate :train, :untrain, to: :backend
-
         def log
           return unless category
 
           "The Classification engine marked this as #{category}"
         end
+
+        # Calling this method without any trained categories will throw an error
+        def untrain(category, content)
+          return unless backend.categories.collect(&:downcase).include?(category)
+
+          backend.untrain(category, content)
+        end
+
+        delegate :train, to: :backend
 
         def classify(content)
           @category, @internal_score = backend.classify_with_score(content)
@@ -36,7 +43,7 @@ module Decidim
         #       =>  {"Uninteresting"=>-12.6997928013932, "Interesting"=>-18.4206807439524}
         #   The largest of these scores (the one closest to 0) is the one picked out by #classify
         def score
-          category.presence == "Spam" ? 1 : 0
+          category.presence == "spam" ? 1 : 0
         end
 
         private
