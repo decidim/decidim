@@ -639,6 +639,7 @@ fi-pl:
             success: Julkisen tunnistusavaimesi tallentaminen onnistui.
       votes:
         ballot_decision:
+          audit: Tarkasta äänesi
           back: Aloita äänestysprosessi uudestaan
           ballot_hash: 'Äänestyslippusi tunniste on:'
           cast: Lähetä äänestyslippusi viimeistelläksesi äänestyksen
@@ -660,6 +661,7 @@ fi-pl:
           feedback: Jätä meille palautetta
           header: Ääni vahvistettu
           lead: Äänesi on annettu!
+          text: 'Voit tarkastaa, että äänesi on jätetty onnistuneesti äänestyslaatikkoon seuraavalla tunnisteella: '
           verify_link: Tarkastaaksesi tämän, kopioi äänen tunniste <a href="%{link}">äänten vahvistussivulle</a>
         create:
           error: Äänen jättämisessä tapahtui virhe. Ole hyvä ja yritä uudelleen.
@@ -671,6 +673,12 @@ fi-pl:
           lead: Ääntäsi ei ole annettu!
           text: Jokin meni pieleen, yritä uudelleen.
           try_again: Yritä uudestaan
+        header:
+          ballot_decision: Jätä äänesi
+          confirm: Vahvista
+          election: Vaali
+          register: Luo tunnus
+          vote_for: Äänestä - %{title}
         messages:
           invalid_token: Istuntosi äänestyskopissa ei ole kelvollinen. Yritä äänestää uudelleen.
           not_allowed: Et voi äänestää tässä vaalissa tällä hetkellä.
@@ -683,6 +691,7 @@ fi-pl:
           nota_option: Tyhjä / Ei mitään näistä
           preview_alert: Tämä on äänestyskopin esikatselunäkymä.
           question_steps: Kysymys %{current_step} / %{total_steps}
+          selections: "Valittu %{selected} / %{max_selections}"
         onboarding_modal:
           create_account: Luo tili
           description: Haluatko luoda oman käyttäjätilin alustalle? Voit osallistua prosesseihin ja alustalla esitettyjen asioiden kehittämiseen.
@@ -755,6 +764,9 @@ fi-pl:
           title: Mitä ovat äänestykset?
     menu:
       votings: Äänestykset
+    participatory_spaces:
+      related_elections:
+        see_all: Näytä kaikki vaalit
     statistics:
       elections_count: Vaalia
       votings_count: Äänestystä
@@ -792,8 +804,30 @@ fi-pl:
             invalid: Äänestystyylin päivitys epäonnistui.
             success: Äänestystyylin päivitys onnistui.
         content_blocks:
+          attachments_and_folders:
+            name: Äänestyksen liitteet ja kansiot
+          header:
+            name: Äänestyksen otsikko
           highlighted_votings:
             max_results: Näytettävien elementtien enimmäismäärä
+          html_block_1:
+            name: Äänestyksen HTML-lohko 1
+          html_block_2:
+            name: Äänestyksen HTML-lohko 2
+          html_block_3:
+            name: Äänestyksen HTML-lohko 3
+          main_data:
+            name: Otsikko ja kuvaus
+          metrics:
+            name: Äänestyksen tilastomittarit
+          polling_stations:
+            name: Äänestyspaikat
+          related_elections:
+            name: Äänestyksen vaalit
+          stats:
+            name: Äänestyksen tilastot
+          timeline:
+            name: Äänestyksen aikajana
         index:
           not_published: Julkaisematon
           published: Julkaistu
@@ -1132,6 +1166,11 @@ fi-pl:
           destroy: Poista
           new: Uusi jäsen
           title: Toiminnot
+      pages:
+        home:
+          highlighted_votings:
+            active_spaces: Aktiiviset äänestykset
+            see_all_spaces: Näytä kaikki äänestykset
       polling_officer_zone:
         closures:
           back_to_polling_stations: Takaisin äänestyspaikkoihin
@@ -1346,6 +1385,8 @@ fi-pl:
         send_access_code:
           invalid: Tunnistautumiskoodin lähetys epäonnistui.
           success: Tunnistautumiskoodisi lähetys onnistui.
+        show:
+          title: Tietoa tästä äänestyksestä
       votings_m:
         badge_name:
           finished: Päättynyt
