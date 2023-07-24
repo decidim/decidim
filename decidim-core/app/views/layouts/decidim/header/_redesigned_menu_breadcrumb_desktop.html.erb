@@ -7,18 +7,7 @@
   </button>
 </div>
 
-<script>
-  // NOTE: This hack is very specific and exclusively related with #main-dropdown-menu, see https://github.com/decidim/decidim/pull/11253
-  // that is why is placed next along with the dropdown itself
-  document.addEventListener("DOMContentLoaded", () => {
-    const mainDropdownMenu = document.getElementById("main-dropdown-menu")
-    mainDropdownMenu.addEventListener("transitionend", ({ target }) => { target.allowReopen = false; target.style.pointerEvents = "none" })
-    mainDropdownMenu.addEventListener("transitionstart", ({ target }) => { target.allowReopen = true; target.style.pointerEvents = "auto" })
-    mainDropdownMenu.addEventListener("mouseenter", ({ target }) => target.allowReopen && target.getAttribute('aria-hidden') === 'true' && document.querySelector('#main-dropdown-summary').click())
-  })
-</script>
-
-<div id="main-dropdown-menu" class="menu-bar__breadcrumb-desktop__dropdown-content" aria-hidden="true">
+<div id="main-dropdown-menu" class="menu-bar__breadcrumb-desktop__dropdown-content" aria-hidden="true" data-enhance-dropdown="#main-dropdown-summary">
   <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_main_dropdown", locals: { id: "breadcrumb-main-dropdown-desktop" } %>
 </div>
 

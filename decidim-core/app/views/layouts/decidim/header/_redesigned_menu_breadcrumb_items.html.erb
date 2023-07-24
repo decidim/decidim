@@ -17,17 +17,7 @@
         </button>
       </div>
 
-      <script>
-        // NOTE: This hack is very specific and exclusively related with #secondary-dropdown-menu-<%= i %>, see https://github.com/decidim/decidim/pull/11253
-        // that is why is placed next along with the dropdown itself
-        document.addEventListener("DOMContentLoaded", () => {
-          const mainDropdownMenu = document.getElementById("secondary-dropdown-menu-<%= i %>")
-          mainDropdownMenu.addEventListener("transitionend", ({ target }) => { target.allowReopen = false; target.style.pointerEvents = "none" })
-          mainDropdownMenu.addEventListener("transitionstart", ({ target }) => { target.allowReopen = true; target.style.pointerEvents = "auto" })
-          mainDropdownMenu.addEventListener("mouseenter", ({ target }) => target.allowReopen && target.getAttribute('aria-hidden') === 'true' && document.querySelector('#secondary-dropdown-summary-<%= i %>').click())
-        })
-      </script>
-      <div id="secondary-dropdown-menu-<%= i %>" class="menu-bar__breadcrumb-desktop__dropdown-content-secondary" aria-hidden="true">
+      <div id="secondary-dropdown-menu-<%= i %>" class="menu-bar__breadcrumb-desktop__dropdown-content-secondary" aria-hidden="true" data-enhance-dropdown="#secondary-dropdown-summary-<%= i %>">
         <%= cell item[:dropdown_cell], item[:resource] %>
       </div>
     </div>
