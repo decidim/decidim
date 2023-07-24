@@ -5,7 +5,6 @@ pt-BR:
         assemblies_ids: Assembleias Relacionadas
         available_slots: Vagas disponíveis
         banner_image: Imagem de banner
-        consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorias
         copy_components: Copiar componentes
         copy_features: Copiar recursos
@@ -464,12 +463,6 @@ pt-BR:
             states:
               confirmed: Confirmado
               pending: Pendente
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Conferências ativas
-            conferences_button_title: Link para a página de Conferências exibindo todas as conferências
-            see_all_conferences: Veja todas as conferências
       registration_types:
         index:
           choose_an_option: 'Escolha sua opção de registro:'
@@ -481,7 +474,6 @@ pt-BR:
         introduction: Introdução
         objectives: Objetivos
         related_assemblies: Assembleias Relacionadas
-        related_consultations: Consultas Relacionadas
         related_participatory_processes: Processos participativos relacionados
     events:
       conferences:
@@ -536,9 +528,6 @@ pt-BR:
     decidim:
       conference_hero:
         register: registo
-      conference_widgets:
-        show:
-          take_part: Participar
       conferences:
         conference:
           more_info: Mais informações
@@ -549,9 +538,6 @@ pt-BR:
           conferences:
             one: "%{count} conferência"
             other: "%{count} conferências"
-        promoted_conference:
-          more_info: Mais informações
-          take_part: Participar
       conferences_nav:
         conference_menu_item: Informação
         conference_partners_menu_item: Parceiros
