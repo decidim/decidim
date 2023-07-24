@@ -4,7 +4,6 @@ sk:
       conference:
         assemblies_ids: Podobné zhromaždenia
         banner_image: Obrázok banneru
-        consultations_ids: Podobné Konzultácie
         copy_categories: Kopírovať kategórie
         copy_components: Kopírovať komponenty
         copy_features: Kopírovať prvky
@@ -432,11 +431,6 @@ sk:
             states:
               confirmed: Potvrdené
               pending: Čakajúce
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Aktívne konferencie
-            see_all_conferences: Zobraziť všetky konferencie
       registration_types:
         index:
           choose_an_option: 'Zvoľte si možnosti registrácie:'
@@ -447,7 +441,6 @@ sk:
         introduction: Úvod
         objectives: Ciele
         related_assemblies: Súvisiace zhromaždenia
-        related_consultations: Súvisiace Konzultácie
         related_participatory_processes: Súvisiace participatívne procesy
     events:
       conferences:
@@ -489,9 +482,6 @@ sk:
     decidim:
       conference_hero:
         register: Registrovať
-      conference_widgets:
-        show:
-          take_part: Zapojte sa
       conferences:
         conference:
           more_info: Viac informácií
@@ -504,9 +494,6 @@ sk:
             few: "%{count} konferencií"
             many: "%{count} konferencií"
             other: "%{count} konferencií"
-        promoted_conference:
-          more_info: Viac informácií
-          take_part: Zapojte sa
       conferences_nav:
         conference_menu_item: Informácie
         conference_partners_menu_item: Partneri
