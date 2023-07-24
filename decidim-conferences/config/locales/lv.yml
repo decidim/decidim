@@ -4,7 +4,6 @@ lv:
       conference:
         assemblies_ids: Saistītās asamblejas
         banner_image: Reklāmkaroga attēls
-        consultations_ids: Saistītās konsultācijas
         copy_categories: Kopēt kategorijas
         copy_components: Kopēt komponentus
         copy_features: Kopēt funkcijas
@@ -428,11 +427,6 @@ lv:
             states:
               confirmed: Apstiprināts
               pending: Nepabeigts
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Aktīvās konferences
-            see_all_conferences: Skatīt visas konferences
       registration_types:
         index:
           choose_an_option: 'Izvēlieties savu reģistrācijas iespēju:'
@@ -443,7 +437,6 @@ lv:
         introduction: Ievads
         objectives: Mērķi
         related_assemblies: Saistītās asamblejas
-        related_consultations: Saistītās konsultācijas
         related_participatory_processes: Saistītie līdzdalības procesi
     events:
       conferences:
@@ -490,9 +483,6 @@ lv:
     decidim:
       conference_hero:
         register: Reģistrēties
-      conference_widgets:
-        show:
-          take_part: Piedalīties
       conferences:
         conference:
           more_info: Sīkāka informācija
@@ -504,9 +494,6 @@ lv:
             zero: "%{count} konferences"
             one: "%{count} konference"
             other: "%{count} konferences"
-        promoted_conference:
-          more_info: Sīkāka informācija
-          take_part: Piedalīties
       conferences_nav:
         conference_menu_item: Informācija
         conference_partners_menu_item: Partneri
