@@ -512,7 +512,6 @@ ar:
           highlighted_conferences:
             active_conferences: المؤتمرات النشطة
             conferences_button_title: رابط إلى صفحة المؤتمرات لعرض جميع المؤتمرات
-            see_all_conferences: رؤية جميع المؤتمرات
       photo:
         image:
           attributes:
