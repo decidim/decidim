@@ -507,7 +507,6 @@ fr:
           highlighted_conferences:
             active_conferences: Conférences actives
             conferences_button_title: Lien vers la page des conférences affichant toutes les conférences
-            see_all_conferences: Voir toutes les conférences
       photo:
         image:
           attributes:
