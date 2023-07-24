@@ -904,6 +904,7 @@ eu:
         areas: Arloak
         authorization_workflows: Egiaztapen metodoak
         dashboard: Kontrol-panela
+        edit_landing_page: Orriaren edukiak
         impersonatable_users: Erabiltzaile erabilgarriak
         impersonations: Erabiltzaileen kudeaketa
         metrics: Metrikak
