@@ -5,7 +5,6 @@ cs:
         assemblies_ids: Související shromáždění
         available_slots: Dostupné sloty
         banner_image: Obrázek banneru
-        consultations_ids: Související konzultace
         copy_categories: Kopírovat kategorie
         copy_components: Kopírování komponent
         copy_features: Funkce kopírování
@@ -505,12 +504,6 @@ cs:
             states:
               confirmed: Potvrzeno
               pending: Čekající
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Aktivní konference
-            conferences_button_title: Odkaz na stránku Konference zobrazující všechny konference
-            see_all_conferences: Podívejte se na všechny konference
       registration_types:
         index:
           choose_an_option: 'Vyberte možnost registrace:'
@@ -522,7 +515,6 @@ cs:
         introduction: Úvod
         objectives: Cíle
         related_assemblies: Související shromáždění
-        related_consultations: Související konzultace
         related_participatory_processes: Související procesy účasti
     events:
       conferences:
@@ -581,9 +573,6 @@ cs:
     decidim:
       conference_hero:
         register: Registrovat
-      conference_widgets:
-        show:
-          take_part: Zúčastnit se
       conferences:
         conference:
           more_info: Více informací
@@ -596,9 +585,6 @@ cs:
             few: "%{count} konferencí"
             many: "%{count} konferencí"
             other: "%{count} konferencí"
-        promoted_conference:
-          more_info: Více informací
-          take_part: Zúčastnit se
       conferences_nav:
         conference_menu_item: Informace
         conference_partners_menu_item: Partneři
