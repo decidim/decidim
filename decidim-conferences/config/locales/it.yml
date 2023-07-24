@@ -5,7 +5,6 @@ it:
         assemblies_ids: Assemblee collegate
         available_slots: Slot disponibili
         banner_image: Immagine banner
-        consultations_ids: Consultazioni correlate
         copy_categories: Copia le categorie
         copy_components: Copia componenti
         copy_features: Copia le caratteristiche
@@ -464,12 +463,6 @@ it:
             states:
               confirmed: Confermato
               pending: in attesa di
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Conferenze attive
-            conferences_button_title: Link alla pagina Conferenze in cui sono visualizzate tutte le conferenze
-            see_all_conferences: Vedi tutte le conferenze
       registration_types:
         index:
           choose_an_option: 'Scegli la tua opzione di registrazione:'
@@ -481,7 +474,6 @@ it:
         introduction: Introduzione
         objectives: Obiettivi
         related_assemblies: Assemblee collegate
-        related_consultations: Consultazioni correlate
         related_participatory_processes: Processi di partecipazione correlati
     events:
       conferences:
@@ -536,9 +528,6 @@ it:
     decidim:
       conference_hero:
         register: Registrati
-      conference_widgets:
-        show:
-          take_part: Partecipa
       conferences:
         conference:
           more_info: Ulteriori informazioni
@@ -549,9 +538,6 @@ it:
           conferences:
             one: "%{count} conferenza"
             other: "%{count} conferenze"
-        promoted_conference:
-          more_info: Maggiori informazioni
-          take_part: Partecipa
       conferences_nav:
         conference_menu_item: Informazioni
         conference_partners_menu_item: Partner
