@@ -36,8 +36,8 @@ export default class VoteQuestionsComponent {
   }
 
   errored() {
-    this.$currentStep.addClass("hide").removeClass("show")
-    this.$currentStep = this.$voteWrapper.find("#failed").addClass("show").removeClass("hide")
+    this.$currentStep.attr("hidden", true);
+    this.$currentStep = this.$voteWrapper.find("#failed").attr("hidden", false);
   }
 
   toggleContinueButton() {
