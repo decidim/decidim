@@ -1,4 +1,22 @@
-<div class="item__edit item__edit-1col">
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t("menu.appearance", scope: "decidim.admin") %>
+  </h2>
+</div>
+<div class="item__edit">
+  <div class="item__edit-menu">
+    <div class="item__edit-menu-sticky">
+      <p class="item__edit-menu-title">
+        <%= t("sections", scope: "decidim.assemblies.admin.assemblies.form") %>
+      </p>
+      <%= link_to t("homepage_appearance_title", scope: "decidim.admin.organization_appearance.form"), decidim_admin.edit_organization_appearance_path(anchor: t("homepage_appearance_title", scope: "decidim.admin.organization_appearance.form")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("homepage_highlighted_content_banner_title", scope: "decidim.admin.organization_appearance.form"), decidim_admin.edit_organization_appearance_path(anchor: t("homepage_highlighted_content_banner_title", scope: "decidim.admin.organization_appearance.form")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("omnipresent_banner_appearance_title", scope: "decidim.admin.organization_appearance.form"), decidim_admin.edit_organization_appearance_path(anchor: t("omnipresent_banner_appearance_title", scope: "decidim.admin.organization_appearance.form")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("layout_appearance_title", scope: "decidim.admin.organization_appearance.form.images"), decidim_admin.edit_organization_appearance_path(anchor: t("layout_appearance_title", scope: "decidim.admin.organization_appearance.form.images")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("colors_title", scope: "decidim.admin.organization_appearance.form.colors"), decidim_admin.edit_organization_appearance_path(anchor: t("colors_title", scope: "decidim.admin.organization_appearance.form.colors")), class: "item__edit-menu-anchor" %>
+    </div>
+  </div>
+
   <div class="item__edit-form">
     <%= decidim_form_for(@form, html: { class: "form-defaults form edit_organization_appearance" }, url: organization_appearance_path, method: :put) do |f| %>
       <%= render partial: "form", object: f %>

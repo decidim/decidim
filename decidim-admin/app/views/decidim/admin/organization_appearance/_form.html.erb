@@ -1,9 +1,14 @@
 <div class="form__wrapper">
-  <div class="card">
+  <div class="card" data-component="accordion" id="accordion-<%= t("homepage_appearance_title", scope: "decidim.admin.organization_appearance.form") %>">
     <div class="card-divider">
-      <h2 class="card-title"><%= t ".homepage_appearance_title" %></h2>
+      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t("homepage_appearance_title", scope: "decidim.admin.organization_appearance.form") %>" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="accordion-<%= t("homepage_appearance_title", scope: "decidim.admin.organization_appearance.form") %>">
+          <%= t("homepage_appearance_title", scope: "decidim.admin.organization_appearance.form") %>
+        </h2>
+      </button>
     </div>
-    <div class="card-section">
+    <div id="panel-<%= t("homepage_appearance_title", scope: "decidim.admin.organization_appearance.form") %>" class="card-section">
       <div class="row column">
         <%= form.translated :editor, :description %>
       </div>
@@ -22,11 +27,16 @@
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" data-component="accordion" id="accordion-<%= t("homepage_highlighted_content_banner_title", scope: "decidim.admin.organization_appearance.form") %>">
     <div class="card-divider">
-      <h2 class="card-title"><%= t ".homepage_highlighted_content_banner_title" %></h2>
+      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t("homepage_highlighted_content_banner_title", scope: "decidim.admin.organization_appearance.form") %>" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="accordion-<%= t("homepage_highlighted_content_banner_title", scope: "decidim.admin.organization_appearance.form") %>">
+          <%= t("homepage_highlighted_content_banner_title", scope: "decidim.admin.organization_appearance.form") %>
+        </h2>
+      </button>
     </div>
-    <div class="card-section">
+    <div id="panel-<%= t("homepage_highlighted_content_banner_title", scope: "decidim.admin.organization_appearance.form") %>" class="card-section">
       <div class="row column">
         <%= form.check_box :highlighted_content_banner_enabled %>
       </div>
@@ -59,11 +69,16 @@
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" data-component="accordion" id="accordion-<%= t("omnipresent_banner_appearance_title", scope: "decidim.admin.organization_appearance.form") %>">
     <div class="card-divider">
-      <h2 class="card-title"><%= t ".omnipresent_banner_appearance_title" %></h2>
+      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t("omnipresent_banner_appearance_title", scope: "decidim.admin.organization_appearance.form") %>" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="<%= t("omnipresent_banner_appearance_title", scope: "decidim.admin.organization_appearance.form") %>">
+          <%= t("omnipresent_banner_appearance_title", scope: "decidim.admin.organization_appearance.form") %>
+        </h2>
+      </button>
     </div>
-    <div class="card-section">
+    <div id="panel-<%= t("omnipresent_banner_appearance_title", scope: "decidim.admin.organization_appearance.form") %>" class="card-section">
       <div class="row column">
         <%= form.check_box :enable_omnipresent_banner %>
       </div>
@@ -81,7 +96,7 @@
       </div>
     </div>
   </div>
+  <%= render partial: "decidim/admin/organization_appearance/form/images", locals: { form: } %>
+  <%= render partial: "decidim/admin/organization_appearance/form/colors", locals: { form: } %>
 </div>
 
-<%= render partial: "decidim/admin/organization_appearance/form/images", locals: { form: } %>
-<%= render partial: "decidim/admin/organization_appearance/form/colors", locals: { form: } %>
