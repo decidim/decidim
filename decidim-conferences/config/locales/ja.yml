@@ -502,7 +502,6 @@ ja:
           highlighted_conferences:
             active_conferences: アクティブなカンファレンス
             conferences_button_title: すべてのカンファレンスを表示するカンファレンス一覧ページへのリンク
-            see_all_conferences: すべてのカンファレンスを見る
       photo:
         image:
           attributes:
