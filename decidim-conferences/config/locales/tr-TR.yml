@@ -453,7 +453,6 @@ tr:
         home:
           highlighted_conferences:
             active_conferences: Aktif konferanslar
-            see_all_conferences: Tüm konferanslara bak
       photo:
         image:
           attributes:
