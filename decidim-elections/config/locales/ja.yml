@@ -627,6 +627,7 @@ ja:
             success: 公開識別キーが正常に保存されました。
       votes:
         ballot_decision:
+          audit: 監査投票
           back: 投票プロセスを再度開始
           ballot_hash: '投票用紙の識別子:'
           cast: 投票を完了するには投票を行ってください
@@ -648,6 +649,7 @@ ja:
           feedback: フィードバックを送る
           header: 投票が確定されました
           lead: あなたの投票が行われました!
+          text: '投票が投票箱に正常に追加されたことを、次の識別子で確認できます: '
           verify_link: 確認するには、識別子をコピーして <a href="%{link}">投票検証ページ</a> に貼り付けます
         create:
           error: 投票を行う際に問題が発生しました。もう一度やり直してください。
@@ -659,6 +661,12 @@ ja:
           lead: 投票は行われませんでした！
           text: 問題が発生しました。もう一度やり直してください。
           try_again: 再実行
+        header:
+          ballot_decision: キャスト
+          confirm: 確認
+          election: 選挙
+          register: 登録
+          vote_for: '%{title} に投票'
         messages:
           invalid_token: 投票ブースでのセッションが無効です。もう一度投票してください。
           not_allowed: 現在、この選挙に投票することはできません。
@@ -671,6 +679,7 @@ ja:
           nota_option: 空白、もしくは上記のどれでもない
           preview_alert: これは投票ブースのプレビューです。
           question_steps: '%{current_step} / %{total_steps} の質問'
+          selections: "%{selected} / %{max_selections} の選択"
         onboarding_modal:
           create_account: アカウントの作成
           description: プラットフォームに新しいアカウントを作成しますか？ プロセスに参加し、組織の積極的な一員になることができます。
@@ -743,6 +752,9 @@ ja:
           title: 投票とは何ですか？
     menu:
       votings: 投票
+    participatory_spaces:
+      related_elections:
+        see_all: すべての選挙を見る
     statistics:
       elections_count: 選挙
       votings_count: 投票
@@ -780,8 +792,30 @@ ja:
             invalid: この投票スタイルの更新中に問題が発生しました。
             success: 投票スタイルが正常に更新されました。
         content_blocks:
+          attachments_and_folders:
+            name: 投票の添付ファイルとフォルダ
+          header:
+            name: 投票ヘッダー
           highlighted_votings:
             max_results: 表示する要素の最大量
+          html_block_1:
+            name: 投票htmlブロック1
+          html_block_2:
+            name: 投票htmlブロック2
+          html_block_3:
+            name: 投票htmlブロック3
+          main_data:
+            name: タイトルと説明
+          metrics:
+            name: 投票メトリック
+          polling_stations:
+            name: 投票所
+          related_elections:
+            name: 投票する選挙
+          stats:
+            name: 投票の統計
+          timeline:
+            name: 投票のタイムライン
         index:
           not_published: 未公開
           published: 公開済み
@@ -1119,6 +1153,11 @@ ja:
           destroy: 削除
           new: 新規メンバー
           title: アクション
+      pages:
+        home:
+          highlighted_votings:
+            active_spaces: 有効な投票
+            see_all_spaces: すべての投票を表示
       polling_officer_zone:
         closures:
           back_to_polling_stations: 投票所に戻る
@@ -1332,6 +1371,8 @@ ja:
         send_access_code:
           invalid: アクセスコードの送信中に問題が発生しました。
           success: アクセスコードが正常に送信されました。
+        show:
+          title: この投票について
       votings_m:
         badge_name:
           finished: 完了
