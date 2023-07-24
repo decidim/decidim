@@ -514,6 +514,7 @@ cs:
           highlighted_conferences:
             active_conferences: Aktivní konference
             conferences_button_title: Odkaz na stránku Konference zobrazující všechny konference
+            see_all_conferences: Zobrazit všechny konference
       photo:
         image:
           attributes:
