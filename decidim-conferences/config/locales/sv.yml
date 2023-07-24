@@ -468,6 +468,11 @@ sv:
             states:
               confirmed: Bekräftad
               pending: Väntande
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Konferenser
+            see_all_spaces: Se alla konferenser
       registration_types:
         index:
           choose_an_option: 'Välj registreringsalternativ:'
