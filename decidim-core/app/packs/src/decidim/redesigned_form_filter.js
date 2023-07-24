@@ -10,7 +10,6 @@
 import delayed from "./delayed"
 import CheckBoxesTree from "./redesigned_check_boxes_tree"
 import { registerCallback, unregisterCallback, pushState, replaceState, state } from "./history"
-import DataPicker from "./data_picker"
 
 export default class FormFilterComponent {
   constructor($form) {
@@ -19,7 +18,6 @@ export default class FormFilterComponent {
     this.mounted = false;
     this.changeEvents = true;
     this.theCheckBoxesTree = new CheckBoxesTree();
-    this.theDataPicker = window.theDataPicker || new DataPicker($(".data-picker"));
 
     this._updateInitialState();
     this._onFormChange = delayed(this, this._onFormChange.bind(this));
@@ -190,9 +188,6 @@ export default class FormFilterComponent {
       element.checked = element.indeterminate = false;
     });
     this.$form.find("input[type=radio]").attr("checked", false);
-    this.$form.find(".data-picker").each((_index, picker) => {
-      this.theDataPicker.clear(picker);
-    });
 
     // This ensure the form is reset in a valid state where a fieldset of
     // radio buttons has the first selected.
@@ -244,14 +239,6 @@ export default class FormFilterComponent {
       });
     }
 
-    // Retrieves picker information for selected values (value, text and link) from the state object
-    $(".data-picker", this.$form).each((_index, picker) => {
-      let pickerState = currentState[picker.id];
-      if (pickerState) {
-        this.theDataPicker.load(picker, pickerState);
-      }
-    })
-
     // Only one instance should submit the form on browser history navigation
     if (this.popStateSubmiter) {
       Rails.fire(this.$form[0], "submit");
@@ -299,11 +286,6 @@ export default class FormFilterComponent {
     } else {
       path = `${formAction}&${params}`;
     }
-
-    // Stores picker information for selected values (value, text and link) in the currentState object
-    $(".data-picker", this.$form).each((_index, picker) => {
-      currentState[picker.id] = this.theDataPicker.save(picker);
-    })
 
     return [path, currentState];
   }
