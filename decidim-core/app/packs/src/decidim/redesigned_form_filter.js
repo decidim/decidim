@@ -203,7 +203,7 @@ export default class FormFilterComponent {
    * @param {Object} currentState - state stored along with location URL
    * @returns {Void} - Returns nothing.
    */
-  _onPopState(currentState) {
+  _onPopState() {
     this.changeEvents = false;
     this._clearForm();
 
