@@ -3,7 +3,7 @@ eu:
   activemodel:
     attributes:
       sortition:
-        additional_info: Sortzeko informazioa
+        additional_info: Zozketari buruzko informazioa
         decidim_category_id: Zozketa aplikatu nahi dituzun proposamenen kategoriak
         decidim_proposals_component_id: Proposamenak ezarri
         dice: Errotako emaitza. 6 ataleko hodi bat mugitu edo 1etik 6ra bitarteko zenbaki bat sortzeko ausazko ausazko modua bilatzeko, eta sartu zenbaki horren aurrean zenbait lekukoren aurrean. Horrek emaitzen ausentziaren kalitatearen eta bermearen alde egiten du
@@ -11,27 +11,27 @@ eu:
         title: Izenburua
         witnesses: Lekukoak
     models:
-      decidim/sortitions/create_sortition_event: Sortition
+      decidim/sortitions/create_sortition_event: Zozketa
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sortition
-        other: Sortitions
+        one: Zozketa
+        other: Zozketak
   decidim:
     components:
       sortitions:
         actions:
-          comment: Egin iruzkina
-        name: Sortitions
+          comment: Iruzkina
+        name: Zozketak
         settings:
           global:
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioa uzteko)
     events:
       sortitions:
         sortition_created:
-          email_intro: '"%{resource_title}" sortzea ondorengo "%{participatory_space_title}" erantsi zaizu.'
-          email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
+          email_intro: '"%{resource_title}" zozketa jarraitzen ari zaren "%{participatory_space_title}" espazioan gehitu da.'
+          email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekan sartu jarraitzeari uzteko.
           email_subject: Sortze berria %{participatory_space_title}-ra gehitu da
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kokalekua %{participatory_space_title} gehitu da
     sortitions:
