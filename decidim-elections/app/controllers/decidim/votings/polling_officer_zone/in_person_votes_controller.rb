@@ -122,10 +122,10 @@ module Decidim
 
         def election
           @election ||= Decidim::Elections::Election
-            .joins("INNER JOIN decidim_components component ON component.id = decidim_elections_elections.decidim_component_id")
-            .where(component: { participatory_space: current_organization.participatory_spaces })
-            .includes(questions: :answers)
-            .find_by(id: params[:election_id])
+                        .joins("INNER JOIN decidim_components component ON component.id = decidim_elections_elections.decidim_component_id")
+                        .where(component: { participatory_space: current_organization.participatory_spaces })
+                        .includes(questions: :answers)
+                        .find_by(id: params[:election_id])
         end
 
         def polling_officer

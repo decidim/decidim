@@ -19,8 +19,8 @@ module Decidim
 
         def projects
           @projects ||= Decidim::Budgets::Project
-            .joins("INNER JOIN decidim_budgets_budgets budget ON budget.id = decidim_budgets_projects.decidim_budgets_budget_id")
-            .where(budget: { component: current_component })
+                        .joins("INNER JOIN decidim_budgets_budgets budget ON budget.id = decidim_budgets_projects.decidim_budgets_budget_id")
+                        .where(budget: { component: current_component })
         end
 
         def project
