@@ -7,7 +7,6 @@
   <div class="item__edit-form">
     <%= decidim_form_for(@form, html: {class: "form-defaults form edit_area_"}) do |f| %>
       <%= render partial: "form", object: f %>
-      </div>
       <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
         <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
       </div>
