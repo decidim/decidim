@@ -5,7 +5,6 @@ lb:
         assemblies_ids: Ähnliche Assemblies
         available_slots: Verfügbare Plätze
         banner_image: Banner-Bild
-        consultations_ids: Verwandte Konsultationen
         copy_categories: Kategorien kopieren
         copy_components: Kopieren Sie Komponenten
         copy_features: Funktionen kopieren
@@ -393,12 +392,6 @@ lb:
             states:
               confirmed: Bestätigt
               pending: steht aus
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Aktive Konferenzen
-            conferences_button_title: Link zur Konferenz-Seite die alle Konferenzen anzeigt
-            see_all_conferences: Alle Konferenzen anzeigen
       registration_types:
         index:
           choose_an_option: 'Wählen Sie Ihre Registrierungsoption:'
@@ -410,7 +403,6 @@ lb:
         introduction: Einführung
         objectives: Ziele
         related_assemblies: Ähnliche Gremien
-        related_consultations: Verwandte Konsultationen
         related_participatory_processes: Ähnliche Beteiligungsprozesse
     events:
       conferences:
@@ -465,9 +457,6 @@ lb:
     decidim:
       conference_hero:
         register: Registrieren
-      conference_widgets:
-        show:
-          take_part: Teilnehmen
       conferences:
         conference:
           more_info: Mehr Informationen
@@ -478,9 +467,6 @@ lb:
           conferences:
             one: "%{count} Konferenz"
             other: "%{count} Konferenzen"
-        promoted_conference:
-          more_info: Mehr Informationen
-          take_part: Teilnehmen
       conferences_nav:
         conference_menu_item: Information
         conference_partners_menu_item: Partner
