@@ -1035,6 +1035,7 @@ de:
         authorization_workflows: Verifizierungsmethoden
         dashboard: Instrumententafel
         edit_external_domains: Externe Domain-Whitelist
+        edit_landing_page: Seiteninhalte
         edit_organization_appearance: Homepage-Erscheinungsbild bearbeiten
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
