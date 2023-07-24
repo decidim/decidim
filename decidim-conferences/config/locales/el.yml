@@ -507,7 +507,6 @@ el:
           highlighted_conferences:
             active_conferences: Ενεργές διασκέψεις
             conferences_button_title: Σύνδεσμος προς τη σελίδα Διασκέψεων που εμφανίζει όλες τις διασκέψεις
-            see_all_conferences: Δείτε όλες τις διασκέψεις
       photo:
         image:
           attributes:
