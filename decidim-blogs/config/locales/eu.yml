@@ -27,16 +27,23 @@ eu:
           post:
             name: Argitalpena
         posts:
+          create:
+            invalid: Arazo bat sortu da post hau sortzean.
+            success: Posta ondo sortu da.
+          destroy:
+            success: Posta zuzen ezabatu da.
           edit:
             save: Eguneratu
             title: Editatu argitalpena
           index:
+            not_published_yet: Oraindik argitaratu gabe.
             title: Argitalpenak
           new:
             create: Sortu
             title: Sortu argitalpena
           update:
             invalid: Akatsen bat gertatu da mezua gordetzean.
+            success: Posta zuzen gorde da.
       admin_log:
         post:
           create: "%{user_name} k %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
