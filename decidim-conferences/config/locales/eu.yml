@@ -463,6 +463,11 @@ eu:
             states:
               confirmed: baieztatu
               pending: Zain
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Hitzaldiak
+            see_all_spaces: Ikusi hitzaldi guztiak
       registration_types:
         index:
           choose_an_option: 'Aukeratu zure erregistro-aukera:'
