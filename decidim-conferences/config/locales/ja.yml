@@ -489,6 +489,11 @@ ja:
             states:
               confirmed: 確認済み
               pending: 保留中
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: カンファレンス
+            see_all_spaces: すべてのカンファレンスを見る
       registration_types:
         index:
           choose_an_option: '登録オプションを選択：'
