@@ -17,7 +17,9 @@ module Decidim
         end
 
         def project
-          @project ||= Decidim::Budgets::Project.joins(:budget).where(budget: { component: current_component }).find(params[:project_id])
+          @project ||= Decidim::Budgets::Project
+                       .joins("INNER JOIN decidim_budgets_budgets budget ON budget.id = decidim_budgets_projects.decidim_budgets_budget_id")
+                       .where(budget: { component: current_component }).find(params[:project_id])
         end
       end
     end
