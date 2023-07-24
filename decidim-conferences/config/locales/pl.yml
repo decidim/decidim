@@ -5,7 +5,6 @@ pl:
         assemblies_ids: Powiązane zespoły
         available_slots: Dostępne terminy
         banner_image: Baner
-        consultations_ids: Powiązane konsultacje
         copy_categories: Skopiuj kategorie
         copy_components: Skopiuj komponenty
         copy_features: Skopiuj funkcje
@@ -471,11 +470,6 @@ pl:
             states:
               confirmed: Potwierdzono
               pending: Oczekuje
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Aktualne konferencje
-            see_all_conferences: Zobacz wszystkie konferencje
       registration_types:
         index:
           choose_an_option: 'Wybierz opcję rejestracji:'
@@ -487,7 +481,6 @@ pl:
         introduction: Wprowadzenie
         objectives: Cele
         related_assemblies: Powiązane zespoły
-        related_consultations: Powiązane konsultacje
         related_participatory_processes: Powiązane procesy partycypacyjne
     events:
       conferences:
@@ -542,9 +535,6 @@ pl:
     decidim:
       conference_hero:
         register: Zarejestruj się
-      conference_widgets:
-        show:
-          take_part: Weź udział
       conferences:
         conference:
           more_info: Więcej informacji
@@ -557,9 +547,6 @@ pl:
             few: "%{count} konferencji"
             many: "%{count} konferencji"
             other: "%{count} konferencji"
-        promoted_conference:
-          more_info: Więcej informacji
-          take_part: Weź udział
       conferences_nav:
         conference_menu_item: Informacja
         conference_partners_menu_item: Partnerzy
