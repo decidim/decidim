@@ -494,6 +494,11 @@ fr-CA:
             states:
               confirmed: Confirmé
               pending: En attente
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Conférences
+            see_all_spaces: Voir toutes les conférences
       registration_types:
         index:
           choose_an_option: 'Choisissez votre option d''inscription:'
