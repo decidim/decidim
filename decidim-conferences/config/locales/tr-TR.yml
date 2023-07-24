@@ -424,6 +424,11 @@ tr:
             states:
               confirmed: onaylı
               pending: kadar
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Konferanslar
+            see_all_spaces: Tüm Konferanslar
       registration_types:
         index:
           choose_an_option: 'Kayıt seçeneğinizi seçin:'
