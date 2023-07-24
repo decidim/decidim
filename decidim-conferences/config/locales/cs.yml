@@ -504,6 +504,11 @@ cs:
             states:
               confirmed: Potvrzeno
               pending: Čekající
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Konference
+            see_all_spaces: Zobrazit všechny konference
       registration_types:
         index:
           choose_an_option: 'Vyberte možnost registrace:'
