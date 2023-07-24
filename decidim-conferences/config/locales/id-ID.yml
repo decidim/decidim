@@ -4,7 +4,6 @@ id:
       conference:
         assemblies_ids: Rakitan Terkait
         banner_image: Gambar spanduk
-        consultations_ids: Konsultasi Terkait
         copy_categories: Salin kategori
         copy_components: Salin komponen
         copy_features: Salin fitur
@@ -419,11 +418,6 @@ id:
             states:
               confirmed: Dikonfirmasi
               pending: Menunggu keputusan
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Konferensi aktif
-            see_all_conferences: Lihat semua konferensi
       registration_types:
         index:
           choose_an_option: 'Pilih opsi pendaftaran Anda:'
@@ -434,7 +428,6 @@ id:
         introduction: pengantar
         objectives: Tujuan
         related_assemblies: Rakitan Terkait
-        related_consultations: Konsultasi Terkait
         related_participatory_processes: Proses Partisipatif Terkait
     events:
       conferences:
@@ -476,9 +469,6 @@ id:
     decidim:
       conference_hero:
         register: Daftar
-      conference_widgets:
-        show:
-          take_part: Ambil bagian
       conferences:
         conference:
           more_info: Info lebih lanjut
@@ -488,9 +478,6 @@ id:
         order_by_conferences:
           conferences:
             other: "%{count} konferensi"
-        promoted_conference:
-          more_info: Info lebih lanjut
-          take_part: Ambil bagian
       conferences_nav:
         conference_menu_item: Informasi
         conference_partners_menu_item: Mitra
