@@ -15,6 +15,7 @@ module Decidim
       def tos_accepted_by_admin
         return unless request.format.html?
         return unless current_user
+        return if current_user.roles.empty?
         return if current_user.admin_terms_accepted?
         return if permitted_paths?
 

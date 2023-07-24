@@ -26,6 +26,19 @@ describe "AdminAccess", type: :system do
     end
   end
 
+  context "when the user is a normal user" do
+    let(:user) { create(:user, :confirmed, organization:) }
+    let(:unauthorized_path) { "/" }
+
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process) }
+    end
+
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim_admin_templates.questionnaire_templates_path }
+    end
+  end
+
   context "when the user is a process admin" do
     let(:user) { create(:process_admin, :confirmed, organization:, participatory_process:) }
 
