@@ -20,9 +20,9 @@ describe "AdminAccess", type: :system do
   end
 
   shared_examples "showing the unauthorized error message" do
-    it "redirects the user to the core's root_page" do
+    it "redirects to the relevant unauthorized page" do
       expect(page).to have_content("You are not authorized to perform this action")
-      expect(page).to have_current_path("/")
+      expect(page).to have_current_path("/admin/")
     end
   end
 

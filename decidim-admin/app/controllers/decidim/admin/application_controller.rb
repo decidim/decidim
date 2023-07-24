@@ -43,8 +43,6 @@ module Decidim
                            ::Decidim::Admin::Permissions)
 
       def user_has_no_permission_path
-        return decidim.root_path if user_signed_in? && !current_user.admin?
-
         decidim_admin.root_path
       end
 
