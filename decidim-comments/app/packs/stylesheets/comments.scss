@@ -59,7 +59,7 @@
       }
 
       .is-group {
-        @apply flex items-center gap-1;
+        @apply ml-auto flex items-center gap-1;
       }
     }
   }
@@ -272,10 +272,6 @@
   }
 
   &__content {
-    .user-mention {
-      @apply text-sm font-semibold text-secondary;
-    }
-
     &--label {
       @apply inline-block mb-2;
     }
