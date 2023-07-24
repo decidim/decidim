@@ -5,7 +5,6 @@ nl:
         assemblies_ids: Gerelateerde bijeenkomsten
         available_slots: Beschikbare plaatsen
         banner_image: Banner afbeelding
-        consultations_ids: Gerelateerde consultaties
         copy_categories: Categorieën kopiëren
         copy_components: Kopieer componenten
         copy_features: Functies kopiëren
@@ -464,12 +463,6 @@ nl:
             states:
               confirmed: Bevestigd
               pending: In afwachting
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Actieve conferenties
-            conferences_button_title: Link naar de pagina Conferenties waarop alle conferenties worden weergegeven
-            see_all_conferences: Bekijk alle conferenties
       registration_types:
         index:
           choose_an_option: 'Kies je registratieoptie:'
@@ -481,7 +474,6 @@ nl:
         introduction: Inleiding
         objectives: Doelen
         related_assemblies: Gerelateerde bijeenkomsten
-        related_consultations: Gerelateerde consultaties
         related_participatory_processes: Verwante participatieve processen
     events:
       conferences:
@@ -536,9 +528,6 @@ nl:
     decidim:
       conference_hero:
         register: Registreren
-      conference_widgets:
-        show:
-          take_part: Deelnemen
       conferences:
         conference:
           more_info: Meer informatie
@@ -549,9 +538,6 @@ nl:
           conferences:
             one: "%{count} conferentie"
             other: "%{count} conferenties"
-        promoted_conference:
-          more_info: Meer informatie
-          take_part: Deelnemen
       conferences_nav:
         conference_menu_item: Informatie
         conference_partners_menu_item: Partners
