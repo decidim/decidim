@@ -5,7 +5,6 @@ fi:
         assemblies_ids: Liittyvät ryhmät
         available_slots: Vapaat paikat
         banner_image: Bannerikuva
-        consultations_ids: Liittyvät kuulemiset
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
         copy_features: Kopioi ominaisuudet
@@ -495,12 +494,6 @@ fi:
             states:
               confirmed: Vahvistettu
               pending: Odottaa
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Aktiiviset konferenssit
-            conferences_button_title: Linkki Konferenssit-sivulle, jossa näkyvät kaikki konferenssit
-            see_all_conferences: Katso kaikki konferenssit
       registration_types:
         index:
           choose_an_option: 'Valitse ilmoittautumisvaihtoehto:'
@@ -512,7 +505,6 @@ fi:
         introduction: Esittely
         objectives: Tavoitteet
         related_assemblies: Liittyvät ryhmät
-        related_consultations: Liittyvät kuulemiset
         related_participatory_processes: Liittyvät osallistumisprosessit
     events:
       conferences:
@@ -571,9 +563,6 @@ fi:
     decidim:
       conference_hero:
         register: Ilmoittaudu
-      conference_widgets:
-        show:
-          take_part: Osallistu
       conferences:
         conference:
           more_info: Lisätietoja
@@ -584,9 +573,6 @@ fi:
           conferences:
             one: "%{count} konferenssi"
             other: "%{count} konferenssia"
-        promoted_conference:
-          more_info: Lisätietoja
-          take_part: Osallistu
       conferences_nav:
         conference_menu_item: Tiedot
         conference_partners_menu_item: Yhteistyökumppanit
