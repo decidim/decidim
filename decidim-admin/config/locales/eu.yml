@@ -286,6 +286,7 @@ eu:
         create:
           error: Errore bat gertatu da osagaia sortzean.
           success: Osagaia zuzen sortu da.
+          success_landing_page: Osagaia zuzen sortu da. Espazio honen hasiera orrian eduki atal bat gehitu ahal duzu. Joan <a href="%{landing_page_path}">orrira</a> konfiguratzeko.
         destroy:
           error: Errore bat gertatu da osagaia suntsitzen.
           success: Osagaia zuzen ezabatu da.
