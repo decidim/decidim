@@ -109,7 +109,7 @@ edit_link(
           </p>
           <span class="initiative__aside__element__data-text">
             <span class="text-sm font-normal text-gray-2 block">
-              <%= link_to translated_attribute(current_initiative.area_name), initiatives_path(filter: { area_id: [current_initiative.area.id] }) %>
+              <%= link_to translated_attribute(current_initiative.area_name), initiatives_path(filter: { with_any_area: [current_initiative.area.id] }) %>
             </span>
           </span>
         </div>
