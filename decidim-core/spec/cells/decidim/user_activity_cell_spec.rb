@@ -33,7 +33,6 @@ describe Decidim::UserActivityCell, type: :cell do
       Decidim::Meetings::Meeting
       Decidim::Blogs::Post
       Decidim::Proposals::Proposal
-      Decidim::Consultations::Question
     )
   end
   let(:filter) { Decidim::FilterResource::Filter.new({ resource_type: resource_types }) }
