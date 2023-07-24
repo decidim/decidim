@@ -5,7 +5,6 @@ ja:
         assemblies_ids: 関連する参加スペース
         available_slots: 利用可能なスロット
         banner_image: バナー画像
-        consultations_ids: 関連する議案
         copy_categories: カテゴリをコピー
         copy_components: コンポーネントをコピー
         copy_features: 機能をコピー
@@ -490,12 +489,6 @@ ja:
             states:
               confirmed: 確認済み
               pending: 保留中
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: アクティブなカンファレンス
-            conferences_button_title: すべてのカンファレンスを表示するカンファレンス一覧ページへのリンク
-            see_all_conferences: すべてのカンファレンスを見る
       registration_types:
         index:
           choose_an_option: '登録オプションを選択：'
@@ -507,7 +500,6 @@ ja:
         introduction: はじめに
         objectives: 目的
         related_assemblies: 関連する参加スペース
-        related_consultations: 関連する議案
         related_participatory_processes: 関連する参加型プロセス
     events:
       conferences:
@@ -566,9 +558,6 @@ ja:
     decidim:
       conference_hero:
         register: 登録
-      conference_widgets:
-        show:
-          take_part: 参加する
       conferences:
         conference:
           more_info: 詳細情報
@@ -578,9 +567,6 @@ ja:
         order_by_conferences:
           conferences:
             other: "%{count} 個のカンファレンス"
-        promoted_conference:
-          more_info: 詳細情報
-          take_part: 参加する
       conferences_nav:
         conference_menu_item: 情報
         conference_partners_menu_item: パートナー
