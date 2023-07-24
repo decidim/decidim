@@ -5,7 +5,6 @@ es:
         assemblies_ids: Asambleas relacionadas
         available_slots: Plazas disponibles
         banner_image: Imagen de banner
-        consultations_ids: Consultas relacionadas
         copy_categories: Copiar categorías
         copy_components: Copiar componentes
         copy_features: Copiar funcionalidades
@@ -495,12 +494,6 @@ es:
             states:
               confirmed: Confirmado
               pending: Pendiente
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Jornadas activas
-            conferences_button_title: Enlace a la página de Jornadas que muestra todas las jornadas
-            see_all_conferences: Ver todas las jornadas
       registration_types:
         index:
           choose_an_option: 'Elige tu tipo de inscripción:'
@@ -512,7 +505,6 @@ es:
         introduction: Introducción
         objectives: Objetivos
         related_assemblies: Asambleas relacionadas
-        related_consultations: Consultas relacionadas
         related_participatory_processes: Procesos participativos relacionados
     events:
       conferences:
@@ -571,9 +563,6 @@ es:
     decidim:
       conference_hero:
         register: Inscripción
-      conference_widgets:
-        show:
-          take_part: Participar
       conferences:
         conference:
           more_info: Más información
@@ -584,9 +573,6 @@ es:
           conferences:
             one: "%{count} jornada"
             other: "%{count} jornadas"
-        promoted_conference:
-          more_info: Más información
-          take_part: Participar
       conferences_nav:
         conference_menu_item: Información
         conference_partners_menu_item: Colaboradoras
