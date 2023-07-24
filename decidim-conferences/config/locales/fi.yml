@@ -494,6 +494,11 @@ fi:
             states:
               confirmed: Vahvistettu
               pending: Odottaa
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Konferenssit
+            see_all_spaces: Näytä kaikki konferenssit
       registration_types:
         index:
           choose_an_option: 'Valitse ilmoittautumisvaihtoehto:'
