@@ -5,7 +5,6 @@ lt:
         assemblies_ids: Susijusios Asamblėjos
         available_slots: Laisvos vietos
         banner_image: Reklamjuostės paveikslėlis
-        consultations_ids: Susijusios Konsultacijos
         copy_categories: Kopijuoti kategorijas
         copy_components: Kopijuoti komponentus
         copy_features: Kopijuoti požymius
@@ -474,12 +473,6 @@ lt:
             states:
               confirmed: Patvirtinta
               pending: Laukiama
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Aktyvios konferencijos
-            conferences_button_title: Nuoroda į puslapį „Konferencijos“, kuriame pateikiamos visos konferencijos
-            see_all_conferences: Žiūrėti visas konferencijas
       registration_types:
         index:
           choose_an_option: 'Pasirinkite registracijos būdą:'
@@ -491,7 +484,6 @@ lt:
         introduction: Įžanga
         objectives: Tikslai
         related_assemblies: Susijusios asamblėjos
-        related_consultations: Susijusios Konsultacijos
         related_participatory_processes: Susiję dalyvaujamieji procesai
     events:
       conferences:
@@ -546,9 +538,6 @@ lt:
     decidim:
       conference_hero:
         register: Registruotis
-      conference_widgets:
-        show:
-          take_part: Dalyvaukite
       conferences:
         conference:
           more_info: Daugiau informacijos
@@ -561,9 +550,6 @@ lt:
             few: "%{count} konferencijos"
             many: "%{count} konferencijos"
             other: "%{count} konferencijos"
-        promoted_conference:
-          more_info: Daugiau informacijos
-          take_part: Dalyvaukite
       conferences_nav:
         conference_menu_item: Informacija
         conference_partners_menu_item: Partneriai
