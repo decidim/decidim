@@ -5,7 +5,6 @@ hu:
         assemblies_ids: Kapcsolódó gyűlések
         available_slots: Rendelkezésre álló időpontok
         banner_image: Banner kép
-        consultations_ids: Kapcsolódó konzultációk
         copy_categories: Másolási kategóriák
         copy_components: Másoljon komponenseket
         copy_features: Másolási funkciók
@@ -494,12 +493,6 @@ hu:
             states:
               confirmed: Megerősített
               pending: Függőben levő
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Aktív konferenciák
-            conferences_button_title: Link a Konferenciák oldalra, ahol az összes konferencia látható
-            see_all_conferences: Lásd az összes konferenciát
       registration_types:
         index:
           choose_an_option: 'Válassza ki a regisztrációs lehetőséget:'
@@ -511,7 +504,6 @@ hu:
         introduction: Bevezetés
         objectives: célok
         related_assemblies: Kapcsolódó gyűlések
-        related_consultations: Kapcsolódó konzultációk
         related_participatory_processes: Kapcsolódó részvételi folyamatok
     events:
       conferences:
@@ -570,9 +562,6 @@ hu:
     decidim:
       conference_hero:
         register: Regisztráció
-      conference_widgets:
-        show:
-          take_part: Részt vesz
       conferences:
         conference:
           more_info: Több információ
@@ -583,9 +572,6 @@ hu:
           conferences:
             one: "%{count} konferencia"
             other: "%{count} konferencia"
-        promoted_conference:
-          more_info: Több információ
-          take_part: Részt vesz
       conferences_nav:
         conference_menu_item: Információ
         conference_partners_menu_item: Partnerek
