@@ -8,7 +8,7 @@ eu:
         decidim_scope_id: Eremua
         description: Deskribapena
         end_date: Bukaera-data
-        progress: Aurrerapena
+        progress: Aurreratzea
         project_ids: Barne dauden proiektuak
         proposals: Barne dauden proposamenak
         start_date: Hasiera-data
@@ -178,7 +178,7 @@ eu:
             title: Izenburua
         status:
           fields:
-            description: Descripción
+            description: Deskribapena
             key: Gakoa
             name: Izena
             progress: Aurrerapena
