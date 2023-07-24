@@ -460,7 +460,6 @@ sk:
         home:
           highlighted_conferences:
             active_conferences: Aktívne konferencie
-            see_all_conferences: Zobraziť všetky konferencie
       photo:
         image:
           attributes:
