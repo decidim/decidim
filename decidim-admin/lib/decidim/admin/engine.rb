@@ -178,7 +178,7 @@ module Decidim
           menu.add_item :moderations,
                         I18n.t("menu.moderation", scope: "decidim.admin"),
                         decidim_admin.moderations_path,
-                        icon_name_name: "flag-line",
+                        icon_name: "flag-line",
                         position: 4,
                         active: [%w(
                           decidim/admin/global_moderations
@@ -190,7 +190,7 @@ module Decidim
           menu.add_item :static_pages,
                         I18n.t("menu.static_pages", scope: "decidim.admin"),
                         decidim_admin.static_pages_path,
-                        icon_name_name: "pages-line",
+                        icon_name: "pages-line",
                         position: 4.5,
                         active: is_active_link?(decidim_admin.static_pages_path, :inclusive) ||
                                 is_active_link?(decidim_admin.static_page_topics_path, :inclusive),
@@ -199,7 +199,7 @@ module Decidim
           menu.add_item :impersonatable_users,
                         I18n.t("menu.users", scope: "decidim.admin"),
                         allowed_to?(:read, :admin_user) ? decidim_admin.users_path : decidim_admin.impersonatable_users_path,
-                        icon_name_name: "team-line",
+                        icon_name: "team-line",
                         position: 5,
                         active: [%w(
                           decidim/admin/users
@@ -221,7 +221,7 @@ module Decidim
           menu.add_item :newsletters,
                         I18n.t("menu.newsletters", scope: "decidim.admin"),
                         decidim_admin.newsletters_path,
-                        icon_name_name: "mail-add-line",
+                        icon_name: "mail-add-line",
                         position: 6,
                         active: is_active_link?(decidim_admin.newsletters_path, :inclusive) ||
                                 is_active_link?(decidim_admin.newsletter_templates_path, :inclusive),
@@ -230,7 +230,7 @@ module Decidim
           menu.add_item :edit_organization,
                         I18n.t("menu.settings", scope: "decidim.admin"),
                         decidim_admin.edit_organization_path,
-                        icon_name_name: "tools-line",
+                        icon_name: "tools-line",
                         position: 7,
                         active: [
                           %w(
@@ -251,7 +251,7 @@ module Decidim
           menu.add_item :logs,
                         I18n.t("menu.admin_log", scope: "decidim.admin"),
                         decidim_admin.logs_path,
-                        icon_name_name: "pages-line",
+                        icon_name: "pages-line",
                         position: 10,
                         active: [%w(decidim/admin/logs), []],
                         if: allowed_to?(:read, :admin_log)
