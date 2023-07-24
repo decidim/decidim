@@ -5,7 +5,6 @@ ro:
         assemblies_ids: Grupuri de lucru asociate
         available_slots: Locuri disponibile
         banner_image: Imagine pentru banner
-        consultations_ids: Consultări asociate
         copy_categories: Copiază categoriile
         copy_components: Copiază componentele
         copy_features: Copiază funcționalitățile
@@ -500,12 +499,6 @@ ro:
             states:
               confirmed: Confirmare
               pending: In asteptare
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Conferințe active
-            conferences_button_title: Link către pagina de conferințe care afișează toate conferințele
-            see_all_conferences: Vezi toate conferințele
       registration_types:
         index:
           choose_an_option: 'Alegeți opțiunea de înregistrare:'
@@ -517,7 +510,6 @@ ro:
         introduction: Introducere
         objectives: Obiective
         related_assemblies: Grupuri de lucru asociate
-        related_consultations: Consultări asociate
         related_participatory_processes: Procese participative asociate
     events:
       conferences:
@@ -576,9 +568,6 @@ ro:
     decidim:
       conference_hero:
         register: Inregistrare
-      conference_widgets:
-        show:
-          take_part: Participă
       conferences:
         conference:
           more_info: Mai multe informații
@@ -590,9 +579,6 @@ ro:
             one: "%{count} conferință"
             few: "%{count} conferințe"
             other: "%{count} conferințe"
-        promoted_conference:
-          more_info: Mai multe informații
-          take_part: Participă
       conferences_nav:
         conference_menu_item: Informare
         conference_partners_menu_item: Parteneri
