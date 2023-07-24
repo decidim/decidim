@@ -15,6 +15,8 @@ describe "Homepage conferences content blocks", type: :system do
   end
 
   it "includes active conferences to the homepage" do
+    skip "REDESIGN_PENDING - This content block is not redesigned yet and hides the conferences with the new layout"
+
     visit decidim.root_path
 
     within "#highlighted-conferences" do

@@ -1,10 +1,5 @@
-<div class="callout secondary mb-sm">
-  <p>
-    <%= t("create.success_html",
-          scope: "decidim.initiatives.initiative_votes",
-          title: translated_attribute(current_initiative.title)) %>
-  </p>
-</div>
+<%= cell("decidim/announcement", t("decidim.initiatives.initiative_votes.create.success_html"), callout_class: "secondary", title: translated_attribute(current_initiative.title)) %>
+
 <h2 class="section-heading"><%= t("finished", scope: "layouts.decidim.initiative_signature_creation_header") %></h2>
 
 <%= render partial: "wizard_steps" %>

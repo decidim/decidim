@@ -81,12 +81,11 @@ module Decidim
         private
 
         def participatory_process_group
-          @participatory_process_group ||= Decidim::ParticipatoryProcessGroup.find(params[:id])
+          @participatory_process_group ||= collection.find(params[:id])
         end
 
         def collection
-          @collection ||=
-            OrganizationParticipatoryProcessGroups.new(current_user.organization).query
+          @collection ||= OrganizationParticipatoryProcessGroups.new(current_user.organization).query
         end
       end
     end

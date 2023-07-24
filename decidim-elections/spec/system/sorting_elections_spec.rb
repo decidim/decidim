@@ -20,11 +20,11 @@ describe "Sorting elections", type: :system do
     it "lists the elections in desc start_time order" do
       visit_component
       within ".order-by" do
-        expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Recent")
+        expect(page).to have_selector("div.order-by a", text: "Recent")
       end
 
-      expect(page).to have_selector("#elections .card-grid .column:first-child", text: translated(election1.title))
-      expect(page).to have_selector("#elections .card-grid .column:last-child", text: translated(election2.title))
+      expect(page).to have_selector("[id='elections__election_#{election1.id}']:first-child", text: translated(election1.title))
+      expect(page).to have_selector("[id='elections__election_#{election2.id}']:last-child", text: translated(election2.title))
     end
   end
 
@@ -32,13 +32,13 @@ describe "Sorting elections", type: :system do
     it "lists the elections in asc start_time order" do
       visit_component
       within ".order-by" do
-        expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Recent")
+        expect(page).to have_selector("div.order-by a", text: "Recent")
         page.find("a", text: "Recent").click
         click_link "Older"
       end
 
-      expect(page).to have_selector("#elections .card-grid .column:first-child", text: translated(election2.title))
-      expect(page).to have_selector("#elections .card-grid .column:last-child", text: translated(election1.title))
+      expect(page).to have_selector("[id='elections__election_#{election2.id}']:first-child", text: translated(election2.title))
+      expect(page).to have_selector("[id='elections__election_#{election1.id}']:last-child", text: translated(election1.title))
     end
   end
 end

@@ -20,6 +20,24 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   smtp_label = ENV.fetch("SMTP_FROM_LABEL", Faker::Twitter.unique.screen_name)
   smtp_email = ENV.fetch("SMTP_FROM_EMAIL", Faker::Internet.email)
 
+  primary_color, secondary_color = [
+    ["#4CAF50", "#A0309E"],
+    ["#E91E63", "#1EE9A5"],
+    ["#009688", "#D12C26"],
+    ["#FF9800", "#00BCD4"]
+  ].sample
+
+  colors = {
+    alert: "#ec5840",
+    highlight: "#be6400",
+    "highlight-alternative": "#ff5731",
+    primary: primary_color,
+    secondary: secondary_color,
+    success: "#57d685",
+    theme: "#ef604d",
+    warning: "#ffae00"
+  }
+
   organization = Decidim::Organization.first || Decidim::Organization.create!(
     name: Faker::Company.name,
     twitter_handler: Faker::Hipster.word,
@@ -50,7 +68,8 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     badges_enabled: true,
     user_groups_enabled: true,
     send_welcome_notification: true,
-    file_upload_settings: Decidim::OrganizationSettings.default(:upload)
+    file_upload_settings: Decidim::OrganizationSettings.default(:upload),
+    colors:
   )
 
   if organization.top_scopes.none?

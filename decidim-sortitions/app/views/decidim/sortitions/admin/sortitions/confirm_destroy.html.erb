@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t(".title")) %>
 <h2 class="process-title-summary"><%= t ".title" %></h2>
 
 <%= decidim_form_for(@form, html: { class: "form confirm_destroy_sortition" }, method: :delete) do |form| %>

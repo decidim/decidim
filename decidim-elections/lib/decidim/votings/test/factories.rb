@@ -69,6 +69,22 @@ FactoryBot.define do
     trait :hybrid do
       voting_type { "hybrid" }
     end
+
+    trait :with_content_blocks do
+      transient { blocks_manifests { [:hero] } }
+
+      after(:create) do |voting, evaluator|
+        evaluator.blocks_manifests.each do |manifest_name|
+          create(
+            :content_block,
+            organization: voting.organization,
+            scope_name: :voting_landing_page,
+            manifest_name:,
+            scoped_resource_id: voting.id
+          )
+        end
+      end
+    end
   end
 
   factory :voting_election, parent: :election do

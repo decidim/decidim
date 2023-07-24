@@ -1,15 +1,17 @@
+/**
+ * @deprecated since feature/redesign
+ */
 $(() => {
-  const $checkbox = $(".represent-user-group").find("input#user_group");
-  const $userGroupFields = $(".user-group-fields");
+  const $checkbox = $("#user_group");
 
   $checkbox.click(() => {
-    const $select = $userGroupFields.find("select");
+    const $select = $checkbox.siblings("select");
 
     if (!$select.val()) {
-      $userGroupFields.toggle();
+      $select.toggle();
     }
 
-    if ($userGroupFields.is(":visible")) {
+    if ($select.is(":visible")) {
       $checkbox.prop("checked", true);
     } else {
       $checkbox.prop("checked", false);

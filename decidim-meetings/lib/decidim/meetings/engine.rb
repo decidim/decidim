@@ -17,6 +17,9 @@ module Decidim
           member do
             put :withdraw
           end
+          collection do
+            get :year_calendar
+          end
           resources :meeting_closes, only: [:edit, :update] do
             get :proposals_picker, on: :collection
           end
@@ -28,8 +31,7 @@ module Decidim
               post :answer
             end
           end
-          resources :versions, only: [:show, :index]
-          resource :widget, only: :show, path: "embed"
+          resources :versions, only: [:show]
           resource :live_event, only: :show
           namespace :polls do
             resources :questions, only: [:index, :update]
@@ -147,8 +149,10 @@ module Decidim
       end
 
       initializer "decidim_meetings.moderation_content" do
-        ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
-          Decidim::Meetings::HideAllCreatedByAuthorJob.perform_later(**data)
+        config.to_prepare do
+          Decidim::EventsManager.subscribe("decidim.admin.block_user:after") do |_event_name, data|
+            Decidim::Meetings::HideAllCreatedByAuthorJob.perform_later(**data)
+          end
         end
       end
     end

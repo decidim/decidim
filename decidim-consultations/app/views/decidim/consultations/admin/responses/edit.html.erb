@@ -1,3 +1,4 @@
+<% add_decidim_page_title(translated_attribute(current_question.title)) %>
 <%= decidim_form_for @form,
                      url: response_path(current_question, current_response),
                      html: { class: "form edit_response" } do |f| %>

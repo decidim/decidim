@@ -1,6 +1,4 @@
-<% if withdrawable? %>
-  <%= action_authorized_link_to :withdraw, withdraw_path, method: :put, class: "title-action__action button small hollow", title: t("withdraw_btn_hint", scope: resource_i18n_scope ), data: { confirm: t("withdraw_confirmation_html", scope: resource_i18n_scope ) } do %>
-    <%= t("withdraw_#{resource_name}", scope: resource_i18n_scope) %>
-    <%= icon "x", role: "img", "aria-hidden": true %>
-  <% end %>
+<%= action_authorized_link_to :withdraw, withdraw_path, method: :put, class: "title-action__action button small hollow", title: t("withdraw_btn_hint", scope: resource_i18n_scope ), data: { confirm: t("withdraw_confirmation_html", scope: resource_i18n_scope ) } do %>
+  <%= t("withdraw_#{resource_name}", scope: resource_i18n_scope) %>
+  <%= icon "x", role: "img", "aria-hidden": true %>
 <% end %>

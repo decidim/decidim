@@ -25,7 +25,9 @@ describe "Polling Officer zone", type: :system do
 
     expect(page).to have_content("Polling Officer zone")
 
-    click_link "Polling Officer zone"
+    within "#dropdown-menu" do
+      click_link "Polling Officer zone"
+    end
   end
 
   shared_examples "a polling officer registers an in person vote" do
@@ -46,17 +48,19 @@ describe "Polling Officer zone", type: :system do
       election.reload
       expect(page).to have_content(census_verified)
       expect(page).to have_content(questions_title)
+
       election.questions.each do |question|
         expect(page).to have_content(translated(question.title))
-        click_link translated(question.title)
+        click_button translated(question.title)
         question.answers.each do |answer|
           expect(page).to have_content(translated(answer.title))
         end
       end
 
-      within ".card__content" do
+      within "[data-content]" do
         check "The participant has voted"
       end
+
       click_button "Complete voting"
 
       expect(page).to have_content("The vote was registered successfully.")
@@ -101,6 +105,7 @@ describe "Polling Officer zone", type: :system do
 
       expect(page).to have_content("This participant has already voted in person and is not entitled to vote.")
       expect(page).not_to have_content("Complete voting")
+
       click_link "Identify another participant"
 
       expect(page).to have_content("Identify and verify a participant")
@@ -128,7 +133,7 @@ describe "Polling Officer zone", type: :system do
   end
 
   def fill_person_data(correct: true)
-    within ".card__content" do
+    within "[data-content]" do
       select("DNI", from: "Document type")
       fill_in "Document number", with: "12345678X"
       fill_in "Day", with: correct ? "11" : "1"

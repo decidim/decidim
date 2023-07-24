@@ -110,6 +110,7 @@ FactoryBot.define do
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
     enable_participatory_space_filters { true }
+    content_security_policy { {} }
 
     trait :secure_context do
       host { "localhost" }
@@ -655,7 +656,7 @@ FactoryBot.define do
     organization { user.organization }
     user
     participatory_space { build :participatory_process, organization: }
-    component { build :component, participatory_space: }
+    component { build(:component, participatory_space:) }
     resource { build(:dummy_resource, component:) }
     action { "create" }
     visibility { "admin-only" }

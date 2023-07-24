@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t("participatory_process_groups.new.title", scope: "decidim.admin")) %>
 <%= decidim_form_for(@form, html: { class: "form new_participatory_process_group" }) do |f| %>
   <h2 class="process-title-summary"><%= t "participatory_process_groups.new.title", scope: "decidim.admin" %></h2>
   <%= render partial: "form", object: f %>

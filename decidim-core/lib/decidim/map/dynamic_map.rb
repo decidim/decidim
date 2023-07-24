@@ -67,9 +67,9 @@ module Decidim
             "data-markers-data" => options.fetch(:markers, []).to_json
           }.merge(html_options)
 
+          append_assets
           content = template.capture { yield }.html_safe if block_given?
 
-          append_assets
           template.content_tag(:div, map_html_options) do
             (content || "")
           end

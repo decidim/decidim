@@ -12,9 +12,7 @@ module Decidim
       isolate_namespace Decidim::Sortitions
 
       routes do
-        resources :sortitions, only: [:index, :show] do
-          resource :widget, only: :show, path: "embed"
-        end
+        resources :sortitions, only: [:index, :show]
         root to: "sortitions#index"
       end
 

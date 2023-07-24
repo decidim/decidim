@@ -13,7 +13,8 @@ module Decidim
       include LocaleSwitcher
       include UseOrganizationTimeZone
       include PayloadInfo
-      include HttpCachingDisabler
+      include Headers::HttpCachingDisabler
+      include Headers::ContentSecurityPolicy
       include DisableRedirectionToExternalHost
 
       include DisabledRedesignLayout

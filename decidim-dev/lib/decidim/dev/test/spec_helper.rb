@@ -38,4 +38,10 @@ RSpec.configure do |config|
   config.before :all, type: :system do
     ActiveStorage.service_urls_expire_in = 24.hours
   end
+
+  config.before :all do
+    Decidim.content_security_policies_extra = {
+      "img-src": %w(https://via.placeholder.com)
+    }
+  end
 end

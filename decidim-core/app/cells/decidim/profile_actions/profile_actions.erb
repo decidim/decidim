@@ -1,0 +1,7 @@
+<% actions.each do |action| %>
+  <% if action[:cell].present? %>
+    <%= cell action[:cell], profile_holder, action[:options] %>
+  <% else %>
+    <%= cell "decidim/button", action, action[:options] %>
+  <% end %>
+<% end %>

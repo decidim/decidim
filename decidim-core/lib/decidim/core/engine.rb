@@ -39,13 +39,13 @@ require "diffy"
 require "ransack"
 require "wisper"
 require "webpacker"
-require "turbo-rails"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
 require "decidim/webpacker"
 
 require "decidim/api"
 require "decidim/middleware/strip_x_forwarded_host"
+require "decidim/middleware/static_dispatcher"
 require "decidim/middleware/current_organization"
 
 module Decidim
@@ -72,6 +72,18 @@ module Decidim
       end
 
       initializer "decidim_core.middleware" do |app|
+        if app.config.public_file_server.enabled
+          headers = app.config.public_file_server.headers || {}
+
+          app.config.middleware.swap(
+            ActionDispatch::Static,
+            Decidim::Middleware::StaticDispatcher,
+            app.paths["public"].first,
+            index: app.config.public_file_server.index_name,
+            headers:
+          )
+        end
+
         app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::CurrentOrganization
         app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::StripXForwardedHost
         app.config.middleware.use BatchLoader::Middleware
@@ -446,6 +458,12 @@ module Decidim
           content_block.default!
         end
 
+        Decidim.content_blocks.register(:homepage, :global_menu) do |content_block|
+          content_block.cell = "decidim/content_blocks/global_menu"
+          content_block.public_name_key = "decidim.content_blocks.global_menu.name"
+          content_block.default!
+        end
+
         Decidim.content_blocks.register(:homepage, :sub_hero) do |content_block|
           content_block.cell = "decidim/content_blocks/sub_hero"
           content_block.public_name_key = "decidim.content_blocks.sub_hero.name"
@@ -477,7 +495,7 @@ module Decidim
         end
 
         Decidim.content_blocks.register(:homepage, :metrics) do |content_block|
-          content_block.cell = "decidim/content_blocks/metrics"
+          content_block.cell = "decidim/content_blocks/organization_metrics"
           content_block.public_name_key = "decidim.content_blocks.metrics.name"
         end
 

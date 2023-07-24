@@ -10,16 +10,25 @@ shared_examples "logged in user reports content" do
       it "reports the resource" do
         visit reportable_path
 
-        expect(page).to have_selector(".author-data__extra")
+        if Decidim.redesign_active
+          expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
+          find(%(button[data-dialog-open="flagModal"])).click
+          expect(page).to have_css(".flag-modal", visible: :visible)
 
-        within ".author-data__extra", match: :first do
-          click_button
-        end
+          within ".flag-modal" do
+            click_button "Report"
+          end
+        else
+          expect(page).to have_selector(".author-data__extra")
 
-        expect(page).to have_css(".flag-modal", visible: :visible)
+          within ".author-data__extra", match: :first do
+            click_button
+          end
+          expect(page).to have_css(".modal__report", visible: :visible)
 
-        within ".flag-modal" do
-          click_button "Report"
+          within ".modal__report" do
+            click_button "Report"
+          end
         end
 
         expect(page).to have_content "report has been created"
@@ -48,17 +57,27 @@ shared_examples "higher user role hides" do
     it "reports the resource" do
       visit reportable_path
 
-      expect(page).to have_selector(".author-data__extra")
+      if Decidim.redesign_active
+        expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
+        find(%(button[data-dialog-open="flagModal"])).click
+        expect(page).to have_css(".flag-modal", visible: :visible)
 
-      within ".author-data__extra", match: :first do
-        click_button
-      end
+        within ".flag-modal" do
+          find(:css, "input[name='report[hide]']").set(true)
+          click_button "Hide"
+        end
+      else
+        expect(page).to have_selector(".author-data__extra")
 
-      expect(page).to have_css(".flag-modal", visible: :visible)
+        within ".author-data__extra", match: :first do
+          click_button
+        end
+        expect(page).to have_css(".modal__report", visible: :visible)
 
-      within ".flag-modal" do
-        find(:css, "input[name='report[hide]']").set(true)
-        click_button "Hide"
+        within ".modal__report" do
+          find(:css, "input[name='report[hide]']").set(true)
+          click_button "Hide"
+        end
       end
 
       expect(reportable.reload).to be_hidden
@@ -75,16 +94,25 @@ shared_examples "higher user role does not have hide" do
     it "reports the resource" do
       visit reportable_path
 
-      expect(page).to have_selector(".author-data__extra")
+      if Decidim.redesign_active
+        expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
+        find(%(button[data-dialog-open="flagModal"])).click
+        expect(page).to have_css(".flag-modal", visible: :visible)
 
-      within ".author-data__extra", match: :first do
-        click_button
-      end
+        within ".flag-modal" do
+          expect(page).not_to have_field(name: "report[hide]")
+        end
+      else
+        expect(page).to have_selector(".author-data__extra")
 
-      expect(page).to have_css(".flag-modal", visible: :visible)
+        within ".author-data__extra", match: :first do
+          click_button
+        end
+        expect(page).to have_css(".modal__report", visible: :visible)
 
-      within ".flag-modal" do
-        expect(page).not_to have_field(name: "report[hide]")
+        within ".modal__report" do
+          expect(page).not_to have_field(name: "report[hide]")
+        end
       end
     end
   end
@@ -95,11 +123,21 @@ shared_examples "reports" do
     it "gives the option to sign in" do
       visit reportable_path
 
-      expect(page).not_to have_css("html.is-reveal-open")
+      if Decidim.redesign_active
 
-      click_button "Report"
+        expect(page).not_to have_css("html.is-disabled")
 
-      expect(page).to have_css("html.is-reveal-open")
+        click_button "Report"
+
+        expect(page).to have_css("html.is-disabled")
+      else
+
+        expect(page).not_to have_css("html.is-reveal-open")
+
+        click_button "Report"
+
+        expect(page).to have_css("html.is-reveal-open")
+      end
     end
   end
 
@@ -115,13 +153,18 @@ shared_examples "reports" do
     it "cannot report it twice" do
       visit reportable_path
 
-      expect(page).to have_selector(".author-data__extra")
+      if Decidim.redesign_active
+        expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
+        find(%(button[data-dialog-open="flagModal"])).click
+        expect(page).to have_css(".flag-modal", visible: :visible)
+      else
+        expect(page).to have_selector(".author-data__extra")
 
-      within ".author-data__extra", match: :first do
-        click_button
+        within ".author-data__extra", match: :first do
+          click_button
+        end
+        expect(page).to have_css(".modal__report", visible: :visible)
       end
-
-      expect(page).to have_css(".flag-modal", visible: :visible)
 
       expect(page).to have_content "already reported"
     end
