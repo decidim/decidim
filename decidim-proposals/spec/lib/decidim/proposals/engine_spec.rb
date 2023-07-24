@@ -5,13 +5,13 @@ require "spec_helper"
 describe Decidim::Proposals::Engine do
   describe "decidim_proposals.remove_space_admins" do
     let(:component) { create(:proposal_component, participatory_space: space) }
-    let(:valuator) { create :user, organization: }
-    let(:proposal) { create(:proposal, component:) }
+    let(:valuator) { create(:user, organization: organization) }
+    let(:proposal) { create(:proposal, component: component) }
 
     context "when removing participatory_space admin" do
       let(:space) { valuator_role.participatory_process }
       let(:valuator_role) { create(:participatory_process_user_role) }
-      let!(:assignment) { create :valuation_assignment, proposal:, valuator_role: }
+      let!(:assignment) { create(:valuation_assignment, proposal: proposal, valuator_role: valuator_role) }
 
       it "removes the record" do
         expect do
@@ -23,7 +23,7 @@ describe Decidim::Proposals::Engine do
     context "when removing assembly admin" do
       let(:space) { valuator_role.assembly }
       let(:valuator_role) { create(:assembly_user_role) }
-      let!(:assignment) { create :valuation_assignment, proposal:, valuator_role: }
+      let!(:assignment) { create(:valuation_assignment, proposal: proposal, valuator_role: valuator_role) }
 
       it "removes the record" do
         expect do
@@ -35,7 +35,7 @@ describe Decidim::Proposals::Engine do
     context "when removing conference admin" do
       let(:space) { valuator_role.conference }
       let(:valuator_role) { create(:conference_user_role) }
-      let!(:assignment) { create :valuation_assignment, proposal:, valuator_role: }
+      let!(:assignment) { create(:valuation_assignment, proposal: proposal, valuator_role: valuator_role) }
 
       it "removes the record" do
         expect do
