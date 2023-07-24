@@ -494,6 +494,11 @@ de:
             states:
               confirmed: Bestätigt
               pending: steht aus
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Konferenzen
+            see_all_spaces: Alle Konferenzen anzeigen
       registration_types:
         index:
           choose_an_option: 'Wählen Sie Ihre Registrierungsoption:'
