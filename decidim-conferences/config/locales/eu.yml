@@ -5,7 +5,6 @@ eu:
         assemblies_ids: Lotutako Batzarrak
         available_slots: Leku libreak
         banner_image: Banner irudia
-        consultations_ids: Lotutako kontsultak
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
         copy_features: Kopiatu ezaugarriak
@@ -464,12 +463,6 @@ eu:
             states:
               confirmed: baieztatu
               pending: Zain
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Jardunaldi aktiboak
-            conferences_button_title: Lotura batzar guztiak erakusten dituen Batzarren orrialdera
-            see_all_conferences: Ikusi hitzaldi guztiak
       registration_types:
         index:
           choose_an_option: 'Aukeratu zure erregistro-aukera:'
@@ -481,7 +474,6 @@ eu:
         introduction: Sarrera
         objectives: Helburuak
         related_assemblies: Lotutako Batzarrak
-        related_consultations: Lotutako kontsultak
         related_participatory_processes: Parte hartze prozesu erlazionatuak
     events:
       conferences:
@@ -536,9 +528,6 @@ eu:
     decidim:
       conference_hero:
         register: Eman izena
-      conference_widgets:
-        show:
-          take_part: Parte hartu
       conferences:
         conference:
           more_info: Informazio gehiago
@@ -549,9 +538,6 @@ eu:
           conferences:
             one: "%{count} hitzaldi"
             other: "%{count} hitzaldiak"
-        promoted_conference:
-          more_info: Informazio gehiago
-          take_part: Parte hartu
       conferences_nav:
         conference_menu_item: informazioa
         conference_partners_menu_item: Bazkideak
