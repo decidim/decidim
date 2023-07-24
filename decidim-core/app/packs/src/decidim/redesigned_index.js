@@ -202,6 +202,9 @@ const initializer = (element = document) => {
   // Initialize data-tooltips
   element.querySelectorAll("[data-tooltip]").forEach((elem) => createTooltip(elem))
 
+  // Initialize data-toggles
+  element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
+
   document.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
 
   // Tweak for mouse events of the breadcrumb dropdowns
