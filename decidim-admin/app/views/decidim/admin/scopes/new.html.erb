@@ -1,3 +1,11 @@
+<% content_for :breadcrumb_nav_item do %>
+  <span class="text-white">/</span>
+  <%= link_to t("menu.scopes", scope: "decidim.admin"), decidim_admin.scopes_path, class: "process-title-content-breadcrumb" %>
+  <span class="text-white">/</span>
+  <span class="process-title-content-breadcrumb">
+    <%= t(".title") %>
+  </span>
+<% end %>
 <div class="item_show__header">
   <h2 class="item_show__header-title">
     <%= t ".title" %>

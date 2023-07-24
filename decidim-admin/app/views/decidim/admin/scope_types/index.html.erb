@@ -1,3 +1,9 @@
+<% content_for :breadcrumb_nav_item do %>
+  <span class="text-white">/</span>
+  <span class="process-title-content-breadcrumb">
+    <%= t("menu.scope_types", scope: "decidim.admin") %>
+  </span>
+<% end %>
 <div class="card" id="scope-types">
   <div class="card-divider">
     <% if allowed_to? :creste, :scope_type %>

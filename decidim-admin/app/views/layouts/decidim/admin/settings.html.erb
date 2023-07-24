@@ -7,9 +7,8 @@
           <%= icon "home-gear-line" %>
         <% end %>
         <span class="text-white">/</span>
-        <span class="process-title-content-breadcrumb">
-          <%= t(".title") %>
-        </span>
+        <%= link_to t("menu.settings", scope: "decidim.admin"), decidim_admin.edit_organization_path, class: "process-title-content-breadcrumb" %>
+        <%= yield :breadcrumb_nav_item %>
       </div>
       <div class="process-title-content-breadcrumb-container-right">
         <div class="inline-block relative">
