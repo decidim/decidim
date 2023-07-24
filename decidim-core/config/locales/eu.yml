@@ -1534,7 +1534,7 @@ eu:
     registrations:
       destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu berriro.
       new:
-        sign_up: Izena eman
+        sign_up: Eman izena
       signed_up: Ongi etorri! Eginda sinatu duzu.
       signed_up_but_inactive: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua oraindik ez baita aktibatuta.
       signed_up_but_locked: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua blokeatuta dagoelako.
@@ -1555,7 +1555,7 @@ eu:
         forgot_your_password: Zure pasahitza ahaztu duzu?
         sign_in: Saioa hasi
         sign_in_with_provider: Hasi saioa %{provider}
-        sign_up: Izena eman
+        sign_up: Eman izena
       minimum_password_length:
         one: "(%{count} karaktere gutxienez)"
         other: "(Gutxienez%{count} karaktere)"
