@@ -5,7 +5,6 @@ ca:
         assemblies_ids: Assemblees relacionades
         available_slots: Places disponibles
         banner_image: Imatge de banner
-        consultations_ids: Consultes relacionades
         copy_categories: Copiar categories
         copy_components: Copiar components
         copy_features: Copiar funcionalitats
@@ -495,12 +494,6 @@ ca:
             states:
               confirmed: Confirmat
               pending: Pendents
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Jornades actives
-            conferences_button_title: Enllaç a la pàgina de Conferències mostrant totes les conferències
-            see_all_conferences: Veure totes les jornades
       registration_types:
         index:
           choose_an_option: 'Tria el teu tipus d''inscripció:'
@@ -512,7 +505,6 @@ ca:
         introduction: Introducció
         objectives: Objectius
         related_assemblies: Assemblees relacionades
-        related_consultations: Consultes relacionades
         related_participatory_processes: Processos participatius relacionats
     events:
       conferences:
@@ -571,9 +563,6 @@ ca:
     decidim:
       conference_hero:
         register: Inscripció
-      conference_widgets:
-        show:
-          take_part: Participar
       conferences:
         conference:
           more_info: Més informació
@@ -584,9 +573,6 @@ ca:
           conferences:
             one: "%{count} jornada"
             other: "%{count} jornadas"
-        promoted_conference:
-          more_info: Més informació
-          take_part: Participar
       conferences_nav:
         conference_menu_item: Informació
         conference_partners_menu_item: Col·laboradores
