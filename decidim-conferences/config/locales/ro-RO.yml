@@ -511,7 +511,6 @@ ro:
           highlighted_conferences:
             active_conferences: Conferințe active
             conferences_button_title: Link către pagina de conferințe care afișează toate conferințele
-            see_all_conferences: Vezi toate conferințele
       photo:
         image:
           attributes:
