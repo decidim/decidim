@@ -128,9 +128,9 @@ bundle exec rake decidim:content_blocks:initialize_default_content_blocks
 
 The task has some optional arguments:
 
-* The first to specify the manifest name and generate the default content blocks only on the spaces or resources with the manifest name (`participatory_processes`, `participatory_process_group` or `assemblies`).
-* The second can be the id of a resource o space to apply only on the space or resource with the id. This argument is considered only if the manifest name argument is present.
-* The last argument only works on participatory spaces (assemblies and participatory processes) and when set as true the task also creates a content block for each published component on the space unless a block already exists for that component or the block exists for the component type and configured to display resources from all components of the same type.
+- The first to specify the manifest name and generate the default content blocks only on the spaces or resources with the manifest name (`participatory_processes`, `participatory_process_group` or `assemblies`).
+- The second can be the id of a resource o space to apply only on the space or resource with the id. This argument is considered only if the manifest name argument is present.
+- The last argument only works on participatory spaces (assemblies and participatory processes) and when set as true the task also creates a content block for each published component on the space unless a block already exists for that component or the block exists for the component type and configured to display resources from all components of the same type.
 
 For example, to generate the default content blocks and also the components blocks on participatory spaces run the command with arguments:
 
