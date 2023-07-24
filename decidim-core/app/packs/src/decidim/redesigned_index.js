@@ -57,12 +57,10 @@ import "./gallery"
 import "./direct_uploads/redesigned_upload_field"
 import "./data_consent"
 import "./sw"
-import changeReportFormBehavior from "./redesigned_change_report_form_behavior"
-
 
 // local deps that require initialization
 import formDatePicker from "./form_datepicker"
-import fixDropdownMenus from "./dropdowns_menus"
+// import fixDropdownMenus from "./dropdowns_menus" -- deprecated
 import Configuration from "./configuration"
 import ExternalLink from "./redesigned_external_link"
 import updateExternalDomainLinks from "./external_domain_warning"
@@ -72,7 +70,7 @@ import FormValidator from "./form_validator"
 import DataPicker from "./data_picker"
 import FormFilterComponent from "./redesigned_form_filter"
 import addInputEmoji, { EmojiButton } from "./input_emoji"
-import dialogMode from "./dialog_mode"
+// import dialogMode from "./dialog_mode" -- deprecated
 import FocusGuard from "./focus_guard"
 import backToListLink from "./back_to_list"
 import markAsReadNotifications from "./notifications"
@@ -86,6 +84,7 @@ import {
   createDropdown,
   Dialogs
 } from "./redesigned_a11y"
+import changeReportFormBehavior from "./redesigned_change_report_form_behavior"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referrenced through a single Decidim.I18n object
