@@ -115,7 +115,6 @@ describe Decidim do
         templates
         verifications
         conferences
-        consultations
         elections
         initiatives
         templates

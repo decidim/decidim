@@ -53,10 +53,6 @@ PATH
       decidim-meetings (= 0.28.0.dev)
       wicked_pdf (~> 2.1)
       wkhtmltopdf-binary (~> 0.12)
-    decidim-consultations (0.28.0.dev)
-      decidim-admin (= 0.28.0.dev)
-      decidim-comments (= 0.28.0.dev)
-      decidim-core (= 0.28.0.dev)
     decidim-core (0.28.0.dev)
       active_link_to (~> 1.0)
       acts_as_list (~> 1.0)
@@ -821,7 +817,6 @@ DEPENDENCIES
   byebug (~> 11.0)
   decidim!
   decidim-conferences!
-  decidim-consultations!
   decidim-dev!
   decidim-elections!
   decidim-initiatives!

@@ -11,7 +11,7 @@ module Decidim
         private
 
         def extra_data_items
-          [developer_group_item, target_item, participatory_scope_item, participatory_structure_item]
+          [developer_group_item, target_item, participatory_scope_item, participatory_structure_item].compact
         end
 
         def developer_group_item
