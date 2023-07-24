@@ -495,7 +495,6 @@ eu:
           highlighted_conferences:
             active_conferences: Jardunaldi aktiboak
             conferences_button_title: Lotura batzar guztiak erakusten dituen Batzarren orrialdera
-            see_all_conferences: Ikusi hitzaldi guztiak
       photo:
         image:
           attributes:
