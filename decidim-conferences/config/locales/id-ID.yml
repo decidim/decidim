@@ -448,7 +448,6 @@ id:
         home:
           highlighted_conferences:
             active_conferences: Konferensi aktif
-            see_all_conferences: Lihat semua konferensi
       photo:
         show:
           close_modal: Tutup modal
