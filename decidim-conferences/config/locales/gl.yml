@@ -5,7 +5,6 @@ gl:
         assemblies_ids: Asembleas relacionadas
         available_slots: Prazas dispoñíbeis
         banner_image: Imaxe do banner
-        consultations_ids: Consultas relacionadas
         copy_categories: Copiar categorías
         copy_components: Copiar compoñentes
         copy_features: Copiar funcións
@@ -460,12 +459,6 @@ gl:
             states:
               confirmed: Confirmado
               pending: Pendente
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Conferencias activas
-            conferences_button_title: Ligazón á páxina de Conferencias que amosa todas as conferencias
-            see_all_conferences: Ver todas as conferencias
       registration_types:
         index:
           choose_an_option: 'Elixe a túa opción de rexistro:'
@@ -477,7 +470,6 @@ gl:
         introduction: Introdución
         objectives: Obxectivos
         related_assemblies: Asembleas relacionadas
-        related_consultations: Consultas relacionadas
         related_participatory_processes: Procesos participativos relacionados
     events:
       conferences:
@@ -529,9 +521,6 @@ gl:
     decidim:
       conference_hero:
         register: Rexistrarse
-      conference_widgets:
-        show:
-          take_part: Tomar parte en
       conferences:
         conference:
           more_info: Máis información
@@ -542,9 +531,6 @@ gl:
           conferences:
             one: "%{count} conferencia"
             other: "%{count} conferencias"
-        promoted_conference:
-          more_info: Máis información
-          take_part: Tomar parte en
       conferences_nav:
         conference_menu_item: Información
         conference_partners_menu_item: Socios
