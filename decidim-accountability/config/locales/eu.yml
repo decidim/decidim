@@ -8,7 +8,7 @@ eu:
         description: Deskribapena
         end_date: Bukaera-data
         meetings_ids: Honekin lotutako topaketak
-        progress: Aurrerapena
+        progress: Aurreratzea
         project_ids: Barne dauden proiektuak
         proposals: Barne dauden proposamenak
         start_date: Hasiera-data
@@ -54,6 +54,9 @@ eu:
             download_export: Deskargatu esportatutakoa CSV formatuan
             import: Inportatu
             title: Inportatu emaitzak CSVtik
+        imports:
+          create:
+            success: Espedientea inportatzen hasi da. Hurrengo minutuan posta elektroniko bat jasoko duzu inportazioaren emaitzarekin.
         models:
           result:
             name: Emaitza
@@ -76,6 +79,7 @@ eu:
             title: Inportatu proiektuak jarraipenera
         results:
           create:
+            invalid: Arazo bat izan da emaitza hau sortzean.
             success: Emaitza ondo sortu da.
           destroy:
             success: Emaitza ondo ezabatu da.
@@ -88,12 +92,14 @@ eu:
             create: Sortu emaitza
             title: Emaitza berria
           update:
+            invalid: Arazo bat izan da emaitza hau eguneratzean.
             success: Emaitza zuzen eguneratu da.
         shared:
           subnav:
             statuses: Egoerak
         statuses:
           create:
+            invalid: Arazo bat izan da egoera hori eguneratzean.
             success: Eztabaida zuzen sortu da.
           edit:
             title: Editatu egoera
@@ -143,7 +149,7 @@ eu:
           subject: Proiektuak zuzen inportatu dira
           success: Zuzen inportatu dira proiektuak emaitzetara %{component_name} osagaian. Emaitza administrazio-interfacean ikus dezakezu.
       last_activity:
-        new_result: '<span> %{link}</span>emaitza berrian'
+        new_result: '<span> %{link}</span>emaitza berria:'
       models:
         result:
           fields:
@@ -158,7 +164,7 @@ eu:
             title: Izenburua
         status:
           fields:
-            description: Descripción
+            description: Deskribapena
             key: Gakoa
             name: Izena
             progress: Aurrerapena
@@ -243,6 +249,9 @@ eu:
         description: Sortutako emaitza kopurua
         object: emaitzak
         title: Emaitzak
+    participatory_spaces:
+      highlighted_results:
+        see_all: Ikusi emaitza guztiak
     resource_links:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak
