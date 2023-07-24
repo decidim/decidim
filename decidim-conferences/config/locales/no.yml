@@ -5,7 +5,6 @@
         assemblies_ids: Relaterte Forsamlinger
         available_slots: Tilgjengelige plasser
         banner_image: Bannerafbeelding
-        consultations_ids: Relaterte konsultasjoner
         copy_categories: Kopier kategorier
         copy_components: Kopier komponenter
         copy_features: Kopier funksjoner
@@ -464,12 +463,6 @@
             states:
               confirmed: Bekreftet
               pending: Venter
-      pages:
-        home:
-          highlighted_conferences:
-            active_conferences: Aktive konferanser
-            conferences_button_title: Lenke til konferansesiden som viser alle konferansene
-            see_all_conferences: Se alle konferanser
       registration_types:
         index:
           choose_an_option: 'Velg ditt registrerings alternativ:'
@@ -481,7 +474,6 @@
         introduction: Introduksjon
         objectives: Mål
         related_assemblies: Relaterte forsamlinger
-        related_consultations: Relaterte konsultasjoner
         related_participatory_processes: Relaterte deltakerprosesser
     events:
       conferences:
@@ -536,9 +528,6 @@
     decidim:
       conference_hero:
         register: Registrer
-      conference_widgets:
-        show:
-          take_part: Delta
       conferences:
         conference:
           more_info: Mer info
@@ -549,9 +538,6 @@
           conferences:
             one: "%{count} konferanse"
             other: "%{count} konferanser"
-        promoted_conference:
-          more_info: Mer info
-          take_part: Delta
       conferences_nav:
         conference_menu_item: Informasjon
         conference_partners_menu_item: Partnere
