@@ -222,9 +222,6 @@ lb:
             name: Name
     assemblies:
       admin:
-        assemblies_types:
-          form:
-            title: Titel
         assembly_copies:
           form:
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
