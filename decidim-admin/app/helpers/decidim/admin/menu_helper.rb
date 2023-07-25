@@ -43,6 +43,22 @@ module Decidim
         )
       end
 
+      def breadcrumb_modules_admin_menu
+        @breadcrumb_modules_admin_menu ||= ::Decidim::BreadcrumbRootMenuPresenter.new(
+          :admin_menu_modules,
+          self,
+          container_options: { class: "menu-bar__main-dropdown__menu" }
+        )
+      end
+
+      def breadcrumb_root_admin_menu
+        @breadcrumb_root_admin_menu ||= ::Decidim::BreadcrumbRootMenuPresenter.new(
+          :admin_menu,
+          self,
+          container_options: { class: "menu-bar__main-dropdown__menu" }
+        )
+      end
+
       def aside_menu(target_menu)
         ::Decidim::Admin::AsideMenuPresenter.new(target_menu, self)
       end

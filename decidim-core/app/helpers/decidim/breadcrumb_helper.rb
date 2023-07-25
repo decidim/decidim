@@ -5,13 +5,19 @@ module Decidim
   module BreadcrumbHelper
     attr_reader :context_breadcrumb_items
 
-    def breadcrumb_items
+    def breadcrumb_items(context = :public)
       @breadcrumb_items ||= [].tap do |items|
-        if breadcrumb_root_menu.active_item.present?
+        active_item = if context == :admin
+                        breadcrumb_root_admin_menu.active_item || breadcrumb_modules_admin_menu.active_item
+                      else
+                        breadcrumb_root_menu.active_item
+                      end
+
+        if active_item.present?
           items << {
-            label: breadcrumb_root_menu.active_item.label,
-            url: breadcrumb_root_menu.active_item.url,
-            active: breadcrumb_root_menu.active_item.active? && context_breadcrumb_items.blank?
+            label: active_item.label,
+            url: active_item.url,
+            active: active_item.active? && context_breadcrumb_items.blank?
           }
         end
 
