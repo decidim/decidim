@@ -870,7 +870,7 @@ es:
           update: Actualizar
         new:
           create: Crear tipo de ámbito
-          title: Nuevo ámbito
+          title: Nuevo tipo de ámbito
         update:
           error: Se ha producido un error al actualizar este tipo de ámbito.
           success: Tipo de ámbito actualizado correctamente
@@ -956,9 +956,12 @@ es:
         areas: Áreas
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
+        edit_external_domains: Listado de dominios externos permitidos
+        edit_organization_appearance: Editar apariencia de página de inicio
         impersonatable_users: Participantes que se pueden gestionar
         impersonations: Gestión de participantes
         metrics: Métricas
+        pages: Páginas
         panel: Administradora
         participants: Participantes
         scope_types: Tipos de ámbito
