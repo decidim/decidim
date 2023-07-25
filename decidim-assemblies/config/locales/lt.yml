@@ -292,9 +292,6 @@ lt:
             update: Atnaujinimas
           form:
             title: Asamblėjų nuostatos
-        assemblies_types:
-          form:
-            title: Pavadinimas
         assembly_copies:
           form:
             slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
