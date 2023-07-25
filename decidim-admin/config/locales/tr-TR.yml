@@ -701,7 +701,7 @@ tr:
           update: Güncelleştirme
         new:
           create: Kapsam türü oluştur
-          title: Yeni kapsam
+          title: Yeni Faaliyet Türü
         update:
           error: Bu kapsam türünü güncellerken bir hata oluştu.
           success: Kapsam türü başarıyla güncellendi
@@ -787,9 +787,12 @@ tr:
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
         dashboard: Pano
+        edit_external_domains: Harici Güvenli Alan
+        edit_organization_appearance: Ana Sayfayı Düzenleme
         impersonatable_users: Yönetilebilir kullanıcılar
         impersonations: Kullanıcılar yönetimi
         metrics: Metrik
+        pages: Sayfalar
         panel: Yönetici
         participants: Kullanıcılar
         scope_types: Kapsam türleri
