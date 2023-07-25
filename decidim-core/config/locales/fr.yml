@@ -84,6 +84,7 @@ fr:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
@@ -103,6 +104,23 @@ fr:
       less_than_x_seconds:
         one: moins d'une seconde
         other: moins de %{count} secondes
+      short:
+        about_x_days: "%{count} jrs"
+        about_x_hours: "%{count} h"
+        about_x_minutes: "%{count} min"
+        about_x_months: "%{count} mois"
+        about_x_years: "%{count} an(s)"
+        almost_x_years: "%{count} an(s)"
+        half_a_minute: 1 min
+        less_than_x_minutes: "%{count} min"
+        less_than_x_seconds: "%{count} s"
+        over_x_years: "%{count} an(s)"
+        x_days: "%{count} jrs"
+        x_hours: "%{count} h"
+        x_minutes: "%{count} min"
+        x_months: "%{count} mois"
+        x_seconds: "%{count} s"
+        x_years: "%{count} an(s)"
       x_days:
         one: 1 jour
         other: "%{count} jours"
@@ -272,6 +290,10 @@ fr:
         promote_confirm_text: Êtes-vous sûr de vouloir promouvoir cette modification?
         promote_help_text: Vous pouvez promouvoir cette correction et la publier indépendamment de %{model_name}.
         section_heading: Amendements (%{count})
+      amendments:
+        title:
+          one: "%{count} amendement"
+          other: "%{count} amendements"
       compare_draft:
         continue: Continuer
         no_similars_found: Aucune modification similaire trouvé.
@@ -303,6 +325,7 @@ fr:
           withdrawn: |-
             L'amendement pour le %{amendable_type} %{proposal_link}
             a été retiré par l'auteur.
+      name: Amendement
       new:
         amendment_author: Auteur de l'amendement
         send: Créer
@@ -341,11 +364,13 @@ fr:
       document:
         download: Télécharger le fichier
       documents:
+        documents: Documents
         related_documents: Documents à consulter
       photo:
         alt: Image média
         title: Image
       photos:
+        photos: Images
         related_photos: Photos associées
     author:
       avatar: 'Avatar: %{name}'
@@ -477,6 +502,8 @@ fr:
             dummy_step_translatable_text: Texte traduisible de l'étape factice
     contact: Contact
     content_blocks:
+      announcement:
+        name: Annonce
       cta:
         name: Image, texte et bouton d'appel à l'action
       cta_settings_form:
@@ -486,6 +513,8 @@ fr:
         description: Description
       footer_sub_hero:
         name: Section "Bienvenue sur la plateforme" (. footer_sub_hero)
+      global_menu:
+        name: Menu global
       hero:
         name: Image principale (hero)
       hero_settings_form:
@@ -494,6 +523,9 @@ fr:
       highlighted_content_banner:
         name: Bannière de contenu mis en valeur
       highlighted_elements_settings_form:
+        components:
+          all: Tout
+          label: 'Sélectionnez un composant:'
         orders:
           label: 'Trier les éléments par:'
           random: Aléatoire
@@ -507,8 +539,20 @@ fr:
         name: Dernière Activité
         title: Dernière Activité
         view_all: Voir tout
+      last_activity_settings_form:
+        max_last_activity_users: Nombre maximum d'avatars d'utilisateurs avec une activité récente à afficher
+      main_data:
+        name: Données principales
+      metadata:
+        name: Métadonnées
       metrics:
         name: Historique des statistiques de participation
+      participatory_space_metrics:
+        name: Métriques
+      participatory_space_stats:
+        name: Statistiques
+      social_networks_metadata:
+        name: Réseaux sociaux
       static_page:
         section:
           name: Section
@@ -528,6 +572,13 @@ fr:
       actions:
         login_before_access: Veuillez vous connecter avec votre compte avant d'y accéder.
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action.
+      application_helper:
+        filter_area_values:
+          all: Tout
+        filter_category_values:
+          all: Tout
+        filter_scope_values:
+          all: Tout
     datepicker:
       help_text: 'Format attendu : %{datepicker_format}'
     devise:
