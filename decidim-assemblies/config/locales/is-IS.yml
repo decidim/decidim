@@ -182,9 +182,6 @@ is:
             slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessa samkomu. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
             social_handlers: Félagsleg
             title: Almennar upplýsingar
-        assemblies_types:
-          form:
-            title: Titill
         assembly_copies:
           form:
             slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessa samkomu. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
