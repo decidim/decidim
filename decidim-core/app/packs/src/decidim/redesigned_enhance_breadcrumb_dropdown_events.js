@@ -1,6 +1,6 @@
 /**
  * Hack for the mouse events of the breadcrumb dropdowns
- * Since they're opened via hover event, at the moment you hover something else, the dropdown begins to close
+ * Since they are opened via hover event, at the moment you hover something else, the dropdown begins to close
  * In order to avoid that, this script includes a set of statements to reopen the element
  * as long as the conditions are fulfilled (during the fade away effect)
  *
