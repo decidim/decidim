@@ -292,9 +292,6 @@ sv:
             update: Uppdatera
           form:
             title: Inställningar för församlingar
-        assemblies_types:
-          form:
-            title: Titel
         assembly_copies:
           form:
             slug_help: 'URL-slugs används till att generera de URL:er som pekar på gruppen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
@@ -363,9 +360,7 @@ sv:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktiva grupper
             assemblies_button_title: Länk till sidan över grupper som visar alla grupper
-            see_all_assemblies: Visa alla grupper
         user_profile:
           member_of:
             member_of: Medlem av
@@ -373,29 +368,28 @@ sv:
         area: Område
         assembly_type: Typ av grupp
         children: Grupper
-        closing_date: Stängningsdatum
+        closing_date: Slutdatum
         composition: Sammansättning
         created_by: Skapad av
-        creation_date: Skapelsedatum
+        creation_date: Skapad datum
         developer_group: Kampanjgrupp
         duration: Varaktighet
-        included_at: Ingår vid
-        indefinite_duration: Permanent
+        included_at: Inkluderad vid
         internal_organisation: Intern organisation
         is_transparent:
           'false': ogenomskinlig
           'true': transparent
         local_area: Område
         participatory_scope: Vad bestäms
-        participatory_structure: Hur det bestäms
+        participatory_structure: Hur bestäms det
         private_space: Detta är en privat grupp
-        purpose_of_action: Syftet med åtgärden
+        purpose_of_action: Syfte med åtgärden
         read_less: Läs mindre
         read_more: Läs mer
         related_participatory_processes: Relaterade dialoger
         scope: Omfång
         social_networks: Sociala nätverk
-        target: Vilka deltar
+        target: Vem deltar
     assembly_members:
       assembly_member:
         designated_on: Utsedd den

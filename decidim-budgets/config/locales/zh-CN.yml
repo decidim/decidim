@@ -144,9 +144,12 @@ zh-CN:
             description: 您已经投票给了预算。如果您改变了主意，您可以 %{cancel_link}。
             title: 预算投票完成
           title: 您决定预算
+          total_budget: 预算总额
         count:
           projects_count:
             other: "%{count} 个项目"
+        exit_modal:
+          close_modal: 关闭模式
         filters:
           category: 类别
           scope: 范围

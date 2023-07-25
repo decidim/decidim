@@ -866,7 +866,6 @@ zh-TW:
           update: 更新
         new:
           create: 建立範圍類型。
-          title: 新範圍
         update:
           error: 更新此範圍類型時出現問題。
           success: 範圍類型已成功更新。

@@ -494,7 +494,6 @@
           highlighted_conferences:
             active_conferences: Aktive konferanser
             conferences_button_title: Lenke til konferansesiden som viser alle konferansene
-            see_all_conferences: Se alle konferanser
       photo:
         image:
           attributes:

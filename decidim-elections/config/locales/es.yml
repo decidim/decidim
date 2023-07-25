@@ -261,7 +261,7 @@ es:
               minimum_answers: Las preguntas deben tener <strong>al menos dos respuestas</strong>.
               minimum_questions: La elección <strong>debe tener al menos una pregunta</strong>.
               published: La elección <strong>no está publicada</strong>.
-              time_before: Se ha configurado la hora de inicio en <strong>menos de %{hours} horas</strong> antes de que comience la elección.
+              time_before: La hora de inicio es en <strong>menos de %{hours} horas</strong> antes de que comience la elección.
               trustees_number: El espacio participativo <strong>debe tener al menos %{number} garantes con clave pública</strong>.
             invalid: Hubo un problema al configurar esta elección
             no_trustees: No hay garantes configurados para este espacio participativo
@@ -814,11 +814,9 @@ es:
             max_results: Cantidad máxima de elementos a mostrar
           landing_page:
             attachments_and_folders:
-              name: Archivos adjuntos y carpetas de la votación
+              name: Archivos y carpetas de la votación
             description:
               name: Descripción de la votación
-            elections:
-              name: Elecciones de la votación
             header:
               name: Cabecera de la votación
             html_block_1:
@@ -828,13 +826,13 @@ es:
             html_block_3:
               name: Bloque html 3 de la votación
             metrics:
-              name: Métricas de votación
+              name: Métricas de la votación
             polling_stations:
               name: Puntos de votación
             stats:
-              name: Estadísticas de votación
+              name: Estadísticas de la votación
             timeline:
-              name: Calendario de votación
+              name: Calendario de la votación
         index:
           not_published: Despublicada
           published: Publicada

@@ -296,7 +296,7 @@ es-MX:
             title: Configuración de las asambleas
         assemblies_types:
           form:
-            title: Título
+            title: Editar tipo de asamblea
         assembly_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -378,11 +378,11 @@ es-MX:
         closing_date: Fecha de cierre
         composition: Composición
         created_by: Creado por
-        creation_date: Fecha de creación
+        creation_date: Fecha de creacion
         developer_group: Grupo promotor
         duration: Duración
         included_at: Incluido en
-        indefinite_duration: Indefinido
+        indefinite_duration: Indefinida
         internal_organisation: Organización interna
         is_transparent:
           'false': opaco

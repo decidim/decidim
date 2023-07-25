@@ -548,7 +548,7 @@ pt-BR:
         home:
           highlighted_initiatives:
             active_initiatives: Iniciativas ativas
-            see_all_initiatives: Veja todas as iniciativas
+            see_all_initiatives: Ver todas as iniciativas
       show:
         badge_name:
           accepted: Assinaturas suficientes
@@ -577,7 +577,7 @@ pt-BR:
   layouts:
     decidim:
       initiative_creation_header:
-        back: De volta
+        back: Costas
         fill_data: Criar
         finish: Finalizar
         previous_form: Começar

@@ -3,11 +3,14 @@ el:
     attributes:
       assemblies_setting:
         enable_organization_chart: Ενεργοποίηση οργανογράμματος
+      assemblies_type:
+        title: Τίτλος
       assembly:
+        announcement: Ανακοίνωση
         area_id: Τομέας
         assembly_type: Τύπος συνέλευσης
         assembly_type_other: Άλλος τύπος συνέλευσης
-        banner_image: Εικόνα διαφημιστικού πλαισίου
+        banner_image: Εικόνα banner
         closing_date: Ημερομηνία κλεισίματος
         closing_date_reason: Αιτία ημερομηνίας κλεισίματος
         composition: Σύνθεση
@@ -17,17 +20,21 @@ el:
         created_by: Δημιουργήθηκε από
         created_by_other: Δημιουργήθηκε από άλλο
         creation_date: Ημερομηνία δημιουργίας
-        decidim_area_id: Τομέας
+        decidim_area_id: Περιοχή
         decidim_assemblies_type_id: Τύπος συνέλευσης
         decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
         developer_group: Ομάδα προώθησης
+        document: Έγγραφο
         domain: Τομέας
         duration: Διάρκεια
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Εικόνα αρχικής σελίδας
+        import_attachments: Εισαγωγή συνημμένων
+        import_categories: Εισαγωγή κατηγοριών
+        import_components: Εισαγωγή Στοιχείων
         included_at: Συμπεριλήφθηκε στις
         instagram: Instagram
         internal_organisation: Εσωτερικός οργανισμός
@@ -61,8 +68,10 @@ el:
         designation_date: Ημερομηνία διορισμού
         full_name: Ονοματεπώνυμο
         gender: Φύλο
+        non_user_avatar: Άβαταρ
         position: Θέση
         user_id: Χρήστης ή ομάδα
+        weight: Θέση κατάταξης
       assembly_user_role:
         email: Email
         name: Όνομα
@@ -181,6 +190,9 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση ενός διαχειριστή για αυτήν τη συνέλευση.
           success: Ο διαχειριστής ενημερώθηκε με επιτυχία για αυτήν τη συνέλευση.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Τύπος συνέλευσης
       menu:
         assemblies: Συνελεύσεις
         assemblies_settings: Ρυθμίσεις
@@ -282,9 +294,6 @@ el:
             update: Ενημέρωση
           form:
             title: Ρυθμίσεις για συνελεύσεις
-        assemblies_types:
-          form:
-            title: Τίτλος
         assembly_copies:
           form:
             slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη συνέλευση. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
@@ -295,7 +304,10 @@ el:
         assembly_members:
           form:
             existing_user: Υπάρχων συμμετέχων
+            explanation: 'Οδηγίες για την εικόνα:'
+            image_guide: Κατά προτίμηση μια εικόνα με οριζόντιο προσανατολισμό που δεν περιέχει κείμενο.
             non_user: Μη συμμετέχων
+            non_user_avatar_help: Θα πρέπει να λάβετε τη συγκατάθεση των προσώπων πριν τα δημοσιεύσετε ως μέλος.
             select_a_position: Επιλέξτε θέση
             select_user: Επιλέξτε συμμετέχοντα
             user_type: Τύπος συμμετέχοντα
@@ -309,6 +321,12 @@ el:
         content_blocks:
           highlighted_assemblies:
             max_results: Μέγιστη ποσότητα στοιχείων προς εμφάνιση
+        new_import:
+          accepted_types:
+            json: JSON
+      assemblies:
+        show:
+          title: Σχετικά με τη συνέλευση
       assembly_members:
         index:
           members: Μέλη
@@ -344,9 +362,7 @@ el:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Ενεργές συνελεύσεις
             assemblies_button_title: Σύνδεσμος προς τη σελίδα «Συνελεύσεις» που εμφανίζει όλες τις συνελεύσεις
-            see_all_assemblies: Δείτε όλες τις συνελεύσεις
         user_profile:
           member_of:
             member_of: Μέλος
@@ -361,7 +377,6 @@ el:
         developer_group: Ομάδα προώθησης
         duration: Διάρκεια
         included_at: Συμπεριλήφθηκε στις
-        indefinite_duration: Αόριστη
         internal_organisation: Εσωτερικός οργανισμός
         is_transparent:
           'false': αδιαφανής
@@ -376,6 +391,7 @@ el:
         related_participatory_processes: Σχετικές διαδικασίες συμμετοχής
         scope: Πεδίο εφαρμογής
         social_networks: Κοινωνικά δίκτυα
+        social_networks_title: Επίσκεψη στη συνέλευση στις
         target: Ποιος συμμετέχει
     assembly_members:
       assembly_member:
@@ -386,6 +402,7 @@ el:
       assemblies:
         create_assembly_member:
           email_intro: Ένας διαχειριστής της συνέλευσης <a href="%{resource_url}">%{resource_name}</a> σας πρόσθεσε ως ένα από τα μέλη της.
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή έχετε προσκληθεί σε συνέλευση. Ελέγξτε τη <a href="%{resource_url}">σελίδα της συνέλευσης</a> για να συνεισφέρετε!
           email_subject: Έχετε προσκληθεί να γίνετε μέλος της συνέλευσης %{resource_name}!
           notification_title: Έχετε εγγραφεί ως μέλος της Συνέλευσης <a href="%{resource_path}">%{resource_name}</a>. Ελέγξτε τη <a href="%{resource_path}">σελίδα συνέλευσης</a> για να συνεισφέρετε!
       assembly:

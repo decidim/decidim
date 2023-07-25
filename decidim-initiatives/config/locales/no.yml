@@ -436,7 +436,7 @@
           confirm_revoke: Er du sikker?
           invite_to_committee_help: Del denne lenken for å invitere andre deltakere til promotørutvalget
           no_members_yet: Det er ingen medlemmer i promotørkomiteen
-          revoke: Tilbakekall
+          revoke: Tilbakekalle
           title: Utvalgets medlemmer
         count:
           title:
@@ -538,11 +538,6 @@
         status_change_for: Initiativet %{title} har endret sin status
       last_activity:
         new_initiative: Nytt initiativ
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktive initiativer
-            see_all_initiatives: Se alle initiativer
       show:
         badge_name:
           accepted: Nok signaturer

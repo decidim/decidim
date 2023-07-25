@@ -853,7 +853,6 @@
           update: Oppdater
         new:
           create: Opprett tematype
-          title: Nytt tema
         update:
           error: Det oppstod et problem med å oppdatere denne tematypen.
           success: Tematypen ble oppdatert

@@ -1,1 +1,10 @@
 kaa:
+  decidim:
+    system:
+      actions:
+        save: Saqlaw
+      oauth_applications:
+        edit:
+          save: Saqlaw
+        new:
+          save: Saqlaw

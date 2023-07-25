@@ -3,7 +3,10 @@ hu:
     attributes:
       assemblies_setting:
         enable_organization_chart: Szervezeti ábra engedélyezése
+      assemblies_type:
+        title: Cím
       assembly:
+        announcement: Közlemény
         area_id: Terület
         assembly_type: Gyűlés típusa
         assembly_type_other: Más típusú gyűlés
@@ -22,12 +25,16 @@ hu:
         decidim_scope_id: Hatáskör
         description: Leírás
         developer_group: Kezdeményező csoport
+        document: Dokumentum
         domain: Domain
         duration: Időtartam
         facebook: Facebook
         github: GitHub
         hashtag: Kettőskereszt
         hero_image: Kezdő kép
+        import_attachments: Mellékletek importálása
+        import_categories: Kategóriák importálása
+        import_components: Komponensek importálása
         included_at: 'Tartalmazza:'
         instagram: Instagram
         internal_organisation: Belső szervezet
@@ -64,6 +71,7 @@ hu:
         non_user_avatar: Profilkép
         position: Pozíció
         user_id: Felhasználó vagy csoport
+        weight: Sorbarendezés
       assembly_user_role:
         email: Email
         name: Név
@@ -286,9 +294,6 @@ hu:
             update: Frissítés
           form:
             title: Gyűlések beállításai
-        assemblies_types:
-          form:
-            title: Cím
         assembly_copies:
           form:
             slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
@@ -359,7 +364,7 @@ hu:
           highlighted_assemblies:
             active_assemblies: Aktív gyűlések
             assemblies_button_title: A Gyűlések oldalra mutató link, ahol az összes Gyűlés látható
-            see_all_assemblies: Összes gyűlés
+            see_all_assemblies: Az összes közgyűlés megtekintése
         user_profile:
           member_of:
             member_of: 'Tagja következőnek:'
@@ -380,17 +385,17 @@ hu:
           'false': áttetsző
           'true': átlátszó
         local_area: Szervezet területe
-        participatory_scope: Mi a döntés
+        participatory_scope: Miről születik döntés
         participatory_structure: Hogyan döntenek
         private_space: Ez egy privát gyűlés
-        purpose_of_action: Fellépés célja
+        purpose_of_action: A fellépés célja
         read_less: Kevesebb
         read_more: Bővebben
         related_participatory_processes: Kapcsolódó részvételi folyamatok
         scope: Hatáskör
         social_networks: Közösségi háló
         social_networks_title: Látogasd meg a gyűlést itt
-        target: Ki vesz részt benne
+        target: Ki vesz részt
     assembly_members:
       assembly_member:
         designated_on: Kijelölt
@@ -452,7 +457,7 @@ hu:
             one: "%{count} gyűlés"
             other: "%{count} gyűlés"
         promoted_assembly:
-          more_info: További információ
+          more_info: Több információ
           take_part: Vegyél részt
       assembly_navigation:
         assembly_member_menu_item: Tagok

@@ -1136,7 +1136,7 @@ es-PY:
           participate: Participar
           welcome: Bienvenido a %{organization}!
         metrics:
-          headline: Participación en cifras
+          headline: Participación en cifras.
         statistics:
           headline: Estado actual de %{organization}
         sub_hero:
@@ -1365,7 +1365,7 @@ es-PY:
       index:
         add_max_users: 'Añadir usuarias a la conversación: máximo 9 usuarias'
         add_users_placeholder: Buscar...
-        close: Cerar
+        close: Cerrar
         conversations_info: Las conversaciones son privadas. Nadie más puede verlas. Se puede iniciar una conversación con cualquier participante o grupo registrado en la plataforma.
         from: 'De:'
         last_message: Último mensaje
@@ -1386,7 +1386,7 @@ es-PY:
         back: Ver todas las conversaciones
         deleted_accounts: No puedes tener una conversación con cuentas borradas.
         not_allowed: Esta participante no acepta mensajes directos.
-        title: Conversación con %{usernames}
+        title: Conversacion con %{usernames}
       update:
         error: Mensaje no enviado. Inténtalo de nuevo más tarde
     user_interests:
@@ -1598,6 +1598,7 @@ es-PY:
       too_many_marks: está usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: es demasiado corto (menos %{count} caracteres)
+      url_format: El formato de esta URL es incorrecto
   forms:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:

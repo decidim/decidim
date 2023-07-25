@@ -937,6 +937,10 @@ id:
     statistics:
       comments_count: Komentar
     user_conversations:
+      index:
+        close: Dekat
+      show:
+        title: Percakapan dengan %{usernames}
       update:
         error: Pesan tidak terkirim. Coba lagi nanti
     user_interests:

@@ -286,9 +286,6 @@ gl:
             update: Actualizar
           form:
             title: Axustes das xuntanzas
-        assemblies_types:
-          form:
-            title: Título
         assembly_copies:
           form:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
@@ -356,9 +353,7 @@ gl:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Asembleas activas
             assemblies_button_title: Ligazón á páxina de Xuntanzas que amosa todas as xuntanzas
-            see_all_assemblies: Ver todos os conxuntos
         user_profile:
           member_of:
             member_of: Membro de
@@ -369,11 +364,10 @@ gl:
         closing_date: Data de peche
         composition: Composición
         created_by: Creado por
-        creation_date: Data creada
+        creation_date: Data de creación
         developer_group: Grupo promotor
         duration: Duración
         included_at: Incluído en
-        indefinite_duration: Indefinido
         internal_organisation: Organización interna
         is_transparent:
           'false': opaco

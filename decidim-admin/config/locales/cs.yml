@@ -878,7 +878,7 @@ cs:
           update: Aktualizace
         new:
           create: Vytvořit typ oblasti působnosti
-          title: Nová oblast působnosti
+          title: Nový typ rozsahu
         update:
           error: Při aktualizaci tohoto typu oblasti působnosti došlo k chybě.
           success: Typ oblasti působnosti byl úspěšně aktualizován
@@ -964,9 +964,12 @@ cs:
         areas: Oblasti
         authorization_workflows: Metody ověření
         dashboard: Ovládací panel
+        edit_external_domains: Seznam externích povolených domén
+        edit_organization_appearance: Upravit vzhled domovské stránky
         impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
         metrics: Metriky
+        pages: Stránky
         panel: Admin
         participants: Uživatelé
         scope_types: Typy oblastí působnosti

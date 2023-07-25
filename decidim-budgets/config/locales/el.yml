@@ -13,14 +13,29 @@ el:
         decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
         proposal_ids: Σχετικές προτάσεις
+        proposals: Προτάσεις
         selected: Επιλεγμένο για εφαρμογή
         title: Τίτλος
+      proposals_import:
+        scope_id: Πεδίο εφαρμογής
   activerecord:
     models:
       decidim/budgets/project:
         one: Έργο
         other: Έργα
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Κατηγορία
+          scope_id_eq:
+            label: Πεδίο εφαρμογής
+          selected_at_null:
+            label: Επιλέχθηκε
+            values:
+              'false': Επιλέχθηκε για υλοποίηση
+              'true': Δεν επιλέχθηκε για υλοποίηση
     budgets:
       actions:
         attachment_collections: Φάκελοι
@@ -89,7 +104,10 @@ el:
             success: "%{number} προτάσεις εισήχθηκαν με επιτυχία σε έργα"
           new:
             create: Εισαγωγή προτάσεων σε έργα
+            default_budget: Προεπιλεγμένος προϋπολογισμός
+            import_all_accepted_proposals: Εισαγωγή όλων των αποδεχθείσων προτάσεων
             no_components: Δεν υπάρχουν άλλα στοιχεία προτάσεων σε αυτόν τον χώρο συμμετοχής για εισαγωγή των προτάσεων σε έργα.
+            origin_component_id: Στοιχείο καταγωγής
             select_component: Επιλέξτε ένα στοιχείο
             title: Προτάσεις εισαγωγής
       admin_log:
@@ -119,6 +137,9 @@ el:
         highlighted_cta: Ψηφίστε για %{name}
         if_change_opinion: Αν αλλάξατε γνώμη, μπορείτε να
         my_budgets: Οι προϋπολογισμοί μου
+        progress: Ολοκλήρωση ψηφοφορίας
+        show: Δείτε τα έργα
+        vote: Ψήφος
         voted_on: Έχετε ψηφίσει για %{links}
       limit_announcement:
         cant_vote: Δεν μπορείτε να ψηφίσετε αυτόν τον προϋπολογισμό. <a href="%{landing_path}">Δοκιμάστε έναν άλλο προϋπολογισμό</a>.
@@ -131,6 +152,8 @@ el:
             total_budget: Συνολικός προϋπολογισμός
         project:
           fields:
+            category: Κατηγορία
+            id: ID
             title: Τίτλος
       order_summary_mailer:
         order_summary:
@@ -151,6 +174,7 @@ el:
           close: Κλείσιμο
           ok: OK
           projects_excess:
+            description: Το έργο αυτό υπερβαίνει τον μέγιστο αριθμό έργων και δεν μπορεί να προστεθεί. Εάν θέλετε, μπορείτε να διαγράψετε ένα έργο που έχετε ήδη επιλέξει, για να μπορείτε να ψηφίσετε σύμφωνα με τις προτιμήσεις σας.
             title: Υπέρβαση των μέγιστων έργων
         budget_summary:
           are_you_sure: Είστε βέβαιοι ότι θέλετε να ακυρώσετε την ψήφο σας;
@@ -180,6 +204,12 @@ el:
           projects_count:
             one: 1 έργο
             other: "%{count} έργα"
+        exit_modal:
+          cancel: Επιστροφή στην ψηφοφορία
+          close_modal: Κλείσιμο παραθύρου
+          exit: Έξοδος από την ψηφοφορία
+          message: Η ψήφος σας δεν έχει εγγραφεί επειδή δεν έχετε ολοκληρώσει ακόμα τη διαδικασία ψηφοφορίας. Είστε σίγουροι ότι θέλετε να βγείτε από την ψηφοφορία;
+          title: Δεν έχετε ψηφίσει ακόμα
         filters:
           category: Κατηγορία
           scope: Πεδίο εφαρμογής
@@ -190,7 +220,7 @@ el:
             not_selected: Δεν έχει επιλεγεί
             selected: Επιλεγμένο
         filters_small_view:
-          close_modal: Κλείσιμο βοηθητικού στοιχείου
+          close_modal: Κλείσιμο παραθύρου
           filter: Φίλτρο
           filter_by: Φιλτράρισμα κατά
           unfold: Αποκάλυψη
@@ -217,6 +247,7 @@ el:
           votes:
             one: ψήφος
             other: ψήφοι
+          you_voted: Ψηφίσατε για αυτό
         project_budget_button:
           add: Προσθέστε στην ψήφο σας
           add_descriptive: Προσθήκη του έργου %{resource_name} στην ψήφο σας
@@ -251,6 +282,7 @@ el:
             total_budget: Συνολικός προϋπολογισμός
             vote_minimum_budget_projects_number: Ελάχιστος αριθμός έργων προς ψηφοφορία
             vote_rule_minimum_budget_projects_enabled: 'Ενεργοποίηση κανόνα: Ελάχιστος αριθμός έργων προς ψηφοφορία'
+            vote_rule_selected_projects_enabled: 'Ενεργοποίηση κανόνα: Ελάχιστος και μέγιστος αριθμός έργων που θα ψηφιστούν'
             vote_rule_threshold_percent_enabled: 'Ενεργοποίηση κανόνα: Ελάχιστο ποσοστό προϋπολογισμού'
             vote_selected_projects_maximum: Μέγιστο ποσό έργων προς επιλογή
             vote_selected_projects_minimum: Ελάχιστος αριθμός έργων προς επιλογή

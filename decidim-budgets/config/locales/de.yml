@@ -16,6 +16,8 @@ de:
         proposals: Vorschläge
         selected: Zur Implementierung ausgewählt
         title: Titel
+      proposals_import:
+        scope_id: Themenbereich
   activerecord:
     models:
       decidim/budgets/project:
@@ -102,8 +104,10 @@ de:
             success: "%{number} Vorschläge wurden erfolgreich in Projekte importiert"
           new:
             create: Importieren Sie Vorschläge in Projekte
+            default_budget: Standardbudget
             import_all_accepted_proposals: Alle akzeptierten Vorschläge importieren
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
+            origin_component_id: Ursprungskomponente
             select_component: Bitte wählen Sie eine Komponente aus
             title: Vorschläge importieren
       admin_log:
@@ -193,7 +197,7 @@ de:
           rules:
             title: Budgetregeln
           title: Sie entscheiden über das Budget
-          total_budget: Gesamtbudget
+          total_budget: Gesamtbudget; Gesamtetat
           total_projects: Stimmen insgesamt
           vote_threshold_percent_rule:
             description: Welche Projekte sollen finanziert werden? Wählen Sie Projekte im Wert von mindestens %{minimum_budget} aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
@@ -218,12 +222,12 @@ de:
             not_selected: Nicht ausgewählt
             selected: Ausgewählt
         filters_small_view:
-          close_modal: Modal schließen
+          close_modal: Dialog schließen
           filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
         order_progress:
-          vote: Abstimmung
+          vote: Abstimmen
         order_selected_projects:
           remove: Löschen
           selected_projects:
@@ -245,6 +249,7 @@ de:
           votes:
             one: Abstimmung
             other: Abstimmungen
+          you_voted: Sie haben dafür gestimmt
         project_budget_button:
           add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} Ihrer Stimme hinzufügen

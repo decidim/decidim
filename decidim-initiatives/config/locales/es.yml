@@ -311,7 +311,7 @@ es:
         validating: Validación técnica
       application_helper:
         filter_area_values:
-          all: Todas
+          all: Todos
         filter_scope_values:
           all: Todos
         filter_state_values:
@@ -344,7 +344,7 @@ es:
           fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. En persona, en línea o una combinación de ambos</li> <li>¿Cuál es el alcance geográfico de la iniciativa?</li> </ul>"
           more_information: "(Más información)"
           select_area: Selecciona un área
-          select_scope: Seleccione un alcance
+          select_scope: Selecciona un ámbito
         finish:
           back: Volver
           back_to_initiatives: Volver a iniciativas
@@ -579,8 +579,8 @@ es:
           rejected: No ha conseguido las firmas
           validating: Validación técnica
       states:
-        accepted: Aceptado
-        expired: Caducado
+        accepted: Aceptada
+        expired: Caducada
       unavailable_scope: Ámbito no disponible
       update:
         error: Se ha producido un error

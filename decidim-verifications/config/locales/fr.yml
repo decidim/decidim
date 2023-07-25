@@ -6,6 +6,8 @@ fr:
         offline: Hors ligne
         offline_explanation: Instructions pour la vérification hors ligne
         online: En ligne
+      confirmation:
+        verification_code: Code de vérification
       id_document_information:
         document_number: Numéro de document (avec lettre)
         document_type: Type de document
@@ -14,6 +16,8 @@ fr:
         document_type: Type de votre document
         user: Utilisateur
         verification_attachment: Copie scannée du document
+      mobile_phone:
+        mobile_phone_number: Numéro de téléphone portable
       offline_confirmation:
         email: Email de l'utilisateur
       postal_letter_address:

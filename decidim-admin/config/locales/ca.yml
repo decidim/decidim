@@ -83,7 +83,7 @@ ca:
         organization_admin_email: Correu electrònic de l'administradora de l'organització
         organization_admin_name: Nom de l'administradora de l'organització
         organization_locales: Idiomes de l'organització
-        primary_color: Primària
+        primary_color: Primari
         reference_prefix: Prefix de referència
         rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
         secondary_color: Secundari
@@ -870,7 +870,7 @@ ca:
           update: Actualitzar
         new:
           create: Crea tipus d'àmbit
-          title: Nou àmbit
+          title: Nou tipus d'àmbit
         update:
           error: S'ha produït un error en actualitzar aquest tipus d'àmbit.
           success: Tipus d'àmbit actualitzat correctament
@@ -956,9 +956,12 @@ ca:
         areas: Àrees
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
+        edit_external_domains: Llistat de dominis externs permesos
+        edit_organization_appearance: Edita l'aparença de la pàgina d'inici
         impersonatable_users: Participants que es poden gestionar
         impersonations: Gestió de participants
         metrics: Mètriques
+        pages: Pàgines
         panel: Administradora
         participants: Participants
         scope_types: Tipus d'àmbit

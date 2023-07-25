@@ -69,7 +69,7 @@ eu:
         highlighted_content_banner_title: Izenburua
         host: Zerbitzaria
         instagram_handler: Instagram kudeatzailea
-        logo: Logotipo
+        logo: Logotipoa
         machine_translation_display_priority: Itzulpen automatikoaren lehentasuna
         machine_translation_display_priority_original: Lehen jatorrizko testua
         machine_translation_display_priority_translation: Lehen itzulitako testua
@@ -79,7 +79,7 @@ eu:
         official_url: Erakundearen URL ofiziala
         omnipresent_banner_short_description: Deskribapen laburra
         omnipresent_banner_title: Izenburua
-        omnipresent_banner_url: URL
+        omnipresent_banner_url: URL-a
         organization_admin_email: Erakundearen administratzailearen mezu elektronikoa
         organization_admin_name: Erakundearen administratzailearen izena
         organization_locales: Tokiko erakundeak
@@ -162,7 +162,7 @@ eu:
         organization_name: Erakundearen izena
         organization_url: Erakundearen URLa
         redirect_uri: Birbideratu URIa
-        site: Web
+        site: Webgunea
   decidim:
     admin:
       actions:
@@ -384,6 +384,7 @@ eu:
             label: Arrazoiaren berri eman
             values:
               offensive: Iraingarria
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Mota
@@ -480,7 +481,7 @@ eu:
             detail: Mesedez, egiaztatu fitxategiak behin bakarrik eskatzen diren zutabeak edo goiburuak dituela.
             message:
               one: Bikoiztu zutabeak %{columns}.
-              other: Bikoiztu %{columns} zutabe.
+              other: Bikoiztu %{columns} zutabea.
           invalid_indexes:
             lines:
               detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
@@ -849,7 +850,6 @@ eu:
           update: Eguneratu
         new:
           create: Sortu esparru mota
-          title: Esparru berria
         update:
           error: Errore bat gertatu da esparru mota hau eguneratzean.
           success: Esparru mota arrakastaz eguneratu da

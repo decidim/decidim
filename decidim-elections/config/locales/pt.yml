@@ -237,7 +237,6 @@ pt:
               minimum_answers: As perguntas devem ter <strong>pelo menos duas respostas</strong>.
               minimum_questions: A eleição tem <strong>pelo menos 1 pergunta</strong>.
               published: A eleição <strong>está publicada</strong>.
-              time_before: A configuração está a ser feita <strong>pelo menos %{hours} horas</strong> antes do início da eleição.
               trustees_number: O espaço participativo tem <strong>pelo menos %{número} curadores com chave pública</strong>.
             submit: Configurar eleição
             success: Eleição enviada com sucesso para o Quadro Informativo
@@ -597,7 +596,7 @@ pt:
           header: A registar o voto...
           text: O seu boletim de voto está a ser registado na urna de voto.
         confirm:
-          answer: Responder
+          answer: Resposta
           answer_number: resposta %{number}
           confirm: Confirmar
           edit: editar
@@ -757,28 +756,8 @@ pt:
           highlighted_votings:
             max_results: Montante máximo dos projectos a mostrar
           landing_page:
-            attachments_and_folders:
-              name: Anexos e pastas de votação
             description:
               name: Descrição da votação
-            elections:
-              name: Eleições de votação
-            header:
-              name: Cabeçalho de votação
-            html_block_1:
-              name: Bloco html de votação 1
-            html_block_2:
-              name: Bloco html de votação 2
-            html_block_3:
-              name: Bloco html de votação 3
-            metrics:
-              name: Métricas da votação
-            polling_stations:
-              name: Assembleias de voto
-            stats:
-              name: Estatísticas da votação
-            timeline:
-              name: Cronologia da votação
         index:
           not_published: Publicação removida
           published: Publicado
@@ -1098,8 +1077,6 @@ pt:
       pages:
         home:
           highlighted_votings:
-            active_votings: Votações activas
-            see_all_votings: Ver todas as votações
             votings_button_title: Ligação para a página de Votações que mostra todas as votações
       polling_officer_zone:
         closures:

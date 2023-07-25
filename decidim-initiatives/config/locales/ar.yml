@@ -232,6 +232,8 @@ ar:
         published: نشرت
         validating: المصادقة الفنية
       application_helper:
+        filter_area_values:
+          all: الكل
         filter_scope_values:
           all: الكل
         filter_state_values:
@@ -334,6 +336,8 @@ ar:
             few: و %{count} المزيد من الناس
             many: و %{count} المزيد من الناس
             other: و %{count} المزيد من الناس
+        committee_members:
+          revoke: سحب
         count:
           title:
             zero: "%{count} مبادرات"
@@ -416,11 +420,6 @@ ar:
         status_change_for: لقد غيرت المبادرة %{title} حالتها
       last_activity:
         new_initiative: مبادرة جديدة
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: المبادرات النشطة
-            see_all_initiatives: رؤية جميع المبادرات
       show:
         badge_name:
           accepted: ما يكفي من التوقيعات

@@ -56,6 +56,8 @@ cs:
           attributes:
             iframe_embed_type:
               not_embeddable: Tato adresa URL nemůže být vložena do stránky schůzky nebo živé události
+            online_meeting_url:
+              url_format: Musí být platná URL
         meeting_agenda:
           attributes:
             base:

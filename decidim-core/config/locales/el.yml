@@ -5,6 +5,8 @@ el:
         delete_reason: Λόγος διαγραφής λογαριασμού
       common:
         created_at: Δημιουργήθηκε στις
+      conversation:
+        body: Σώμα
       group:
         about: Σχετικά με
         avatar: Άβαταρ
@@ -13,11 +15,14 @@ el:
         name: Όνομα
         nickname: Ψευδώνυμο
         phone: Τηλέφωνο
+      message:
+        body: Σώμα
       report:
         details: Πρόσθετα σχόλια
       user:
         about: Σχετικά με
         email: Το email σας
+        locale: Γλωσσικές Ρυθμίσεις
         name: Το όνομά σας
         nickname: Ψευδώνυμο
         password: Κωδικός πρόσβασης
@@ -30,11 +35,17 @@ el:
       decidim/demoted_membership: Δεν είναι πλέον διαχειριστής ομάδας
       decidim/gamification/badge_earned_event: Κερδίσατε έμβλημα
       decidim/gamification/level_up_event: Ανεβήκατε επίπεδο
+      decidim/invited_to_group_event: Προσκλήθηκε στην ομάδα
       decidim/join_request_accepted_event: Το αίτημα συμμετοχής έγινε αποδεκτό
       decidim/join_request_rejected_event: Το αίτημα συμμετοχής απορρίφθηκε
       decidim/profile_updated_event: Το προφίλ ενημερώθηκε
       decidim/promote_to_admin: Αναβάθμιση σε διαχειριστής ομάδας
+      decidim/promoted_to_admin_event: Αναβάθμιση σε διαχειριστής ομάδας
       decidim/removed_from_group: Αφαιρέθηκε από την ομάδα
+      decidim/resource_endorsed_event: Ο πόρος επιδοκιμάστηκε
+      decidim/resource_hidden_event: Κρυφός πόρος
+      decidim/user_group_created_event: Η ομάδα χρηστών δημιουργήθηκε
+      decidim/welcome_notification_event: Μήνυμα καλωσορίσματος
   activerecord:
     attributes:
       decidim/user:
@@ -63,6 +74,7 @@ el:
   carrierwave:
     errors:
       image_too_big: Η εικόνα είναι πολύ μεγάλη
+      not_inside_organization: Το αρχείο δεν είναι συνδεδεμένο σε κανέναν οργανισμό
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -70,9 +82,40 @@ el:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: περίπου 1 ώρα
+        other: περίπου %{count} ώρες
+      about_x_months:
+        one: περίπου 1 μήνας
+        other: περίπου %{count} μήνες
+      half_a_minute: μισό λεπτό
+      less_than_x_minutes:
+        one: λιγότερο από ένα λεπτό
+        other: λιγότερο από 1 δευτερόλεπτο
+      less_than_x_seconds:
+        one: λιγότερο από 1 δευτερόλεπτο
+        other: λιγότερο από %{count} δευτερόλεπτα
+      x_days:
+        one: 1 ημέρα
+        other: "%{count} ημέρες"
+      x_hours:
+        one: 1 ώρα
+        other: "%{count} ώρες"
+      x_minutes:
+        one: 1 λεπτό
+        other: "%{count} λεπτά"
+      x_months:
+        one: 1 μήνας
+        other: "%{count} μήνες"
+      x_seconds:
+        one: 1 δευτερόλεπτο
+        other: "%{count} δευτερόλεπτα"
   decidim:
     accessibility:
       external_link: Εξωτερικός σύνδεσμος
+      front_page_link: Μετάβαση στην αρχική σελίδα
       logo: "Επίσημο λογότυπο του οργανισμού %{organization}"
       skip_button: Μετάβαση στο κύριο περιεχόμενο
     account:
@@ -237,6 +280,8 @@ el:
         download: Λήψη αρχείου
       documents:
         related_documents: Σχετικά έγγραφα
+      geocoding:
+        geocoded_address: Διεύθυνση
       photos:
         related_photos: Σχετικές εικόνες
     author:
@@ -306,6 +351,13 @@ el:
           title: Επιβεβαίωση διεύθυνσης email
       show:
         close_modal: Κλείσιμο βοηθητικού στοιχείου
+    block_user_mailer:
+      notify:
+        body_1: Ο λογαριασμός σας αποκλείστηκε.
+        body_2: 'Αιτία: %{justification}'
+        greetings: Με φιλικούς χαιρετισμούς,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Γεια σας,
+        subject: Ο λογαριασμός σας αποκλείστηκε από τον %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: και %{count} ακόμη
@@ -335,11 +387,14 @@ el:
           global:
             amendments_enabled: Οι τροποποιήσεις ενεργοποιήθηκαν
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
+            comments_max_length: Μέγιστο μήκος σχολίων
             dummy_global_attribute_1: Εικονικό χαρακτηριστικό 1
             dummy_global_attribute_2: Εικονικό χαρακτηριστικό 2
             dummy_global_translatable_text: Εικονικό μετατρέψιμο κείμενο
             enable_pads_creation: Ενεργοποίηση δημιουργίας πινάκων σημειώσεων
             resources_permissions_enabled: Τα δικαιώματα πόρων ενεργοποιήθηκαν
+            scope_id: Πεδίο εφαρμογής
+            scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
           step:
             amendment_creation_enabled: Η δημιουργία τροποποίησης ενεργοποιήθηκε
             amendment_promotion_enabled: Η προώθηση τροποποίησης ενεργοποιήθηκε
@@ -351,6 +406,13 @@ el:
             dummy_step_translatable_text: Εικονικό μετατρέψιμο κείμενο βήματος
     contact: Επικοινωνία
     content_blocks:
+      cta:
+        name: Εικόνα, κείμενο και κουμπί «Call To Action»
+      cta_settings_form:
+        background_image: Εικόνα φόντου
+        button_text: Κείμενο κουμπιού «Call To Action»
+        button_url: Διεύθυνση URL κουμπιού «Call To Action»
+        description: Περιγραφή
       footer_sub_hero:
         name: Δευτερεύον κύριο διαφημιστικό πλαίσιο υποσέλιδου
       hero:
@@ -360,6 +422,11 @@ el:
         welcome_text: Κείμενο καλωσορίσματος
       highlighted_content_banner:
         name: Επισημασμένο διαφημιστικό πλαίσιο περιεχομένου
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Ταξινόμηση στοιχείων κατά:'
+          random: Τυχαία
+          recent: Πιο πρόσφατα
       how_to_participate:
         name: Τρόπος συμμετοχής
       html:
@@ -393,6 +460,7 @@ el:
           email_already_exists: Ένας άλλος λογαριασμός χρησιμοποιεί την ίδια διεύθυνση email
         new:
           complete_profile: Πλήρες προφίλ
+          nickname_help: Το ψευδώνυμό σας στο %{organization}. Μπορεί να περιέχει μόνο γράμματα, αριθμούς, '-' και '_'.
           sign_up: Συμπληρώστε το προφίλ σας
           subtitle: Συμπληρώστε την παρακάτω φόρμα για να ολοκληρώσετε την εγγραφή
           username_help: Το δημόσιο όνομα που εμφανίζεται στις δημοσιεύσεις σας. Με σκοπό τη διασφάλιση της ανωνυμίας, μπορεί να είναι οποιοδήποτε όνομα.
@@ -401,6 +469,7 @@ el:
           already_have_an_account?: Έχετε ήδη λογαριασμό;
           newsletter: Λάβετε ένα περιστασιακό ενημερωτικό δελτίο με σχετικές πληροφορίες
           newsletter_title: Άδεια επικοινωνίας
+          nickname_help: Το ψευδώνυμό σας στο %{organization}. Μπορεί να περιέχει μόνο γράμματα, αριθμούς, '-' και '_'.
           password_help: "Τουλάχιστον %{minimun_characters} χαρακτήρες, δεν πρέπει να είναι πολύ συνηθισμένο (π.χ. 123456) και πρέπει να διαφέρει από το ψευδώνυμο και το email σας."
           sign_in: Σύνδεση
           sign_up: Εγγραφή
@@ -417,11 +486,14 @@ el:
           register: Δημιουργία λογαριασμού
           sign_in_disabled: Μπορείτε να αποκτήσετε πρόσβαση με εξωτερικό λογαριασμό
           sign_up_disabled: Η εγγραφή είναι απενεργοποιημένη, μπορείτε να χρησιμοποιήσετε έναν υπάρχοντα λογαριασμό για πρόσβαση
+        user:
+          timed_out: Ήσαστε ανενεργός για πάρα πολύ καιρό και έχετε αποσυνδεθεί αυτόματα από την υπηρεσία. Αν θέλετε να συνεχίσετε να χρησιμοποιείτε την υπηρεσία, παρακαλώ συνδεθείτε ξανά.
       shared:
         newsletter_modal:
           buttons:
             check: Επιλογή και συνέχεια
             close_modal: Κλείσιμο βοηθητικού στοιχείου
+            uncheck: Διατήρηση χωρίς επιλογή
           notice: |-
             <p>Είστε βέβαιοι ότι δεν θέλετε να λαμβάνετε ενημερωτικό δελτίο;<br>
             Σκεφτείτε ξανά το ενδεχόμενο να επιλέξετε το πλαίσιο ελέγχου του ενημερωτικού δελτίου παρακάτω.<br>
@@ -451,6 +523,8 @@ el:
           this_application_will_not_be_able_to: 'Αυτή η εφαρμογή δεν θα μπορεί να:'
           update_profile: Ενημερώστε το προφίλ σας
           wants_to_use_your_account_html: "Η εφαρμογή <strong>%{application_name}</strong> θέλει να χρησιμοποιήσει τον λογαριασμό σας"
+    editor_images:
+      drag_and_drop_help: Προσθήκη εικόνων σύροντας τις & ρίχνοντας ή επικολλώντας αυτές.
     endorsable:
       endorsements: Επιδοκιμασίες
       endorsements_count: Καταμέτρηση επιδοκιμασιών
@@ -780,16 +854,24 @@ el:
         last_activity: Τελευταία δραστηριότητα
         resource_type: Τύπος
     links:
+      invalid_url: Μη έγκυρο URL
       warning:
+        body_1: Πρόκειται να επισκεφθείτε έναν εξωτερικό σύνδεσμο και θα θέλαμε να είστε προσεκτικοί όσον αφορά το περιεχόμενο στην εξωτερική ιστοσελίδα.
+        body_2: Παρακαλούμε ελέγξτε τον σύνδεσμο που πρόκειται να επισκεφθείτε και βεβαιωθείτε ότι τον αναγνωρίζετε ως ασφαλή τοποθεσία πριν προχωρήσετε.
+        cancel: Ακύρωση
         close_modal: Κλείσιμο βοηθητικού στοιχείου
+        proceed: Συνέχεια
+        title: Άνοιγμα εξωτερικού συνδέσμου
     log:
       base_presenter:
         create: "Ο χρήστης %{user_name} δημιούργησε το στοιχείο %{resource_name}"
         create_with_space: "Ο χρήστης %{user_name} δημιούργησε το στοιχείο %{resource_name} στον χώρο %{space_name}"
         delete: "Ο χρήστης %{user_name} διέγραψε το στοιχείο %{resource_name}"
         delete_with_space: "Ο χρήστης %{user_name} διέγραψε το στοιχείο %{resource_name} στον χώρο %{space_name}"
+        publish_with_space: "Ο/Η %{user_name} δημοσίευσε το %{resource_name} στο %{space_name}"
         unknown_action: "Ο χρήστης %{user_name} πραγματοποίησε κάποια ενέργεια στο στοιχείο %{resource_name}"
         unknown_action_with_space: "Ο χρήστης %{user_name} πραγματοποίησε κάποια ενέργεια στο στοιχείο %{resource_name} στον χώρο %{space_name}"
+        unpublish_with_space: "Ο/Η %{user_name} κατάργησε τη δημοσίευση του %{resource_name} στο %{space_name}"
         update: "Ο χρήστης %{user_name} ενημέρωσε το στοιχείο %{resource_name}"
         update_with_space: "Ο χρήστης %{user_name} ενημέρωσε το στοιχείο %{resource_name} στον χώρο %{space_name}"
       value_types:
@@ -1007,15 +1089,19 @@ el:
           error: Υπήρξε ένα πρόβλημα κατά την αποδοχή των όρων και προϋποθέσεων.
           success: Εξαιρετικά! Έχετε αποδεχτεί τους όρους και τις προϋποθέσεις.
         form:
+          agreement: Συμφωνώ με τους παρόντες όρους
           legend: Αποδοχή των όρων και των προϋποθέσεων χρήσης
         refuse:
           modal_body: Εάν αρνηθείτε, δεν θα μπορείτε να χρησιμοποιήσετε την πλατφόρμα, μπορείτε να πραγματοποιήσετε <a href="%{data_portability_path}">λήψη των δεδομένων σας</a> ή/και <a href="%{delete_path}">διαγραφή του λογαριασμού σας</a>.
+          modal_btn_continue: Αποδοχή των όρων και συνέχεια
           modal_btn_exit: Θα τους διαβάσω αργότερα
+          modal_button: Απόρριψη των όρων
           modal_close: Κλείσιμο βοηθητικού στοιχείου
           modal_title: Θέλετε πραγματικά να απορρίψετε τους ενημερωμένους Όρους και προϋποθέσεις;
         required_review:
           alert: Ενημερώσαμε τους Όρους χρήσης υπηρεσίας, διαβάστε τους.
           body: Αφιερώστε λίγο χρόνο για να διαβάσετε τις ενημερώσεις στους Όρους χρήσης υπηρεσίας. Διαφορετικά, δεν θα μπορείτε να χρησιμοποιήσετε την πλατφόρμα.
+          title: 'Απαιτείται: Διαβάστε τις ενημερώσεις στους όρους παροχής υπηρεσιών μας'
     participatory_space_private_users:
       not_allowed: Δεν επιτρέπεται η προβολή αυτού του περιεχομένου
     profile:
@@ -1033,6 +1119,7 @@ el:
         groups: Ομάδες
         members: Μέλη
         officialized: Επίσημος συμμετέχων
+        send_private_message: Αποστολή προσωπικού μηνύματος
         timeline: Χρονοδιάγραμμα
         view_full_profile: Εμφάνιση πλήρους προφίλ
       sidebar:
@@ -1058,8 +1145,17 @@ el:
         report_html: <p>Το παρακάτω <a href="%{url}">περιεχόμενο</a> αποκρύφτηκε αυτόματα.</p>
         subject: Ένας πόρος αποκρύφτηκε αυτόματα
       report:
+        authors: Συγγραφείς
+        content: Αναφερόμενο περιεχόμενο
+        content_original_language: Πρωτότυπη γλώσσα περιεχομένου
+        date: Αναφέρθηκε στις
+        details: Λεπτομέρειες
         hello: Γεια σας %{name},
+        id: ID
+        participatory_space: Συμμετοχικός χώρος
+        reason: Αιτία
         report_html: <p>Το παρακάτω <a href="%{url}">περιεχόμενο</a> αναφέρθηκε.</p>
+        see_report: Δείτε την αναφορά
         subject: Έχει αναφερθεί ένας πόρος
     reports:
       create:
@@ -1103,6 +1199,10 @@ el:
           one: "%{count} αποτέλεσμα"
           other: "%{count} αποτελέσματα"
         view_all: Προβολή όλων (%{count})
+    security:
+      selfxss_warning:
+        description: Αυτή η λειτουργία προγράμματος περιήγησης προορίζεται για προγραμματιστές και δεν πρέπει να επικολλήσετε τίποτα εδώ, αν σας ζητήθηκε να το κάνετε. Η επικόλληση περιεχομένου σε αυτό το παράθυρο μπορεί να θέσει σε κίνδυνο την ιδιωτικότητά σας και να δώσει στους χάκερ πρόσβαση στο λογαριασμό σας.
+        title: Σταματήστε!
     shared:
       confirm_modal:
         cancel: Ακύρωση

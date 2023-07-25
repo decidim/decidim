@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       participatory_process:
-        announcement: Anuntzio
+        announcement: Oharra
         area_id: Arloa
         banner_image: Bannerra
         copy_categories: Kopiatu kategoriak
@@ -11,15 +11,22 @@ eu:
         decidim_area_id: Arloa
         description: Deskribapena
         developer_group: Talde sustatzailea
+        document: Dokumentua
         domain: Domeinua
         end_date: Bukaera-data
         hashtag: Traola
         hero_image: Orri nagusiko irudia
+        import_attachments: Eranskinak inportatu
+        import_categories: Kategoriak inportatu
+        import_components: Osagaiak inportatu
+        import_steps: Faseak inportatu
         local_area: Antolakuntza eremua
         meta_scope: 'Metadatuak: esparrua'
         participatory_process_group_id: Prozesu-multzoa
+        participatory_process_type_id: Prozesu mota
         participatory_scope: Zer erabakitzen da
         participatory_structure: Nola erabakitzen da?
+        private_space: Prozesu pribatua
         promoted: Nabarmendua
         published_at: Argitaratze-data
         related_process_ids: Elkarrekin lotutako prozesuak
@@ -32,7 +39,7 @@ eu:
         slug: URL laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
-        target: Nor parte hartzen du
+        target: Nork parte hartzen duen
         title: Titulua
         weight: Ordena
       participatory_process_group:

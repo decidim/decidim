@@ -292,9 +292,6 @@ lt:
             update: Atnaujinimas
           form:
             title: Asamblėjų nuostatos
-        assemblies_types:
-          form:
-            title: Pavadinimas
         assembly_copies:
           form:
             slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
@@ -363,9 +360,7 @@ lt:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktyvios asamblėjos
             assemblies_button_title: Nuoroda į puslapį „Asamblėjos“, kuriame pateikiamos visos asamblėjos
-            see_all_assemblies: Žiūrėti visas asamblėjas
         user_profile:
           member_of:
             member_of: Narys
@@ -379,8 +374,7 @@ lt:
         creation_date: Sukūrimo data
         developer_group: Rėmėjų grupė
         duration: Trukmė
-        included_at: Įtraukta į
-        indefinite_duration: Neribota
+        included_at: Įtraukta
         internal_organisation: Vidinė organizacija
         is_transparent:
           'false': neskaidru

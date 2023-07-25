@@ -252,7 +252,7 @@ ja:
               minimum_answers: 質問には <strong>少なくとも2つの回答</strong>が必要です
               minimum_questions: 選挙には <strong>少なくとも1つの質問</strong>が必要です。
               published: 選挙はが <strong>公開されていません</strong> 。
-              time_before: 開始時刻は選挙が始まる <strong> %{hours} 時間以内</strong> になります。
+              time_before: 開始時刻は、選挙開始前の <strong> %{hours}</strong> 未満になっています。
               trustees_number: 参加スペースには <strong>少なくとも %{number} 人の公開鍵を持つ受託者</strong>が必要です。
             invalid: この選挙の設定中に問題が発生しました
             no_trustees: この参加スペースに設定された受託者はいません
@@ -269,7 +269,7 @@ ja:
               minimum_answers: 各質問には <strong>少なくとも2つの回答</strong>を持ちます。
               minimum_questions: 選挙には <strong>少なくとも1つの質問</strong>があります。
               published: 選挙を <strong>公開しました</strong> 。
-              time_before: 選挙開始の <strong>少なくとも %{hours} 時間前</strong> までに準備を完了させます。
+              time_before: 選挙開始の <strong> %{hours}</strong> までに準備を完了する必要があります。
               trustees_number: 参加スペースには <strong>少なくとも %{number} 人の公開鍵を持つ受託者</strong>がいます。
             submit: 選挙を設定
             success: 選挙は正常に掲示板に送信されました
@@ -810,7 +810,7 @@ ja:
             elections:
               name: 投票する選挙
             header:
-              name: 投票のヘッダー
+              name: 投票ヘッダー
             html_block_1:
               name: 投票htmlブロック1
             html_block_2:
@@ -818,9 +818,9 @@ ja:
             html_block_3:
               name: 投票htmlブロック3
             metrics:
-              name: 投票メトリクス
+              name: 投票メトリック
             polling_stations:
-              name: 投票ステーション
+              name: 投票所
             stats:
               name: 投票の統計
             timeline:
@@ -1157,7 +1157,7 @@ ja:
       pages:
         home:
           highlighted_votings:
-            active_votings: アクティブな投票
+            active_votings: 有効な投票
             see_all_votings: すべての投票を表示
             votings_button_title: すべての投票を表示する投票ページへのリンク
       polling_officer_zone:

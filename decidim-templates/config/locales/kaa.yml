@@ -1,1 +1,7 @@
 kaa:
+  decidim:
+    templates:
+      admin:
+        questionnaire_templates:
+          form:
+            save: Saqlaw

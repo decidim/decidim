@@ -84,6 +84,7 @@ ru:
             description: Вы уже голосовали за бюджет. Если вы передумали, вы можете %{cancel_link}.
             title: Голосование по бюджету завершено
           title: Вы определяете бюджет
+          total_budget: Общий бюджет
         count:
           projects_count:
             one: 1 проект
@@ -95,7 +96,6 @@ ru:
           scope: Охват
           search: Поиск
         filters_small_view:
-          close_modal: Закрыть окошко
           filter: Отобрать
           filter_by: 'Отобрать по признаку:'
           unfold: Развернуть

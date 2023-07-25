@@ -6,6 +6,8 @@ ja:
         offline: オフライン
         offline_explanation: オフライン確認の手順
         online: オンライン
+      confirmation:
+        verification_code: 確認コード
       id_document_information:
         document_number: ドキュメント番号（文字付き）
         document_type: ドキュメントの種類
@@ -14,6 +16,8 @@ ja:
         document_type: 書類の種類
         user: 参加者
         verification_attachment: スキャンされたドキュメントのコピー
+      mobile_phone:
+        mobile_phone_number: 携帯電話番号
       offline_confirmation:
         email: 参加者のメールアドレス
       postal_letter_address:

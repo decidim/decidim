@@ -651,7 +651,7 @@ fi:
           header: Kirjataan ääntä...
           text: Ääntäsi lähetetään sähköiseen ääniuurnaan.
         confirm:
-          answer: Vastaa
+          answer: Vastaus
           answer_number: 'vastaus #%{number}'
           confirm: Vahvista
           edit: muokkaa

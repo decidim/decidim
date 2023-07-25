@@ -259,9 +259,6 @@ lv:
             update: Atjaunināt
           form:
             title: Asamblejas iestatījumi
-        assemblies_types:
-          form:
-            title: Nosaukums
         assembly_copies:
           form:
             slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo asambleju. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
@@ -317,9 +314,7 @@ lv:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktīvās asamblejas
             assemblies_button_title: Saite uz lapu Asamblejas, kurā norādītas visas asamblejas
-            see_all_assemblies: Skatīt visas asamblejas
         user_profile:
           member_of:
             member_of: Dalībnieks
@@ -334,7 +329,6 @@ lv:
         developer_group: Atbalstītāju grupa
         duration: Ilgums
         included_at: Iekļauts plkst.
-        indefinite_duration: Nenoteikts
         internal_organisation: Iekšējā organizācija
         is_transparent:
           'false': neskaidra
