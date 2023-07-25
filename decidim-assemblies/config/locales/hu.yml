@@ -294,9 +294,6 @@ hu:
             update: Frissítés
           form:
             title: Gyűlések beállításai
-        assemblies_types:
-          form:
-            title: Cím
         assembly_copies:
           form:
             slug_help: 'Az URL slugok a gyűlések linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
