@@ -8,6 +8,9 @@ module Decidim
       include ParticipatorySpaceAdminContext
       participatory_space_admin_layout
 
+      before_action :find_category, except: [:index, :new, :create]
+      before_action :set_categories_breadcrumb_items
+
       def index
         enforce_permission_to :read, :category
       end
@@ -35,13 +38,11 @@ module Decidim
       end
 
       def edit
-        @category = collection.find(params[:id])
         enforce_permission_to :update, :category, category: @category
         @form = form(CategoryForm).from_model(@category, current_participatory_space:)
       end
 
       def update
-        @category = collection.find(params[:id])
         enforce_permission_to :update, :category, category: @category
         @form = form(CategoryForm).from_params(params, current_participatory_space:)
 
@@ -59,12 +60,10 @@ module Decidim
       end
 
       def show
-        @category = collection.find(params[:id])
         enforce_permission_to :read, :category, category: @category
       end
 
       def destroy
-        @category = collection.find(params[:id])
         enforce_permission_to :destroy, :category, category: @category
 
         DestroyCategory.call(@category, current_user) do
@@ -81,6 +80,25 @@ module Decidim
       end
 
       private
+
+      def set_categories_breadcrumb_items
+        context_breadcrumb_items << {
+          label: t("categories", scope: "decidim.admin.menu"),
+          url: categories_path(current_participatory_space),
+          active: @category.blank?
+        }
+
+        return if @category.blank?
+
+        context_breadcrumb_items << {
+          label: translated_attribute(@category.name),
+          active: true
+        }
+      end
+
+      def find_category
+        @category ||= collection.find(params[:id])
+      end
 
       def collection
         @collection ||= current_participatory_space.categories.includes(:subcategories)

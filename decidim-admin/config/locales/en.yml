@@ -560,6 +560,7 @@ en:
         appearance: Appearance
         area_types: Area types
         areas: Areas
+        categories: Categories
         configuration: Configuration
         content: Reported content
         dashboard: Dashboard
