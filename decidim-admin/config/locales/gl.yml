@@ -831,7 +831,6 @@ gl:
           update: Actualización
         new:
           create: Crea un tipo de alcance
-          title: Novo alcance
         update:
           error: Produciuse un erro ao actualizar este tipo de alcance.
           success: O tipo de alcance actualizouse con éxito
