@@ -895,7 +895,7 @@ fr:
           update: Mettre à jour
         new:
           create: Créer un type de secteur
-          title: Nouveau périmètre d'application
+          title: Créer un type de secteurs
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce type de secteur.
           success: Type de secteur mis à jour avec succès
@@ -982,9 +982,12 @@ fr:
         areas: Périmètres d'assemblée
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
+        edit_external_domains: Liste des domaines externes autorisés
+        edit_organization_appearance: Modifier l'apparence de la page d'accueil
         impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         metrics: Indicateurs
+        pages: Page(s)
         panel: Administrateur
         participants: Utilisateurs
         scope_types: Types de secteur
