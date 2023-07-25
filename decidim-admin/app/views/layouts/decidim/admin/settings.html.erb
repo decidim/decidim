@@ -12,10 +12,10 @@
       </div>
       <div class="process-title-content-breadcrumb-container-right">
         <div class="inline-block relative">
-          <%= button_tag id: "assemblies-dropdown-menu-trigger", data: { component: 'dropdown', target: 'assemblies-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
+          <%= button_tag id: "admin-settings-dropdown-menu-trigger", data: { component: 'dropdown', target: 'admin-settings-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
             <%= icon "more-line" %>
           <% end %>
-          <div id="assemblies-dropdown-menu-settings">
+          <div id="admin-settings-dropdown-menu-settings" class="process-title-content-dropdown">
             <%= sidebar_menu(:admin_settings_menu).render %>
           </div>
         </div>

@@ -12,7 +12,7 @@
       <%= link_to t("decidim.verifications.csv_census.admin.destroy.title"),
         destroy_all_census_path,
         method: :delete,
-        class: "button alert",
+        class: "button button__sm md:button__lg button__secondary alert",
         data: { confirm: t("decidim.verifications.csv_census.admin.destroy.confirm") } %>
       <% else %>
         <p><%= t("admin.index.empty", scope: "decidim.verifications.csv_census") %></p>

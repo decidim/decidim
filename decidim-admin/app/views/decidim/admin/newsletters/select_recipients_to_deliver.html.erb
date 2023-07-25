@@ -65,7 +65,7 @@
 
       <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
         <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) && !@newsletter.sent? %>
-          <%= link_to t("actions.edit", scope: "decidim.admin"), [:edit, @newsletter], class: "button" %>
+          <%= link_to t("actions.edit", scope: "decidim.admin"), [:edit, @newsletter], class: "button button__sm md:button__lg button__secondary" %>
         <% end %>
         <% unless @newsletter.sent? %>
         <%= f.submit t(".deliver"), class: "button button__sm md:button__lg button__secondary", data: { confirm: t(".confirm_deliver") } %>
