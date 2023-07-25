@@ -286,9 +286,6 @@ it:
             update: Aggiorna
           form:
             title: Impostazioni per le assemblee
-        assemblies_types:
-          form:
-            title: Titolo
         assembly_copies:
           form:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
