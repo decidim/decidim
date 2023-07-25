@@ -6,6 +6,9 @@ module Decidim
       # Controller used to manage the available initiative types for the current
       # organization.
       class InitiativesTypesController < Decidim::Initiatives::Admin::ApplicationController
+        include Decidim::TranslatableAttributes
+        include HasSpecificBreadcrumb
+
         helper ::Decidim::Admin::ResourcePermissionsHelper
         helper_method :current_initiative_type
 
@@ -82,6 +85,25 @@ module Decidim
         end
 
         private
+
+        def breadcrumb_item
+          [
+            {
+              label: t("initiatives_types", scope: "decidim.admin.menu"),
+              url: initiatives_types_path,
+              active: false
+            }
+          ].tap do |items|
+            if params[:id].present?
+              items <<
+                {
+                  label: translated_attribute(current_initiative_type.title),
+                  url: edit_initiatives_type_path(current_initiative_type),
+                  active: true
+                }
+            end
+          end
+        end
 
         def current_initiative_type
           @current_initiative_type ||= InitiativesType.find(params[:id])

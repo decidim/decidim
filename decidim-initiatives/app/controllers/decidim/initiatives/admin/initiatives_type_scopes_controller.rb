@@ -5,6 +5,9 @@ module Decidim
     module Admin
       # Controller used to manage the available initiative type scopes
       class InitiativesTypeScopesController < Decidim::Initiatives::Admin::ApplicationController
+        include Decidim::TranslatableAttributes
+        include HasSpecificBreadcrumb
+
         helper_method :current_initiative_type_scope
 
         # GET /admin/initiatives_types/:initiatives_type_id/initiatives_type_scopes/new
@@ -68,8 +71,31 @@ module Decidim
 
         private
 
+        def breadcrumb_item
+          [
+            {
+              label: t("initiatives_types", scope: "decidim.admin.menu"),
+              url: initiatives_types_path,
+              active: false
+            },
+            {
+              label: translated_attribute(current_initiative_type.title),
+              url: edit_initiatives_type_path(current_initiative_type),
+              active: false
+            },
+            {
+              label: t("initiative_type_scopes", scope: "decidim.admin.menu"),
+              active: true
+            }
+          ]
+        end
+
         def current_initiative_type_scope
           @current_initiative_type_scope ||= InitiativesTypeScope.find(params[:id])
+        end
+
+        def current_initiative_type
+          @current_initiative_type ||= InitiativesType.find(params[:initiatives_type_id])
         end
 
         def initiative_type_scope_form

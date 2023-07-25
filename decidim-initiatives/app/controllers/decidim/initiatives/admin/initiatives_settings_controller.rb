@@ -6,6 +6,8 @@ module Decidim
       # Controller used to manage the initiatives settings for the current
       # organization.
       class InitiativesSettingsController < Decidim::Initiatives::Admin::ApplicationController
+        include HasSpecificBreadcrumb
+
         layout "decidim/admin/initiatives"
 
         # GET /admin/initiatives_settings/edit
@@ -35,6 +37,14 @@ module Decidim
         end
 
         private
+
+        def breadcrumb_item
+          {
+            label: t("initiatives_settings", scope: "decidim.admin.menu"),
+            url: edit_initiatives_setting_path,
+            active: true
+          }
+        end
 
         def current_initiatives_settings
           @current_initiatives_settings ||= Decidim::InitiativesSettings.find_or_create_by!(organization: current_organization)

@@ -110,6 +110,7 @@ en:
         initiatives: Initiatives
         initiatives_settings: Settings
         initiatives_types: Initiative types
+        initiative_type_scopes: Initiative type scopes
         moderations: Moderations
       models:
         initiatives:
