@@ -34,6 +34,7 @@ module Decidim
       helper Decidim::ComponentPathHelper
       helper Decidim::SanitizeHelper
       helper Decidim::Templates::Admin::ApplicationHelper if Decidim::Admin.enable_templates
+      helper Decidim::BreadcrumbHelper
 
       default_form_builder Decidim::Admin::FormBuilder
 

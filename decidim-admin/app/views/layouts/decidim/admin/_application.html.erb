@@ -33,7 +33,8 @@
         <%= yield :secondary_nav if content_for? :secondary_nav %>
         <%= yield :sidebar_menu_nav if content_for? :sidebar_menu_nav %>
         <%= yield :aside_menu_nav if content_for? :aside_menu_nav %>
-        <%= yield :breadcrumb_nav %>
+
+        <%= render partial: "layouts/decidim/admin/breadcrumb" %>
         <div class="container">
           <%= render partial: "layouts/decidim/admin/callouts_full" %>
           <%= yield %>

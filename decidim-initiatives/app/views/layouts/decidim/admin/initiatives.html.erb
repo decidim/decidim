@@ -2,58 +2,41 @@
   <%#= sidebar_menu(:admin_initiatives_menu).render %>
 <%# end %>
 
-<% content_for :breadcrumb_nav do %>
-<div class="process-title">
-  <div class="container">
-    <div class="process-title-content">
-      <div class="process-title-content-breadcrumb-container-left">
-        <%= link_to decidim_admin.root_path, class: "process-title-content-icon-home", data: { "external-link": false } do %>
-          <%= icon "home-gear-line" %>
-        <% end %>
-        <span class="text-white">/</span>
-        <span class="process-title-content-breadcrumb">
-          <%= t("decidim.admin.titles.initiatives") %>
-        </span>
-      </div>
-      <div class="process-title-content-breadcrumb-container-right">
-        <div class="inline-block relative">
-          <%= button_tag id: "assemblies-dropdown-menu-trigger", data: { component: 'dropdown', target: 'assemblies-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
-            <%= icon "more-line" %>
+<% content_for :breadcrumb_context_menu do %>
+  <div class="inline-block relative">
+    <%= button_tag id: "assemblies-dropdown-menu-trigger", data: { component: 'dropdown', target: 'assemblies-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
+      <%= icon "more-line" %>
+    <% end %>
+    <div id="assemblies-dropdown-menu-settings">
+      <ul class="dropdown dropdown__bottom">
+        <li class="dropdown__item">
+          <% if allowed_to?(:index, :initiative) %>
+             <%= link_to t("menu.initiatives", scope: "decidim.admin"),
+                         decidim_admin_initiatives.initiatives_path,
+                         class: "text-secondary" %>
+           <% end %>
+        </li>
+        <li class="dropdown__item">
+          <% if allowed_to?(:manage, :initiative_type) %>
+            <%= link_to t("menu.initiatives_types", scope: "decidim.admin"),
+                       decidim_admin_initiatives.initiatives_types_path,
+                       class: "text-secondary" %>
           <% end %>
-          <div id="assemblies-dropdown-menu-settings">
-            <ul class="dropdown dropdown__bottom">
-              <li class="dropdown__item">
-                <% if allowed_to?(:index, :initiative) %>
-                   <%= link_to t("menu.initiatives", scope: "decidim.admin"),
-                               decidim_admin_initiatives.initiatives_path,
-                               class: "text-secondary" %>
-                 <% end %>
-              </li>
-              <li class="dropdown__item">
-                <% if allowed_to?(:manage, :initiative_type) %>
-                  <%= link_to t("menu.initiatives_types", scope: "decidim.admin"),
-                             decidim_admin_initiatives.initiatives_types_path,
-                             class: "text-secondary" %>
-                <% end %>
-              </li>
-              <li class="dropdown__item">
-                <% if allowed_to?(:update, :initiatives_settings) %>
-                  <%= link_to t("menu.initiatives_settings", scope: "decidim.admin"),
-                             decidim_admin_initiatives.edit_initiatives_setting_path(
-                                                       Decidim::InitiativesSettings.find_or_create_by!(
-                                                         organization: current_organization
-                                                       )
-                                                     ),
-                             class: "text-secondary" %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+        </li>
+        <li class="dropdown__item">
+          <% if allowed_to?(:update, :initiatives_settings) %>
+            <%= link_to t("menu.initiatives_settings", scope: "decidim.admin"),
+                       decidim_admin_initiatives.edit_initiatives_setting_path(
+                                                 Decidim::InitiativesSettings.find_or_create_by!(
+                                                   organization: current_organization
+                                                 )
+                                               ),
+                       class: "text-secondary" %>
+          <% end %>
+        </li>
+      </ul>
     </div>
   </div>
-</div>
 <% end %>
 <%= render "layouts/decidim/admin/application" do %>
   <div class="process-content">
