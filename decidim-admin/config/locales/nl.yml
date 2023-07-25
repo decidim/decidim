@@ -853,7 +853,6 @@ nl:
           update: Bijwerken
         new:
           create: Maak een scope aan
-          title: Nieuwe scope
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit scope type.
           success: Scope type is succesvol bijgewerkt
