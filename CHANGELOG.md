@@ -28,6 +28,16 @@ Nothing.
 
 ## [0.27.4](https://github.com/decidim/decidim/tree/0.27.4)
 
+## Security fixes
+
+This release addresses one security issue:
+
+* CVE-2023-36465
+
+The details regarding the security vulnerability will be published on September 25th 2023, which is two months after the release date of this version. For more information, please refer to our [Security Policy](https://github.com/decidim/decidim/blob/develop/SECURITY.md).
+
+We highly recommend updating to this version as soon as possible to ensure the security of your system.
+
 ### Upgrade notes
 
 #### Orphans valuator assignments cleanup
@@ -123,6 +133,18 @@ Nothing.
 - **decidim-proposals**: Backport 'Fix flaky collaborative drafts spec' to v0.27 [\#11127](https://github.com/decidim/decidim/pull/11127)
 
 ## [0.27.3](https://github.com/decidim/decidim/tree/0.27.3)
+
+## Security fixes
+
+This release addresses several security issues, including the following:
+
+* [CVE-2023-32693](https://github.com/decidim/decidim/security/advisories/GHSA-469h-mqg8-535r)
+* [CVE-2023-34089](https://github.com/decidim/decidim/security/advisories/GHSA-5652-92r9-3fx9)
+* [CVE-2023-34090](https://github.com/decidim/decidim/security/advisories/GHSA-jm79-9pm4-vrw9)
+
+The details regarding the security vulnerability will be published on July 11th 2023, which is two months after the release date of this version. For more information, please refer to our [Security Policy](https://github.com/decidim/decidim/blob/develop/SECURITY.md).
+
+We highly recommend updating to this version as soon as possible to ensure the security of your system.
 
 ### Added
 
