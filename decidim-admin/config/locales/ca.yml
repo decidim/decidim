@@ -870,7 +870,7 @@ ca:
           update: Actualitzar
         new:
           create: Crea tipus d'àmbit
-          title: Nou àmbit
+          title: Nou tipus d'àmbit
         update:
           error: S'ha produït un error en actualitzar aquest tipus d'àmbit.
           success: Tipus d'àmbit actualitzat correctament
@@ -956,9 +956,12 @@ ca:
         areas: Àrees
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
+        edit_external_domains: Llistat de dominis externs permesos
+        edit_organization_appearance: Edita l'aparença de la pàgina d'inici
         impersonatable_users: Participants que es poden gestionar
         impersonations: Gestió de participants
         metrics: Mètriques
+        pages: Pàgines
         panel: Administradora
         participants: Participants
         scope_types: Tipus d'àmbit
