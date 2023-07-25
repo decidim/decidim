@@ -259,9 +259,6 @@ lv:
             update: Atjaunināt
           form:
             title: Asamblejas iestatījumi
-        assemblies_types:
-          form:
-            title: Nosaukums
         assembly_copies:
           form:
             slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo asambleju. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
