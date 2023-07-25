@@ -300,7 +300,7 @@ en:
             title: Settings for assemblies
         assemblies_types:
           form:
-            title: Title
+            title: Edit assembly type
         assembly_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
