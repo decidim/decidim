@@ -62,10 +62,14 @@
       [type="url"],
       [type="color"],
       textarea{
-        @apply shadow-none bg-gray-5 text-md h-auto;
+        @apply shadow-none bg-background-2 text-md h-auto max-h-[40px];
 
         color: rgba(146, 146, 146, 1);
         border: 1px solid rgba(208, 215, 222, 1);
+      }
+
+      .editor-container .editor-input .ProseMirror{
+        @apply bg-background-2;
       }
     }
   }
