@@ -1,4 +1,4 @@
-<%= render partial: "decidim/shared/component_announcement" %>
+<%= append_javascript_pack_tag "decidim_blogs" %>
 <%= append_stylesheet_pack_tag "decidim_blogs" %>
 
 <% content_for :aside do %>
@@ -6,6 +6,8 @@
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+
+  <%= render partial: "decidim/shared/component_announcement" %>
 
   <div id="blogs" class="space-y-12">
     <% paginate_posts.each do |post| %>
