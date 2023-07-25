@@ -138,7 +138,7 @@ In some other cases when you run your application on a custom port (other than 3
 
 You can read more about this change on PR [\#10519](https://github.com/decidim/decidim/pull/10519).
 
-### 3.3. User moderation panel changes
+### 3.4. User moderation panel changes
 
 In older Decidim installations, when blocking an user directly from the participants menu, without being previously reported, it will hide that user, making it unavailable in the Reported Participants section. You will need to run this command once to make sure there are no users or entities that got blocked but are not visible in the participants listing.
 
@@ -148,7 +148,7 @@ bundle exec rake decidim:upgrade:moderation:fix_blocked_user_panel
 
 You can read more about this change on PR [\#10521](https://github.com/decidim/decidim/pull/10521).
 
-### 3.4. Change Webpacker to Shakapacker
+### 3.5. Change Webpacker to Shakapacker
 
 Since the Rails team has retired the Webpacker in favour or importmap-rails or js-bundling, we got ouserlves in a situation where performance improvements could not be performed.
 In order to continue having support for Webpacker like syntax, we have switched to Shakapacker.
@@ -190,7 +190,7 @@ In order to run your development server, you will need to run the following comm
 
 You can read more about this change on PR [\#10389](https://github.com/decidim/decidim/pull/10389).
 
-### 3.5. Initialize content blocks on spaces or resources with landing page
+### 3.6. Initialize content blocks on spaces or resources with landing page
 
 The processes and assemblies participatory spaces have changed the show page and now is composed using content blocks. For the new spaces created in this version a callback is executed creating the content blocks marked as `default!` in the engine for the corresponding homepage scope. To have the same initialization in the existing spaces there is a task to generate those blocks if not present already. Run the below command to generate default content blocks when not present for all spaces and resources with content blocks homepage (participatory processes, participatory process groups and assemblies):
 
@@ -210,29 +210,13 @@ For example, to generate the default content blocks and also the components bloc
 bundle exec rake decidim:content_blocks:initialize_default_content_blocks[,,true]
 ```
 
-#### Note for development
-
-If you are using the `Procfile.dev` file, you will need to make sure that you have the following line in your configuration. If you have not altered the `Procfile.dev` file, you will not need to do anything, as we covered that part:
-
-```console
-webpacker: ./bin/webpacker-dev-server
-```
-
-In order to run your development server, you will need to run the following command:
-
-```console
-./bin/dev
-```
-
-You can read more about this change on PR [\#10389](https://github.com/decidim/decidim/pull/10389).
-
-### 3.5. Graphql upgrade
+### 3.7. Graphql upgrade
 
 In [\#10606](https://github.com/decidim/decidim/pull/10606) we have upgraded the GraphQL gem to version 2.0.19. This upgrade introduces some breaking changes, so you will need to update your GraphQL queries to match the new API. This change should be transparent for most of the users, but if you have custom GraphQL queries, you will need to update them. Also, please note, there might be some issues with community plugins that offer support for GraphQL, so you might need to update them as well.
 
 Please see the [change log](https://github.com/rmosolgo/graphql-ruby/blob/master/CHANGELOG.md) for graphql gem for more information.
 
-### 3.6. Orphans valuator assignments cleanup
+### 3.8. Orphans valuator assignments cleanup
 
 We have added a new task that helps you clean the valuator assignements records of roles that have been deleted.
 
@@ -244,7 +228,7 @@ bundle exec rake decidim:proposals:upgrade:remove_valuator_orphan_records
 
 You can see more details about this change on PR [\#10607](https://github.com/decidim/decidim/pull/10607)
 
-### 3.7. Initiatives pages exception fix
+### 3.9. Initiatives pages exception fix
 
 We have added a new tasks to fix a bug related to the pages component inside of the Initiatives module (`decidim-initiatives`).
 
@@ -256,7 +240,7 @@ bundle exec rake decidim:initiatives:upgrade:fix_broken_pages
 
 You can see more details about this change on PR [\#10928](https://github.com/decidim/decidim/pull/10928)
 
-### 3.7. Add Content Security Policy (CSP) support
+### 3.10. Add Content Security Policy (CSP) support
 
 We have introduced support for Content Security Policy (CSP). This is a security feature that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks.
 By default, the CSP is enabled, and is configured to be as restrictive as possible, having the following default configuration:
