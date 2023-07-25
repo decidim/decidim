@@ -296,7 +296,7 @@ fr-CA:
             title: Paramètres pour les assemblées
         assemblies_types:
           form:
-            title: Titre
+            title: Modifier le type d'assemblée
         assembly_copies:
           form:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
