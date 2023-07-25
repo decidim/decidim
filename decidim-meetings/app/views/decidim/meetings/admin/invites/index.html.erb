@@ -45,7 +45,7 @@
           <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
           <%= hidden_field_tag :state, @state %>
           <div class="input-group-button">
-            <button type="submit" class="button">
+            <button type="submit" class="button button__sm md:button__lg button__secondary">
               <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
             </button>
           </div>

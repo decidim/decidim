@@ -8,7 +8,7 @@
         <div class="flex--cc flex-gap--1">
           <div id="js-other-actions-wrapper">
             <% if import_manifest.has_example? %>
-              <span class="imports-example dropdown tiny button button--simple" data-toggle="example-dropdown"><%= t(".download_example") %></span>
+              <span class="imports-example dropdown tiny button button__sm md:button__lg button__secondary button--simple" data-toggle="example-dropdown"><%= t(".download_example") %></span>
               <div class="dropdown-pane" id="example-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
                 <ul class="vertical menu add-components">
                   <% mime_types.each do |format, name| %>

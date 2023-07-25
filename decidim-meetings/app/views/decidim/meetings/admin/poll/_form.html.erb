@@ -17,8 +17,8 @@
 
 <div class="questionnaire-questions">
   <div class="row column text-center">
-    <button type="button" class="button collapse-all"><%= t("collapse", scope: "decidim.forms.admin.questionnaires.form") %></button>
-    <button type="button" class="button expand-all"><%= t("expand", scope: "decidim.forms.admin.questionnaires.form") %></button>
+    <button type="button" class="button button__sm md:button__lg button__secondary collapse-all"><%= t("collapse", scope: "decidim.forms.admin.questionnaires.form") %></button>
+    <button type="button" class="button button__sm md:button__lg button__secondary expand-all"><%= t("expand", scope: "decidim.forms.admin.questionnaires.form") %></button>
   </div>
 
   <% if questionnaire.questions_editable? %>
@@ -52,7 +52,7 @@
   </div>
 
   <% if questionnaire.questions_editable? %>
-    <button class="button add-question"><%= t("add_question", scope: "decidim.forms.admin.questionnaires.form") %></button>
+    <button class="button button__sm md:button__lg button__secondary add-question"><%= t("add_question", scope: "decidim.forms.admin.questionnaires.form") %></button>
   <% end %>
 </div>
 

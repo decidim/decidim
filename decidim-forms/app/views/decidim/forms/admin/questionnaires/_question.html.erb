@@ -115,7 +115,7 @@
       </div>
 
       <% if editable %>
-        <button class="button add-matrix-row"><%= t(".add_matrix_row") %></button>
+        <button class="button button__sm md:button__lg button__secondary add-matrix-row"><%= t(".add_matrix_row") %></button>
       <% end %>
     </div>
 
@@ -129,7 +129,7 @@
       </div>
 
       <% if editable %>
-        <button class="button add-answer-option"><%= t(".add_answer_option") %></button>
+        <button class="button button__sm md:button__lg button__secondary add-answer-option"><%= t(".add_answer_option") %></button>
       <% end %>
     </div>
 
@@ -155,7 +155,7 @@
 
       <% if editable %>
         <% disabled = !question.persisted? %>
-        <button <%= "disabled" if disabled %> title="<%= disabled ? t(".add_display_condition_info") : t(".add_display_condition_info") %>" class="button add-display-condition"><%= t(".add_display_condition") %></button>
+        <button <%= "disabled" if disabled %> title="<%= disabled ? t(".add_display_condition_info") : t(".add_display_condition_info") %>" class="button button__sm md:button__lg button__secondary add-display-condition"><%= t(".add_display_condition") %></button>
       <% end %>
     </div>
   </div>
