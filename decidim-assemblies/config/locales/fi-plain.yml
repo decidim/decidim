@@ -296,7 +296,7 @@ fi-pl:
             title: Ryhmien asetukset
         assemblies_types:
           form:
-            title: Otsikko
+            title: Muokkaa ryhmätyyppiä
         assembly_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
