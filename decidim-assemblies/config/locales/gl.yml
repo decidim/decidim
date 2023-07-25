@@ -281,9 +281,6 @@ gl:
             update: Actualizar
           form:
             title: Axustes das xuntanzas
-        assemblies_types:
-          form:
-            title: Título
         assembly_copies:
           form:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
