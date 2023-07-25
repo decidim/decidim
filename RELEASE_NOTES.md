@@ -174,6 +174,22 @@ bundle exec rake decidim:webpacker:install
 
 This will make the necessary changes in the `config/webpacker.yml`, but also in the `config/webpack/` folder.
 
+#### Note for development
+
+If you are using the `Procfile.dev` file, you will need to make sure that you have the following line in your configuration. If you have not altered the `Procfile.dev` file, you will not need to do anything, as we covered that part:
+
+```console
+webpacker: ./bin/webpacker-dev-server
+```
+
+In order to run your development server, you will need to run the following command:
+
+```console
+./bin/dev
+```
+
+You can read more about this change on PR [\#10389](https://github.com/decidim/decidim/pull/10389).
+
 ### 3.5. Initialize content blocks on spaces or resources with landing page
 
 The processes and assemblies participatory spaces have changed the show page and now is composed using content blocks. For the new spaces created in this version a callback is executed creating the content blocks marked as `default!` in the engine for the corresponding homepage scope. To have the same initialization in the existing spaces there is a task to generate those blocks if not present already. Run the below command to generate default content blocks when not present for all spaces and resources with content blocks homepage (participatory processes, participatory process groups and assemblies):
