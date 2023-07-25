@@ -1346,6 +1346,8 @@ fr:
         send_access_code:
           invalid: Un problème est survenu lors de l'envoi du code d'accès.
           success: Votre code d'accès a été envoyé avec succès.
+        show:
+          title: À propos de ce vote
       votings_m:
         badge_name:
           finished: Passées
