@@ -62,7 +62,7 @@
       [type="url"],
       [type="color"],
       textarea{
-        @apply shadow-none bg-background-2 text-md h-auto max-h-[40px];
+        @apply shadow-none bg-background-2 text-md h-[40px];
 
         color: rgba(146, 146, 146, 1);
         border: 1px solid rgba(208, 215, 222, 1);
@@ -70,6 +70,17 @@
 
       .editor-container .editor-input .ProseMirror{
         @apply bg-background-2;
+      }
+
+      &.edit_content_block{
+
+        button{
+          @apply button button__secondary button__sm;
+        }
+
+        .tabs-content{
+          @apply mb-2;
+        }
       }
     }
   }
