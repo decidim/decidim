@@ -41,6 +41,53 @@ If you're not using it, then you don't need to do anything.
 
 If you're maintaining a version of this module, please share the URL of the git repository by [creating an issue on the decidim.org website repository](https://github.com/decidim/decidim.org) so that we can update the [Modules page](https://decidim.org/modules).
 
+There's an error with the migrations after you've removed this module, you'd need to change them like this:
+
+### db/migrate/*_add_commentable_counter_cache_to_consultations.decidim_consultations.rb
+
+```ruby
+# frozen_string_literal: true
+# This migration comes from decidim_consultations (originally 20200827154143)
+
+class AddCommentableCounterCacheToConsultations < ActiveRecord::Migration[5.2]
+  class Question < ApplicationRecord
+    self.table_name = :decidim_consultations_questions
+  end
+
+  def change
+    add_column :decidim_consultations_questions, :comments_count, :integer, null: false, default: 0, index: true
+    Question.reset_column_information
+    Question.find_each(&:update_comments_count)
+  end
+end
+```
+
+### db/migrate/20220311091593_add_followable_counter_cache_to_consultations.decidim_consultations.rb
+
+```ruby
+# frozen_string_literal: true
+# This migration comes from decidim_consultations (originally 20210310120626)
+
+class AddFollowableCounterCacheToConsultations < ActiveRecord::Migration[5.2]
+  class Question < ApplicationRecord
+    self.table_name = :decidim_consultations_questions
+  end
+
+  def change
+    add_column :decidim_consultations_questions, :follows_count, :integer, null: false, default: 0, index: true
+
+    reversible do |dir|
+      dir.up do
+        Question.reset_column_information
+        Question.find_each do |record|
+          record.class.reset_counters(record.id, :follows)
+        end
+      end
+    end
+  end
+end
+```
+
 You can read more about this change on PR [#11171](https://github.com/decidim/decidim/pull/11171).
 
 ## 3. One time actions
