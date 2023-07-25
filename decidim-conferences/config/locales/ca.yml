@@ -506,6 +506,7 @@ ca:
           highlighted_conferences:
             active_conferences: Jornades actives
             conferences_button_title: Enllaç a la pàgina de Conferències mostrant totes les conferències
+            see_all_conferences: Veure totes les jornades
       photo:
         image:
           attributes:
