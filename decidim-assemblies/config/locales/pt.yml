@@ -280,9 +280,6 @@ pt:
             update: Atualizar
           form:
             title: Definições para as reuniões
-        assemblies_types:
-          form:
-            title: Título
         assembly_copies:
           form:
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
@@ -348,9 +345,7 @@ pt:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Reuniões ativas
             assemblies_button_title: Hiperligação para página de Reuniões que apresenta todas as reuniões
-            see_all_assemblies: Ver todas as reuniões
         user_profile:
           member_of:
             member_of: Membro de
@@ -365,7 +360,6 @@ pt:
         developer_group: Grupo promotor
         duration: Duração
         included_at: Incluído em
-        indefinite_duration: Indeterminado
         internal_organisation: Organização interna
         is_transparent:
           'false': opaco

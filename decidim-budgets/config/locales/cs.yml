@@ -253,7 +253,7 @@ cs:
             other: "%{count} projektů"
         exit_modal:
           cancel: Návrat k hlasování
-          close_modal: Zavřít modal
+          close_modal: Zavřít okno
           exit: Ukončit hlasování
           message: Váš hlas nebyl zaregistrován, protože jste ještě nedokončili proces hlasování. Opravdu chcete ukončit hlasování?
           title: Zatím jste nehlasovali
@@ -267,7 +267,7 @@ cs:
             not_selected: Nevybráno
             selected: Vybrané
         filters_small_view:
-          close_modal: Zavřít modální
+          close_modal: Zavřít okno
           filter: Filtr
           filter_by: Filtrovat podle
           unfold: Rozbalit

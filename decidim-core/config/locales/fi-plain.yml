@@ -95,6 +95,27 @@ fi-pl:
         one: noin kuukausi
         other: noin %{count} kuukautta
       half_a_minute: puoli minuuttia
+      less_than_x_minutes:
+        one: alle minuutti
+        other: alle %{count} minuuttia
+      less_than_x_seconds:
+        one: alle 1 sekunti
+        other: alle %{count} sekuntia
+      x_days:
+        one: 1 päivä
+        other: "%{count} päivää"
+      x_hours:
+        one: 1 tunti
+        other: "%{count} tuntia"
+      x_minutes:
+        one: 1 minuutti
+        other: "%{count} minuuttia"
+      x_months:
+        one: 1 kuukausi
+        other: "%{count} kuukautta"
+      x_seconds:
+        one: 1 sekunti
+        other: "%{count} sekuntia"
   decidim:
     accessibility:
       external_link: Ulkoinen linkki
@@ -1685,6 +1706,7 @@ fi-pl:
       too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
       too_short: liian lyhyt (alle %{count} merkkiä)
+      url_format: Tämä URL-osoite on väärässä muodossa
   forms:
     correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
     length_validator:

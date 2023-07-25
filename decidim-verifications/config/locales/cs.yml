@@ -7,6 +7,8 @@ cs:
         offline: Offline
         offline_explanation: Pokyny pro ověření offline
         online: Online
+      confirmation:
+        verification_code: Ověřovací kód
       id_document_information:
         document_number: Číslo dokladu (s písmeny)
         document_type: Typ dokumentu
@@ -15,6 +17,8 @@ cs:
         document_type: Typ dokumentu
         user: Uživatel
         verification_attachment: Naskenovaná kopie dokumentu
+      mobile_phone:
+        mobile_phone_number: Číslo mobilního telefonu
       offline_confirmation:
         email: Uživatelský e-mail
       postal_letter_address:

@@ -77,6 +77,7 @@ de:
           index:
             title: Sortierungen
           new:
+            confirm: Durch Drücken des nächsten Knopfes zeichnet Decidim das Datum und die Zeit (mit der Genauigkeit von Sekunden) auf und zusammen mit dem Würfelwurf wird diese Information verwendet, um eine zufällige Auswahl zu erzeugen. Die Aktion ist unumkehrbar. Sobald die Schaltfläche angeklickt wird, wird das Ergebnis dieser Verlosung veröffentlicht, zusammen mit den in diesem Formular eingegebenen Daten und kann nicht geändert werden. Überprüfen Sie deshalb bitte den Inhalt sorgfältig
             create: Erstellen
             title: Neue Sortierung
           show:

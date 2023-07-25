@@ -261,7 +261,7 @@ ca:
             not_selected: No seleccionat
             selected: Seleccionat
         filters_small_view:
-          close_modal: Tancar finestra
+          close_modal: Tancar el modal
           filter: Filtra
           filter_by: Filtra per
           unfold: Desplegar

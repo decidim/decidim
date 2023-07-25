@@ -89,6 +89,20 @@ ja:
       about_x_months:
         other: 約%{count} ヶ月
       half_a_minute: 約30秒
+      less_than_x_minutes:
+        other: '%{count} 分未満'
+      less_than_x_seconds:
+        other: '%{count} 秒未満'
+      x_days:
+        other: "%{count} 日"
+      x_hours:
+        other: "%{count} 時間"
+      x_minutes:
+        other: "%{count} 分"
+      x_months:
+        other: "%{count} ヶ月"
+      x_seconds:
+        other: "%{count} 秒"
   decidim:
     accessibility:
       external_link: 外部リンク
@@ -1672,6 +1686,7 @@ ja:
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
       too_short: は短すぎます( %{count} 文字以下)
+      url_format: この URL は不正な形式です。
   forms:
     correct_errors: 下記のフォームにエラーがありました。修正して継続してください。
     length_validator:
@@ -1690,7 +1705,7 @@ ja:
             description: 説明
             name: 名前
             service: サービス
-            type: 種別
+            type: タイプ
           items:
             _session_id:
               description: ウェブページ間を移動したときにウェブサイト内のユーザーをウェブサイトが記憶できるようにします。

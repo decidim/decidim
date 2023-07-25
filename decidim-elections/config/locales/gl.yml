@@ -173,7 +173,6 @@ gl:
           all: Todas
           date: Data
           finished: Finalizada
-          search: Procurar
           upcoming: Vindeiras
         filters_small_view:
           close_modal: Pechar modal
@@ -249,6 +248,8 @@ gl:
           back: Comezar o proceso de voto de novo
           ballot_hash: 'O identificador da túa papeleta é:'
           description: Aquí tes as opcións para emitir a túa papeleta e que sexa contada de xeito válido ou, alternativamente, podes auditar o correcto cifrado da túa papeleta. Por razóns de seguranza, a auditoría danará a túa papeleta, o que significa, que terás de reiniciar o proceso de votación para emitir o teu voto.
+        confirm:
+          answer: Resposta
         confirmed:
           experience: Como valoras a túa experiencia?
           feedback: Dános a túa opinión
@@ -261,7 +262,6 @@ gl:
           try_again: Tentar de novo
         header:
           ballot_decision: Enviar ou auditar o teu voto
-          confirm: Confirma o teu voto
           confirmed: Voto confirmado
           encrypting: Cifrando o voto
         messages:
@@ -447,8 +447,6 @@ gl:
           datum_not_found: Non hai ningún votante con estes datos.
       content_blocks:
         landing_page:
-          description:
-            title: Sobre esta votación
           metrics:
             heading: Métricas
           polling_stations:
@@ -594,7 +592,6 @@ gl:
         elections_log:
           bb_status: Estado da elección
           description: O rexistro da elección amosarache toda a información importante sobre cada votación. Por exemplo, o estado da cerimonia de chaves, o reconto ou se os resultados xa están publicados. Fai clic na elección da que desexas a información do rexistro.
-          election_log: Rexistro da elección
           title: Rexistro da elección
         filters:
           date: Data
@@ -611,6 +608,12 @@ gl:
         send_access_code:
           invalid: Produciuse un problema ao enviar o codigo de acceso
           success: O código de acceso foi enviado con éxito
+        show:
+          dates: Datas
+      votings_m:
+        footer_button_text:
+          view: Ver
+          vote: Votar
   layouts:
     decidim:
       voting_navigation:

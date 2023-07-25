@@ -112,9 +112,9 @@ ja:
               validating: 技術的検証
               withdrawn: 撤回
           state_null:
-            label: 州(県)
+            label: 都道府県：
             values:
-              'true': 回答なし
+              'true': 応答がありません
           valuator_role_ids_has:
             label: 評価者にアサインされました
         search_placeholder:
@@ -835,7 +835,7 @@ ja:
           with_more_authors: 起案者の多い順
         participatory_texts:
           index:
-            document_index: ドキュメントのインデックス
+            document_index: ドキュメントの目次
           view_index:
             see_index: インデックスを見る
         placeholder:

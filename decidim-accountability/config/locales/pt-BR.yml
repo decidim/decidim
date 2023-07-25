@@ -122,6 +122,14 @@ pt-BR:
           create: "%{user_name} resultado criado %{resource_name} em %{space_name}"
           delete: "%{user_name} eliminou o resultado %{resource_name} em %{space_name}"
           update: "%{user_name} resultado atualizado %{resource_name} em %{space_name}"
+        status:
+          create: "%{user_name} criou o status %{resource_name} "
+          delete: "%{user_name} deletou o status %{resource_name}."
+          update: "%{user_name} atualizou o status %{resource_name}."
+        timeline_entry:
+          create: "%{user_name} criou a conferência %{resource_name}"
+          delete: "%{user_name} apagou o %{resource_name} Boletim de Notícias"
+          update: "%{user_name} Atualizou a conferência %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'O pai não foi encontrado no banco de dados (ID: %{id})'

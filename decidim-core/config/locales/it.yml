@@ -336,7 +336,7 @@ it:
           request_confirmation_instructions: Richiedi le istruzioni di conferma
           title: conferma la tua email
       show:
-        close_modal: Chiudi modalità
+        close_modal: Chiudi modale
     block_user_mailer:
       notify:
         body_1: Il tuo account è stato bloccato.
@@ -471,7 +471,7 @@ it:
         newsletter_modal:
           buttons:
             check: Controlla e continua
-            close_modal: Chiudi modalità
+            close_modal: Chiudi modale
             uncheck: Mantieni deselezionato
           notice: |-
             <p>Ehi, sei sicuro di non voler ricevere una newsletter?<br>
@@ -851,7 +851,7 @@ it:
         body_1: Stai per visitare un collegamento esterno e vorremmo che tu sia cauto riguardo al contenuto del sito esterno.
         body_2: Per favore controlla il link che stai per visitare e assicurati di riconoscerlo come un sito sicuro prima di procedere.
         cancel: Annulla
-        close_modal: Chiudi modalità
+        close_modal: Chiudi modale
         proceed: Procedi
         title: Apri collegamento esterno
     log:
@@ -941,7 +941,7 @@ it:
           ok: Ok
         index:
           ago: fa
-          close: Chiudi modalità
+          close: Chiudi modale
           from: Da
           groups: I miei gruppi
           last_message: Ultimo messaggio
@@ -1099,7 +1099,7 @@ it:
           legend: Accetta i termini e le condizioni d'uso
         refuse:
           modal_btn_exit: Lo esaminerò più tardi
-          modal_close: Chiudi modalità
+          modal_close: Chiudi modale
           modal_title: Rifiutate davvero i Termini e condizioni aggiornati?
         required_review:
           alert: Abbiamo aggiornato i nostri Termini di servizio, per favore controllali.
@@ -1213,7 +1213,7 @@ it:
         ok: Ok
         title: Conferma
       embed_modal:
-        close_window: Chiudi la finestra
+        close_window: Chiudere finestra
         embed: Se vuoi condividere un'anteprima di questa consultazione nella tua pagina puoi incollare questo codice
         embed_link: Incorpora
       extended_navigation_bar:
@@ -1539,6 +1539,10 @@ it:
     timestamp_error_message: Mi dispiace, troppo veloce! Per favore, invia di nuovo.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: genere
       edit_link:
         edit: Modifica
       footer:

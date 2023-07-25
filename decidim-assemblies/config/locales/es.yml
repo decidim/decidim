@@ -286,7 +286,7 @@ es:
             metadata: Metadatos
             other: Otro
             select_a_created_by: Selecciona una creadora
-            select_an_area: Seleccione un Área
+            select_an_area: Selecciona un área
             select_an_assembly_type: Selecciona un tipo de asamblea
             select_parent_assembly: Selecciona una asamblea principal
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -300,7 +300,7 @@ es:
             title: Configuración de las asambleas
         assemblies_types:
           form:
-            title: Título
+            title: Editar tipo de asamblea
         assembly_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -379,10 +379,10 @@ es:
         area: Área
         assembly_type: Tipo de asambleas
         children: Asambleas
-        closing_date: Fecha de finalización
+        closing_date: Fecha de cierre
         composition: Composición
         created_by: Creado por
-        creation_date: Fecha de creación
+        creation_date: Fecha de creacion
         developer_group: Grupo promotor
         duration: Duración
         included_at: Incluido en
@@ -405,7 +405,7 @@ es:
         target: Quién participa
     assembly_members:
       assembly_member:
-        designated_on: Designado en
+        designated_on: 'Fecha de designación:'
       index:
         title: Miembros
     events:

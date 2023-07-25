@@ -87,6 +87,10 @@ ro:
             offensive: Conține rasism, sexism, insulte, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
             spam: Conține clickbait, publicitate, escrocherii sau script rulat de roboți.
           title: Raportează conținut nepotrivit
+        show_replies:
+          one: Arată răspunsul
+          few: Arată %{count} răspunsuri
+          other: Arată %{count} răspunsuri
         single_comment_link_title: Obţine link
       comment_order_selector:
         order:

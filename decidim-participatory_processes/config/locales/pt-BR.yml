@@ -304,6 +304,10 @@ pt-BR:
           contextual: "<p>A <strong>processo de participação</strong> é uma sequência de actividades de participação (por exemplo, primeiro o preenchimento de uma pesquisa, em seguida, fazendo propostas, discutindo-los em face-a-face ou virtuais reuniões, e, finalmente, privilegiando-los) com o objectivo de definir e de tomar uma decisão em um tópico específico.</p> <p>Os exemplos de processos de participação são: um processo de eleição membros da comissão (onde candidaturas são apresentados pela primeira vez, em seguida, discutida e, finalmente, uma candidatura é escolhido), orçamentos de participação (por serem apresentadas propostas, valorizado economicamente e considerados com o dinheiro disponível), um processo de planejamento estratégico, a elaboração colaborativa de um regulamento ou norma, a concepção de um espaço urbano ou a produção de um plano de políticas públicas.</p>\n"
           page: "<p>A <strong>processo de participação</strong> é uma sequência de actividades de participação (por exemplo, primeiro o preenchimento de uma pesquisa, em seguida, fazendo propostas, discutindo-los em face-a-face ou virtuais reuniões, e, finalmente, privilegiando-los) com o objectivo de definir e de tomar uma decisão em um tópico específico.</p> <p>Os exemplos de processos de participação são: um processo de eleição membros da comissão (onde candidaturas são apresentados pela primeira vez, em seguida, discutida e, finalmente, uma candidatura é escolhido), orçamentos de participação (por serem apresentadas propostas, valorizado economicamente e considerados com o dinheiro disponível), um processo de planejamento estratégico, a elaboração colaborativa de um regulamento ou norma, a concepção de um espaço urbano ou a produção de um plano de políticas públicas.</p>\n"
           title: O que é um processo participativo?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'A categoria de processo não foi encontrado no banco de dados (ID: %{id})'
     menu:
       processes: Processos
     metrics:

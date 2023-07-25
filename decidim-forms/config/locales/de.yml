@@ -143,6 +143,8 @@ de:
         single_option: Einzelne Option
         sorting: Sortierung
         title_and_description: Titel und Beschreibung
+      questionnaire_answer_presenter:
+        download_attachment: Anhang herunterladen
       questionnaires:
         answer:
           invalid: Bei der Beantwortung des Fragebogens sind Fehler aufgetreten.

@@ -22,6 +22,7 @@ el:
       timeline_entry:
         description: Περιγραφή
         entry_date: Ημερομηνία
+        title: Τίτλος
     models:
       decidim/accountability/proposal_linked_event: Η πρόταση περιλαμβάνεται σε ένα αποτέλεσμα
       decidim/accountability/result_progress_updated_event: Η πρόοδος των αποτελεσμάτων ενημερώθηκε
@@ -49,6 +50,7 @@ el:
           results: Αποτελέσματα
         import_results:
           new:
+            download_export: Κατεβάστε την εξαγωγή με μορφή CSV
             import: Εισαγωγή
             title: Εισαγωγή αποτελεσμάτων από αρχείο CSV
         imports:
@@ -120,6 +122,14 @@ el:
           create: "Ο χρήστης %{user_name} δημιούργησε το αποτέλεσμα %{resource_name} στον χώρο %{space_name}"
           delete: "Ο χρήστης %{user_name} διέγραψε το αποτέλεσμα %{resource_name} στον χώρο %{space_name}"
           update: "Ο χρήστης %{user_name} ενημέρωσε το αποτέλεσμα %{resource_name} στον χώρο %{space_name}"
+        status:
+          create: "Ο/Η %{user_name} δημιούργησε την κατάσταση %{resource_name}"
+          delete: "Ο/Η %{user_name} διέγραψε την κατάσταση %{resource_name}"
+          update: "Ο/Η %{user_name} ενημέρωσε την κατάσταση %{resource_name}"
+        timeline_entry:
+          create: "Ο/Η %{user_name} δημιούργησε την καταχώρηση χρονολογίου %{resource_name}"
+          delete: "Ο/Η %{user_name} διέγραψε την καταχώριση χρονολογίου %{resource_name}"
+          update: "Ο/Η %{user_name} ενημέρωσε την καταχώρηση χρονολογίου %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'H γονική διαδικασία δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
@@ -158,6 +168,7 @@ el:
         timeline_entry:
           fields:
             entry_date: Ημερομηνία
+            title: Τίτλος
       result_m:
         executed: Εκτελέσθηκε
         view: Προβολή

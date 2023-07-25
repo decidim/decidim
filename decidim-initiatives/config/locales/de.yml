@@ -3,8 +3,13 @@ de:
   activemodel:
     attributes:
       initiative:
+        answer: Antwort
+        answer_url: Antwort-URL
+        area_id: Gebiet
+        decidim_scope_id: Thema
         decidim_user_group_id: Autor
         description: Beschreibung
+        hashtag: Hashtag
         offline_votes: Face-to-Face-Unterstützung
         offline_votes_for_scope: Persönliche Unterschriften für %{scope_name}
         scope_id: Umfang
@@ -17,6 +22,7 @@ de:
           online: Online
         state: Zustand
         title: Titel
+        type_id: Typ
       initiatives_committee_member:
         user: Ausschussmitglied
       initiatives_settings:
@@ -36,9 +42,13 @@ de:
         online_signature_enabled: Online-Signatur aktiviert
         only_global_scope_enabled: Nur die Erstellung globaler Initiativen zulassen
         promoting_committee_enabled: Förderkomitee freigeben
+        signature_type: Unterschrifttyp
         title: Titel
         undo_online_signatures_enabled: Ermöglichen Sie Benutzern, ihre Online-Signaturen rückgängig zu machen
         validate_sms_code_on_votes: Fügen Sie dem Signaturprozess einen SMS-Validierungsschritt hinzu
+      initiatives_type_scope:
+        decidim_scopes_id: Themen
+        supports_required: Erforderliche Unterstützungen
       initiatives_vote:
         date_of_birth: Geburtsdatum
         document_number: Dokumentnummer
@@ -105,7 +115,7 @@ de:
         initiatives:
           fields:
             created_at: Hergestellt in
-            id: ICH WÜRDE
+            id: ID
             published_at: Veröffentlicht am
             state: Zustand
             supports_count: Unterschriften
@@ -291,6 +301,8 @@ de:
             update: Aktualisieren
           form:
             authorizations: Autorisierungseinstellungen
+            child_scope_threshold_enabled_help: 'Diese Einstellung unterstützt keine Offline-Abstimmungen. Es aktiviert Unter-Themenbereiche und arbeitet mit einem Autorisierungs-Handler zusammen, der dem Teilnehmenden einen Themenbereich zuordnet. Stellen Sie sicher, dass Sie diese Autorisierung unten in den Autorisierungseinstellungen auswählen. Hierfür müssen die Themenbereiche auf hierarchische Weise konfiguriert werden: 1 Überthema - N Unterthemen. Weitere Informationen wie diese Konfiguration funktioniert, finden Sie unter diesem <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">Link</a>.'
+            only_global_scope_enabled_help: Aktivieren Sie diese Einstellung, wenn Sie "Unterthemen-Signaturen" aktiviert haben und den globalen Themenbereich als Ihren Elternbereich konfiguriert haben. Dadurch wird die Auswahl des Initialtyps im Assistenten zur Erstellung der Initiative übersprungen. Weitere Informationen darüber, wie diese Konfiguration funktioniert, finden Sie <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">hier</a>.
             options: Optionen
             title: Allgemeine Information
           initiative_type_scopes:
@@ -351,6 +363,7 @@ de:
         fill_data:
           back: Zurück
           continue: Fortsetzen
+          decidim_user_group_id_help: Es ist nicht möglich, die Autorschaft der Initiative nach der Erstellung zu ändern
           fill_data_help: "<ul> <li>Inhalt Ihrer Initiative überprüfen. Ist Ihr Titel leicht verständlich? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Was ist die geografische Reichweite der Initiative? Stadt, Bezirk?</li> </ul>"
           more_information: "(Weitere Informationen)"
           select_area: Wählen Sie einen Bereich aus
@@ -427,11 +440,12 @@ de:
           email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       form:
-        add_attachments: Dokumente
+        add_attachments: Unterlagen
         attachment_legend: "(Optional) Anhang hinzufügen"
         delete_attachment: Löschen
       index:
         title: Initiativen
+        uninitialized: Initiativen sind noch nicht von einem Admin konfiguriert
       initiative_signatures:
         fill_personal_data:
           continue: Fortsetzen
@@ -527,6 +541,7 @@ de:
             title: 'Titel:'
             type: Art der Initiative
           legal_text: Die erhobenen personenbezogenen Daten werden von der Organisation entsprechend der geltenden Gesetzgebung vertraulich behandelt und aufgenommen.
+          members_header: Mitglieder des Unterstützungskomitees der Initiative
           phone_number: Telefonnummer
           place_date: Ort, Datum
           postal_code: Postleitzahl
@@ -577,7 +592,7 @@ de:
         home:
           highlighted_initiatives:
             active_initiatives: Aktive Initiativen
-            see_all_initiatives: Sehen Sie alle Initiativen
+            see_all_initiatives: Alle Initiativen anzeigen
       show:
         badge_name:
           accepted: Ausreichend Unterschriften

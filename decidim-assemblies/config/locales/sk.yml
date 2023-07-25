@@ -133,16 +133,27 @@ sk:
         unpublish: "%{user_name} zrušil publikovanie typu zhromaždenia %{resource_name}"
         update: "%{user_name} aktualizoval typ zhromaždenia %{resource_name}"
     assemblies:
-      admin:
-        assemblies_types:
-          form:
-            title: Názov
       last_activity:
         new_assembly: Nové zhromaždenie
       pages:
         home:
           highlighted_assemblies:
             assemblies_button_title: Odkaz na stránku Zhromaždenia, zobrazujúcu všetky zhromaždenia
+      show:
+        area: Oblasť
+        closing_date: Dátum uzavretia
+        composition: Zloženie
+        created_by: Vytvorené
+        creation_date: Dátum vytvorenia
+        developer_group: Propagačná skupina
+        included_at: Zahrnuté v
+        internal_organisation: Interné organizácie
+        local_area: Oblasť organizácie
+        participatory_scope: O čom sa rozhoduje
+        participatory_structure: Ako sa o tom rozhoduje
+        purpose_of_action: Cieľ aktivity
+        scope: Rozsah
+        target: Kto sa zúčastňuje
     events:
       assemblies:
         create_assembly_member:

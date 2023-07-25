@@ -1462,7 +1462,7 @@ lt:
         new_conversation: Naujas pokalbis
         next: Kitas
         no_conversations_warning: Pokalbių dar nėra.
-        no_results: Nėra rezultatų
+        no_results: Rezultatų nerasta
         participant_with_disabled_message_reception: Šis dalyvis išjungė pranešimų gavimo funkciją
         time_ago: "Prieš %{time}"
       new:

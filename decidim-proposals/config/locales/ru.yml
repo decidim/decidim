@@ -52,6 +52,12 @@ ru:
         many: Голосов
         other: Голосов
   decidim:
+    admin:
+      filters:
+        proposals:
+          state_null:
+            values:
+              'true': Без ответов
     components:
       proposals:
         actions:
@@ -225,6 +231,9 @@ ru:
           official: Служебные
         filter_state_values:
           not_answered: Без ответов
+      content_blocks:
+        highlighted_proposals:
+          proposals: Предложения
       create:
         error: При попытке сохранить это предложение произошли ошибки.
         success: Предложение успешно создано. Сохранено как черновик.
@@ -232,6 +241,9 @@ ru:
         error: При попытке удалить этот черновик предложения произошли ошибки.
         success: Черновик предложения был успешно удален.
       models:
+        collaborative_draft:
+          fields:
+            comments: Комментарии
         proposal:
           fields:
             category: Категория
@@ -246,6 +258,9 @@ ru:
             votes: Голоса
       new:
         limit_reached: Вы не можете создавать новые предложения, так как вы превысили лимит.
+      participatory_text_proposal:
+        buttons:
+          comments: Комментарии
       proposal_votes:
         create:
           error: При голосовании по этому предложению произошли ошибки.
@@ -274,11 +289,6 @@ ru:
           search: Поиск
           state: Cостояние
           voted: Проголосованные
-        filters_small_view:
-          close_modal: Закрыть окошко
-          filter: Отобрать
-          filter_by: 'Отобрать по признаку:'
-          unfold: Развернуть
         index:
           new_proposal: Внести предложение
           see_all_withdrawn: Просмотреть все отозванные предложения
@@ -345,7 +355,6 @@ ru:
           vote_limit:
             description: Вы можете проголосовать до %{limit} предложений.
             left: Осталось
-            votes: Голоса
         wizard_aside:
           back: Вернуться
           info: Вы создаете <strong>предложение</strong>.

@@ -43,6 +43,10 @@ de:
           valuator_role_id: Name des Schätzers
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Ungültiger Dokumententyp. Nur Dateien mit folgenden Erweiterungen sind erlaubt: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -58,10 +62,12 @@ de:
           attributes:
             base:
               not_official: Sind nicht offiziell
+              supported: Haben Stimmen oder Unterstützung erhalten
         proposals_split:
           attributes:
             base:
               not_official: Sind nicht offiziell
+              supported: Haben Stimmen oder Unterstützung erhalten
     models:
       decidim/proposals/accepted_proposal_event: Vorschlag angenommen
       decidim/proposals/admin/update_proposal_category_event: Vorschlagskategorie geändert
@@ -110,7 +116,7 @@ de:
               validating: Technische Validierung
               withdrawn: Zurückgezogen
           state_null:
-            label: Bundesländer
+            label: Status
             values:
               'true': Unbeantwortet
           valuator_role_ids_has:
@@ -140,6 +146,7 @@ de:
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             default_sort_order: Standardsortierung für Vorschläge
+            default_sort_order_help: Standardmäßig bedeutet, dass, wenn Vorschläge unterstützt werden können, sie nach Zufall sortiert werden, und wenn die Unterstützung blockiert werden, sie nach den meist unterstützten sortiert werden.
             default_sort_order_options:
               default: Standard
               most_commented: Am häufigsten kommentiert
@@ -191,7 +198,9 @@ de:
             automatic_hashtags: Hashtags wurden allen Vorschlägen hinzugefügt
             comments_blocked: Kommentare blockiert
             creation_enabled: Teilnehmer können Vorschläge erstellen
+            creation_enabled_readonly: Diese Einstellung ist deaktiviert, wenn Sie die Funktion "Partizipative Texte" aktivieren. Um Vorschläge als partizipativen Text hochzuladen, klicken Sie "Partizipative Texte" und folgen Sie den Anweisungen.
             default_sort_order: Standardsortierung für Vorschläge
+            default_sort_order_help: Standardmäßig bedeutet, dass, wenn Vorschläge unterstützt werden können, sie nach Zufall sortiert werden, und wenn die Unterstützung blockiert werden, sie nach den meist unterstützten sortiert werden.
             default_sort_order_options:
               default: Standard
               most_commented: Am meisten kommentiert
@@ -205,6 +214,7 @@ de:
             endorsements_enabled: Bestätigungen aktiviert
             proposal_answering_enabled: Vorschlagsantworten aktiviert
             publish_answers_immediately: Vorschlagsantworten sofort veröffentlichten
+            publish_answers_immediately_help_html: 'Wenn Sie einen Vorschlag ohne diese Option beantworten, müssen Sie die Antwort manuell veröffentlichen, indem Sie den Vorschlag auswählen und über «Aktionen» im Menü veröffentlichen. Weitere Informationen darüber finden Sie auf der <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">Dokumentationsseite zur Vorschlagsbeantwortung</a>.'
             suggested_hashtags: Hashtags schlug Benutzern neue Vorschläge vor
             votes_blocked: Abstimmung blockiert
             votes_enabled: Abstimmung aktiviert
@@ -218,21 +228,33 @@ de:
             email_subject: Jemand hat eine Notiz für Vorschlag %{resource_title} erstellt.
             notification_title: Jemand hat eine Notiz für den Vorschlag <a href="%{resource_path}">%{resource_title}</a>erstellt. Sie können sie über das <a href="%{admin_proposal_info_path}">Admin-Panel</a> anzeigen
         collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} wurde zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_url}">%{resource_title}</a> akzeptiert.'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie bei <a href="%{resource_url}">%{resource_title}</a> mitwirken.
           email_subject: "%{requester_name} wurde zur Mitwirkung an %{resource_title} akzeptiert."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>angenommen</strong>.
         collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} wurde als Mitwirkender des kollaborativen Entwurfs <a href="%{resource_url}">%{resource_title}</a> abgelehnt.'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie bei <a href="%{resource_url}">%{resource_title}</a> mitwirken.
           email_subject: "%{requester_name} wurde als Mitwirkender des kollaborativen Entwurfs %{resource_title} abgelehnt."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde als Mitwirkender beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>abgelehnt</strong>.
         collaborative_draft_access_requested:
+          email_intro: '%{requester_name} hat um Zugriff auf Ihren kollaborativen Entwurf angefragt. Sie können den Antrag auf der Seite des kollaborativen Entwurfs <a href="%{resource_url}">%{resource_title}</a> <strong>annehmen oder ablehnen</strong>.'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie bei <a href="%{resource_url}">%{resource_title}</a> mitwirken.
           email_subject: "%{requester_name} hat um Zugang zur Mitwirkung bei %{resource_title} angefragt."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> hat Zugriff beantragt, um beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitzuwirken. Bitte <strong>den Antrag akzeptieren oder ablehnen</strong>.
         collaborative_draft_access_requester_accepted:
+          email_intro: Sie wurden zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_url}">%{resource_title}</a> akzeptiert.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie angefragt haben, bei <a href="%{resource_url}">%{resource_title}</a> mitzuwirken.
           email_subject: Sie wurden als Mitwirkender von %{resource_title} angenommen.
           notification_title: Sie wurden zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>akzeptiert</strong>.
         collaborative_draft_access_requester_rejected:
+          email_intro: Der Zugriff auf den kollaborativen Entwurf <a href="%{resource_url}">%{resource_title}</a> wurde Ihnen verweigert.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie angefragt haben, bei <a href="%{resource_url}">%{resource_title}</a> mitzuwirken.
           email_subject: Sie wurden als Mitwirkender von %{resource_title} abgelehnt.
           notification_title: Sie wurden als Mitwirkender beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>abgelehnt</strong>.
         collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> hat den kollaborativen Entwurf <a href="%{resource_url}">%{resource_title}</a> zurückgezogen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie bei <a href="%{resource_url}">%{resource_title}</a> mitwirken.
           email_subject: "%{author_name} %{author_nickname} hat den kollaborativen Entwurf %{resource_title} zurückgezogen."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat den kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>zurückgezogen</strong>.
         creation_enabled:
@@ -281,10 +303,13 @@ de:
           email_intro: Der Vorschlag "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, welchem Sie folgen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
           email_subject: Neuer Vorschlag "%{resource_title}" zu %{participatory_space_title} hinzugefügt
+          notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde von %{author} zu %{participatory_space_title} hinzugefügt
+          notification_title_official: Der offizielle Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title} hinzugefügt
         proposal_rejected:
           affected_user:
             email_intro: 'Ihr Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
+            email_subject: Ihr Vorschlag wurde abgelehnt
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde abgelehnt.
           follower:
             email_intro: 'Der Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
@@ -377,14 +402,34 @@ de:
           proposal_comments: Kommentare
           proposals: Vorschläge
         imports:
+          help:
+            answers: |
+              Das Importdokument sollte die folgenden Spaltennamen bei CSV- oder Excel-Dateien enthalten bzw. Schlüsselnamen im Falle von JSON-Dateien:
+              <ul>
+              <li><b>id:</b> ID des Vorschlages zur Beantwortung</li>
+              <li><b>state:</b> Einer von "accepted", "evaluating" oder "rejected"</li>
+              <li><b>answer/de:</b> Antwort in Deutscher Sprache. Dies hängt von der Sprachkonfiguration Ihrer Plattform ab.</li>
+              </ul>
+            proposals: |
+              Die Datei muss bei CSV- oder Excel-Dateien die folgenden Spaltennamen haben bzw. Schlüsselnamen bei JSON-Dateien:
+              <ul>
+              <li><b>title/de:</b> Titel in Deutscher Sprache. Dies hängt von der Sprachkonfiguration Ihrer Plattform ab.</li>
+              <li><b>body/de:</b> Beschreibung in Deutscher Sprache. Dies hängt von der Sprachkonfiguration Ihrer Plattform ab.</li>
+              <li><b>scope/id:</b> ID für das Thema</li>
+              <li><b>category/id:</b> ID für die Kategorie</li>
+              </ul>
           label:
             answers: Antworten aus einer Datei importieren
             proposals: Vorschläge aus einer Datei importieren
           resources:
+            answers:
+              one: Vorschlagsantwort
+              other: Vorschlagsantworten
             proposals:
               one: Vorschlag
               other: Vorschläge
           title:
+            answers: Vorschlagsantworten importieren
             proposals: Vorschläge importieren
         models:
           proposal:
@@ -530,9 +575,11 @@ de:
             title: Vorschläge importieren
         proposals_merges:
           create:
+            invalid: 'Es gab ein Problem beim Zusammenführen der ausgewählten Vorschläge, weil ein paar von ihnen:'
             success: Erfolgreich die Vorschläge in eine neue zusammengeführt.
         proposals_splits:
           create:
+            invalid: 'Es gab ein Problem beim Aufteilen der ausgewählten Vorschläge, weil ein paar von ihnen:'
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
         valuation_assignments:
           create:
@@ -603,6 +650,7 @@ de:
             one: "%{count} kollaborativer Entwurf"
             other: "%{count} kollaborativer Entwurf"
         create:
+          error: Beim Erstellen dieses kollaborativen Entwurfs ist ein Problem aufgetreten.
           success: Collaborative Draft wurde erfolgreich erstellt.
         edit:
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
@@ -701,7 +749,7 @@ de:
           fields:
             category: Kategorie
             comments: Bemerkungen
-            id: ICH WÜRDE
+            id: ID
             notes: Anmerkungen
             official_proposal: Offizieller Vorschlag
             published_answer: Veröffentlichte Antwort
@@ -736,6 +784,7 @@ de:
             one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
         dynamic_map_instructions:
+          description: Die Koordinaten werden aktualisiert, wenn Sie auf "Vorschau" klicken. Die angegebene Adresse wird sich jedoch nicht ändern.
           instructions: Sie können den Marker auf der Karte verschieben.
         edit:
           add_documents: Dokumente hinzufügen
@@ -767,7 +816,7 @@ de:
           type: Art
           voted: Gewählt
         filters_small_view:
-          close_modal: Modal schließen
+          close_modal: Dialog schließen
           filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
@@ -777,6 +826,7 @@ de:
           new_proposal: Neuer Vorschlag
           see_all: Alle Vorschläge ansehen
           see_all_withdrawn: Sehen Sie sich alle zurückgezogenen Vorschläge an
+          text_banner: Hier sehen Sie alle Vorschläge, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
           view_proposal: Vorschlag anzeigen
         linked_proposals:
           proposal_votes:
@@ -821,7 +871,7 @@ de:
           back_to: Zurück zu
           back_to_list: Zurück zur Liste
           changes_at_title: Ergänzung zu „%{title}“
-          comments: Kommentare
+          comments: Bemerkungen
           edit_proposal: Vorschlag bearbeiten
           endorsements_list: Liste der Befürworter
           estimated_cost: Geschätzte Kosten
@@ -875,7 +925,7 @@ de:
           vote_limit:
             description: Sie können bis zu %{limit} Vorschläge abstimmen.
             left: Verbleibend
-            votes: Stimmen
+            votes: Unterstützer
         wizard_aside:
           back: Zurück
           back_from_step_1: Zurück zu Vorschlägen

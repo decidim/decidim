@@ -63,6 +63,7 @@ is:
             description: Þú hefur þegar kosið fyrir fjárhagsáætlunina. Ef þú hefur skipt um skoðun geturðu %{cancel_link}.
             title: Fjárhagsleg atkvæði lokið
           title: Þú ákveður fjárhagsáætlunina
+          total_budget: Samtals fjárhagsáætlun
         count:
           projects_count:
             one: 1 verkefni
@@ -72,7 +73,6 @@ is:
           scope: Umfang
           search: Leita
         filters_small_view:
-          close_modal: Loka mát
           filter: Sía
           filter_by: Sía eftir
           unfold: Fella út
@@ -83,7 +83,6 @@ is:
           selected_projects:
             one: verkefni valin
             other: verkefni valin
-          view: Útsýni
         show:
           budget: Fjárhagsáætlun
           view_all_projects: Skoða öll verkefni

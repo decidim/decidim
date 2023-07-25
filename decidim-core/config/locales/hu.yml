@@ -94,6 +94,12 @@ hu:
         one: kb. 1 hónapja
         other: kb %{count} hónapja
       half_a_minute: fél perce
+      x_days:
+        one: 1 napja
+        other: "%{count} napja"
+      x_hours:
+        one: 1 óra
+        other: "%{count} óraája"
   decidim:
     accessibility:
       external_link: Külső hivatkozás
@@ -703,13 +709,25 @@ hu:
           email_subject: Eltávolításra kerültél a %{user_group_name} csoportból!
           notification_title: Eltávolításra kerültál a <a href="%{resource_path}">%{user_group_name}</a> csoportból.
         user_group_created:
+          email_intro: 'Egy új felhasználói csoportot hoztak létre a következő névvel: %{user_group_name}. Jóváhagyhatja a <a href="%{groups_admin_url}">adminisztrációs panelen</a>.'
           email_outro: Ezt az értesítést kaptad, mert te vagy a platform adminja.
           email_subject: Új felhasználói csoport létrehozva
+          notification_title: Létrehozták a(z) %{user_group_name} felhasználói csoportot. Jóváhagyhatja a <a href="%{groups_admin_path}">adminisztrációs panelen</a>.
         user_group_updated:
+          email_intro: A(z) %{user_group_name} felhasználói csoport frissítette a profilját, így az ellenőrizetlen maradt. Jóváhagyhatja az <a href="%{groups_admin_url}">adminisztrációs panelen</a>.
           email_outro: Ezt az értesítést kaptad, mert te vagy a platform adminja.
           email_subject: Egy felhasználói csoport frissítette a profilját
+          notification_title: A(z) %{user_group_name} felhasználói csoport frissítette a profilját, így az ellenőrizetlen maradt. Jóváhagyhatja az <a href="%{groups_admin_path}">adminisztrációs panelen</a>.
       notification_event:
         notification_title: 'Új esemény itt: <a href="%{resource_path}">%{resource_title}</a>.'
+      reports:
+        resource_hidden:
+          email_intro: Egy adminisztrátor eltávolította a %{resource_type} -ját mert %{report_reasons}-ként jelentették.
+          email_outro: 'Azért kapta ezt az értesítést, mert Ön a következő szerzője: "%{resource_title}".'
+          email_subject: A %{resource_type} eltávolításra került
+          notification_title: |-
+            Egy adminisztrátor eltávolította a %{resource_type} -ját mert %{report_reasons}-ként jelentették </br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name}% {endorser_nickname}, akit követsz, éppen jóváhagyta a "%{resource_title}" -t, és úgy gondoljuk, hogy ez érdekes lehet számodra. Nézd meg, és járulj hozzá:'
         email_outro: Azért kaptad ezt az értesítést, mert %{endorser_nickname} követed. Az előző hivatkozást követve abbahagyhatod az értesítések fogadását.
@@ -1384,6 +1402,9 @@ hu:
       create:
         success: A beszélgetés sikeresen elindult!
       index:
+        add_max_users: 'Felhasználók hozzáadása a beszélgetéshez: legfeljebb 9 felhasználó'
+        add_users_placeholder: Keres...
+        close: Bezárás
         conversations_info: A beszélgetések privátak. Senki más nem láthatja őket. Bármelyik, a platformon regisztrált résztvevővel vagy csoporttal beszélgetést kezdeményezhet.
         from: Feladó
         last_message: Utolsó üzenet
@@ -1404,7 +1425,7 @@ hu:
         back: Beszélgetések megtekintése
         deleted_accounts: Törölt fiókkal nem lehet beszélgetni itt.
         not_allowed: Ez a felhasználó nem fogad el több közvetlen üzenetet.
-        title: Beszélgetés %{usernames} nevű felhasználóval
+        title: 'Beszélgetés vele: %{usernames}'
       update:
         error: Üzenet elküldése sikertelen. Próbáld újra később
     user_interests:
@@ -1636,7 +1657,7 @@ hu:
             description: Leírás
             name: Név
             service: Szolgáltatás
-            type: Típus
+            type: típus
           items:
             _session_id:
               description: Lehetővé teszi a weboldalak számára, hogy emlékezzenek a felhasználóra a weboldalon belül, amikor az a weboldalak között mozog.

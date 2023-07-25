@@ -730,7 +730,7 @@ eu:
           title: Sortu zure lankidetza zirriborroa
       content_blocks:
         highlighted_proposals:
-          proposals: Proposamenak
+          proposals: proposamenak
       create:
         error: Erroreak gertatu dira proposamena gordetzean.
         success: Onartutako proposamena. Zirriborro gisa gorde da.
@@ -744,7 +744,7 @@ eu:
         collaborative_draft:
           fields:
             authors: Egileak
-            comments: Oharrak
+            comments: Iruzkinak
             contributions: Ekarpenak
         proposal:
           fields:
@@ -819,7 +819,7 @@ eu:
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
-          filter_by: 'Iragazi honen arabera:'
+          filter_by: 'Honen arabera iragazi:'
           unfold: Zabaldu
         index:
           click_here: Ikusi proposamen guztiak
@@ -846,8 +846,6 @@ eu:
           recent: Berrienak
           with_more_authors: Egile gehiagorekin
         participatory_texts:
-          index:
-            document_index: Dokumentuaren indizea
           view_index:
             see_index: Ikusi indizea
         placeholder:
@@ -926,7 +924,7 @@ eu:
           vote_limit:
             description: '%{limit} proposamenari bozkatu ahal zaizkio.'
             left: Geratzen diren hiru aukerak
-            votes: Babesak
+            votes: Botoak
         wizard_aside:
           back: Atzera
           back_from_step_1: Itzuli proposamenetara

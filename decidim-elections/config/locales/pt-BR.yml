@@ -18,7 +18,9 @@ pt-BR:
         title: Título
       voting:
         end_time: Votação termina
+        scope_id: Escopo
         start_time: A votação começa
+        voting_type: Tipo de votação
     errors:
       models:
         answer:
@@ -238,7 +240,6 @@ pt-BR:
               minimum_answers: Cada questão tem <strong>pelo menos 2 respostas</strong>.
               minimum_questions: A eleição tem <strong>pelo menos 1 pergunta</strong>.
               published: A eleição está <strong>publicada</strong>.
-              time_before: A instalação está sendo feita <strong>pelo menos %{hours} horas</strong> antes do início da eleição.
               trustees_number: O espaço participativo tem <strong> pelo menos %{number} agentes fiduciários com chave pública</strong>.
             submit: Configurar eleição
             success: Eleição enviada com sucesso para o Quadro de Notas
@@ -391,7 +392,7 @@ pt-BR:
           active: Ativo
           all: Todos
           finished: Finalizado
-          search: Pesquisa
+          search: Pesquisar
           upcoming: Próximos
         filters_small_view:
           close_modal: Fechar modal
@@ -506,6 +507,7 @@ pt-BR:
               tally:
                 cast: Transmissão de apuração
                 share: Compartilhar apuração
+            start_icon: Ícone que indica um botão iniciar para começar a geração de chaves eleitorais
             title: Apuração para %{election}
           update:
             error: O status da eleição não foi atualizado.
@@ -544,6 +546,8 @@ pt-BR:
               upload_error:
                 invalid_format: O arquivo enviado não contém nenhuma chave de identificação.
                 invalid_key: As chaves de identificação no arquivo enviado não podem ser carregadas.
+                invalid_public_key: As chaves de identificação no arquivo enviado não correspondem à chave de identificação pública armazenada.
+              upload_legend: O servidor possui suas chaves de identificação pública, mas seu navegador ainda não as têm. Você precisa importar o arquivo com as suas chaves de identificação para o seu computador, a partir do "backup" que você criou após gerá-las.
             not_supported_browser_description: Parece que você está usando um navegador da web que não pode ser usado para atuar como um curador. Certifique-se de estar usando a versão mais recente do seu navegador, ou tente usar qualquer um dos navegadores mais populares para conseguir completar suas tarefas de confiança.
             not_supported_browser_title: Atualize o navegador para agir como um curador
             trustee_role_description: Você foi designado para agir como um curador em algumas das eleições realizadas nesta plataforma.
@@ -715,28 +719,8 @@ pt-BR:
           highlighted_votings:
             max_results: Quantidade máxima de elementos para mostrar
           landing_page:
-            attachments_and_folders:
-              name: Anexos e pastas de votação
             description:
               name: Descrição da votação
-            elections:
-              name: Eleição
-            header:
-              name: Cabeçalho do voto
-            html_block_1:
-              name: Bloco de votação html 1
-            html_block_2:
-              name: Bloco de votação html 2
-            html_block_3:
-              name: Bloco de votação html 3
-            metrics:
-              name: Métricas de votação
-            polling_stations:
-              name: Estações de votação
-            stats:
-              name: Estatísticas de votação
-            timeline:
-              name: Linha do tempo da votação
         index:
           not_published: Despublicado
           published: Publicado
@@ -936,6 +920,7 @@ pt-BR:
             update: Atualizar
           form:
             select_a_voting_type: Por favor, selecione um tipo de votação
+            show_check_census_help: Mostrar ou não o link "Posso votar?" no menu de votações públicas
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             title: Título
             voting_type:
@@ -1031,8 +1016,6 @@ pt-BR:
       pages:
         home:
           highlighted_votings:
-            active_votings: Votações Ativas
-            see_all_votings: Ver todos os votações
             votings_button_title: Link para a Página de Votação exibindo todos os votos
       polling_officer_zone:
         closures:
@@ -1066,7 +1049,7 @@ pt-BR:
             info_text: 'Por favor, introduza o número total de votos (envelopes) recontados nesta Estação de Enquete:'
             modal_ballots_count_error:
               btn_validate_total: Validar a recontagem total de votos
-              close_modal: Fechar
+              close_modal: Fechado
               info_text: O número total de votos (envelopes) introduzidos não corresponde ao registro de pessoas que votaram nesta Estação.
               message_for_monitoring_committee: Mensagem para o Comitê de Monitoramento
               review_recount: Revisar a recontagem
@@ -1083,7 +1066,7 @@ pt-BR:
           sign:
             cancel: Cancelar
             check_box: Eu revisei isso e é o mesmo que o certificado de fechamento eleitoral físico
-            close_modal: Fechar
+            close_modal: Fechado
             confirm: Ok, continuar
             error: Ocorreu um erro. Por favor, tente novamente.
             heading: Recontagem de votos - Assinatura de encerramento
@@ -1215,7 +1198,7 @@ pt-BR:
         elections_log:
           bb_status: Status da eleição
           description: O registro das eleições mostrar-lhe-á todas as informações relevantes sobre cada votação. Por exemplo, o estatuto da cerimonia chave, ou apuração ou se os resultados já estão publicados. Clique sobre a eleição sobre a qual você quer as informações de registro.
-          election_log: Log da Eleição
+          election_log: Log de Eleições
           title: Log da Eleição
         filters:
           active: Ativo
@@ -1259,7 +1242,7 @@ pt-BR:
         footer_button_text:
           participate: Participar
           view: Visualizar
-          vote: Votar
+          vote: Voto
         unspecified: Não especificado
         voting_type:
           hybrid: Híbrido

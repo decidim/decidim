@@ -114,7 +114,7 @@ sv:
           state_null:
             label: Status
             values:
-              'true': Ej besvarad
+              'true': Ej besvarat
           valuator_role_ids_has:
             label: Tilldelad till värderare
         search_placeholder:
@@ -804,8 +804,6 @@ sv:
           recent: Senaste
           with_more_authors: Med fler författare
         participatory_texts:
-          index:
-            document_index: Dokumentindex
           view_index:
             see_index: Visa index
         placeholder:
@@ -884,7 +882,7 @@ sv:
           vote_limit:
             description: Du kan stödja upp till %{limit} förslag.
             left: Kvar
-            votes: Stöder
+            votes: Stöd
         wizard_aside:
           back: Tillbaka
           back_from_step_1: Tillbaka till förslag

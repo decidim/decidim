@@ -520,7 +520,6 @@ id:
           update: Memperbarui
         new:
           create: Buat jenis cakupan
-          title: Ruang lingkup baru
         update:
           error: Ada kesalahan saat memperbarui jenis ruang lingkup ini.
           success: Tipe lingkup berhasil diperbarui

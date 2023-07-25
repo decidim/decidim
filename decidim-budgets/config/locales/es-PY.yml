@@ -247,7 +247,7 @@ es-PY:
             other: "%{count} proyectos"
         exit_modal:
           cancel: Volver a la votación
-          close_modal: Cerrar modal
+          close_modal: Cierra el modal
           exit: Salir de la votación
           message: Tu voto no ha sido registrado porque aún no has completado el proceso de votación. ¿Seguro que quieres salir de la votación?
           title: Aún no has votado
@@ -261,14 +261,14 @@ es-PY:
             not_selected: No seleccionado
             selected: Seleccionado
         filters_small_view:
-          close_modal: Cerrar ventana
+          close_modal: Cierra el modal
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
         index:
           view_project: Ver proyecto
         order_progress:
-          vote: Dar apoyo
+          vote: Votar
         order_selected_projects:
           remove: Eliminar
           selected_projects:

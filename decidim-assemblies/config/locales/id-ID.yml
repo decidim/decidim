@@ -228,9 +228,6 @@ id:
             social_handlers: Sosial
             title: Informasi Umum
             visbility: Visibilitas
-        assemblies_types:
-          form:
-            title: Judul
         assembly_copies:
           form:
             slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke rakitan ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
@@ -283,10 +280,6 @@ id:
       last_activity:
         new_assembly: Perakitan baru
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Majelis aktif
-            see_all_assemblies: Lihat semua majelis
         user_profile:
           member_of:
             member_of: Anggota dari
@@ -301,7 +294,6 @@ id:
         developer_group: Grup promotor
         duration: Lamanya
         included_at: Termasuk di
-        indefinite_duration: Tak terbatas
         internal_organisation: Organisasi internal
         is_transparent:
           'false': buram

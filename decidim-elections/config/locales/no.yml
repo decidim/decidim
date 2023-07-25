@@ -238,7 +238,6 @@
               minimum_answers: Hvert spørsmål har <strong>minst 2 svar</strong>.
               minimum_questions: Valget har <strong>minst 1 spørsmål</strong>.
               published: Valget er <strong>publisert</strong>.
-              time_before: Oppsettet gjøres <strong>minst %{hours} timer</strong> før valget starter.
               trustees_number: Deltakerområdet har <strong>minst %{number} tillitsmenn med offentlig nøkkel</strong>.
             submit: Oppsett av valg
             success: Valget ble sendt til oppslagstavlen
@@ -415,7 +414,6 @@
           active: Aktiv
           all: Alt
           finished: Fullført
-          search: Søk
           upcoming: Kommende
         filters_small_view:
           close_modal: Lukk dialogboks
@@ -461,6 +459,7 @@
               tally:
                 cast: Opptelling ferdig
                 share: Opptellingsandel
+            start_icon: Ikon som indikerer en startknapp for å starte generering av valgnøklene
             title: Opptelling for %{election}
           update:
             error: Valgstatusen ble ikke oppdatert.
@@ -550,9 +549,24 @@
         menu:
           votings_submenu:
             monitoring_committee: Kontrollgruppe
+      polling_officer_zone:
+        closures:
+          new:
+            modal_ballots_count_error:
+              close_modal: Lukk
+          sign:
+            close_modal: Lukk
       votings:
+        elections_log:
+          election_log: Valglogg
         login:
           start_voting: Start avstemning
+        show:
+          dates: Datoer
+      votings_m:
+        footer_button_text:
+          view: Vis
+          vote: Stem
   layouts:
     decidim:
       election_votes_header:

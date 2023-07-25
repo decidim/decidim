@@ -485,7 +485,7 @@ fi-pl:
           confirm_revoke: Oletko varma?
           invite_to_committee_help: Jaa tämä linkki ja kutsu muita käyttäjiä kannatuskomiteaan
           no_members_yet: Kannatuskomiteassa ei ole jäseniä
-          revoke: Peruuta
+          revoke: Kumoa
           title: Komitean jäsenet
         count:
           title:
@@ -592,7 +592,7 @@ fi-pl:
         home:
           highlighted_initiatives:
             active_initiatives: Aktiiviset aloitteet
-            see_all_initiatives: Katso kaikki aloitteet
+            see_all_initiatives: Näytä kaikki aloitteet
       show:
         badge_name:
           accepted: Tarpeeksi allekirjoituksia

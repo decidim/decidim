@@ -234,7 +234,7 @@ sv:
             not_selected: Inte vald
             selected: Valda
         filters_small_view:
-          close_modal: Stäng fönstret
+          close_modal: Stäng fönster
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut

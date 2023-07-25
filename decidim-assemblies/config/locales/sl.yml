@@ -179,9 +179,6 @@ sl:
             update: Posodobi
           form:
             title: Nastavitve za združbe
-        assemblies_types:
-          form:
-            title: Naziv
         assembly_imports:
           form:
             document_legend: Dodaj dokument
@@ -210,10 +207,9 @@ sl:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktivne združbe
             assemblies_button_title: Povezava do strani Združb
-            see_all_assemblies: Poglej vse združbe
       show:
+        area: Področje
         assembly_type: Vrsta združbe
         children: Združbe
         closing_date: Datum zaprtja
@@ -222,11 +218,15 @@ sl:
         creation_date: Datum nastanka
         duration: Trajanje
         included_at: Vsebovan
-        indefinite_duration: Nedoločno
+        internal_organisation: Notranja organizacija
+        local_area: Območje organizacije
+        participatory_scope: Kar je bilo odločeno
+        participatory_structure: Kot je bilo odločeno
+        purpose_of_action: Namen ukrepanja
         read_less: Preberi manj
         read_more: Preberi več
         related_participatory_processes: Povezani participativni procesi
-        scope: Področje
+        scope: Obseg
         social_networks: Socialna omrežja
         target: Kdor je prisostoval
     help:

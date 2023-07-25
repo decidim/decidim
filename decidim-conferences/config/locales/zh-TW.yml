@@ -503,7 +503,6 @@ zh-TW:
           highlighted_conferences:
             active_conferences: 正在進行的會議
             conferences_button_title: 顯示所有會議的會議頁面連結
-            see_all_conferences: 查看所有會議
       photo:
         image:
           attributes:

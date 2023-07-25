@@ -301,9 +301,6 @@ ro:
             update: Actualizează
           form:
             title: Setări pentru grupuri de lucru
-        assemblies_types:
-          form:
-            title: Titlu
         assembly_copies:
           form:
             slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
@@ -372,9 +369,7 @@ ro:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Grupuri de lucru active
             assemblies_button_title: Link către pagina Grupuri de lucru care afișează toate grupurile
-            see_all_assemblies: Vezi toate grupurile de lucru
         user_profile:
           member_of:
             member_of: Membru al
@@ -402,7 +397,7 @@ ro:
         read_less: Citește mai puțin
         read_more: Citește mai mult
         related_participatory_processes: Procese participative asociate
-        scope: Domeniu de interes
+        scope: Domeniu
         social_networks: Rețele sociale
         social_networks_title: Vizitează adunarea pe
         target: Cine participă

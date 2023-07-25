@@ -1,6 +1,12 @@
 ---
 pt-BR:
   activemodel:
+    attributes:
+      post:
+        body: Corpo
+        decidim_author_id: Autor
+        published_at: Horário da publicação
+        title: Título
     models:
       decidim/blogs/create_post_event: Nova postagem no blog
   activerecord:
@@ -46,6 +52,8 @@ pt-BR:
             author: Autor
             body: Corpo
             created_at: Criado em
+            official_blog_post: Publicação oficial
+            title: Título
       posts:
         show:
           back: Voltar para a lista
@@ -57,6 +65,10 @@ pt-BR:
       read_more: Saiba mais
     components:
       blogs:
+        actions:
+          comment: Comentário
+          create: Criar
+          destroy: Excluir
         name: Blog
         settings:
           global:

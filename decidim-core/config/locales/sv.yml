@@ -364,7 +364,7 @@ sv:
           request_confirmation_instructions: Begär bekräftelseanvisningar
           title: Bekräfta din e-postadress
       show:
-        close_modal: Stäng modal
+        close_modal: Stäng fönster
     block_user_mailer:
       notify:
         body_1: Ditt konto har spärrats.
@@ -500,7 +500,7 @@ sv:
         newsletter_modal:
           buttons:
             check: Kontrollera och fortsätt
-            close_modal: Stäng modal
+            close_modal: Stäng fönster
             uncheck: Behåll avmarkeringen
           notice: |-
             <p>Hej, är du säker på att du inte vill få nyhetsbrevet?<br>
@@ -902,7 +902,7 @@ sv:
         body_1: Du är på väg att besöka en extern länk och vi vill att du ska vara försiktig med innehållet på den externa webbplatsen.
         body_2: Kontrollera länken du är på väg att besöka och se till att den är säker innan du fortsätter.
         cancel: Avbryt
-        close_modal: Stäng modal
+        close_modal: Stäng fönster
         proceed: Fortsätt
         title: Öppna extern länk
     log:
@@ -992,7 +992,7 @@ sv:
           ok: OK
         index:
           ago: sedan
-          close: Stäng modal
+          close: Stäng fönster
           from: Från
           groups: Mina grupper
           last_message: Senaste meddelande
@@ -1138,7 +1138,7 @@ sv:
           participate: Delta
           welcome: Välkommen till %{organization}!
         metrics:
-          headline: Deltagande i siffror
+          headline: Metrik
         statistics:
           headline: Aktuellt läge för %{organization}
         sub_hero:
@@ -1161,7 +1161,7 @@ sv:
           legend: Godkänn användarvillkoren
         refuse:
           modal_btn_exit: Jag granskar dem senare
-          modal_close: Stäng modal
+          modal_close: Stäng fönster
           modal_title: Avvisar du de uppdaterade användarvillkoren?
         required_review:
           alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
@@ -1275,7 +1275,7 @@ sv:
         ok: Ok
         title: Bekräfta
       embed_modal:
-        close_window: Stäng fönstret
+        close_window: Stäng fönster
         embed: Klistra in den här koden på din sida
         embed_link: Bädda in
       extended_navigation_bar:
@@ -1357,14 +1357,14 @@ sv:
         existing_error: Meddelandet kunde inte skapas. Konversationen finns redan, försök igen nu.
         success: Samtalet startades framgångsrikt!
       index:
-        add_max_users: 'Lägg till användare till konversation: max 9 användare'
+        add_max_users: 'Lägg till användare i samtalet: högst 9'
         add_users_placeholder: Sök...
         close: Stäng
         conversations_info: Konversationer är privata. Ingen annan kan se dem. En konversation kan startas med någon deltagare eller grupp som är registrerad på plattformen.
         from: Från
         last_message: Senaste meddelande
-        modal_title: Ny konversation
-        new_conversation: Ny konversation
+        modal_title: Nytt samtal
+        new_conversation: Nytt samtal
         next: Nästa
         no_conversations_warning: Det finns inga konversationer än.
         no_results: Inga resultat
@@ -1380,7 +1380,7 @@ sv:
         back: Visa alla samtal
         deleted_accounts: Du kan inte meddela raderade konton.
         not_allowed: Den här användaren accepterar inte fler direkta meddelanden.
-        title: Konversation med %{usernames}
+        title: Samtal med %{usernames}
       update:
         error: Meddelandet skickades inte. Försök igen senare
     user_interests:

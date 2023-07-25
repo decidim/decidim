@@ -449,7 +449,6 @@ zh-CN:
         home:
           highlighted_conferences:
             active_conferences: 活跃的会议
-            see_all_conferences: 查看所有会议
       photo:
         image:
           attributes:

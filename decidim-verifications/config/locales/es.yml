@@ -7,6 +7,8 @@ es:
         offline: Sin conexión
         offline_explanation: Instrucciones para la verificación presencial
         online: En línea
+      confirmation:
+        verification_code: Código de verificación
       id_document_information:
         document_number: Número de documento (con letra)
         document_type: Tipo de documento
@@ -15,6 +17,8 @@ es:
         document_type: Tipo de tu documento
         user: Participante
         verification_attachment: Copia escaneada de tu documento
+      mobile_phone:
+        mobile_phone_number: Número de teléfono móvil
       offline_confirmation:
         email: Correo electrónico de la participante
       postal_letter_address:

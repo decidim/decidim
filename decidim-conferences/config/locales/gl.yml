@@ -491,7 +491,6 @@ gl:
           highlighted_conferences:
             active_conferences: Conferencias activas
             conferences_button_title: Ligazón á páxina de Conferencias que amosa todas as conferencias
-            see_all_conferences: Ver todas as conferencias
       photo:
         image:
           attributes:

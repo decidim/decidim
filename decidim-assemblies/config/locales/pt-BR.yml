@@ -4,7 +4,10 @@ pt-BR:
     attributes:
       assemblies_setting:
         enable_organization_chart: Habilitar gráfico de organização
+      assemblies_type:
+        title: Título
       assembly:
+        announcement: Avisos
         area_id: Área
         assembly_type: Tipo de assembleia
         assembly_type_other: Tipo de montagem outro
@@ -23,12 +26,16 @@ pt-BR:
         decidim_scope_id: Âmbito
         description: Descrição
         developer_group: Grupo promotor
+        document: Documento
         domain: Domínio
         duration: Duração
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Imagem inicial
+        import_attachments: Importar anexos
+        import_categories: Importar categorias
+        import_components: Importar componentes
         included_at: Incluído em
         instagram: Instagram
         internal_organisation: Organização interna
@@ -62,8 +69,10 @@ pt-BR:
         designation_date: Data de designação
         full_name: Nome completo
         gender: Gênero
+        non_user_avatar: Avatar
         position: Posição
         user_id: Usuário ou grupo
+        weight: Posição do pedido
       assembly_user_role:
         email: E-mail
         name: Nome
@@ -176,6 +185,9 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar um usuário para esta montagem.
           success: Usuário atualizado com sucesso para esta montagem.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipo de assembleia
       menu:
         assemblies: Assembleias
         assemblies_settings: Configurações
@@ -276,9 +288,6 @@ pt-BR:
             update: Atualizar
           form:
             title: Configurações para assembleias
-        assemblies_types:
-          form:
-            title: Título
         assembly_copies:
           form:
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
@@ -306,6 +315,9 @@ pt-BR:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Sobre este assembly
       assembly_members:
         index:
           members: Membros
@@ -341,9 +353,9 @@ pt-BR:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Conjuntos ativos
+            active_assemblies: Assembleias ativas
             assemblies_button_title: Link para a página de Assembleias exibindo todos as assembleias
-            see_all_assemblies: Veja todas as assembleias
+            see_all_assemblies: Ver todas as assembleias 
         user_profile:
           member_of:
             member_of: Membro de
@@ -358,12 +370,11 @@ pt-BR:
         developer_group: Grupo promotor
         duration: Duração
         included_at: Incluído em
-        indefinite_duration: Indeterminado
         internal_organisation: Organização interna
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Área de organização
+        local_area: Área da organização
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
         private_space: Esta é uma assembleia privada
@@ -373,7 +384,8 @@ pt-BR:
         related_participatory_processes: Processos participativos relacionados
         scope: Âmbito
         social_networks: Redes sociais
-        target: Quem pode participar
+        social_networks_title: Visite assembleia em
+        target: Quem participa
     assembly_members:
       assembly_member:
         designated_on: Designado em
@@ -383,6 +395,7 @@ pt-BR:
       assemblies:
         create_assembly_member:
           email_intro: Um administrador da assembleia<a href="%{resource_url}">%{resource_name}</a> adicionou você como um de seus membros.
+          email_outro: Você recebeu esta notificação porque foi convidado para um assembleia. Verifique a <a href="%{resource_url}">página de assembleia</a> para contribuir!
           email_subject: Você foi convidado para ser um membro da assembleia %{resource_name}!
           notification_title: Você foi registrado como um membro da Assembleia <a href="%{resource_path}">%{resource_name}</a>. Verifique a <a href="%{resource_path}">página do assembleia</a> para contribuir!
       assembly:

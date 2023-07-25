@@ -43,6 +43,9 @@ ar:
           show:
             identification_keys:
               cancel: إلغاء
+      votes:
+        confirm:
+          answer: الإجابة
     votings:
       admin:
         models:

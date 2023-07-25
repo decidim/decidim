@@ -816,8 +816,8 @@ ca:
           type: Tipus
           voted: Has donat suport
         filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtra
+          close_modal: Tanca la finestra
+          filter: Filtre
           filter_by: Filtra per
           unfold: Desplega
         index:

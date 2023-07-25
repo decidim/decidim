@@ -342,7 +342,7 @@ de:
           success: Die Komponente wurde erfolgreich veröffentlicht.
         title: Komponenten
         unpublish:
-          success: Die Komponente wurde erfolgreich veröffentlicht.
+          success: Die Veröffentlichung der Komponente wurde erfolgreich zurückgezogen.
         update:
           error: Beim Aktualisieren dieser Komponente ist ein Fehler aufgetreten.
           success: Die Komponente wurde erfolgreich aktualisiert.
@@ -654,6 +654,7 @@ de:
           nickname: Spitzname
           reason: Grund
           reports: Anzahl Meldungen
+          title: Gemeldete Teilnehmende
         report:
           reasons:
             does_not_belong: Gehört nicht zu
@@ -663,6 +664,8 @@ de:
           blocked: Blockiert
           unblocked: Nicht blockiert
       moderations:
+        index:
+          title: Gemeldeter Inhalt
         report:
           reasons:
             does_not_belong: Gehört nicht
@@ -892,7 +895,7 @@ de:
           update: Aktualisieren
         new:
           create: Erstellen Sie den Geltungsbereichstyp
-          title: Neuer Umfang
+          title: Neuer Bereichstyp
         update:
           error: Beim Aktualisieren dieses Bereichstyps ist ein Fehler aufgetreten.
           success: Der Geltungsbereichstyp wurde erfolgreich aktualisiert
@@ -979,9 +982,12 @@ de:
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
         dashboard: Instrumententafel
+        edit_external_domains: Externe Domain-Whitelist
+        edit_organization_appearance: Homepage-Erscheinungsbild bearbeiten
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
         metrics: Kriterien
+        pages: Seiten
         panel: Admin
         participants: Benutzer
         scope_types: Bereichstypen
@@ -1073,6 +1079,7 @@ de:
         moderation:
           fields:
             created_at: Erstellungsdatum
+            deleted_resource: Gelöschte Ressource
             hidden_at: Versteckt bei
             participatory_space: Beteiligungsbereich
             report_count: Anzahl

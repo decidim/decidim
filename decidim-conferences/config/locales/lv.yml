@@ -457,7 +457,6 @@ lv:
         home:
           highlighted_conferences:
             active_conferences: Aktīvās konferences
-            see_all_conferences: Skatīt visas konferences
       photo:
         image:
           attributes:

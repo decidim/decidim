@@ -815,7 +815,6 @@ it:
           update: Modifica
         new:
           create: Crea tipo di ambito
-          title: Nuovo ambito
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo tipo di ambito.
           success: Il tipo di ambito viene aggiornato correttamente

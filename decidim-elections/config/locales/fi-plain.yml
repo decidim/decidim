@@ -596,7 +596,7 @@ fi-pl:
               task: Tehtävä
             process_warning: Kun prosessi on käynnistetty, sinun ei tule poistua tältä sivulta ennen kuin prosessi päättyy. Tämä kestää useita minuutteja, koska kaikkien luottamushenkilöiden tulee olla yhteydessä samanaikaisesti, jotta prosessi voidaan suorittaa.
             start: Aloitettu
-            start_icon: Kuvake, joka ilmaisee aloituspainikkeen avainten luonnin aloittamiselle
+            start_icon: Kuvake, joka ilmaisee aloituspainikkeen avainten luonnille
             status:
               completed: Valmis
               pending: Odottaa
@@ -659,7 +659,7 @@ fi-pl:
           header: Kirjataan ääntä...
           text: Ääntäsi lähetetään sähköiseen ääniuurnaan.
         confirm:
-          answer: Vastaa
+          answer: Vastaus
           answer_number: 'vastaus #%{number}'
           confirm: Vahvista
           edit: muokkaa

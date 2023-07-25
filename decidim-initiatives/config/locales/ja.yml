@@ -15,7 +15,7 @@ ja:
         scope_id: スコープ
         signature_end_date: 署名の収集期間の終了
         signature_start_date: 署名の収集期間の開始
-        signature_type: 署名のコレクションタイプ
+        signature_type: 署名の収集種別
         signature_type_values:
           any: ハイブリッド
           offline: 対面
@@ -583,8 +583,8 @@ ja:
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: 積極的なイニシアチブ
-            see_all_initiatives: すべてのイニシアチブを見る
+            active_initiatives: 活動中のイニシアチブ
+            see_all_initiatives: すべてのイニシアチブを表示
       show:
         badge_name:
           accepted: 十分な署名

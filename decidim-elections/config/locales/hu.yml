@@ -156,6 +156,9 @@ hu:
           trustee:
             name: Felügyelő
         proposals_imports:
+          create:
+            invalid: Hiba történt a javaslatok válaszokba történő importálása során
+            success: "%{number} javaslat sikeresen importálva a válaszokba"
           new:
             create: Válaszjavaslatok importálása
             select_component: Kérjük, válassz egy komponenst
@@ -220,6 +223,10 @@ hu:
                 invalid_public_key: A feltöltött fájlban található azonosító kulcsok nem egyeznek a tárolt nyilvános azonosítókulccsal.
               upload_legend: A szerver rendelkezik az nyilvános azonosító kulcsaiddal, de a böngésződ még mindig nem. Az azonosító kulcsaidat tartalmazó fájlt importálnod kell a számítógépére a generálás után létrehozott biztonsági másolatból.
       votes:
+        confirm:
+          answer: Válasz
+        modal:
+          proposal_header: 'Javaslatok:'
         onboarding_modal:
           description: Szeretnél új fiókot létrehozni a platformon? Képes leszel a folyamatokban részt venni, és aktív részese lehetsz a szervezetnek.
           title: Új a platformon?
@@ -262,3 +269,6 @@ hu:
           date: Dátum
         login:
           start_voting: Szavazás kezdete
+      votings_m:
+        footer_button_text:
+          vote: Szavazás

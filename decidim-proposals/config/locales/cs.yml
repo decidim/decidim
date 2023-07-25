@@ -868,7 +868,7 @@ cs:
           with_more_authors: S více autory
         participatory_texts:
           index:
-            document_index: Index dokumentů
+            document_index: Index dokumentu
           view_index:
             see_index: Prohlédnout seznam
         placeholder:

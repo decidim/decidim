@@ -350,7 +350,7 @@ sv:
           more_information: "(Mer information)"
           select: Jag vill arbeta för detta initiativ
         share_committee_link:
-          continue: Fortsätt
+          continue: Fortsätta
           invite_to_committee_help: Länk för att bjuda in personer till kampanjutskottet
         show_similar_initiatives:
           back: Tillbaka
@@ -517,11 +517,6 @@ sv:
         status_change_for: Initiativet %{title} har ändrat status
       last_activity:
         new_initiative: Nytt initiativ
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Pågående initiativ
-            see_all_initiatives: Visa alla initiativ
       show:
         badge_name:
           accepted: Nog med signaturer

@@ -1471,7 +1471,7 @@ es-MX:
       index:
         add_max_users: 'Añadir usuarias a la conversación: máximo 9 usuarias'
         add_users_placeholder: Buscar...
-        close: Cerar
+        close: Cerrar
         conversations_info: Las conversaciones son privadas. Nadie más puede verlas. Se puede iniciar una conversación con cualquier participante o grupo registrado en la plataforma.
         from: 'De:'
         last_message: Último mensaje
@@ -1707,6 +1707,7 @@ es-MX:
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: es demasiado corto (menos %{count} caracteres)
+      url_format: El formato de esta URL es incorrecto
   forms:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:

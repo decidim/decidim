@@ -1482,6 +1482,10 @@ tr:
     timestamp_error_message: Üzgünüm, bu çok hızlıydı! Lütfen yeniden gönderin.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Türü
       edit_link:
         edit: Düzenle
       footer:

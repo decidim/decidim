@@ -4,7 +4,10 @@ de:
     attributes:
       assemblies_setting:
         enable_organization_chart: Organisationsdiagramm aktivieren
+      assemblies_type:
+        title: Titel
       assembly:
+        announcement: Ankündigung
         area_id: Bereich
         assembly_type: Versammlungstyp
         assembly_type_other: Sonstiger Versammlungstyp
@@ -23,12 +26,16 @@ de:
         decidim_scope_id: Umfang
         description: Beschreibung
         developer_group: Promoter-Gruppe
+        document: Dokument
         domain: Domain
         duration: Dauer
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Hauptbild
+        import_attachments: Anhänge importieren
+        import_categories: Kategorien importieren
+        import_components: Komponenten importieren
         included_at: Inbegriffen bei
         instagram: Instagram
         internal_organisation: Interne Organisation
@@ -293,7 +300,7 @@ de:
             title: Einstellungen für Versammlungen
         assemblies_types:
           form:
-            title: Titel
+            title: Versammlungstyp bearbeiten
         assembly_copies:
           form:
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
@@ -385,8 +392,8 @@ de:
           'false': undurchsichtig
           'true': transparent
         local_area: Organisationsbereich
-        participatory_scope: Was ist entschieden?
-        participatory_structure: Wie ist es entschieden?
+        participatory_scope: Was wird entschieden?
+        participatory_structure: Wie wird es entschieden?
         private_space: Dies ist eine private Versammlung
         purpose_of_action: Zweck der Aktion
         read_less: Lese weniger

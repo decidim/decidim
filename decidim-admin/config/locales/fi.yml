@@ -895,7 +895,7 @@ fi:
           update: Päivitä
         new:
           create: Luo teematyyppi
-          title: Uusi teema
+          title: Uusi teematyyppi
         update:
           error: Teematyyppin päivitys epäonnistui.
           success: Teematyypin päivitys onnistui
@@ -982,9 +982,12 @@ fi:
         areas: Alueet
         authorization_workflows: Vahvistustavat
         dashboard: Hallintapaneeli
+        edit_external_domains: Sallittujen ulkoisten verkkotunnusten lista
+        edit_organization_appearance: Muokkaa kotisivun ulkoasua
         impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta
         metrics: Tilastomittarit
+        pages: Sivut
         panel: Hallintakäyttäjä
         participants: Käyttäjät
         scope_types: Teematyypit

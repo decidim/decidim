@@ -101,7 +101,7 @@ tr:
               validating: Teknik doğrulama
               withdrawn: Geri çekildi
           state_null:
-            label: Durum
+            label: Belirtmek, bildirmek
             values:
               'true': Cevaplanmadı
           valuator_role_ids_has:
@@ -734,8 +734,6 @@ tr:
           recent: En son
           with_more_authors: Daha fazla yazarlı
         participatory_texts:
-          index:
-            document_index: Belge indeksi
           view_index:
             see_index: Endeksi görmek
         placeholder:
@@ -812,7 +810,7 @@ tr:
           vote_limit:
             description: En fazla %{limit} teklife oy verebilirsiniz.
             left: Kalan
-            votes: oy
+            votes: Destekler
         wizard_aside:
           back: Geri
           back_from_step_1: Teklifte geri dön

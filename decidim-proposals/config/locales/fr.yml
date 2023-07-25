@@ -118,7 +118,7 @@ fr:
           state_null:
             label: État
             values:
-              'true': Non répondu
+              'true': En attente de réponse
           valuator_role_ids_has:
             label: Assigné à l'évaluateur
         search_placeholder:
@@ -743,7 +743,7 @@ fr:
         collaborative_draft:
           fields:
             authors: Auteurs
-            comments: commentaires
+            comments: Commentaires
             contributions: Contributions
         proposal:
           fields:
@@ -767,7 +767,7 @@ fr:
         buttons:
           amend: Modifier
           comment: Commentaire
-          comments: commentaires
+          comments: Commentaires
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du soutien de la proposition.
@@ -816,10 +816,10 @@ fr:
           type: Type
           voted: Ne montrer que les propositions pour lesquelles j'ai voté
         filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtrer
+          close_modal: Fermer la fenêtre
+          filter: Filtre
           filter_by: Filtrer par
-          unfold: Voir plus
+          unfold: Se dérouler
         index:
           click_here: Voir toutes les propositions
           collaborative_drafts_list: Accéder aux brouillons collaboratifs
@@ -845,8 +845,6 @@ fr:
           recent: Les plus récentes
           with_more_authors: Avec le plus d'auteurs
         participatory_texts:
-          index:
-            document_index: Index de document
           view_index:
             see_index: Voir index
         placeholder:

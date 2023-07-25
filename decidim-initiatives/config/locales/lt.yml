@@ -585,11 +585,6 @@ lt:
         status_change_for: Iniciatyvos %{title} būsena pasikeitė
       last_activity:
         new_initiative: Nauja iniciatyva
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktyvios iniciatyvos
-            see_all_initiatives: Žiūrėti visas iniciatyvas
       show:
         badge_name:
           accepted: Parašų užtenka

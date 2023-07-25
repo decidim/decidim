@@ -874,7 +874,6 @@ pl:
           update: Aktualizuj
         new:
           create: Utwórz typ zakresu
-          title: Nowy zakres
         update:
           error: Podczas aktualizowania tego typu zakresu wystąpił błąd.
           success: Typ zakresu został zaktualizowany

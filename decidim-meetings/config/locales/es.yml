@@ -57,6 +57,8 @@ es:
           attributes:
             iframe_embed_type:
               not_embeddable: Esta URL no puede ser incrustada en la página de encuentro o evento en directo
+            online_meeting_url:
+              url_format: Debe ser una URL válida
         meeting_agenda:
           attributes:
             base:

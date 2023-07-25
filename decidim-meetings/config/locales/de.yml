@@ -19,7 +19,9 @@ de:
         decidim_scope_id: Umfang
         decidim_user_group_id: Benutzergruppe
         description: Beschreibung
+        end_time: Endzeit
         id: ID
+        iframe_embed_type: iFrame-Einbettungstyp
         location: Ort
         location_hints: Standorthinweise
         online_meeting_url: Online Meeting URL
@@ -29,8 +31,11 @@ de:
         registration_email_custom_content: Angepasster Inhalt des Registrierungs-E-Mails
         registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
+        registration_type: Registrierungstyp
         registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
+        reserved_slots: Reservierte Slots für diese Veranstaltung
+        start_time: Startzeit
         title: Titel
         transparent: Transparent
         type_of_meeting: Art
@@ -48,6 +53,12 @@ de:
         code: Code
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Diese URL kann nicht in der Veranstaltungs- oder Live-Eventseite eingebettet werden
+            online_meeting_url:
+              url_format: Muss eine gültige URL sein
         meeting_agenda:
           attributes:
             base:
@@ -309,6 +320,8 @@ de:
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+            select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
+            show_embedded_iframe_help: 'Nur wenige Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
           index:
             title: Meetings
           new:
@@ -336,6 +349,9 @@ de:
         meetings_poll:
           form:
             title: Fragebogen für %{questionnaire_for} bearbeiten
+          update:
+            invalid: Beim Aktualisieren der Veranstaltungsumfrage ist ein Problem aufgetreten
+            success: Veranstaltungsumfrage erfolgreich aktualisiert
         models:
           meeting:
             name: Treffen
@@ -376,6 +392,8 @@ de:
           value_types:
             organizer_presenter:
               not_found: 'Der Organisator wurde nicht in der Datenbank gefunden (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} hat den Fragebogen für die Veranstaltung %{meeting_name} aktualisiert"
       application_helper:
         filter_category_values:
           all: Alle
@@ -395,7 +413,10 @@ de:
         export_calendar: Kalender exportieren
       close_meeting_reminder_mailer:
         close_meeting_reminder:
+          body: Die Veranstaltung <a href="%{meeting_path}">"%{meeting_title}"</a> wurde noch nicht abgeschlossen. Bitte fügen Sie einen Bericht über die Veranstaltung mit der Schaltfläche "Meeting schließen" hinzu.
+          greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hallo %{username},
+          subject: Sie können Ihre Veranstaltung jetzt mit einem Bericht auf der %{organization_name} Plattform abschließen
       conference_venues: Tagungsstätten
       content_blocks:
         upcoming_meetings:
@@ -430,7 +451,7 @@ de:
             subject: Einladung, an einem Meeting teilzunehmen
         registration_mailer:
           confirmation:
-            subject: Die Registrierung Ihrer Konferenz wurde bestätigt
+            subject: Sie haben sich erfolgreich angemeldet
       meeting:
         not_allowed: Sie dürfen dieses Meeting nicht sehen
       meeting_closes:
@@ -498,11 +519,14 @@ de:
           select_a_category: Bitte wählen sie eine Kategorie
           select_a_meeting_type: Bitte eine Meeting-Art auswählen
           select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+          select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
+          show_embedded_iframe_help: 'Nur wenige Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
         index:
           click_here: Alle Treffen anzeigen
           new_meeting: Neue Besprechung
           see_all: Alle Treffen anzeigen
           see_all_withdrawn: Alle zurückgezogenen Treffen ansehen
+          text_banner: Hier sehen Sie alle Veranstaltungen, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         meeting_minutes:
           related_information: Zugehörige Informationen
         meetings:
@@ -521,6 +545,7 @@ de:
           close_meeting: Meeting beenden
           contributions: Beiträge zählen
           date: Datum
+          edit_close_meeting: Veranstaltungsbericht bearbeiten
           edit_meeting: Besprechung bearbeiten
           going: Sie haben sich für diese Sitzung angemeldet
           join: Tritt dem Treffen bei
@@ -530,6 +555,7 @@ de:
           link_closed: Der Link, um an dem Treffen teilzunehmen, wird einige Minuten vor dem Start verfügbar sein
           live_event: Dieses Meeting findet gerade statt
           meeting_minutes: Sitzungsprotokolle
+          micro_camera_permissions_warning: Wenn Sie auf die Schaltfläche unten klicken, werden Sie nach Mikrofon- und/oder Kamera-Berechtigungen gefragt und Sie werden der Videokonferenz hinzugefügt
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
           registration_code_help_text: Ihr Registrierungscode
@@ -542,6 +568,7 @@ de:
           view: Anzeigen
           visit_finished: Vergangene Treffen anzeigen
           withdraw_btn_hint: Sie können Ihr Treffen zurückziehen, wenn Sie Ihre Meinung ändern. Das Meeting wird nicht gelöscht, es wird in der Liste der zurückgezogenen Meetings angezeigt.
+          withdraw_confirmation_html: Sind Sie sicher, dass Sie diese Veranstaltung zurückziehen möchten?<br><br><strong> Diese Aktion kann nicht rückgängig gemacht werden!</strong>
           withdraw_meeting: Treffen zurückziehen
         update:
           invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
@@ -570,6 +597,8 @@ de:
             title: Titel
       polls:
         questions:
+          closed_question:
+            question_results: Umfrageergebnisse
           index:
             empty_questions: Während dieses Treffens werden einige Fragen gesendet und Sie werden sie beantworten können. Sie werden hier angezeigt.
           index_admin:
@@ -585,14 +614,16 @@ de:
             max_choices_alert: Es wurden zu viele Auswahlmöglichkeiten ausgewählt
             question: Frage
             question_replied: Frage beantwortet
+            reply_question: Frage beantworten
       public_participants_list:
+        attending_participants: Teilnehmer
         hidden_participants_count:
           one: und %{count} weitere Person
           other: und %{count} weitere Personen
       read_more: "(Weiterlesen)"
       registration_mailer:
         confirmation:
-          confirmed_html: Ihre Registrierung für das Treffen <a href="%{url}">%{title}</a> wurde bestätigt.
+          confirmed_html: Ihre Anmeldung für die Veranstaltung <a href="%{url}">%{title}</a> wurde bestätigt.
           details: Sie finden die Details zum Meeting im Anhang.
           registration_code: Ihr Registrierungscode ist %{code}.
       registration_type:

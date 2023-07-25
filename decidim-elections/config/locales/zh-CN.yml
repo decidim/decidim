@@ -154,7 +154,6 @@ zh-CN:
           active: 已启用
           all: 所有的
           finished: 已完成
-          search: 搜索
           upcoming: 即将到来的
         filters_small_view:
           close_modal: 关闭模式
@@ -229,6 +228,21 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
           email_subject: '%{resource_title} 的选举现在对 %{participatory_space_title} 生效。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 选区现已启用 %{participatory_space_title}。
+    votings:
+      polling_officer_zone:
+        closures:
+          new:
+            modal_ballots_count_error:
+              close_modal: 关闭
+          sign:
+            close_modal: 关闭
+      votings:
+        show:
+          dates: 日期
+      votings_m:
+        footer_button_text:
+          view: 查看
+          vote: 投票
   layouts:
     decidim:
       election_votes_header:

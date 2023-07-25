@@ -300,7 +300,7 @@ ca:
             title: Configuració de les assemblees
         assemblies_types:
           form:
-            title: Títol
+            title: Editar tipus d'assemblea
         assembly_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
@@ -392,7 +392,7 @@ ca:
           'false': opaca
           'true': transparent
         local_area: Àrea d'organització
-        participatory_scope: Què es decideix
+        participatory_scope: Què es decideix?
         participatory_structure: Com es decideix
         private_space: Aquesta és una assemblea privada
         purpose_of_action: Propòsit de l'acció
@@ -405,7 +405,7 @@ ca:
         target: Qui participa
     assembly_members:
       assembly_member:
-        designated_on: Designat a
+        designated_on: 'Data de designació:'
       index:
         title: Membres
     events:

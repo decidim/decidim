@@ -334,7 +334,7 @@ es-PY:
         validating: Validación técnica
       application_helper:
         filter_area_values:
-          all: Todas
+          all: Todos
         filter_scope_values:
           all: Todos
         filter_state_values:
@@ -626,7 +626,7 @@ es-PY:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Espalda
+        back: Volver
         fill_data: Crear
         finish: Terminar
         previous_form: Iniciar

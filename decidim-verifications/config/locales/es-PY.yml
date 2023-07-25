@@ -7,6 +7,8 @@ es-PY:
         offline: Desconectado
         offline_explanation: Instrucciones para la verificación fuera de línea
         online: En línea
+      confirmation:
+        verification_code: Código de verificación
       id_document_information:
         document_number: Número de documento (con letra)
         document_type: Tipo de documento
@@ -15,6 +17,8 @@ es-PY:
         document_type: Tipo de tu documento
         user: Usuario
         verification_attachment: Copia escaneada de tu documento
+      mobile_phone:
+        mobile_phone_number: Número de teléfono móvil
       offline_confirmation:
         email: Email del usuario
       postal_letter_address:

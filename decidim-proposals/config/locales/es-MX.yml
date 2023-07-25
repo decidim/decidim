@@ -118,7 +118,7 @@ es-MX:
           state_null:
             label: Estado
             values:
-              'true': No contestadas
+              'true': No contestada
           valuator_role_ids_has:
             label: Asignada a evaluadora
         search_placeholder:
@@ -816,9 +816,9 @@ es-MX:
           type: Tipo
           voted: Apoyadas
         filters_small_view:
-          close_modal: Cerrar ventana
+          close_modal: Cerrar modal
           filter: Filtrar
-          filter_by: Filtrar por
+          filter_by: Filtrado por
           unfold: Desplegar
         index:
           click_here: Ver todas las propuestas
@@ -925,7 +925,7 @@ es-MX:
           vote_limit:
             description: Puedes apoyar hasta %{limit} propuestas.
             left: Restante
-            votes: Apoyos
+            votes: Votos
         wizard_aside:
           back: Volver
           back_from_step_1: Volver a propuestas

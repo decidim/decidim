@@ -85,6 +85,9 @@ de:
             offensive: Enthält Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jegliche Form von Hassreden.
             spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
           title: Ungeeigneten Inhalt melden
+        show_replies:
+          one: Antwort anzeigen
+          other: '%{count} Antworten anzeigen'
         single_comment_link_title: Link erhalten
       comment_order_selector:
         order:

@@ -929,6 +929,10 @@ id:
     statistics:
       comments_count: Komentar
     user_conversations:
+      index:
+        close: Dekat
+      show:
+        title: Percakapan dengan %{usernames}
       update:
         error: Pesan tidak terkirim. Coba lagi nanti
     user_interests:
@@ -1099,6 +1103,10 @@ id:
     timestamp_error_message: Maaf, itu terlalu cepat! Silakan kirim ulang.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Mengetik
       edit_link:
         edit: Edit
       footer:

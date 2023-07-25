@@ -559,11 +559,6 @@ pl:
         status_change_for: Inicjatywa %{title} zmieniła swój status
       last_activity:
         new_initiative: Nowa inicjatywa
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktualne inicjatywy
-            see_all_initiatives: Zobacz wszystkie inicjatywy
       show:
         badge_name:
           accepted: Wystarczająca liczba podpisów

@@ -84,7 +84,7 @@ ja:
         organization_admin_email: 組織管理者メールアドレス
         organization_admin_name: 組織管理者名
         organization_locales: 組織のロケール
-        primary_color: プライマリ（プライマリ）
+        primary_color: プライマリ
         reference_prefix: 参照の接頭辞：
         rich_text_editor_in_public_views: 参加者にリッチテキストエディタを有効にする
         secondary_color: セカンダリ
@@ -890,7 +890,7 @@ ja:
           update: 更新
         new:
           create: スコープ種別を作成
-          title: 新しいスコープ
+          title: 新しいスコープ種別
         update:
           error: このスコープ種別の更新中に問題が発生しました。
           success: スコープ種別が正常に更新されました
@@ -977,9 +977,12 @@ ja:
         areas: エリア
         authorization_workflows: 確認方法
         dashboard: ダッシュボード
+        edit_external_domains: 外部ドメインのホワイトリスト
+        edit_organization_appearance: ホームページの外観を編集
         impersonatable_users: 管理可能な参加者
         impersonations: 参加者管理
         metrics: 指標
+        pages: ページ
         panel: 管理者
         participants: 参加者
         scope_types: スコープ種別

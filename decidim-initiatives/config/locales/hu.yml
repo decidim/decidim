@@ -3,8 +3,13 @@ hu:
   activemodel:
     attributes:
       initiative:
+        answer: Válasz
+        answer_url: Válasz URL
+        area_id: Terület
+        decidim_scope_id: Hatókör
         decidim_user_group_id: Szerző
         description: Leírás
+        hashtag: Kettőskereszt
         offline_votes: Támogatás szemtől szembe
         offline_votes_for_scope: 'Személyesen aláírások erre: %{scope_name}'
         scope_id: Hatáskör
@@ -17,8 +22,11 @@ hu:
           online: Online
         state: Állapot
         title: Cím
+        type_id: Típus
       initiatives_committee_member:
         user: Bizottsági tag
+      initiatives_settings:
+        initiatives_order: Sorrend
       initiatives_type:
         area_enabled: Lehetővé teszi a szerzők számára, hogy kiválasszák a kezdeményezésük területét
         attachments_enabled: Mellékletek engedélyezése
@@ -34,9 +42,13 @@ hu:
         online_signature_enabled: Online aláírás engedélyezve
         only_global_scope_enabled: Csak globális hatókörű kezdeményezések létrehozását engedélyezze
         promoting_committee_enabled: Előléptetési bizottság engedélyezése
+        signature_type: Aláírás típusa
         title: Cím
         undo_online_signatures_enabled: Engedélyezze a felhasználók számára az online aláírások visszavonását
         validate_sms_code_on_votes: SMS-kód érvényesítési lépés hozzáadása az aláíráshoz
+      initiatives_type_scope:
+        decidim_scopes_id: Hatókörök
+        supports_required: Támogatás szükséges
       initiatives_vote:
         date_of_birth: Születési dátum
         document_number: Dokumentum szám
@@ -571,11 +583,6 @@ hu:
         status_change_for: A(z) %{title} kezdeményezés állapota változott
       last_activity:
         new_initiative: Új kezdeményezés
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktív kezdeményezések
-            see_all_initiatives: Összes kezdeményezés
       show:
         badge_name:
           accepted: Elegendő aláírás
@@ -609,7 +616,7 @@ hu:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Hát
+        back: Vissza
         fill_data: Létrehozás
         finish: Befejezés
         previous_form: Kezdés
