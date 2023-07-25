@@ -300,7 +300,7 @@ de:
             title: Einstellungen für Versammlungen
         assemblies_types:
           form:
-            title: Titel
+            title: Versammlungstyp bearbeiten
         assembly_copies:
           form:
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
