@@ -58,11 +58,6 @@ module Decidim
         end
       end
 
-      def show
-        @category = collection.find(params[:id])
-        enforce_permission_to :read, :category, category: @category
-      end
-
       def destroy
         @category = collection.find(params[:id])
         enforce_permission_to :destroy, :category, category: @category
