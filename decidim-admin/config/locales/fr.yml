@@ -320,6 +320,7 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création de cette fonctionnalité.
           success: Fonctionnalité créée avec succès.
+          success_landing_page: Composant créé avec succès. Vous pouvez ajouter un bloc de contenu pour ce composant à la page accueil de l'espace. Allez à <a href="%{landing_page_path}">la page de destination</a> pour la configurer.
         destroy:
           error: Une erreur s'est produite lors de la suppression de cette fonctionnalité.
           success: La fonctionnalité a été supprimée avec succès.
