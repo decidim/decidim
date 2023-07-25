@@ -52,9 +52,7 @@ module Decidim
 
       initializer "decidim_meetings.content_security_handlers" do |_app|
         Decidim.configure do |config|
-          config.content_security_policies_extra.deep_merge!({
-                                                               "frame-src" => %w(player.twitch.tv www.youtube-nocookie.com meet.jit.si)
-                                                             })
+          config.content_security_policies_extra.deep_merge!({ "frame-src" => %w(player.twitch.tv meet.jit.si) })
         end
       end
 
