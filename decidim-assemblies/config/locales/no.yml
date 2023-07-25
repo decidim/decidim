@@ -280,9 +280,6 @@
             update: Oppdater
           form:
             title: Innstillinger for forsamlinger
-        assemblies_types:
-          form:
-            title: Tittel
         assembly_copies:
           form:
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
