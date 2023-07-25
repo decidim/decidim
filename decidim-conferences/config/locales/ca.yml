@@ -494,6 +494,11 @@ ca:
             states:
               confirmed: Confirmat
               pending: Pendents
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Jornades
+            see_all_spaces: Veure totes les jornades
       registration_types:
         index:
           choose_an_option: 'Tria el teu tipus d''inscripció:'
