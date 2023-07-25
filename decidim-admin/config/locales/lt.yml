@@ -861,7 +861,6 @@ lt:
           update: Atnaujinti
         new:
           create: Sukurti srities tipą
-          title: Nauja sritis
         update:
           error: Atnaujinant šį srities tipą iškilo problema.
           success: Srities tipas atnaujintas
