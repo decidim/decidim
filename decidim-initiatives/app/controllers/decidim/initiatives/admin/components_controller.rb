@@ -9,6 +9,7 @@ module Decidim
         layout "decidim/admin/initiative"
 
         include NeedsInitiative
+        include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
       end
     end
   end
