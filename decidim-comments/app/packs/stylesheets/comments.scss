@@ -13,6 +13,10 @@
     .form__wrapper {
       @apply pt-0;
     }
+
+    a {
+      @apply text-secondary font-semibold;
+    }
   }
 
   &__header {
