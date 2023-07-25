@@ -16,7 +16,7 @@ module Decidim
       end
 
       def set_breadcrumb_item
-        @context_breadcrumb_items ||= [breadcrumb_item]
+        @context_breadcrumb_items ||= breadcrumb_item.is_a?(Array) ? breadcrumb_item : [breadcrumb_item]
       end
     end
   end
