@@ -307,9 +307,6 @@ it:
         description: Numero di processi partecipativi in ​​questa organizzazione
         object: processi partecipativi
         title: Processi partecipativi
-    participatory_process:
-      show:
-        related_assemblies: Assemblee collegate
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -318,19 +315,12 @@ it:
           name: Secondo blocco HTML
         html_3:
           name: Terzo blocco HTML
-        metadata:
-          developer_group: Promosso da
-          name: Metadati
-          participatory_scope: Che cosa si decide
-          participatory_structure: Come si decide
-          target: A chi è destinato il processo
         participatory_processes:
           name: Processi partecipativi
         stats:
           name: Attività
         title:
           meta_scope: Ambito
-          name: Titolo, descrizione e hashtag
           participatory_processes:
             one: 1 processo
             other: "%{count} processi"
@@ -386,16 +376,6 @@ it:
         title: Processi partecipativi
       last_activity:
         new_participatory_process: Nuovo processo partecipativo
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Processi di partecipazione e consultazione attivi
-            active_step: Fase attiva
-            more_information: Maggiori informazioni
-            participate: Partecipa
-            participate_in: Partecipa al processo %{resource_name}
-            processes_button_title: Link alla pagina "Processi" in cui sono visualizzati tutti i processi
-            see_all_processes: Vedi tutti i processi
       participatory_process_steps:
         index:
           back_to_process: Torna alla pagina di processo
@@ -422,24 +402,13 @@ it:
             past: Conclusi
             upcoming: Imminenti
           see: Vedi tutto
-        index:
-          loading: Caricamento risultati...
         show:
           title: Informazioni su questo processo
       show:
-        area: Area
         belongs_to_group: Questo processo appartiene a
         dates: Date
-        developer_group: Promotore
-        end_date: Data di fine
-        local_area: Area Organizzazione
-        participatory_scope: Che cosa si decide
-        participatory_structure: Come si decide
         private_space: Questo è un processo privato
         related_processes: Processi correlati
-        scope: Obiettivi
-        start_date: Data di inizio
-        target: Chi partecipa
         unspecified: Non specificato
     statistics:
       processes_count: Processi
@@ -450,10 +419,6 @@ it:
           browse: Naviga
           browse_resource: Sfoglia gruppo di processo %{resource_name}
           processes_count: 'Processi:'
-      participatory_process_widgets:
-        show:
-          active_step: Fase attiva
-          take_part: Partecipa
       participatory_processes:
         index:
           promoted_processes: Processi evidenziati
@@ -463,14 +428,6 @@ it:
           more_info_about: Maggiori informazioni sul processo %{resource_name}
           take_part: Partecipa
           take_part_in: Partecipa al processo %{resource_name}
-        promoted_process:
-          active_step: 'Fase attiva:'
-          more_info: Maggiori informazioni
-          more_info_about: Maggiori informazioni sul processo %{resource_name}
-          take_part: Partecipa
-          take_part_in: Maggiori informazioni sul processo %{resource_name}
-        promoted_process_group:
-          more_info: Ulteriori informazioni
       process_header_steps:
         step: Fase %{current} di %{total}
         view_steps: Visualizza le fasi
