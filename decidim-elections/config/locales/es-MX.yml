@@ -817,6 +817,8 @@ es-MX:
               name: Archivos y carpetas de la votación
             description:
               name: Descripción de la votación
+            elections:
+              name: Elecciones
             header:
               name: Cabecera de la votación
             html_block_1:
