@@ -323,11 +323,10 @@ nl:
         html_3:
           name: Derde HTML blok
         metadata:
-          developer_group: Aanbevolen door
           name: Metadata
-          participatory_scope: Wat wordt beslist
-          participatory_structure: Hoe wordt er beslist
-          target: Wie neemt deel
+          participatory_scope: Wat is besloten
+          participatory_structure: Hoe wordt er besloten
+          target: Wie doet mee
         stats:
           name: Activiteit
         title:
@@ -391,13 +390,11 @@ nl:
       pages:
         home:
           highlighted_processes:
-            active_processes: Actieve thema's
             active_step: Actieve stap
             more_information: Meer informatie
             participate: Deelnemen
             participate_in: Deelnemen aan proces %{resource_name}
             processes_button_title: Link naar de pagina Processen waarop alle processen worden weergegeven
-            see_all_processes: Bekijk alle thema's
       participatory_process_steps:
         index:
           back_to_process: Terug naar de procespagina
@@ -434,14 +431,13 @@ nl:
         dates: Datums
         developer_group: Organisator
         end_date: Einddatum
-        local_area: Organisatiegebied
         participatory_scope: Wat is besloten
         participatory_structure: Hoe wordt er besloten
         private_space: Dit is een privéthema
         related_processes: Verwante thema's
         scope: Scope
         start_date: Startdatum
-        target: Wie neemt deel
+        target: Wie doet mee
         unspecified: Niet gespecificeerd
     statistics:
       processes_count: Inspraakprocessen
