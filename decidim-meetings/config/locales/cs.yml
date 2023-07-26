@@ -493,6 +493,7 @@ cs:
             all: Vše
             citizens: Občané
             official: Úředník
+            user_groups: Skupiny
           scope: Rozsah
           search: Vyhledávání
           type: Typ
