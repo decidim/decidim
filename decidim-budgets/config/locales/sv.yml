@@ -159,6 +159,7 @@ sv:
             title: Maximalt antal projekt överskridet
         budget_summary:
           are_you_sure: Vill du dra tillbaka din röst?
+          cancel_order: dra tillbaka din röst och börja om
           checked_out:
             title: Budgetomröstning slutförd
         count:
@@ -192,6 +193,9 @@ sv:
           votes:
             one: röst
             other: röster
+        project_budget_button:
+          add: Lägg till i din röst
+          added: Lades till i din röst
         projects_for: Projekt för %{name}
         show:
           budget: Budget
