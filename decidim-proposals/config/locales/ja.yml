@@ -383,7 +383,7 @@ ja:
     participatory_spaces:
       highlighted_proposals:
         last: 最近の提案
-        see_all: すべての提案を表示
+        see_all: すべての提案を見る (%{count})
     proposals:
       actions:
         answer_proposal: 提案に回答
@@ -691,7 +691,7 @@ ja:
             success: "@%{user} さんはコラボレーターとして正常に拒否されました。"
         show:
           edit: 共同草案を編集
-          final_proposal: 最終提案
+          final_proposal: 最終的な提案
           final_proposal_help_text: この草案は終了しました。最終提案を確認してください。
           hidden_authors_count:
             other: '%{count} 人以上'
@@ -872,7 +872,7 @@ ja:
           title: 'サポートは以下のルールに従います:'
           vote_limit:
             description: 最大 %{limit} 件の提案をサポートできます。
-            votes: 残り %{number} サポート
+            votes: サポート
         wizard_aside:
           back: 戻る
           back_from_step_1: 提案に戻る
