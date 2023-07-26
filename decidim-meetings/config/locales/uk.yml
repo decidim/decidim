@@ -242,13 +242,6 @@ uk:
           category: Категорія
           date: Дата
           search: Шукати
-        filters_small_view:
-          close_modal: Закрити віконце
-          filter: Відібрати
-          filter_by: 'Відібрати за ознакою:'
-          unfold: Розгорнути
-        meeting_minutes:
-          related_information: Супутні відомості
         meetings:
           upcoming_meetings_warning: Наразі нема запланованих зустрічей, але тут ви можете знайти перелік усіх попередніх зустрічей.
         registration_confirm:
