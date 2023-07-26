@@ -175,6 +175,7 @@ lt:
             title: Didžiausio nustatyto projektų skaičiaus riba viršyta
         budget_summary:
           are_you_sure: Ar tikrai norite atšauti savo balsą?
+          cancel_order: pašalinti balsą ir pradėti iš naujo
           checked_out:
             title: Balsavimas dėl biudžeto baigtas
         count:
@@ -212,6 +213,9 @@ lt:
             few: balsai
             many: balsai
             other: balsai
+        project_budget_button:
+          add: Pridėti prie balsų
+          added: Pridėta prie Jūsų balsų
         projects_for: Projektai dėl %{name}
         show:
           budget: Biudžetas
