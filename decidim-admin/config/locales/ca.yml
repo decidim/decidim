@@ -83,7 +83,7 @@ ca:
         organization_admin_email: Correu electrònic de l'administradora de l'organització
         organization_admin_name: Nom de l'administradora de l'organització
         organization_locales: Idiomes de l'organització
-        primary_color: Primari
+        primary_color: Primària
         reference_prefix: Prefix de referència
         rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
         secondary_color: Secundari
@@ -832,7 +832,7 @@ ca:
           colors:
             choose_color: Triar un color primari
             colors_title: Colors de l'organització
-            colors_warning_html: Advertència! Canviant aquests colors pot trencar l'accessibilitat dels contrasts. Pots comprovar el contrast de la teva selecció a <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> o amb altres eines similars.
+            colors_warning_html: Advertència! Canviant aquests colors pot trencar l'accessibilitat dels contrasts. Pots comprovar el contrast de la teva selecció a <a href="%{link}">WebAIM Contrast Checker</a> o amb altres eines similars.
             explanation: Aquesta eina t'ajuda a triar un esquema de color, compost per diferents tonalitats seleccionades de forma harmoniosa per utilitzar-se al lloc web de l'organització.
             header_snippets_help_html: Fes servir aquest camp per afegir coses a la capçalera HTML. Lús més comú és integrar serveis de tercers que requereixen JavaScript o CSS addicionals. També, pots fer-lo servir per afegir meta-etiquetes extra a l'HTML. Tingues en compte que això només serà renderitzat a pàgines públiques, no a la secció d'administració. Si el codi interactua amb API externes o no compleix les pautes de seguretat de l'aplicació, cal canviar la Política de Seguretat del Contingut. Llegiu més sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">al lloc de documentació</a>.
             legend_html: Colors principals de l'aplicació, basats en l'<a href="https://www.color-meanings.com/triadic-colors/">algoritme Triadic</a>. El color <i>secundari</i> es calcula automàticament a partir del color primari i de la saturació que has triat.
@@ -934,7 +934,7 @@ ca:
           update: Actualitzar
         new:
           create: Crea tipus d'àmbit
-          title: Nou tipus d'àmbit
+          title: Nou àmbit
         update:
           error: S'ha produït un error en actualitzar aquest tipus d'àmbit.
           success: Tipus d'àmbit actualitzat correctament
