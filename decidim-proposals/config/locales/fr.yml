@@ -384,6 +384,9 @@ fr:
         description: Nombre de votes générés dans les propositions par les utilisateurs
         object: votes
         title: Votes
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Tout voir (%{count})
     proposals:
       actions:
         answer_proposal: Répondre à la proposition
@@ -691,6 +694,7 @@ fr:
             success: "@%{user} a été rejeté en tant que collaborateur avec succès."
         show:
           edit: Modifier un brouillon collaboratif
+          final_proposal: proposition finale
           final_proposal_help_text: Ce brouillon est terminé. Vous pouvez voir la proposition finale terminée
           hidden_authors_count:
             one: et %{count} personne de plus
@@ -698,6 +702,7 @@ fr:
           info-message: Ceci est le <strong>brouillon collaboratif</strong> d'une proposition. Cela signifie que vous pouvez aider les auteurs à façonner la proposition en utilisant la section commentaire ci-dessous ou l'améliorer directement en demandant un accès pour la modifier. Une fois que les auteurs vous accordent l'accès, vous pourrez apporter des modifications à ce brouillon de proposition.
           publish: Publier
           publish_info: Publiez cette version du brouillon ou
+          published_proposal: proposition publiée
           request_access: Demande d'accès
           requested_access: Accès demandé
           withdraw: retirer le projet
@@ -868,6 +873,7 @@ fr:
           title: 'Les soutiens sont soumis aux règles suivantes :'
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
+            votes: Votes
         wizard_aside:
           back: Retour
           back_from_step_1: Retour aux propositions
