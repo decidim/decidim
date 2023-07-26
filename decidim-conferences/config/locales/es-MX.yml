@@ -494,6 +494,11 @@ es-MX:
             states:
               confirmed: Confirmada
               pending: Pendiente
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Jornadas
+            see_all_spaces: Ver todas las jornadas
       registration_types:
         index:
           choose_an_option: 'Elige tu tipo de inscripción:'
