@@ -468,6 +468,11 @@ fr:
         index:
           back_to_process: Retour à la page du processus
       participatory_processes:
+        description:
+          participatory_scope: Ce qui est décidé
+          participatory_structure: Modalités de décision
+          target: Qui participe
+          title: À propos de ce processus participatif
         filters:
           all_types: Tous les types
           counters:
@@ -483,6 +488,7 @@ fr:
             upcoming:
               one: 1 concertation à venir
               other: "%{count} concertations à venir"
+          date: Date
           explanations:
             no_active: Aucune concertation active.
             no_active_nor_upcoming: Aucune concertation active ni à venir.
@@ -494,6 +500,7 @@ fr:
             past: Passées
             upcoming: À venir
           see: Voir
+          type: Type
         show:
           title: A propos de cette concertation
       show:
