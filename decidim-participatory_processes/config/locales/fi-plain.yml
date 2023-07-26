@@ -371,9 +371,6 @@ fi-pl:
         description: Osallisuusprosessien määrä tässä organisaatiossa
         object: osallisuusprosessit
         title: Osallisuusprosessit
-    participatory_process:
-      show:
-        related_assemblies: Liittyvät ryhmät
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -382,19 +379,12 @@ fi-pl:
           name: Toinen HTML-osio
         html_3:
           name: Kolmas HTML-osio
-        metadata:
-          developer_group: Edistäjäryhmä
-          name: Metatiedot
-          participatory_scope: Mitä päätetään
-          participatory_structure: Miten päätetään
-          target: Kuka osallistuu
         participatory_processes:
           name: Osallistumisprosessit
         stats:
           name: Tilastot
         title:
           meta_scope: Teema
-          name: Otsikko, kuvaus ja aihetunniste (hashtag)
           participatory_processes:
             one: 1 prosessi
             other: "%{count} prosessia"
@@ -451,16 +441,6 @@ fi-pl:
         title: Osallisuusprosessit
       last_activity:
         new_participatory_process: Uusi osallisuusprosessi
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Aktiiviset prosessit
-            active_step: Aktiivinen vaihe
-            more_information: Lisätietoja
-            participate: Osallistu
-            participate_in: Osallistu prosessiin %{resource_name}
-            processes_button_title: Linkki Prosessit-sivulle, jossa näkyvät kaikki prosessit
-            see_all_processes: Näytä kaikki prosessit
       participatory_process_steps:
         index:
           back_to_process: Takaisin prosessin sivulle
@@ -491,24 +471,13 @@ fi-pl:
             past: Menneet
             upcoming: Tulevat
           see: Katso
-        index:
-          loading: Ladataan tulokset...
         show:
           title: Tietoa tästä prosessista
       show:
-        area: Alue
         belongs_to_group: Tämä prosessi kuuluu ryhmään
         dates: Päivämäärät
-        developer_group: Kehittäjäryhmä
-        end_date: Päättymispäivä
-        local_area: Organisaatioalue
-        participatory_scope: Mitä päätetään
-        participatory_structure: Miten päätetään
         private_space: Tämä on yksityinen prosessi
         related_processes: Liittyvät prosessit
-        scope: Teema
-        start_date: Alkamispäivä
-        target: Kuka osallistuu
         unspecified: Ei määritelty
     statistics:
       processes_count: Prosessia
@@ -519,10 +488,6 @@ fi-pl:
           browse: Selaa
           browse_resource: Selaa prosessiryhmää %{resource_name}
           processes_count: 'Prosessit:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktiivinen vaihe
-          take_part: Osallistu
       participatory_processes:
         index:
           promoted_processes: Tärkeät prosessit
@@ -532,14 +497,6 @@ fi-pl:
           more_info_about: Lisätietoja prosessista %{resource_name}
           take_part: Osallistu
           take_part_in: Osallistu prosessiin %{resource_name}
-        promoted_process:
-          active_step: 'Aktiivinen vaihe:'
-          more_info: Lisätietoja
-          more_info_about: Lisätietoja prosessista %{resource_name}
-          take_part: Osallistu
-          take_part_in: Osallistu prosessiin %{resource_name}
-        promoted_process_group:
-          more_info: Lisätietoja
       process_header_steps:
         step: Vaihe %{current} / %{total}
         view_steps: Näytä vaiheet
