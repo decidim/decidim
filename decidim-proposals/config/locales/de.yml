@@ -387,7 +387,7 @@ de:
     participatory_spaces:
       highlighted_proposals:
         last: Letzte Vorschläge
-        see_all: Alle Vorschläge anzeigen
+        see_all: Alle anzeigen (%{count})
     proposals:
       actions:
         answer_proposal: Vorschlag beantworten
@@ -883,7 +883,7 @@ de:
           title: 'Die Abstimmung unterliegt folgenden Regeln:'
           vote_limit:
             description: Sie können bis zu %{limit} Vorschläge abstimmen.
-            votes: Noch %{number} Unterstützungen verbleibend
+            votes: Stimmen
         wizard_aside:
           back: Zurück
           back_from_step_1: Zurück zu Vorschlägen
