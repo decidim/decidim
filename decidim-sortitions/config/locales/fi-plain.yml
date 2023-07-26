@@ -120,24 +120,22 @@ fi-pl:
         show:
           algorithm: Satunnaisvalinnan algoritmikoodi
           any_category: kaikista aihepiireistä
-          back: Takaisin listaan
           cancelled: Peruttu satunnaisvalinta
           candidate_proposal_ids: Satunnaisvalintaehdotusten järjestys ja tunnukset
           candidate_proposals_info: 'Satunnaisvalinta tehtiin seuraavien ehdotusten (%{category_label}) välillä, seuraavilla tunnuksilla (lihavoituna valitut ehdotukset)  '
           category: aihepiiristä %{category}
-          dice_result: "(1) Noppatulos"
+          dice_result: (1) Noppatulos
           introduction: 'Tämä sivu sisältää satunnaisvalinnan tulokset %{reference}. Tämän satunnaisvalinnan avulla %{target_items} tulosten määrä on valittu satunnaisesti ja yhtäläisellä todennäköisyysjakaumalla alla esitetyistä ehdotuksista. Yhdessä tulosten kanssa tällä sivulla näkyvät tiedot tarjoavat kaikki tarvittavat tiedot takuiden maksimoimiseksi ja tulosten toisintamiseksi. Tämän järjestelyn laadun avain on kaksinkertainen satunnaisuus, jonka antaa noppan heitto (todistajien todistama) ja täsmällinen ajankohta, joka antaa syötteen algoritmille, joka tuottaa satunnaisen valinnan. Kokoonpanon aika-jako on niin tarkka (sekuntia), että ihmisten on mahdotonta hallita sitä, jolloin saadaan kaksinkertainen "hallitsematon" syöte oikeudenmukaisen tuloksen takaamiseksi.  '
           mathematical_result: Tulos (1) x (2)
           proposals_selected_by_sortition: Ehdotukset, jotka on valittu satunnaisvalinnassa
           sortition_reproducibility_details: Satunnaisvalinnan toisinnettavuustiedot
-          time_seed: "(2) Aikajako"
+          time_seed: (2) Aikajako
           witnesses: Todistajat
         sortition:
           random_seed: Satunnainen jako
           selected_proposals:
             one: ehdotus valittu
             other: '%{count} ehdotusta valittu'
-          view: Näytä
         sortition_author:
           deleted: Poistettu käyttäjä
         sortition_cancel_author:
