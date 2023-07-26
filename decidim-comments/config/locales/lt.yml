@@ -51,7 +51,7 @@ lt:
             label: Komentaras
             placeholder: Ką manote apie tai?
           form_error: Tekstas būtinais ir negali viršyti %{length} simbolių.
-          submit: Publikuoti
+          submit: Siųsti
           user_group_id:
             label: Komentuoti kaip
         opinion:
