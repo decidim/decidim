@@ -286,6 +286,9 @@ nl:
             update: Bijwerken
           form:
             title: Instellingen voor groepen
+        assemblies_types:
+          form:
+            title: Titel
         assembly_copies:
           form:
             slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
