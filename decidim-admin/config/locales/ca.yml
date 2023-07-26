@@ -83,7 +83,7 @@ ca:
         organization_admin_email: Correu electrònic de l'administradora de l'organització
         organization_admin_name: Nom de l'administradora de l'organització
         organization_locales: Idiomes de l'organització
-        primary_color: Primari
+        primary_color: Primària
         reference_prefix: Prefix de referència
         rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
         secondary_color: Secundari
@@ -870,7 +870,7 @@ ca:
           update: Actualitzar
         new:
           create: Crea tipus d'àmbit
-          title: Nou tipus d'àmbit
+          title: Nou àmbit
         update:
           error: S'ha produït un error en actualitzar aquest tipus d'àmbit.
           success: Tipus d'àmbit actualitzat correctament
