@@ -210,6 +210,9 @@ tr:
         description: Üretilen sonuç sayısı
         object: sonuçlar
         title: Sonuçlar
+    participatory_spaces:
+      highlighted_results:
+        see_all: Tüm sonuçları gör (%{count})
     resource_links:
       included_projects:
         result_project: Bu sonuca dahil edilen projeler
