@@ -84,6 +84,7 @@ fr-CA:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
@@ -103,6 +104,23 @@ fr-CA:
       less_than_x_seconds:
         one: moins d'une seconde
         other: moins de %{count} secondes
+      short:
+        about_x_days: "%{count} jrs"
+        about_x_hours: "%{count} h"
+        about_x_minutes: "%{count} min"
+        about_x_months: "%{count} mois"
+        about_x_years: "%{count} an(s)"
+        almost_x_years: "%{count} an(s)"
+        half_a_minute: 1 min
+        less_than_x_minutes: "%{count} min"
+        less_than_x_seconds: "%{count} s"
+        over_x_years: "%{count} an(s)"
+        x_days: "%{count} jrs"
+        x_hours: "%{count} h"
+        x_minutes: "%{count} min"
+        x_months: "%{count} mois"
+        x_seconds: "%{count} s"
+        x_years: "%{count} an(s)"
       x_days:
         one: 1 jour
         other: "%{count} jours"
@@ -272,6 +290,10 @@ fr-CA:
         promote_confirm_text: Êtes-vous sûr de vouloir promouvoir cette modification?
         promote_help_text: Vous pouvez promouvoir cette correction et la publier indépendamment de %{model_name}.
         section_heading: Amendements (%{count})
+      amendments:
+        title:
+          one: "%{count} amendement"
+          other: "%{count} amendements"
       compare_draft:
         continue: Continuer
         no_similars_found: Aucune modification similaire trouvé.
@@ -303,6 +325,7 @@ fr-CA:
           withdrawn: |-
             L'amendement pour le %{amendable_type} %{proposal_link}
             a été retiré par l'auteur.
+      name: Amendement
       new:
         amendment_author: Auteur de l'amendement
         send: Créer
@@ -341,11 +364,13 @@ fr-CA:
       document:
         download: Télécharger le fichier
       documents:
+        documents: Documents
         related_documents: Documents à consulter
       photo:
         alt: Image média
         title: Image
       photos:
+        photos: Images
         related_photos: Photos associées
     author:
       avatar: 'Avatar: %{name}'
@@ -477,6 +502,8 @@ fr-CA:
             dummy_step_translatable_text: Texte traduisible de l'étape factice
     contact: Contact
     content_blocks:
+      announcement:
+        name: Annonce
       cta:
         name: Image, texte et bouton d'appel à l'action
       cta_settings_form:
@@ -486,6 +513,8 @@ fr-CA:
         description: Description
       footer_sub_hero:
         name: Section "Bienvenue sur la plateforme" (. footer_sub_hero)
+      global_menu:
+        name: Menu global
       hero:
         name: Image principale (hero)
       hero_settings_form:
@@ -494,6 +523,9 @@ fr-CA:
       highlighted_content_banner:
         name: Bannière de contenu mis en valeur
       highlighted_elements_settings_form:
+        components:
+          all: Tout
+          label: 'Sélectionnez un composant:'
         orders:
           label: 'Trier les éléments par:'
           random: Aléatoire
@@ -507,8 +539,20 @@ fr-CA:
         name: Dernière Activité
         title: Dernière Activité
         view_all: Voir tout
+      last_activity_settings_form:
+        max_last_activity_users: Nombre maximum d'avatars d'utilisateurs avec une activité récente à afficher
+      main_data:
+        name: Données principales
+      metadata:
+        name: Métadonnées
       metrics:
         name: Historique des statistiques de participation
+      participatory_space_metrics:
+        name: Métriques
+      participatory_space_stats:
+        name: Statistiques
+      social_networks_metadata:
+        name: Réseaux sociaux
       static_page:
         section:
           name: Section
@@ -528,6 +572,13 @@ fr-CA:
       actions:
         login_before_access: Veuillez vous connecter avec votre compte avant d'y accéder.
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action.
+      application_helper:
+        filter_area_values:
+          all: Tout
+        filter_category_values:
+          all: Tout
+        filter_scope_values:
+          all: Tout
     datepicker:
       help_text: 'Format attendu : %{datepicker_format}'
     devise:
@@ -566,6 +617,16 @@ fr-CA:
           buttons:
             check: Oui, je souhaite m'inscrire à la newsletter
             uncheck: Garder décoché
+          notice: |-
+            <p>Êtes-vous sûr de ne pas vouloir recevoir de newsletter ?<br>
+            Nous vous suggérons de cocher la case pour recevoir la newsletter.<br>
+            Il est très important pour nous que vous puissiez recevoir des e-mails occasionnels
+            pour vous faire part des annonces importantes. Vous pourrez toujours modifier votre choix dans vos paramètres de notifications.</p>
+            <p>Si vous ne cochez pas la case, vous risquez de manquer des informations pertinentes
+            sur les nouvelles opportunités participatives de la plateforme.<br>
+            Si vous voulez toujours ne pas recevoir de newsletters, nous comprenons parfaitement
+            votre décision.</p>
+            <p>Merci de votre lecture !</p>
           title: Inscription à la newsletter
         omniauth_buttons:
           or: Ou
@@ -573,7 +634,9 @@ fr-CA:
       authorizations:
         new:
           authorize: Autoriser l'application
+          by_organization_link_html: <small class="heading-small">par %{link}</small>
           cancel: Annuler
+          connect_your_account_html: Connectez votre compte en vous connectant à <strong>%{organization}</strong>.
           publish_content: Publier du contenu pour vous
           see_email: Voir votre email
           see_name: Voir votre nom
@@ -581,6 +644,7 @@ fr-CA:
           this_application_will_be_able_to: 'Cette application sera capable de :'
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
     download_your_data:
       export:
         ready: Prêt
@@ -1239,6 +1303,7 @@ fr-CA:
       participatory_space:
         metrics:
           headline: Participation en chiffres
+          link: Afficher toutes les statistiques
       terms_of_service:
         accept:
           error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation.
@@ -1498,6 +1563,9 @@ fr-CA:
         of_versions: "(sur %{number})"
         see_other_versions: voir les autres versions
         version: Version %{number}
+    versions_list_item:
+      show:
+        version_index: Version %{index}
     welcome_notification:
       default_body: <p>Bonjour {{name}}, merci d'avoir rejoint {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>En somme, rejoignez d'autres personnes, partagez avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, lancez des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées dans un esprit ouvert pour collaborer et enrichir les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!
