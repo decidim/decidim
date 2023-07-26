@@ -199,6 +199,7 @@ pl:
               minimum_answers: Pytania muszą mieć <strong>co najmniej dwie odpowiedzi</strong>.
               minimum_questions: Wybory <strong>muszą mieć co najmniej jedno pytanie</strong>.
               published: Wybory <strong>zostały opublikowane</strong>.
+              time_before: Konfiguracja odbywa się <strong>co najmniej %{hours} godzin(y)</strong> przed rozpoczęciem wyborów.
               trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} mężów (osób) zaufania z kluczem publicznym</strong>.
             submit: Ustaw wybory
             title: Skonfiguruj wybory
@@ -487,6 +488,7 @@ pl:
             success: Twój publiczny klucz identyfikacyjny został zapisany.
       votes:
         ballot_decision:
+          audit: ( Sprawdź kartę z oddanym głosem )
           back: Rozpocznij proces głosowania ponownie
           ballot_hash: 'Numer Twojej karty do głosowania to:'
           description: Masz tutaj dwie opcje, albo możesz już oddać głos tak aby został poprawnie zliczony, albo możesz sprawdzić czy Twoja karta do głosowania została prawidłowo zaszyfrowania. Ze względów bezpieczeństwa sprawdzenie poprawności szyfrowania karty zepsuje ją. Oznacza to, że musisz ponownie rozpocząć od nowa proces oddawania głosu aby oddać głos.
@@ -507,6 +509,7 @@ pl:
           feedback: Podziel się z nami swoją opinią
           header: Oddanie głosu potwierdzone
           lead: Twój głos został oddany!
+          text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do urny wyborczej z następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Aby sprawdzić, skopiuj identyfikator i wklej go na <a href="%{link}">stronie weryfikacji głosowania</a>
         create:
           error: Wystąpił błąd w czasie oddawania głosu, Spróbuj ponownie.
@@ -518,6 +521,9 @@ pl:
           lead: Twój głos nie został oddany!
           text: Coś poszło nie tak. Spróbuj ponownie.
           try_again: Spróbuj ponownie
+        header:
+          ballot_decision: Oddaj głos, albo sprawdź poprawność szyfrowania Twojego głosu
+          confirm: Potwierdź swój głos
         messages:
           invalid_token: Twoja sesja w kabinie wyborczej nie jest ważna. Spróbuj zagłosować ponownie.
           not_allowed: W tej chwili nie wolno Ci głosować w tych wyborach.
@@ -530,6 +536,7 @@ pl:
           nota_option: Pusty/Żadne z powyższych
           preview_alert: To jest podgląd kabiny do głosowania.
           question_steps: Pytanie %{current_step} z %{total_steps}
+          selections: "%{selected} z %{max_selections}<br> opcji wyboru"
         onboarding_modal:
           create_account: Utwórz konto
           no_account: Nie, dziękuję.
