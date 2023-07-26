@@ -515,6 +515,7 @@ el:
       authorizations:
         new:
           authorize: Εξουσιοδότηση εφαρμογής
+          by_organization_link_html: <small class="heading-small">από %{link}</small>
           cancel: Ακύρωση
           publish_content: Δημοσίευση περιεχομένου για εσάς
           see_email: Δείτε τα email σας
@@ -523,6 +524,7 @@ el:
           this_application_will_be_able_to: 'Αυτή η εφαρμογή θα μπορεί να:'
           this_application_will_not_be_able_to: 'Αυτή η εφαρμογή δεν θα μπορεί να:'
           update_profile: Ενημερώστε το προφίλ σας
+          wants_to_use_your_account_html: "Η εφαρμογή <strong>%{application_name}</strong> θέλει να χρησιμοποιήσει τον λογαριασμό σας"
     download_your_data:
       export:
         ready: Έτοιμο
@@ -1052,6 +1054,7 @@ el:
       participatory_space:
         metrics:
           headline: Μετρικά
+          link: Εμφάνιση όλων των μετρικών
       terms_of_service:
         accept:
           error: Παρουσιάστηκε πρόβλημα κατά την αποδοχή των όρων υπηρεσίας.
@@ -1260,6 +1263,9 @@ el:
       resource_version:
         of_versions: "(από %{number})"
         version: Αριθμός έκδοσης %{number}
+    versions_list_item:
+      show:
+        version_index: Έκδοση %{index}
     welcome_notification:
       default_subject: Ευχαριστούμε για τη συμμετοχή σας στον οργανισμό {{organization}}!
     wizard_step_form:
