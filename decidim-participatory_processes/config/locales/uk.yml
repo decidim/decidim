@@ -276,14 +276,6 @@ uk:
           name: Висвітлені рухи
       index:
         title: Рухи співучасті
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Діючі рухи
-            active_step: Діючий крок
-            more_information: Додаткові відомості
-            participate: Взяти участь
-            see_all_processes: Переглянути всі рухи
       participatory_processes:
         filters:
           counters:
@@ -315,19 +307,9 @@ uk:
             past: Минулі
             upcoming: Прийдешні
           see: Подивитися
-        index:
-          loading: Завантаження результатів...
       show:
-        developer_group: Робочий гурт з просування
-        end_date: Дата закінчення
-        local_area: Дільниця організації
-        participatory_scope: Що вирішується
-        participatory_structure: Як це вирішується
         private_space: Це приватний рух
         related_processes: Супутні рухи
-        scope: Обсяг
-        start_date: Дата початку
-        target: Хто бере участь
         unspecified: Не вказано
   layouts:
     decidim:
@@ -335,19 +317,11 @@ uk:
         participatory_process_group:
           browse: Огляд
           processes_count: 'Рухів:'
-      participatory_process_widgets:
-        show:
-          active_step: Діючий крок
-          take_part: Взяти участь
       participatory_processes:
         index:
           promoted_processes: Висвітлені рухи
         participatory_process:
           active_step: 'Поточний крок:'
-          take_part: Взяти участь
-        promoted_process:
-          active_step: 'Поточний крок:'
-          more_info: Додаткові відомості
           take_part: Взяти участь
       process_header_steps:
         step: '%{current}-й крок з %{total} кроків'
