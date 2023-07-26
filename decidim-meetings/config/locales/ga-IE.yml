@@ -120,6 +120,9 @@ ga:
             save: Sábháil
           form:
             invites: Cuirí
+      application_helper:
+        filter_scope_values:
+          all: Uile
       content_blocks:
         upcoming_meetings:
           view_all_meetings: Amharc ar uile
@@ -151,7 +154,6 @@ ga:
             all: Uile
             citizens: Saoránaigh
             official: Oifigiúil
-            user_groups: Grúpaí
           scope: Scóip
           search: Cuardaigh
           type: Cineál
