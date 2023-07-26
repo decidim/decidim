@@ -36,7 +36,6 @@ tr:
             label: Yorum
             placeholder: Bunun hakkında ne düşünüyorsun?
           form_error: Metin zorunludur ve %{length} karakterden uzun olamaz.
-          submit: Gönder
           user_group_id:
             label: Olarak yorum yap
         opinion:
