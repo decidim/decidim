@@ -221,10 +221,6 @@ header {
       &__dropdown-trigger {
         @apply flex rounded px-2 py-1 z-20;
 
-        &:not(.no-interactive) {
-          @apply cursor-pointer hover:backdrop-brightness-75 focus:backdrop-brightness-75 focus:outline-none;
-        }
-
         &[id*="dropdown"]:hover {
           @apply z-10 relative before:content-[''] before:absolute before:w-[calc(100%+3rem+1px)] before:min-w-[10rem] before:h-40 before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/4 before:-z-10;
         }
@@ -232,6 +228,10 @@ header {
         svg {
           @apply w-6 h-6 fill-current;
         }
+      }
+
+      &__dropdown-wrapper {
+        @apply flex items-center cursor-pointer rounded hover:backdrop-brightness-75 focus:backdrop-brightness-75 focus:outline-none;
       }
 
       &__dropdown-content {
@@ -256,7 +256,7 @@ header {
       }
 
       [data-target*="dropdown"] {
-        @apply w-auto p-0 block last-of-type:[&>svg]:block;
+        @apply w-auto p-0 flex items-center gap-0 last-of-type:[&>svg]:block;
 
         > svg {
           @apply w-5 h-5 text-white;

@@ -3,7 +3,7 @@
   <span>/</span>
   <% if item[:dropdown_cell].present? %>
     <div class="relative">
-      <div class="flex items-center" <%== 'aria-current="page"' if item[:active] %>>
+      <div class="menu-bar__breadcrumb-desktop__dropdown-wrapper" onmouseenter="document.getElementById('secondary-dropdown-summary-<%= i %>').click()" <%== 'aria-current="page"' if item[:active] %>>
         <%= link_to item[:url], class: "menu-bar__breadcrumb-desktop__dropdown-trigger" do %>
           <%= item_label %>
         <% end %>
