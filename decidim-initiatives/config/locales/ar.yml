@@ -240,6 +240,7 @@ ar:
         select_initiative_type:
           back: الى الخلف
           choose_html: أريد إنشاء <strong>%{title}</strong>
+          more_information: (معلومات اكثر)
           select: أريد أن أشجع هذه المبادرة
         share_committee_link:
           invite_to_committee_help: رابط لدعوة الأشخاص الذين سيكونون جزءًا من لجنة المروجين
