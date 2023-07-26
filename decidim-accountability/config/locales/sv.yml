@@ -239,6 +239,9 @@ sv:
         description: Antal genererade resultat
         object: resultat
         title: Resultat
+    participatory_spaces:
+      highlighted_results:
+        see_all: Se alla resultat (%{count})
     resource_links:
       included_projects:
         result_project: Projekt som ingår i detta resultat
