@@ -221,6 +221,7 @@ uk:
       authorizations:
         new:
           authorize: Підтвердити додаток
+          by_organization_link_html: <small class="heading-small">через %{link}</small>
           cancel: Скасувати
           publish_content: Оприлюднювати за вас дописи
           see_email: Бачити вашу адресу ел-пошти
@@ -229,6 +230,7 @@ uk:
           this_application_will_be_able_to: 'Цей додаток зможе:'
           this_application_will_not_be_able_to: 'Цей додаток не зможе:'
           update_profile: Оновлювати ваш профіль
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> бажає використовувати ваш обліковий запис"
     download_your_data:
       export:
         ready: Готово
