@@ -221,9 +221,9 @@ cs:
             title: Byl překročen maximální počet projektů
         budget_summary:
           are_you_sure: Opravdu chcete zrušit hlasování?
-          cancel_order: smazat váš hlas
+          cancel_order: smazat váš hlas a začít znovu
           checked_out:
-            description: Již jste hlasovali pro rozpočet. Pokud jste změnili názor, můžete svůj hlas odstranit.
+            description: Už jste pro rozpočet hlasovali. Pokud jste změnili názor, můžete %{cancel_link}.
             title: Hlasování o rozpočtu bylo dokončeno
           vote: Hlasovat o rozpočtu
         count:
@@ -283,9 +283,9 @@ cs:
             other: hlasů
           you_voted: Hlasoval jste pro toto
         project_budget_button:
-          add: Přidat
+          add: Přidat do vašeho hlasování
           add_descriptive: Přidat k hlasování projekt %{resource_name}.
-          added: Přidáno
+          added: Přidáno k vašemu hlasování
           added_descriptive: Projekt %{resource_name} přidán k vašemu hlasování.
         project_filter:
           added: Přidáno
