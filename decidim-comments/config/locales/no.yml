@@ -28,8 +28,6 @@
         update:
           error: Et problem oppstod med å oppdatere kommentaren.
       comments_count: Antall kommentarer
-      last_activity:
-        new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
       view: Vis
       votes:
         create:
@@ -41,7 +39,6 @@
           body:
             label: Kommentar
             placeholder: Hva mener du om dette?
-          submit: Send
           user_group_id:
             label: Kommenter som
         opinion:
@@ -85,8 +82,6 @@
           older: Eldre
           recent: Nylig
         title: 'Sorter etter:'
-      comment_thread:
-        title: Samtale med %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Du må verifiseres for å kommentere, men du kan lese de forrige.
         blocked_comments_for_user_warning: Du kan ikke kommentere for øyeblikket, men du kan lese de forrige.
