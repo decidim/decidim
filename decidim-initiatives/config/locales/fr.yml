@@ -383,6 +383,7 @@ fr:
         select_initiative_type:
           back: Retour
           choose_html: Je veux créer un <strong>%{title}</strong>
+          more_information: (Plus d'informations)
           select: Créer une pétition
           select_initiative_type_help: Les pétitions sont un moyen par lequel les participants peuvent intervenir afin que l'organisation puisse entreprendre des actions en faveur de l'intérêt général. Quelle pétition voulez-vous lancer?
           verification_required: Vérifiez votre compte pour créer une pétition
