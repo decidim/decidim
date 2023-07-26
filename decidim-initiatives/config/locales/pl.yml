@@ -322,6 +322,7 @@ pl:
         select_initiative_type:
           back: Wróć
           choose_html: Chcę utworzyć <strong>%{title}</strong>
+          more_information: (Więcej informacji)
           select: Chcę utworzyć inicjatywę tego typu
           select_initiative_type_help: Inicjatywy są środkiem, za pomocą którego uczestnicy mogą interweniować tak, aby organizacja mogła podejmować działania w obronie interesu ogólnego. Którą inicjatywę chcesz uruchomić?
         share_committee_link:
