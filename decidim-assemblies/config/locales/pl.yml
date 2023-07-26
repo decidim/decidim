@@ -289,6 +289,9 @@ pl:
             update: Aktualizuj
           form:
             title: Ustawienia zespołów
+        assemblies_types:
+          form:
+            title: Tytuł
         assembly_copies:
           form:
             slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego zespołu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
