@@ -121,7 +121,17 @@ cs:
         many: méně než %{count} sekundami
         other: méně než %{count} sekundami
       short:
+        about_x_days: "%{count}d"
+        about_x_hours: "%{count}h"
+        about_x_minutes: "%{count}m"
+        about_x_months: "%{count} měsíců"
+        about_x_years: "%{count} let"
+        almost_x_years: "%{count} let"
         half_a_minute: 1 m
+        less_than_x_minutes: "%{count}m"
+        less_than_x_seconds: "%{count} s"
+        over_x_years: "%{count} let"
+        x_days: "%{count}d"
       x_days:
         one: 1 dnem
         few: "{{$count}} dny"
