@@ -557,6 +557,7 @@ hu:
       authorizations:
         new:
           authorize: Engedélyezési kérelem
+          by_organization_link_html: <small class="heading-small">, %{link}</small>
           cancel: Mégse
           publish_content: Tartalom közzététele neked
           see_email: Email cím megjelenítése
@@ -565,6 +566,7 @@ hu:
           this_application_will_be_able_to: 'Ez az alkalmazás képes erre:'
           this_application_will_not_be_able_to: 'Ez az alkalmazás nem képes erre:'
           update_profile: Frissítsd a profilod
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> szeretné használni a fiókod"
     download_your_data:
       export:
         ready: Kész
@@ -1166,6 +1168,7 @@ hu:
       participatory_space:
         metrics:
           headline: Részvétel számokban
+          link: Az összes statisztika megjelenítése
     participatory_space_private_users:
       not_allowed: Nincs jogosultságod a tartalom megtekintésére
     profile:
@@ -1390,6 +1393,9 @@ hu:
         of_versions: "(ennyiből: %{number})"
         see_other_versions: lásd a többi verziót
         version: 'Verziószám: %{number}'
+    versions_list_item:
+      show:
+        version_index: '%{index} verzió'
     welcome_notification:
       default_body: <p>Hi {{név}}, köszönöm, hogy csatlakoztál a {{szervezet}}-hez és üdvözöllek!</p><ul><li>Ha szeretnél egy gyors képet kapni arról, hogy mit tehetsz itt, nézd meg a <a href="{{help_url}}">Súgó</a> szakasz.</li><li>Az elolvasás után megkapod az első jelvényt. Itt a <a href="{{badges_url}}">listája az összes jelvénynek</a> amit megszerezhetsz, mivel részt veszel a {{szervezet}}</li><li> munkájában. Végül, de nem utolsósorban, csatlakozz másokhoz, oszd meg velük az elkötelezettség és a {{szervezet}} részvételi élményét. Készíts javaslatokat, szólj hozzá, vitázz, gondolkodj azon, hogyan járulhatsz hozzá a közjóhoz, szolgáltass érveket a meggyőzéshez, hallgass és olvass, hogy meggyőzz másokat. Fejezd ki gondolataidat konkrétan és közvetlenül, válaszolj türelemmel és határozottsággal, védd meg gondolataidat, és légy nyitott az együttműködésre és mások ötleteihez való csatlakozásra.</li></ul>
       default_subject: Köszönjük, hogy csatlakoztál a {{organization}} szervezethez!
