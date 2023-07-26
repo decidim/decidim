@@ -62,11 +62,6 @@ is-IS:
           official: Opinber
           origin: Uppruni
           search: Leita
-        filters_small_view:
-          close_modal: Loka mát
-          filter: Sía
-          filter_by: Sía eftir
-          unfold: Fella út
         form:
           select_a_category: Vinsamlegast veldu flokk
         index:
