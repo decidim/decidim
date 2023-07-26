@@ -889,6 +889,7 @@ sv:
           update: Uppdatera
         new:
           create: Skapa omfattningstyp
+          title: Ny omfattning
         update:
           error: Det gick inte att uppdatera omfångstypen.
           success: Omfångstypen har uppdaterats
