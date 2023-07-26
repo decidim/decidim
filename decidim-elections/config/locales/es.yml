@@ -272,7 +272,7 @@ es:
               minimum_answers: Las preguntas deben tener <strong>al menos dos respuestas</strong>.
               minimum_questions: La elección <strong>debe tener al menos una pregunta</strong>.
               published: La elección <strong>no está publicada</strong>.
-              time_before: La hora de inicio es en <strong>menos de %{hours} horas</strong> antes de que comience la elección.
+              time_before: Se ha configurado la hora de inicio en <strong>menos de %{hours} horas</strong> antes de que comience la elección.
               trustees_number: El espacio participativo <strong>debe tener al menos %{number} garantes con clave pública</strong>.
             invalid: Hubo un problema al configurar esta elección
             no_trustees: No hay garantes configurados para este espacio participativo
@@ -639,7 +639,7 @@ es:
             success: Tu clave pública de identificación fue guardada con éxito.
       votes:
         ballot_decision:
-          audit: Auditar papeleta
+          audit: ( Auditar papeleta )
           back: Comenzar de nuevo el proceso de votación
           ballot_hash: 'El indentificador de la papeleta es:'
           cast: Deposita la papeleta para terminar tu voto
@@ -661,7 +661,7 @@ es:
           feedback: Danos tu opinión
           header: Voto confirmado
           lead: '¡Tu voto se ha emitido!'
-          text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: '
+          text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Para comprobarlo, copia el identificador y pégalo en la <a href="%{link}">página de verificación de voto</a>
         create:
           error: Hubo un problema al emitir el voto. Por favor, inténtalo de nuevo.
@@ -674,7 +674,8 @@ es:
           text: Algo salió mal, por favor inténtalo de nuevo.
           try_again: Inténtalo de nuevo
         header:
-          confirm: Confirmar
+          ballot_decision: Emitir o auditar tu voto
+          confirm: Confirma tu voto
           election: Elección
           register: Regístrate
           vote_for: Vota por %{title}
@@ -690,7 +691,7 @@ es:
           nota_option: En blanco / Ninguna de las anteriores
           preview_alert: Esta es una vista previa de la cabina de votación.
           question_steps: Pregunta %{current_step} de %{total_steps}
-          selections: "Seleccionada/s %{selected} de %{max_selections}"
+          selections: "Seleccionada <br> %{selected} de %{max_selections}"
         onboarding_modal:
           create_account: Crear Cuenta
           description: '¿Quieres crear una nueva cuenta en la plataforma? Podrás participar en los procesos y ser parte activa de la organización.'
@@ -821,6 +822,8 @@ es:
             name: Métricas de la votación
           polling_stations:
             name: Puntos de votación
+          related_elections:
+            name: Elecciones
           stats:
             name: Estadísticas de la votación
           timeline:
