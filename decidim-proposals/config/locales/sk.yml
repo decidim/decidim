@@ -285,6 +285,9 @@ sk:
         description: Počete hlasov za návrhy
         object: hlasy
         title: Hlasy
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Zobraziť všetky (%{count})
     proposals:
       actions:
         answer_proposal: Odpoveď na návrh
@@ -520,6 +523,7 @@ sk:
             error: Nemohol byť odmietnutý ako spolupracovník, skúste to znova neskôr.
         show:
           edit: Úprava konceptu spolupráce
+          final_proposal: konečný návrh
           final_proposal_help_text: Tento návrh je dokončený. Môžete vidieť konečný konečný návrh
           hidden_authors_count:
             one: a%{count} ďalšia osoba
@@ -528,6 +532,7 @@ sk:
             other: a%{count} ďalších ľudí
           publish: Publikovať
           publish_info: Publikujte túto verziu konceptu alebo
+          published_proposal: zverejnený návrh
           request_access: Požiadať o prístup
           requested_access: Požadovaný prístup
           withdraw: stiahnuť návrh
@@ -675,6 +680,7 @@ sk:
           title: 'Hlasovanie podlieha týmto pravidlám:'
           vote_limit:
             description: Môžete hlasovať až pre %{limit} návrhov.
+            votes: Hlasy
         wizard_aside:
           back: Zadná
           info: Vytvárate <strong> návrh </strong>.
