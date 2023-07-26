@@ -95,7 +95,6 @@ pl:
           invalid: Podczas zamykania debaty wystąpił błąd.
           success: Debata została pomyślnie zamknięta.
         close_debate_modal:
-          close: Zamknij
           description: Jakie jest podsumowanie lub wnioski z tej debaty?
           send: Zamknij debatę
         closed: Zamknięta
@@ -123,18 +122,11 @@ pl:
           my_debates: Moje debaty
           official: Urzędnik
           origin: Źródło
-          scope: Zakres
           search: Szukaj
           state: Status
           state_values:
             closed: Zakończone
             open: Otwarte
-          user_groups: Grupy użytkowników
-        filters_small_view:
-          close_modal: Zamknij okno
-          filter: Filtr
-          filter_by: Filtruj według
-          unfold: Rozwiń
         form:
           select_a_category: Wybierz kategorię
         index:
@@ -150,7 +142,6 @@ pl:
           recent: Najnowsze
           updated: Ostatnio aktualizowane
         show:
-          back: Powrót do listy
           close_debate: Zamknij debatę
           date: Data
           debate_closed: Zamknięta
@@ -158,20 +149,11 @@ pl:
           edit_conclusions: Edytuj wnioski
           edit_debate: Edytuj debatę
           groups_count: Grupy
-          last_comment_by: Ostatni komentarz autorstwa
-          no_comments_yet: Brak komentarzy
           open: Otwarta
           participants_count: Użytkownicy
         update:
           invalid: Podczas aktualizowania debaty wystąpił błąd.
           success: Debata została pomyślnie zaktualizowana.
-        versions:
-          debates:
-            back_to_resource: Wróć do debaty
-          index:
-            title: Wersje
-        versions_list:
-          back_to_resource: Wróć do debaty
       models:
         debate:
           fields:
