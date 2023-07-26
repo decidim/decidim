@@ -1129,6 +1129,8 @@ fr-CA:
         highlighted_votings:
           name: Élections remarquables
         landing_page:
+          description:
+            title: À propos de ce vote
           metrics:
             heading: Statistiques
           polling_stations:
