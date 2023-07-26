@@ -32,8 +32,6 @@ es-MX:
           error: Se ha producido un error al actualizar el comentario.
       comments_count: Número de comentarios
       comments_title: Comentario
-      last_activity:
-        new_comment_at_html: "<span>Nuevo comentario en %{link}</span>"
       view: Ver
       votes:
         create:
@@ -46,7 +44,6 @@ es-MX:
             label: Comentario
             placeholder: '¿Qué piensas sobre esto?'
           form_error: El texto es necesario y no puede ser más largo de %{length}.
-          submit: Enviar
           user_group_id:
             label: Comentar como
         opinion:
@@ -95,8 +92,6 @@ es-MX:
           older: Más antiguo
           recent: Reciente
         title: 'Ordenar por:'
-      comment_thread:
-        title: Conversación con %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Necesitas estar verificada para comentar en este momento, pero puedes leer los comentarios anteriores.
         blocked_comments_for_user_warning: No puede hacer comentarios en este momento, pero puede leer los anteriores.
