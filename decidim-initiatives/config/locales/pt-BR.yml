@@ -319,7 +319,7 @@ pt-BR:
         select_initiative_type:
           back: Costas
           choose_html: Eu quero criar um <strong>%{title}</strong>
-          more_information: Mais informações
+          more_information: (Mais Informações)
           new: Criar iniciativa
           select: Eu quero promover essa iniciativa
           select_initiative_type_help: As iniciativas são um meio através do qual os participantes podem intervir para que a organização possa empreender acções em defesa do interesse geral. Qual iniciativa você quer lançar?
