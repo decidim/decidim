@@ -21,7 +21,6 @@ ga:
         form:
           body:
             label: Trácht
-          submit: Seol
         opinion:
           neutral: Neodrach
       comment:
