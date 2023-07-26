@@ -371,9 +371,6 @@ fr-CA:
         description: Nombre de concertations dans cette organisation
         object: concertations
         title: Concertations
-    participatory_process:
-      show:
-        related_assemblies: Assemblées associées
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -382,19 +379,12 @@ fr-CA:
           name: Bloc HTML 2
         html_3:
           name: Bloc HTML 3
-        metadata:
-          developer_group: Promu par
-          name: Métadonnées
-          participatory_scope: Objectifs
-          participatory_structure: Modalités de décision
-          target: Qui participe
         participatory_processes:
           name: Concertations
         stats:
           name: Statistiques
         title:
           meta_scope: Secteur
-          name: Titre, description et hashtag
           participatory_processes:
             one: 1 concertation
             other: "%{count} concertations"
@@ -451,16 +441,6 @@ fr-CA:
         title: Concertations
       last_activity:
         new_participatory_process: Nouvelle concertation
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Concertations actives
-            active_step: Étape active
-            more_information: Plus d'informations
-            participate: Participer
-            participate_in: Participer au processus %{resource_name}
-            processes_button_title: Lien vers la page Concertation où toutes les concertations sont affichées
-            see_all_processes: Voir toutes les concertations
       participatory_process_steps:
         index:
           back_to_process: Retour à la page du processus
@@ -491,24 +471,13 @@ fr-CA:
             past: Passés
             upcoming: À venir
           see: Voir
-        index:
-          loading: Chargement des résultats...
         show:
           title: A propos de cette concertation
       show:
-        area: Périmètre d'assemblée
         belongs_to_group: Cette concertation appartient à
         dates: Dates
-        developer_group: Organisateur
-        end_date: Date de fin
-        local_area: Espace d'organisation
-        participatory_scope: Objectifs
-        participatory_structure: Modalités de décision
         private_space: Ceci est une concertation privée
         related_processes: Concertations liées
-        scope: Périmètre d'application
-        start_date: Date de début
-        target: Participants
         unspecified: Non précisé
     statistics:
       processes_count: Concertations
@@ -519,10 +488,6 @@ fr-CA:
           browse: Parcourir
           browse_resource: Parcourir le groupe de processus %{resource_name}
           processes_count: 'Concertations :'
-      participatory_process_widgets:
-        show:
-          active_step: 'Étape actuelle :'
-          take_part: Participer
       participatory_processes:
         index:
           promoted_processes: Concertations mises en avant
@@ -532,14 +497,6 @@ fr-CA:
           more_info_about: Plus d'infos sur le processus %{resource_name}
           take_part: Participer
           take_part_in: Participer au processus %{resource_name}
-        promoted_process:
-          active_step: 'Étape actuelle :'
-          more_info: Plus d'informations
-          more_info_about: Plus d'infos sur le processus %{resource_name}
-          take_part: Participer
-          take_part_in: Participer au processus %{resource_name}
-        promoted_process_group:
-          more_info: Plus d'informations
       process_header_steps:
         step: Étape %{current} sur %{total}
         view_steps: Voir les étapes
