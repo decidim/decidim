@@ -384,7 +384,7 @@ ca:
         select_initiative_type:
           back: Torna
           choose_html: Vull <strong>%{title}</strong>
-          more_information: Més informació
+          more_information: (Més informació)
           new: Crea una nova iniciativa
           select: Vull promoure aquesta iniciativa
           select_initiative_type_help: Les iniciatives són un mitjà pel qual les participants poden intervenir perquè l'organització pugui emprendre accions en defensa de l'interès general. Quina iniciativa vols iniciar?
