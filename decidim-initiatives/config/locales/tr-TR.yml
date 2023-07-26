@@ -304,6 +304,7 @@ tr:
         select_initiative_type:
           back: Geri
           choose_html: <strong>%{title}</strong> oluşturmak istiyorum
+          more_information: (Daha fazla bilgi)
           select: Bu girişimi tanıtmak istiyorum
           select_initiative_type_help: Girişimler, kuruluşun genel menfaati savunmak için eylemlerde bulunabilmesi için katılımcıların müdahale edebilecekleri bir araçtır. Hangi girişimi başlatmak istiyorsunuz?
         share_committee_link:
