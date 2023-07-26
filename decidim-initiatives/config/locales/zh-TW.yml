@@ -380,6 +380,7 @@ zh-TW:
         select_initiative_type:
           back: 返回
           choose_html: 我想要創建一個<strong>%{title}</strong>
+          more_information: (更多資訊)
           select: 我想推動這個倡議
           select_initiative_type_help: 倡議是參與者可以通過其來干預，以便組織可以為捍衛公共利益而采取行動的手段。您希望發起哪個倡議？
           verification_required: 驗證您的帳戶以推動這個倡議
