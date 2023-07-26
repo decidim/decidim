@@ -24,7 +24,7 @@
     <%= decidim_form_for(@form, html: { class: "form form-defaults edit_participatory_process" }) do |f| %>
       <%= render partial: "form", object: f %>
       <div class="item__edit-sticky">
-        <div class="item__edit-sticky-container">
+        <div class="item__edit-sticky-container !py-4">
           <%= f.submit t("participatory_processes.edit.update", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
 
           <% if allowed_to? :publish, :process, process: current_participatory_process %>

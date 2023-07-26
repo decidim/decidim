@@ -19,7 +19,7 @@
     <%= decidim_form_for @form, html: { class: "form-defaults form edit_initiative" } do |f| %>
       <%= render partial: "form", object: f %>
       <div class="item__edit-sticky">
-        <div class="item__edit-sticky-container">
+        <div class="item__edit-sticky-container !py-4">
           <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" if allowed_to? :update, :initiative, initiative: current_initiative %>
 
             <% if allowed_to? :send_to_technical_validation, :initiative, initiative: current_initiative %>

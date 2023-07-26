@@ -102,7 +102,7 @@
   }
 
   &-sticky{
-    @apply w-full fixed left-[120px] bottom-0 bg-gray-2;
+    @apply w-full fixed left-[120px] bottom-0 bg-gray-2 border-t border-white;
 
     &-container{
       @apply container flex gap-x-4 justify-end;

@@ -19,7 +19,7 @@
     <%= decidim_form_for(@form, html: { class: "form form-defaults edit_conference conference_form_admin" }) do |f| %>
       <%= render partial: "form", object: f %>
       <div class="item__edit-sticky">
-        <div class="item__edit-sticky-container">
+        <div class="item__edit-sticky-container !py-4">
           <%= f.submit t("conferences.edit.update", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
 
           <% if allowed_to? :publish, :conference, conference: current_conference %>

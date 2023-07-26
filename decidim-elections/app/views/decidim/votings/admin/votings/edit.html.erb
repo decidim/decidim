@@ -20,7 +20,7 @@
                          html: { class: "form form-defaults edit_voting" } do |f| %>
       <%= render partial: "form", object: f %>
       <div class="item__edit-sticky">
-        <div class="item__edit-sticky-container">
+        <div class="item__edit-sticky-container !py-4">
           <%= f.submit t("votings.edit.update", scope: "decidim.votings.admin"), class: "button button__sm md:button__lg button__secondary", disabled: !allowed_to?(:update, :voting, voting: current_voting) %>
 
           <% if allowed_to? :publish, :voting, voting: @current_voting %>
