@@ -1,38 +1,22 @@
-<% content_for :breadcrumb_nav do %>
-<div class="process-title">
-  <div class="container">
-    <div class="process-title-content">
-      <div class="process-title-content-breadcrumb-container-left">
-        <%= link_to decidim_admin.root_path, class: "process-title-content-icon-home", data: { "external-link": false } do %>
-          <%= icon "home-gear-line" %>
-        <% end %>
-        <span class="text-white">/</span>
-        <%= link_to t("decidim.admin.titles.assemblies"), decidim_admin_assemblies.assemblies_path, data: { "external-link": false }, class: "process-title-content-breadcrumb" %>
-        <span class="text-white">/</span>
-        <span class="process-title-content-breadcrumb">
-          <%= translated_attribute(current_participatory_space.title) %>
-        </span>
-      </div>
-      <div class="process-title-content-breadcrumb-container-right">
-        <%= link_to decidim_assemblies.assembly_path(current_participatory_space), class: "process-title-content-breadcrumb-container-right-link", target: "_blank", data: { "external-link": false } do %>
-          <%= icon "eye-line" %>
-          <span>
-            <%= t("see_assembly", scope: "decidim.admin.menu.assemblies_submenu") %>
-          </span>
-        <% end %>
-        <div class="inline-block relative">
-          <%= button_tag id: "assembly-dropdown-menu-trigger", data: { component: 'dropdown', target: 'assembly-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
-            <%= icon "more-line" %>
-          <% end %>
-          <div id="assembly-dropdown-menu-settings" class="process-title-content-dropdown">
-            <%= sidebar_menu(:admin_assembly_menu).render %>
-          </div>
-        </div>
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <%= link_to decidim_assemblies.assembly_path(current_participatory_space), class: "process-title-content-breadcrumb-container-right-link", target: "_blank", data: { "external-link": false } do %>
+      <%= icon "eye-line" %>
+      <span>
+        <%= t("see_assembly", scope: "decidim.admin.menu.assemblies_submenu") %>
+      </span>
+    <% end %>
+    <div class="inline-block relative">
+      <%= button_tag id: "assembly-dropdown-menu-trigger", data: { component: 'dropdown', target: 'assembly-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
+        <%= icon "more-line" %>
+      <% end %>
+      <div id="assembly-dropdown-menu-settings" class="process-title-content-dropdown">
+        <%= sidebar_menu(:admin_assembly_menu).render %>
       </div>
     </div>
   </div>
-</div>
 <% end %>
+
 <%= render "layouts/decidim/admin/application" do %>
   <div class="process-content">
     <%= yield %>

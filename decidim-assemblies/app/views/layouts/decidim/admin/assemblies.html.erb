@@ -1,55 +1,39 @@
-<% content_for :breadcrumb_nav do %>
-<div class="process-title">
-  <div class="container">
-    <div class="process-title-content">
-      <div class="process-title-content-breadcrumb-container-left">
-        <%= link_to decidim_admin.root_path, class: "process-title-content-icon-home", data: { "external-link": false } do %>
-          <%= icon "home-gear-line" %>
-        <% end %>
-        <span class="text-white">/</span>
-        <span class="process-title-content-breadcrumb">
-          <%= t("decidim.admin.titles.assemblies") %>
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <% if allowed_to? :create, :assembly %>
+      <%= link_to new_assembly_path(parent_id: parent_assembly&.id), class: "process-title-content-breadcrumb-container-right-link" do %>
+        <%= icon "add-line", class: "w-4 h-4" %>
+        <span>
+          <%= t("actions.new_assembly", scope: "decidim.admin") %>
         </span>
-      </div>
-      <div class="process-title-content-breadcrumb-container-right">
-        <% if allowed_to? :create, :assembly %>
-          <%= link_to new_assembly_path(parent_id: parent_assembly&.id), class: "process-title-content-breadcrumb-container-right-link" do %>
-            <%= icon "add-line", class: "w-4 h-4" %>
-            <span>
-              <%= t("actions.new_assembly", scope: "decidim.admin") %>
-            </span>
-          <% end %>
-        <% end %>
-        <div class="inline-block relative">
-          <%= button_tag id: "assemblies-dropdown-menu-trigger", data: { component: 'dropdown', target: 'assemblies-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
-            <%= icon "more-line" %>
-          <% end %>
-          <div id="assemblies-dropdown-menu-settings">
-            <ul class="dropdown dropdown__bottom">
-              <li class="dropdown__item">
-                <% if allowed_to? :import, :assembly %>
-                  <%= icon "price-tag-3-line" %>
-                   <%= link_to t("actions.import_assembly", scope: "decidim.admin"),
-                               new_import_path,
-                               class: "text-secondary" %>
-                 <% end %>
-              </li>
-              <li class="dropdown__item">
-                <% if allowed_to? :read, :assemblies_setting %>
-                  <%= icon "upload-line" %>
-                  <%= link_to t("menu.assemblies_settings", scope: "decidim.admin"),
-                             decidim_admin_assemblies.edit_assemblies_settings_path,
-                             class: "text-secondary" %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <% end %>
+    <% end %>
+    <div class="inline-block relative">
+      <%= button_tag id: "assemblies-dropdown-menu-trigger", data: { component: 'dropdown', target: 'assemblies-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
+        <%= icon "more-line" %>
+      <% end %>
+      <div id="assemblies-dropdown-menu-settings">
+        <ul class="dropdown dropdown__bottom">
+          <li class="dropdown__item">
+            <% if allowed_to? :import, :assembly %>
+              <%= icon "price-tag-3-line" %>
+               <%= link_to t("actions.import_assembly", scope: "decidim.admin"),
+                           new_import_path,
+                           class: "text-secondary" %>
+             <% end %>
+          </li>
+          <li class="dropdown__item">
+            <% if allowed_to? :read, :assemblies_setting %>
+              <%= icon "upload-line" %>
+              <%= link_to t("menu.assemblies_settings", scope: "decidim.admin"),
+                         decidim_admin_assemblies.edit_assemblies_settings_path,
+                         class: "text-secondary" %>
+            <% end %>
+          </li>
+        </ul>
       </div>
     </div>
-    <%#= sidebar_menu(:admin_assemblies_menu).render %>
   </div>
-</div>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>
