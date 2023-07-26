@@ -231,6 +231,7 @@ gl:
         select_initiative_type:
           back: De volta
           choose_html: Quero crear un <strong>%{title}</strong>
+          more_information: (Máis información)
           select: Quero promocionar esta iniciativa
         share_committee_link:
           invite_to_committee_help: Ligazón para convidar persoas que formarán parte do comité promotor
