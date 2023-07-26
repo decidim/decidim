@@ -100,12 +100,12 @@ is-IS:
           candidate_proposal_ids: Flokkun tillögur röð og auðkenni
           candidate_proposals_info: 'Flokkunin var gerð meðal eftirfarandi tillagna (%{category_label}), með eftirfarandi auðkenni (með feitletruðu völdum tillögum)  '
           category: frá %{category} flokki
-          dice_result: "(1) Dice niðurstaða"
+          dice_result: (1) Dice niðurstaða
           introduction: 'Þessi síða inniheldur niðurstöður flokkunarinnar %{reference}. Með þessari flokkun hafa %{target_items} fjöldi niðurstaðna verið valin af handahófi og með jöfn líkindadreifingu frá settum tillögum sem birtast á skjánum. Í sambandi við niðurstöðurnar eru upplýsingar sem birtar eru á þessari síðu allar nauðsynlegar upplýsingar til að hámarka ábyrgðir og endurskapa niðurstöðurnar. Lykillinn að gæðum þessa flokks er tvöfalt handahófi sem er gefin út af túlkun (staðfest af vitni) og nákvæman tíma flokkunarinnar sem gefur inntak fyrir reiknirit sem býr til handahófi val. Tímasæðið fyrir flokkunina er svo nákvæm (sekúndur) að það er ómögulegt að stjórna af mönnum og gefur þannig tvöfalt "óráðanlegt" inntak til að tryggja sanngjarna afleiðingu.  '
           mathematical_result: Niðurstaða (1) x (2)
           proposals_selected_by_sortition: Tillögur valdar af flokkun
           sortition_reproducibility_details: Flokkunarleiðbeiningar upplýsingar
-          time_seed: "(2) Tími fræ"
+          time_seed: (2) Tími fræ
           witnesses: Vottar
         sortitions_count:
           count:
