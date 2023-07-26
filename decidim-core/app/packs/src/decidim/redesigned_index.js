@@ -85,7 +85,6 @@ import {
   createDropdown,
   Dialogs
 } from "./redesigned_a11y"
-import enhanceBreadcrumbDropdownEvents from "./redesigned_enhance_breadcrumb_dropdown_events"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referrenced through a single Decidim.I18n object
@@ -206,9 +205,6 @@ const initializer = (element = document) => {
   element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
 
   document.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
-
-  // Tweak for mouse events of the breadcrumb dropdowns
-  element.querySelectorAll("[data-enhance-dropdown]").forEach((elem) => enhanceBreadcrumbDropdownEvents(elem))
 }
 
 // If no jQuery is used the Tribute feature used in comments to autocomplete

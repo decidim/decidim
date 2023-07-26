@@ -221,7 +221,7 @@ header {
       &__dropdown-trigger {
         @apply flex rounded px-2 py-1 z-20;
 
-        &[id*="dropdown"]:hover {
+        &:hover {
           @apply z-10 relative before:content-[''] before:absolute before:w-[calc(100%+3rem+1px)] before:min-w-[10rem] before:h-40 before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/4 before:-z-10;
         }
 
@@ -247,11 +247,44 @@ header {
         @apply cursor-auto;
 
         &[aria-hidden="true"] {
-          @apply md:opacity-0 pointer-events-none transition duration-300 delay-300 [&>*]:pointer-events-none;
+          animation-name: fadeOut;
+          animation-duration: 300ms;
+          animation-delay: 300ms;
+          animation-fill-mode: forwards;
+
+          &:hover {
+            animation: none;
+          }
         }
 
         &[aria-hidden="false"] {
-          @apply md:opacity-100 pointer-events-auto transition duration-300 [&>*]:pointer-events-auto;
+          animation-name: fadeIn;
+          animation-duration: 300ms;
+          animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            visibility: hidden;
+          }
+
+          to {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+
+        @keyframes fadeOut {
+          from {
+            opacity: 1;
+            visibility: visible;
+          }
+
+          to {
+            opacity: 0;
+            visibility: hidden;
+          }
         }
       }
 
