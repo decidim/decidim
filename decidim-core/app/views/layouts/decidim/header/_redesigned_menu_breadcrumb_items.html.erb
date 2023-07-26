@@ -22,7 +22,7 @@
       </div>
     </div>
   <% else %>
-    <%= link_to_if(item[:url].present? && !is_active_link?(item[:url], :exclusive), item_label, item[:url], class:"menu-bar__breadcrumb-desktop__dropdown-trigger", "aria-current": (item[:active] ? "page" : nil)) do %>
+    <%= link_to_if(item[:url].present? && !is_active_link?(item[:url], :exclusive), item_label, item[:url], class:"menu-bar__breadcrumb-desktop__dropdown-wrapper menu-bar__breadcrumb-desktop__dropdown-trigger", "aria-current": (item[:active] ? "page" : nil)) do %>
       <%# alternative template %>
       <%= content_tag :span, item_label, class:"menu-bar__breadcrumb-desktop__dropdown-trigger no-interactive", tabindex: "0", "aria-current": "page" if item[:active] %>
     <% end %>
