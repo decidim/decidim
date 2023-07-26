@@ -157,6 +157,7 @@ ro:
             title: Numărul maxim de proiecte a fost depășit
         budget_summary:
           are_you_sure: Sigur dorești să îți anulezi votul?
+          cancel_order: șterge votul și reia procesul
           checked_out:
             title: Votul pentru buget a fost finalizat
         count:
@@ -192,6 +193,9 @@ ro:
             one: vot
             few: voturi
             other: voturi
+        project_budget_button:
+          add: Adaugă la votul tău
+          added: Adăugat la votul tău
         projects_for: Proiecte pentru %{name}
         show:
           budget: Buget
