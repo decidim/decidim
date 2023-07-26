@@ -493,8 +493,7 @@ cs:
             all: Vše
             citizens: Občané
             official: Úředník
-            user_groups: Skupiny
-          scope: Oblast působnosti
+          scope: Rozsah
           search: Vyhledávání
           type: Typ
           type_values:
@@ -542,13 +541,11 @@ cs:
         show:
           attendees: Počet účastníků
           back: Zpět na seznam
-          close_meeting: Ukončit schůzku
+          close_meeting: Zavřete schůzku
           contributions: Počet příspěvků
           date: Datum
-          edit_close_meeting: Upravit zprávu schůzky
           edit_meeting: Upravit schůzku
           going: Přihlásili jste se k této schůzce
-          join: Připojte se k setkání
           leave: Zrušit registraci
           leave_confirmation: Opravdu chcete zrušit registraci na tuto schůzku?
           link_available_soon: Odkaz bude brzy k dispozici
