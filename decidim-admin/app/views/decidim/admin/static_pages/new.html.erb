@@ -1,13 +1,15 @@
-<%= decidim_form_for(@form, html: { class: "form new_static_page" }) do |f| %>
-  <div class="card">
-    <div class="card-divider">
-      <h2 class="card-title"><%= t ".title" %></h2>
+<div class="form__wrapper">
+  <%= decidim_form_for(@form, html: { class: "form new_static_page" }) do |f| %>
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title"><%= t ".title" %></h2>
+      </div>
+      <div class="card-section">
+        <%= render partial: "form", object: f %>
+      </div>
     </div>
-    <div class="card-section">
-      <%= render partial: "form", object: f %>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
     </div>
-  </div>
-  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
-  </div>
-<% end %>
+  <% end %>
+</div>

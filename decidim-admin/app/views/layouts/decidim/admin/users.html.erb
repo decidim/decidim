@@ -1,7 +1,13 @@
-<% content_for :sidebar_menu_nav do %>
-  <%= sidebar_menu(:admin_user_menu).render(title: t(".title") ) %>
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <%= button_tag id: "assembly-dropdown-menu-trigger", data: { component: 'dropdown', target: 'assembly-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
+      <%= icon "more-line" %>
+    <% end %>
+    <div id="assembly-dropdown-menu-settings" class="process-title-content-dropdown">
+      <%= sidebar_menu(:admin_user_menu).render %>
+    </div>
+  </div>
 <% end %>
-
 <%= render "layouts/decidim/admin/application" do %>
   <%= yield %>
 <% end %>
