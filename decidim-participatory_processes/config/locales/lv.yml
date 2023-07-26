@@ -288,9 +288,6 @@ lv:
         description: Līdzdalības procesu skaits šajā organizācijā
         object: līdzdalības procesi
         title: Līdzdalības procesi
-    participatory_process:
-      show:
-        related_assemblies: Saistītās asamblejas
     participatory_process_groups:
       content_blocks:
         stats:
@@ -339,14 +336,6 @@ lv:
         title: Līdzdalības procesi
       last_activity:
         new_participatory_process: Jauns līdzdalības process
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Aktīvie procesi
-            active_step: Aktīvā fāze
-            more_information: Papildu informācija
-            participate: Piedalīties
-            see_all_processes: Skatīt visus procesus
       participatory_processes:
         filters:
           counters:
@@ -370,20 +359,9 @@ lv:
             past: Iepriekšējie
             upcoming: Gaidāmās
           see: Skatīt
-        index:
-          loading: Notiek rezultātu ielāde ...
       show:
-        area: Joma
-        developer_group: Atbalstītāju grupa
-        end_date: Beigu datums
-        local_area: Organizācijas joma
-        participatory_scope: Kas tiek izlemts
-        participatory_structure: Kā tas tiek izlemts
         private_space: Šis ir privāts process
         related_processes: Saistītie procesi
-        scope: Darbības tvērums
-        start_date: Sākuma datums
-        target: Kas piedalās
         unspecified: Nav norādīts
   layouts:
     decidim:
@@ -391,18 +369,10 @@ lv:
         participatory_process_group:
           browse: Pārlūkot
           processes_count: 'Procesi:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktīvā fāze
-          take_part: Piedalīties
       participatory_processes:
         index:
           promoted_processes: Izceltie procesi
         participatory_process:
-          active_step: 'Pašreizējā fāze:'
-          more_info: Sīkāka informācija
-          take_part: Piedalīties
-        promoted_process:
           active_step: 'Pašreizējā fāze:'
           more_info: Sīkāka informācija
           take_part: Piedalīties
