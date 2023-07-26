@@ -311,16 +311,12 @@ pl:
               not_found: 'Nie znaleziono organizatora w bazie danych (ID: %{id})'
       calendar_modal:
         calendar_url: Adres URL kalendarza
-        close_window: Zamknij okno
         copy_calendar_url_description: Możesz zobaczyć wszystkie opublikowane spotkania w swojej aplikacji kalendarza. Skopiuj i wklej ten adres URL w swoim kalendarzu, używając opcji "Dodaj nowy kalendarz z URL".
         export_calendar: Eksportuj kalendarz
       close_meeting_reminder_mailer:
         close_meeting_reminder:
           subject: Teraz możesz zamknąć spotkanie z opublikowaniem raportu na platformie %{organization_name}
       conference_venues: Sale konferencyjne
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: Pokaż wszystkie
       directory:
         meetings:
           index:
@@ -342,7 +338,6 @@ pl:
         calendar_modal:
           add_to_calendar: Dodaj do kalendarza
           apple: Dodaj do kalendarza Apple
-          close_window: Zamknij okno
           google: Dodaj do kalendarza Google
           outlook: Dodaj do kalendarza Outlook
         count:
@@ -372,19 +367,12 @@ pl:
           origin_values:
             all: Wszystkie
             official: Oficjalny
-            user_groups: Grupy
-          scope: Zakres
           search: Szukaj
           type: Typ
           type_values:
             all: Wszystko
             in_person: Osobiście
             online: Online
-        filters_small_view:
-          close_modal: Zamknij okno
-          filter: Filtruj
-          filter_by: Filtruj według
-          unfold: Rozwiń
         form:
           address_help: 'Adres: używany przez Geocodera do znalezienia lokalizacji'
           available_slots_help: Zostaw 0 jeśli masz nieograniczoną liczbę dostępnych miejsc
@@ -398,8 +386,6 @@ pl:
           select_a_registration_type: Wybierz typ rejestracji
         index:
           new_meeting: Nowe spotkanie
-        meeting_minutes:
-          related_information: Powiązana informacja
         meetings:
           upcoming_meetings_warning: Obecnie nie ma żadnych zaplanowanych spotkań, ale możesz zobaczyć wszystkie przeszłe.
         new:
@@ -411,11 +397,8 @@ pl:
           confirm: Potwierdź
         show:
           attendees: Liczba osób biorących udział
-          back: Powrót do listy
-          close_meeting: Zakończ spotkanie
           contributions: Liczba wsparć
           date: Data
-          edit_meeting: Edytuj spotkanie
           join: Dołącz do spotkania
           leave: Anuluj swoją rejestrację
           meeting_minutes: Protokół ze spotkania
@@ -434,8 +417,6 @@ pl:
         update:
           invalid: Wystąpił błąd podczas aktualizowania spotkania.
           success: Spotkanie zostało zaktualizowane.
-      meetings_map:
-        view_meeting: Zobacz spotkanie
       models:
         invite:
           fields:
@@ -490,8 +471,6 @@ pl:
       types:
         private_meeting: Prywatne spotkanie
         transparent: Transparentne
-      versions:
-        back_to_resource: Wróć do spotkania
     metrics:
       meetings:
         description: Liczba utworzonych spotkań
