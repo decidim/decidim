@@ -630,6 +630,17 @@ cs:
           buttons:
             check: Zkontrolujte a pokračujte
             uncheck: Ponechat nezaškrtnuté
+          notice: |-
+            <p>Hej, jste si jisti, že nechcete dostávat zpravodaj?<br>
+            Zaškrtněte prosím zaškrtávací políčko níže.<br>
+            Pro nás je velmi důležité, abyste obdrželi příležitostné e-maily
+            abyste dostali důležitá oznámení, můžete to vždy změnit v
+            nastavení oznámení.</p>
+            <p>Pokud nezaškrtnete zaškrtávací políčko, může vám chybět relevantní informace
+            o nových příležitostech pro účast v rámci platformy.<br>
+            Pokud se chcete i nadále vyhýbat přijímání informačních zpravodajů, naprosto
+            rozumíme vašemu rozhodnutí.</p>
+            <p>Děkujeme, že jste si to přečetli!</p>
           title: Oznámení zpravodaje
         omniauth_buttons:
           or: Nebo
@@ -637,9 +648,9 @@ cs:
       authorizations:
         new:
           authorize: Autorizovat aplikaci
-          by_organization_link_html: od %{link}
+          by_organization_link_html: <small class="heading-small">podle %{link}</small>
           cancel: Zrušit
-          connect_your_account_html: Připojte svůj účet přihlášením k %{organization}.
+          connect_your_account_html: Připojte svůj účet přihlášením k <strong>%{organization}</strong>.
           publish_content: Publikujte obsah pro vás
           see_email: Podívejte se na svůj e-mail
           see_name: Zobrazte své jméno
@@ -647,7 +658,7 @@ cs:
           this_application_will_be_able_to: 'Tato aplikace bude schopna:'
           this_application_will_not_be_able_to: 'Tato aplikace nebude moci:'
           update_profile: Aktualizujte svůj profil
-          wants_to_use_your_account_html: "%{application_name} chce použít váš účet"
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce používat váš účet"
     download_your_data:
       export:
         ready: Připraven
@@ -1323,7 +1334,7 @@ cs:
       participatory_space:
         metrics:
           headline: Metriky
-          link: Zobrazit vše
+          link: Zobrazit všechny metriky
       terms_of_service:
         accept:
           error: Při přijímání podmínek služby došlo k chybě.
@@ -1594,7 +1605,7 @@ cs:
         version: Verze %{number}
     versions_list_item:
       show:
-        version_index: Verze %{index} z %{total}
+        version_index: Verze %{index}
     welcome_notification:
       default_body: <p>Dobrý den, {{name}}, díky za připojení k {{organization}} a vítejte!</p><ul><li>Chcete-li získat rychlou představu o tom, co zde můžete udělat, podívejte se na sekci <a href="{{help_url}}">Nápověda</a>.</li><li>Až si ji přečtete, dostanete svůj první odznak. Zde je <a href="{{badges_url}}">seznam všech odznaků</a> které můžete získat, když se účastníte {{organization}}</li><li>v neposlední řadě se připojte k ostatním lidem, sdílejte s nimi zkušenost z toho, že jste se zapojili a zúčastnili se {{organization}}. Vypracujte návrhy, připomínky, diskusi, přemýšlejte o tom, jak přispívat ke společnému cíli, poskytněte argumenty, abyste přesvědčili, poslouchali a četli, abyste byli přesvědčeni, vyjadřovali své myšlenky konkrétním a přímým způsobem, reagovali trpělivě a rozhodovali, měli otevřenou mysl ke spolupráci a připojili se k jiným lidem.</li></ul>
       default_subject: Děkujeme, že jste se připojili k {{organization}}!
