@@ -34,6 +34,24 @@ You can read more about this change on PR [\#10288](https://github.com/decidim/d
 
 ## 2. General notes
 
+## 2.1. Redesign
+
+TBD
+
+## 2.2. Consultation
+
+The consultations module has been fully removed from this version, so if you're using it in your application you need to remove it from your Gemfile:
+
+```console
+bundle remove decidim-consultations
+```
+
+If you're not using it, then you don't need to do anything.
+
+If you're maintaining a version of this module, please share the URL of the git repository by [creating an issue on the decidim.org website repository](https://github.com/decidim/decidim.org) so that we can update the [Modules page](https://decidim.org/modules).
+
+You can read more about this change on PR [#11171](https://github.com/decidim/decidim/pull/11171).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
@@ -117,6 +135,26 @@ bundle exec rake decidim:webpacker:install
 ```
 
 This will make the necessary changes in the `config/webpacker.yml`, but also in the `config/webpack/` folder.
+
+### 3.5. Initialize content blocks on spaces or resources with landing page
+
+The processes and assemblies participatory spaces have changed the show page and now is composed using content blocks. For the new spaces created in this version a callback is executed creating the content blocks marked as `default!` in the engine for the corresponding homepage scope. To have the same initialization in the existing spaces there is a task to generate those blocks if not present already. Run the below command to generate default content blocks when not present for all spaces and resources with content blocks homepage (participatory processes, participatory process groups and assemblies):
+
+```console
+bundle exec rake decidim:content_blocks:initialize_default_content_blocks
+```
+
+The task has some optional arguments:
+
+- The first to specify the manifest name and generate the default content blocks only on the spaces or resources with the manifest name (`participatory_processes`, `participatory_process_group` or `assemblies`).
+- The second can be the id of a resource o space to apply only on the space or resource with the id. This argument is considered only if the manifest name argument is present.
+- The last argument only works on participatory spaces (assemblies and participatory processes) and when set as true the task also creates a content block for each published component on the space unless a block already exists for that component or the block exists for the component type and configured to display resources from all components of the same type.
+
+For example, to generate the default content blocks and also the components blocks on participatory spaces run the command with arguments:
+
+```console
+bundle exec rake decidim:content_blocks:initialize_default_content_blocks[,,true]
+```
 
 #### Note for development
 
@@ -299,8 +337,6 @@ The transferred data can differ between the different modules but the official m
 - **decidim-comments**
   - Comments
   - Comment votes
-- **decidim-consultations**
-  - Consultation votes
 - **decidim-debates**
   - Debates
   - Endorsements for debates (through endorsement transfers at `decidim-core`)
@@ -381,7 +417,6 @@ module DecidimYourCity
       Decidim::AuthorizationTransfer.unregister(:blogs) # blog posts
       Decidim::AuthorizationTransfer.unregister(:budgets) # budgets
       Decidim::AuthorizationTransfer.unregister(:comments) # comments
-      Decidim::AuthorizationTransfer.unregister(:consultations) # consultation votes
       Decidim::AuthorizationTransfer.unregister(:debates) # debates
       Decidim::AuthorizationTransfer.unregister(:elections) # elections
       Decidim::AuthorizationTransfer.unregister(:forms) # form answers, e.g. survey form answers or meeting registrations

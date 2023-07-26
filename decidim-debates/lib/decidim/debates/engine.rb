@@ -111,7 +111,7 @@ module Decidim
 
       initializer "decidim_debates.moderation_content" do
         config.to_prepare do
-          Decidim::EventsManager.subscribe("decidim.admin.block_user:after") do |_event_name, data|
+          ActiveSupport::Notifications.subscribe("decidim.admin.block_user:after") do |_event_name, data|
             Decidim::Debates::HideAllCreatedByAuthorJob.perform_later(**data)
           end
         end

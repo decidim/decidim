@@ -18,7 +18,7 @@ gem "decidim-debates", path: "decidim-debates"
 
 [source,ruby]
 ----
-gem "decidim-consultations", git: "https://github.com/decidim/decidim-module-consultations"
+gem "decidim-initiatives", git: "https://github.com/example-github-organization/decidim-module-initiatives"
 ----
 
 * Publishing it on rubygems.org
