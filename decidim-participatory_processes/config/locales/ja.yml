@@ -368,9 +368,6 @@ ja:
         description: この組織の参加型プロセス数
         object: 参加型プロセス
         title: 参加型プロセス
-    participatory_process:
-      show:
-        related_assemblies: 関連する参加型スペース
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -379,19 +376,12 @@ ja:
           name: 2番目のHTMLブロック
         html_3:
           name: 3番目の HTML ブロック
-        metadata:
-          developer_group: プロモーター
-          name: メタデータ
-          participatory_scope: 決定されること
-          participatory_structure: 決定方法
-          target: 参加者
         participatory_processes:
           name: 参加型プロセス
         stats:
           name: 統計情報
         title:
           meta_scope: スコープ
-          name: タイトル、説明、ハッシュタグ
           participatory_processes:
             other: "%{count} 個のプロセス"
       show:
@@ -447,16 +437,6 @@ ja:
         title: 参加型プロセス
       last_activity:
         new_participatory_process: 参加型プロセス
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: アクティブな参加型プロセス
-            active_step: アクティブフェーズ
-            more_information: 詳細情報
-            participate: 参加
-            participate_in: 参加型プロセス %{resource_name} に参加する
-            processes_button_title: すべてのプロセスを表示するプロセスページへのリンク
-            see_all_processes: すべての参加型プロセスを見る
       participatory_process_steps:
         index:
           back_to_process: 参加型プロセスのページに戻る
@@ -483,24 +463,13 @@ ja:
             past: 過去
             upcoming: 近日公開
           see: 見る
-        index:
-          loading: 結果を読み込み中...
         show:
           title: このプロセスについて
       show:
-        area: エリア
         belongs_to_group: このプロセスの所属グループ
         dates: 日付
-        developer_group: プロモーターグループ
-        end_date: 終了日
-        local_area: 組織エリア
-        participatory_scope: 決定されるもの
-        participatory_structure: どのように決められますか？
         private_space: これはプライベートな参加型プロセスです
         related_processes: 関連する参加型プロセス
-        scope: スコープ
-        start_date: 開始日
-        target: 参加者
         unspecified: 指定されていない
     statistics:
       processes_count: プロセス
@@ -511,10 +480,6 @@ ja:
           browse: 検索
           browse_resource: 参加型プロセスグループ %{resource_name} を参照
           processes_count: '参加型プロセス:'
-      participatory_process_widgets:
-        show:
-          active_step: アクティブフェーズ
-          take_part: 参加する
       participatory_processes:
         index:
           promoted_processes: ハイライトされた参加型プロセス
@@ -524,14 +489,6 @@ ja:
           more_info_about: 参加型プロセス %{resource_name} についての詳細情報
           take_part: 参加する
           take_part_in: 参加型プロセス %{resource_name} に参加する
-        promoted_process:
-          active_step: '現在のフェーズ:'
-          more_info: 詳細情報
-          more_info_about: 参加型プロセス %{resource_name} についての詳細情報
-          take_part: 参加する
-          take_part_in: 参加型プロセス %{resource_name} に参加する
-        promoted_process_group:
-          more_info: 詳細情報
       process_header_steps:
         step: 段階 %{current} / %{total}
         view_steps: プロセスのフェーズ
