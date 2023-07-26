@@ -22,8 +22,6 @@ pt-BR:
         update:
           error: Houve um erro ao atualizar o comentário.
       comments_count: Contagem de Comentários
-      last_activity:
-        new_comment_at_html: "<span>Novo comentário em %{link}</span>"
       view: Visualizar
       votes:
         create:
@@ -35,7 +33,6 @@ pt-BR:
           body:
             label: Comente
             placeholder: O que você pensa sobre isso?
-          submit: Enviar
           user_group_id:
             label: Comente como
         opinion:
@@ -79,8 +76,6 @@ pt-BR:
           older: Mais velho
           recent: Recente
         title: 'Ordenar por:'
-      comment_thread:
-        title: Conversa com %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Você precisa ser verificado para comentar neste momento, mas pode ler os anteriores.
         blocked_comments_for_user_warning: Você não pode comentar neste momento, mas pode ler os anteriores.
