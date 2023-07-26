@@ -3,8 +3,8 @@
   <span>/</span>
   <% if item[:dropdown_cell].present? %>
     <div class="relative">
-      <div class="menu-bar__breadcrumb-desktop__dropdown-wrapper" onmouseenter="document.getElementById('secondary-dropdown-summary-<%= i %>').click()" <%== 'aria-current="page"' if item[:active] %>>
-        <%= link_to item[:url], class: "menu-bar__breadcrumb-desktop__dropdown-trigger" do %>
+      <div class="menu-bar__breadcrumb-desktop__dropdown-wrapper" <%== 'aria-current="page"' if item[:active] %>>
+        <%= link_to item[:url], class: "menu-bar__breadcrumb-desktop__dropdown-trigger", onmouseenter: "document.getElementById('secondary-dropdown-summary-#{i}').click()" do %>
           <%= item_label %>
         <% end %>
         <button id="secondary-dropdown-summary-<%= i %>"
