@@ -279,6 +279,9 @@ pt:
             update: Atualizar
           form:
             title: Definições para as reuniões
+        assemblies_types:
+          form:
+            title: Título
         assembly_copies:
           form:
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
