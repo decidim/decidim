@@ -217,7 +217,7 @@ de:
             title: Maximale Anzahl Projekte überschritten
         budget_summary:
           are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen wollen?
-          cancel_order: Ihre Stimme löschen
+          cancel_order: Löschen Sie Ihre Stimme und beginnen Sie von vorne
           checked_out:
             description: Sie haben bereits über dieses Budget abgestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
             title: Budget-Abstimmung abgeschlossen
@@ -275,9 +275,9 @@ de:
             other: Abstimmungen
           you_voted: Sie haben dafür gestimmt
         project_budget_button:
-          add: Hinzufügen
+          add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} zu Ihrer Abstimmung hinzufügen.
-          added: Hinzugefügt
+          added: Zu deiner Abstimmung hinzugefügt
           added_descriptive: Project %{resource_name} zu Ihrer Abstimmung hinzugefügt.
         project_filter:
           added: Hinzugefügt
