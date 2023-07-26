@@ -387,7 +387,7 @@ ca:
     participatory_spaces:
       highlighted_proposals:
         last: Propostes més recents
-        see_all: Veure totes les propostes
+        see_all: Veure tots (%{count})
     proposals:
       actions:
         answer_proposal: Respondre a la proposta
@@ -698,7 +698,7 @@ ca:
             success: "S'ha rebutjat amb èxit a @%{user} com a col·laboradora."
         show:
           edit: Edita l'esborrany col·laboratiu
-          final_proposal: Proposta final
+          final_proposal: proposta final
           final_proposal_help_text: Aquest esborrany està finalitzat. Consulta la proposta final
           hidden_authors_count:
             one: i %{count} persona més
@@ -706,7 +706,7 @@ ca:
           info-message: Aquest és un <strong>esborrany col·laboratiu</strong> per a una proposta. Això significa que pots ajudar les seves autores a modelar la proposta, utilitzant la secció de comentaris a continuació, o a millorar-la demanant accés per editar-la directament. Un vegada les autores et donin accés, podràs fer canvis en aquest esborrany.
           publish: Publica
           publish_info: Publica aquesta versió de l'esborrany o
-          published_proposal: Proposta publicada
+          published_proposal: proposta publicada
           request_access: Sol·licitud d'accés
           requested_access: S'ha sol·licitat l'accés
           withdraw: retira l'esborrany
@@ -883,7 +883,7 @@ ca:
           title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
-            votes: Queda/en %{number} suport/s
+            votes: Suports
         wizard_aside:
           back: Torna
           back_from_step_1: Tornar a propostes
