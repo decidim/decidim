@@ -9,7 +9,6 @@ is:
             label: Athugasemd
             placeholder: Hvað finnst þér um þetta?
           form_error: Textinn er krafist og það má ekki vera lengri en %{length} stafir.
-          submit: Senda
           user_group_id:
             label: Athugasemd sem
         opinion:
