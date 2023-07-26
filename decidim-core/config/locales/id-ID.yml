@@ -297,6 +297,7 @@ id:
       authorizations:
         new:
           authorize: Otorisasi aplikasi
+          by_organization_link_html: <small class="heading-small">per %{link}</small>
           cancel: Membatalkan
           publish_content: Publikasikan konten untuk Anda
           see_email: Lihat email Anda
@@ -305,6 +306,7 @@ id:
           this_application_will_be_able_to: 'Aplikasi ini akan dapat:'
           this_application_will_not_be_able_to: 'Aplikasi ini tidak akan dapat:'
           update_profile: Perbarui profil Anda
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> ingin menggunakan akun Anda"
     download_your_data:
       export:
         ready: Siap
@@ -656,6 +658,7 @@ id:
       participatory_space:
         metrics:
           headline: Partisipasi dalam angka
+          link: Tampilkan semua statistik
     participatory_space_private_users:
       not_allowed: Anda tidak diizinkan untuk melihat konten ini
     profile:
