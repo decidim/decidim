@@ -301,6 +301,9 @@ ro:
             update: Actualizează
           form:
             title: Setări pentru grupuri de lucru
+        assemblies_types:
+          form:
+            title: Titlu
         assembly_copies:
           form:
             slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
