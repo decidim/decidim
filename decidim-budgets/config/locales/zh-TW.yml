@@ -212,7 +212,9 @@ zh-TW:
             title: 超過最大專案數量
         budget_summary:
           are_you_sure: 您確定要取消您的投票嗎?
+          cancel_order: 刪除你的投票並重新開始
           checked_out:
+            description: 你已經對預算表決投票了。如果你改變了主意，你可以%{cancel_link}。
             title: 預算投票完成
         count:
           projects_count:
@@ -247,7 +249,9 @@ zh-TW:
             other: 投票
           you_voted: 你已投票支持此
         project_budget_button:
+          add: 加入您的投票
           add_descriptive: 將專案 %{resource_name} 加入您的投票。
+          added: 加入您的投票
           added_descriptive: 將專案 %{resource_name} 加入您的投票。
         projects_for: 專案 %{name}
         show:
