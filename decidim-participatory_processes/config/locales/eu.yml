@@ -320,9 +320,6 @@ eu:
         description: Erakundeko prozesu parte-hartzaile kopurua
         object: prozesu parte-hartzaileak
         title: Parte hartze prozesuak
-    participatory_process:
-      show:
-        related_assemblies: Erlazionatutako batzarrak
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -331,19 +328,12 @@ eu:
           name: Bigarren HTML blokea
         html_3:
           name: Hirugarren HTML blokea
-        metadata:
-          developer_group: Nork sustatua
-          name: Metadatuak
-          participatory_scope: Zer erabakitzen den
-          participatory_structure: Nola erabakitzen da
-          target: Nork hartzen du parte
         participatory_processes:
           name: Prozesu parte-hartzaileak
         stats:
           name: Jarduera
         title:
           meta_scope: Eremua
-          name: Izenburua, deskribapena eta traola
       show:
         title: Parte-hartze prozesuko taldeak
     participatory_process_steps:
@@ -395,16 +385,6 @@ eu:
         title: Prozesu partizipatiboak
       last_activity:
         new_participatory_process: Partaidetza prozesu berria
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Prozesu aktiboak
-            active_step: Urratsa aktiboa
-            more_information: Informazio gehiago
-            participate: Parte hartu
-            participate_in: Parte hartu %{resource_name} prozesuan
-            processes_button_title: Esteka prozesu guztiak erakusten dituen Prozesuen orrialdera
-            see_all_processes: Ikusi prozesu guztiak
       participatory_process_steps:
         index:
           back_to_process: Itzuli prozesuaren orrialdera
@@ -431,22 +411,11 @@ eu:
             past: Aurrekoak
             upcoming: Hurrengoak
           see: Ikusi
-        index:
-          loading: Emaitzak kargatzen...
       show:
-        area: Area
         belongs_to_group: Prozesu hau honi dagokio
         dates: Datak
-        developer_group: Sustatzailearen taldea
-        end_date: Bukaera-data
-        local_area: Antolakuntza eremua
-        participatory_scope: Zer erabaki
-        participatory_structure: Nola erabakitzen da?
         private_space: Prozesu pribatua da
         related_processes: Elkarrekin lotutako prozesuak
-        scope: Esparrua
-        start_date: Hasiera-data
-        target: Nork parte hartzen du
         unspecified: Zehaztu gabea
     statistics:
       processes_count: Prozesuak
@@ -457,10 +426,6 @@ eu:
           browse: Arakatu
           browse_resource: Aztertu %{resource_name} prozesuen multzoa
           processes_count: 'Prozesuak:'
-      participatory_process_widgets:
-        show:
-          active_step: Fase aktiboa
-          take_part: Parte hartu
       participatory_processes:
         index:
           promoted_processes: Prozesu nabarmenduak
@@ -470,14 +435,6 @@ eu:
           more_info_about: Informazio gehiago %{resource_name} prozesuari buruz
           take_part: Parte hartu
           take_part_in: Parte hartu %{resource_name} prozesuan
-        promoted_process:
-          active_step: 'Oraingo fasea:'
-          more_info: Informazio gehiago
-          more_info_about: Informazio gehiago %{resource_name} prozesuari buruz
-          take_part: Parte hartu
-          take_part_in: Parte hartu %{resource_name} prozesuan
-        promoted_process_group:
-          more_info: Informazio gehiago
       process_header_steps:
         step: '%{total} fasetatik %{current}.a'
         view_steps: Ikusi faseak
