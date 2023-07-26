@@ -282,8 +282,6 @@ ar:
         title: العمليات التشاركية
     participatory_process_groups:
       content_blocks:
-        metadata:
-          name: البيانات الوصفية
         stats:
           name: نشاط
       show:
@@ -328,14 +326,6 @@ ar:
         title: العمليات التشاركية
       last_activity:
         new_participatory_process: عملية تشاركية جديدة
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: عمليات نشطة
-            active_step: المرحلة النشطة
-            more_information: معلومات اكثر
-            participate: مشاركة
-            see_all_processes: رؤية جميع العمليات
       participatory_processes:
         filters:
           counters:
@@ -375,20 +365,9 @@ ar:
             past: الماضي
             upcoming: القادمة
           see: نرى
-        index:
-          loading: جارٍ تحميل النتائج ...
       show:
-        area: منطقة
-        developer_group: مجموعة المروجين
-        end_date: تاريخ الانتهاء
-        local_area: منطقة التنظيم
-        participatory_scope: ما الذي تقرر
-        participatory_structure: كيف تقرر ذلك
         private_space: هذه عملية خاصة
         related_processes: العمليات ذات الصلة
-        scope: نطاق
-        start_date: تاريخ البدء
-        target: من يشارك
         unspecified: غير محدد
   layouts:
     decidim:
@@ -396,18 +375,10 @@ ar:
         participatory_process_group:
           browse: تصفح
           processes_count: 'العمليات:'
-      participatory_process_widgets:
-        show:
-          active_step: المرحلة النشطة
-          take_part: خذ جزء
       participatory_processes:
         index:
           promoted_processes: عمليات مميزة
         participatory_process:
-          active_step: 'المرحلة الحالية:'
-          more_info: مزيد من المعلومات
-          take_part: خذ جزء
-        promoted_process:
           active_step: 'المرحلة الحالية:'
           more_info: مزيد من المعلومات
           take_part: خذ جزء
