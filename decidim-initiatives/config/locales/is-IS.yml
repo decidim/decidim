@@ -125,6 +125,7 @@ is-IS:
           more_information: "(Meiri upplýsingar)"
         select_initiative_type:
           back: Til baka
+          more_information: (Meiri upplýsingar)
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, sem þú fylgist með, hefur búið til nýtt frumkvæði, athugaðu það og stuðlað að:"
