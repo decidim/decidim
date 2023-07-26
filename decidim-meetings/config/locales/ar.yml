@@ -443,7 +443,7 @@ ar:
       content_blocks:
         upcoming_meetings:
           name: الاجتماعات المقبلة
-          upcoming_meetings: الاجتماعات المقبلة
+          upcoming_meetings: الاجتماعات القادمة
           view_all_meetings: عرض الكل
       directory:
         meetings:
@@ -518,8 +518,7 @@ ar:
             all: الكل
             official: رسمي
             participants: المشاركون
-            user_groups: المجموعات
-          scope: النطاق
+          scope: نطاق
           search: بحث
           type: النوع
           type_values:
@@ -567,13 +566,11 @@ ar:
         show:
           attendees: الحضور الحضور
           back: العودة إلى القائمة
-          close_meeting: إغلاق الاجتماع
+          close_meeting: اجتماع قريب
           contributions: عدد المساهمات
           date: تاريخ
-          edit_close_meeting: تحرير تقرير الاجتماع
-          edit_meeting: تعديل الاجتماع
+          edit_meeting: تعديل الاجتماعات
           going: لقد قمت بالتسجيل لهذا الاجتماع
-          join: أنضم إلى الأجتماع
           leave: إلغاء التسجيل الخاص بك
           leave_confirmation: هل أنت متأكد من أنك تريد إلغاء تسجيلك لهذا الاجتماع؟
           link_available_soon: سيكون الرابط متوفر قريباً
