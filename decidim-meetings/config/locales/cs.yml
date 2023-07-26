@@ -559,8 +559,10 @@ cs:
           close_meeting: Zavřete schůzku
           contributions: Počet příspěvků
           date: Datum
+          edit_close_meeting: Upravit zprávu schůzky
           edit_meeting: Upravit schůzku
           going: Přihlásili jste se k této schůzce
+          join: Připojit se ke schůzce
           leave: Zrušit registraci
           leave_confirmation: Opravdu chcete zrušit registraci na tuto schůzku?
           link_available_soon: Odkaz bude brzy k dispozici
