@@ -217,9 +217,9 @@ ca:
             title: Màxim de projectes excedit
         budget_summary:
           are_you_sure: Segur que vols cancel·lar el teu vot?
-          cancel_order: Esborra el teu vot
+          cancel_order: eliminar el teu vot i començar de nou
           checked_out:
-            description: Ja has votat pel pressupost. Si has canviat d'idea, pots esborrar el teu vot.
+            description: Ja has votat pel pressupost. Si has canviat d'idea, pots %{cancel_link}.
             title: Vot pels pressupostos completat
           vote: Votar pressupost
         count:
@@ -275,9 +275,9 @@ ca:
             other: vots
           you_voted: Has votat això
         project_budget_button:
-          add: Afegir
+          add: Afegir al teu vot
           add_descriptive: Afegeix el projecte %{resource_name} al teu vot.
-          added: Afegit
+          added: Afegit al teu vot
           added_descriptive: El projecte %{resource_name} s'ha afegit al teu vot.
         project_filter:
           added: Afegit
