@@ -722,6 +722,7 @@ gl:
         form:
           colors:
             colors_title: Cores da organización
+            colors_warning_html: Atención! Mudar estas cores pode estragar ao contrastes de accesibilidade. Podes verificar o contraste da túa elección a través de <a href="%{link}">WebAIM Contrast Checker</a> ou outras ferramentas semellantes.
           cta_button_path_help: 'Pode sobrescribir onde se enlaza o botón de chamada a acción na páxina de inicio. Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición. Exemplo: %{url}'
           cta_button_text_help: Pode sobrescribir o texto do botón de chamada a acción na páxina de inicio para cada idioma dispoñible na súa organización. Se non se establece, empregarase o valor predeterminado. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición.
           homepage_appearance_title: Editar o aspecto da páxina de inicio
@@ -786,6 +787,7 @@ gl:
           update: Actualización
         new:
           create: Crea un tipo de alcance
+          title: Novo alcance
         update:
           error: Produciuse un erro ao actualizar este tipo de alcance.
           success: O tipo de alcance actualizouse con éxito
