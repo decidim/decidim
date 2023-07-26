@@ -831,7 +831,7 @@ hu:
           colors:
             choose_color: Elsődleges szín kiválasztása
             colors_title: Szervezet színei
-            colors_warning_html: Óvatosan! A színek megváltoztatása megtörik az akadálymentes kontrasztokat. Ellenőrizheti a kontrasztot a <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> vagy más, hasonló eszköz segítségével.
+            colors_warning_html: Óvatosan! A színek megváltoztatása megtörik az akadálymentes kontrasztokat. Ellenőrizheti a kontrasztot a <a href="%{link}">WebAIM Contrast Checker</a> vagy más, hasonló eszköz segítségével.
             explanation: Ez az eszköz segít kiválasztani egy színsémát, amely a színkör körül egyenlően elosztott árnyalatokból áll, és amelyet a szervezet weboldalán használnak.
             legend_html: Az alkalmazás fő színei a <a href="https://www.color-meanings.com/triadic-colors/">Triadic algoritmus</a>. A <i>szekunder</i> szín automatikusan kiszámításra kerül az elsődleges színből és a kiválasztott telítettségből.
             saturation: Telítettség
@@ -932,6 +932,7 @@ hu:
           update: Frissítés
         new:
           create: Hatáskör típus létrehozása
+          title: Új hatáskor
         update:
           error: Hiba történt a hatáskör típus frissítése során.
           success: Hatáskör típus frissítése sikeres
