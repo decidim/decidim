@@ -3,7 +3,7 @@
 <% if Decidim.service_worker_enabled %>
   <%= javascript_pack_tag "redesigned_decidim_core", "decidim_sw", defer: false %>
 <% else %>
-  <%= javascript_pack_tag "redesigned_decidim_core", "decidim_editor", defer: false %>
+  <%= javascript_pack_tag "redesigned_decidim_core", defer: false %>
 <% end %>
 
 <%= render partial: "layouts/decidim/js_configuration" %>
