@@ -428,6 +428,7 @@ ro:
             success: Cheia publică de identificare a fost stocată cu succes.
       votes:
         ballot_decision:
+          audit: (scrutin de audit)
           back: Începe procesul de votare din nou
           ballot_hash: 'Identificatorul dvs. de vot este:'
         confirm:
@@ -443,9 +444,12 @@ ro:
           feedback: Oferă-ne un feedback
           header: Votare confirmată
           lead: Votul tău a fost adăugat!
+          text: 'Poți verifica dacă votul tău a fost adăugat cu succes în urna de vot cu următorul identificator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Pentru a verifica, copiați identificatorul și lipiți-l pe pagina <a href="%{link}">pentru verificarea votului</a>
         failed:
           header: Vot eșuat
+        header:
+          confirm: Confirmă votul tău
         messages:
           invalid_token: Sesiunea din cabina de vot nu este validă. Încercați să votați din nou.
           not_allowed: Nu aveţi voie să votaţi asupra acestor alegeri în acest moment.
@@ -456,6 +460,7 @@ ro:
           more_information: Mai multe informații
           preview_alert: Aceasta este o previzualizare a cabinei de votare.
           question_steps: Întrebarea %{current_step} din %{total_steps}
+          selections: "%{selected} din %{max_selections}<br> selecții"
         onboarding_modal:
           create_account: Creează cont
           no_account: Nu, mulțumesc.
