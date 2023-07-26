@@ -236,10 +236,10 @@ tr:
           experience: Şu ana kadarki deneyiminiz nasıl?
           feedback: Bize geri bildirim verin
           header: Oy onaylandı
-          text: 'Aşağıdaki tanımlı kullanıcı için oyununuzun sandığa başarıyla eklendiğini kontrol edebilirsiniz: '
+          text: 'Aşağıdaki tanımlayıcıyla oyunuzun başarıyla oy sandığına eklenip eklenmediğini kontrol edebilirsiniz: <strong class = "evote__poll-id">%{e_vote_poll_id} </strong>'
         header:
           ballot_decision: Kullanmak
-          confirm: Onaylamak
+          confirm: Oyunu onayla
           election: Seçim
           register: Kayıt Olmak
           vote_for: Oy vermek
@@ -254,7 +254,7 @@ tr:
           nota_option: Yukarıdakilerin hiçbiri
           preview_alert: Bu, oylama kabininin bir önizlemesidir.
           question_steps: Soru %{current_step}/%{total_steps}
-          selections: "Maksimum {max_selections} seçenekten %{selected} tane seçildi"
+          selections: "%{selected}/%{max_selections} <br> seçim"
         voting_step:
           back: Geri
           continue: Sonraki
