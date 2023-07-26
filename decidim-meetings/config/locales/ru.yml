@@ -279,10 +279,16 @@ ru:
           value_types:
             organizer_presenter:
               not_found: 'Организатор не найден в базе данных (ID: %{id})'
+      application_helper:
+        filter_scope_values:
+          all: Все
       calendar_modal:
         calendar_url: Ссылка на календарь
         close_window: Закрыть окно
         export_calendar: Экспорт календаря
+      content_blocks:
+        upcoming_meetings:
+          upcoming_meetings: Предстоящие встречи
       directory:
         meetings:
           index:
@@ -302,6 +308,7 @@ ru:
         filters:
           category: Категория
           date: Дата
+          scope: Охват
           search: Поиск
         filters_small_view:
           close_modal: Закрыть окошко
@@ -318,8 +325,8 @@ ru:
           confirm: Подтвердить
         show:
           attendees: Количество участников
+          close_meeting: Закрыть встречу
           contributions: Количество внесенных предложений
-          join: Присоединиться к встрече
           meeting_minutes: Протокол встречи
           no_slots_available: Не осталось мест
           organizations: Участвующие организации
