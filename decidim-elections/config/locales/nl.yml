@@ -166,6 +166,7 @@ nl:
               minimum_answers: Elke vraag heeft <strong>minstens 2 antwoorden</strong>.
               minimum_questions: De stemronde heeft <strong>minstens 1 vraag</strong>.
               published: De stemronde is <strong>gepubliceerd</strong>.
+              time_before: Alles wordt klaargezet <strong>minstens %{hours} uur</strong> voor de stemronde begint.
               trustees_number: De participatieve ruimte <strong>moet minstens %{number} trustees met publieke sleutel</strong> hebben.
             submit: Nieuwe stemronde instellen
             title: Nieuwe stemronde
@@ -418,6 +419,7 @@ nl:
           feedback: Geef ons feedback
           header: Stem bevestigd
           lead: Je stem is opgeslagen!
+          text: 'U kunt controleren of uw stem succesvol is toegevoegd aan de stembus met het volgende identificatie: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Om het te controleren, kopieer de identificatiecode en plak ze in de <a href="%{link}">pagina voor het controleren van stemmen</a>
         create:
           error: Er was een probleem bij het uitbrengen van de stem, probeer het opnieuw.
@@ -429,6 +431,9 @@ nl:
           lead: Je stem is niet uitgebracht!
           text: Er is iets mis gegaan, probeer het alsjeblief nog een keer.
           try_again: Probeer opnieuw
+        header:
+          ballot_decision: Stem uitbrengen of stem controleren
+          confirm: Bevestig uw stem
         messages:
           invalid_token: Je sessie in het stemhokje is niet geldig. Probeer opnieuw te stemmen.
           not_allowed: U mag op dit moment niet stemmen over deze verkiezingen.
@@ -439,6 +444,7 @@ nl:
           more_information: Meer informatie
           preview_alert: Dit is een voorbeeld van de stembooth.
           question_steps: Vraag %{current_step} van %{total_steps}
+          selections: "%{selected} van %{max_selections}<br> selecties"
         onboarding_modal:
           create_account: Account aanmaken
           no_account: Nee, bedankt.
