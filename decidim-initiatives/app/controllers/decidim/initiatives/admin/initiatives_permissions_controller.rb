@@ -9,6 +9,8 @@ module Decidim
         include Decidim::Initiatives::NeedsInitiative
         include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
 
+        add_breadcrumb_item_from_menu :admin_initiative_actions_menu
+
         layout "decidim/admin/initiatives"
 
         register_permissions(::Decidim::Initiatives::Admin::InitiativesPermissionsController,
