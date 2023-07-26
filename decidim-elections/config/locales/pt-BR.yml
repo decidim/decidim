@@ -183,6 +183,7 @@ pt-BR:
               minimum_answers: Cada questão tem <strong>pelo menos 2 respostas</strong>.
               minimum_questions: A eleição tem <strong>pelo menos 1 pergunta</strong>.
               published: A eleição está <strong>publicada</strong>.
+              time_before: A instalação está sendo feita <strong>pelo menos %{hours} horas</strong> antes do início da eleição.
               trustees_number: O espaço participativo tem <strong> pelo menos %{number} agentes fiduciários com chave pública</strong>.
             submit: Configurar eleição
             title: Configurar eleição
@@ -455,6 +456,7 @@ pt-BR:
             success: Sua chave pública de identificação foi armazenada com sucesso.
       votes:
         ballot_decision:
+          audit: ( Auditar cédula )
           back: Iniciar o processo de votação novamente
           ballot_hash: 'Seu identificador de voto é:'
           header: 'A cédula está criptografada: transmita-a ou auditá-la'
@@ -474,6 +476,7 @@ pt-BR:
           feedback: Deixe sua opinião
           header: Voto confirmado
           lead: Seu voto foi transmitido!
+          text: 'Você pode verificar se o seu voto foi adicionado com sucesso à urna com o seguinte identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Para verificá-lo, copie o identificador e cole-o na <a href="%{link}">página de verificação do voto</a>
         create:
           error: Houve um problema ao submeter a votação. Por favor, tente novamente.
@@ -485,6 +488,9 @@ pt-BR:
           lead: Seu voto não foi transmitido!
           text: Algo deu errado, por favor, tente novamente.
           try_again: Tente novamente
+        header:
+          ballot_decision: Transmita ou audite seu voto
+          confirm: Confirme seu voto
         messages:
           invalid_token: A sua sessão na cabine de votação não é válida. Tente votar novamente.
           not_allowed: Não está autorizado a votar nesta eleição neste momento.
@@ -497,6 +503,7 @@ pt-BR:
           nota_option: Branco/ Nenhuma das alternativas acima
           preview_alert: Esta é uma prévia da cabina de votação.
           question_steps: Questão %{current_step} de %{total_steps}
+          selections: "%{selected} de %{max_selections}<br> seleções"
         onboarding_modal:
           create_account: Criar conta
           no_account: Não, obrigado.
