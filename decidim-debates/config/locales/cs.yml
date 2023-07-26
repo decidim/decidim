@@ -98,6 +98,7 @@ cs:
           invalid: Při uzavírání debaty došlo k chybě.
           success: Debata byla úspěšně uzavřena.
         close_debate_modal:
+          cancel: Zrušit
           description: Jaké je shrnutí nebo závěr této debaty?
           send: Ukončit debatu
         closed: Uzavřeno
@@ -131,6 +132,7 @@ cs:
           state_values:
             closed: Uzavřeno
             open: Otevřeno
+          user_group: Skupiny
         form:
           select_a_category: Vyberte kategorii
         index:
@@ -164,8 +166,10 @@ cs:
       models:
         debate:
           fields:
+            end: Konec
             end_time: Datum ukončení
             official_debate: Oficiální debata
+            start: Začátek
             start_time: Datum zahájení
             title: Titul
     events:
