@@ -290,7 +290,7 @@ cs:
               minimum_answers: Otázky musí mít <strong>alespoň dvě odpovědi</strong>.
               minimum_questions: Volby <strong>musí mít alespoň jednu otázku</strong>.
               published: Volby <strong>nejsou publikovány</strong>.
-              time_before: Čas zahájení je <strong>méně než %{hours} hodiny</strong> před začátkem voleb.
+              time_before: Čas zahájení je v <strong>méně než %{hours} hodin</strong> před začátkem voleb.
               trustees_number: Participační prostor <strong>musí mít alespoň %{number} důvěrníků s veřejným klíčem</strong>.
             invalid: Při zřizování těchto voleb došlo k chybě
             no_trustees: Pro tento participační prostor nejsou nakonfigurováni žádní důvěrníci
@@ -307,7 +307,7 @@ cs:
               minimum_answers: Každá otázka má <strong>alespoň 2 odpovědi</strong>.
               minimum_questions: Volba má <strong>alespoň jednu otázku</strong>.
               published: Volby jsou <strong>publikovány</strong>.
-              time_before: Nastavení se provádí <strong>nejméně %{hours} hodiny</strong> před zahájením voleb.
+              time_before: Nastavení se provádí <strong>alespoň %{hours} hodin</strong> před zahájením voleb.
               trustees_number: Participační prostor má <strong>alespoň %{number} důvěrníků s veřejným klíčem</strong>.
             submit: Nastavení voleb
             success: Volby byly úspěšně odeslány do Vývěsky.
@@ -663,6 +663,7 @@ cs:
             success: Váš identifikační veřejný klíč byl úspěšně uložen.
       votes:
         ballot_decision:
+          audit: (Audit volebního lístku)
           back: Zahájit proces hlasování znovu
           ballot_hash: 'Identifikátor vašeho hlasování:'
           cast: Uložte hlasování, abyste dokončili vaše hlasování
@@ -684,7 +685,7 @@ cs:
           feedback: Dejte nám zpětnou vazbu
           header: Hlasování potvrzeno
           lead: Váš hlas byl odeslán!
-          text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: '
+          text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Chcete-li jej zkontrolovat, zkopírujte identifikátor a vložte jej na <a href="%{link}">stránku pro ověření hlasování</a>
         create:
           error: Při hlasování se vyskytl problém. Zkuste to prosím znovu.
@@ -697,7 +698,8 @@ cs:
           text: Něco se pokazilo, zkuste to prosím znovu.
           try_again: Zkuste to znovu
         header:
-          confirm: Potvrdit
+          ballot_decision: Zahlasování nebo audit vašeho hlasování
+          confirm: Potvrďte svůj hlas
           election: Volby
           register: Registrovat
           vote_for: Hlasujte pro %{title}
@@ -713,7 +715,7 @@ cs:
           nota_option: Prázdná/Nic z výše uvedených
           preview_alert: To je náhled hlasovacího pultu.
           question_steps: Otázka %{current_step} z %{total_steps}
-          selections: "%{selected} z %{max_selections} výběru"
+          selections: "%{selected} z %{max_selections}<br> výběrů"
         onboarding_modal:
           create_account: Vytvořit účet
           description: Chcete vytvořit nový účet na platformě? Budete se moci účastnit procesů a být aktivní součástí organizace.
