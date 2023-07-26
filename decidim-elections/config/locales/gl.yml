@@ -230,6 +230,7 @@ gl:
               submit: Enviar
       votes:
         ballot_decision:
+          audit: ( Auditar papeleta )
           back: Comezar o proceso de voto de novo
           ballot_hash: 'O identificador da túa papeleta é:'
         confirmed:
@@ -242,6 +243,9 @@ gl:
           text: Cifrando a papeleta para asegurar que o teu voto é segredo.
         failed:
           try_again: Tentar de novo
+        header:
+          ballot_decision: Enviar ou auditar o teu voto
+          confirm: Confirma o teu voto
         messages:
           invalid_token: A túa sesión na cabina de votación non é válida. Tenta votar de novo.
         modal:
