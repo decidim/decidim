@@ -326,9 +326,6 @@ sv:
         description: Antal dialoger i organisationen
         object: dialoger
         title: Dialoger
-    participatory_process:
-      show:
-        related_assemblies: Relaterade sammankomster
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -337,19 +334,12 @@ sv:
           name: Andra HTML-block
         html_3:
           name: Tredje HTML-block
-        metadata:
-          developer_group: Annonserad av
-          name: Metadata
-          participatory_scope: Vad som bestäms
-          participatory_structure: Hur det bestäms
-          target: Vem deltar
         participatory_processes:
           name: Dialoger
         stats:
           name: Statistik
         title:
           meta_scope: Omfång
-          name: Titel, beskrivning och hashtag
           participatory_processes:
             one: 1 dialog
             other: "%{count} dialoger"
@@ -405,16 +395,6 @@ sv:
         title: Dialoger
       last_activity:
         new_participatory_process: Ny dialog
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Pågående dialoger
-            active_step: Aktivt steg
-            more_information: Mer information
-            participate: Delta
-            participate_in: Delta i dialogen %{resource_name}
-            processes_button_title: Länk till sidan som visar alla dialoger
-            see_all_processes: Visa alla dialoger
       participatory_process_steps:
         index:
           back_to_process: Tillbaka till dialogsidan
@@ -442,22 +422,11 @@ sv:
             past: Tidigare
             upcoming: Kommande
           see: Se
-        index:
-          loading: Läser in resultat...
       show:
-        area: Område
         belongs_to_group: Denna dialog tillhör
         dates: Datum
-        developer_group: Kampanjgrupp
-        end_date: Slutdatum
-        local_area: Område
-        participatory_scope: Vad som bestäms
-        participatory_structure: Hur bestäms det
         private_space: Detta är en privat dialog
         related_processes: Relaterade dialoger
-        scope: Omfång
-        start_date: Startdatum
-        target: Vilka deltar
         unspecified: Ej angivet
     statistics:
       processes_count: Dialoger
@@ -468,10 +437,6 @@ sv:
           browse: Bläddra
           browse_resource: Bläddra i processgruppen %{resource_name}
           processes_count: 'Dialoger:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktivt steg
-          take_part: Delta
       participatory_processes:
         index:
           promoted_processes: Viktiga dialoger just nu
@@ -481,14 +446,6 @@ sv:
           more_info_about: Mer information om processen %{resource_name}
           take_part: Delta
           take_part_in: Delta i dialogen %{resource_name}
-        promoted_process:
-          active_step: 'Aktuellt steg:'
-          more_info: Mer information
-          more_info_about: Mer information om dialogen %{resource_name}
-          take_part: Delta
-          take_part_in: Delta i dialogen %{resource_name}
-        promoted_process_group:
-          more_info: Mer information
       process_header_steps:
         step: Steg %{current} av %{total}
         view_steps: Visa steg
