@@ -30,7 +30,6 @@ uk:
           body:
             label: Коментар
             placeholder: Що ви думаєте з цього приводу?
-          submit: Надіслати
           user_group_id:
             label: Коментувати як
         opinion:
@@ -60,8 +59,6 @@ uk:
           older: Давніші
           recent: Нещодавнє
         title: 'Впорядкувати за:'
-      comment_thread:
-        title: Бесіда з %{authorName}
       comments:
         blocked_comments_warning: Коментарі зараз вимкнені, але ви можете прочитати попередні.
         loading: Завантаження коментарів...
