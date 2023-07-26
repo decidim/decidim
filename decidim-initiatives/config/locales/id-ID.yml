@@ -226,6 +226,7 @@ id:
         select_initiative_type:
           back: Kembali
           choose_html: Saya ingin membuat <strong>%{title}</strong>
+          more_information: (Informasi lebih lanjut)
           select: Saya ingin mempromosikan inisiatif ini
         share_committee_link:
           invite_to_committee_help: Tautan untuk mengundang orang yang akan menjadi bagian dari komite promotor
