@@ -514,6 +514,7 @@ ro:
       authorizations:
         new:
           authorize: Autorizați cererea
+          by_organization_link_html: <small class="heading-small">de %{link}</small>
           cancel: Anulează
           publish_content: Publică conținut pentru tine
           see_email: Vezi e-mailul tău
@@ -522,6 +523,7 @@ ro:
           this_application_will_be_able_to: 'Această aplicație va putea să:'
           this_application_will_not_be_able_to: 'Această aplicație nu va putea să:'
           update_profile: Actualizeză-ți profilul
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vrea să folosească contul tău"
     download_your_data:
       export:
         ready: Gata
@@ -1056,6 +1058,7 @@ ro:
       participatory_space:
         metrics:
           headline: Indicatori
+          link: Arată toate măsurătorile
     participatory_space_private_users:
       not_allowed: Nu aveţi permisiunea să vizualizaţi acest conţinut
     profile:
@@ -1271,6 +1274,9 @@ ro:
         of_versions: "(din %{number})"
         see_other_versions: afișați alte versiuni
         version: Versiunea %{number}
+    versions_list_item:
+      show:
+        version_index: Versiunea %{index}
     welcome_notification:
       default_subject: Îți mulțumim că te-ai alăturat {{organization}}!
     wizard_step_form:
