@@ -288,7 +288,7 @@ ja:
         title: 結果
     participatory_spaces:
       highlighted_results:
-        see_all: すべての結果を表示
+        see_all: すべての結果を見る (%{count})
     resource_links:
       included_projects:
         result_project: この結果に含まれるプロジェクト
