@@ -341,10 +341,9 @@ cs:
         html_3:
           name: Třetí HTML blok
         metadata:
-          developer_group: Propagováno
           name: Metadata
-          participatory_scope: O čem se rozhoduje
-          participatory_structure: Jak se o tom rozhoduje
+          participatory_scope: Co se rozhodlo
+          participatory_structure: Jak se to rozhoduje
           target: Kdo se účastní
         participatory_processes:
           name: Participativní procesy
@@ -413,13 +412,11 @@ cs:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktivní procesy
             active_step: Aktivní krok
             more_information: Více informací
             participate: Účastnit se
             participate_in: Zapojte se do procesu %{resource_name}
             processes_button_title: Odkaz na stránku Procesů zobrazující všechny procesy
-            see_all_processes: Zobrazit všechny procesy
       participatory_process_steps:
         index:
           back_to_process: Zpět na stránku procesu
@@ -466,7 +463,6 @@ cs:
         dates: Data
         developer_group: Skupina promotérů
         end_date: Datum ukončení
-        local_area: Oblast působnosti organizace
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
         private_space: Jedná se o soukromý proces
