@@ -310,6 +310,9 @@ ar:
             update: تحديث
           form:
             title: إعدادات الجمعية
+        assemblies_types:
+          form:
+            title: العنوان
         assembly_copies:
           form:
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
