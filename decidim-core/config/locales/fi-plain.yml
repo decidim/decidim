@@ -618,8 +618,8 @@ fi-pl:
             check: Hyväksy yhteydenotto ja jatka
             uncheck: En halua uutiskirjeitä
           notice: |-
-            <p>Oletko varma, että et halua saada uutiskirjeitä?
-            Ole hyvä ja harkitse uudelleen uutiskirjeiden tilausta.
+            <p>Oletko varma, että et halua saada uutiskirjeitä?<br>
+            Ole hyvä ja harkitse uudelleen uutiskirjeiden tilausta.<br>
             Meille on erittäin tärkeää, että voit vastaanottaa silloin tällöin ​​sähköposteja tärkeistä tiedoteluontoisista asioista. Voit aina muuttaa mieltäsi ja estää uutiskirjeet käyttäjäprofiilisi ilmoitusasetusten kautta.</p>
             <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta palvelun uusista osallistumismahdollisuuksista.<br>
             Mikäli silti haluat estää uutiskirjeiden vastaanottamisen, ymmärrämme täysin päätöksesi.</p>
@@ -631,9 +631,9 @@ fi-pl:
       authorizations:
         new:
           authorize: Hyväksyn tietojeni käytön
-          by_organization_link_html: sovelluksessa %{link}
+          by_organization_link_html: '<small class="heading-small">palveluntarjoaja: %{link}</small>'
           cancel: Peruuta
-          connect_your_account_html: Yhdistä tilisi kirjautumalla sisään palveluun %{organization}.
+          connect_your_account_html: Yhdistä tilisi kirjautumalla kohteeseen <strong>%{organization}</strong>.
           publish_content: Julkaista sisältöä puolestasi
           see_email: Nähdä sähköpostiosoitteesi
           see_name: Nähdä nimesi
@@ -641,7 +641,7 @@ fi-pl:
           this_application_will_be_able_to: 'Tämä sovellus voi:'
           this_application_will_not_be_able_to: 'Tämä sovellus ei voi:'
           update_profile: Päivittää profiiliasi
-          wants_to_use_your_account_html: "%{application_name} haluaa käyttää tiliäsi"
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
     download_your_data:
       export:
         ready: Valmis
@@ -1313,7 +1313,7 @@ fi-pl:
       participatory_space:
         metrics:
           headline: Osallistuminen lukuina
-          link: Näytä kaikki
+          link: Näytä kaikki tilastot
       terms_of_service:
         accept:
           error: Käyttöehtojen hyväksyminen epäonnistui.
@@ -1584,7 +1584,7 @@ fi-pl:
         version: Versio %{number}
     versions_list_item:
       show:
-        version_index: Versio %{index}/%{total}
+        version_index: Versio %{index}
     welcome_notification:
       default_body: <p>Hei {{name}}, kiitos liittymisestä palveluun {{organization}} ja tervetuloa!</p><ul><li>Jos haluat saada nopean käsityksen siitä, mitä voit tehdä palvelussa, tutustu <a href="{{help_url}}">ohjeisiin</a>.</li><li>Kun olet lukenut ohjeet, saat ensimmäisen kunniamerkkisi. Tässä on <a href="{{badges_url}}">lista kaikista kunniamerkeistä</a>, joita saat osallistuessasi palvelussa {{organization}}</li><li>Viimeisenä, mutta ei vähäisimpänä, yhdistä voimasi muiden ihmisten kanssa, jaa heidän kanssaan kokemuksiasi osallistumisestasi palvelussa {{organization}}. Tee ehdotuksia, kommentoi, keskustele, mieti tapoja edistää yhteistä hyvää, vakuuta argumenteillasi, vakuutu kuuntelemalla ja lukemalla, ilmaise ideasi konkreettisella ja suoraviivaisella tavalla, vastaa kärsivällisesti ja päättäväisesti, puolusta ajatuksiasi, tee yhteistyötä avoimin mielin ja osallistu muiden ihmisten ideoiden kehittämiseen.</li></ul>
       default_subject: Kiitos liittymisestäsi palveluun {{organization}}!
