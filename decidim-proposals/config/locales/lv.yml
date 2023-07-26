@@ -517,6 +517,7 @@ lv:
             error: Nevarēja noraidīt sadarbības pieprasījumu, lūdzu, vēlāk mēģiniet vēlreiz.
         show:
           edit: Rediģēt sadarbības projektu
+          final_proposal: galīgais priekšlikums
           final_proposal_help_text: Šis projekts ir pabeigts. Iepazīstieties ar galīgo priekšlikumu
           hidden_authors_count:
             zero: un vēl %{count} personas
@@ -524,6 +525,7 @@ lv:
             other: un vēl %{count} personas
           publish: Publicēt
           publish_info: Publicējiet šo projekta versiju vai
+          published_proposal: publicētais priekšlikums
           request_access: Pieprasīt piekļuvi
           requested_access: Piekļuve pieprasīta
           withdraw: atsaukt projektu
@@ -663,6 +665,7 @@ lv:
           title: 'Atbalstam tiek piemēroti šādi noteikumi:'
           vote_limit:
             description: Jūs varat atbalstīt līdz %{limit} priekšlikumiem.
+            votes: Atbalsta
         wizard_aside:
           back: Atpakaļ
           info: Jūs veidojat <strong>priekšlikumu</strong>.
