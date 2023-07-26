@@ -828,6 +828,7 @@ pt-BR:
           colors:
             choose_color: Escolha a cor primária
             colors_title: Cores da organização
+            colors_warning_html: Aviso! Mudando essas cores pode quebrar os contrastes de acessibilidade. Você pode verificar o contraste de sua escolha com o <a href="%{link}">Verificador de Contrastes WebAIM</a> ou outras ferramentas similares.
             explanation: Esta ferramenta ajuda você a escolher um esquema de cores, composto de tons igualmente espaçados ao redor da roda de cor, que será usado no site da organização.
             legend_html: Cores principais do aplicativo, com base no <a href="https://www.color-meanings.com/triadic-colors/">algoritmo Triadic</a>. A cor <i>secundária</i> é calculada automaticamente a partir da cor primária e da saturação que você escolheu.
             saturation: Saturação
@@ -924,6 +925,7 @@ pt-BR:
           update: Atualizar
         new:
           create: Criar tipo de âmbito
+          title: Novo âmbito
         update:
           error: Ocorreu um erro ao atualizar este tipo de âmbito.
           success: Tipo de âmbito atualizado com sucesso
