@@ -215,9 +215,9 @@ ja:
             title: プロジェクト数の上限を超えました
         budget_summary:
           are_you_sure: 投票をキャンセルしてもよろしいですか？
-          cancel_order: 投票を削除する
+          cancel_order: 投票を削除してやり直してください
           checked_out:
-            description: すでに予算に投票しています。気が変わった場合は、投票を削除できます。
+            description: 予算にすでに投票しています。もし考えが変わった場合は、%{cancel_link} できます。
             title: 予算投票が完了しました
           vote: 予算の投票
         count:
@@ -271,9 +271,9 @@ ja:
             other: 投票
           you_voted: あなたの投票
         project_budget_button:
-          add: 追加
+          add: 投票に追加
           add_descriptive: プロジェクト %{resource_name} を投票に追加します。
-          added: 追加済
+          added: 投票に追加しました
           added_descriptive: プロジェクト %{resource_name} が投票に追加されました。
         project_filter:
           added: 追加済
