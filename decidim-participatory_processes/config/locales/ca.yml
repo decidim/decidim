@@ -371,9 +371,6 @@ ca:
         description: Nombre de processos participatius d'aquesta organització
         object: processos participatius
         title: Processos participatius
-    participatory_process:
-      show:
-        related_assemblies: Assemblees relacionades
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -382,19 +379,12 @@ ca:
           name: Segon bloc HTML
         html_3:
           name: Tercer bloc HTML
-        metadata:
-          developer_group: Promogut per
-          name: Metadades
-          participatory_scope: Què es decideix
-          participatory_structure: Com es decideix
-          target: Qui participa
         participatory_processes:
           name: Processos participatius
         stats:
           name: Estadístiques
         title:
           meta_scope: Àmbit
-          name: Títol, descripció i hashtag
           participatory_processes:
             one: Un procés
             other: "%{count} processos"
@@ -451,16 +441,6 @@ ca:
         title: Processos participatius
       last_activity:
         new_participatory_process: Nou procés participatiu
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Processos actius
-            active_step: Fase activa
-            more_information: Més informació
-            participate: Participa
-            participate_in: Participa al procés %{resource_name}
-            processes_button_title: Enllaç a la pàgina de Processos mostrant tots els processos
-            see_all_processes: Veure tots els processos
       participatory_process_steps:
         index:
           back_to_process: Torna a la pàgina de procés
@@ -491,24 +471,13 @@ ca:
             past: Passats
             upcoming: Propers
           see: Veure
-        index:
-          loading: Carregant resultats...
         show:
           title: Quant a aquest procés
       show:
-        area: Àrea
         belongs_to_group: Aquest procés pertany a
         dates: Dates
-        developer_group: Grup promotor
-        end_date: Data de finalització
-        local_area: Àrea d'organització
-        participatory_scope: Què es decideix
-        participatory_structure: Com es decideix
         private_space: Aquest és un procés privat
         related_processes: Processos relacionats
-        scope: Àmbit
-        start_date: Data d'inici
-        target: Qui participa
         unspecified: Sense especificar
     statistics:
       processes_count: Processos
@@ -519,10 +488,6 @@ ca:
           browse: Explorar
           browse_resource: Explorar el grup de processos %{resource_name}
           processes_count: 'Processos:'
-      participatory_process_widgets:
-        show:
-          active_step: Fase activa
-          take_part: Participa
       participatory_processes:
         index:
           promoted_processes: Processos destacats
@@ -532,14 +497,6 @@ ca:
           more_info_about: Més informació sobre el procés %{resource_name}
           take_part: Participa
           take_part_in: Participa al procés %{resource_name}
-        promoted_process:
-          active_step: 'Fase actual:'
-          more_info: Més informació
-          more_info_about: Més informació sobre el procés %{resource_name}
-          take_part: Participa
-          take_part_in: Participa al procés %{resource_name}
-        promoted_process_group:
-          more_info: Més informació
       process_header_steps:
         step: Fase %{current} de %{total}
         view_steps: Veure les fases
