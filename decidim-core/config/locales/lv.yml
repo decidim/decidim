@@ -366,6 +366,7 @@ lv:
       authorizations:
         new:
           authorize: Autorizēt lietojumprogrammu
+          by_organization_link_html: <small class="heading-small">pa %{link}</small>
           cancel: Atcelt
           publish_content: Publicēt saturu jūsu vietā
           see_email: Redzēt jūsu e-pastu
@@ -374,6 +375,7 @@ lv:
           this_application_will_be_able_to: 'Lietojumprogramma varēs:'
           this_application_will_not_be_able_to: 'Lietojumprogramma nevarēs:'
           update_profile: Atjaunināt profilu
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vēlas izmantot jūsu kontu"
     download_your_data:
       export:
         ready: Gatavs
@@ -794,6 +796,7 @@ lv:
       participatory_space:
         metrics:
           headline: Rādītāji
+          link: Rādīt visus rādītājus
     participatory_space_private_users:
       not_allowed: Jums nav atļauts skatīt šo saturu
     profile:
@@ -930,6 +933,9 @@ lv:
     versions:
       resource_version:
         of_versions: "(no %{number})"
+    versions_list_item:
+      show:
+        version_index: Versija %{index}
     welcome_notification:
       default_subject: Paldies par pievienošanos {{organization}}!
     wizard_step_form:
