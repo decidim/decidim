@@ -319,6 +319,7 @@ eu:
         select_initiative_type:
           back: Back
           choose_html: <strong>%{title}</strong>bat sortu nahi dut
+          more_information: (Informazio gehiago)
           select: Ekimen hau sustatu nahi dut
           select_initiative_type_help: Ekimenen bidez, parte-hartzaileek esku har dezakete erakundeak interes orokorraren aldeko ekintzak egin ditzan. Zein ekimen abiarazi nahi duzu?
         share_committee_link:
