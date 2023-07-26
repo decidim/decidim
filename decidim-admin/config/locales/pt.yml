@@ -753,6 +753,7 @@ pt:
           update: Atualizar
         new:
           create: Criar tipo de âmbito
+          title: Novo âmbito
         update:
           error: Ocorreu um problema ao atualizar este tipo de âmbito.
           success: Tipo de âmbito atualizado com sucesso
