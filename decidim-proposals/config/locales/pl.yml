@@ -331,6 +331,9 @@ pl:
         description: Liczba uzyskanych wsparć dla propozycji
         object: wsparcia
         title: Wsparcia
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Zobacz wszystkie propozycje (%{count})
     proposals:
       actions:
         answer_proposal: Odpowiedz na propozycję
@@ -578,6 +581,7 @@ pl:
             error: Nie można odrzucić, spróbuj ponownie później.
         show:
           edit: Edytuj wspólny szkic
+          final_proposal: ostateczna propozycja
           final_proposal_help_text: Ten szkic jest zakończony. zobacz ostateczną propozycję
           hidden_authors_count:
             one: i %{count} więcej osoba
@@ -586,6 +590,7 @@ pl:
             other: i %{count} więcej osób
           publish: Publikuj
           publish_info: Opublikuj tę wersję szkicu lub
+          published_proposal: opublikowana propozycja
           request_access: Poproś o dostęp
           requested_access: Poproszono o dostęp
           withdraw: wycofaj szkic
@@ -742,6 +747,7 @@ pl:
           title: 'Wspieranie podlega następującym zasadom:'
           vote_limit:
             description: Możesz wesprzeć maksymalnie %{limit} propozycji.
+            votes: Wsparcia
         wizard_aside:
           back: Wróć
           back_from_step_1: Wróć do propozycji
