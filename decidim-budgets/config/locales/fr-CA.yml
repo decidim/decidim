@@ -217,9 +217,9 @@ fr-CA:
             title: Nombre maximum de projets dépassé
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
-          cancel_order: supprimer votre vote
+          cancel_order: supprimer votre vote et recommencer
           checked_out:
-            description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez supprimer votre vote.
+            description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
             title: Vote du budget terminé
           vote: Voter pour le budget
         count:
@@ -275,9 +275,9 @@ fr-CA:
             other: votes
           you_voted: Vous avez voté pour ceci
         project_budget_button:
-          add: Ajouter
+          add: Ajouter à votre vote
           add_descriptive: Ajouter le projet %{resource_name} à votre vote.
-          added: Ajouté
+          added: Ajouté à votre vote
           added_descriptive: Projet %{resource_name} ajouté à votre vote.
         project_filter:
           added: Ajouté
