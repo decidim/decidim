@@ -181,6 +181,7 @@
               minimum_answers: Hvert spørsmål har <strong>minst 2 svar</strong>.
               minimum_questions: Valget har <strong>minst 1 spørsmål</strong>.
               published: Valget er <strong>publisert</strong>.
+              time_before: Oppsettet gjøres <strong>minst %{hours} timer</strong> før valget starter.
               trustees_number: Deltakerområdet har <strong>minst %{number} tillitsmenn med offentlig nøkkel</strong>.
             submit: Oppsett av valg
             title: Oppsett valg
@@ -417,6 +418,9 @@
           experience: Hvordan var opplevelsen din?
           feedback: Gi oss en tilbakemelding
           header: Avstemning bekreftet
+          text: 'Du kan sjekke at stemmen din har blitt lagt til i stemmeboksen med følgende identifikator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+        header:
+          confirm: Bekreft stemmen din
         messages:
           not_allowed: Du har ikke lov til å stemme på dette valget for øyeblikket.
         modal:
@@ -426,6 +430,7 @@
           more_information: Mer informasjon
           preview_alert: Dette er en forhåndsvisning av stemmebåsen.
           question_steps: Spørsmål %{current_step} av %{total_steps}
+          selections: "%{selected} av %{max_selections}<br> valg"
         verify:
           success:
             header: Stemme plassert!
