@@ -347,9 +347,6 @@ lt:
         description: Dalyvaujamųjų procesų skaičius šioje organizacijoje
         object: dalyvaujamieji procesai
         title: Dalyvaujamieji procesai
-    participatory_process:
-      show:
-        related_assemblies: Susijusios asamblėjos
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -358,19 +355,12 @@ lt:
           name: Antras HTML blokas
         html_3:
           name: Trečias HTML blokas
-        metadata:
-          developer_group: Paaukštintas/a
-          name: Metaduomenys
-          participatory_scope: Kas nuspręsta
-          participatory_structure: Kaip nuspręsta
-          target: Kas dalyvauja
         participatory_processes:
           name: Dalyvaujamieji procesai
         stats:
           name: Statistika
         title:
           meta_scope: Apimtis
-          name: Pavadinimas, aprašymas ir grotažymė
           participatory_processes:
             one: 1 procesas
             few: "%{count} procesai"
@@ -429,16 +419,6 @@ lt:
         title: Dalyvaujamieji procesai
       last_activity:
         new_participatory_process: Naujas dalyvaujamasis procesas
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Aktyvūs procesai
-            active_step: Aktyvusis etapas
-            more_information: Daugiau informacijos
-            participate: Dalyvauti
-            participate_in: Dalyvauti procese %{resource_name}
-            processes_button_title: Nuoroda į puslapį „Procesai“, kuriame pateikiami visi procesai
-            see_all_processes: Žiūrėti visus procesus
       participatory_process_steps:
         index:
           back_to_process: Grįžti į procesų puslapį
@@ -475,24 +455,13 @@ lt:
             past: Praėję
             upcoming: Artėjantys
           see: Žiūrėti
-        index:
-          loading: Įkeliami rezultatai...
         show:
           title: Apie šį procesą
       show:
-        area: Aplinka
         belongs_to_group: Šis procesas priklauso
         dates: Datos
-        developer_group: Rėmėjų grupė
-        end_date: Pabaigos data
-        local_area: Organizacijos vietovė
-        participatory_scope: Kas nuspręsta
-        participatory_structure: Kaip nuspręsta
         private_space: Tai yra uždaras procesas
         related_processes: Susiję procesai
-        scope: Apimtis
-        start_date: Pradžios data
-        target: Kas dalyvauja
         unspecified: Nepatikslinta
     statistics:
       processes_count: Procesai
@@ -503,10 +472,6 @@ lt:
           browse: Naršyti
           browse_resource: Naršyti proceso grupėje %{resource_name}
           processes_count: 'Procesai:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktyvusis etapas
-          take_part: Dalyvaukite
       participatory_processes:
         index:
           promoted_processes: Paryškinti procesai
@@ -516,14 +481,6 @@ lt:
           more_info_about: Daugiau informacijos apie procesą %{resource_name}
           take_part: Dalyvaukite
           take_part_in: Dalyvaukite procese %{resource_name}
-        promoted_process:
-          active_step: 'Dabartinis etapas:'
-          more_info: Daugiau informacijos
-          more_info_about: Daugiau informacijos apie procesą %{resource_name}
-          take_part: Dalyvaukite
-          take_part_in: Dalyvaukite procese %{resource_name}
-        promoted_process_group:
-          more_info: Daugiau informacijos
       process_header_steps:
         step: '%{current} etapas iš %{total}'
         view_steps: Proceso etapai
