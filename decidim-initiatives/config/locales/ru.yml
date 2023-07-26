@@ -169,6 +169,7 @@ ru:
           more_information: "(Дополнительные сведения)"
         select_initiative_type:
           back: Вернуться
+          more_information: (Дополнительные сведения)
         share_committee_link:
           invite_to_committee_help: Ссылка для приглашения людей, которые войдут в рабочую группу по продвижению
       events:
