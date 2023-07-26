@@ -1,29 +1,3 @@
-<%# content_for :sidebar_menu_nav do %>
-  <%#= sidebar_menu(:admin_voting_menu).render do
-    public_page_link decidim_votings.voting_path(current_participatory_space)
-  end %>
-<%# end %>
-
-<% content_for :breadcrumb_nav do %>
-<div class="voting-title">
-  <div class="container">
-    <div class="voting-title-content">
-      <div class="process-title-content-breadcrumb-container-left">
-        <%= link_to decidim_admin.root_path, class: "process-title-content-icon-home", data: { "external-link": false } do %>
-          <%= icon "home-gear-line" %>
-        <% end %>
-        <span class="text-white">/</span>
-        <%= link_to t("decidim.votings.admin.titles.votings"), decidim_admin_votings.votings_path, data: { "external-link": false }, class: "process-title-content-breadcrumb" %>
-        <span class="text-white">/</span>
-        <span class="process-title-content-breadcrumb">
-          <%= translated_attribute(current_participatory_space.title) %>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-<% end %>
-
 <%= render "layouts/decidim/admin/application" do %>
   <div class="voting-content">
     <% if !current_participatory_space.elections.any? %>
