@@ -286,6 +286,7 @@ nl:
         select_initiative_type:
           back: Terug
           choose_html: Ik wil een <strong>%{title}</strong> aanmaken
+          more_information: (Meer informatie)
           select: Ik wil dit initiatief promoten
         share_committee_link:
           invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotieraad
