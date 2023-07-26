@@ -326,6 +326,9 @@ it:
         description: Numero di voti generati nelle proposte degli utenti
         object: voti
         title: Voti
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Vedi tutto (%{count})
     proposals:
       actions:
         answer_proposal: Proposta di Risposta
@@ -565,12 +568,14 @@ it:
             error: Non può essere rifiutato come collaboratore, riprova più tardi.
         show:
           edit: Modifica bozza collaborativa
+          final_proposal: proposta finale
           final_proposal_help_text: Questa bozza è finita. Puoi vedere la proposta finale finale
           hidden_authors_count:
             one: e %{count} altra persona
             other: e altre %{count} persone
           publish: Pubblica
           publish_info: Pubblica questa versione della bozza o
+          published_proposal: proposta pubblicata
           request_access: Richiesta di accesso
           requested_access: Accesso richiesto
           withdraw: ritirare la bozza
@@ -724,6 +729,7 @@ it:
           title: 'Il voto è soggetto alle seguenti regole:'
           vote_limit:
             description: Puoi votare fino a %{limit} proposte.
+            votes: Voti
         wizard_aside:
           back: Indietro
           back_from_step_1: Torna alle proposte
