@@ -182,6 +182,7 @@ it:
               minimum_answers: Ogni quesito ha <strong>almeno 2 risposte</strong>.
               minimum_questions: L'elezione ha <strong>almeno 1 quesito</strong>.
               published: L'elezione è <strong>pubblicata</strong>.
+              time_before: La configurazione viene eseguita <strong>almeno %{hours} ore</strong> prima dell'inizio delle elezioni.
               trustees_number: Lo spazio partecipativo ha <strong>almeno %{number} fiduciari con chiave pubblica</strong>.
             submit: Imposta elezione
             title: Imposta elezione
@@ -470,6 +471,7 @@ it:
             success: I tuoi codici di identificazione pubblici sono stati salvati con successo.
       votes:
         ballot_decision:
+          audit: ( Voto di controllo )
           back: Inizia nuovamente il processo di voto
           ballot_hash: 'Il tuo identificativo elettorale è:'
           header: 'Il voto è criptato: confermalo o controllalo'
@@ -489,6 +491,7 @@ it:
           feedback: Lasciaci un feedback
           header: Voto confermato
           lead: Il tuo voto è stato inviato!
+          text: 'Puoi controllare che il tuo voto sia stato aggiunto con successo alla scheda elettorale con il seguente identificatore: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Per controllarlo, copia l'identificatore e incollalo nella pagina <a href="%{link}">di verifica del voto</a>
         create:
           error: Si è verificato un problema durante l'invio del voto. Per favore, riprova.
@@ -500,6 +503,9 @@ it:
           lead: Il tuo voto non è stato deposto!
           text: Qualcosa è andato storto. Riprova di nuovo.
           try_again: Riprova
+        header:
+          ballot_decision: Invia o controlla il tuo voto
+          confirm: Conferma il tuo voto
         messages:
           invalid_token: La tua sessione elettorale non è valida. Prova a votare di nuovo.
           not_allowed: In questo momento non ti è permesso di votare a queste elezioni.
@@ -512,6 +518,7 @@ it:
           nota_option: Vuoto/ Nessuno dei precedenti
           preview_alert: Questa è un'anteprima della cabina di voto.
           question_steps: Domanda %{current_step} di %{total_steps}
+          selections: "%{selected} di %{max_selections}<br> selezioni"
         onboarding_modal:
           create_account: Crea Account
           no_account: No, grazie.
