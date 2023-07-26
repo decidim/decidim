@@ -85,11 +85,6 @@ sk:
           official: Oficiálni
           origin: Pôvod
           search: Vyhľadávanie
-        filters_small_view:
-          close_modal: Zatvoriť okno
-          filter: Filter
-          filter_by: Filtrovať podľa
-          unfold: Rozbaliť
         form:
           select_a_category: Vyberte kategóriu
         index:
@@ -98,8 +93,6 @@ sk:
           back: Späť
           create: Vytvoriť
           title: Nová debata
-        show:
-          back: Späť na zoznam
       models:
         debate:
           fields:
