@@ -121,6 +121,7 @@ tr:
             title: Maksimum proje sınırını aştı
         budget_summary:
           are_you_sure: Oyunuzu iptal etmek istediğinizden emin misiniz?
+          cancel_order: oyunuzu silin ve baştan başlayın
           checked_out:
             title: Bütçe oyu tamamlandı
         count:
@@ -149,6 +150,9 @@ tr:
           votes:
             one: oy
             other: oylar
+        project_budget_button:
+          add: Oyunuza ekleyin
+          added: Oyunuza eklendi
         projects_for: '%{name} için projeler'
         show:
           budget: Bütçe
