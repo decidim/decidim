@@ -635,7 +635,7 @@ de:
       authorizations:
         new:
           authorize: App zulassen
-          by_organization_link_html: per %{link}
+          by_organization_link_html: <small class="heading-small">von %{link}</small>
           cancel: Abbrechen
           connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei %{organization} anmelden.
           publish_content: Inhalte für Sie veröffentlichen
@@ -645,7 +645,7 @@ de:
           this_application_will_be_able_to: 'Diese Anwendung wird in der Lage sein:'
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
           update_profile: Profil aktualisieren
-          wants_to_use_your_account_html: "%{application_name} möchte Ihr Konto verwenden"
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
     download_your_data:
       export:
         ready: Bereit
@@ -1318,7 +1318,7 @@ de:
       participatory_space:
         metrics:
           headline: Teilnahme an Zahlen
-          link: Alle anzeigen
+          link: Alle Statistiken anzeigen
       terms_of_service:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Problem aufgetreten.
@@ -1589,7 +1589,7 @@ de:
         version: Versionsnummer %{number}
     versions_list_item:
       show:
-        version_index: Version %{index} von %{total}
+        version_index: Version %{index}
     welcome_notification:
       default_body: <p>Guten Tag {{name}}, vielen Dank dafür, dass Sie {{organization}} beigetreten sind und herzlich willkommen!</p><ul><li>Wenn Sie einen kurzen Überblick darüber bekommen möchten, was Sie hier tun können, schauen Sie sich den <a href="{{help_url}}">Hilfe-Abschnitt </a> an.</li><li>Sobald Sie ihn gelesen haben, bekommen Sie Ihr erstes Abzeichen. Hier finden Sie eine<a href="{{badges_url}}">Liste aller Abzeichen</a>, die Sie bei der Teilnahme auf {{organization}}</li> erhalten können<li>Folgen Sie anderen Menschen, teilen Sie die Erfahrung der Zusammenarbeit und Teilnahme auf {{organization}} mit ihnen. Machen Sie Vorschläge und Kommentare, nehmen Sie an Debatten teil, denken Sie darüber nach, wie Sie zum Gemeinwohl beitragen können, liefern Sie Argumente zum Überzeugen, hören und lesen Sie, um sich überzeugen zu lassen, drücken Sie Ihre Ideen auf konkrete und direkte Weise aus, reagieren Sie mit Geduld und Entschlossenheit, verteidigen Sie Ihre Ideen und bleiben Sie offen für die Zusammenarbeit und die Ideen anderer Menschen.</li></ul>
       default_subject: Danke, dass du {{organization}}beigetreten {{organization}} !
