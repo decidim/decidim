@@ -240,6 +240,7 @@ pt-BR:
               minimum_answers: Cada questão tem <strong>pelo menos 2 respostas</strong>.
               minimum_questions: A eleição tem <strong>pelo menos 1 pergunta</strong>.
               published: A eleição está <strong>publicada</strong>.
+              time_before: A instalação está sendo feita <strong>pelo menos %{hours} horas</strong> antes do início da eleição.
               trustees_number: O espaço participativo tem <strong> pelo menos %{number} agentes fiduciários com chave pública</strong>.
             submit: Configurar eleição
             success: Eleição enviada com sucesso para o Quadro de Notas
