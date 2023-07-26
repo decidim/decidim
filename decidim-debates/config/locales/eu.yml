@@ -96,7 +96,6 @@ eu:
           invalid: Arazo bat izan da eztabaida ixtean.
           success: Eztabaida zuzen itxi da.
         close_debate_modal:
-          close: Itxi
           description: Zein da eztabaida honen laburpena edo ondorioa?
           send: Itxi eztabaida
         closed: Itxita
@@ -123,18 +122,11 @@ eu:
           official: Ofiziala
           origin: Origin
           participants: Parte-hartzaileak
-          scope: Eremua
           search: Bilatu
           state: Egoera
           state_values:
             closed: Itxita
             open: Ireki
-          user_groups: Taldeak
-        filters_small_view:
-          close_modal: Itxi modal
-          filter: Filter
-          filter_by: Iragazi arabera
-          unfold: Zabaldu
         form:
           select_a_category: Hautatu kategoria bat
         index:
@@ -150,7 +142,6 @@ eu:
           recent: Azkenak
           updated: Orain dela gutxi eguneratuak
         show:
-          back: Itzuli zerrendara
           close_debate: Itxi eztabaida
           date: Data
           debate_closed: Itxita
@@ -158,20 +149,11 @@ eu:
           edit_conclusions: Editatu ondorioak
           edit_debate: Editatu eztabaida
           groups_count: Taldeak
-          last_comment_by: Honen azken iruzkina
-          no_comments_yet: Oraindik ez dago iruzkinik
           open: Eztabaida irekita
           participants_count: Parte-hartzaileak
         update:
           invalid: Arazo bat izan da eztabaida hau eguneratzean.
           success: Eztabaida zuzen eguneratu da.
-        versions:
-          debates:
-            back_to_resource: Itzuli eztabaidara
-          index:
-            title: Bertsioak
-        versions_list:
-          back_to_resource: Itzuli eztabaidara
       last_activity:
         debate_updated: 'Eztabaida eguneratu da:'
         new_debate: 'Eztabaida berria:'
