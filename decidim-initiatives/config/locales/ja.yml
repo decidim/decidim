@@ -381,7 +381,7 @@ ja:
         select_initiative_type:
           back: 戻る
           choose_html: <strong>%{title}</strong> を作成したい
-          more_information: 詳細情報
+          more_information: (詳細)
           new: 新しいイニシアチブを作成
           select: 私はこのイニシアチブを推進したいです
           select_initiative_type_help: イニシアチブとは、一般的な利益を守るために組織が行動を起こすよう、参加者が介入するための手段です。 どのようなイニシアチブを立ち上げたいですか？
