@@ -390,7 +390,7 @@ cs:
         select_initiative_type:
           back: Zpět
           choose_html: Chci vytvořit <strong>%{title}</strong>
-          more_information: Více informací
+          more_information: (Více informací)
           new: Vytvořit novou iniciativu
           select: Chci tuto iniciativu podpořit
           select_initiative_type_help: Iniciativy jsou prostředkem, kterým účastníci mohou zasáhnout, aby organizace mohla podniknout kroky na obranu obecného zájmu. Jakou iniciativu chcete spustit?
