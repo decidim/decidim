@@ -462,6 +462,7 @@ is-IS:
           update: Uppfæra
         new:
           create: Búðu til umfang gerð
+          title: Ný umfang
         update:
           success: Gildissvið gerð uppfærð með góðum árangri
       scopes:
