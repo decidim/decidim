@@ -866,7 +866,7 @@ ja:
           update: 更新
         new:
           create: スコープ種別を作成
-          title: 新しいスコープ種別
+          title: 新しいスコープ
         update:
           error: このスコープ種別の更新中に問題が発生しました。
           success: スコープ種別が正常に更新されました
