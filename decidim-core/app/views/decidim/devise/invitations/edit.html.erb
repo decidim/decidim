@@ -18,7 +18,6 @@
 
       <% if f.object.class.require_password_on_accepting %>
         <%= f.password_field :password, password_field_options_for(:user).except(:help_text) %>
-        <%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text) %>
       <% end %>
     </div>
 

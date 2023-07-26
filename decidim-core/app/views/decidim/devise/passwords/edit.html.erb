@@ -11,8 +11,6 @@
       <%= f.hidden_field :reset_password_token %>
 
       <%= f.password_field :password, password_field_options_for(current_user || params["reset_password_token"]) %>
-
-      <%= f.password_field :password_confirmation, password_field_options_for(current_user || params["reset_password_token"]).except(:help_text) %>
     </div>
 
     <div class="form__wrapper-block">
