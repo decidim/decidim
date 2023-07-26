@@ -302,7 +302,7 @@ gl:
         filter_meeting_space_values:
           all: Todas
         filter_scope_values:
-          all: Todas
+          all: Todo
       calendar_modal:
         calendar_url: URL do calendario
         close_window: Pechar ventá
@@ -311,7 +311,7 @@ gl:
       content_blocks:
         upcoming_meetings:
           name: Vindeiras xuntanzas
-          upcoming_meetings: Vindeiras xuntanzas
+          upcoming_meetings: Próximas reunións
           view_all_meetings: Ver todo
       directory:
         meetings:
@@ -352,6 +352,7 @@ gl:
           date: Data
           origin_values:
             participants: Participantes
+          scope: Alcance
           search: Busca
         filters_small_view:
           close_modal: Pechar modal
@@ -375,10 +376,9 @@ gl:
           confirm: Confirmar
         show:
           attendees: Os asistentes contan
+          close_meeting: Pechar reunión
           contributions: Contribucións contar
-          edit_close_meeting: Editar o informe da xuntanza
           going: Inscribícheste nesta xuntaza
-          join: Únete a reunión
           leave: Cancelar a túa inscrición
           leave_confirmation: Estás certo/a de querer cancelar a túa inscrición nesta xuntanza?
           meeting_minutes: Minutos de reunión
