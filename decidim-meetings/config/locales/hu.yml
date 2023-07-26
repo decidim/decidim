@@ -454,8 +454,7 @@ hu:
             all: Összes
             citizens: Polgárok
             official: Hivatalos
-            user_groups: Csoportok
-          scope: Hatókör
+          scope: Hatáskör
           search: Keresés
           type: Típus
           type_values:
@@ -484,8 +483,9 @@ hu:
         show:
           attendees: Résztvevők száma
           back: Vissza a listához
+          close_meeting: Ttalálkozó lezárása
           contributions: Hozzájárulások száma
-          join: Csatlakozz a találkozóhoz
+          edit_meeting: Találkozó szerkesztése
           meeting_minutes: Találkozó jegyzőkönyve
           no_slots_available: Nincs szabad hely
           organizations: Résztvevő szervezetek
