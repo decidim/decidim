@@ -365,6 +365,9 @@ eu:
         description: Erabiltzaileek proposatutako sortutako boto kopurua
         object: botoak
         title: Botoak
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Ikusi (%{count}) proposamenak
     proposals:
       actions:
         answer_proposal: Erantzun proposamenari
@@ -641,12 +644,14 @@ eu:
             error: Ezin izan da laguntzailea baztertu, saiatu berriro geroago.
         show:
           edit: Editatu lankidetza zirriborroa
+          final_proposal: azken proposamena
           final_proposal_help_text: Abisua amaitu da. Azken bukatutako proposamena ikus dezakezu
           hidden_authors_count:
             one: eta pertsona %{count} gehiago
             other: eta beste %{count} pertsona
           publish: Argitaratu
           publish_info: Argitaratu zirriborroaren bertsio hau edo
+          published_proposal: argitaratutako proposamena
           request_access: Sarrera beharrezkoa
           requested_access: Sarbidea beharrezkoa
           withdraw: kendu zirriborroa
@@ -809,6 +814,7 @@ eu:
           title: 'Bozkek arau hauek bete behar dituzte:'
           vote_limit:
             description: '%{limit} proposamenari bozkatu ahal zaizkio.'
+            votes: Babesak
         wizard_aside:
           back: Atzera
           back_from_step_1: Itzuli proposamenetara
