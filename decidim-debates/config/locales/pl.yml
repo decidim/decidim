@@ -130,7 +130,7 @@ pl:
           state_values:
             closed: Zakończone
             open: Otwarte
-          user_groups: Grupy użytkowników
+          user_groups: Grupy
         filters_small_view:
           close_modal: Zamknij okno
           filter: Filtr
