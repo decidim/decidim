@@ -208,6 +208,7 @@ lt:
               minimum_answers: Klausimai turi turėti bent <strong>du atsakymus</strong>.
               minimum_questions: Rinkimai <strong>turi turėti bent vieną klausimą</strong>.
               published: Rinkimai <strong>nėra publikuoti</strong>.
+              time_before: Pradžios laikas už mažiau nei <strong>%{hours} valandų</strong>.
               trustees_number: Dalyvaujomi erdvė <strong>turi turėti bent %{number} patikėtinių su viešų raktu</strong>.
             invalid: Konfigūruojant šiuos rinkimus iškilo problema
             no_trustees: Šiai dalyvaujamajai erdvei nėra sukonfigūruotų Patikėtinių
@@ -222,6 +223,7 @@ lt:
               minimum_answers: Kiekvienas klausimas turi bent <strong>du atsakymus</strong>.
               minimum_questions: Rinkimai <strong>turi bent vieną klausimą</strong>.
               published: Rinkimai <strong>publikuoti</strong>.
+              time_before: Konfigūracija atliekama <strong>bent %{hours} valandas</strong> prieš rinkimų pradžią.
               trustees_number: Dalyvaujomi erdvė <strong>turi bent %{number} patikėtinių su viešų raktu</strong>.
             submit: Konfigūruoti rinkimus
             title: Konfigūruoti rinkimus
@@ -542,6 +544,7 @@ lt:
             success: Jūsų viešas atpažinimo raktas sėkmingai išsaugotas.
       votes:
         ballot_decision:
+          audit: Audituoti biuletenį
           back: Vėl pradėti balsavimo procesą
           ballot_hash: 'Biuletenio identifikacinis kodas:'
           cast: Užpildykite biuletenį norėdami baigti balsavimą
@@ -562,6 +565,7 @@ lt:
           feedback: Pasidalinkite savo nuomone
           header: Balsas patvirtintas
           lead: Jūsų balsas įskaičiuotas!
+          text: 'Galite patikrinti, ar jūsų balsas pateko į balsadėžę, pasinaudodami šiuo identifikatoriumi: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Norėdami patikrinti, kopijuokite identifikatorių ir jį įklijuokite <a href="evote-verify">balsavimo patikros puslapyje</a>
         create:
           error: Užskaitant balsą iškilo problema. Prašau pabandykite iš naujo.
@@ -573,6 +577,9 @@ lt:
           lead: Jūsų balsas nebuvo įskaičiuotas!
           text: Įvyko klaida. Bandykite dar kartą.
           try_again: Bandykite dar kartą
+        header:
+          ballot_decision: Balsuokite arba audituokite savo balsą
+          confirm: Patvirtinkite savo balsą
         messages:
           invalid_token: Jūsų sesija balsavimo kabinoje nėra validi. Pabandykite balsuoti iš naujo.
           not_allowed: Dabar balsuoti šiuose rinkimuose negalite.
@@ -585,6 +592,7 @@ lt:
           nota_option: Nei vienas iš pasiūlytų variantų
           preview_alert: Tai – balsavimo kabinos peržiūra.
           question_steps: '%{current_step} klausimas iš %{total_steps}'
+          selections: "%{selected} iš %{max_selections}<br> pasirinkčių"
         onboarding_modal:
           create_account: Sukurti paskyrą
           description: Ar norite susikurti naują paskyrą šioje platformoje? Galėsite dalyvauti procesuose ir būti aktyvi(-us) organizacijos narė(-ys).
