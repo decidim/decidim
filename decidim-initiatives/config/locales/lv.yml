@@ -267,6 +267,7 @@ lv:
         select_initiative_type:
           back: Atpakaļ
           choose_html: Es vēlos izveidot <strong>%{title}</strong>
+          more_information: (Papildu informācija)
           select: Es vēlos veicināt šo iniciatīvu
         share_committee_link:
           invite_to_committee_help: Saite, lai uzaicinātu cilvēkus, kas piedalīsies veicinātāju komitejā
