@@ -32,8 +32,6 @@ ca:
           error: S'ha produït un error en actualitzar el comentari.
       comments_count: Número de comentaris
       comments_title: Comentari
-      last_activity:
-        new_comment_at_html: "<span>Nou comentari a %{link}</span>"
       view: Mostrar
       votes:
         create:
@@ -46,7 +44,6 @@ ca:
             label: Comentari
             placeholder: Què en penses d'això?
           form_error: El text és necessari i no pot ser més llarg de %{length}.
-          submit: Enviar
           user_group_id:
             label: Comentar com a
         opinion:
@@ -95,8 +92,6 @@ ca:
           older: Més antic
           recent: Recent
         title: 'Ordenar per:'
-      comment_thread:
-        title: Conversa amb %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Has d'estar verificat abans de poder fer comentaris, però pots llegir els comentaris anteriors.
         blocked_comments_for_user_warning: No pots fer comentaris en aquest moment, però pots llegir els anteriors.
