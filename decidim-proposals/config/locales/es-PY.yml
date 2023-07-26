@@ -387,7 +387,7 @@ es-PY:
     participatory_spaces:
       highlighted_proposals:
         last: Propuestas más recientes
-        see_all: Ver todas las propuestas
+        see_all: Ver todo (%{count})
     proposals:
       actions:
         answer_proposal: Responder a la propuesta
@@ -698,7 +698,7 @@ es-PY:
             success: "Se ha rechazado con éxito @%{user} como colaboradora."
         show:
           edit: Editar borrador colaborativo
-          final_proposal: Propuesta final
+          final_proposal: propuesta final
           final_proposal_help_text: Este borrador está terminado. Puedes ver la propuesta final terminada
           hidden_authors_count:
             one: y %{count} persona más
@@ -706,7 +706,7 @@ es-PY:
           info-message: Este es un <strong>borrador colaborativo</strong> para una propuesta. Esto significa que puedes ayudar a sus autoras a dar forma a la propuesta usando la sección de comentarios que se encuentra debajo o mejorarla directamente solicitando acceso para editarla. Una vez que las autoras te den acceso, podrás realizar cambios en este borrador.
           publish: Publicar
           publish_info: Publicar esta versión del borrador o
-          published_proposal: Propuesta publicada
+          published_proposal: propuesta publicada
           request_access: Solicitar acceso
           requested_access: Acceso solicitado
           withdraw: retirar el borrador
@@ -883,7 +883,7 @@ es-PY:
           title: 'La votación se rige por las siguientes normas:'
           vote_limit:
             description: Puedes votar hasta %{limit} propuestas.
-            votes: Queda/n %{number} apoyo/s
+            votes: Votos
         wizard_aside:
           back: Volver
           back_from_step_1: Volver a propuestas
