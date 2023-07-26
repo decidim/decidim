@@ -161,6 +161,7 @@ pt-BR:
             title: Máximo de projetos excedido
         budget_summary:
           are_you_sure: Deseja mesmo cancelar o seu voto?
+          cancel_order: exclua seu voto e comece de novo
           checked_out:
             title: Votação do orçamento concluída
         count:
@@ -189,6 +190,9 @@ pt-BR:
           votes:
             one: voto
             other: votos
+        project_budget_button:
+          add: Adicione ao seu voto
+          added: Adicionado ao seu voto
         projects_for: Projetos para %{name}
         show:
           budget: Orçamento
