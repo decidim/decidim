@@ -92,12 +92,6 @@ ar:
           origin: الأصل
           participants: المشاركون
           search: بحث
-          user_groups: الفِرَق
-        filters_small_view:
-          close_modal: إغلاق مشروط
-          filter: منقي
-          filter_by: مصنف بواسطة
-          unfold: كشف
         form:
           select_a_category: الرجاء تحديد الفئة
         index:
