@@ -312,6 +312,9 @@ gl:
         description: Número de votos xerados nas propostas dos usuarios
         object: votos
         title: Votos
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Ver todos (%{count})
     proposals:
       actions:
         answer_proposal: Responder á proposta
@@ -538,12 +541,14 @@ gl:
             error: Non se puido rexeitar como colaborador, téntao de novo máis tarde.
         show:
           edit: Editar borrador colaborativo
+          final_proposal: proposta final
           final_proposal_help_text: Este borrador está rematado. Podes ver a proposta final rematada
           hidden_authors_count:
             one: e %{count} persoas máis
             other: e %{count} persoas máis
           publish: Publicar
           publish_info: Publica esta versión do borrador ou
+          published_proposal: proposta publicada
           request_access: Solicitar acceso
           requested_access: Acceso solicitado
           withdraw: retirar o borrador
@@ -690,6 +695,7 @@ gl:
           title: 'A votación está suxeita ás seguintes regras:'
           vote_limit:
             description: Podes votar ata %{limit} propostas.
+            votes: Votos
         wizard_aside:
           back: De volta
           info: Estás creando unha <strong>proposta</strong>.
