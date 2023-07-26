@@ -368,6 +368,9 @@ lt:
         description: Paramos pasiūlymams skaičius
         object: balsai
         title: Balsai
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Žiūrėti visus pasiūlymus (%{count})
     proposals:
       actions:
         answer_proposal: Atsakyti į pasiūlymą
@@ -632,6 +635,7 @@ lt:
             error: Nepavyko atmesti kaip bendraautoriaus. Bandykite dar kartą vėliau.
         show:
           edit: Redaguoti bendrąjį juodraštį
+          final_proposal: galutinis pasiūlymas
           final_proposal_help_text: Šis juodraštis baigtas. Patikrinkite galutinį pasiūlymą
           hidden_authors_count:
             one: ir dar %{count} žmogus
@@ -640,6 +644,7 @@ lt:
             other: ir dar %{count} žmonės (-ių)
           publish: Paskelbti
           publish_info: Skelbti šią juodraščio versiją arba
+          published_proposal: paskelbtas pasiūlymas
           request_access: Prašyti prieigos
           requested_access: Prieigos prašymas pateiktas
           withdraw: atsiimti juodraštį
@@ -808,6 +813,7 @@ lt:
           title: 'Paramai taikomos šios taisyklės:'
           vote_limit:
             description: Galite paremti iki %{limit} pasiūlymų.
+            votes: Balsai
         wizard_aside:
           back: Grįžti
           back_from_step_1: Grįžti į pasiūlymus
