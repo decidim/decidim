@@ -452,7 +452,6 @@
             all: Alle
             citizens: Innbyggere
             official: Offisiell
-            user_groups: Grupper
           scope: Tema
           search: Søk
           type: Type
@@ -486,9 +485,10 @@
           confirm: Bekreft
         show:
           attendees: Antall deltakere
+          close_meeting: Lukk møte
           contributions: Bidrag teller
           date: Dato
-          join: Bli med på møte
+          edit_meeting: Rediger møte
           meeting_minutes: Møte referater
           no_slots_available: Ingen plasser tilgjengelig
           organizations: Deltakende organisasjoner
