@@ -543,6 +543,7 @@ ar:
       authorizations:
         new:
           authorize: إذن التطبيق
+          by_organization_link_html: <small class="heading-small">بواسطة %{link}</small>
           cancel: إلغاء
           publish_content: نشر المحتوى لك
           see_email: انظر البريد الإلكتروني الخاص بك
@@ -551,6 +552,7 @@ ar:
           this_application_will_be_able_to: 'سيكون هذا التطبيق قادرًا على:'
           this_application_will_not_be_able_to: 'لن يكون هذا التطبيق قادرًا على:'
           update_profile: تحديث ملفك الشخصي
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> يريد استخدام حسابك"
     download_your_data:
       export:
         ready: جاهز
@@ -1131,6 +1133,7 @@ ar:
       participatory_space:
         metrics:
           headline: المشاركة في الأرقام
+          link: عرض جميع الإحصاءات
     participatory_space_private_users:
       not_allowed: غير مسموح لك بمشاهدة هذا المحتوى
     profile:
@@ -1354,6 +1357,9 @@ ar:
         of_versions: "(من%{number})"
         see_other_versions: عرض اصدارات أخرى
         version: رقم الإصدار %{number}
+    versions_list_item:
+      show:
+        version_index: الإصدار %{index}
     welcome_notification:
       default_subject: شكرا لانضمامك {{organization}}!
     wizard_step_form:
