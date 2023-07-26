@@ -138,10 +138,7 @@ ga:
             upcoming: Le teacht
           see: Feic
       show:
-        area: Ceantar
         dates: Dátaí
-        end_date: Dáta deiridh
-        scope: Scóip
   layouts:
     decidim:
       participatory_process_groups:
