@@ -738,6 +738,7 @@ pl:
         form:
           colors:
             colors_title: Kolory organizacji
+            colors_warning_html: Uwaga! Zmiana tych kolorów może ograniczyć czytelność. Możesz sprawdzić kontrast wybranych kolorów korzystając z <a href="%{link}">WebAIM Contrast Checker</a> albo innych podobnych narzędzi.
           cta_button_path_help: 'Możesz nadpisać adres do jakiego kieruje przycisk CTA na stronie głównej. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr, myślników i ukośników. Musi zaczynać się od litery. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem. Przykład: %{url}'
           cta_button_text_help: Można nadpisać tekst przycisku CTA na stronie głównej dla każdego dostępnego języka organizacji. Jeśli to pole nie zostanie wypełnione, zostanie użyta wartość domyślna. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
           homepage_appearance_title: Edytuj wygląd strony głównej
@@ -813,6 +814,7 @@ pl:
           update: Aktualizuj
         new:
           create: Utwórz typ zakresu
+          title: Nowy zakres
         update:
           error: Podczas aktualizowania tego typu zakresu wystąpił błąd.
           success: Typ zakresu został zaktualizowany
