@@ -380,6 +380,7 @@ hu:
         select_initiative_type:
           back: Vissza
           choose_html: Szeretnék létrehozni egy <strong>%{title}</strong>
+          more_information: (További információk)
           select: Szeretném támogatni ezt a kezdeményezést
           select_initiative_type_help: A kezdeményezések olyan eszközök, amelyekkel a résztvevők beavatkozhatnak, hogy a szervezet a közérdek védelmében lépéseket tegyen. Milyen kezdeményezést szeretnél elindítani?
         share_committee_link:
