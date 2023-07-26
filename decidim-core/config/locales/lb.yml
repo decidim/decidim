@@ -425,6 +425,7 @@ lb:
       authorizations:
         new:
           authorize: Applikatioun zouloossen
+          by_organization_link_html: <small class="heading-small">vun %{link}</small>
           cancel: Ofbriechen
           publish_content: Inhalt fir Iech verëffentlechen
           see_email: Kuck deng Email
@@ -433,6 +434,7 @@ lb:
           this_application_will_be_able_to: 'Dës Applikatioun mécht:'
           this_application_will_not_be_able_to: 'Diese Applikatioun kann net:'
           update_profile: Profil aktualiséieren
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> well däin Kont benotzen"
     download_your_data:
       export:
         ready: Fäerdeg
@@ -903,6 +905,7 @@ lb:
       participatory_space:
         metrics:
           headline: Statistiken
+          link: All Statistiken uweisen
     participatory_space_private_users:
       not_allowed: Dir ass et net erlaabt dësen Inhalt ze gesinn
     profile:
@@ -1108,6 +1111,9 @@ lb:
         of_versions: "(vun %{number})"
         see_other_versions: aner Versiounen kucken
         version: Versioun Nummer %{number}
+    versions_list_item:
+      show:
+        version_index: Versioun %{index}
     welcome_notification:
       default_subject: Merci, dass du {{organization}} bäigetrueden bass {{organization}}!
     wizard_step_form:
