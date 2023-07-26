@@ -217,9 +217,9 @@ fi-pl:
             title: Maksimisuunnitelmien määrä ylitetty
         budget_summary:
           are_you_sure: Haluatko varmasti peruuttaa äänesi?
-          cancel_order: poista äänesi
+          cancel_order: poista äänesi ja aloitta alusta
           checked_out:
-            description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, voit poistaa äänesi.
+            description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, %{cancel_link}.
             title: Budjetin äänestys suoritettu
           vote: Äänestä budjettia
         count:
@@ -275,9 +275,9 @@ fi-pl:
             other: ääntä
           you_voted: Äänestit tätä
         project_budget_button:
-          add: Lisää
+          add: Lisää ääneesi
           add_descriptive: Lisää hanke %{resource_name} ääneesi.
-          added: Lisätty
+          added: Lisätty ääneesi
           added_descriptive: Hanke %{resource_name} lisätty ääneesi.
         project_filter:
           added: Lisätty
