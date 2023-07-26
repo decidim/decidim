@@ -32,8 +32,6 @@ fi-pl:
           error: Kommentin päivittäminen epäonnistui.
       comments_count: Kommenttien määrä
       comments_title: Kommentti
-      last_activity:
-        new_comment_at_html: "<span>Uusi kommentti osoitteessa %{link}</span>"
       view: Näytä
       votes:
         create:
@@ -46,7 +44,6 @@ fi-pl:
             label: Kommentti
             placeholder: Mitä mieltä olet tästä?
           form_error: Teksti vaaditaan ja se ei voi olla pidempi kuin %{length} merkkiä.
-          submit: Lähetä
           user_group_id:
             label: Kommentoi käyttäjänä
         opinion:
@@ -95,8 +92,6 @@ fi-pl:
           older: Vanhimmat
           recent: Uusimmat
         title: 'Järjestä tulokset:'
-      comment_thread:
-        title: Keskustelu henkilön %{authorName} kanssa
       comments:
         blocked_comments_for_unauthorized_user_warning: Tilisi tulee olla varmennettu, jotta voit kommentoida tällä hetkellä. Voit kuitenkin lukea muiden jättämiä kommentteja.
         blocked_comments_for_user_warning: Et voi kommentoida tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
