@@ -1,48 +1,31 @@
-<% content_for :breadcrumb_nav do %>
-<div class="process-title">
-  <div class="container">
-    <div class="process-title-content">
-      <div class="process-title-content-breadcrumb-container-left">
-        <%= link_to decidim_admin.root_path, class: "process-title-content-icon-home", data: { "external-link": false } do %>
-          <%= icon "home-gear-line" %>
-        <% end %>
-        <span class="text-white">/</span>
-        <%= link_to t("decidim.admin.titles.participatory_processes"), decidim_admin_participatory_processes.participatory_processes_path, data: { "external-link": false }, class: "process-title-content-breadcrumb" %>
-        <span class="text-white">/</span>
-        <span class="process-title-content-breadcrumb">
-          <%= t("decidim.admin.titles.participatory_process_types") %>
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <% if allowed_to? :create, :process %>
+      <%= link_to [:new, :participatory_process], class: "process-title-content-breadcrumb-container-right-link" do %>
+        <%= icon "add-line" %>
+        <span>
+          <%= t("actions.new_process", scope: "decidim.admin") %>
         </span>
-      </div>
-      <div class="process-title-content-breadcrumb-container-right">
-        <% if allowed_to? :create, :process %>
-          <%= link_to [:new, :participatory_process], class: "process-title-content-breadcrumb-container-right-link" do %>
-            <%= icon "add-line" %>
-            <span>
-              <%= t("actions.new_process", scope: "decidim.admin") %>
-            </span>
-          <% end %>
-        <% end %>
-        <div class="inline-block relative">
-          <%= button_tag id: "processes-dropdown-menu-trigger", data: { component: 'dropdown', target: 'processes-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
-            <%= icon "more-line" %>
-          <% end %>
-          <div id="processes-dropdown-menu-settings">
-            <ul class="dropdown dropdown__bottom">
-              <li class="dropdown__item">
-                <% if allowed_to? :import, :process %>
-                  <%= icon "price-tag-3-line", class: "fill-gray-2" %>
-                  <%= link_to t("actions.import_process", scope: "decidim.admin"),
-                              new_import_path,
-                              class: "text-secondary" %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <% end %>
+    <% end %>
+    <div class="inline-block relative">
+      <%= button_tag id: "processes-dropdown-menu-trigger", data: { component: 'dropdown', target: 'processes-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
+        <%= icon "more-line" %>
+      <% end %>
+      <div id="processes-dropdown-menu-settings">
+        <ul class="dropdown dropdown__bottom">
+          <li class="dropdown__item">
+            <% if allowed_to? :import, :process %>
+              <%= icon "price-tag-3-line", class: "fill-gray-2" %>
+              <%= link_to t("actions.import_process", scope: "decidim.admin"),
+                          new_import_path,
+                          class: "text-secondary" %>
+            <% end %>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
-</div>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>
