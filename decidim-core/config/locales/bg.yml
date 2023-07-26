@@ -369,6 +369,7 @@ bg:
       authorizations:
         new:
           authorize: Потвърди приложение
+          by_organization_link_html: <small class="heading-small"> чрез %{link}</small>
           cancel: Откажи
           publish_content: Публикувайте съдържание за вас
           see_email: Вижте Вашата ел. поща
@@ -377,6 +378,7 @@ bg:
           this_application_will_be_able_to: 'Това приложение ще може:'
           this_application_will_not_be_able_to: 'Това приложение не може:'
           update_profile: Обновете профила си
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> желае да ползва профила Ви"
     download_your_data:
       export:
         ready: Готов
@@ -800,6 +802,7 @@ bg:
       participatory_space:
         metrics:
           headline: Индикатори
+          link: Покажи всички индикатори
     participatory_space_private_users:
       not_allowed: Нямате права да преглеждате това съдържание
     profile:
@@ -938,6 +941,9 @@ bg:
       resource_version:
         of_versions: "(от %{number})"
         version: Версия %{number}
+    versions_list_item:
+      show:
+        version_index: Версия %{index}
     welcome_notification:
       default_subject: Благодарим за присъединяването към {{organization}}!
     wizard_step_form:
