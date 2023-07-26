@@ -22,6 +22,8 @@ describe "Explore posts", type: :system do
       visit_component
     end
 
+    it_behaves_like "accessible page", { page_description: "Blogs index", decidim_module: "decidim-blogs" }
+
     it "shows the component name in the sidebar" do
       within("aside") do
         expect(page).to have_content(translated(component.name))
@@ -71,6 +73,8 @@ describe "Explore posts", type: :system do
     before do
       visit resource_locator(post).path
     end
+
+    it_behaves_like "accessible page", { page_description: "Blog post", decidim_module: "decidim-blogs" }
 
     context "when author is an organization" do
       it "shows 'Official' as the author" do

@@ -29,10 +29,16 @@ jobs:
     secrets: inherit
     name: Build test application
   main:
+    strategy:
+      fail-fast: false
+      matrix:
+        test_command:
+          - bundle exec parallel_test --type rspec --pattern spec/ --tag ~accesibility:true
+          - bundle exec parallel_test --type rspec --pattern spec/ --tag accesibility:true
     needs: build_app
     name: Tests
     uses: ./.github/workflows/test_app.yml
     secrets: inherit
     with:
       working-directory: "decidim-blogs"
-      test_command: bundle exec parallel_test --type rspec --pattern spec/
+      test_command: ${{ matrix.test-command }}

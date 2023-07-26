@@ -72,8 +72,18 @@ module AxeMatchers
   end
 
   class BeAxeClean
+    def initialize(options)
+      @options = options
+    end
+
     def matches?(page)
       @results = execute_axe(page)
+      # Dump axe results
+      results["decidim"] = {
+        "decidim_module" => @options[:decidim_module],
+        "page_description" => @options[:page_description]
+      }
+      write_report(results)
       results["violations"].count.zero?
     end
 
@@ -107,10 +117,21 @@ module AxeMatchers
       jslib = Rails.root.join("node_modules/axe-core/axe.min.js")
       page.execute_script jslib.read
     end
+
+    def write_report(results)
+      report_dir = Rails.root.join("tmp/accessibility")
+      FileUtils.mkdir_p(report_dir)
+      report_file = report_dir.join("axe_#{page_identifier(results)}.json")
+      File.write(report_file, JSON.pretty_generate(results.slice("violations", "testEngine", "testEnvironment", "timestamp", "decidim")))
+    end
+
+    def page_identifier(results)
+      "#{results["decidim"]["decidim_module"].parameterize}_#{results["decidim"]["page_description"].parameterize}"
+    end
   end
 
-  def be_axe_clean
-    BeAxeClean.new
+  def be_axe_clean(options)
+    BeAxeClean.new(options)
   end
 end
 
@@ -118,12 +139,12 @@ RSpec.configure do |config|
   config.include AxeMatchers
 end
 
-shared_examples_for "accessible page" do
-  it "passes accessibility tests" do
-    expect(page).to be_axe_clean
+shared_examples_for "accessible page" do |options|
+  it "passes accessibility tests", accesibility: true do
+    expect(page).to be_axe_clean(options)
   end
 
-  it "passes HTML validation" do
+  it "passes HTML validation", accesibility: true do
     # Capybara is stripping the doctype out of the HTML which is required for
     # the validation. If it does not exist, add it there.
     html = page.source
