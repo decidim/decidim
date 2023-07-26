@@ -313,6 +313,7 @@ sv:
         select_initiative_type:
           back: Tillbaka
           choose_html: Jag vill skapa ett <strong>%{title}</strong>
+          more_information: (Mer information)
           select: Jag vill arbeta för detta initiativ
         share_committee_link:
           invite_to_committee_help: Länk för att bjuda in personer till kampanjutskottet
