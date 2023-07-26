@@ -164,6 +164,7 @@ eu:
             title: Gehieneko proiektu kopurua gainditu egin da
         budget_summary:
           are_you_sure: Ziur zaude zure botoa ezeztatu nahi duzula?
+          cancel_order: ezabatu ezazu botoa eta hasi berriro
           checked_out:
             title: Botoa zuzen bidali da
         count:
@@ -198,6 +199,9 @@ eu:
             one: Botoa
             other: botoak
           you_voted: Honen aldeko botoa eman duzu
+        project_budget_button:
+          add: Gehitu zure botoari
+          added: Gehituta zure botoari
         projects_for: '%{name} ren prozesuak'
         show:
           budget: Aurrekontua
