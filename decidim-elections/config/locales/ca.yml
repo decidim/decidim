@@ -817,6 +817,8 @@ ca:
               name: Arxius i carpetes de la votació
             description:
               name: Descripció de la votació
+            elections:
+              name: Eleccions
             header:
               name: Capçalera de la votació
             html_block_1:
