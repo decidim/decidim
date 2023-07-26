@@ -131,6 +131,7 @@ gl:
           ok: Ok
         budget_summary:
           are_you_sure: Estás certo de querer cancelar o teu voto?
+          cancel_order: elimine o seu voto e volva comezar
           checked_out:
             title: A votación do orzamento completada
         count:
@@ -164,6 +165,9 @@ gl:
           votes:
             one: voto
             other: votos
+        project_budget_button:
+          add: Engadir ao teu voto
+          added: Engadido ao teu voto
         projects_for: Proxectos para %{name}
         show:
           budget: Orzamento
