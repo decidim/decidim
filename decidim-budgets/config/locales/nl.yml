@@ -169,6 +169,7 @@ nl:
             title: Maximum aantal projecten overschreden
         budget_summary:
           are_you_sure: Weet u zeker dat u uw stem wilt annuleren?
+          cancel_order: Verwijder uw stem en begin opnieuw
           checked_out:
             title: Begrotingsstemming voltooid
         count:
@@ -202,6 +203,9 @@ nl:
           votes:
             one: stem
             other: stemmen
+        project_budget_button:
+          add: Voeg toe aan je stem
+          added: Toegevoegd aan je stem
         projects_for: Projecten voor %{name}
         show:
           budget: Begroting
