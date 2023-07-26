@@ -178,7 +178,6 @@ zh-TW:
           questionnaire_not_published:
             body: 此表單尚未發佈。
           tos_agreement: 透過參與，您同意其服務條款
-          upload_file: 上傳檔案
       step_navigation:
         show:
           are_you_sure: 此操作無法撤消，您將無法編輯您的答案。您確定嗎？
