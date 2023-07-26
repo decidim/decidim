@@ -547,6 +547,14 @@ zh-TW:
           buttons:
             check: 檢查並繼續
             uncheck: 保持未勾選
+          notice: |-
+            <p>嗨，您確定不想收到電子報嗎？<br>
+            請再考慮勾選下面的電子報選項。<br>
+            對我們來說，讓您能收到偶爾的電子郵件，以便發布重要公告非常重要。
+            您可以隨時在通知設置頁面上更改此選項。</p>
+            <p>如果您不勾選此框，您可能會錯過有關平台上新的參與機會的相關信息。<br>
+            如果您仍然想避免收到電子報，我們完全理解您的決定。</p>
+            <p>感謝您閱讀此內容！</p>
           title: 電子報通知
         omniauth_buttons:
           or: 或
@@ -554,7 +562,9 @@ zh-TW:
       authorizations:
         new:
           authorize: 授權應用程式
+          by_organization_link_html: <small class="heading-small">由 %{link} 提供</small>
           cancel: 取消
+          connect_your_account_html: 透過登入<strong>%{organization}</strong>連接您的帳戶.
           publish_content: 代表您發佈內容
           see_email: 查看您的電子郵件
           see_name: 查看你的名稱
@@ -562,6 +572,7 @@ zh-TW:
           this_application_will_be_able_to: '此應用程式將可以：'
           this_application_will_not_be_able_to: '這個應用程式無法：'
           update_profile: 更新您的個人檔案
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> 希望使用您的帳戶"
     download_your_data:
       export:
         ready: 準備就緒
@@ -1217,6 +1228,7 @@ zh-TW:
       participatory_space:
         metrics:
           headline: 指標
+          link: 顯示所有指標
       terms_of_service:
         accept:
           error: 接受服務條款時出現問題。
@@ -1476,6 +1488,9 @@ zh-TW:
         of_versions: "(的%{number})"
         see_other_versions: 查看其他版本
         version: 版本號碼 %{number}
+    versions_list_item:
+      show:
+        version_index: 版本 %{index}
     welcome_notification:
       default_body: <p>嗨 {{name}}，感謝您加入 {{organization}}，歡迎！</p><ul><li>如果您想快速了解此處的功能，請查看<a href="{{help_url}}">幫助</a>部分。</li><li>閱讀後，您將獲得第一個徽章。這裡是{{organization}} 中您可以參加的所有徽章的<a href="{{badges_url}}">清單</a></li><li>最後但並非最不重要的，加入其他人，分享與他們參與 {{organization}} 的經驗。提出建議，評論，辯論，考慮如何為共同利益做出貢獻，提供論據以說服，耐心聆聽並閱讀以取得信服，以具體且直接的方式表達您的想法，以耐心和決定力回應，捍衛您的想法，保持開放的態度以協作和加入其他人的想法。</li></ul>
       default_subject: 感謝您加入 {{organization}}！
