@@ -49,7 +49,7 @@ eu:
               decidim_proposals_component: Proposamenen osagaia
               dice: Dadoa
               reference: Erreferentzia
-              request_timestamp: Denbora marraztea
+              request_timestamp: Zozketa-denbora
               seed: Hazia
               target_items: Aukeratutako elementuak
               title: Izenburua
@@ -87,9 +87,9 @@ eu:
             success: Zozketa zuzen eguneratu da
       admin_log:
         sortition:
-          create: "%{user_name} %{resource_name} sortzea %{space_name} urtean sortu da"
-          delete: "%{user_name} %{resource_name} sortioa %{space_name}-an bertan behera utzi da"
-          update: "%{user_name} %{resource_name} sortzea %{space_name} eguneratu du"
+          create: "%{user_name} k %{resource_name} zozketa sortu du %{space_name} espazioan"
+          delete: "%{user_name} k %{resource_name} zozketa bertan behera utzi du %{space_name} espazioan"
+          update: "%{user_name} k %{resource_name} zozketa eguneratu du %{space_name} espazioan"
       sortitions:
         filters:
           active: Aktiboa
@@ -98,16 +98,16 @@ eu:
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
           search: Bilatu
-          state: Estatu
+          state: Egoera
         filters_small_view:
-          close_modal: Itxi modal
-          filter: Filter
-          filter_by: Iragazi arabera
+          close_modal: Modala itxi
+          filter: Filtroa
+          filter_by: Honen arabera iragazi
           unfold: Zabaldu
         linked_sortitions:
           selected_proposals: Aukeratutako proposamenak
         orders:
-          label: 'Agindu ordenantzak honela:'
+          label: 'Zozketak honen arabera ordenatu:'
           random: Ausaz
           recent: Berrienak
         results_count:
