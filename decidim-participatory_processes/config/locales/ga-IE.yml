@@ -115,6 +115,8 @@ ga:
           create: Cruthaigh
     participatory_process_groups:
       content_blocks:
+        metadata:
+          name: Meiteashonraí
         title:
           meta_scope: Scóip
     participatory_processes:
