@@ -518,7 +518,7 @@ fr:
           close_meeting: Clore la rencontre
           edit_close_meeting: Modifier le compte-rendu de la rencontre
           edit_meeting: Modifier la rencontre
-          join_meeting: Participer à la rencontre
+          join_meeting: Rejoindre la rencontre
         meetings:
           no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'a été créée.
           upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontres planifiées. Ici vous trouverez une liste de toutes les rencontres passées.
