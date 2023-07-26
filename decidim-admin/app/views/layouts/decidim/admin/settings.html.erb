@@ -1,28 +1,14 @@
-<% content_for :breadcrumb_nav do %>
-<div class="process-title">
-  <div class="container">
-    <div class="process-title-content">
-      <div class="process-title-content-breadcrumb-container-left">
-        <%= link_to decidim_admin.root_path, class: "process-title-content-icon-home", data: { "external-link": false } do %>
-          <%= icon "home-gear-line" %>
-        <% end %>
-        <span class="text-white">/</span>
-        <%= link_to t("menu.settings", scope: "decidim.admin"), decidim_admin.edit_organization_path, class: "process-title-content-breadcrumb" %>
-        <%= yield :breadcrumb_nav_item %>
-      </div>
-      <div class="process-title-content-breadcrumb-container-right">
-        <div class="inline-block relative">
-          <%= button_tag id: "admin-settings-dropdown-menu-trigger", data: { component: 'dropdown', target: 'admin-settings-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
-            <%= icon "more-line" %>
-          <% end %>
-          <div id="admin-settings-dropdown-menu-settings" class="process-title-content-dropdown">
-            <%= sidebar_menu(:admin_settings_menu).render %>
-          </div>
-        </div>
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <div class="inline-block relative">
+      <%= button_tag id: "admin-settings-dropdown-menu-trigger", data: { component: 'dropdown', target: 'admin-settings-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
+        <%= icon "more-line" %>
+      <% end %>
+      <div id="admin-settings-dropdown-menu-settings" class="process-title-content-dropdown">
+        <%= sidebar_menu(:admin_settings_menu).render %>
       </div>
     </div>
   </div>
-</div>
 <% end %>
 <%= render "layouts/decidim/admin/application" do %>
   <%= yield %>
