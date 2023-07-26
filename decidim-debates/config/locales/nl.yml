@@ -106,18 +106,11 @@ nl:
           official: Officieel
           origin: Oorsprong
           participants: Deelnemers
-          scope: Scope
           search: Zoeken
           state: Status
           state_values:
             closed: Gesloten
             open: Open
-          user_groups: Gebruikersgroepen
-        filters_small_view:
-          close_modal: Sluit venster
-          filter: Sorteren
-          filter_by: Sorteren op
-          unfold: Uitvouwen
         form:
           select_a_category: Selecteer een categorie
         index:
@@ -133,20 +126,12 @@ nl:
           recent: Meest recent
           updated: Onlangs bijgewerkt
         show:
-          back: Terug naar het overzicht
           date: 'Datum:'
           edit_debate: Bewerk debat
           open: Debat openen
         update:
           invalid: Er is een fout opgetreden bij het bijwerken van het debat.
           success: Debat succesvol bijgewerkt.
-        versions:
-          debates:
-            back_to_resource: Ga terug naar het debat
-          index:
-            title: versies
-        versions_list:
-          back_to_resource: Ga terug naar het debat
       models:
         debate:
           fields:
