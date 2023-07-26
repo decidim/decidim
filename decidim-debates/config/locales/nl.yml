@@ -84,6 +84,8 @@ nl:
       debate_m:
         commented_time_ago: Reactie %{time} geleden
       debates:
+        close_debate_modal:
+          close: Sluiten
         count:
           debates_count:
             one: "%{count} debat"
@@ -113,7 +115,6 @@ nl:
           state_values:
             closed: Gesloten
             open: Open
-          user_groups: Gebruikersgroepen
         filters_small_view:
           close_modal: Sluit venster
           filter: Sorteren
