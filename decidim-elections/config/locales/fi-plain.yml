@@ -639,7 +639,7 @@ fi-pl:
             success: Julkisen tunnistusavaimesi tallentaminen onnistui.
       votes:
         ballot_decision:
-          audit: Tarkasta äänesi
+          audit: ( Tarkasta äänesi )
           back: Aloita äänestysprosessi uudestaan
           ballot_hash: 'Äänestyslippusi tunniste on:'
           cast: Lähetä äänestyslippusi viimeistelläksesi äänestyksen
@@ -661,7 +661,7 @@ fi-pl:
           feedback: Jätä meille palautetta
           header: Ääni vahvistettu
           lead: Äänesi on annettu!
-          text: 'Voit tarkastaa, että äänesi on jätetty onnistuneesti äänestyslaatikkoon seuraavalla tunnisteella: '
+          text: 'Voit tarkastaa, että äänesi on jätetty onnistuneesti äänestyslaatikkoon seuraavalla tunnisteella: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Tarkastaaksesi tämän, kopioi äänen tunniste <a href="%{link}">äänten vahvistussivulle</a>
         create:
           error: Äänen jättämisessä tapahtui virhe. Ole hyvä ja yritä uudelleen.
@@ -674,8 +674,8 @@ fi-pl:
           text: Jokin meni pieleen, yritä uudelleen.
           try_again: Yritä uudestaan
         header:
-          ballot_decision: Jätä äänesi
-          confirm: Vahvista
+          ballot_decision: Lähetä tai tarkasta äänesi
+          confirm: Vahvista äänesi
           election: Vaali
           register: Luo tunnus
           vote_for: Äänestä - %{title}
@@ -691,7 +691,7 @@ fi-pl:
           nota_option: Tyhjä / Ei mitään näistä
           preview_alert: Tämä on äänestyskopin esikatselunäkymä.
           question_steps: Kysymys %{current_step} / %{total_steps}
-          selections: "Valittu %{selected} / %{max_selections}"
+          selections: "Valittu<br>\n%{selected} / %{max_selections}"
         onboarding_modal:
           create_account: Luo tili
           description: Haluatko luoda oman käyttäjätilin alustalle? Voit osallistua prosesseihin ja alustalla esitettyjen asioiden kehittämiseen.
