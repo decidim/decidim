@@ -384,7 +384,7 @@ de:
         select_initiative_type:
           back: Zurück
           choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
-          more_information: Mehr Informationen
+          more_information: (Weitere Informationen)
           new: Neue Initiative erstellen
           select: Ich möchte diese Initiative fördern
           select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürger eingreifen können, damit die Organisation Maßnahmen zur Verteidigung des Allgemeininteresses ergreifen kann, die in den Zuständigkeitsbereich der Stadtverwaltung fallen. Welche Initiative möchten Sie starten?
