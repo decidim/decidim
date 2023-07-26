@@ -371,9 +371,6 @@ de:
         description: Anzahl der Beteiligungsprozesse in dieser Organisation
         object: Beteiligungsprozesse
         title: Beteiligungsprozesse
-    participatory_process:
-      show:
-        related_assemblies: Ähnliche Versammlungen
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -382,19 +379,12 @@ de:
           name: Zweiter HTML-Block
         html_3:
           name: Dritter HTML-Block
-        metadata:
-          developer_group: Unterstützt von
-          name: Metadaten
-          participatory_scope: Was wird entschieden
-          participatory_structure: Wie wird es entschieden
-          target: Wer nimmt teil
         participatory_processes:
           name: Beteiligungsprozesse
         stats:
           name: Statistiken
         title:
           meta_scope: Umfang
-          name: Titel, Beschreibung und Hashtag
           participatory_processes:
             one: 1 Prozess
             other: "%{count} Prozesse"
@@ -451,16 +441,6 @@ de:
         title: Beteiligungsprozesse
       last_activity:
         new_participatory_process: Neuer partizipativer Prozess
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Aktive Beteiligungsprozesse
-            active_step: Aktiver Schritt
-            more_information: Mehr Informationen
-            participate: Sich beteiligen
-            participate_in: Am Prozess %{resource_name} teilnehmen
-            processes_button_title: Link zur Prozess-Seite die alle Prozesse anzeigt
-            see_all_processes: Alle Beteiligungsprozesses anzeigen
       participatory_process_steps:
         index:
           back_to_process: Zurück zur Prozessseite
@@ -491,24 +471,13 @@ de:
             past: Vergangenheit
             upcoming: Bevorstehende
           see: Sehen
-        index:
-          loading: Ergebnisse werden geladen ...
         show:
           title: Über diesen Prozess
       show:
-        area: Bereich
         belongs_to_group: Dieser Prozess gehört zu
         dates: Daten
-        developer_group: Promoter-Gruppe
-        end_date: Enddatum
-        local_area: Organisationsbereich
-        participatory_scope: Was wird entschieden?
-        participatory_structure: Wie wird es entschieden
         private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
-        scope: Umfang
-        start_date: Startdatum
-        target: Wer nimmt teil?
         unspecified: Keine Angabe
     statistics:
       processes_count: Beteiligungsprozesse
@@ -519,10 +488,6 @@ de:
           browse: Durchsuche
           browse_resource: Prozessgruppe %{resource_name} durchsuchen
           processes_count: 'Beteiligungsprozesse:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktiver Schritt
-          take_part: Teilnehmen
       participatory_processes:
         index:
           promoted_processes: Hervorgehobene Beteiligungsprozesse
@@ -532,14 +497,6 @@ de:
           more_info_about: Weitere Informationen zum Prozess %{resource_name}
           take_part: Teilnehmen
           take_part_in: Beteiligen Sie sich am Prozess %{resource_name}
-        promoted_process:
-          active_step: 'Aktueller Schritt:'
-          more_info: Mehr Informationen
-          more_info_about: Weitere Informationen zum Prozess %{resource_name}
-          take_part: Teilnehmen
-          take_part_in: Beteiligen Sie sich am Prozess %{resource_name}
-        promoted_process_group:
-          more_info: Mehr Info
       process_header_steps:
         step: Schritt %{current} von %{total}
         view_steps: Schritte anzeigen
