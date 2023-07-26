@@ -293,7 +293,7 @@ fi-pl:
         title: Tulokset
     participatory_spaces:
       highlighted_results:
-        see_all: Näytä kaikki tulokset
+        see_all: Näytä kaikki (%{count} kpl)
     resource_links:
       included_projects:
         result_project: Tähän tulokseen liittyvät suunnitelmat
