@@ -820,6 +820,7 @@ zh-TW:
         form:
           colors:
             colors_title: 組織顏色
+            colors_warning_html: 警告！更改這些顏色可能會破壞可達性對比度。您可以使用<a href="%{link}">WebAIM對比度檢查器</a>或其他類似工具檢查您選擇的對比度。
           cta_button_path_help: '您可以覆蓋主頁上的"呼籲行動"按鈕的鏈接目標。在此處使用部分路徑，而不是完整的URL。它接受字母、數字、破折號和斜杠，並且必須以字母開頭。"呼籲行動"按鈕顯示在主頁的歡迎文本和描述之間。範例： %{url}'
           cta_button_text_help: 您可以覆蓋主頁上每種語言對應的"呼籲行動"按鈕文本。如果未設置，將使用默認值。"呼籲行動"按鈕顯示在主頁的歡迎文本和描述之間。
           homepage_appearance_title: 編輯主頁外觀
@@ -914,6 +915,7 @@ zh-TW:
           update: 更新
         new:
           create: 建立範圍類型。
+          title: 新範圍
         update:
           error: 更新此範圍類型時出現問題。
           success: 範圍類型已成功更新。
