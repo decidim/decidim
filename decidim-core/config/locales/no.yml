@@ -431,6 +431,7 @@
       authorizations:
         new:
           authorize: Autoriser søknad
+          by_organization_link_html: <small class="heading-small">av %{link}</small>
           cancel: Avbryt
           publish_content: Publiser innhold for deg
           see_email: Se din email
@@ -439,6 +440,7 @@
           this_application_will_be_able_to: 'Dette programmet vil kunne:'
           this_application_will_not_be_able_to: 'Dette programmet vil ikke kunne:'
           update_profile: Oppdater profilen din
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> ønsker å bruke profilen din"
     download_your_data:
       export:
         ready: Klar
@@ -926,6 +928,7 @@
       participatory_space:
         metrics:
           headline: Deltakelse i tall
+          link: Vis all statistikk
     participatory_space_private_users:
       not_allowed: Du er ikke tillatt å se dette innholdet
     profile:
@@ -1131,6 +1134,9 @@
         of_versions: "(av %{number})"
         see_other_versions: se andre versjoner
         version: Versjon %{number}
+    versions_list_item:
+      show:
+        version_index: Versjon %{index}
     welcome_notification:
       default_subject: Takk for at du ble med {{organization}}!
     wizard_step_form:
