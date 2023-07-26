@@ -85,11 +85,6 @@ uk:
           official: Службове
           origin: Джерело
           search: Шукати
-        filters_small_view:
-          close_modal: Закрити віконце
-          filter: Відібрати
-          filter_by: 'Відібрати за ознакою:'
-          unfold: Розгорнути
         form:
           select_a_category: Будь ласка, виберіть категорію
         index:
