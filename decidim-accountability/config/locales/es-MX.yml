@@ -293,7 +293,7 @@ es-MX:
         title: Resultados
     participatory_spaces:
       highlighted_results:
-        see_all: Ver todos los resultados
+        see_all: Ver todos los resultados (%{count})
     resource_links:
       included_projects:
         result_project: Proyectos incluidos en este resultado
