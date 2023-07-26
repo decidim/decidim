@@ -331,6 +331,7 @@
         select_initiative_type:
           back: Tilbake
           choose_html: Jeg vil opprette en <strong>%{title}</strong>
+          more_information: (Mer informasjon)
           select: Jeg ønsker å promotere dette initiativet
           select_initiative_type_help: Initiativer er en måte deltakerne kan gripe inn på, slik at organisasjonen kan iverksette tiltak i forsvar for den generelle interessen. Hvilket initiativ vil du lansere?
         share_committee_link:
