@@ -373,13 +373,24 @@ fr:
         title: Concertations
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Promu par
+          name: Métadonnées
+          participatory_scope: Ce qui est décidé
+          participatory_structure: Modalités de décision
+          target: Qui participe
+        html:
+          name: Bloc HTML
         html_1:
           name: Bloc HTML 1
         html_2:
           name: Bloc HTML 2
         html_3:
           name: Bloc HTML 3
+        main_data:
+          name: Titre et description
         participatory_processes:
+          active: Processus participatifs actifs
           name: Concertations
         stats:
           name: Statistiques
@@ -398,7 +409,10 @@ fr:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Actif(s)
+            all: Tout
             max_results: Quantité maximale d'éléments à afficher
+            selection_criteria: Critères de sélection
         new_import:
           accepted_types:
             json: JSON
@@ -435,12 +449,21 @@ fr:
             title: Informations générales
             visbility: Visibilité
       content_blocks:
+        extra_data:
+          name: Phase & durée
         highlighted_processes:
           name: Concertations mises en avant
+        related_processes:
+          name: Processus participatifs liés
       index:
         title: Concertations
       last_activity:
         new_participatory_process: Nouvelle concertation
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Processus participatifs actifs
+            see_all_spaces: Voir tous les processus participatifs
       participatory_process_steps:
         index:
           back_to_process: Retour à la page du processus
