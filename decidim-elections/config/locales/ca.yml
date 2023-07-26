@@ -639,7 +639,7 @@ ca:
             success: La teva clau pública d'identificació va ser guardada amb èxit.
       votes:
         ballot_decision:
-          audit: Auditar papereta
+          audit: ( Auditar papereta )
           back: Començar de nou el procés de votació
           ballot_hash: 'L''identificador de la teva papereta és:'
           cast: Dipositar la papereta per a finalitzar el teu vot
@@ -661,7 +661,7 @@ ca:
           feedback: Dona'ns la teva opinió
           header: Vot confirmat
           lead: El teu vot ha estat emès!
-          text: 'Pots comprovar que el teu vot s''ha afegit correctament a l''urna amb el següent identificador: '
+          text: 'Pots comprovar que el teu vot s''ha afegit correctament a l''urna amb el següent identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Per comprovar-ho, copia l'identificador i enganxa'l a la <a href="%{link}">pàgina de verificació de vot</a>
         create:
           error: Hi ha hagut un problema en emetre el vot. Prova-ho de nou.
@@ -674,7 +674,8 @@ ca:
           text: Alguna cosa ha anat malament. Si us plau, torna-ho a provar.
           try_again: Prova-ho de nou
         header:
-          confirm: Confirmar
+          ballot_decision: Envia o audita el teu vot
+          confirm: Confirma el teu vot
           election: Elecció
           register: Registra't
           vote_for: Vota per %{title}
@@ -690,7 +691,7 @@ ca:
           nota_option: En blanc / Cap de les anteriors
           preview_alert: Aquesta és una vista prèvia de la cabina de votació.
           question_steps: Pregunta %{current_step} de %{total_steps}
-          selections: "Seleccionada/es %{selected} de %{max_selections}"
+          selections: "Seleccionada <br> %{selected} de %{max_selections}"
         onboarding_modal:
           create_account: Crea un compte
           description: Vols crear un nou compte? Podràs participar als processos i ser part activa de l'organització.
@@ -821,6 +822,8 @@ ca:
             name: Mètriques de la votació
           polling_stations:
             name: Punts de votació
+          related_elections:
+            name: Eleccions
           stats:
             name: Estadístiques de la votació
           timeline:
