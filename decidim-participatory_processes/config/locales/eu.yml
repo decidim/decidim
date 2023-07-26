@@ -336,11 +336,10 @@ eu:
         html_3:
           name: Hirugarren HTML blokea
         metadata:
-          developer_group: Nork sustatua
-          name: Metadatuak
-          participatory_scope: Zer erabakitzen den
-          participatory_structure: Nola erabakitzen da
-          target: Nork hartzen du parte
+          name: Metadata
+          participatory_scope: Zer erabakitzen da
+          participatory_structure: Nola erabakitzen da?
+          target: Nork parte hartzen duen
         participatory_processes:
           name: Prozesu parte-hartzaileak
         stats:
@@ -402,13 +401,11 @@ eu:
       pages:
         home:
           highlighted_processes:
-            active_processes: Prozesu aktiboak
             active_step: Urratsa aktiboa
             more_information: Informazio gehiago
             participate: Parte hartu
             participate_in: Parte hartu %{resource_name} prozesuan
             processes_button_title: Esteka prozesu guztiak erakusten dituen Prozesuen orrialdera
-            see_all_processes: Ikusi prozesu guztiak
       participatory_process_steps:
         index:
           back_to_process: Itzuli prozesuaren orrialdera
@@ -440,19 +437,18 @@ eu:
         index:
           loading: Emaitzak kargatzen...
       show:
-        area: Area
+        area: Arloa
         belongs_to_group: Prozesu hau honi dagokio
         dates: Datak
-        developer_group: Sustatzailearen taldea
+        developer_group: Talde sustatzailea
         end_date: Bukaera-data
-        local_area: Antolakuntza eremua
-        participatory_scope: Zer erabaki
+        participatory_scope: Zer erabakitzen da
         participatory_structure: Nola erabakitzen da?
         private_space: Prozesu pribatua da
         related_processes: Elkarrekin lotutako prozesuak
         scope: Esparrua
         start_date: Hasiera-data
-        target: Nork parte hartzen du
+        target: Nork parte hartzen duen
         unspecified: Zehaztu gabea
     statistics:
       processes_count: Prozesuak
