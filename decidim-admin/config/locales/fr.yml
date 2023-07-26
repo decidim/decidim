@@ -386,7 +386,7 @@ fr:
           reports_reason_eq:
             label: Raison du signalement
             values:
-              does_not_belong: N'appartient pas
+              does_not_belong: inapproprié
               offensive: Offensant
               spam: Spam
         moderations:
