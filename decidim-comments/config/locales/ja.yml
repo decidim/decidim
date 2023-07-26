@@ -30,8 +30,6 @@ ja:
           error: コメントの更新中に問題が発生しました。
       comments_count: コメント数
       comments_title: コメント
-      last_activity:
-        new_comment_at_html: "<span> %{link}に新しいコメント</span>"
       view: 表示
       votes:
         create:
@@ -44,7 +42,6 @@ ja:
             label: コメント
             placeholder: これについてどう思いますか?
           form_error: テキストは必須で、 %{length} 文字を超えることはできません。
-          submit: 送信
           user_group_id:
             label: 'コメント:'
         opinion:
@@ -92,8 +89,6 @@ ja:
           older: 古い順
           recent: 最近のもの
         title: '並び順：'
-      comment_thread:
-        title: '%{authorName} との会話'
       comments:
         blocked_comments_for_unauthorized_user_warning: 現在、コメントできるのは検証済アカウントのみになりますが、以前のコメントを読むことはできます。
         blocked_comments_for_user_warning: 現時点ではコメントできませんが、以前のコメントを読むことができます。
