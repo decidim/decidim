@@ -352,6 +352,7 @@ ro:
         select_initiative_type:
           back: Înapoi
           choose_html: Vreau să creez un <strong>%{title}</strong>
+          more_information: (Mai multe informații)
           select: Doresc să promovez această iniţiativă
           select_initiative_type_help: Inițiativele reprezintă un mijloc prin care participanții pot interveni astfel încât organizația să poată întreprinde acțiuni de apărare a interesului general. Ce inițiativă dorești să lansezi?
         share_committee_link:
