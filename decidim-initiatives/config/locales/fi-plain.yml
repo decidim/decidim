@@ -384,7 +384,7 @@ fi-pl:
         select_initiative_type:
           back: Takaisin
           choose_html: Haluan luoda uuden <strong>%{title}</strong> aloitteen
-          more_information: Lisätietoa
+          more_information: (Lisää tietoa)
           new: Luo uusi aloite
           select: Haluan tukea tätä aloitetta
           select_initiative_type_help: Aloitteita käytetään vaikuttamiseen organisaation tarkoitusperien edistämiseksi. Millaisen aloitteen haluat aloittaa?
