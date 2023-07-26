@@ -82,15 +82,9 @@ module Decidim
       private
 
       def set_categories_breadcrumb_items
-        context_breadcrumb_items << {
-          label: t("categories", scope: "decidim.admin.menu"),
-          url: categories_path(current_participatory_space),
-          active: @category.blank?
-        }
-
         return if @category.blank?
 
-        context_breadcrumb_items << {
+        controller_breadcrumb_items << {
           label: translated_attribute(@category.name),
           active: true
         }
