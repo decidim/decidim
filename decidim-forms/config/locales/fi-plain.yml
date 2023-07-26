@@ -178,7 +178,6 @@ fi-pl:
           questionnaire_not_published:
             body: Tätä lomaketta ei ole vielä julkaistu.
           tos_agreement: Osallistumalla hyväksyt käyttöehdot
-          upload_file: Lataa tiedosto
       step_navigation:
         show:
           are_you_sure: Tätä toimintoa ei voi kumota, etkä voi muokata vastauksiasi. Oletko varma?
