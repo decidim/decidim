@@ -272,7 +272,7 @@ fr-CA:
               minimum_answers: Les questions doivent avoir <strong>au moins deux réponses</strong>.
               minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
               published: L'élection n'est <strong>pas publiée</strong>.
-              time_before: L'heure de début se situe<strong>moins de %{hours}</strong> avant le début de l'élection.
+              time_before: L'heure de début se situe<strong>moins de %{hours} heures </strong> avant le commencement de l'élection.
               trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             invalid: Une erreur est survenue lors de la création de l'élection
             no_trustees: Il n'y a pas de garants configurés pour cet espace participatif
@@ -289,7 +289,7 @@ fr-CA:
               minimum_answers: Chaque question a <strong>au moins 2 réponses</strong>.
               minimum_questions: L'élection a <strong>au moins 1 question</strong>.
               published: L'élection est <strong>publiée</strong>.
-              time_before: La configuration est réalisée <strong>au moins %{hours}</strong> avant le début de l'élection.
+              time_before: La configuration est réalisée <strong>au moins %{hours} heures</strong> avant le début de l'élection.
               trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             submit: Configurer l'élection
             success: L' élection a été envoyée avec succès au Panneau d'Affichage.
@@ -639,6 +639,7 @@ fr-CA:
             success: Votre clé d'identification publique a bien été stockée.
       votes:
         ballot_decision:
+          audit: (Auditer le bulletin de vote)
           back: Recommencer le processus de vote
           ballot_hash: 'L''identifiant de votre bulletin est:'
           cast: Remplir le bulletin pour terminer votre vote
@@ -660,6 +661,7 @@ fr-CA:
           feedback: Donnez-nous votre avis
           header: Vote confirmé
           lead: Votre vote a été comptabilisé !
+          text: 'Vous pouvez vérifier que votre vote a bien été ajouté à la zone des urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Pour vérifier que votre vote a bien été pris en compte, copiez l'identifiant et collez-le sur la <a href="%{link}">page de vérification de vote</a>
         create:
           error: Un problème s'est produit lors de la validation du vote. Veuillez réessayer.
@@ -671,6 +673,9 @@ fr-CA:
           lead: Votre vote n'a pas été exprimé!
           text: Une erreur est survenue, veuillez réessayer.
           try_again: Réessayez
+        header:
+          ballot_decision: Validez ou auditez votre vote
+          confirm: Confirmer votre vote
         messages:
           invalid_token: Votre session dans l'isoloir n'est pas valide. Essayez de voter à nouveau.
           not_allowed: Vous n'êtes pas autorisé à voter sur cette élection pour le moment.
@@ -683,6 +688,7 @@ fr-CA:
           nota_option: Vide / Aucune des options ci-dessus
           preview_alert: Ceci est un aperçu de la cabine de vote.
           question_steps: Question %{current_step} sur %{total_steps}
+          selections: "%{selected} sur %{max_selections}<br> sélections"
         onboarding_modal:
           create_account: Créer un compte
           description: Voulez-vous créer un compte sur la plateforme ? Vous pourrez participer aux concertations et prendre une part active dans l'organisation.
@@ -1346,6 +1352,8 @@ fr-CA:
         send_access_code:
           invalid: Un problème est survenu lors de l'envoi du code d'accès.
           success: Votre code d'accès a été envoyé avec succès.
+        show:
+          title: À propos de ce vote
       votings_m:
         badge_name:
           finished: Passées
