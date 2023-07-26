@@ -367,11 +367,8 @@ ar:
           all: الكل
         filter_meeting_space_values:
           all: الكل
-        filter_scope_values:
-          all: الكل
       calendar_modal:
         calendar_url: العنوان الشبكي للتقويم
-        close_window: أغلق النافذة
         copy_calendar_url: نسخ
         copy_calendar_url_clarification: نسخ رابط URL التقويم إلى الحافظة
         copy_calendar_url_copied: تم النسخ!
@@ -388,8 +385,6 @@ ar:
       content_blocks:
         upcoming_meetings:
           name: الاجتماعات المقبلة
-          upcoming_meetings: الاجتماعات المقبلة
-          view_all_meetings: عرض الكل
       directory:
         meetings:
           index:
@@ -428,7 +423,6 @@ ar:
         calendar_modal:
           add_to_calendar: إضافة إلى التقويم
           apple: إضافة إلى تقويم أبل Apple
-          close_window: إغلاق النافذة
           full_details_html: للحصول على التفاصيل الكاملة انتقل إلى %{link}
           google: أضف إلى تقويم Google
           outlook: إضافة إلى تقويم أبل Apple
@@ -462,8 +456,6 @@ ar:
             all: الكل
             official: رسمي
             participants: المشاركون
-            user_groups: المجموعات
-          scope: النطاق
           search: بحث
           type: النوع
           type_values:
@@ -471,11 +463,6 @@ ar:
             hybrid: هجين
             in_person: وجهًا لوجه
             online: على الإنترنت
-        filters_small_view:
-          close_modal: إغلاق مشروط
-          filter: منقي
-          filter_by: مصنف بواسطة
-          unfold: كشف
         form:
           address_help: 'العنوان: مستخدم من قبل Geocoder للعثور على الموقع'
           available_slots_help: تركه على 0 إذا كان لديك أعدد غير محدود من الأماكن الشاغرة
@@ -495,8 +482,6 @@ ar:
           see_all: عرض كافة الاجتماعات
           see_all_withdrawn: عرض جميع الاجتماعات المسحوبة
           text_banner: أنت تستعرض قائمة الاجتماعات التي تم سحبها من قبل مؤلفيها. %{go_back_link}.
-        meeting_minutes:
-          related_information: معلومات ذات صله
         meetings:
           upcoming_meetings_warning: حاليًا ، لا توجد اجتماعات مجدولة ، ولكن يمكنك هنا العثور على جميع الاجتماعات السابقة المدرجة.
         new:
@@ -508,13 +493,8 @@ ar:
           confirm: تؤكد
         show:
           attendees: الحضور الحضور
-          back: العودة إلى القائمة
-          close_meeting: إغلاق الاجتماع
           contributions: عدد المساهمات
           date: تاريخ
-          edit_close_meeting: تحرير تقرير الاجتماع
-          edit_meeting: تعديل الاجتماع
-          going: لقد قمت بالتسجيل لهذا الاجتماع
           join: أنضم إلى الأجتماع
           leave: إلغاء التسجيل الخاص بك
           leave_confirmation: هل أنت متأكد من أنك تريد إلغاء تسجيلك لهذا الاجتماع؟
@@ -544,8 +524,6 @@ ar:
         update:
           invalid: طرأت مشكلة خلال تحديث الاجتماع.
           success: لقد قمت بتحديث الاجتماع بنجاح.
-      meetings_map:
-        view_meeting: عرض الاجتماع
       models:
         invite:
           fields:
@@ -622,8 +600,6 @@ ar:
         private_meeting: اجتماع خاص
         transparent: شفاف
         withdraw: تم السحب
-      versions:
-        back_to_resource: العودة إلى الاجتماع
     metrics:
       meetings:
         description: عدد الاجتماعات التي تم إنشاؤها
