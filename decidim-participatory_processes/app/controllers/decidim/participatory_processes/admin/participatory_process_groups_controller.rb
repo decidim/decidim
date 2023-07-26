@@ -8,6 +8,8 @@ module Decidim
       class ParticipatoryProcessGroupsController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         helper ProcessesForSelectHelper
 
+        add_breadcrumb_item_from_menu :admin_participatory_processes_menu
+
         helper_method :collection, :participatory_process_group
 
         def index

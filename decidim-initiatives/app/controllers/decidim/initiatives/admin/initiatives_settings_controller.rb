@@ -10,6 +10,8 @@ module Decidim
 
         layout "decidim/admin/initiatives"
 
+        add_breadcrumb_item_from_menu :admin_initiatives_menu
+
         # GET /admin/initiatives_settings/edit
         def edit
           enforce_permission_to :update, :initiatives_settings, initiatives_settings: current_initiatives_settings

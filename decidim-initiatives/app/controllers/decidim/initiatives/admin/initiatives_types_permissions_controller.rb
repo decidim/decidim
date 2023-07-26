@@ -9,6 +9,8 @@ module Decidim
         include Decidim::TranslatableAttributes
         include HasSpecificBreadcrumb
 
+        add_breadcrumb_item_from_menu :admin_initiatives_menu
+
         layout "decidim/admin/initiatives"
 
         register_permissions(::Decidim::Initiatives::Admin::InitiativesTypesPermissionsController,

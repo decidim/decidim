@@ -8,6 +8,9 @@ module Decidim
       class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         include Decidim::Admin::ParticipatorySpaceAdminContext
         include Decidim::ParticipatoryProcesses::Admin::Filterable
+
+        add_breadcrumb_item_from_menu :admin_participatory_process_menu, only: :show
+
         participatory_space_admin_layout only: [:edit]
 
         helper ProcessGroupsForSelectHelper

@@ -8,6 +8,8 @@ module Decidim
         include Decidim::TranslatableAttributes
         include HasSpecificBreadcrumb
 
+        add_breadcrumb_item_from_menu :admin_initiatives_menu
+
         helper_method :current_initiative_type_scope
 
         # GET /admin/initiatives_types/:initiatives_type_id/initiatives_type_scopes/new
