@@ -619,7 +619,7 @@ es-PY:
             uncheck: Mantener desmarcado
           notice: |-
             <p>Hola, ¿seguro que no quieres recibir un boletín informativo?<br>
-            Por favor, considera volver a marcar la casilla de selección del boletín a continuación.
+            Por favor, considera volver a marcar la casilla de selección del boletín a continuación.<br>
             Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer avisos importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
             <p>Si no marcas la casilla, es posible que te pierdas información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
             Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
@@ -631,9 +631,9 @@ es-PY:
       authorizations:
         new:
           authorize: Autorice la aplicación
-          by_organization_link_html: por %{link}
+          by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
-          connect_your_account_html: Conecte tu cuenta iniciando sesión en %{organization}.
+          connect_your_account_html: Conecte tu cuenta iniciando sesión en <strong>%{organization}</strong>.
           publish_content: Publique contenido para usted
           see_email: Ver tu correo electrónico
           see_name: Ver tu nombre
@@ -641,7 +641,7 @@ es-PY:
           this_application_will_be_able_to: 'Esta aplicación podrá:'
           this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
           update_profile: Actualiza tu perfil
-          wants_to_use_your_account_html: "%{application_name} quiere usar tu cuenta"
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar tu cuenta"
     download_your_data:
       export:
         ready: Listo
@@ -1314,7 +1314,7 @@ es-PY:
       participatory_space:
         metrics:
           headline: Participación en cifras.
-          link: Mostrar todas
+          link: Mostrar todas las estadísticas
       terms_of_service:
         accept:
           error: Se ha producido un error al aceptar los términos y condiciones de uso.
@@ -1585,7 +1585,7 @@ es-PY:
         version: Versión %{number}
     versions_list_item:
       show:
-        version_index: Versión %{index} de %{total}
+        version_index: Versión %{index}
     welcome_notification:
       default_body: <p>¡Hola {{name}}, gracias por unirte a {{organization}} te damos la bienvenida!</p><ul><li>Si quieres hacerte una idea rápida de que puedes hacer, echa un vistazo a la <a href="{{help_url}}">Sección de ayuda</a>.</li><li>Una vez la hayas leído recibirás tu primera insignia. Aquí encontrarás un <a href="{{badges_url}}">listado de todas las insignias</a>que puedes conseguir participando en {{organization}}</li><li>. Para terminar, pero no por ello menos importante, únete a otras personas, comparte con ellas de estar comprometida y de participar en {{organization}}. Haz propuestas, comentarios, debate, piensa en cómo contribuir a un bien común, aporta argumentos para tratar de convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y permanece abierta de mente para colaborar y unirte a las ideas de otra gente.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
