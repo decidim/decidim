@@ -84,11 +84,6 @@ gl:
           origin: Orixe
           participants: Participantes
           search: Busca
-        filters_small_view:
-          close_modal: Pechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Despregar
         form:
           select_a_category: Selecciona unha categoría
         index:
