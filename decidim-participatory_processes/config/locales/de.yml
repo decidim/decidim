@@ -374,11 +374,10 @@ de:
         html_3:
           name: Dritter HTML-Block
         metadata:
-          developer_group: Unterstützt von
           name: Metadaten
-          participatory_scope: Was wird entschieden
-          participatory_structure: Wie wird es entschieden
-          target: Wer nimmt teil
+          participatory_scope: Was wird entschieden?
+          participatory_structure: Wie wird es entschieden?
+          target: Wer nimmt teil?
         participatory_processes:
           name: Beteiligungsprozesse
         stats:
@@ -445,13 +444,11 @@ de:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktive Beteiligungsprozesse
             active_step: Aktiver Schritt
             more_information: Mehr Informationen
             participate: Sich beteiligen
             participate_in: Am Prozess %{resource_name} teilnehmen
             processes_button_title: Link zur Prozess-Seite die alle Prozesse anzeigt
-            see_all_processes: Alle Beteiligungsprozesses anzeigen
       participatory_process_steps:
         index:
           back_to_process: Zurück zur Prozessseite
@@ -492,12 +489,11 @@ de:
         dates: Daten
         developer_group: Promoter-Gruppe
         end_date: Enddatum
-        local_area: Organisationsbereich
         participatory_scope: Was wird entschieden?
-        participatory_structure: Wie wird es entschieden
+        participatory_structure: Wie wird es entschieden?
         private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
-        scope: Umfang
+        scope: Themenbereich
         start_date: Startdatum
         target: Wer nimmt teil?
         unspecified: Keine Angabe
@@ -525,7 +521,7 @@ de:
           take_part_in: Beteiligen Sie sich am Prozess %{resource_name}
         promoted_process:
           active_step: 'Aktueller Schritt:'
-          more_info: Mehr Informationen
+          more_info: Mehr Info
           more_info_about: Weitere Informationen zum Prozess %{resource_name}
           take_part: Teilnehmen
           take_part_in: Beteiligen Sie sich am Prozess %{resource_name}
