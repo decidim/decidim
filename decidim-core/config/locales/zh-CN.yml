@@ -367,6 +367,7 @@ zh-CN:
       authorizations:
         new:
           authorize: 授权应用程序
+          by_organization_link_html: <small class="heading-small">由 %{link}</small>
           cancel: 取消
           publish_content: 发布您的内容
           see_email: 查看您的电子邮件
@@ -375,6 +376,7 @@ zh-CN:
           this_application_will_be_able_to: '此应用程序将能够：'
           this_application_will_not_be_able_to: '此应用程序将无法：'
           update_profile: 更新您的个人资料
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> 想要使用您的帐户"
     download_your_data:
       export:
         ready: 准备好
@@ -823,6 +825,7 @@ zh-CN:
       participatory_space:
         metrics:
           headline: 指标
+          link: 显示所有指标
     participatory_space_private_users:
       not_allowed: 您无权查看此内容
     profile:
@@ -995,6 +998,9 @@ zh-CN:
         of_versions: "( %{number})"
         see_other_versions: 查看其他版本
         version: 版本号 %{number}
+    versions_list_item:
+      show:
+        version_index: 版本 %{index}
     welcome_notification:
       default_subject: 感谢您加入 {{organization}}！
     wizard_step_form:
