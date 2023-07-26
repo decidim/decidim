@@ -336,11 +336,10 @@
         html_3:
           name: Tredje HTML-blokk
         metadata:
-          developer_group: Promotert av
           name: Metadata
-          participatory_scope: Hva er bestemt
-          participatory_structure: Hvordan blir det bestemt
-          target: Hvem deltar
+          participatory_scope: Medvirkningen gjelder
+          participatory_structure: Hvordan det blir gjort
+          target: Hvem som deltar
         participatory_processes:
           name: Deltakende prosesser
         stats:
@@ -407,13 +406,11 @@
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktive prosesser
             active_step: Aktiv medvirkningsfase
             more_information: Mer informasjon
             participate: Delta
             participate_in: Delta i prosess %{resource_name}
             processes_button_title: Lenke til prosessiden som viser alle prosesser
-            see_all_processes: Se alle prosesser
       participatory_process_steps:
         index:
           back_to_process: Tilbake til prosesssiden
@@ -452,16 +449,15 @@
         area: Område
         belongs_to_group: Denne prosessen tilhører
         dates: Datoer
-        developer_group: Prosessen styres av
+        developer_group: Promotørgruppe
         end_date: Sluttdato
-        local_area: Organisasjonsområde
         participatory_scope: Medvirkningen gjelder
-        participatory_structure: Hvordan det blir gjennomført
+        participatory_structure: Hvordan det blir gjort
         private_space: Dette er en lukket prosess
         related_processes: Relaterte prosesser
         scope: Tema
         start_date: Startdato
-        target: Hvem kan delta
+        target: Hvem som deltar
         unspecified: Ikke spesifisert
     statistics:
       processes_count: Prosesser
