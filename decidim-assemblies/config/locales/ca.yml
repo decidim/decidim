@@ -300,7 +300,7 @@ ca:
             title: Configuració de les assemblees
         assemblies_types:
           form:
-            title: Editar tipus d'assemblea
+            title: Títol
         assembly_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
