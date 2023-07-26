@@ -289,7 +289,7 @@ de:
               minimum_answers: Jede Frage hat <strong>mindestens 2 Antworten</strong>.
               minimum_questions: Die Wahl hat <strong>mindestens 1 Frage</strong>.
               published: Die Wahl ist <strong>veröffentlicht</strong>.
-              time_before: Die Einrichtung wird <strong>mindestens %{hours}</strong> vor Beginn der Wahl fertiggestellt werden.
+              time_before: Die Wahl wird <strong>mindestens %{hours} Stunden</strong> vor Beginn eingerichtet.
               trustees_number: <strong>Mindestens %{number} Wahlhelfer mit Public Key</strong> sind vorhanden.
             submit: Wahl einrichten
             success: Wahl erfolgreich an das Bulletin Board gesendet.
@@ -639,7 +639,7 @@ de:
             success: Ihr öffentlicher Identifikationsschlüssel wurde erfolgreich gespeichert.
       votes:
         ballot_decision:
-          audit: Stimmzettel überprüfen
+          audit: (Stimmzettel überprüfen)
           back: Abstimmungsvorgang erneut starten
           ballot_hash: 'Ihre Wahlurnen-ID ist:'
           cast: Stimmzettel abgeben, um Ihre Stimme abzuschließen
@@ -661,7 +661,7 @@ de:
           feedback: Gib uns dein Feedback
           header: Abstimmung bestätigt
           lead: Ihre Stimme wurde abgegeben!
-          text: 'Sie können mit folgendem Identifikator überprüfen, ob Ihre Stimme erfolgreich zur Wahlurne hinzugefügt wurde: '
+          text: 'Sie können überprüfen, ob Ihre Stimme erfolgreich zur Wahlurne mit folgendem Identifikator hinzugefügt wurde: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Um dies zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="%{link}">Bestätigungsseite</a> ein
         create:
           error: Beim Abgeben dieser Stimme ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
@@ -674,8 +674,8 @@ de:
           text: Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.
           try_again: Erneut versuchen
         header:
-          ballot_decision: Abstimmen
-          confirm: Bestätigen
+          ballot_decision: Stimme abgeben oder überprüfen
+          confirm: Bestätige deine Stimme
           election: Wahl
           register: Registrieren
           vote_for: Über %{title} abstimmen
@@ -691,7 +691,7 @@ de:
           nota_option: Nichts davon
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
-          selections: "%{selected} von %{max_selections} ausgewählt"
+          selections: "%{selected} von %{max_selections}<br> ausgewählt"
         onboarding_modal:
           create_account: Konto erstellen
           description: Möchten Sie ein neues Konto auf der Plattform erstellen? Sie können an den Prozessen teilnehmen und aktiv an der Organisation teilnehmen.
