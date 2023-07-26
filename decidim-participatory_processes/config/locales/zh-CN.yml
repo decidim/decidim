@@ -282,9 +282,6 @@ zh-CN:
         description: 本组织参与进程的数目
         object: 参与进程
         title: 参与进程
-    participatory_process:
-      show:
-        related_assemblies: 相关的会议
     participatory_process_groups:
       content_blocks:
         stats:
@@ -333,15 +330,6 @@ zh-CN:
         title: 参与进程
       last_activity:
         new_participatory_process: 新的参与进程
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: 活动进程
-            active_step: 活动阶段
-            more_information: 更多信息
-            participate: 参与
-            participate_in: 参与进程 %{resource_name}
-            see_all_processes: 查看所有进程
       participatory_process_steps:
         index:
           back_to_process: 返回进程页面
@@ -364,21 +352,10 @@ zh-CN:
             past: 过去的
             upcoming: 即将到来的
           see: 查看
-        index:
-          loading: 正在加载结果...
       show:
-        area: 区域
         dates: 日期
-        developer_group: 促销者组
-        end_date: 结束日期
-        local_area: 组织区域
-        participatory_scope: 决定的内容
-        participatory_structure: 如何决定
         private_space: 这是一个私密进程
         related_processes: 相关进程
-        scope: 范围
-        start_date: 开始日期
-        target: 谁参与
         unspecified: 未指定
   layouts:
     decidim:
@@ -387,21 +364,11 @@ zh-CN:
           browse: 浏览
           browse_resource: 浏览流程组 %{resource_name}
           processes_count: '进程：'
-      participatory_process_widgets:
-        show:
-          active_step: 活动阶段
-          take_part: 参与
       participatory_processes:
         index:
           promoted_processes: 高亮的进程
         participatory_process:
-          active_step: '当前阶段：'
-          more_info: 更多信息
-          more_info_about: 更多关于进程 %{resource_name} 的信息
-          take_part: 参与
-          take_part_in: 参与进程 %{resource_name}
-        promoted_process:
-          active_step: '当前阶段：'
+          active_step: 当前阶段：
           more_info: 更多信息
           more_info_about: 更多关于进程 %{resource_name} 的信息
           take_part: 参与
