@@ -36,6 +36,8 @@ cs:
           error: Při aktualizaci komentáře došlo k chybě.
       comments_count: Počet komentářů
       comments_title: Komentář
+      last_activity:
+        new_comment: 'Nový komentář:'
       view: Zobrazit
       votes:
         create:
@@ -48,6 +50,8 @@ cs:
             label: Komentář
             placeholder: Co si o tom myslíš?
           form_error: Text je povinný a nemůže být delší než %{length} znaků.
+          submit_reply: Publikovat odpověď
+          submit_root_comment: Publikovat komentář
           user_group_id:
             label: Komentovat jako
         opinion:
@@ -65,6 +69,7 @@ cs:
         alignment:
           against: Proti
           in_favor: Ve prospěch
+        cancel_reply: Zrušit odpověď
         confirm_destroy: Opravdu chcete odstranit tento komentář?
         delete: Smazat
         deleted_at: Komentář byl smazán dne %{date}
