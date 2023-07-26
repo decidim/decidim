@@ -120,24 +120,22 @@ eu:
         show:
           algorithm: Zozketaren algoritmoaren kodea
           any_category: kategoria guztienak
-          back: Itzuli zerrendara
           cancelled: Bertan behera utzitako zozketak
           candidate_proposal_ids: Zozketako proposamenen hurrenkera eta IDak
           candidate_proposals_info: 'Zozketa (%{category_label}) proposamenen artean egin da, honako IDekin (letra lodiz hautatutako proposamenak)  '
           category: '%{category} kategoriatik'
-          dice_result: "(1) Dadoen emaitza"
+          dice_result: (1) Datuen emaitza
           introduction: 'Orrialde honek %{reference} zozketaren emaitzak ditu. Zozketa honen bidez, %{target_items} emaitza kopurua ausaz eta banaketa probabilistiko berdinarekin aukeratu dira proposamen multzotik. Orri honek, emaitzak ezezik, berme guztiak izateko behar den informazioa ere jaso du. Zozketa honen kalitateak bi gako ditu. Alde batetik, dadoa hainbat lekukoren aurrean bota dela. Bestetik, zozketaren une zehatzean sortu den algoritmoak eman duen ausazko hautaketa. Sailkapenerako hazi-denbora hain da zehatza (segunduak) gizakiak ezin baitu hori kontrolatu. Honi esker, bidezko emaitza bermatzen duen sarrera bikoitz "kontrolaezina" sortzen da.  '
           mathematical_result: Emaitza (1) x (2)
           proposals_selected_by_sortition: Zozketa bidez aukeratutako proposamenak
-          sortition_reproducibility_details: Zozketaren errepikagarritasunaren xehetasunak
-          time_seed: "(2) Denbora hazia"
+          sortition_reproducibility_details: Sortzeko erreprodukzioaren xehetasunak
+          time_seed: (2) Denbora hazia
           witnesses: Lekukoak
         sortition:
           random_seed: Ausazkotasun hazia
           selected_proposals:
             one: Aukeratutako 1 proposamena
             other: aukeratutako proposamenak
-          view: Ikusi
         sortition_author:
           deleted: Ezabatutako parte-hartailea
         sortition_cancel_author:
