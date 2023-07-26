@@ -50,6 +50,7 @@ lb:
             title: Debatten
       debates:
         filters:
+          scope: Bereich
           search: Suche
           state: Status
           state_values:
