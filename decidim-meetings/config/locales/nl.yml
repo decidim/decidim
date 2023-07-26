@@ -402,7 +402,7 @@ nl:
       content_blocks:
         upcoming_meetings:
           name: Geplande vergaderingen
-          upcoming_meetings: Geplande vergaderingen
+          upcoming_meetings: Aankomende vergaderingen
           view_all_meetings: Bekijk alles
       directory:
         meetings:
@@ -474,7 +474,6 @@ nl:
             all: Alles
             official: Officieel
             participants: Deelnemers
-            user_groups: Groepen
           scope: Scope
           search: Zoeken
           type: Type
@@ -526,10 +525,8 @@ nl:
           close_meeting: Vergadering sluiten
           contributions: Aantal bijdragen
           date: Datum
-          edit_close_meeting: Bewerk vergaderverslag
           edit_meeting: Vergadering bewerken
           going: Je hebt je ingeschreven voor deze vergadering
-          join: Deelnemen aan bijeenkomst
           leave: Inschrijving annuleren
           leave_confirmation: Weet je zeker dat je je inschrijving voor deze vergadering wil annuleren?
           link_available_soon: Link binnenkort beschikbaar
