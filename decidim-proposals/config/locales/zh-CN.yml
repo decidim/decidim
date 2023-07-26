@@ -295,6 +295,9 @@ zh-CN:
         description: 支持提议的数量
         object: 支持
         title: 支持
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: 查看所有建议 (%{count})
     proposals:
       actions:
         answer_proposal: 答复建议
@@ -526,11 +529,13 @@ zh-CN:
             error: 无法以协作者身份拒绝，请稍后再试。
         show:
           edit: 编辑协作草稿
+          final_proposal: 最后提案
           final_proposal_help_text: 这个草稿已完成。查看最后建议
           hidden_authors_count:
             other: 和更多 %{count} 人
           publish: 发布
           publish_info: 发布此版本的草稿或
+          published_proposal: 已发布的提案
           request_access: 请求访问
           requested_access: 访问请求
           withdraw: 撤回草案
@@ -674,6 +679,7 @@ zh-CN:
           title: '支持受以下规则约束：'
           vote_limit:
             description: 您可以最多支持 %{limit} 个建议。
+            votes: 支持
         wizard_aside:
           back: 后退
           back_from_step_1: 回到提议
