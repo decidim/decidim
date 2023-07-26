@@ -758,6 +758,7 @@ sv:
         form:
           colors:
             colors_title: Organisationsfärger
+            colors_warning_html: Varning! Att ändra dessa färger kan bryta minska kontrasterna och tillgängligheten. Du kan kontrollera kontrasten i ditt val med <a href="%{link}">WebAIM Contrast Checker</a> eller andra liknande verktyg.
           cta_button_path_help: 'Du kan ändra vad uppmaningsknappen på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga URL:er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
           cta_button_text_help: Du kan ha separata texter på uppmaningsknappen på hemsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen.
           homepage_appearance_title: Redigera startsidans utseende
@@ -839,6 +840,7 @@ sv:
           update: Uppdatera
         new:
           create: Skapa omfattningstyp
+          title: Ny omfattning
         update:
           error: Det gick inte att uppdatera omfångstypen.
           success: Omfångstypen har uppdaterats
