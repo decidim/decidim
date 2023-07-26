@@ -334,6 +334,9 @@
         description: Antall støtter til forslag
         object: støtter
         title: Støtter
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Vis alle (%{count})
     proposals:
       actions:
         answer_proposal: Svar på forslag
@@ -566,12 +569,14 @@
             error: Kunne ikke bli avvist som en samarbeidspartner, Prøv igjen senere.
         show:
           edit: Rediger samarbeids utkastet
+          final_proposal: endelig forslag
           final_proposal_help_text: Dette utkastet er ferdig. Sjekk ut det endelige forslaget
           hidden_authors_count:
             one: og %{count} til person
             other: og %{count} flere personer
           publish: Publiser
           publish_info: Publiser denne versjonen av utkastet eller
+          published_proposal: publisert forslag
           request_access: Be om tilgang
           requested_access: Tilgang forespurt
           withdraw: trekk tilbake utkastet
@@ -719,6 +724,7 @@
           title: 'Støtter er underlagt følgende regler:'
           vote_limit:
             description: Du kan støtte opptil %{limit} forslag.
+            votes: Støtter
         wizard_aside:
           back: Tilbake
           back_from_step_1: Tilbake til forslag
