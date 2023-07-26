@@ -453,6 +453,7 @@ sv:
       authorizations:
         new:
           authorize: Auktorisera ansökan
+          by_organization_link_html: <small class="heading-small">av %{link}</small>
           cancel: Avbryt
           publish_content: Publicera innehåll åt dig
           see_email: Se din e-postadress
@@ -461,6 +462,7 @@ sv:
           this_application_will_be_able_to: 'Detta program kommer att kunna:'
           this_application_will_not_be_able_to: 'Det här programmet kommer inte att kunna:'
           update_profile: Uppdatera din profil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vill använda ditt konto"
     download_your_data:
       export:
         ready: Klar
@@ -984,6 +986,7 @@ sv:
       participatory_space:
         metrics:
           headline: Metrik
+          link: Visa alla metrik
     participatory_space_private_users:
       not_allowed: Du har inte rätt att se det här innehållet
     profile:
@@ -1198,6 +1201,9 @@ sv:
         of_versions: "(av %{number})"
         see_other_versions: visa andra versioner
         version: Versionsnummer %{number}
+    versions_list_item:
+      show:
+        version_index: Version %{index}
     welcome_notification:
       default_subject: Tack för att du gick med i {{organization}}!
     wizard_step_form:
