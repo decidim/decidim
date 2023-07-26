@@ -830,8 +830,16 @@ cs:
         content_blocks:
           highlighted_votings:
             max_results: Maximální počet prvků k zobrazení
+          html_block_1:
+            name: Html blok 1 hlasování
+          html_block_2:
+            name: Html blok 2 hlasování
+          html_block_3:
+            name: Html blok 3 hlasování
           main_data:
             name: Název a popis
+          metrics:
+            name: Metriky hlasování
           polling_stations:
             name: Volební místnosti hlasování
           related_elections:
