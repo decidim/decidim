@@ -424,6 +424,7 @@ pt:
       authorizations:
         new:
           authorize: Autorizar aplicação
+          by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
           publish_content: Publicar conteúdo para si
           see_email: Ver o seu e-mail
@@ -432,6 +433,7 @@ pt:
           this_application_will_be_able_to: 'Esta aplicação será capaz de:'
           this_application_will_not_be_able_to: 'Esta aplicação não poderá:'
           update_profile: Atualizar o seu perfil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quer usar a sua conta"
     download_your_data:
       export:
         ready: Pronto
@@ -906,6 +908,7 @@ pt:
       participatory_space:
         metrics:
           headline: Métricas
+          link: Mostrar todas as métricas
     participatory_space_private_users:
       not_allowed: Não tem permissão para visualizar este conteúdo
     profile:
@@ -1111,6 +1114,9 @@ pt:
         of_versions: "(de %{number})"
         see_other_versions: ver outras versões
         version: Versão %{number}
+    versions_list_item:
+      show:
+        version_index: Versão %{index}
     welcome_notification:
       default_subject: Obrigado por se juntar a {{organization}}!
     wizard_step_form:
