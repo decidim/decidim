@@ -374,6 +374,9 @@ zh-TW:
         description: 提案所獲得的支持數
         object: 支持
         title: 支援
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: 檢視所有提案 (%{count})
     proposals:
       actions:
         answer_proposal: 回覆提案
@@ -680,12 +683,14 @@ zh-TW:
             success: "@%{user} 已被成功拒絕成為協作者。"
         show:
           edit: 編輯協作草稿
+          final_proposal: 最終提案
           final_proposal_help_text: 此草案已完成。請查看最終提案。
           hidden_authors_count:
             other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
           info-message: 這是一份提案的<strong>共同合作稿件</strong>，這表示您可以使用下面的評論區幫助作者們塑造提案，或直接請求編輯權限以對其進行改進。一旦作者們授予您訪問權限，您便可以對此起草稿進行更改。
           publish: 發布
           publish_info: 發佈這個版本的草案或
+          published_proposal: 發佈提案
           request_access: 申請權限
           requested_access: 授權請求
           withdraw: 撤回草稿
@@ -853,6 +858,7 @@ zh-TW:
           title: '支持需遵守以下規則：'
           vote_limit:
             description: 您最多可以支持 %{limit} 個提案。
+            votes: 支持
         wizard_aside:
           back: 返回
           back_from_step_1: 返回提案
