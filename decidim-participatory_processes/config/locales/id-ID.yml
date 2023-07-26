@@ -265,6 +265,11 @@ id:
         title: Proses partisipatif
     participatory_process_groups:
       content_blocks:
+        metadata:
+          name: Metadata
+          participatory_scope: Apa yang diputuskan
+          participatory_structure: Bagaimana cara memutuskannya
+          target: Yang berpartisipasi
         stats:
           name: Aktivitas
       show:
@@ -309,11 +314,9 @@ id:
       pages:
         home:
           highlighted_processes:
-            active_processes: Proses aktif
             active_step: Langkah aktif
             more_information: Informasi lebih lanjut
             participate: Ikut
-            see_all_processes: Lihat semua proses
       participatory_processes:
         filters:
           counters:
@@ -341,7 +344,6 @@ id:
         area: Daerah
         developer_group: Grup promotor
         end_date: Tanggal akhir
-        local_area: Wilayah Organisasi
         participatory_scope: Apa yang diputuskan
         participatory_structure: Bagaimana cara memutuskannya
         private_space: Ini adalah proses pribadi
@@ -371,6 +373,8 @@ id:
           active_step: 'Langkah saat ini:'
           more_info: Info lebih lanjut
           take_part: Ambil bagian
+        promoted_process_group:
+          more_info: Info lebih lanjut
       process_header_steps:
         step: Langkah %{current} dari %{total}
         view_steps: Lihat langkah
