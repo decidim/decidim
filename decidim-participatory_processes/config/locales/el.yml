@@ -371,9 +371,6 @@ el:
         description: Αριθμός διαδικασιών συμμετοχής σε αυτόν τον οργανισμό
         object: διαδικασίες συμμετοχής
         title: Διαδικασίες συμμετοχής
-    participatory_process:
-      show:
-        related_assemblies: Σχετικές συνελεύσεις
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -382,19 +379,12 @@ el:
           name: Δεύτερο μπλοκ HTML
         html_3:
           name: Πρώτο μπλοκ HTML
-        metadata:
-          developer_group: Προβιβάστηκε από
-          name: Μεταδεδομένα
-          participatory_scope: Τι αποφασίστηκε
-          participatory_structure: Πώς αποφασίστηκε
-          target: Ποιος συμμετέχει
         participatory_processes:
           name: Συμμετοχικές διαδικασίες
         stats:
           name: Στατιστικά στοιχεία
         title:
           meta_scope: Πεδία εφαρμογής
-          name: Τίτλος, περιγραφή και hashtag
           participatory_processes:
             one: 1 διεργασία
             other: "%{count} διεργασίες"
@@ -451,16 +441,6 @@ el:
         title: Διαδικασίες συμμετοχής
       last_activity:
         new_participatory_process: Νέα διαδικασία συμμετοχής
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Ενεργές διαδικασίες
-            active_step: Ενεργή φάση
-            more_information: Περισσότερες πληροφορίες
-            participate: Συμμετοχή
-            participate_in: Συμμετάσχετε στην διαδικασία %{resource_name}
-            processes_button_title: Σύνδεση με τη σελίδα Διεργασίεςπου εμφανίζει όλες τις διεργασίες
-            see_all_processes: Δείτε όλες τις διαδικασίες
       participatory_process_steps:
         index:
           back_to_process: Πίσω στην σελίδα της διαδικασίας
@@ -491,24 +471,13 @@ el:
             past: Παρελθόν
             upcoming: Προσεχείς
           see: Προβολή
-        index:
-          loading: Φόρτωση αποτελεσμάτων...
         show:
           title: Σχετικά με αυτή τη διεργασία
       show:
-        area: Τομέας
         belongs_to_group: Αυτή η διεργασία ανήκει σε
         dates: Ημερομηνίες
-        developer_group: Ομάδα προώθησης
-        end_date: Ημερομηνία λήξης
-        local_area: Τομέας οργανισμού
-        participatory_scope: Τι αποφασίστηκε
-        participatory_structure: Πώς αποφασίζεται
         private_space: Αυτή είναι μια ιδιωτική διαδικασία
         related_processes: Σχετικές διαδικασίες
-        scope: Πεδίο εφαρμογής
-        start_date: Ημερομηνία έναρξης
-        target: Ποιος συμμετέχει
         unspecified: Δεν προσδιορίστηκε
     statistics:
       processes_count: Διεργασίες
@@ -519,10 +488,6 @@ el:
           browse: Αναζήτηση
           browse_resource: Δείτε για την ομάδα διαδικασίας %{resource_name}
           processes_count: 'Διαδικασίες:'
-      participatory_process_widgets:
-        show:
-          active_step: Ενεργή φάση
-          take_part: Συμμετάσχετε
       participatory_processes:
         index:
           promoted_processes: Επισημασμένες διαδικασίες
@@ -532,14 +497,6 @@ el:
           more_info_about: Περισσότερες πληροφορίες για τη διαδικασία %{resource_name}
           take_part: Συμμετάσχετε
           take_part_in: Πάρτε μέρος στην διαδικασία %{resource_name}
-        promoted_process:
-          active_step: 'Τρέχουσα φάση:'
-          more_info: Περισσότερες πληροφορίες
-          more_info_about: Περισσότερες πληροφορίες για τη διαδικασία %{resource_name}
-          take_part: Συμμετάσχετε
-          take_part_in: Πάρτε μέρος στην διαδικασία %{resource_name}
-        promoted_process_group:
-          more_info: Περισσότερες πληροφορίες
       process_header_steps:
         step: Φάση %{current} από %{total}
         view_steps: Φάσεις διαδικασίας
