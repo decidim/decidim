@@ -178,7 +178,6 @@ ca:
           questionnaire_not_published:
             body: Aquest formulari no s'ha publicat encara.
           tos_agreement: En participar acceptes els Termes i condicions d'ús
-          upload_file: Puja un arxiu
       step_navigation:
         show:
           are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Segur?
