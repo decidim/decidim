@@ -287,6 +287,7 @@ zh-CN:
         select_initiative_type:
           back: 后退
           choose_html: 我想要创建 <strong>%{title}</strong>
+          more_information: (更多信息)
           select: 我想促进这项倡议
         share_committee_link:
           invite_to_committee_help: 邀请将成为促进委员会成员的人的链接
