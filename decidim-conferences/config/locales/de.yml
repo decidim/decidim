@@ -446,7 +446,7 @@ de:
       conference_speakers:
         index:
           speakers:
-            one: Sprecher*in
+            one: Sprechende
             other: Sprechende
       conferences:
         partners:
