@@ -132,6 +132,10 @@ sk:
         unpublish: "%{user_name} zrušil publikovanie typu zhromaždenia %{resource_name}"
         update: "%{user_name} aktualizoval typ zhromaždenia %{resource_name}"
     assemblies:
+      admin:
+        assemblies_types:
+          form:
+            title: Názov
       last_activity:
         new_assembly: Nové zhromaždenie
       pages:
