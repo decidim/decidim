@@ -381,6 +381,7 @@ sk:
       authorizations:
         new:
           authorize: Povoliť aplikáciu
+          by_organization_link_html: <small class = "heading-small"> podľa %{link} </ small>
           cancel: Zrušiť
           publish_content: Publikujte obsah pre vás
           see_email: Pozrite sa na svoj e-mail
@@ -389,6 +390,7 @@ sk:
           this_application_will_be_able_to: 'Táto aplikácia bude schopná:'
           this_application_will_not_be_able_to: 'Táto aplikácia nebude môcť:'
           update_profile: Aktualizujte svoj profil
+          wants_to_use_your_account_html: "<strong>%{application_name} </strong> chce používať váš účet"
     download_your_data:
       export:
         ready: Pripravený
@@ -784,6 +786,7 @@ sk:
       participatory_space:
         metrics:
           headline: Metriky
+          link: Zobraziť všetky metriky
     participatory_space_private_users:
       not_allowed: Nemáte povolenie na zobrazenie tohto obsahu
     profile:
