@@ -286,6 +286,9 @@ sv:
             update: Uppdatera
           form:
             title: Inställningar för församlingar
+        assemblies_types:
+          form:
+            title: Titel
         assembly_copies:
           form:
             slug_help: 'URL-slugs används till att generera de URL:er som pekar på gruppen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
