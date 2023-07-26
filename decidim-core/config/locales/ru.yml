@@ -285,6 +285,7 @@ ru:
       authorizations:
         new:
           authorize: Подтвердить приложение
+          by_organization_link_html: <small class="heading-small">по %{link}</small>
           cancel: Отменить
           publish_content: Обнародовать за вас сообщения
           see_email: Видеть ваш адрес электронной почты
@@ -293,6 +294,7 @@ ru:
           this_application_will_be_able_to: 'Это приложение сможет:'
           this_application_will_not_be_able_to: 'Это приложение не сможет:'
           update_profile: Обновить свой профиль
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> желает использовать вашу учетную запись"
     download_your_data:
       export:
         ready: Готово
