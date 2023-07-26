@@ -359,6 +359,9 @@ it:
           value_types:
             organizer_presenter:
               not_found: 'L''organizzatore non è stato trovato nel database (ID: %{id})'
+      application_helper:
+        filter_scope_values:
+          all: Tutti
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Chiudi la finestra
@@ -366,6 +369,7 @@ it:
       conference_venues: Sale per conferenze
       content_blocks:
         upcoming_meetings:
+          upcoming_meetings: Prossimi incontri
           view_all_meetings: Guarda tutto
       directory:
         meetings:
@@ -428,8 +432,7 @@ it:
             all: Tutte
             official: Ufficiale
             participants: Utenti
-            user_groups: Gruppi
-          scope: Ambito
+          scope: Visibilità
           search: Cerca
           type: Tipo
           type_values:
@@ -473,10 +476,8 @@ it:
           close_meeting: Chiusura meeting
           contributions: Conteggio dei contributi
           date: Data
-          edit_close_meeting: Modifica rapporto riunione
           edit_meeting: Modifica la riunione
           going: Ti sei iscritto a questa riunione
-          join: Partecipa alla riunione
           leave: Annulla la tua registrazione
           leave_confirmation: Sei sicuro di voler annullare la tua registrazione per questa riunione?
           link_available_soon: Link disponibile a breve
