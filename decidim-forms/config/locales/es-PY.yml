@@ -178,7 +178,6 @@ es-PY:
           questionnaire_not_published:
             body: Este formulario no se ha publicado todavía.
           tos_agreement: Al responder aceptas los Términos y condiciones de uso
-          upload_file: Subir un archivo
       step_navigation:
         show:
           are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás seguro?
