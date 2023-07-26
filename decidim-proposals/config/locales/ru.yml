@@ -299,6 +299,7 @@ ru:
           title: 'Голосование регулируется следующими правилами:'
           vote_limit:
             description: Вы можете проголосовать до %{limit} предложений.
+            votes: Голоса
         wizard_aside:
           back: Вернуться
           info: Вы создаете <strong>предложение</strong>.
