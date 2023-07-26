@@ -299,6 +299,7 @@ uk:
           title: 'Голосування регулюється наступними правилами:'
           vote_limit:
             description: Ви можете проголосувати до %{limit} пропозицій.
+            votes: Голоси
         wizard_aside:
           back: Повернутись
           info: Ви вносите <strong>пропозицію</strong>.
