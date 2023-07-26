@@ -59,9 +59,6 @@ module Decidim
                 "manifest_name" => "conferences",
                 "ids" => [] },
               { "id" => nil,
-                "manifest_name" => "consultations",
-                "ids" => [] },
-              { "id" => nil,
                 "manifest_name" => "initiatives",
                 "ids" => [] }
             ]
