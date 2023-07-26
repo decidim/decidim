@@ -69,19 +69,12 @@ lv:
           official: Oficiālā
           origin: Izcelsme
           search: Meklēt
-        filters_small_view:
-          close_modal: Aizvērt modal
-          filter: Filtrēt
-          filter_by: Filtrēt pēc
-          unfold: Atritināt
         index:
           new_debate: Jaunas debates
         new:
           back: Atpakaļ
           create: Izveidot
           title: Jaunas debates
-        show:
-          back: Atpakaļ uz sarakstu
       models:
         debate:
           fields:
