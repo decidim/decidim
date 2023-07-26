@@ -8,38 +8,42 @@ eu:
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
         copy_features: Kopiatu ezaugarriak
-        decidim_scope_id: esparrua
-        description: deskribapena
+        decidim_scope_id: Esparrua
+        description: Deskribapena
         end_date: Amaiera-data
-        hashtag: hashtag
-        hero_image: Hasiera irudia
+        hashtag: Traola
+        hero_image: Orri nagusiko irudia
         location: Kokapena
         main_logo: Logo nagusia
         objectives: Helburuak
-        participatory_processes_ids: Parte hartutako prozesu erlazionatuak
-        promoted: sustatuta
-        published_at: Argitaratu at
-        registration_terms: Izen-ematearen irizpideak eta baldintzak
-        registrations_enabled: Gaitu izen-emateak
-        scope_id: esparrua
-        scopes_enabled: Scopes gaituta
+        participatory_processes_ids: Lotutako parte-hartze prozesuak
+        promoted: Nabarmendua
+        published_at: Argitaratze-data
+        registration_terms: Erregistro-baldintzak
+        registrations_enabled: Izen-emateak gaituta
+        scope_id: Esparrua
+        scopes_enabled: Esparruak gaituta
         short_description: Deskribapen laburra
         show_statistics: Erakutsi estatistikak
         sign_date: Sinatze-data
         signature: Sinadura
+        signature_name: Sinaduraren izena
         slogan: Leloa
         slug: URL laburra
         start_date: Hasiera-data
         title: Izenburua
+        weight: Hurrenkera
       conference_media_link:
         date: Data
-        link: Lotura
+        link: Esteka
         title: Izenburua
+        weight: Hurrenkera
       conference_partner:
-        link: Lotura
+        link: Esteka
         logo: Logoa
         name: Izena
         partner_type: Lankidetza mota
+        weight: Hurrenkera
       conference_registration_invite:
         email: Helbide elektronikoa
         name: Izena
@@ -49,38 +53,47 @@ eu:
         description: Deskribapena
         price: Prezioa
         title: Izenburua
+        weight: Hurrenkera
       conference_speaker:
-        affiliation: Kidetza
-        avatar: Avatarra
+        affiliation: Afiliazioa
+        avatar: Abatar
         conference_meeting_ids: Honekin lotutako topaketak
-        full_name: Izen osoa
-        position: Kokapena
+        full_name: Izena
+        personal_url: URL pertsonala
+        position: Lekua
+        short_bio: Biografia laburra
         twitter_handle: Twitter kontua
         user_id: Erabiltzailea
       conference_user_role:
-        email: Emaila
-        name: izena
-        role: Role
+        email: Helbide elektronikoa
+        name: Izena
+        role: Rola
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Helbide elektronikoko kontu hau dagoeneko gonbidatuta dago.
   activerecord:
     models:
       decidim/conference:
-        one: Konferentzia
-        other: Jardunaldiak
+        one: Hitzaldia
+        other: Hitzaldiak
       decidim/conference_speaker:
-        one: Hitzaldi hizlaria
-        other: Hizlari
+        one: Jardunaldiko hizlaria
+        other: Jardunaldiko hizlariak
       decidim/conference_user_role:
-        one: Konferentzia erabiltzailearen rola
-        other: Konferentzia erabiltzailearen rola
+        one: Jardunaldiko hizlari rola
+        other: Jardunaldiko hizlari rolak
   decidim:
     admin:
       actions:
         confirm: Berretsi
-        new_conference: Konferentzia berria
-        send_diplomas: Eman ziurtagiriak bidaltzeko
+        new_conference: Jardunaldi berria
+        send_diplomas: Bertaratze-ziurtagiriak bidali
       conference_copies:
         new:
-          copy: Copy
+          copy: Kopiatu
           select: Aukeratu zein datu bikoiztu nahi dituzun
           title: Bilera bikoiztua
       conference_publications:
