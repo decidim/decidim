@@ -297,6 +297,11 @@ sk:
         title: Participatívne procesy
     participatory_process_groups:
       content_blocks:
+        metadata:
+          name: Metadata
+          participatory_scope: Čo sa rozhodlo
+          participatory_structure: Ako sa to rozhoduje
+          target: Kto sa zúčastňuje
         stats:
           name: Štatistiky
       show:
@@ -346,11 +351,9 @@ sk:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktívne procesy
             active_step: Aktívne krok
             more_information: Viac informácií
             participate: Zúčastniť sa
-            see_all_processes: Zobraziť všetky procesy
       participatory_processes:
         filters:
           counters:
@@ -390,7 +393,6 @@ sk:
         area: Plocha
         developer_group: Skupina promotérov
         end_date: Dátum ukončenia
-        local_area: Oblasť organizácie
         participatory_scope: Čo sa rozhodlo
         participatory_structure: Ako sa to rozhoduje
         private_space: Jedná sa o súkromný proces
@@ -420,6 +422,8 @@ sk:
           active_step: 'Aktuálny krok:'
           more_info: Viac informácií
           take_part: Zúčastniť sa
+        promoted_process_group:
+          more_info: Viac informácií
       process_header_steps:
         step: Krok%{current} z%{total}
         view_steps: Zobraziť kroky
