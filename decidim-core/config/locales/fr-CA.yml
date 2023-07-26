@@ -844,6 +844,7 @@ fr-CA:
     filters:
       linked_classes:
         all: Tout
+        answer: Réponse
         collaborative_draft: Projet de collaboration
         dummy_resource: Exemple factice
         meeting: Rencontres
@@ -968,6 +969,7 @@ fr-CA:
       invite:
         error: Une erreur s'est produite lors de l'invitation de cet utilisateur.
         success: Utilisateur invité avec succès.
+      pending_invitations: Requêtes en attente
       reject:
         error: Une erreur s'est produite lors du rejet de cette invitation.
         success: Invitation rejetée avec succès.
@@ -1042,6 +1044,7 @@ fr-CA:
       all: Tous les types d'activité
       index:
         last_activity: Dernière Activité
+      name: Dernières activités
     links:
       invalid_url: URL invalide
       warning:
