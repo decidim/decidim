@@ -238,6 +238,8 @@
   }
 
   &__actions {
+    @apply flex items-center gap-4;
+
     .button[aria-expanded="false"] {
       svg:first-of-type {
         @apply block;
