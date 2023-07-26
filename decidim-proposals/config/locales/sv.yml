@@ -347,6 +347,9 @@ sv:
         description: Antal stöd till förslag
         object: stöd
         title: Stöd
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Visa alla (%{count})
     proposals:
       actions:
         answer_proposal: Besvara förslag
@@ -604,12 +607,14 @@ sv:
             error: Kunde inte avvisas som samarbetspartner, försök igen senare.
         show:
           edit: Redigera gemensamt utkast
+          final_proposal: sista förslaget
           final_proposal_help_text: Detta utkast är klart. Du kan se det slutliga förslaget
           hidden_authors_count:
             one: och %{count} mer person
             other: och %{count} fler personer
           publish: Publicera
           publish_info: Publicera den här versionen av utkastet eller
+          published_proposal: publicerat förslag
           request_access: Begär tillgång
           requested_access: Tillgång har begärts
           withdraw: dra tillbaka utkastet
@@ -771,6 +776,7 @@ sv:
           title: 'Stöd är föremål för följande regler:'
           vote_limit:
             description: Du kan stödja upp till %{limit} förslag.
+            votes: Stöder
         wizard_aside:
           back: Tillbaka
           back_from_step_1: Tillbaka till förslag
