@@ -131,6 +131,7 @@ pl:
             title: Maksymalna liczba projektów została przekroczona
         budget_summary:
           are_you_sure: Czy na pewno chcesz anulować swój głos?
+          cancel_order: usuń głos i zacznij od nowa
           checked_out:
             title: Ukończono głosowanie dot. budżetu
         count:
@@ -163,6 +164,9 @@ pl:
             few: głosów
             many: głosów
             other: głosów
+        project_budget_button:
+          add: Dodaj do swojego głosu
+          added: Dodano do Twojego głosu
         projects_for: Projekty dla %{name}
         show:
           budget: Budżet
