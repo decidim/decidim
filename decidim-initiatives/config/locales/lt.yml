@@ -342,6 +342,7 @@ lt:
         select_initiative_type:
           back: Atgal
           choose_html: Noriu sukurti <strong>%{title}</strong>
+          more_information: (Daugiau informacijos)
           select: Noriu paremti šią iniciatyvą
           select_initiative_type_help: Iniciatyvos yra būdas dalyviams įsitraukti ir kartu su organizacija ginti bendrąjį interesą. Kurią iniciatyvą norite pradėti Jūs?
           verification_required: Norėdami pasirašyti iniciatyvą, patvirtinkite savo paskyrą
