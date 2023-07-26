@@ -507,6 +507,7 @@ cs:
             all: Vše
             official: Úředník
             participants: Účastníci
+            user_groups: Skupiny
           scope: Rozsah
           search: Vyhledávání
           type: Typ
