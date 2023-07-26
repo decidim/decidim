@@ -420,6 +420,7 @@ nl:
       authorizations:
         new:
           authorize: Aanvraag toestaan
+          by_organization_link_html: <small class="heading-small">door %{link}</small>
           cancel: Annuleer
           publish_content: Publiceer inhoud voor jou
           see_email: Bekijk jouw e-mail
@@ -428,6 +429,7 @@ nl:
           this_application_will_be_able_to: 'Deze applicatie krijgt toegang tot:'
           this_application_will_not_be_able_to: 'Deze applicatie krijgt geen toegang tot:'
           update_profile: update je profiel
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil toegang tot je account"
     download_your_data:
       export:
         ready: Klaar
@@ -910,6 +912,7 @@ nl:
       participatory_space:
         metrics:
           headline: Deelname in cijfers
+          link: Toon alle statistieken
     participatory_space_private_users:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
@@ -1094,6 +1097,9 @@ nl:
       resource_version:
         of_versions: "(van %{number})"
         version: Versienummer %{number}
+    versions_list_item:
+      show:
+        version_index: Versie %{index}
     welcome_notification:
       default_subject: Bedankt dat je lid bent geworden van {{organization}}!
     wizard_step_form:
