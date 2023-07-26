@@ -320,6 +320,7 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la création de cette fonctionnalité.
           success: Fonctionnalité créée avec succès.
+          success_landing_page: Composant créé avec succès. Vous pouvez ajouter un bloc de contenu pour ce composant à la page accueil de l'espace. Allez à <a href="%{landing_page_path}">la page de destination</a> pour la configurer.
         destroy:
           error: Une erreur s'est produite lors de la suppression de cette fonctionnalité.
           success: La fonctionnalité a été supprimée avec succès.
@@ -542,7 +543,7 @@ fr-CA:
           text: Recherche par adresse e-mail, nom ou pseudonyme.
           user: Utilisateur
         logs_list:
-          no_logs_yet: Il n'y a pas encore de journaux d'activité. 
+          no_logs_yet: Il n'y a pas encore de journaux d'activité.
           no_matching_logs: Il n'y a pas de journaux avec les filtres de recherche fournis. Essayez de les modifier et réessayez.
       managed_users:
         promotion:
@@ -758,7 +759,7 @@ fr-CA:
           title: Sélectionner les destinataires
           warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir newsletters</em> dans leurs paramètres de notifications."
         send:
-          no_recipients: Selon votre sélection, cette newsletter ne sera envoyée à aucun destinataire. 
+          no_recipients: Selon votre sélection, cette newsletter ne sera envoyée à aucun destinataire.
         send_to_user:
           sent_successfully: La newsletter a été envoyée avec succès à %{email}
         show:
@@ -831,7 +832,7 @@ fr-CA:
           colors:
             choose_color: Choisir une couleur primaire
             colors_title: Couleurs de l'organisation
-            colors_warning_html: Attention ! La modification de ces couleurs peut contrevenir aux règles d'accessibilité sur les taux de contraste. Vous pouvez vérifier le taux de contraste de votre choix avec <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> ou d'autres outils similaires.
+            colors_warning_html: Attention ! La modification de ces couleurs peut rompre les contrastes d'accessibilité. Vous pouvez vérifier le contraste de votre choix avec <a href="%{link}">WebAIM Contrast Checker</a> ou d'autres outils similaires.
             explanation: Cet outil vous aide à choisir une palette de couleurs, composée de teintes placées à égale distance autour de la roue de couleur, qui seront utilisés sur la plateforme.
             header_snippets_help_html: 'Utilisez ce champ pour ajouter des éléments à l''élément de métadonnées HTML head. L’utilisation la plus courante est d’intégrer des services tiers qui nécessitent du JavaScript ou du CSS supplémentaires. De plus, vous pouvez l''utiliser pour ajouter des balises méta supplémentaires au HTML. Notez que cela ne sera rendu que dans les pages publiques, pas dans la section d''administration. Si le code interagit avec des API externes ou ne respecte pas les lignes directrices de sécurité de l''application, il sera nécessaire de modifier la politique de sécurité des contenus. En savoir plus sur <a href="https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy">le site de documentation</a>.'
             legend_html: Couleurs principales de l'application, basées sur <a href="https://www.color-meanings.com/triadic-colors/">l'algorithme triadique</a>. La couleur <i>secondaire</i> est automatiquement calculée à partir de la couleur primaire et de la saturation que vous avez choisies.
@@ -889,7 +890,7 @@ fr-CA:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
-          success: Le fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant. Cela peut prendre quelques instants. 
+          success: Le fichier CSV a été téléchargé avec succès. Une invitation par courriel sera envoyée sous peu à chaque participant. Cela peut prendre quelques instants.
         new:
           destroy:
             button: Supprimer tous les utilisateurs privés
@@ -933,7 +934,7 @@ fr-CA:
           update: Mettre à jour
         new:
           create: Créer un type de secteur
-          title: Créer un type de secteurs
+          title: Nouveau secteur
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce type de secteur.
           success: Type de secteur mis à jour avec succès
@@ -1052,7 +1053,7 @@ fr-CA:
       user_group:
         csv_verify:
           invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
-          success: Le fichier CSV a été téléchargé avec succès, une vérification des groupes correspondant aux critères est en cours. Cela peut prendre quelques instants. 
+          success: Le fichier CSV a été téléchargé avec succès, une vérification des groupes correspondant aux critères est en cours. Cela peut prendre quelques instants.
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
           success: Groupe d'utilisateurs refusé avec succès.
