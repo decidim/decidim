@@ -231,6 +231,9 @@ ga:
           answer: Freagra
         vote_button:
           vote: Tacaigh le
+        voting_rules:
+          vote_limit:
+            votes: Tacaíochtaí
         wizard_aside:
           back: Ar Ais
         wizard_steps:
