@@ -831,7 +831,7 @@ de:
           colors:
             choose_color: Primärfarbe auswählen
             colors_title: Organisationsfarben
-            colors_warning_html: Warnung! Das Ändern dieser Farben kann die für Barrierefreiheit notwendigen Kontraste brechen. Sie können den Kontrast Ihrer Wahl mit dem <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> oder ähnlichen Tools überprüfen.
+            colors_warning_html: Warnung! Das Ändern dieser Farben kann die für Barrierefreiheit notwendigen Kontraste brechen. Sie können den Kontrast Ihrer Wahl mit <a href="%{link}">WebAIM Contrast Checker</a> oder ähnlichen Tools überprüfen.
             explanation: Dieses Tool hilft Ihnen, ein Farbschema mit Farbtönen auszuwählen, die gleichmäßig um das Farbrad verteilt sind und die auf der Website der Organisation verwendet werden.
             header_snippets_help_html: Benutzen Sie dieses Feld, um dem HTML-Head Inhalte hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieter-Diensten, die ein zusätzliches JavaScript oder CSS erfordern. Außerdem können Sie dem HTML-Code zusätzliche Meta-Tags hinzuzufügen. Beachten Sie, dass dies nur auf den öffentlichen Seiten dargestellt wird und nicht im Admin-Bereich. Wenn der Code mit externen APIs interagiert oder nicht mit den Sicherheitsrichtlinien der Anwendung übereinstimmt, ist es notwendig, die Sicherheitsrichtlinien der Inhalte (Content Security Policy) zu ändern. Weitere Informationen finden Sie <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">auf der Dokumentationsseite</a>.
             legend_html: Hauptfarben der Anwendung, basierend auf dem <a href="https://www.color-meanings.com/triadic-colors/">triadischen Algorithmus</a>. Die <i>sekundäre</i> Farbe wird automatisch von der Primärfarbe und der Sättigung, die Sie gewählt haben, berechnet.
@@ -933,7 +933,7 @@ de:
           update: Aktualisieren
         new:
           create: Erstellen Sie den Geltungsbereichstyp
-          title: Neuer Bereichstyp
+          title: Neuer Umfang
         update:
           error: Beim Aktualisieren dieses Bereichstyps ist ein Fehler aufgetreten.
           success: Der Geltungsbereichstyp wurde erfolgreich aktualisiert
