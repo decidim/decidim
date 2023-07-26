@@ -9,7 +9,7 @@ module Decidim
         include Concerns::ParticipatoryProcessAdmin
 
         before_action :find_participatory_process_step, except: [:index, :new, :create]
-        before_action :set_steps_breadcrumb_items
+        before_action :set_controller_breadcrumb
 
         def index
           enforce_permission_to :read, :process_step
@@ -89,16 +89,10 @@ module Decidim
           @participatory_process_step = collection.find(params[:id])
         end
 
-        def set_steps_breadcrumb_items
-          context_breadcrumb_items << {
-            label: t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"),
-            url: participatory_process_steps_path(current_participatory_space),
-            active: @participatory_process_step.blank?
-          }
-
+        def set_controller_breadcrumb
           return if @participatory_process_step.blank?
 
-          context_breadcrumb_items << {
+          controller_breadcrumb_items << {
             label: translated_attribute(@participatory_process_step.title),
             active: true
           }
