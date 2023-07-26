@@ -318,6 +318,7 @@ pt:
         select_initiative_type:
           back: Retroceder
           choose_html: Eu quero criar um <strong>%{title}</strong>
+          more_information: (Mais informações)
           select: Eu quero promover essa iniciativa
           select_initiative_type_help: Iniciativas são meios pelos quais os participantes podem intervir no sentido de levar a organização a levar a cabo determinadas acções em defesa do interesse geral. Qual é a iniciativa que quer lançar?
         share_committee_link:
