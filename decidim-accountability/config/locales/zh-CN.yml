@@ -176,6 +176,9 @@ zh-CN:
         description: 生成的结果数
         object: 结果
         title: 成果
+    participatory_spaces:
+      highlighted_results:
+        see_all: 查看所有结果 (%{count})
     resource_links:
       included_projects:
         result_project: B. 列入这一结果的项目
