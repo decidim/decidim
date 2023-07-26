@@ -900,6 +900,7 @@ ro:
           update: Actualizează
         new:
           create: Creează tip de domeniu
+          title: Domeniu nou
         update:
           error: A apărut o problemă la actualizarea acestui tip de domeniu.
           success: Tipul de domeniu a fost actualizat cu succes
