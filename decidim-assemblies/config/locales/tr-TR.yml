@@ -289,7 +289,7 @@ tr:
             title: Kurul ayarları
         assemblies_types:
           form:
-            title: Çevirme Türünü Düzenle
+            title: Başlık
         assembly_copies:
           form:
             slug_help: 'URL sümükleri, bu derleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
