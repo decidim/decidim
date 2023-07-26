@@ -252,7 +252,6 @@ ru:
               not_found: 'Организатор не найден в базе данных (ID: %{id})'
       calendar_modal:
         calendar_url: Ссылка на календарь
-        close_window: Закрыть окно
         export_calendar: Экспорт календаря
       directory:
         meetings:
@@ -270,13 +269,6 @@ ru:
           category: Категория
           date: Дата
           search: Поиск
-        filters_small_view:
-          close_modal: Закрыть окошко
-          filter: Отобрать
-          filter_by: 'Отобрать по признаку:'
-          unfold: Развернуть
-        meeting_minutes:
-          related_information: Сопутствующие сведения
         meetings:
           upcoming_meetings_warning: Сейчас нет запланированных встреч, но здесь вы можете найти список всех прошедших встреч.
         registration_confirm:
@@ -294,8 +286,6 @@ ru:
             validated: ПОДТВЕРЖДЕНО
             validation_pending: ОЖИДАНИЕ ПОДТВЕРЖДЕНИЯ
           view: Посмотреть
-      meetings_map:
-        view_meeting: Посмотреть встречу
       models:
         invite:
           fields:
