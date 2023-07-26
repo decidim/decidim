@@ -178,6 +178,9 @@ sl:
             update: Posodobi
           form:
             title: Nastavitve za združbe
+        assemblies_types:
+          form:
+            title: Naziv
         assembly_imports:
           form:
             document_legend: Dodaj dokument
