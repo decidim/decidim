@@ -37,8 +37,6 @@ ar:
         update:
           error: طرأت مشكلة خلال تحديث التعليق.
       comments_count: تعداد التعليقات
-      last_activity:
-        new_comment_at_html: "<span>تعليق جديد على %{link}</span>"
       view: العرض
       votes:
         create:
@@ -50,7 +48,6 @@ ar:
           body:
             label: تعليق
             placeholder: ما رأيك بهذا؟
-          submit: إرسال
           user_group_id:
             label: التعليق باسم
         opinion:
@@ -95,8 +92,6 @@ ar:
           older: اكبر سنا
           recent: الأخيرة
         title: 'ترتيب حسب:'
-      comment_thread:
-        title: المحادثة مع %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: يجب أن تكون عضوا محققا من أجل التعليق حالياً، ولكن يمكنك قراءة ما سبق.
         blocked_comments_for_user_warning: لا يمكنك التعليق في هذه اللحظة ، ولكن يمكنك قراءة التعليقات السابقة.
