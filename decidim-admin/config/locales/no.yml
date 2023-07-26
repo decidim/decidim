@@ -731,6 +731,7 @@
         form:
           colors:
             colors_title: Organisasjonens farger
+            colors_warning_html: Advarsel! Endring av disse fargene kan ødelegge tilgjengelighetskontraster. Du kan sjekke kontrasten du velger, <a href="%{link}">WebAIM Contrast Checker</a> eller andre lignende verktøy.
           cta_button_path_help: 'Du kan overskrive hvor Kall til Handlingsknappen på hjemmesiden lenker til. Bruk delvise veier, ikke fullstendige URLer her. Godtar bokstaver, tall, tankestreker og skråstreker, og må starte med en bokstav. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen. Eksempel: %{url}'
           cta_button_text_help: Du kan overskrive Handlingsknappens tekst på hjemmesiden for hvert tilgjengelige språk i organisasjonen. Hvis ikke satt, blir standardverdien brukt. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen.
           homepage_appearance_title: Endre hjemmesidens utseende
@@ -805,6 +806,7 @@
           update: Oppdater
         new:
           create: Opprett tematype
+          title: Nytt tema
         update:
           error: Det oppstod et problem med å oppdatere denne tematypen.
           success: Tematypen ble oppdatert
