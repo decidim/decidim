@@ -381,6 +381,9 @@ ar:
         description: عدد الدعم للمقترحات
         object: الدعم
         title: الدعم
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: شاهد الكل (%{count})
     proposals:
       actions:
         answer_proposal: الرد على المُقتَرَح
@@ -668,6 +671,7 @@ ar:
             error: لا يمكن الرفض كمتعاون ، يرجى المحاولة مرة أخرى لاحقًا.
         show:
           edit: تحرير المسودة التعاونية
+          final_proposal: الاقتراح النهائي
           final_proposal_help_text: انتهى هذا المشروع. تحقق من الاقتراح النهائي
           hidden_authors_count:
             zero: و %{count} المزيد من الناس
@@ -678,6 +682,7 @@ ar:
             other: و %{count} المزيد من الناس
           publish: نشر
           publish_info: نشر هذا الإصدار من المسودة أو
+          published_proposal: الاقتراح المنشور
           request_access: طلب الدخول
           requested_access: طلب الوصول
           withdraw: سحب المشروع
@@ -852,6 +857,7 @@ ar:
           title: 'الدعامات تخضع للقواعد التالية:'
           vote_limit:
             description: يمكنك دعم ما يصل إلى %{limit} مقترحات.
+            votes: الدعم
         wizard_aside:
           back: الى الخلف
           back_from_step_1: العودة إلى الاقتراحات
