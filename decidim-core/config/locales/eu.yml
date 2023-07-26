@@ -474,6 +474,7 @@ eu:
       authorizations:
         new:
           authorize: Baimena eskatu
+          by_organization_link_html: <small class="heading-small"> %{link}</small>
           cancel: Utzi
           publish_content: Argitaratu zure edukia
           see_email: Ikusi zure helbide elektronikoa
@@ -482,6 +483,7 @@ eu:
           this_application_will_be_able_to: 'Aplikazio hau gai izango da:'
           this_application_will_not_be_able_to: 'Aplikazio honek ezin izango du:'
           update_profile: Eguneratu profila
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> zure kontua erabili nahi du"
     download_your_data:
       export:
         ready: prest
@@ -1017,6 +1019,7 @@ eu:
       participatory_space:
         metrics:
           headline: Zifretan parte hartzea
+          link: Erakutsi estatistiken guztiak
     participatory_space_private_users:
       not_allowed: Ez duzu edukia ikusteko baimenik
     profile:
@@ -1232,6 +1235,9 @@ eu:
         of_versions: "(%{number} etik)"
         see_other_versions: ikusi beste bertsio batzuk
         version: '%{number} bertsio zenbakia'
+    versions_list_item:
+      show:
+        version_index: '%{index} bertsioa'
     welcome_notification:
       default_subject: Eskerrik asko sartzeko {{organization}}!
     wizard_step_form:
