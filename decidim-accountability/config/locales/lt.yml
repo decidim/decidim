@@ -245,6 +245,9 @@ lt:
         description: Gautų rezultatų skaičius
         object: rezultatai
         title: Rezultatai
+    participatory_spaces:
+      highlighted_results:
+        see_all: Žiūrėti visus rezultatus (%{count})
     resource_links:
       included_projects:
         result_project: Į šį rezultatą įtraukti projektai
