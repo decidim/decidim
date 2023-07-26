@@ -237,6 +237,7 @@ it:
               minimum_answers: Ogni quesito ha <strong>almeno 2 risposte</strong>.
               minimum_questions: L'elezione ha <strong>almeno 1 quesito</strong>.
               published: L'elezione è <strong>pubblicata</strong>.
+              time_before: La configurazione viene eseguita <strong>almeno %{hours} ore</strong> prima dell'inizio delle elezioni.
               trustees_number: Lo spazio partecipativo ha <strong>almeno %{number} fiduciari con chiave pubblica</strong>.
             submit: Imposta elezione
             success: Elezione inviata con successo al Bollettino
