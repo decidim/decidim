@@ -215,6 +215,7 @@ sk:
         select_initiative_type:
           back: Späť
           choose_html: Chcem vytvoriť <strong>%{title} </strong>
+          more_information: (Viac informácií)
           select: Chcem túto iniciatívu podporiť
         share_committee_link:
           invite_to_committee_help: Odkaz na pozvanie ľudí, ktorí budú súčasťou podporovaného výboru
