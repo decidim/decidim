@@ -20,8 +20,6 @@ ru:
         other: Голосов
   decidim:
     comments:
-      last_activity:
-        new_comment_at_html: "<span>Новый комментарий в %{link}</span>"
       votes:
         create:
           error: При голосовании за комментарий произошли ошибки.
@@ -32,7 +30,6 @@ ru:
           body:
             label: Комментарий
             placeholder: Что вы думаете об этом?
-          submit: Отправить
           user_group_id:
             label: Комментировать как
         opinion:
@@ -62,8 +59,6 @@ ru:
           older: Старые
           recent: Недавние
         title: 'Упорядочить по:'
-      comment_thread:
-        title: Беседа с %{authorName}
       comments:
         blocked_comments_for_user_warning: Сейчас вам недоступно комментирование, но вы можете прочесть предыдущие комментарии.
         blocked_comments_warning: Комментарии сейчас отключены, но вы можете прочитать предыдущие.
