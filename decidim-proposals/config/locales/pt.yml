@@ -346,6 +346,9 @@ pt:
         description: Número de votos nas propostas
         object: votos
         title: Votos
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Ver todos (%{count})
     proposals:
       actions:
         answer_proposal: Responder a proposta
@@ -586,12 +589,14 @@ pt:
             error: Não foi possível rejeitá-lo como colaborador, por favor tente novamente mais tarde.
         show:
           edit: Editar rascunho colaborativo
+          final_proposal: proposta final
           final_proposal_help_text: Este rascunho está terminado. Verifique a proposta final
           hidden_authors_count:
             one: e mais %{count} pessoa
             other: e mais %{count} pessoas
           publish: Publicar
           publish_info: Publicar esta versão do rascunho ou
+          published_proposal: proposta publicada
           request_access: Solicitar acesso
           requested_access: Acesso solicitado
           withdraw: retirar o rascunho
@@ -748,6 +753,7 @@ pt:
           title: 'A votação está sujeita às seguintes regras:'
           vote_limit:
             description: Pode votar até %{limit} propostas.
+            votes: Votos
         wizard_aside:
           back: Retroceder
           back_from_step_1: Retroceder para as propostas
