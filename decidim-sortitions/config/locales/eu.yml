@@ -48,103 +48,103 @@ eu:
               decidim_proposals_component: Proposamenen osagaia
               dice: Dadoa
               reference: Erreferentzia
-              request_timestamp: Denbora marraztea
-              seed: Seed
+              request_timestamp: Zozketa-denbora
+              seed: Hazia
               target_items: Aukeratutako elementuak
               title: Izenburua
             name:
-              one: Sortition
-              other: Sortitions
+              one: Zozketa
+              other: Zozketak
         sortitions:
           confirm_destroy:
-            confirm_destroy: Ziur al zaude hau sortzea nahi duzula?
-            destroy: Utzi banaketa
-            title: Itzaltzeen baliogabetzea
+            confirm_destroy: Ziur al zaude zozketa hau bertan behera utzi nahi duzula?
+            destroy: Zozketa bertan behera utzi
+            title: Zozketa bertan behera utzi
           create:
-            error: Errore bat gertatu da sortzapen berri bat sortzean.
+            error: Arazo bat gertatu da zozketa berri bat sortzean.
             success: Sortu arrakastaz sortu da
           destroy:
             error: Ezin da irtenbidea bertan behera utzi.
             success: Antolaketa behar bezala bertan behera utzi da
           edit:
-            title: Eguneratu kokapenari buruzko informazioa
-            update: eguneratzearen
+            title: Eguneratu zozketari buruzko informazioa
+            update: Eguneratu
           form:
             all_categories: Kategoria guztiak
             select_proposal_component: Aukeratu proposamenen multzoa
-            title: Proposamenetarako sortze berria
+            title: Proposamenen zozketa berria
           index:
-            title: Sortitions
+            title: Zozketak
           new:
             confirm: Hurrengo botoia sakatuz gero, data eta ordua (segundotan zehaztuta) eta dadoen zerrendarekin batera grabatu egingo dira, informazio hori ausazko hautapena sortzeko erabiliko da. Ekintza atzeraezina izango da, botoia klik egitean zozketaren emaitza argitaratuko da, formulario honetan bildutako datuak eta ezin dira aldatu, egiaztatu edukia arretaz
             create: Sortu
-            title: Sortion berria
+            title: Zozketa berria
           show:
-            selected_proposals: Aukeratutako proposamenak zozketan
+            selected_proposals: Zozketatzeko aukeratutako proposamenak
           update:
-            error: Errore bat gertatu da sortzapena eguneratzean.
+            error: Arazo bat sortu da zozketa eguneratzean.
             success: Antolaketa eguneratu da
       admin_log:
         sortition:
-          create: "%{user_name} %{resource_name} sortzea %{space_name} urtean sortu da"
-          delete: "%{user_name} %{resource_name} sortioa %{space_name}-an bertan behera utzi da"
-          update: "%{user_name} %{resource_name} sortzea %{space_name} eguneratu du"
+          create: "%{user_name} k %{resource_name} zozketa sortu du %{space_name} espazioan"
+          delete: "%{user_name} k %{resource_name} zozketa bertan behera utzi du %{space_name} espazioan"
+          update: "%{user_name} k %{resource_name} zozketa eguneratu du %{space_name} espazioan"
       sortitions:
         count:
           proposals_count:
-            one: 1 proposamen
+            one: proposamen 1
             other: "%{count} proposamen"
         filters:
           active: Aktiboak
-          all: guztiak
+          all: Guztiak
           cancelled: Bertan behera
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
           search: Bilatu
-          state: Estatu
+          state: Egoera
         filters_small_view:
-          close_modal: Itxi modal
-          filter: Filter
-          filter_by: Iragazi arabera
+          close_modal: Modala itxi
+          filter: Filtroa
+          filter_by: Honen arabera iragazi
           unfold: Zabaldu
         linked_sortitions:
           selected_proposals: Aukeratutako proposamenak
         orders:
-          label: 'Agindu ordenantzak honela:'
-          random: Random
-          recent: Berriki
+          label: 'Zozketak honen arabera ordenatu:'
+          random: Ausaz
+          recent: Berrienak
         results_count:
           count:
             one: hautatutako proposamena
             other: hautatutako proposamenak
         show:
-          algorithm: Sortzeko algoritmoaren kodea
-          any_category: kategoria guztietan
+          algorithm: Zozketaren algoritmoaren kodea
+          any_category: kategoria guztienak
           back: Itzuli zerrendara
-          cancelled: Ezeztatuta sortzea
-          candidate_proposal_ids: Ordenatzeko proposamenen ordena eta IDak
-          candidate_proposals_info: 'Hurrengo proposamenen artean (%{category_label}) honako idazketa hauek egin dira (hautatutako proposamenetan lodia)  '
+          cancelled: Bertan behera utzitako zozketak
+          candidate_proposal_ids: Zozketako proposamenen hurrenkera eta IDak
+          candidate_proposals_info: 'Zozketa (%{category_label}) proposamenen artean egin da, honako IDekin (letra lodiz hautatutako proposamenak)  '
           category: '%{category} kategoriatik'
-          dice_result: "(1) Datuen emaitza"
-          introduction: 'Orrialde honek %{reference}sortzearen emaitzak ditu. Sortzapen honen bidez, %{target_items} emaitza kopurua ausaz aukeratuta eta probabilitate banaketa berdinarekin bat datozen proposamen multzoetatik hautatu dira. Emaitzen arabera, orrialde honetan agertzen den informazioa bermeak maximizatzeko eta emaitzak erreproduzitzeko beharrezko informazio guztia eskaintzen du. Gertakizun honen kalitatearen gakoa dude baten bikoiztasuna (testigantzak egiaztatutakoa) eta ausazko aukeraketa sortzen duen algoritmoaren sarrera ematen duen sortzearen denbora zehatza da. Denbora-hazia sortzea hain zehatza (segundotan) dela gizakientzat ezin da kontrolatu, beraz, "kontrolik gabeko" sarrera bikoitza ematen du arrazoizko emaitza bermatzeko.  '
+          dice_result: "(1) Dadoen emaitza"
+          introduction: 'Orrialde honek %{reference} zozketaren emaitzak ditu. Zozketa honen bidez, %{target_items} emaitza kopurua ausaz eta banaketa probabilistiko berdinarekin aukeratu dira proposamen multzotik. Orri honek, emaitzak ezezik, berme guztiak izateko behar den informazioa ere jaso du. Zozketa honen kalitateak bi gako ditu. Alde batetik, dadoa hainbat lekukoren aurrean bota dela. Bestetik, zozketaren une zehatzean sortu den algoritmoak eman duen ausazko hautaketa. Sailkapenerako hazi-denbora hain da zehatza (segunduak) gizakiak ezin baitu hori kontrolatu. Honi esker, bidezko emaitza bermatzen duen sarrera bikoitz "kontrolaezina" sortzen da.  '
           mathematical_result: Emaitza (1) x (2)
-          proposals_selected_by_sortition: Sortition hautatutako proposamenak
-          sortition_reproducibility_details: Sortzeko erreprodukzioaren xehetasunak
+          proposals_selected_by_sortition: Zozketa bidez aukeratutako proposamenak
+          sortition_reproducibility_details: Zozketaren errepikagarritasunaren xehetasunak
           time_seed: "(2) Denbora hazia"
           witnesses: Lekukoak
         sortition:
-          random_seed: Ausazko hazia
+          random_seed: Ausazkotasun hazia
           selected_proposals:
             one: Aukeratutako 1 proposamena
-            other: '%{count} proposamen hautatuak'
-          view: ikusi
+            other: aukeratutako proposamenak
+          view: Ikusi
         sortition_author:
-          deleted: Erabiltzailea ezabatua
+          deleted: Ezabatutako parte-hartailea
         sortition_cancel_author:
-          deleted: Erabiltzailea ezabatua
+          deleted: Ezabatutako parte-hartzailea
         sortitions_count:
           count:
-            one: 1 sortion
-            other: "%{count} sortapenak"
+            one: Zozketa 1
+            other: "%{count} zozketa"
     statistics:
       sortitions_count: Zozketak
