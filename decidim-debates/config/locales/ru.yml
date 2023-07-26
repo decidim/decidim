@@ -85,11 +85,6 @@ ru:
           official: Служебные
           origin: Источник
           search: Поиск
-        filters_small_view:
-          close_modal: Закрыть окошко
-          filter: Отобрать
-          filter_by: 'Отобрать по признаку:'
-          unfold: Развернуть
         form:
           select_a_category: Пожалуйста, выберите категорию
         index:
