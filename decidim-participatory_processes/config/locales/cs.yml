@@ -132,6 +132,7 @@ cs:
           categories: Kategorie
           components: Komponenty
           info: Info
+          landing_page: Úvodní stránka
           moderations: Moderování
           private_users: Soukromí uživatelé
           process_admins: Administrátoři procesu
@@ -379,13 +380,24 @@ cs:
         title: Participativní procesy
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Propagováno
+          name: Metadata
+          participatory_scope: O čem se rozhoduje
+          participatory_structure: Jak se o tom rozhoduje
+          target: Kdo se účastní
+        html:
+          name: HTML blok
         html_1:
           name: První HTML blok
         html_2:
           name: Druhý HTML blok
         html_3:
           name: Třetí HTML blok
+        main_data:
+          name: Název a popis
         participatory_processes:
+          active: Aktivní participační procesy
           name: Participativní procesy
         stats:
           name: Statistiky
@@ -406,7 +418,10 @@ cs:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Aktivní
+            all: Vše
             max_results: Maximální množství prvků, které chcete zobrazit
+            selection_criteria: Kritéria výběru
         new_import:
           accepted_types:
             json: JSON
@@ -443,16 +458,37 @@ cs:
             title: Obecná informace
             visbility: Viditelnost
       content_blocks:
+        extra_data:
+          name: Fáze a doba trvání
+        hero:
+          name: Obrázek hrdiny a CTA
         highlighted_processes:
           name: Zvýrazněné procesy
+        related_processes:
+          name: Související procesy
       index:
         title: Participativní procesy
       last_activity:
         new_participatory_process: Nový participační proces
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Aktivní procesy
+            see_all_spaces: Zobrazit všechny procesy
       participatory_process_steps:
         index:
           back_to_process: Zpět na stránku procesu
       participatory_processes:
+        description:
+          area_name: Oblast
+          data: Zpracování dat
+          developer_group: Skupina propagátorů
+          local_area: Oblast organizace
+          meta_scope: Oblast působnosti
+          participatory_scope: O čem se rozhoduje
+          participatory_structure: Jak se o tom rozhoduje
+          target: Kdo se účastní
+          title: O tomto procesu
         filters:
           all_types: Všechny typy
           counters:
@@ -476,6 +512,7 @@ cs:
               few: "%{count} nadcházejících procesů"
               many: "%{count} nadcházejících procesů"
               other: "%{count} nadcházejících procesů"
+          date: Datum
           explanations:
             no_active: Žádné aktivní procesy.
             no_active_nor_upcoming: Žádné aktivní ani nadcházející procesy.
@@ -487,6 +524,7 @@ cs:
             past: Minulé
             upcoming: Nadcházející
           see: Vidět
+          type: Typ
         show:
           title: O tomto procesu
       show:
