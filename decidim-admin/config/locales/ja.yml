@@ -827,7 +827,7 @@ ja:
           colors:
             choose_color: プライマリカラーを選択
             colors_title: 組織の色
-            colors_warning_html: 警告：これらの色を変更すると、アクセシビリティ上好ましいコントラストを損ねる可能性があります。 <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> または他の同様のツールで、選択したコントラストを確認できます。
+            colors_warning_html: '警告: これらの色を変更すると、アクセシビリティのコントラストが壊れる可能性があります。 <a href="%{link}">WebAIM Contrast Checker</a> または他の同様のツールで、選択したコントラストを確認できます。'
             explanation: このツールは、カラーホイールの周りに均等に間隔を置いた色相で構成された配色を選択するのに役立ちます。 これは組織のウェブサイトに掲載されています
             header_snippets_help_html: HTMLヘッダ部分に追加するには、このフィールドを使用します。 最も一般的な用途は、追加の JavaScript や CSS を必要とするサードパーティのサービスとの統合です。 また、HTML に追加のメタタグを追加するためにも使用できます。 これは一般向けの公開ページでのみ表示され、管理者向けセクションでは表示されないことに注意してください。 コードが外部 API と相互作用する場合や、アプリケーション・セキュリティ・ガイドラインに準拠していない場合、コンテンツセキュリティポリシーを変更する必要があります。 詳細は <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">ドキュメント サイト</a> をご覧ください。
             legend_html: <a href="https://www.color-meanings.com/triadic-colors/">三角法に基づく</a>に基づくメインのアプリケーションカラーです. 選択されたプライマリカラーと彩度に基づいて、<i>セカンダリ</i> カラーはは自動的に計算されます.
@@ -928,7 +928,7 @@ ja:
           update: 更新
         new:
           create: スコープ種別を作成
-          title: 新しいスコープ種別
+          title: 新しいスコープ
         update:
           error: このスコープ種別の更新中に問題が発生しました。
           success: スコープ種別が正常に更新されました
