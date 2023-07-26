@@ -307,6 +307,9 @@ tr:
         description: Tekliflere verilen desteklerin sayısı
         object: destekler
         title: Destekler
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Tüm teklifleri görün (%{count})
     proposals:
       actions:
         answer_proposal: Cevap önerisi
@@ -544,12 +547,14 @@ tr:
             error: Ortak çalışan olarak reddedilemedi, lütfen daha sonra tekrar deneyin.
         show:
           edit: Ortak taslak düzenle
+          final_proposal: son teklif
           final_proposal_help_text: Bu taslak bitti. Son teklife göz atın
           hidden_authors_count:
             one: ve %{count} kişi daha
             other: ve %{count} kişi daha
           publish: Yayınla
           publish_info: Taslağın bu sürümünü yayınlayın veya
+          published_proposal: yayınlanan teklif
           request_access: Erişim talep et
           requested_access: Erişim istendi
           withdraw: taslağı geri çekmek
@@ -698,6 +703,7 @@ tr:
           title: 'Oylama aşağıdaki kurallara tabidir:'
           vote_limit:
             description: En fazla %{limit} teklife oy verebilirsiniz.
+            votes: oy
         wizard_aside:
           back: Geri
           back_from_step_1: Teklifte geri dön
