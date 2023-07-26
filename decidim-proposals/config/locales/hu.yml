@@ -329,6 +329,9 @@ hu:
         description: A felhasználók által benyújtott szavazatok száma
         object: szavazatok
         title: Szavazatok
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Összes (%{count})
     proposals:
       actions:
         answer_proposal: Javaslat megválaszolása
@@ -602,12 +605,14 @@ hu:
             error: Nem lehetett elutasítani a közreműködőt, próbálkozz később.
         show:
           edit: Közös vázlat szerkesztése
+          final_proposal: végleges javaslat
           final_proposal_help_text: Ez a vázlat készen áll. Nézd meg a javaslat végső verzióját
           hidden_authors_count:
             one: és még %{count} személy
             other: és még %{count} személy
           publish: Közzétesz
           publish_info: Vázlat jelen verziójának közzététele vagy
+          published_proposal: közzétett javaslat
           request_access: Hozzáférés kérése
           requested_access: Hozzáférés megkérve
           withdraw: tervezet visszavonása
@@ -752,6 +757,7 @@ hu:
           title: 'A szavazásra ezen szabályok vonatkoznak:'
           vote_limit:
             description: Legfeljebb %{limit} javaslatról szavazhatsz.
+            votes: Szavazatok
         wizard_aside:
           back: Vissza
           info: Épp egy <strong>javaslatot</strong> hozol létre.
