@@ -493,7 +493,6 @@ fi:
             all: Kaikki
             official: Viralliset
             participants: Osallistujat
-            user_groups: Ryhmät
           scope: Teema
           search: Hae
           type: Tyyppi
@@ -545,10 +544,8 @@ fi:
           close_meeting: Sulje tapaaminen
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
-          edit_close_meeting: Muokkaa tapahtumaraporttia
           edit_meeting: Muokkaa tapaamista
           going: Olet ilmoittautunut tähän tapaamiseen
-          join: Ilmoittaudu tapaamiseen
           leave: Peruuta ilmoittautumisesi
           leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?
           link_available_soon: Linkki julkaistaan pian
