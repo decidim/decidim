@@ -395,7 +395,7 @@ cs:
     participatory_spaces:
       highlighted_proposals:
         last: Poslední návrhy
-        see_all: Zobrazit všechny návrhy
+        see_all: Zobrazit všechny (%{count})
     proposals:
       actions:
         answer_proposal: Odpověď na návrh
@@ -712,7 +712,7 @@ cs:
             success: "@%{user} byl úspěšně odmítnut jako spolupracovník."
         show:
           edit: Úprava konceptu spolupráce
-          final_proposal: Závěrečný návrh
+          final_proposal: konečný návrh
           final_proposal_help_text: Tento návrh je dokončen. Můžete vidět konečný konečný návrh
           hidden_authors_count:
             one: a %{count} další osoba
@@ -722,7 +722,7 @@ cs:
           info-message: Toto je <strong>návrh spolupráce</strong> pro návrh. To znamená, že můžete jeho autorům pomoci utvářet návrh pomocí sekce komentáře níže nebo jej přímo vylepšit požádáním o přístup k jeho úpravě. Jakmile vám autoři udělí přístup, budete moci provést změny tohoto konceptu.
           publish: Publikovat
           publish_info: Publikujte tuto verzi konceptu nebo
-          published_proposal: Zveřejněný návrh
+          published_proposal: zveřejněný návrh
           request_access: Požádat o přístup
           requested_access: Požadovaný přístup
           withdraw: stáhnout návrh
@@ -905,7 +905,7 @@ cs:
           title: 'Hlasování podléhá těmto pravidlům:'
           vote_limit:
             description: Můžete hlasovat až pro %{limit} návrhů.
-            votes: Zbývá %{number} podpor
+            votes: Hlasy
         wizard_aside:
           back: Zadní
           back_from_step_1: Zpět k návrhům
