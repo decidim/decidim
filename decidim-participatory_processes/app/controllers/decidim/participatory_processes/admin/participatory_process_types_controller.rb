@@ -7,7 +7,7 @@ module Decidim
       # organization
       class ParticipatoryProcessTypesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         include Decidim::TranslatableAttributes
-        include HasSpecificBreadcrumb
+        before_action :set_controller_breadcrumb
 
         helper_method :collection, :current_participatory_process_type
         layout "decidim/admin/participatory_process_type"
@@ -84,23 +84,20 @@ module Decidim
 
         private
 
-        def breadcrumb_item
-          [
-            {
-              label: t("participatory_process_types", scope: "decidim.admin.menu"),
-              url: participatory_process_types_path,
-              active: false
-            }
-          ].tap do |items|
-            if params[:id].present?
-              items <<
-                {
-                  label: translated_attribute(current_participatory_process_type.title),
-                  url: edit_participatory_process_type_path(current_participatory_process_type),
-                  active: true
-                }
-            end
-          end
+        def set_controller_breadcrumb
+          controller_breadcrumb_items << {
+            label: t("participatory_process_types", scope: "decidim.admin.menu"),
+            url: participatory_process_types_path,
+            active: false
+          }
+
+          return if params[:id].blank?
+
+          controller_breadcrumb_items << {
+            label: translated_attribute(current_participatory_process_type.title),
+            url: edit_participatory_process_type_path(current_participatory_process_type),
+            active: true
+          }
         end
 
         def participatory_process_type_form

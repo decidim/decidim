@@ -16,6 +16,7 @@ module Decidim
       include Headers::HttpCachingDisabler
       include Headers::ContentSecurityPolicy
       include DisableRedirectionToExternalHost
+      include Decidim::Admin::Concerns::HasBreadcrumbItems
 
       include DisabledRedesignLayout
 

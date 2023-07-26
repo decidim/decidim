@@ -7,7 +7,9 @@ module Decidim
       # permissions in the admin panel.
       class InitiativesTypesPermissionsController < Decidim::Admin::ResourcePermissionsController
         include Decidim::TranslatableAttributes
-        include HasSpecificBreadcrumb
+
+        before_action :set_controller_breadcrumb
+        add_breadcrumb_item_from_menu :admin_initiatives_menu
 
         layout "decidim/admin/initiatives"
 
@@ -21,13 +23,8 @@ module Decidim
 
         private
 
-        def breadcrumb_item
-          [
-            {
-              label: t("initiatives_types", scope: "decidim.admin.menu"),
-              url: initiatives_types_path,
-              active: false
-            },
+        def set_controller_breadcrumb
+          controller_breadcrumb_items.append(
             {
               label: translated_attribute(resource.title),
               url: edit_initiatives_type_path(resource),
@@ -37,7 +34,7 @@ module Decidim
               label: t("permissions", scope: "decidim.admin.actions"),
               active: true
             }
-          ]
+          )
         end
       end
     end

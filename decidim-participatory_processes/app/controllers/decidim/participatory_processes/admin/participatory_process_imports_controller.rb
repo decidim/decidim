@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       class ParticipatoryProcessImportsController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
-        include Decidim::HasSpecificBreadcrumb
+        before_action :set_controller_breadcrumb
 
         layout "decidim/admin/participatory_processes"
 
@@ -32,8 +32,8 @@ module Decidim
 
         private
 
-        def breadcrumb_item
-          {
+        def set_controller_breadcrumb
+          controller_breadcrumb_items << {
             label: t("import", scope: "decidim.admin.actions"),
             url: new_import_path,
             active: true

@@ -8,6 +8,8 @@ module Decidim
 
       layout "decidim/admin/settings"
 
+      add_breadcrumb_item_from_menu :admin_settings_menu
+
       def content_block_scope
         :homepage
       end

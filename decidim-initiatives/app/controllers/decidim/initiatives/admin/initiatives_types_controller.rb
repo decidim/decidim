@@ -7,7 +7,9 @@ module Decidim
       # organization.
       class InitiativesTypesController < Decidim::Initiatives::Admin::ApplicationController
         include Decidim::TranslatableAttributes
-        include HasSpecificBreadcrumb
+        before_action :set_controller_breadcrumb, except: [:index, :new, :create]
+
+        add_breadcrumb_item_from_menu :admin_initiatives_menu
 
         helper ::Decidim::Admin::ResourcePermissionsHelper
         helper_method :current_initiative_type
@@ -86,23 +88,13 @@ module Decidim
 
         private
 
-        def breadcrumb_item
-          [
+        def set_controller_breadcrumb
+          controller_breadcrumb_items <<
             {
-              label: t("initiatives_types", scope: "decidim.admin.menu"),
-              url: initiatives_types_path,
-              active: false
+              label: translated_attribute(current_initiative_type.title),
+              url: edit_initiatives_type_path(current_initiative_type),
+              active: true
             }
-          ].tap do |items|
-            if params[:id].present?
-              items <<
-                {
-                  label: translated_attribute(current_initiative_type.title),
-                  url: edit_initiatives_type_path(current_initiative_type),
-                  active: true
-                }
-            end
-          end
         end
 
         def current_initiative_type

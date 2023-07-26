@@ -10,6 +10,8 @@ module Decidim
 
         include NeedsInitiative
         include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
+
+        add_breadcrumb_item_from_menu :admin_initiative_menu
       end
     end
   end
