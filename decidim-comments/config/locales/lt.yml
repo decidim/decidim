@@ -33,8 +33,6 @@ lt:
         update:
           error: Atnaujinant šį komentarą iškilo problema.
       comments_count: Komentarų skaičius
-      last_activity:
-        new_comment_at_html: "<span>Naujas komentaras %{link}</span>"
       view: Rodyti
       votes:
         create:
@@ -46,7 +44,6 @@ lt:
           body:
             label: Komentaras
             placeholder: Ką manote apie tai?
-          submit: Publikuoti
           user_group_id:
             label: Komentuoti kaip
         opinion:
@@ -91,8 +88,6 @@ lt:
           older: Ankstesni
           recent: Paskutiniai
         title: 'Rikiuoti pagal:'
-      comment_thread:
-        title: Pokalbis su %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Norėdami komentuoti turite būti patvirtintas(-a), tačiau galite skaityti egzistuojančius komentarus.
         blocked_comments_for_user_warning: Šiuo metu komentarų pateikti negalite, tačiau galite perskaityti ankstesnius komentarus.
