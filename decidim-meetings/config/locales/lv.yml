@@ -259,12 +259,8 @@ lv:
               not_found: 'Organizators netika atrasts datubāzē (ID: %{id})'
       calendar_modal:
         calendar_url: Kalendāra URL
-        close_window: Aizvērt logu
         export_calendar: Eksportēt kalendāru
       conference_venues: Konferenču norises vietas
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: Skatīt visu
       directory:
         meetings:
           index:
@@ -282,13 +278,6 @@ lv:
           category: Kategorija
           date: Datums
           search: Meklēt
-        filters_small_view:
-          close_modal: Aizvērt modal
-          filter: Filtrēt
-          filter_by: Filtrēt pēc
-          unfold: Atritināt
-        meeting_minutes:
-          related_information: Saistītā informācija
         meetings:
           upcoming_meetings_warning: Pašlaik nav plānotas sanāksmes, taču šeit varat atrast visas iepriekšējās sanāksmes.
         registration_confirm:
@@ -296,7 +285,6 @@ lv:
           confirm: Apstiprināt
         show:
           attendees: Dalībnieku skaits
-          back: Atpakaļ uz sarakstu
           contributions: Papildinājumu skaits
           join: Pievienoties sanāksmei
           meeting_minutes: Sanāksmes protokols
@@ -311,8 +299,6 @@ lv:
             one: "Atlicis %{count} laiks runāšanai"
             other: "Atlicis %{count} laiks runāšanai"
           view: Apskatīt
-      meetings_map:
-        view_meeting: Skatīt sanāksmi
       models:
         invite:
           fields:
