@@ -531,6 +531,9 @@ cs:
           text_banner: Zobrazujete seznam schůzek stažených jejich autory. %{go_back_link}.
         meeting:
           close_meeting: Ukončit schůzku
+          edit_close_meeting: Upravit zprávu schůzky
+          edit_meeting: Upravit schůzku
+          join_meeting: Připojit se ke schůzce
         meetings:
           no_meetings_warning: Žádná schůzka neodpovídá vašim kritériím nebo není naplánována žádná schůzka.
           upcoming_meetings_warning: V současné době neexistují žádné plánované schůzky, ale naleznete zde všechny minulé schůzky.
@@ -613,6 +616,7 @@ cs:
             question_replied: Odpověď na otázku
             reply_question: Odpovědět na otázku
       public_participants_list:
+        attending_organizations: Organizace
         attending_participants: Účast účastníků
         hidden_participants_count:
           one: a %{count} další osoba
