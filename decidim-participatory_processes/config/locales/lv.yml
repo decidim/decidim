@@ -302,6 +302,11 @@ lv:
         related_assemblies: Saistītās asamblejas
     participatory_process_groups:
       content_blocks:
+        metadata:
+          name: Metadati
+          participatory_scope: Kas tiek izlemts
+          participatory_structure: Kā tas tiek izlemts
+          target: Kas piedalās
         stats:
           name: Statistika
       show:
@@ -351,11 +356,9 @@ lv:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktīvie procesi
             active_step: Aktīvā fāze
             more_information: Papildu informācija
             participate: Piedalīties
-            see_all_processes: Skatīt visus procesus
       participatory_processes:
         filters:
           counters:
@@ -387,7 +390,6 @@ lv:
         area: Joma
         developer_group: Atbalstītāju grupa
         end_date: Beigu datums
-        local_area: Organizācijas joma
         participatory_scope: Kas tiek izlemts
         participatory_structure: Kā tas tiek izlemts
         private_space: Šis ir privāts process
@@ -417,6 +419,8 @@ lv:
           active_step: 'Pašreizējā fāze:'
           more_info: Sīkāka informācija
           take_part: Piedalīties
+        promoted_process_group:
+          more_info: Sīkāka informācija
       process_header_steps:
         step: Fāze %{current} no %{total}
       process_navigation:
