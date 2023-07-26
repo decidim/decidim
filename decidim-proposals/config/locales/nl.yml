@@ -329,6 +329,9 @@ nl:
         description: Aantal stemmen voor voorstellen
         object: stemmen
         title: stemmen
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Alles zien (%{count})
     proposals:
       actions:
         answer_proposal: Antwoord voorstel
@@ -583,12 +586,14 @@ nl:
             error: Kan niet worden afgewezen als bijdrager, probeer het later opnieuw.
         show:
           edit: Bewerk gezamenlijk ontwerp
+          final_proposal: definitief voorstel
           final_proposal_help_text: Dit concept is voltooid. U kunt het definitieve voltooide voorstel zien
           hidden_authors_count:
             one: en nog %{count} persoon
             other: en nog %{count} personen
           publish: Publiceren
           publish_info: Publiceer deze versie van het concept of
+          published_proposal: gepubliceerd voorstel
           request_access: Toegang vragen
           requested_access: Toegang aangevraagd
           withdraw: het ontwerp terugtrekken
@@ -743,6 +748,7 @@ nl:
           title: 'Stemmen zijn onderworpen aan de volgende regels:'
           vote_limit:
             description: U kunt tot %{limit} voorstellen stemmen.
+            votes: Stemmen
         wizard_aside:
           back: Terug
           back_from_step_1: Terug naar voorstellen
