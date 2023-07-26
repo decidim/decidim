@@ -318,6 +318,7 @@ it:
         select_initiative_type:
           back: Indietro
           choose_html: Voglio creare uno <strong>%{title}</strong>
+          more_information: (Maggiori informazioni)
           select: Voglio promuovere questa iniziativa
           select_initiative_type_help: Le iniziative sono un mezzo attraverso il quale i partecipanti possono intervenire in modo che l'organizzazione possa intraprendere azioni in difesa dell'interesse generale. Quale iniziativa vuoi lanciare?
         share_committee_link:
