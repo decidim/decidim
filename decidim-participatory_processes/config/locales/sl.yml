@@ -8,3 +8,6 @@ sl:
     participatory_process:
       show:
         related_assemblies: Povezane združbe
+    participatory_processes:
+      show:
+        area: Področje
