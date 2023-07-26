@@ -334,14 +334,6 @@ sk:
         title: Participatívna procesy
       last_activity:
         new_participatory_process: Nový participačné proces
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Aktívne procesy
-            active_step: Aktívne krok
-            more_information: Viac informácií
-            participate: Zúčastniť sa
-            see_all_processes: Zobraziť všetky procesy
       participatory_processes:
         filters:
           counters:
@@ -373,20 +365,9 @@ sk:
             past: Uplynulé
             upcoming: Nadchádzajúce
           see: Vidieť
-        index:
-          loading: Načítá výsledky ...
       show:
-        area: Plocha
-        developer_group: Skupina promotérov
-        end_date: Dátum ukončenia
-        local_area: Oblasť organizácie
-        participatory_scope: Čo sa rozhodlo
-        participatory_structure: Ako sa to rozhoduje
         private_space: Jedná sa o súkromný proces
         related_processes: Súvisiace procesy
-        scope: Rozsah
-        start_date: Dátum začatia
-        target: Kto sa zúčastňuje
         unspecified: Nešpecifikované
   layouts:
     decidim:
@@ -394,18 +375,10 @@ sk:
         participatory_process_group:
           browse: Prechádzať
           processes_count: 'Procesy:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktívne krok
-          take_part: Zúčastniť sa
       participatory_processes:
         index:
           promoted_processes: Zvýraznené procesy
         participatory_process:
-          active_step: 'Aktuálny krok:'
-          more_info: Viac informácií
-          take_part: Zúčastniť sa
-        promoted_process:
           active_step: 'Aktuálny krok:'
           more_info: Viac informácií
           take_part: Zúčastniť sa
