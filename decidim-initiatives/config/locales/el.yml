@@ -267,6 +267,7 @@ el:
         select_initiative_type:
           back: Πίσω
           choose_html: Θέλω να δημιουργήσω μια πρωτοβουλία <strong>%{title}</strong>
+          more_information: (Περισσότερες πληροφορίες)
           select: Θέλω να προωθήσω αυτήν την πρωτοβουλία
         share_committee_link:
           invite_to_committee_help: Σύνδεσμος για να προσκαλέσετε άτομα που θα είναι μέλη της επιτροπής προώθησης
