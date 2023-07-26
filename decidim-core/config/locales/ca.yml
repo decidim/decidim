@@ -615,8 +615,8 @@ ca:
             check: Marca i continua
             uncheck: Deixa desmarcada
           notice: |-
-            <p>Hola, segur que no vols rebre un butlletí informatiu?<br>
-            Si us plau, pren en consideració marcar la casella de selecció de butlletí a continuació.
+            <p>Hola, segur que no vols rebre un butlletí?<br>
+            Si us plau, pren en consideració marcar la casella de selecció de butlletí a continuació.<br>
             Per a nosaltres és molt important que rebis correus electrònics ocasionals per fer avisos importants, sempre pots canviar-ho a la pàgina de configuració de les notificacions.</p>
             <p>Si no marques la casella, pot ser que et falti informació rellevant sobre noves oportunitats de participació dins de la plataforma.<br>
             Si encara vols evitar rebre butlletins, entenem perfectament la teva decisió.</p>
@@ -628,9 +628,9 @@ ca:
       authorizations:
         new:
           authorize: Autoritza l'aplicació
-          by_organization_link_html: per %{link}
+          by_organization_link_html: <small class="heading-small">per %{link}</small>
           cancel: Cancel·lar
-          connect_your_account_html: Connecta el teu compte iniciant la sessió a %{organization}.
+          connect_your_account_html: Connecta el teu compte iniciant la sessió a <strong>%{organization}</strong>.
           publish_content: Publica el contingut per a tu
           see_email: Consulta el teu correu electrònic
           see_name: Veure el teu nom
@@ -638,7 +638,7 @@ ca:
           this_application_will_be_able_to: 'Aquesta aplicació podrà:'
           this_application_will_not_be_able_to: 'Aquesta aplicació no podrà:'
           update_profile: Actualitza el teu perfil
-          wants_to_use_your_account_html: "%{application_name} vol utilitzar el teu compte"
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vol utilitzar el teu compte"
     download_your_data:
       export:
         ready: Llest
@@ -1311,7 +1311,7 @@ ca:
       participatory_space:
         metrics:
           headline: Mètriques
-          link: Mostrar totes
+          link: Mostra totes les mètriques
       terms_of_service:
         accept:
           error: S'ha produït un error en acceptar els termes i condicions d'ús.
@@ -1582,7 +1582,7 @@ ca:
         version: Versió %{number}
     versions_list_item:
       show:
-        version_index: Versió %{index} de %{total}
+        version_index: Versió %{index}
     welcome_notification:
       default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} et donem la benvinguda!</p><ul><li>Si vole fer-te una idea ràpida de que pots fer-hi, fes una ullada a la <a href="{{help_url}}">Secció d'ajuda</a>.</li><li>Una vegada l'hagis llegit rebràs la teva primera ensenya. Aquí trobaràs un <a href="{{badges_url}}">llistat de totes les ensenyes</a>que pots aconsegui participant a {{organization}}</li><li>. Per acabar, però no per això menys important, uneix-te a d'altres persones, comparteix amb elles d'estar compromesa i de participar a {{organization}}. Fes propostes, comentaris, debat, pensa en com contribuir a un bé comú, aporta arguments per mirar de convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i resta oberta de ment per a col·laborar i unir-te a les idees d'altra gent.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!
