@@ -7,7 +7,6 @@ is-IS:
           body:
             label: Athugasemd
             placeholder: Hvað finnst þér um þetta?
-          submit: Senda
           user_group_id:
             label: Athugasemd sem
         opinion:
@@ -36,8 +35,6 @@ is-IS:
           older: Eldri
           recent: Nýleg
         title: 'Raða eftir:'
-      comment_thread:
-        title: Samtal við %{authorName}
       comments:
         blocked_comments_warning: Athugasemdir eru gerðar óvirkar á þessum tíma, en þú getur lesið þau fyrri.
         loading: Hleð inn athugasemdir ...
