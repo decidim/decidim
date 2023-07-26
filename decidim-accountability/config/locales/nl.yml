@@ -214,6 +214,9 @@ nl:
         description: Aantal gegenereerde resultaten
         object: resultaten
         title: Resultaten
+    participatory_spaces:
+      highlighted_results:
+        see_all: Bekijk alle resultaten (%{count})
     resource_links:
       included_projects:
         result_project: Projecten opgenomen in dit resultaat
