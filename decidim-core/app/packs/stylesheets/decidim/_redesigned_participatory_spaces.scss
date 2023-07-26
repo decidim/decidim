@@ -12,9 +12,7 @@
   }
 
   &__container {
-    > :not([id^="html-block"]):not([data-process-hero]):not(
-        [id^="floating-helper"]
-      ) {
+    > :not([id^="html-block"]):not([id^="hero"]):not([id^="floating-helper"]) {
       @apply container;
     }
 

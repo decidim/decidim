@@ -88,7 +88,7 @@ edit_link(
         </p>
         <span class="initiative__aside__element__data-text">
           <span class="text-sm font-normal text-gray-2 block">
-            <%= link_to translated_attribute(current_initiative.scope_name), initiatives_path(filter: { scope_id: [current_initiative.scope&.id] }) %>
+            <%= link_to translated_attribute(current_initiative.scope_name), initiatives_path(filter: { with_any_scope: [current_initiative.scope&.id] }) %>
           </span>
         </span>
       </div>

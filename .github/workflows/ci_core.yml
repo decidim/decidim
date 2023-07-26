@@ -27,6 +27,7 @@ jobs:
     name: Build test application
   main:
     strategy:
+      fail-fast: false
       matrix:
         test-command:
           - bundle exec parallel_test --type rspec --pattern spec/lib

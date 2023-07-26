@@ -30,6 +30,7 @@ concurrency:
 jobs:
   main:
     strategy:
+      fail-fast: false
       matrix:
         test-command:
           - bundle exec parallel_test --type rspec --pattern spec/runtime/config_flags_generator_spec.rb
@@ -88,5 +89,5 @@ jobs:
         name: Upload coverage
         with:
           token: ${{ env.CODECOV_TOKEN }}
-          name: decidim-generators-flags
-          flags: decidim-generators-flags
+          name: decidim-generators
+          flags: decidim-generators

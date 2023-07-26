@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Voting", type: :system do
   let!(:organization) { create(:organization) }
-  let!(:voting) { create(:voting, :published, organization:) }
+  let!(:voting) { create(:voting, :published, :with_content_blocks, organization:, blocks_manifests: [:title]) }
   let!(:user) { create(:user, :confirmed, organization:) }
 
   before do

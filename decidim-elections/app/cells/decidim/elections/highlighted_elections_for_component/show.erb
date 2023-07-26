@@ -1,0 +1,18 @@
+<div class="content-block__title">
+  <h2 class="h2 decorator">
+    <%= single_component? ? translated_attribute(model.name) : t("decidim.components.elections.name") %>
+  </h2>
+  <div class="label text-lg"><%= elections_count %></div>
+  <% if see_all_path.present? %>
+    <%= link_to see_all_path, class: "button button__sm button__text-secondary" do %>
+      <span><%= t("decidim.participatory_spaces.related_elections.see_all") %></span>
+      <%= icon "arrow-right-line" %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="participatory-space__block-grid">
+  <% elections.each do |election| %>
+    <%= card_for(election, link_whole_card: true, title_tag: :h3, **options.slice(:show_space)) %>
+  <% end %>
+</div>
