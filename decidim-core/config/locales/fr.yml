@@ -617,6 +617,16 @@ fr:
           buttons:
             check: Oui, je souhaite m'inscrire à la newsletter
             uncheck: Garder décoché
+          notice: |-
+            <p>Êtes-vous sûr de ne pas vouloir recevoir de newsletter ?<br>
+            Nous vous suggérons de cocher la case pour recevoir la newsletter.<br>
+            Il est très important pour nous que vous puissiez recevoir des e-mails occasionnels
+            pour vous faire part des annonces importantes. Vous pourrez toujours modifier votre choix dans vos paramètres de notifications.</p>
+            <p>Si vous ne cochez pas la case, vous risquez de manquer des informations pertinentes
+            sur les nouvelles opportunités participatives de la plateforme.<br>
+            Si vous voulez toujours ne pas recevoir de newsletters, nous comprenons parfaitement
+            votre décision.</p>
+            <p>Merci de votre lecture !</p>
           title: Inscription à la newsletter
         omniauth_buttons:
           or: Ou
@@ -624,7 +634,9 @@ fr:
       authorizations:
         new:
           authorize: Autoriser l'application
+          by_organization_link_html: <small class="heading-small">par %{link}</small>
           cancel: Annuler
+          connect_your_account_html: Connectez votre compte en vous connectant à <strong>%{organization}</strong>.
           publish_content: Publier du contenu pour vous
           see_email: Voir votre email
           see_name: Voir votre nom
@@ -632,6 +644,7 @@ fr:
           this_application_will_be_able_to: 'Cette application sera capable de :'
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
     download_your_data:
       export:
         ready: Prêt
@@ -1290,6 +1303,7 @@ fr:
       participatory_space:
         metrics:
           headline: Participation en chiffres
+          link: Afficher toutes les statistiques
       terms_of_service:
         accept:
           error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation.
@@ -1549,6 +1563,9 @@ fr:
         of_versions: "(sur %{number})"
         see_other_versions: voir les autres versions
         version: Numéro de version %{number}
+    versions_list_item:
+      show:
+        version_index: Version %{index}
     welcome_notification:
       default_body: <p>Bonjour {{name}}, merci d'avoir rejoint {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>En somme, rejoignez d'autres personnes, partagez avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, lancez des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées dans un esprit ouvert pour collaborer et enrichir les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!
