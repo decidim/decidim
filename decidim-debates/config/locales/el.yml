@@ -96,7 +96,6 @@ el:
           invalid: Υπήρξε ένα πρόβλημα κατά το κλείσιμο της συζήτησης.
           success: Η συζήτηση έκλεισε επιτυχώς.
         close_debate_modal:
-          close: Κλείσιμο
           description: Ποια είναι η περίληψη ή το συμπέρασμα αυτής της συζήτησης;
           send: Κλείσιμο συζήτησης
         closed: Κλειστό
@@ -123,18 +122,11 @@ el:
           official: Επίσημη
           origin: Προέλευση
           participants: Συμμετέχοντες
-          scope: Πεδία εφαρμογής
           search: Αναζήτηση
           state: Κατάσταση
           state_values:
             closed: Κλειστό
             open: Άνοιγμα
-          user_groups: Ομάδες
-        filters_small_view:
-          close_modal: Κλείσιμο βοηθητικού στοιχείου
-          filter: Φίλτρο
-          filter_by: Φιλτράρισμα κατά
-          unfold: Αποκάλυψη
         form:
           select_a_category: Please select a category
         index:
@@ -150,7 +142,6 @@ el:
           recent: Πιο πρόσφατες
           updated: Πρόσφατα ενημερωμένες
         show:
-          back: Επιστροφή στη λίστα
           close_debate: Κλείσιμο συζήτησης
           date: Ημερομηνία
           debate_closed: Κλειστό
@@ -158,20 +149,11 @@ el:
           edit_conclusions: Επεξεργασία συμπερασμάτων
           edit_debate: Επεξεργασία συζήτησης
           groups_count: Ομάδες
-          last_comment_by: Τελευταίο σχόλιο από
-          no_comments_yet: Κανένα σχόλιο ακόμα
           open: Άνοιγμα συζήτησης
           participants_count: Συμμετέχοντες
         update:
           invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση της συζήτησης.
           success: Η συζήτηση ενημερώθηκε επιτυχώς.
-        versions:
-          debates:
-            back_to_resource: Επιστροφή στη συζήτηση
-          index:
-            title: Εκδόσεις
-        versions_list:
-          back_to_resource: Επιστροφή στη συζήτηση
       last_activity:
         debate_updated: 'Ενημέρωση συζήτησης:'
         new_debate: 'Νέα συζήτηση:'
