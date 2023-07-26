@@ -307,9 +307,6 @@ nl:
         description: Aantal participatieve processen in deze organisatie
         object: participatieve processen
         title: Participatieve processen
-    participatory_process:
-      show:
-        related_assemblies: Verwante assemblies
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -318,17 +315,10 @@ nl:
           name: Tweede HTML-blok
         html_3:
           name: Derde HTML blok
-        metadata:
-          developer_group: Aanbevolen door
-          name: Metadata
-          participatory_scope: Wat wordt beslist
-          participatory_structure: Hoe wordt er beslist
-          target: Wie neemt deel
         stats:
           name: Activiteit
         title:
           meta_scope: Scope
-          name: Titel, beschrijving en hashtag
           participatory_processes:
             one: 1 proces
             other: "%{count} processen"
@@ -384,16 +374,6 @@ nl:
         title: Inspraakproces
       last_activity:
         new_participatory_process: Nieuw participatief proces
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Actieve thema's
-            active_step: Actieve stap
-            more_information: Meer informatie
-            participate: Deelnemen
-            participate_in: Deelnemen aan proces %{resource_name}
-            processes_button_title: Link naar de pagina Processen waarop alle processen worden weergegeven
-            see_all_processes: Bekijk alle thema's
       participatory_process_steps:
         index:
           back_to_process: Terug naar de procespagina
@@ -420,22 +400,11 @@ nl:
             past: Archief
             upcoming: Aankomende
           see: Bekijk
-        index:
-          loading: Laden van resultaten...
       show:
-        area: Onderwerp
         belongs_to_group: Dit proces hoort bij
         dates: Datums
-        developer_group: Organisator
-        end_date: Einddatum
-        local_area: Organisatiegebied
-        participatory_scope: Wat is besloten
-        participatory_structure: Hoe wordt er besloten
         private_space: Dit is een privéthema
         related_processes: Verwante thema's
-        scope: Scope
-        start_date: Startdatum
-        target: Wie neemt deel
         unspecified: Niet gespecificeerd
     statistics:
       processes_count: Inspraakprocessen
@@ -446,10 +415,6 @@ nl:
           browse: Bladeren
           browse_resource: Bekijk de procesgroep %{resource_name}
           processes_count: 'Processen:'
-      participatory_process_widgets:
-        show:
-          active_step: Actieve stap
-          take_part: Deelnemen
       participatory_processes:
         index:
           promoted_processes: Uitgelichte processen
@@ -459,14 +424,6 @@ nl:
           more_info_about: Meer informatie over proces %{resource_name}
           take_part: Deelnemen
           take_part_in: Neem deel aan proces %{resource_name}
-        promoted_process:
-          active_step: 'Huidige stap:'
-          more_info: Meer informatie
-          more_info_about: Meer informatie over proces %{resource_name}
-          take_part: Deelnemen
-          take_part_in: Neem deel aan proces %{resource_name}
-        promoted_process_group:
-          more_info: Meer informatie
       process_header_steps:
         step: Stap %{current} van %{total}
         view_steps: Bekijk stappen
