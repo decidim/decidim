@@ -505,6 +505,7 @@ lt:
       authorizations:
         new:
           authorize: Leisti naudoti programą
+          by_organization_link_html: <small class="heading-small"> %{link}</small>
           cancel: Atšaukti
           publish_content: Skelbti turinį už Jus
           see_email: Žiūrėti savo el. paštą
@@ -513,6 +514,7 @@ lt:
           this_application_will_be_able_to: 'Ši programa galės:'
           this_application_will_not_be_able_to: 'Ši programa negalės:'
           update_profile: Atnaujinkite savo profilį
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> nori naudoti Jūsų paskyrą"
     download_your_data:
       export:
         ready: Pasirengęs
@@ -1076,6 +1078,7 @@ lt:
       participatory_space:
         metrics:
           headline: Rodikliai
+          link: Rodyti visus rodiklius
     participatory_space_private_users:
       not_allowed: Jūs negalite peržiūrėti šio turinio
     profile:
@@ -1293,6 +1296,9 @@ lt:
         of_versions: "(iš%{number})"
         see_other_versions: žr. kitas versijas
         version: Versijos numeris %{number}
+    versions_list_item:
+      show:
+        version_index: Versija %{index}
     welcome_notification:
       default_subject: Dėkojame, kad prisijungėte prie {{organization}}!
     wizard_step_form:
