@@ -663,7 +663,7 @@ tr:
           update: Güncelleştirme
         new:
           create: Kapsam türü oluştur
-          title: Yeni Faaliyet Türü
+          title: Yeni kapsam
         update:
           error: Bu kapsam türünü güncellerken bir hata oluştu.
           success: Kapsam türü başarıyla güncellendi
