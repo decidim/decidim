@@ -178,7 +178,6 @@ ja:
           questionnaire_not_published:
             body: このフォームはまだ公開されていません。
           tos_agreement: 参加することにより、利用規約に同意します。
-          upload_file: ファイルのアップロード
       step_navigation:
         show:
           are_you_sure: この操作は元に戻すことができず、回答を編集することはできません。よろしいですか？
