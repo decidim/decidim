@@ -351,6 +351,9 @@ ro:
         description: Numărul de voturi pentru propuneri
         object: voturi
         title: Voturi
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Afișează toate propunerile (%{count})
     proposals:
       actions:
         answer_proposal: Răspundeți la propunere
@@ -609,6 +612,7 @@ ro:
             error: Nu ai putut fi respins drept colaborator, te rugăm să încerci din nou mai târziu.
         show:
           edit: Editează ciorna colaborativă
+          final_proposal: propunere finală
           final_proposal_help_text: Această ciornă este finalizată. Verifică propunerea finală
           hidden_authors_count:
             one: și încă %{count} persoană
@@ -616,6 +620,7 @@ ro:
             other: și încă %{count} persoane
           publish: Publică
           publish_info: Publică această versiune a ciornei sau
+          published_proposal: propunere publicată
           request_access: Cere acces
           requested_access: Acces solicitat
           withdraw: retrage ciorna
@@ -775,6 +780,7 @@ ro:
           title: 'Voturile sunt supuse următoarelor reguli:'
           vote_limit:
             description: Poți vota până la %{limit} propuneri.
+            votes: Voturi
         wizard_aside:
           back: Înapoi
           back_from_step_1: Înapoi la propuneri
