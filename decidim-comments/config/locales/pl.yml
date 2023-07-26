@@ -30,8 +30,6 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizowania komentarza.
       comments_count: Liczba komentarzy
-      last_activity:
-        new_comment_at_html: "<span>Nowy komentarz do %{link}</span>"
       view: Zobacz
       votes:
         create:
@@ -43,7 +41,6 @@ pl:
           body:
             label: Komentarz
             placeholder: Co o tym myślisz?
-          submit: Skomentuj
           user_group_id:
             label: Komentuj jako
         opinion:
@@ -87,8 +84,6 @@ pl:
           older: Najstarsze
           recent: Najnowsze
         title: 'Sortuj według:'
-      comment_thread:
-        title: Rozmowa z %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Musisz być zweryfikowany żeby teraz komentować, ale możesz przeczytać poprzednie komentarze.
         blocked_comments_for_user_warning: Nie możesz teraz komentować, ale możesz przeczytać poprzednie komentarze.
