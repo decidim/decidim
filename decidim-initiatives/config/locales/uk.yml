@@ -169,6 +169,7 @@ uk:
           more_information: "(Додаткові відомості)"
         select_initiative_type:
           back: Повернутись
+          more_information: (Додаткові відомості)
         share_committee_link:
           invite_to_committee_help: Посилання для запрошення людей, які увійдуть в робочий гурт з просування
       events:
