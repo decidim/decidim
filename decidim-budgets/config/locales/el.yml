@@ -214,6 +214,7 @@ el:
             title: Υπέρβαση των μέγιστων έργων
         budget_summary:
           are_you_sure: Είστε βέβαιοι ότι θέλετε να ακυρώσετε την ψήφο σας;
+          cancel_order: διαγράψτε την ψήφο σας και ξεκινήστε από την αρχή
           checked_out:
             title: Ολοκληρώθηκε η ψηφοφορία για τον προϋπολογισμό
         count:
@@ -251,7 +252,9 @@ el:
             other: ψήφοι
           you_voted: Ψηφίσατε για αυτό
         project_budget_button:
+          add: Προσθέστε στην ψήφο σας
           add_descriptive: Προσθήκη του έργου %{resource_name} στην ψήφο σας.
+          added: Προστέθηκε στην ψήφο σας
           added_descriptive: Το έργο %{resource_name} προστέθηκε στην ψήφο σας.
         projects_for: Έργα για %{name}
         show:
