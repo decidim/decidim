@@ -830,6 +830,7 @@ ro:
         form:
           colors:
             colors_title: Culorile organizației
+            colors_warning_html: Atenție! Schimbarea acestor culori poate distruge contrastele de accesibilitate. Poți verifica contrastul alegerii tale cu <a href="%{link}">WebAIM Contrast Checker</a> sau alte unelte similare.
           cta_button_path_help: 'Poți modifica adresa către care direcționează butonul Apel la acțiune de pe pagina principală. Aici poți utiliza doar căi parțiale, nu URL-uri complete. Se acceptă numai litere, numere, cratime și bare oblice și trebuie să înceapă cu o literă. Butonul „Apel la acțiune” este afișat pe prima pagină, între textul de întâmpinare și descriere. Exemplu: %{url}'
           cta_button_text_help: Poți înlocui textul butonului Apel la acțiune de pe pagina principală pentru fiecare limbă disponibilă în organizația ta. În cazul în care nu există alte limbi setate, se utilizează valoarea implicită. Butonul „Apel la acțiune” este afișat pe pagina principală, între textul de întâmpinare și descriere.
           homepage_appearance_title: Editează aspectul paginii principale
@@ -926,6 +927,7 @@ ro:
           update: Actualizează
         new:
           create: Creează tip de domeniu
+          title: Domeniu nou
         update:
           error: A apărut o problemă la actualizarea acestui tip de domeniu.
           success: Tipul de domeniu a fost actualizat cu succes
