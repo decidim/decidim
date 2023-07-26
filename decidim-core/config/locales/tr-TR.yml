@@ -422,6 +422,7 @@ tr:
       authorizations:
         new:
           authorize: Uygulamayı yetkilendir
+          by_organization_link_html: <small class="heading-small">x %{link}</small>
           cancel: İptal etmek
           publish_content: İçeriği sizin için yayınlayın
           see_email: E-postanızı görün
@@ -430,6 +431,7 @@ tr:
           this_application_will_be_able_to: 'Bu uygulama şunları yapabilecek:'
           this_application_will_not_be_able_to: 'Bu uygulama mümkün olmayacaktır:'
           update_profile: profilinizi güncelleyin
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> hesabınızı kullanmak istiyor"
     download_your_data:
       export:
         ready: Hazır
@@ -891,6 +893,7 @@ tr:
       participatory_space:
         metrics:
           headline: Metrikler
+          link: Bütün istatistikleri göster
     participatory_space_private_users:
       not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
     profile:
@@ -1081,6 +1084,9 @@ tr:
         of_versions: "(%{number})"
         see_other_versions: diğer sürümlere bak
         version: Sürüm numarası %{number}
+    versions_list_item:
+      show:
+        version_index: Sürüm %{index}
     welcome_notification:
       default_subject: '{{organization}}katıldığınız için teşekkürler!'
     wizard_step_form:
