@@ -36,8 +36,6 @@ cs:
           error: Při aktualizaci komentáře došlo k chybě.
       comments_count: Počet komentářů
       comments_title: Komentář
-      last_activity:
-        new_comment_at_html: "<span>Nový komentář v %{link}</span>"
       view: Zobrazit
       votes:
         create:
@@ -50,7 +48,6 @@ cs:
             label: Komentář
             placeholder: Co si o tom myslíš?
           form_error: Text je povinný a nemůže být delší než %{length} znaků.
-          submit: Odeslat
           user_group_id:
             label: Komentovat jako
         opinion:
@@ -101,8 +98,6 @@ cs:
           older: Starší
           recent: Nedávné
         title: 'Seřadit podle:'
-      comment_thread:
-        title: Konverzace s číslem %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Musíte být ověřen, abyste mohli komentovat tuto chvíli, ale můžete si přečíst ty předchozí.
         blocked_comments_for_user_warning: Momentálně nemůžete komentovat, ale můžete si přečíst ty předchozí.
