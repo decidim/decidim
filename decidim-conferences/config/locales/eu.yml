@@ -76,7 +76,7 @@ eu:
         other: Jardunaldiak
       decidim/conference_speaker:
         one: Hitzaldi hizlaria
-        other: Hitzaldi hiztunak
+        other: Hizlari
       decidim/conference_user_role:
         one: Konferentzia erabiltzailearen rola
         other: Konferentzia erabiltzailearen rola
