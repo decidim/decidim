@@ -215,7 +215,7 @@ hu:
             title: Projektek maximuma túllépve
         budget_summary:
           are_you_sure: Biztosan szeretnéd visszavonni a szavazatod?
-          cancel_order: szavazatod törlése
+          cancel_order: töröld a szavazatod és kezdd újra
           checked_out:
             description: 'Már szavaztál a költségvetésre. Ha meggondoltad magad, kattints ide: %{cancel_link}.'
             title: Költségvetési szavazás befejeződött
@@ -270,9 +270,9 @@ hu:
           view: Nézet
           you_voted: Erre szavazott
         project_budget_button:
-          add: Hozzáad
+          add: Adja hozzá a szavazatához
           add_descriptive: Adja hozzá a(z) %{resource_name} projektet a szavazatához.
-          added: Hozzáadva
+          added: Hozzáadva a szavazatához
           added_descriptive: A(z) %{resource_name} projekt hozzáadva a szavazatához.
         project_filter:
           added: Hozzáadva
