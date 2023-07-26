@@ -237,6 +237,9 @@ id:
         description: Jumlah suara yang dihasilkan dalam proposal oleh pengguna
         object: suara
         title: Suara
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Lihat semua (%{count})
     proposals:
       actions:
         edit_proposal: Edit proposal
@@ -427,11 +430,13 @@ id:
             error: Tidak dapat ditolak sebagai kolaborator, coba lagi nanti.
         show:
           edit: Edit draf kolaboratif
+          final_proposal: proposal terakhir
           final_proposal_help_text: Rancangan ini selesai. Anda dapat melihat proposal selesai akhir
           hidden_authors_count:
             other: dan %{count} lebih banyak orang
           publish: Menerbitkan
           publish_info: Publikasikan versi draf ini atau
+          published_proposal: proposal yang dipublikasikan
           request_access: Minta akses
           requested_access: Akses diminta
           withdraw: tarik draft
@@ -554,6 +559,7 @@ id:
           title: 'Voting tunduk pada aturan berikut:'
           vote_limit:
             description: Anda dapat memilih hingga %{limit} proposal.
+            votes: Suara
         wizard_aside:
           back: Kembali
           info: Anda membuat <strong>proposal</strong>.
