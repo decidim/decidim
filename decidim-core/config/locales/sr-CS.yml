@@ -72,6 +72,7 @@ sr:
       participatory_space:
         metrics:
           headline: Metrika
+          link: Prikaži svu metriku
     resource_endorsements:
       create:
         error: Nastao je problem pri podržavanju.
