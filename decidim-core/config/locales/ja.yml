@@ -601,13 +601,12 @@ ja:
             check: 確認して続ける
             uncheck: チェックを外してください
           notice: |-
-            <p>ニュースレターを購読しなくてもよいのでしょうか？
-            以下のニュースレターのチェックボックスにチェックを入れることを改めてご検討ください。
-            重要なお知らせメールを受け取れるようにするのは、運営にとって大変重要なことであり、
-            いつでも通知設定ページでこの設定を変更できます。</p>
-            <p>チェックボックスにチェックを入れない場合、プラットフォーム内の新しい参加機会に関する重要な情報を見逃す可能性があります。<br>
-            それでもニュースレターを読みたくない場合は、その決定を尊重します。</p>
-            <p>最後までお読みいただき、ありがとうございます。</p>
+            <p>本当にニュースレターを購読しなくて良いでしょうか？<br>
+            ニュースレターのチェックボックスを是非オンにしてください。<br>
+            重要なお知らせメールを受け取っていただくことは重要なことです。通知設定ページでいつでもこの設定を変更することができます。</p>
+            <p>チェックボックスにチェックを入れない場合、プラットフォーム内での新しい参加機会についての重要な情報を見逃してしまう可能性があります。<br>
+            それでもニュースレターの受信を避けたい場合は、私たちはその決定を尊重します。 </p>
+            <p>お読みいただきありがとうございます。</p>
           title: ニュースレター通知
         omniauth_buttons:
           or: または
@@ -615,9 +614,9 @@ ja:
       authorizations:
         new:
           authorize: アプリケーションを承認する
-          by_organization_link_html: 作成者： %{link}
+          by_organization_link_html: <small class="heading-small">by %{link}</small>
           cancel: キャンセル
-          connect_your_account_html: '%{organization} にサインインしてアカウントに接続します。'
+          connect_your_account_html: <strong>%{organization}</strong> に登録し、アカウントを接続します。
           publish_content: コンテンツを公開する
           see_email: メールを見る
           see_name: 名前を確認してください
@@ -625,7 +624,7 @@ ja:
           this_application_will_be_able_to: 'このアプリケーションは次のことができます:'
           this_application_will_not_be_able_to: 'このアプリケーションは次のことができません：'
           update_profile: プロフィールを更新
-          wants_to_use_your_account_html: "%{application_name} があなたのアカウントを使用しようとしています"
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> があなたのアカウントを使用しようとしています"
     download_your_data:
       export:
         ready: 準備完了
@@ -1296,7 +1295,7 @@ ja:
       participatory_space:
         metrics:
           headline: 指標
-          link: すべて表示
+          link: すべての指標を表示
       terms_of_service:
         accept:
           error: 利用規約に同意する際に問題が発生しました。
@@ -1567,7 +1566,7 @@ ja:
         version: バージョン %{number}
     versions_list_item:
       show:
-        version_index: バージョン %{index} / %{total}
+        version_index: バージョン %{index}
     welcome_notification:
       default_body: <p>{{name}} さん、{{organization}} への参加ありがとうございます！</p><ul><li>このサイトで何ができるかを概観したい場合は、<a href="{{help_url}}">ヘルプ</a>セクションをご覧ください。</li><li>目を通していただけると、最初のバッジを手に入れることができます。こちらは{{organization}} で参加することで手に入るすべてのバッジの<a href="{{badges_url}}">リスト</a>です。</li><li>そして、他の人々と一緒に{{organization}} に参加した経験を共有しましょう。提案を行い、コメントをし、議論を行い、共通の利益に貢献する方法を考え、説得するための根拠を提供し、読んで説得され、具体的かつ直接的に自分の意見を表現し、忍耐強く決定的に応答し、自分の考えを守り、協力して他の人々のアイデアに参加するために心を開いてください。</li></ul>
       default_subject: '{{organization}} に参加していただきありがとうございます！'
