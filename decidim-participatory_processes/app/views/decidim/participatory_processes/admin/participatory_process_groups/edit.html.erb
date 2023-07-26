@@ -1,8 +1,10 @@
 <div class="item_show__header">
   <h2 class="item_show__header-title">
-    <%= t "participatory_process_groups.edit.title", scope: "decidim.admin" %>
+    <span>
+      <%= t "participatory_process_groups.edit.title", scope: "decidim.admin" %>
+    </span>
     <% if allowed_to? :destroy, :process_group, process_group: participatory_process_group %>
-      <%= link_to t("decidim.admin.actions.destroy"), participatory_process_group, method: :delete, class: "button button__sm md:button__lg button__secondary destroy", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
+      <%= link_to t("decidim.admin.actions.destroy"), participatory_process_group, method: :delete, class: "button button__sm md:button__lg button__secondary destroy ml-auto", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
     <% end %>
   </h2>
 </div>
@@ -21,8 +23,10 @@
   <div class="item__edit-form">
     <%= decidim_form_for(@form, html: { class: "form-defaults form edit_participatory_process_group" }) do |f| %>
       <%= render partial: "form", object: f %>
-      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= f.submit t("participatory_process_groups.edit.update", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t("participatory_process_groups.edit.update", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
+        </div>
       </div>
     <% end %>
   </div>

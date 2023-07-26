@@ -22,16 +22,18 @@
   <div class="item__edit-form">
     <%= decidim_form_for(@form, html: { class: "form form-defaults edit_assembly assembly_form_admin" }) do |f| %>
       <%= render partial: "form", object: f %>
-      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= f.submit t("assemblies.edit.update", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t("assemblies.edit.update", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
 
-        <% if allowed_to? :publish, :assembly, assembly: current_assembly %>
-          <% if current_assembly.published? %>
-            <%= link_to t("actions.unpublish", scope: "decidim.admin"), assembly_publish_path(current_assembly), method: :delete, class: "button button__sm md:button__lg button__secondary" %>
-          <% else %>
-            <%= link_to t("actions.publish", scope: "decidim.admin"), assembly_publish_path(current_assembly), method: :post, class: "button button__sm md:button__lg button__secondary" %>
+          <% if allowed_to? :publish, :assembly, assembly: current_assembly %>
+            <% if current_assembly.published? %>
+              <%= link_to t("actions.unpublish", scope: "decidim.admin"), assembly_publish_path(current_assembly), method: :delete, class: "button button__sm md:button__lg button__secondary" %>
+            <% else %>
+              <%= link_to t("actions.publish", scope: "decidim.admin"), assembly_publish_path(current_assembly), method: :post, class: "button button__sm md:button__lg button__secondary" %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     <% end %>
 

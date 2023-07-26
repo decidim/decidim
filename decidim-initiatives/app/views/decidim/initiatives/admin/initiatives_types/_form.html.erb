@@ -1,10 +1,15 @@
 <div class="form__wrapper">
-  <div class="card">
+  <div class="card" data-component="accordion" id="accordion-<%= t("initiatives.form.title", scope: "decidim.initiatives.admin") %>">
     <div class="card-divider">
-      <h2 class="card-title"><%= t ".title" %></h2>
+      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t("initiatives.form.title", scope: "decidim.initiatives.admin") %>" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="<%= t("initiatives.form.title", scope: "decidim.initiatives.admin") %>">
+          <%= t("initiatives.form.title", scope: "decidim.initiatives.admin") %>
+        </h2>
+      </button>
     </div>
 
-    <div class="card-section">
+    <div id="panel-<%= t("initiatives.form.title", scope: "decidim.initiatives.admin") %>" class="card-section">
       <div class="row column">
         <%= form.translated :text_field, :title, autofocus: true %>
       </div>
@@ -21,12 +26,17 @@
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" data-component="accordion" id="accordion-<%= t("initiatives_types.form.options", scope: "decidim.initiatives.admin") %>">
     <div class="card-divider">
-      <h2 class="card-title"><%= t ".options" %></h2>
+      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t("initiatives_types.form.options", scope: "decidim.initiatives.admin") %>" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="<%= t("initiatives_types.form.options", scope: "decidim.initiatives.admin") %>">
+          <%= t("initiatives_types.form.options", scope: "decidim.initiatives.admin") %>
+        </h2>
+      </button>
     </div>
 
-    <div class="card-section">
+    <div id="panel-<%= t("initiatives_types.form.options", scope: "decidim.initiatives.admin") %>" class="card-section">
       <div class="row column">
         <%= form.select :signature_type, form.object.signature_type_options %>
       </div>
@@ -79,12 +89,17 @@
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" data-component="accordion" id="accordion-<%= t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin") %>">
     <div class="card-divider">
-      <h2 class="card-title"><%= t ".authorizations" %></h2>
+      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin") %>" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="<%= t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin") %>">
+          <%= t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin") %>
+        </h2>
+      </button>
     </div>
 
-    <div class="card-section">
+    <div id="panel-<%= t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin") %>" class="card-section">
       <div class="row column">
         <%=
           form.select(
@@ -104,5 +119,4 @@
   </div>
 
   <%= append_javascript_pack_tag "decidim_initiatives_admin" %>
-
 </div>

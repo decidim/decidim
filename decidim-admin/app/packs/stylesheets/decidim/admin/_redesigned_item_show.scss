@@ -6,7 +6,7 @@
   }
 
   &-title{
-    @apply text-xl font-bold inline-block;
+    @apply text-xl font-bold inline-block flex items-center w-full;
   }
 }
 

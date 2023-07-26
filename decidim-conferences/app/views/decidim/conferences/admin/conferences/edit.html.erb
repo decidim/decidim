@@ -18,16 +18,18 @@
   <div class="item__edit-form">
     <%= decidim_form_for(@form, html: { class: "form form-defaults edit_conference conference_form_admin" }) do |f| %>
       <%= render partial: "form", object: f %>
-      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= f.submit t("conferences.edit.update", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t("conferences.edit.update", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
 
-        <% if allowed_to? :publish, :conference, conference: current_conference %>
-          <% if current_conference.published? %>
-            <%= link_to t("actions.unpublish", scope: "decidim.admin"), conference_publish_path(current_conference), method: :delete, class: "button button__sm md:button__lg button__secondary" %>
-          <% else %>
-            <%= link_to t("actions.publish", scope: "decidim.admin"), conference_publish_path(current_conference), method: :post, class: "button button__sm md:button__lg button__secondary" %>
+          <% if allowed_to? :publish, :conference, conference: current_conference %>
+            <% if current_conference.published? %>
+              <%= link_to t("actions.unpublish", scope: "decidim.admin"), conference_publish_path(current_conference), method: :delete, class: "button button__sm md:button__lg button__secondary" %>
+            <% else %>
+              <%= link_to t("actions.publish", scope: "decidim.admin"), conference_publish_path(current_conference), method: :post, class: "button button__sm md:button__lg button__secondary" %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     <% end %>
 
