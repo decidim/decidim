@@ -2,6 +2,42 @@
 
 ## Unreleased
 
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+Nothing.
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+Nothing.
+
+## [0.27.4](https://github.com/decidim/decidim/tree/0.27.4)
+
+## Security fixes
+
+This release addresses one security issue:
+
+* CVE-2023-36465
+
+The details regarding the security vulnerability will be published on September 25th 2023, which is two months after the release date of this version. For more information, please refer to our [Security Policy](https://github.com/decidim/decidim/blob/develop/SECURITY.md).
+
+We highly recommend updating to this version as soon as possible to ensure the security of your system.
+
 ### Upgrade notes
 
 #### Orphans valuator assignments cleanup
@@ -30,17 +66,85 @@ You can see more details about this change on PR [\#10928](https://github.com/de
 
 ### Added
 
+Nothing.
+
 ### Changed
+
+Nothing.
 
 ### Fixed
 
+- Backport 'Remove unused preset-env dependencies' to v0.27 [\#11005](https://github.com/decidim/decidim/pull/11005)
+- **decidim-verifications**: Backport 'Fix missing translations for SMS confirmation when signing a petition' to v0.27 [\#11011](https://github.com/decidim/decidim/pull/11011)
+- **decidim-initiatives**: Backport 'Fix for initiative menu not active on creation' to v0.27 [\#11019](https://github.com/decidim/decidim/pull/11019)
+- **decidim-initiatives**: Backport 'Change to display initiatives after creation' to v0.27 [\#11029](https://github.com/decidim/decidim/pull/11029)
+- **decidim-elections**: Backport 'Allow to publish an Election even if it hasn't valid Questions' to v0.27 [\#11031](https://github.com/decidim/decidim/pull/11031)
+- **decidim-core**: Backport 'Fix to Proposal cards CSS in Processes' to v0.27 [\#11021](https://github.com/decidim/decidim/pull/11021)
+- **decidim-core**: Backport 'Add translation string for URL error message' to v0.27 [\#11013](https://github.com/decidim/decidim/pull/11013)
+- **decidim-blogs**: Backport 'Add possibility of reporting blog posts ' to v0.27 [\#11025](https://github.com/decidim/decidim/pull/11025)
+- **decidim-core**, **decidim-debates**, **decidim-initiatives**, **decidim-proposals**, **decidim-sortitions**: Backport 'Fix user and group related migrations calling the actual record classes' to v0.27 [\#11009](https://github.com/decidim/decidim/pull/11009)
+- **decidim-budgets**: Backport 'Fix budgets zero single view' to v0.27 [\#11015](https://github.com/decidim/decidim/pull/11015)
+- **decidim-conferences**: Backport 'Fix partner type in Conferences' partners edit form' to v0.27 [\#11017](https://github.com/decidim/decidim/pull/11017)
+- **decidim-core**: Backport 'Fix do not count blocked users to stats' to v0.27 [\#11027](https://github.com/decidim/decidim/pull/11027)
+- **decidim-core**: Backport 'Fix error when SVG icon is not available in the file system' to v0.27 [\#11007](https://github.com/decidim/decidim/pull/11007)
+- **decidim-elections**: Backport 'Fix error message mismatch in election' to v0.27 [\#11033](https://github.com/decidim/decidim/pull/11033)
+- **decidim-core**: Backport 'Fix notifications page when vapid is not available' to v0.27 [\#10940](https://github.com/decidim/decidim/pull/10940)
+- **decidim-initiatives**: Backport 'Fix exception in Initiatives' Page' to v0.27 [\#11023](https://github.com/decidim/decidim/pull/11023)
+- **decidim-admin**: Backport 'Don't allow access to admin panel without ToS acceptance' to v0.27 [\#11042](https://github.com/decidim/decidim/pull/11042)
+- **decidim-core**: Backport 'Fix "No activity" message in Last Activities isn't shown sometimes' to v0.27 [\#11056](https://github.com/decidim/decidim/pull/11056)
+- **decidim-budgets**: Backport 'Show all projects if none is selected when the voting has finished' to v0.27 [\#11118](https://github.com/decidim/decidim/pull/11118)
+- **decidim-core**: Backport 'Fix for sending welcome emails for new participants' to v0.27 [\#11121](https://github.com/decidim/decidim/pull/11121)
+- **decidim-elections**: Backport 'Fix Admin dashboard disappear if you are in Trustee Zone' to v0.27 [\#11114](https://github.com/decidim/decidim/pull/11114)
+- **decidim-core**: Backport 'Avoid password change to be requested when user registration mode is disabled' to v0.27 [\#11120](https://github.com/decidim/decidim/pull/11120)
+- **decidim-proposals**: Backport 'Fix flaky collaborative drafts spec' to v0.27 [\#11127](https://github.com/decidim/decidim/pull/11127)
+- Backport 'Fix webpack version to <5.83.0' to v0.27 [\#11133](https://github.com/decidim/decidim/pull/11133)
+- **decidim-participatory processes**: Backport 'Fix the active filter for process groups' to v0.27 [\#11130](https://github.com/decidim/decidim/pull/11130)
+- **decidim-core**: Backport 'Verify modules are installed in StatsParticipantsCount query' to v0.27 [\#11157](https://github.com/decidim/decidim/pull/11157)
+- **decidim-core**: Backport 'Fix issues with overriding maps and loading Leaflet' to v0.27 [\#11131](https://github.com/decidim/decidim/pull/11131)
+- **decidim-elections**, **decidim-initiatives**: Backport 'CSV & JSON export function fix' to v0.27 [\#11185](https://github.com/decidim/decidim/pull/11185)
+- **decidim-budgets**: Backport 'Fix the unused keyword arguments for the budgets workflows' to v0.27 [\#11228](https://github.com/decidim/decidim/pull/11228)
+- **decidim-budgets**, **decidim-elections**: Backport 'Budgets component fix for Votings module' to v0.27 [\#11229](https://github.com/decidim/decidim/pull/11229)
+- **decidim-elections**: Backport 'Fix for saving an Election that wasn't blocked' to v0.27 [\#11187](https://github.com/decidim/decidim/pull/11187)
+- **decidim-admin**: Backport 'Fix blocked users not present in global moderation panel' to v0.27 [\#11234](https://github.com/decidim/decidim/pull/11234)
+- **decidim-core**, **decidim-meetings**, **decidim-proposals**: Backport 'Always allow image upload in WYSWYG editor' to v0.27 [\#11237](https://github.com/decidim/decidim/pull/11237)
+- **decidim-core**: Backport 'Fix linking to invariable image URLs' to v0.27 [\#11242](https://github.com/decidim/decidim/pull/11242)
+- **decidim-core**, **decidim-surveys**: Backport 'Fix running DB commands consecutively' to v0.27 [\#11236](https://github.com/decidim/decidim/pull/11236)
+- **decidim-forms**: Backport 'Fix memory leak with user answers serializer (at survey export)' to v0.27 [\#11241](https://github.com/decidim/decidim/pull/11241)
+- **decidim-core**: Backport 'Fix admin password change required for omniauth-only accounts' to v0.27 [\#11240](https://github.com/decidim/decidim/pull/11240)
+- **decidim-core**: Backport 'Prevent `aria-describedby` attribute being added to hidden inputs' to v0.27 [\#11243](https://github.com/decidim/decidim/pull/11243)
+- **decidim-budgets**, **decidim-core**, **decidim-initiatives**, **decidim-proposals**, **decidim-sortitions**: Backport 'Fix scope and category filtering links with ransack' to v0.27 [\#11248](https://github.com/decidim/decidim/pull/11248)
+- **decidim-admin**, **decidim-assemblies**, **decidim-blogs**, **decidim-conferences**, **decidim-core**, **decidim-elections**, **decidim-initiatives**, **decidim-participatory processes**, **decidim-templates**: Backport 'Enforce resources being found in the organization scope' to v0.27 [\#11232](https://github.com/decidim/decidim/pull/11232)
+- **decidim-assemblies**, **decidim-conferences**, **decidim-participatory processes**, **decidim-proposals**: Backport 'Fix proposals' valuators assignments not deleted when space admin is removed' to v0.27 [\#11332](https://github.com/decidim/decidim/pull/11332)
+- **decidim-admin**: Backport 'Fix HTML titles in admin panel' to v0.27 [\#11333](https://github.com/decidim/decidim/pull/11333)
+- **decidim-admin**: Backport 'Fix HTML titles in admin panel (part 2)' to v0.27 [\#11336](https://github.com/decidim/decidim/pull/11336)
+
 ### Removed
+
+Nothing.
 
 ### Developer improvements
 
+- Backport "Update several gems" to v0.27 [\#11139](https://github.com/decidim/decidim/pull/11139)
+
 ### Internal
 
+- **decidim-admin**, **decidim-core**: Backport 'Fix default seeds on first login (password_updated_at and accepted_tos_version)' to v0.27 [\#10854](https://github.com/decidim/decidim/pull/10854)
+- **decidim-core**: Backport 'Remove duplication of LastActivity queries' to v0.27 [\#11055](https://github.com/decidim/decidim/pull/11055)
+- **decidim-proposals**: Backport 'Fix flaky collaborative drafts spec' to v0.27 [\#11127](https://github.com/decidim/decidim/pull/11127)
+
 ## [0.27.3](https://github.com/decidim/decidim/tree/0.27.3)
+
+## Security fixes
+
+This release addresses several security issues, including the following:
+
+* [CVE-2023-32693](https://github.com/decidim/decidim/security/advisories/GHSA-469h-mqg8-535r)
+* [CVE-2023-34089](https://github.com/decidim/decidim/security/advisories/GHSA-5652-92r9-3fx9)
+* [CVE-2023-34090](https://github.com/decidim/decidim/security/advisories/GHSA-jm79-9pm4-vrw9)
+
+The details regarding the security vulnerability will be published on July 11th 2023, which is two months after the release date of this version. For more information, please refer to our [Security Policy](https://github.com/decidim/decidim/blob/develop/SECURITY.md).
+
+We highly recommend updating to this version as soon as possible to ensure the security of your system.
 
 ### Added
 
