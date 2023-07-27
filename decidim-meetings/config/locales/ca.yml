@@ -420,6 +420,7 @@ ca:
       directory:
         meetings:
           index:
+            go_to_list: Veure el llistat de trobades
             meetings: Trobades
             space_type: Espai participatiu
       iframe_access_level:
@@ -486,6 +487,7 @@ ca:
             all: Tots
             official: Oficial
             participants: Participants
+            user_group: Grups
           search: Cerca
           type: Tipus
           type_values:
@@ -513,6 +515,11 @@ ca:
           see_all: Veure totes les trobades
           see_all_withdrawn: Veure totes les trobades cancel·lades
           text_banner: Estàs veient un llistat de trobades cancel·lades per les seves autores. %{go_back_link}.
+        meeting:
+          close_meeting: Tancar la trobada
+          edit_close_meeting: Editar l'informe de la trobada
+          edit_meeting: Editar la trobada
+          join_meeting: Unir-se a la trobada
         meetings:
           no_meetings_warning: No hi ha trobades que coincideixin amb la teva cerca o no hi ha cap trobada programada.
           upcoming_meetings_warning: Actualment no hi ha trobades programades, però pots veure les anteriors.
@@ -593,6 +600,7 @@ ca:
             question_replied: Pregunta contestada
             reply_question: Contestar a la pregunta
       public_participants_list:
+        attending_organizations: Organitzacions
         attending_participants: Participants assistents
         hidden_participants_count:
           one: i %{count} persona més
