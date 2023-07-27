@@ -62,7 +62,7 @@ class AddCommentableCounterCacheToConsultations < ActiveRecord::Migration[5.2]
 end
 ```
 
-### db/migrate/20220311091593_add_followable_counter_cache_to_consultations.decidim_consultations.rb
+### db/migrate/*_add_followable_counter_cache_to_consultations.decidim_consultations.rb
 
 ```ruby
 # frozen_string_literal: true
