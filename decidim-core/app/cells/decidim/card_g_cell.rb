@@ -39,7 +39,9 @@ module Decidim
     end
 
     def resource_id
-      "#{id_base_name}#{"_highlight" if highlight?}_#{resource.id}"
+      return "#{id_base_name}#{"_highlight" if highlight?}_#{resource.id}" unless options.has_key?(:id)
+
+      options[:id]
     end
 
     def resource_path
