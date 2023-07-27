@@ -118,7 +118,7 @@ fi:
       meeting_copies:
         create:
           error: Tapaamisen kopioiminen epäonnistui.
-          success: Tapaamien kopioiminen onnistui.
+          success: Tapaamisen kopioiminen onnistui.
         new:
           copy: Kopioi
           select: Valitse, mitkä tiedot haluat monistaa
@@ -160,7 +160,7 @@ fi:
             email_intro: 'Tapaaminen "%{resource_title}" suljettiin. Voit lukea johtopäätökset sen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapaamista "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
             email_subject: Tapaaminen "%{resource_title}" suljettiin
-            notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
+            notification_title: Tapaaminen <a href="%{resource_path}">%{resource_title}</a> suljettiin.
         meeting_created:
           button_text: Ilmoittaudu tapaamiseen
           email_intro: Tapaaminen "%{resource_title}" on lisätty seuraamaasi kohteeseen "%{participatory_space_title}".
@@ -312,12 +312,12 @@ fi:
             update: Päivitä
           form:
             address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
-            available_slots_help: Määritä tähän kenttään arvo 0, jos tapahtuman paikkamäärää ei ole rajoitettu
+            available_slots_help: Määritä tähän kenttään arvo 0, jos tapaamisen paikkamäärää ei ole rajoitettu
             disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
             location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
             location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
             online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
-            registration_email_help: Tämä teksti näytetään tapahtumailmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
+            registration_email_help: Tämä teksti näytetään tapaamisilmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
@@ -362,13 +362,13 @@ fi:
             validate: Vahvista
             validate_registration_code: Vahvista ilmoittautumiskoodi
           form:
-            available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
+            available_slots_help: Jätä arvoksi 0, mikäli tapaamiseen on rajoittamaton määrä paikkoja.
             invites: Kutsut
             recommendation_message: Osallistujien yksityisyyden kannalta suosittelemme, että poistat tämän lomakkeen tiedot, kun et enää tarvitse niitä. Oletuksena se säilytetään 3 kuukautta tapaamisen päättymisen jälkeen.
             registration_form: Ilmoittautumislomake
             registrations_count:
-              one: Tapahtumaan on %{count} ilmoittautuminen.
-              other: Tapahtumaan on %{count} ilmoittautumista.
+              one: Tapaamiseen on %{count} ilmoittautuminen.
+              other: Tapaamiseen on %{count} ilmoittautumista.
             reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
             title: Ilmoittautumiset
@@ -450,7 +450,7 @@ fi:
           add_to_calendar: Lisää kalenteriin
           apple: Lähetä Apple-kalenteriin
           close_window: Sulje ikkuna
-          full_details_html: Tapahtuman kaikki tiedot löytyvät osoitteesta %{link}
+          full_details_html: Tapaamisen kaikki tiedot löytyvät osoitteesta %{link}
           google: Lisää Google-kalenteriin
           outlook: Lisää Outlook-kalenteriin
         count:
@@ -479,6 +479,7 @@ fi:
             all: Kaikki
             citizens: Kansalaiset
             official: Viralliset
+            user_groups: Ryhmät
           scope: Teema
           search: Hae
           type: Tyyppi
@@ -494,10 +495,10 @@ fi:
           unfold: Avaa
         form:
           address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
-          available_slots_help: Määritä tähän kenttään arvo 0, jos tapahtuman paikkamäärää ei ole rajoitettu
+          available_slots_help: Määritä tähän kenttään arvo 0, jos tapaamisen paikkamäärää ei ole rajoitettu
           create_as: Luo tapaaminen käyttäjänä
           disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
-          location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
+          location_help: 'Paikka: kuvaus tapaamispaikan tarkemmasta sijainnista osallistujille'
           location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
           online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
           registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
@@ -507,11 +508,11 @@ fi:
           select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
           show_embedded_iframe_help: Vain harvat palvelut sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle (YouTube, Twitch ja Jitsi)
         index:
-          click_here: Näytä kaikki tapahtumat
+          click_here: Näytä kaikki tapaamiset
           new_meeting: Uusi tapaaminen
-          see_all: Näytä kaikki tapahtumat
-          see_all_withdrawn: Näytä kaikki peruutetut tapahtumat
-          text_banner: Katselet peruutettuja tapahtumia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
+          see_all: Näytä kaikki tapaamiset
+          see_all_withdrawn: Näytä kaikki peruutetut tapaamiset
+          text_banner: Katselet peruutettuja tapaamisia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
         meeting_minutes:
           related_information: Liittyviä tietoja
         meetings:
@@ -530,8 +531,10 @@ fi:
           close_meeting: Sulje tapaaminen
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
+          edit_close_meeting: Muokkaa tapahtumaraporttia
           edit_meeting: Muokkaa tapaamista
           going: Olet ilmoittautunut tähän tapaamiseen
+          join: Ilmoittaudu tapaamiseen
           leave: Peruuta ilmoittautumisesi
           leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?
           link_available_soon: Linkki julkaistaan pian
