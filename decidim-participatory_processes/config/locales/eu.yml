@@ -121,6 +121,7 @@ eu:
           categories: Kategoriak
           components: Osagaiak
           info: Informazioa
+          landing_page: Hasierako orria
           moderations: Moderazioak
           private_users: Erabiltzaile pribatuak
           process_admins: Prozesuaren erabiltzaileak
@@ -322,13 +323,24 @@ eu:
         title: Parte hartze prozesuak
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Honek sustatuta
+          name: Metadatuak
+          participatory_scope: Erabakitzen dena
+          participatory_structure: Erabakitzeko era
+          target: Parte-hartzaileak
+        html:
+          name: HTML blokea
         html_1:
           name: Lehen HTML blokea
         html_2:
           name: Bigarren HTML blokea
         html_3:
           name: Hirugarren HTML blokea
+        main_data:
+          name: Izenburua eta deskribapena
         participatory_processes:
+          active: Parte-hartze prozesu aktiboak
           name: Prozesu parte-hartzaileak
         stats:
           name: Jarduera
@@ -344,7 +356,10 @@ eu:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Aktiboa
+            all: Guztiak
             max_results: Erakusteko elementu gehienen kopurua
+            selection_criteria: Hautaketa irizpideak
         new_import:
           accepted_types:
             json: JSON
@@ -379,16 +394,37 @@ eu:
             title: Informazio orokorra
             visbility: ikusgarritasuna
       content_blocks:
+        extra_data:
+          name: Fasea eta iraupena
+        hero:
+          name: Irudi nagusia eta ekintza botoia
         highlighted_processes:
           name: Prozesu nabarmenak
+        related_processes:
+          name: Elkarrekin lotutako prozesuak
       index:
         title: Prozesu partizipatiboak
       last_activity:
         new_participatory_process: Partaidetza prozesu berria
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Prozesu aktiboak
+            see_all_spaces: Ikusi prozesu guztiak
       participatory_process_steps:
         index:
           back_to_process: Itzuli prozesuaren orrialdera
       participatory_processes:
+        description:
+          area_name: Arloa
+          data: Prozesuaren datuak
+          developer_group: Talde sustatzailea
+          local_area: Erakundeko arloa
+          meta_scope: Esparrua
+          participatory_scope: Erabakitzen dena
+          participatory_structure: Erabakitzeko era
+          target: Parte-hartzaileak
+          title: Prozesuari buruz
         filters:
           counters:
             active:
@@ -403,6 +439,7 @@ eu:
             upcoming:
               one: 1 hurrengo prozesua
               other: "%{count} hurrengo prozesuetan"
+          date: Data
           explanations:
             no_active_nor_upcoming_callout: Prozesu aktibo eta ez datoz bat. Hona hemen iraganekoen zerrenda.
           names:
@@ -411,6 +448,7 @@ eu:
             past: Aurrekoak
             upcoming: Hurrengoak
           see: Ikusi
+          type: Mota
       show:
         belongs_to_group: Prozesu hau honi dagokio
         dates: Datak
@@ -430,7 +468,7 @@ eu:
         index:
           promoted_processes: Prozesu nabarmenduak
         participatory_process:
-          active_step: 'Oraingo fasea:'
+          active_step: Oraingo fasea
           more_info: Informazio gehiago
           more_info_about: Informazio gehiago %{resource_name} prozesuari buruz
           take_part: Parte hartu
