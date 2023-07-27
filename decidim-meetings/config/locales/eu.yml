@@ -475,6 +475,7 @@ eu:
             all: Denak
             citizens: Hiritarrak
             official: Ofiziala
+            user_groups: Taldeak
           scope: Esparrua
           search: Bilatu
           type: Mota
@@ -525,8 +526,10 @@ eu:
           close_meeting: Itxi topaketa
           contributions: Ekarpen-kopurua
           date: Data
+          edit_close_meeting: Editatu topaketaren txostena
           edit_meeting: Editatu bilera
           going: Topaketa honetan eman duzu izena
+          join: Izena eman
           leave: Baliogabetu zure izen-ematea
           leave_confirmation: Ziur zaude topaketa honetarako zure izen-ematea indargabetu nahi duzula?
           link_available_soon: Esteka hau laster erabilgarria izango da
