@@ -1,13 +1,16 @@
-<% content_for :sidebar_menu_nav do %>
-  <%= sidebar_menu(:admin_template_types_menu).render %>
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <div class="inline-block relative">
+      <%= button_tag id: "template-dropdown-menu-trigger", data: { component: 'dropdown', target: 'template-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
+        <%= icon "more-line" %>
+      <% end %>
+      <div id="template-dropdown-menu-settings" class="process-title-content-dropdown">
+        <%= sidebar_menu(:admin_template_types_menu).render %>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>
-  <div class="process-title">
-    <div class="process-title-content">
-      <%= link_to t("decidim.admin.titles.templates"), decidim_admin_templates.root_url %>
-    </div>
-  </div>
-
   <%= yield %>
 <% end %>
