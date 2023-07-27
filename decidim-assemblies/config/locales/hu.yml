@@ -77,6 +77,12 @@ hu:
         email: Email
         name: Név
         role: Szerep
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Érvénytelen dokumentumtípus. Csak a következő kiterjesztésű fájlok engedélyezettek: %{types}'
   activerecord:
     models:
       decidim/assembly:
