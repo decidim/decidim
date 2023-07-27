@@ -368,6 +368,7 @@ eu:
       directory:
         meetings:
           index:
+            go_to_list: Ikusi saioen zerrenda
             meetings: Topaketak
             space_type: Partaidetza espazioa
       iframe_access_level:
@@ -432,6 +433,7 @@ eu:
             all: Denak
             official: Ofiziala
             participants: Parte-hartzaileak
+            user_group: Taldeak
           search: Bilatu
           type: Mota
           type_values:
@@ -458,6 +460,11 @@ eu:
           see_all: Ikusi topaketa guztiak
           see_all_withdrawn: Ikusi bertan behera utzitako topaketa guztiak
           text_banner: Ikusten ari zara egileek bertan behera utzitako topaketak %{go_back_link}.
+        meeting:
+          close_meeting: Topaketa itxi
+          edit_close_meeting: Editatu topaketaren txostena
+          edit_meeting: Editatu topaketa
+          join_meeting: Izena eman
         meetings:
           upcoming_meetings_warning: Orain ez dago topaketarik programaturik, baina aurreko topaketak ikus ditzakezu.
         new:
@@ -471,7 +478,7 @@ eu:
           attendees: Bertaratuen kopurua
           contributions: Ekarpen-kopurua
           date: Data
-          join: Izena eman topaketan
+          join: Izena eman
           leave: Baliogabetu zure izen-ematea
           leave_confirmation: Ziur zaude topaketa honetarako zure izen-ematea indargabetu nahi duzula?
           link_available_soon: Esteka hau laster erabilgarria izango da
@@ -537,7 +544,8 @@ eu:
             question_replied: Galdera erantzunda
             reply_question: Erantzun galdera
       public_participants_list:
-        attending_participants: Bertaratutako parte-hartzaileak
+        attending_organizations: Erakundeak
+        attending_participants: Parte-hartzaileak
         hidden_participants_count:
           one: eta %{count} pertsona gehiago
           other: eta %{count} pertsona gehiago
@@ -576,7 +584,7 @@ eu:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Azken topaketak
-        see_all: Ikusi dena (%{count})
+        see_all: Ikusi topaketa guztiak
         upcoming_meetings: Hurrengo topaketak
       upcoming_meeting_for_card:
         upcoming_meeting: Hurrengo bilera
