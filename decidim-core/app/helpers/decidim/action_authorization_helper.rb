@@ -11,7 +11,7 @@ module Decidim
     #
     # Returns a String with the link.
     def action_authorized_link_to(action, *arguments, &block)
-      !respond_to?(:redesign_enabled?) || redesign_enabled? ? redesign_authorized_to(:link, action, arguments, block) : authorized_to(:link, action, arguments, block)
+      respond_to?(:redesign_enabled?) && redesign_enabled? ? redesign_authorized_to(:link, action, arguments, block) : authorized_to(:link, action, arguments, block)
     end
 
     # Public: Emulates a `button_to` but conditionally renders a popup modal
