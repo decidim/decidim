@@ -56,7 +56,7 @@ eu:
             title: Inportatu emaitzak CSVtik
         imports:
           create:
-            success: Espedientea inportatzen hasi da. Hurrengo minutuan posta elektroniko bat jasoko duzu inportazioaren emaitzarekin.
+            success: Espedientea inportatzen hasi da. Datozen minutuetan posta elektroniko bat jasoko duzu inportazioaren emaitzarekin.
         models:
           result:
             name: Emaitza
