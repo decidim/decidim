@@ -100,7 +100,7 @@ module Decidim
     end
 
     def icon(*args)
-      !respond_to?(:redesign_enabled?) || redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
+      respond_to?(:redesign_enabled?) && redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
     end
 
     # Outputs a SVG icon from an external file. It apparently renders an image
