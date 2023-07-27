@@ -96,6 +96,7 @@ eu:
           invalid: Arazo bat izan da eztabaida ixtean.
           success: Eztabaida zuzen itxi da.
         close_debate_modal:
+          cancel: Ezeztatu
           description: Zein da eztabaida honen laburpena edo ondorioa?
           send: Itxi eztabaida
         closed: Itxita
@@ -127,6 +128,7 @@ eu:
           state_values:
             closed: Itxita
             open: Ireki
+          user_group: Taldeak
         form:
           select_a_category: Hautatu kategoria bat
         index:
@@ -160,8 +162,10 @@ eu:
       models:
         debate:
           fields:
+            end: Amaiera
             end_time: Amaiera data
             official_debate: Ofizial eztabaida
+            start: Hasi
             start_time: Hasiera data
             title: Izenburua
     events:
