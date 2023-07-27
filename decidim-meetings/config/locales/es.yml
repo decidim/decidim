@@ -479,6 +479,7 @@ es:
             all: Todos
             citizens: Ciudadanía
             official: Oficial
+            user_groups: Grupos
           scope: Ámbito
           search: Buscar
           type: Tipo
@@ -530,8 +531,10 @@ es:
           close_meeting: Cerrar encuentro
           contributions: Número de aportaciones
           date: Fecha
+          edit_close_meeting: Editar el informe del encuentro
           edit_meeting: Editar encuentro
           going: Te has inscrito en este encuentro
+          join: Unirse al encuentro
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
           link_available_soon: Enlace disponible próximamente
