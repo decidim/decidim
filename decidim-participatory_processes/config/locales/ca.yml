@@ -126,6 +126,7 @@ ca:
           categories: Categories
           components: Components
           info: Informació
+          landing_page: Pàgina d'inici
           moderations: Moderacions
           private_users: Participants privades
           process_admins: Administradores del procés
@@ -373,13 +374,24 @@ ca:
         title: Processos participatius
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Promogut per
+          name: Metadades
+          participatory_scope: Què es decideix
+          participatory_structure: Com es decideix
+          target: Qui participa
+        html:
+          name: Bloc HTML
         html_1:
           name: Primer bloc HTML
         html_2:
           name: Segon bloc HTML
         html_3:
           name: Tercer bloc HTML
+        main_data:
+          name: Títol i descripció
         participatory_processes:
+          active: Processos participatius actius
           name: Processos participatius
         stats:
           name: Estadístiques
@@ -398,7 +410,10 @@ ca:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Actius
+            all: Tots
             max_results: Quantitat màxima d'elements que es mostraran
+            selection_criteria: Criteris de selecció
         new_import:
           accepted_types:
             json: JSON
@@ -435,16 +450,37 @@ ca:
             title: Informació general
             visbility: Visibilitat
       content_blocks:
+        extra_data:
+          name: Fase i durada
+        hero:
+          name: Imatge principal i botó d'acció
         highlighted_processes:
           name: Processos destacats
+        related_processes:
+          name: Processos relacionats
       index:
         title: Processos participatius
       last_activity:
         new_participatory_process: Nou procés participatiu
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Processos actius
+            see_all_spaces: Veure tots els processos
       participatory_process_steps:
         index:
           back_to_process: Torna a la pàgina de procés
       participatory_processes:
+        description:
+          area_name: Àrea
+          data: Dades del procés
+          developer_group: Grup promotor
+          local_area: Àrea d'organització
+          meta_scope: Àmbit
+          participatory_scope: Què es decideix
+          participatory_structure: Com es decideix
+          target: Qui participa
+          title: Quant a aquest procés
         filters:
           all_types: Tots els tipus
           counters:
@@ -460,6 +496,7 @@ ca:
             upcoming:
               one: Un procés proper
               other: "%{count} processos propers"
+          date: Data
           explanations:
             no_active: Sense processos actius.
             no_active_nor_upcoming: No hi ha processos actius ni futurs.
@@ -471,6 +508,7 @@ ca:
             past: Passats
             upcoming: Propers
           see: Veure
+          type: Tipus
         show:
           title: Quant a aquest procés
       show:
