@@ -200,7 +200,6 @@ export default class FormFilterComponent {
   /**
    * Handles the logic when going back to a previous state in the filter form.
    * @private
-   * @param {Object} currentState - state stored along with location URL
    * @returns {Void} - Returns nothing.
    */
   _onPopState() {
