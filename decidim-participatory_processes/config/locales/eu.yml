@@ -335,6 +335,7 @@ eu:
         html_3:
           name: Hirugarren HTML blokea
         metadata:
+          developer_group: Honek sustatuta
           name: Metadata
           participatory_scope: Zer erabakitzen da
           participatory_structure: Nola erabakitzen da?
@@ -400,11 +401,13 @@ eu:
       pages:
         home:
           highlighted_processes:
+            active_processes: Prozesu aktiboak
             active_step: Urratsa aktiboa
             more_information: Informazio gehiago
             participate: Parte hartu
             participate_in: Parte hartu %{resource_name} prozesuan
             processes_button_title: Esteka prozesu guztiak erakusten dituen Prozesuen orrialdera
+            see_all_processes: Ikusi prozesu guztiak
       participatory_process_steps:
         index:
           back_to_process: Itzuli prozesuaren orrialdera
@@ -441,6 +444,7 @@ eu:
         dates: Datak
         developer_group: Talde sustatzailea
         end_date: Bukaera-data
+        local_area: Erakundeko arloa
         participatory_scope: Zer erabakitzen da
         participatory_structure: Nola erabakitzen da?
         private_space: Prozesu pribatua da
