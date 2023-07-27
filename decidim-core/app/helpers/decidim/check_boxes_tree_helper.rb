@@ -130,8 +130,8 @@ module Decidim
       end
     end
 
-    def filter_text_for(translation)
-      content_tag(:span, translation).html_safe + content_tag(:span)
+    def filter_text_for(translation, id: nil)
+      content_tag(:span, translation, id:).html_safe + content_tag(:span)
     end
 
     private
