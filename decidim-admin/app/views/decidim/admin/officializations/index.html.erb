@@ -29,17 +29,17 @@
             <td class="table-list__actions">
               <% if allowed_to?(:block, :admin_user, user: user) %>
                 <% if user.blocked? %>
-                  <%= icon_link_to "user-forbid-line", user_block_path(user_id: user.id), t(".unblock"), class: "action-icon action-icon--disabled", method: :delete %>
+                  <%= icon_link_to "forbid-2-line", user_block_path(user_id: user.id), t(".unblock"), class: "action-icon action-icon--disabled", method: :delete %>
                 <% else %>
-                  <%= icon_link_to "user-forbid-line", new_user_block_path(user_id: user.id), t(".block"), class: "action-icon action-icon" %>
+                  <%= icon_link_to "forbid-2-line", new_user_block_path(user_id: user.id), t(".block"), class: "action-icon action-icon" %>
                 <% end %>
               <% end %>
               <% if allowed_to? :show_email, :user, user: user %>
-                <%= icon_link_to "envelope-open", show_email_officialization_path(user_id: user.id), t(".show_email"), class: "action-icon action-icon--show-email", data: { full_name: user.name, toggle: "show-email-modal" } %>
+                <%= icon_link_to "mail-open-line", show_email_officialization_path(user_id: user.id), t(".show_email"), class: "action-icon action-icon--show-email", data: { full_name: user.name, dialog_open: "show-email-modal" } %>
               <% end %>
               <% unless user.blocked? %>
                 <% unless current_user == user %>
-                  <%= icon_link_to "envelope-closed", current_or_new_conversation_path_with(user), t("decidim.contact"), class:"action-icon--new" %>
+                  <%= icon_link_to "mail-line", current_or_new_conversation_path_with(user), t("decidim.contact"), class:"action-icon--new" %>
                 <% end %>
                 <% if user.officialized? %>
                   <%= icon "checkbox-circle-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".officialize") %>

@@ -9,11 +9,11 @@ $(() => {
   const $email = $("#user_email", $modal);
   const $fullName = $("#user_full_name", $modal);
 
-  $("[data-toggle=show-email-modal]").on("click", (event) => {
+  $("[data-dialog-open=show-email-modal]").on("click", (event) => {
     event.preventDefault()
 
     $button.show()
-    $button.attr("data-open-url", event.currentTarget.href)
+    $button.attr("data-dialog-remote-url", event.currentTarget.href)
     $fullName.text($(event.currentTarget).data("full-name"))
     $email.html("")
   })
