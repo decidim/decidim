@@ -30,13 +30,10 @@ shared_examples "destroys participatory space role" do
     expect(action_log.version.event).to eq "destroy"
   end
 
-  it "fires an event" do
-    expect(ActiveSupport::Notifications).to receive(:publish).with(
-      "decidim.system.participatory_space.admin.destroyed",
-      role.class.name,
-      role.id
-    )
-
-    subject.call
+  it_behaves_like "fires an ActiveSupport::Notification event", "decidim.admin.participatory_space.destroy_admin:before" do
+    let(:command) { subject }
+  end
+  it_behaves_like "fires an ActiveSupport::Notification event", "decidim.admin.participatory_space.destroy_admin:after" do
+    let(:command) { subject }
   end
 end
