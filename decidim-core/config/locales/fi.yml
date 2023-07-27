@@ -516,7 +516,7 @@ fi:
       global_menu:
         name: Päänavigaatio
       hero:
-        name: Hero-kuva
+        name: Pääkuva
       hero_settings_form:
         background_image: Taustakuva
         welcome_text: Tervetuloa-teksti
@@ -567,7 +567,7 @@ fi:
       stats:
         name: Organisaation tilastot
       sub_hero:
-        name: Hero-kuvan alabanneri
+        name: Pääkuvan alabanneri
     core:
       actions:
         login_before_access: Kirjaudu tilillesi ennen käyttöä.
