@@ -6,17 +6,13 @@
   </div>
 <% end %>
 
-<div class="filters row">
-  <div class="column medium-3">
-    <span class="dropdown-menu-inverted_label"><%= t(".filter_by") %> :</span>
-    <ul class="dropdown menu dropdown-inverted" data-dropdown-menu data-close-on-click-inside="false">
+<div class="filters__section">
+  <div class="fcell">
+    <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
       <li class="is-dropdown-submenu-parent">
-        <a href="#">
-        <% if @state.present? %>
-          <%= t(".filter.#{@state}") %>
-        <% else %>
-          <%= t(".filter.all") %>
-        <% end %>
+        <a href="#" class="dropdown button">
+          <%= t("filter_label", scope: "decidim.admin.filters") %>
+          <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
         </a>
         <ul class="menu is-dropdown-submenu">
           <li><%= link_to t(".filter.managed"), url_for(state: "managed", q: @query) %></li>
@@ -26,15 +22,15 @@
       </li>
     </ul>
   </div>
-  <div class="column medium-4">
+  <div class="fcell search">
     <%= form_tag "", method: :get do %>
       <div class="filters__search">
         <div class="input-group">
           <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
           <%= hidden_field_tag :state, @state %>
           <div class="input-group-button">
-            <button type="submit" class="button button__sm md:button__lg button__secondary">
-              <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
+            <button type="submit" class="text-secondary">
+              <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
             </button>
           </div>
         </div>
@@ -81,4 +77,4 @@
     </table>
   </div>
 </div>
-<%= decidim_paginate @users, theme: "decidim" %>
+<%= paginate @users, theme: "decidim" %>

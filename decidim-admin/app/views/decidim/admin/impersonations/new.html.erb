@@ -1,23 +1,24 @@
-<h2 class="process-title-summary">
-  <% if creating_managed_user? %>
-    <%= t(".impersonate_new_managed_user") %>
-  <% else %>
-    <% if @form.user.managed? %>
-      <%= t(".impersonate_existing_managed_user", name: @form.user.name) %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <% if creating_managed_user? %>
+      <%= t(".impersonate_new_managed_user") %>
     <% else %>
-      <%= t(".impersonate_existing_user", name: @form.user.name) %>
+      <% if @form.user.managed? %>
+        <%= t(".impersonate_existing_managed_user", name: @form.user.name) %>
+      <% else %>
+        <%= t(".impersonate_existing_user", name: @form.user.name) %>
+      <% end %>
     <% end %>
-  <% end %>
-</h2>
-
-<%= decidim_form_for(@form, url: impersonatable_user_impersonations_path, html: { class: "form new_impersonation" }) do |f| %>
-  <div class="card">
-    <div class="card-section">
+  </h2>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: impersonatable_user_impersonations_path, html: { class: "form form-defaults new_impersonation" }) do |f| %>
       <%= render partial: "form", object: f %>
-    </div>
-  </div>
 
-  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= f.submit t(".impersonate"), class: "button button__sm md:button__lg button__secondary" %>
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+        <%= f.submit t(".impersonate"), class: "button button__sm md:button__lg button__secondary" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
