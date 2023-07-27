@@ -370,10 +370,9 @@ el:
         html_3:
           name: Πρώτο μπλοκ HTML
         metadata:
-          developer_group: Προβιβάστηκε από
           name: Μεταδεδομένα
           participatory_scope: Τι αποφασίστηκε
-          participatory_structure: Πώς αποφασίστηκε
+          participatory_structure: Πώς αποφασίζεται
           target: Ποιος συμμετέχει
         participatory_processes:
           name: Συμμετοχικές διαδικασίες
@@ -441,13 +440,11 @@ el:
       pages:
         home:
           highlighted_processes:
-            active_processes: Ενεργές διαδικασίες
             active_step: Ενεργή φάση
             more_information: Περισσότερες πληροφορίες
             participate: Συμμετοχή
             participate_in: Συμμετάσχετε στην διαδικασία %{resource_name}
             processes_button_title: Σύνδεση με τη σελίδα Διεργασίεςπου εμφανίζει όλες τις διεργασίες
-            see_all_processes: Δείτε όλες τις διαδικασίες
       participatory_process_steps:
         index:
           back_to_process: Πίσω στην σελίδα της διαδικασίας
@@ -488,7 +485,6 @@ el:
         dates: Ημερομηνίες
         developer_group: Ομάδα προώθησης
         end_date: Ημερομηνία λήξης
-        local_area: Τομέας οργανισμού
         participatory_scope: Τι αποφασίστηκε
         participatory_structure: Πώς αποφασίζεται
         private_space: Αυτή είναι μια ιδιωτική διαδικασία

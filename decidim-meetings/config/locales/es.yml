@@ -400,7 +400,7 @@ es:
         filter_meeting_space_values:
           all: Todos
         filter_scope_values:
-          all: Todos
+          all: Todas
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
@@ -545,8 +545,8 @@ es:
           close_meeting: Cerrar encuentro
           contributions: Número de aportaciones
           date: Fecha
-          edit_close_meeting: Editar informe del encuentro
-          edit_meeting: Editar el encuentro
+          edit_close_meeting: Editar el informe del encuentro
+          edit_meeting: Editar encuentro
           going: Te has inscrito en este encuentro
           join: Unirse al encuentro
           leave: Cancela tu inscripción

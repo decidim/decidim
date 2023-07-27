@@ -400,7 +400,7 @@ fr-CA:
         filter_meeting_space_values:
           all: Tous
         filter_scope_values:
-          all: Tous
+          all: Tout
       calendar_modal:
         calendar_url: URL du calendrier
         close_window: Fermer la fenêtre
@@ -493,7 +493,6 @@ fr-CA:
             all: Toutes
             official: Officiel
             participants: Participants
-            user_groups: Groupes
           scope: Périmètre d'application
           search: Rechercher
           type: Type
@@ -545,10 +544,8 @@ fr-CA:
           close_meeting: Clore la rencontre
           contributions: Décompte des contributions
           date: Date
-          edit_close_meeting: Modifier le rapport de la rencontre
-          edit_meeting: Modifier la réunion
+          edit_meeting: Modifier la rencontre
           going: Vous vous êtes inscrit à cette rencontre
-          join: Participer à la rencontre
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
           link_available_soon: Lien bientôt disponible

@@ -238,6 +238,7 @@
               minimum_answers: Hvert spørsmål har <strong>minst 2 svar</strong>.
               minimum_questions: Valget har <strong>minst 1 spørsmål</strong>.
               published: Valget er <strong>publisert</strong>.
+              time_before: Oppsettet gjøres <strong>minst %{hours} timer</strong> før valget starter.
               trustees_number: Deltakerområdet har <strong>minst %{number} tillitsmenn med offentlig nøkkel</strong>.
             submit: Oppsett av valg
             success: Valget ble sendt til oppslagstavlen

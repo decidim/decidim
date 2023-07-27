@@ -374,10 +374,9 @@ hu:
         html_3:
           name: Harmadik HTML block
         metadata:
-          developer_group: Kezdeményezve
           name: Metaadatok
           participatory_scope: Miről születik döntés
-          participatory_structure: Hogyan születik döntés
+          participatory_structure: Így születik döntés
           target: Ki vesz részt benne
         participatory_processes:
           name: Részvételi folyamatok
@@ -445,13 +444,11 @@ hu:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktív folyamatok
             active_step: Aktív fázis
             more_information: További információk
             participate: Részvétel
             participate_in: Részvétel a(z) %{resource_name} folyamatban
             processes_button_title: Link a Folyamatok oldalra, ahol az összes folyamat látható
-            see_all_processes: Összes folyamat
       participatory_process_steps:
         index:
           back_to_process: Vissza a folyamatok oldalára
@@ -492,14 +489,13 @@ hu:
         dates: Dátumok
         developer_group: Kezdeményező csoport
         end_date: Befejezés dátuma
-        local_area: Szervezet területe
-        participatory_scope: Mi a döntés
-        participatory_structure: Hogyan döntenek
+        participatory_scope: Miről születik döntés
+        participatory_structure: Így születik döntés
         private_space: Ez egy privát folyamat
         related_processes: Kapcsolódó folyamatok
         scope: Hatáskör
         start_date: Kezdő dátum
-        target: Ki részt vesz
+        target: Ki vesz részt benne
         unspecified: Nem meghatározott
     statistics:
       processes_count: Folyamatok
@@ -525,7 +521,7 @@ hu:
           take_part_in: Részvétel a(z) %{resource_name} folyamatban
         promoted_process:
           active_step: 'Aktuális fázis:'
-          more_info: További információ
+          more_info: Több információ
           more_info_about: További információ a(z) %{resource_name} folyamatról
           take_part: Vegyél részt
           take_part_in: Részvétel a(z) %{resource_name} folyamatban

@@ -491,7 +491,7 @@ eu:
             official: Ofiziala
             participants: Parte-hartzaileak
             user_groups: Taldeak
-          scope: Eremua
+          scope: Esparrua
           search: Bilatu
           type: Mota
           type_values:
@@ -502,7 +502,7 @@ eu:
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
-          filter_by: 'Iragazi honen arabera:'
+          filter_by: Iragazi arabera
           unfold: Zabaldu
         form:
           address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
@@ -543,9 +543,9 @@ eu:
           contributions: Ekarpen-kopurua
           date: Data
           edit_close_meeting: Editatu topaketaren txostena
-          edit_meeting: Editatu topaketa
+          edit_meeting: Editatu bilera
           going: Topaketa honetan eman duzu izena
-          join: Izena eman topaketan
+          join: Izena eman
           leave: Baliogabetu zure izen-ematea
           leave_confirmation: Ziur zaude topaketa honetarako zure izen-ematea indargabetu nahi duzula?
           link_available_soon: Esteka hau laster erabilgarria izango da

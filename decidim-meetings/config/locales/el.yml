@@ -397,7 +397,7 @@ el:
       content_blocks:
         upcoming_meetings:
           name: Προσεχείς συναντήσεις
-          upcoming_meetings: Προσεχείς συναντήσεις
+          upcoming_meetings: Προσεχείς συσκέψεις
           view_all_meetings: Προβολή όλων
       directory:
         meetings:
@@ -468,7 +468,6 @@ el:
             all: Όλα
             official: Επίσημο
             participants: Συμμετέχοντες
-            user_groups: Ομάδες
           scope: Πεδίο εφαρμογής
           search: Αναζήτηση
           type: Τύπος
@@ -516,13 +515,11 @@ el:
         show:
           attendees: Πλήθος συμμετεχόντων
           back: Επιστροφή στη λίστα
-          close_meeting: Κλείσιμο συνάντησης
+          close_meeting: Κλείσιμο σύσκεψης
           contributions: Πλήθος συνεισφορών
           date: Ημερομηνία
-          edit_close_meeting: Επεξεργασία αναφοράς συνάντησης
           edit_meeting: Επεξεργασία συνάντησης
           going: Έχετε εγγραφεί για αυτή τη συνάντηση
-          join: Συμμετοχή στη σύσκεψη
           leave: Ακύρωση εγγραφής
           leave_confirmation: Είστε σίγουροι ότι θέλετε να ακυρώσετε την εγγραφή σας για αυτή τη συνάντηση;
           link_available_soon: Σύνδεσμος διαθέσιμος σύντομα

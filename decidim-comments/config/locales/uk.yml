@@ -32,7 +32,6 @@ uk:
             label: Коментар
             placeholder: Що ви думаєте з цього приводу?
           form_error: Тут обов'язково потрібно ввести текст, але не більше, ніж %{length} символів.
-          submit: Надіслати
           user_group_id:
             label: Коментувати як
         opinion:

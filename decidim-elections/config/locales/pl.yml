@@ -256,6 +256,7 @@ pl:
               minimum_answers: Pytania muszą mieć <strong>co najmniej dwie odpowiedzi</strong>.
               minimum_questions: Wybory <strong>muszą mieć co najmniej jedno pytanie</strong>.
               published: Wybory <strong>zostały opublikowane</strong>.
+              time_before: Konfiguracja odbywa się <strong>co najmniej %{hours} godzin(y)</strong> przed rozpoczęciem wyborów.
               trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} mężów (osób) zaufania z kluczem publicznym</strong>.
             submit: Ustaw wybory
             success: Wybory pomyślnie wysłano do tablicy danych wyborczych

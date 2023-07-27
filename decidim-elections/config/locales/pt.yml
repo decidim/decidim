@@ -239,6 +239,7 @@ pt:
               minimum_answers: As perguntas devem ter <strong>pelo menos duas respostas</strong>.
               minimum_questions: A eleição tem <strong>pelo menos 1 pergunta</strong>.
               published: A eleição <strong>está publicada</strong>.
+              time_before: A configuração está a ser feita <strong>pelo menos %{hours} horas</strong> antes do início da eleição.
               trustees_number: O espaço participativo tem <strong>pelo menos %{número} curadores com chave pública</strong>.
             submit: Configurar eleição
             success: Eleição enviada com sucesso para o Quadro Informativo

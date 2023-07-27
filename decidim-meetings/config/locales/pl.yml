@@ -351,6 +351,9 @@ pl:
           value_types:
             organizer_presenter:
               not_found: 'Nie znaleziono organizatora w bazie danych (ID: %{id})'
+      application_helper:
+        filter_scope_values:
+          all: Wszystko
       calendar_modal:
         calendar_url: Adres URL kalendarza
         close_window: Zamknij okno
@@ -362,6 +365,7 @@ pl:
       conference_venues: Sale konferencyjne
       content_blocks:
         upcoming_meetings:
+          upcoming_meetings: Nadchodzące spotkania
           view_all_meetings: Pokaż wszystkie
       directory:
         meetings:
@@ -419,7 +423,6 @@ pl:
           origin_values:
             all: Wszystkie
             official: Oficjalny
-            user_groups: Grupy
           scope: Zakres
           search: Szukaj
           type: Typ
@@ -461,11 +464,10 @@ pl:
         show:
           attendees: Liczba osób biorących udział
           back: Powrót do listy
-          close_meeting: Zakończ spotkanie
+          close_meeting: Zamknij spotkanie
           contributions: Liczba wsparć
           date: Data
           edit_meeting: Edytuj spotkanie
-          join: Dołącz do spotkania
           leave: Anuluj swoją rejestrację
           meeting_minutes: Protokół ze spotkania
           no_slots_available: Brak dostępnych miejsc

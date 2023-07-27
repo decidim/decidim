@@ -289,7 +289,7 @@ cs:
               minimum_answers: Otázky musí mít <strong>alespoň dvě odpovědi</strong>.
               minimum_questions: Volby <strong>musí mít alespoň jednu otázku</strong>.
               published: Volby <strong>nejsou publikovány</strong>.
-              time_before: Čas zahájení je <strong>méně než %{hours} hodiny</strong> před začátkem voleb.
+              time_before: Čas zahájení je v <strong>méně než %{hours} hodin</strong> před začátkem voleb.
               trustees_number: Participační prostor <strong>musí mít alespoň %{number} důvěrníků s veřejným klíčem</strong>.
             invalid: Při zřizování těchto voleb došlo k chybě
             no_trustees: Pro tento participační prostor nejsou nakonfigurováni žádní důvěrníci
@@ -306,7 +306,7 @@ cs:
               minimum_answers: Každá otázka má <strong>alespoň 2 odpovědi</strong>.
               minimum_questions: Volba má <strong>alespoň jednu otázku</strong>.
               published: Volby jsou <strong>publikovány</strong>.
-              time_before: Nastavení se provádí <strong>nejméně %{hours} hodiny</strong> před zahájením voleb.
+              time_before: Nastavení se provádí <strong>alespoň %{hours} hodin</strong> před zahájením voleb.
               trustees_number: Participační prostor má <strong>alespoň %{number} důvěrníků s veřejným klíčem</strong>.
             submit: Nastavení voleb
             success: Volby byly úspěšně odeslány do Vývěsky
@@ -846,6 +846,14 @@ cs:
               name: Popis hlasování
             elections:
               name: Hlasovací volby
+            html_block_1:
+              name: Html blok 1 hlasování
+            html_block_2:
+              name: Html blok 2 hlasování
+            html_block_3:
+              name: Html blok 3 hlasování
+            metrics:
+              name: Metriky hlasování
             polling_stations:
               name: Volební místnosti hlasování
             stats:

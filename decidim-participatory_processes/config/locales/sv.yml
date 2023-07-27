@@ -341,11 +341,10 @@ sv:
         html_3:
           name: Tredje HTML-block
         metadata:
-          developer_group: Annonserad av
           name: Metadata
           participatory_scope: Vad som bestäms
           participatory_structure: Hur det bestäms
-          target: Vem deltar
+          target: Vilka deltar
         participatory_processes:
           name: Dialoger
         stats:
@@ -411,13 +410,11 @@ sv:
       pages:
         home:
           highlighted_processes:
-            active_processes: Pågående dialoger
             active_step: Aktivt steg
             more_information: Mer information
             participate: Delta
             participate_in: Delta i dialogen %{resource_name}
             processes_button_title: Länk till sidan som visar alla dialoger
-            see_all_processes: Visa alla dialoger
       participatory_process_steps:
         index:
           back_to_process: Tillbaka till dialogsidan
@@ -455,9 +452,8 @@ sv:
         dates: Datum
         developer_group: Kampanjgrupp
         end_date: Slutdatum
-        local_area: Område
         participatory_scope: Vad som bestäms
-        participatory_structure: Hur bestäms det
+        participatory_structure: Hur det bestäms
         private_space: Detta är en privat dialog
         related_processes: Relaterade dialoger
         scope: Omfång
@@ -489,7 +485,7 @@ sv:
         promoted_process:
           active_step: 'Aktuellt steg:'
           more_info: Mer information
-          more_info_about: Mer information om dialogen %{resource_name}
+          more_info_about: Mer information om processen %{resource_name}
           take_part: Delta
           take_part_in: Delta i dialogen %{resource_name}
         promoted_process_group:

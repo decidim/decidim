@@ -288,6 +288,9 @@ ar:
       content_blocks:
         metadata:
           name: البيانات الوصفية
+          participatory_scope: ما الذي تقرر
+          participatory_structure: كيف تقرر ذلك
+          target: من يشارك
         stats:
           name: نشاط
       show:
@@ -335,11 +338,9 @@ ar:
       pages:
         home:
           highlighted_processes:
-            active_processes: عمليات نشطة
             active_step: المرحلة النشطة
             more_information: معلومات اكثر
             participate: مشاركة
-            see_all_processes: رؤية جميع العمليات
       participatory_processes:
         filters:
           counters:
@@ -387,7 +388,6 @@ ar:
         area: منطقة
         developer_group: مجموعة المروجين
         end_date: تاريخ الانتهاء
-        local_area: منطقة التنظيم
         participatory_scope: ما الذي تقرر
         participatory_structure: كيف تقرر ذلك
         private_space: هذه عملية خاصة
@@ -417,6 +417,8 @@ ar:
           active_step: 'المرحلة الحالية:'
           more_info: مزيد من المعلومات
           take_part: خذ جزء
+        promoted_process_group:
+          more_info: مزيد من المعلومات
       process_header_steps:
         step: المرحلة %{current} من %{total}
         view_steps: عرض المراحل

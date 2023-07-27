@@ -295,6 +295,9 @@ zh-TW:
             update: 更新
           form:
             title: 大會的設置
+        assemblies_types:
+          form:
+            title: 標題
         assembly_copies:
           form:
             slug_help: 'URL slug 用於生成指向該組件的 URL。 只接受字母、數字和破折號，並且必須以字母開頭。 示例：%{url}'

@@ -287,6 +287,9 @@ lv:
           value_types:
             organizer_presenter:
               not_found: 'Organizators netika atrasts datubāzē (ID: %{id})'
+      application_helper:
+        filter_scope_values:
+          all: Visi
       calendar_modal:
         calendar_url: Kalendāra URL
         close_window: Aizvērt logu
@@ -294,6 +297,7 @@ lv:
       conference_venues: Konferenču norises vietas
       content_blocks:
         upcoming_meetings:
+          upcoming_meetings: Gaidāmās sanāksmes
           view_all_meetings: Skatīt visu
       directory:
         meetings:
@@ -315,6 +319,7 @@ lv:
         filters:
           category: Kategorija
           date: Datums
+          scope: Darbības tvērums
           search: Meklēt
         filters_small_view:
           close_modal: Aizvērt modal
@@ -332,8 +337,8 @@ lv:
         show:
           attendees: Dalībnieku skaits
           back: Atpakaļ uz sarakstu
+          close_meeting: Slēgt sanāksmi
           contributions: Papildinājumu skaits
-          join: Pievienoties sanāksmei
           meeting_minutes: Sanāksmes protokols
           no_slots_available: Nav pieejama laika runāšanai
           organizations: Apmeklējošās organizācijas

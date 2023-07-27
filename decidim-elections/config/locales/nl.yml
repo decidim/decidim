@@ -217,6 +217,7 @@ nl:
               minimum_answers: Elke vraag heeft <strong>minstens 2 antwoorden</strong>.
               minimum_questions: De stemronde heeft <strong>minstens 1 vraag</strong>.
               published: De stemronde is <strong>gepubliceerd</strong>.
+              time_before: Alles wordt klaargezet <strong>minstens %{hours} uur</strong> voor de stemronde begint.
               trustees_number: De participatieve ruimte <strong>moet minstens %{number} trustees met publieke sleutel</strong> hebben.
             submit: Nieuwe stemronde instellen
             success: Stemronde succesvol verzonden naar het Bulletin Board

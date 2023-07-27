@@ -291,6 +291,11 @@ zh-CN:
         related_assemblies: 相关的会议
     participatory_process_groups:
       content_blocks:
+        metadata:
+          name: 元数据
+          participatory_scope: 决定的内容
+          participatory_structure: 如何决定
+          target: 谁参与
         stats:
           name: 统计
       show:
@@ -340,12 +345,10 @@ zh-CN:
       pages:
         home:
           highlighted_processes:
-            active_processes: 活动进程
             active_step: 活动阶段
             more_information: 更多信息
             participate: 参与
             participate_in: 参与进程 %{resource_name}
-            see_all_processes: 查看所有进程
       participatory_process_steps:
         index:
           back_to_process: 返回进程页面
@@ -377,7 +380,6 @@ zh-CN:
         dates: 日期
         developer_group: 促销者组
         end_date: 结束日期
-        local_area: 组织区域
         participatory_scope: 决定的内容
         participatory_structure: 如何决定
         private_space: 这是一个私密进程
@@ -412,6 +414,8 @@ zh-CN:
           more_info_about: 更多关于进程 %{resource_name} 的信息
           take_part: 参与
           take_part_in: 参与进程 %{resource_name}
+        promoted_process_group:
+          more_info: 更多信息
       process_header_steps:
         step: '%{current} 的 %{total} 阶段'
         view_steps: 流程阶段

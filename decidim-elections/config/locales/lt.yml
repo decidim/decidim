@@ -268,6 +268,7 @@ lt:
               minimum_answers: Klausimai turi turėti bent <strong>du atsakymus</strong>.
               minimum_questions: Rinkimai <strong>turi turėti bent vieną klausimą</strong>.
               published: Rinkimai <strong>nėra publikuoti</strong>.
+              time_before: Pradžios laikas už mažiau nei <strong>%{hours} valandų</strong>.
               trustees_number: Dalyvaujomi erdvė <strong>turi turėti bent %{number} patikėtinių su viešų raktu</strong>.
             invalid: Konfigūruojant šiuos rinkimus iškilo problema
             no_trustees: Šiai dalyvaujamajai erdvei nėra sukonfigūruotų Patikėtinių
@@ -282,6 +283,7 @@ lt:
               minimum_answers: Kiekvienas klausimas turi bent <strong>du atsakymus</strong>.
               minimum_questions: Rinkimai <strong>turi bent vieną klausimą</strong>.
               published: Rinkimai <strong>publikuoti</strong>.
+              time_before: Konfigūracija atliekama <strong>bent %{hours} valandas</strong> prieš rinkimų pradžią.
               trustees_number: Dalyvaujomi erdvė <strong>turi bent %{number} patikėtinių su viešų raktu</strong>.
             submit: Konfigūruoti rinkimus
             success: Rinkimai sėkmingai nusiųsti į Skelbimų Lentą

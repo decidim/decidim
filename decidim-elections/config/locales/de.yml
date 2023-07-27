@@ -288,7 +288,7 @@ de:
               minimum_answers: Jede Frage hat <strong>mindestens 2 Antworten</strong>.
               minimum_questions: Die Wahl hat <strong>mindestens 1 Frage</strong>.
               published: Die Wahl ist <strong>veröffentlicht</strong>.
-              time_before: Die Einrichtung wird <strong>mindestens %{hours}</strong> vor Beginn der Wahl fertiggestellt werden.
+              time_before: Die Wahl wird <strong>mindestens %{hours} Stunden</strong> vor Beginn eingerichtet.
               trustees_number: <strong>Mindestens %{number} Wahlhelfer mit Public Key</strong> sind vorhanden.
             submit: Wahl einrichten
             success: Wahl erfolgreich an das Bulletin Board gesendet

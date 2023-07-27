@@ -31,7 +31,6 @@ zh-CN:
             label: 评论
             placeholder: 你对此有什么看法？
           form_error: 文本是必需的，不能超过 %{length} 个字符。
-          submit: 发送
           user_group_id:
             label: 评论为
         opinion:

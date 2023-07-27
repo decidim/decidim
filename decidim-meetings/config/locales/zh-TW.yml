@@ -484,7 +484,6 @@ zh-TW:
             all: 全部
             official: 官方
             participants: 參與者
-            user_groups: 群組
           scope: 範圍
           search: 搜尋
           type: 類別
@@ -536,10 +535,8 @@ zh-TW:
           close_meeting: 關閉會議
           contributions: 貢獻次數
           date: 日期
-          edit_close_meeting: 編輯會議報告
           edit_meeting: 編輯會議
           going: 您已經註冊參加此會議
-          join: 加入會議
           leave: 取消您的註冊
           leave_confirmation: 您確定要取消此次會議的註冊嗎？
           link_available_soon: 連結即將推出

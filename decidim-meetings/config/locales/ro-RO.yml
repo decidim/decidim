@@ -419,7 +419,7 @@ ro:
       content_blocks:
         upcoming_meetings:
           name: Şedinţe viitoare
-          upcoming_meetings: Şedinţe viitoare
+          upcoming_meetings: Întâlniri viitoare
           view_all_meetings: Vezi toate
       directory:
         meetings:
@@ -491,7 +491,6 @@ ro:
             all: Toate
             official: Oficial
             participants: Participanți
-            user_groups: Grupuri
           scope: Domeniu de interes
           search: Caută
           type: Tip
@@ -541,10 +540,8 @@ ro:
           close_meeting: Închide ședința
           contributions: Număr de contribuții
           date: Data
-          edit_close_meeting: Editează raportul întâlnirii
-          edit_meeting: Editează întâlnirea
+          edit_meeting: Editați ședința
           going: Te-ai înregistrat pentru această întâlnire
-          join: Participă la întâlnire
           leave: Anulează înregistrarea
           leave_confirmation: Sigur dorești să anulezi înregistrarea la această întâlnire?
           link_available_soon: Link disponibil în curând
