@@ -30,6 +30,7 @@ hu:
         password_confirmation: Jelszó megerősítése
         personal_url: Személyes URL
         remove_avatar: Avatár eltávolítása
+        tos_agreement: Felhasználási feltételek és megállapodások
     models:
       decidim/attachment_created_event: Melléklet
       decidim/component_published_event: Aktív elem
@@ -718,6 +719,8 @@ hu:
           email_outro: Ezt az értesítést kaptad, mert te vagy a platform adminja.
           email_subject: Egy felhasználói csoport frissítette a profilját
           notification_title: A(z) %{user_group_name} felhasználói csoport frissítette a profilját, így az ellenőrizetlen maradt. Jóváhagyhatja az <a href="%{groups_admin_path}">adminisztrációs panelen</a>.
+      nickname_event:
+        notification_body: Javítottunk a becenevek használatán, hogy elkerüljük a duplikációkat, és ezért megszüntettük a nagy- és kisbetűkre vonatkozó szabályt. <br/> A beceneve egy másik, azonos nevű becenév után jött létre, ezért automatikusan át lett nevezve. Megváltoztathatja itt <a href="%{link_to_account_settings}">a Fiókbeállítások menüpontban</a>.
       notification_event:
         notification_title: 'Új esemény itt: <a href="%{resource_path}">%{resource_title}</a>.'
       reports:
@@ -791,6 +794,8 @@ hu:
           explanation: 'Útmutató:'
           message_1: A képnek négyzet alakúnak kell lennie.
           message_2: A javasolt képméret 512x512 px.
+      file_validation:
+        max_file_size: 'Maximális fájlméret: %{megabytes} MB'
       upload:
         labels:
           add_attachment: Melléklet hozzáadása
@@ -899,6 +904,7 @@ hu:
         success: A csatlakozási kérelem sikeresen létrehozva. A csoportgazda felülvizsgálja a kérelmet, mielőtt a csatlakozás elfogadásra kerül.
       leave:
         error: Hiba történt a csoport elhagyása kapcsán
+        last_admin: Ön nem távolíthatja el magát ebből a csoportból, mivel Ön az utolsó adminisztrátor. A csoportból való kilépéshez egy másik tagot kell adminisztrátorrá tenni.
         success: A csoportot sikeresen elhagytad.
       members:
         accept_or_reject_join_requests: 'A következő felhasználók bejelentették, hogy csatlakozzanak ehhez a csoporthoz. A kérelmek elfogadása vagy elutasítása:'
@@ -1137,6 +1143,7 @@ hu:
       show:
         administrators: Adminisztrátorok
         allow_public_contact: Megengedem, hogy bárki közvetlen üzenetet küldjön nekem, akkor is, ha nem követem őket.
+        allow_push_notifications: Kapjon push-értesítéseket, hogy megtudja, mi történik, amikor nem tartózkodik a platformon. Bármikor kikapcsolhatod őket.
         direct_messages: Közvetlen üzenetek fogadása bárkitől
         email_on_moderations: Szeretnék e-mailt kapni, valahányszor valamit vagy valakit jelentenek moderálás miatt.
         everything_followed: Minden, amit követek
@@ -1150,6 +1157,7 @@ hu:
           weekly: Heti
         notifications_sending_frequency: Milyen gyakran szeretne e-mailt kapni az értesítésekről?
         own_activity: Saját tevékenységem - amikor valaki megjegyzést fűz a javaslatomhoz, vagy megemlíti a nevemet
+        push_notifications_reminder: Ahhoz, hogy értesítéseket kapjon a platformtól, először engedélyeznie kell azokat a böngésző beállításaiban.
         receive_notifications_about: Értesítést szeretnék kapni
         update_notifications_settings: Változások mentése
       update:
@@ -1211,6 +1219,7 @@ hu:
         form:
           legend: Elfogadom a felhasználási feltételeket
         refuse:
+          modal_body: Ha elutasítja, akkor nem fogja tudni használni a platformot. <a href="%{download_your_data_path}">Töltse le az adatait</a> és/vagy <a href="%{delete_path}">törölje a fiókját</a>.
           modal_btn_exit: Később átnézem
           modal_close: Modal bezárása
           modal_title: Tényleg elutasítod az ÁSZF frissített szövegét?
@@ -1219,6 +1228,10 @@ hu:
           body: Kérlek, nézd át a Szolgáltatási feltételek frissített szövegét. Ellenkező esetben nem tudod majd használni a platformot.
     participatory_space_private_users:
       not_allowed: Nincs jogosultságod a tartalom megtekintésére
+    passwords:
+      update:
+        error: Hiba történt a jelszó frissítésekor
+        success: Jelszó sikeresen frissítve
     profile:
       deleted: Törölt résztvevő
       view: Nézet
@@ -1596,7 +1609,7 @@ hu:
       already_signed_out: Kijelentkezett sikeresen.
       new:
         sign_in: Belépés
-      signed_in: Bejelentkezett sikeresen.
+      signed_in: Sikeresen bejelentkezett.
       signed_out: Kijelentkezett sikeresen.
     shared:
       links:
