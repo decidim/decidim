@@ -479,6 +479,7 @@ ca:
             all: Tots
             citizens: Ciutadania
             official: Oficial
+            user_groups: Grups
           scope: Àmbit
           search: Cerca
           type: Tipus
@@ -530,8 +531,10 @@ ca:
           close_meeting: Tancar trobada
           contributions: Nombre d'aportacions
           date: Data
+          edit_close_meeting: Editar l'informe de la trobada
           edit_meeting: Editar la trobada
           going: T'has inscrit en aquesta trobada
+          join: Unir-se a la trobada
           leave: Cancel·la la teva inscripció
           leave_confirmation: Segur que vols cancel·lar la teva inscripció a aquesta trobada?
           link_available_soon: Enllaç disponible pròximament
