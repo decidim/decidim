@@ -246,7 +246,11 @@ header {
       [id*="dropdown-menu"] {
         @apply cursor-auto;
 
-        &[aria-hidden="true"] {
+        &[aria-hidden="true"].no-animation {
+          @apply opacity-0 invisible;
+        }
+
+        &[aria-hidden="true"]:not(.no-animation) {
           animation-name: fadeOut;
           animation-duration: 300ms;
           animation-delay: 300ms;
