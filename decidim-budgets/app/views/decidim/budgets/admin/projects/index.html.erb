@@ -31,7 +31,7 @@
         <% end %>
       </tbody>
     </table>
-    <%= paginate projects, theme: "decidim" %>
+    <%= decidim_paginate projects, theme: "decidim" %>
   </div>
   <div class="card-divider">
     <strong><%= t ".finished_orders" %>:&nbsp;</strong><span><%= finished_orders.count %></span>

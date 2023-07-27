@@ -157,8 +157,8 @@
         <% end %>
       </tbody>
     </table>
-    <%= paginate meetings, theme: "decidim" %>
   </div>
 </div>
 
+<%= decidim_paginate meetings, theme: "decidim" %>
 <%= append_javascript_pack_tag "decidim_meetings_admin" %>
