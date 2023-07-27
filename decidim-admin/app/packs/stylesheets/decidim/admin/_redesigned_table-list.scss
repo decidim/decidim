@@ -131,7 +131,7 @@
     @apply fill-secondary w-5 h-5;
 
     &.action-icon--disabled{
-      @apply fill-gray;
+      @apply fill-gray mr-2;
     }
   }
 

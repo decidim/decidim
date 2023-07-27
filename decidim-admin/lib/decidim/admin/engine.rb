@@ -84,27 +84,37 @@ module Decidim
         Decidim.menu :admin_user_menu do |menu|
           menu.add_item :users,
                         I18n.t("menu.admins", scope: "decidim.admin"), decidim_admin.users_path,
+                        icon_name: "user-line",
                         active: is_active_link?(decidim_admin.users_path),
                         if: allowed_to?(:read, :admin_user)
           menu.add_item :user_groups,
                         I18n.t("menu.user_groups", scope: "decidim.admin"), decidim_admin.user_groups_path,
+                        icon_name: "group-line",
                         active: is_active_link?(decidim_admin.user_groups_path),
                         if: current_organization.user_groups_enabled? && allowed_to?(:index, :user_group)
           menu.add_item :officializations,
                         I18n.t("menu.participants", scope: "decidim.admin"), decidim_admin.officializations_path,
+                        icon_name: "service-line",
                         active: is_active_link?(decidim_admin.officializations_path),
                         if: allowed_to?(:index, :officialization)
           menu.add_item :impersonatable_users,
                         I18n.t("menu.impersonations", scope: "decidim.admin"), decidim_admin.impersonatable_users_path,
+                        icon_name: "user-add-line",
                         active: is_active_link?(decidim_admin.impersonatable_users_path),
-                        if: allowed_to?(:index, :impersonatable_user),
-                        submenu: { target_menu: :impersonate_menu }
+                        if: allowed_to?(:index, :impersonatable_user)
+
+          menu.add_item :conflicts,
+                        I18n.t("title", scope: "decidim.admin.conflicts"),
+                        decidim_admin.conflicts_path,
+                        icon_name: "flag-line",
+                        active: is_active_link?(decidim_admin.conflicts_path),
+                        if: allowed_to?(:index, :impersonatable_user)
 
           menu.add_item :authorization_workflows,
                         I18n.t("menu.authorization_workflows", scope: "decidim.admin"), decidim_admin.authorization_workflows_path,
+                        icon_name: "key-2-line",
                         active: is_active_link?(decidim_admin.authorization_workflows_path),
-                        if: allowed_to?(:index, :authorization),
-                        submenu: { target_menu: :workflows_menu }
+                        if: allowed_to?(:index, :authorization)
         end
       end
 
