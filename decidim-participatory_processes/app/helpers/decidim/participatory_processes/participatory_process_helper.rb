@@ -93,8 +93,8 @@ module Decidim
       def filter_types_values
         return if process_types.blank?
 
-        type_values = process_types.map { |type| [type.id.to_s, filter_text_for(translated_attribute(type.title))] }
-        type_values.prepend(["", filter_text_for(t("decidim.participatory_processes.participatory_processes.filters.names.all"))])
+        type_values = process_types.map { |type| [type.id.to_s, translated_attribute(type.title)] }
+        type_values.prepend(["", t("decidim.participatory_processes.participatory_processes.filters.names.all")])
 
         filter_tree_from_array(type_values)
       end
