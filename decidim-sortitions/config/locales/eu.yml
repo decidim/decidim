@@ -62,10 +62,10 @@ eu:
             title: Zozketa bertan behera utzi
           create:
             error: Arazo bat gertatu da zozketa berri bat sortzean.
-            success: Sortu arrakastaz sortu da
+            success: Zozketa ondo sortu da
           destroy:
-            error: Ezin da irtenbidea bertan behera utzi.
-            success: Antolaketa behar bezala bertan behera utzi da
+            error: Zozketa ezin da bertan behera utzi.
+            success: Zozketa bertan behera utzi da
           edit:
             title: Eguneratu zozketari buruzko informazioa
             update: Eguneratu
@@ -76,14 +76,14 @@ eu:
           index:
             title: Zozketak
           new:
-            confirm: Hurrengo botoia sakatuz gero, data eta ordua (segundotan zehaztuta) eta dadoen zerrendarekin batera grabatu egingo dira, informazio hori ausazko hautapena sortzeko erabiliko da. Ekintza atzeraezina izango da, botoia klik egitean zozketaren emaitza argitaratuko da, formulario honetan bildutako datuak eta ezin dira aldatu, egiaztatu edukia arretaz
+            confirm: Botoia sakatzean plataformak egun eta ordua (segundu gutxi batzuk gora behera) eta dadoak botatzean ateratako zenbakia gorde egingo ditu ausazko hautaketa bat egiteko. Botoia sakatu ondoren ez dago atzera egiterik eta zozketaren emaitzak zein txantiloi honetan sartutako datuak argitaratu eta ezin izango dira aldatu. Beraz, mesedez, arretaz jarraitu
             create: Sortu
             title: Zozketa berria
           show:
             selected_proposals: Zozketatzeko aukeratutako proposamenak
           update:
             error: Arazo bat sortu da zozketa eguneratzean.
-            success: Antolaketa eguneratu da
+            success: Zozketa zuzen eguneratu da
       admin_log:
         sortition:
           create: "%{user_name} k %{resource_name} zozketa sortu du %{space_name} espazioan"
