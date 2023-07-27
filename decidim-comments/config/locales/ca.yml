@@ -32,6 +32,8 @@ ca:
           error: S'ha produït un error en actualitzar el comentari.
       comments_count: Número de comentaris
       comments_title: Comentari
+      last_activity:
+        new_comment: 'Nou comentari:'
       view: Mostrar
       votes:
         create:
@@ -44,6 +46,8 @@ ca:
             label: Comentari
             placeholder: Què en penses d'això?
           form_error: El text és necessari i no pot ser més llarg de %{length}.
+          submit_reply: Publicar resposta
+          submit_root_comment: Publicar comentari
           user_group_id:
             label: Comentar com a
         opinion:
@@ -61,6 +65,7 @@ ca:
         alignment:
           against: En contra
           in_favor: A favor
+        cancel_reply: Cancel·lar resposta
         confirm_destroy: Segur que vols esborrar aquest comentari?
         delete: Esborrar
         deleted_at: Comentari esborrat el %{date}
