@@ -90,7 +90,7 @@ module Decidim
       end
 
       initializer "decidim_proposals.remove_space_admins" do
-        ActiveSupport::Notifications.subscribe("decidim.system.participatory_space.admin.destroyed") do |_event_name, klass, id|
+        ActiveSupport::Notifications.subscribe("decidim.admin.participatorty_space.destroy_admin:after") do |_event_name, klass, id|
           Decidim::Proposals::ValuationAssignment.where(valuator_role_type: klass, valuator_role_id: id).destroy_all
         end
       end
