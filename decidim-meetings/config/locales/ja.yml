@@ -401,7 +401,7 @@ ja:
       content_blocks:
         upcoming_meetings:
           name: これからのミーティング
-          upcoming_meetings: これからのミーティング
+          upcoming_meetings: 今後のミーティング
           view_all_meetings: すべて表示
       directory:
         meetings:
@@ -472,7 +472,6 @@ ja:
             all: すべて
             citizens: 一般参加者
             official: 事務局
-            user_groups: グループ
           scope: スコープ
           search: 検索
           type: 種別
@@ -524,10 +523,8 @@ ja:
           close_meeting: ミーティングを閉じる
           contributions: コントリビューション数
           date: 日付
-          edit_close_meeting: ミーティングレポートを編集
           edit_meeting: ミーティングを編集
           going: このミーティングにログインしました
-          join: ミーティングに参加
           leave: 登録をキャンセルする
           leave_confirmation: このミーティングの登録をキャンセルしてもよろしいですか？
           link_available_soon: 間もなくリンクが利用可能です

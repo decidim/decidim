@@ -241,8 +241,6 @@ lb:
         html_3:
           name: Dritter HTML-Block
         metadata:
-          developer_group: Unterstützt von
-          name: Metadaten
           participatory_scope: Was wird entschieden
           participatory_structure: Wie wird es entschieden
           target: Wer nimmt teil
@@ -257,16 +255,16 @@ lb:
         title: Prozessgruppen
     participatory_processes:
       show:
+        area: Bereich
         belongs_to_group: Dieser Prozess gehört zu
         dates: Daten
         developer_group: Promoter-Gruppe
-        end_date: Endtermin
-        local_area: Organisationsbereich
+        end_date: Enddatum
         participatory_scope: Was wird entschieden
         participatory_structure: Wie wird es entschieden
         private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
-        scope: Ëmfang
+        scope: Themenbereich
         start_date: Ufanksdatum
         target: Wer nimmt teil
         unspecified: Keine Angabe

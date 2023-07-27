@@ -601,6 +601,7 @@ sk:
           update: Aktualizovať
         new:
           create: Vytvoriť nový typ rozsahu
+          title: Nový rozsah
         update:
           error: Pri aktualizácii typu rozsahu nastala chyba.
           success: Nový typ rozsahu úspešne aktualizovaný.

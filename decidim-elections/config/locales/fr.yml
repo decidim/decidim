@@ -1129,6 +1129,8 @@ fr:
         highlighted_votings:
           name: Élections mises en avant
         landing_page:
+          description:
+            title: À propos de ce vote
           metrics:
             heading: Métriques
           polling_stations:

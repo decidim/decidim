@@ -32,7 +32,6 @@ lv:
             label: Komentēt
             placeholder: Ko tu domā par šo?
           form_error: Šis teksts ir nepieciešams, un tas nedrīkst būt garāks par %{length} rakstzīmēm.
-          submit: Sūtīt
           user_group_id:
             label: Komentēt kā
         opinion:

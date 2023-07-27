@@ -480,7 +480,7 @@ fr:
             citizens: Citoyens
             official: Officiel
             user_groups: Groupes
-          scope: Secteur
+          scope: Périmètre d'application
           search: Rechercher
           type: Type
           type_values:

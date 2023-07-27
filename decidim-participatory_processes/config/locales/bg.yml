@@ -17,3 +17,9 @@ bg:
         hero_image: Изображение за начална страница
         local_area: Район на организацията
         meta_scope: Метаданни сфера
+  decidim:
+    participatory_processes:
+      show:
+        area: Район
+        developer_group: Група за популяризиране
+        end_date: Крайна дата

@@ -332,8 +332,7 @@ zh-TW:
         html_3:
           name: 第三個 HTML 區塊
         metadata:
-          developer_group: 推廣者：
-          name: Metadata
+          name: 元數據
           participatory_scope: 決定了什麼
           participatory_structure: 如何決定
           target: 誰參加
@@ -401,13 +400,11 @@ zh-TW:
       pages:
         home:
           highlighted_processes:
-            active_processes: 運行中的程序
             active_step: 進行中的階段
             more_information: 更多資訊
             participate: 參與
             participate_in: 參與程序 %{resource_name}
             processes_button_title: 鏈接到顯示所有程序的程序頁面
-            see_all_processes: 檢視所有程序
       participatory_process_steps:
         index:
           back_to_process: 返回程序頁
@@ -442,7 +439,6 @@ zh-TW:
         dates: 日期
         developer_group: 促銷團隊
         end_date: 結束日期
-        local_area: 組織區域
         participatory_scope: 決定了什麼
         participatory_structure: 如何決定
         private_space: 這是不公開程序。

@@ -129,7 +129,7 @@ fi:
           state_values:
             closed: Suljetut
             open: Avoimet
-          user_groups: Ryhmät
+          user_groups: Ryhmiä
         filters_small_view:
           close_modal: Sulje ikkuna
           filter: Suodata

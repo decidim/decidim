@@ -293,7 +293,7 @@ ja:
             title: 参加スペースの設定
         assemblies_types:
           form:
-            title: 参加スペース種別を編集
+            title: タイトル
         assembly_copies:
           form:
             slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
