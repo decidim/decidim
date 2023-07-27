@@ -1,5 +1,5 @@
 <div id="<%= id %>" class="filter-container">
-  <button id="dropdown-trigger-resource" data-component="dropdown" data-target="dropdown-menu-resource" data-auto-close="true">
+  <button id="dropdown-trigger-resource" data-component="dropdown" data-target="dropdown-menu-resource" data-auto-close="true" data-disabled-md="true">
     <% resource_types.each do |resource_type| %>
       <span data-value="<%= resource_type[0] %>" class="<%= "is-active" if filter_param == resource_type[0] %>">
         <%= text_with_resource_icon(*resource_type) %>
