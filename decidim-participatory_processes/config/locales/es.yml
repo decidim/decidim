@@ -126,6 +126,7 @@ es:
           categories: Categorías
           components: Componentes
           info: Información
+          landing_page: Página de inicio
           moderations: Moderaciones
           private_users: Participantes privadas
           process_admins: Administradoras del proceso
@@ -373,13 +374,24 @@ es:
         title: Procesos participativos
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Promovido por
+          name: Metadatos
+          participatory_scope: Qué se decide
+          participatory_structure: Cómo se decide
+          target: Quién participa
+        html:
+          name: Bloque HTML
         html_1:
           name: Primer bloque HTML
         html_2:
           name: Segundo bloque HTML
         html_3:
           name: Tercer bloque HTML
+        main_data:
+          name: Titulo y descripción
         participatory_processes:
+          active: Procesos participativos activos
           name: Procesos participativos
         stats:
           name: Estadísticas
@@ -398,7 +410,10 @@ es:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Activos
+            all: Todos
             max_results: Cantidad máxima de elementos para mostrar
+            selection_criteria: Criterios de selección
         new_import:
           accepted_types:
             json: JSON
@@ -435,16 +450,37 @@ es:
             title: Información general
             visbility: Visibilidad
       content_blocks:
+        extra_data:
+          name: Fase y duración
+        hero:
+          name: Imagen principal y botón de acción
         highlighted_processes:
           name: Procesos destacados
+        related_processes:
+          name: Procesos relacionados
       index:
         title: Procesos participativos
       last_activity:
         new_participatory_process: Nuevo proceso participativo
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Procesos activos
+            see_all_spaces: Ver todos los procesos
       participatory_process_steps:
         index:
           back_to_process: Volver a la página del proceso
       participatory_processes:
+        description:
+          area_name: Área
+          data: Datos del proceso
+          developer_group: Grupo promotor
+          local_area: Área de organización
+          meta_scope: Ámbito
+          participatory_scope: Qué se decide
+          participatory_structure: Cómo se decide
+          target: Quién participa
+          title: Acerca de este proceso
         filters:
           all_types: Todos los tipos
           counters:
@@ -460,6 +496,7 @@ es:
             upcoming:
               one: Un próximo proceso
               other: "%{count} próximos procesos"
+          date: Fecha
           explanations:
             no_active: Sin procesos activos.
             no_active_nor_upcoming: No hay procesos activos ni futuros.
@@ -471,6 +508,7 @@ es:
             past: Pasados
             upcoming: Próximos
           see: Ver
+          type: Tipo
         show:
           title: Acerca de este proceso
       show:
