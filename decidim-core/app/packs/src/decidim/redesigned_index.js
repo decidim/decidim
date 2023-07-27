@@ -69,7 +69,6 @@ import updateExternalDomainLinks from "./external_domain_warning"
 import scrollToLastChild from "./scroll_to_last_child"
 import InputCharacterCounter, { createCharacterCounter } from "./redesigned_input_character_counter"
 import FormValidator from "./form_validator"
-import DataPicker from "./data_picker"
 import FormFilterComponent from "./redesigned_form_filter"
 import addInputEmoji, { EmojiButton } from "./input_emoji"
 import dialogMode from "./dialog_mode"
@@ -94,7 +93,6 @@ window.Decidim = window.Decidim || {
   ExternalLink,
   InputCharacterCounter,
   FormValidator,
-  DataPicker,
   addInputEmoji,
   EmojiButton,
   Dialogs
@@ -112,8 +110,6 @@ Rails.start()
  * @returns {void}
  */
 const initializer = (element = document) => {
-  window.theDataPicker = new DataPicker($(".data-picker"));
-
   let focusContainer = element;
   if (element === document) {
     focusContainer = document.querySelector("body");
