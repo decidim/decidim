@@ -1125,6 +1125,7 @@ hu:
           weekly: Heti
         notifications_sending_frequency: Milyen gyakran szeretne e-mailt kapni az értesítésekről?
         own_activity: Saját tevékenységem - amikor valaki megjegyzést fűz a javaslatomhoz, vagy megemlíti a nevemet
+        push_notifications_reminder: Ahhoz, hogy értesítéseket kapjon a platformtól, először engedélyeznie kell azokat a böngésző beállításaiban.
         receive_notifications_about: Értesítést szeretnék kapni
         update_notifications_settings: Változások mentése
       update:
