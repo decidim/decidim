@@ -96,6 +96,7 @@ ca:
           invalid: S'ha produït un error en tancar el debat.
           success: Debat tancat correctament.
         close_debate_modal:
+          cancel: Cancel·lar
           description: Quin és el resum o conclusions d'aquest debat?
           send: Tancar el debat
         closed: Tancat
@@ -127,6 +128,7 @@ ca:
           state_values:
             closed: Tancat
             open: Obert
+          user_group: Grups
         form:
           select_a_category: Si us plau, selecciona una categoria
         index:
@@ -160,8 +162,10 @@ ca:
       models:
         debate:
           fields:
+            end: Finalitza
             end_time: Data de finalització
             official_debate: Debat oficial
+            start: Comença
             start_time: Data d'inici
             title: Títol
     events:
