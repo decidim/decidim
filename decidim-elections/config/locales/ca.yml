@@ -674,7 +674,7 @@ ca:
           text: Alguna cosa ha anat malament. Si us plau, torna-ho a provar.
           try_again: Prova-ho de nou
         header:
-          ballot_decision: Envia o audita el teu vot
+          ballot_decision: Emetre
           confirm: Confirma el teu vot
           election: Elecció
           register: Registra't
