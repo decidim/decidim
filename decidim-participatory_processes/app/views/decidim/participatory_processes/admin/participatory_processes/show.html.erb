@@ -7,7 +7,7 @@
   <h2 class="item_show__header-title">
     <%= translated_attribute(current_participatory_space.title) %>
   </h2>
-  <% if current_participatory_space.private_space? %>
+  <% if current_participatory_space.published? %>
     <span class="label success !text-sm"><%= t("participatory_processes.index.published", scope: "decidim.admin") %></span>
   <% else %>
     <span class="label alert !text-sm"><%= t("participatory_processes.index.not_published", scope: "decidim.admin") %></span>
