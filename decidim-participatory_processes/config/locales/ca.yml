@@ -335,6 +335,7 @@ ca:
         html_3:
           name: Tercer bloc HTML
         metadata:
+          developer_group: Promogut per
           name: Metadades
           participatory_scope: El que es decideix
           participatory_structure: Com es decideix
@@ -404,11 +405,13 @@ ca:
       pages:
         home:
           highlighted_processes:
+            active_processes: Processos actius
             active_step: Fase activa
             more_information: Més informació
             participate: Participa
             participate_in: Participa al procés %{resource_name}
             processes_button_title: Enllaç a la pàgina de Processos mostrant tots els processos
+            see_all_processes: Veure tots els processos
       participatory_process_steps:
         index:
           back_to_process: Torna a la pàgina de procés
@@ -447,6 +450,7 @@ ca:
         dates: Dates
         developer_group: Grup promotor
         end_date: Data de finalització
+        local_area: Àrea d'organització
         participatory_scope: El que es decideix
         participatory_structure: Com es decideix
         private_space: Aquest és un procés privat
