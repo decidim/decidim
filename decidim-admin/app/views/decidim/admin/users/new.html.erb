@@ -1,14 +1,16 @@
-<%= decidim_form_for(@form, html: { class: "form new_user" }) do |f| %>
-  <div class="card">
-    <div class="card-divider">
-      <h2 class="card-title"><%= t ".title" %></h2>
-    </div>
-    <div class="card-section">
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t ".title" %>
+  </h2>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, html: { class: "form form-defaults new_user" }) do |f| %>
       <%= render partial: "form", object: f %>
-    </div>
-  </div>
 
-  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+        <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
