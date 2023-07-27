@@ -21,6 +21,7 @@ hu:
         description: Leírás
         end_time: Szavazás vége
         promoted: Támogatott
+        scope_id: Hatókör
         start_time: Szavazás kezdete
         title: Cím
     errors:
@@ -248,6 +249,7 @@ hu:
         votings:
           form:
             census_contact_information_help: Ez a kapcsolatfelvételi információ azoknak a résztvevőknek szól, akik a népszámlálással kapcsolatos problémákat szeretnének jelenteni. Ez lehet e-mail cím, kapcsolatfelvételi űrlap egy másik oldalon, kérdőív a látogatók számára, stb.
+            show_check_census_help: Megjelenítse-e a "Szavazhatok?" linket a nyilvános szavazások menüben
       polling_officer_zone:
         in_person_votes:
           complete_voting:
