@@ -30,6 +30,8 @@ eu:
           error: Arazoa gertatu da iruzkina eguneratzean.
       comments_count: Iruzkin kopurua
       comments_title: Iruzkina
+      last_activity:
+        new_comment: 'Iruzkin berria:'
       view: Bistaratu
       votes:
         create:
@@ -41,6 +43,8 @@ eu:
           body:
             label: Iruzkina
             placeholder: Zer deritzozu honi?
+          submit_reply: Erantzuna argitaratu
+          submit_root_comment: Iruzkina argitaratu
           user_group_id:
             label: 'Egin iruzkina honako honen gisa:'
         opinion:
@@ -58,6 +62,7 @@ eu:
         alignment:
           against: Aurka
           in_favor: Alde
+        cancel_reply: Erantzuna ezabatu
         confirm_destroy: Ziur zaude iruzkin hau ezabatu nahi duzula?
         delete: Ezabatu
         deleted_at: Iruzkina ezabatu da data honetan %{date}
