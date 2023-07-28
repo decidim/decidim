@@ -12,8 +12,8 @@ export default class PasswordToggler {
       shownPassword: this.password.getAttribute("data-shown-password") || "Your password is shown"
     }
     this.icons = {
-      show: icon("eye-fill", {title: this.texts.showPassword}),
-      hide: icon("eye-off-fill", {title: this.texts.hidePassword})
+      show: icon("eye-line"),
+      hide: icon("eye-off-line")
     }
   }
 
@@ -39,28 +39,32 @@ export default class PasswordToggler {
   }
 
   createControls() {
-    let button = document.createElement("button");
-    button.classList.add("mt-3")
+    const button = document.createElement("button");
+    button.classList.add("mt-10")
     button.setAttribute("aria-controls", this.input.getAttribute("id"));
     button.setAttribute("aria-label", this.texts.showPassword);
-    button.textContent = this.icons.show;
+    button.innerHTML = this.icons.show;
+    this.button = button;
 
-    let statusText = document.createElement("span");
+    const statusText = document.createElement("span");
     statusText.classList.add("sr-only");
     statusText.setAttribute("aria-live", "polite");
     statusText.textContent = this.texts.hiddenPassword;
-
-    this.button = button;
     this.statusText = statusText;
 
-    let inputGroupWrapper = document.createElement("div");
+    const inputGroupWrapper = document.createElement("div");
     inputGroupWrapper.classList.add("filter-search", "filter-container");
-    const inputParent = this.input.parentNode;
-    inputParent.replaceChild(inputGroupWrapper, this.input);
-    inputGroupWrapper.appendChild(this.input);
 
-    this.input.after(this.button);
-    this.input.after(this.statusText);
+    const inputParent = this.input.parentNode;
+    const inputGrandParent = inputParent.parentNode;
+    const label = this.password.querySelector("label");
+
+    inputGrandParent.replaceChild(inputGroupWrapper, this.input.parentNode);
+    inputGroupWrapper.appendChild(label);
+    label.appendChild(this.input);
+
+    label.after(this.button);
+    label.after(this.statusText);
   }
 
   toggleVisibiliy(evt) {
@@ -75,14 +79,14 @@ export default class PasswordToggler {
   showPassword() {
     this.statusText.textContent = this.texts.shownPassword;
     this.button.setAttribute("aria-label", this.texts.hidePassword);
-    this.button.textContent = this.icons.hide;
+    this.button.innerHTML = this.icons.hide;
     this.input.setAttribute("type", "text");
   }
 
   hidePassword() {
     this.statusText.textContent = this.texts.hiddenPassword;
     this.button.setAttribute("aria-label", this.texts.showPassword);
-    this.button.textContent = this.icons.show;
+    this.button.innerHTML = this.icons.show;
     this.input.setAttribute("type", "password");
   }
 
