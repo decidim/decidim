@@ -1,3 +1,1 @@
-<%= resource_version_number(result.versions_count) %>
-<%= resource_version_of(result.versions_count) %>
-<%= link_to_other_resource_versions(result_versions_path(result)) %>
+<%= resource_version(result, versions_path: result_version_path(result, result.versions.count)) %>

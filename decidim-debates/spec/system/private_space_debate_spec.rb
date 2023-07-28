@@ -32,7 +32,7 @@ describe "Private Space Debate", type: :system do
       it "does not allow create a debate" do
         visit_component
 
-        within ".title-action" do
+        within "aside" do
           expect(page).not_to have_link("New debate")
         end
       end
@@ -59,7 +59,7 @@ describe "Private Space Debate", type: :system do
         it "not allows create a debate" do
           visit_component
 
-          within ".title-action" do
+          within "aside" do
             expect(page).not_to have_link("New debate")
           end
         end

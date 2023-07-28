@@ -1,16 +1,8 @@
 <% if initiative.has_signature_interval_defined? %>
-  <div class="columns mediumlarge-4">
-    <div class="process-header__phase">
-      <div>
-        <span class="phase-title">
-          <%= t("signature_interval.title", scope: "decidim.initiatives") %>
-        </span>
-        <span class="phase-date">
-          <%= l(initiative.signature_start_date, format: :default) %>
-          -
-          <%= l(initiative.signature_end_date, format: :default) %>
-        </span>
-      </div>
+  <div class="initiatives__card__grid-metadata-dates">
+    <div class="flex items-center text-center justify-center">
+      <%= icon "calendar-line", class: "fill-gray mr-1" %>
+      <%= format_date_range(initiative.signature_start_date, initiative.signature_end_date) %>
     </div>
   </div>
 <% end %>

@@ -23,8 +23,7 @@ module Decidim
             put :withdraw
           end
           resource :proposal_vote, only: [:create, :destroy]
-          resource :widget, only: :show, path: "embed"
-          resources :versions, only: [:show, :index]
+          resources :versions, only: [:show]
         end
         resources :collaborative_drafts, except: [:destroy] do
           member do
@@ -34,7 +33,7 @@ module Decidim
             post :withdraw
             post :publish
           end
-          resources :versions, only: [:show, :index]
+          resources :versions, only: [:show]
         end
         root to: "proposals#index"
       end
@@ -218,8 +217,10 @@ module Decidim
       end
 
       initializer "decidim_proposals.moderation_content" do
-        ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
-          Decidim::Proposals::HideAllCreatedByAuthorJob.perform_later(**data)
+        config.to_prepare do
+          Decidim::EventsManager.subscribe("decidim.admin.block_user:after") do |_event_name, data|
+            Decidim::Proposals::HideAllCreatedByAuthorJob.perform_later(**data)
+          end
         end
       end
     end

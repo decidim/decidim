@@ -3,29 +3,19 @@
 module Decidim
   module Meetings
     module ContentBlocks
-      class HighlightedMeetingsCell < Decidim::ContentBlocks::HighlightedElementsCell
-        def base_relation
-          Decidim::Meetings::Meeting
-            .except_withdrawn
-            .published
-            .not_hidden
-            .upcoming
-            .visible_for(current_user)
-            .where(component: published_components)
-        end
-
-        def elements
-          @elements ||= base_relation.order(start_time: :asc).limit(limit)
-        end
-
-        def geolocation_enabled?
-          Decidim::Map.available?(:geocoding)
-        end
-
+      class HighlightedMeetingsCell < Decidim::ContentBlocks::HighlightedElementsWithCellForListCell
         private
 
-        def limit
-          geolocation_enabled? ? 4 : 8
+        def list_cell_path
+          "decidim/meetings/highlighted_meetings_for_component"
+        end
+
+        def see_all_path
+          meetings_directory_path if model.scope_name == "homepage"
+        end
+
+        def meetings_directory_path
+          Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path
         end
       end
     end

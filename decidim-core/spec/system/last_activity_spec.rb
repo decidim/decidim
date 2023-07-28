@@ -95,14 +95,14 @@ describe "Last activity", type: :system do
       end
 
       it "shows the activities in correct order" do
-        result = page.find("#activities .row").text
+        result = page.find("#activities").text
         expect(result.index(translated(resource.title))).to be < result.index(translated(comment.commentable.title))
         expect(result.index(translated(comment.commentable.title))).to be < result.index(translated(another_comment.commentable.title))
       end
 
       it "allows filtering by type" do
-        within ".filters" do
-          choose "Comment"
+        within "#filters" do
+          find("label", text: "Comment").click
         end
 
         expect(page).to have_content(translated(comment.commentable.title))
@@ -148,7 +148,7 @@ describe "Last activity", type: :system do
 
         it "does not show the activities" do
           expect(page).to have_css("[data-activity]", count: 0)
-          expect(page).to have_content "No activity"
+          expect(page).to have_content "This participant does not have any activity yet."
         end
       end
     end

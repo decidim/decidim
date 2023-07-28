@@ -22,7 +22,6 @@ module Decidim
       helper Decidim::SanitizeHelper
       helper Decidim::PaginateHelper
       helper Decidim::IconHelper
-      helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceHelper
       helper Decidim::Admin::IconLinkHelper
 
@@ -103,7 +102,7 @@ module Decidim
       end
 
       def election
-        @election ||= Decidim::Elections::Election.find(params[:election_id])
+        @election ||= Decidim::Elections::Election.where(component: current_participatory_space.components).find(params[:election_id])
       end
 
       def elections
