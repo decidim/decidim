@@ -476,6 +476,6 @@ nl:
           more_info: Meer informatie
       process_header_steps:
         step: Stap %{current} van %{total}
-        view_steps: Bekijk stappen
+        view_steps: Stappen van het proces
       process_navigation:
         process_menu_item: Het thema
