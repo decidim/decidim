@@ -513,10 +513,8 @@ eu:
       initiative_header:
         initiative_menu_item: Initiative
       initiative_signature_creation_header:
-        back: Back
         fill_personal_data: Zure datuak osatzea
         finish: Amaitu
-        finished: Ekimena sinadura sortu da
         sms_code: SMS kodea egiaztatzea
         sms_phone_number: Telefono mugikorraren zenbakia
         title: Saioa hasi %{initiative_title}
