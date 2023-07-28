@@ -1433,7 +1433,7 @@ es:
         label: 'Resultados por página:'
         title: Seleccionar el número de resultados por página
       share_modal:
-        close_window: Cierra la ventana
+        close_window: Cerrar ventana
         copy_share_link: Copia
         copy_share_link_clarification: Copiar al portapapeles el enlace para compartir
         copy_share_link_copied: '¡Copiado!'
