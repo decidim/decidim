@@ -264,8 +264,5 @@ lb:
           more_info_about: Méi Informatiounen iwert den Prozess %{resource_name}
           take_part: Deelhuelen
           take_part_in: Deelhuelen um Prozess %{resource_name}
-      process_header_steps:
-        step: Etapp %{current} vun %{total}
-        view_steps: Prozessetappen
       process_navigation:
         process_menu_item: De Prozess
