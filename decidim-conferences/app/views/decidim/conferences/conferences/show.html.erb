@@ -27,7 +27,7 @@ edit_link(
         <%= icon "arrow-down-s-line" %>
         <%= icon "arrow-up-s-line" %>
       </button>
-      <ul id="dropdown-menu-conference" class="conference__nav" aria-hidden="true">
+      <ul id="dropdown-menu-conference" class="conference__nav">
         <%= render partial: "layouts/decidim/conferences/conference_nav_item", collection: conference_nav_items(current_participatory_space), as: :item %>
       </ul>
     </div>
