@@ -4,7 +4,7 @@ Decidim has the ability to geocode proposals and meetings and display them on a 
 
 [CAUTION]
 ====
-It is important to notice that you can not use the OpenStreetMap service from openstreetmap.org. As they mention in their https://operations.osmfoundation.org/policies/tiles/[tile usage policy]:
+It is important to notice that you cannot use the OpenStreetMap service from openstreetmap.org. As they mention in their https://operations.osmfoundation.org/policies/tiles/[tile usage policy]:
 
 > OpenStreetMap data is free for everyone to use. Our tile servers are not.
 ====
