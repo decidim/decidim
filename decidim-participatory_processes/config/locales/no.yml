@@ -480,6 +480,6 @@
           more_info: Mer info
       process_header_steps:
         step: Fase %{current} av %{total}
-        view_steps: Vis faser
+        view_steps: Medvirkningsfaser
       process_navigation:
         process_menu_item: Prosessen
