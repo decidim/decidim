@@ -1307,7 +1307,7 @@ fr-CA:
       follow_button:
         sign_in_before_follow: Veuillez vous connecter avant d'effectuer cette action
       login_modal:
-        close_modal: Fermer la fenêtre modale
+        close_modal: Fermer la fenêtre de dialogue
         please_sign_in: Veuillez vous connecter
         sign_up: S'inscrire
       participatory_space_filters:
