@@ -1235,7 +1235,7 @@ nl:
       follow_button:
         sign_in_before_follow: Log alstublieft aan voordat u deze actie uitvoert
       login_modal:
-        close_modal: Sluit venster
+        close_modal: Modal sluiten
         please_sign_in: Log in alstublieft
         sign_up: Registreren
       participatory_space_filters:
