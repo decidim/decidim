@@ -898,7 +898,6 @@ lv:
         label: 'Rezultāti vienā lapā'
         title: Izvēlieties rezultātu skaitu vienā lapā
       share_modal:
-        close_window: Aizvērt logu
         share: Kopīgot
         share_link: Kopīgot saiti
     statistics:
@@ -1093,11 +1092,9 @@ lv:
       footer:
         download_open_data: Lejupielādējiet atvērto datu failus
         made_with_open_source: Vietne, kas izveidota ar <a target="_blank" href="https://github.com/decidim/decidim"> bezmaksas programmatūru </a>.
-      header:
-        close_menu: Aizvērt izvēlni
-        navigation: Navigācija
-        sign_in: Ieiet
         sign_up: Reģistrēties
+      header:
+        sign_in: Ieiet
       impersonation_warning:
         close_session: Aizvērt sesiju
         description_html: Jūs pārvaldāt dalībnieku <b>%{user_name}</b>.
