@@ -617,10 +617,8 @@ ca:
       initiative_header:
         initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
-        back: Torna
         fill_personal_data: Completa les teves dades
         finish: Finalitzar
-        finished: Has signat la iniciativa correctament
         sms_code: Verificació per codi SMS
         sms_phone_number: Número de telèfon mòbil
         title: Signa %{initiative_title}
