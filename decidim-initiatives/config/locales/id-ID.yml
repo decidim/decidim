@@ -340,10 +340,8 @@ id:
       initiative_header:
         initiative_menu_item: Prakarsa
       initiative_signature_creation_header:
-        back: Kembali
         fill_personal_data: Lengkapi data Anda
         finish: Selesai
-        finished: Tanda tangan inisiatif dibuat
         sms_code: Verifikasi kode SMS
         sms_phone_number: Nomor ponsel
         title: Tanda %{initiative_title}
