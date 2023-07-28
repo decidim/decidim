@@ -420,10 +420,8 @@ zh-CN:
       initiative_header:
         initiative_menu_item: 倡议
       initiative_signature_creation_header:
-        back: 后退
         fill_personal_data: 完成您的数据
         finish: 完成
-        finished: 倡议签名已创建
         sms_code: 短信代码验证
         sms_phone_number: 手机号码
         title: 签名 %{initiative_title}
