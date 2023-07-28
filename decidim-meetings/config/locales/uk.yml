@@ -295,8 +295,6 @@ uk:
       highlighted_meetings:
         past_meetings: Минулі зустрічі
         upcoming_meetings: Прийдешні зустрічі
-      upcoming_meeting_for_card:
-        upcoming_meeting: Прийдешня зустріч
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Пов''язані підсумки:'
