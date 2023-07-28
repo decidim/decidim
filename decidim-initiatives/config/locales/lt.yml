@@ -553,10 +553,8 @@ lt:
       initiative_header:
         initiative_menu_item: Iniciatyva
       initiative_signature_creation_header:
-        back: Atgal
         fill_personal_data: Užpildyti savo duomenis
         finish: Baigti
-        finished: Iniciatyvos parašas sukurtas
         sms_code: SMS kodo tikrinimas
         sms_phone_number: Mobilaus telefono numeris
         title: Pasirašyti %{initiative_title}
