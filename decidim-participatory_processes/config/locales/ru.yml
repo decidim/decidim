@@ -356,6 +356,6 @@ ru:
           take_part: Принять участие
       process_header_steps:
         step: Шаг %{current} из %{total}
-        view_steps: Просмотреть шаги
+        view_steps: Шаги движения
       process_navigation:
         process_menu_item: Движение
