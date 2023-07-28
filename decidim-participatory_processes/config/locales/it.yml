@@ -329,7 +329,6 @@ it:
     participatory_process_steps:
       index:
         process_steps: Fasi del processo
-        title: Fasi del processo partecipativo
     participatory_processes:
       admin:
         content_blocks:
@@ -428,8 +427,5 @@ it:
           more_info_about: Maggiori informazioni sul processo %{resource_name}
           take_part: Partecipa
           take_part_in: Partecipa al processo %{resource_name}
-      process_header_steps:
-        step: Fase %{current} di %{total}
-        view_steps: Visualizza le fasi
       process_navigation:
         process_menu_item: Il processo
