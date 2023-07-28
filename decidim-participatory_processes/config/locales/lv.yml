@@ -423,5 +423,6 @@ lv:
           more_info: Sīkāka informācija
       process_header_steps:
         step: Fāze %{current} no %{total}
+        view_steps: Procesa fāzes
       process_navigation:
         process_menu_item: Process
