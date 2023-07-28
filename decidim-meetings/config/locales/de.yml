@@ -637,8 +637,6 @@ de:
         past_meetings: Vergangene Treffen
         see_all: Alle anzeigen (%{count})
         upcoming_meetings: Bevorstehende Treffen
-      upcoming_meeting_for_card:
-        upcoming_meeting: Kommendes Treffen
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Ähnliche Ergebnisse:'
