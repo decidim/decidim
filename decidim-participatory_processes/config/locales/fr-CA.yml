@@ -374,6 +374,7 @@ fr-CA:
         html_3:
           name: Bloc HTML 3
         metadata:
+          developer_group: Promu par
           name: Métadonnées
           participatory_scope: Objectifs
           participatory_structure: Modalités de décision
@@ -444,11 +445,13 @@ fr-CA:
       pages:
         home:
           highlighted_processes:
+            active_processes: Processus participatifs actifs
             active_step: Étape active
             more_information: Plus d'informations
             participate: Participer
             participate_in: Participer au processus %{resource_name}
             processes_button_title: Lien vers la page Concertation où toutes les concertations sont affichées
+            see_all_processes: Voir tous les processus participatifs
       participatory_process_steps:
         index:
           back_to_process: Retour à la page du processus
