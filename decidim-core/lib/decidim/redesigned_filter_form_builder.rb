@@ -35,7 +35,7 @@ module Decidim
       end
 
       @template.render(
-        "decidim/shared/filters/redesigned_#{type}",
+        "decidim/shared/filters/#{type}",
         **options.merge(
           method:,
           collection:,

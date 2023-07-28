@@ -13,6 +13,10 @@
     .form__wrapper {
       @apply pt-0;
     }
+
+    a {
+      @apply text-secondary underline font-semibold;
+    }
   }
 
   &__header {
@@ -234,6 +238,8 @@
   }
 
   &__actions {
+    @apply flex items-center gap-4;
+
     .button[aria-expanded="false"] {
       svg:first-of-type {
         @apply block;

@@ -19,8 +19,6 @@ module Decidim
 
     delegate :current_organization, to: :controller
 
-    delegate :redesigned_layout, :redesign_enabled?, to: :controller
-
     cache :show, if: :perform_caching?, expires_in: :cache_expiry_time do
       cache_hash
     end

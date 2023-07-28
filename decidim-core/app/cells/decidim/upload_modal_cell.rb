@@ -6,7 +6,6 @@ module Decidim
     include LayoutHelper
     include Cell::ViewModel::Partial
     include ERB::Util
-    include Decidim::RedesignHelper
     include Decidim::SanitizeHelper
 
     alias form model
@@ -18,6 +17,10 @@ module Decidim
     end
 
     private
+
+    def modal_open_key
+      redesign_enabled? ? "dialog-open" : "open"
+    end
 
     # REDESIGN_PENDING: Remove once redesign is done. This cell is called from
     # a form builder method and from there the context of controller is not
