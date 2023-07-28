@@ -633,8 +633,6 @@ el:
         past_meetings: Προηγούμενες συσκέψεις
         see_all: Δείτε όλες τις συναντήσεις (%{count})
         upcoming_meetings: Προσεχείς συσκέψεις
-      upcoming_meeting_for_card:
-        upcoming_meeting: Προσεχής σύσκεψη
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Σχετικά αποτελέσματα:'
