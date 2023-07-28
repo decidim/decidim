@@ -336,7 +336,7 @@ is:
       results_per_page:
         label: 'Niðurstöður á síðu:'
       share_modal:
-        close_window: Lokaðu glugga
+        close_window: Loka glugga
         share: Deila
         share_link: Deila tengil
     user_conversations:
