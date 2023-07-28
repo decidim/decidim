@@ -29,6 +29,7 @@ hu:
         password_confirmation: Jelszó megerősítése
         personal_url: Személyes URL
         remove_avatar: Avatár eltávolítása
+        tos_agreement: Felhasználási feltételek és megállapodások
     models:
       decidim/attachment_created_event: Melléklet
       decidim/component_published_event: Aktív elem
@@ -1266,7 +1267,7 @@ hu:
       follow_button:
         sign_in_before_follow: Kérlek, jelentkezz be ehhez a műveletethez
       login_modal:
-        close_modal: Felugró ablak bezárása
+        close_modal: Modal bezárása
         please_sign_in: Jelentkezz be
         sign_up: Regisztrálj
       participatory_space_filters:
