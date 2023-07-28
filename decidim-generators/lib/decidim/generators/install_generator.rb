@@ -158,7 +158,6 @@ module Decidim
 
           group :development do
             # Profiling gems
-            gem "bullet"
             gem "flamegraph"
             gem "memory_profiler"
             gem "rack-mini-profiler", require: false

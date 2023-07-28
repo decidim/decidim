@@ -18,6 +18,26 @@ on:
         description: 'The testing command to be ran'
         required: true
         type: string
+      bullet_enabled:
+        description: 'Enable bullet performance testing'
+        required: false
+        default: "false"
+        type: string
+      bullet_n_plus_one:
+        description: 'Enable bullet n+1 testing'
+        required: false
+        default: "false"
+        type: string
+      bullet_counter_cache:
+        description: 'Enable bullet counter cache testing'
+        required: false
+        default: "false"
+        type: string
+      bullet_unused_eager_loading:
+        description: 'Enable bullet unused eager loading testing'
+        required: false
+        default: "false"
+        type: string
 
 jobs:
   build_app:
@@ -89,6 +109,10 @@ jobs:
           RUBY_VERSION: ${{ inputs.ruby_version }}
           DECIDIM_MODULE: ${{ inputs.working-directory }}
           CODECOV_TOKEN: ${{ inputs.codecov_token }}
+          DECIDIM_BULLET_ENABLED: ${{ inputs.bullet_enabled }}
+          DECIDIM_BULLET_N_PLUS_ONE: ${{ inputs.bullet_n_plus_one }}
+          DECIDIM_BULLET_COUNTER_CACHE: ${{ inputs.bullet_counter_cache }}
+          DECIDIM_BULLET_UNUSED_EAGER: ${{ inputs.bullet_unused_eager_loading }}
           DISPLAY: ":99"
           CI: "true"
           SIMPLECOV: "true"
