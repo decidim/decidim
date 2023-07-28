@@ -332,7 +332,6 @@ el:
       started_at: Ξεκίνησε στις %{timestamp}
     authorization_modals:
       content:
-        close_modal: Κλείσιμο παραθύρου διαλόγου
         expired:
           authorize: Εκ νέου εξουσιοδότηση με «%{authorization}»
           explanation: Η εξουσιοδότησή σας έχει λήξει. Για να εκτελέσετε αυτήν την ενέργεια, απαιτείται εκ νέου εξουσιοδότηση με «%{authorization}».
@@ -1203,12 +1202,10 @@ el:
         spam: Περιέχει clickbait, διαφημίσεις, απάτες ή script bot.
         title: Αναφορά ακατάλληλου περιεχομένου
       floating_help:
-        close: Κλείσιμο βοήθειας
         help: Βοήθεια
       follow_button:
         sign_in_before_follow: Συνδεθείτε προτού εκτελέσετε αυτήν την ενέργεια
       login_modal:
-        close_modal: Κλείσιμο παραθύρου
         please_sign_in: Συνδεθείτε
         sign_up: Εγγραφή
       participatory_space_filters:
@@ -1224,7 +1221,6 @@ el:
         label: 'Αποτελέσματα ανά σελίδα:'
         title: Επιλέξτε αριθμό αποτελεσμάτων ανά σελίδα
       share_modal:
-        close_window: Κλείσιμο παραθύρου
         share: Κοινοποίηση
         share_link: Κοινοποίηση συνδέσμου
     statistics:
@@ -1427,11 +1423,9 @@ el:
         decidim_logo: Λογότυπο decidim
         download_open_data: Λήψη αρχείων Open Data
         made_with_open_source: Ο ιστότοπος δημιουργήθηκε με <a target="_blank" href="https://github.com/decidim/decidim">δωρεάν λογισμικό</a>.
-      header:
-        close_menu: Κλείσιμο μενού
-        navigation: Πλοήγηση
-        sign_in: Είσοδος
         sign_up: Εγγραφή
+      header:
+        sign_in: Είσοδος
       impersonation_warning:
         close_session: Κλείσιμο συνεδρίας
         description_html: Διαχειρίζεστε τον συμμετέχοντα <b>%{user_name}</b>.
