@@ -480,10 +480,8 @@ tr:
       initiative_header:
         initiative_menu_item: girişim
       initiative_signature_creation_header:
-        back: Geri
         fill_personal_data: Verilerinizi tamamlayın
         finish: Bitiş
-        finished: Girişim imzası oluşturuldu
         sms_code: SMS kodu doğrulama
         sms_phone_number: Cep telefonu numarası
         title: İşaret %{initiative_title}
