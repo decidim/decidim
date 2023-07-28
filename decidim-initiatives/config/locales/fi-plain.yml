@@ -617,10 +617,8 @@ fi-pl:
       initiative_header:
         initiative_menu_item: Aloite
       initiative_signature_creation_header:
-        back: Takaisin
         fill_personal_data: Täydennä tietosi
         finish: Viimeistele
-        finished: Allekirjoitus luotu aloitteelle
         sms_code: Tekstiviestikoodin vahvistaminen
         sms_phone_number: Matkapuhelimen numero
         title: Allekirjoita %{initiative_title}
