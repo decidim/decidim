@@ -479,6 +479,7 @@ es-PY:
             all: Todos
             citizens: Ciudadanos
             official: Oficial
+            user_groups: Grupos
           scope: Ámbito
           search: Buscar
           type: Tipo
@@ -530,8 +531,10 @@ es-PY:
           close_meeting: Cerrar encuentro
           contributions: Número de contribuciones
           date: Fecha
+          edit_close_meeting: Editar el informe del encuentro
           edit_meeting: Editar encuentro
           going: Te has inscrito en este encuentro
+          join: Unirse al encuentro
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
           link_available_soon: Enlace disponible próximamente
@@ -647,7 +650,7 @@ es-PY:
         see_all: Ver todo (%{count})
         upcoming_meetings: Próximos encuentros
       upcoming_meeting_for_card:
-        upcoming_meeting: Próxima reunion
+        upcoming_meeting: Próximo encuentro
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'
