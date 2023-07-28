@@ -888,7 +888,6 @@ sk:
         label: 'Výsledky na stránku:'
         title: Vyberte počet výsledkov na stránku
       share_modal:
-        close_window: Zátvor okno
         share: Zdieľať
         share_link: Zdieľať odkaz
     statistics:
@@ -1065,11 +1064,9 @@ sk:
       footer:
         download_open_data: Stiahnite si súbory s otvorenými dátami
         made_with_open_source: Webová stránka vytvorená s <a target="_blank" href="https://github.com/decidim/decidim"> slobodným softvérom </a>.
-      header:
-        close_menu: Zatvoriť ponuku
-        navigation: Navigácia
-        sign_in: Prihlásiť sa
         sign_up: Registrovať
+      header:
+        sign_in: Prihlásiť sa
       impersonation_warning:
         close_session: Zatvoriť sedenie
         description_html: Spravujete účastníka <b>%{user_name} </ b>.
