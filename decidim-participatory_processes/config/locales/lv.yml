@@ -297,7 +297,6 @@ lv:
     participatory_process_steps:
       index:
         process_steps: Procesa fāzes
-        title: Līdzdalības procesa fāzes
     participatory_processes:
       admin:
         content_blocks:
@@ -376,7 +375,5 @@ lv:
           active_step: 'Pašreizējā fāze:'
           more_info: Sīkāka informācija
           take_part: Piedalīties
-      process_header_steps:
-        step: Fāze %{current} no %{total}
       process_navigation:
         process_menu_item: Process
