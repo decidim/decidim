@@ -1253,7 +1253,7 @@ it:
       follow_button:
         sign_in_before_follow: Accedi prima di eseguire questa azione
       login_modal:
-        close_modal: Chiudi modalità
+        close_modal: Chiudi modale
         please_sign_in: Per cortesia, effettua l'accesso
         sign_up: Registrazione
       participatory_space_filters:
@@ -1271,7 +1271,7 @@ it:
         label: 'Risultati per pagina:'
         title: Seleziona il numero di risultati per pagina
       share_modal:
-        close_window: Chiudi questa finestra
+        close_window: Chiudere finestra
         copy_share_link: Copia
         copy_share_link_clarification: Copia il link di condivisione negli appunti
         copy_share_link_copied: Copiato!
