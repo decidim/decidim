@@ -334,8 +334,6 @@ en:
         rejected: Not enough signatures
         validating: Technical validation
       application_helper:
-        filter_area_values:
-          all: All
         filter_state_values:
           accepted: Enough signatures
           all: All
@@ -621,10 +619,8 @@ en:
       initiative_header:
         initiative_menu_item: Initiative
       initiative_signature_creation_header:
-        back: Back
         fill_personal_data: Complete your data
         finish: Finish
-        finished: Initiative signature created
         sms_code: SMS code verification
         sms_phone_number: Mobile phone number
         title: Sign %{initiative_title}

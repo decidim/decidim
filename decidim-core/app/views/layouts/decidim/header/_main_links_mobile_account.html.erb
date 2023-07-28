@@ -1,0 +1,32 @@
+<div id="dropdown-menu-account-mobile" class="main-bar__links-mobile__account" aria-hidden="true">
+  <div class="main-bar">
+    <div class="main-bar__logo">
+      <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+    </div>
+
+    <div>
+      <div class="main-bar__links-mobile__trigger" onclick="document.querySelector('#dropdown-trigger-links-mobile').click();">
+        <%= icon "close-line" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-4 container">
+    <% if current_user.avatar.attached? %>
+      <div class="main-bar__avatar">
+        <%= image_tag(
+                current_user.attached_uploader(:avatar).path(variant: :thumb),
+                alt: t("decidim.author.avatar", name: decidim_sanitize(current_user.avatar.name))
+              ) %>
+      </div>
+    <% else %>
+      <%= icon "user-smile-line", class: "main-bar__avatar" %>
+    <% end %>
+
+    <p class="h3 mt-2"><%= t("decidim.block_user_mailer.notify.hello") %>&nbsp;<%= current_user.name %></p>
+
+    <ul>
+      <%= render partial: "layouts/decidim/header/main_links_dropdown" %>
+    </ul>
+  </div>
+</div>

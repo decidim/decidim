@@ -18,10 +18,6 @@ module Decidim
         def assemblies_selected
           @assemblies_selected ||= current_conference.linked_participatory_space_resources(:assemblies, "included_assemblies").pluck(:id) if current_conference.present?
         end
-
-        def consultations_selected
-          @consultations_selected ||= current_conference.linked_participatory_space_resources("Consultations", "included_consultations").pluck(:id) if current_conference.present?
-        end
       end
     end
   end

@@ -23,8 +23,8 @@ describe "Sorting elections", type: :system do
         expect(page).to have_selector("div.order-by a", text: "Recent")
       end
 
-      expect(page).to have_selector("#elections .card-grid .column:first-child", text: translated(election1.title))
-      expect(page).to have_selector("#elections .card-grid .column:last-child", text: translated(election2.title))
+      expect(page).to have_selector("[id='elections__election_#{election1.id}']:first-child", text: translated(election1.title))
+      expect(page).to have_selector("[id='elections__election_#{election2.id}']:last-child", text: translated(election2.title))
     end
   end
 
@@ -37,8 +37,8 @@ describe "Sorting elections", type: :system do
         click_link "Older"
       end
 
-      expect(page).to have_selector("#elections .card-grid .column:first-child", text: translated(election2.title))
-      expect(page).to have_selector("#elections .card-grid .column:last-child", text: translated(election1.title))
+      expect(page).to have_selector("[id='elections__election_#{election2.id}']:first-child", text: translated(election2.title))
+      expect(page).to have_selector("[id='elections__election_#{election1.id}']:last-child", text: translated(election1.title))
     end
   end
 end

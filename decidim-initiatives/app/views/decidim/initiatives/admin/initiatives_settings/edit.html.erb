@@ -1,3 +1,5 @@
+<% add_decidim_page_title(t("decidim.initiatives.admin.initiatives_settings.form.title")) %>
+
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, html: { class: "form form-defaults edit_initiatives_settings" }, url: initiatives_setting_path, method: :put) do |f| %>

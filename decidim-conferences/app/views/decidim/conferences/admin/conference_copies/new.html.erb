@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t("conference_copies.new.title", scope: "decidim.admin")) %>
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: conference_copies_path(current_conference), method: :post, html: { class: "form form-defaults copy_conference" }) do |f| %>

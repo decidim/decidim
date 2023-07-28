@@ -5,8 +5,6 @@ module Decidim
     # A controller that holds the logic to show votings in a
     # public layout.
     class VotingsController < Decidim::Votings::ApplicationController
-      layout "layouts/decidim/voting_landing", only: :show
-
       include FormFactory
       include ParticipatorySpaceContext
       include NeedsVoting
@@ -14,6 +12,8 @@ module Decidim
       include Paginable
       include Decidim::Votings::Orderable
       include Decidim::Elections::HasVoteFlow
+
+      participatory_space_layout only: [:show]
 
       helper_method :published_votings, :paginated_votings, :filter, :promoted_votings, :only_finished_votings?, :landing_content_blocks, :census_contact_information
 
@@ -43,8 +43,7 @@ module Decidim
       def login
         @form = form(Census::LoginForm).from_params(params, election:)
 
-        render :login,
-               layout: "decidim/election_votes"
+        render :login
       end
 
       def show_check_census
@@ -102,7 +101,7 @@ module Decidim
       end
 
       def election
-        @election ||= Decidim::Elections::Election.find(params[:election_id])
+        @election ||= Decidim::Elections::Election.where(component: current_participatory_space.components).find(params[:election_id])
       end
 
       def elections

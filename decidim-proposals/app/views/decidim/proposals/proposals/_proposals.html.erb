@@ -22,6 +22,6 @@
   <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
     <%= link_to t("decidim.proposals.proposals.index.see_all"), proposals_path("filter[with_availability]" => nil), class: "button button__sm button__text-secondary" %>
   <% else %>
-    <%= link_to t("decidim.proposals.proposals.index.see_all_withdrawn"), proposals_path(filter: { with_availability: "withdrawn", state: [""] }), class: "button button__sm button__text-secondary" %>
+    <%= link_to t("decidim.proposals.proposals.index.see_all_withdrawn"), proposals_path(filter: { with_availability: "withdrawn", with_any_state: [] }), class: "button button__sm button__text-secondary" %>
   <% end %>
 </div>

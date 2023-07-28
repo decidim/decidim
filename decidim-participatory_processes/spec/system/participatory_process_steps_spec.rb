@@ -15,8 +15,6 @@ describe "Participatory Process Steps", type: :system do
   end
 
   before do
-    skip "REDESIGN_PENDING - Deprecated: Those tests, associated views, controllers and paths should be removed after fully enabling redesign. Equivalent test should be added to the content block which implements this feature"
-
     switch_to_host(organization.host)
   end
 
@@ -31,14 +29,14 @@ describe "Participatory Process Steps", type: :system do
 
     it_behaves_like "accessible page" do
       before do
-        visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
+        visit decidim_participatory_processes.participatory_process_path(participatory_process, display_steps: true)
       end
     end
 
     it "lists all the steps" do
-      visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
+      visit decidim_participatory_processes.participatory_process_path(participatory_process, display_steps: true)
 
-      expect(page).to have_css(".timeline__item", count: 3)
+      expect(page).to have_css(".participatory-space__metadata-modal__step", count: 3)
       steps.each do |step|
         expect(page).to have_content(/#{translated(step.title)}/i)
       end

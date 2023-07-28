@@ -51,7 +51,7 @@ describe "Check Census", type: :system do
   context "when census data is correct" do
     before do
       visit decidim_votings.voting_check_census_path(voting)
-      within ".card__content" do
+      within "[data-content]" do
         select("DNI", from: "Document type")
         fill_in "Document number", with: "12345678X"
         fill_in "Postal code", with: "04001"
@@ -63,15 +63,15 @@ describe "Check Census", type: :system do
     end
 
     it "shows note that census data is correct" do
-      within ".wrapper" do
+      within "[data-announcement]" do
         expect(page).to have_content("Your census data is correct")
         expect(page).not_to have_content("Fill the following form to check your census data:")
       end
     end
 
     it "shows instructions to ask for access code again, mentioning email and SMS" do
-      within ".wrapper" do
-        expect(page).to have_content("You should have received your Access Code by postal mail already. In case, you do not have it, you can request it here via SMS or email")
+      within "[data-announcement]" do
+        expect(page).to have_content("You should have received your Access Code by postal mail already. In case, you do not have it, you can request it here\nvia SMS or email")
       end
     end
   end
@@ -81,7 +81,7 @@ describe "Check Census", type: :system do
       Decidim.sms_gateway_service = "FooBar"
 
       visit decidim_votings.voting_check_census_path(voting)
-      within ".card__content" do
+      within "[data-content]" do
         select("DNI", from: "Document type")
         fill_in "Document number", with: "12345678X"
         fill_in "Postal code", with: "04001"
@@ -97,8 +97,8 @@ describe "Check Census", type: :system do
     end
 
     it "shows instructions to ask for access code again, mentioning only email" do
-      within ".wrapper" do
-        expect(page).to have_content("You should have received your Access Code by postal mail already. In case, you do not have it, you can request it here via email")
+      within "[data-announcement]" do
+        expect(page).to have_content("You should have received your Access Code by postal mail already. In case, you do not have it, you can request it here\nvia email")
       end
     end
   end
@@ -106,7 +106,7 @@ describe "Check Census", type: :system do
   describe "when asking for access code" do
     before do
       visit decidim_votings.voting_check_census_path(voting)
-      within ".card__content" do
+      within "[data-content]" do
         select("DNI", from: "Document type")
         fill_in "Document number", with: "12345678X"
         fill_in "Postal code", with: "04001"
@@ -125,9 +125,9 @@ describe "Check Census", type: :system do
 
         click_button "Send by email to ****@example.com"
 
-        callout = find(:xpath, '//*[@id="content"]/div[1]')
-
-        expect(callout).to have_content("successfully")
+        within "[data-alert-box]" do
+          expect(page).to have_content("successfully")
+        end
       end
     end
 
@@ -139,9 +139,9 @@ describe "Check Census", type: :system do
 
         click_button "Send by SMS"
 
-        callout = find(:xpath, '//*[@id="content"]/div[1]')
-
-        expect(callout).to have_content("successfully")
+        within "[data-alert-box]" do
+          expect(page).to have_content("successfully")
+        end
       end
     end
 
@@ -153,7 +153,7 @@ describe "Check Census", type: :system do
 
         expect(page).to have_content("Get Access Code")
 
-        expect(page).to have_button("No phone number available")
+        expect(page).to have_button("No phone number available", disabled: true)
       end
     end
   end
@@ -161,7 +161,7 @@ describe "Check Census", type: :system do
   context "when no census data is found" do
     before do
       visit decidim_votings.voting_check_census_path(voting)
-      within ".card__content" do
+      within "[data-content]" do
         select("DNI", from: "Document type")
         fill_in "Document number", with: "987654321X"
         fill_in "Postal code", with: "04004"
@@ -173,14 +173,14 @@ describe "Check Census", type: :system do
     end
 
     it "shows note that census data is not correct" do
-      within ".wrapper" do
+      within "[data-announcement]" do
         expect(page).to have_content("The data you have entered are not in the census for this vote")
-        expect(page).to have_content("Fill the following form to check your census data:")
       end
+      expect(page).to have_content("Fill the following form to check your census data:")
     end
 
     it "shows contact information to edit census data if wrong" do
-      within ".wrapper" do
+      within "[data-announcement]" do
         expect(page).to have_content("census_help@example.com")
       end
     end
@@ -190,7 +190,7 @@ describe "Check Census", type: :system do
     before do
       visit decidim_votings.voting_check_census_path(voting)
       6.times do
-        within ".card__content" do
+        within "[data-content]" do
           select("DNI", from: "Document type")
           fill_in "Document number", with: "987654321X"
           fill_in "Postal code", with: "04004"

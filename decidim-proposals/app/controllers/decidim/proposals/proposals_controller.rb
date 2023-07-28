@@ -25,8 +25,6 @@ module Decidim
 
       before_action :set_participatory_text
 
-      redesign active: true
-
       # rubocop:disable Naming/VariableNumber
       STEP1 = :step_1
       STEP2 = :step_2

@@ -14,9 +14,11 @@
     <% end %>
   <% end %>
 </div>
-<div class="meeting-list__block-map">
-  <%= cell "decidim/meetings/meetings_map", collection %>
-</div>
+<% if show_map? %>
+  <div class="meeting-list__block-map">
+    <%= cell "decidim/meetings/meetings_map", collection %>
+  </div>
+<% end %>
 <div class="meeting-list__block-list">
   <% if show_calendar? %>
     <div class="meeting-list__block-list-aside">

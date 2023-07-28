@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t(".title")) %>
 <%= form_for(@form, url: projects_import_index_path(@accountability), html: { class: "form import_projects" }) do |f| %>
   <% if @form.origin_components.any? %>
     <div class="card">

@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t("participatory_process_groups.new.title", scope: "decidim.admin")) %>
 <% content_for :breadcrumb_context_menu do %>
   <div class="process-title-content-breadcrumb-container-right">
     <% if allowed_to? :create, :process_group %>

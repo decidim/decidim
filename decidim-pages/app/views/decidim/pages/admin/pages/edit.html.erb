@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t(".title")) %>
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: page_path, method: :post, html: { class: "form-defaults form edit_page" }) do |form| %>

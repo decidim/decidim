@@ -1,4 +1,4 @@
-<section <%= "style=\"background-image:url('#{image_path}');\"" if image_path.present? %> data-process-hero>
+<section id="hero-<%= resource&.id %>" <%= "style=\"background-image:url('#{image_path}');\"" if image_path.present? %> data-process-hero>
   <div class="participatory-space__hero">
     <div class="participatory-space__hero-text">
       <h1 class="h1 text-5xl">
