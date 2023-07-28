@@ -1012,12 +1012,10 @@ tr:
         spam: Tıklama tuzağı, reklam, dolandırıcılık veya komut dosyası botları içerir.
         title: Uygunsuz Kullanıcıyı bildirin
       floating_help:
-        close: Yardımı Kapat
         help: yardım et
       follow_button:
         sign_in_before_follow: Bu eylemi gerçekleştirmeden önce lütfen giriş yapın
       login_modal:
-        close_modal: Pencereyi kapat
         please_sign_in: Lütfen giriş yapın
         sign_up: kaydol
       participatory_space_filters:
@@ -1033,7 +1031,6 @@ tr:
         label: 'Sayfa başına sonuç:'
         title: Sayfa başına sonuç sayısını seçin
       share_modal:
-        close_window: Pencereyi kapat
         share: Pay
         share_link: Linki paylaş
     statistics:
@@ -1248,11 +1245,9 @@ tr:
         decidim_logo: Decidim Logo
         download_open_data: Açık Veri dosyalarını indir
         made_with_open_source: Web sitesi <a target="_blank" href="https://github.com/decidim/decidim">ücretsiz yazılımla yapılmıştır</a>.
-      header:
-        close_menu: Menüyü kapat
-        navigation: navigasyon
-        sign_in: Oturum aç
         sign_up: Kaydol
+      header:
+        sign_in: Oturum aç
       impersonation_warning:
         close_session: Oturumu kapat
         description_html: Kullanıcının kimliğine bürünüyorsunuz <b>%{user_name}</b>.
