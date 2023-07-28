@@ -350,8 +350,6 @@ sk:
         past_meetings: Minulé schôdze
         see_all: Zobraziť všetky (%{count})
         upcoming_meetings: Nadchádzajúce schôdzky
-      upcoming_meeting_for_card:
-        upcoming_meeting: Nadchádzajúce schôdzka
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Súvisiace výsledky:'
