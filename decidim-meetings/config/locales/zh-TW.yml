@@ -627,8 +627,6 @@ zh-TW:
         past_meetings: 過去的會議
         see_all: 檢視所有會議 (%{count})
         upcoming_meetings: 即將到來的會議
-      upcoming_meeting_for_card:
-        upcoming_meeting: 即將到來的會議
     resource_links:
       meetings_through_proposals:
         meeting_result: '相關結果：'
