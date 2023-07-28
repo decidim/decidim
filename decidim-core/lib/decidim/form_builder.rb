@@ -97,6 +97,7 @@ module Decidim
     def password_field(attribute, options = {})
       field attribute, options do |opts|
         opts[:autocomplete] ||= :off
+        opts[:class] ||= "input-group-field"
         method(__method__).super_method.super_method.call(attribute, opts)
       end
     end

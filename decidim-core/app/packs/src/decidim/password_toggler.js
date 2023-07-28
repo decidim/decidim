@@ -1,4 +1,4 @@
-import icon from "src/decidim/icon"
+import icon from "src/decidim/redesigned_icon"
 
 export default class PasswordToggler {
   constructor($password, $confirmation) {
@@ -14,7 +14,7 @@ export default class PasswordToggler {
       shownPassword: this.$password.data("shownPassword") || "Your password is shown"
     }
     this.icons = {
-      show: icon("eye", {title: this.texts.showPassword})
+      show: icon("eye-fill", {title: this.texts.showPassword})
     }
   }
 
@@ -45,16 +45,15 @@ export default class PasswordToggler {
 
   createControls() {
     this.$button = $(`<button type="button"
+                            class="mt-3"
                             aria-controls="${this.$input.attr("id")}"
                             aria-label="${this.texts.showPassword}">${this.icons.show}</button>`);
-    this.$buttonGroup = $('<span class="input-group"/>');
-    this.$statusText = $(`<span class="show-for-sr" aria-live="polite">${this.texts.hiddenPassword}</span>`);
+    this.$statusText = $(`<span class="sr-only" aria-live="polite">${this.texts.hiddenPassword}</span>`);
     // ensure error message is handled by foundation abide
     this.$input.next(".form-error").attr("data-form-error-for", this.$input.attr("id"));
-    this.$buttonGroup.html(this.$button);
-    this.$input.wrap('<span class="input-inline-group"/>').
+    this.$input.wrap('<div class="filter-search filter-container"/>').
       after(this.$statusText).
-      after(this.$buttonGroup);
+      after(this.$button);
     this.$inputGroup = this.$input.parent();
   }
 

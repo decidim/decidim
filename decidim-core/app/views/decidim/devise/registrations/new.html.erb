@@ -39,7 +39,7 @@
 
       <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
 
-      <%= f.password_field :password, password_field_options_for(:user) %>
+      <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
     </div>
 
     <div id="card__tos" class="form__wrapper-block">
