@@ -1072,6 +1072,7 @@ bg:
       follow_button:
         sign_in_before_follow: Моля влезте, преди да извършите това действие
       login_modal:
+        close_modal: Затвори прозорчето
         please_sign_in: Моля, влезте
         sign_up: Регистрация
       participatory_space_filters:
