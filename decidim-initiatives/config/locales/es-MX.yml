@@ -617,10 +617,8 @@ es-MX:
       initiative_header:
         initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
-        back: Espalda
         fill_personal_data: Completa tus datos
         finish: Terminar
-        finished: Firma de iniciativa creada
         sms_code: Verificación de código SMS
         sms_phone_number: Número de teléfono móvil
         title: Signo %{initiative_title}
