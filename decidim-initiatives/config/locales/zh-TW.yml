@@ -590,10 +590,8 @@ zh-TW:
       initiative_header:
         initiative_menu_item: 倡議
       initiative_signature_creation_header:
-        back: 返回
         fill_personal_data: 填寫您的資料
         finish: 完成
-        finished: 倡議簽名已創建
         sms_code: SMS短訊代碼驗證碼
         sms_phone_number: 行動電話號碼
         title: 簽名 %{initiative_title}
