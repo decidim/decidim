@@ -96,6 +96,7 @@ fr-CA:
           invalid: Une erreur s'est produite lors de la fermeture du débat.
           success: Débat clos avec succès.
         close_debate_modal:
+          cancel: Annuler
           description: Quel est le résumé ou la conclusion de ce débat?
           send: Clore le débat
         closed: Fermé
@@ -127,6 +128,7 @@ fr-CA:
           state_values:
             closed: Fermé
             open: Ouvert
+          user_group: Groupes
         form:
           select_a_category: Veuillez sélectionner une catégorie
         index:
@@ -160,8 +162,10 @@ fr-CA:
       models:
         debate:
           fields:
+            end: Fin
             end_time: Date de fin
             official_debate: Débat officiel
+            start: Début
             start_time: Date de début
             title: Titre
     events:
