@@ -415,7 +415,6 @@ es-PY:
       started_at: Comenzó el %{timestamp}
     authorization_modals:
       content:
-        close_modal: Cerrar la ventana
         expired:
           authorize: Volver a autorizar con "%{authorization}"
           explanation: Tu autorización ha expirado. Para realizar esta acción, debe volver a obtener la autorización con "%{authorization}".
@@ -1483,12 +1482,10 @@ es-PY:
         spam: Contiene clickbait, publicidad, estafas o robots de guión.
         title: Reportar usuaria inapropiada
       floating_help:
-        close: Cerrar la ayuda
         help: Ayuda
       follow_button:
         sign_in_before_follow: Inicia sesión antes de realizar esta acción
       login_modal:
-        close_modal: Cerrar el modal
         please_sign_in: Por favor, regístrate
         sign_up: Regístrate
       mentions_modal:
@@ -1501,9 +1498,6 @@ es-PY:
           select_an_area: Seleccione un area
       public_participation:
         public_participation: Mostrar mi asistencia públicamente
-      redesigned_login_modal:
-        please_sign_in: Por favor, inicia la sesión
-        sign_up: Registrarse
       reference:
         reference: 'Referencia: %{reference}'
       represent_user_group:
@@ -1513,7 +1507,6 @@ es-PY:
         label: 'Resultados por página:'
         title: Seleccionar el número de resultados por página
       share_modal:
-        close_window: Cerrar ventana
         copy_share_link: Copia
         copy_share_link_clarification: Copiar al portapapeles el enlace para compartir
         copy_share_link_copied: '¡Copiado!'
@@ -1918,11 +1911,8 @@ es-PY:
         sign_up: Regístrate
         terms_and_conditions: Términos y condiciones
       header:
-        close_menu: Cerrar menú
         main_menu: Menú principal
-        navigation: Navegación
         sign_in: Entra
-        sign_up: Regístrate
         user_menu: Menú de usuario
       impersonation_warning:
         close_session: Cerrar la sesión
