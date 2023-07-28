@@ -96,6 +96,7 @@ fi-pl:
           invalid: Keskustelun sulkeminen epäonnistui.
           success: Keskustelun sulkeminen onnistui.
         close_debate_modal:
+          cancel: Peruuta
           description: Mitkä olivat keskustelussa syntyneet johtopäätökset lyhyesti kerrottuna?
           send: Sulje keskustelu
         closed: Suljettu
@@ -127,6 +128,7 @@ fi-pl:
           state_values:
             closed: Suljetut
             open: Avoimet
+          user_group: Ryhmät
         form:
           select_a_category: Valitse aihepiiri
         index:
@@ -160,8 +162,10 @@ fi-pl:
       models:
         debate:
           fields:
+            end: Päättymisaika
             end_time: Päättymispäivä
             official_debate: Virallinen keskustelu
+            start: Alkamisaika
             start_time: Alkamispäivä
             title: Otsikko
     events:
