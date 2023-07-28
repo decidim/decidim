@@ -348,7 +348,6 @@ sv:
     participatory_process_steps:
       index:
         process_steps: Steg i dialogen
-        title: Steg i dialogen
     participatory_processes:
       admin:
         content_blocks:
@@ -446,8 +445,5 @@ sv:
           more_info_about: Mer information om processen %{resource_name}
           take_part: Delta
           take_part_in: Delta i dialogen %{resource_name}
-      process_header_steps:
-        step: Steg %{current} av %{total}
-        view_steps: Visa steg
       process_navigation:
         process_menu_item: Presentation
