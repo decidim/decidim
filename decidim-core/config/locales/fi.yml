@@ -415,7 +415,6 @@ fi:
       started_at: Aloitettu %{timestamp}
     authorization_modals:
       content:
-        close_modal: Sulje ikkuna
         expired:
           authorize: Vahvista uudestaan palvelulla "%{authorization}"
           explanation: Vahvistuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on vahvistettava itsesi uudestaan palvelulla "%{authorization}".
@@ -1482,12 +1481,10 @@ fi:
         spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
         title: Ilmoita asiaton käyttäjä
       floating_help:
-        close: Sulje ohjeet
         help: Ohjeet
       follow_button:
         sign_in_before_follow: Kirjaudu sisään ennen tämän toiminnon suorittamista
       login_modal:
-        close_modal: Sulje ikkuna
         please_sign_in: Kirjaudu sisään
         sign_up: Rekisteröidy
       mentions_modal:
@@ -1500,9 +1497,6 @@ fi:
           select_an_area: Valitse alue
       public_participation:
         public_participation: Näytä läsnäoloni julkisesti
-      redesigned_login_modal:
-        please_sign_in: Kirjaudu sisään
-        sign_up: Rekisteröidy
       reference:
         reference: 'Viite: %{reference}'
       represent_user_group:
@@ -1512,7 +1506,6 @@ fi:
         label: 'Tulosten määrä sivulla:'
         title: Valitse tulosten määrä sivua kohti
       share_modal:
-        close_window: Sulje ikkuna
         copy_share_link: Kopio
         copy_share_link_clarification: Kopioi jakolinkki leikepöydälle
         copy_share_link_copied: Kopioitu!
@@ -1918,11 +1911,8 @@ fi:
         sign_up: Luo oma käyttäjätili
         terms_and_conditions: Käyttöehdot
       header:
-        close_menu: Sulje valikko
         main_menu: Päävalikko
-        navigation: Navigaatio
         sign_in: Kirjaudu sisään
-        sign_up: Rekisteröidy
         user_menu: Käyttäjän valikko
       impersonation_warning:
         close_session: Sulje istunto
