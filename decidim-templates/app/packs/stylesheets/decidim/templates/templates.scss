@@ -1,14 +1,5 @@
 .questionnaire-template-preview {
-  margin: 2rem;
-  padding: 1rem;
-
   .card {
-    width: 75%;
-    margin: auto;
-    border: none;
+    @apply w-full m-auto border-0;
   }
-}
-
-.choose-template-preview {
-  min-height: 10rem;
 }

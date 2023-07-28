@@ -1,20 +1,16 @@
 <% columns = @preview_form.responses.map(&:question).any?(&:matrix?) ? 9 : 6 %>
 
 <div class="row columns">
-  <h3 class="section-heading"><%= translated_attribute questionnaire.title %></h3>
-  <div class="row">
-    <div class="columns large-<%= columns %> medium-centered lead">
-      <%= decidim_sanitize translated_attribute questionnaire.description %>
-    </div>
-  </div>
+  <h3 class="h3 decorator"><%= translated_attribute questionnaire.title %></h3>
+  <%= decidim_sanitize translated_attribute questionnaire.description %>
 </div>
 
 <div class="row">
-  <div class="columns large-<%= columns %> medium-centered">
+  <div class="columns">
     <div class="card">
       <div class="card__content">
-        <div class="answer-questionnaire">
-          <%= decidim_form_for(@preview_form, url: "", method: :post, html: { class: "form answer-questionnaire" }, data: { "safe-path" => "" }) do |form| %>
+        <div class="answer-questionnaire form__wrapper">
+          <%= decidim_form_for(@preview_form, url: "", method: :post, html: { class: "form form-defaults answer-questionnaire" }, data: { "safe-path" => "" }) do |form| %>
             <%= invisible_captcha %>
             <% answer_idx = 0 %>
             <% cleaned_answer_idx = 0 %>
@@ -27,7 +23,7 @@
                 <% end %>
 
                 <% step_answers.each do |answer| %>
-                  <div class="row column answer" data-max-choices="<%= answer.question.max_choices %>">
+                  <div class="mb-4 answer" data-max-choices="<%= answer.question.max_choices %>">
                     <%= fields_for "questionnaire[responses][#{answer_idx}]", answer do |answer_form| %>
                       <%= render(
                         "decidim/forms/questionnaires/answer",
