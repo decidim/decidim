@@ -905,7 +905,6 @@ bg:
         label: 'Резултати на страница:'
         title: Изберете брой резултати на страница
       share_modal:
-        close_window: Затвори прозореца
         share: Сподели
         share_link: Сподели връзка
     statistics:
@@ -1101,11 +1100,9 @@ bg:
       footer:
         download_open_data: Изтеглете файлове с отворени данни
         made_with_open_source: Уебсайта работи със <a target="_blank" href="https://github.com/decidim/decidim">свободен софтуер</a>.
-      header:
-        close_menu: Затвори менюто
-        navigation: Навигация
-        sign_in: Влизане
         sign_up: Регистрация
+      header:
+        sign_in: Влизане
       impersonation_warning:
         close_session: Затвори сесия
         description_html: Вие управлявате участника <b>%{user_name}</b>.
