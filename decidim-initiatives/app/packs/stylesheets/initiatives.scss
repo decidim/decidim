@@ -101,8 +101,7 @@
     @apply md:px-6 md:pb-6 w-full;
 
     .layout-aside__section {
-      .profile__user-nick,
-      .profile__user-role {
+      .profile__user-nick {
         @apply hidden;
       }
 
