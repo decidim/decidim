@@ -352,10 +352,8 @@ gl:
       initiative_header:
         initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
-        back: De volta
         fill_personal_data: Completa os teus datos
         finish: Finalizar
-        finished: Creouse a sinatura da iniciativa
         sms_code: Verificación do código SMS
         sms_phone_number: Número de teléfono
         title: Rexistrar %{initiative_title}
