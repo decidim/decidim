@@ -664,8 +664,6 @@ cs:
         past_meetings: Minulé schůze
         see_all: Zobrazit všechny (%{count})
         upcoming_meetings: Nadcházející schůzky
-      upcoming_meeting_for_card:
-        upcoming_meeting: Nadcházející schůzka
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Související výsledky:'
