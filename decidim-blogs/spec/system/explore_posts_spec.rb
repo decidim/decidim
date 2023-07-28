@@ -17,7 +17,7 @@ describe "Explore posts", type: :system do
 
     before do
       create(:comment, commentable: old_post)
-      create(:endorsement, resource: old_post, author: build(:user, organization: old_post.participatory_space.organization))
+      create(:endorsement, resource: old_post, author: build(:user, :confirmed, organization: old_post.participatory_space.organization))
 
       visit_component
     end
