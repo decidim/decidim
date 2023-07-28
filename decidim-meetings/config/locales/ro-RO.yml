@@ -592,8 +592,6 @@ ro:
         past_meetings: Întâlniri anterioare
         see_all: Afișează toate întâlnirile (%{count})
         upcoming_meetings: Întâlniri viitoare
-      upcoming_meeting_for_card:
-        upcoming_meeting: Întâlnire viitoare
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Rezultate asociate:'
