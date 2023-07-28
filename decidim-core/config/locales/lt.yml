@@ -1208,12 +1208,10 @@ lt:
         spam: Pateikiamoje informacijoje yra reklamos, antraščių mąsalo ar apgavysčių.
         title: Pranešti apie netinkamą turinį
       floating_help:
-        close: Uždaryti pagalbos langą
         help: Pagalba
       follow_button:
         sign_in_before_follow: Prašome prisijunkite norėdami atlikti šį veiksmą
       login_modal:
-        close_modal: Uždaryti modalinį langą
         please_sign_in: Prašome prisijungti
         sign_up: Užsiregistruoti
       mentions_modal:
@@ -1233,7 +1231,6 @@ lt:
         label: 'Rezultatų skaičius puslapyje:'
         title: Pasirinkti rezultatų skaičių puslapyje
       share_modal:
-        close_window: Uždaryti langą
         copy_share_link: Kopijuoti
         copy_share_link_clarification: Kopijuoti nuorodą į iškarpinę
         copy_share_link_copied: Nukopijuota!
@@ -1519,12 +1516,10 @@ lt:
         decidim_logo: '„Decidim“ logotipas'
         download_open_data: Parsisiųsti atvirųjų duomenų rinkmenas
         made_with_open_source: Interneto svetainė sukurta naudojant <a target="_blank" href="https://github.com/decidim/decidim">atvirą programinę įrangą</a>.
-      header:
-        close_menu: Uždaryti meniu
-        main_menu: Pagrindinis meniu
-        navigation: Naršymas
-        sign_in: Prisijungti
         sign_up: Registruotis
+      header:
+        main_menu: Pagrindinis meniu
+        sign_in: Prisijungti
         user_menu: Naudotojo meniu
       impersonation_warning:
         close_session: Uždaryti seansą
