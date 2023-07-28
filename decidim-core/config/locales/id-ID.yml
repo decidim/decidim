@@ -756,7 +756,6 @@ id:
       results_per_page:
         label: 'Hasil per halaman:'
       share_modal:
-        close_window: Tutup jendela
         share: Bagikan
         share_link: Membagikan tautan
     statistics:
@@ -915,11 +914,9 @@ id:
       footer:
         download_open_data: Unduh file Open Data
         made_with_open_source: Situs web dibuat dengan <a target="_blank" href="https://github.com/decidim/decidim">perangkat lunak gratis</a>.
-      header:
-        close_menu: Tutup menu
-        navigation: Navigasi
-        sign_in: Masuk
         sign_up: Daftar
+      header:
+        sign_in: Masuk
       impersonation_warning:
         close_session: Tutup sesi
         description_html: Anda meniru identitas pengguna <b>%{user_name}</b>.
