@@ -23,16 +23,72 @@ bin/rails db:migrate
 
 ### 1.3. Follow the steps and commands detailed in these notes
 
-#### 1.3.1 Configuration parameter change
-
-Prior to 0.28, there was the possibility of configuring a list of disallowed passwords using the configuration parameter `Decidim.password_blacklist` or the environment variable `DECIDIM_PASSWORD_BLACKLIST`. These methods have been renamed as follows:
-
-- `Decidim.password_blacklist` becomes `Decidim.denied_passwords`
-- `DECIDIM_PASSWORD_BLACKLIST` becomes `DECIDIM_DENIED_PASSWORDS`
-
-You can read more about this change on PR [\#10288](https://github.com/decidim/decidim/pull/10288).
-
 ## 2. General notes
+
+## 2.1. Redesign
+
+TBD
+
+## 2.2. Consultation
+
+The consultations module has been fully removed from this version, so if you're using it in your application you need to remove it from your Gemfile:
+
+```console
+bundle remove decidim-consultations
+```
+
+If you're not using it, then you don't need to do anything.
+
+If you're maintaining a version of this module, please share the URL of the git repository by [creating an issue on the decidim.org website repository](https://github.com/decidim/decidim.org) so that we can update the [Modules page](https://decidim.org/modules).
+
+There's an error with the migrations after you've removed this module, you'd need to change them like this:
+
+### db/migrate/*_add_commentable_counter_cache_to_consultations.decidim_consultations.rb
+
+```ruby
+# frozen_string_literal: true
+# This migration comes from decidim_consultations (originally 20200827154143)
+
+class AddCommentableCounterCacheToConsultations < ActiveRecord::Migration[5.2]
+  class Question < ApplicationRecord
+    self.table_name = :decidim_consultations_questions
+  end
+
+  def change
+    add_column :decidim_consultations_questions, :comments_count, :integer, null: false, default: 0, index: true
+    Question.reset_column_information
+    Question.find_each(&:update_comments_count)
+  end
+end
+```
+
+### db/migrate/*_add_followable_counter_cache_to_consultations.decidim_consultations.rb
+
+```ruby
+# frozen_string_literal: true
+# This migration comes from decidim_consultations (originally 20210310120626)
+
+class AddFollowableCounterCacheToConsultations < ActiveRecord::Migration[5.2]
+  class Question < ApplicationRecord
+    self.table_name = :decidim_consultations_questions
+  end
+
+  def change
+    add_column :decidim_consultations_questions, :follows_count, :integer, null: false, default: 0, index: true
+
+    reversible do |dir|
+      dir.up do
+        Question.reset_column_information
+        Question.find_each do |record|
+          record.class.reset_counters(record.id, :follows)
+        end
+      end
+    end
+  end
+end
+```
+
+You can read more about this change on PR [#11171](https://github.com/decidim/decidim/pull/11171).
 
 ## 3. One time actions
 
@@ -82,7 +138,7 @@ In some other cases when you run your application on a custom port (other than 3
 
 You can read more about this change on PR [\#10519](https://github.com/decidim/decidim/pull/10519).
 
-### 3.3. User moderation panel changes
+### 3.4. User moderation panel changes
 
 In older Decidim installations, when blocking an user directly from the participants menu, without being previously reported, it will hide that user, making it unavailable in the Reported Participants section. You will need to run this command once to make sure there are no users or entities that got blocked but are not visible in the participants listing.
 
@@ -92,7 +148,7 @@ bundle exec rake decidim:upgrade:moderation:fix_blocked_user_panel
 
 You can read more about this change on PR [\#10521](https://github.com/decidim/decidim/pull/10521).
 
-### 3.4. Change Webpacker to Shakapacker
+### 3.5. Change Webpacker to Shakapacker
 
 Since the Rails team has retired the Webpacker in favour or importmap-rails or js-bundling, we got ouserlves in a situation where performance improvements could not be performed.
 In order to continue having support for Webpacker like syntax, we have switched to Shakapacker.
@@ -134,13 +190,33 @@ In order to run your development server, you will need to run the following comm
 
 You can read more about this change on PR [\#10389](https://github.com/decidim/decidim/pull/10389).
 
-### 3.5. Graphql upgrade
+### 3.6. Initialize content blocks on spaces or resources with landing page
+
+The processes and assemblies participatory spaces have changed the show page and now is composed using content blocks. For the new spaces created in this version a callback is executed creating the content blocks marked as `default!` in the engine for the corresponding homepage scope. To have the same initialization in the existing spaces there is a task to generate those blocks if not present already. Run the below command to generate default content blocks when not present for all spaces and resources with content blocks homepage (participatory processes, participatory process groups and assemblies):
+
+```console
+bundle exec rake decidim:content_blocks:initialize_default_content_blocks
+```
+
+The task has some optional arguments:
+
+- The first to specify the manifest name and generate the default content blocks only on the spaces or resources with the manifest name (`participatory_processes`, `participatory_process_group` or `assemblies`).
+- The second can be the id of a resource o space to apply only on the space or resource with the id. This argument is considered only if the manifest name argument is present.
+- The last argument only works on participatory spaces (assemblies and participatory processes) and when set as true the task also creates a content block for each published component on the space unless a block already exists for that component or the block exists for the component type and configured to display resources from all components of the same type.
+
+For example, to generate the default content blocks and also the components blocks on participatory spaces run the command with arguments:
+
+```console
+bundle exec rake decidim:content_blocks:initialize_default_content_blocks[,,true]
+```
+
+### 3.7. Graphql upgrade
 
 In [\#10606](https://github.com/decidim/decidim/pull/10606) we have upgraded the GraphQL gem to version 2.0.19. This upgrade introduces some breaking changes, so you will need to update your GraphQL queries to match the new API. This change should be transparent for most of the users, but if you have custom GraphQL queries, you will need to update them. Also, please note, there might be some issues with community plugins that offer support for GraphQL, so you might need to update them as well.
 
 Please see the [change log](https://github.com/rmosolgo/graphql-ruby/blob/master/CHANGELOG.md) for graphql gem for more information.
 
-### 3.6. Orphans valuator assignments cleanup
+### 3.8. Orphans valuator assignments cleanup
 
 We have added a new task that helps you clean the valuator assignements records of roles that have been deleted.
 
@@ -152,7 +228,7 @@ bundle exec rake decidim:proposals:upgrade:remove_valuator_orphan_records
 
 You can see more details about this change on PR [\#10607](https://github.com/decidim/decidim/pull/10607)
 
-### 3.7. Initiatives pages exception fix
+### 3.9. Initiatives pages exception fix
 
 We have added a new tasks to fix a bug related to the pages component inside of the Initiatives module (`decidim-initiatives`).
 
@@ -164,7 +240,7 @@ bundle exec rake decidim:initiatives:upgrade:fix_broken_pages
 
 You can see more details about this change on PR [\#10928](https://github.com/decidim/decidim/pull/10928)
 
-### 3.7. Add Content Security Policy (CSP) support
+### 3.10. Add Content Security Policy (CSP) support
 
 We have introduced support for Content Security Policy (CSP). This is a security feature that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks.
 By default, the CSP is enabled, and is configured to be as restrictive as possible, having the following default configuration:
@@ -299,8 +375,6 @@ The transferred data can differ between the different modules but the official m
 - **decidim-comments**
   - Comments
   - Comment votes
-- **decidim-consultations**
-  - Consultation votes
 - **decidim-debates**
   - Debates
   - Endorsements for debates (through endorsement transfers at `decidim-core`)
@@ -381,7 +455,6 @@ module DecidimYourCity
       Decidim::AuthorizationTransfer.unregister(:blogs) # blog posts
       Decidim::AuthorizationTransfer.unregister(:budgets) # budgets
       Decidim::AuthorizationTransfer.unregister(:comments) # comments
-      Decidim::AuthorizationTransfer.unregister(:consultations) # consultation votes
       Decidim::AuthorizationTransfer.unregister(:debates) # debates
       Decidim::AuthorizationTransfer.unregister(:elections) # elections
       Decidim::AuthorizationTransfer.unregister(:forms) # form answers, e.g. survey form answers or meeting registrations
@@ -624,3 +697,12 @@ end
 ```
 
 You can read more about this change at PR [\#10760](https://github.com/decidim/decidim/pull/10760).
+
+### 5.5. Configuration parameter change
+
+Prior to 0.28, there was the possibility of configuring a list of disallowed passwords using the configuration parameter `Decidim.password_blacklist` or the environment variable `DECIDIM_PASSWORD_BLACKLIST`. These methods have been renamed as follows:
+
+- `Decidim.password_blacklist` becomes `Decidim.denied_passwords`
+- `DECIDIM_PASSWORD_BLACKLIST` becomes `DECIDIM_DENIED_PASSWORDS`
+
+You can read more about this change on PR [\#10288](https://github.com/decidim/decidim/pull/10288).

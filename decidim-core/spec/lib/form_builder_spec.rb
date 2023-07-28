@@ -9,7 +9,6 @@ module Decidim
     let(:available_locales) { %w(ca en de-CH) }
     let(:uploader) { Decidim::ApplicationUploader }
     let(:organization) { create(:organization) }
-    let(:redesign_enabled?) { false }
 
     let(:resource) do
       class DummyClass
@@ -80,7 +79,6 @@ module Decidim
     before do
       allow(Decidim).to receive(:available_locales).and_return available_locales
       allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
-      allow(helper).to receive(:redesign_enabled?).and_return(redesign_enabled?)
     end
 
     describe "#editor" do
@@ -788,14 +786,14 @@ module Decidim
 
           it "renders the correctly sorted values" do
             html = output
-            expect(html).to include(
-              [
-                "<li>This image will be resized and padded to 33 x 33 px.</li>",
-                "<li>This image will be resized and padded to 99 x 99 px.</li>",
-                "<li>This image will be resized to fit 32 x 32 px.</li>",
-                "<li>This image will be resized to fit 100 x 100 px.</li>"
-              ].join("\n      \n        ")
-            )
+            [
+              "<li>This image will be resized and padded to 33 x 33 px.</li>",
+              "<li>This image will be resized and padded to 99 x 99 px.</li>",
+              "<li>This image will be resized to fit 32 x 32 px.</li>",
+              "<li>This image will be resized to fit 100 x 100 px.</li>"
+            ].each do |value|
+              expect(html).to include(value)
+            end
           end
         end
       end

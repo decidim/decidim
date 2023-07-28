@@ -647,8 +647,6 @@ en:
         past_meetings: Past meetings
         see_all: See all meetings
         upcoming_meetings: Upcoming meetings
-      upcoming_meeting_for_card:
-        upcoming_meeting: Upcoming meeting
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Related results:'

@@ -4,13 +4,15 @@ module Decidim
   module Elections
     # Exposes the elections resources so users can participate on them
     class VotesController < Decidim::Elections::ApplicationController
-      layout "decidim/election_votes"
+      WIZARD_STEPS = %w(register election confirm ballot_decision).freeze
+
       include FormFactory
       include HasVoteFlow
 
       helper VotesHelper
       helper_method :bulletin_board_server, :authority_public_key, :scheme_name, :election_unique_id,
-                    :exit_path, :elections, :election, :questions, :questions_count, :vote, :valid_questionnaire?
+                    :exit_path, :elections, :election, :questions, :questions_count, :vote, :valid_questionnaire?,
+                    :wizard_steps
 
       delegate :count, to: :questions, prefix: true
 
@@ -156,6 +158,10 @@ module Decidim
         return @valid_questionnaire if defined?(@valid_questionnaire)
 
         @valid_questionnaire = election.questionnaire.questions.any?
+      end
+
+      def wizard_steps
+        WIZARD_STEPS
       end
     end
   end

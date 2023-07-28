@@ -1,13 +1,11 @@
 <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_code.help"), callout_class: "secondary") %>
 
-<%= render partial: "wizard_steps", locals: { title: "sms_code" } %>
-
-<%= decidim_form_for(@form, url: sms_code_initiative_initiative_signatures_path, method: :put, html: { class: "form-defaults sms_code" }) do |f| %>
+<%= decidim_form_for(@form, url: sms_code_initiative_initiative_signatures_path, method: :put) do |f| %>
   <div class="form__wrapper">
     <%= f.text_field :verification_code %>
   </div>
 
-  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= f.submit t(".continue"), class: "button button__sm md:button__lg button__secondary", data: { disable_with: true } %>
-   </div>
+  <div class="form__wrapper-block">
+    <%= f.submit t(".continue"), class: "button button__sm md:button__lg button__secondary" %>
+  </div>
 <% end %>

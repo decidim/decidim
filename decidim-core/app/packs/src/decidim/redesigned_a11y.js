@@ -8,7 +8,7 @@ const createAccordion = (component) => {
   accordionOptions.isMultiSelectable = component.dataset.multiselectable !== "false";
   accordionOptions.isCollapsible = component.dataset.collapsible !== "false";
 
-  // This snippet allows to change a data-attribute based on the current viewport
+  // This snippet allows to change the OPEN data-attribute based on the current viewport
   // Just include the breakpoint where the different value will be applied from.
   // Ex:
   // data-open="false" data-open-md="true"
@@ -29,6 +29,15 @@ const createDropdown = (component) => {
   dropdownOptions.isOpen = component.dataset.open === "true";
   dropdownOptions.autoClose = component.dataset.autoClose === "true";
 
+  // This snippet allows to disable the dropdown based on the current viewport
+  // Just include the breakpoint where the different value will be applied from.
+  // Ex:
+  // data-disabled-md="true"
+  const isDisabled = Object.keys(screens).some((key) => (window.matchMedia(`(min-width: ${screens[key]})`).matches) && Boolean(component.dataset[`disabled-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())]));
+  if (isDisabled) {
+    return
+  }
+
   if (!component.id) {
     // when component has no id, we enforce to have it one
     component.id = `dropdown-${Math.random().toString(36).substring(7)}`
@@ -45,7 +54,7 @@ const createDropdown = (component) => {
 
 const createDialog = (component) => {
   const {
-    dataset: { dialog }
+    dataset: { dialog, ...attrs }
   } = component;
 
   // NOTE: due to some SR bugs we have to set the focus on the title
@@ -77,7 +86,9 @@ const createDialog = (component) => {
     }),
     ...(Boolean(component.querySelector(`#dialog-desc-${dialog}`)) && {
       describedby: `dialog-desc-${dialog}`
-    })
+    }),
+    // Add any other options passed via data-attributes
+    ...attrs
   });
 
   // attach all modals to the body, removing them from wherever are placed

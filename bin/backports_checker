@@ -1,0 +1,48 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "thor"
+
+require "./lib/decidim/git_backport_checker"
+
+class BackportsCheckerCLI < Thor
+  desc "", <<~HELP
+    Backports checker. Shows the status of the pull requests opened in the last days
+
+    The output by default is for the terminal. It uses a color code to differentiate the status of the Pull Requests, following the colors of GitHub:
+    - \e[34mPurple\e[0m: closed with a merge
+    - \e[35mRed\e[0m: closed without being merge
+    - \e[32mGreen\e[0m: opened without being merge
+  HELP
+  option :github_token, required: true, desc: <<~HELP
+    Required. Github Personal Access Token (PAT). It can be obtained from https://github.com/settings/tokens/new. You will need to create one with `public_repo` access.
+    Alternatively, you can use the `gh` CLI tool to authenticate with `gh auth token` (i.e. --github-token=$(gh auth token))
+  HELP
+  option :last_version_number, required: true, desc: <<~HELP
+    Required. The version number of the last supported version that you want to do the backports to. It must have the format MAJOR.MINOR.
+  HELP
+  option :days_to_check_from, required: false, default: 90, type: :numeric, desc: "How many days since the pull requests were merged we will check from."
+  default_task :backports_checker
+
+  def backports_checker
+    checker = Decidim::GitBackportChecker.new(
+      token: options[:github_token],
+      last_version_number: options[:last_version_number],
+      days_to_check_from: options[:days_to_check_from]
+    )
+    checker.call
+    puts checker.cli_report
+  rescue Decidim::GithubManager::Querier::Base::InvalidMetadataError
+    puts "Metadata was not returned from the server. Please check that the provided GitHub token is correct."
+  end
+
+  def help
+    super("backports_checker")
+  end
+
+  def self.exit_on_failure?
+    true
+  end
+end
+
+BackportsCheckerCLI.start(ARGV)

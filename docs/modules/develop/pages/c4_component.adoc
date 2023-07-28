@@ -9,7 +9,7 @@
 title System Component diagram for Decidim Applications (https://decidim.org)
 
 
-ContainerDb(rel_db, "Relational Database", "PostgreSQL 9.5.x", "Stores users, participatory processes, assemblies, consultations, initiatives, proposals, meetings, etc.")
+ContainerDb(rel_db, "Relational Database", "PostgreSQL 9.5.x", "Stores users, participatory processes, assemblies, initiatives, proposals, meetings, etc.")
 Container(filesystem, "File System", "Local or remote", "Stores uploads (images, documents, etc.)")
 Container(worker, "Worker", "Ruby on Rails 5.2", "ActiveJob queues for non syncronuos jobs. Works for open data requests, sending emails, etc.")
 
@@ -27,7 +27,6 @@ Container_Boundary(web_app, "Web Application") {
 
     Component(assemblies, "Assemblies module", "Ruby On Rails Engine (Space)", "A permament Space, mounted in /assemblies.")
     Component(conferences, "Conferences module", "Ruby On Rails Engine (Space)", "A temporal Space, mounted in /conferences.")
-    Component(consultations, "Consultations module", "Ruby On Rails Engine (Space)", "A temporal Space, mounted in /consultations.")
     Component(initiatives, "Initiatives module", "Ruby On Rails Engine (Space)", "A bottom-up Space, mounted in /initiatives. A participant can collect signatures to bring an issue to the organization.")
     Component(participatory_processes, "Participatory Processes module (Space)", "Ruby On Rails Engine", "A temporal Space, mounted in /processes.")
 
@@ -50,7 +49,6 @@ Container_Boundary(web_app, "Web Application") {
     ' Rel(proposals, participatory_processes, "Mounts in")
     ' Rel(proposals, conferences, "Mounts in")
 '
-    ' Rel(consultations, comments, "Consumes")
     ' Rel(initiatives, comments, "Consumes")
     ' Rel(accountability, comments, "Consumes")
     ' Rel(budgets, comments, "Consumes")
@@ -61,7 +59,6 @@ Container_Boundary(web_app, "Web Application") {
     ' Rel(proposals, comments, "Consumes")
     ' Rel(blogs, comments, "Consumes")
 '
-    ' Rel(consultations, admin, "Managed in")
     ' Rel(initiatives, admin, "Managed in")
     ' Rel(accountability, admin, "Managed in")
     ' Rel(budgets, admin, "Managed in")

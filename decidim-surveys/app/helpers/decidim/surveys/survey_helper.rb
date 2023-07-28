@@ -4,9 +4,7 @@ module Decidim
   module Surveys
     module SurveyHelper
       def no_permission
-        render(
-          partial: "decidim/authorization_modals/content"
-        )
+        cell "decidim/authorization_modal", authorizations
       end
 
       def resource

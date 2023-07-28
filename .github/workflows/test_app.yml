@@ -64,6 +64,10 @@ jobs:
           ruby-version: ${{ inputs.ruby_version }}
           bundler-cache: true
       - uses: nanasess/setup-chromedriver@v2
+        with:
+          # TODO: Unpin when nanasess/setup-chromedriver#190 is fixed:
+          #       https://github.com/nanasess/setup-chromedriver/issues/190
+          chromedriver-version: 114.0.5735.90
       - uses: actions/cache@v3
         id: app-cache
         with:
@@ -87,14 +91,15 @@ jobs:
           CODECOV_TOKEN: ${{ inputs.codecov_token }}
           DISPLAY: ":99"
           CI: "true"
+          SIMPLECOV: "true"
           PARALLEL_TEST_PROCESSORS: 2
           WEBPACKER_RUNTIME_COMPILE: "false"
       - uses: codecov/codecov-action@v3
         name: Upload coverage
         with:
           token: ${{ inputs.codecov_token }}
-          name: ${{ inputs.working-directory }}-${{ github.sha }}-${{ inputs.test_command }}
-          flags: ${{ inputs.working-directory }}-${{ github.sha }}-${{ inputs.test_command }}
+          name: ${{ inputs.working-directory }}
+          flags: ${{ inputs.working-directory }}
       - uses: actions/upload-artifact@v3
         if: always()
         with:
