@@ -632,10 +632,8 @@ cs:
       initiative_header:
         initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
-        back: Zpět
         fill_personal_data: Dokončit své údaje
         finish: Dokončit
-        finished: Vytvoření podpisu iniciativy
         sms_code: Ověření kódu SMS
         sms_phone_number: Číslo mobilního telefonu
         title: Podepsat %{initiative_title}
