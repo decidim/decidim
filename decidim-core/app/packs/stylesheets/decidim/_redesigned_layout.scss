@@ -34,7 +34,7 @@
   @apply md:grid grid-cols-12 container grow;
 
   &__aside {
-    @apply col-span-4 md:pr-16 py-6 md:py-12 gap-6 md:gap-12 flex flex-col justify-between items-start md:justify-start before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-1/2 before:-z-10 md:before:bg-background;
+    @apply col-span-4 lg:col-span-3 md:pr-16 py-6 md:py-12 gap-6 md:gap-12 flex flex-col justify-between items-start md:justify-start before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-1/2 before:-z-10 md:before:bg-background;
   }
 
   &__main {
