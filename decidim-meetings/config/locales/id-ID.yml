@@ -330,8 +330,6 @@ id:
         past_meetings: Pertemuan sebelumnya
         see_all: Lihat semua (%{count})
         upcoming_meetings: Pertemuan yang akan datang
-      upcoming_meeting_for_card:
-        upcoming_meeting: Pertemuan yang akan datang
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Hasil terkait:'
