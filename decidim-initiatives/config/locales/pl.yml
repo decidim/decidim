@@ -526,10 +526,8 @@ pl:
       initiative_header:
         initiative_menu_item: Inicjatywa
       initiative_signature_creation_header:
-        back: Wróć
         fill_personal_data: Uzupełnij swoje dane
         finish: Koniec
-        finished: Utworzono podpis pod inicjatywą
         sms_code: Weryfikacja kodem SMS
         sms_phone_number: Numer telefonu komórkowego
         title: Podpisz %{initiative_title}
