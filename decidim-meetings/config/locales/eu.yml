@@ -645,7 +645,7 @@ eu:
         see_all: Ikusi dena (%{count})
         upcoming_meetings: Hurrengo topaketak
       upcoming_meeting_for_card:
-        upcoming_meeting: Hurrengo bilera
+        upcoming_meeting: Hurrengo topaketa
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Topaketaren emaitzak:'
