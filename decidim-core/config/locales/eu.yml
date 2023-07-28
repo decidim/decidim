@@ -312,7 +312,6 @@ eu:
       started_at: '%{timestamp} etan hasita'
     authorization_modals:
       content:
-        close_modal: Itxi leihoa
         expired:
           authorize: Errebokatu "%{authorization}" rekin
           explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
@@ -1146,12 +1145,10 @@ eu:
         spam: Bertan badago clickbait-ik, publizitaterik edo gidoi-robotik.
         title: Jakinarazi erabiltzaile desegokia
       floating_help:
-        close: Itxi laguntza
         help: Laguntza
       follow_button:
         sign_in_before_follow: Hasi saioa ekintza hau burutu baino lehen
       login_modal:
-        close_modal: Itxi leihoa
         please_sign_in: Mesedez, erregistratu
         sign_up: Erregistratu
       participatory_space_filters:
@@ -1160,9 +1157,6 @@ eu:
           select_an_area: Hautatu eremu bat
       public_participation:
         public_participation: Erakutsi nire asistentzia publikoki
-      redesigned_login_modal:
-        please_sign_in: Mesedez, erregistratu
-        sign_up: Izena eman
       reference:
         reference: 'Erreferentzia: %{reference}'
       represent_user_group:
@@ -1172,7 +1166,6 @@ eu:
         label: 'Emaitzak, orrialdeko:'
         title: Hautatu emaitza kopurua orrialde bakoitzeko
       share_modal:
-        close_window: Itxi leihoa
         copy_share_link: Kopia
         copy_share_link_clarification: Kopiatu arbelera partekatzeko lotura
         copy_share_link_copied: Kopiatuta!
@@ -1457,11 +1450,8 @@ eu:
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
         sign_up: Eman izena
       header:
-        close_menu: Itxi menua
         main_menu: Menu nagusia
-        navigation: Nabigazioa
         sign_in: Sartu
-        sign_up: Erregistratu
         user_menu: Erabiltzailearen menua
       impersonation_warning:
         close_session: Itxi saioa
