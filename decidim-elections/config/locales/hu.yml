@@ -20,6 +20,7 @@ hu:
         description: Leírás
         end_time: Szavazás vége
         promoted: Támogatott
+        scope_id: Hatókör
         start_time: Szavazás kezdete
         title: Cím
     errors:
