@@ -335,6 +335,7 @@ es-MX:
         html_3:
           name: Tercer bloque HTML
         metadata:
+          developer_group: Promovido por
           name: Metadatos
           participatory_scope: Qué se decide
           participatory_structure: Cómo se decide
@@ -404,11 +405,13 @@ es-MX:
       pages:
         home:
           highlighted_processes:
+            active_processes: Procesos activos
             active_step: Paso activo
             more_information: Más información
             participate: Participar
             participate_in: Participa en el proceso %{resource_name}
             processes_button_title: Enlace a la página de Procesos que muestra todos los procesos
+            see_all_processes: Ver todos los procesos
       participatory_process_steps:
         index:
           back_to_process: Volver a la página del proceso
@@ -447,6 +450,7 @@ es-MX:
         dates: Fechas
         developer_group: Grupo promotor
         end_date: Fecha de finalización
+        local_area: Área de organización
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
         private_space: Este es un proceso privado
@@ -487,6 +491,6 @@ es-MX:
           more_info: Más información
       process_header_steps:
         step: Fase %{current} de %{total}
-        view_steps: Ver las fases
+        view_steps: Las fases de proceso
       process_navigation:
         process_menu_item: El proceso
