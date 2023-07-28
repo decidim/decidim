@@ -487,10 +487,8 @@ sv:
       initiative_header:
         initiative_menu_item: Initiativ
       initiative_signature_creation_header:
-        back: Tillbaka
         fill_personal_data: Komplettera dina uppgifter
         finish: Slutför
-        finished: Skapat underskrift till initiativet
         sms_code: Verifiering med SMS-kod
         sms_phone_number: Mobiltelefonnummer
         title: Skriv under %{initiative_title}
