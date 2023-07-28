@@ -1268,7 +1268,7 @@
       follow_button:
         sign_in_before_follow: Logg på før du utfører denne handlingen
       login_modal:
-        close_modal: Lukk dialogboks
+        close_modal: Lukk modal
         please_sign_in: Vennligst logg inn
         sign_up: Registrer deg
       participatory_space_filters:
