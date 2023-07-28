@@ -259,7 +259,6 @@ uk:
     participatory_process_steps:
       index:
         process_steps: Кроки руху
-        title: Кроки руху співучасті
     participatory_processes:
       admin:
         participatory_process_copies:
@@ -323,8 +322,5 @@ uk:
         participatory_process:
           active_step: 'Поточний крок:'
           take_part: Взяти участь
-      process_header_steps:
-        step: '%{current}-й крок з %{total} кроків'
-        view_steps: Переглянути кроки
       process_navigation:
         process_menu_item: Рух
