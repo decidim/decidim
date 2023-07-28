@@ -566,7 +566,6 @@ ru:
       results_per_page:
         label: 'Результатов на странице:'
       share_modal:
-        close_window: Закрыть окно
         share: Поделиться
         share_link: Поделиться ссылкой
     statistics:
@@ -680,11 +679,9 @@ ru:
         edit: Редактировать
       footer:
         made_with_open_source: Сайт создан с помощью <a target="_blank" href="https://github.com/decidim/decidim"> бесплатного программного обеспечения</a>.
-      header:
-        close_menu: Закрыть меню
-        navigation: Навигация
-        sign_in: Войти в систему
         sign_up: Зарегистрироваться
+      header:
+        sign_in: Войти в систему
       impersonation_warning:
         close_session: Закрыть сеанс
         description_html: Вы выступаете в роли участника <b>%{user_name}</b>.
