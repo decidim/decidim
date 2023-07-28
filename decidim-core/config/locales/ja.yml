@@ -399,7 +399,6 @@ ja:
       started_at: '%{timestamp} に開始'
     authorization_modals:
       content:
-        close_modal: モーダルを閉じる
         expired:
           authorize: '「%{authorization} 」で再認証'
           explanation: 認証の有効期限が切れました。この操作を実行するには、"%{authorization}" で再認証する必要があります。
@@ -1464,12 +1463,10 @@ ja:
         spam: 虚偽情報、広告、詐欺やスクリプトボットが含まれています。
         title: 不適切なユーザーを報告
       floating_help:
-        close: ヘルプを閉じる
         help: ヘルプ
       follow_button:
         sign_in_before_follow: このアクションを実行する前にログインしてください
       login_modal:
-        close_modal: ウィンドウを閉じる
         please_sign_in: ログインしてください
         sign_up: 新規登録
       mentions_modal:
@@ -1482,9 +1479,6 @@ ja:
           select_an_area: エリアを選択
       public_participation:
         public_participation: 参加を公開する
-      redesigned_login_modal:
-        please_sign_in: ログインしてください
-        sign_up: 新規登録
       reference:
         reference: 'リファレンス： %{reference}'
       represent_user_group:
@@ -1494,7 +1488,6 @@ ja:
         label: 'ページごとの結果:'
         title: ページあたりの結果数を選択
       share_modal:
-        close_window: ウィンドウを閉じる
         copy_share_link: コピー
         copy_share_link_clarification: 共有リンクをクリップボードにコピー
         copy_share_link_copied: コピーしました
@@ -1896,11 +1889,8 @@ ja:
         sign_up: 新規登録
         terms_and_conditions: 利用規約
       header:
-        close_menu: メニューを閉じる
         main_menu: メインメニュー
-        navigation: ナビゲーション
         sign_in: ログイン
-        sign_up: 新規登録
         user_menu: ユーザーメニュー
       impersonation_warning:
         close_session: セッションを閉じる
