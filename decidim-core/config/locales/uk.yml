@@ -445,7 +445,6 @@ uk:
       results_per_page:
         label: 'Результатів на сторінку:'
       share_modal:
-        close_window: Закрити вікно
         share: Поділитися
         share_link: Поділитись посиланням
     statistics:
@@ -494,11 +493,9 @@ uk:
         edit: Редагувати
       footer:
         made_with_open_source: Цей веб-сайт створено за допомогою <a target="_blank" href="https://github.com/decidim/decidim">безкоштовного програмного забезпечення</a>.
-      header:
-        close_menu: Закрити меню
-        navigation: Навігація
-        sign_in: Увійти
         sign_up: Зареєструватися
+      header:
+        sign_in: Увійти
       impersonation_warning:
         close_session: Завершити сеанс
         description_html: Ви виступаєте в ролі учасника <b>%{user_name}</b>.
