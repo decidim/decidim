@@ -43,10 +43,6 @@ module Decidim
       dropdown_options_for_select(%w(unescaped escaped), params["diff-html"])
     end
 
-    def header_level
-      options[:header_level] || :h3
-    end
-
     private
 
     def display_html_config

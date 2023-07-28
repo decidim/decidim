@@ -61,7 +61,6 @@ extra_admin_link(
       <%= cell(
             "decidim/diff",
             proposal_presenter.versions.last,
-            header_level: :h2,
             path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) }
           ) %>
     <% elsif not ["section","subsection"].include? @proposal.participatory_text_level %>
