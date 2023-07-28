@@ -291,7 +291,6 @@ is-IS:
       results_per_page:
         label: 'Niðurstöður á síðu:'
       share_modal:
-        close_window: Lokaðu glugga
         share: Deila
         share_link: Deila tengil
     user_conversations:
@@ -327,11 +326,9 @@ is-IS:
     decidim:
       footer:
         made_with_open_source: Website gert með <a target="_blank" href="https://github.com/decidim/decidim">ókeypis hugbúnaði</a>.
-      header:
-        close_menu: Loka valmyndinni
-        navigation: Siglingar
-        sign_in: Skráðu þig inn
         sign_up: Skráðu þig
+      header:
+        sign_in: Skráðu þig inn
       impersonation_warning:
         close_session: Loka fundi
         expire_time_html: Session þín rennur út í <b><span class="minutes">%{minutes}</span> mínútur</b>.
