@@ -18,8 +18,6 @@ module Decidim
       include DisableRedirectionToExternalHost
       include Decidim::Admin::Concerns::HasBreadcrumbItems
 
-      include DisabledRedesignLayout
-
       helper Decidim::Admin::ApplicationHelper
       helper Decidim::Admin::AttributesDisplayHelper
       helper Decidim::Admin::SettingsHelper
