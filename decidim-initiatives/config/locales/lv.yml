@@ -397,10 +397,8 @@ lv:
       initiative_header:
         initiative_menu_item: Iniciatīva
       initiative_signature_creation_header:
-        back: Atpakaļ
         fill_personal_data: Pabeidziet ierakstīt savus datus
         finish: Pabeigt
-        finished: Iniciatīvas paraksts izveidots
         sms_code: SMS koda verifikācija
         sms_phone_number: Mobilā tālruņa numurs
         title: Parakstīt %{initiative_title}
