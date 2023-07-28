@@ -291,7 +291,6 @@ zh-CN:
     participatory_process_steps:
       index:
         process_steps: 流程阶段
-        title: 参与进程阶段
     participatory_processes:
       admin:
         content_blocks:
@@ -373,8 +372,5 @@ zh-CN:
           more_info_about: 更多关于进程 %{resource_name} 的信息
           take_part: 参与
           take_part_in: 参与进程 %{resource_name}
-      process_header_steps:
-        step: '%{current} 的 %{total} 阶段'
-        view_steps: 流程阶段
       process_navigation:
         process_menu_item: 二. 进程
