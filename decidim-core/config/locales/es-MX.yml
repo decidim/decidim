@@ -1312,7 +1312,7 @@ es-MX:
       follow_button:
         sign_in_before_follow: Inicia sesión antes de realizar esta acción
       login_modal:
-        close_modal: Cerrar el modal
+        close_modal: Cerrar modal
         please_sign_in: Por favor, regístrate
         sign_up: Regístrate
       participatory_space_filters:
