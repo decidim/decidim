@@ -342,7 +342,6 @@ pl:
     participatory_process_steps:
       index:
         process_steps: Etapy procesu
-        title: Etapy procesu partycypacyjnego
     participatory_processes:
       admin:
         content_blocks:
@@ -448,8 +447,5 @@ pl:
           more_info_about: Więcej informacji o procesie %{resource_name}
           take_part: Weź udział
           take_part_in: Dołącz do procesu %{resource_name}
-      process_header_steps:
-        step: Etap %{current} z %{total}
-        view_steps: Pokaż etapy
       process_navigation:
         process_menu_item: Proces
