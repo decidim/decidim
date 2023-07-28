@@ -420,6 +420,7 @@ es-PY:
       directory:
         meetings:
           index:
+            go_to_list: Ver el listado de encuentros
             meetings: Reuniones
             space_type: Espacio participativo
       iframe_access_level:
@@ -486,6 +487,7 @@ es-PY:
             all: Todos
             official: Oficial
             participants: Participantes
+            user_group: Grupos
           search: Buscar
           type: Tipo
           type_values:
@@ -513,6 +515,11 @@ es-PY:
           see_all: Ver todos los encuentros
           see_all_withdrawn: Ver todos los encuentros retirados
           text_banner: Estás viendo la lista de encuentros retirados por sus autores. %{go_back_link}.
+        meeting:
+          close_meeting: Cerrar el encuentro
+          edit_close_meeting: Editar el informe del encuentro
+          edit_meeting: Editar el encuentro
+          join_meeting: Unirse al encuentro
         meetings:
           no_meetings_warning: No hay encuentros que coincidan con tu búsqueda o no hay ningún encuentro programado.
           upcoming_meetings_warning: Actualmente no hay encuentros programados, pero puedes ver los encuentros anteriores.
@@ -593,6 +600,7 @@ es-PY:
             question_replied: Pregunta respondida
             reply_question: Responder pregunta
       public_participants_list:
+        attending_organizations: Organizaciones
         attending_participants: Participantes asistentes
         hidden_participants_count:
           one: y %{count} persona más
@@ -638,8 +646,6 @@ es-PY:
         past_meetings: Encuentros pasados
         see_all: Ver todo (%{count})
         upcoming_meetings: Próximos encuentros
-      upcoming_meeting_for_card:
-        upcoming_meeting: Próxima reunion
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'
