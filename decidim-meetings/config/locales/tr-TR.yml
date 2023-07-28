@@ -424,8 +424,6 @@ tr:
         past_meetings: Geçmiş toplantılar
         see_all: Tüm toplantıları görün (%{count})
         upcoming_meetings: Yaklaşan toplantılar
-      upcoming_meeting_for_card:
-        upcoming_meeting: Yaklaşan toplantı
     resource_links:
       meetings_through_proposals:
         meeting_result: 'İlgili sonuçlar:'
