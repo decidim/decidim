@@ -512,10 +512,8 @@ it:
       initiative_header:
         initiative_menu_item: Iniziativa
       initiative_signature_creation_header:
-        back: Indietro
         fill_personal_data: Completa i tuoi dati
         finish: finire
-        finished: Firma dell'iniziativa creata
         sms_code: Verifica del codice SMS
         sms_phone_number: Numero di cellulare
         title: Firma %{initiative_title}
