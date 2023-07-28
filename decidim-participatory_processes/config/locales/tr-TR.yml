@@ -331,7 +331,6 @@ tr:
     participatory_process_steps:
       index:
         process_steps: Süreç adımları
-        title: Katılımcı süreç adımları
     participatory_processes:
       admin:
         content_blocks:
@@ -426,8 +425,5 @@ tr:
           more_info_about: '%{resource_name} hakkında daha fazla bilgi'
           take_part: Yer almak
           take_part_in: '%{resource_name} sürecine katılın'
-      process_header_steps:
-        step: '%{total}adımdan %{current}'
-        view_steps: Adımları göster
       process_navigation:
         process_menu_item: Süreç
