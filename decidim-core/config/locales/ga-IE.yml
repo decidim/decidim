@@ -296,9 +296,10 @@ ga:
             type: Cineál
       edit_link:
         edit: Eagar
+      footer:
+        sign_up: Cláraigh
       header:
         sign_in: Sínigh Isteach
-        sign_up: Cláraigh
       timeout_modal:
         sign_out: Sínigh amach
       user_menu:
