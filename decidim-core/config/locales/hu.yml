@@ -1369,7 +1369,7 @@ hu:
       follow_button:
         sign_in_before_follow: Kérlek, jelentkezz be ehhez a műveletethez
       login_modal:
-        close_modal: Felugró ablak bezárása
+        close_modal: Modal bezárása
         please_sign_in: Jelentkezz be
         sign_up: Regisztrálj
       mentions_modal:
