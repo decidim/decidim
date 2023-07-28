@@ -441,10 +441,8 @@ nl:
       initiative_header:
         initiative_menu_item: Initiatief
       initiative_signature_creation_header:
-        back: Terug
         fill_personal_data: Vul uw gegevens in
         finish: Voltooien
-        finished: Initiatief handtekening gemaakt
         sms_code: Verificatie van sms-codes
         sms_phone_number: Mobiele telefoonnummer
         title: Teken %{initiative_title}
