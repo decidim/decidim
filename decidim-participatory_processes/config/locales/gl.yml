@@ -455,6 +455,6 @@ gl:
           more_info: Máis información
       process_header_steps:
         step: Paso %{current} de %{total}
-        view_steps: Ver pasos
+        view_steps: Pasos do proceso
       process_navigation:
         process_menu_item: O proceso
