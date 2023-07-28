@@ -389,7 +389,6 @@ zh-TW:
     participatory_process_steps:
       index:
         process_steps: 程序階段
-        title: 參與式過程階段
     participatory_processes:
       admin:
         content_blocks:
@@ -489,8 +488,5 @@ zh-TW:
           more_info_about: 關於程序 %{resource_name} 的更多資訊
           take_part: 參與
           take_part_in: 參與程序 %{resource_name}
-      process_header_steps:
-        step: 第 %{current} 階段 / 共 %{total} 階段
-        view_steps: 程序階段
       process_navigation:
         process_menu_item: 該程序
