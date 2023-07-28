@@ -386,10 +386,8 @@ ar:
       initiative_header:
         initiative_menu_item: مبادرة
       initiative_signature_creation_header:
-        back: الى الخلف
         fill_personal_data: أكمل بياناتك
         finish: إنهاء
-        finished: تم إنشاء توقيع المبادرة
         sms_code: التحقق من رمز SMS
         sms_phone_number: رقم الهاتف الجوال
         title: تسجيل %{initiative_title}
