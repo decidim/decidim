@@ -413,7 +413,6 @@ cs:
     participatory_process_steps:
       index:
         process_steps: Procesní kroky
-        title: Stacionární kroky procesu
     participatory_processes:
       admin:
         content_blocks:
@@ -551,8 +550,5 @@ cs:
           more_info_about: Další informace o procesu %{resource_name}
           take_part: Zúčastnit se
           take_part_in: Zapojte se do procesu %{resource_name}
-      process_header_steps:
-        step: Krok %{current} z %{total}
-        view_steps: Zobrazit kroky
       process_navigation:
         process_menu_item: Proces
