@@ -1049,12 +1049,10 @@
         spam: Inneholder klikkeagn, reklame, svindel eller skriptbotter.
         title: Rapporter upassende bruker
       floating_help:
-        close: Lukk hjelp
         help: Hjelp
       follow_button:
         sign_in_before_follow: Logg på før du utfører denne handlingen
       login_modal:
-        close_modal: Lukk dialogboks
         please_sign_in: Vennligst logg inn
         sign_up: Registrer deg
       participatory_space_filters:
@@ -1072,7 +1070,6 @@
         label: 'Resultater per side:'
         title: Velg antall resultater per side
       share_modal:
-        close_window: Lukk vindu
         copy_share_link: Kopier
         copy_share_link_clarification: Kopier lenke til utklippstavlen
         copy_share_link_copied: Kopiert!
@@ -1302,12 +1299,10 @@
         decidim_logo: Decidim logo
         download_open_data: Last ned Åpen Data filer
         made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">fri programvare</a>.
-      header:
-        close_menu: Lukk meny
-        main_menu: Hovedmeny
-        navigation: Navigasjon
-        sign_in: Logg på
         sign_up: Registrer deg
+      header:
+        main_menu: Hovedmeny
+        sign_in: Logg på
         user_menu: Brukermeny
       impersonation_warning:
         close_session: Lukk økt
