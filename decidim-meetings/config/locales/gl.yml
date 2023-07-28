@@ -408,8 +408,6 @@ gl:
         past_meetings: Reunións pasadas
         see_all: Ver todos (%{count})
         upcoming_meetings: Próximas reunións
-      upcoming_meeting_for_card:
-        upcoming_meeting: Próxima reunión
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'
