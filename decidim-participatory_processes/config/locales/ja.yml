@@ -521,6 +521,6 @@ ja:
           more_info: 詳細情報
       process_header_steps:
         step: 段階 %{current} / %{total}
-        view_steps: プロセスのフェーズ
+        view_steps: 参加型プロセスのフェーズ
       process_navigation:
         process_menu_item: プロセス
