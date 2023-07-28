@@ -45,7 +45,7 @@ describe "Participatory Process Steps", type: :system do
     it "does not show a CTA button in the process hero content block" do
       visit decidim_participatory_processes.participatory_process_path(participatory_process)
 
-      within "[data-process-hero]" do
+      within "[id^='hero']" do
         expect(page).not_to have_css("[data-cta]")
       end
     end
@@ -58,7 +58,7 @@ describe "Participatory Process Steps", type: :system do
       it "shows a CTA button in the process hero content block" do
         visit decidim_participatory_processes.participatory_process_path(participatory_process)
 
-        within "[data-process-hero]" do
+        within "[id^='hero']" do
           expect(page).to have_link("Take action!")
         end
       end
