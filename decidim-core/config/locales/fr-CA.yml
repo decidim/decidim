@@ -415,7 +415,6 @@ fr-CA:
       started_at: Commencé à %{timestamp}
     authorization_modals:
       content:
-        close_modal: Fermer la fenêtre de dialogue
         expired:
           authorize: Autoriser de nouveau avec "%{authorization}"
           explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez renouveler votre autorisation avec "%{authorization}".
@@ -1468,12 +1467,10 @@ fr-CA:
         spam: Rédige des contenus de type publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un utilisateur inapproprié
       floating_help:
-        close: Fermer l'aide
         help: Aidez-moi
       follow_button:
         sign_in_before_follow: Veuillez vous connecter avant d'effectuer cette action
       login_modal:
-        close_modal: Fermer la fenêtre modale
         please_sign_in: Veuillez vous connecter
         sign_up: S'inscrire
       mentions_modal:
@@ -1484,9 +1481,6 @@ fr-CA:
           select_an_area: Sélectionnez une zone d'application
       public_participation:
         public_participation: Afficher ma présence publiquement
-      redesigned_login_modal:
-        please_sign_in: Veuillez vous connecter
-        sign_up: Inscription
       reference:
         reference: 'Référence : %{reference}'
       represent_user_group:
@@ -1496,7 +1490,6 @@ fr-CA:
         label: 'Résultats par page :'
         title: Sélectionner le nombre de résultats par page
       share_modal:
-        close_window: Fermer la fenêtre
         copy_share_link: Copier
         copy_share_link_clarification: Copier le lien de partage dans le presse-papiers
         copy_share_link_copied: Copié!
@@ -1892,12 +1885,10 @@ fr-CA:
         decidim_logo: Logo Decidim
         download_open_data: Télécharger les fichiers Open Data
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
-      header:
-        close_menu: Fermer le menu
-        main_menu: Menu principal
-        navigation: Navigation
-        sign_in: Se connecter
         sign_up: S'inscrire
+      header:
+        main_menu: Menu principal
+        sign_in: Se connecter
         user_menu: Menu utilisateur
       impersonation_warning:
         close_session: Fermer la session
