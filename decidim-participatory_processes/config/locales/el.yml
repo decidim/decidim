@@ -393,7 +393,6 @@ el:
     participatory_process_steps:
       index:
         process_steps: Φάσεις διαδικασίας
-        title: Φάσεις διαδικασίας συμμετοχής
     participatory_processes:
       admin:
         content_blocks:
@@ -497,8 +496,5 @@ el:
           more_info_about: Περισσότερες πληροφορίες για τη διαδικασία %{resource_name}
           take_part: Συμμετάσχετε
           take_part_in: Πάρτε μέρος στην διαδικασία %{resource_name}
-      process_header_steps:
-        step: Φάση %{current} από %{total}
-        view_steps: Φάσεις διαδικασίας
       process_navigation:
         process_menu_item: Η διαδικασία
