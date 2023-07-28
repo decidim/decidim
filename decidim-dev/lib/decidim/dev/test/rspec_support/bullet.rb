@@ -3,8 +3,6 @@
 require "bullet"
 
 RSpec.configure do |config|
-  break unless defined?(Bullet)
-
   if defined?(Bullet::ActiveJob)
     Decidim::ApplicationJob.include(Bullet::ActiveJob)
     Decidim::Admin::ApplicationJob.include(Bullet::ActiveJob)
