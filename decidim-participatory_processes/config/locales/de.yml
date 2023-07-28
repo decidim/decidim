@@ -393,7 +393,6 @@ de:
     participatory_process_steps:
       index:
         process_steps: Prozessschritte
-        title: Partizipative Prozessschritte
     participatory_processes:
       admin:
         content_blocks:
@@ -497,8 +496,5 @@ de:
           more_info_about: Weitere Informationen zum Prozess %{resource_name}
           take_part: Teilnehmen
           take_part_in: Beteiligen Sie sich am Prozess %{resource_name}
-      process_header_steps:
-        step: Schritt %{current} von %{total}
-        view_steps: Schritte anzeigen
       process_navigation:
         process_menu_item: Der Prozess
