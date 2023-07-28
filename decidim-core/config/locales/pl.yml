@@ -1104,12 +1104,10 @@ pl:
         spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
         title: Zgłoś użytkownika
       floating_help:
-        close: Zamknij pomoc
         help: Pomoc
       follow_button:
         sign_in_before_follow: Zaloguj się przed wykonaniem tej czynności
       login_modal:
-        close_modal: Zamknij okno
         please_sign_in: Zaloguj się
         sign_up: Zarejestruj się
       participatory_space_filters:
@@ -1125,7 +1123,6 @@ pl:
         label: 'Wyników na stronie:'
         title: Wybierz liczbę wyników na stronie
       share_modal:
-        close_window: Zamknij okno
         copy_share_link_copied: Skopiowano!
         copy_share_link_message: Link został pomyślnie skopiowany do schowka.
         share: Udostępnij
@@ -1359,12 +1356,10 @@ pl:
         decidim_logo: Logo Decidim
         download_open_data: Pobierz pliki Open Data
         made_with_open_source: Strona internetowa powstała z użyciem <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
-      header:
-        close_menu: Zamknij menu
-        main_menu: Menu główne
-        navigation: Nawigacja
-        sign_in: Zaloguj się
         sign_up: Zarejestruj się
+      header:
+        main_menu: Menu główne
+        sign_in: Zaloguj się
         user_menu: Menu użytkownika
       impersonation_warning:
         close_session: Zakończ sesję
