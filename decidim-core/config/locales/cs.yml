@@ -1458,7 +1458,7 @@ cs:
       follow_button:
         sign_in_before_follow: Před provedením této akce se prosím přihlaste
       login_modal:
-        close_modal: Zavřít okno
+        close_modal: Zavřít modální
         please_sign_in: Přihlaste se, prosím
         sign_up: Přihlásit se
       mentions_modal:
