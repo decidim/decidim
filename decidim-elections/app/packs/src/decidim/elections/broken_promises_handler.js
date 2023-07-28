@@ -1,11 +1,13 @@
 /* Fallback for non-handled failed promises */
 window.addEventListener("unhandledrejection", (event) => {
-  console.log("broken", event)
-  $("#server-failure .tech-info").html(event.reason);
-  if (event.reason.toString().indexOf("fetch") === -1) {
-    $("#server-failure .communication_error").addClass("hide");
-    $("#server-failure .generic_error").removeClass("hide");
-  }
-  $("#server-failure").foundation("open");
-});
+  if (window.Decidim.currentDialogs["server-failure"]) {
+    document.getElementById("tech-info").innerHTML = event.reason
 
+    if (event.reason.toString().indexOf("fetch") === -1) {
+      document.getElementById("communication_error").hidden = true
+      document.getElementById("generic_error").hidden = false
+    }
+
+    window.Decidim.currentDialogs["server-failure"].open()
+  }
+});

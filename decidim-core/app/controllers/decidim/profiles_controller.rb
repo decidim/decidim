@@ -17,8 +17,6 @@ module Decidim
     before_action :ensure_profile_published
     before_action :ensure_user_not_blocked
 
-    redesign active: true
-
     def show
       return redirect_to profile_members_path if profile_holder.is_a?(Decidim::UserGroup)
 

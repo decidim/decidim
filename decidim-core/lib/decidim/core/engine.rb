@@ -45,6 +45,7 @@ require "decidim/webpacker"
 
 require "decidim/api"
 require "decidim/middleware/strip_x_forwarded_host"
+require "decidim/middleware/static_dispatcher"
 require "decidim/middleware/current_organization"
 
 module Decidim
@@ -71,6 +72,18 @@ module Decidim
       end
 
       initializer "decidim_core.middleware" do |app|
+        if app.config.public_file_server.enabled
+          headers = app.config.public_file_server.headers || {}
+
+          app.config.middleware.swap(
+            ActionDispatch::Static,
+            Decidim::Middleware::StaticDispatcher,
+            app.paths["public"].first,
+            index: app.config.public_file_server.index_name,
+            headers:
+          )
+        end
+
         app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::CurrentOrganization
         app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::StripXForwardedHost
         app.config.middleware.use BatchLoader::Middleware

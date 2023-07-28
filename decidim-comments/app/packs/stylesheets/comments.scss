@@ -13,6 +13,10 @@
     .form__wrapper {
       @apply pt-0;
     }
+
+    a {
+      @apply text-secondary underline font-semibold;
+    }
   }
 
   &__header {
@@ -59,7 +63,7 @@
       }
 
       .is-group {
-        @apply flex items-center gap-1;
+        @apply ml-auto flex items-center gap-1;
       }
     }
   }
@@ -234,6 +238,8 @@
   }
 
   &__actions {
+    @apply flex items-center gap-4;
+
     .button[aria-expanded="false"] {
       svg:first-of-type {
         @apply block;
@@ -272,10 +278,6 @@
   }
 
   &__content {
-    .user-mention {
-      @apply text-sm font-semibold text-secondary;
-    }
-
     &--label {
       @apply inline-block mb-2;
     }

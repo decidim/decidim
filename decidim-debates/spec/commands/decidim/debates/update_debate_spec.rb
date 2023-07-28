@@ -68,6 +68,13 @@ describe Decidim::Debates::UpdateDebate do
       end.to change(debate, :title)
     end
 
+    it_behaves_like "fires an ActiveSupport::Notification event", "decidim.debates.update_debate:before" do
+      let(:command) { subject }
+    end
+    it_behaves_like "fires an ActiveSupport::Notification event", "decidim.debates.update_debate:after" do
+      let(:command) { subject }
+    end
+
     it "sets the scope" do
       subject.call
       debate.reload

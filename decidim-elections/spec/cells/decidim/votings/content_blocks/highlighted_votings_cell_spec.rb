@@ -20,7 +20,7 @@ describe Decidim::Votings::ContentBlocks::HighlightedVotingsCell, type: :cell do
 
   context "when the content block has no settings" do
     it "shows 4 processes" do
-      expect(highlighted_votings).to have_selector("div.card", count: 4)
+      expect(highlighted_votings).to have_selector("[id^='votings__voting']", count: 4)
     end
   end
 
@@ -32,7 +32,7 @@ describe Decidim::Votings::ContentBlocks::HighlightedVotingsCell, type: :cell do
     end
 
     it "shows up to 8 votings" do
-      expect(highlighted_votings).to have_selector("div.card", count: 5)
+      expect(highlighted_votings).to have_selector("[id^='votings__voting']", count: 5)
     end
   end
 end

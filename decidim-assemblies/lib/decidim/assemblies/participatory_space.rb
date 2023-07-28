@@ -272,6 +272,8 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         Decidim.component_manifests.each do |manifest|
           manifest.seed!(current_assembly.reload)
         end
+
+        Decidim::ContentBlocksCreator.new(current_assembly).create_default!
       end
     end
   end
