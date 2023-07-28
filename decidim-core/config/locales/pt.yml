@@ -1029,12 +1029,10 @@ pt:
         spam: Contém clickbait, publicidade, golpes ou bots de script.
         title: Denunciar utilizador inapropriado
       floating_help:
-        close: Fechar ajuda
         help: Ajuda
       follow_button:
         sign_in_before_follow: Por favor inicie sessão antes de executar esta ação
       login_modal:
-        close_modal: Fechar modal
         please_sign_in: Por favor, inicie a sessão
         sign_up: Inscrever-se
       participatory_space_filters:
@@ -1052,7 +1050,6 @@ pt:
         label: 'Resultados por página:'
         title: Selecionar número de resultados por página
       share_modal:
-        close_window: Fechar janela
         copy_share_link: Copiar
         copy_share_link_clarification: Copiar a ligação de partilha para o clipboard
         copy_share_link_copied: Copiado!
@@ -1282,12 +1279,10 @@ pt:
         decidim_logo: Logótipo do Decidim
         download_open_data: Transferir ficheiros Open Data
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
-      header:
-        close_menu: Fechar menu
-        main_menu: Menu principal
-        navigation: Navegação
-        sign_in: Entrar
         sign_up: Inscrever-se
+      header:
+        main_menu: Menu principal
+        sign_in: Entrar
         user_menu: Menu de utilizador
       impersonation_warning:
         close_session: Terminar sessão
