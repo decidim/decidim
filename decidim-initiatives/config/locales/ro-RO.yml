@@ -553,10 +553,8 @@ ro:
       initiative_header:
         initiative_menu_item: Inițiativă
       initiative_signature_creation_header:
-        back: Înapoi
         fill_personal_data: Completează datele tale
         finish: Finalizare
-        finished: Semnătura inițiativei create
         sms_code: Verificare cod SMS
         sms_phone_number: Număr de telefon mobil
         title: Semnează %{initiative_title}
