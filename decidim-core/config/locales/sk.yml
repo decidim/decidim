@@ -1057,6 +1057,7 @@ sk:
       follow_button:
         sign_in_before_follow: Pred vykonaním tejto akcie sa prosím prihláste
       login_modal:
+        close_modal: Zatvoriť modálne
         please_sign_in: prosím prihláste sa
         sign_up: Prihlásiť sa
       participatory_space_filters:
@@ -1072,7 +1073,7 @@ sk:
         label: 'Výsledky na stránku:'
         title: Vyberte počet výsledkov na stránku
       share_modal:
-        close_window: Zátvor okno
+        close_window: Zavrieť okno
         share: Zdieľať
         share_link: Zdieľať odkaz
     statistics:
