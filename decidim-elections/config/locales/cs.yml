@@ -842,10 +842,14 @@ cs:
           highlighted_votings:
             max_results: Maximální počet prvků k zobrazení
           landing_page:
+            attachments_and_folders:
+              name: Přílohy a složky hlasování
             description:
               name: Popis hlasování
             elections:
               name: Hlasovací volby
+            header:
+              name: Záhlaví hlasování
             html_block_1:
               name: Html blok 1 hlasování
             html_block_2:
