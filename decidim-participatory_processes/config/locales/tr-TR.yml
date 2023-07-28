@@ -474,6 +474,6 @@ tr:
           more_info: Daha fazla bilgi
       process_header_steps:
         step: '%{total}adımdan %{current}'
-        view_steps: Adımları göster
+        view_steps: Süreç adımları
       process_navigation:
         process_menu_item: Süreç
