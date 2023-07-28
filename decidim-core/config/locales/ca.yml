@@ -1327,7 +1327,7 @@ ca:
         label: 'Resultats per pàgina:'
         title: Seleccionar el nombre de resultats per pàgina
       share_modal:
-        close_window: Tanca la finestra
+        close_window: Tancar finestra
         copy_share_link: Còpia
         copy_share_link_clarification: Copia l'enllaç al porta-retalls
         copy_share_link_copied: Copiat!
