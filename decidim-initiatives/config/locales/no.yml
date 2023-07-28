@@ -520,10 +520,8 @@
       initiative_header:
         initiative_menu_item: Initiativ
       initiative_signature_creation_header:
-        back: Tilbake
         fill_personal_data: Fullfør dataene dine
         finish: Fullfør
-        finished: Initiativsignatur opprettet
         sms_code: SMS-kode verifisering
         sms_phone_number: Mobiltelefon number
         title: Signer %{initiative_title}
