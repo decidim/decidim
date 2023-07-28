@@ -393,7 +393,6 @@ hu:
     participatory_process_steps:
       index:
         process_steps: Folyamat fázisok
-        title: Részvételi folyamat fázisok
     participatory_processes:
       admin:
         content_blocks:
@@ -497,8 +496,5 @@ hu:
           more_info_about: További információ a(z) %{resource_name} folyamatról
           take_part: Vegyél részt
           take_part_in: Részvétel a(z) %{resource_name} folyamatban
-      process_header_steps:
-        step: '%{current} fázis ennyiből: %{total}'
-        view_steps: Fázisok megtekintése
       process_navigation:
         process_menu_item: A folyamat
