@@ -1326,7 +1326,7 @@ ar:
       follow_button:
         sign_in_before_follow: يرجى تسجيل الدخول قبل تنفيذ هذا الإجراء
       login_modal:
-        close_modal: اغلاق النموذج
+        close_modal: إغلاق مشروط
         please_sign_in: الرجاء تسجيل الدخول
         sign_up: انشئ حسابًا
       participatory_space_filters:
