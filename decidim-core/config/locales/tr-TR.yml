@@ -1217,7 +1217,7 @@ tr:
       follow_button:
         sign_in_before_follow: Bu eylemi gerçekleştirmeden önce lütfen giriş yapın
       login_modal:
-        close_modal: Pencereyi kapat
+        close_modal: Yakın kalıcı
         please_sign_in: Lütfen giriş yapın
         sign_up: kaydol
       participatory_space_filters:
