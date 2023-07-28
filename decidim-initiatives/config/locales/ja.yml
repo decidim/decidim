@@ -609,10 +609,8 @@ ja:
       initiative_header:
         initiative_menu_item: イニシアチブ
       initiative_signature_creation_header:
-        back: 戻る
         fill_personal_data: データを完成させましょう
         finish: 完了
-        finished: イニシアチブの署名が作成されました
         sms_code: SMSコードの検証
         sms_phone_number: 携帯電話番号
         title: '%{initiative_title} に署名'
