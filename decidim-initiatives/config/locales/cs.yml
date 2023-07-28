@@ -551,6 +551,7 @@ cs:
           area: Oblast
           confirm: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
           edit: Upravit
+          initiative_data: Údaje o iniciativách
           scope: Oblast působnosti
           send_to_technical_validation: Poslat na technické ověření
           signature_collection: Sbírka podpisů
