@@ -529,6 +529,7 @@ uk:
       follow_button:
         sign_in_before_follow: Будь ласка, увійдіть, перш ніж виконувати цю дію
       login_modal:
+        close_modal: Закрити віконце
         please_sign_in: Будь ласка, увійдіть
         sign_up: Зареєструватися
       reference:
