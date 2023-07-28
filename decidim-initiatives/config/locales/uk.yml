@@ -310,6 +310,8 @@ uk:
         show_similar_initiatives: Порівняти
       initiative_header:
         initiative_menu_item: Почин
+      initiative_signature_creation_header:
+        back: Повернутись
       initiatives:
         initiative:
           check: Перевірте ще раз
