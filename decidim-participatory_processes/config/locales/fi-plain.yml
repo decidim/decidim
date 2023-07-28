@@ -335,6 +335,7 @@ fi-pl:
         html_3:
           name: Kolmas HTML-osio
         metadata:
+          developer_group: Edistäjäryhmä
           name: metadata
           participatory_scope: Mitä päätetään
           participatory_structure: Miten päätetään
@@ -404,11 +405,13 @@ fi-pl:
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktiiviset prosessit
             active_step: Aktiivinen vaihe
             more_information: Lisätietoja
             participate: Osallistu
             participate_in: Osallistu prosessiin %{resource_name}
             processes_button_title: Linkki Prosessit-sivulle, jossa näkyvät kaikki prosessit
+            see_all_processes: Näytä kaikki prosessit
       participatory_process_steps:
         index:
           back_to_process: Takaisin prosessin sivulle
@@ -447,6 +450,7 @@ fi-pl:
         dates: Päivämäärät
         developer_group: Kehittäjäryhmä
         end_date: Päättymispäivä
+        local_area: Organisaatioalue
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
         private_space: Tämä on yksityinen prosessi
@@ -487,6 +491,6 @@ fi-pl:
           more_info: Lisätietoja
       process_header_steps:
         step: Vaihe %{current} / %{total}
-        view_steps: Näytä vaiheet
+        view_steps: Prosessin vaiheet
       process_navigation:
         process_menu_item: Prosessi
