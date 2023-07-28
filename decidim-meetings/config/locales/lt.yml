@@ -577,8 +577,6 @@ lt:
         past_meetings: Įvykę susirinkimai
         see_all: Žiūrėti visus susirinkimus (%{count})
         upcoming_meetings: Artėjantys susirinkimai
-      upcoming_meeting_for_card:
-        upcoming_meeting: Būsimas susirinkimas
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Susiję rezultatai:'
