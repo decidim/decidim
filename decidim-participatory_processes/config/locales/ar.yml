@@ -289,7 +289,6 @@ ar:
     participatory_process_steps:
       index:
         process_steps: مراحل العملية
-        title: مراحل العملية التشاركية
     participatory_processes:
       admin:
         content_blocks:
@@ -382,8 +381,5 @@ ar:
           active_step: 'المرحلة الحالية:'
           more_info: مزيد من المعلومات
           take_part: خذ جزء
-      process_header_steps:
-        step: المرحلة %{current} من %{total}
-        view_steps: عرض المراحل
       process_navigation:
         process_menu_item: المسار
