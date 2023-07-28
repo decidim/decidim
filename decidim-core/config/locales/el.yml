@@ -1268,7 +1268,7 @@ el:
       follow_button:
         sign_in_before_follow: Συνδεθείτε προτού εκτελέσετε αυτήν την ενέργεια
       login_modal:
-        close_modal: Κλείσιμο παραθύρου
+        close_modal: Κλείσιμο βοηθητικού στοιχείου
         please_sign_in: Συνδεθείτε
         sign_up: Εγγραφή
       participatory_space_filters:
