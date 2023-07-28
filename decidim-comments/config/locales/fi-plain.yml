@@ -32,6 +32,8 @@ fi-pl:
           error: Kommentin päivittäminen epäonnistui.
       comments_count: Kommenttien määrä
       comments_title: Kommentti
+      last_activity:
+        new_comment: 'Uusi kommentti:'
       view: Näytä
       votes:
         create:
@@ -44,6 +46,8 @@ fi-pl:
             label: Kommentti
             placeholder: Mitä mieltä olet tästä?
           form_error: Teksti vaaditaan ja se ei voi olla pidempi kuin %{length} merkkiä.
+          submit_reply: Julkaise vastaus
+          submit_root_comment: Julkaise kommentti
           user_group_id:
             label: Kommentoi käyttäjänä
         opinion:
@@ -61,6 +65,7 @@ fi-pl:
         alignment:
           against: Vastaan
           in_favor: Puolesta
+        cancel_reply: Peruuta vastaus
         confirm_destroy: Haluatko varmasti poistaa tämän kommentin?
         delete: Poista
         deleted_at: Kommentti poistettu %{date}
