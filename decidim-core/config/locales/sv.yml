@@ -1115,12 +1115,10 @@ sv:
         spam: Innehåller klickbete, reklam, bedrägerier eller skriptbottar.
         title: Rapportera olämplig användare
       floating_help:
-        close: Stäng hjälp
         help: Hjälp
       follow_button:
         sign_in_before_follow: Logga in innan du genomför åtgärden
       login_modal:
-        close_modal: Stäng modal
         please_sign_in: Logga in
         sign_up: Registrera dig
       participatory_space_filters:
@@ -1138,7 +1136,6 @@ sv:
         label: 'Resultat per sida:'
         title: Välj antal resultat per sida
       share_modal:
-        close_window: Stäng fönster
         copy_share_link: Kopiera
         copy_share_link_clarification: Kopiera länk
         copy_share_link_copied: Kopierad!
@@ -1398,12 +1395,10 @@ sv:
         decidim_logo: Decidim logotyp
         download_open_data: Hämta öppna datafiler
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
-      header:
-        close_menu: Stäng meny
-        main_menu: Huvudmeny
-        navigation: Navigera
-        sign_in: Logga in
         sign_up: Registrera
+      header:
+        main_menu: Huvudmeny
+        sign_in: Logga in
         user_menu: Användarmeny
       impersonation_warning:
         close_session: Stäng session
