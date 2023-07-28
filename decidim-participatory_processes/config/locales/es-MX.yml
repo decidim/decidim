@@ -533,6 +533,6 @@ es-MX:
           more_info: Más información
       process_header_steps:
         step: Fase %{current} de %{total}
-        view_steps: Ver las fases
+        view_steps: Las fases de proceso
       process_navigation:
         process_menu_item: El proceso
