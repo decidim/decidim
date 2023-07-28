@@ -646,8 +646,6 @@ fi:
         past_meetings: Aikaisemmat tapaamiset
         see_all: Näytä kaikki tapaamiset
         upcoming_meetings: Tulevat tapaamiset
-      upcoming_meeting_for_card:
-        upcoming_meeting: Tuleva tapaaminen
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Liittyvät tulokset:'
