@@ -554,7 +554,7 @@ pt-BR:
         see_all: Ver todos (%{count})
         upcoming_meetings: Próximas reuniões
       upcoming_meeting_for_card:
-        upcoming_meeting: Próxima reunião
+        upcoming_meeting: Próximo encontro
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'
