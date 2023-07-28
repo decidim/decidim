@@ -443,7 +443,7 @@ fi:
       footer_sub_hero:
         name: Alaosion esialueen banneri
       hero:
-        name: Hero-kuva
+        name: Pääkuva
       hero_settings_form:
         background_image: Taustakuva
         welcome_text: Tervetuloa-teksti
@@ -468,7 +468,7 @@ fi:
       stats:
         name: Organisaation tilastot
       sub_hero:
-        name: Hero-kuvan alabanneri
+        name: Pääkuvan alabanneri
     core:
       actions:
         login_before_access: Sinun täytyy kirjautua sisään, jotta voit tarkastella tätä sisältöä
