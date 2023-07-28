@@ -851,7 +851,7 @@ shared_examples "comments" do
       end
 
       context "when mentioning a group" do
-        let!(:mentioned_group) { create(:user_group, :confirmed, organization:) }
+        let!(:mentioned_group) { create(:user_group, :confirmed, :verified, organization:) }
         let(:content) { "A confirmed user group mention: @#{mentioned_group.nickname}" }
 
         it "shows the tribute container" do
