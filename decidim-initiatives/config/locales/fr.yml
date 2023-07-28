@@ -598,10 +598,8 @@ fr:
       initiative_header:
         initiative_menu_item: Pétition
       initiative_signature_creation_header:
-        back: Retour
         fill_personal_data: Complétez vos données
         finish: terminer
-        finished: Pétition signée avec succès
         sms_code: Vérification du code SMS
         sms_phone_number: numéro de téléphone portable
         title: Signer %{initiative_title}
