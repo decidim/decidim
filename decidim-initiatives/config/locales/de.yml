@@ -617,10 +617,8 @@ de:
       initiative_header:
         initiative_menu_item: Initiative
       initiative_signature_creation_header:
-        back: Zurück
         fill_personal_data: Ergänzen Sie Ihre Daten
         finish: Fertig
-        finished: Initiativsignatur erstellt
         sms_code: SMS-Code-Bestätigung
         sms_phone_number: Handynummer
         title: Zeichen %{initiative_title}
