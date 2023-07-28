@@ -415,7 +415,6 @@ fi-pl:
       started_at: Aloitettu %{timestamp}
     authorization_modals:
       content:
-        close_modal: Sulje ikkuna
         expired:
           authorize: Varmenna varmennustavalla "%{authorization}"
           explanation: Varmennuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava varmennettava itsesi uudestaan varmennustavalla "%{authorization}".
@@ -1482,12 +1481,10 @@ fi-pl:
         spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
         title: Ilmoita asiaton käyttäjä
       floating_help:
-        close: Sulje ohjeet
         help: Ohjeet
       follow_button:
         sign_in_before_follow: Kirjaudu sisään ennen tämän toiminnon suorittamista
       login_modal:
-        close_modal: Sulje ikkuna
         please_sign_in: Kirjaudu sisään
         sign_up: Rekisteröidy
       mentions_modal:
@@ -1500,9 +1497,6 @@ fi-pl:
           select_an_area: Valitse alue
       public_participation:
         public_participation: Näytä läsnäoloni julkisesti
-      redesigned_login_modal:
-        please_sign_in: Kirjaudu sisään
-        sign_up: Rekisteröidy
       reference:
         reference: 'Viite: %{reference}'
       represent_user_group:
@@ -1512,7 +1506,6 @@ fi-pl:
         label: 'Tulosten määrä sivulla:'
         title: Valitse tulosten määrä sivua kohti
       share_modal:
-        close_window: Sulje ikkuna
         copy_share_link: Kopio
         copy_share_link_clarification: Kopioi jakolinkki leikepöydälle
         copy_share_link_copied: Kopioitu!
@@ -1915,14 +1908,11 @@ fi-pl:
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
         resources: Resurssit
         sign_in: Kirjaudu sisään
-        sign_up: Luo oma käyttäjätili
+        sign_up: Rekisteröidy
         terms_and_conditions: Käyttöehdot
       header:
-        close_menu: Sulje valikko
         main_menu: Päävalikko
-        navigation: Navigaatio
         sign_in: Kirjaudu sisään
-        sign_up: Rekisteröidy
         user_menu: Käyttäjän valikko
       impersonation_warning:
         close_session: Sulje istunto
