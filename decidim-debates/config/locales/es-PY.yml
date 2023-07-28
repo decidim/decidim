@@ -96,6 +96,7 @@ es-PY:
           invalid: Se ha producido un error al cerrar el debate.
           success: Debate cerrado correctamente.
         close_debate_modal:
+          cancel: Cancelar
           description: '¿Cuál es el resumen o la conclusión de este debate?'
           send: Cerrar debate
         closed: Cerrado
@@ -123,6 +124,7 @@ es-PY:
           state_values:
             closed: Cerrado
             open: Abierto
+          user_group: Grupos
         form:
           select_a_category: Por favor, selecciona una categoría
         index:
@@ -156,8 +158,10 @@ es-PY:
       models:
         debate:
           fields:
+            end: Finaliza
             end_time: Fecha de finalización
             official_debate: Debate oficial
+            start: Empieza
             start_time: Fecha de inicio
             title: Título
     events:
