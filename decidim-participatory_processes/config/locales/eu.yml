@@ -486,6 +486,6 @@ eu:
           more_info: Informazio gehiago
       process_header_steps:
         step: '%{total} fasetatik %{current}.a'
-        view_steps: Ikusi faseak
+        view_steps: Prozesuaren faseak
       process_navigation:
         process_menu_item: Prozesua
