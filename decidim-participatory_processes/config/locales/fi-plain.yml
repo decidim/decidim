@@ -533,6 +533,6 @@ fi-pl:
           more_info: Lisätietoja
       process_header_steps:
         step: Vaihe %{current} / %{total}
-        view_steps: Näytä vaiheet
+        view_steps: Prosessin vaiheet
       process_navigation:
         process_menu_item: Prosessi
