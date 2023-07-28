@@ -577,10 +577,8 @@ hu:
       initiative_header:
         initiative_menu_item: Kezdeményezés
       initiative_signature_creation_header:
-        back: Vissza
         fill_personal_data: Add meg az adataidat
         finish: Befejezés
-        finished: Kezdeményezés aláírása létrehozva
         sms_code: SMS-kód ellenőrzése
         sms_phone_number: Mobiltelefonszám
         title: '%{initiative_title} kezdeményezés aláírása'
