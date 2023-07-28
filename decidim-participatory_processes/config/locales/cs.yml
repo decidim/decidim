@@ -549,6 +549,6 @@ cs:
           more_info: Více informací
       process_header_steps:
         step: Krok %{current} z %{total}
-        view_steps: Zobrazit kroky
+        view_steps: Procesní kroky
       process_navigation:
         process_menu_item: Proces
