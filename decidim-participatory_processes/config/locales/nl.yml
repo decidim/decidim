@@ -327,7 +327,6 @@ nl:
     participatory_process_steps:
       index:
         process_steps: Stappen van het proces
-        title: Fases van het participatieve proces
     participatory_processes:
       admin:
         content_blocks:
@@ -424,8 +423,5 @@ nl:
           more_info_about: Meer informatie over proces %{resource_name}
           take_part: Deelnemen
           take_part_in: Neem deel aan proces %{resource_name}
-      process_header_steps:
-        step: Stap %{current} van %{total}
-        view_steps: Bekijk stappen
       process_navigation:
         process_menu_item: Het thema
