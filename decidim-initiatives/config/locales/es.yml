@@ -617,10 +617,8 @@ es:
       initiative_header:
         initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
-        back: Volver
         fill_personal_data: Completa tus datos
         finish: Terminar
-        finished: Has firmado la iniciativa correctamente
         sms_code: Verificación por código SMS
         sms_phone_number: Número de teléfono móvil
         title: Firmar %{initiative_title}
