@@ -504,8 +504,6 @@ hu:
         past_meetings: Korábbi találkozók
         see_all: Összes (%{count})
         upcoming_meetings: Közelgő találkozók
-      upcoming_meeting_for_card:
-        upcoming_meeting: Közelgő találkozó
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Kapcsolódó eredmények:'
