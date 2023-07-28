@@ -34,7 +34,7 @@
       <div class="form__wrapper">
         <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
 
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: "••••••" %>
+        <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
 
         <% if devise_mapping.rememberable? %>
           <%= f.check_box :remember_me, label_options: { class: "form__wrapper-checkbox-label" } %>
