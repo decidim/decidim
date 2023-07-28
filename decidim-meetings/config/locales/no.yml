@@ -496,8 +496,6 @@
         past_meetings: Tidligere møter
         see_all: Vis alle (%{count})
         upcoming_meetings: Kommende møter
-      upcoming_meeting_for_card:
-        upcoming_meeting: Kommende møte
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Relaterte resultater:'
