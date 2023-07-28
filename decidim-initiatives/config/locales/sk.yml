@@ -342,10 +342,8 @@ sk:
       initiative_header:
         initiative_menu_item: Iniciatíva
       initiative_signature_creation_header:
-        back: Späť
         fill_personal_data: Dokončiť svoje údaje
         finish: Dokončiť
-        finished: Vytvorenie podpisu iniciatívy
         sms_code: Overenie kódu SMS
         sms_phone_number: Číslo mobilného telefónu
         title: Podpísať%{initiative_title}
