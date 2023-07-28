@@ -1309,7 +1309,7 @@ sv:
       follow_button:
         sign_in_before_follow: Logga in innan du genomför åtgärden
       login_modal:
-        close_modal: Stäng modal
+        close_modal: Stäng fönster
         please_sign_in: Logga in
         sign_up: Registrera dig
       participatory_space_filters:
