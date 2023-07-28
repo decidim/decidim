@@ -828,6 +828,10 @@ cs:
             invalid: Při aktualizaci tohoto stylu hlasování došlo k chybě.
             success: Styl hlasování byl úspěšně aktualizován.
         content_blocks:
+          attachments_and_folders:
+            name: Přílohy a složky hlasování
+          header:
+            name: Záhlaví hlasování
           highlighted_votings:
             max_results: Maximální počet prvků k zobrazení
           html_block_1:
