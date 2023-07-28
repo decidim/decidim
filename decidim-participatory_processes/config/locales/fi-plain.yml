@@ -126,6 +126,7 @@ fi-pl:
           categories: Aihepiirit
           components: Komponentit
           info: Tiedot
+          landing_page: Laskeutumissivu
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
           process_admins: Prosessin käyttäjät
@@ -373,13 +374,24 @@ fi-pl:
         title: Osallisuusprosessit
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Edistäjäryhmä
+          name: Metatiedot
+          participatory_scope: Mitä päätetään
+          participatory_structure: Miten päätetään
+          target: Kuka osallistuu
+        html:
+          name: HTML-lohko
         html_1:
           name: Ensimmäinen HTML-osio
         html_2:
           name: Toinen HTML-osio
         html_3:
           name: Kolmas HTML-osio
+        main_data:
+          name: Otsikko ja kuvaus
         participatory_processes:
+          active: Aktiiviset osallistumisprosessit
           name: Osallistumisprosessit
         stats:
           name: Tilastot
@@ -393,12 +405,14 @@ fi-pl:
     participatory_process_steps:
       index:
         process_steps: Prosessin vaiheet
-        title: Osallisuusprosessin vaiheet
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Aktiiviset
+            all: Kaikki
             max_results: Näytettävien elementtien enimmäismäärä
+            selection_criteria: Valintakriteerit
         new_import:
           accepted_types:
             json: JSON
@@ -435,16 +449,37 @@ fi-pl:
             title: Yleistä tietoa
             visbility: näkyvyys
       content_blocks:
+        extra_data:
+          name: Vaihe ja kesto
+        hero:
+          name: Pääkuva ja CTA-painike (call to action)
         highlighted_processes:
           name: Tärkeimmät prosessit
+        related_processes:
+          name: Liittyvät prosessit
       index:
         title: Osallisuusprosessit
       last_activity:
         new_participatory_process: Uusi osallisuusprosessi
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Aktiiviset prosessit
+            see_all_spaces: Näytä kaikki prosessit
       participatory_process_steps:
         index:
           back_to_process: Takaisin prosessin sivulle
       participatory_processes:
+        description:
+          area_name: Alue
+          data: Prosessin tiedot
+          developer_group: Edistäjäryhmä
+          local_area: Organisaatioalue
+          meta_scope: Teema
+          participatory_scope: Mitä päätetään
+          participatory_structure: Miten päätetään
+          target: Kuka osallistuu
+          title: Tietoa tästä prosessista
         filters:
           all_types: Kaikki tyypit
           counters:
@@ -460,6 +495,7 @@ fi-pl:
             upcoming:
               one: 1 tuleva prosessi
               other: "%{count} tulevaa prosessia"
+          date: Päivämäärä
           explanations:
             no_active: Ei aktiivisia prosesseja.
             no_active_nor_upcoming: Ei aktiivisia tai tulevia prosesseja.
@@ -471,6 +507,7 @@ fi-pl:
             past: Menneet
             upcoming: Tulevat
           see: Katso
+          type: Tyyppi
         show:
           title: Tietoa tästä prosessista
       show:
@@ -497,8 +534,5 @@ fi-pl:
           more_info_about: Lisätietoja prosessista %{resource_name}
           take_part: Osallistu
           take_part_in: Osallistu prosessiin %{resource_name}
-      process_header_steps:
-        step: Vaihe %{current} / %{total}
-        view_steps: Näytä vaiheet
       process_navigation:
         process_menu_item: Prosessi
