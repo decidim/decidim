@@ -132,6 +132,11 @@ cs:
         less_than_x_seconds: "%{count} s"
         over_x_years: "%{count} let"
         x_days: "%{count}d"
+        x_hours: "%{count} hod"
+        x_minutes: "%{count} min"
+        x_months: "%{count} měsíců"
+        x_seconds: "%{count} s"
+        x_years: "%{count} let"
       x_days:
         one: 1 dnem
         few: "{{$count}} dny"
@@ -1192,6 +1197,7 @@ cs:
         active: Aktivní
         finished: 'Dokončeno: %{end_date}'
         not_started: Ještě nezačalo
+        remaining: "Zbývá %{time_distance}"
     metrics:
       download:
         csv: Stáhnout data (CSV)
