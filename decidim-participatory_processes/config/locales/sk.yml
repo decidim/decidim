@@ -426,6 +426,6 @@ sk:
           more_info: Viac informácií
       process_header_steps:
         step: Krok%{current} z%{total}
-        view_steps: Zobraziť kroky
+        view_steps: Kroky procesu
       process_navigation:
         process_menu_item: Proces
