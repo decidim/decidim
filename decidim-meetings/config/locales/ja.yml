@@ -629,8 +629,6 @@ ja:
         past_meetings: 過去のミーティング
         see_all: すべてのミーティングを見る (%{count})
         upcoming_meetings: 今後のミーティング
-      upcoming_meeting_for_card:
-        upcoming_meeting: 今後のミーティング
     resource_links:
       meetings_through_proposals:
         meeting_result: '関連する結果:'
