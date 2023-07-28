@@ -59,9 +59,10 @@ sl:
     decidim:
       edit_link:
         edit: Uredi
+      footer:
+        sign_up: Registracija
       header:
         sign_in: Prijava
-        sign_up: Registracija
   locale:
     name: Slovenščina
     name_with_error: Slovenščina (napaka!)
