@@ -558,8 +558,6 @@ sv:
         past_meetings: Tidigare möten
         see_all: Visa alla (%{count})
         upcoming_meetings: Kommande möten
-      upcoming_meeting_for_card:
-        upcoming_meeting: Kommande möte
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Relaterade resultat:'
