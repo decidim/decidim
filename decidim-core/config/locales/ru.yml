@@ -664,6 +664,7 @@ ru:
       follow_button:
         sign_in_before_follow: Пожалуйста, войдите в учетную запись, прежде чем выполнять это действие
       login_modal:
+        close_modal: Закрыть окошко
         please_sign_in: Пожалуйста войдите
         sign_up: Зарегистрироваться
       reference:
