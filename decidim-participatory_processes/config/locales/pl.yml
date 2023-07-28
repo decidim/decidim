@@ -494,6 +494,6 @@ pl:
           more_info: Więcej informacji
       process_header_steps:
         step: Etap %{current} z %{total}
-        view_steps: Pokaż etapy
+        view_steps: Etapy procesu
       process_navigation:
         process_menu_item: Proces
