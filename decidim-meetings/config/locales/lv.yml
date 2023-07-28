@@ -344,8 +344,6 @@ lv:
       highlighted_meetings:
         past_meetings: Iepriekšējās sanāksmes
         upcoming_meetings: Gaidāmās sanāksmes
-      upcoming_meeting_for_card:
-        upcoming_meeting: Gaidāmā sanāksme
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Saistītie rezultāti:'
