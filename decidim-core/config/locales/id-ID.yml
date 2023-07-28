@@ -909,6 +909,7 @@ id:
       follow_button:
         sign_in_before_follow: Harap masuk sebelum melakukan tindakan ini
       login_modal:
+        close_modal: Tutup modal
         please_sign_in: Silakan masuk
         sign_up: Daftar
       participatory_space_filters:
