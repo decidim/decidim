@@ -490,6 +490,6 @@ fr:
           more_info: Plus d'informations
       process_header_steps:
         step: Étape %{current} sur %{total}
-        view_steps: Voir les étapes
+        view_steps: Étapes de la concertation
       process_navigation:
         process_menu_item: Présentation
