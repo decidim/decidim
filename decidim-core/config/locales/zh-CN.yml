@@ -933,12 +933,10 @@ zh-CN:
         spam: 包含点击、广告、骗子或脚本机器人。
         title: 报告不恰当的内容
       floating_help:
-        close: 关闭帮助
         help: 帮助
       follow_button:
         sign_in_before_follow: 请先登录才能执行此操作
       login_modal:
-        close_modal: 关闭模式
         please_sign_in: 请登录
         sign_up: 注册
       participatory_space_filters:
@@ -954,7 +952,6 @@ zh-CN:
         label: '每页结果：'
         title: 选择每页结果数
       share_modal:
-        close_window: 关闭窗口
         share: 分享
         share_link: 分享链接
     statistics:
@@ -1160,11 +1157,9 @@ zh-CN:
         decidim_logo: 解码徽标
         download_open_data: 下载打开的数据文件
         made_with_open_source: 使用 <a target="_blank" href="https://github.com/decidim/decidim">免费软件</a> 创建的网站。
-      header:
-        close_menu: 关闭菜单
-        navigation: Navigation
-        sign_in: 登录
         sign_up: 注册
+      header:
+        sign_in: 登录
       impersonation_warning:
         close_session: 关闭会话
         description_html: 您正在管理参与者 <b>%{user_name}</b>
