@@ -1,14 +1,12 @@
-<div class="filters row">
-  <div class="column medium-4">
+<div class="filters__section">
+  <div class="fcell search">
     <%= form_tag "", method: :get do %>
-      <div class="filters__search">
-        <div class="input-group">
-          <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
-          <div class="input-group-button">
-            <button type="submit" class="button button__sm md:button__lg button__secondary">
-              <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
-            </button>
-          </div>
+      <div class="input-group">
+        <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
+        <div class="input-group-button">
+         <button type="submit" class="text-secondary">
+          <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
+        </button>
         </div>
       </div>
     <% end %>
