@@ -76,6 +76,8 @@ eo:
     shared:
       embed_modal:
         close_window: Fermu la fenestron
+      share_modal:
+        close_window: Fermu la fenestron
   devise:
     sessions:
       new:
