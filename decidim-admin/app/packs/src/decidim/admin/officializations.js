@@ -28,7 +28,6 @@ $(() => {
       let userEmail = await response.text();
       $("#user_email").html(userEmail);
       $button.hide()
-      $("#hidden_text").hide()
     } else {
       alert("Error-HTTP: " + response.status);
     }
