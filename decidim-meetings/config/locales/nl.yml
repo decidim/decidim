@@ -558,8 +558,6 @@ nl:
         past_meetings: Vorige events
         see_all: Alle vergaderingen bekijken (%{count})
         upcoming_meetings: Aankomende vergaderingen
-      upcoming_meeting_for_card:
-        upcoming_meeting: Aankomende vergadering
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Gerelateerde resultaten:'
