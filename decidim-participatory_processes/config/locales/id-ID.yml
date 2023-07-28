@@ -377,6 +377,6 @@ id:
           more_info: Info lebih lanjut
       process_header_steps:
         step: Langkah %{current} dari %{total}
-        view_steps: Lihat langkah
+        view_steps: Langkah-langkah proses
       process_navigation:
         process_menu_item: Proses
