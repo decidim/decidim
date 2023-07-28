@@ -436,7 +436,6 @@ cs:
       started_at: Začal v %{timestamp}
     authorization_modals:
       content:
-        close_modal: Zavřít modal
         expired:
           authorize: Znovu autorizujte s "%{authorization}"
           explanation: Platnost vašeho oprávnění vypršela. Chcete-li provést tuto akci, musíte být znovu autorizován s "%{authorization}".
@@ -1513,12 +1512,10 @@ cs:
         spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
         title: Nahlásit nevhodného uživatele
       floating_help:
-        close: Zavřít nápovědu
         help: Pomoc
       follow_button:
         sign_in_before_follow: Před provedením této akce se prosím přihlaste
       login_modal:
-        close_modal: Zavřít okno
         please_sign_in: Přihlaste se, prosím
         sign_up: Přihlásit se
       mentions_modal:
@@ -1531,9 +1528,6 @@ cs:
           select_an_area: Vyberte oblast
       public_participation:
         public_participation: Ukázat svou účast veřejně
-      redesigned_login_modal:
-        please_sign_in: Přihlaste se prosím
-        sign_up: Zaregistrovat se
       reference:
         reference: 'Odkaz: %{reference}'
       represent_user_group:
@@ -1543,7 +1537,6 @@ cs:
         label: 'Výsledky na stránku:'
         title: Vyberte počet výsledků na stránku
       share_modal:
-        close_window: Zavřete okno
         copy_share_link: Kopírovat
         copy_share_link_clarification: Zkopírovat odkaz pro sdílení do schránky
         copy_share_link_copied: Zkopírováno!
@@ -1955,11 +1948,8 @@ cs:
         sign_up: Registrovat
         terms_and_conditions: Podmínky používání
       header:
-        close_menu: Zavřít nabídku
         main_menu: Hlavní menu
-        navigation: Navigace
         sign_in: Přihlásit se
-        sign_up: Registrovat
         user_menu: Uživatelské Menu
       impersonation_warning:
         close_session: Zavřít sezení
