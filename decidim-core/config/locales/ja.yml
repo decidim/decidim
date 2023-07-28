@@ -1293,7 +1293,7 @@ ja:
       follow_button:
         sign_in_before_follow: このアクションを実行する前にログインしてください
       login_modal:
-        close_modal: ウィンドウを閉じる
+        close_modal: モーダルを閉じる
         please_sign_in: ログインしてください
         sign_up: 新規登録
       participatory_space_filters:
