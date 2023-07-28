@@ -493,6 +493,7 @@ fr-CA:
             all: Toutes
             official: Officiel
             participants: Participants
+            user_groups: Groupes
           scope: Périmètre d'application
           search: Rechercher
           type: Type
@@ -544,8 +545,10 @@ fr-CA:
           close_meeting: Clore la rencontre
           contributions: Décompte des contributions
           date: Date
+          edit_close_meeting: Modifier le compte-rendu de la rencontre
           edit_meeting: Modifier la rencontre
           going: Vous vous êtes inscrit à cette rencontre
+          join: Rejoindre la rencontre
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
           link_available_soon: Lien bientôt disponible
