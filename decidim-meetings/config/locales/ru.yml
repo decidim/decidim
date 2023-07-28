@@ -332,8 +332,6 @@ ru:
         past_meetings: Прошедшие встречи
         see_all: Посмотреть все (%{count})
         upcoming_meetings: Предстоящие встречи
-      upcoming_meeting_for_card:
-        upcoming_meeting: Предстоящая встреча
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Подобные итоги:'
