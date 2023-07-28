@@ -420,6 +420,7 @@ fi-pl:
       directory:
         meetings:
           index:
+            go_to_list: Näytä tapaamisluettelo
             meetings: Tapahtumat
             space_type: Osallisuustila
       iframe_access_level:
@@ -486,6 +487,7 @@ fi-pl:
             all: Kaikki
             official: Viralliset
             participants: Osallistujat
+            user_group: Ryhmät
           search: Hae
           type: Tyyppi
           type_values:
@@ -513,6 +515,11 @@ fi-pl:
           see_all: Näytä kaikki tapahtumat
           see_all_withdrawn: Näytä kaikki peruutetut tapahtumat
           text_banner: Katselet peruutettuja tapahtumia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
+        meeting:
+          close_meeting: Sulje tapaaminen
+          edit_close_meeting: Muokkaa tapaamisraporttia
+          edit_meeting: Muokkaa tapaamista
+          join_meeting: Ilmoittaudu tapaamiseen
         meetings:
           no_meetings_warning: Yksikään tapaaminen ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole suunniteltu.
           upcoming_meetings_warning: Tällä hetkellä ei ole suuniteltuja tapahtumia, mutta täältä löydät kaikki aikaisemmat tapahtumat.
@@ -593,6 +600,7 @@ fi-pl:
             question_replied: Kysymykseen on vastattu
             reply_question: Vastaa kysymykseen
       public_participants_list:
+        attending_organizations: Organisaatiot
         attending_participants: Mukana olevat osallistujat
         hidden_participants_count:
           one: ja %{count} muu henkilö
@@ -638,8 +646,6 @@ fi-pl:
         past_meetings: Aiemmat tapahtumat
         see_all: Näytä kaikki (%{count})
         upcoming_meetings: Tulevat tapahtumat
-      upcoming_meeting_for_card:
-        upcoming_meeting: Tuleva tapahtuma
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Liittyvät tulokset:'
