@@ -1081,6 +1081,7 @@ lv:
       follow_button:
         sign_in_before_follow: Lūdzu, pierakstieties pirms šīs darbības veikšanas
       login_modal:
+        close_modal: Aizvērt modal
         please_sign_in: Lūdzu, pierakstieties
         sign_up: Reģistrēties
       participatory_space_filters:
