@@ -477,6 +477,6 @@ pt-BR:
           more_info: Mais informações
       process_header_steps:
         step: Passo %{current} de %{total}
-        view_steps: Ver as etapas
+        view_steps: Etapas do processo
       process_navigation:
         process_menu_item: O processo
