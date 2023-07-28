@@ -38,7 +38,7 @@
   }
 
   &__main {
-    @apply col-span-8 bg-white md:pl-16 py-6 md:py-12;
+    @apply col-span-8 lg:col-span-3 bg-white md:pl-16 py-6 md:py-12;
   }
 
   &__reverse &__aside {
