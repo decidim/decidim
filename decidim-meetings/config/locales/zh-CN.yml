@@ -380,8 +380,6 @@ zh-CN:
         past_meetings: 过去的会议
         see_all: 查看所有会议 (%{count})
         upcoming_meetings: 即将举行的会议
-      upcoming_meeting_for_card:
-        upcoming_meeting: 即将举行的会议
     resource_links:
       meetings_through_proposals:
         meeting_result: '相关结果：'
