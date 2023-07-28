@@ -374,7 +374,6 @@ hu:
       started_at: 'Kezdés: %{timestamp}'
     authorization_modals:
       content:
-        close_modal: Ablak bezárás
         expired:
           authorize: 'Újra engedélyezni ezt: "%{authorization}"'
           explanation: 'Az engedélyed lejárt. Ennek a műveletnek a végrehajtásához újra engedélyezni kell a következőt: "%{authorization}".'
@@ -1302,12 +1301,10 @@ hu:
         spam: Klikkvadászat, reklám, átverés vagy script bot.
         title: Nem megfelelően viselkedő felhasználó jelentése
       floating_help:
-        close: Súgó bezárása
         help: Segítség
       follow_button:
         sign_in_before_follow: Kérlek, jelentkezz be ehhez a műveletethez
       login_modal:
-        close_modal: Felugró ablak bezárása
         please_sign_in: Jelentkezz be
         sign_up: Regisztrálj
       mentions_modal:
@@ -1318,9 +1315,6 @@ hu:
           select_an_area: Válasszon ki egy területet
       public_participation:
         public_participation: Nyilvánosan mutassa a részvételemet
-      redesigned_login_modal:
-        please_sign_in: Kérjük, jelentkezzen be
-        sign_up: Regisztráció
       reference:
         reference: 'Hivatkozás: %{reference}'
       represent_user_group:
@@ -1330,7 +1324,6 @@ hu:
         label: 'Találatok száma oldalanként:'
         title: Az oldalankénti találatok számának kiválasztása
       share_modal:
-        close_window: Ablak bezárása
         copy_share_link: Másolás
         copy_share_link_clarification: Megosztási hivatkozás másolása vágólapra
         copy_share_link_copied: Másolva!
@@ -1613,12 +1606,10 @@ hu:
         decidim_logo: Decidim-logó
         download_open_data: Töltse le a Nyílt Adat fájlokat
         made_with_open_source: Az oldal <a target="_blank" href="https://github.com/decidim/decidim">nyílt forráskódú szoftverrel</a> készült.
-      header:
-        close_menu: Menü bezárása
-        main_menu: Főmenü
-        navigation: Navigáció
-        sign_in: Bejelentkezés
         sign_up: Regisztráció
+      header:
+        main_menu: Főmenü
+        sign_in: Bejelentkezés
         user_menu: Felhasználói menü
       impersonation_warning:
         close_session: Munkamenet bezárása
