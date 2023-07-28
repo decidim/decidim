@@ -405,7 +405,6 @@ fi:
     participatory_process_steps:
       index:
         process_steps: Prosessin vaiheet
-        title: Osallistumisprosessin vaiheet
     participatory_processes:
       admin:
         content_blocks:
@@ -535,8 +534,5 @@ fi:
           more_info_about: Lisätietoja prosessista %{resource_name}
           take_part: Osallistu
           take_part_in: Osallistu prosessiin %{resource_name}
-      process_header_steps:
-        step: Vaihe %{current} / %{total}
-        view_steps: Prosessin vaiheet
       process_navigation:
         process_menu_item: Prosessi
