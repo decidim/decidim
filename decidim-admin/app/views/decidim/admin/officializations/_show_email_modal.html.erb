@@ -13,13 +13,13 @@
         <h4><%= t(".email_address") %></h4>
         <div>
           <p id="user_email"></p>
-          <p><%= t(".hidden") %></p>
+          <p id="hidden_text"><%= t(".hidden") %></p>
         </div>
       </div>
     </div>
   </div>
   <div data-dialog-actions>
-    <button class="button button__sm md:button__lg button__secondary" data-dialog-open="user_email" data-dialog-remote-url="">
+    <button class="button button__sm md:button__lg button__secondary" data-open="user_email" data-remote-url="">
       <%= t(".show") %>
     </button>
   </div>

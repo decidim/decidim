@@ -13,8 +13,25 @@ $(() => {
     event.preventDefault()
 
     $button.show()
-    $button.attr("data-dialog-remote-url", event.currentTarget.href)
+    $button.attr("data-remote-url", event.currentTarget.href)
     $fullName.text($(event.currentTarget).data("full-name"))
-    $email.html("")
+    $email.html('');
   })
+
+  $("[data-open=user_email]").on("click", (event) => {
+    getUserEmail(event.currentTarget.dataset.remoteUrl);
+  })
+
+  async function getUserEmail(url) {
+    let response = await fetch(url);
+    if (response.ok) {
+      let userEmail = await response.text();
+      $("#user_email").html(userEmail);
+      $button.hide()
+      $("#hidden_text").hide()
+    } else {
+      alert("Error-HTTP: " + response.status);
+    }
+  }
+
 })
