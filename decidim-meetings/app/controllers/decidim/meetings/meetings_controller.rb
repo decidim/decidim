@@ -18,8 +18,6 @@ module Decidim
 
       helper_method :meetings, :meeting, :registration, :search, :nav_paths, :tab_panel_items
 
-      redesign active: true
-
       before_action :add_addtional_csp_directives, only: [:show]
 
       def new

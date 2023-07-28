@@ -6,7 +6,7 @@ module Decidim
       include ParticipatorySpaceContext
       include AssemblyBreadcrumb
 
-      redesign_participatory_space_layout only: :index
+      participatory_space_layout only: :index
 
       helper_method :collection
 
