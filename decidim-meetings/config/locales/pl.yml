@@ -481,8 +481,6 @@ pl:
         past_meetings: Przeszłe spotkania
         see_all: Zobacz wszystkie spotkania (%{count})
         upcoming_meetings: Nadchodzące spotkania
-      upcoming_meeting_for_card:
-        upcoming_meeting: Nadchodzące spotkanie
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Powiązane wyniki:'
