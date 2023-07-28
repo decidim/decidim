@@ -1240,7 +1240,7 @@ lb:
       follow_button:
         sign_in_before_follow: Mell dech w. e. g. un, éier s'du dës Aktioun ausféiers
       login_modal:
-        close_modal: Modal zou maachen
+        close_modal: Modal schließen
         please_sign_in: W. e. g. umellen
         sign_up: Registréieren
       participatory_space_filters:
@@ -1258,7 +1258,7 @@ lb:
         label: 'Ergebnisser pro Säit:'
         title: Wiel d'Unzuel vun de Resultater pro Säit
       share_modal:
-        close_window: Fenster schließen
+        close_window: Fënster zou maachen
         copy_share_link: Kopieren
         copy_share_link_clarification: Ëffentlechen Link an d'Tëschenoflag kopéieren
         copy_share_link_copied: Kopéiert!
