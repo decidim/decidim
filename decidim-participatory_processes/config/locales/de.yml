@@ -529,6 +529,6 @@ de:
           more_info: Mehr Info
       process_header_steps:
         step: Schritt %{current} von %{total}
-        view_steps: Schritte anzeigen
+        view_steps: Prozessschritte
       process_navigation:
         process_menu_item: Der Prozess
