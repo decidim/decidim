@@ -1267,7 +1267,7 @@ eu:
       follow_button:
         sign_in_before_follow: Hasi saioa ekintza hau burutu baino lehen
       login_modal:
-        close_modal: Itxi leihoa
+        close_modal: Itxi modal
         please_sign_in: Mesedez, erregistratu
         sign_up: Erregistratu
       participatory_space_filters:
