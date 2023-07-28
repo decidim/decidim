@@ -14,10 +14,6 @@ edit_link(
 )
 %>
 
-<%= participatory_space_floating_help %>
-
-<% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
-
 <%= content_for :aside do %>
   <section class="initiative__aside">
     <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? || current_initiative.discarded? %>
@@ -146,6 +142,10 @@ edit_link(
     <% end %>
   </section>
 <% end %>
+
+<%= participatory_space_floating_help %>
+
+<% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 
 <section class="layout-main__section layout-main__heading">
   <h2 class="h2 decorator">

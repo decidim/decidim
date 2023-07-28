@@ -29,7 +29,7 @@
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
 
-  <% if component_settings.geocoding_enabled? %>
+  <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
     <div class="proposal-list__map">
       <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
         <template id="marker-popup">

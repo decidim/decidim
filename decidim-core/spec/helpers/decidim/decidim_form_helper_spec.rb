@@ -4,14 +4,6 @@ require "spec_helper"
 
 module Decidim
   describe DecidimFormHelper, type: :helper do
-    let(:redesign_enabled) { false }
-
-    before do
-      # rubocop:disable RSpec/AnyInstance
-      allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
-      # rubocop:enable RSpec/AnyInstance
-    end
-
     describe "decidim_form_for" do
       it "injects custom options" do
         record = double("record").as_null_object
