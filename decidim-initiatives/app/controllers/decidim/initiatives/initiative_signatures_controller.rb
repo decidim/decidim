@@ -8,7 +8,7 @@
 module Decidim
   module Initiatives
     class InitiativeSignaturesController < Decidim::Initiatives::ApplicationController
-      layout "layouts/decidim/redesigned_initiative_signature_creation"
+      layout "layouts/decidim/initiative_signature_creation"
       include Decidim::Initiatives::NeedsInitiative
       include Decidim::FormFactory
 
