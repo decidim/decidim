@@ -1026,12 +1026,10 @@ lb:
         spam: Enthält Klickbait, Reklamm, Bedruch oder Script-Bots.
         title: Notzer mellen den net zoulässeg ass
       floating_help:
-        close: Den Hëllefs-Tab zoumaachen
         help: Hëllef
       follow_button:
         sign_in_before_follow: Mell dech w. e. g. un, éier s'du dës Aktioun ausféiers
       login_modal:
-        close_modal: Modal zou maachen
         please_sign_in: W. e. g. umellen
         sign_up: Registréieren
       participatory_space_filters:
@@ -1049,7 +1047,6 @@ lb:
         label: 'Ergebnisser pro Säit:'
         title: Wiel d'Unzuel vun de Resultater pro Säit
       share_modal:
-        close_window: Fenster schließen
         copy_share_link: Kopieren
         copy_share_link_clarification: Ëffentlechen Link an d'Tëschenoflag kopéieren
         copy_share_link_copied: Kopéiert!
@@ -1279,12 +1276,10 @@ lb:
         decidim_logo: Decidim-Logo
         download_open_data: Open Data Dateien eroflueden
         made_with_open_source: Website mat <a target="_blank" href="https://github.com/decidim/decidim">fräi Software erstallt</a>.
-      header:
-        close_menu: Menü zoumaachen
-        main_menu: Hauptmenü
-        navigation: Navigation
-        sign_in: Umellen
         sign_up: Registréieren
+      header:
+        main_menu: Hauptmenü
+        sign_in: Umellen
         user_menu: Benotzer-Menü
       impersonation_warning:
         close_session: Sëtzung zoumaachen
