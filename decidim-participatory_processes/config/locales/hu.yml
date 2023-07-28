@@ -487,6 +487,6 @@ hu:
           more_info: Több információ
       process_header_steps:
         step: '%{current} fázis ennyiből: %{total}'
-        view_steps: Fázisok megtekintése
+        view_steps: Folyamat fázisok
       process_navigation:
         process_menu_item: A folyamat
