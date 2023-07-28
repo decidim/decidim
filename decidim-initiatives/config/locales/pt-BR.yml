@@ -529,10 +529,8 @@ pt-BR:
       initiative_header:
         initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
-        back: De volta
         fill_personal_data: Complete seus dados
         finish: Terminar
-        finished: Assinatura de iniciativa criada
         sms_code: Verificação de código SMS
         sms_phone_number: número de celular
         title: Assinar %{initiative_title}
