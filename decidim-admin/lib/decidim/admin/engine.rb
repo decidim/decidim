@@ -276,6 +276,14 @@ module Decidim
       initializer "decidim_admin.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
+
+      initializer "decidim_admin.register_events" do
+        config.to_prepare do
+          ActiveSupport::Notifications.subscribe("decidim.admin.block_user:after") do |_event_name, data|
+            Decidim::BlockUserMailer.notify(data[:resource], data.dig(:extra, :justification)).deliver_later
+          end
+        end
+      end
     end
   end
 end

@@ -133,13 +133,11 @@ module Decidim
         Decidim::Accountability::Result
         Decidim::Blogs::Post
         Decidim::Comments::Comment
-        Decidim::Consultations::Question
         Decidim::Debates::Debate
         Decidim::Meetings::Meeting
         Decidim::Proposals::Proposal
         Decidim::Surveys::Survey
         Decidim::Assembly
-        Decidim::Consultation
         Decidim::Initiative
         Decidim::ParticipatoryProcess
       ).select do |klass|

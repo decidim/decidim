@@ -5,9 +5,6 @@
 export default class VoteQuestionsComponent {
   constructor($voteWrapper) {
     this.$voteWrapper = $voteWrapper;
-    this.$continueButton = this.$voteWrapper.find("a.focus__next");
-    this.$confirmButton = this.$voteWrapper.find("a.focus__next.confirm");
-    this.$continueSpan = this.$voteWrapper.find("span.disabled-continue");
     this.$currentStep = "";
     this.$currentStepMaxSelection = "";
     this.$answerCounter = 0;
@@ -23,27 +20,38 @@ export default class VoteQuestionsComponent {
   init() {
     this.setCurrentStep();
     this.toggleContinueButton();
-    this.$confirmButton.addClass("show").removeClass("hide");
-    $(".evote__counter-min").text(this.$answerCounter);
+
+    $("[data-counter-selection]").text(this.$answerCounter);
     this.answerCounter();
     this.disableCheckbox();
   }
 
   setCurrentStep() {
-    this.$currentStep = this.$voteWrapper.find(".focus__step:visible")
+    this.$currentStep = this.$voteWrapper.find('[id^="step"]:not([hidden])')
+    this.$confirmButton = this.$currentStep.find('[id^="next"]');
+
     this.setSelections();
     this.onSelectionChange();
+    this.updateWizardSteps(this.$currentStep.attr("id"));
+  }
+
+  errored() {
+    this.$currentStep.attr("hidden", true);
+    this.$currentStep = this.$voteWrapper.find("#failed").attr("hidden", false);
   }
 
   toggleContinueButton() {
+    // ignore the button if the step is not a question
+    if (!this.isQuestion(this.$currentStep.attr("id"))) {
+      return
+    }
+
     if (this.checkAnswers()) {
       // next step enabled
-      this.$continueButton.addClass("show").removeClass("hide")
-      this.$continueSpan.addClass("hide").removeClass("show")
+      this.$confirmButton.attr("disabled", false)
     } else {
       // next step disabled
-      this.$continueButton.addClass("hide").removeClass("show")
-      this.$continueSpan.addClass("show").removeClass("hide")
+      this.$confirmButton.attr("disabled", true)
     }
   }
 
@@ -57,7 +65,7 @@ export default class VoteQuestionsComponent {
 
   answerCounter() {
     let checked = $(`#${this.$currentStep.attr("id")} .answer_input:checked`).length
-    $(".evote__counter-min").text(checked);
+    $("[data-counter-selection]").text(checked);
   }
 
   // disable checkboxes if NOTA option is selected
@@ -72,26 +80,27 @@ export default class VoteQuestionsComponent {
       let checkId = $(event.target).attr("id");
       let checkStatus = event.target.checked;
 
-      this.$currentStep.find(`[data-disabled-by='#${checkId}']`).each((_index, element) => {
+      this.$currentStep.find(`[data-disabled-by='${checkId}']`).each((_index, element) => {
+        const $checkbox = $(element).find("input[type=checkbox]")
+
         if (checkStatus) {
-          $(element).addClass("is-disabled");
-          $(element).find("input[type=checkbox]").prop("checked", false);
-          $(element).find("input[type=checkbox]").attr("aria-disabled", "");
+          $checkbox.prop("disabled", true);
+          $checkbox.prop("checked", false);
+          $(element).attr("aria-disabled", true);
         } else {
-          $(element).removeClass("is-disabled");
-          $(element).find("input[type=checkbox]").removeAttr("aria-disabled");
+          $checkbox.prop("disabled", false);
+          $(element).removeAttr("aria-disabled");
         }
       });
     });
   }
 
   setSelections() {
-    this.$currentStepMaxSelection = this.$currentStep.find(".evote__options").data("max-selection")
+    this.$currentStepMaxSelection = this.$currentStep.find('[id^="question"]').data("max-selection")
   }
 
-
   onSelectionChange() {
-    let $voteOptions = this.$currentStep.find(".evote__options");
+    let $voteOptions = this.$currentStep.find('[id^="question"]');
     $voteOptions.on("change", () => {
       this.toggleContinueButton();
       this.toggleConfirmAnswers();
@@ -99,26 +108,63 @@ export default class VoteQuestionsComponent {
     });
   }
 
+  updateWizardSteps(id) {
+    const wizard = document.getElementById("wizard-steps")
+    const heading = document.getElementById("heading")
+
+    if (heading) {
+      // this step has no heading 🤷‍♀️
+      if (id === "step-encrypting") {
+        heading.hidden = true
+
+        return
+      }
+
+      heading.hidden = false
+    }
+
+    if (wizard) {
+      let selector = id
+
+      if (this.isQuestion(id)) {
+        selector = "step-election"
+      }
+
+      wizard.querySelectorAll("[data-step]").forEach((element) => {
+        if (element.dataset.step === selector) {
+          element.setAttribute("aria-current", "step")
+        } else {
+          element.removeAttribute("aria-current")
+        }
+      })
+    }
+  }
+
+  // the question ids always end with a number
+  isQuestion(id) {
+    return (/[0-9]+$/).test(id);
+  }
+
   // receive confirmed answers
   toggleConfirmAnswers() {
     $(".answer_input:checked").each((_index, element) => {
-      const confirmedAnswer = $(".evote__confirm").find(`#${element.value}`);
-      $(confirmedAnswer).removeClass("hide")
+      const confirmedAnswer = $("#step-confirm").find(`#${element.value}`);
+      $(confirmedAnswer).attr("hidden", false)
     })
 
     $(".answer_input").not(":checked").each((_index, element) => {
-      const confirmedAnswer = $(".evote__confirm").find(`#${element.value}`);
-      $(confirmedAnswer).addClass("hide")
+      const confirmedAnswer = $("#step-confirm").find(`#${element.value}`);
+      $(confirmedAnswer).attr("hidden", true)
     })
 
     $(".nota_input:checked").each((_index, element) => {
-      const confirmedAnswer = $(".evote__confirm").find(`.${element.value}`);
-      $(confirmedAnswer).removeClass("hide")
+      const confirmedAnswer = $("#step-confirm").find(`#${element.value}`);
+      $(confirmedAnswer).attr("hidden", false)
     })
 
     $(".nota_input").not(":checked").each((_index, element) => {
-      const confirmedAnswer = $(".evote__confirm").find(`.${element.value}`);
-      $(confirmedAnswer).addClass("hide")
+      const confirmedAnswer = $("#step-confirm").find(`#${element.value}`);
+      $(confirmedAnswer).attr("hidden", true)
     })
   }
 }

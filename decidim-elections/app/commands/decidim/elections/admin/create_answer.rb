@@ -37,7 +37,7 @@ module Decidim
         attr_reader :form, :answer, :gallery
 
         def invalid?
-          form.election.started? || form.invalid?
+          form.election.blocked? || form.invalid?
         end
 
         def create_answer

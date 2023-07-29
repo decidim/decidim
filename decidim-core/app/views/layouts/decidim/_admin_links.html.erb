@@ -1,18 +1,11 @@
-<% if redesign_enabled? %>
-  <div id="admin-bar" class="admin-bar__container">
-    <div class="admin-bar">
-      <span class="admin-bar__title"><%= t("decidim.admin.titles.panel") %></span>
-      <%= link_to decidim_admin.root_path, class: "admin-bar__button" do %>
-        <span><%= t("layouts.decidim.user_menu.admin_dashboard") %></span>
-        <%= icon "equalizer-line" %>
-      <% end %>
-      <%= content_for(:extra_admin_link) if content_for?(:extra_admin_link) %>
-      <%= content_for(:edit_link) if content_for?(:edit_link) %>
-    </div>
-  </div>
-<% else %>
-  <div class="main-nav__link">
+<div id="admin-bar" class="admin-bar__container">
+  <div class="admin-bar">
+    <span class="admin-bar__title"><%= t("decidim.admin.titles.panel") %></span>
+    <%= link_to decidim_admin.root_path, class: "admin-bar__button" do %>
+      <span><%= t("layouts.decidim.user_menu.admin_dashboard") %></span>
+      <%= icon "equalizer-line" %>
+    <% end %>
     <%= content_for(:extra_admin_link) if content_for?(:extra_admin_link) %>
     <%= content_for(:edit_link) if content_for?(:edit_link) %>
   </div>
-<% end %>
+</div>

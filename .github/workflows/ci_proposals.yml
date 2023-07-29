@@ -33,6 +33,7 @@ jobs:
 
   main:
     strategy:
+      fail-fast: false
       matrix:
         test-command:
           - bundle exec parallel_test --type rspec --pattern spec/ --exclude-pattern spec/system
