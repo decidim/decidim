@@ -4,6 +4,10 @@ kaa:
       result:
         decidim_accountability_status_id: Jaǵday
         decidim_category_id: Kategoriya
+      status:
+        name: Ataması
+      timeline_entry:
+        entry_date: Sáne
   activerecord:
     models:
       decidim/accountability/result:
@@ -32,11 +36,38 @@ kaa:
           new:
             create: Importlaw
         results:
+          create:
+            success: Nátiyje tabıslı jaratıldı.
+          destroy:
+            success: Nátiyje tabıslı óshirildi.
+          edit:
+            title: Nátiyjeni ózgertiw
+            update: Nátiyjeni jańalaw
           index:
             title: Nátiyjeler
-        statuses:
           new:
+            create: Nátiyje jaratıw
+            title: Jańa nátiyje
+          update:
+            success: Nátiyje tabıslı jańalandı.
+        shared:
+          subnav:
+            statuses: Jaǵdaylar
+        statuses:
+          create:
+            success: Jaǵday tabıslı jaratıldı.
+          destroy:
+            success: Jaǵday tabıslı óshirildi.
+          edit:
+            title: Jaǵdaydı ózgertiw
+            update: Jaǵdaydı jańalaw
+          index:
+            title: Jaǵdaylar
+          new:
+            create: Jaǵday jaratıw
             title: Jańa jaǵday
+          update:
+            success: Jaǵday tabıslı jańalandı.
       content_blocks:
         highlighted_results:
           results: Nátiyjeler
@@ -55,6 +86,13 @@ kaa:
         timeline_entry:
           fields:
             entry_date: Sáne
+      results:
+        count:
+          results_count:
+            one: 1 nátiyje
+            other: "%{count} nátiyje"
+        home:
+          categories_label: Kategoriyalar
     admin:
       filters:
         results:
