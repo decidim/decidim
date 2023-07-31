@@ -165,6 +165,7 @@ describe "Edit proposals", type: :system do
         expect(page).to have_field("Address", with: proposal.address)
         expect(page).to have_css("[data-decidim-map]")
 
+        fill_in :proposal_address, with: nil
         fill_in_geocoding :proposal_address, with: new_address
         expect(page).to have_content("You can move the point on the map.")
 
