@@ -6,7 +6,9 @@ $(() => {
   const $addressInputField = $("[data-decidim-geocoding]");
 
   if ($map.length) {
-    $map.hide();
+    if (!$addressInputField.data("coordinates")) {
+      $map.hide();
+    }
     $addressInputField.on("geocoder-suggest-coordinates.decidim", () => $map.show());
 
     let latFieldName = "latitude";
