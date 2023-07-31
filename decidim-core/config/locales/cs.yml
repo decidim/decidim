@@ -316,6 +316,12 @@ cs:
         promote_confirm_text: Opravdu chcete tuto emisi podpořit?
         promote_help_text: Můžete podpořit tuto opravu a publikovat ji jako nezávislý %{model_name}.
         section_heading: Změny (%{count})
+      amendments:
+        title:
+          one: "%{count} pozměňovací návrh"
+          few: "%{count} pozměňovací návrhy"
+          many: "%{count} pozměňovacích návrhů"
+          other: "%{count} pozměňovacích návrhů"
       compare_draft:
         continue: Pokračovat
         no_similars_found: Nebyly nalezeny žádné podobné vylepšení.
