@@ -414,6 +414,7 @@ ja:
       directory:
         meetings:
           index:
+            go_to_list: イベント一覧を見る
             meetings: ミーティング
             space_type: 参加型スペース
       iframe_access_level:
@@ -479,6 +480,7 @@ ja:
             all: すべて
             official: 事務局
             participants: 参加者
+            user_group: グループ
           search: 検索
           type: 種別
           type_values:
@@ -506,6 +508,11 @@ ja:
           see_all: すべてのミーティングを見る
           see_all_withdrawn: 撤回されたすべてのミーティングを見る
           text_banner: 作成者が取り消したミーティングの一覧を表示しています． %{go_back_link}
+        meeting:
+          close_meeting: ミーティングを終了する
+          edit_close_meeting: ミーティングレポートを編集
+          edit_meeting: ミーティングを編集
+          join_meeting: ミーティングに参加
         meetings:
           no_meetings_warning: 検索条件に一致するミーティングがないか，予定されているミーティングがありません．
           upcoming_meetings_warning: 現在、スケジュールされたミーティングはありませんが、ここではリストされた過去のミーティングをすべて見つけることができます。
@@ -585,6 +592,7 @@ ja:
             question_replied: 質問に回答しました
             reply_question: 質問に返信する
       public_participants_list:
+        attending_organizations: 組織
         attending_participants: 参加する
         hidden_participants_count:
           other: 他 %{count} 人
