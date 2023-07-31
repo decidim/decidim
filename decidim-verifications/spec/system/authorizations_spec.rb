@@ -159,11 +159,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         click_link(text: /Example authorization/)
 
         fill_in "Document number", with: "123456789X"
-        # REDESIGN_PENDING: The datepicker interaction fails with the redesign
-        # and the click_button "Send" action does not submit the form. The
-        # datepicker component redesign is pending.
-        # page.execute_script("$('#authorization_handler_birthday').focus()")
-        # page.find(".datepicker-dropdown .datepicker-days", text: "12").click
+        fill_in :authorization_handler_birthday, with: Time.current.change(day: 12)
+
         click_button "Send"
 
         expect(page).to have_content("You have been successfully authorized")
@@ -181,11 +178,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         click_link(text: /Example authorization/)
 
         fill_in "Document number", with: "12345678"
-        # REDESIGN_PENDING: The datepicker interaction fails with the redesign
-        # and the click_button "Send" action does not submit the form. The
-        # datepicker component redesign is pending.
-        # page.execute_script("$('#authorization_handler_birthday').focus()")
-        # page.find(".datepicker-dropdown .datepicker-days", text: "12").click
+        fill_in :authorization_handler_birthday, with: Time.current.change(day: 12)
+
         click_button "Send"
 
         expect(page).to have_content("There was a problem creating the authorization.")
