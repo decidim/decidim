@@ -74,7 +74,6 @@ shared_examples "comments" do
       let!(:reply) { create(:comment, commentable: deleted_comment, root_commentable: commentable, body: "Please, delete your comment") }
 
       it "shows replies of deleted comments" do
-        skip "REDESIGN PENDING: This seems to be a bug in the redesign. The replies of deleted comments are not shown. This is related to #10457"
         visit resource_path
 
         within "#comment_#{deleted_comment.id}" do
