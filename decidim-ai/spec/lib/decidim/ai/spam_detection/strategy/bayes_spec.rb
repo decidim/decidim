@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Ai::SpamContent::BayesStrategy do
+describe Decidim::Ai::SpamDetection::Strategy::Bayes do
   subject { described_class.new({}) }
 
   let(:backend) { ClassifierReborn::Bayes.new :spam, :ham }

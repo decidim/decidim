@@ -11,7 +11,7 @@ shared_examples "content submitted to spam analysis" do
   before do
     Decidim::Ai.spam_detection_registry.clear
     Decidim::Ai.spam_detection_registry.register_analyzer(name: :bayes,
-                                                          strategy: Decidim::Ai::SpamContent::BayesStrategy,
+                                                          strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
                                                           options: { adapter: :memory, params: {} })
 
     Decidim::Ai.spam_detection_instance.train :ham, "I am a passionate Decidim Maintainer. It is nice to be here."

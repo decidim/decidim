@@ -16,7 +16,7 @@ describe "Executing Decidim Ai tasks" do
   describe "rake decidim:ai:load_plugin_dataset", type: :task do
     context "when executing task" do
       it "successfully loads the dataset" do
-        instance = Decidim::Ai::SpamDetectionService.new
+        instance = Decidim::Ai::SpamDetection::Service.new
         allow(Decidim::Ai).to receive(:spam_detection_instance).and_return(instance)
         expect(instance).to receive(:train).at_least(10).times
 
@@ -28,7 +28,7 @@ describe "Executing Decidim Ai tasks" do
   describe "rake decidim:ai:load_application_dataset", type: :task do
     context "when executing task" do
       it "successfully loads the dataset" do
-        instance = Decidim::Ai::SpamDetectionService.new
+        instance = Decidim::Ai::SpamDetection::Service.new
         allow(Decidim::Ai).to receive(:spam_detection_instance).and_return(instance)
         expect(instance).to receive(:train).exactly(4).times
 

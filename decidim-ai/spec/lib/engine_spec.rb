@@ -8,7 +8,7 @@ module Decidim
       subject { Decidim::Ai.spam_detection_instance }
 
       it "returns a spam detection service" do
-        expect(subject).to be_a(Decidim::Ai::SpamDetectionService)
+        expect(subject).to be_a(Decidim::Ai::SpamDetection::Service)
       end
     end
 
@@ -16,7 +16,7 @@ module Decidim
       subject { Decidim::Ai.language_detection_service.constantize.new("This is a test") }
 
       it "returns a language detection service" do
-        expect(subject).to be_a(Decidim::Ai::LanguageDetectionService)
+        expect(subject).to be_a(Decidim::Ai::LanguageDetection::Service)
       end
 
       it "returns the corect language code" do

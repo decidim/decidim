@@ -7,13 +7,13 @@ module Decidim
     describe StrategyRegistry do
       subject { described_class.new }
 
-      let(:analyzer) { { name: :dummy, strategy: Decidim::Ai::SpamContent::BaseStrategy } }
+      let(:analyzer) { { name: :dummy, strategy: Decidim::Ai::SpamDetection::Strategy::Base } }
 
       describe "register_analyzer" do
         it "registers a content block" do
           subject.register_analyzer(**analyzer)
 
-          expect(subject.for(:dummy)).to be_a(Decidim::Ai::SpamContent::BaseStrategy)
+          expect(subject.for(:dummy)).to be_a(Decidim::Ai::SpamDetection::Strategy::Base)
         end
 
         it "raises an error if the content block is already registered" do
@@ -28,7 +28,7 @@ module Decidim
         it "returns all content blocks for that scope" do
           subject.register_analyzer(**analyzer)
 
-          expect(subject.for(:dummy)).to be_a(Decidim::Ai::SpamContent::BaseStrategy)
+          expect(subject.for(:dummy)).to be_a(Decidim::Ai::SpamDetection::Strategy::Base)
         end
       end
 

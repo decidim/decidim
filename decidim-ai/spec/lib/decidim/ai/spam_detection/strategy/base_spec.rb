@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Ai::SpamContent::BaseStrategy do
+describe Decidim::Ai::SpamDetection::Strategy::Base do
   subject { described_class.new({}) }
 
   it "trains" do

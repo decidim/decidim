@@ -4,14 +4,24 @@ require "decidim/ai/engine"
 
 module Decidim
   module Ai
-    autoload :LanguageDetectionService, "decidim/ai/language_detection_service"
-    autoload :SpamDetectionService, "decidim/ai/spam_detection_service"
     autoload :StrategyRegistry, "decidim/ai/strategy_registry"
-    autoload :LoadDataset, "decidim/ai/load_dataset"
+    autoload :File, "decidim/ai/load_dataset"
 
-    module SpamContent
-      autoload :BaseStrategy, "decidim/ai/spam_content/base_strategy"
-      autoload :BayesStrategy, "decidim/ai/spam_content/bayes_strategy"
+    module LanguageDetection
+      autoload :Service, "decidim/ai/language_detection/service"
+    end
+
+    module SpamDetection
+      autoload :Service, "decidim/ai/spam_detection/service"
+
+      module Importer
+        autoload :File, "decidim/ai/spam_detection/importer/file"
+      end
+
+      module Strategy
+        autoload :Base, "decidim/ai/spam_detection/strategy/base"
+        autoload :Bayes, "decidim/ai/spam_detection/strategy/bayes"
+      end
     end
 
     include ActiveSupport::Configurable
@@ -56,7 +66,7 @@ module Decidim
     # ]
     config_accessor :registered_analyzers do
       [
-        { name: :bayes, strategy: Decidim::Ai::SpamContent::BayesStrategy, options: { adapter: :memory, params: {} } }
+        { name: :bayes, strategy: Decidim::Ai::SpamDetection::Strategy::Bayes, options: { adapter: :memory, params: {} } }
       ]
     end
 
@@ -74,13 +84,13 @@ module Decidim
     #   end
     # end
     config_accessor :language_detection_service do
-      "Decidim::Ai::LanguageDetectionService"
+      "Decidim::Ai::LanguageDetection::Service"
     end
 
     # Spam detection service class.
     # If you want to use a different spam detection service, you can use a class service having the following contract
     #
-    # class SpamDetectionService
+    # class SpamDetection::Service
     #   def initialize
     #     @registry = Decidim::Ai.spam_detection_registry
     #   end
@@ -102,7 +112,7 @@ module Decidim
     #   end
     # end
     config_accessor :spam_detection_service do
-      "Decidim::Ai::SpamDetectionService"
+      "Decidim::Ai::SpamDetection::Service"
     end
 
     # This is the email address used by the spam engine to
