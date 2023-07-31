@@ -39,8 +39,8 @@ shared_examples "manage process steps examples" do
       ca: "Descripció més llarga"
     )
 
-    fill_in :participatory_process_step_start_date, with: Time.now.change(day: 12)
-    fill_in :participatory_process_step_end_date, with: Time.now.change(day: 12)
+    fill_in :participatory_process_step_start_date, with: Time.current.change(day: 12)
+    fill_in :participatory_process_step_end_date, with: Time.current.change(day: 12)
 
     within ".new_participatory_process_step" do
       # For some reason, the form submit button click can fail unless the page

@@ -54,8 +54,8 @@ describe "Admin manages elections", type: :system do
       expect(page).to have_content("Check that the organization time zone is correct")
       expect(page).to have_content("The current configuration is UTC")
 
-      fill_in :election_start_time, with: Time.now.change(day: 12, hour: 10, min: 50)
-      fill_in :election_end_time, with: Time.now.change(day: 12, hour: 12, min: 50)
+      fill_in :election_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+      fill_in :election_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
       within ".new_election" do
         find("*[type=submit]").click
