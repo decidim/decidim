@@ -305,8 +305,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     select "Registration disabled", from: :meeting_registration_type
 
-    fill_in :meeting_start_time, with: DateTime.now.change(day: 12, hour: 10, min: 50)
-    fill_in :meeting_end_time, with: DateTime.now.change(day: 12, hour: 12, min: 50)
+    fill_in :meeting_start_time, with: Time.now.change(day: 12, hour: 10, min: 50)
+    fill_in :meeting_end_time, with: Time.now.change(day: 12, hour: 12, min: 50)
 
     scope_pick select_data_picker(:meeting_decidim_scope_id), scope
     select translated(category.name), from: :meeting_decidim_category_id
@@ -370,8 +370,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
         select "Registration disabled", from: :meeting_registration_type
 
-        fill_in :meeting_start_time, with: DateTime.now.change(day: 12, hour: 10, min: 50)
-        fill_in :meeting_end_time, with: DateTime.now.change(day: 12, hour: 12, min: 50)
+        fill_in :meeting_start_time, with: Time.now.change(day: 12, hour: 10, min: 50)
+        fill_in :meeting_end_time, with: Time.now.change(day: 12, hour: 12, min: 50)
       end
     end
   end
@@ -513,8 +513,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       select "Registration disabled", from: :meeting_registration_type
 
 
-      fill_in :meeting_start_time, with: DateTime.now.change(day: 12, hour: 10, min: 50)
-      fill_in :meeting_end_time, with: DateTime.now.change(day: 12, hour: 12, min: 50)
+      fill_in :meeting_start_time, with: Time.now.change(day: 12, hour: 10, min: 50)
+      fill_in :meeting_end_time, with: Time.now.change(day: 12, hour: 12, min: 50)
 
       scope_pick select_data_picker(:meeting_decidim_scope_id), scope
       select translated(category.name), from: :meeting_decidim_category_id

@@ -28,8 +28,8 @@ describe "Admin manages votings", type: :system do
     it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='voting-description-tabs']", "full"
 
     it "creates a new voting" do
-      fill_in :voting_start_time, with: DateTime.now.change(day: 12, hour: 10, min: 50)
-      fill_in :voting_end_time, with: DateTime.now.change(day: 12, hour: 12, min: 50)
+      fill_in :voting_start_time, with: Time.now.change(day: 12, hour: 10, min: 50)
+      fill_in :voting_end_time, with: Time.now.change(day: 12, hour: 12, min: 50)
 
       within ".new_voting" do
         fill_in_i18n(
@@ -75,8 +75,8 @@ describe "Admin manages votings", type: :system do
     end
 
     it "fails to create a new voting" do
-      fill_in :voting_start_time, with: DateTime.now.change(day: 12, hour: 10, min: 50)
-      fill_in :voting_end_time, with: DateTime.now.change(day: 12, hour: 12, min: 50)
+      fill_in :voting_start_time, with: Time.now.change(day: 12, hour: 10, min: 50)
+      fill_in :voting_end_time, with: Time.now.change(day: 12, hour: 12, min: 50)
 
       within ".new_voting" do
         fill_in_i18n(

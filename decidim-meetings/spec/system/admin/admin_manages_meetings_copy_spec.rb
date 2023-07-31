@@ -49,8 +49,8 @@ describe "Admin copies meetings", type: :system do
 
       fill_in :meeting_online_meeting_url, with: "https://google.com"
 
-      fill_in :meeting_start_time, with: DateTime.now.change(day: 12, hour: 10, min: 50)
-      fill_in :meeting_end_time, with: DateTime.now.change(day: 12, hour: 12, min: 50)
+      fill_in :meeting_start_time, with: Time.now.change(day: 12, hour: 10, min: 50)
+      fill_in :meeting_end_time, with: Time.now.change(day: 12, hour: 12, min: 50)
 
       within ".copy_meetings" do
         find("*[type=submit]").click
@@ -108,8 +108,8 @@ describe "Admin copies meetings", type: :system do
       fill_in_geocoding :meeting_address, with: address
       fill_in :meeting_online_meeting_url, with: "https://google.com"
 
-      fill_in :meeting_start_time, with: DateTime.now.change(day: 12, hour: 10, min: 50)
-      fill_in :meeting_end_time, with: DateTime.now.change(day: 12, hour: 12, min: 50)
+      fill_in :meeting_start_time, with: Time.now.change(day: 12, hour: 10, min: 50)
+      fill_in :meeting_end_time, with: Time.now.change(day: 12, hour: 12, min: 50)
 
       within ".copy_meetings" do
         find("*[type=submit]").click
@@ -166,8 +166,8 @@ describe "Admin copies meetings", type: :system do
 
       fill_in_geocoding :meeting_address, with: address
 
-      fill_in :meeting_start_time, with: DateTime.now.change(day: 12, hour: 10, min: 50)
-      fill_in :meeting_end_time, with: DateTime.now.change(day: 12, hour: 12, min: 50)
+      fill_in :meeting_start_time, with: Time.now.change(day: 12, hour: 10, min: 50)
+      fill_in :meeting_end_time, with: Time.now.change(day: 12, hour: 12, min: 50)
 
       within ".copy_meetings" do
         find("*[type=submit]").click
