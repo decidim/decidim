@@ -76,7 +76,7 @@ describe Decidim::UserActivityCell, type: :cell do
   it "displays the latest items on the first page and a pagination" do
     logs.last(10).each do |log|
       root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
-      comment_link = "#{root_link}?commentId=#{log.resource.id}"
+      comment_link = "#{root_link}?commentId=#{log.resource.id}#comment_#{log.resource.id}"
       title = html_truncate(translated_attribute(log.resource.root_commentable.title), length: 80)
 
       expect(subject).to have_link(title, href: comment_link)
@@ -95,7 +95,7 @@ describe Decidim::UserActivityCell, type: :cell do
     it "displays the oldest items and a pagination" do
       logs.first(5).each do |log|
         root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
-        comment_link = "#{root_link}?commentId=#{log.resource.id}"
+        comment_link = "#{root_link}?commentId=#{log.resource.id}#comment_#{log.resource.id}"
         title = html_truncate(translated_attribute(log.resource.root_commentable.title), length: 80)
 
         expect(subject).to have_link(title, href: comment_link)
@@ -124,14 +124,14 @@ describe Decidim::UserActivityCell, type: :cell do
       # The first five items should be hidden through moderation
       logs.first(5).each do |log|
         root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
-        comment_link = "#{root_link}?commentId=#{log.resource.id}"
+        comment_link = "#{root_link}?commentId=#{log.resource.id}#comment_#{log.resource.id}"
         title = html_truncate(translated_attribute(log.resource.root_commentable.title), length: 80)
 
         expect(subject).not_to have_link(title, href: comment_link)
       end
       logs.last(10).each do |log|
         root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
-        comment_link = "#{root_link}?commentId=#{log.resource.id}"
+        comment_link = "#{root_link}?commentId=#{log.resource.id}#comment_#{log.resource.id}"
         title = html_truncate(translated_attribute(log.resource.root_commentable.title), length: 80)
 
         expect(subject).to have_link(title, href: comment_link)
