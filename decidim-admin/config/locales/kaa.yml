@@ -55,9 +55,13 @@ kaa:
       components:
         edit:
           update: Jańalaw
+        index:
+          headers:
+            actions: Háreketler
       conflicts:
         'false': 'Yaq'
         transfer:
+          email: Elektron pochta
           reason: Sebep
         'true': 'Awa'
         user_name: Paydalanıwshı
@@ -79,6 +83,7 @@ kaa:
           values:
             'false': 'Yaq'
             'true': 'Awa'
+        search_label: Izlew
       help_sections:
         form:
           save: Saqlaw
@@ -86,6 +91,9 @@ kaa:
         index:
           search: Izlew
           status: Jaǵday
+      impersonations:
+        form:
+          reason: Sebep
       imports:
         and: hám
         new:
