@@ -9,20 +9,20 @@ describe Decidim::Ai::SpamDetection::Strategy::Bayes do
 
   describe "train" do
     it "calls backend.train" do
-      expect(subject.send(:backend)).to receive(:train).with("spam", "text")
+      expect(subject.send(:backend)).to receive(:train).with(:spam, "text")
 
-      subject.train("spam", "text")
+      subject.train(:spam, "text")
     end
   end
 
   describe "untrain" do
     it "calls backend.untrain" do
-      subject.train("spam", "text")
-      subject.train("ham", "foo bar")
+      subject.train(:spam, "text")
+      subject.train(:ham, "foo bar")
 
-      expect(subject.send(:backend)).to receive(:untrain).with("spam", "text")
+      expect(subject.send(:backend)).to receive(:untrain).with(:spam, "text")
 
-      subject.untrain("spam", "text")
+      subject.untrain(:spam, "text")
     end
   end
 
@@ -60,8 +60,8 @@ describe Decidim::Ai::SpamDetection::Strategy::Bayes do
     end
 
     it "returns 1 when is spam" do
-      subject.train("spam", "text")
-      subject.train("ham", "foo bar")
+      subject.train(:spam, "text")
+      subject.train(:ham, "foo bar")
 
       allow(subject.send(:backend)).to receive(:classify_with_score).with("text").and_return(["spam", -12.6997])
       subject.classify("text")

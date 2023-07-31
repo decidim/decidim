@@ -15,11 +15,14 @@ module Decidim
       end
 
       # # initializer "decidim_tools_ai.subscribe_resource_events" do
-      # initializer "decidim_ai.events.hide_resource" do
-      #   config.to_prepare do
-      #   end
-      # end
-      #
+      initializer "decidim_ai.events.hide_resource" do
+        config.to_prepare do
+          Decidim::EventsManager.subscribe("decidim.admin.hide_resource:after") do |_event_name, data|
+            Decidim::Ai::TrainHiddenResourceDataJob.perform_later(data[:resource])
+          end
+        end
+      end
+
       # initializer "decidim_tools_ai.subscribe_profile_events" do
       initializer "decidim_ai.events.subscribe_profile" do
         config.to_prepare do

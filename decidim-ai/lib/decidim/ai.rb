@@ -5,7 +5,6 @@ require "decidim/ai/engine"
 module Decidim
   module Ai
     autoload :StrategyRegistry, "decidim/ai/strategy_registry"
-    autoload :File, "decidim/ai/load_dataset"
 
     module LanguageDetection
       autoload :Service, "decidim/ai/language_detection/service"
@@ -14,8 +13,19 @@ module Decidim
     module SpamDetection
       autoload :Service, "decidim/ai/spam_detection/service"
 
+      module Resource
+        autoload :Base, "decidim/ai/spam_detection/resource/base"
+        autoload :Comment, "decidim/ai/spam_detection/resource/comment"
+        autoload :Debate, "decidim/ai/spam_detection/resource/debate"
+        autoload :Proposal, "decidim/ai/spam_detection/resource/proposal"
+        autoload :CollaborativeDraft, "decidim/ai/spam_detection/resource/collaborative_draft"
+        autoload :Meeting, "decidim/ai/spam_detection/resource/meeting"
+        autoload :UserBaseEntity, "decidim/ai/spam_detection/resource/user_base_entity"
+      end
+
       module Importer
         autoload :File, "decidim/ai/spam_detection/importer/file"
+        autoload :Database, "decidim/ai/spam_detection/importer/database"
       end
 
       module Strategy
@@ -119,6 +129,18 @@ module Decidim
     # properly identify the user that will report users and content
     config_accessor :reporting_user_email do
       "reporting.user@domain.tld"
+    end
+
+    config_accessor :trained_models do
+      {
+        "Decidim::Comments::Comment" => "Decidim::Ai::SpamDetection::Resource::Comment",
+        "Decidim::Debates::Debate" => "Decidim::Ai::SpamDetection::Resource::Debate",
+        "Decidim::Meetings::Meeting" => "Decidim::Ai::SpamDetection::Resource::Meeting",
+        "Decidim::Proposals::Proposal" => "Decidim::Ai::SpamDetection::Resource::Proposal",
+        "Decidim::Proposals::CollaborativeDraft" => "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft",
+        "Decidim::UserGroup" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity",
+        "Decidim::User" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
+      }
     end
 
     def self.spam_detection_instance

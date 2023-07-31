@@ -9,7 +9,7 @@ module Decidim
         class Bayes < Base
           def initialize(options = {})
             super
-            @options = { adapter: :memory, categories: %w(ham spam), params: {} }.deep_merge(options)
+            @options = { adapter: :memory, categories: [:ham, :spam], params: {} }.deep_merge(options)
 
             @available_categories = options[:categories]
             @backend = ClassifierReborn::Bayes.new(*available_categories, backend: configured_backend)
@@ -23,7 +23,7 @@ module Decidim
 
           # Calling this method without any trained categories will throw an error
           def untrain(category, content)
-            return unless backend.categories.collect(&:downcase).include?(category)
+            return unless backend.categories.collect(&:downcase).collect(&:to_sym).include?(category)
 
             backend.untrain(category, content)
           end

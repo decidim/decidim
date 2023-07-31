@@ -19,6 +19,11 @@ namespace :decidim do
       Decidim::Ai::SpamDetection::Importer::File.call(args[:file])
     end
 
+    desc "train model using dataset"
+    task train_using_database: :environment do
+      Decidim::Ai::SpamDetection::Importer::Database.call
+    end
+
     private
 
     def plugin_path
