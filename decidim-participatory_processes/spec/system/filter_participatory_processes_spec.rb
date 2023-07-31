@@ -119,7 +119,7 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing a scope" do
       before do
-        visit decidim_participatory_processes.participatory_processes_path(filter: { with_scope: scope.id })
+        visit decidim_participatory_processes.participatory_processes_path(filter: { with_any_scope: [scope.id] })
       end
 
       it "lists all processes belonging to that scope" do

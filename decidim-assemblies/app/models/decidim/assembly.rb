@@ -159,7 +159,7 @@ module Decidim
     end
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_area, :with_scope]
+      [:with_area, :with_any_scope]
     end
 
     private

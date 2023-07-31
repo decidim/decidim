@@ -1,6 +1,6 @@
 <%= filter_form_for filter do |form| %>
   <div class="columns mediumlarge-6 large-5">
-    <%= scopes_picker_filter form, :with_scope, checkboxes_on_top: checkboxes_on_top %>
+    <%= scopes_picker_filter form, :with_any_scope, checkboxes_on_top: checkboxes_on_top %>
   </div>
   <div class="columns mediumlarge-6 large-5">
     <%= form.areas_select :with_area,

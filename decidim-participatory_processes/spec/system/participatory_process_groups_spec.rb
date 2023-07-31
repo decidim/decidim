@@ -535,7 +535,7 @@ describe "Participatory Process Groups", type: :system do
     context "when filtering processes by scope" do
       context "and choosing a scope" do
         before do
-          visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, filter: { with_scope: scope.id })
+          visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, filter: { with_any_scope: [scope.id] })
         end
 
         it "lists active process belonging to that scope" do
