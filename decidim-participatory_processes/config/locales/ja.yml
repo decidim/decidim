@@ -371,6 +371,7 @@ ja:
         html_3:
           name: 3番目の HTML ブロック
         metadata:
+          developer_group: プロモーター
           name: メタデータ
           participatory_scope: 決定されるもの
           participatory_structure: どのように決められますか？
@@ -440,11 +441,13 @@ ja:
       pages:
         home:
           highlighted_processes:
+            active_processes: アクティブなプロセス
             active_step: アクティブフェーズ
             more_information: 詳細情報
             participate: 参加
             participate_in: 参加型プロセス %{resource_name} に参加する
             processes_button_title: すべてのプロセスを表示するプロセスページへのリンク
+            see_all_processes: すべてのプロセスを見る
       participatory_process_steps:
         index:
           back_to_process: 参加型プロセスのページに戻る
@@ -481,6 +484,7 @@ ja:
         dates: 日付
         developer_group: プロモーターグループ
         end_date: 終了日
+        local_area: 組織エリア
         participatory_scope: 決定されるもの
         participatory_structure: どのように決められますか？
         private_space: これはプライベートな参加型プロセスです
