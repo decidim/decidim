@@ -123,6 +123,7 @@ ja:
           categories: カテゴリ
           components: コンポーネント
           info: 情報
+          landing_page: ランディングページ
           moderations: モデレーション
           private_users: プライベート参加者
           process_admins: 参加型プロセス管理者
@@ -370,13 +371,24 @@ ja:
         title: 参加型プロセス
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: プロモーター
+          name: メタデータ
+          participatory_scope: 決めること
+          participatory_structure: 決定方法
+          target: 参加者
+        html:
+          name: HTMLブロック
         html_1:
           name: 最初の HTML ブロック
         html_2:
           name: 2番目のHTMLブロック
         html_3:
           name: 3番目の HTML ブロック
+        main_data:
+          name: タイトルと説明
         participatory_processes:
+          active: アクティブな参加プロセス
           name: 参加型プロセス
         stats:
           name: 統計情報
@@ -393,7 +405,10 @@ ja:
       admin:
         content_blocks:
           highlighted_processes:
+            active: アクティブ
+            all: すべて
             max_results: 表示する要素の最大量
+            selection_criteria: 選択条件
         new_import:
           accepted_types:
             json: JSON
@@ -430,16 +445,37 @@ ja:
             title: 一般情報
             visbility: 公開範囲
       content_blocks:
+        extra_data:
+          name: フェーズと期間
+        hero:
+          name: ヒーローイメージと CTA
         highlighted_processes:
           name: ハイライトされた参加型プロセス
+        related_processes:
+          name: 関連するプロセス
       index:
         title: 参加型プロセス
       last_activity:
         new_participatory_process: 参加型プロセス
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: アクティブなプロセス
+            see_all_spaces: すべてのプロセスを見る
       participatory_process_steps:
         index:
           back_to_process: 参加型プロセスのページに戻る
       participatory_processes:
+        description:
+          area_name: エリア
+          data: プロセスデータ
+          developer_group: プロモーターグループ
+          local_area: 組織エリア
+          meta_scope: スコープ
+          participatory_scope: 決めること
+          participatory_structure: 決定方法
+          target: 参加者
+          title: このプロセスについて
         filters:
           all_types: すべての種別
           counters:
@@ -451,6 +487,7 @@ ja:
               other: "%{count} 個の過去の参加型プロセス"
             upcoming:
               other: "%{count} 件の今後の参加型プロセス"
+          date: 日付
           explanations:
             no_active: 有効なプロセスがありません。
             no_active_nor_upcoming: アクティブなプロセスも今後のプロセスもありません。
@@ -462,6 +499,7 @@ ja:
             past: 過去
             upcoming: 近日公開
           see: 見る
+          type: 種別
         show:
           title: このプロセスについて
       show:
