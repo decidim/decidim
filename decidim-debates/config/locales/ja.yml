@@ -95,6 +95,7 @@ ja:
           invalid: ディベートを閉じるのに失敗しました。
           success: ディベートが正常に終了しました。
         close_debate_modal:
+          cancel: キャンセル
           description: このディベートの要約または結論は何ですか?
           send: ディベートを閉じる
         closed: 終了
@@ -125,6 +126,7 @@ ja:
           state_values:
             closed: 終了
             open: 公開
+          user_group: グループ
         form:
           select_a_category: カテゴリを選択してください
         index:
@@ -158,8 +160,10 @@ ja:
       models:
         debate:
           fields:
+            end: 終了
             end_time: 終了日
             official_debate: 公式のディベート
+            start: 開始
             start_time: 開始日
             title: タイトル
     events:
