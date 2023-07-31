@@ -59,10 +59,6 @@ module Decidim
         end
       end
 
-      def show
-        enforce_permission_to :read, :category, category: @category
-      end
-
       def destroy
         enforce_permission_to :destroy, :category, category: @category
 
