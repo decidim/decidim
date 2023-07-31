@@ -52,6 +52,9 @@ kaa:
           title: Jańa kategoriya
         update:
           success: Kategoriya tabıslı jańalandı.
+      components:
+        edit:
+          update: Jańalaw
       conflicts:
         'false': 'Yaq'
         transfer:
