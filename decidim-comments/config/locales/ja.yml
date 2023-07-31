@@ -30,6 +30,8 @@ ja:
           error: コメントの更新中に問題が発生しました。
       comments_count: コメント数
       comments_title: コメント
+      last_activity:
+        new_comment: '新規コメント:'
       view: 表示
       votes:
         create:
@@ -42,6 +44,8 @@ ja:
             label: コメント
             placeholder: これについてどう思いますか?
           form_error: テキストは必須で、 %{length} 文字を超えることはできません。
+          submit_reply: 返信を公開
+          submit_root_comment: コメントを公開
           user_group_id:
             label: 'コメント:'
         opinion:
@@ -59,6 +63,7 @@ ja:
         alignment:
           against: 反対
           in_favor: 賛成
+        cancel_reply: 返信をキャンセル
         confirm_destroy: コメントを削除してもよろしいですか？
         delete: 削除
         deleted_at: '%{date} にコメントが削除されました'
