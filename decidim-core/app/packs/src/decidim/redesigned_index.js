@@ -15,8 +15,8 @@ import svg4everybody from "svg4everybody"
 import morphdom from "morphdom"
 
 // vendor customizated scripts (bad practice: these ones should be removed eventually)
-import "./vendor/foundation-datepicker"
-import "./foundation_datepicker_locales"
+// import "./vendor/foundation-datepicker" -- deprecated
+// import "./foundation_datepicker_locales" -- deprecated
 import "./vendor/modernizr"
 
 /**
@@ -59,9 +59,8 @@ import "./data_consent"
 import "./sw"
 import changeReportFormBehavior from "./redesigned_change_report_form_behavior"
 
-
 // local deps that require initialization
-import formDatePicker from "./form_datepicker"
+// import formDatePicker from "./form_datepicker" -- deprecated
 import fixDropdownMenus from "./dropdowns_menus"
 import Configuration from "./configuration"
 import ExternalLink from "./redesigned_external_link"
@@ -140,8 +139,6 @@ const initializer = (element = document) => {
   $("[data-open]").on("click", (event) => {
     event.preventDefault();
   });
-
-  formDatePicker();
 
   document.querySelectorAll(".editor-container").forEach((container) => {
     window.createEditor(container);
