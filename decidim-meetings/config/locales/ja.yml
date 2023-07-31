@@ -486,6 +486,7 @@ ja:
             all: すべて
             official: 事務局
             participants: 参加者
+            user_groups: グループ
           scope: スコープ
           search: 検索
           type: 種別
@@ -537,8 +538,10 @@ ja:
           close_meeting: ミーティングを閉じる
           contributions: コントリビューション数
           date: 日付
+          edit_close_meeting: ミーティングレポートを編集
           edit_meeting: ミーティングを編集
           going: このミーティングにログインしました
+          join: ミーティングに参加
           leave: 登録をキャンセルする
           leave_confirmation: このミーティングの登録をキャンセルしてもよろしいですか？
           link_available_soon: 間もなくリンクが利用可能です
