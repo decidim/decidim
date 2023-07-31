@@ -265,7 +265,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(page).to have_current_path(meeting_path)
   end
 
-  it "creates a new meeting", :serves_geocoding_autocomplete, :slow do # rubocop:disable RSpec/ExampleLength
+  it "creates a new meeting", :serves_geocoding_autocomplete, :slow do
     find(".card-title a.button").click
 
     fill_in_i18n(
@@ -511,7 +511,6 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
       fill_in :meeting_address, with: address
       select "Registration disabled", from: :meeting_registration_type
-
 
       fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
       fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)

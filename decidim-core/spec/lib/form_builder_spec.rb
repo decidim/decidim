@@ -382,6 +382,10 @@ module Decidim
     end
 
     describe "datetime_field" do
+      let(:output) do
+        builder.datetime_field :start_time
+      end
+
       context "when the resource has errors" do
         before do
           resource.valid?
