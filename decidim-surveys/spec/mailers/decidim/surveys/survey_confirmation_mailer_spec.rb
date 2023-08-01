@@ -20,7 +20,7 @@ module Decidim
         let(:mail) { described_class.confirmation(user, questionnaire, component, [answers]) }
 
         it "sets a subject" do
-          expect(mail.subject).to include(t("decidim.surveys.survey_confirmation_mailer.confirmation.subject"))
+          expect(mail.subject).to include(I18n.t("decidim.surveys.survey_confirmation_mailer.confirmation.subject", questionnaire_title: translated(questionnaire.title)))
         end
 
         it "set the attachment" do
