@@ -40,7 +40,7 @@ shared_examples "manage process steps examples" do
     )
 
     fill_in :participatory_process_step_start_date, with: Time.current.change(day: 12)
-    fill_in :participatory_process_step_end_date, with: Time.current.change(day: 12)
+    fill_in :participatory_process_step_end_date, with: Time.current.change(day: 22)
 
     within ".new_participatory_process_step" do
       # For some reason, the form submit button click can fail unless the page
@@ -51,6 +51,7 @@ shared_examples "manage process steps examples" do
       find(".form-general-submit").click
     end
 
+    byebug
     expect(page).to have_admin_callout("successfully")
 
     within "#steps table" do
