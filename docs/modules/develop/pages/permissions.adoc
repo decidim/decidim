@@ -60,7 +60,7 @@ enforce_permission_to :endorse, :proposal, proposal: proposal
 
 ==== Allow to configure the related permissions at resource level
 
-Permissions settings could also be set for an specific resources appart from the full component. Actions should also be related to the resource.
+Permissions settings could also be set for an specific resources apart from the full component. Actions should also be related to the resource.
 
 . Edit decidim-proposals/lib/decidim/proposals/component.rb
 . Add the 'endorse' action into the `resource.actions` array for the `proposal` resource definition and save the file:
