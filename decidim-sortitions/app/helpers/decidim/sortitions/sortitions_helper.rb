@@ -10,6 +10,10 @@ module Decidim
         EngineRouter.main_proxy(proposal.component).proposal_path(proposal)
       end
 
+      def component_name
+        (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.sortitions.name")
+      end
+
       # Generates the sortition category label
       def sortition_category_label(sortition)
         if sortition.category.present?

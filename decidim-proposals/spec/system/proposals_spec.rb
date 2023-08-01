@@ -511,8 +511,8 @@ describe "Proposals", type: :system do
 
       it "lists the proposals ordered by votes by default" do
         expect(page).to have_selector("a", text: "Most supported")
-        expect(page).to have_selector("#proposals .proposal-list__container .proposal-list-item:first-child", text: most_voted_proposal_title)
-        expect(page).to have_selector("#proposals .proposal-list__container .proposal-list-item:last-child", text: less_voted_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: most_voted_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']:last-child", text: less_voted_proposal_title)
       end
 
       it "shows a disabled vote button for each proposal, but no links to full proposals" do
@@ -578,8 +578,8 @@ describe "Proposals", type: :system do
       end
 
       it "lists the proposals ordered by selected option" do
-        expect(page).to have_selector("#proposals .proposal-list__container .proposal-list-item:first-child", text: first_proposal_title)
-        expect(page).to have_selector("#proposals .proposal-list__container .proposal-list-item:last-child", text: last_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: first_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']:last-child", text: last_proposal_title)
       end
     end
 

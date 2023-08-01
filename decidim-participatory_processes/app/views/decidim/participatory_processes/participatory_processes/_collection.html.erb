@@ -1,4 +1,4 @@
-<section id="processes-grid" class="layout-main__section card__grid-container">
+<section id="processes-grid" class="layout-main__section layout-main__heading">
   <% date_filter_text = %w(active upcoming past all).include?(params.dig(:filter, :with_date)) ? params.dig(:filter, :with_date) : default_date_filter %>
   <h2 class="h5 md:h3 decorator"><%= t(date_filter_text, scope: "decidim.participatory_processes.participatory_processes.filters.counters", count: collection.total_count) %></h2>
 

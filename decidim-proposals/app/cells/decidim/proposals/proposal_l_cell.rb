@@ -11,10 +11,6 @@ module Decidim
 
       alias proposal model
 
-      def extra_class
-        "proposal-list-item"
-      end
-
       def title
         present(proposal).title(html_escape: true)
       end

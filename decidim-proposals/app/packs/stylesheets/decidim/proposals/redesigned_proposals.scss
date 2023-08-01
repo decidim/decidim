@@ -9,10 +9,6 @@
     /* negative main padding values */
     @apply md:-ml-16 -mt-6 md:-mt-12 aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
   }
-
-  &__container {
-    @apply mt-6 space-y-10;
-  }
 }
 
 .proposal {

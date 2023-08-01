@@ -1,5 +1,11 @@
-<%= order_selector available_orders, i18n_scope: "decidim.sortitions.sortitions.orders" %>
+<section id="sortitions" class="layout-main__section layout-main__heading">
+  <h2 class="h5 md:h3 decorator"><%= t("count", scope: "decidim.sortitions.sortitions.sortitions_count", count: @sortitions.total_count) %></h2>
 
-<%= render @sortitions %>
+  <%= order_selector available_orders, i18n_scope: "decidim.sortitions.sortitions.orders" %>
 
-<%= decidim_paginate @sortitions %>
+  <div class="card-list__container">
+    <%= render @sortitions %>
+  </div>
+
+  <%= decidim_paginate @sortitions %>
+</section>
