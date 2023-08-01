@@ -3,7 +3,7 @@
     @apply ring-4 ring-background hover:ring-tertiary rounded flex flex-col md:flex-row hover:cursor-pointer transition;
 
     &-container {
-      @apply space-y-10 mb-16 md:mb-28;
+      @apply space-y-10;
     }
 
     &-img {

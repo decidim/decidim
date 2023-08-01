@@ -7,9 +7,7 @@
 <% if @proposals.empty? %>
   <%= cell("decidim/announcement", params[:filter].present? ? t(".empty_filters") : t(".empty")) %>
 <% else %>
-  <div class="my-8">
-    <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
-  </div>
+  <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
 
   <div class="proposal-list__container">
     <%= render @proposals %>

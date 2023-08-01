@@ -15,14 +15,6 @@ module Decidim
         translated.html_safe
       end
 
-      def render_participatory_text_title(participatory_text)
-        if participatory_text.nil?
-          t("alternative_title", scope: "decidim.proposals.participatory_text_proposal")
-        else
-          translated_attribute(participatory_text.title)
-        end
-      end
-
       # Public: A formatted collection of mime_type to be used
       # in forms.
       def mime_types_with_document_examples
