@@ -250,7 +250,7 @@ eu:
           other: "%{count} kontsultak"
       filters:
         active: Aktiboak
-        all: guztiak
+        all: Guztiak
         finished: Amaitu
         search: Bilatu
         state: Estatu
