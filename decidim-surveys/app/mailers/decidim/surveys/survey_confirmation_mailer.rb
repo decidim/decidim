@@ -12,7 +12,7 @@ module Decidim
         @questionnaire_title = translated_attribute(questionnaire.title)
         @participatory_space_title = translated_attribute(component.participatory_space.title)
 
-        return unless answers.present?
+        return if answers.blank?
 
         add_file_with_answers(answers)
 
@@ -20,9 +20,9 @@ module Decidim
       end
 
       private
-      
+
       def add_file_with_answers(answers)
-        export_name = t(".export_name")
+        export_name = t("decidim.surveys.survey_confirmation_mailer.export_name")
         serializer = Decidim::Forms::UserAnswersSerializer
 
         export_data = Decidim::Exporters::FormPDF.new(answers, serializer).export

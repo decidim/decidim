@@ -13,7 +13,7 @@ module Decidim
       let(:questionnaire) { survey.questionnaire }
       let!(:questions) { create_list(:questionnaire_question, 3, questionnaire:) }
       let!(:answers) { questions.map { |q| create(:answer, question: q, questionnaire:) } }
-      
+
       describe "confirmation" do
         let(:serializer) { Decidim::Forms::UserAnswersSerializer }
         let(:export_data) { Decidim::Exporters::FormPDF.new(answers, serializer) }
