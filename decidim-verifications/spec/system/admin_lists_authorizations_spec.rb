@@ -14,7 +14,9 @@ describe "Admin lists authorizations", type: :system do
     login_as admin, scope: :user
     visit decidim_admin.root_path
     click_link "Participants"
-    click_link "Authorizations"
+    within_admin_menu do
+      click_link "Authorizations"
+    end
   end
 
   it "allows the user to list all available authorization methods" do
