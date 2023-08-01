@@ -155,14 +155,14 @@ module Decidim
       initializer "decidim_initiatives_admin.initiative_actions_menu" do
         Decidim.menu :admin_initiative_actions_menu do |menu|
           menu.add_item :answer_initiative,
-            I18n.t("actions.answer", scope: "decidim.initiatives"),
-            decidim_admin_initiatives.edit_initiative_answer_path(current_participatory_space),
-            if: allowed_to?(:answer, :initiative, initiative: current_participatory_space)
+                        I18n.t("actions.answer", scope: "decidim.initiatives"),
+                        decidim_admin_initiatives.edit_initiative_answer_path(current_participatory_space),
+                        if: allowed_to?(:answer, :initiative, initiative: current_participatory_space)
 
           menu.add_item :initiative_permissions,
-            I18n.t("actions.permissions", scope: "decidim.admin"),
-            decidim_admin_initiatives.edit_initiative_permissions_path(current_participatory_space, resource_name: :initiative),
-            if: current_participatory_space.allow_resource_permissions? && allowed_to?(:update, :initiative, initiative: current_participatory_space)
+                        I18n.t("actions.permissions", scope: "decidim.admin"),
+                        decidim_admin_initiatives.edit_initiative_permissions_path(current_participatory_space, resource_name: :initiative),
+                        if: current_participatory_space.allow_resource_permissions? && allowed_to?(:update, :initiative, initiative: current_participatory_space)
         end
       end
 

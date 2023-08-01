@@ -157,7 +157,11 @@ module Decidim
                         if: allowed_to?(:update, :process, process: current_participatory_space)
           current_participatory_space.components.each do |component|
             caption = translated_attribute(component.name)
-            caption += content_tag(:span, component.published_at? ? t("participatory_processes.index.published", scope: "decidim.admin") : t("participatory_processes.index.not_published", scope: "decidim.admin"), class: component.published_at? ? "label success !text-sm" : "label reverse !text-sm")
+            caption += content_tag(
+              :span,
+              t(component.published_at? ? "published" : "not_published", scope: "decidim.admin.participatory_processes.index"),
+              class: component.published_at? ? "label success !text-sm" : "label reverse !text-sm"
+            )
 
             menu.add_item [component.manifest_name, component.id].join("_"),
                           caption.html_safe,
