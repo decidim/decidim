@@ -218,12 +218,12 @@ en:
             title: Title
         assembly:
           fields:
+            actions: Actions
             created_at: Created at
             private: Private
             promoted: Highlighted
             published: Published
             title: Title
-            actions: Actions
           name: Assembly
         assembly_member:
           fields:
@@ -288,6 +288,7 @@ en:
             included_at_help: Select the date when this assembly was added to the platform. It does not necessarily have to be the same as the creation date.
             metadata: Metadata
             other: Other
+            sections: Sections
             select_a_created_by: Select a created by
             select_an_area: Select an Area
             select_an_assembly_type: Select an assembly type
@@ -296,7 +297,6 @@ en:
             social_handlers: Social
             title: General Information
             visbility: Visibility
-            sections: Sections
         assemblies_settings:
           edit:
             update: Update

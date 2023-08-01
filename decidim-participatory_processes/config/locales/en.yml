@@ -112,8 +112,8 @@ en:
         preview: Preview
         publish: Publish
         resend_invitation: Resend invitation
-        unpublish: Unpublish
         see_process: See process
+        unpublish: Unpublish
       menu:
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
@@ -136,12 +136,12 @@ en:
       models:
         participatory_process:
           fields:
+            actions: Actions
             created_at: Created at
             private: Private
             promoted: Highlighted
             published: Published
             title: Title
-            actions: Actions
           name: Participatory process
         participatory_process_group:
           fields:
@@ -445,13 +445,13 @@ en:
             other: Other
             related_processes: Related processes
             scope_type_max_depth_help: Restrict the scope filter depth; The filter will show from general to the selected scope type.
+            sections: Sections
             select_an_area: Select an Area
             select_participatory_process_type: Select a process type
             select_process_group: Select a process group
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: General Information
             visbility: Visibility
-            sections: Sections
       content_blocks:
         extra_data:
           name: Phase & duration

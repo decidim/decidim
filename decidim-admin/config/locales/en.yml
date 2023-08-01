@@ -575,11 +575,11 @@ en:
         reported_users: Reported participants
         scope_types: Scope types
         scopes: Scopes
+        see_site: See site
         settings: Settings
         static_pages: Pages
         user_groups: Groups
         users: Participants
-        see_site: See site
       metrics:
         metrics:
           see_more_metrics: See more metrics
