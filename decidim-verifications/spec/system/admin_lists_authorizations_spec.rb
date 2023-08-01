@@ -18,7 +18,7 @@ describe "Admin lists authorizations", type: :system do
   end
 
   it "allows the user to list all available authorization methods" do
-    within ".container" do
+    within "[data-content]" do
       expect(page).to have_content("Identity documents")
     end
   end
