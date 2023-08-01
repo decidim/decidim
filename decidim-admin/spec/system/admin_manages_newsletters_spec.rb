@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-%w(conferences initiatives consultations).each do |space|
+%w(conferences initiatives).each do |space|
   require "decidim/#{space}/test/factories.rb"
 end
 
@@ -175,11 +175,9 @@ describe "Admin manages newsletters", type: :system do
     let!(:participatory_process) { create(:participatory_process, organization:) }
     let!(:assembly) { create(:assembly, organization:) }
     let!(:conference) { create(:conference, organization:) }
-    let!(:consultation) { create(:consultation, organization:) }
-    let(:question) { create(:question, :published, consultation:) }
     let!(:initiative) { create(:initiative, organization:) }
     let!(:newsletter) { create(:newsletter, organization:) }
-    let(:spaces) { [participatory_process, assembly, conference, consultation, initiative] }
+    let(:spaces) { [participatory_process, assembly, conference, initiative] }
     let!(:component) { create(:dummy_component, participatory_space: participatory_process) }
 
     def select_all

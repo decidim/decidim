@@ -7,7 +7,6 @@ ruby RUBY_VERSION
 gem "decidim", path: "."
 gem "decidim-ai", path: "."
 gem "decidim-conferences", path: "."
-gem "decidim-consultations", path: "."
 gem "decidim-elections", path: "."
 gem "decidim-initiatives", path: "."
 gem "decidim-templates", path: "."
