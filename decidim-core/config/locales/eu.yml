@@ -91,6 +91,15 @@ eu:
       about_x_months:
         one: hilabete inguru
         other: '%{count} hilabete inguru'
+      x_days:
+        one: Egun bat
+        other: "Egun bat"
+      x_hours:
+        one: ordu bat %{count}
+        other: "%{count} ordu"
+      x_minutes:
+        one: '%{count} minutu'
+        other: "Minutu %{count}"
   decidim:
     accessibility:
       external_link: Kanpoko lotura
