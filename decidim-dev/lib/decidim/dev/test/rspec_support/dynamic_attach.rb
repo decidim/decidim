@@ -12,7 +12,7 @@ module Capybara
 
       yield if block_given?
 
-      front_interface = options[:front_interface] && Decidim.redesign_active
+      front_interface = options.fetch(:front_interface, true)
 
       within ".upload-modal" do
         click_remove(front_interface) if options[:remove_before]
