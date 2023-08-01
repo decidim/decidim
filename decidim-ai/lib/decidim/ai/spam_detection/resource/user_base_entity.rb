@@ -10,6 +10,8 @@ module Decidim
           protected
 
           def query = Decidim::UserBaseEntity.includes(:user_moderation)
+
+          def resource_hidden?(resource) = resource.class.included_modules.include?(Decidim::UserReportable) && resource.blocked?
         end
       end
     end

@@ -24,6 +24,11 @@ namespace :decidim do
       Decidim::Ai::SpamDetection::Importer::Database.call
     end
 
+    desc "Reset all training model"
+    task reset: :environment do
+      Decidim::Ai.spam_detection_instance.reset
+    end
+
     private
 
     def plugin_path

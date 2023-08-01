@@ -8,6 +8,14 @@ module Decidim
           @registry = Decidim::Ai.spam_detection_registry
         end
 
+        def reset
+          @registry.each do |strategy|
+            next unless strategy.respond_to?(:reset)
+
+            strategy.reset
+          end
+        end
+
         def train(category, text)
           return if text.blank?
 

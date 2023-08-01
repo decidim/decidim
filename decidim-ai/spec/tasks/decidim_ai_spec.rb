@@ -36,4 +36,16 @@ describe "Executing Decidim Ai tasks" do
       end
     end
   end
+
+  describe "rake decidim:ai:reset_training_model", type: :task do
+    context "when executing task" do
+      it "calls reset on the spam detection instance" do
+        instance = Decidim::Ai::SpamDetection::Service.new
+        allow(Decidim::Ai).to receive(:spam_detection_instance).and_return(instance)
+        expect(instance).to receive(:reset).exactly(1).time
+
+        Rake::Task[:"decidim:ai:reset"].invoke
+      end
+    end
+  end
 end

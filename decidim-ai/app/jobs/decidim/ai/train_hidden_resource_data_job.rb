@@ -14,8 +14,8 @@ module Decidim
 
         if resource.hidden?
           wrapped.fields.each do |field|
-            classifier.untrain :ham, translated_attribute(resource.send(field))
-            classifier.train :spam, translated_attribute(resource.send(field))
+            wrapped.untrain :ham, translated_attribute(resource.send(field))
+            wrapped.train :spam, translated_attribute(resource.send(field))
           end
         end
       end

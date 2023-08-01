@@ -28,7 +28,7 @@ module Decidim
             backend.untrain(category, content)
           end
 
-          delegate :train, to: :backend
+          delegate :train, :reset, to: :backend
 
           def classify(content)
             @category, @internal_score = backend.classify_with_score(content)
