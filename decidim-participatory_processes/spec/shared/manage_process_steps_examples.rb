@@ -51,7 +51,6 @@ shared_examples "manage process steps examples" do
       find(".form-general-submit").click
     end
 
-    byebug
     expect(page).to have_admin_callout("successfully")
 
     within "#steps table" do
