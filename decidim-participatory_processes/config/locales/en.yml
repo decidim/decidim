@@ -99,9 +99,6 @@ en:
         destroy: Delete
         duplicate: Duplicate
         edit: Edit
-        filter:
-          all_processes: Show all processes
-          process_groups: Process Groups
         import_process: Import
         moderate: Moderate
         new_process: New process
@@ -124,11 +121,9 @@ en:
         participatory_processes_submenu:
           attachment_collections: Folders
           attachment_files: Files
-          attachments: Attachments
           categories: Categories
           components: Components
           info: About this process
-          landing_page: Landing page
           moderations: Moderations
           private_users: Private participants
           process_admins: Process admins

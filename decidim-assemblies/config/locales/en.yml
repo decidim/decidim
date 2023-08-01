@@ -159,8 +159,6 @@ en:
         edit:
           title: Update assembly member.
           update: Update
-        index:
-          assembly_members_title: Assembly members
         new:
           create: Create
           title: New assembly member.

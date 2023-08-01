@@ -473,7 +473,6 @@ en:
         proposal_answers:
           form:
             accepted: Accepted
-            answer_proposal: Answer
             evaluating: Evaluating
             not_answered: Not answered
             rejected: Rejected
@@ -515,7 +514,6 @@ en:
             publish: Publish
             publish_answers: Publish answers
             select_component: Select a component
-            selected: selected
             split: Split proposals
             split_button: Split
             title: Proposals
@@ -530,32 +528,23 @@ en:
             number_of_proposals: Answers for %{number} proposals will be published.
             select_a_proposal: Please select a proposal.
           show:
-            amendments_count: Amendments count
             assigned_valuators: Assigned valuators
-            authors: Authors
             body: Body
             comments_count: Comments count
-            comments_negative_count: Against
-            comments_neutral_count: Neutral
-            comments_positive_count: Favor
-            created_at: Creation date
             documents: Documents
             endorsements_count: Endorsements count
-            endorsements_ranking: Ranking by endorsements
             endorsers: Endorsers
             link: Link
             n_more_endorsers:
               one: and 1 more
               other: and %{count} more
             photos: Photos
-            proposals: Proposals
             ranking: "%{ranking} of %{total}"
             related_meetings: Related meetings
             remove_assignment: Remove assignment
             remove_assignment_confirmation: Are you sure you want to remove the valuator from this proposal?
             valuators: Valuators
             votes_count: Supports count
-            votes_ranking: Ranking by supports
           update_category:
             invalid: 'These proposals already had the %{subject_name} category: %{proposals}.'
             select_a_category: Please select a category.
