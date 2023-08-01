@@ -72,4 +72,4 @@ en:
         confirmation:
           export_name: Survey answers
           body: You have successfully answered the %{questionnaire_title} survey within %{participatory_space}
-          subject: Confirmation of answer in the questionnaire %{questionnarie_title}
+          subject: Confirmation of answer in the questionnaire %{questionnaire_title}
