@@ -30,7 +30,7 @@ module Decidim
             .and_return(mailer)
           expect(mailer)
             .to receive(:deliver_now)
-            
+
           subject.perform_now(user, questionnaire, component, collection)
         end
       end

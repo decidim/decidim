@@ -20,7 +20,7 @@ module Decidim
 
           invisible_captcha on_spam: :spam_detected
 
-          after_action :send_confirmation_email, only: :answer
+          after_action proc { send_confirmation_email }, only: :answer
 
           def show
             @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
