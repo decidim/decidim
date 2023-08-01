@@ -48,10 +48,8 @@
                   <%= icon_link_to "close-circle-line", conference_registration_type_publish_path(current_conference, registration_type), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :delete %>
                 <% else %>
                   <%= icon_link_to "check-line", conference_registration_type_publish_path(current_conference, registration_type), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :post %>
-                  <% end %>
                 <% end %>
               <% end %>
-
               <% if allowed_to?(:destroy, :registration_type, registration_type: registration_type) && !registration_type.conference_registrations.any? %>
                 <%= icon_link_to "delete-bin-line", conference_registration_type_path(current_conference, registration_type), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
               <% end %>
