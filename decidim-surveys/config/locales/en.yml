@@ -66,7 +66,7 @@ en:
       survey_confirmation_mailer:
         confirmation:
           body: You have successfully answered the %{questionnaire_title} survey within %{participatory_space}
-          subject: Confirmation of answer in the questionnaire %{questionnaire_title}
+          subject: Questionnaire %{questionnaire_title} answering confirmation
         export_name: Survey answers
       surveys:
         answer:
