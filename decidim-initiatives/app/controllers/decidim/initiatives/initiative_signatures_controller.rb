@@ -4,7 +4,7 @@
 # i18n-tasks-use t('layouts.decidim.initiative_signature_creation_header.finish')
 # i18n-tasks-use t('layouts.decidim.initiative_signature_creation_header.sms_code')
 # i18n-tasks-use t('layouts.decidim.initiative_signature_creation_header.sms_phone_number')
-# i18n-tasks-use t('layouts.decidim.initiative_signature_creation_header.finished')
+# i18n-tasks-use t('layouts.decidim.initiative_signature_creation_header.finish')
 module Decidim
   module Initiatives
     class InitiativeSignaturesController < Decidim::Initiatives::ApplicationController
