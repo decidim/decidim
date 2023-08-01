@@ -1,1 +1,1 @@
-$('#assemblies-grid').replaceWith('<%= j(render(partial: "collection")).strip.html_safe %>');
+$('#assemblies-grid').html('<%= j(render(partial: "collection")).strip.html_safe %>');

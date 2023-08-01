@@ -1,1 +1,1 @@
-$('#processes-grid').replaceWith('<%= j(render(partial: "collection")).strip.html_safe %>');
+$('#processes-grid').html('<%= j(render(partial: "collection")).strip.html_safe %>');

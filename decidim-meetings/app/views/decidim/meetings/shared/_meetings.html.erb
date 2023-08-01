@@ -13,7 +13,7 @@
 <% else %>
   <%= cell("decidim/announcement", t("decidim.meetings.meetings.meetings.upcoming_meetings_warning"), callout_class: "warning" ) if @forced_past_meetings %>
 
-  <div class="card-list__container">
+  <div class="card__list-list">
     <% meetings.each do |meeting| %>
       <%= card_for meeting %>
     <% end %>

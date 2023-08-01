@@ -3,7 +3,7 @@
 <% else %>
   <%= order_selector available_orders, i18n_scope: "decidim.proposals.collaborative_drafts.orders" %>
 
-  <div class="card-list__container">
+  <div class="card__list-list">
     <% @collaborative_drafts.each do |draft| %>
       <%= card_for draft %>
     <% end %>
