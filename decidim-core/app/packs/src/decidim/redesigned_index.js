@@ -59,7 +59,6 @@ import "./data_consent"
 import "./sw"
 import changeReportFormBehavior from "./redesigned_change_report_form_behavior"
 
-
 // local deps that require initialization
 import formDatePicker from "./form_datepicker"
 import fixDropdownMenus from "./dropdowns_menus"
