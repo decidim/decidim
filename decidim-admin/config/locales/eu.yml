@@ -12,7 +12,7 @@ eu:
         plural: plural
       attachment:
         attachment_collection_id: Karpeta
-        description: Descripción
+        description: Deskribapena
         file: Fitxategia
         title: Erantsitakoaren edo irudiaren izena
         weight: Kokapenaren hurrenkera
@@ -21,7 +21,7 @@ eu:
         name: Izena
         weight: Kokapenaren hurrenkera
       category:
-        description: Descripción
+        description: Deskribapena
         name: Izena
         parent_id: Nagusia
         weight: Kokapenaren hurrenkera
@@ -107,7 +107,7 @@ eu:
         code: Kodea
         name: Izena
         organization: Erakundea
-        parent_id: Guraso
+        parent_id: Nagusia
         scope_type: Esparru mota
         scope_type_id: Esparru mota
       scope_type:
