@@ -8,19 +8,24 @@ module ConfirmationHelpers
   # See:
   # https://github.com/teamcapybara/capybara/blob/44621209496fe4dd352709799a0061a80d97d562/lib/capybara/session.rb#L647
   def accept_confirm(_text = nil, **options)
-    yield if block_given?
+    if options[:admin]
+      accept_alert do
+        yield
+      end
+    else
+      yield if block_given?
 
-    # The test can already be "within", so find the body using xpath
-    body = find(:xpath, "/html/body")
-    confirm_selector = options.fetch(:admin, !Decidim.redesign_active) ? ".confirm-modal-content" : "[data-confirm-modal-content]"
-    message = nil
+      # The test can already be "within", so find the body using xpath
+      body = find(:xpath, "/html/body")
+      message = nil
 
-    within body do
-      message = find(confirm_selector).text
-      find("[data-confirm-ok]").click
+      within body do
+        message = find("[data-confirm-modal-content]").text
+        find("[data-confirm-ok]").click
+      end
+
+      message
     end
-
-    message
   end
 
   # Overrides the Capybara default dismiss_confirm because we have replaced the
@@ -29,19 +34,24 @@ module ConfirmationHelpers
   # See:
   # https://github.com/teamcapybara/capybara/blob/44621209496fe4dd352709799a0061a80d97d562/lib/capybara/session.rb#L657
   def dismiss_confirm(_text = nil, **options)
-    yield if block_given?
+    if options[:admin]
+      dismiss_prompt do
+        yield
+      end
+    else
+      yield if block_given?
 
-    # The test can already be "within", so find the body using xpath
-    body = find(:xpath, "/html/body")
-    confirm_selector = options.fetch(:admin, !Decidim.redesign_active) ? ".confirm-modal-content" : "[data-confirm-modal-content]"
-    message = nil
+      # The test can already be "within", so find the body using xpath
+      body = find(:xpath, "/html/body")
+      message = nil
 
-    within body do
-      message = find(confirm_selector).text
-      find("[data-confirm-cancel]").click
+      within body do
+        message = find("[data-confirm-modal-content]").text
+        find("[data-confirm-cancel]").click
+      end
+
+      message
     end
-
-    message
   end
 
   # Used to accept the "onbeforeunload" event's normal browser confirm modal
