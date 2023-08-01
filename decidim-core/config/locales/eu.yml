@@ -94,6 +94,15 @@ eu:
       about_x_months:
         one: hilabete inguru
         other: '%{count} hilabete inguru'
+      x_days:
+        one: Egun bat
+        other: "Egun bat"
+      x_hours:
+        one: ordu bat %{count}
+        other: "%{count} ordu"
+      x_minutes:
+        one: '%{count} minutu'
+        other: "Minutu %{count}"
   decidim:
     accessibility:
       external_link: Kanpoko lotura
@@ -1079,6 +1088,9 @@ eu:
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_digest_mailer:
+      header:
+        daily: Jakinarazpenen eguneroko laburpena
+        weekly: Jakinarazpenen asteko laburpena
       hello: Kaixo %{name},
       see_more: Ikusi jakinarazpen gehiago
     notifications_settings:
