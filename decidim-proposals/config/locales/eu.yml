@@ -115,6 +115,8 @@ eu:
               withdrawn: Kenduta
           valuator_role_ids_has:
             label: Esleituta ebaluatzaileari
+          with_any_state:
+            label: Erantzunda
         search_placeholder:
           id_string_or_title_cont: Bilatu %{collection} edo ID edo izenburuaren arabera.
     components:
@@ -367,6 +369,7 @@ eu:
         title: Botoak
     participatory_spaces:
       highlighted_proposals:
+        last: Azken proposamenak
         see_all: Ikusi (%{count}) proposamenak
     proposals:
       actions:
