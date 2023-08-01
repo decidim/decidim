@@ -6,7 +6,9 @@ describe "User prints the initiative", type: :system do
   include_context "when admins initiative"
 
   def submit_and_validate
-    find("*[type=submit]").click
+    within("[data-content]") do
+      find("*[type=submit]").click
+    end
 
     within ".callout-wrapper" do
       expect(page).to have_content("successfully")
