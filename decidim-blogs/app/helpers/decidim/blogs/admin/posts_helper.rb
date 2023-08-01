@@ -7,6 +7,7 @@ module Decidim
       module PostsHelper
         include Decidim::ApplicationHelper
         include SanitizeHelper
+        include PaginateHelper
 
         # Public: truncates the post body
         #
