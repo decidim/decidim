@@ -16,7 +16,7 @@ module Decidim
 
         add_file_with_answers(answers)
 
-        mail(to: "#{@user.name} <#{@user.email}>", subject: t(".subject"))
+        mail(to: "#{@user.name} <#{@user.email}>", subject: t(".subject", @questionnaire_title))
       end
 
       private

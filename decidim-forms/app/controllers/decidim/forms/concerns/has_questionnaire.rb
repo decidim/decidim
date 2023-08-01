@@ -150,7 +150,7 @@ module Decidim
             answers = Decidim::Forms::QuestionnaireUserAnswers.for(@questionnaire)
 
             if component.manifest_name == "surveys" && component.settings.send_confirmation_email && answers.present?
-              Decidim::Surveys::ConfirmationDeliveryJob.perform_now(current_user, @questionnaire, component)
+              Decidim::Surveys::ConfirmationDeliveryJob.perform_now(current_user, @questionnaire, component, answers)
             end
           end
         end
