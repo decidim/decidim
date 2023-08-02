@@ -262,8 +262,6 @@ id:
         name: Statistik organisasi
       sub_hero:
         name: Spanduk sub hero
-    datepicker:
-      help_text: 'Format yang diharapkan: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
