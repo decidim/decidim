@@ -441,9 +441,6 @@ pt:
         download_data: Transferir os dados
         download_data_description: Um ficheiro contendo toda a informação associada com a sua conta será enviado a <strong>%{user_email}</strong>. Este e-mail irá conter um ficheiro .zip e uma password para o abrir. <Br/><br/>Para abrir o ficheiro zip irá precisar do <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se utiliza Linux, provavelmente terá a ferramenta instalada por defeito. Se não, pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Solicitar dados
-    endorsable:
-      endorsements: Endossos
-      endorsements_count: Contagem de apoios
     endorsements:
       identities:
         done: Concluído
