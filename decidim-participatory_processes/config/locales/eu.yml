@@ -450,10 +450,8 @@ eu:
           type: Mota
       show:
         belongs_to_group: Prozesu hau honi dagokio
-        dates: Datak
         private_space: Prozesu pribatua da
         related_processes: Elkarrekin lotutako prozesuak
-        unspecified: Zehaztu gabea
     statistics:
       processes_count: Prozesuak
   layouts:
