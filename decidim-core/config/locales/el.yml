@@ -535,9 +535,6 @@ el:
         error: Σφάλμα φόρτωσης εικόνας.
         success: Η εικόνα ανέβηκε επιτυχώς.
       drag_and_drop_help: Προσθήκη εικόνων σύροντας τις & ρίχνοντας ή επικολλώντας αυτές.
-    endorsable:
-      endorsements: Επιδοκιμασίες
-      endorsements_count: Καταμέτρηση επιδοκιμασιών
     endorsement_buttons_cell:
       already_endorsed: Δεν μου αρέσει
       endorse: Μου αρέσει
