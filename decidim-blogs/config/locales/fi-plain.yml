@@ -64,9 +64,6 @@ fi-pl:
             official_blog_post: Virallinen artikkeli
             published_at: Julkaisuaika
             title: Otsikko
-      posts:
-        show:
-          view: Näytä
     components:
       blogs:
         actions:
