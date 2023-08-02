@@ -114,8 +114,6 @@ ga:
     download_your_data:
       export:
         ready: Réidh
-    endorsable:
-      endorsements: Formhuinithe
     endorsements:
       identities:
         done: Críochnaithe
