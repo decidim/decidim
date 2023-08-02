@@ -590,7 +590,6 @@ eu:
               ok: Proposamen gisa argitaratu
               title: Hurrengo ekintza atzeraezina da
             success: Proposamen gisa argitaratutako ziriborro kolaboratiboa.
-          view_collaborative_draft: Ikusi ziriborro kolaboratzailea
           withdraw:
             error: Arazoak izan dira lankidetza zirriborroa ixtean.
             irreversible_action_modal:
@@ -769,8 +768,6 @@ eu:
             other: Proposamen hau argitaratu ondorengo lehen %{count} minutuetan editatu ahal izango duzu. Behin leiho hau pasatzen denean, ezingo duzu proposamena editatu.
           publish: Argitaratu
           title: Argitaratu zure proposamena
-        proposal:
-          view_proposal: Ikusi proposamena
         show:
           answer: Erantzuna
           changes_at_title: Zuzenketa honi "%{title}"
@@ -804,8 +801,6 @@ eu:
           count:
             one: SOSTENGU
             other: Babesak
-          most_popular_proposal: Proposamenrik ezagunena
-          need_more_votes: Botoa gehiago behar duzu
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Proposamen bakoitza %{limit} euskarri baino gehiagotan pilatu daiteke
@@ -824,15 +819,12 @@ eu:
           back_from_step_2: Itzuli proposamenetara
           back_from_step_3: Alderatu berriro proposamenak
           back_from_step_4: Editatu berriro zirriborroa
-          info: A <strong>proposal</strong>. proposamen sortzen ari zara.
         wizard_steps:
           current_step: Oraingo urratsa
-          see_steps: ikusi urratsak
           step_1: Sortu zure proposamena
           step_2: Alderatu
           step_3: Osatuta
           step_4: Argitaratu zure proposamena
-          step_of: '%{total_steps} urratsetik %{current_step_num} eginda'
           title: Proposamen bat sortzeko urratsak
       proposals_picker:
         choose_proposals: Hautatu proposamenak
