@@ -391,8 +391,6 @@
         name: Organisasjonsstatistikk
       sub_hero:
         name: Underhelt banner
-    datepicker:
-      help_text: 'Forventet format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
