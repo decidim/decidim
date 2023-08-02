@@ -388,7 +388,7 @@ gl:
         success: Imaxe subida con éxito
       drag_and_drop_help: Engade imaxes arrastrándoas ou pegándoas aquí.
     endorsable:
-      endorsements: Aprobacións
+      endorsements: Adhesións
     errors:
       internal_server_error:
         title: Produciuse un problema co noso servidor
