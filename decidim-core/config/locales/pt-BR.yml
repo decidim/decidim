@@ -406,8 +406,6 @@ pt-BR:
         name: Estatísticas da organização
       sub_hero:
         name: Banner de sub-herói
-    datepicker:
-      help_text: 'Formato esperado: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
