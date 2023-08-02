@@ -472,9 +472,6 @@ sv:
         request_data: Begär data
     editor_images:
       drag_and_drop_help: Lägg till bilder genom att dra och släppa eller klistra in dem.
-    endorsable:
-      endorsements: Instämmanden
-      endorsements_count: Antal Endorsements
     endorsements:
       identities:
         done: Klar
