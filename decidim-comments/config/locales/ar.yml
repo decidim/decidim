@@ -37,7 +37,6 @@ ar:
         update:
           error: طرأت مشكلة خلال تحديث التعليق.
       comments_count: تعداد التعليقات
-      view: العرض
       votes:
         create:
           error: حدثت مشكلة في التصويت على التعليق.
