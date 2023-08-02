@@ -33,9 +33,6 @@ zh-CN:
           fields:
             author: 作者
             body: 正文内容
-      posts:
-        show:
-          view: 查看
     components:
       blogs:
         name: 博客
