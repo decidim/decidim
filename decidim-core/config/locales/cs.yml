@@ -612,8 +612,6 @@ cs:
           all: Vše
         filter_scope_values:
           all: Vše
-    datepicker:
-      help_text: 'Očekávaný formát: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
