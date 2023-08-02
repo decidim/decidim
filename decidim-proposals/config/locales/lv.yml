@@ -463,7 +463,6 @@ lv:
               ok: Publicēt kā priekšlikumu
               title: Šī darbība ir neatgriezeniska
             success: Sadarbības projekts ir veiksmīgi publicēts kā priekšlikums.
-          view_collaborative_draft: Aplūkot sadarbības projektu
           withdraw:
             error: Sadarbības projekta aizvēršanas laikā radās problēma.
             irreversible_action_modal:
@@ -622,8 +621,6 @@ lv:
             other: Jūs varēsiet rediģēt šo priekšlikumu pirmajās %{count} minūtēs pēc priekšlikuma publicēšanas. Kad šis laika logs būs pagājis, jūs nevarēsiet rediģēt priekšlikumu.
           publish: Publicēt
           title: Publicējiet savu priekšlikumu
-        proposal:
-          view_proposal: Skatīt priekšlikumu
         show:
           answer: Atbilde
           changes_at_title: Grozīts "%{title}"
@@ -651,9 +648,6 @@ lv:
           no_votes_remaining: Nav atlikuši atbalsti
           vote: Atbalsts
           votes_blocked: Atbalsts nav iespējots
-        votes_count:
-          most_popular_proposal: Populārākais priekšlikums
-          need_more_votes: Nepieciešams lielāks atbalsts
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Katrs priekšlikums var uzkrāt vairāk nekā %{limit} atbalstu
@@ -668,14 +662,11 @@ lv:
             votes: Atbalsta
         wizard_aside:
           back: Atpakaļ
-          info: Jūs veidojat <strong>priekšlikumu</strong>.
         wizard_steps:
-          see_steps: skatīt soļus
           step_1: Izveidojiet savu priekšlikumu
           step_2: Salīdzināt
           step_3: Pabeigt
           step_4: Publicējiet savu priekšlikumu
-          step_of: Solis %{current_step_num} no %{total_steps}
       proposals_picker:
         choose_proposals: Izvēlieties priekšlikumus
         close: Aizvērt
