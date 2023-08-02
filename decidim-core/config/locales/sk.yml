@@ -346,8 +346,6 @@ sk:
         name: Štatistiky organizácie
       sub_hero:
         name: Pruh pod hlavným pruhom
-    datepicker:
-      help_text: 'Očakávaný formát:%{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
