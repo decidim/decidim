@@ -341,7 +341,6 @@ lb:
           more_info: Mehr Informationen
           take_part: Teilnehmen
         index:
-          children: 'Versammlungen:'
           promoted_assemblies: Hervorgehobene Gremien
         order_by_assemblies:
           assemblies:
