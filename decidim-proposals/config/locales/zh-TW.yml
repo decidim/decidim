@@ -622,7 +622,6 @@ zh-TW:
               ok: 作為提案發布
               title: 這個動作是不可逆的
             success: 協作草稿已成功發布為提案。
-          view_collaborative_draft: 查看協作草稿
           withdraw:
             error: 關閉協作草稿時出現問題
             irreversible_action_modal:
@@ -806,8 +805,6 @@ zh-TW:
             other: "One\n提案發布後的前1分鐘內，您可以對其進行編輯。此時間窗口過後，您將無法編輯提案。\nOther\n提案發布後的前 %{count} 分鐘內，您可以對其進行編輯。此時間窗口過後，您將無法編輯提案。"
           publish: 發布
           title: 發佈您的提案
-        proposal:
-          view_proposal: 檢視提案
         proposals:
           empty: 目前尚未有提案.
           empty_filters: 沒有符合此條件的提案。
@@ -842,8 +839,6 @@ zh-TW:
         votes_count:
           count:
             other: 支持
-          most_popular_proposal: 最受歡迎的提案
-          need_more_votes: 需要更多支持
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: 每個提案可以累積超過%{limit} 個支持
@@ -865,15 +860,12 @@ zh-TW:
           back_from_step_2: 返回提案
           back_from_step_3: 返回比較提案
           back_from_step_4: 返回編輯草案
-          info: 你正在建立一個<strong>提案</strong>。
         wizard_steps:
           current_step: 當前步驟
-          see_steps: 看步驟
           step_1: 創建你的提案
           step_2: 比較
           step_3: 完成
           step_4: 發佈您的提案
-          step_of: 第 %{current_step_num} 步，共 %{total_steps} 步
           title: 提案創建步驟
       proposals_picker:
         choose_proposals: 選擇提案
