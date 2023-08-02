@@ -96,6 +96,7 @@ de:
           invalid: Beim Beenden der Debatte ist ein Problem aufgetreten.
           success: Debatte erfolgreich beendet.
         close_debate_modal:
+          cancel: Abbrechen
           description: Wie lautet die Zusammenfassung oder Schlussfolgerung dieser Debatte?
           send: Debatte schließen
         closed: Geschlossen
@@ -127,6 +128,7 @@ de:
           state_values:
             closed: Geschlossen
             open: Offen
+          user_group: Gruppen
         form:
           select_a_category: Bitte wählen sie eine Kategorie
         index:
@@ -160,8 +162,10 @@ de:
       models:
         debate:
           fields:
+            end: Ende
             end_time: Endtermin
             official_debate: Offizielle Debatte
+            start: Start
             start_time: Anfangsdatum
             title: Titel
     events:
