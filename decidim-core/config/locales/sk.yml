@@ -452,8 +452,6 @@ sk:
           this_application_will_not_be_able_to: 'Táto aplikácia nebude môcť:'
           update_profile: Aktualizujte svoj profil
           wants_to_use_your_account_html: "<strong>%{application_name} </strong> chce používať váš účet"
-    endorsable:
-      endorsements: Potvrdenie
     endorsement_buttons_cell:
       already_endorsed: Podporené
       endorse: Podporiť
