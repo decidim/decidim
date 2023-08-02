@@ -633,7 +633,6 @@ fi-pl:
               ok: Julkaise ehdotuksena
               title: Seuraavat toimenpiteet ovat peruuttamattomia
             success: Yhteistyöluonnos julkaistiin onnistuneesti ehdotuksena.
-          view_collaborative_draft: Katso yhteistyöluonnosta
           withdraw:
             error: Yhteistyöluonnoksen sulkemisessa on tapahtunut virheitä.
             irreversible_action_modal:
@@ -828,8 +827,6 @@ fi-pl:
             other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutin aikana ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
           publish: Julkaise
           title: Julkaise ehdotuksesi
-        proposal:
-          view_proposal: Näytä ehdotus
         proposals:
           empty: Ehdotuksia ei ole vielä tehty.
           empty_filters: Ehdotuksia ei löytynyt annetuilla hakuehdoilla.
@@ -866,8 +863,6 @@ fi-pl:
           count:
             one: ÄÄNI
             other: ÄÄNTÄ
-          most_popular_proposal: Suosituin ehdotus
-          need_more_votes: Tarvitsee enemmän ääniä
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} kannatusta
@@ -889,15 +884,12 @@ fi-pl:
           back_from_step_2: Takaisin ehdotuksiin
           back_from_step_3: Takaisin ehdotusten vertailuun
           back_from_step_4: Takaisin luonnoksen muokkaukseen
-          info: Olet luomassa <strong>ehdotusta</strong>.
         wizard_steps:
           current_step: Tämänhetkinen vaihe
-          see_steps: katso vaiheet
           step_1: Luo ehdotuksesi
           step_2: Vertaile
           step_3: Viimeistele
           step_4: Julkaise ehdotuksesi
-          step_of: Vaihe %{current_step_num} / %{total_steps}
           title: Ehdotuksen luonnin vaiheet
       proposals_picker:
         choose_proposals: Valitse ehdotukset
