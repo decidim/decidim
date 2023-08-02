@@ -460,7 +460,6 @@ ca:
           more_info: Més informació
           take_part: Participa
         index:
-          children: 'Assemblees: '
           promoted_assemblies: Assemblees destacades
         metadata:
           children_item:
