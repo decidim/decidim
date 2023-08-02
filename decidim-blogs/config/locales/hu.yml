@@ -64,9 +64,6 @@ hu:
             official_blog_post: Hivatalos bejegyzés
             published_at: Közzététel időpontja
             title: Cím
-      posts:
-        show:
-          view: Nézet
     components:
       blogs:
         actions:
