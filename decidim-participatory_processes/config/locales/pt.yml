@@ -403,10 +403,8 @@ pt:
           see: Ver
       show:
         belongs_to_group: Este processo pertence a
-        dates: Datas
         private_space: Este é um processo privado
         related_processes: Processos relacionados
-        unspecified: Não especificado
     statistics:
       processes_count: Processos
   layouts:
