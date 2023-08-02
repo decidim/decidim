@@ -228,7 +228,6 @@ sl:
         assembly:
           more_info: Več informacij
         index:
-          children: 'Združbe: '
           promoted_assemblies: Poudarjene združbe
         order_by_assemblies:
           assemblies:
