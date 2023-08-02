@@ -442,9 +442,6 @@ lb:
         download_data: Daten eroflueden
         download_data_description: Eng Datei, déi all Informatiounen enthält, déi mat dengem Konto verknäppt sinn, gëtt an den <strong>%{user_email}</strong> geschéckt. Dës Mail enthält eng .zip-Datei an e Passwuert fir se opzemaachen .<br/><br/>Fir d'Datei auszepaken, brauchs du <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows) oder <a href="https://www.keka.io/">Keka</a> (fir MacOS). Wann s'du mat Linux schaffs, gëtt ass et meeschtens als Standard mat installéiert. Wann net, kanns du <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> benotzen.
         request_data: Daten ufroen
-    endorsable:
-      endorsements: Ennerstëtzungen
-      endorsements_count: Zuel vun den Ënnerstëtzer
     endorsements:
       identities:
         done: Erleedegt
