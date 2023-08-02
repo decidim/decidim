@@ -421,10 +421,8 @@
           title: Om denne prosessen
       show:
         belongs_to_group: Denne prosessen tilhører
-        dates: Datoer
         private_space: Dette er en lukket prosess
         related_processes: Relaterte prosesser
-        unspecified: Ikke spesifisert
     statistics:
       processes_count: Prosesser
   layouts:
