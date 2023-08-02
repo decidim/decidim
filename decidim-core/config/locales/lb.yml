@@ -508,7 +508,7 @@ lb:
           update_profile: Profil aktualiséieren
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> well däin Kont benotzen"
     endorsable:
-      endorsements: Ennerstëtzungen
+      endorsements: Ënnerstëtzungen
       endorsements_count: Zuel vun den Ënnerstëtzer
     endorsement_buttons_cell:
       already_endorsed: Ënnerstëtzt
