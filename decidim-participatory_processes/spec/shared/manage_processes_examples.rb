@@ -105,8 +105,7 @@ shared_examples "manage processes examples" do
       )
       dynamically_attach_file(:participatory_process_banner_image, image3_path, remove_before: true)
 
-      page.execute_script("$('#participatory_process_end_date').focus()")
-      page.find(".datepicker-dropdown .day", text: "22").click
+      fill_in :participatory_process_end_date, with: Time.current.change(day: 22)
 
       within ".edit_participatory_process" do
         find("*[type=submit]").click

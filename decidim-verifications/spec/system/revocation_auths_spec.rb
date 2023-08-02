@@ -160,6 +160,7 @@ describe "Authorizations revocation flow", type: :system do
       accept_confirm admin: true do
         click_button(t("decidim.admin.menu.authorization_revocation.button_before"))
       end
+
       expect(page).to have_content(t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu"))
       expect(page).not_to have_content(t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu"))
     end

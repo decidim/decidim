@@ -26,8 +26,8 @@ module Decidim
         resources :projects, exclude: [:index, :new, :create, :edit, :update, :destroy] do
           get :proposals_picker, on: :collection
 
-          resources :attachment_collections
-          resources :attachments
+          resources :attachment_collections, except: [:show]
+          resources :attachments, except: [:show]
         end
 
         root to: "budgets#index"
