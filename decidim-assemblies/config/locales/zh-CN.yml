@@ -381,7 +381,6 @@ zh-CN:
           more_info: 更多信息
           take_part: 参与
         index:
-          children: '程序集： '
           promoted_assemblies: 突出显示的会议
         order_by_assemblies:
           assemblies:
