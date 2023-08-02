@@ -524,9 +524,6 @@ lt:
         request_data: Prašyti duomenų
     editor_images:
       drag_and_drop_help: Pridėkite paveikslėlius juos užvesdami ant lango arba juos įklijuodami.
-    endorsable:
-      endorsements: Palaikymai
-      endorsements_count: Palaikymų skaičius
     endorsements:
       identities:
         done: Atlikta
