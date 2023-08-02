@@ -439,9 +439,6 @@ nl:
         request_data: Gegevens aanvragen
     editor_images:
       drag_and_drop_help: Voeg afbeeldingen toe door ze te slepen of te plakken.
-    endorsable:
-      endorsements: Aanbevelingen
-      endorsements_count: Aantal suggesties
     endorsements:
       identities:
         done: Voltooid
