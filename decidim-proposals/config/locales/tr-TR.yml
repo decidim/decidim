@@ -493,7 +493,6 @@ tr:
               ok: Teklif olarak yayınla
               title: Aşağıdaki işlem geri alınamaz
             success: Ortak taslak, teklif olarak başarıyla yayınlandı.
-          view_collaborative_draft: İşbirlikçi Taslak Görüntüle
           withdraw:
             error: Ortak taslak kapanırken bir sorun oluştu.
             irreversible_action_modal:
@@ -655,8 +654,6 @@ tr:
             other: Bu teklifi, teklif yayınlandıktan sonraki ilk %{count} dakika içinde düzenleyebileceksiniz. Bu zaman aralığı geçtikten sonra teklifi düzenleyemezsiniz.
           publish: Yayınla
           title: Teklifinizi yayınlayın
-        proposal:
-          view_proposal: Teklifi görüntüle
         show:
           answer: Cevap
           changes_at_title: Değişiklikler "%{title}"
@@ -690,8 +687,6 @@ tr:
           count:
             one: OY
             other: OYLAR
-          most_popular_proposal: En popüler teklif
-          need_more_votes: Daha fazla oy gerekiyor
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Her teklif, %{limit} fazla destek biriktirebilir
@@ -710,15 +705,12 @@ tr:
           back_from_step_2: Tekliflere geri dön
           back_from_step_3: Teklifleri karşılaştırmaya geri dön
           back_from_step_4: Taslağı düzenlemeye dön
-          info: <strong>teklif</strong>.
         wizard_steps:
           current_step: Geçerli adım
-          see_steps: adımları görmek
           step_1: Teklifinizi oluşturun
           step_2: Karşılaştırmak
           step_3: Tamamlayınız
           step_4: Teklifinizi yayınlayın
-          step_of: '%{total_steps}adımdan %{current_step_num}'
           title: Teklif oluşturma adımları
       proposals_picker:
         choose_proposals: Teklifleri seçin
