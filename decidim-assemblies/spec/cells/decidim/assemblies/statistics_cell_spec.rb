@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/core/test/shared_examples/statistics_cell_examples"
 
 module Decidim::Assemblies
   describe Decidim::StatisticsCell, type: :cell do
