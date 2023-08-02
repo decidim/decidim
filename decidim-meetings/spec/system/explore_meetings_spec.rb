@@ -273,7 +273,7 @@ describe "Explore meetings", :slow, type: :system do
 
             expect(page).to have_content(translated(past_meeting1.title))
 
-            result = page.find("#meetings .meeting-list__container").text
+            result = page.find("#meetings .card__list-list").text
             expect(result.index(translated(past_meeting3.title))).to be < result.index(translated(past_meeting1.title))
             expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting2.title))
           end
@@ -290,7 +290,7 @@ describe "Explore meetings", :slow, type: :system do
 
             expect(page).to have_content(translated(upcoming_meeting1.title))
 
-            result = page.find("#meetings .meeting-list__container").text
+            result = page.find("#meetings .card__list-list").text
             expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
             expect(result.index(translated(upcoming_meeting1.title))).to be < result.index(translated(upcoming_meeting2.title))
           end
@@ -307,7 +307,7 @@ describe "Explore meetings", :slow, type: :system do
 
             expect(page).to have_content(translated(past_meeting1.title))
 
-            result = page.find("#meetings .meeting-list__container").text
+            result = page.find("#meetings .card__list-list").text
             expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(past_meeting1.title))
             expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting3.title))
             expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(upcoming_meeting1.title))

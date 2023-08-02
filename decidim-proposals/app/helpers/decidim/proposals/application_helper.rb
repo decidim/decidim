@@ -139,7 +139,6 @@ module Decidim
       end
 
       def show_voting_rules?
-        return true
         return false unless votes_enabled?
 
         return true if vote_limit_enabled?
