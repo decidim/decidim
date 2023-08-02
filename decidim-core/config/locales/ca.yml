@@ -575,8 +575,6 @@ ca:
           all: Totes
         filter_scope_values:
           all: Tots
-    datepicker:
-      help_text: 'Format esperat: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
