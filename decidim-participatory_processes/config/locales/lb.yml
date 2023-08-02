@@ -242,10 +242,8 @@ lb:
     participatory_processes:
       show:
         belongs_to_group: Dieser Prozess gehört zu
-        dates: Daten
         private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
-        unspecified: Keine Angabe
     statistics:
       processes_count: Bedeelegungsprozesser
   layouts:
