@@ -41,8 +41,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         click_link "start exploring"
         expect(page).to have_current_path decidim.account_path
 
-        # REDESIGN_PENDING: This page is not redesigned
-        expect(page).to have_content("Participant settings") unless Decidim.redesign_active
+        expect(page).to have_content("Participant settings")
       end
 
       context "and a duplicate authorization exists for an existing user" do
@@ -90,15 +89,6 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           before do
             create_list(:comment, 10, author: other_user, commentable:)
             create_list(:proposal, 5, users: [other_user], component: create(:proposal_component, organization: user.organization))
-
-            within_user_menu do
-              click_link "My account"
-            end
-
-            # REDESIGN_PENDING - My account is not redesigned yet and does not
-            # contain an "Authorizations" link. Uncomment after redesigning it
-            # and remove the visit_authorizations call
-            # click_link "Authorizations"
 
             visit_authorizations
 
@@ -159,11 +149,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         click_link(text: /Example authorization/)
 
         fill_in "Document number", with: "123456789X"
-        # REDESIGN_PENDING: The datepicker interaction fails with the redesign
-        # and the click_button "Send" action does not submit the form. The
-        # datepicker component redesign is pending.
-        # page.execute_script("$('#authorization_handler_birthday').focus()")
-        # page.find(".datepicker-dropdown .datepicker-days", text: "12").click
+        fill_in "Birthday", with: "15/12/1994"
+
         click_button "Send"
 
         expect(page).to have_content("You have been successfully authorized")
@@ -181,11 +168,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         click_link(text: /Example authorization/)
 
         fill_in "Document number", with: "12345678"
-        # REDESIGN_PENDING: The datepicker interaction fails with the redesign
-        # and the click_button "Send" action does not submit the form. The
-        # datepicker component redesign is pending.
-        # page.execute_script("$('#authorization_handler_birthday').focus()")
-        # page.find(".datepicker-dropdown .datepicker-days", text: "12").click
+        fill_in "Birthday", with: "15/12/1994"
+
         click_button "Send"
 
         expect(page).to have_content("There was a problem creating the authorization.")
@@ -237,8 +221,6 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           end
 
           it "shows a modal with renew information" do
-            skip_unless_redesign_enabled("This test pass using redesigned modals")
-
             visit_authorizations
             page.find("div[data-dialog-open='renew-modal']", text: /Example authorization/).click
 
@@ -252,8 +234,6 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
           describe "and clicks on the button to renew" do
             it "shows the verification form to start again" do
-              skip_unless_redesign_enabled("This test pass using redesigned modals")
-
               visit_authorizations
               page.find("div[data-dialog-open='renew-modal']", text: /Example authorization/).click
               within "#renew-modal" do
@@ -288,8 +268,6 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         end
 
         it "can be renewed" do
-          skip_unless_redesign_enabled("This test pass using redesigned modals")
-
           visit_authorizations
 
           within ".authorizations-list" do
@@ -322,14 +300,10 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
   private
 
   def visit_authorizations
-    if Decidim.redesign_active
-      visit decidim_verifications.authorizations_path
-    else
-      within_user_menu do
-        click_link "My account"
-      end
-
-      click_link "Authorizations"
+    within_user_menu do
+      click_link "My account"
     end
+
+    click_link "Authorizations"
   end
 end
