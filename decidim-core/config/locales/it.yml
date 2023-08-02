@@ -444,9 +444,6 @@ it:
         request_data: Richiedi dati
     editor_images:
       drag_and_drop_help: Aggiungi immagini trascinandole o incollandole.
-    endorsable:
-      endorsements: Mi piace
-      endorsements_count: Numero di Appoggi
     endorsements:
       identities:
         done: Fatto
