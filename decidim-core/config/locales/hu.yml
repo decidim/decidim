@@ -535,7 +535,6 @@ hu:
         success: Kép sikeresen feltöltve
       drag_and_drop_help: Képek hozzáadása húzással és ejtéssel vagy beillesztéssel.
     endorsable:
-      endorsements: Jóváhagyások
       endorsements_count: Támogatások száma
     endorsement_buttons_cell:
       already_endorsed: Jóváhagyva
