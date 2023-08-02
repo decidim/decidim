@@ -32,7 +32,6 @@ ja:
       comments_title: コメント
       last_activity:
         new_comment: '新規コメント:'
-      view: 表示
       votes:
         create:
           error: コメントに投票中に問題がありました。
