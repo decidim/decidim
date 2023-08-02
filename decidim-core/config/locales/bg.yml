@@ -435,8 +435,6 @@ bg:
       show:
         download_data: Изтегляне на данни
         request_data: Заяви данни
-    endorsable:
-      endorsements: Одобрявания
     endorsement_buttons_cell:
       already_endorsed: Одобрен
       endorse: Одобрявам
