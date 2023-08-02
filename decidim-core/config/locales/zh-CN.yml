@@ -433,7 +433,6 @@ zh-CN:
           update_profile: 更新您的个人资料
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> 想要使用您的帐户"
     endorsable:
-      endorsements: 授权
       endorsements_count: 批准次数
     endorsement_buttons_cell:
       already_endorsed: 已批准
