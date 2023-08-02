@@ -508,8 +508,6 @@ zh-TW:
       actions:
         login_before_access: 請先登入您的帳戶再進行訪問.
         unauthorized: 您無權限執行此操作.
-    datepicker:
-      help_text: '預期格式：%{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
