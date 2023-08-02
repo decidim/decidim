@@ -383,9 +383,6 @@ zh-CN:
       show:
         download_data: 下载数据
         request_data: 请求数据
-    endorsable:
-      endorsements: 授权
-      endorsements_count: 批准次数
     endorsements:
       identities:
         done: 完成
