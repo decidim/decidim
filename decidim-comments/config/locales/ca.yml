@@ -34,7 +34,6 @@ ca:
       comments_title: Comentari
       last_activity:
         new_comment: 'Nou comentari:'
-      view: Mostrar
       votes:
         create:
           error: S'ha produït un error en votar el comentari.
