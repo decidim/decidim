@@ -32,7 +32,6 @@ eu:
       comments_title: Iruzkina
       last_activity:
         new_comment: 'Iruzkin berria:'
-      view: Bistaratu
       votes:
         create:
           error: Arazo bat dago iruzkina bozkatzeko.
