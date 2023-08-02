@@ -513,10 +513,8 @@ en:
           title: About this process
       show:
         belongs_to_group: This process belongs to
-        dates: Dates
         private_space: This is a private process
         related_processes: Related processes
-        unspecified: Not specified
     statistics:
       processes_count: Processes
   layouts:

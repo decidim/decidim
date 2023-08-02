@@ -50,7 +50,7 @@ extra_admin_link(
         <%= cell "decidim/coauthorships", @proposal %>
 
         <% if not ["section","subsection"].include? @proposal.participatory_text_level %>
-          <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
+          <%== cell("decidim/proposals/proposal_metadata", @proposal).state_item&.dig(:text)&.html_safe %>
         <% end %>
       </div>
     <% end %>
@@ -58,7 +58,11 @@ extra_admin_link(
 
   <section class="layout-main__section">
     <% if @proposal.emendation? %>
-      <%= cell("decidim/diff", proposal_presenter.versions.last, path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) }) %>
+      <%= cell(
+            "decidim/diff",
+            proposal_presenter.versions.last,
+            path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) }
+          ) %>
     <% elsif not ["section","subsection"].include? @proposal.participatory_text_level %>
       <div class="editor-content">
         <%= render_proposal_body(@proposal) %>

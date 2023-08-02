@@ -1,4 +1,3 @@
-<%# REDESIGN_PENDING: this link will trigger a modal window with the meeting itself %>
 <%= link_to resource_locator(meeting).path, class: "", data: { "conference-program-title": "" } do %>
   <h2 class="h3 text-secondary"><%= decidim_sanitize(present(meeting).title) %></h2>
 <% end %>
