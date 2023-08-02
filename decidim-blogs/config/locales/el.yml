@@ -59,9 +59,6 @@ el:
             official_blog_post: Επίσημη ανάρτηση
             published_at: Ώρα δημοσίευσης
             title: Τίτλος
-      posts:
-        show:
-          view: Προβολή
     components:
       blogs:
         actions:
