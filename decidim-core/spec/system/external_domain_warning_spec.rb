@@ -19,7 +19,7 @@ describe "ExternalDomainWarning", type: :system do
   end
 
   it "reveals warning when clicking link with an external href" do
-    skip "REDESIGN_PENDING: This test fails with the old javascripts used by the application. This requires the use of the redesigned layout"
+    skip "REDESIGN_PENDING: This test fails with the old javascripts used by the application. This requires the use of the redesigned layout https://github.com/decidim/decidim/issues/11422"
 
     click_link "Very nice link"
     expect(page).to have_css(".reveal-overlay")

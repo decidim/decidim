@@ -656,9 +656,6 @@ en:
         error: Error uploading image.
         success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
-    endorsable:
-      endorsements: Endorsements
-      endorsements_count: Endorsements count
     endorsement_buttons_cell:
       already_endorsed: Dislike
       endorse: Like

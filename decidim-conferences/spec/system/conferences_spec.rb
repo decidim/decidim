@@ -156,8 +156,6 @@ describe "Conferences", type: :system do
     it_behaves_like "has embedded video in description", :short_description
 
     context "when the conference has some components" do
-      # REDESIGN_PENDING: Review if this part should be implemened in the
-      # redesigned layout
       it "shows the components" do
         within ".conference__nav" do
           expect(page).to have_content(translated(proposals_component.name, locale: :en))

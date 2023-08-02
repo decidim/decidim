@@ -461,7 +461,6 @@ en:
           more_info: More info
           take_part: Take part
         index:
-          children: 'Assemblies: '
           promoted_assemblies: Highlighted assemblies
         metadata:
           children_item:

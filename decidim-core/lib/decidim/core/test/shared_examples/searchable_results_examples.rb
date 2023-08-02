@@ -2,7 +2,7 @@
 
 shared_examples "searchable results" do
   let(:organization) { create(:organization) }
-  let(:search_input_selector) { Decidim.redesign_active ? "input#input-search" : "input#term" }
+  let(:search_input_selector) { "input#input-search" }
 
   before do
     switch_to_host(organization.host)
