@@ -474,10 +474,8 @@ hu:
           title: Erről a folyamatról
       show:
         belongs_to_group: Ide tartozik ez a folyamat
-        dates: Dátumok
         private_space: Ez egy privát folyamat
         related_processes: Kapcsolódó folyamatok
-        unspecified: Nem meghatározott
     statistics:
       processes_count: Folyamatok
   layouts:
