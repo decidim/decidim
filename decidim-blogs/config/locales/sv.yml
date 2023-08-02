@@ -42,9 +42,6 @@ sv:
             body: Innehåll
             official_blog_post: Officiellt inlägg
             title: Titel
-      posts:
-        show:
-          view: Visa
     components:
       blogs:
         actions:
