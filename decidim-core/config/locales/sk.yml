@@ -397,8 +397,6 @@ sk:
       show:
         download_data: Stiahnuť dáta
         request_data: Vyžiadať dáta
-    endorsable:
-      endorsements: Potvrdenie
     endorsements:
       identities:
         done: Hotovo
