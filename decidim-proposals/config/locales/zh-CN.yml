@@ -475,7 +475,6 @@ zh-CN:
               ok: 发布为提案
               title: 以下操作是不可逆的
             success: 合作草案作为一项建议成功发表。
-          view_collaborative_draft: 查看协作草稿
           withdraw:
             error: 在结束合作草案时遇到了问题。
             irreversible_action_modal:
@@ -633,8 +632,6 @@ zh-CN:
             other: 您将能够在发布提案后的前 %{count} 分钟内编辑此提案。 一旦这次窗口通过后，您将无法编辑提案。
           publish: 发布
           title: 发布您的提议
-        proposal:
-          view_proposal: 查看提案
         show:
           answer: 答案
           changes_at_title: 对"%{title}" 的修正
@@ -666,8 +663,6 @@ zh-CN:
         votes_count:
           count:
             other: 支持
-          most_popular_proposal: 最受欢迎的提案
-          need_more_votes: 需要更多支持
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: 每个建议都可以积累超过 %{limit} 个支持
@@ -686,15 +681,12 @@ zh-CN:
           back_from_step_2: 回到提议
           back_from_step_3: 返回比较提案
           back_from_step_4: 返回编辑草稿
-          info: 您正在创建 <strong>提议</strong>。
         wizard_steps:
           current_step: 当前步骤
-          see_steps: 查看步骤
           step_1: 创建您的提议
           step_2: 比较
           step_3: Complete
           step_4: 发布您的提议
-          step_of: 步骤 %{current_step_num} / %{total_steps}
           title: 建议创建步骤
       proposals_picker:
         choose_proposals: 选择建议
