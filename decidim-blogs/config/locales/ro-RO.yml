@@ -60,9 +60,6 @@ ro:
             official_blog_post: Postare oficială
             published_at: Publicat la
             title: Titlu
-      posts:
-        show:
-          view: Vizualizează
     components:
       blogs:
         actions:
