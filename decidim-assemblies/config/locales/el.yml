@@ -427,7 +427,6 @@ el:
           more_info: Περισσότερες πληροφορίες
           take_part: Συμμετάσχετε
         index:
-          children: 'Συνελεύσεις:'
           promoted_assemblies: Επισημασμένες συνελεύσεις
         order_by_assemblies:
           assemblies:
