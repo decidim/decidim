@@ -94,11 +94,17 @@ export default class AutoComplete {
           }
         },
         filter: (list) => {
+          const results = list.filter(
+            (item, idx, arr) => {
+              return arr.findIndex((val) => val.value.nickname === item.value.nickname) === idx;
+            }
+          );
+
           if (this.options.dataFilter) {
-            return this.options.dataFilter(list);
+            return this.options.dataFilter(results);
           }
 
-          return list;
+          return results;
         }
       },
       resultsList: {
