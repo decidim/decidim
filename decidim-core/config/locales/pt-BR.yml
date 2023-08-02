@@ -507,7 +507,7 @@ pt-BR:
           update_profile: atualize seu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quer usar sua conta"
     endorsable:
-      endorsements: Avais
+      endorsements: Endossos
       endorsements_count: Contagem de endossos
     endorsement_buttons_cell:
       already_endorsed: Endossado
