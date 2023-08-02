@@ -331,8 +331,6 @@ zh-CN:
         name: 组织统计
       sub_hero:
         name: 子英雄广告
-    datepicker:
-      help_text: '预期格式: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
