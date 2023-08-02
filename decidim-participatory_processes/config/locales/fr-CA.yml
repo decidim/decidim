@@ -504,10 +504,8 @@ fr-CA:
           title: A propos de cette concertation
       show:
         belongs_to_group: Cette concertation appartient à
-        dates: Dates
         private_space: Ceci est une concertation privée
         related_processes: Concertations liées
-        unspecified: Non précisé
     statistics:
       processes_count: Concertations
   layouts:
