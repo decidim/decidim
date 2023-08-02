@@ -515,7 +515,6 @@
               ok: Publiser som et Forslag
               title: Følgende handling kan ikke gjøres om
             success: Samarbeids utkastet publisert som et forslag.
-          view_collaborative_draft: Se Samarbeids Utkast
           withdraw:
             error: Det oppsto et problem med å lukke samarbeids utkastet.
             irreversible_action_modal:
@@ -676,8 +675,6 @@
             other: Du vil kunne redigere dette forslaget i løpet av de første %{count} minuttene etter at forslaget er publisert. Etter dette tidsvinduet passerer, vil du ikke kunne redigere forslaget.
           publish: Publiser
           title: Publiser forslaget ditt
-        proposal:
-          view_proposal: Se forslag
         show:
           answer: Svar
           changes_at_title: Endring til "%{title}"
@@ -711,8 +708,6 @@
           count:
             one: STØTTE
             other: STØTTERE
-          most_popular_proposal: Mest populære forslag
-          need_more_votes: Trenger flere støtter
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Hvert forslag kan samle mer enn %{limit} støtter
@@ -731,15 +726,12 @@
           back_from_step_2: Tilbake til forslag
           back_from_step_3: Tilbake til sammenlign forslag
           back_from_step_4: Tilbake til redigering av utkast
-          info: Du lage et <strong>forslag</strong>.
         wizard_steps:
           current_step: Gjeldende trinn
-          see_steps: se trinn
           step_1: Opprett ditt forslag
           step_2: Sammenlign
           step_3: Fullført
           step_4: Publiser forslaget ditt
-          step_of: Trinn %{current_step_num} av %{total_steps}
           title: Trinn for opprettelse av forslag
       proposals_picker:
         choose_proposals: Velg forslag
