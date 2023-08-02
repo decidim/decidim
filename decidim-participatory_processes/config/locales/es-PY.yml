@@ -512,10 +512,8 @@ es-PY:
           title: Acerca de este proceso
       show:
         belongs_to_group: Este proceso pertenece a
-        dates: Fechas
         private_space: Este es un proceso privado
         related_processes: Procesos relacionados
-        unspecified: No especificado
     statistics:
       processes_count: Procesos
   layouts:
