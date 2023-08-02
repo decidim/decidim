@@ -449,8 +449,6 @@ sk:
       show:
         download_data: Stiahnuť dáta
         request_data: Vyžiadať dáta
-    endorsable:
-      endorsements: Potvrdenie
     endorsement_buttons_cell:
       already_endorsed: Podporené
       endorse: Podporiť
