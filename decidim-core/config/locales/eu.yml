@@ -502,9 +502,6 @@ eu:
       create:
         error: Arazo bat gertatu da irudia eguneratzean.
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
-    endorsable:
-      endorsements: Oniritziak
-      endorsements_count: Atxikimendu kopurua
     endorsement_buttons_cell:
       already_endorsed: Desatsegiteak
       endorse: Atsegin dut
