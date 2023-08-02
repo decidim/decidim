@@ -405,7 +405,6 @@ eu:
           more_info: Informazio gehiago
           take_part: Parte hartu
         index:
-          children: 'Batzarrak: '
           promoted_assemblies: Batzar nabarmenduak
         order_by_assemblies:
           assemblies:
