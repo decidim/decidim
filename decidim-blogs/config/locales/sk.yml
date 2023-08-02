@@ -36,9 +36,6 @@ sk:
           fields:
             author: Autor
             body: Telo textu
-      posts:
-        show:
-          view: Zobraziť
     components:
       blogs:
         name: Blog
