@@ -367,7 +367,6 @@ ar:
       show:
         private_space: هذه عملية خاصة
         related_processes: العمليات ذات الصلة
-        unspecified: غير محدد
   layouts:
     decidim:
       participatory_process_groups:
