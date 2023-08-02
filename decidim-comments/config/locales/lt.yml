@@ -33,7 +33,6 @@ lt:
         update:
           error: Atnaujinant šį komentarą iškilo problema.
       comments_count: Komentarų skaičius
-      view: Rodyti
       votes:
         create:
           error: Balsuojant už komentarą iškilo problema.
