@@ -385,8 +385,6 @@ it:
         name: Statistiche dell'organizzazione
       sub_hero:
         name: Testo in evidenza home
-    datepicker:
-      help_text: 'Formato previsto: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
