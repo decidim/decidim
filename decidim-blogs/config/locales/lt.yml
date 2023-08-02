@@ -50,9 +50,6 @@ lt:
             body: Pagrindinė dalis
             official_blog_post: Oficiali publikacija
             published_at: Paskelbimo laikas
-      posts:
-        show:
-          view: Peržiūrėti
     components:
       blogs:
         actions:
