@@ -361,7 +361,6 @@ lv:
       show:
         private_space: Šis ir privāts process
         related_processes: Saistītie procesi
-        unspecified: Nav norādīts
   layouts:
     decidim:
       participatory_process_groups:
