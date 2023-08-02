@@ -250,8 +250,6 @@ ru:
         name: Статистика организации
       sub_hero:
         name: Под-богатырский баннер
-    datepicker:
-      help_text: 'Ожидаемый формат: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
