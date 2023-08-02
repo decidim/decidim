@@ -636,9 +636,6 @@ ja:
         error: 画像のアップロードに失敗しました。
         success: 画像が正常にアップロードされました。
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
-    endorsable:
-      endorsements: オススメ
-      endorsements_count: オススメ数
     endorsement_buttons_cell:
       already_endorsed: 取り消し
       endorse: いいね
