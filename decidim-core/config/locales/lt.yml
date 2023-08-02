@@ -544,7 +544,7 @@ lt:
         success: Paveikslėlis įkeltas sėkmingai
       drag_and_drop_help: Pridėkite paveikslėlius juos užvesdami ant lango arba juos įklijuodami.
     endorsable:
-      endorsements: Palaikymai
+      endorsements: Pritarimai
       endorsements_count: Palaikymų skaičius
     endorsement_buttons_cell:
       already_endorsed: Palaikyta
