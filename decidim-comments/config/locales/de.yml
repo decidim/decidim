@@ -32,7 +32,8 @@ de:
           error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
       comments_count: Kommentaranzahl
       comments_title: Kommentar
-      view: Ansicht
+      last_activity:
+        new_comment: 'Neuer Kommentar:'
       votes:
         create:
           error: Beim Abstimmen des Kommentars sind Fehler aufgetreten.
@@ -44,6 +45,8 @@ de:
             label: Kommentar
             placeholder: Was denken Sie darüber?
           form_error: Der Text ist erforderlich und darf nicht länger als %{length} Zeichen sein.
+          submit_reply: Antwort veröffentlichen
+          submit_root_comment: Kommentar veröffentlichen
           user_group_id:
             label: Kommentieren als
         opinion:
@@ -61,6 +64,7 @@ de:
         alignment:
           against: Gegen
           in_favor: Zugunsten
+        cancel_reply: Antwort abbrechen
         confirm_destroy: Bist du sicher, dass du diesen Kommentar löschen willst?
         delete: Löschen
         deleted_at: Kommentar gelöscht am %{date}
