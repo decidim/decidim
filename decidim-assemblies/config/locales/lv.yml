@@ -369,7 +369,6 @@ lv:
           more_info: Sīkāka informācija
           take_part: Piedalīties
         index:
-          children: 'Asamblejas:'
           promoted_assemblies: Izceltās asamblejas
         order_by_assemblies:
           assemblies:
