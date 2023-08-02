@@ -634,7 +634,6 @@ ca:
               ok: Publica com a proposta
               title: La següent acció és irreversible
             success: L'esborrany col·laboratiu s'ha publicat correctament com a proposta.
-          view_collaborative_draft: Veure l'esborrany col·laboratiu
           withdraw:
             error: S'ha produït un error en tancar l'esborrany col·laboratiu.
             irreversible_action_modal:
@@ -829,8 +828,6 @@ ca:
             other: Podràs editar aquesta proposta durant els primers %{count} minuts després de la publicació de la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
           publish: Publica
           title: Publica la teva proposta
-        proposal:
-          view_proposal: Veure proposta
         proposals:
           empty: Encara no hi ha cap proposta.
           empty_filters: No hi ha cap proposta amb aquest criteri.
@@ -867,8 +864,6 @@ ca:
           count:
             one: Suport
             other: Suports
-          most_popular_proposal: Proposta més popular
-          need_more_votes: Necessita més suports
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
@@ -890,15 +885,12 @@ ca:
           back_from_step_2: Tornar a propostes
           back_from_step_3: Tornar a comparar propostes
           back_from_step_4: Tornar a editar l'esborrany
-          info: Estàs creant una <strong>proposta</strong>.
         wizard_steps:
           current_step: Pas actual
-          see_steps: veure les fases
           step_1: Crea la teva proposta
           step_2: Compara
           step_3: Completa
           step_4: Publica la teva proposta
-          step_of: Fase %{current_step_num} de %{total_steps}
           title: Passos per a la creació d'una proposta
       proposals_picker:
         choose_proposals: Triar propostes
