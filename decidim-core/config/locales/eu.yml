@@ -442,8 +442,6 @@ eu:
         name: Erakundearen estatistikak
       sub_hero:
         name: Sub heroi banner
-    datepicker:
-      help_text: 'Espero den formatua: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
