@@ -29,7 +29,6 @@ sv:
         update:
           error: Det gick inte att uppdatera kommentaren.
       comments_count: Antal kommentarer
-      view: Visa
       votes:
         create:
           error: Det gick inte att rösta om kommentaren.
