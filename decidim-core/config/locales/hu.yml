@@ -511,8 +511,6 @@ hu:
       actions:
         login_before_access: Kérjük, a hozzáférés előtt jelentkezzen be.
         unauthorized: Nem jogosult a művelet végrehajtására.
-    datepicker:
-      help_text: 'Várható formátum: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
