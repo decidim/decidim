@@ -579,7 +579,6 @@ lt:
               ok: Paskelbti kaip Pasiūlymą
               title: Tai yra negrįžtamas veiksmas
             success: Bendrasis juodraštis paskelbtas kaip pasiūlymas.
-          view_collaborative_draft: Peržiūrėti Bendrąjį Juodraštį
           withdraw:
             error: Uždarant bendrąjį juodraštį iškilo problema.
             irreversible_action_modal:
@@ -761,8 +760,6 @@ lt:
             other: Šį pasiūlymą galėsite keisti pirmąsias %{count} minutes (-čių) po pasiūlymo paskelbimo. Šiam laiko intervalui pasibaigus, pasiūlymo keisti nebegalėsite.
           publish: Paskelbti
           title: Paskelbkite savo pasiūlymą
-        proposal:
-          view_proposal: Žiūrėti pasiūlymą
         show:
           answer: Atsakymas
           changes_at_title: '„%{title}“ pakeitimas'
@@ -800,8 +797,6 @@ lt:
             few: Balsai
             many: Balsų
             other: Balsai
-          most_popular_proposal: Populiariausias pasiūlymas
-          need_more_votes: Reikia daugiau balsų
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Kiekvienas pasiūlymas gali sukaupti daugiau nei %{limit} balsų
@@ -820,15 +815,12 @@ lt:
           back_from_step_2: Grįžti į pasiūlymus
           back_from_step_3: Grįžti į pasiūlymų palyginimą
           back_from_step_4: Grįžti į juodraščio redagavimą
-          info: Jūs kuriate <strong>pasiūlymą</strong>.
         wizard_steps:
           current_step: Dabartinis veiksmas
-          see_steps: peržiūrėti žingsnius
           step_1: Sukurkite savo pasiūlymą
           step_2: Palyginti
           step_3: Baigti
           step_4: Paskelbkite savo pasiūlymą
-          step_of: '%{current_step_num} žingsnis iš %{total_steps}'
           title: Pasiūlymo sukūrimo etapai
       proposals_picker:
         choose_proposals: Pasirinkti pasiūlymus
