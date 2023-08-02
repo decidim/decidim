@@ -868,6 +868,7 @@ en:
             monitoring_committee_verify_elections: Verify Elections
             polling_officers: Polling Officers
             polling_stations: Polling Stations
+            see_voting: See voting
         models:
           ballot_style:
             fields:

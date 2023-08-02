@@ -159,8 +159,7 @@ module Decidim
                         I18n.t("components", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.components_path(current_participatory_space),
                         icon_name: "layout-masonry-line",
-                        if: allowed_to?(:read, :components, voting: current_participatory_space),
-                        submenu: { target_menu: :admin_votings_components_menu, options: { container_options: { id: "components-list" } } }
+                        if: allowed_to?(:read, :components, voting: current_participatory_space)
 
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.votings.admin.menu.votings_submenu"),
