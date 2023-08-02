@@ -553,7 +553,7 @@ de:
         success: Bild erfolgreich hochgeladen
       drag_and_drop_help: Sie können Bilder per Drag & Drop hinzufügen oder per Copy & Paste.
     endorsable:
-      endorsements: Empfehlungen
+      endorsements: Befürworungen
       endorsements_count: Anzahl Befürworter
     endorsement_buttons_cell:
       already_endorsed: Befürwortet
