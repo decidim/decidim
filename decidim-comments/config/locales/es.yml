@@ -34,7 +34,6 @@ es:
       comments_title: Comentario
       last_activity:
         new_comment: 'Nuevo comentario:'
-      view: Ver
       votes:
         create:
           error: Se ha producido un error al votar el comentario.
