@@ -482,10 +482,8 @@ ro:
           title: Despre acest proces
       show:
         belongs_to_group: Acest proces aparține de
-        dates: Date
         private_space: Acesta este un proces privat
         related_processes: Procese asociate
-        unspecified: Nespecificat
     statistics:
       processes_count: Procese
   layouts:
