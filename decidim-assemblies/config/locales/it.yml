@@ -405,7 +405,6 @@ it:
           more_info: Ulteriori informazioni
           take_part: Partecipa
         index:
-          children: 'Assemblee: '
           promoted_assemblies: Assemblee in evidenza
         order_by_assemblies:
           assemblies:
