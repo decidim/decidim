@@ -460,7 +460,6 @@ fi-pl:
           more_info: Lisätietoja
           take_part: Osallistu
         index:
-          children: 'Ryhmät: '
           promoted_assemblies: Korostetut ryhmät
         metadata:
           children_item:
