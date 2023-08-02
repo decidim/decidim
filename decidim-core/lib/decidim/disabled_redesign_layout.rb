@@ -13,7 +13,7 @@ module Decidim
       helper_method :redesigned_layout, :redesign_enabled?
 
       def redesign_enabled?
-        true
+        false
       end
 
       def redesigned_layout(layout_value)
