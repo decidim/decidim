@@ -28,7 +28,6 @@ pt:
         update:
           error: Ocorreu um problema ao actualizar a comentário.
       comments_count: Contagem de comentários
-      view: Visualizar
       votes:
         create:
           error: Houve erros na votação do comentário.
