@@ -28,7 +28,6 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento del commento.
       comments_count: Conteggio dei Commenti
-      view: Visualizza
       votes:
         create:
           error: Ci sono stati errori durante la votazione del commento.
