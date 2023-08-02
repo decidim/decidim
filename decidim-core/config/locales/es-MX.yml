@@ -653,9 +653,6 @@ es-MX:
         error: Error al cargar la imagen.
         success: Imagen cargada correctamente.
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
-    endorsable:
-      endorsements: Adhesiones
-      endorsements_count: Número de adhesiones
     endorsement_buttons_cell:
       already_endorsed: No me gusta
       endorse: Me gusta
