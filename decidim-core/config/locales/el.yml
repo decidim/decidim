@@ -469,8 +469,6 @@ el:
       actions:
         login_before_access: Συνδεθείτε με τον λογαριασμό σας πριν από την πρόσβαση.
         unauthorized: Δεν είστε εξουσιοδοτημένοι να εκτελέσετε αυτήν την ενέργεια.
-    datepicker:
-      help_text: 'Αναμενόμενη μορφή: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
