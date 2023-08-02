@@ -323,7 +323,6 @@ id:
       show:
         private_space: Ini adalah proses pribadi
         related_processes: Proses terkait
-        unspecified: Tidak ditentukan
   layouts:
     decidim:
       participatory_process_groups:
