@@ -600,7 +600,7 @@ fi:
         success: Kuvan lähettäminen onnistui
       drag_and_drop_help: Lisää kuvia raahaamalla ja pudottamalla tai liittämällä niitä leikepöydältä.
     endorsable:
-      endorsements: Suositukset
+      endorsements: Suositusta
       endorsements_count: Suositusten määrä
     endorsement_buttons_cell:
       already_endorsed: Suositeltu
