@@ -384,8 +384,6 @@ pt:
         name: Estatísticas da organização
       sub_hero:
         name: Faixa de sub hero
-    datepicker:
-      help_text: 'Formato esperado: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
