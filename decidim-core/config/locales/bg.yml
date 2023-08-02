@@ -438,8 +438,6 @@ bg:
           this_application_will_not_be_able_to: 'Това приложение не може:'
           update_profile: Обновете профила си
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> желае да ползва профила Ви"
-    endorsable:
-      endorsements: Одобрявания
     endorsement_buttons_cell:
       already_endorsed: Одобрен
       endorse: Одобрявам
