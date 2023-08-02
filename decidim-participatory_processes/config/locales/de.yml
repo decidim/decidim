@@ -126,6 +126,7 @@ de:
           categories: Kategorien
           components: Komponenten
           info: Info
+          landing_page: Startseite
           moderations: Moderationen
           private_users: Private Benutzer
           process_admins: Benutzer verarbeiten
@@ -373,13 +374,24 @@ de:
         title: Beteiligungsprozesse
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Unterstützt von
+          name: Metadaten
+          participatory_scope: Was wird entschieden?
+          participatory_structure: Wie wird es entschieden?
+          target: Wer nimmt teil?
+        html:
+          name: HTML-Block
         html_1:
           name: Erster HTML-Block
         html_2:
           name: Zweiter HTML-Block
         html_3:
           name: Dritter HTML-Block
+        main_data:
+          name: Titel und Beschreibung
         participatory_processes:
+          active: Aktive Beteiligungsprozesse
           name: Beteiligungsprozesse
         stats:
           name: Statistiken
@@ -397,7 +409,10 @@ de:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Aktiv
+            all: Alle
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
+            selection_criteria: Auswahlkriterien
         new_import:
           accepted_types:
             json: JSON
@@ -434,16 +449,37 @@ de:
             title: Allgemeine Information
             visbility: Sichtweite
       content_blocks:
+        extra_data:
+          name: Phase & Dauer
+        hero:
+          name: Banner-Bild und Aufruf
         highlighted_processes:
           name: Hervorgehobene Beteiligungsprozesse
+        related_processes:
+          name: Ähnliche Prozesse
       index:
         title: Beteiligungsprozesse
       last_activity:
         new_participatory_process: Neuer partizipativer Prozess
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Aktive Prozesse
+            see_all_spaces: Alle Prozesse anzeigen
       participatory_process_steps:
         index:
           back_to_process: Zurück zur Prozessseite
       participatory_processes:
+        description:
+          area_name: Gebiet
+          data: Prozessdaten
+          developer_group: Gruppe der Unterstützenden
+          local_area: Gebiet der Organisation
+          meta_scope: Thema
+          participatory_scope: Was wird entschieden?
+          participatory_structure: Wie wird es entschieden?
+          target: Wer nimmt teil?
+          title: Über diesen Prozess
         filters:
           all_types: Alle Typen
           counters:
@@ -459,6 +495,7 @@ de:
             upcoming:
               one: 1 bevorstehender Beteiligungsprozess
               other: "%{count} bevorstehende Beteiligungsprozesse"
+          date: Datum
           explanations:
             no_active: Keine laufenden Prozesse.
             no_active_nor_upcoming: Keine laufende oder bevorstehende Prozesse.
@@ -470,14 +507,13 @@ de:
             past: Vergangenheit
             upcoming: Bevorstehende
           see: Sehen
+          type: Typ
         show:
           title: Über diesen Prozess
       show:
         belongs_to_group: Dieser Prozess gehört zu
-        dates: Daten
         private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
-        unspecified: Keine Angabe
     statistics:
       processes_count: Beteiligungsprozesse
   layouts:
