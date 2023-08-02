@@ -58,9 +58,6 @@ zh-TW:
             official_blog_post: 官方文章
             published_at: 發布時間
             title: 標題
-      posts:
-        show:
-          view: 檢視
     components:
       blogs:
         actions:
