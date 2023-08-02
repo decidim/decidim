@@ -514,7 +514,6 @@ it:
               ok: Pubblica come proposta
               title: La seguente azione è irreversibile
             success: Bozza collaborativa pubblicata con successo come proposta.
-          view_collaborative_draft: Visualizza bozza collaborativa
           withdraw:
             error: Ci sono stati errori nel chiudere la bozza collaborativa.
             irreversible_action_modal:
@@ -681,8 +680,6 @@ it:
             other: Potrai modificare questa proposta durante i primi %{count} minuti dopo la pubblicazione della proposta. Una volta passato questo periodo, non sarai più in grado di modificare la proposta.
           publish: Pubblica
           title: Pubblica la tua proposta
-        proposal:
-          view_proposal: Visualizza la proposta
         show:
           answer: Risposta
           changes_at_title: Modifica a "%{title}"
@@ -716,8 +713,6 @@ it:
           count:
             one: VOTO
             other: VOTI
-          most_popular_proposal: La proposta più popolare
-          need_more_votes: Hai bisogno di più voti
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Ogni proposta può accumulare più di %{limit} supporti
@@ -736,15 +731,12 @@ it:
           back_from_step_2: Torna alle proposte
           back_from_step_3: Torna a confrontare le proposte
           back_from_step_4: Torna a modificare la bozza
-          info: Stai creando una <strong>proposta</strong>.
         wizard_steps:
           current_step: Fase attuale
-          see_steps: vedere i passaggi
           step_1: Crea la tua proposta
           step_2: Confronta
           step_3: Completa
           step_4: Pubblica la tua proposta
-          step_of: Step %{current_step_num} di %{total_steps}
           title: Fasi di creazione delle proposte
       proposals_picker:
         choose_proposals: Scegli proposte
