@@ -405,10 +405,8 @@ it:
           title: Informazioni su questo processo
       show:
         belongs_to_group: Questo processo appartiene a
-        dates: Date
         private_space: Questo è un processo privato
         related_processes: Processi correlati
-        unspecified: Non specificato
     statistics:
       processes_count: Processi
   layouts:
