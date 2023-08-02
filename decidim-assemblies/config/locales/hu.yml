@@ -460,7 +460,6 @@ hu:
           more_info: Több információ
           take_part: Vegyél részt
         index:
-          children: 'Gyűlések: '
           promoted_assemblies: Kiemelt gyűlések
         order_by_assemblies:
           assemblies:
