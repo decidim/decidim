@@ -438,8 +438,6 @@ lv:
       show:
         download_data: Lejupielādēt datus
         request_data: Pieprasīt datus
-    endorsable:
-      endorsements: Atbalsts
     endorsement_buttons_cell:
       already_endorsed: Atbalstīts
       endorse: Atbalstīt
