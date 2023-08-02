@@ -549,7 +549,6 @@ hu:
               ok: Közzététel javaslatként
               title: A következő művelet visszavonhatatlan
             success: A közös vázlat javaslatként való közzététele sikeres volt.
-          view_collaborative_draft: Közös vázlat megtekintése
           withdraw:
             error: Hiba történt a közösen szerkesztett vázlat lezárásakor.
             irreversible_action_modal:
@@ -712,8 +711,6 @@ hu:
             other: Ezt a javaslatot a közzétételt követő %{count}. percben már szerkesztheted. Miután azonban ez az ablak bezárult, többé nem fogod tudni szerkeszteni a javaslatot.
           publish: Közzétesz
           title: Javaslatod közzététele
-        proposal:
-          view_proposal: Javaslat megtekintése
         show:
           answer: Válasz
           changes_at_title: A (z) "%{title}" módosítása
@@ -744,8 +741,6 @@ hu:
           count:
             one: SZAVAZAT
             other: SZAVAZATOK
-          most_popular_proposal: Legnépszerűbb javaslat
-          need_more_votes: Több szavazat kell
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Az egyes javaslatok több mint %{limit} támogatást szerezhetnek
@@ -760,14 +755,11 @@ hu:
             votes: Szavazatok
         wizard_aside:
           back: Vissza
-          info: Épp egy <strong>javaslatot</strong> hozol létre.
         wizard_steps:
-          see_steps: lépések
           step_1: Hozz létre javaslatot
           step_2: Összehasonlítás
           step_3: Befejez
           step_4: Javaslatod közzététele
-          step_of: '%{current_step_num}. lépés ennyiből: %{total_steps}'
           title: A javaslat létrehozásának lépései
       proposals_picker:
         choose_proposals: Javaslatok kiválasztása
