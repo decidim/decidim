@@ -36,9 +36,6 @@ pt:
           fields:
             author: Autor
             body: Corpo
-      posts:
-        show:
-          view: Visão
     components:
       blogs:
         name: Blog
