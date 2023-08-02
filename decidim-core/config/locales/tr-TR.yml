@@ -493,7 +493,6 @@ tr:
         download_data: Verileri indir
         request_data: Veri talep et
     endorsable:
-      endorsements: Cirolar
       endorsements_count: Onay sayısı
     endorsement_buttons_cell:
       already_endorsed: Onaylanan
