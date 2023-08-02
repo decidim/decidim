@@ -450,9 +450,6 @@
         request_data: Etterspør informasjonen
     editor_images:
       drag_and_drop_help: Legg til bilder ved å dra og slippe eller lime dem inn.
-    endorsable:
-      endorsements: Påtegnelser
-      endorsements_count: Antall tilslutninger
     endorsements:
       identities:
         done: Ferdig
