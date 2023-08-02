@@ -536,7 +536,7 @@ eu:
         success: Irudia zuzen eguneratu da
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
     endorsable:
-      endorsements: Oniritziak
+      endorsements: Atxikimenduak
       endorsements_count: Atxikimendu kopurua
     endorsement_buttons_cell:
       already_endorsed: Atxikita
@@ -1186,7 +1186,7 @@ eu:
         id: ID
         participatory_space: Parte hartzeko espazioa
         reason: Arrazoia
-        report_html: <p>Hurrengo <a href="%{url}">edukia</a>zalatua izan da.</p>
+        report_html: <p>Hurrengo <a href="%{url}">edukia</a> salatua izan da.</p>
         see_report: Ikusi erreportea
         subject: Eduki bat salatua izan da
     reports:
