@@ -532,7 +532,6 @@ nl:
               ok: Publiceer als een voorstel
               title: De volgende actie is onomkeerbaar
             success: Samenwerkingsconcept met succes gepubliceerd als een voorstel.
-          view_collaborative_draft: Gezamenlijk ontwerp bekijken
           withdraw:
             error: Er zijn fouten opgetreden bij het sluiten van het gezamenlijk ontwerp.
             irreversible_action_modal:
@@ -700,8 +699,6 @@ nl:
             other: Je kan dit voorstel bewerken in de eerste %{count} minuten nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
           publish: Publiceer
           title: Publiceer je voorstel
-        proposal:
-          view_proposal: Bekijk voorstel
         show:
           answer: Antwoord
           changes_at_title: Amendement op "%{title}"
@@ -735,8 +732,6 @@ nl:
           count:
             one: STEM
             other: STEMMEN
-          most_popular_proposal: Populairste voorstel
-          need_more_votes: Meer stemmen nodig
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Elk voorstel kan meer dan %{limit} stemmen verzamelen
@@ -755,15 +750,12 @@ nl:
           back_from_step_2: Terug naar voorstellen
           back_from_step_3: Terug naar de vergelijking
           back_from_step_4: Terug naar het ontwerp bewerken
-          info: Je maakt een <strong>voorstel</strong>.
         wizard_steps:
           current_step: Huidige stap
-          see_steps: Bekijk stappen
           step_1: Maak je voorstel
           step_2: Vergelijk
           step_3: Compleet
           step_4: Publiceer uw voorstel
-          step_of: Stap %{current_step_num} van %{total_steps}
           title: Voorstel creatie stappen
       proposals_picker:
         choose_proposals: Kies voorstellen
