@@ -405,7 +405,6 @@ tr:
           more_info: Daha fazla bilgi
           take_part: Yer almak
         index:
-          children: 'Kurullar: '
           promoted_assemblies: Vurgulanan kurullar
         order_by_assemblies:
           assemblies:
