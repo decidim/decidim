@@ -473,8 +473,6 @@ ro:
         name: Statisticile organizației
       sub_hero:
         name: Banner suberoi
-    datepicker:
-      help_text: 'Format preconizat: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
