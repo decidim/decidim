@@ -36,9 +36,6 @@ uk:
           fields:
             author: Автор
             body: Основний текст
-      posts:
-        show:
-          view: Переглянути
     components:
       blogs:
         name: Блог
