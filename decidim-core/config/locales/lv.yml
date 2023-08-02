@@ -441,8 +441,6 @@ lv:
           this_application_will_not_be_able_to: 'Lietojumprogramma nevarēs:'
           update_profile: Atjaunināt profilu
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vēlas izmantot jūsu kontu"
-    endorsable:
-      endorsements: Atbalsts
     endorsement_buttons_cell:
       already_endorsed: Atbalstīts
       endorse: Atbalstīt
