@@ -32,9 +32,6 @@ ga:
           fields:
             author: Údar
             body: Corp
-      posts:
-        show:
-          view: Amharc
     components:
       blogs:
         name: Blag
