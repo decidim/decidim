@@ -1080,7 +1080,7 @@ eu:
         id: ID
         participatory_space: Parte hartzeko espazioa
         reason: Arrazoia
-        report_html: <p>Hurrengo <a href="%{url}">edukia</a>zalatua izan da.</p>
+        report_html: <p>Hurrengo <a href="%{url}">edukia</a> salatua izan da.</p>
         see_report: Ikusi erreportea
         subject: Eduki bat salatua izan da
     reports:
