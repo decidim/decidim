@@ -174,7 +174,8 @@ module Decidim
                         "#",
                         icon_name: "attachment-2",
                         if: allowed_to?(:read, :attachment_collection, assembly: current_participatory_space) ||
-                            allowed_to?(:read, :attachment, assembly: current_participatory_space)
+                            allowed_to?(:read, :attachment, assembly: current_participatory_space),
+                        submenu: { target_menu: :assemblies_admin_attachments_menu }
 
           menu.add_item :assembly_members,
                         I18n.t("assembly_members", scope: "decidim.admin.menu.assemblies_submenu"),

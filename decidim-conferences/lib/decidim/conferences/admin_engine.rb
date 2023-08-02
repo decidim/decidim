@@ -175,7 +175,8 @@ module Decidim
                         "#",
                         icon_name: "attachment-2",
                         if: allowed_to?(:read, :attachment_collection, conference: current_participatory_space) ||
-                            allowed_to?(:read, :attachment, conference: current_participatory_space)
+                            allowed_to?(:read, :attachment, conference: current_participatory_space),
+                        submenu: { target_menu: :conferences_admin_attachments_menu }
 
           menu.add_item :conference_media_links,
                         I18n.t("media_links", scope: "decidim.admin.menu.conferences_submenu"),
@@ -202,7 +203,8 @@ module Decidim
                         icon_name: "group-line",
                         if: allowed_to?(:read, :conference_invite, conference: current_participatory_space) ||
                             allowed_to?(:read, :registration_type, conference: current_participatory_space) ||
-                            allowed_to?(:read, :conference_registration, conference: current_participatory_space)
+                            allowed_to?(:read, :conference_registration, conference: current_participatory_space),
+                        submenu: { target_menu: :conferences_admin_registrations_menu }
 
           menu.add_item :conference_user_roles,
                         I18n.t("conference_admins", scope: "decidim.admin.menu.conferences_submenu"),

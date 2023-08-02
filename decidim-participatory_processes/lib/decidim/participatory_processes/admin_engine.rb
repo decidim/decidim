@@ -202,6 +202,15 @@ module Decidim
                         icon_name: "price-tag-3-line",
                         if: allowed_to?(:read, :category)
 
+          menu.add_item :attachments,
+                        I18n.t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        "#",
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space)) ||
+                                is_active_link?(decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space)),
+                        icon_name: "attachment-2",
+                        if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment),
+                        submenu: { target_menu: :admin_participatory_process_attachments_menu }
+
           menu.add_item :participatory_process_user_roles,
                         I18n.t("process_admins", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.participatory_process_user_roles_path(current_participatory_space),
@@ -222,6 +231,13 @@ module Decidim
                         active: is_active_link?(decidim_admin_participatory_processes.moderations_path(current_participatory_space)),
                         icon_name: "flag-line",
                         if: allowed_to?(:read, :moderation)
+
+          menu.add_item :edit_participatory_process_landing_page,
+                        I18n.t("landing_page", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.edit_participatory_process_landing_page_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_landing_page_path(current_participatory_space)),
+                        icon_name: "tools-line",
+                        if: allowed_to?(:update, :process, process: current_participatory_space)
         end
       end
 
