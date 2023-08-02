@@ -28,7 +28,6 @@ gl:
         update:
           error: Produciuse un problema ao actualizar o comentario.
       comments_count: Número de comentarios
-      view: Ver
       votes:
         create:
           error: Houbo erros ao votar o comentario.
