@@ -29,7 +29,6 @@ nl:
         update:
           error: Er is een probleem opgetreden bij het bijwerken van de reactie.
       comments_count: Aantal reacties
-      view: Bekijk
       votes:
         create:
           error: Er is een probleem opgetreden bij het stemmen op de opmerking.
