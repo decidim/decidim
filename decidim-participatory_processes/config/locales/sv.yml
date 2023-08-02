@@ -423,10 +423,8 @@ sv:
           see: Se
       show:
         belongs_to_group: Denna dialog tillhör
-        dates: Datum
         private_space: Detta är en privat dialog
         related_processes: Relaterade dialoger
-        unspecified: Ej angivet
     statistics:
       processes_count: Dialoger
   layouts:
