@@ -402,7 +402,6 @@ pt:
           more_info: Mais informações
           take_part: Participar
         index:
-          children: 'Reuniões: '
           promoted_assemblies: Reuniões realçadas
         order_by_assemblies:
           assemblies:
