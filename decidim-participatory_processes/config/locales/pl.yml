@@ -425,10 +425,8 @@ pl:
           see: Zobacz
       show:
         belongs_to_group: Ten proces należy do
-        dates: Daty
         private_space: To jest prywatny proces
         related_processes: Powiązane procesy
-        unspecified: Nieokreślony
     statistics:
       processes_count: Procesy
   layouts:
