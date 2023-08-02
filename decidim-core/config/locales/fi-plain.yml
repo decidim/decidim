@@ -578,8 +578,6 @@ fi-pl:
           all: Kaikki
         filter_scope_values:
           all: Kaikki
-    datepicker:
-      help_text: 'Odotettu muoto: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
