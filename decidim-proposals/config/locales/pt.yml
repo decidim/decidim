@@ -535,7 +535,6 @@ pt:
               ok: Publicar como uma Proposta
               title: A ação seguinte é irreversível
             success: Rascunho colaborativo publicado corretamente como uma proposta.
-          view_collaborative_draft: Ver rascunho colaborativo
           withdraw:
             error: Ocorreu um problema ao fechar o rascunho colaborativo.
             irreversible_action_modal:
@@ -705,8 +704,6 @@ pt:
             other: "Poderá editar esta proposta durante os primeiros %{count} \n minutos após a publicação da mesma. Assim que esta janela de tempo passe, não poderá editar a proposta."
           publish: Publicar
           title: Publicar a sua proposta
-        proposal:
-          view_proposal: Ver proposta
         show:
           answer: Responder
           changes_at_title: Modificação a "%{title}"
@@ -740,8 +737,6 @@ pt:
           count:
             one: VOTO
             other: VOTOS
-          most_popular_proposal: Proposta mais popular
-          need_more_votes: Precisa de mais votos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular mais de %{limit} votos
@@ -760,15 +755,12 @@ pt:
           back_from_step_2: Retroceder para as propostas
           back_from_step_3: Retroceder à comparação de propostas
           back_from_step_4: Retroceder para a edição do rascunho
-          info: Está a criar uma <strong>proposta</strong>.
         wizard_steps:
           current_step: Passo atual
-          see_steps: ver passos
           step_1: Criar a sua proposta
           step_2: Comparar
           step_3: Concluir
           step_4: Publicar a sua proposta
-          step_of: Passo %{current_step_num} de %{total_steps}
           title: Passos para criação de proposta
       proposals_picker:
         choose_proposals: Escolher propostas
