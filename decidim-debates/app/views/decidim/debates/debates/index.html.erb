@@ -13,7 +13,8 @@
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
   <%= render partial: "decidim/shared/component_announcement" %>
-  <div id="debates" aria-live="polite">
+
+  <section id="debates" class="layout-main__section layout-main__heading">
     <%= render partial: "debates" %>
-  </div>
+  </section>
 <% end %>
