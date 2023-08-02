@@ -474,10 +474,8 @@ el:
           title: Σχετικά με αυτή τη διεργασία
       show:
         belongs_to_group: Αυτή η διεργασία ανήκει σε
-        dates: Ημερομηνίες
         private_space: Αυτή είναι μια ιδιωτική διαδικασία
         related_processes: Σχετικές διαδικασίες
-        unspecified: Δεν προσδιορίστηκε
     statistics:
       processes_count: Διεργασίες
   layouts:
