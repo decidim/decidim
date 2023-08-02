@@ -656,9 +656,6 @@ fr-CA:
         error: Une erreur est survenue lors du téléchargement de l'image.
         success: L'image a été téléchargée avec succès.
       drag_and_drop_help: Ajoutez des images en les glissant - déposant ou en les collant depuis votre presse-papier.
-    endorsable:
-      endorsements: Soutiens
-      endorsements_count: Nombre de soutiens
     endorsement_buttons_cell:
       already_endorsed: Je n'aime pas
       endorse: J’aime
