@@ -385,8 +385,6 @@ lb:
         name: Organisations-Statistiken
       sub_hero:
         name: Sub hero Banner
-    datepicker:
-      help_text: 'Format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
