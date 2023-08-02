@@ -34,7 +34,6 @@ ro:
           error: A apărut o eroare la actualizarea comentariului.
       comments_count: Număr de comentarii
       comments_title: Comentariu
-      view: Vizualizează
       votes:
         create:
           error: A apărut o problemă la votarea comentariului.
