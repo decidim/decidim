@@ -309,7 +309,6 @@ ru:
       show:
         private_space: Это частное движение
         related_processes: Подобные движения
-        unspecified: Не указано
   layouts:
     decidim:
       participatory_process_groups:
