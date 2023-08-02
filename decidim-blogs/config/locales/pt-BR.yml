@@ -59,9 +59,6 @@ pt-BR:
             official_blog_post: Publicação oficial
             published_at: Horário da publicação
             title: Título
-      posts:
-        show:
-          view: Visualizar
     components:
       blogs:
         actions:
