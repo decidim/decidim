@@ -415,7 +415,6 @@ sv:
           more_info: Mer information
           take_part: Delta
         index:
-          children: 'Grupper: '
           promoted_assemblies: Viktiga grupper
         order_by_assemblies:
           assemblies:
