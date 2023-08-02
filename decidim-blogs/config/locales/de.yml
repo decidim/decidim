@@ -64,9 +64,6 @@ de:
             official_blog_post: Offizieller Post
             published_at: Veröffentlicht am
             title: Titel
-      posts:
-        show:
-          view: Anzeigen
     components:
       blogs:
         actions:
