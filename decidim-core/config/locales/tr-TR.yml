@@ -494,7 +494,6 @@ tr:
           update_profile: profilinizi güncelleyin
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> hesabınızı kullanmak istiyor"
     endorsable:
-      endorsements: Cirolar
       endorsements_count: Onay sayısı
     endorsement_buttons_cell:
       already_endorsed: Onaylanan
