@@ -332,8 +332,6 @@ gl:
         request_data: Solicitar datos
     editor_images:
       drag_and_drop_help: Engade imaxes arrastrándoas ou pegándoas aquí.
-    endorsable:
-      endorsements: Aprobacións
     errors:
       internal_server_error:
         title: Produciuse un problema co noso servidor
