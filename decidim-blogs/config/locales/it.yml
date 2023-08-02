@@ -36,9 +36,6 @@ it:
           fields:
             author: Autore
             body: Corpo
-      posts:
-        show:
-          view: vista
     components:
       blogs:
         name: blog
