@@ -502,8 +502,6 @@ ar:
         name: احصائيات المنظمة
       sub_hero:
         name: البطل الفرعي راية
-    datepicker:
-      help_text: 'التنسيق المتوقع: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
