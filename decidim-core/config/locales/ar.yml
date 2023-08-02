@@ -561,9 +561,6 @@ ar:
         request_data: طلب البيانات
     editor_images:
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
-    endorsable:
-      endorsements: موافقات
-      endorsements_count: عد أصوات التأييدات
     endorsement_buttons_cell:
       already_endorsed: لا يعجبني
       endorse: يعجبني
