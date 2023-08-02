@@ -620,7 +620,7 @@ ar:
         success: تم تحميل الصورة بنجاح
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
     endorsable:
-      endorsements: موافقات
+      endorsements: الدعم والتأييد
       endorsements_count: عد أصوات التأييدات
     endorsements:
       identities:
