@@ -384,8 +384,6 @@ tr:
         name: Organizasyon istatistikleri
       sub_hero:
         name: Alt ana afişi
-    datepicker:
-      help_text: 'Beklenen format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
