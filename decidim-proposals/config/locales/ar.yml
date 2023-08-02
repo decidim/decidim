@@ -614,7 +614,6 @@ ar:
               ok: نشر كاقتراح
               title: الإجراء التالي لا رجعة فيه
             success: مسودة تعاونية تم نشرها بنجاح كمقترح
-          view_collaborative_draft: عرض المسودة التعاونية
           withdraw:
             error: حدثت مشكلة أثناء إغلاق المسودة التعاونية.
             irreversible_action_modal:
@@ -801,8 +800,6 @@ ar:
             other: ستتمكن من تعديل هذا الاقتراح خلال الدقائق %{count} الأولى بعد نشر الاقتراح. بمجرد مرور هذه النافذة الزمنية ، لن تتمكن من تعديل الاقتراح.
           publish: نشر
           title: نشر اقتراحك
-        proposal:
-          view_proposal: عرض الاقتراح
         show:
           answer: إجابة
           changes_at_title: تعديل على "%{title}"
@@ -844,8 +841,6 @@ ar:
             few: يدعم
             many: يدعم
             other: يدعم
-          most_popular_proposal: الاقتراح الأكثر شعبية
-          need_more_votes: بحاجة الى مزيد من الدعم
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: كل اقتراح يمكن أن تتراكم أكثر من %{limit} يدعم
@@ -864,15 +859,12 @@ ar:
           back_from_step_2: العودة إلى الاقتراحات
           back_from_step_3: العودة إلى مقارنة الاقتراحات
           back_from_step_4: العودة إلى تحرير المسودة
-          info: إنك بصدد إنشاء <strong>اقتراح</strong>.
         wizard_steps:
           current_step: الخطوة الحالية
-          see_steps: عرض الخطوات
           step_1: إنشاء اقتراحك
           step_2: قارن
           step_3: إكمال
           step_4: انشر اقتراحك
-          step_of: الخطوة %{current_step_num} من %{total_steps}
           title: خطوات إنشاء الاقتراحات
       proposals_picker:
         choose_proposals: اختيار الاقتراحات
