@@ -395,7 +395,6 @@ gl:
           more_info: Máis información
           take_part: Participar
         index:
-          children: 'Xuntanzas: '
           promoted_assemblies: Xuntanzas destacadas
         order_by_assemblies:
           assemblies:
