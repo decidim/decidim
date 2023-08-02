@@ -575,8 +575,6 @@ es:
           all: Todas
         filter_scope_values:
           all: Todos
-    datepicker:
-      help_text: 'Formato esperado: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
