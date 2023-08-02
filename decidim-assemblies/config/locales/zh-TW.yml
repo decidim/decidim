@@ -424,7 +424,6 @@ zh-TW:
           more_info: 更多資訊
           take_part: 參與
         index:
-          children: '大會: '
           promoted_assemblies: 關注的大會
         order_by_assemblies:
           assemblies:
