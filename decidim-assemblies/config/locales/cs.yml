@@ -466,7 +466,6 @@ cs:
           more_info: Více informací
           take_part: Zúčastnit se
         index:
-          children: 'Shromáždění: '
           promoted_assemblies: Zvýrazněná shromáždění
         metadata:
           children_item:
