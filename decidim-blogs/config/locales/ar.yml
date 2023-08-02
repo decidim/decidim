@@ -56,9 +56,6 @@ ar:
             official_blog_post: المنشور الرسمي
             published_at: موعد النشر
             title: العنوان
-      posts:
-        show:
-          view: رأي
     components:
       blogs:
         actions:
