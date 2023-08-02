@@ -64,9 +64,6 @@ fr:
             official_blog_post: Article officiel
             published_at: Date de publication
             title: Titre
-      posts:
-        show:
-          view: Voir
     components:
       blogs:
         actions:
