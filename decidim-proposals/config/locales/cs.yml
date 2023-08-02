@@ -648,7 +648,6 @@ cs:
               ok: Publikovat jako návrh
               title: Následující akce je nevratná
             success: Projekt spolupráce byl úspěšně zveřejněn jako návrh.
-          view_collaborative_draft: Zobrazit kolektivní návrh
           withdraw:
             error: Došlo k chybě při uzavření návrhu spolupráce.
             irreversible_action_modal:
@@ -847,8 +846,6 @@ cs:
             other: Budete mít možnost upravit tento návrh během prvních %{count} minut po návrh zveřejněn. Po uplynutí tohoto časového okna nebudete moci návrh upravit.
           publish: Publikovat
           title: Publikujte svůj návrh
-        proposal:
-          view_proposal: Zobrazit návrh
         proposals:
           empty: Zatím nejsou žádné návrhy.
           empty_filters: Neexistuje žádný návrh s tímto kritériem.
@@ -889,8 +886,6 @@ cs:
             few: Podpory
             many: Podpor
             other: Podpor
-          most_popular_proposal: Nejoblíbenější návrh
-          need_more_votes: Potřebujete více hlasů
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Každý návrh může akumulovat více než %{limit} podpor
@@ -912,15 +907,12 @@ cs:
           back_from_step_2: Zpět k návrhům
           back_from_step_3: Zpět k porovnání návrhů
           back_from_step_4: Zpět k úpravě konceptu
-          info: Vytváříte <strong>návrh</strong>.
         wizard_steps:
           current_step: Aktuální krok
-          see_steps: viz kroky
           step_1: Vytvořte svůj návrh
           step_2: Porovnejte
           step_3: Dokončete
           step_4: Publikujte svůj návrh
-          step_of: Krok %{current_step_num} z %{total_steps}
           title: Kroky vytváření návrhů
       proposals_picker:
         choose_proposals: Vybrat návrhy
