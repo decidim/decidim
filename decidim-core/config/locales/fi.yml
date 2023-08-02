@@ -535,8 +535,8 @@ fi:
         html_content: HTML-sisältö
         name: HTML-lohko
       last_activity:
-        name: Viimeisin tapahtuma
-        title: Viimeisin tapahtuma
+        name: Viimeaikainen toiminta
+        title: Viimeaikainen toiminta
         view_all: Näytä kaikki
       last_activity_settings_form:
         max_last_activity_users: Viimeaikaista toimintaa tehneiden käyttäjäprofiilien näytettävä enimmäismäärä
@@ -802,7 +802,7 @@ fi:
       nickname_event:
         notification_body: Olemme muuttaneet nimimerkkien sääntöjä varmistaaksemme, että alustalla ei ole useampaa tiliä samalla nimimerkillä eri tavalla kirjoitettuna. <br/> Tilisi on luotu toisen samaa nimimerkkiä käyttäneen henkilön jälkeen, joten olemme vaihtaneet nimimerkkiäsi automaattisesti. Halutessasi voit vaihtaa nimimerkkiäsi <a href="%{link_to_account_settings}">tilisi asetuksista</a>.
       notification_event:
-        notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
+        notification_title: Kohteessa <a href="%{resource_path}">%{resource_title}</a> on uutta toimintaa.
       reports:
         resource_hidden:
           email_intro: Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se ilmoitettiin asiattomana syyllä "%{report_reasons}".
@@ -1033,9 +1033,9 @@ fi:
         description: Lue lisää palvelusta %{organization}.
         title: Yleisiä ohjeita
     last_activities:
-      all: Kaikki tapahtumatyypit
+      all: Kaikki toimintatyypit
       index:
-        last_activity: Viimeisin tapahtuma
+        last_activity: Viimeaikainen toiminta
       name: Viimeisin toiminta
     linked_resource_from:
       included_in: Sisältyy kohteeseen
@@ -1340,7 +1340,7 @@ fi:
       default_officialization_text_for_user_groups: Tämä ryhmä on julkisesti varmennettu, ja sen nimen on varmennettu vastaavan todellista nimeä.
       default_officialization_text_for_users: Tämä osallistuja on julkisesti varmennettu, ja hänen nimensä tai asemansa on varmennettu vastaavan hänen oikeaa nimeään ja asemaansa.
       show:
-        activity: Aktiviteetti
+        activity: Toiminta
         badges: Kunniamerkit
         conversations: Keskustelut
         followers: Seuraajat
