@@ -363,8 +363,6 @@ id:
       show:
         download_data: Unduh datanya
         request_data: Meminta data
-    endorsable:
-      endorsements: Endorsemen
     errors:
       internal_server_error:
         title: Ada masalah dengan server kami
