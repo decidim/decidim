@@ -413,8 +413,6 @@ sv:
         name: Organisationsstatistik
       sub_hero:
         name: Sub hjälte banner
-    datepicker:
-      help_text: 'Förväntat format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
