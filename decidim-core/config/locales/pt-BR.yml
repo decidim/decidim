@@ -463,9 +463,6 @@ pt-BR:
         download_data: Baixe os dados
         download_data_description: Um arquivo contendo todas as informações associadas à sua conta será enviado para <strong>%{user_email}</strong>. Este e-mail conterá um arquivo .zip e uma senha para abri-lo.<br/><br/>Para descompactar o arquivo, você precisará de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se você usar Linux, a maior parte do tempo você o terá instalado por padrão. Se não, você pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">Rolagem de Arquivos</a> ou <a href="https://peazip.github.io">PeaZip</a>. ).
         request_data: Solicitar dados
-    endorsable:
-      endorsements: Avais
-      endorsements_count: Contagem de endossos
     endorsements:
       identities:
         done: Concluído
