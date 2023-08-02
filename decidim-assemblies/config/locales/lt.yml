@@ -419,7 +419,6 @@ lt:
           more_info: Daugiau informacijos
           take_part: Dalyvaukite
         index:
-          children: 'Asamblėjos: '
           promoted_assemblies: Paryškintos asamblėjos
         order_by_assemblies:
           assemblies:
