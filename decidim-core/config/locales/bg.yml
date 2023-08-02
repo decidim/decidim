@@ -334,8 +334,6 @@ bg:
         name: Статистики за организацията
       sub_hero:
         name: Банер на под-героя
-    datepicker:
-      help_text: 'Очакван формат: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
