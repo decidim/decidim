@@ -266,8 +266,6 @@ uk:
             other: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
           publish: Оприлюднити
           title: Оприлюднити свою пропозицію
-        proposal:
-          view_proposal: Переглянути пропозицію
         show:
           answer: Відповісти
           edit_proposal: Редагувати пропозицію
@@ -289,8 +287,6 @@ uk:
             few: ГОЛОСИ
             many: ГОЛОСІВ
             other: ГОЛОСІВ
-          most_popular_proposal: Найпопулярніша пропозиція
-          need_more_votes: Потрібно більше голосів
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Кожну пропозицію можуть підтримувати понад %{limit} людей
@@ -302,14 +298,11 @@ uk:
             votes: Голоси
         wizard_aside:
           back: Повернутись
-          info: Ви вносите <strong>пропозицію</strong>.
         wizard_steps:
-          see_steps: переглянути кроки
           step_1: Внесіть свою пропозицію
           step_2: Порівняти
           step_3: Завершити
           step_4: Оприлюднити свою пропозицію
-          step_of: '%{current_step_num}-й крок з %{total_steps} кроків'
       publish:
         error: При спробі оприлюднити цю пропозицію сталися помилки.
         success: Пропозицію успішно оприлюднено.
