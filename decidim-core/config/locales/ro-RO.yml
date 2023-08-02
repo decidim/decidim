@@ -532,9 +532,6 @@ ro:
         request_data: Cere date
     editor_images:
       drag_and_drop_help: Adaugă imagini prin tragere & plasare sau lipirea lor.
-    endorsable:
-      endorsements: Susținători
-      endorsements_count: Număr de susțineri
     endorsement_buttons_cell:
       already_endorsed: Nu-mi place
       endorse: Îmi place
