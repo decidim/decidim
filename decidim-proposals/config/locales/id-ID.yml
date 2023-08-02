@@ -376,7 +376,6 @@ id:
               ok: Publikasikan sebagai Proposal
               title: Tindakan berikut tidak dapat diubah
             success: Draf kolaboratif berhasil diterbitkan sebagai proposal.
-          view_collaborative_draft: Lihat Draf Kolaborasi
           withdraw:
             error: Terjadi kesalahan saat menutup draf kolaboratif.
             irreversible_action_modal:
@@ -522,8 +521,6 @@ id:
             other: Anda akan dapat mengedit proposal ini selama %{count} menit pertama setelah proposal diterbitkan. Setelah jendela waktu ini berlalu, Anda tidak akan dapat mengedit proposal.
           publish: Menerbitkan
           title: Publikasikan proposal Anda
-        proposal:
-          view_proposal: Lihat proposal
         show:
           answer: Menjawab
           edit_proposal: Edit proposal
@@ -546,8 +543,6 @@ id:
         votes_count:
           count:
             other: SUARA
-          most_popular_proposal: Proposal paling populer
-          need_more_votes: Butuh lebih banyak suara
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Setiap proposal dapat mengumpulkan lebih dari %{limit} dukungan
@@ -562,14 +557,11 @@ id:
             votes: Suara
         wizard_aside:
           back: Kembali
-          info: Anda membuat <strong>proposal</strong>.
         wizard_steps:
-          see_steps: lihat langkah-langkahnya
           step_1: Buat proposal Anda
           step_2: Membandingkan
           step_3: Lengkap
           step_4: Publikasikan proposal Anda
-          step_of: Langkah %{current_step_num} dari %{total_steps}
       publish:
         error: Sudah ada kesalahan saat memublikasikan proposal.
         success: Proposal berhasil diterbitkan.
