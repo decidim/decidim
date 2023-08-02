@@ -34,7 +34,6 @@ fi-pl:
       comments_title: Kommentti
       last_activity:
         new_comment: 'Uusi kommentti:'
-      view: Näytä
       votes:
         create:
           error: Äänestettäessä kommenttia tapahtui virhe.
