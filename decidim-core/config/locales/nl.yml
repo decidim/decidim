@@ -382,8 +382,6 @@ nl:
         name: Organisatie statistieken
       sub_hero:
         name: Sub hero banner
-    datepicker:
-      help_text: 'Verwacht formaat: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
