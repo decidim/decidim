@@ -402,7 +402,6 @@
           more_info: Mer info
           take_part: Delta
         index:
-          children: 'Forsamlinger: '
           promoted_assemblies: Fremhevede forsamlinger
         order_by_assemblies:
           assemblies:
