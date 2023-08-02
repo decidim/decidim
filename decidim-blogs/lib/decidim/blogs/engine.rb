@@ -15,7 +15,10 @@ module Decidim
 
       routes do
         resources :posts, only: [:index, :show]
-        root to: "posts#index"
+        scope "/posts" do
+          root to: "posts#index"
+        end
+        get "/", to: redirect("posts", status: 301)
       end
 
       initializer "decidim_blogs.add_cells_view_paths" do
