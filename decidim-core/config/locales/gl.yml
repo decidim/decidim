@@ -279,8 +279,6 @@ gl:
         name: Estatísticas da organización
       sub_hero:
         name: Banner sub-heroe
-    datepicker:
-      help_text: 'Formato esperado: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
