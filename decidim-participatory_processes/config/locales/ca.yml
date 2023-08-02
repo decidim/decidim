@@ -512,10 +512,8 @@ ca:
           title: Quant a aquest procés
       show:
         belongs_to_group: Aquest procés pertany a
-        dates: Dates
         private_space: Aquest és un procés privat
         related_processes: Processos relacionats
-        unspecified: Sense especificar
     statistics:
       processes_count: Processos
   layouts:
