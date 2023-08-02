@@ -352,10 +352,8 @@ zh-CN:
             upcoming: 即将到来的
           see: 查看
       show:
-        dates: 日期
         private_space: 这是一个私密进程
         related_processes: 相关进程
-        unspecified: 未指定
   layouts:
     decidim:
       participatory_process_groups:
