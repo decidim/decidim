@@ -32,7 +32,6 @@ hu:
           error: Hiba történt a hozzászólás frissítése során.
       comments_count: Hozzászólások száma
       comments_title: Hozzászólás
-      view: Megtekintés
       votes:
         create:
           error: Hiba történt a megjegyzésre való szavazáskor.
