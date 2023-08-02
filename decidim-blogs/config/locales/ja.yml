@@ -63,9 +63,6 @@ ja:
             official_blog_post: 公式ポスト
             published_at: 公開時刻
             title: タイトル
-      posts:
-        show:
-          view: 表示
     components:
       blogs:
         actions:
