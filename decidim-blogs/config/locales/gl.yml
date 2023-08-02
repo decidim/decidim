@@ -36,9 +36,6 @@ gl:
           fields:
             author: Autor
             body: Corpo
-      posts:
-        show:
-          view: Ver
     components:
       blogs:
         actions:
