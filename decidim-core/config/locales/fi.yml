@@ -460,8 +460,8 @@ fi:
         html_content: HTML-sisältö
         name: HTML-lohko
       last_activity:
-        name: Viimeisin tapahtuma
-        title: Viimeisin tapahtuma
+        name: Viimeaikainen toiminta
+        title: Viimeaikainen toiminta
         view_all: Näytä kaikki
       metrics:
         name: Organisaation tilastomittarit
@@ -691,7 +691,7 @@ fi:
           email_subject: Ryhmä on päivittänyt profiiliaan
           notification_title: Ryhmä nimeltä %{user_group_name} on päivittänyt profiiliaan, jättäen ryhmän varmentamattomaksi. Voit varmentaa ryhmän <a href="%{groups_admin_path}">hallintapaneelin kautta</a>.
       notification_event:
-        notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
+        notification_title: Kohteessa <a href="%{resource_path}">%{resource_title}</a> on uutta toimintaa.
       reports:
         resource_hidden:
           email_intro: Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se ilmoitettiin asiattomana syyllä "%{report_reasons}".
@@ -892,9 +892,9 @@ fi:
     last_activities:
       activities:
         no_activities_warning: Ei toimintaa
-      all: Kaikki tapahtumatyypit
+      all: Kaikki toimintatyypit
       index:
-        last_activity: Viimeisin tapahtuma
+        last_activity: Viimeaikainen toiminta
         resource_type: Tyyppi
     links:
       invalid_url: Virheellinen URL-osoite
@@ -1178,7 +1178,7 @@ fi:
       default_officialization_text_for_user_groups: Tämä käyttäjäryhmä on julkisesti vahvistettu ja sen nimi vastaa oikeaa nimeä
       default_officialization_text_for_users: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
-        activity: Aktiviteetti
+        activity: Toiminta
         badges: Kunniamerkit
         conversations: Keskustelut
         followers: Seuraajat
