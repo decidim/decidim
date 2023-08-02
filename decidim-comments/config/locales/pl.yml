@@ -30,7 +30,6 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizowania komentarza.
       comments_count: Liczba komentarzy
-      view: Zobacz
       votes:
         create:
           error: Podczas dodawania komentarza wystąpił błąd.
