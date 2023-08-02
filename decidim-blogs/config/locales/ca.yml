@@ -64,9 +64,6 @@ ca:
             official_blog_post: Post oficial
             published_at: Hora de publicació
             title: Títol
-      posts:
-        show:
-          view: Veure
     components:
       blogs:
         actions:
