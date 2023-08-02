@@ -545,8 +545,8 @@ fi:
     help:
       participatory_spaces:
         conferences:
-          contextual: "<p><strong>Konferenssi</strong> on useiden tapahtumien sarja, mihin kutsutaan puhujia ja jolle määritetään useita tietotyyppejä, jotka ovat tyypillisä suurille kongresseille tai sosiaalisille tapahtumille (ilmoittautumiset, kannatusorganisaatioiden tai rahoittajien listat, jne.).</p><p>Esimerkkejä: Konferenssi voidaan järjestää organisaatiolle ja sen jäsenille tai se voi olla jonkin osallistumisprosessin yksi osa tai kuulemisen jälkeinen tapahtuma.</p>\n"
-          page: "<p><strong>Konferenssi</strong> on useiden tapahtumien sarja, mihin kutsutaan puhujia ja jolle määritetään useita tietotyyppejä, jotka ovat tyypillisä suurille kongresseille tai sosiaalisille tapahtumille (ilmoittautumiset, kannatusorganisaatioiden tai rahoittajien listat, jne.).</p><p>Esimerkkejä: Konferenssi voidaan järjestää organisaatiolle ja sen jäsenille tai se voi olla jonkin osallistumisprosessin yksi osa tai kuulemisen jälkeinen tapahtuma.</p>\n"
+          contextual: "<p><strong>Konferenssi</strong> on useiden tapahtumien sarja, mihin kutsutaan puhujia ja jolle määritetään useita tietotyyppejä, jotka ovat tyypillisiä suurille kongresseille tai sosiaalisille tapahtumille (ilmoittautumiset, kannatusorganisaatioiden tai rahoittajien listat, jne.).</p><p>Esimerkkejä: Konferenssi voidaan järjestää organisaatiolle ja sen jäsenille tai se voi olla jonkin osallistumisprosessin yksi osa tai kuulemisen jälkeinen tapahtuma.</p>\n"
+          page: "<p><strong>Konferenssi</strong> on useiden tapahtumien sarja, mihin kutsutaan puhujia ja jolle määritetään useita tietotyyppejä, jotka ovat tyypillisiä suurille kongresseille tai sosiaalisille tapahtumille (ilmoittautumiset, kannatusorganisaatioiden tai rahoittajien listat, jne.).</p><p>Esimerkkejä: Konferenssi voidaan järjestää organisaatiolle ja sen jäsenille tai se voi olla jonkin osallistumisprosessin yksi osa tai kuulemisen jälkeinen tapahtuma.</p>\n"
           title: Mitä konferenssit ovat?
     log:
       value_types:
