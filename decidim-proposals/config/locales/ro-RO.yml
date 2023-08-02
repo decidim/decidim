@@ -558,7 +558,6 @@ ro:
               ok: Publică drept propunere
               title: Următoarea acţiune este ireversibilă
             success: Ciorna colaborativă a fost publicată cu succes drept propunere.
-          view_collaborative_draft: Vezi ciorna colaborativă
           withdraw:
             error: A apărut o problemă la închiderea ciornei colaborative.
             irreversible_action_modal:
@@ -730,8 +729,6 @@ ro:
             other: Vei putea edita această propunere în primele %{count} minute după publicarea sa. După trecerea acestei perioade nu vei mai putea edita propunerea.
           publish: Publică
           title: Publică propunerea ta
-        proposal:
-          view_proposal: Vizualizează propunerea
         show:
           answer: Răspuns
           changes_at_title: Amendament pentru „%{title}”
@@ -767,8 +764,6 @@ ro:
             one: Vot
             few: Voturi
             other: Voturi
-          most_popular_proposal: Cea mai populară propunere
-          need_more_votes: Ai nevoie de mai multe voturi
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Fiecare propunere poate acumula mai mult de %{limit} voturi
@@ -787,15 +782,12 @@ ro:
           back_from_step_2: Înapoi la propuneri
           back_from_step_3: Înapoi la compararea propunerilor
           back_from_step_4: Înapoi la editarea ciornei
-          info: Creezi o <strong>propunere</strong>.
         wizard_steps:
           current_step: Pasul curent
-          see_steps: vezi pașii
           step_1: Creează propunerea ta
           step_2: Compară
           step_3: Finalizează
           step_4: Publică propunerea ta
-          step_of: Pasul %{current_step_num} din %{total_steps}
           title: Etapele creării propunerii
       proposals_picker:
         choose_proposals: Alege propuneri
