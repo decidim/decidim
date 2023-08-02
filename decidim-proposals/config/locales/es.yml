@@ -634,7 +634,6 @@ es:
               ok: Publicar como una propuesta
               title: La siguiente acción es irreversible
             success: Borrador de colaborativo publicado correctamente como una propuesta.
-          view_collaborative_draft: Ver el borrador colaborativo
           withdraw:
             error: Se ha producido un error al cerrar el borrador colaborativo.
             irreversible_action_modal:
@@ -829,8 +828,6 @@ es:
             other: Podrás editar esta propuesta durante los primeros %{count} minutos después que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publicar tu propuesta
-        proposal:
-          view_proposal: Ver propuesta
         proposals:
           empty: Aún no hay ninguna propuesta.
           empty_filters: No hay ninguna propuesta con este criterio.
@@ -867,8 +864,6 @@ es:
           count:
             one: Apoyo
             other: Apoyos
-          most_popular_proposal: Propuesta más popular
-          need_more_votes: Necesita más apoyos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos
@@ -890,15 +885,12 @@ es:
           back_from_step_2: Volver a propuestas
           back_from_step_3: Volver a comparar propuestas
           back_from_step_4: Volver a editar borrador
-          info: Estás creando una <strong>propuesta</strong>.
         wizard_steps:
           current_step: Paso actual
-          see_steps: ver las fases
           step_1: Crear tu propuesta
           step_2: Comparar
           step_3: Completar
           step_4: Publicar tu propuesta
-          step_of: Fase %{current_step_num} de %{total_steps}
           title: Pasos de creación de una propuesta
       proposals_picker:
         choose_proposals: Elegir propuestas
