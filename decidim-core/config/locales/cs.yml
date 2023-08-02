@@ -691,9 +691,6 @@ cs:
         error: Chyba při nahrávání obrázku.
         success: Obrázek byl úspěšně nahrán.
       drag_and_drop_help: Přidejte obrázky přetažením nebo vložením.
-    endorsable:
-      endorsements: Schválení
-      endorsements_count: Počet schvalování
     endorsement_buttons_cell:
       already_endorsed: Nelíbí se mi
       endorse: Líbí se mi
