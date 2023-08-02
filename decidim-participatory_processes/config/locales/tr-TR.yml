@@ -405,10 +405,8 @@ tr:
           see: Görmek
       show:
         belongs_to_group: Bu süreç,
-        dates: Tarihler
         private_space: Bu özel bir süreç
         related_processes: İlgili süreçler
-        unspecified: Belirtilmemiş
   layouts:
     decidim:
       participatory_process_groups:
