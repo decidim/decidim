@@ -633,7 +633,6 @@ fr-CA:
               ok: Publier en tant que proposition
               title: L'action suivante est irréversible
             success: Brouillon collaboratif publié avec succès en tant que proposition.
-          view_collaborative_draft: Afficher le brouillon collaboratif
           withdraw:
             error: Il y a eu des erreurs en fermant le brouillon collaboratif.
             irreversible_action_modal:
@@ -819,8 +818,6 @@ fr-CA:
             other: Vous avez la possibilité de modifier cette proposition dans les %{count} minutes suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
           publish: Publier
           title: Publier la proposition
-        proposal:
-          view_proposal: Voir la proposition
         proposals:
           empty: Il n'y a pas encore de proposition.
           empty_filters: Aucune proposition ne correspond à ce critère.
@@ -857,8 +854,6 @@ fr-CA:
           count:
             one: VOTE
             other: VOTES
-          most_popular_proposal: Proposition la plus populaire
-          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Chaque proposition doit rassembler plus de %{limit} votes
@@ -880,15 +875,12 @@ fr-CA:
           back_from_step_2: Retour aux propositions
           back_from_step_3: Retour à la comparaison des propositions
           back_from_step_4: Retour à l'édition du brouillon
-          info: Vous créez une <strong>proposition</strong>.
         wizard_steps:
           current_step: Étape actuelle
-          see_steps: voir les étapes
           step_1: Créer une proposition
           step_2: Comparer aux autres propositions
           step_3: Compléter votre proposition
           step_4: Publier votre proposition
-          step_of: Étape %{current_step_num} sur %{total_steps}
           title: Étapes de création de proposition
       proposals_picker:
         choose_proposals: Choisir les propositions
