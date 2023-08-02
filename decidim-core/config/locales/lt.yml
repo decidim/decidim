@@ -465,8 +465,6 @@ lt:
         name: Organizacijos statistiniai duomenys
       sub_hero:
         name: Turinio juosta po paveikslėliu
-    datepicker:
-      help_text: 'Pageidaujamas formatas: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
