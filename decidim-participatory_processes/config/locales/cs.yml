@@ -528,10 +528,8 @@ cs:
           title: O tomto procesu
       show:
         belongs_to_group: Tento proces patří do
-        dates: Data
         private_space: Jedná se o soukromý proces
         related_processes: Související procesy
-        unspecified: Nespecifikováno
     statistics:
       processes_count: Procesy
   layouts:
