@@ -64,9 +64,6 @@ es-PY:
             official_blog_post: Post oficial
             published_at: Hora de publicación
             title: Título
-      posts:
-        show:
-          view: Ver
     components:
       blogs:
         actions:
