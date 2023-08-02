@@ -42,7 +42,7 @@ module Decidim
                             desc: "Use a specific branch from GitHub's version"
 
       class_option :repository, type: :string,
-                                default: "https://github.com/decidim/decidim.git",
+                                default: "https://github.com/tremend-cofe/decidim.git",
                                 desc: "Use a specific GIT repository (valid in conjunction with --edge or --branch)"
 
       class_option :recreate_db, type: :boolean,
@@ -433,7 +433,7 @@ module Decidim
       end
 
       def repository
-        @repository ||= options[:repository] || "https://github.com/decidim/decidim.git"
+        @repository ||= options[:repository] || "https://github.com/themend-cofe/decidim.git"
       end
 
       def app_name
