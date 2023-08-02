@@ -36,9 +36,6 @@ ru:
           fields:
             author: Автор
             body: Основной текст
-      posts:
-        show:
-          view: Посмотреть
     components:
       blogs:
         name: Блог
