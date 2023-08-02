@@ -469,7 +469,6 @@ sk:
               ok: Publikovať ako návrh
               title: Nasledujúci akcia je nevratná
             success: Projekt spolupráce bol úspešne zverejnený ako návrh.
-          view_collaborative_draft: Zobraziť kolektívne návrh
           withdraw:
             error: Došlo k chybe pri uzatvorení návrhu spolupráce.
             irreversible_action_modal:
@@ -631,8 +630,6 @@ sk:
             other: Budete mať možnosť upraviť tento návrh počas prvých %{count} minút po návrh zverejnený. Po uplynutí tohto časového okna nebudete môcť návrh upraviť.
           publish: Publikovať
           title: Publikujte svoj návrh
-        proposal:
-          view_proposal: Zobraziť návrh
         show:
           answer: Odpovedať
           changes_at_title: doplňujúci návrh k "%{title}"
@@ -667,8 +664,6 @@ sk:
             few: HLASOVANIE
             many: HLASOVANIE
             other: HLASOVANIE
-          most_popular_proposal: Najobľúbenejšie návrh
-          need_more_votes: Potrebujete viac hlasov
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Každý návrh môže akumulovať viac ako%{limit} pomoci
@@ -683,14 +678,11 @@ sk:
             votes: Hlasy
         wizard_aside:
           back: Zadná
-          info: Vytvárate <strong> návrh </strong>.
         wizard_steps:
-          see_steps: pozri kroky
           step_1: Vytvorte svoj návrh
           step_2: Porovnajte
           step_3: Kompletné
           step_4: Publikujte svoj návrh
-          step_of: Krok %{current_step_num} z %{total_steps}
       proposals_picker:
         choose_proposals: Zvoliť návrhy
         close: Zavrieť
