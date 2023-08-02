@@ -466,10 +466,8 @@ zh-TW:
           title: 關於此流程
       show:
         belongs_to_group: 此程序屬於
-        dates: 日期
         private_space: 這是不公開程序。
         related_processes: 相關程序
-        unspecified: 未指定
     statistics:
       processes_count: 程序
   layouts:
