@@ -512,10 +512,8 @@ fi-pl:
           title: Tietoa tästä prosessista
       show:
         belongs_to_group: Tämä prosessi kuuluu ryhmään
-        dates: Päivämäärät
         private_space: Tämä on yksityinen prosessi
         related_processes: Liittyvät prosessit
-        unspecified: Ei määritelty
     statistics:
       processes_count: Prosessia
   layouts:
