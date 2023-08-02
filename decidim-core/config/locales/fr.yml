@@ -578,8 +578,6 @@ fr:
           all: Tout
         filter_scope_values:
           all: Tout
-    datepicker:
-      help_text: 'Format attendu : %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
