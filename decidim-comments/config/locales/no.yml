@@ -28,7 +28,6 @@
         update:
           error: Et problem oppstod med å oppdatere kommentaren.
       comments_count: Antall kommentarer
-      view: Vis
       votes:
         create:
           error: Det oppstod et problem med å stemme kommentaren.
