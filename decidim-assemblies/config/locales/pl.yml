@@ -410,7 +410,6 @@ pl:
           more_info: Więcej informacji
           take_part: Dołącz
         index:
-          children: 'Zespoły: '
           promoted_assemblies: Wyróżnione zespoły
         order_by_assemblies:
           assemblies:
