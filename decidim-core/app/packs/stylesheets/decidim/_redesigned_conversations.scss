@@ -1,8 +1,4 @@
 .conversation {
-  &__container {
-    @apply divide-y divide-gray-3;
-  }
-
   &__aside {
     @apply w-full flex md:flex-col items-start justify-between gap-4 md:gap-8;
 
@@ -12,7 +8,11 @@
   }
 
   &__item {
-    @apply flex items-center justify-between gap-4 py-4 first:pt-0 last:pb-0;
+    @apply flex items-center justify-between gap-4 pb-4 last:pb-0;
+
+    & + & {
+      @apply border-t border-gray-3 pt-4;
+    }
 
     &-avatar {
       @apply flex-none w-8 h-8 rounded-full overflow-hidden drop-shadow-md border-2 border-white grid place-items-center;

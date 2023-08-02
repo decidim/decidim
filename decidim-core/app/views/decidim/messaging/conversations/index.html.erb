@@ -15,8 +15,8 @@
       <%= cell("decidim/announcement", message) %>
     <% end %>
   <% else %>
-    <div class="conversation__container">
+    <section class="layout-main__section">
       <%= render partial: "conversation", collection: @conversations %>
-    </div>
+    </section>
   <% end %>
 <% end %>

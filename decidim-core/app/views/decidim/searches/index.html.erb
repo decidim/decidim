@@ -6,12 +6,12 @@
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
 
-  <div id="search-count">
+  <section id="search-count" class="layout-main__section">
     <%= render partial: "count" %>
-  </div>
+  </section>
 
-  <div id="results">
+  <section id="results" class="layout-main__section">
     <%= cell "decidim/search_results", @sections, params: %>
-  </div>
+  </section>
 
 <% end %>

@@ -1,11 +1,9 @@
-<div class="empty-notifications hidden hide">
+<div id="empty-notifications" hidden>
   <%= cell("decidim/announcement", t("decidim.notifications.no_notifications")) %>
 </div>
 
-<div data-notifications>
-  <% notifications_with_resource.each do |notification| %>
-    <%= cell("decidim/notification", notification) %>
-  <% end %>
-</div>
+<% notifications_with_resource.each do |notification| %>
+  <%= cell("decidim/notification", notification) %>
+<% end %>
 
 <%= decidim_paginate notifications %>

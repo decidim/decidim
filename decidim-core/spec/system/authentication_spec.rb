@@ -287,7 +287,7 @@ describe "Authentication", type: :system do
         click_link "Notifications"
       end
 
-      within "[data-notifications]" do
+      within "#notifications" do
         expect(page).to have_content("thanks for joining #{organization.name}")
       end
 

@@ -316,7 +316,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows only the other participant name" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).not_to have_content(user.name)
           end
@@ -329,7 +329,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows only the other participant name" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
           end
         end
@@ -369,7 +369,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other three participants names" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -384,7 +384,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other three participants names" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -439,7 +439,7 @@ describe "Conversations", type: :system do
         it_behaves_like "accessible page"
 
         it "shows the other nine participants names" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -460,7 +460,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other nine participants names" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
