@@ -634,7 +634,6 @@ de:
               ok: Als Vorschlag veröffentlichen
               title: Die folgende Aktion ist irreversibel
             success: Collaborative Draft erfolgreich als Vorschlag veröffentlicht.
-          view_collaborative_draft: Gemeinsamen Entwurf anzeigen
           withdraw:
             error: Es gab Fehler beim Schließen des gemeinsamen Entwurfs.
             irreversible_action_modal:
@@ -829,8 +828,6 @@ de:
             other: Sie können diesen Vorschlag in den ersten %{count} Minute nach seiner Veröffentlichung bearbeiten. Nach Ablauf dieses Zeitfensters können Sie diesen nicht mehr bearbeiten.
           publish: Veröffentlichen
           title: Vorschlag veröffentlichen
-        proposal:
-          view_proposal: Vorschlag anzeigen
         proposals:
           empty: Es gibt noch keine Vorschläge.
           empty_filters: Es gibt keine Vorschläge mit diesen Kriterien.
@@ -867,8 +864,6 @@ de:
           count:
             one: UNTERSTÜTZUNG
             other: UNTERSTÜTZUNGEN
-          most_popular_proposal: Beliebteste Vorschläge
-          need_more_votes: Benötigt weitere Unterstützungen
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jeder Vorschlag kann mehr als %{limit} Unterstützungen sammeln
@@ -890,15 +885,12 @@ de:
           back_from_step_2: Zurück zu Vorschlägen
           back_from_step_3: Zurück zum Vergleich von Vorschlägen
           back_from_step_4: Zurück zum Entwurf bearbeiten
-          info: Sie erstellen einen <strong>Vorschlag</strong>.
         wizard_steps:
           current_step: Aktueller Schritt
-          see_steps: siehe Schritte
           step_1: Vorschlag erstellen
           step_2: Vergleichen
           step_3: Abschließen
           step_4: Vorschlag veröffentlichen
-          step_of: Schritt %{current_step_num} von %{total_steps}
           title: Schritten zur Erstellung von Vorschlägen
       proposals_picker:
         choose_proposals: Vorschläge auswählen
