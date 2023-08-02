@@ -59,9 +59,6 @@ eu:
             official_blog_post: Blogeko argitalpen ofiziala
             published_at: Argitaratze data
             title: Izenburua
-      posts:
-        show:
-          view: Ikusi
     components:
       blogs:
         actions:
