@@ -19,9 +19,8 @@ edit_link(
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <%= participatory_space_wrapper do %>
-    <div id="initiatives">
-      <%= render partial: "initiatives" %>
-    </div>
-  <% end %>
+  <%= participatory_space_floating_help %>
+  <div id="initiatives">
+    <%= render partial: "initiatives" %>
+  </div>
 <% end %>

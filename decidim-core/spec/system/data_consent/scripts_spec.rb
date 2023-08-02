@@ -51,10 +51,6 @@ describe "Data consent scripts", type: :system do
   let(:html_body) { "" }
 
   before do
-    # rubocop:disable RSpec/AnyInstance
-    allow_any_instance_of(Decidim::ViewModel).to receive(:redesign_enabled?).and_return(true)
-    # rubocop:enable RSpec/AnyInstance
-
     # Create a temporary route to display the generated HTML in a correct site
     # context.
     final_html = html_document

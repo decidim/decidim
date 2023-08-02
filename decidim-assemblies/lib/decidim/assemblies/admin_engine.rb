@@ -29,8 +29,8 @@ module Decidim
             end
           end
 
-          resources :attachment_collections, controller: "assembly_attachment_collections"
-          resources :attachments, controller: "assembly_attachments"
+          resources :attachment_collections, controller: "assembly_attachment_collections", except: [:show]
+          resources :attachments, controller: "assembly_attachments", except: [:show]
 
           resource :export, controller: "assembly_exports", only: :create
 
@@ -44,7 +44,7 @@ module Decidim
         end
 
         scope "/assemblies/:assembly_slug" do
-          resources :categories
+          resources :categories, except: [:show]
 
           resources :components do
             resource :permissions, controller: "component_permissions"
