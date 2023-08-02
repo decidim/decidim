@@ -34,7 +34,6 @@ es-PY:
       comments_title: Comentario
       last_activity:
         new_comment: 'Nuevo comentario:'
-      view: Ver
       votes:
         create:
           error: Ha habido errores al votar el comentario.
