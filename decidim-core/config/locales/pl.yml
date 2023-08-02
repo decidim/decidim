@@ -457,8 +457,6 @@ pl:
         name: Statystyki organizacji
       sub_hero:
         name: Baner podrzędny
-    datepicker:
-      help_text: 'Oczekiwany format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
