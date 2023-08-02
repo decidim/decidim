@@ -561,8 +561,6 @@ ja:
           all: すべて
         filter_scope_values:
           all: すべて
-    datepicker:
-      help_text: '期待されるフォーマット: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
