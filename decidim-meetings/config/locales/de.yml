@@ -420,6 +420,7 @@ de:
       directory:
         meetings:
           index:
+            go_to_list: Veranstaltungsliste ansehen
             meetings: Meetings
             space_type: Partizipativer Raum
       iframe_access_level:
@@ -486,6 +487,7 @@ de:
             all: Alle
             official: Offiziell
             participants: Teilnehmer
+            user_group: Gruppen
           search: Suche
           type: Art
           type_values:
@@ -513,6 +515,11 @@ de:
           see_all: Alle Treffen anzeigen
           see_all_withdrawn: Alle zurückgezogenen Treffen ansehen
           text_banner: Hier sehen Sie alle Veranstaltungen, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
+        meeting:
+          close_meeting: Veranstaltung beenden
+          edit_close_meeting: Veranstaltungsbericht bearbeiten
+          edit_meeting: Veranstaltung bearbeiten
+          join_meeting: Veranstaltung beitreten
         meetings:
           no_meetings_warning: Keine Veranstaltungen entsprechen Ihren Suchkriterien oder es ist keine Besprechung geplant.
           upcoming_meetings_warning: Momentan gibt es keine geplanten Besprechungen, aber hier finden Sie alle aufgelisteten Besprechungen.
@@ -593,6 +600,8 @@ de:
             question_replied: Frage beantwortet
             reply_question: Frage beantworten
       public_participants_list:
+        attending_organizations: Organisationen
+        attending_participants: Teilnehmende
         hidden_participants_count:
           one: und %{count} weitere Person
           other: und %{count} weitere Personen
