@@ -36,9 +36,6 @@
           fields:
             author: Forfatter
             body: Tekst
-      posts:
-        show:
-          view: Vis
     components:
       blogs:
         actions:
