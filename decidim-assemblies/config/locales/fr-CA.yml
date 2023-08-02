@@ -460,7 +460,6 @@ fr-CA:
           more_info: Plus d'informations
           take_part: Participer
         index:
-          children: 'Assemblées : '
           promoted_assemblies: Assemblées mises en avant
         metadata:
           children_item:
