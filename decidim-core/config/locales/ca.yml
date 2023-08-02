@@ -650,9 +650,6 @@ ca:
         error: S'ha produït un error en carregar la imatge.
         success: Imatge carregada correctament.
       drag_and_drop_help: Afegeix imatges arrossegant-les i deixant-les anar o bé enganxant-les.
-    endorsable:
-      endorsements: Adhesions
-      endorsements_count: Número d'adhesions
     endorsement_buttons_cell:
       already_endorsed: No m'agrada
       endorse: M'agrada
