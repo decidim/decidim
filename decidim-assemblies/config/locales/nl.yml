@@ -411,7 +411,6 @@ nl:
           more_info: Meer informatie
           take_part: Deelnemen
         index:
-          children: 'Groepen: '
           promoted_assemblies: Uitgelichte groepen
         order_by_assemblies:
           assemblies:
