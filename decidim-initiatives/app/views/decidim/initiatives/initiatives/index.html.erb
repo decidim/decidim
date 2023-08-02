@@ -10,7 +10,7 @@ edit_link(
 %>
 
 <% content_for :aside do %>
-  <h1 class="h1 decorator"><%= component_name %></h1>
+  <h1 class="h3 md:h1 decorator"><%= component_name %></h1>
   <%= render partial: "new_initiative_button" %>
 
   <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont } do %>
