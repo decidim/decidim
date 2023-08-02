@@ -22,7 +22,6 @@ pt-BR:
         update:
           error: Houve um erro ao atualizar o comentário.
       comments_count: Contagem de Comentários
-      view: Visualizar
       votes:
         create:
           error: Houve erros ao votar o comentário.
