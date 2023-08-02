@@ -458,10 +458,8 @@ lt:
           title: Apie šį procesą
       show:
         belongs_to_group: Šis procesas priklauso
-        dates: Datos
         private_space: Tai yra uždaras procesas
         related_processes: Susiję procesai
-        unspecified: Nepatikslinta
     statistics:
       processes_count: Procesai
   layouts:
