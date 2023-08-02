@@ -90,11 +90,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
             create_list(:comment, 10, author: other_user, commentable:)
             create_list(:proposal, 5, users: [other_user], component: create(:proposal_component, organization: user.organization))
 
-            within_user_menu do
-              click_link "My account"
-            end
-
-            click_link "Authorizations"
+            visit_authorizations
 
             click_link "Example authorization"
           end
