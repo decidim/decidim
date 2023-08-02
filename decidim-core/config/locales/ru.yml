@@ -340,8 +340,6 @@ ru:
       show:
         download_data: Загрузить данные
         request_data: Запросить данные
-    endorsable:
-      endorsements: Выражений поддержки
     errors:
       internal_server_error:
         title: При попытке связи с нашим сервером произошла ошибка
