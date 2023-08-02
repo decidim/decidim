@@ -4,11 +4,10 @@
   <% if conversations.empty? %>
     <%= cell("decidim/announcement", t("decidim.user_conversations.index.no_conversations_warning")) %>
   <% else %>
-    <div class="conversation__container">
-      <% conversations.each do |conversation| %>
-        <%= render partial: "decidim/messaging/conversations/conversation.html", locals: { conversation:, nickname: } %>
-      <% end %>
-    </div>
+    <% conversations.each do |conversation| %>
+      <%= render partial: "decidim/messaging/conversations/conversation.html", locals: { conversation:, nickname: } %>
+    <% end %>
+
     <%= decidim_paginate conversations %>
   <% end %>
 </div>

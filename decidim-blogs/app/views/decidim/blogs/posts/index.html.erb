@@ -9,12 +9,12 @@
 
   <%= render partial: "decidim/shared/component_announcement" %>
 
-  <div id="blogs" class="space-y-12">
+  <section id="blogs" class="layout-main__section layout-main__heading">
     <% paginate_posts.each do |post| %>
       <%= card_for post, size: :l %>
     <% end %>
 
     <%= decidim_paginate paginate_posts %>
-  </div>
+  </section>
 
 <% end %>

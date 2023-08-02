@@ -19,8 +19,12 @@
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
 
-  <div class="editor-content mt-4"><%== translated_attribute component_settings.intro %></div>
+  <section class="layout-main__section">
+    <div class="editor-content"><%== translated_attribute component_settings.intro %></div>
+  </section>
 
-  <%= render partial: "home_categories" %>
+  <section class="layout-main__section">
+    <%= render partial: "home_categories" %>
+  </section>
 
 <% end %>
