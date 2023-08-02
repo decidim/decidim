@@ -527,7 +527,6 @@ pl:
               ok: Opublikuj jako propozycję
               title: Poniższe działanie jest nieodwracalne
             success: Wspólny szkic został opublikowany jako propozycja.
-          view_collaborative_draft: Zobacz wspólny szkic
           withdraw:
             error: Podczas zamykania wspólnego szkicu wystąpił błąd.
             irreversible_action_modal:
@@ -695,8 +694,6 @@ pl:
             other: Będziesz mógł edytować tę propozycję w ciągu %{count} minut po jej opublikowaniu. Gdy ten czas minie nie będzie można edytować propozycji.
           publish: Publikuj
           title: Opublikuj swoją propozycję
-        proposal:
-          view_proposal: Zobacz propozycję
         show:
           answer: Odpowiedź
           changes_at_title: Poprawka do „%{title}”
@@ -734,8 +731,6 @@ pl:
             few: Wsparć
             many: Wsparcia
             other: Wsparcia
-          most_popular_proposal: Najpopularniejsza propozycja
-          need_more_votes: Potrzebujesz więcej wsparć
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Każda propozycja może zebrać więcej niż wynosi limit wsparć %{limit}
@@ -754,15 +749,12 @@ pl:
           back_from_step_2: Wróć do propozycji
           back_from_step_3: Powrót do porównania propozycji
           back_from_step_4: Wróć do edycji szkicu
-          info: Tworzysz <strong>propozycję</strong>.
         wizard_steps:
           current_step: Bieżący krok
-          see_steps: zobacz kroki
           step_1: Utwórz swoją propozycję
           step_2: Porównaj
           step_3: Kompletny
           step_4: Opublikuj swoją propozycję
-          step_of: Krok %{current_step_num} z %{total_steps}
           title: Kroki tworzenia propozycji
       proposals_picker:
         choose_proposals: Wybierz propozycje
