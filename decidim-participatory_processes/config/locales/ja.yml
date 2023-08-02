@@ -504,10 +504,8 @@ ja:
           title: このプロセスについて
       show:
         belongs_to_group: このプロセスの所属グループ
-        dates: 日付
         private_space: これはプライベートな参加型プロセスです
         related_processes: 関連する参加型プロセス
-        unspecified: 指定されていない
     statistics:
       processes_count: プロセス
   layouts:
