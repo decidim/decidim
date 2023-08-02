@@ -22,7 +22,6 @@ lb:
         update:
           error: Beim Aktualisieren des Kommentars ist ein Problem aufgetreten.
       comments_count: Kommentaranzahl
-      view: Ansicht
       votes:
         create:
           error: Beim Abstimmen des Kommentars sind Fehler aufgetreten.
