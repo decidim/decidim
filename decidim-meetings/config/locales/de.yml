@@ -493,6 +493,7 @@ de:
             all: Alle
             official: Offiziell
             participants: Teilnehmer
+            user_groups: Gruppen
           scope: Umfang
           search: Suche
           type: Art
@@ -544,8 +545,10 @@ de:
           close_meeting: Sitzung beenden
           contributions: Beiträge zählen
           date: Datum
+          edit_close_meeting: Veranstaltungsbericht bearbeiten
           edit_meeting: Meeting bearbeiten
           going: Sie haben sich für diese Sitzung angemeldet
+          join: Veranstaltung beitreten
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
           link_available_soon: Link in Kürze verfügbar
