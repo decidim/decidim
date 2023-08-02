@@ -331,8 +331,6 @@ lv:
         name: Organizācijas statistika
       sub_hero:
         name: Kājenes apakšējais galvenais reklāmkarogs
-    datepicker:
-      help_text: 'Paredzētais formāts: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
