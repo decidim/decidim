@@ -267,8 +267,6 @@ uk:
       show:
         download_data: Завантажити дані
         request_data: Подати запит на дані
-    endorsable:
-      endorsements: Проявів підтримки
     errors:
       internal_server_error:
         title: При з'єднанні з нашим сервером сталася помилка
