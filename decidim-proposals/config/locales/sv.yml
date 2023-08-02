@@ -552,7 +552,6 @@ sv:
               ok: Publicera som ett förslag
               title: Följande åtgärd kan inte ångras
             success: Det gemensamma utkastet har publicerats som ett förslag.
-          view_collaborative_draft: Visa gemensamt utkast
           withdraw:
             error: Det gick inte att stänga det gemensamma utkastet.
             irreversible_action_modal:
@@ -728,8 +727,6 @@ sv:
             other: Du kommer att kunna redigera förslaget upp till %{count} minuter efter att förslaget har publicerats. När det tidsfönstret passerat kommer du inte att kunna redigera förslaget.
           publish: Publicera
           title: Publicera ditt förslag
-        proposal:
-          view_proposal: Visa förslag
         show:
           answer: Svara
           changes_at_title: Ändring till %{title}
@@ -763,8 +760,6 @@ sv:
           count:
             one: STÖDER
             other: STÖDER
-          most_popular_proposal: Mest populära förslaget
-          need_more_votes: Behöver mer stöd
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Varje förslag kan samla mer än %{limit} stöd
@@ -783,15 +778,12 @@ sv:
           back_from_step_2: Tillbaka till förslag
           back_from_step_3: Tillbaka för att jämföra förslag
           back_from_step_4: Tillbaka för att redigera utkast
-          info: Du skapar ett <strong>förslag</strong>.
         wizard_steps:
           current_step: Nuvarande steg
-          see_steps: visa steg
           step_1: Skapa ditt förslag
           step_2: Jämför
           step_3: Komplettera
           step_4: Publicera ditt förslag
-          step_of: Steg %{current_step_num} av %{total_steps}
           title: Steg för att skapa förslag
       proposals_picker:
         choose_proposals: Välj förslag
