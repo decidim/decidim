@@ -382,8 +382,6 @@ lv:
       show:
         download_data: Lejupielādēt datus
         request_data: Pieprasīt datus
-    endorsable:
-      endorsements: Atbalsts
     endorsements:
       identities:
         done: Pabeigts
