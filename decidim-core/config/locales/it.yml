@@ -513,7 +513,7 @@ it:
         success: Immagine caricata con successo
       drag_and_drop_help: Aggiungi immagini trascinandole o incollandole.
     endorsable:
-      endorsements: Mi piace
+      endorsements: Approvazioni
       endorsements_count: Numero di Appoggi
     endorsement_buttons_cell:
       already_endorsed: Appoggiato
