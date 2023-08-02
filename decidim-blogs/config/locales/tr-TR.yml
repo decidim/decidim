@@ -41,9 +41,6 @@ tr:
           fields:
             author: Yazar
             body: Vücut
-      posts:
-        show:
-          view: Görünüm
     components:
       blogs:
         name: Blog
