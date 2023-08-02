@@ -36,9 +36,6 @@ lb:
           fields:
             author: Autor
             body: Haupttext
-      posts:
-        show:
-          view: Anzeigen
     components:
       blogs:
         name: Blog
