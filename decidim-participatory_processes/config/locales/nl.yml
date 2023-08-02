@@ -401,10 +401,8 @@ nl:
           see: Bekijk
       show:
         belongs_to_group: Dit proces hoort bij
-        dates: Datums
         private_space: Dit is een privéthema
         related_processes: Verwante thema's
-        unspecified: Niet gespecificeerd
     statistics:
       processes_count: Inspraakprocessen
   layouts:
