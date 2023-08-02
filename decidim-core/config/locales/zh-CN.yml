@@ -432,7 +432,6 @@ zh-CN:
         download_data: 下载数据
         request_data: 请求数据
     endorsable:
-      endorsements: 授权
       endorsements_count: 批准次数
     endorsement_buttons_cell:
       already_endorsed: 已批准
