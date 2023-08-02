@@ -385,8 +385,6 @@ bg:
       show:
         download_data: Изтегляне на данни
         request_data: Заяви данни
-    endorsable:
-      endorsements: Одобрявания
     endorsements:
       identities:
         done: Готово
