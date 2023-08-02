@@ -309,7 +309,6 @@ uk:
       show:
         private_space: Це приватний рух
         related_processes: Супутні рухи
-        unspecified: Не вказано
   layouts:
     decidim:
       participatory_process_groups:
