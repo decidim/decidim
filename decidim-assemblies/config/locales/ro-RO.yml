@@ -447,7 +447,6 @@ ro:
           more_info: Mai multe informații
           take_part: Participă
         index:
-          children: 'Grupuri de lucru: '
           promoted_assemblies: Grupuri de lucru evidențiate
         order_by_assemblies:
           assemblies:
