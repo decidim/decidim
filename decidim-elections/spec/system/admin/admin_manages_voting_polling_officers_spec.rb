@@ -121,7 +121,7 @@ describe "Admin manages polling officers", type: :system do
   context "when deleting a polling officer" do
     it "deletes the polling officer" do
       within find("#polling_officers tr", text: other_user.email) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

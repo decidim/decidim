@@ -83,7 +83,7 @@ shared_examples "manage posts" do
 
     it "deletes a post" do
       within find("tr", text: translated(post1.title)) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

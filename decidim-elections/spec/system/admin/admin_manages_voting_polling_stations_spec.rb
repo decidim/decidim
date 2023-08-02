@@ -146,7 +146,7 @@ describe "Admin manages polling stations", serves_geocoding_autocomplete: true, 
 
     it "can delete a polling station from a voting" do
       within find("tr", text: translated(polling_station.title)) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

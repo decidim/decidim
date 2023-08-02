@@ -92,7 +92,7 @@ describe "Admin manages trustees", type: :system do
     end
 
     it "removes trustee" do
-      accept_confirm(admin: true) do
+      accept_confirm do
         page.first("a.action-icon--remove").click
       end
 

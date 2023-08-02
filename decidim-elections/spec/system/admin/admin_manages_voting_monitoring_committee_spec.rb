@@ -64,7 +64,7 @@ describe "Admin manages the monitoring committee", type: :system do
   context "when deleting a member" do
     it "deletes the member" do
       within find("#monitoring_committee_members tr", text: other_user.email) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

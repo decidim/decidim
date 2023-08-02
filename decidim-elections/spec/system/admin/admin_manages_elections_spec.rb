@@ -200,7 +200,7 @@ describe "Admin manages elections", type: :system do
 
     it "deletes an election" do
       within find("tr", text: translated(election.title)) do
-        accept_confirm(admin: true) do
+        accept_confirm do
           page.find(".action-icon--remove").click
         end
       end

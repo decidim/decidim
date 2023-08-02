@@ -204,7 +204,7 @@ describe "Admin manages newsletters", type: :system do
           end
 
           within ".button--double" do
-            accept_confirm(admin: true) { find("*", text: "Deliver").click }
+            accept_confirm { find("*", text: "Deliver").click }
           end
 
           expect(page).to have_content("Newsletters")
@@ -241,7 +241,7 @@ describe "Admin manages newsletters", type: :system do
           end
 
           within ".button--double" do
-            accept_confirm(admin: true) { find("*", text: "Deliver").click }
+            accept_confirm { find("*", text: "Deliver").click }
           end
 
           expect(page).to have_content("Newsletters")
@@ -278,7 +278,7 @@ describe "Admin manages newsletters", type: :system do
           end
 
           within ".button--double" do
-            accept_confirm(admin: true) { find("*", text: "Deliver").click }
+            accept_confirm { find("*", text: "Deliver").click }
           end
 
           expect(page).to have_content("Newsletters")
@@ -322,7 +322,7 @@ describe "Admin manages newsletters", type: :system do
           end
 
           within ".button--double" do
-            accept_confirm(admin: true) { find("*", text: "Deliver").click }
+            accept_confirm { find("*", text: "Deliver").click }
           end
 
           expect(page).to have_content("Newsletters")
@@ -343,7 +343,7 @@ describe "Admin manages newsletters", type: :system do
       visit decidim_admin.newsletters_path
 
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_content("successfully")

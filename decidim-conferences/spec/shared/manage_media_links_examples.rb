@@ -83,7 +83,7 @@ shared_examples "manage media links examples" do
 
     it "deletes the conference media link" do
       within find("#media_links tr", text: translated(media_link.title)) do
-        accept_confirm(admin: true) { find("a.action-icon--remove").click }
+        accept_confirm { find("a.action-icon--remove").click }
       end
 
       expect(page).to have_admin_callout("successfully")

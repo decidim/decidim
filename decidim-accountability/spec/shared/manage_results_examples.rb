@@ -112,7 +112,7 @@ shared_examples "manage results" do
 
     it "deletes a result" do
       within find("tr", text: translated(result2.title)) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

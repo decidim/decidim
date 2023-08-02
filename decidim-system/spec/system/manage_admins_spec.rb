@@ -94,7 +94,7 @@ describe "Manage admins", type: :system do
 
   it "deletes an admin" do
     within find("tr", text: admin2.email) do
-      accept_confirm { click_link "Delete" }
+      accept_confirm(admin: true) { click_link "Delete" }
     end
 
     within ".success.flash" do

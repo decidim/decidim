@@ -104,7 +104,7 @@ describe "Admin manages participatory texts", type: :system do
   end
 
   def discard_participatory_text_drafts
-    accept_confirm "Are you sure to discard the whole participatory text draft?", admin: true do
+    accept_confirm "Are you sure to discard the whole participatory text draft?" do
       click_link "Discard all"
     end
     expect(page).to have_content "All participatory text drafts have been discarded."

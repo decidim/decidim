@@ -137,7 +137,7 @@ describe "Content pages", type: :system do
 
       it "can delete them" do
         within find(".card", text: translated(topic.title)) do
-          accept_confirm(admin: true) { click_link "Remove topic" }
+          accept_confirm { click_link "Remove topic" }
         end
 
         expect(page).to have_admin_callout("successfully")
@@ -248,7 +248,7 @@ describe "Content pages", type: :system do
 
       it "can delete them" do
         within find("tr", text: translated(decidim_page.title)) do
-          accept_confirm(admin: true) { click_link "Delete" }
+          accept_confirm { click_link "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")

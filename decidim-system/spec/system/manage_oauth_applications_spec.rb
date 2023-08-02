@@ -63,7 +63,7 @@ describe "Manage OAuth applications", type: :system do
 
     it "can delete them" do
       within find("tr", text: application.name) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm(admin: true) { click_link "Delete" }
       end
 
       expect(page).to have_content("successfully")

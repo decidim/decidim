@@ -89,7 +89,7 @@ shared_examples "manage attachment collections examples" do
 
       it "can delete the attachment collection" do
         within find("tr", text: translated(attachment_collection2.name)) do
-          accept_confirm(admin: true) { click_link "Delete" }
+          accept_confirm { click_link "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
