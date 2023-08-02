@@ -385,10 +385,8 @@ gl:
           title: Sobre este proceso
       show:
         belongs_to_group: Este proceso pertence a
-        dates: Datas
         private_space: Este é un proceso privado
         related_processes: Procesos relacionados
-        unspecified: Non especificado
     statistics:
       processes_count: Procesos
   layouts:
