@@ -367,7 +367,6 @@ sk:
       show:
         private_space: Jedná sa o súkromný proces
         related_processes: Súvisiace procesy
-        unspecified: Nešpecifikované
   layouts:
     decidim:
       participatory_process_groups:
