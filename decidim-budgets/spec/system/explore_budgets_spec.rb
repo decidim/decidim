@@ -61,7 +61,7 @@ describe "Explore Budgets", :slow, type: :system do
       end
       let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
       let(:budget) { budgets.first }
-      let(:item) { page.find("#budgets .card--list__item:first-child", match: :first) }
+      let(:item) { page.find("#budgets .card--list__item", match: :first) }
       let!(:projects) { create_list(:project, 3, budget:, budget_amount: 10_000_000) }
 
       before do

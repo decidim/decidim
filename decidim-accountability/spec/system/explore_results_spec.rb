@@ -123,7 +123,7 @@ describe "Explore results", type: :system, versioning: true do
           find("*[type=submit]").click
         end
 
-        within("div#results") do
+        within("#results") do
           expect(page).to have_content(translated(matching_result1.title))
           expect(page).to have_content(translated(matching_result2.title))
 
