@@ -113,7 +113,7 @@ shared_examples "manage processes examples" do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_selector("input[value='My new title']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
       end

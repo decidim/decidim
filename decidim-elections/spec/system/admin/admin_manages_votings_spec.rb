@@ -60,7 +60,7 @@ describe "Admin manages votings", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_votings.votings_path
         expect(page).to have_content("My voting")
       end
@@ -138,7 +138,7 @@ describe "Admin manages votings", type: :system do
       expect(page).to have_admin_callout("successfully")
       expect(page).not_to have_admin_callout("You do not have any election configured")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_selector("input[value='My new title']")
         expect(page).not_to have_css("img[src*='#{image2_filename}']")
         expect(page).to have_css("img[src*='#{image3_filename}']")

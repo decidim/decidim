@@ -60,7 +60,7 @@ describe "Admin manages questionnaire templates", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(Decidim::Templates::Template.last.id)
         expect(page.find("#template_name_en").value).to eq("My template")
 
@@ -144,7 +144,7 @@ describe "Admin manages questionnaire templates", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(template)
         expect(page.find("#template_name_en").value).to eq("My new name")
       end
@@ -205,7 +205,7 @@ describe "Admin manages questionnaire templates", type: :system do
         click_link("Edit")
       end
 
-      within ".container" do
+      within "[data-content]" do
         click_link("Edit")
       end
 
@@ -238,7 +238,7 @@ describe "Admin manages questionnaire templates", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(template)
         expect(page).to have_content("My question")
       end
@@ -249,7 +249,7 @@ describe "Admin manages questionnaire templates", type: :system do
         click_link("Edit")
       end
 
-      within ".container" do
+      within "[data-content]" do
         click_link("Edit")
       end
 

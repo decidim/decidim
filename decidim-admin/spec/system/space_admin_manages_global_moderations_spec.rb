@@ -95,7 +95,7 @@ describe "Space admin manages global moderations", type: :system do
     it "cannot see any moderation" do
       visit decidim_admin.moderations_path
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_content("Reported content")
 
         expect(page).not_to have_selector("table.table-list tbody tr")

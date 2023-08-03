@@ -81,7 +81,7 @@ describe "Admin manages participatory processes", type: :system, versioning: tru
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_participatory_processes.participatory_process_steps_path(Decidim::ParticipatoryProcess.last)
         expect(page).to have_content("Phases")
         expect(page).to have_content("Introduction")
