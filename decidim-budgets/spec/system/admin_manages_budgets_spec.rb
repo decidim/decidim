@@ -172,16 +172,16 @@ describe "Admin manages budgets", type: :system do
       it "shows finished and pending orders" do
         visit current_path
         within find_all(".card-divider").last do
-          expect(page).to have_content("Finished votes: \n4")
-          expect(page).to have_content("Pending votes: \n1")
+          expect(page).to have_content("Finished votes: 4")
+          expect(page).to have_content("Pending votes: 1")
         end
       end
 
       it "shows count of users with finished and pending orders" do
         visit current_path
         within find_all(".card-divider").last do
-          expect(page).to have_content("Users with finished votes: \n3")
-          expect(page).to have_content("Users with pending votes: \n1")
+          expect(page).to have_content("Users with finished votes: 3")
+          expect(page).to have_content("Users with pending votes: 1")
         end
       end
     end
