@@ -132,15 +132,20 @@ module Decidim
     end
 
     config_accessor :trained_models do
-      {
-        "Decidim::Comments::Comment" => "Decidim::Ai::SpamDetection::Resource::Comment",
-        "Decidim::Debates::Debate" => "Decidim::Ai::SpamDetection::Resource::Debate",
-        "Decidim::Meetings::Meeting" => "Decidim::Ai::SpamDetection::Resource::Meeting",
-        "Decidim::Proposals::Proposal" => "Decidim::Ai::SpamDetection::Resource::Proposal",
-        "Decidim::Proposals::CollaborativeDraft" => "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft",
+      @models = {
         "Decidim::UserGroup" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity",
         "Decidim::User" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
       }
+
+      @models["Decidim::Comments::Comment"] = "Decidim::Ai::SpamDetection::Resource::Comment" if Decidim.module_installed?("comments")
+      @models["Decidim::Debates::Debate"] = "Decidim::Ai::SpamDetection::Resource::Debate" if Decidim.module_installed?("debates")
+      @models["Decidim::Meetings::Meeting"] = "Decidim::Ai::SpamDetection::Resource::Meeting" if Decidim.module_installed?("meetings")
+      @models["Decidim::Proposals::Proposal"] = "Decidim::Ai::SpamDetection::Resource::Proposal" if Decidim.module_installed?("proposals")
+      @models["Decidim::Proposals::CollaborativeDraft"] = "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft" if Decidim.module_installed?("proposals")
+      @models["Decidim::Proposals::Proposal"] = "Decidim::Ai::SpamDetection::Resource::Proposal" if Decidim.module_installed?("proposals")
+      @models["Decidim::Proposals::Proposal"] = "Decidim::Ai::SpamDetection::Resource::Proposal" if Decidim.module_installed?("proposals")
+
+      @models
     end
 
     def self.spam_detection_instance

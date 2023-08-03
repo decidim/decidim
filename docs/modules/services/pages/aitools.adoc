@@ -1,0 +1,187 @@
+= AI tools
+
+In order to help the moderator communities to manage better their Decidim installations, we have shipped the first version of the AI tools. This is a set of tools that will help the moderators to detect and manage the content that is being published.
+
+== Functionalities
+
+=== Language detection
+This service allows you to install and configure a language detection service that you may use to manage the content that is being published in your installation.
+
+This service can be used for:
+
+- Identify content that is not being inserted in the platform available languages.
+- Identify the language of the content before sending it to the translation service.
+
+=== Spam detection
+This service allows you to install and configure a spam detection service so that any suspicious content get reported at the very early possible step.
+
+This service can be trained either using the datasets that we provide, or using your own content. This way the engine learns your own business domain and it is able to detect spam or things that are not relevant for your activity.
+
+
+== Installation
+
+In order to install the module, you need to edit the `Gemfile` of your Decidim installation and add the following line:
+
+```ruby
+  gem "decidim-ai"
+```
+
+And then execute:
+
+```bash
+  $ bundle install
+```
+
+== Configuration
+
+The AI tool allows you to configure most of the parameters using either defaults, or the initializer.
+In order to get control of your AI installation, you may need to create an initializer in your application.
+
+You can do it by creating a file in `config/initializers/decidim_ai.rb` with the following content:
+
+```ruby
+Decidim::Ai.spam_treshold = 0.75 # default
+# The entry must be a hash with the following keys:
+# - name: the name of the analyzer
+# - strategy: the class of the strategy to use
+# - options: a hash with the options to pass to the strategy
+# Example:
+# Decidim::Ai.registered_analyzers = [
+#   {
+#     name: :bayes,
+#     strategy: Decidim::Ai::SpamContent::BayesStrategy,
+#     options: {
+#       adapter: :redis,
+#       params: {
+#         url:                lambda { ENV["REDIS_URL"] }
+#         scheme:             "redis"
+#         host:               "127.0.0.1"
+#         port:               6379
+#         path:               nil
+#         timeout:            5.0
+#         password:           nil
+#         db:                 0
+#         driver:             nil
+#         id:                 nil
+#         tcp_keepalive:      0
+#         reconnect_attempts: 1
+#         inherit_socket:     false
+#       }
+#     }
+#   }
+# ]
+Decidim::Ai.registered_analyzers = [
+  {
+    name: :bayes,
+    strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
+    options: { adapter: :memory, params: {} }
+  }
+]
+
+Decidim::Ai.reporting_user_email = "your-admin@domain.tld"
+
+# If you want to use a different spam detection service,
+# you can use a class service having the following contract
+#
+# class SpamDetection::Service
+#   def initialize
+#     @registry = Decidim::Ai.spam_detection_registry
+#   end
+#
+#   def train(category, text)
+#     # train the strategy
+#   end
+#
+#   def classify(text)
+#     # classify the text
+#   end
+#
+#   def untrain(category, text)
+#     # untrain the strategy
+#   end
+#
+#   def classification_log
+#     # return the classification log
+#   end
+# end
+Decidim::Ai.spam_detection_service = "Decidim::Ai::SpamDetection::Service"
+
+# Customize here what are the analyzed models. You may want to use this to
+# override what we register by default, or to register your own resources.
+#
+# The ResourceAnalyzer has the following contract
+# class ResourceAnalyzer < Decidim::Ai::SpamDetection::Resource::Base
+#   def fields
+#     [:title, :body, :etc]
+#   end
+#
+#   protected
+#
+#   def query
+#     Your::Model.including()
+#   end
+#
+#   # Additionally you can override the following methods
+#
+#   def resource_hidden?(resource); end
+#   def batch_train; end
+#   def train; end #  delegated to classifier
+#   def untrain; end #  delegated to classifier
+# end
+Decidim::Ai.trained_models = {
+  "Decidim::Comments::Comment" => "Decidim::Ai::SpamDetection::Resource::Comment",
+  "Decidim::Initiative" => "Decidim::Ai::SpamDetection::Resource::Initiative",
+  "Decidim::Debates::Debate" => "Decidim::Ai::SpamDetection::Resource::Debate",
+  "Decidim::Meetings::Meeting" => "Decidim::Ai::SpamDetection::Resource::Meeting",
+  "Decidim::Proposals::Proposal" => "Decidim::Ai::SpamDetection::Resource::Proposal",
+  "Decidim::Proposals::CollaborativeDraft" => "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft",
+  "Decidim::UserGroup" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity",
+  "Decidim::User" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
+}
+```
+
+== Commands
+
+Decidim Ai provides a set of commands that you can use to manage the engine.
+
+=== Create reporting user
+In order to preserve the database integrity, you need to configure a system user that could be used to report content in the application. Use the following command to create an user for each one of the organizations you may have. The email address defined by `Decidim::Ai.reporting_user_email` will be used to find or create the user.
+
+```bash
+bundle exec decidim:ai:create_reporting_user
+```
+
+
+=== Load the file training data
+In the new or small platforms is quite hard to have a training dataset of spam content. We provide some real life examples of spam data extracted by the contributors of the project. You can use the following command to load the data into your installation.
+
+```bash
+bundle exec decidim:ai:load_plugin_dataset
+```
+
+=== Load custom model
+In some cases, when you manage multiple installations, you may want to share the same model between them. You can use the following command to load a simple CSV.
+
+```bash
+bundle exec decidim:ai:load_application_dataset[/path/to/file.csv]
+
+```
+
+=== Load the data from your server
+In some cases, like an upgrade, you may want to train your model using your existing data, so you can use:
+
+```bash
+bundle exec decidim:ai:train_using_database
+```
+
+=== Reset the model
+If the trained model becomes corrupt, you could use the below command to reinitialize the model. Once you do this, you would need to train the model again. using any of the above commands.
+
+```bash
+bundle exec decidim:ai:reset_model
+```
+
+== Sidekiq
+Decidim Ai comes with a new queue that is aimed to be ran to analyze the content of the platform. We have decided to have it in a separate queue to avoid blocking other events that your sidekiq may use.
+
+We start to provide the `spam_analysis` queue name.
