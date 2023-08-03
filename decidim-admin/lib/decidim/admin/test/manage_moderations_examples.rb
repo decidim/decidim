@@ -119,7 +119,7 @@ shared_examples "manage moderations" do
       search = moderation.reportable.id
       within ".filters__section" do
         fill_in("Search Moderation by reportable id or content.", with: search)
-        find(:xpath, "//button[@type='submit']").click
+        find("button[type='submit']").click
       end
       expect(page).to have_selector("tbody tr", count: 1)
     end
