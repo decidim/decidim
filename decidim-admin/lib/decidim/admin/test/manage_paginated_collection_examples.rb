@@ -17,8 +17,8 @@ shared_examples "a paginated collection" do |options|
     end
 
     it "changes the number of results per page" do
-      within ".results-per-page__dropdown" do
-        page.find("a", text: "15").click
+      within "[data-pagination]" do
+        page.find("details", text: "15").click
         click_link "50"
       end
 
