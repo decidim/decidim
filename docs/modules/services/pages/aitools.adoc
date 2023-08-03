@@ -1,0 +1,135 @@
+= AI tools
+
+In order to help the moderator communities to manage better their Decidim installations, we have shipped the first version of the AI tools. This is a set of tools that will help the moderators to detect and manage the content that is being published in their installations.
+
+== Functionalities
+
+=== Language detection
+This service allows you to install and configure a language detection service that you may use to manage the content that is being published in your installation.
+
+This service can be used for:
+
+- Identify content that is not being inserted in the platform available languages.
+- Identify the language of the content before sending it to the translation service.
+
+=== Spam detection
+This service allows you to install and configure a spam detection service so that any suspicious content get reported at the very early possible step.
+
+This service can be trained either using the datasets that we provide, or using your own content. This way the engine learns your own business domain and it is able to detect spam or things that are not relevant for your activity.
+
+
+== Installation
+
+In order to install the module, you need to edit the `Gemfile` of your Decidim installation and add the following line:
+
+```ruby
+  gem "decidim-ai"
+```
+
+And then execute:
+
+```bash
+  $ bundle install
+```
+
+== Configuration
+
+The AI tool allows you to configure most of the parameters using either defaults, or the initializer.
+In order to get control of your AI installation, you may need to create an initializer in your application.
+
+You can do it by creating a file in `config/initializers/decidim_ai.rb` with the following content:
+
+```ruby
+
+Decidim::Ai.spam_treshold = 0.75 # default
+# The entry must be a hash with the following keys:
+# - name: the name of the analyzer
+# - strategy: the class of the strategy to use
+# - options: a hash with the options to pass to the strategy
+# Example:
+# Decidim::Ai.registered_analyzers = [
+#   {
+#     name: :bayes,
+#     strategy: Decidim::Ai::SpamContent::BayesStrategy,
+#     options: {
+#       adapter: :redis,
+#       params: {
+#         url:                lambda { ENV["REDIS_URL"] }
+#         scheme:             "redis"
+#         host:               "127.0.0.1"
+#         port:               6379
+#         path:               nil
+#         timeout:            5.0
+#         password:           nil
+#         db:                 0
+#         driver:             nil
+#         id:                 nil
+#         tcp_keepalive:      0
+#         reconnect_attempts: 1
+#         inherit_socket:     false
+#       }
+#     }
+#   }
+# ]
+Decidim::Ai.registered_analyzers = [
+  { name: :bayes, strategy: Decidim::Ai::SpamDetection::Strategy::Bayes, options: { adapter: :memory, params: {} } }
+]
+
+Decidim::Ai.reporting_user_email = "your-admin@domain.tld"
+
+# If you want to use a different spam detection service, you can use a class service having the following contract
+#
+# class SpamDetection::Service
+#   def initialize
+#     @registry = Decidim::Ai.spam_detection_registry
+#   end
+#
+#   def train(category, text)
+#     # train the strategy
+#   end
+#
+#   def classify(text)
+#     # classify the text
+#   end
+#
+#   def untrain(category, text)
+#     # untrain the strategy
+#   end
+#
+#   def classification_log
+#     # return the classification log
+#   end
+# end
+Decidim::Ai.spam_detection_service = "Decidim::Ai::SpamDetection::Service"
+
+# Customize here what are the analyzed models. You may want to use this to override what we register by default, or to register your own resources.
+#
+# The ResourceAnalyzer has the following contract
+# class ResourceAnalyzer < Decidim::Ai::SpamDetection::Resource::Base
+#   def fields
+#     [:title, :body, :etc]
+#   end
+#
+#   protected
+#
+#   def query
+#     Your::Model.including()
+#   end
+#
+#   # Additionally you can override the following methods
+#
+#   def resource_hidden?(resource); end
+#   def batch_train; end
+#   def train; end #  delegated to classifier
+#   def untrain; end #  delegated to classifier
+# end
+Decidim::Ai.trained_models = {
+  "Decidim::Comments::Comment" => "Decidim::Ai::SpamDetection::Resource::Comment",
+  "Decidim::Debates::Debate" => "Decidim::Ai::SpamDetection::Resource::Debate",
+  "Decidim::Meetings::Meeting" => "Decidim::Ai::SpamDetection::Resource::Meeting",
+  "Decidim::Proposals::Proposal" => "Decidim::Ai::SpamDetection::Resource::Proposal",
+  "Decidim::Proposals::CollaborativeDraft" => "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft",
+  "Decidim::UserGroup" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity",
+  "Decidim::User" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
+}
+```
