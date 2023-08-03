@@ -33,9 +33,12 @@ describe "Participatory texts", type: :system do
   shared_examples_for "lists all the proposals ordered" do
     it "by position" do
       visit_component
-      expect(page).to have_css("section[id^='proposal']", count: proposals.count)
-      proposals.each_with_index do |proposal, index|
-        should_have_proposal("#proposals section[id^='proposal']:nth-child(#{index + 1})", proposal)
+
+      within "#proposals" do
+        expect(page).to have_css("[id^='proposal']", count: proposals.count)
+        proposals.each_with_index do |proposal, index|
+          should_have_proposal("[id^='proposal']:nth-child(#{index + 1})", proposal)
+        end
       end
     end
 
