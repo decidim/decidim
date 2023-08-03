@@ -55,7 +55,7 @@ describe "Admin manages questionnaire templates", type: :system do
           ca: "Descripció"
         )
 
-        page.find("*[type=submit]").click
+        click_button "Save"
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -85,7 +85,7 @@ describe "Admin manages questionnaire templates", type: :system do
         )
       end
 
-      page.find("*[type=submit]").click
+      click_button "Save"
       expect(page).to have_admin_callout("successfully")
     end
   end
@@ -253,7 +253,7 @@ describe "Admin manages questionnaire templates", type: :system do
         click_link("Edit")
       end
 
-      within ".card-title" do
+      within ".item_show__header" do
         expect(page).not_to have_button("Preview")
         expect(page).not_to have_button("No answers yet")
       end
@@ -288,7 +288,7 @@ describe "Admin manages questionnaire templates", type: :system do
 
     it "shows the template preview" do
       within ".questionnaire-template-preview" do
-        expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+        expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.questions.first.body)
         expect(page).to have_field(id: "questionnaire_responses_0")
         expect(page).to have_selector("button[type=submit][disabled]")
