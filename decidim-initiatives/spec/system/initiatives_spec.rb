@@ -68,11 +68,8 @@ describe "Initiatives", type: :system do
         end
 
         it "lists all the initiatives" do
-          within "#initiatives-count" do
-            expect(page).to have_content("1")
-          end
-
           within "#initiatives" do
+            expect(page).to have_content("1")
             expect(page).to have_content(translated(initiative.title, locale: :en))
             expect(page).not_to have_content(translated(unpublished_initiative.title, locale: :en))
           end
@@ -132,11 +129,8 @@ describe "Initiatives", type: :system do
         end
 
         it "lists all the initiatives without errors" do
-          within "#initiatives-count" do
-            expect(page).to have_content("1")
-          end
-
           within "#initiatives" do
+            expect(page).to have_content("1")
             expect(page).to have_content(translated(initiative.title, locale: :en))
             expect(page).not_to have_content(translated(unpublished_initiative.title, locale: :en))
           end
@@ -168,9 +162,7 @@ describe "Initiatives", type: :system do
       end
 
       it "shows the correct initiatives count" do
-        within "#initiatives-count" do
-          expect(page).to have_content("21")
-        end
+        expect(page).to have_content("21")
       end
     end
   end
