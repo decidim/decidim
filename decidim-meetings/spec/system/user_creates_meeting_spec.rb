@@ -92,8 +92,8 @@ describe "User creates meeting", type: :system do
             fill_in :meeting_location, with: meeting_location
             fill_in :meeting_location_hints, with: meeting_location_hints
             fill_in_geocoding :meeting_address, with: meeting_address
-            fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
-            fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
+            fill_in :meeting_start_time, with: meeting_start_time
+            fill_in :meeting_end_time, with: meeting_end_time
             select "Registration disabled", from: :meeting_registration_type
             select translated(category.name), from: :meeting_decidim_category_id
             select translated(meeting_scope.name), from: :meeting_decidim_scope_id
@@ -131,8 +131,8 @@ describe "User creates meeting", type: :system do
                 select "In person", from: :meeting_type_of_meeting
                 fill_in :meeting_location, with: meeting_location
                 fill_in :meeting_location_hints, with: meeting_location_hints
-                fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
-                fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
+                fill_in :meeting_start_time, with: meeting_start_time
+                fill_in :meeting_end_time, with: meeting_end_time
                 select "Registration disabled", from: :meeting_registration_type
               end
             end
@@ -156,8 +156,8 @@ describe "User creates meeting", type: :system do
               fill_in :meeting_location, with: meeting_location
               fill_in :meeting_location_hints, with: meeting_location_hints
               fill_in_geocoding :meeting_address, with: meeting_address
-              fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
-              fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
+              fill_in :meeting_start_time, with: meeting_start_time
+              fill_in :meeting_end_time, with: meeting_end_time
               select "Registration disabled", from: :meeting_registration_type
               select translated(category.name), from: :meeting_decidim_category_id
               select translated(meeting_scope.name), from: :meeting_decidim_scope_id
@@ -192,8 +192,8 @@ describe "User creates meeting", type: :system do
               fill_in :meeting_location, with: meeting_location
               fill_in :meeting_location_hints, with: meeting_location_hints
               fill_in_geocoding :meeting_address, with: meeting_address
-              fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
-              fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
+              fill_in :meeting_start_time, with: meeting_start_time
+              fill_in :meeting_end_time, with: meeting_end_time
               select "On this platform", from: :meeting_registration_type
               fill_in :meeting_available_slots, with: meeting_available_slots
               fill_in :meeting_registration_terms, with: meeting_registration_terms
