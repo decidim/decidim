@@ -160,7 +160,7 @@ shared_examples "manage projects" do
       )
       fill_in :project_budget_amount, with: 22_000_000
 
-      scope_pick select_data_picker(:project_decidim_scope_id), scope
+      select translated(scope), from: :project_decidim_scope_id
       select translated(category.name), from: :project_decidim_category_id
 
       find("*[type=submit]").click
@@ -264,7 +264,7 @@ shared_examples "manage projects" do
         fill_in :project_budget_amount, with: 22_000_000
 
         proposals_pick(select_data_picker(:project_proposals, multiple: true), proposals.first(2))
-        scope_pick(select_data_picker(:project_decidim_scope_id), scope)
+        select translated(scope), from: :project_decidim_scope_id
         select translated(category.name), from: :project_decidim_category_id
 
         find("*[type=submit]").click

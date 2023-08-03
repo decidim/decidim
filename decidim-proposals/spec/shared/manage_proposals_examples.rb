@@ -81,7 +81,7 @@ shared_examples "manage proposals" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
               fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
               select translated(category.name), from: :proposal_category_id
-              scope_pick select_data_picker(:proposal_scope_id), scope
+              select translated(scope.name), from: :proposal_scope_id
               find("*[type=submit]").click
             end
 

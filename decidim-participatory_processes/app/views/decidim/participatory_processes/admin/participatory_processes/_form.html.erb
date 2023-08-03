@@ -151,7 +151,7 @@
       </div>
 
       <div class="row column">
-        <%= scopes_picker_field form, :scope_id, root: nil %>
+        <%= scopes_select_field form, :scope_id, root: nil %>
 
         <div class="row" id="scope-depth ">
           <%= form.collection_select :scope_type_max_depth_id,

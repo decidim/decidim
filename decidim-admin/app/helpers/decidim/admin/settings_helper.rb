@@ -57,7 +57,7 @@ module Decidim
           elsif form_method == :select_field
             render_select_form_field(form, attribute, name, i18n_scope, options)
           elsif form_method == :scope_field
-            scopes_picker_field(form, name)
+            scopes_select_field(form, name)
           else
             form.send(form_method, name, options)
           end

@@ -76,7 +76,7 @@ shared_examples "manage results" do
         )
 
         proposals_pick(select_data_picker(:result_proposals, multiple: true), proposals.first(2))
-        scope_pick(select_data_picker(:result_decidim_scope_id), scope)
+        select translated(scope.name), from: :result_decidim_scope_id
         select translated(category.name), from: :result_decidim_category_id
 
         find("*[type=submit]").click
