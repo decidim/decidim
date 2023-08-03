@@ -13,7 +13,9 @@ shared_examples "sorted moderations" do
 
   before do
     visit participatory_space_path
-    click_link moderations_link_text
+    within_admin_menu do
+      click_link moderations_link_text
+    end
   end
 
   it "sorts the most recent first" do
@@ -47,7 +49,9 @@ shared_examples "manage moderations" do
 
   before do
     visit participatory_space_path
-    click_link moderations_link_text
+    within_admin_menu do
+      click_link moderations_link_text
+    end
   end
 
   context "when listing moderations" do
