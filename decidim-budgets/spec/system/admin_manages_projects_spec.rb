@@ -51,7 +51,7 @@ describe "Admin manages projects", type: :system do
       find(".js-resource-id-#{project.id}").set(true)
       find("#js-bulk-actions-button").click
       click_button "Change scope"
-      select translated(scope), from: :scope_id
+      select translated(scope.name), from: :scope_id
       click_button "Update"
       expect(page).to have_css(".callout.success")
       within "tr[data-id='#{project.id}']" do

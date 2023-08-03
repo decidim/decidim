@@ -42,7 +42,7 @@ describe "Admin manages budgets", type: :system do
       )
       fill_in :budget_weight, with: 1
       fill_in :budget_total_budget, with: 100_000_00
-      select translated(scope), from: :budget_decidim_scope_id
+      select translated(scope.name), from: :budget_decidim_scope_id
     end
 
     within ".new_budget" do

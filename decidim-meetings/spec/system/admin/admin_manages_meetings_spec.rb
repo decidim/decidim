@@ -308,7 +308,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
     fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
-    select translated(scope), from: :meeting_decidim_scope_id
+    select translated(scope.name), from: :meeting_decidim_scope_id
     select translated(category.name), from: :meeting_decidim_category_id
 
     within ".new_meeting" do
@@ -515,7 +515,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
       fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
-      select translated(scope), from: :meeting_decidim_scope_id
+      select translated(scope.name), from: :meeting_decidim_scope_id
       select translated(category.name), from: :meeting_decidim_category_id
 
       within ".new_meeting" do

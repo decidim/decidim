@@ -42,7 +42,7 @@ shared_examples "Managing component permissions" do
         include(
           "authorization_handlers" => {
             "dummy_authorization_handler" => {
-              "options" => { "allowed_postal_codes" => "08002" }
+              "options" => { "allowed_postal_codes" => "08002", "allowed_scope_id" => "" }
             }
           }
         )
@@ -164,7 +164,7 @@ shared_examples "Managing component permissions" do
         include(
           "authorization_handlers" => {
             "dummy_authorization_handler" => {
-              "options" => { "allowed_postal_codes" => "08002" }
+              "options" => { "allowed_postal_codes" => "08002", "allowed_scope_id" => "" }
             },
             "another_dummy_authorization_handler" => {
               "options" => { "passport_number" => "AXXXXXXXX" }
@@ -226,7 +226,7 @@ shared_examples "Managing component permissions" do
           include(
             "authorization_handlers" => {
               "dummy_authorization_handler" => {
-                "options" => { "allowed_postal_codes" => "08002" }
+                "options" => { "allowed_postal_codes" => "08002", "allowed_scope_id" => "" }
               }
             }
           )
@@ -325,7 +325,7 @@ shared_examples "Managing component permissions" do
           include(
             "authorization_handlers" => {
               "dummy_authorization_handler" => {
-                "options" => { "allowed_postal_codes" => "08002" }
+                "options" => { "allowed_postal_codes" => "08002", "allowed_scope_id" => "" }
               },
               "another_dummy_authorization_handler" => {
                 "options" => { "passport_number" => "AXXXXXXXX" }
@@ -393,7 +393,7 @@ shared_examples "Managing component permissions" do
           include(
             "authorization_handlers" => {
               "dummy_authorization_handler" => {
-                "options" => { "allowed_postal_codes" => "08002" }
+                "options" => { "allowed_postal_codes" => "08002", "allowed_scope_id" => "" }
               },
               "another_dummy_authorization_handler" => {
                 "options" => { "passport_number" => "AXXXXXXXX" }

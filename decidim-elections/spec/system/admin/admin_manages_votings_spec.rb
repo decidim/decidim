@@ -54,7 +54,7 @@ describe "Admin manages votings", type: :system do
 
       within ".new_voting" do
         select "Online", from: :voting_voting_type
-        select translated(organization.scopes.first), from: :voting_scope_id
+        select translated(organization.scopes.first.name), from: :voting_scope_id
         find("*[type=submit]").click
       end
 
@@ -101,7 +101,7 @@ describe "Admin manages votings", type: :system do
       dynamically_attach_file(:voting_introductory_image, image2_path)
 
       within ".new_voting" do
-        select translated(organization.scopes.first), from: :voting_scope_id
+        select translated(organization.scopes.first.name), from: :voting_scope_id
         find("*[type=submit]").click
       end
 
