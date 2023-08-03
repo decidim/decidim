@@ -19,7 +19,7 @@
       <% end %>
 
       <% if allowed_to? :share, :component, component: component %>
-        <%= icon_link_to "share-line", url_for(action: :share, id: component, controller: "components"), t("actions.share", scope: "decidim.admin"), class: "action-icon--share" %>
+        <%= icon_link_to "share-line", url_for(action: :share, id: component, controller: "components"), t("actions.share", scope: "decidim.admin"), target: :blank, class: "action-icon--share" %>
       <% else %>
         <span class="action-space icon"></span>
       <% end %>
