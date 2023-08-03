@@ -76,6 +76,10 @@ module Decidim
       decidim_html_escape(translated_attribute(resource.title))
     end
 
+    def alt_title
+      [t("decidim.application.photo.alt"), decidim_html_escape(translated_attribute(resource.title))].join(": ")
+    end
+
     def title_tag
       options[:title_tag] || :h3
     end
