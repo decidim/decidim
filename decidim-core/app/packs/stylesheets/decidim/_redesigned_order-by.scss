@@ -7,7 +7,7 @@
 }
 
 [data-target*="dropdown"].order-by__button {
-  @apply justify-end mb-4;
+  @apply justify-end;
 
   > svg {
     @apply h-4 w-4 text-gray;
