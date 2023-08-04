@@ -175,3 +175,9 @@
     }
   }
 }
+
+.iframe {
+  &_container_meetings {
+    @apply h-[420px] w-full;
+  }
+}
