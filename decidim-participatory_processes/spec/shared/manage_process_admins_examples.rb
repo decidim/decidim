@@ -14,7 +14,9 @@ shared_examples "manage process admins examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
-    click_link "Process admins"
+    within_admin_menu do
+      click_link "Process admins"
+    end
   end
 
   it "shows process admin list" do
