@@ -358,5 +358,9 @@ end
 
 def new_collaborative_draft_path
   visit_component
-  "#{current_path}/collaborative_drafts/new"
+  "#{current_proposal_path}/collaborative_drafts/new"
+end
+
+def current_proposal_path
+  current_path.sub("/proposals", "")
 end
