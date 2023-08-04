@@ -173,7 +173,7 @@ shared_examples "manage invites" do
 
         within ".filters__search" do
           fill_in :q, with: invites.first.user.email
-          find(".icon--magnifying-glass").click
+          find("button[type='submit']").click
         end
 
         within "#meeting-invites table tbody" do
