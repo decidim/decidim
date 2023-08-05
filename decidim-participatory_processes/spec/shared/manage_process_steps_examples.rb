@@ -45,12 +45,7 @@ shared_examples "manage process steps examples" do
     fill_in :participatory_process_step_end_date, with: Time.current.change(day: 22)
 
     within ".new_participatory_process_step" do
-      # For some reason, the form submit button click can fail unless the page
-      # is first scrolled to this element
-      # Got the idea from:
-      # https://stackoverflow.com/a/39103252
-      page.scroll_to(find(".form-general-submit"))
-      find(".form-general-submit").click
+      click_button "Create"
     end
 
     expect(page).to have_admin_callout("successfully")
