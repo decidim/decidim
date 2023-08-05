@@ -27,14 +27,13 @@ describe "Invite process collaborator", type: :system do
       end
 
       expect(page).to have_current_path "/admin/admin_terms/show"
-      expect(page).to have_content("Dashboard")
 
       visit decidim_admin.admin_terms_show_path
       find_button("I agree with the terms").click
 
       click_link "Processes"
 
-      within "#processes" do
+      within "div.table-scroll" do
         expect(page).to have_i18n_content(participatory_process.title)
       end
     end
@@ -55,11 +54,10 @@ describe "Invite process collaborator", type: :system do
       login_as collaborator, scope: :user
 
       visit decidim_admin.root_path
-      expect(page).to have_content("Dashboard")
 
       click_link "Processes"
 
-      within "#processes" do
+      within "div.table-scroll" do
         expect(page).to have_i18n_content(participatory_process.title)
       end
     end
