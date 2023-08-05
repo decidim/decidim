@@ -58,12 +58,12 @@ shared_examples "manage processes examples" do
       let!(:participatory_process) { create(:participatory_process, :unpublished, organization:) }
 
       it "allows the user to preview the unpublished process" do
-        within find("tr", text: translated(participatory_process.title)) do
-          click_link "Preview"
-        end
+        new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_link("Preview") }
 
-        expect(page).to have_css(".participatory-space__container")
-        expect(page).to have_content(translated(participatory_process.title))
+        page.within_window(new_window) do
+          expect(page).to have_css(".participatory-space__container")
+          expect(page).to have_content(translated(participatory_process.title))
+        end
       end
     end
 
@@ -75,8 +75,12 @@ shared_examples "manage processes examples" do
           click_link "Preview"
         end
 
-        expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
-        expect(page).to have_content(translated(participatory_process.title))
+        new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_link("Preview") }
+
+        page.within_window(new_window) do
+          expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
+          expect(page).to have_content(translated(participatory_process.title))
+        end
       end
     end
   end
