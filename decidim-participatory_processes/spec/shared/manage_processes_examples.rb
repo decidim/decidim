@@ -97,7 +97,11 @@ shared_examples "manage processes examples" do
 
     before do
       within find("tr", text: translated(participatory_process.title)) do
-        click_link "Configure"
+        click_link translated(participatory_process.title)
+      end
+
+      within_admin_menu do
+        click_link "About this process"
       end
     end
 
@@ -131,7 +135,11 @@ shared_examples "manage processes examples" do
 
     before do
       within find("tr", text: translated(participatory_process.title)) do
-        click_link "Configure"
+        click_link translated(participatory_process.title)
+      end
+
+      within_admin_menu do
+        click_link "About this process"
       end
     end
 
@@ -151,7 +159,11 @@ shared_examples "manage processes examples" do
 
     before do
       within find("tr", text: translated(participatory_process.title)) do
-        click_link "Configure"
+        click_link translated(participatory_process.title)
+      end
+
+      within_admin_menu do
+        click_link "About this process"
       end
     end
 
@@ -189,7 +201,11 @@ shared_examples "manage processes examples" do
 
     it "disables the scope for a participatory process" do
       within find("tr", text: translated(participatory_process.title)) do
-        click_link "Configure"
+        click_link translated(participatory_process.title)
+      end
+
+      within_admin_menu do
+        click_link "About this process"
       end
 
       uncheck :participatory_process_scopes_enabled
