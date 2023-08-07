@@ -34,7 +34,11 @@
         <% if component.published? %>
           <%= icon_link_to "x", url_for(action: :unpublish, id: component, controller: "components"), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :put %>
         <% else %>
-          <%= icon_link_to "check", url_for(action: :publish, id: component, controller: "components"), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :put %>
+          <% if component.manifest_name == "surveys" && component.settings.clean_after_publish %>
+            <%= icon_link_to "check", url_for(action: :publish, id: component, controller: "components"), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :put, data: { confirm: t('.answers_alert')  } %>
+          <% else %>
+            <%= icon_link_to "check", url_for(action: :publish, id: component, controller: "components"), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :put %>
+          <% end %>
         <% end %>
       <% else %>
         <span class="action-space icon"></span>

@@ -318,6 +318,8 @@ en:
           error: There was a problem updating the permissions of this component.
           success: Permissions updated successfully.
       components:
+        component:
+          answers_alert: If you publish the component, all results will be removed.
         create:
           error: There was a problem creating this component.
           success: Component created successfully.
