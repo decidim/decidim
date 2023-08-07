@@ -202,6 +202,7 @@ lt:
         required_review:
           alert: 'Reikalavimas: peržiūrėkite mūsų administratoriaus nustatytas naudojimosi sąlygas'
           callout: Kviečiame peržiūrėti administratoriaus nustatytas naudojimosi sąlygas. Priešingu atveju šios platformos administruoti negalėsite.
+          cta: Peržiūrėti jas dabar.
         title: Administratoriaus nustatytos naudojimosi sąlygos
       area_types:
         create:
