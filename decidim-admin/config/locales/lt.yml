@@ -211,6 +211,9 @@ lt:
           title: Sutikti su naudojimosi sąlygomis
         required_review:
           alert: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
+          callout: Kviečiame peržiūrėti administratoriaus nustatytas naudojimosi sąlygas. Priešingu atveju šios platformos administruoti negalėsite.
+          cta: Peržiūrėti jas dabar.
+        title: Administratorių naudojimo politika
       area_types:
         create:
           error: Kuriant naujos erdvės tipą iškilo problema.
