@@ -25,8 +25,9 @@ module Decidim
         let(:mailer) { double :mailer }
 
         it "notifies the confirmation of answer" do
-          allow(Decidim::Surveys::ConfirmationDeliveryJob)
-            .to receive(:default)
+          allow(Decidim::Surveys::SurveyConfirmationMailer)
+            .to receive(:confirmation)
+            .with(user, questionnaire, component, collection)
             .and_return(mailer)
           expect(mailer)
             .to receive(:deliver_now)
