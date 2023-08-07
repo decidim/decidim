@@ -20,7 +20,9 @@ module Decidim
 
           invisible_captcha on_spam: :spam_detected
 
-          after_action proc { send_confirmation_email }, only: :answer
+          # rubocop:disable Rails/LexicallyScopedActionFilter
+          after_action :send_confirmation_email, only: :answer
+          # rubocop:enable Rails/LexicallyScopedActionFilter
 
           def show
             @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
