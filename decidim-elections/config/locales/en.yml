@@ -1407,7 +1407,6 @@ en:
       voting_navigation:
         check_census: Can I vote?
         election_log: Election log
-        voting_menu_item: The voting
       votings:
         index:
           promoted_votings: Highlighted votings
