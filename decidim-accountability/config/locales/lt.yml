@@ -52,6 +52,7 @@ lt:
           results: Rezultatai
         import_results:
           new:
+            download_export: Eksportuoti CSV formatu
             import: Importuoti
             title: Importuoti rezultatus iš CSV
         imports:
