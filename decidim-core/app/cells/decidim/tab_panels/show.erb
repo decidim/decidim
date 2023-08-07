@@ -1,6 +1,6 @@
 <% if tabs.length > 0 %>
   <div class="layout-main__section" data-component="accordion" data-multiselectable="false" data-collapsible="false">
-    <ul class="tab-x-container">
+    <ul class="tab-x-container pointer-events-none">
       <% tabs.each_with_index do |tab, i| %>
         <li>
           <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i.zero? %>">
