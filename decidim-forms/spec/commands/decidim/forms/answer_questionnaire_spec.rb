@@ -124,6 +124,27 @@ module Decidim
           end
         end
 
+        context "when component is a participatory process" do
+          it "do not the after action send confirmation email" do
+            byebug
+          end
+        end
+
+        context "when component is a survey" do
+          let(:survey) { create(:survey) }
+          let(:questionnaire) { create(:questionnaire, questionnaire_for: survey) }
+          let(:question1) { create(:questionnaire_question, questionnaire:) }
+          let(:question2) { create(:questionnaire_question, questionnaire:) }
+          let(:question3) { create(:questionnaire_question, questionnaire:) }
+          let(:answer_options) { create_list(:answer_option, 5, question: question2) }
+          
+          it "and do the after action send confirmation email" do
+            byebug
+            questionnaire.component = survey
+
+          end
+        end
+
         context "with attachments" do
           let(:question_1) { create(:questionnaire_question, questionnaire: questionnaire, question_type: :files) }
           let(:uploaded_files) do
