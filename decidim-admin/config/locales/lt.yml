@@ -14,17 +14,24 @@ lt:
         description: Aprašymas
         file: Rinkmena
         title: Priedo arba paveikslėlio pavadinimas
+        weight: Vieta eilėje
       attachment_collection:
         description: Aprašymas
         name: Pavadinimas
+        weight: Vieta eilėje
       category:
         description: Aprašymas
         name: Pavadinimas
         parent_id: Motininis
+        weight: Vieta eilėje
       component:
         name: Pavadinimas
         published_at: Paskelbta
         weight: Vieta eilėje
+      external_domain:
+        value: Vertė
+      help_section:
+        content: Turinys
       id: ID
       import:
         user_group_id: Sukurti importus kaip
@@ -92,6 +99,9 @@ lt:
         welcome_notification_body: Pasisveikinimo pranešimo tekstas
         welcome_notification_subject: Pasisveikinimo pranešimo antraštė
         youtube_handler: '„YouTube“ tvarkyklė'
+      participatory_space_private_user:
+        email: El. paštas
+        name: Pavadinimas
       scope:
         code: Kodas
         name: Pavadinimas
@@ -113,6 +123,7 @@ lt:
         show_in_footer: Rodyti poraštėje
         slug: URL laukas
         title: Pavadinimas
+        topic_id: Temos
         weight: Vieta eilėje
       static_page_topic:
         description: Aprašymas
@@ -184,7 +195,9 @@ lt:
           error: Sutinkant su administratoriaus naudojimosi sąlygomis įvyko klaida.
           success: Puiku! Jūs sutikote su administratoriaus naudojimosi sąlygomis.
         actions:
+          accept: Aš sutinku su šiomis sąlygomis
           are_you_sure: Ar tikrai norite nesutikti su administratoriaus naudojimosi sąlygomis?
+          refuse: Nesutikti su sąlygomis
           title: Sutikti su naudojimosi sąlygomis
         required_review:
           alert: 'Reikalavimas: peržiūrėkite mūsų administratoriaus nustatytas naudojimosi sąlygas'
