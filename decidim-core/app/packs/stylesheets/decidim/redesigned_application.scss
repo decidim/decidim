@@ -1,0 +1,101 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --primary: #e02d2d;
+  --primary-rgb: 224 45 45;
+  --secondary: #155abf;
+  --secondary-rgb: 21 90 191;
+  --tertiary: #ebc34b;
+  --tertiary-rgb: 235 195 75;
+  --success: #28a745;
+  --success-rgb: 40 167 69;
+  --warning: #ffb703;
+  --warning-rgb: 255 183 3;
+  --alert: #e7131a;
+  --alert-rgb: 231 19 26;
+}
+
+@layer base {
+  @import "stylesheets/decidim/redesigned_fonts.scss";
+  @import "stylesheets/decidim/redesigned_typography.scss";
+}
+
+// The CSS components must work identically all along the application,
+// no matter which view are being displayed in.
+@layer components {
+  @import "stylesheets/decidim/redesigned_layout.scss";
+  @import "stylesheets/decidim/redesigned_buttons.scss";
+  @import "stylesheets/decidim/redesigned_labels.scss";
+  @import "stylesheets/decidim/redesigned_forms.scss";
+  @import "stylesheets/decidim/redesigned_dropdown.scss";
+  @import "stylesheets/decidim/redesigned_login_box.scss";
+  @import "stylesheets/decidim/redesigned_callout.scss";
+  @import "stylesheets/decidim/redesigned_accordion.scss";
+  @import "stylesheets/decidim/redesigned_tos.scss";
+  @import "stylesheets/decidim/redesigned_vertical_tabs.scss";
+  @import "stylesheets/decidim/redesigned_flash.scss";
+  @import "stylesheets/decidim/redesigned_map.scss";
+  @import "stylesheets/decidim/redesigned_filters.scss";
+  @import "stylesheets/decidim/redesigned_tags.scss";
+  @import "stylesheets/decidim/redesigned_tabs_x.scss";
+  // REDESIGN_PENDING: remove this file
+  @import "stylesheets/decidim/redesigned_drawer.scss";
+  // REDESIGN_PENDING: rename this file and its contents to avoid misunderstandings
+  @import "stylesheets/decidim/redesigned_drawer_metadata.scss";
+  @import "stylesheets/decidim/redesigned_modal.scss";
+  @import "stylesheets/decidim/redesigned_modal_share.scss";
+  @import "stylesheets/decidim/redesigned_modal_flag.scss";
+  @import "stylesheets/decidim/redesigned_modal_identities.scss";
+  @import "stylesheets/decidim/redesigned_modal_authorization.scss";
+  @import "stylesheets/decidim/redesigned_modal_update.scss";
+  @import "stylesheets/decidim/redesigned_modal_tos_refuse.scss";
+  @import "stylesheets/decidim/redesigned_modal_fingerprint.scss";
+  @import "stylesheets/decidim/redesigned_address.scss";
+  @import "stylesheets/decidim/redesigned_statistics.scss";
+  @import "stylesheets/decidim/redesigned_content_blocks.scss";
+  @import "stylesheets/decidim/redesigned_documents.scss";
+  @import "stylesheets/decidim/redesigned_floating_help.scss";
+  @import "stylesheets/decidim/redesigned_cards.scss";
+  @import "stylesheets/decidim/redesigned_floating_help.scss";
+  @import "stylesheets/decidim/redesigned_metrics.scss";
+  @import "stylesheets/decidim/redesigned_order-by.scss";
+  @import "stylesheets/decidim/redesigned_photos.scss";
+  @import "stylesheets/decidim/redesigned_endorsers_list.scss";
+  @import "stylesheets/decidim/redesigned_activity.scss";
+  @import "stylesheets/decidim/redesigned_tooltip.scss";
+  @import "stylesheets/decidim/redesigned_author.scss";
+  @import "stylesheets/decidim/redesigned_order-by.scss";
+  @import "stylesheets/decidim/redesigned_wizard_steps.scss";
+  @import "stylesheets/decidim/redesigned_progress-bar.scss";
+  @import "stylesheets/decidim/redesigned_spinner.scss";
+  @import "stylesheets/decidim/redesigned_toggle_switch.scss";
+  @import "stylesheets/decidim/redesigned_hero.scss";
+  @import "stylesheets/decidim/redesigned_actions.scss";
+}
+@import "wc-datepicker/dist/themes/light.css";
+@import "stylesheets/decidim/redesigned_datepicker.scss";
+
+// On the other hand, the following styles match with specific routes
+@import "stylesheets/decidim/redesigned_header.scss";
+@import "stylesheets/decidim/redesigned_login.scss";
+@import "stylesheets/decidim/redesigned_pages.scss";
+@import "stylesheets/decidim/redesigned_notifications.scss";
+@import "stylesheets/decidim/redesigned_profile.scss";
+@import "stylesheets/decidim/redesigned_conversations.scss";
+@import "stylesheets/decidim/redesigned_versions.scss";
+@import "stylesheets/decidim/redesigned_home.scss";
+@import "stylesheets/decidim/redesigned_search.scss";
+@import "stylesheets/decidim/redesigned_cookies.scss";
+// participatory spaces are quite similar between processes and assemblies (different modules), so their stylesheets are placed in the core
+@import "stylesheets/decidim/redesigned_participatory_spaces.scss";
+@import "stylesheets/decidim/redesigned_omnipresent_banner.scss";
+
+// This imports all the Decidim module stylesheet imports registered at
+// `config/assets.rb` of the module for the "app" group.
+// @import "!decidim-style-imports[app]";
+// @import "!decidim-style-imports[redesigned_app]";
+
+// Application specific styles: https://docs.decidim.org/en/customize/styles/#_webpacker
+@import "stylesheets/decidim/decidim_application";

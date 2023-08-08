@@ -1,0 +1,40 @@
+.wc-datepicker {
+  @apply w-1/2 max-w-xs absolute;
+}
+
+.wc-datepicker__month-select,
+.wc-datepicker__year-select {
+  @apply h-10 mb-4 leading-normal;
+}
+
+.wc-datepicker__year-select {
+  @apply max-w-fit;
+}
+
+.wc-datepicker__previous-month-button,
+.wc-datepicker__next-month-button,
+.wc-datepicker__previous-year-button,
+.wc-datepicker__next-year-button {
+  @apply h-10 text-secondary;
+}
+
+.wc-datepicker__date:focus > * {
+  @apply outline-2 outline-secondary;
+}
+
+.wc-datepicker__date--selected > *,
+.wc-datepicker__date--selected:hover > * {
+  @apply bg-secondary;
+}
+
+.timepicker_row {
+  @apply flex gap-4;
+}
+
+.date_column {
+  @apply flex-1 w-1/2;
+}
+
+.time_column {
+  @apply flex-1 w-1/2;
+}
