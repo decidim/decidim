@@ -96,7 +96,7 @@ export default class AutoComplete {
         filter: (list) => {
           const results = list.filter(
             (item, idx, arr) => {
-              return arr.findIndex((val) => val.value.nickname === item.value.nickname) === idx;
+              return arr.findIndex((val) => val.value === item.value) === idx;
             }
           );
 
