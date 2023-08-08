@@ -3,10 +3,10 @@
 require "spec_helper"
 
 module Decidim::Conferences
-  describe ConferenceMCell, type: :cell do
+  describe ConferenceLCell, type: :cell do
     controller Decidim::Conferences::ConferencesController
 
-    subject { cell("decidim/conferences/conference_m", model).call }
+    subject { cell("decidim/conferences/conference_l", model).call }
 
     let(:model) { create(:conference) }
 

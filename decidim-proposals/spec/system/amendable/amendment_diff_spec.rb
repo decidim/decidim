@@ -25,8 +25,7 @@ describe "Amendment Diff", type: :system, versioning: true do
         visit emendation_path
       end
 
-      # REDESIGN_PENDING: The accessibility should be tested after complete redesign
-      # it_behaves_like "accessible page"
+      it_behaves_like "accessible page"
 
       it "shows the changed attributes compared to the last version of the amended proposal" do
         expect(page).to have_content('Amendment to "Updated long enough title"')

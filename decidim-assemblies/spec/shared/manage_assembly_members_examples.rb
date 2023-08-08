@@ -14,8 +14,7 @@ shared_examples "manage assembly members examples" do
     it "creates a new assembly member" do
       find(".card-title a.new").click
 
-      execute_script("$('#assembly_member_designation_date').focus()")
-      find(".datepicker-days .active").click
+      fill_in :assembly_member_designation_date, with: Time.current
 
       within ".new_assembly_member" do
         fill_in(
@@ -49,8 +48,7 @@ shared_examples "manage assembly members examples" do
     it "creates a new assembly member" do
       find(".card-title a.new").click
 
-      execute_script("$('#assembly_member_designation_date').focus()")
-      find(".datepicker-days .active").click
+      fill_in :assembly_member_designation_date, with: Time.current
 
       within ".new_assembly_member" do
         select "Existing participant", from: :assembly_member_existing_user
@@ -76,8 +74,7 @@ shared_examples "manage assembly members examples" do
     it "creates a new assembly member" do
       find(".card-title a.new").click
 
-      execute_script("$('#assembly_member_designation_date').focus()")
-      find(".datepicker-days .active").click
+      fill_in :assembly_member_designation_date, with: Time.current
 
       within ".new_assembly_member" do
         select "Existing participant", from: :assembly_member_existing_user

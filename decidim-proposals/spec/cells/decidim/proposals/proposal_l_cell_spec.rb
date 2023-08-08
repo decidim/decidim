@@ -3,12 +3,12 @@
 require "spec_helper"
 
 module Decidim::Proposals
-  describe ProposalMCell, type: :cell do
+  describe ProposalLCell, type: :cell do
     controller Decidim::Proposals::ProposalsController
 
     subject { cell_html }
 
-    let(:my_cell) { cell("decidim/proposals/proposal_m", proposal, context: { show_space: }) }
+    let(:my_cell) { cell("decidim/proposals/proposal_l", proposal, context: { show_space: }) }
     let(:cell_html) { my_cell.call }
     let(:created_at) { 1.month.ago }
     let(:published_at) { Time.current }
@@ -31,63 +31,46 @@ module Decidim::Proposals
       it_behaves_like "m-cell", :proposal
 
       it "renders the card" do
-        expect(subject).to have_css(".card--proposal")
-      end
-
-      it "renders the published_at date" do
-        published_date = I18n.l(published_at.to_date, format: :decidim_short)
-        creation_date = I18n.l(created_at.to_date, format: :decidim_short)
-
-        expect(subject).to have_css(".creation_date_status", text: published_date)
-        expect(subject).not_to have_css(".creation_date_status", text: creation_date)
+        expect(subject).to have_css(".proposal-list-item")
       end
 
       context "and is a proposal" do
         it "renders the proposal state (nil by default)" do
-          expect(subject).to have_css(".muted")
-          expect(subject).not_to have_css(".card__text--status")
+          expect(subject).not_to have_css("span.label")
         end
+      end
+
+      it "renders the authorships" do
+        expect(subject).to have_css(".card__list-metadata [data-author]", text: proposal.authors.first.name)
+      end
+
+      it "renders the endorsements count" do
+        expect(subject).to have_css(".card__list-metadata [data-endorsements-count]")
+      end
+
+      it "renders the comments count" do
+        expect(subject).to have_css(".card__list-metadata [data-comments-count]")
       end
 
       context "and is an emendation" do
         subject { cell_html }
 
-        let(:my_cell) { cell("decidim/proposals/proposal_m", emendation, context: { show_space: }) }
+        let(:my_cell) { cell("decidim/proposals/proposal_l", emendation, context: { show_space: }) }
         let(:cell_html) { my_cell.call }
+
+        it "renders amendment text" do
+          expect(subject).to have_css("div.card__list-metadata span", text: "Amendment")
+        end
 
         it "renders the emendation state (evaluating by default)" do
           expect(subject).to have_css(".warning")
-          expect(subject).to have_css(".card__text--status", text: emendation.state.capitalize)
-        end
-      end
-
-      context "when it is a proposal preview" do
-        subject { cell_html }
-
-        let(:my_cell) { cell("decidim/proposals/proposal_m", model, preview: true) }
-        let(:cell_html) { my_cell.call }
-
-        it "renders the card with no status info" do
-          expect(subject).to have_css(".card__header")
-          expect(subject).to have_css(".card__text")
-          expect(subject).not_to have_css(".card-data__item")
-        end
-      end
-
-      context "and has an image attachment" do
-        let!(:attachment_1_pdf) { create(:attachment, :with_pdf, attached_to: proposal) }
-        let!(:attachment_2_img) { create(:attachment, :with_image, attached_to: proposal) }
-        let!(:attachment_3_pdf) { create(:attachment, :with_pdf, attached_to: proposal) }
-
-        it "renders the first image in the card whatever the order between attachments" do
-          expect(subject).to have_css(".card__image")
-          expect(subject.find(".card__image")[:src]).to eq(attachment_2_img.reload.thumbnail_url)
+          expect(subject).to have_css("span.label", text: emendation.state.capitalize)
         end
       end
     end
 
     describe "#cache_hash" do
-      let(:my_cell) { cell("decidim/proposals/proposal_m", proposal) }
+      let(:my_cell) { cell("decidim/proposals/proposal_l", proposal) }
 
       it "generate a unique hash" do
         old_hash = my_cell.send(:cache_hash)
@@ -147,18 +130,6 @@ module Decidim::Proposals
         end
       end
 
-      context "when model has preview" do
-        let(:my_cell) { cell("decidim/proposals/proposal_m", model, preview: true) }
-
-        it "generate a different hash" do
-          old_hash = my_cell.send(:cache_hash)
-          create(:attachment, :with_image, attached_to: proposal)
-          my_cell.model.reload
-
-          expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
-        end
-      end
-
       context "when no current user" do
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)
@@ -212,7 +183,7 @@ module Decidim::Proposals
         let!(:proposals) { create_list(:proposal, 5, component:, created_at:, published_at:) }
 
         let(:cached_proposals) do
-          proposals.map { |proposal| cell("decidim/proposals/proposal_m", proposal).send(:cache_hash) }
+          proposals.map { |proposal| cell("decidim/proposals/proposal_l", proposal).send(:cache_hash) }
         end
 
         it "returns different hashes" do
