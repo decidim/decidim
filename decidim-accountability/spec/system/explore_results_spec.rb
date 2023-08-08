@@ -392,7 +392,7 @@ describe "Explore results", type: :system, versioning: true do
       end
     end
 
-    it_behaves_like "has redesigned attachments" do
+    it_behaves_like "has attachments tabs" do
       let(:attached_to) { result }
     end
   end
