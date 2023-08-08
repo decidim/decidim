@@ -26,6 +26,25 @@ describe "Conversations", type: :system do
         expect(page).to have_selector("a.topbar__conversations")
       end
     end
+
+    context "when searching for a user group to a new conversation" do
+      let!(:user_group) { create(:user_group, :confirmed, name: "Example user group", nickname: "example", organization:) }
+
+      it "only shows one match even if the keyword matches both name and nickname" do
+        visit decidim.conversations_path
+
+        click_button "New conversation"
+
+        fill_in "add_conversation_users", with: "example"
+
+        expect(find("#autoComplete_list_1")).to have_selector("li", count: 1)
+
+        within "#autoComplete_result_0" do
+          expect(page).to have_content("example")
+          expect(page).to have_content("Example user group")
+        end
+      end
+    end
   end
 
   shared_examples "create new conversation" do
