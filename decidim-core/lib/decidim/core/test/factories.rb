@@ -113,7 +113,9 @@ FactoryBot.define do
     content_security_policy { {} }
     colors do
       {
-        primary: "#ef604d"
+        primary: "#e02d2d",
+        secondary: "#155abf",
+        tertiary: "#ebc34b"
       }
     end
 

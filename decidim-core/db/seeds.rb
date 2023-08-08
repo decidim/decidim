@@ -21,6 +21,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   smtp_email = ENV.fetch("SMTP_FROM_EMAIL", Faker::Internet.email)
 
   primary_color, secondary_color, tertiary_color = [
+    ["#e02d2d", "#155abf", "#ebc34b"],
     ["#4caf50", "#a0309e", "#a8753e"],
     ["#e91e63", "#1ee9a5", "#e9b61e"],
     ["#009688", "#d12c26", "#b4a110"],
