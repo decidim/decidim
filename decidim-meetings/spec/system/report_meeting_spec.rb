@@ -12,7 +12,7 @@ describe "Report Meeting", type: :system do
   let!(:user) { create(:user, :confirmed, organization:) }
 
   let!(:component) do
-    create(:proposal_component,
+    create(:meeting_component,
            manifest:,
            participatory_space: participatory_process)
   end
