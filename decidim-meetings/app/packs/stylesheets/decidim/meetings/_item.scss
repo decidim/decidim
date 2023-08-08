@@ -178,6 +178,6 @@
 
 .iframe {
   &_container_meetings {
-    @apply h-[60vh] w-full overflow-scroll;
+    @apply h-[60vh] w-full overflow-x-scroll;
   }
 }
