@@ -16,7 +16,7 @@ cs:
         location: Lokalita
         main_logo: Hlavní logo
         objectives: Cíle
-        participatory_processes_ids: Související procesy účasti
+        participatory_processes_ids: Související participativní procesy
         promoted: Propagováno
         published_at: Publikováno v
         registration_terms: Podmínky registrace
@@ -520,7 +520,7 @@ cs:
         introduction: Úvod
         objectives: Cíle
         related_assemblies: Související shromáždění
-        related_participatory_processes: Související procesy účasti
+        related_participatory_processes: Související participativní procesy
     events:
       conferences:
         conference_registration_confirmed:
