@@ -30,7 +30,7 @@
       <div class="budget-summary__progressbar-marks">
         <span class="budget-summary__progressbar-legend" style="width: <%= current_order_budget_percent_minimum %>%;">
           <%= t("assigned", scope: "decidim.budgets.projects.order_progress") %>
-          <strong id="order-total-budget<%= '-responsive' if responsive %>" class="budget-summary__progressbar-legend-strong">
+          <strong id="order-total-budget<%= "-responsive" if responsive %>" class="budget-summary__progressbar-legend-strong">
             <%= render partial: "decidim/budgets/projects/order_total_budget" %>
           </strong>
         </span>
@@ -78,7 +78,7 @@
         <div class="budget-summary__progressbar-marks">
           <span class="budget-summary__progressbar-legend" style="width: <%= current_order_budget_percent_minimum %>%;">
             <%= t("assigned", scope: "decidim.budgets.projects.order_progress") %>
-            <strong id="order-total-budget-sticky<%= '-responsive' if responsive %>" class="budget-summary__progressbar-legend-strong">
+            <strong id="order-total-budget-sticky<%= "-responsive" if responsive %>" class="budget-summary__progressbar-legend-strong">
               <%= render partial: "decidim/budgets/projects/order_total_budget" %>
             </strong>
           </span>
