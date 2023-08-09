@@ -417,8 +417,6 @@ zh-CN:
         finish: 完成
         promotal_committee: 宣传委员会
         select_initiative_type: 选择
-      initiative_header:
-        initiative_menu_item: 倡议
       initiative_signature_creation_header:
         fill_personal_data: 完成您的数据
         finish: 完成
