@@ -470,5 +470,3 @@ eu:
           more_info_about: Informazio gehiago %{resource_name} prozesuari buruz
           take_part: Parte hartu
           take_part_in: Parte hartu %{resource_name} prozesuan
-      process_navigation:
-        process_menu_item: Prozesua
