@@ -609,7 +609,7 @@ en:
           sign_in_disabled: You can access with an external account.
           sign_up_disabled: Sign up is disabled, you can use an existing account to access.
         user:
-          timed_out: You were inactive for too long and you have been automatically signed out from the service. If you would like to continue using the service, please sign in again.
+          timed_out: You were inactive for too long and you have been automatically logged out from the service. If you would like to continue using the service, please log in again.
       shared:
         newsletter_modal:
           buttons:
@@ -1484,9 +1484,9 @@ en:
       floating_help:
         help: Help
       follow_button:
-        sign_in_before_follow: Please sign in before performing this action
+        sign_in_before_follow: Please log in before performing this action
       login_modal:
-        please_sign_in: Please sign in
+        please_sign_in: Please log in
         sign_up: Sign up
       mentions_modal:
         remove_recipient: Remove recipient %{name}
@@ -1603,8 +1603,8 @@ en:
       last_attempt: You have one more attempt before your account is locked.
       locked: Your account is locked.
       not_found_in_database: Invalid %{authentication_keys} or password.
-      timeout: Your session expired. Please sign in again to continue.
-      unauthenticated: You need to sign in or sign up before continuing.
+      timeout: Your session expired. Please log in again to continue.
+      unauthenticated: You need to log in or sign up before continuing.
     invitations:
       edit:
         header: Finish creating your account
@@ -1666,8 +1666,8 @@ en:
       unlock_instructions:
         action: Unlock my account
         greeting: Hello %{recipient}!
-        instruction: 'Click the link below to unlock your account:'
-        message: Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
+        instruction: "Click the link below to unlock your account:"
+        message: Your account has been locked due to an excessive amount of unsuccessful log in attempts.
         subject: Unlock instructions
     omniauth_callbacks:
       failure: Could not authenticate you from %{kind} because "%{reason}".
@@ -1711,7 +1711,7 @@ en:
         didn_t_receive_unlock_instructions: Did not receive unlock instructions?
         forgot_your_password: Forgot your password?
         sign_in: Log in
-        sign_in_with_provider: Sign in with %{provider}
+        sign_in_with_provider: Log in with %{provider}
         sign_up: Sign up
       minimum_password_length:
         one: "(%{count} character minimum)"
@@ -1721,7 +1721,7 @@ en:
         resend_unlock_instructions: Resend unlock instructions
       send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
       send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
-      unlocked: Your account has been successfully unlocked. Please sign in to continue.
+      unlocked: Your account has been successfully unlocked. Please log in to continue.
   doorkeeper:
     scopes:
       public: Your public information.
@@ -1908,7 +1908,7 @@ en:
         download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Resources
-        sign_in: Sign In
+        sign_in: Log In
         sign_up: Sign Up
         terms_and_conditions: Terms and Conditions
       header:
