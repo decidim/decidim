@@ -123,7 +123,7 @@ edit_link(
 
   <% content_for :item_footer do %>
     <%= comments_for debate %>
-    <ul class="drawer-metadata__container layout-main__section">
+    <ul class="drawer-metadata__container layout-main__section" data-metadata-footer>
       <%= content_tag :li, resource_reference(debate), class: "drawer-metadata__item" %>
       <%= content_tag :li, resource_version(debate, versions_path: debate_version_path(debate, debate.versions.count)), class: "drawer-metadata__item" %>
     </ul>
