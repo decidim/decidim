@@ -370,5 +370,3 @@ zh-CN:
           more_info_about: 更多关于进程 %{resource_name} 的信息
           take_part: 参与
           take_part_in: 参与进程 %{resource_name}
-      process_navigation:
-        process_menu_item: 二. 进程
