@@ -595,8 +595,6 @@ fr-CA:
         finish: Publiez votre initiative
         promotal_committee: Comité de promotion
         select_initiative_type: Sélectionnez le type de d'initiative
-      initiative_header:
-        initiative_menu_item: Pétition
       initiative_signature_creation_header:
         fill_personal_data: Complétez vos données
         finish: terminer
