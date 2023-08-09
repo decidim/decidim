@@ -1079,7 +1079,6 @@ it:
       voting_navigation:
         check_census: Posso votare?
         election_log: Registro elettorale
-        voting_menu_item: La votazione
       votings:
         index:
           promoted_votings: Votazioni in evidenza
