@@ -1430,7 +1430,6 @@ cs:
       voting_navigation:
         check_census: Mohu hlasovat?
         election_log: Volební protokol
-        voting_menu_item: Hlasování
       votings:
         index:
           promoted_votings: Zvýrazněné hlasování
