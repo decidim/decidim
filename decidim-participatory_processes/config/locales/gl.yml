@@ -405,5 +405,3 @@ gl:
           more_info_about: Máis información sobre o proceso %{resource_name}
           take_part: Tomar parte en
           take_part_in: Participar no proceso %{resource_name}
-      process_navigation:
-        process_menu_item: O proceso
