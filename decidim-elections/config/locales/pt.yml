@@ -1083,7 +1083,6 @@ pt:
       voting_navigation:
         check_census: Posso votar?
         election_log: Registo de eleições
-        voting_menu_item: A votação
       votings:
         index:
           promoted_votings: Votações realçadas
