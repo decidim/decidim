@@ -304,5 +304,3 @@ ru:
             few: "%{count} собрания"
             many: "%{count} собраний"
             other: "%{count} собраний"
-      assembly_navigation:
-        assembly_menu_item: Собрание
