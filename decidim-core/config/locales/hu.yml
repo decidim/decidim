@@ -1308,6 +1308,7 @@ hu:
         filters:
           areas: Területek
           select_an_area: Válasszon ki egy területet
+      progress: Folyamat
       public_participation:
         public_participation: Nyilvánosan mutassa a részvételemet
       reference:
