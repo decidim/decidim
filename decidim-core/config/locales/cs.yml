@@ -2,7 +2,7 @@ cs:
   activemodel:
     attributes:
       account:
-        delete_reason: Důvod odstranění účtu
+        delete_reason: Důvod odstranění vašeho účtu
       common:
         created_at: Vytvořeno v
       conversation:
@@ -32,7 +32,7 @@ cs:
         tos_agreement: Smluvní podmínky užití
     models:
       decidim/attachment_created_event: Příloha
-      decidim/component_published_event: Aktivní součást
+      decidim/component_published_event: Aktivní komponenty
       decidim/demoted_membership: Již není správcem skupiny
       decidim/gamification/badge_earned_event: Získaný odznak
       decidim/gamification/level_up_event: Vy jste vyrovnali
