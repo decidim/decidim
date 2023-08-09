@@ -614,8 +614,6 @@ fi-pl:
         finish: Viimeistele
         promotal_committee: Kannatuskomitea
         select_initiative_type: Valitse
-      initiative_header:
-        initiative_menu_item: Aloite
       initiative_signature_creation_header:
         fill_personal_data: Täydennä tietosi
         finish: Viimeistele
