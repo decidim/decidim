@@ -503,7 +503,6 @@ tr:
             one: "%{count} konferans"
             other: "%{count} konferans"
       conferences_nav:
-        conference_menu_item: Bilgi
         conference_partners_menu_item: Ortaklar
         conference_speaker_menu_item: Hoparlörler
         media: medya
