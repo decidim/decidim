@@ -477,8 +477,6 @@ tr:
         finish: Bitir
         promotal_committee: Tanıtım komitesi
         select_initiative_type: Seç
-      initiative_header:
-        initiative_menu_item: girişim
       initiative_signature_creation_header:
         fill_personal_data: Verilerinizi tamamlayın
         finish: Bitiş
