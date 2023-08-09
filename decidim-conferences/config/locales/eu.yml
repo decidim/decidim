@@ -557,7 +557,6 @@ eu:
             one: "%{count} hitzaldi"
             other: "%{count} hitzaldiak"
       conferences_nav:
-        conference_menu_item: informazioa
         conference_partners_menu_item: Bazkideak
         conference_speaker_menu_item: Hizlariak
         media: Media
