@@ -349,8 +349,6 @@ gl:
         finish: Rematar
         promotal_committee: Comité de promoción
         select_initiative_type: Elixe
-      initiative_header:
-        initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
         fill_personal_data: Completa os teus datos
         finish: Finalizar
