@@ -1352,7 +1352,6 @@ zh-TW:
       voting_navigation:
         check_census: 我可以投票嗎？
         election_log: 選舉紀錄
-        voting_menu_item: 該投票
       votings:
         index:
           promoted_votings: 重點顯示的投票
