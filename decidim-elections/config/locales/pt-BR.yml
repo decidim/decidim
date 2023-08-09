@@ -1046,7 +1046,6 @@ pt-BR:
       voting_navigation:
         check_census: Posso votar?
         election_log: Log de eleições
-        voting_menu_item: A votação
       votings:
         index:
           promoted_votings: Destaque da votação
