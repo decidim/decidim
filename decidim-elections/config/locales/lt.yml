@@ -1187,7 +1187,6 @@ lt:
       voting_navigation:
         check_census: Ar galiu balsuoti?
         election_log: Rinkimų ataskaita
-        voting_menu_item: Balsavimas
       votings:
         index:
           promoted_votings: Paryškinti balsavimai
