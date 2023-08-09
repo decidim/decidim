@@ -478,5 +478,3 @@ lt:
           more_info_about: Daugiau informacijos apie procesą %{resource_name}
           take_part: Dalyvaukite
           take_part_in: Dalyvaukite procese %{resource_name}
-      process_navigation:
-        process_menu_item: Procesas
