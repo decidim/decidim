@@ -579,7 +579,6 @@ de:
             one: "%{count} Konferenz"
             other: "%{count} Konferenzen"
       conferences_nav:
-        conference_menu_item: Information
         conference_partners_menu_item: Partner
         conference_speaker_menu_item: Lautsprecher
         media: Medien
