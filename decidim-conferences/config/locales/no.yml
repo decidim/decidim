@@ -539,7 +539,6 @@
             one: "%{count} konferanse"
             other: "%{count} konferanser"
       conferences_nav:
-        conference_menu_item: Informasjon
         conference_partners_menu_item: Partnere
         conference_speaker_menu_item: Talere
         media: Medier
