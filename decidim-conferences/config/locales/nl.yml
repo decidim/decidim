@@ -539,7 +539,6 @@ nl:
             one: "%{count} conferentie"
             other: "%{count} conferenties"
       conferences_nav:
-        conference_menu_item: Informatie
         conference_partners_menu_item: Partners
         conference_speaker_menu_item: Sprekers
         media: Media
