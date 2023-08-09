@@ -606,8 +606,6 @@ ja:
         finish: 完了
         promotal_committee: 推進委員会
         select_initiative_type: 選択
-      initiative_header:
-        initiative_menu_item: イニシアチブ
       initiative_signature_creation_header:
         fill_personal_data: データを完成させましょう
         finish: 完了
