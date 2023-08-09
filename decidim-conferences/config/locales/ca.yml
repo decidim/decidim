@@ -579,7 +579,6 @@ ca:
             one: "%{count} jornada"
             other: "%{count} jornadas"
       conferences_nav:
-        conference_menu_item: Informació
         conference_partners_menu_item: Col·laboradores
         conference_speaker_menu_item: Ponents
         media: Mèdia
