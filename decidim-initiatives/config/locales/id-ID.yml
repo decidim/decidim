@@ -337,8 +337,6 @@ id:
         finish: Selesai
         promotal_committee: Komite promotor
         select_initiative_type: Memilih
-      initiative_header:
-        initiative_menu_item: Prakarsa
       initiative_signature_creation_header:
         fill_personal_data: Lengkapi data Anda
         finish: Selesai
