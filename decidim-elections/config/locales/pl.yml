@@ -1081,7 +1081,6 @@ pl:
       voting_navigation:
         check_census: Mogę głosować?
         election_log: Dziennik zdarzeń wyborczych
-        voting_menu_item: Głosowanie
       votings:
         index:
           promoted_votings: Wyróżnione głosowania
