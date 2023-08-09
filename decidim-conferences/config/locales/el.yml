@@ -574,7 +574,6 @@ el:
             one: "%{count} διάσκεψη"
             other: "%{count} διασκέψεις"
       conferences_nav:
-        conference_menu_item: Πληροφορίες
         conference_partners_menu_item: Συνεργάτες
         conference_speaker_menu_item: Ομιλητές
         media: Πολυμέσα
