@@ -326,4 +326,3 @@ id:
             other: "%{count} rakitan"
       assembly_navigation:
         assembly_member_menu_item: Anggota
-        assembly_menu_item: Perakitan
