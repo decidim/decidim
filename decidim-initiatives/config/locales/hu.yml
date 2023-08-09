@@ -574,8 +574,6 @@ hu:
         finish: Befejezés
         promotal_committee: Kezdeményező bizottság
         select_initiative_type: Válassz
-      initiative_header:
-        initiative_menu_item: Kezdeményezés
       initiative_signature_creation_header:
         fill_personal_data: Add meg az adataidat
         finish: Befejezés
