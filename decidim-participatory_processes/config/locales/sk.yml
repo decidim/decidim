@@ -380,5 +380,3 @@ sk:
           active_step: 'Aktuálny krok:'
           more_info: Viac informácií
           take_part: Zúčastniť sa
-      process_navigation:
-        process_menu_item: Proces
