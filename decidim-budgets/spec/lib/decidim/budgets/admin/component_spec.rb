@@ -187,6 +187,10 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         visit edit_component_path
       end
 
+      context "when comments_max_length is empty" do
+        it_behaves_like "has mandatory config setting", :comments_max_length
+      end
+
       context "when minimum projects rule is checked" do
         before do
           check "Enable rule: Minimum number of projects to be voted on"
