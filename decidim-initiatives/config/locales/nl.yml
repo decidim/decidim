@@ -438,8 +438,6 @@ nl:
         finish: Voltooien
         promotal_committee: Promotieraad
         select_initiative_type: Kiezen
-      initiative_header:
-        initiative_menu_item: Initiatief
       initiative_signature_creation_header:
         fill_personal_data: Vul uw gegevens in
         finish: Voltooien
