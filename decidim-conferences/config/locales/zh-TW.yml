@@ -568,7 +568,6 @@ zh-TW:
           conferences:
             other: "%{count} 個會議"
       conferences_nav:
-        conference_menu_item: 訊息
         conference_partners_menu_item: 夥伴
         conference_speaker_menu_item: 講者
         media: 媒體
