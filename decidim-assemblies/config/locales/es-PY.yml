@@ -471,4 +471,3 @@ es-PY:
             other: "%{count} asambleas"
       assembly_navigation:
         assembly_member_menu_item: Miembros
-        assembly_menu_item: La asamblea
