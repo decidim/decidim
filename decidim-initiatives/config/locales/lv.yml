@@ -394,8 +394,6 @@ lv:
         finish: Pabeigt
         promotal_committee: Veicināšanas komiteja
         select_initiative_type: Izvēlēties
-      initiative_header:
-        initiative_menu_item: Iniciatīva
       initiative_signature_creation_header:
         fill_personal_data: Pabeidziet ierakstīt savus datus
         finish: Pabeigt
