@@ -532,5 +532,3 @@ de:
           more_info_about: Weitere Informationen zum Prozess %{resource_name}
           take_part: Teilnehmen
           take_part_in: Beteiligen Sie sich am Prozess %{resource_name}
-      process_navigation:
-        process_menu_item: Der Prozess
