@@ -383,8 +383,6 @@ ar:
         finish: إنهاء
         promotal_committee: لجنة المروجين
         select_initiative_type: أختر
-      initiative_header:
-        initiative_menu_item: مبادرة
       initiative_signature_creation_header:
         fill_personal_data: أكمل بياناتك
         finish: إنهاء
