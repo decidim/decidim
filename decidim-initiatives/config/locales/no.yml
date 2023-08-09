@@ -517,8 +517,6 @@
         finish: Fullfør
         promotal_committee: Promotør komitè
         select_initiative_type: Velg
-      initiative_header:
-        initiative_menu_item: Initiativ
       initiative_signature_creation_header:
         fill_personal_data: Fullfør dataene dine
         finish: Fullfør
