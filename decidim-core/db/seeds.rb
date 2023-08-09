@@ -20,22 +20,21 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   smtp_label = ENV.fetch("SMTP_FROM_LABEL", Faker::Twitter.unique.screen_name)
   smtp_email = ENV.fetch("SMTP_FROM_EMAIL", Faker::Internet.email)
 
-  primary_color, secondary_color = [
-    ["#4CAF50", "#A0309E"],
-    ["#E91E63", "#1EE9A5"],
-    ["#009688", "#D12C26"],
-    ["#FF9800", "#00BCD4"]
+  primary_color, secondary_color, tertiary_color = [
+    ["#e02d2d", "#155abf", "#ebc34b"],
+    ["#4caf50", "#a0309e", "#a8753e"],
+    ["#e91e63", "#1ee9a5", "#e9b61e"],
+    ["#009688", "#d12c26", "#b4a110"],
+    ["#ff9800", "#00bcd4", "#ea0094"]
   ].sample
 
   colors = {
-    alert: "#ec5840",
-    highlight: "#be6400",
-    "highlight-alternative": "#ff5731",
+    alert: "#e7131a",
     primary: primary_color,
     secondary: secondary_color,
-    success: "#57d685",
-    theme: "#ef604d",
-    warning: "#ffae00"
+    tertiary: tertiary_color,
+    success: "#28a745",
+    warning: "#ffb703"
   }
 
   organization = Decidim::Organization.first || Decidim::Organization.create!(
