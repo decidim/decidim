@@ -1390,7 +1390,6 @@ ja:
       voting_navigation:
         check_census: 投票できますか？
         election_log: 選挙ログ
-        voting_menu_item: 投票
       votings:
         index:
           promoted_votings: 強調された投票
