@@ -262,8 +262,6 @@ ru:
         finish: Закончить
         promotal_committee: Рабочая группа по продвижению
         select_initiative_type: Выбрать
-      initiative_header:
-        initiative_menu_item: Почин
       initiatives:
         initiative:
           check: Проверьте это
