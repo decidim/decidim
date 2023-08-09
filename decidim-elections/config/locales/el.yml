@@ -1352,7 +1352,6 @@ el:
       voting_navigation:
         check_census: Μπορώ να ψηφίσω;
         election_log: Αρχείο καταγραφής εκλογών
-        voting_menu_item: Η ψηφοφορία
       votings:
         index:
           promoted_votings: Επισημασμένες ψηφοφορίες
