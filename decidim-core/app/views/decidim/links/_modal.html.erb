@@ -1,18 +1,21 @@
 <%= decidim_modal id: "external-domain-warning" do %>
-<div data-dialog-container>
-  <%= icon "external-link-line" %>
-  <h2 id="dialog-title-external-domain-warning" tabindex="-1" data-dialog-title><%= t("decidim.links.warning.title") %></h2>
-  <div>
-    <%= render partial: "warning" %>
-    <code class="mt-5 block break-all">
-      <%= highlight_domain %>
-    </code>
+  <div data-dialog-container>
+    <%= icon "external-link-line" %>
+    <h2 id="dialog-title-external-domain-warning" tabindex="-1" data-dialog-title><%= t("decidim.links.warning.title") %></h2>
+    <div>
+
+      <p id="dialog-desc-external-domain-warning"><%= t("body_1", scope: "decidim.links.warning") %></p>
+      <p><%= t("body_2", scope: "decidim.links.warning") %></p>
+
+      <code class="mt-5 block break-all">
+        <%= highlight_domain %>
+      </code>
+    </div>
   </div>
-</div>
-<div data-dialog-actions>
-  <button class="button button__lg button__transparent-secondary" data-dialog-close="external-domain-warning">
-    <%= t("decidim.links.warning.cancel") %>
-  </button>
-  <%= link_to t("decidim.links.warning.proceed"), external_url.to_s , target: "_blank", data: { close: "" }, class: "button button__lg button__secondary" %>
-</div>
+  <div data-dialog-actions>
+    <button class="button button__lg button__transparent-secondary" data-dialog-close="external-domain-warning">
+      <%= t("decidim.links.warning.cancel") %>
+    </button>
+    <%= link_to t("decidim.links.warning.proceed"), external_url.to_s , target: "_blank", class: "button button__lg button__secondary" %>
+  </div>
 <% end %>
