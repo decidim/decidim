@@ -614,8 +614,6 @@ ca:
         finish: Acabar
         promotal_committee: Comissió Promotora
         select_initiative_type: Tria
-      initiative_header:
-        initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
         fill_personal_data: Completa les teves dades
         finish: Finalitzar
