@@ -580,7 +580,6 @@ ro:
             few: "%{count} conferințe"
             other: "%{count} conferințe"
       conferences_nav:
-        conference_menu_item: Informare
         conference_partners_menu_item: Parteneri
         conference_speaker_menu_item: Vorbitori
         media: Media
