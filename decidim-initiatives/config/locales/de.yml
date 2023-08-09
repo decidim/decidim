@@ -614,8 +614,6 @@ de:
         finish: Fertig
         promotal_committee: Promoter-Komitee
         select_initiative_type: Wählen
-      initiative_header:
-        initiative_menu_item: Initiative
       initiative_signature_creation_header:
         fill_personal_data: Ergänzen Sie Ihre Daten
         finish: Fertig
