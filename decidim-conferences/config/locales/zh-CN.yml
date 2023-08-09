@@ -486,7 +486,6 @@ zh-CN:
           conferences:
             other: "%{count} 个会议"
       conferences_nav:
-        conference_menu_item: 信息
         conference_partners_menu_item: 合作伙伴
         conference_speaker_menu_item: 发言者：
         media: 媒体
