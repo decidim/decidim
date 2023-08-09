@@ -1371,7 +1371,6 @@ fr-CA:
       voting_navigation:
         check_census: Puis-je voter ?
         election_log: Journal de l'élection
-        voting_menu_item: Le vote
       votings:
         index:
           promoted_votings: Votations remarquables
