@@ -495,7 +495,6 @@ sk:
             many: "%{count} konferencií"
             other: "%{count} konferencií"
       conferences_nav:
-        conference_menu_item: Informácie
         conference_partners_menu_item: Partneri
         conference_speaker_menu_item: Rečníci
         media: Médiá
