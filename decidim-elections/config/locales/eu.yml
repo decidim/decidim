@@ -1084,7 +1084,6 @@ eu:
       voting_navigation:
         check_census: Botoa eman dezaket?
         election_log: Aukeraketaren erregistroa
-        voting_menu_item: Bozketa
       votings:
         index:
           promoted_votings: Bozketa nabarmenduak
