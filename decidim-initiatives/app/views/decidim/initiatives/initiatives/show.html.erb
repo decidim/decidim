@@ -202,7 +202,7 @@ edit_link(
 <section class="layout-main__section">
   <%= comments_for current_initiative if current_initiative.commentable? && current_initiative.published? %>
   <ul class="drawer-metadata__container layout-main__section" data-metadata-footer>
-    <%= contemetadata__containerence(current_initiative), class: "metadata__item" %>
+    <%= content_tag :li, resource_reference(current_initiative), class: "metadata__item" %>
     <%= content_tag :li, resource_version(current_initiative, versions_path: initiative_version_path(current_initiative, current_initiative.versions.count)), class: "metadata__item" %>
   </ul>
 </section>
