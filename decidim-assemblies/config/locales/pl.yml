@@ -419,4 +419,3 @@ pl:
             other: "%{count} zespołów"
       assembly_navigation:
         assembly_member_menu_item: Członkowie
-        assembly_menu_item: Zespół
