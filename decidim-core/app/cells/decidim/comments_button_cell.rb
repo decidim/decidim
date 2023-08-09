@@ -2,6 +2,12 @@
 
 module Decidim
   class CommentsButtonCell < ButtonCell
+    delegate :current_settings, :component_settings, to: :controller
+
+    def show
+      render if component_settings.comments_enabled? && !current_settings.comments_blocked?
+    end
+
     private
 
     def path
