@@ -479,7 +479,6 @@ id:
           conferences:
             other: "%{count} konferensi"
       conferences_nav:
-        conference_menu_item: Informasi
         conference_partners_menu_item: Mitra
         conference_speaker_menu_item: Pembicara
         media: Media
