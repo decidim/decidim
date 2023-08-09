@@ -494,5 +494,3 @@ el:
           more_info_about: Περισσότερες πληροφορίες για τη διαδικασία %{resource_name}
           take_part: Συμμετάσχετε
           take_part_in: Πάρτε μέρος στην διαδικασία %{resource_name}
-      process_navigation:
-        process_menu_item: Η διαδικασία
