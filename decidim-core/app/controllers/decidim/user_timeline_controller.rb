@@ -12,7 +12,7 @@ module Decidim
     helper_method :activities, :resource_types, :user
 
     def index
-      raise ActionController::RoutingError, "Not Found" if current_user != user
+      raise ActionController::RoutingError, "Not Found" if !user || current_user != user
     end
 
     private
