@@ -423,5 +423,3 @@ tr:
           more_info_about: '%{resource_name} hakkında daha fazla bilgi'
           take_part: Yer almak
           take_part_in: '%{resource_name} sürecine katılın'
-      process_navigation:
-        process_menu_item: Süreç
