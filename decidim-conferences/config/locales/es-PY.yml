@@ -579,7 +579,6 @@ es-PY:
             one: "%{count} conferencia"
             other: "%{count} conferencias"
       conferences_nav:
-        conference_menu_item: Información
         conference_partners_menu_item: Fogonadura
         conference_speaker_menu_item: Altavoces
         media: Medios de comunicación
