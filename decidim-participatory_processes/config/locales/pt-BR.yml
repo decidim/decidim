@@ -423,5 +423,3 @@ pt-BR:
           more_info_about: Mais informações sobre o processo %{resource_name}
           take_part: Participar
           take_part_in: Participe do processo %{resource_name}
-      process_navigation:
-        process_menu_item: O processo
