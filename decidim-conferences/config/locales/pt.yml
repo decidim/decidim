@@ -539,7 +539,6 @@ pt:
             one: "%{count} conferência"
             other: "%{count} conferências"
       conferences_nav:
-        conference_menu_item: Informação
         conference_partners_menu_item: Parceiros
         conference_speaker_menu_item: Oradores
         media: Multimédia
