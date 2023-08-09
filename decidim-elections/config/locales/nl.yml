@@ -964,7 +964,6 @@ nl:
       voting_navigation:
         check_census: Kan ik stemmen?
         election_log: Verkiezingslogboek
-        voting_menu_item: De stemronde
       votings:
         index:
           promoted_votings: Stemrondes in de kijker
