@@ -52,7 +52,7 @@ eu:
             - Erabiltzaileek beren identifikazio informazioa bete eta dokumentuaren kopia bat kargatu.
             - Kargatutako irudian dagoen informazio hau bete behar duzu.
             - Informazioa edozein erabiltzailek bete duenarekin bat egin beharko luke.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
             - Erabiltzaileek egiaztapen-kodea eskatu behar dute euren helbidea bidaltzeko.
