@@ -20,7 +20,7 @@
       <% end %>
     <% end %>
     <div class="budget-summary__progressbar">
-      <div class="progress budget-progress" role="progressbar" aria-label="<%= current_order_budget_percent %>" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress budget-progress" role="progressbar" aria-label="<%= t("budget", scope: "decidim.budgets.projects.order_progress") %>" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %> %" aria-valuemin="0" aria-valuemax="100">
         <div class="progress-meter budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
           <span class="progress-meter--minimum-mark"></span>
         </div>
