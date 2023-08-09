@@ -730,7 +730,6 @@ sv:
       voting_navigation:
         check_census: Kan jag rösta?
         election_log: Omröstningslogg
-        voting_menu_item: Omröstningen
       votings:
         promoted_voting:
           vote: Omröstning
