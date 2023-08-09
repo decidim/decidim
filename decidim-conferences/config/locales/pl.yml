@@ -548,7 +548,6 @@ pl:
             many: "%{count} konferencji"
             other: "%{count} konferencji"
       conferences_nav:
-        conference_menu_item: Informacja
         conference_partners_menu_item: Partnerzy
         conference_speaker_menu_item: Prelegenci
         media: Głoska bezdźwięczna
