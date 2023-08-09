@@ -120,9 +120,10 @@ edit_link(
             <%= t("title", scope: "decidim.initiatives.admin.committee_requests.index") %>
           </span>
           <div class="ml-auto fill-secondary inline-block">
-            <input id="urlShareLink" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>" readonly>
-            <button type="button" class="button button__sm button__text-secondary" data-clipboard-copy="#urlShareLink">
+            <input id="urlShareLink-committee" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>" readonly>
+            <button type="button" class="button button__sm button__text-secondary" data-clipboard-copy="#urlShareLink-committee">
               <%= render_committee_tooltip %>
+              <span class="sr-only"><%= t("decidim.shared.share_modal.copy_share_link") %></span>
             </button>
           </div>
         </div>

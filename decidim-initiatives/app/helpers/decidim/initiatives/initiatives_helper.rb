@@ -61,8 +61,8 @@ module Decidim
 
       def filter_author_values
         [
-          ["any", filter_text_for(t("any", scope: "decidim.initiatives.initiatives.filters"))],
-          ["myself", filter_text_for(t("myself", scope: "decidim.initiatives.initiatives.filters"))]
+          ["any", t("any", scope: "decidim.initiatives.initiatives.filters")],
+          ["myself", t("myself", scope: "decidim.initiatives.initiatives.filters")]
         ]
       end
     end
