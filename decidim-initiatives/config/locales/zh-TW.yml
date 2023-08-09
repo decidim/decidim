@@ -587,8 +587,6 @@ zh-TW:
         finish: 完成
         promotal_committee: 推動委員會
         select_initiative_type: 選擇
-      initiative_header:
-        initiative_menu_item: 倡議
       initiative_signature_creation_header:
         fill_personal_data: 填寫您的資料
         finish: 完成
