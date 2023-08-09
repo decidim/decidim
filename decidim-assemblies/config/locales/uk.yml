@@ -304,5 +304,3 @@ uk:
             few: "%{count} зборів"
             many: "%{count} зборів"
             other: "%{count} зборів"
-      assembly_navigation:
-        assembly_menu_item: Збори
