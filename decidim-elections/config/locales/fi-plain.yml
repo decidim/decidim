@@ -1404,7 +1404,6 @@ fi-pl:
       voting_navigation:
         check_census: Voinko äänestää?
         election_log: Vaalin loki
-        voting_menu_item: Äänestys
       votings:
         index:
           promoted_votings: Korostetut äänestykset
