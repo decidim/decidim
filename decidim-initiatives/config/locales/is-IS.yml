@@ -184,8 +184,6 @@ is-IS:
         fill_data: Búa til
         finish: Klára
         select_initiative_type: Veldu
-      initiative_header:
-        initiative_menu_item: Frumkvæði
       initiatives:
         initiative:
           check: Skoðaðu þetta
