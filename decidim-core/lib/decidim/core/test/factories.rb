@@ -111,6 +111,13 @@ FactoryBot.define do
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
     enable_participatory_space_filters { true }
     content_security_policy { {} }
+    colors do
+      {
+        primary: "#e02d2d",
+        secondary: "#155abf",
+        tertiary: "#ebc34b"
+      }
+    end
 
     trait :secure_context do
       host { "localhost" }

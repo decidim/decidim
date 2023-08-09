@@ -1496,6 +1496,7 @@ en:
           areas: Areas
           scope: Scope
           select_an_area: Select an area
+      progress: Progress
       public_participation:
         public_participation: Show my attendance publicly
       reference:

@@ -13,7 +13,7 @@
     <div id="default-active-<%= modal_id %>" class="upload-modal__files">
       <div class="attachment-details">
         <div>
-          <%= image_tag uploader_default_image_path(attribute) %>
+          <%= image_tag(uploader_default_image_path(attribute), alt: attribute) %>
         </div>
       </div>
     </div>

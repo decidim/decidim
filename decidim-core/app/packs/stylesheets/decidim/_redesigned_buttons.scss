@@ -91,6 +91,6 @@
   }
 
   &__pill--count {
-    @apply rounded-full bg-secondary text-white inline-block h-[18px] w-[18px] ml-2 text-xs;
+    @apply rounded-full bg-secondary text-white inline-grid place-items-center h-[18px] w-[18px] ml-2 text-xs;
   }
 }
