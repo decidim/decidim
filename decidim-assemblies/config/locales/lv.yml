@@ -377,4 +377,3 @@ lv:
             other: "%{count} asamblejas"
       assembly_navigation:
         assembly_member_menu_item: Dalībnieki
-        assembly_menu_item: Asambleja
