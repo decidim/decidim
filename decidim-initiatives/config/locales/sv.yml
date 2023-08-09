@@ -484,8 +484,6 @@ sv:
         finish: Avsluta
         promotal_committee: Kampanjutskott
         select_initiative_type: Välj
-      initiative_header:
-        initiative_menu_item: Initiativ
       initiative_signature_creation_header:
         fill_personal_data: Komplettera dina uppgifter
         finish: Slutför
