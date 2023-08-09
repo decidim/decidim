@@ -412,4 +412,3 @@ tr:
             other: "%{count} kurul"
       assembly_navigation:
         assembly_member_menu_item: Üyeler
-        assembly_menu_item: Kurul
