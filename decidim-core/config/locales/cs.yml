@@ -1533,6 +1533,7 @@ cs:
           areas: Oblasti
           scope: Oblast působnosti
           select_an_area: Vyberte oblast
+      progress: Průběh
       public_participation:
         public_participation: Ukázat svou účast veřejně
       reference:
