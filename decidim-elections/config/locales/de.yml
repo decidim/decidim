@@ -1404,7 +1404,6 @@ de:
       voting_navigation:
         check_census: Kann ich abstimmen?
         election_log: Wahl-Protokoll
-        voting_menu_item: Die Abstimmung
       votings:
         index:
           promoted_votings: Hervorgehobene Abstimmungen
