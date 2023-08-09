@@ -579,7 +579,6 @@ fr:
             one: "%{count} conférence"
             other: "%{count} conférences"
       conferences_nav:
-        conference_menu_item: Information
         conference_partners_menu_item: Partenaires
         conference_speaker_menu_item: Conférenciers
         media: Médias
