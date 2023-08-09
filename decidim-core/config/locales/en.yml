@@ -1666,7 +1666,7 @@ en:
       unlock_instructions:
         action: Unlock my account
         greeting: Hello %{recipient}!
-        instruction: "Click the link below to unlock your account:"
+        instruction: 'Click the link below to unlock your account:'
         message: Your account has been locked due to an excessive amount of unsuccessful log in attempts.
         subject: Unlock instructions
     omniauth_callbacks:
