@@ -1403,7 +1403,6 @@ ca:
       voting_navigation:
         check_census: Puc votar?
         election_log: Registre de l'elecció
-        voting_menu_item: La votació
       votings:
         index:
           promoted_votings: Votacions destacades
