@@ -336,5 +336,3 @@ id:
           active_step: 'Langkah saat ini:'
           more_info: Info lebih lanjut
           take_part: Ambil bagian
-      process_navigation:
-        process_menu_item: Proses
