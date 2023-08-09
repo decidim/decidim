@@ -25,11 +25,6 @@ module Decidim
 
         (
           [
-            {
-              name: t("layouts.decidim.voting_navigation.voting_menu_item"),
-              url: decidim_votings.voting_path(participatory_space),
-              active: is_active_link?(decidim_votings.voting_path(participatory_space), :exclusive)
-            },
             if participatory_space.check_census_enabled?
               {
                 name: t("layouts.decidim.voting_navigation.check_census"),
