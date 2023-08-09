@@ -190,7 +190,7 @@ edit_link(
 
 <section class="layout-main__section layout-main__buttons" data-buttons>
   <% if current_initiative.commentable? && current_initiative.published? %>
-    <%= cell "decidim/comments_button", nil %>
+    <%= cell "decidim/comments_button", nil, display: current_initiative.commentable? && current_initiative.published? %>
   <% end %>
   <div class="ml-auto">
     <%= cell "decidim/share_button", nil %>
