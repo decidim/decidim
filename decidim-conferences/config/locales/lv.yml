@@ -495,7 +495,6 @@ lv:
             one: "%{count} konference"
             other: "%{count} konferences"
       conferences_nav:
-        conference_menu_item: Informācija
         conference_partners_menu_item: Partneri
         conference_speaker_menu_item: Runātāji
         media: Plašsaziņas līdzekļi
