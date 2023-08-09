@@ -532,5 +532,3 @@ ca:
           more_info_about: Més informació sobre el procés %{resource_name}
           take_part: Participa
           take_part_in: Participa al procés %{resource_name}
-      process_navigation:
-        process_menu_item: El procés
