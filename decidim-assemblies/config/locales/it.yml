@@ -412,4 +412,3 @@ it:
             other: "%{count} assemblee"
       assembly_navigation:
         assembly_member_menu_item: Utenti
-        assembly_menu_item: L'assemblea
