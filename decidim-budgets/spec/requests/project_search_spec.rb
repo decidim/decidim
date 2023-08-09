@@ -110,7 +110,7 @@ RSpec.describe "Project search", type: :request do
         headers: { "HOST" => component.organization.host }
       )
       expect(response["Location"]).to eq(url)
-      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to have_http_status(:found)
     end
   end
 
