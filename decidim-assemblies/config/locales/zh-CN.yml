@@ -387,4 +387,3 @@ zh-CN:
             other: "%{count} 个程序集"
       assembly_navigation:
         assembly_member_menu_item: 成员
-        assembly_menu_item: 装饰
