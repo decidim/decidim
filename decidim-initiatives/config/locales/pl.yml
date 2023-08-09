@@ -523,8 +523,6 @@ pl:
         finish: Koniec
         promotal_committee: Komitet organizacyjny
         select_initiative_type: Wybierz
-      initiative_header:
-        initiative_menu_item: Inicjatywa
       initiative_signature_creation_header:
         fill_personal_data: Uzupełnij swoje dane
         finish: Koniec
