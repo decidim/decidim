@@ -579,7 +579,6 @@ es-MX:
             one: "%{count} conferencia"
             other: "%{count} conferencias"
       conferences_nav:
-        conference_menu_item: Información
         conference_partners_menu_item: Colaboradores
         conference_speaker_menu_item: Ponentes
         media: Multimedia
