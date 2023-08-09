@@ -550,8 +550,6 @@ ro:
         finish: Finalizare
         promotal_committee: Comitet de promovare
         select_initiative_type: Alege
-      initiative_header:
-        initiative_menu_item: Inițiativă
       initiative_signature_creation_header:
         fill_personal_data: Completează datele tale
         finish: Finalizare
