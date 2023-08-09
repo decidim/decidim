@@ -262,8 +262,6 @@ uk:
         finish: Завершити
         promotal_committee: Робочий гурт з просування
         select_initiative_type: Обрати
-      initiative_header:
-        initiative_menu_item: Почин
       initiatives:
         initiative:
           check: Перевірте ще раз
