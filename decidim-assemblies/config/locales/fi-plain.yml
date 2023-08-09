@@ -471,4 +471,3 @@ fi-pl:
             other: "%{count} ryhmää"
       assembly_navigation:
         assembly_member_menu_item: Jäsenet
-        assembly_menu_item: Ryhmä
