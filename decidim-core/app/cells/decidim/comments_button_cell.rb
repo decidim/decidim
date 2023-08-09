@@ -7,10 +7,11 @@ module Decidim
     def show
       if options.has_key?(:display)
         return render if options[:display]
+
         return
       end
 
-      render if component_settings.comments_enabled? and !current_settings.try(:comments_blocked?)
+      render if component_settings.comments_enabled? && !current_settings.try(:comments_blocked?)
     end
 
     private
