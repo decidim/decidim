@@ -374,5 +374,3 @@ lv:
           active_step: 'Pašreizējā fāze:'
           more_info: Sīkāka informācija
           take_part: Piedalīties
-      process_navigation:
-        process_menu_item: Process
