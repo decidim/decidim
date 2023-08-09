@@ -614,8 +614,6 @@ es-PY:
         finish: Terminar
         promotal_committee: Comisión Promotora.
         select_initiative_type: Escoger
-      initiative_header:
-        initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
         fill_personal_data: Completa tus datos
         finish: Terminar
