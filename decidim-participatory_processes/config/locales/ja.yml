@@ -524,5 +524,3 @@ ja:
           more_info_about: 参加型プロセス %{resource_name} についての詳細情報
           take_part: 参加する
           take_part_in: 参加型プロセス %{resource_name} に参加する
-      process_navigation:
-        process_menu_item: プロセス
