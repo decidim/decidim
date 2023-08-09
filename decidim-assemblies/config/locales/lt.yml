@@ -428,4 +428,3 @@ lt:
             other: "%{count} asamblėjos"
       assembly_navigation:
         assembly_member_menu_item: Nariai
-        assembly_menu_item: Asamblėja
