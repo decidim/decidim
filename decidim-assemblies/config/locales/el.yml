@@ -434,4 +434,3 @@ el:
             other: "%{count} συνελεύσεις"
       assembly_navigation:
         assembly_member_menu_item: Μέλη
-        assembly_menu_item: Η συνέλευση
