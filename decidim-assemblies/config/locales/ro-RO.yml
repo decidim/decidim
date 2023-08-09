@@ -455,4 +455,3 @@ ro:
             other: "%{count} grupuri de lucru"
       assembly_navigation:
         assembly_member_menu_item: Membri
-        assembly_menu_item: Organizația
