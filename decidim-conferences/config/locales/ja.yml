@@ -573,7 +573,6 @@ ja:
           conferences:
             other: "%{count} 個のカンファレンス"
       conferences_nav:
-        conference_menu_item: 情報
         conference_partners_menu_item: パートナー
         conference_speaker_menu_item: スピーカー
         media: メディア
