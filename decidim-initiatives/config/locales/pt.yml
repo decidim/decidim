@@ -509,8 +509,6 @@ pt:
         finish: Terminar
         promotal_committee: Comité Promotor
         select_initiative_type: Escolher
-      initiative_header:
-        initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
         fill_personal_data: Complete os seus dados
         finish: Terminar
