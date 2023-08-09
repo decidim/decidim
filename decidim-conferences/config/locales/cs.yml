@@ -591,7 +591,6 @@ cs:
             many: "%{count} konferencí"
             other: "%{count} konferencí"
       conferences_nav:
-        conference_menu_item: Informace
         conference_partners_menu_item: Partneři
         conference_speaker_menu_item: Řečníci
         media: Média
