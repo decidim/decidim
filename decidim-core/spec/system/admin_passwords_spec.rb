@@ -92,7 +92,7 @@ describe "Admin passwords", type: :system do
   end
 
   def manual_login(email, password)
-    click_link "Sign In", match: :first
+    click_link "Log In", match: :first
     fill_in :session_user_email, with: email
     fill_in :session_user_password, with: password
     click_button "Log in"
