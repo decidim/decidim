@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
   s.add_dependency "cld", "~> 0.11"
   s.add_dependency "decidim-core", Decidim::Ai.version
   s.add_development_dependency "decidim-debates", Decidim::Ai.version
+  s.add_development_dependency "decidim-initiatives", Decidim::Ai.version
   s.add_development_dependency "decidim-meetings", Decidim::Ai.version
   s.add_development_dependency "decidim-proposals", Decidim::Ai.version
 end

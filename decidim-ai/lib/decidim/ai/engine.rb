@@ -65,6 +65,17 @@ module Decidim
         end
       end
 
+      initializer "decidim_ai.events.subscribe_initiatives" do
+        config.to_prepare do
+          ActiveSupport::Notifications.subscribe("decidim.initiatives.create_initiative:after") do |_event_name, data|
+            Decidim::Ai::GenericSpamAnalyzerJob.perform_later(data[:resource], data[:author], data[:locale], [:description, :title])
+          end
+          ActiveSupport::Notifications.subscribe("decidim.initiatives.update_initiative:after") do |_event_name, data|
+            Decidim::Ai::GenericSpamAnalyzerJob.perform_later(data[:resource], data[:author], data[:locale], [:description, :title])
+          end
+        end
+      end
+
       initializer "decidim_ai.events.subscribe_proposals" do
         config.to_prepare do
           ActiveSupport::Notifications.subscribe("decidim.proposals.create_proposal:after") do |_event_name, data|
