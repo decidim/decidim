@@ -18,7 +18,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
       before do
         visit decidim.root_path
         within "#main-bar" do
-          click_link("Sign In")
+          click_link("Log In")
         end
 
         within "form.new_user", match: :first do
