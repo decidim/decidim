@@ -61,14 +61,7 @@ module Decidim
       def process_nav_items(participatory_space)
         components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
 
-        [
-          {
-            name: t("process_menu_item", scope: "layouts.decidim.process_navigation"),
-            url: decidim_participatory_processes.participatory_process_path(participatory_space),
-            active: is_active_link?(decidim_participatory_processes.participatory_process_path(participatory_space), :exclusive) ||
-              is_active_link?(decidim_participatory_processes.all_metrics_participatory_process_path(participatory_space), :exclusive)
-          }
-        ] + components.map do |component|
+        components.map do |component|
           {
             name: translated_attribute(component.name),
             url: main_component_path(component),
@@ -93,8 +86,8 @@ module Decidim
       def filter_types_values
         return if process_types.blank?
 
-        type_values = process_types.map { |type| [type.id.to_s, filter_text_for(translated_attribute(type.title))] }
-        type_values.prepend(["", filter_text_for(t("decidim.participatory_processes.participatory_processes.filters.names.all"))])
+        type_values = process_types.map { |type| [type.id.to_s, translated_attribute(type.title)] }
+        type_values.prepend(["", t("decidim.participatory_processes.participatory_processes.filters.names.all")])
 
         filter_tree_from_array(type_values)
       end

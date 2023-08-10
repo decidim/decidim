@@ -5,7 +5,7 @@ $(() => {
   const $comment = $(`#comment_${commentId}`);
   const $commentReply = $(`#comment${commentId}-reply`);
   const $content = $("> .comment__content", $comment);
-  const sectionsToDelete = ["header", "footer", "additionalreply"];
+  const sectionsToDelete = ["header", "footer-grid", "reply", "additionalreply"];
 
   sectionsToDelete.forEach((section) => {
     $(`> .comment__${section}`, $comment).remove();

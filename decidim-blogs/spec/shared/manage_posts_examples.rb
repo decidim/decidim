@@ -268,9 +268,10 @@ shared_examples "manage posts" do
         click_link "Edit"
       end
       within ".edit_post" do
-        fill_in "Publish time", with: "01/01/2022 00:00"
+        fill_in "Publish time", with: Time.current.change(year: 2022, month: 1, day: 1, hour: 0, min: 0)
         find("*[type=submit]").click
       end
+
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_content("01/01/2022 00:00")
     end
