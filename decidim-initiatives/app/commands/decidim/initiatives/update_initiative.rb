@@ -34,19 +34,33 @@ module Decidim
           return broadcast(:invalid) if attachments_invalid?
         end
 
-        @initiative = Decidim.traceability.update!(
-          initiative,
-          current_user,
-          attributes
-        )
+        with_events(with_transaction: true) do
+          @initiative = Decidim.traceability.update!(
+            initiative,
+            current_user,
+            attributes
+          )
 
-        photo_cleanup!
-        document_cleanup!
-        create_attachments if process_attachments?
+          photo_cleanup!
+          document_cleanup!
+          create_attachments if process_attachments?
+        end
 
         broadcast(:ok, initiative)
       rescue ActiveRecord::RecordInvalid
         broadcast(:invalid, initiative)
+      end
+
+      protected
+
+      def event_arguments
+        {
+          resource: initiative,
+          extra: {
+            event_author: form.current_user,
+            locale:
+          }
+        }
       end
 
       private

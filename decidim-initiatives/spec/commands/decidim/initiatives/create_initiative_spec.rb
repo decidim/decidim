@@ -37,6 +37,13 @@ module Decidim
           described_class.new(form, author)
         end
 
+        it_behaves_like "fires an ActiveSupport::Notification event", "decidim.initiatives.create_initiative:before" do
+          let(:command) { subject }
+        end
+        it_behaves_like "fires an ActiveSupport::Notification event", "decidim.initiatives.create_initiative:after" do
+          let(:command) { subject }
+        end
+
         let(:scoped_type) { create(:initiatives_type_scope) }
         let(:organization) { scoped_type.type.organization }
         let(:author) { create(:user, organization:) }

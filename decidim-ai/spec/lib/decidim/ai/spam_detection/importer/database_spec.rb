@@ -26,6 +26,25 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     end
   end
 
+  context "when trained model is Decidim::Initiative" do
+    let(:organization) { create(:organization) }
+    let!(:author) { create(:user, organization:) }
+    let!(:participatory_space) { create_list(:initiative, 4, author:, organization:) }
+    let(:training) { 8 }
+
+    before do
+      Decidim::Ai.trained_models = { "Decidim::Initiative" => "Decidim::Ai::SpamDetection::Resource::Initiative" }
+    end
+
+    it "successfully loads the dataset" do
+      instance = Decidim::Ai::SpamDetection::Service.new
+      allow(Decidim::Ai).to receive(:spam_detection_instance).and_return(instance)
+      expect(instance).to receive(:train).exactly(training).times
+
+      described_class.call
+    end
+  end
+
   context "when trained model is Decidim::Comment::Comment" do
     let(:manifest_name) { "dummy" }
     let(:dummy_resource) { create(:dummy_resource, component:) }

@@ -5,7 +5,7 @@ shared_examples "content submitted to spam analysis" do
   let(:participatory_space) { create(:participatory_process, organization:) }
   let!(:system_user) { create(:user, :confirmed, email: Decidim::Ai.reporting_user_email, organization:) }
   let(:component) { create(:component, participatory_space:, manifest_name:) }
-  let!(:author) { create(:user, organization:) }
+  let!(:author) { create(:user, :confirmed, organization:) }
   let(:queue_size) { 1 }
 
   before do
@@ -37,6 +37,36 @@ shared_examples "content submitted to spam analysis" do
     perform_enqueued_jobs do
       expect { command.call }.to change(Decidim::Report, :count).by(spam_count)
       expect(Decidim::Report.count).to eq(spam_count)
+    end
+  end
+end
+
+shared_examples "initiatives spam analysis" do
+  context "when spam content is added" do
+    let(:description) { "Claim your prize today so you can win." }
+    let(:title) { "You are the Lucky winner" }
+
+    include_examples "content submitted to spam analysis" do
+      let(:spam_count) { 1 }
+      let(:compared_field) { :description }
+      let(:compared_against) { description }
+      let(:resource) { Decidim::Initiative }
+      let(:component) { nil }
+      let(:participatory_space) { initiative }
+    end
+  end
+
+  context "when regular content content is added" do
+    let(:description) { "Very nice idea that is not going to be blocked by engine" }
+    let(:title) { "This is the debate title" }
+
+    include_examples "content submitted to spam analysis" do
+      let(:spam_count) { 0 }
+      let(:compared_field) { :description }
+      let(:compared_against) { description }
+      let(:resource) { Decidim::Initiative }
+      let(:component) { nil }
+      let(:participatory_space) { initiative }
     end
   end
 end

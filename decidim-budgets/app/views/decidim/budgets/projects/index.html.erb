@@ -6,7 +6,7 @@
 <%= cell("decidim/budgets/budget_information_modal", budget) %>
 
 <% content_for :aside do %>
-  <h3 class="h3 decorator"><%= t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %></h3>
+  <h1 class="h3 decorator"><%= t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %></h1>
 
   <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont } do %>
       <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
