@@ -32,10 +32,10 @@ module Decidim
           it_behaves_like "a not found page"
         end
 
-        context "with my user with uppercase" do
-          let(:nickname) { user.nickname.upcase }
+        context "with my user" do
+          let(:nickname) { user.nickname }
 
-          it "returns the lowercased user" do
+          it "returns the user" do
             subject
 
             expect(response).to render_template(:index)
@@ -48,8 +48,8 @@ module Decidim
           it_behaves_like "a not found page"
         end
 
-        context "with my user with uppercase" do
-          let(:nickname) { user.nickname.upcase }
+        context "with my user" do
+          let(:nickname) { user.nickname }
 
           it_behaves_like "a not found page"
         end
