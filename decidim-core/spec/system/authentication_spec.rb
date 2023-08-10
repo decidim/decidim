@@ -255,7 +255,7 @@ describe "Authentication", type: :system do
       end
 
       it "do not allow the user to sign up" do
-        click_link("Sign In", match: :first)
+        click_link("Log In", match: :first)
         expect(page).not_to have_content("Create an account")
       end
     end
@@ -316,9 +316,9 @@ describe "Authentication", type: :system do
   context "when a user is already registered" do
     let(:user) { create(:user, :confirmed, password: "DfyvHn425mYAy2HL", organization:) }
 
-    describe "Sign in" do
+    describe "Log in" do
       it "authenticates an existing User" do
-        click_link("Sign In", match: :first)
+        click_link("Log In", match: :first)
 
         within ".new_user" do
           fill_in :session_user_email, with: user.email
@@ -331,7 +331,7 @@ describe "Authentication", type: :system do
       end
 
       it "caches the omniauth buttons correctly with different languages", :caching do
-        click_link("Sign In", match: :first)
+        click_link("Log In", match: :first)
         expect(page).to have_link("Sign in with Facebook")
 
         within_language_menu do
@@ -438,7 +438,7 @@ describe "Authentication", type: :system do
         describe "before locking" do
           before do
             visit decidim.root_path
-            click_link("Sign In", match: :first)
+            click_link("Log In", match: :first)
 
             (maximum_attempts - 2).times do
               within ".new_user" do
@@ -463,7 +463,7 @@ describe "Authentication", type: :system do
         describe "locks the account" do
           before do
             visit decidim.root_path
-            click_link("Sign In", match: :first)
+            click_link("Log In", match: :first)
 
             (maximum_attempts - 1).times do
               within ".new_user" do
@@ -558,9 +558,9 @@ describe "Authentication", type: :system do
       OmniAuth.config.camelizations.delete("facebook")
     end
 
-    describe "Sign in" do
+    describe "Log in" do
       it "authenticates an existing User" do
-        click_link("Sign In", match: :first)
+        click_link("Log In", match: :first)
 
         find(".login__omniauth-button.button--facebook").click
 
@@ -572,7 +572,7 @@ describe "Authentication", type: :system do
         let(:organization) { create(:organization, users_registration_mode: :existing) }
 
         it "does not allow the user to sign up" do
-          click_link("Sign In", match: :first)
+          click_link("Log In", match: :first)
           expect(page).not_to have_content("Sign Up")
         end
       end
@@ -581,12 +581,12 @@ describe "Authentication", type: :system do
         let(:organization) { create(:organization, users_registration_mode: :disabled) }
 
         it "does not allow the user to sign up" do
-          click_link("Sign In", match: :first)
+          click_link("Log In", match: :first)
           expect(page).not_to have_content("Sign Up")
         end
 
         it "does not allow the user to sign in as a regular user, only through external accounts" do
-          click_link("Sign In", match: :first)
+          click_link("Log In", match: :first)
           expect(page).not_to have_content("Email")
           within("div.login__omniauth") do
             expect(page).to have_link("Facebook")
@@ -594,7 +594,7 @@ describe "Authentication", type: :system do
         end
 
         it "authenticates an existing User" do
-          click_link("Sign In", match: :first)
+          click_link("Log In", match: :first)
 
           find(".login__omniauth-button.button--facebook").click
 
@@ -610,7 +610,7 @@ describe "Authentication", type: :system do
           end
 
           it "can log in without being prompted to change the password" do
-            click_link("Sign In", match: :first)
+            click_link("Log In", match: :first)
             click_link "Sign in with Facebook"
             expect(page).to have_content("Successfully")
           end
@@ -693,9 +693,9 @@ describe "Authentication", type: :system do
     let!(:user2) { create(:user, :confirmed, email: "fake@user.com", name: "Wrong user", organization: organization2, password: "DfyvHn425mYAy2HL") }
     let!(:user) { create(:user, :confirmed, email: "fake@user.com", name: "Right user", organization:, password: "DfyvHn425mYAy2HL") }
 
-    describe "Sign in" do
+    describe "Log in" do
       it "authenticates the right user" do
-        click_link("Sign In", match: :first)
+        click_link("Log In", match: :first)
 
         within ".new_user" do
           fill_in :session_user_email, with: user.email
