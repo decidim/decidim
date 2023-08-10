@@ -12,3 +12,25 @@
   --alert: #e7131a;
   --alert-rgb: 231 19 26;
 }
+
+aside {
+  @apply bg-gray-4 w-full md:w-1/6 min-w-[250px] h-screen text-white relative translate-x-0 transition;
+
+  &[aria-hidden="true"] {
+    @apply absolute -translate-x-full;
+  }
+}
+
+.main-nav {
+  li {
+    @apply border-l-2 border-transparent font-semibold hover:bg-black transition;
+
+    &.active {
+      @apply border-primary bg-black;
+    }
+  }
+
+  a {
+    @apply block p-4;
+  }
+}
