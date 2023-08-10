@@ -7,7 +7,7 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let(:external_url) { "https://example.org/test?foo=bar"}
+    let(:external_url) { "https://example.org/test?foo=bar" }
 
     before do
       request.env["decidim.current_organization"] = organization
@@ -33,7 +33,7 @@ module Decidim
       end
 
       context "when the url has non ascii characters" do
-        let(:external_url) { "https://example.org/test?foo=bàr"}
+        let(:external_url) { "https://example.org/test?foo=bàr" }
 
         it_behaves_like "opens a page to proceed to the external link"
       end
