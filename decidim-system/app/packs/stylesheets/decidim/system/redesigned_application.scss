@@ -14,7 +14,7 @@
 }
 
 aside {
-  @apply bg-gray-4 w-full md:w-1/6 min-w-[250px] h-screen text-white relative translate-x-0 transition;
+  @apply bg-gray-4 w-full md:w-1/6 min-w-[250px] text-white relative translate-x-0 transition;
 
   &[aria-hidden="true"] {
     @apply absolute -translate-x-full;
@@ -32,5 +32,26 @@ aside {
 
   a {
     @apply block p-4;
+  }
+}
+
+table {
+  @apply w-full border-collapse;
+
+  th {
+    @apply font-semibold bg-background;
+  }
+
+  td,
+  th {
+    @apply p-2 text-center first:text-left;
+  }
+
+  tr:nth-child(even) td {
+    @apply bg-gray-3;
+  }
+
+  a {
+    @apply text-primary underline;
   }
 }

@@ -1,4 +1,3 @@
-import "src/decidim/system/application"
 import "src/decidim/direct_uploads/upload_field"
 
 // CSS
