@@ -59,7 +59,7 @@ import "./data_consent"
 import "./sw"
 
 // local deps that require initialization
-import formDatePicker from "./form_datepicker"
+import redesignedFormDatePicker from "./redesigned_form_datepicker"
 // import fixDropdownMenus from "./dropdowns_menus" -- deprecated
 import Configuration from "./configuration"
 import ExternalLink from "./redesigned_external_link"
@@ -120,7 +120,7 @@ const initializer = (element = document) => {
 
   svg4everybody();
 
-  formDatePicker();
+  redesignedFormDatePicker();
 
   element.querySelectorAll(".editor-container").forEach((container) => window.createEditor(container));
 

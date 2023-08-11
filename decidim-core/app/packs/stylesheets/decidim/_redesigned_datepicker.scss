@@ -1,10 +1,18 @@
 .wc-datepicker {
-  @apply w-1/2 max-w-xs absolute;
+  @apply w-80 max-w-lg absolute z-20;
+}
+
+.wc-datepicker__header {
+  @apply px-0 py-0 pt-7 pb-0 gap-0;
 }
 
 .wc-datepicker__month-select,
 .wc-datepicker__year-select {
   @apply h-10 mb-4 leading-normal;
+}
+
+.wc-datepicker__month-select {
+  @apply pr-3;
 }
 
 .wc-datepicker__year-select {
@@ -32,9 +40,22 @@
 }
 
 .date_column {
-  @apply flex-1 w-1/2;
+  @apply flex-1 w-1/2 relative;
 }
 
 .time_column {
   @apply flex-1 w-1/2;
+}
+
+.calendar_button {
+  @apply w-10 h-9 bg-[#FAFBFC] rounded absolute top-4 mt-0.5 pb-px pl-2 leading-3 right-2;
+}
+
+.close_button {
+  @apply w-6 h-8 bg-white text-secondary absolute z-30 left-64 ml-9 top-14 mt-px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
 }
