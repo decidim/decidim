@@ -243,6 +243,7 @@ export default class DataPicker {
         fadeoutTime = 0;
       }
       this.current.target.fadeOut(fadeoutTime, () => {
+        this.current.target.find("input")?.trigger("change");
         this.current.target.remove();
         this.current.target = null;
       });
