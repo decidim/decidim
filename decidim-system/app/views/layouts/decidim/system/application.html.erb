@@ -22,11 +22,12 @@
     </div>
 
     <div class="p-6 md:px-16 md:py-12 h-full w-full space-y-6">
+      <%= render "decidim/system/shared/notices" %>
+
       <% if content_for?(:title) %>
         <%= content_for :title %>
       <% end %>
 
-      <%= render "decidim/system/shared/notices" %>
       <%= yield %>
     </div>
   </main>

@@ -3,6 +3,7 @@
 import TomSelect from "tom-select/dist/cjs/tom-select.popular";
 
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("haylas");
   const tagContainers = document.querySelectorAll(".js-tags-container");
   const config = {
     plugins: ["remove_button"],

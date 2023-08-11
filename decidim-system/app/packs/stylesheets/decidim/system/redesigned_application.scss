@@ -1,3 +1,5 @@
+@import "stylesheets/decidim/modules/input-tags";
+
 :root {
   --primary: #e02d2d;
   --primary-rgb: 224 45 45;
@@ -53,5 +55,21 @@ table {
 
   a {
     @apply text-primary underline;
+  }
+}
+
+[id^="advanced-settings"] {
+  &[aria-expanded="false"] span:first-child,
+  &[aria-expanded="true"] span:last-child {
+    @apply block;
+  }
+
+  &[aria-expanded="false"] span:last-child,
+  &[aria-expanded="true"] span:first-child {
+    @apply hidden;
+  }
+
+  &[aria-hidden="true"] {
+    @apply hidden;
   }
 }
