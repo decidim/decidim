@@ -84,6 +84,7 @@ module Decidim
 
       template = ""
       template += render("decidim/scopes/scopes_picker_input",
+                         values_options: { delete_button: false },
                          picker_options: picker_options,
                          prompt_params: prompt_params,
                          scopes: scopes,
