@@ -219,7 +219,7 @@ describe "Authentication", type: :system do
       it "creates a new User" do
         click_link("Sign Up")
 
-        click_link "Sign in with Google"
+        click_link "Log in with Google"
 
         expect_user_logged
       end
@@ -332,7 +332,7 @@ describe "Authentication", type: :system do
 
       it "caches the omniauth buttons correctly with different languages", :caching do
         click_link("Log In", match: :first)
-        expect(page).to have_link("Sign in with Facebook")
+        expect(page).to have_link("Log in with Facebook")
 
         within_language_menu do
           click_link "Català"
@@ -610,7 +610,7 @@ describe "Authentication", type: :system do
           end
 
           it "can log in without being prompted to change the password" do
-            click_link("Log In", match: :first)
+            click_link("Sign In", match: :first)
             click_link "Sign in with Facebook"
             expect(page).to have_content("Successfully")
           end
