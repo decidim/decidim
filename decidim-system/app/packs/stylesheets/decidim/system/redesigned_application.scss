@@ -73,3 +73,18 @@ table {
     @apply hidden;
   }
 }
+
+dl {
+  dt {
+    @apply font-semibold;
+  }
+
+  dd {
+    @apply text-gray-2;
+  }
+
+  dt + dd,
+  dd + dt{
+    @apply mt-4;
+  }
+}
