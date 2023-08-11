@@ -71,7 +71,6 @@ export default class CheckBoxesTree {
     allChecks.forEach((input) => {
       input.checked = checkStatus;
       input.indeterminate = false;
-      input.classList.add("ignore-filter");
 
       // recursive call if the input it is also a tree
       if (input.dataset.checkboxesTree) {
@@ -106,14 +105,6 @@ export default class CheckBoxesTree {
       parentCheck.checked = false;
       parentCheck.indeterminate = true;
     }
-
-    totalCheckSiblings.forEach((sibling) => {
-      if (parentCheck.indeterminate && !sibling.indeterminate) {
-        sibling.classList.remove("ignore-filter");
-      } else {
-        sibling.classList.add("ignore-filter");
-      }
-    });
 
     // recursive call if there are more children
     if ("childrenCheckbox" in parentCheck.parentNode.dataset) {
