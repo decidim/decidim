@@ -523,7 +523,7 @@ describe "Authentication", type: :system do
         it "unlocks the user account" do
           visit last_email_link
 
-          expect(page).to have_content("Your account has been successfully unlocked. Please sign in to continue")
+          expect(page).to have_content("Your account has been successfully unlocked. Please log in to continue")
         end
       end
     end
@@ -610,8 +610,8 @@ describe "Authentication", type: :system do
           end
 
           it "can log in without being prompted to change the password" do
-            click_link("Sign In", match: :first)
-            click_link "Sign in with Facebook"
+            click_link("Log In", match: :first)
+            click_link "Log in with Facebook"
             expect(page).to have_content("Successfully")
           end
         end
