@@ -102,7 +102,7 @@ describe Decidim::UploadModalCell, type: :cell do
     let(:required) { true }
 
     it "renders hidden checkbox" do
-      expect(subject).to have_css("input[name='dummy[#{attribute}_validation]']")
+      expect(subject).to have_css("input[name='dummy[#{attribute}_validation]']", visible: :hidden)
     end
 
     it "renders the required field indicator" do
