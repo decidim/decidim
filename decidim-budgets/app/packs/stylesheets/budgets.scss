@@ -197,7 +197,7 @@
 }
 
 .progressbox-fixed-wrapper {
-  @apply bg-tertiary fixed hidden inset-x-0 inset-y-0 h-max z-10;
+  @apply bg-tertiary fixed hidden inset-x-0 inset-y-0 h-max z-20;
 
   box-shadow: 0 4px 6px 0 rgba(211, 211, 211, 0.25);
 }

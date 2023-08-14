@@ -2,10 +2,7 @@
   <%= cell("decidim/accountability/project", result) %>
 
   <section class="layout-main__section layout-main__buttons" data-buttons>
-    <button class="button button__sm button__transparent-secondary">
-      <%= t(:comment, scope: "decidim.components.accountability.actions") %>
-      <%= icon "chat-1-line", class: "fill-current flex-none" %>
-    </button>
+    <%= cell "decidim/comments_button", nil %>
     <div class="ml-auto">
       <%= cell "decidim/tags", result %>
     </div>

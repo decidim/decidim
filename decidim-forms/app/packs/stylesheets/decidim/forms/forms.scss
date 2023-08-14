@@ -59,6 +59,7 @@
       @apply border border-background px-2 py-2.5;
     }
 
+    thead td,
     th {
       @apply bg-background font-normal;
     }

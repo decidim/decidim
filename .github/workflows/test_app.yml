@@ -18,6 +18,26 @@ on:
         description: 'The testing command to be ran'
         required: true
         type: string
+      bullet_enabled:
+        description: 'Enable bullet performance testing'
+        required: false
+        default: false
+        type: boolean
+      bullet_n_plus_one:
+        description: 'Enable bullet n+1 testing'
+        required: false
+        default: false
+        type: boolean
+      bullet_counter_cache:
+        description: 'Enable bullet counter cache testing'
+        required: false
+        default: false
+        type: boolean
+      bullet_unused_eager_loading:
+        description: 'Enable bullet unused eager loading testing'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   build_app:
@@ -35,7 +55,7 @@ jobs:
         image: ghcr.io/validator/validator:latest
         ports: ["8888:8888"]
       postgres:
-        image: postgres:11
+        image: postgres:14
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
@@ -64,10 +84,6 @@ jobs:
           ruby-version: ${{ inputs.ruby_version }}
           bundler-cache: true
       - uses: nanasess/setup-chromedriver@v2
-        with:
-          # TODO: Unpin when nanasess/setup-chromedriver#190 is fixed:
-          #       https://github.com/nanasess/setup-chromedriver/issues/190
-          chromedriver-version: 114.0.5735.90
       - uses: actions/cache@v3
         id: app-cache
         with:
@@ -89,6 +105,10 @@ jobs:
           RUBY_VERSION: ${{ inputs.ruby_version }}
           DECIDIM_MODULE: ${{ inputs.working-directory }}
           CODECOV_TOKEN: ${{ inputs.codecov_token }}
+          DECIDIM_BULLET_ENABLED: ${{ inputs.bullet_enabled }}
+          DECIDIM_BULLET_N_PLUS_ONE: ${{ inputs.bullet_n_plus_one }}
+          DECIDIM_BULLET_COUNTER_CACHE: ${{ inputs.bullet_counter_cache }}
+          DECIDIM_BULLET_UNUSED_EAGER: ${{ inputs.bullet_unused_eager_loading }}
           DISPLAY: ":99"
           CI: "true"
           SIMPLECOV: "true"

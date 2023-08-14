@@ -22,9 +22,9 @@ edit_link(
 
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: debates_path, commentable: debate } do %>
   <section class="layout-main__section layout-main__heading">
-    <h2 class="h2 decorator mb-8">
+    <h1 class="h2 decorator">
       <%== present(debate).title(links: true, html_escape: true) %>
-    </h2>
+    </h1>
 
     <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
     <div class="layout-author">

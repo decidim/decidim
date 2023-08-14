@@ -5,7 +5,7 @@ require "spec_helper"
 describe "ExternalDomainWarning", type: :system do
   let(:whitelist) { ["decidim.org", "example.org"] }
   let(:organization) { create(:organization, external_domain_whitelist: whitelist) }
-  let(:content) { { en: 'Hello world <a href="http://www.github.com">Very nice link</a><br><a href="http://www.example.org">Another link</a>' } }
+  let(:content) { { en: 'Hello world <a href="http://www.github.com" target="_blank">Very nice link</a><br><a href="http://www.example.org" target="_blank">Another link</a>' } }
   let!(:static_page) { create(:static_page, organization:, show_in_footer: true, allow_public_access: true, content:) }
 
   before do
@@ -19,10 +19,8 @@ describe "ExternalDomainWarning", type: :system do
   end
 
   it "reveals warning when clicking link with an external href" do
-    skip "REDESIGN_PENDING: This test fails with the old javascripts used by the application. This requires the use of the redesigned layout https://github.com/decidim/decidim/issues/11422"
-
     click_link "Very nice link"
-    expect(page).to have_css(".reveal-overlay")
+    expect(page).to have_css("#external-domain-warning")
     expect(page).to have_content("Open external link")
   end
 

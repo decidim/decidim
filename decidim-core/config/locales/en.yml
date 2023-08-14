@@ -579,8 +579,6 @@ en:
           all: All
         filter_scope_values:
           all: All
-    datepicker:
-      help_text: 'Expected format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -1498,6 +1496,7 @@ en:
           areas: Areas
           scope: Scope
           select_an_area: Select an area
+      progress: Progress
       public_participation:
         public_participation: Show my attendance publicly
       reference:
