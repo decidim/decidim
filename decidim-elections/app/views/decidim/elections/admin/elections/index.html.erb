@@ -46,7 +46,7 @@
                 <%= icon "pencil-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.elections") %>
               <% end %>
 
-              <%= icon_link_to "list-line", election_questions_path(election), t("actions.manage_questions", scope: "decidim.elections"), class: "action-icon--manage-questions" %>
+              <%= icon_link_to "list-check", election_questions_path(election), t("actions.manage_questions", scope: "decidim.elections"), class: "action-icon--manage-questions" %>
 
               <% if allowed_to? :read, :steps, election: election %>
                 <%= icon_link_to "project", election_steps_path(election), t("actions.manage_steps", scope: "decidim.elections"), class: "action-icon--manage-steps" %>

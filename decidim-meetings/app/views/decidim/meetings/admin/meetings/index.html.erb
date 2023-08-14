@@ -108,7 +108,7 @@
 
               <% if allowed_to? :update, :meeting, meeting: meeting %>
                 <%= icon_link_to "calendar-line", meeting.agenda.present? ? edit_meeting_agenda_path(meeting, meeting.agenda) : new_meeting_agenda_path(meeting), t("actions.agenda", scope: "decidim.meetings"), class: "action-icon--agenda" %>
-                <%= icon_link_to "list-line", edit_meeting_poll_path(meeting), t("actions.manage_poll", scope: "decidim.meetings"), class: "action-icon--manage-poll-questionnaire" %>
+                <%= icon_link_to "list-check", edit_meeting_poll_path(meeting), t("actions.manage_poll", scope: "decidim.meetings"), class: "action-icon--manage-poll-questionnaire" %>
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>
