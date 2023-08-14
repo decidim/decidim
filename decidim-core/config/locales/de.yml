@@ -1495,6 +1495,7 @@ de:
           areas: Bereiche
           scope: Thema
           select_an_area: Wählen Sie einen Bereich aus
+      progress: Fortschritt
       public_participation:
         public_participation: Meine Teilnahme öffentlich anzeigen
       reference:
