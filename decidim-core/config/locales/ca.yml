@@ -1488,6 +1488,7 @@ ca:
           areas: Àrees
           scope: Àmbit
           select_an_area: Selecciona una àrea
+      progress: Progrés
       public_participation:
         public_participation: Mostra públicament la meva assistència
       reference:
