@@ -231,6 +231,7 @@ de:
           global_status: Globaler Umsetzungsstatus
         nav_breadcrumb:
           global: Globale Ausführung
+        no_results: Es gibt keine Projekte
         search:
           search: Suche nach Aktionen
         show:
