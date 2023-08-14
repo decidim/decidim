@@ -1491,6 +1491,7 @@ es-PY:
           areas: Áreas
           scope: Ámbito
           select_an_area: Seleccione un area
+      progress: Progreso
       public_participation:
         public_participation: Mostrar mi asistencia públicamente
       reference:
