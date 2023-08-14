@@ -16,7 +16,7 @@
 }
 
 aside {
-  @apply bg-gray-4 w-full md:w-1/6 min-w-[250px] text-white relative translate-x-0 transition;
+  @apply bg-gray-4 w-full md:w-1/6 min-w-[250px] flex-none text-white relative translate-x-0 transition;
 
   &[aria-hidden="true"] {
     @apply absolute -translate-x-full;
