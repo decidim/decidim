@@ -248,6 +248,7 @@ en:
             votes: Supports
         timeline:
           title: Project evolution
+        no_results: There are no projects
     admin:
       filters:
         results:
