@@ -1474,6 +1474,7 @@ fr-CA:
         filters:
           areas: Zones d'application
           select_an_area: Sélectionnez une zone d'application
+      progress: Avancement
       public_participation:
         public_participation: Afficher ma présence publiquement
       reference:
