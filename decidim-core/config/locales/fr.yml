@@ -1474,6 +1474,7 @@ fr:
         filters:
           areas: Périmètres d'assemblée
           select_an_area: Sélectionnez un périmètre d'assemblée
+      progress: Avancement
       public_participation:
         public_participation: Afficher ma présence publiquement
       reference:
