@@ -6,7 +6,7 @@
 <div id="advanced-settings-panel" aria-hidden="true">
   <% %w(smtp_settings omniauth_settings file_upload_settings csp_settings).each do |partial| %>
     <div class="border-2 rounded border-background p-4 form__wrapper mt-8 first:mt-0 last:pb-4">
-      <%= render partial: partial, locals: { f: } %>
+      <%= render partial:, locals: { f: } %>
     </div>
   <% end %>
 </div>
