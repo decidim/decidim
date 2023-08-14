@@ -231,6 +231,7 @@ fr-CA:
           global_status: État d'exécution global
         nav_breadcrumb:
           global: Exécution globale
+        no_results: Il n'y a aucun projet.
         search:
           search: Rechercher des réalisations
         show:
