@@ -1490,6 +1490,7 @@ fi-pl:
           areas: alueet
           scope: Teema
           select_an_area: Valitse alue
+      progress: Edistyminen
       public_participation:
         public_participation: Näytä läsnäoloni julkisesti
       reference:
