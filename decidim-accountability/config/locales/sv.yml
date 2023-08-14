@@ -179,6 +179,7 @@ sv:
           global_status: Global genomförandestatus
         nav_breadcrumb:
           global: Globalt genomförande
+        no_results: Det finns inga projekt
         search:
           search: Sök efter åtgärder
         show:
