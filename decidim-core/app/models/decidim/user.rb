@@ -264,6 +264,7 @@ module Decidim
       return false if organization.users_registration_mode == "disabled"
       return false unless admin?
       return false unless Decidim.config.admin_password_strong
+      return false if Decidim.config.admin_password_expiration_days.zero?
       return identities.none? if password_updated_at.blank?
 
       password_updated_at < Decidim.config.admin_password_expiration_days.days.ago

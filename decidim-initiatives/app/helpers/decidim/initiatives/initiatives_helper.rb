@@ -23,14 +23,7 @@ module Decidim
       def initiative_nav_items(participatory_space)
         components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
 
-        [
-          {
-            name: t("initiative_menu_item", scope: "layouts.decidim.initiative_header"),
-            url: decidim_initiatives.initiative_path(participatory_space),
-            active: is_active_link?(decidim_initiatives.initiative_path(participatory_space), :exclusive) ||
-              is_active_link?(decidim_initiatives.initiative_version_path(participatory_space, participatory_space.versions.count), :inclusive)
-          }
-        ] + components.map do |component|
+        components.map do |component|
           {
             name: translated_attribute(component.name),
             url: main_component_path(component),
@@ -61,8 +54,8 @@ module Decidim
 
       def filter_author_values
         [
-          ["any", filter_text_for(t("any", scope: "decidim.initiatives.initiatives.filters"))],
-          ["myself", filter_text_for(t("myself", scope: "decidim.initiatives.initiatives.filters"))]
+          ["any", t("any", scope: "decidim.initiatives.initiatives.filters")],
+          ["myself", t("myself", scope: "decidim.initiatives.initiatives.filters")]
         ]
       end
     end

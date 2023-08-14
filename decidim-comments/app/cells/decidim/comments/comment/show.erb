@@ -67,7 +67,7 @@
         <%= votes %>
       </div>
       <% if can_reply? %>
-        <div id="panel-<%= reply_id %>" class="add-comment">
+        <div id="panel-<%= reply_id %>" class="add-comment comment__additionalreply">
           <%== cell("decidim/comments/comment_form", model, root_depth:, order:) %>
         </div>
       <% end %>

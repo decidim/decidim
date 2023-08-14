@@ -47,6 +47,9 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.comments.create_comment:before"
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.comments.create_comment:after"
+
           it "creates a new comment" do
             expect(Comment).to receive(:create!).with(
               { author:,

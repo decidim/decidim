@@ -49,7 +49,7 @@ describe "Admin manages polling officers", type: :system do
     context "when deleting the census" do
       it "deletes the census" do
         within "#wrapper-action-view" do
-          accept_confirm { click_link "Delete all census data" }
+          accept_confirm(admin: true) { click_link "Delete all census data" }
         end
 
         expect(page).to have_admin_callout("Census data deleted")
@@ -76,7 +76,7 @@ describe "Admin manages polling officers", type: :system do
     context "when deleting the census" do
       it "deletes the census" do
         within ".voting-content" do
-          accept_confirm { click_link "Delete all census data" }
+          accept_confirm(admin: true) { click_link "Delete all census data" }
         end
 
         expect(page).to have_admin_callout("Census data deleted")
@@ -91,7 +91,7 @@ describe "Admin manages polling officers", type: :system do
     context "when generating the access codes" do
       it "deletes the census" do
         within ".voting-content" do
-          accept_confirm { click_link "Generate voting Access Codes" }
+          accept_confirm(admin: true) { click_link "Generate voting Access Codes" }
         end
 
         expect(page).to have_content("Please wait")
@@ -107,7 +107,7 @@ describe "Admin manages polling officers", type: :system do
 
     it "exports the access codes" do
       within ".voting-content" do
-        accept_confirm { click_link "Export voting Access Codes" }
+        accept_confirm(admin: true) { click_link "Export voting Access Codes" }
       end
 
       expect(page).to have_admin_callout("Access codes export launched")

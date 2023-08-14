@@ -31,7 +31,6 @@ module Decidim
         resources :participatory_process_groups, only: :show, path: "processes_groups"
         resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
           get "all-metrics", on: :member
-          resources :participatory_process_steps, only: [:index], path: "steps"
         end
 
         scope "/processes/:participatory_process_slug/f/:component_id" do
@@ -91,6 +90,33 @@ module Decidim
           content_block.default!
         end
 
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :extra_data) do |content_block|
+          content_block.cell = "decidim/participatory_process_groups/content_blocks/extra_data"
+          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.extra_data.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :cta) do |content_block|
+          content_block.cell = "decidim/content_blocks/cta"
+          content_block.settings_form_cell = "decidim/content_blocks/cta_settings_form"
+          content_block.public_name_key = "decidim.content_blocks.cta.name"
+
+          content_block.images = [
+            {
+              name: :background_image,
+              uploader: "Decidim::HomepageImageUploader"
+            }
+          ]
+
+          content_block.settings do |settings|
+            settings.attribute :button_text, type: :text, translated: true
+            settings.attribute :button_url, type: :string, required: true
+            settings.attribute :description, type: :string, translated: true, editor: true
+          end
+
+          content_block.default!
+        end
+
         (1..3).each do |index|
           Decidim.content_blocks.register(:participatory_process_group_homepage, :"html_#{index}") do |content_block|
             content_block.cell = "decidim/content_blocks/html"
@@ -100,7 +126,6 @@ module Decidim
             content_block.settings do |settings|
               settings.attribute :html_content, type: :text, translated: true
             end
-            content_block.default!
           end
         end
 
@@ -112,19 +137,16 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :html_content, type: :text, translated: true
           end
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :process_hero) do |content_block|
           content_block.cell = "decidim/participatory_processes/content_blocks/hero"
           content_block.public_name_key = "decidim.participatory_processes.content_blocks.hero.name"
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :announcement) do |content_block|
           content_block.cell = "decidim/content_blocks/participatory_space_announcement"
           content_block.public_name_key = "decidim.content_blocks.announcement.name"
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :main_data) do |content_block|
@@ -136,7 +158,6 @@ module Decidim
         Decidim.content_blocks.register(:participatory_process_homepage, :extra_data) do |content_block|
           content_block.cell = "decidim/participatory_processes/content_blocks/extra_data"
           content_block.public_name_key = "decidim.participatory_processes.content_blocks.extra_data.name"
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :metadata) do |content_block|
@@ -152,19 +173,16 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :max_last_activity_users, type: :integer, default: Decidim::ContentBlocks::ParticipatorySpaceLastActivityCell::DEFAULT_MAX_LAST_ACTIVITY_USERS
           end
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :stats) do |content_block|
           content_block.cell = "decidim/participatory_processes/content_blocks/stats"
           content_block.public_name_key = "decidim.content_blocks.participatory_space_stats.name"
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :metrics) do |content_block|
           content_block.cell = "decidim/participatory_processes/content_blocks/metrics"
           content_block.public_name_key = "decidim.content_blocks.participatory_space_metrics.name"
-          content_block.default!
         end
 
         if Decidim.module_installed?(:accountability)
@@ -185,6 +203,7 @@ module Decidim
             content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
             content_block.public_name_key = "decidim.accountability.content_blocks.highlighted_results.results"
             content_block.component_manifest_name = "accountability"
+            content_block.default!
 
             content_block.settings do |settings|
               settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
@@ -288,33 +307,6 @@ module Decidim
               settings.attribute :component_id, type: :select, default: nil
             end
           end
-        end
-
-        Decidim.content_blocks.register(:participatory_process_group_homepage, :extra_data) do |content_block|
-          content_block.cell = "decidim/participatory_process_groups/content_blocks/extra_data"
-          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.extra_data.name"
-          content_block.default!
-        end
-
-        Decidim.content_blocks.register(:participatory_process_group_homepage, :cta) do |content_block|
-          content_block.cell = "decidim/content_blocks/cta"
-          content_block.settings_form_cell = "decidim/content_blocks/cta_settings_form"
-          content_block.public_name_key = "decidim.content_blocks.cta.name"
-
-          content_block.images = [
-            {
-              name: :background_image,
-              uploader: "Decidim::HomepageImageUploader"
-            }
-          ]
-
-          content_block.settings do |settings|
-            settings.attribute :button_text, type: :text, translated: true
-            settings.attribute :button_url, type: :string, required: true
-            settings.attribute :description, type: :string, translated: true, editor: true
-          end
-
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:participatory_process_group_homepage, :stats) do |content_block|

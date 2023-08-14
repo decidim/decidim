@@ -22,9 +22,9 @@ edit_link(
 
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: debates_path, commentable: debate } do %>
   <section class="layout-main__section layout-main__heading">
-    <h2 class="h2 decorator mb-8">
+    <h1 class="h2 decorator">
       <%== present(debate).title(links: true, html_escape: true) %>
-    </h2>
+    </h1>
 
     <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
     <div class="layout-author">
@@ -123,9 +123,9 @@ edit_link(
 
   <% content_for :item_footer do %>
     <%= comments_for debate %>
-    <ul class="drawer-metadata__container layout-main__section">
-      <%= content_tag :li, resource_reference(debate), class: "drawer-metadata__item" %>
-      <%= content_tag :li, resource_version(debate, versions_path: debate_version_path(debate, debate.versions.count)), class: "drawer-metadata__item" %>
+    <ul class="metadata__container layout-main__section" data-metadata-footer>
+      <%= content_tag :li, resource_reference(debate), class: "metadata__item" %>
+      <%= content_tag :li, resource_version(debate, versions_path: debate_version_path(debate, debate.versions.count)), class: "metadata__item" %>
     </ul>
   <% end %>
 

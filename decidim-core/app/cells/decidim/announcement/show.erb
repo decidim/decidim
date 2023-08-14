@@ -1,4 +1,4 @@
-<%= content_tag :div, id: options[:id], class: "callout #{callout_class}", data: { announcement: "", component: ("accordion" if truncate?) }.compact do %>
+<%= content_tag :div, id: options[:id], class: "callout #{callout_class}", data: { announcement: "", component: ("accordion" if truncate?) }.compact, hidden: options[:hidden] do %>
   <% if has_title? %>
     <div class="h4">
       <%= clean_title %>

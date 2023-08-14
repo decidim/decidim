@@ -29,6 +29,10 @@ module Decidim
         translated_attribute process.active_step&.title
       end
 
+      def display_steps?
+        process.steps.present?
+      end
+
       def nav_items_method = :process_nav_items
     end
   end

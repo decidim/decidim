@@ -14,8 +14,8 @@ Person(participant_user, "Participant User", "A registered user. Could also be v
 Person(administration_user, "Administration User", "A registered user with special permissions.")
 
 System_Boundary(decidim_system, "decidim"){
-    Container(web_app, "Web Application", "Ruby on Rails 5.2", "Allows participants to make decisions collaboratively through participatory processes, assemblies, consultations, initiatives, etc.")
-    ContainerDb(rel_db, "Relational Database", "PostgreSQL 9.5.x", "Stores users, participatory processes, assemblies, consultations, initiatives, proposals, meetings, etc.")
+    Container(web_app, "Web Application", "Ruby on Rails 5.2", "Allows participants to make decisions collaboratively through participatory processes, assemblies, initiatives, etc.")
+    ContainerDb(rel_db, "Relational Database", "PostgreSQL 9.5.x", "Stores users, participatory processes, assemblies, initiatives, proposals, meetings, etc.")
     Container(filesystem, "File System", "Local or remote", "Stores uploads (images, documents, etc.)")
     Container(worker, "Worker", "Ruby on Rails 5.2", "ActiveJob queues for non syncronuos jobs. Works for open data requests, sending emails, etc.")
 }

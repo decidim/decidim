@@ -16,15 +16,6 @@ module Decidim
       let(:address) { "Carrer Pic de Peguera 15, 17003 Girona" }
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }
-      let(:redesign_enabled) { false }
-
-      before do
-        # rubocop:disable RSpec/AnyInstance
-        allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
-        allow_any_instance_of(ActionView::Base).to receive(:redesigned_layout).and_return("decidim/proposals/proposal_metadata")
-        allow_any_instance_of(Decidim::Proposals::ProposalMetadataCell).to receive(:redesign_enabled?).and_return(redesign_enabled)
-        # rubocop:enable RSpec/AnyInstance
-      end
 
       describe "#has_position?" do
         subject { helper.has_position?(proposal) }

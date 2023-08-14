@@ -5,7 +5,6 @@ module Decidim
     # This controller contains the logic regarding participants initiatives
     class InitiativesController < Decidim::Initiatives::ApplicationController
       include ParticipatorySpaceContext
-      redesign_participatory_space_layout only: [:show]
 
       helper Decidim::AttachmentsHelper
       helper Decidim::FiltersHelper
@@ -32,6 +31,8 @@ module Decidim
       helper_method :collection, :initiatives, :filter, :stats, :tabs, :panels
       helper_method :initiative_type, :available_initiative_types
 
+      before_action :authorize_participatory_space, only: [:show]
+
       # GET /initiatives
       def index
         enforce_permission_to :list, :initiative
@@ -51,6 +52,8 @@ module Decidim
       # GET /initiatives/:id
       def show
         enforce_permission_to :read, :initiative, initiative: current_initiative
+
+        render layout: "decidim/initiative_head"
       end
 
       # GET /initiatives/:id/send_to_technical_validation
@@ -79,8 +82,6 @@ module Decidim
                   initiative: current_initiative
                 )
         @form.attachment = form_attachment_model
-
-        render layout: "decidim/initiative"
       end
 
       # PUT /initiatives/:id

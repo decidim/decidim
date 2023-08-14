@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t("pages", scope: "decidim.admin.titles")) %>
 <% @topics.each do |topic| %>
   <%= render partial: "topic", locals: { pages: topic.pages, topic: } %>
 <% end %>

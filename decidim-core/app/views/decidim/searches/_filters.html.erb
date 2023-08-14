@@ -1,5 +1,5 @@
 <div class="filter-container search__filter">
-  <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
+  <button id="dropdown-trigger-search" data-component="dropdown" data-target="dropdown-menu-search" data-auto-close="true" data-disabled-md="true">
     <%= content_tag :span, t("decidim.searches.filters_small_view.filter_by"), class: "#{"is-active" if params.dig(:filter, :with_resource_type) == nil}" %>
     <% @blocks.each do |elements| %>
       <% elements.each do |type, results| %>
@@ -11,18 +11,18 @@
     <%= icon "arrow-down-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
     <%= icon "arrow-up-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
   </button>
-  <ul id="dropdown-menu">
-    <li>
+  <div id="dropdown-menu-search">
+    <div>
       <%= link_to main_search_path, class: "filter#{" is-active" if params.dig(:filter, :with_resource_type) == nil}" do %>
         <%= resource_type_icon("all") %>
         <span><%= t("all", scope: "decidim.searches.filters.state") %></span>
         <span class="label ml-auto"><%= @results_count %></span>
       <% end %>
-    </li>
+    </div>
     <% @blocks.each do |elements| %>
       <div>
         <% elements.each do |type, results| %>
-          <li>
+          <div>
             <% if results[:count].positive? %>
               <%= link_to search_path_by_resource_type(type), class: "filter#{" is-active" if params.dig(:filter, :with_resource_type) == type}" do %>
                 <%= resource_type_icon(type) %>
@@ -36,9 +36,9 @@
                 <span class="label ml-auto"><%= results[:count] %></span>
               <% end %>
             <% end %>
-          </li>
+          </div>
         <% end %>
       </div>
     <% end %>
-  </ul>
+  </div>
 </div>

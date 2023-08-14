@@ -301,7 +301,7 @@ en:
             title: Settings for assemblies
         assemblies_types:
           form:
-            title: Title
+            title: Edit assembly type
         assembly_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -461,7 +461,6 @@ en:
           more_info: More info
           take_part: Take part
         index:
-          children: 'Assemblies: '
           promoted_assemblies: Highlighted assemblies
         metadata:
           children_item:
@@ -473,4 +472,3 @@ en:
             other: "%{count} assemblies"
       assembly_navigation:
         assembly_member_menu_item: Members
-        assembly_menu_item: The assembly

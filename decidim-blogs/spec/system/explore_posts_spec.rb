@@ -29,8 +29,6 @@ describe "Explore posts", type: :system do
     end
 
     it "shows all posts for the given process" do
-      skip_unless_redesign_enabled
-
       expect(page).to have_selector("#blogs > a", count: 2)
     end
 
@@ -43,8 +41,6 @@ describe "Explore posts", type: :system do
       end
 
       it "lists 10 resources per page by default" do
-        skip_unless_redesign_enabled
-
         expect(page).to have_selector("#blogs > a", count: 10)
         expect(page).to have_css("[data-pages] [data-page]", count: 2)
       end
@@ -54,8 +50,6 @@ describe "Explore posts", type: :system do
       let!(:unpublished) { create(:post, component:, published_at: 2.days.from_now) }
 
       it "shows only published blogs" do
-        skip_unless_redesign_enabled
-
         expect(Decidim::Blogs::Post.count).to eq(3)
         expect(page).to have_selector("#blogs > a", count: 2)
       end

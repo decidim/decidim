@@ -100,7 +100,7 @@ module Decidim
     end
 
     def icon(*args)
-      redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
+      !respond_to?(:redesign_enabled?) || redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
     end
 
     # Outputs a SVG icon from an external file. It apparently renders an image
@@ -173,7 +173,7 @@ module Decidim
     # Example:
     #
     # --primary: #ff0000;
-    # --primary-rgb: 255,0,0
+    # --primary-rgb: 255 0 0
     #
     # Hexadecimal variables can be used as a normal CSS color:
     #

@@ -67,19 +67,9 @@ describe "Explore versions", type: :system, versioning: true do
       click_link("Version 2 of 2")
     end
 
-    # REDESIGN_PENDING: The accessibility should be tested after complete redesign
-    # it_behaves_like "accessible page"
-
-    it "allows going back to the versions list" do
-      skip "REDESIGN_PENDING: Once redesigned this page will contain a call to the versions_list cell with links to each one"
-
-      click_link "Show all versions"
-      expect(page).to have_current_path "#{proposal_path}/versions"
-    end
+    it_behaves_like "accessible page"
 
     it "shows the creation date" do
-      skip_unless_redesign_enabled("this test pass using redesigned version_author cell")
-
       within ".version__author" do
         expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
       end

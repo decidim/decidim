@@ -63,10 +63,8 @@ describe "Show a Proposal", type: :system do
 
         context "when author does not restrict messaging" do
           it "includes a link to message the proposal author" do
-            skip "REDESIGN_PENDING: This author cell behavior is not implemented yet"
-
             within "[data-author]" do
-              find_link.hover
+              find("div.author__container").hover
             end
             expect(page).to have_link("Send private message")
           end

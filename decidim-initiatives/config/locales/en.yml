@@ -615,13 +615,9 @@ en:
         finish: Finish
         promotal_committee: Promoter committee
         select_initiative_type: Choose
-      initiative_header:
-        initiative_menu_item: Initiative
       initiative_signature_creation_header:
-        back: Back
         fill_personal_data: Complete your data
         finish: Finish
-        finished: Initiative signature created
         sms_code: SMS code verification
         sms_phone_number: Mobile phone number
         title: Sign %{initiative_title}

@@ -18,8 +18,6 @@ module Decidim
 
       helper_method :meetings, :meeting, :registration, :search, :nav_paths, :tab_panel_items
 
-      redesign active: true
-
       before_action :add_addtional_csp_directives, only: [:show]
 
       def new
@@ -61,7 +59,6 @@ module Decidim
 
       def year_calendar
         @filter_options = {
-          # REDESIGN_PENDING: This variable must be set
           date: !@forced_past_meetings,
           type: true,
           scopes: current_component.has_subscopes?,

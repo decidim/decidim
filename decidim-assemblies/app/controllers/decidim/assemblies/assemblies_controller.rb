@@ -7,7 +7,7 @@ module Decidim
       include ParticipatorySpaceContext
       include AssemblyBreadcrumb
 
-      redesign_participatory_space_layout only: :show
+      participatory_space_layout only: :show
 
       include FilterResource
       include Paginable

@@ -2,21 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-:root {
-  --primary: #e02d2d;
-  --primary-rgb: 224 45 45;
-  --secondary: #155abf;
-  --secondary-rgb: 21 90 191;
-  --tertiary: #ebc34b;
-  --tertiary-rgb: 235 195 75;
-  --success: #28a745;
-  --success-rgb: 40 167 69;
-  --warning: #ffb703;
-  --warning-rgb: 255 183 3;
-  --alert: #e7131a;
-  --alert-rgb: 231 19 26;
-}
-
 @layer base {
   @import "stylesheets/decidim/redesigned_fonts.scss";
   @import "stylesheets/decidim/redesigned_typography.scss";
@@ -40,10 +25,7 @@
   @import "stylesheets/decidim/redesigned_filters.scss";
   @import "stylesheets/decidim/redesigned_tags.scss";
   @import "stylesheets/decidim/redesigned_tabs_x.scss";
-  // REDESIGN_PENDING: remove this file
-  @import "stylesheets/decidim/redesigned_drawer.scss";
-  // REDESIGN_PENDING: rename this file and its contents to avoid misunderstandings
-  @import "stylesheets/decidim/redesigned_drawer_metadata.scss";
+  @import "stylesheets/decidim/redesigned_metadata.scss";
   @import "stylesheets/decidim/redesigned_modal.scss";
   @import "stylesheets/decidim/redesigned_modal_share.scss";
   @import "stylesheets/decidim/redesigned_modal_flag.scss";
