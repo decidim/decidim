@@ -241,6 +241,7 @@ cs:
           global_status: Globální stav provedení
         nav_breadcrumb:
           global: Globální provedení
+        no_results: Nebyly nalezeny žádné projekty
         search:
           search: Hledat akce
         show:
