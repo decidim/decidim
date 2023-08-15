@@ -7,7 +7,7 @@
   <%= content_tag :div, units_name_text, class: "progress-bar__units" if units_name %>
 
   <% if total != 0 %>
-    <div class="progress-bar" role="progressbar" tabindex="0" aria-valuenow="<%= percentage %>" aria-valuemin="0" aria-valuetext="<%= percentage %> percent" aria-valuemax="<%= total %>">
+    <div class="progress-bar" role="progressbar" tabindex="0" aria-label="<%= units_name.present? ? units_name_text : t("decidim.shared.progress") %>" aria-valuenow="<%= percentage %>" aria-valuemin="0" aria-valuetext="<%= percentage %> %" aria-valuemax="<%= total %>">
       <div style="width: <%= percentage %>%"></div>
     </div>
   <% end %>

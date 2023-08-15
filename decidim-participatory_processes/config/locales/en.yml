@@ -513,10 +513,8 @@ en:
           title: About this process
       show:
         belongs_to_group: This process belongs to
-        dates: Dates
         private_space: This is a private process
         related_processes: Related processes
-        unspecified: Not specified
     statistics:
       processes_count: Processes
   layouts:
@@ -535,5 +533,3 @@ en:
           more_info_about: More info about process %{resource_name}
           take_part: Take part
           take_part_in: Take part in process %{resource_name}
-      process_navigation:
-        process_menu_item: The process

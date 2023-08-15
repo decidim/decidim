@@ -579,8 +579,6 @@ en:
           all: All
         filter_scope_values:
           all: All
-    datepicker:
-      help_text: 'Expected format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -658,9 +656,6 @@ en:
         error: Error uploading image.
         success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
-    endorsable:
-      endorsements: Endorsements
-      endorsements_count: Endorsements count
     endorsement_buttons_cell:
       already_endorsed: Dislike
       endorse: Like
@@ -1501,6 +1496,7 @@ en:
           areas: Areas
           scope: Scope
           select_an_area: Select an area
+      progress: Progress
       public_participation:
         public_participation: Show my attendance publicly
       reference:

@@ -10,8 +10,6 @@ describe "endorse posts", type: :system do
   let!(:post) { create(:post, component:, title: { en: "Blog post title" }) }
 
   before do
-    allow(Decidim).to receive(:redesign_active).and_return(true)
-
     sign_in author
   end
 

@@ -22,7 +22,7 @@
               <%= form.check_box :impersonated_only %>
             </div>
             <div class="row column">
-              <%= form.date_field :before_date, value: Time.zone.today.prev_month.strftime("%d/%m/%Y"), autocomplete: "off" %>
+              <%= form.date_field :before_date, value: Time.zone.today.prev_month, autocomplete: "off" %>
               <%= label_tag(:before_date_info, t("decidim.admin.menu.authorization_revocation.before_date_info")) %>
             </div>
             <div class="button--double">

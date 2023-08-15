@@ -461,7 +461,6 @@ en:
           more_info: More info
           take_part: Take part
         index:
-          children: 'Assemblies: '
           promoted_assemblies: Highlighted assemblies
         metadata:
           children_item:
@@ -473,4 +472,3 @@ en:
             other: "%{count} assemblies"
       assembly_navigation:
         assembly_member_menu_item: Members
-        assembly_menu_item: The assembly

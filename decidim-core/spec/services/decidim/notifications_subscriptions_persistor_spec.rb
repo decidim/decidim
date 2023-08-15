@@ -6,7 +6,7 @@ module Decidim
   describe NotificationsSubscriptionsPersistor, type: :service do
     subject { described_class.new(user) }
 
-    let(:organization) { create(:organization, colors: { "theme" => "#f0f0f0" }) }
+    let(:organization) { create(:organization) }
     let(:params) { { endpoint: "https://example.es", keys: { auth: "auth_code_121", p256dh: "a_p256dh" } } }
 
     describe "#add_subscription" do

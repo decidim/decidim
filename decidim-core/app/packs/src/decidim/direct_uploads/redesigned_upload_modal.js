@@ -257,6 +257,11 @@ export default class UploadModal {
     } else {
       this.button.innerHTML = this.modalTitle.dataset.editlabel;
     }
+
+    const requiredCheckbox = this.button.nextElementSibling
+    if (requiredCheckbox) {
+      requiredCheckbox.checked = this.uploadItems.children.length > 0
+    }
   }
 
   cleanAllFiles() {
