@@ -231,6 +231,7 @@ es:
           global_status: Estado de ejecución global
         nav_breadcrumb:
           global: Ejecución global
+        no_results: No hay proyectos
         search:
           search: Buscar actuaciones
         show:
