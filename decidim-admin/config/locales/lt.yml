@@ -218,6 +218,8 @@ lt:
         create:
           error: Kuriant naujos erdvės tipą iškilo problema.
           success: Vietovės tipas sėkmingai sukurtas.
+        destroy:
+          success: Vietovės tipas sėkmingai panaikintas.
         edit:
           title: Keisti erdvės tipą
           update: Atnaujinti
@@ -226,12 +228,14 @@ lt:
           title: Naujas erdvės tipas
         update:
           error: Iškilo problema atnaujinant šį erdvės tipą.
+          success: Vietovės tipas atnaujintas sėkmingai.
       areas:
         create:
           error: Iškilo problema kuriant naują erdvę.
           success: Erdvė sukurta sėkmingai.
         destroy:
           has_spaces: Ši aplinka turi priklausomų erdvių. Prašau įsitikinkite, kad jokia Dalyvaujamoji Erdvė nesujungta su šia aplinka prieš ją ištrinant.
+          success: Vietovė sėkmingai sunaikinta.
         edit:
           title: Taisyti aplinką
           update: Atnaujinti
@@ -241,6 +245,7 @@ lt:
         no_areas: Nėra aplinkų
         update:
           error: Kilo problema atnaujinant šią aplinką.
+          success: Vietovė atnaujinta sėkmingai.
       attachment_collections:
         create:
           error: Kuriant naują aplanką iškilo problema.
@@ -280,6 +285,7 @@ lt:
         message: Elkitės atsargiai su priedais privačiose aplinkose. Bet koks dalyvis gali pasidalinti dokumentais su kitais.
       autocomplete:
         no_results: Rezultatų nerasta
+        search_prompt: Įveskite bent tris raides paieškai pradėti.
       block_user:
         new:
           action: Užblokuoti paskyrą ir išsiųsti paaiškinimą
