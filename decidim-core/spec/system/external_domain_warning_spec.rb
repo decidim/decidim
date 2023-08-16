@@ -28,6 +28,17 @@ describe "ExternalDomainWarning", type: :system do
     expect(page).to have_link("Another link", href: "http://www.example.org")
   end
 
+  context "when url has special characters" do
+    let(:destination) { "https://example.org/test?foo=bàr" }
+    let(:url) { "http://#{organization.host}/link?external_url=#{destination}" }
+
+    it "does not show invalid url alert" do
+      visit url
+      expect(page).not_to have_content("Invalid URL")
+      expect(page).to have_content("b%C3%A0r")
+    end
+  end
+
   context "when url is invalid" do
     let(:invalid_url) { "http://#{organization.host}/link?external_url=foo" }
 
