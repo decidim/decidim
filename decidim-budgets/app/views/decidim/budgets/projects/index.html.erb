@@ -28,7 +28,7 @@
     <% end %>
   </div>
 
-  <% if component_settings.geocoding_enabled? %>
+  <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
     <div class="budget-list__map">
       <%= dynamic_map_for projects_data_for_map(all_geocoded_projects) do %>
         <template id="marker-popup">
