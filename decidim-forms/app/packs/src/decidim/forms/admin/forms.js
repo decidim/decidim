@@ -131,8 +131,10 @@ export default function createEditableForm() {
     const $collapsible = $target.find(".collapsible");
     if ($collapsible.length > 0) {
       const collapsibleId = $collapsible.attr("id").replace("-question-card", "");
-      const toggleAttr = `${collapsibleId}-question-card button--collapse-question-${collapsibleId} button--expand-question-${collapsibleId}`;
-      $target.find(".question--collapse").data("toggle", toggleAttr);
+      const toggleAttr = `${collapsibleId}-question-card`;
+
+      // we need to update the DOM, not just the dataset
+      $target.find(".question--collapse").attr("data-controls", toggleAttr);
     }
   };
 
@@ -394,6 +396,9 @@ export default function createEditableForm() {
       autoButtonsByPosition.run();
 
       initLanguageChangeSelect($field.find("select.language-change").toArray());
+
+      // instead of initialize specific stuff, we send an event, with the DOM fragment we wanna update/refresh/bind
+      document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $field.parents("form")[0] }));
     },
     onRemoveField: ($field) => {
       autoLabelByPosition.run();

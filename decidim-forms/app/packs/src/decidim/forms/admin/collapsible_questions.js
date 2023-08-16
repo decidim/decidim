@@ -1,13 +1,9 @@
 (() => {
   $("button.collapse-all").on("click", () => {
-    $(".collapsible").attr('aria-hidden', 'true');
-    $(".question--collapse .icon-expand").removeClass("hidden");
-    $(".question--collapse .icon-collapse").addClass("hidden");
+    $("[id^=questionnaire_question]").find("button.question--collapse[aria-expanded='true']").click()
   });
 
   $("button.expand-all").on("click", () => {
-    $(".collapsible").attr('aria-hidden', 'false');
-    $(".question--collapse .icon-expand").addClass("hidden");
-    $(".question--collapse .icon-collapse").removeClass("hidden");
+    $("[id^=questionnaire_question]").find("button.question--collapse[aria-expanded='false']").click()
   });
 })(window);

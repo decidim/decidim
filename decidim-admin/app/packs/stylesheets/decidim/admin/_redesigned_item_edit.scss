@@ -17,7 +17,7 @@
     .card-divider{
       @apply p-4 mt-0 pb-2 rounded-none;
 
-      svg{
+      *:not(.button--title) > svg{
         @apply inline-block w-6 h-6;
       }
     }

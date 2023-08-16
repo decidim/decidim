@@ -11,33 +11,32 @@
         <%= dynamic_title(translated_attribute(question.body), class: "question-title-statement", max_length: 50, omission: "...", placeholder: t("question", scope: "decidim.forms.admin.questionnaires.question")) %>
       </span>
 
-      <button type="button" class="button small secondary button--title question--collapse" data-toggle="<%= id %>-question-card button--collapse-question-<%= id %> button--expand-question-<%= id %>">
-        <span id="button--collapse-question-<%= id %>" data-toggler=".hide" class="icon-collapse <%= "hide" unless is_expanded %>">
-          <%== icon("arrow-up-s-line", aria_label: t("collapse", scope: "decidim.forms.admin.questionnaires.question"), role: "img") %>
-        </span>
-
-        <span id="button--expand-question-<%= id %>" data-toggler=".hide" class="icon-expand <%= "hide" if is_expanded %>">
-          <%== icon("arrow-down-s-line", aria_label: t("expand", scope: "decidim.forms.admin.questionnaires.question"), role: "img") %>
-        </span>
-      </button>
-
-      <% if editable %>
-        <button class="button button__sm md:button__lg button__secondary small alert hollow move-up-question button--title">
-          <%== "#{icon("arrow-up-line")} #{t("up", scope: "decidim.forms.admin.questionnaires.question")}" %>
+      <span class="ml-auto flex flex-row-reverse items-center gap-2">
+        <button id="<%= id %>-button" type="button" class="button small secondary button--title question--collapse" data-controls="panel-<%= id %>-question-card">
+          <%== icon "arrow-up-s-line", aria_label: t("collapse", scope: "decidim.forms.admin.questionnaires.question"), role: "img", class: "icon-expand" %>
+          <%== icon "arrow-down-s-line", aria_label: t("expand", scope: "decidim.forms.admin.questionnaires.question"), role: "img", class: "icon-collapse" %>
         </button>
 
-        <button class="button button__sm md:button__lg button__secondary small alert hollow move-down-question button--title">
-          <%== "#{icon("arrow-down-line")} #{t("down", scope: "decidim.forms.admin.questionnaires.question")}" %>
-        </button>
+        <% if editable %>
+          <button class="button button__sm md:button__lg button__transparent-secondary small alert hollow move-up-question button--title">
+            <%= icon "arrow-up-line" %>
+            <span><%= t("up", scope: "decidim.forms.admin.questionnaires.question") %></span>
+          </button>
 
-        <button class="button button__sm md:button__lg button__secondary small alert hollow remove-question button--title">
-          <%= t("remove", scope: "decidim.forms.admin.questionnaires.question") %>
-        </button>
-      <% end %>
+          <button class="button button__sm md:button__lg button__transparent-secondary small alert hollow move-down-question button--title">
+            <%= icon "arrow-down-line" %>
+            <span><%= t("down", scope: "decidim.forms.admin.questionnaires.question") %></span>
+          </button>
+
+          <button class="button button__sm md:button__lg button__transparent-secondary small alert hollow remove-question button--title">
+            <%= t("remove", scope: "decidim.forms.admin.questionnaires.question") %>
+          </button>
+        <% end %>
+      </span>
     </h2>
   </div>
 
-  <div class="card-section collapsible <%= "hide" unless is_expanded %>" data-toggler=".hide" id="<%= id %>-question-card">
+  <div id="panel-<%= id %>-question-card" class="card-section collapsible form__wrapper" aria-hidden="true">
     <div class="row column">
       <%=
         form.translated(
@@ -76,11 +75,13 @@
           <% end %>
         <% end %>
       </div>
-
-      <% if editable %>
-        <button class="button button__sm md:button__lg button__secondary add-answer-option"><%= t("add_answer_option", scope: "decidim.forms.admin.questionnaires.question") %></button>
-      <% end %>
     </div>
+
+    <% if editable %>
+      <div class="row column">
+        <button class="button button__sm md:button__lg button__secondary add-answer-option"><%= t("add_answer_option", scope: "decidim.forms.admin.questionnaires.question") %></button>
+      </div>
+    <% end %>
 
     <div class="row column questionnaire-question-max-choices">
       <%=

@@ -30,7 +30,7 @@ body{
   @apply flex-grow max-w-full bg-gray-5;
 
   svg{
-    @apply w-4 h-4 fill-secondary inline-block;
+    @apply w-4 h-4 fill-current inline-block;
   }
 
   .hide{
