@@ -231,6 +231,7 @@ ca:
           global_status: Estat d'execució global
         nav_breadcrumb:
           global: Execució global
+        no_results: No hi ha projectes
         search:
           search: Cercar actuacions
         show:
