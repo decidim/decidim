@@ -241,6 +241,7 @@ lt:
           global_status: Bendra vykdymo būsena
         nav_breadcrumb:
           global: Bendras vykdymas
+        no_results: Projektų nėra
         search:
           search: Ieškoti veiksmų
         show:
