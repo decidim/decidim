@@ -15,7 +15,7 @@
   </div>
 </div>
 
-<div class="questionnaire-questions" data-component="accordion">
+<div class="questionnaire-questions">
   <div class="row column text-center">
     <button type="button" class="button button__sm md:button__lg button__secondary collapse-all"><%= t("collapse", scope: "decidim.forms.admin.questionnaires.form") %></button>
     <button type="button" class="button button__sm md:button__lg button__secondary expand-all"><%= t("expand", scope: "decidim.forms.admin.questionnaires.form") %></button>
@@ -38,7 +38,7 @@
     </div>
   <% end %>
 
-  <div class="questionnaire-questions-list">
+  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">
     <% @form.questions.each_with_index do |question, index| %>
       <%= fields_for "questionnaire[questions][]", question do |question_form| %>
         <%= render "decidim/meetings/admin/poll/question",

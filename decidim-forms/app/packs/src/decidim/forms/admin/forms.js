@@ -388,9 +388,9 @@ export default function createEditableForm() {
       setupInitialQuestionAttributes($field);
       createSortableList();
 
-      $field[0].querySelectorAll(".editor-container").forEach((el) => {
-        window.createEditor(el);
-      });
+      // $field[0].querySelectorAll(".editor-container").forEach((el) => {
+      //   window.createEditor(el);
+      // });
 
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
@@ -398,7 +398,7 @@ export default function createEditableForm() {
       initLanguageChangeSelect($field.find("select.language-change").toArray());
 
       // instead of initialize specific stuff, we send an event, with the DOM fragment we wanna update/refresh/bind
-      document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $field.parents("form")[0] }));
+      document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $field[0] }));
     },
     onRemoveField: ($field) => {
       autoLabelByPosition.run();
