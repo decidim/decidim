@@ -140,6 +140,8 @@ lt:
         edit:
           title: Atnaujinti konferencijos administratorių.
           update: Atnaujinti
+        index:
+          conference_admins_title: Konferencijos administratoriai
         new:
           create: Sukurti
           title: Naujas konferencijos administratorius.
@@ -317,6 +319,7 @@ lt:
           update: "%{user_name} atnaujino partnerį %{resource_name} %{space_name} konferencijoje"
         registration_type:
           create: "%{user_name} sukūrė %{resource_name} registracijos tipą %{space_name} konferencijoje"
+          delete: "%{user_name} pašalino %{resource_name} registracijos tipą iš %{space_name} konferencijos"
           publish: "%{user_name} sukūrė %{resource_name} registracijos tipą %{space_name} konferencijoje"
           unpublish: "%{user_name} išėmė %{resource_name} registracijos tipą iš %{space_name} konferencijos"
           update: "%{user_name} atnaujino %{resource_name} registracijos tipą %{space_name} konferencijoje"
@@ -387,6 +390,7 @@ lt:
           invite:
             decline: Atmesti kvietimą į „%{conference_title}“
             invited_existing_user_to_join_a_conference: "%{invited_by} jus pakvietė dalyvauti konferencijoje %{application}. Kvietimą galite atmesti arba priimti spustelėję toliau pateikiamas nuorodas."
+            invited_user_to_join_a_conference: "%{invited_by} jus pakvietė dalyvauti konferencijoje %{application}. Kvietimą galite atmesti arba priimti spustelėję toliau pateikiamą nuorodą."
             registration: Registracija į „%{conference_title}“
         partners:
           index:
@@ -437,9 +441,11 @@ lt:
         create:
           invalid: Jungiantis prie šios konferencijos iškilo problema.
           success: Jūs prisijungėte prie konferencijos.
+          unauthorized: Prieš registruodamiesi į konferenciją turite prisijungti.
         decline_invitation:
           invalid: Atmetant kvietimą iškilo problema.
           success: Jūs atmetėte kvietimą.
+          unauthorized: Prieš atmetant kvietimą turite prisijungti.
         destroy:
           invalid: Paliekant šią konferenciją iškilo problema.
           success: Jūs sėkmingai palikote konferenciją.
@@ -509,6 +515,7 @@ lt:
           highlighted_conferences:
             active_conferences: Aktyvios konferencijos
             conferences_button_title: Nuoroda į puslapį „Konferencijos“, kuriame pateikiamos visos konferencijos
+            see_all_conferences: Žiūrėti visas konferencijas
       photo:
         image:
           attributes:
