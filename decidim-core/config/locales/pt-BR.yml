@@ -41,6 +41,8 @@ pt-BR:
       decidim/resource_endorsed_event: Recurso endossado
   activerecord:
     attributes:
+      decidim/action_log:
+        with_participatory_space: Espaço participativo
       decidim/user:
         current_password: Senha atual
         email: E-mail
