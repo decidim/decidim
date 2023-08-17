@@ -79,6 +79,11 @@ lt:
             offensive: Pateikiamoje informacijoje yra rasizmo, seksizmo, keiksmažodžių, asmeninių atakų, grasinimų ar kitokios neapykantos kalbos.
             spam: Pateikiamoje informacijoje yra reklamos, antraščių mąsalo ar apgavysčių.
           title: Pranešti apie netinkamą turinį
+        show_replies:
+          one: Rodyti atsakymą
+          few: Rodyti %{count} atsakymus
+          many: Rodyti %{count} atsakymus
+          other: Rodyti %{count} atsakymus
         single_comment_link_title: Gauti nuorodą
       comment_order_selector:
         order:
@@ -159,3 +164,6 @@ lt:
         description: Komentarų sugeneruotų dalyvių skaičius
         object: komentarai
         title: Komentarai
+  errors:
+    messages:
+      cannot_have_comments: negali turėti komentarų
