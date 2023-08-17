@@ -49,9 +49,16 @@ lt:
         import: Importuoti pasiūlymus į projektus
         new: Naujas %{name}
         preview: Peržiūra
+        send_voting_reminders: Siųsti balsavimo priminimus
         title: Veiksmai
       admin:
         budgets:
+          create:
+            invalid: Kuriant šį biudžetą iškilo problema.
+            success: Biudžetas sukurtas sėkmingai.
+          destroy:
+            invalid: Ištrinant šį biudžetą iškilo problema.
+            success: Biudžetas sėkmingai ištrintas.
           edit:
             title: Koreguoti biudžetą
             update: Atnaujinti biudžetą
@@ -64,6 +71,9 @@ lt:
           new:
             create: Sukurti biudžetą
             title: Naujas biudžetas
+          update:
+            invalid: Atnaujinant šį biudžetą iškilo problema.
+            success: Biudžetas atnaujintas sėkmingai.
         exports:
           projects: Projektai
         models:
@@ -72,6 +82,11 @@ lt:
           project:
             name: Projektas
         projects:
+          create:
+            invalid: Kuriant šį projektą iškilo problema.
+            success: Projektas sukurtas sėkmingai.
+          destroy:
+            success: Projektas ištrintas sėkmingai.
           edit:
             title: Redaguoti projektą
             update: Atnaujinti
@@ -80,8 +95,11 @@ lt:
             cancel: Atšaukti
             change_category: Keisti kategoriją
             change_scope: Keisti sritį
+            change_selected: Keisti pasirinktą būseną
+            deselect_implementation: Nebepasirinkti įgyvendinimui
             finished_orders: Baigti balsavimai
             pending_orders: Balsai laukiantys patvirtinimo
+            select_for_implementation: Pasirinkti įgyvendinimui
             selected: Pasirinkta
             title: Projektai
             update: Atnaujinimas
@@ -89,12 +107,24 @@ lt:
           new:
             create: Sukurti
             title: Naujas projektas
+          update:
+            invalid: Atnaujinant šį projektą iškilo problema.
+            success: Projektas atnaujintas.
           update_category:
             invalid: 'Šie projektai turi %{subject_name} kategoriją: %{projects}.'
+            select_a_category: Pasirinkite kategoriją.
+            select_a_project: Pasirinkite projektą.
             success: 'Projektai sėkmingai atnaujinti %{subject_name} kategorijoje: %{projects}.'
           update_scope:
             invalid: 'Šie projektai jau turi %{subject_name} sritį: %{projects}.'
+            select_a_project: Pasirinkite projektą.
+            select_a_scope: Pasirinkite apimtį.
             success: 'Projektai sėkmingai atnaujinti %{subject_name} srityje: %{projects}.'
+          update_selected:
+            invalid:
+              selected: 'Šie projektai jau pasirinkti įgyvendinimui: %{projects}.'
+              unselected: 'Šie projektai jau nebėra pasirinkti įgyvendinimui: %{projects}.'
+            select_a_project: Pasirinkite projektą.
         proposals_imports:
           new:
             create: Importuoti pasiūlymus į projektus
