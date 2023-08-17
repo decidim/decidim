@@ -28,6 +28,7 @@ lt:
         show_statistics: Rodyti statistiką
         sign_date: Pasirašymo data
         signature: Parašas
+        signature_name: Parašo pavadinimas
         slogan: Šūkis
         slug: URL priedas
         start_date: Pradžios data
@@ -36,11 +37,13 @@ lt:
         date: Data
         link: Nuoroda
         title: Pavadinimas
+        weight: Vieta eilėje
       conference_partner:
         link: Nuoroda
         logo: Logotipas
         name: Vardas
         partner_type: Partnerio tipas
+        weight: Vieta eilėje
       conference_registration_invite:
         email: El. paštas
         name: Vardas
@@ -50,6 +53,7 @@ lt:
         description: Aprašymas
         price: Kaina
         title: Pavadinimas
+        weight: Vieta eilėje
       conference_speaker:
         affiliation: Organizacija
         avatar: Avataras
