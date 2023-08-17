@@ -414,7 +414,7 @@ cs:
           cancel: Zrušit
           confirm: Potvrdit
         show:
-          free: Volný, uvolnit
+          free: Volný
           going: Chystáte se
           no_slots_available: Žádné sloty nejsou k dispozici
           registration: Registrace
