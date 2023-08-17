@@ -76,7 +76,7 @@ module Decidim
           data: { close: "" },
           aria: { label: I18n.t("decidim.alert.dismiss") }
         ) do
-          content_tag(:span, "&times;".html_safe, aria: { hidden: true })
+          icon "close-line"
         end
       end
 
