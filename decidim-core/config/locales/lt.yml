@@ -82,6 +82,7 @@ lt:
     'true': 'Taip'
   carrierwave:
     errors:
+      file_cannot_be_processed: Rinkmena negali būti apdorota
       file_resolution_too_large: Dokumento rezoliucija per aukšta
       file_size_too_large: Dokumento dydis per didelis
       not_inside_organization: Dokumentas nepririštas prie jokios organizacijos
@@ -105,6 +106,31 @@ lt:
         many: apie %{count} mėnesiai
         other: apie %{count} mėnesiai
       half_a_minute: pusė minutės
+      less_than_x_minutes:
+        one: mažiau nei minutė
+        few: mažiau nei %{count} minutės
+        many: mažiau nei %{count} minutės
+        other: mažiau nei %{count} minutės
+      less_than_x_seconds:
+        one: mažiau nei 1 sekundė
+        few: mažiau nei %{count} sek.
+        many: mažiau nei %{count} sek.
+        other: mažiau nei %{count} sek.
+      x_days:
+        one: 1 diena
+        few: "%{count} dienos"
+        many: "%{count} dienos"
+        other: "%{count} dienos"
+      x_hours:
+        one: 1 valanda
+        few: "%{count} valandos"
+        many: "%{count} valandos"
+        other: "%{count} valandos"
+      x_minutes:
+        one: 1 min.
+        few: "%{count} minutės"
+        many: "%{count} minutės"
+        other: "%{count} minutės"
   decidim:
     accessibility:
       external_link: Išorinė nuoroda
