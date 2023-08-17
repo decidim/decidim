@@ -29,11 +29,13 @@ lt:
         password_confirmation: Pakartokite slaptažodį
         personal_url: Asmeninis URL
         remove_avatar: Pašalinti avatarą
+        tos_agreement: Paslaugos sutarties sąlygos
     models:
       decidim/attachment_created_event: Priedas
       decidim/component_published_event: Aktyvusis komponentas
       decidim/demoted_membership: Nebėra grupės administratorius
       decidim/gamification/badge_earned_event: Ženklas gautas
+      decidim/gamification/level_up_event: Pakilote lygiu
       decidim/invited_to_group_event: Pakvietimas prisijungti prie grupės
       decidim/join_request_accepted_event: Prisijungimo užklausa patvirtinta
       decidim/join_request_rejected_event: Prisijungimo užklausa atmesta
@@ -83,12 +85,14 @@ lt:
     'true': 'Taip'
   carrierwave:
     errors:
+      file_cannot_be_processed: Rinkmena negali būti apdorota
       file_resolution_too_large: Dokumento rezoliucija per aukšta
       file_size_too_large: Dokumento dydis per didelis
       not_inside_organization: Dokumentas nepririštas prie jokios organizacijos
   date:
     formats:
       decidim_short: "%Y/%m/%d"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%Y %b %d"
       decidim_with_day_and_month_name: "%Y %A %b %d"
       decidim_with_month_name: "%Y %B %d"
@@ -106,6 +110,48 @@ lt:
         many: apie %{count} mėnesiai
         other: apie %{count} mėnesiai
       half_a_minute: pusė minutės
+      less_than_x_minutes:
+        one: mažiau nei minutė
+        few: mažiau nei %{count} minutės
+        many: mažiau nei %{count} minutės
+        other: mažiau nei %{count} minutės
+      less_than_x_seconds:
+        one: mažiau nei 1 sekundė
+        few: mažiau nei %{count} sek.
+        many: mažiau nei %{count} sek.
+        other: mažiau nei %{count} sek.
+      short:
+        about_x_days: "%{count}d."
+        about_x_hours: "%{count}val."
+        about_x_minutes: "%{count}min."
+        about_x_months: "%{count} mėn."
+        about_x_years: "%{count} metai"
+        almost_x_years: "%{count}metai"
+        half_a_minute: 1 min.
+        less_than_x_minutes: "%{count}min."
+        less_than_x_seconds: "%{count}sek."
+        over_x_years: "%{count}met."
+        x_days: "%{count}d."
+        x_hours: "%{count}val."
+        x_minutes: "%{count}mėn."
+        x_months: "%{count} mėn."
+        x_seconds: "%{count}sek."
+        x_years: "%{count}met."
+      x_days:
+        one: 1 diena
+        few: "%{count} dienos"
+        many: "%{count} dienos"
+        other: "%{count} dienos"
+      x_hours:
+        one: 1 valanda
+        few: "%{count} valandos"
+        many: "%{count} valandos"
+        other: "%{count} valandos"
+      x_minutes:
+        one: 1 min.
+        few: "%{count} minutės"
+        many: "%{count} minutės"
+        other: "%{count} minutės"
   decidim:
     accessibility:
       external_link: Išorinė nuoroda
@@ -461,6 +507,16 @@ lt:
         view_all: Peržiūrėti visus
       metrics:
         name: Organizacijos metrika
+      static_page:
+        section:
+          name: Skiltis
+          section_content: Turinys
+        summary:
+          name: Santrauka
+          summary_content: Turinys
+        two_pane_section:
+          left_column: Kairysis stulpelis
+          name: Dviejų stulpelių pekcija
       stats:
         name: Organizacijos statistiniai duomenys
       sub_hero:
