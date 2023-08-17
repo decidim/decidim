@@ -233,6 +233,7 @@ en:
           global_status: Global execution status
         nav_breadcrumb:
           global: Global execution
+        no_results: There are no projects
         search:
           search: Search for actions
         show:
