@@ -964,9 +964,12 @@ lt:
         areas: Aplinkos
         authorization_workflows: Verifikacijos metodai
         dashboard: Švieslentė
+        edit_external_domains: Išorinių domenų baltasis sąrašas
+        edit_organization_appearance: Keisti pagrindinio puslapio išvaizdą
         impersonatable_users: Dalyviai, kurių duomenis galima tvarkyti
         impersonations: Dalyvių tvarkymas
         metrics: Duomenys
+        pages: Puslapiai
         panel: Administratorius
         participants: Dalyviai
         scope_types: Apimties tipai
@@ -1058,6 +1061,7 @@ lt:
         moderation:
           fields:
             created_at: Sukūrimo data
+            deleted_resource: Pašalinti išteklį
             hidden_at: Paslėpta
             participatory_space: Dalyvaujamoji erdvė
             report_count: Kiekis
