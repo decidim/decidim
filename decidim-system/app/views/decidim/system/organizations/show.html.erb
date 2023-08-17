@@ -1,10 +1,7 @@
 <% provide :title do %>
-  <h2><%= link_to @organization.name, @organization %></h2>
-  <h3 class="subheader"><%= @organization.host %></h3>
-  <p><%== translated_attribute @organization.description %></p>
+  <h1 class="h1"><%= link_to @organization.name, @organization %></h1>
+  <h2 class="h3"><%= @organization.host %></h2>
+  <p class="text-gray-2"><%== translated_attribute @organization.description %></p>
 <% end %>
 
-<div class="actions">
-  <hr>
-  <%= link_to t("decidim.system.actions.edit"), [:edit, @organization] %>
-</div>
+<%= link_to t("decidim.system.actions.edit"), [:edit, @organization], class: "button button__sm md:button__lg button__primary" %>
