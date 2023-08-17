@@ -323,6 +323,16 @@ lt:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          meta_scope: Sritis
+          participatory_scope: Kas sprendžiama
+          participatory_structure: Kaip sprendžiama
+          target: Kas dalyvauja
+          title: Apie šią asamblėją
+        filters:
+          names:
+            all: Visi
+          type: Tipas
         show:
           title: Apie šią asamblėją
       assembly_members:
@@ -337,8 +347,16 @@ lt:
         participatory: Dalyvaujamoji
         working_group: Darbo grupė
       content_blocks:
+        children_assemblies:
+          name: Asamblėjos
+        dates_metadata:
+          name: Datų metaduomenys
+        extra_data:
+          name: Tipas ir trukmė
         highlighted_assemblies:
           name: Paryškintos asamblėjos
+        related_assemblies:
+          name: Susijusios asamblėjos
       created_by:
         city_council: Miesto taryba
         others: Kita
@@ -358,6 +376,10 @@ lt:
       last_activity:
         new_assembly: 'Nauja asamblėja:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Aktyvios asamblėjos
+            see_all_spaces: Žiūrėti visas asamblėjas
         user_profile:
           member_of:
             member_of: Narys
@@ -420,6 +442,12 @@ lt:
           take_part: Dalyvaukite
         index:
           promoted_assemblies: Paryškintos asamblėjos
+        metadata:
+          children_item:
+            one: "%{count} asamblėja"
+            few: "%{count} asamblėjos"
+            many: "%{count} asamblėjos"
+            other: "%{count} asamblėjos"
         order_by_assemblies:
           assemblies:
             one: "%{count} asamblėja"
