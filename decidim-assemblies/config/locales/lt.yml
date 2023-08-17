@@ -3,7 +3,10 @@ lt:
     attributes:
       assemblies_setting:
         enable_organization_chart: Įgalinti organizacijos modelį
+      assemblies_type:
+        title: Pavadinimas
       assembly:
+        announcement: Pranešimas
         area_id: Aplinka
         assembly_type: Asamblėjos tipas
         assembly_type_other: Kitas asamblėjos tipas
@@ -22,12 +25,16 @@ lt:
         decidim_scope_id: Apimtis
         description: Aprašymas
         developer_group: Rėmėjų grupė
+        document: Dokumentas
         domain: Domenas
         duration: Trukmė
         facebook: Facebook
         github: GitHub
         hashtag: Grotažymė
         hero_image: Pradžios paveikslėlis
+        import_attachments: Importuoti priedus
+        import_categories: Importuoti kategorijas
+        import_components: Importuoti komponentus
         included_at: Įtraukta
         instagram: Instagram
         internal_organisation: Vidinė organizacija
@@ -64,10 +71,17 @@ lt:
         non_user_avatar: Avataras
         position: Pozicija
         user_id: Vartotojas arba grupė
+        weight: Vieta eilėje
       assembly_user_role:
         email: El. paštas
         name: Vardas
         role: Rolė
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Nevalidus turinio tipas. Leidžiamos rinkmenos tik su šiomis galūnėmis: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -197,6 +211,7 @@ lt:
           categories: Kategorijos
           components: Komponentai
           info: Informacija
+          landing_page: Pagrindinis puslapis
           moderations: Moderavimai
           private_users: Privatūs naudotojai
         assemblies_types: Asamblėjų tipai
@@ -324,6 +339,16 @@ lt:
             json: JSON
       assemblies:
         description:
+          area_name: Aplinka
+          closing_date: Pabaigos data
+          created_by: Sukurta
+          creation_date: Sukūrimo data
+          data: Asamblėjos duomenys
+          developer_group: Rėmėjų grupė
+          duration: Trukmė
+          included_at: Įtraukta į
+          indefinite_duration: Neribota
+          local_area: Organizacijos vietovė
           meta_scope: Sritis
           participatory_scope: Kas sprendžiama
           participatory_structure: Kaip sprendžiama
