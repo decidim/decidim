@@ -361,7 +361,9 @@ lt:
       pages:
         home:
           highlighted_assemblies:
+            active_assemblies: Aktyvios asamblėjos
             assemblies_button_title: Nuoroda į puslapį „Asamblėjos“, kuriame pateikiamos visos asamblėjos
+            see_all_assemblies: Žiūrėti visas asamblėjas
         user_profile:
           member_of:
             member_of: Narys
