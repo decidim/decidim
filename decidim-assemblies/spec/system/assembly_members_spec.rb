@@ -32,9 +32,7 @@ describe "Assembly members", type: :system do
       it "the menu link is not shown" do
         visit decidim_assemblies.assembly_path(assembly)
 
-        within ".participatory-space__nav-container" do
-          expect(page).not_to have_content("Members")
-        end
+        expect(page).not_to have_content("Members")
       end
     end
   end
@@ -72,9 +70,7 @@ describe "Assembly members", type: :system do
         it "the menu link is not shown" do
           visit decidim_assemblies.assembly_path(assembly)
 
-          within ".participatory-space__nav-container" do
-            expect(page).not_to have_content("Members")
-          end
+          expect(page).not_to have_content("Members")
         end
       end
     end

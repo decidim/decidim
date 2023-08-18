@@ -615,8 +615,6 @@ en:
         finish: Finish
         promotal_committee: Promoter committee
         select_initiative_type: Choose
-      initiative_header:
-        initiative_menu_item: Initiative
       initiative_signature_creation_header:
         fill_personal_data: Complete your data
         finish: Finish

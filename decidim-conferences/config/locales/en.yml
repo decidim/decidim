@@ -580,7 +580,6 @@ en:
             one: "%{count} conference"
             other: "%{count} conferences"
       conferences_nav:
-        conference_menu_item: Information
         conference_partners_menu_item: Partners
         conference_speaker_menu_item: Speakers
         media: Media

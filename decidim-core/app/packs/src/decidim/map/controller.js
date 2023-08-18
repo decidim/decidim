@@ -11,7 +11,7 @@ export default class MapController {
     this.mapId = mapId;
     this.config = $.extend({
       popupTemplateId: "marker-popup",
-      markerColor: "#ef604d"
+      markerColor: "#e02d2d"
     }, config);
 
     this.map = null;

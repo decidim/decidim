@@ -1,13 +1,11 @@
-<%= decidim_form_for(@form, html: { class: "form edit_oauth_application" }) do |f| %>
-  <div class="card">
-    <div class="card-divider">
-      <h2 class="card-title"><%= t ".title" %></h2>
-    </div>
-    <div class="card-section">
-      <%= render partial: "form", object: f %>
-    </div>
-  </div>
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".save") %>
+<% provide :title do %>
+  <h1 class="h1"><%= t ".title" %></h1>
+<% end %>
+
+<%= decidim_form_for(@form) do |f| %>
+  <%= render partial: "form", object: f %>
+
+  <div class="form__wrapper-block">
+    <%= f.submit t(".save"), class: "button button__sm md:button__lg button__primary" %>
   </div>
 <% end %>

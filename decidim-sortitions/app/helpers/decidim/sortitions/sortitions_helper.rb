@@ -49,9 +49,9 @@ module Decidim
 
       def filter_state_values
         [
-          ["all", filter_text_for(t("all", scope: "decidim.sortitions.sortitions.filters"))],
-          ["active", filter_text_for(t("active", scope: "decidim.sortitions.sortitions.filters"))],
-          ["cancelled", filter_text_for(t("cancelled", scope: "decidim.sortitions.sortitions.filters"))]
+          ["all", t("all", scope: "decidim.sortitions.sortitions.filters")],
+          ["active", t("active", scope: "decidim.sortitions.sortitions.filters")],
+          ["cancelled", t("cancelled", scope: "decidim.sortitions.sortitions.filters")]
         ]
       end
     end

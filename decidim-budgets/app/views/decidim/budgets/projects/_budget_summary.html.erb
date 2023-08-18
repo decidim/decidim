@@ -1,5 +1,3 @@
-<div class="budget-summary <%= responsive ? "block md:hidden" : "hidden md:block" %>" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
-
-  <%= render partial: "order_progress", locals: { include_heading: , responsive: } %>
-
+<div id="order-progress<%= "-responsive" if responsive %>" class="budget-summary <%= responsive ? "block md:hidden" : "hidden md:block" %>" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
+  <%= render partial: "order_progress_summary_content", locals: { responsive: , include_heading: } %>
 </div>
