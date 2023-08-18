@@ -1039,6 +1039,8 @@ fr:
       index:
         last_activity: Dernière Activité
       name: Dernières activités
+    linked_resource_from:
+      included_in: Compris dans
     links:
       invalid_url: URL invalide
       warning:
@@ -1152,6 +1154,12 @@ fr:
           send: Envoyer
         update:
           error: 'Erreur : votre message n''a pas pu être envoyé.'
+    metadata:
+      progress:
+        active: Actif(s)
+        finished: 'Terminé : %{end_date}'
+        not_started: Pas encore commencé
+        remaining: "%{time_distance} restant"
     metrics:
       download:
         csv: Télécharger les données (CSV)
@@ -1261,6 +1269,7 @@ fr:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
         success: Vos paramètres de notifications ont été mis à jour avec succès.
     offline:
+      name: Hors ligne
       show:
         message: Il semble que vous êtes actuellement hors ligne. Veuillez réessayer plus tard.
         retry: Réessayer
@@ -1287,11 +1296,13 @@ fr:
           register: S'inscrire
         hero:
           participate: Participez
+          participate_title: Participer aux concertations de la plateforme
           welcome: Bienvenue sur %{organization} !
         statistics:
           headline: État actuel de %{organization}
         sub_hero:
           register: S'inscrire
+          register_title: Inscrivez-vous pour créer un compte
       index:
         standalone_pages: Pages
         subheading: Naviguer à travers les pages d'aide de %{name}
@@ -1347,13 +1358,17 @@ fr:
       user:
         actions:
           create_user_group: Créer un groupe
+          disabled_message: Message
           edit_profile: Modifier le profil
           edit_user_group: Modifier le profil du groupe
           invite_user: Inviter un utilisateur
           join_user_group: Demander à rejoindre ce groupe
+          leave_user_group: Quitter le groupe
+          manage_user_group: Gérer le groupe
           manage_user_group_admins: Gérer les administrateurs
           manage_user_group_users: Gérer les membres
           message: Message
+          resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courrier électronique
         confirmation_instructions_sent: Instructions de confirmation d'email envoyées.
         create_user_group: Créer un groupe
         edit_profile: Mettre à jour le profil
@@ -1404,12 +1419,14 @@ fr:
       scopes_picker_input:
         select_scope: 'Sélectionnez un secteur (actuellement: %{current})'
     search:
+      name: Rechercher
       results: Résultats de recherche
       results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
       term_input_placeholder: Rechercher
     searches:
       filters:
         jump_to: 'Aller à:'
+        search: Rechercher
         state:
           active: actif
           all: Tous
@@ -1418,6 +1435,7 @@ fr:
       filters_small_view:
         close_modal: Fermer la fenêtre de dialogue
         filter: Filtrer
+        filter_and_search: Filtrer et rechercher
         filter_by: Filtrer par
         unfold: Voir plus
       results:
@@ -1472,7 +1490,9 @@ fr:
         remove_recipient: Supprimer le destinataire %{name}
       participatory_space_filters:
         filters:
+          area: Périmètre d'assemblée
           areas: Périmètres d'assemblée
+          scope: Secteur
           select_an_area: Sélectionnez un périmètre d'assemblée
       progress: Avancement
       public_participation:
@@ -1824,6 +1844,9 @@ fr:
     timestamp_error_message: Désolé, c'était trop rapide ! Veuillez le renvoyer.
   layouts:
     decidim:
+      announcements:
+        close: Fermer
+        view_more: Plus d'informations
       data_consent:
         details:
           columns:
@@ -1879,9 +1902,13 @@ fr:
         cc_by_license: Licence Creative Commons
         data_consent_settings: Paramètres des cookies
         decidim_logo: Decidim.org (ouverture dans une nouvelle fenêtre)
+        decidim_title: Decidim
         download_open_data: Télécharger les fichiers Open Data
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
+        resources: Documentation
+        sign_in: Se connecter
         sign_up: Créer un compte
+        terms_and_conditions: Conditions générales
       header:
         main_menu: Menu principal
         sign_in: S'identifier
@@ -1913,6 +1940,7 @@ fr:
       user_menu:
         account: 'Compte utilisateur: %{name}'
         admin_dashboard: Tableau de bord des administrateurs
+        configuration: Configuration
         conversations: Conversations
         notifications: Notifications
         profile: Mon compte
@@ -1926,6 +1954,7 @@ fr:
         my_data: Mes données
         my_interests: Mes intérêts
         notifications_settings: Paramètres des notifications
+        profile: Profil
         title: Paramètres utilisateur
         user_groups: Groupes
   locale:
