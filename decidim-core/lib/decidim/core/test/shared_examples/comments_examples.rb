@@ -781,6 +781,7 @@ shared_examples "comments" do
           it "does not increase the votes for the children of the upvoting comment" do
             skip "Commentable comments has no votes" unless commentable.comments_have_votes?
 
+            visit current_path
             expect(page).to have_selector("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
             page.find("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up").click
             expect(page).to have_selector("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/)
