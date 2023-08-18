@@ -126,6 +126,7 @@ fr:
           categories: Catégories
           components: Fonctionnalités
           info: Information
+          landing_page: Page d'accueil
           moderations: Modérations
           private_users: Utilisateurs privés
           process_admins: Administrateurs de la concertation
@@ -450,6 +451,8 @@ fr:
       content_blocks:
         extra_data:
           name: Phase & durée
+        hero:
+          name: Image du hero et CTA
         highlighted_processes:
           name: Concertations mises en avant
         related_processes:
@@ -468,6 +471,11 @@ fr:
           back_to_process: Retour à la page du processus
       participatory_processes:
         description:
+          area_name: Périmètre d'assemblée
+          data: Traitement des données
+          developer_group: Groupe promoteur
+          local_area: Espace d'organisation
+          meta_scope: Secteur
           participatory_scope: Ce qui est décidé
           participatory_structure: Modalités de décision
           target: Qui participe
