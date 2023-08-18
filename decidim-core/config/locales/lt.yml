@@ -224,7 +224,9 @@ lt:
         unblock: "%{user_name} atblokavo naudotoją %{resource_name}"
         unofficialize: "%{user_name} nuėmė dalyvio %{resource_name} patvirtinimą"
       user_group:
+        block: "%{user_name} užblokavo %{resource_name}"
         reject: "%{user_name} atmetė %{resource_name} grupės patvirtinimą"
+        unblock: "%{user_name} atblokavo naudotojų grupę %{resource_name}"
         verify: "%{user_name} patvirtino %{resource_name} grupę"
         verify_via_csv: "%{user_name} patvirtino %{resource_name} grupę per CSV rinkmeną"
       user_moderation:
@@ -942,8 +944,10 @@ lt:
         create_with_space: "%{user_name} sukūrė %{resource_name} %{space_name} erdvėje"
         delete: "%{user_name} pašalino %{resource_name}"
         delete_with_space: "%{user_name} pašalino %{resource_name} %{space_name} erdvėje"
+        publish_with_space: "%{user_name} pašalino %{resource_name} %{space_name} erdvėje"
         unknown_action: "%{user_name} atliko tam tikrus veiksmus %{resource_name}"
         unknown_action_with_space: "%{user_name} atliko tam tikrus veiksmus %{resource_name} %{space_name} erdvėje"
+        unpublish_with_space: "%{user_name} depublikavo %{resource_name} %{space_name} erdvėje"
         update: "%{user_name} atnaujino %{resource_name}"
         update_with_space: "%{user_name} atnaujino %{resource_name} %{space_name} erdvėje"
       value_types:
@@ -1183,6 +1187,7 @@ lt:
           error: Sutinkant su sąlygomis iškilo problema.
           success: Puiku! Jūs sutikote su sąlygomis.
         form:
+          agreement: Aš sutinku su šiomis sąlygomis
           legend: Sutikti su naudojimosi nuostatomis ir sąlygomis
         refuse:
           modal_body: Jeigu nesutiksite, negalėsite naudotis platforma, <a href="%{data_portability_path}">pasisiųsti savo duomenų</a> ir (arba) <a href="%{delete_path}">pašalinti savo paskyros</a>.
