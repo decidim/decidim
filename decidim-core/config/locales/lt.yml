@@ -30,6 +30,7 @@ lt:
         password_confirmation: Pakartokite slaptažodį
         personal_url: Asmeninis URL
         remove_avatar: Pašalinti avatarą
+        tos_agreement: Naudojimosi sąlygų ir nuostatų sutartis
     models:
       decidim/attachment_created_event: Priedas
       decidim/component_published_event: Aktyvusis komponentas
@@ -131,6 +132,16 @@ lt:
         few: "%{count} minutės"
         many: "%{count} minutės"
         other: "%{count} minutės"
+      x_months:
+        one: 1 mėnesis
+        few: "%{count} mėnesiai"
+        many: "%{count} mėnesiai"
+        other: "%{count} mėnesiai"
+      x_seconds:
+        one: 1 sekundė
+        few: "%{count} sekundės"
+        many: "%{count} sekundės"
+        other: "%{count} sekundės"
   decidim:
     accessibility:
       external_link: Išorinė nuoroda
