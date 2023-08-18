@@ -676,6 +676,8 @@ fr:
         header:
           ballot_decision: Validez ou auditez votre vote
           confirm: Confirmer votre vote
+          election: Élection
+          register: S'inscrire
         messages:
           invalid_token: Votre session dans l'isoloir n'est pas valide. Essayez de voter à nouveau.
           not_allowed: Vous n'êtes pas autorisé à voter sur cette élection pour le moment.
