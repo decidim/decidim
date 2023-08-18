@@ -588,6 +588,11 @@ fr:
         status_change_for: La pétition %{title} a changé de statut
       last_activity:
         new_initiative: Nouvelle pétition
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Pétitions actives
+            see_all_initiatives: Voir toutes les pétitions
       show:
         badge_name:
           accepted: Assez de signatures
