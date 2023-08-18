@@ -152,6 +152,16 @@ lt:
         few: "%{count} minutės"
         many: "%{count} minutės"
         other: "%{count} minutės"
+      x_months:
+        one: 1 mėnesis
+        few: "%{count} mėnesiai"
+        many: "%{count} mėnesiai"
+        other: "%{count} mėnesiai"
+      x_seconds:
+        one: 1 sekundė
+        few: "%{count} sekundės"
+        many: "%{count} sekundės"
+        other: "%{count} sekundės"
   decidim:
     accessibility:
       external_link: Išorinė nuoroda
@@ -159,7 +169,9 @@ lt:
       logo: "%{organization} oficialus logotipas"
       skip_button: Perieti į pagrindinį turinį
     account:
+      blocked: Ši paskyra užblokuota dėl sąlygų pažeidimų
       delete:
+        alert: Šis veiksmas negali būti pakeistas vėliau. Jei ištrinate paskyrą nebegalėsite prie jos prisijungti. Paskyros ištrynis anonimizuos Jūsų indėlius. Galėsite susikurti naują paskyrą, tačiau indėliai nebus jai priskirti.
         confirm:
           close: Uždaryti langą
           ok: Taip, noriu ištrinti paskyrą
