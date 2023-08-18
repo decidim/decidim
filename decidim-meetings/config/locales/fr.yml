@@ -420,6 +420,7 @@ fr:
       directory:
         meetings:
           index:
+            go_to_list: Voir la liste des événements
             meetings: Rencontres
             space_type: Espace participatif
       iframe_access_level:
