@@ -1258,7 +1258,7 @@ ca:
         close_modal: Tancar el modal
         filter: Filtra
         filter_by: Filtra per
-        unfold: Desplega
+        unfold: Desplegar
       results:
         results:
           one: "%{count} resultat"
