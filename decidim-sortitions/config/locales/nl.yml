@@ -96,11 +96,6 @@ nl:
           category_prompt: Selecteer een categorie
           search: Zoeken
           state: Staat
-        filters_small_view:
-          close_modal: Venster sluiten
-          filter: Sorteer
-          filter_by: Sorteren op
-          unfold: Uitvouwen
         linked_sortitions:
           selected_proposals: Geselecteerde voorstellen
         orders:
