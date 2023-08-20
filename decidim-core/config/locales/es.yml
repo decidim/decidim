@@ -1362,7 +1362,7 @@ es:
         close_modal: Cerrar el modal
         filter: Filtra
         filter_by: Filtra por
-        unfold: Desplega
+        unfold: Desplegar
       results:
         results:
           one: "%{count} resultado"
