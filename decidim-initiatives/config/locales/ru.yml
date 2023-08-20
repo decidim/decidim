@@ -206,11 +206,6 @@ ru:
           search: Поиск
           state: Cостояние
           type: Вид
-        filters_small_view:
-          close_modal: Закрыть окно
-          filter: Отобрать
-          filter_by: 'Отобрать по признаку:'
-          unfold: Развернуть
         index_header:
           new_initiative: Добавить почин
         orders:
