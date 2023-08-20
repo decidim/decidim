@@ -1433,11 +1433,9 @@ fr:
           future: Futur
           past: Passé
       filters_small_view:
-        close_modal: Fermer la fenêtre de dialogue
         filter: Filtrer
         filter_and_search: Filtrer et rechercher
         filter_by: Filtrer par
-        unfold: Voir plus
       results:
         view_all: Tout voir (%{count})
     security:
