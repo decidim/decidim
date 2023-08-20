@@ -1059,10 +1059,8 @@ pl:
           future: Przyszły
           past: Przeszły
       filters_small_view:
-        close_modal: Zamknij okno
         filter: Filtr
         filter_by: Filtruj według
-        unfold: Rozwiń
       results:
         view_all: Zobacz wszystko (%{count})
     security:
