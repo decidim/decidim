@@ -712,10 +712,8 @@ id:
           future: Masa depan
           past: Lalu
       filters_small_view:
-        close_modal: Tutup modal
         filter: Filter
         filter_by: Filter berdasarkan
-        unfold: Membuka
       results:
         view_all: Lihat semua (%{count})
     shared:
