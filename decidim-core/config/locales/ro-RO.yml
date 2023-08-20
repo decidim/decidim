@@ -1138,10 +1138,8 @@ ro:
           future: Viitorul
           past: Trecute
       filters_small_view:
-        close_modal: Închide fereastra
         filter: Filtrare
         filter_by: Filtrare după
-        unfold: Desfășurat
       results:
         view_all: Vezi toate (%{count})
     security:
