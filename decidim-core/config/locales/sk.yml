@@ -312,8 +312,6 @@ sk:
           explanation_html: Aby ste mohli vykonať túto akciu, musíte byť autorizovaní, pred tým musíte potvrdiť svoj email <strong>%{email} </strong>.
           request_confirmation_instructions: Požiadajte o pokyny pre potvrdenie
           title: Potvrdiť svoj email
-      show:
-        close_modal: Zatvoriť modálne
     collapsible_list:
       hidden_elements_count:
         one: a %{count} ďalších
@@ -431,7 +429,6 @@ sk:
         newsletter_modal:
           buttons:
             check: Skontrolujte a pokračujte
-            close_modal: Zatvoriť modálne
           notice: |-
             | - <P> Hej, ste si istí, že nechcete dostávať newsletter? <br> Označte zaškrtávacie políčko nižšie. <br> Pre nás je veľmi dôležité, aby ste obdržali príležitostné e-maily aby ste dostali dôležitá oznámenia, môžete to vždy zmeniť v nastavenia oznámenia. </ p> <P> Ak nezaškrtnete zaškrtávacie políčko, môže vám chýbať relevantné informácie o nových možnostiach účasti v rámci platformy. <br> Ak sa chcete aj naďalej vyhýbať prijímanie informačných spravodajcov, dokonale rozumieme vášmu rozhodnutiu. </ p> <P> Ďakujeme, že ste si to prečítali! </ P>
           title: Upozornenie na bulletin
@@ -755,9 +752,6 @@ sk:
       index:
         last_activity: Posledná aktivita
         resource_type: Typ
-    links:
-      warning:
-        close_modal: Zatvoriť modálne
     log:
       base_presenter:
         create: "%{user_name} vytvořeno %{resource_name}"
@@ -806,7 +800,6 @@ sk:
         create:
           error: Konverzace se nespustí. Zkuste to později znovu
         index:
-          close: Zatvoriť modálne
           new_conversation: Nová konverzácia
           next: Nasledujúce
           no_conversations: Nemáte zatím žádné konverzace
@@ -946,7 +939,6 @@ sk:
         refuse:
           modal_body: Ak odmietnete, nebudete môcť používať platformu, môžete <a href="%{data_portability_path}"> sťahovať dáta </a> a / alebo <a href="%{delete_path}"> zmazať svoj účet </a>.
           modal_btn_exit: Neskôr to preskúmam
-          modal_close: Zatvoriť modálne
           modal_title: Naozaj odmietate aktualizované zmluvné podmienky?
         required_review:
           alert: Aktualizovali sme Zmluvné podmienky, prečítajte si ich.
@@ -1022,7 +1014,6 @@ sk:
           future: Budúcnosť
           past: Uplynulé
       filters_small_view:
-        close_modal: Zatvoriť modálne
         filter: Filter
         filter_by: Filtrovať podľa
         unfold: Rozbaliť
@@ -1055,7 +1046,6 @@ sk:
       follow_button:
         sign_in_before_follow: Pred vykonaním tejto akcie sa prosím prihláste
       login_modal:
-        close_modal: Zatvoriť modálne
         please_sign_in: prosím prihláste sa
         sign_up: Prihlásiť sa
       participatory_space_filters:
