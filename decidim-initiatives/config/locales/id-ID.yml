@@ -276,11 +276,6 @@ id:
           search: Pencarian
           state: Negara
           type: Mengetik
-        filters_small_view:
-          close_modal: Tutup jendela
-          filter: Filter
-          filter_by: Filter berdasarkan
-          unfold: Membuka
         index_header:
           new_initiative: Inisiatif baru
         interactions:
