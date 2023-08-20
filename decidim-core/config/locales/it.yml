@@ -336,7 +336,7 @@ it:
           request_confirmation_instructions: Richiedi le istruzioni di conferma
           title: conferma la tua email
       show:
-        close_modal: Chiudi modale
+        close_modal: Chiudi modalità
     block_user_mailer:
       notify:
         body_1: Il tuo account è stato bloccato.
@@ -471,7 +471,7 @@ it:
         newsletter_modal:
           buttons:
             check: Controlla e continua
-            close_modal: Chiudi modale
+            close_modal: Chiudi modalità
             uncheck: Mantieni deselezionato
           notice: |-
             <p>Ehi, sei sicuro di non voler ricevere una newsletter?<br>
@@ -851,7 +851,7 @@ it:
         body_1: Stai per visitare un collegamento esterno e vorremmo che tu sia cauto riguardo al contenuto del sito esterno.
         body_2: Per favore controlla il link che stai per visitare e assicurati di riconoscerlo come un sito sicuro prima di procedere.
         cancel: Annulla
-        close_modal: Chiudi modale
+        close_modal: Chiudi modalità
         proceed: Procedi
         title: Apri collegamento esterno
     log:
@@ -941,7 +941,7 @@ it:
           ok: Ok
         index:
           ago: fa
-          close: Chiudi modale
+          close: Chiudi modalità
           from: Da
           groups: I miei gruppi
           last_message: Ultimo messaggio
@@ -1099,7 +1099,7 @@ it:
           legend: Accetta i termini e le condizioni d'uso
         refuse:
           modal_btn_exit: Lo esaminerò più tardi
-          modal_close: Chiudi modale
+          modal_close: Chiudi modalità
           modal_title: Rifiutate davvero i Termini e condizioni aggiornati?
         required_review:
           alert: Abbiamo aggiornato i nostri Termini di servizio, per favore controllali.
@@ -1193,7 +1193,7 @@ it:
           future: Futuro
           past: Conclusi
       filters_small_view:
-        close_modal: Chiudi modale
+        close_modal: Chiudi modalità
         filter: Filtro
         filter_by: Filtra per
         unfold: spiegare
@@ -1247,7 +1247,7 @@ it:
       follow_button:
         sign_in_before_follow: Accedi prima di eseguire questa azione
       login_modal:
-        close_modal: Chiudi modale
+        close_modal: Chiudi modalità
         please_sign_in: Per cortesia, effettua l'accesso
         sign_up: Registrazione
       participatory_space_filters:
