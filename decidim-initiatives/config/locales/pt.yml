@@ -402,11 +402,6 @@ pt:
           search: Pesquisar
           state: Estado
           type: Tipo
-        filters_small_view:
-          close_modal: Fechar janela
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desdobrar
         index_header:
           new_initiative: Nova iniciativa
         initiatives:
