@@ -488,11 +488,6 @@ fr:
           search: Rechercher
           state: État
           type: Type
-        filters_small_view:
-          close_modal: Fermer la fenêtre
-          filter: Filtre
-          filter_by: Filtrer par
-          unfold: Voir la suite
         index_header:
           new_initiative: Nouvelle pétition
         initiatives:
