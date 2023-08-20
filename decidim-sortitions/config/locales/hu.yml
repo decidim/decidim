@@ -93,11 +93,6 @@ hu:
           category_prompt: Válassz kategóriát
           search: Keresés
           state: Állapot
-        filters_small_view:
-          close_modal: Modal bezárása
-          filter: Szűrés
-          filter_by: 'Szűrés ez alapján:'
-          unfold: Kibont
         linked_sortitions:
           selected_proposals: Kiválasztott javaslatok
         orders:
