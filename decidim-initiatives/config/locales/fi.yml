@@ -488,11 +488,6 @@ fi:
           search: Hae
           state: Tila
           type: Tyyppi
-        filters_small_view:
-          close_modal: Sulje ikkuna
-          filter: Suodata
-          filter_by: Suodata
-          unfold: Avaa
         index_header:
           new_initiative: Uusi aloite
         initiatives:
