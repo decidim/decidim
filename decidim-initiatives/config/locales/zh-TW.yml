@@ -475,11 +475,6 @@ zh-TW:
           search: 搜尋
           state: 狀態
           type: 類別
-        filters_small_view:
-          close_modal: 關閉視窗
-          filter: 篩選
-          filter_by: 篩選條件
-          unfold: 展開
         index_header:
           new_initiative: 新的倡議
         initiatives:
