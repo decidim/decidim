@@ -359,6 +359,7 @@ fr-CA:
           back: Retour
           continue: Continuer
           fill_data_help: "<ul> <li>Vérifier le contenu de votre pétition : le titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de signature : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ?</li> </ul>"
+          initiative_type: Type de pétition
           more_information: "(Plus d'informations)"
           select_area: Sélectionnez une zone
           select_scope: Sélectionnez une portée
@@ -384,6 +385,7 @@ fr-CA:
           back: Retour
           choose_html: Je veux créer un <strong>%{title}</strong>
           more_information: (Plus d'informations)
+          new: Créer une nouvelle pétition
           select: Créer une initiative
           select_initiative_type_help: Les pétitions sont un moyen par lequel les participants peuvent intervenir afin que l'organisation puisse entreprendre des actions en faveur de l'intérêt général. Quelle pétition voulez-vous lancer?
           verification_required: Vérifiez votre compte pour créer une pétition
@@ -426,7 +428,12 @@ fr-CA:
           email_subject: "%{applicant_nickname} veut rejoindre le comité de promotion de votre pétition"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a postulé pour faire partie du comité de promotion de votre pétition <a href="%{resource_url}">%{resource_title}</a>. Pour accepter ou rejeter la demande, cliquez <a href="%{resource_url}/edit">ici</a>.
       form:
+        add_documents: Ajouter des documents
+        add_image: Ajouter une image
         attachment_legend: "(Facultatif) Ajouter une pièce jointe"
+        edit_documents: Modifier les documents
+        edit_image: Modifier l'Image
+        image_legend: "(Facultatif) Ajouter une image"
       index:
         uninitialized: Les pétitions ne sont pas encore configurées par un administrateur.
       initiative_signatures:
@@ -465,6 +472,7 @@ fr-CA:
           approve: Accepter
           confirm_revoke: Êtes-vous sûr(e) ?
           invite_to_committee_help: Partagez ce lien pour inviter d'autres utilisateurs au Comité de promotion.
+          link: Lien
           no_members_yet: Il n'y a pas encore de membres dans le Comité de promotion.
           title: Membres du Comité de promotion
         count:
@@ -480,11 +488,6 @@ fr-CA:
           search: Rechercher
           state: État
           type: Type
-        filters_small_view:
-          close_modal: Fermer la fenêtre
-          filter: Filtre
-          filter_by: Filtrer par
-          unfold: Voir la suite
         index_header:
           new_initiative: Nouvelle initiative
         initiatives:
@@ -528,9 +531,15 @@ fr-CA:
           answer_title: Cette pétition a reçu une réponse.
           initiative_rejected_reason: Cette initiative a été rejetée car elle n'a pas atteint le nombre de signatures requis dans le délai de collecte.
         show:
+          area: Périmètre d'assemblée
           confirm: Vous allez envoyer la pétition à un administrateur pour qu'il la consulte et la publie. Une fois publiée, vous ne serez plus en mesure de l'éditer. Êtes-vous sûr que votre pétition est prête ?
           edit: Modifier
+          initiative_data: Données de la pétition
+          scope: Secteur
           send_to_technical_validation: Envoyer à la validation technique
+          signature_collection: Collection de signatures
+          state: État
+          type: Type
         signatures_count:
           one: " signature"
           other: " signatures"
@@ -562,6 +571,11 @@ fr-CA:
           authorizations_page: Voir les autorisations
           explanation: Vous devez être vérifié pour créer une nouvelle initiative.
           title: Autorisation requise
+      pages:
+        home:
+          highlighted_initiatives:
+            active_spaces: Pétitions actives
+            see_all_spaces: Voir toutes les pétitions
       show:
         badge_name:
           accepted: Assez de signatures
