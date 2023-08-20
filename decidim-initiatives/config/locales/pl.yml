@@ -410,11 +410,6 @@ pl:
           search: Szukaj
           state: Stan
           type: Typ
-        filters_small_view:
-          close_modal: Zamknij okno
-          filter: Filtr
-          filter_by: Filtruj według
-          unfold: Rozwiń
         index_header:
           new_initiative: Nowa inicjatywa
         initiatives:
