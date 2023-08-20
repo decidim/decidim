@@ -968,10 +968,8 @@ tr:
           future: gelecek
           past: geçmiş
       filters_small_view:
-        close_modal: Yakın kalıcı
         filter: filtre
         filter_by: Tarafından filtre
-        unfold: açılmak
       results:
         view_all: Tümünü görüntüle (%{count})
     security:
