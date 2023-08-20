@@ -102,11 +102,6 @@ eu:
           category_prompt: Aukeratu kategoria bat
           search: Bilatu
           state: Egoera
-        filters_small_view:
-          close_modal: Modala itxi
-          filter: Filtroa
-          filter_by: Honen arabera iragazi
-          unfold: Zabaldu
         linked_sortitions:
           selected_proposals: Aukeratutako proposamenak
         orders:
