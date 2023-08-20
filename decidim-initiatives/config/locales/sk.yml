@@ -271,9 +271,6 @@ sk:
           search: Vyhľadávanie
           state: Štát
           type: Typ
-        filters_small_view:
-          close_modal: Zatvoriť okno
-          filter_by: Filtrovať podľa
         index_header:
           new_initiative: Nová iniciatíva
         interactions:
