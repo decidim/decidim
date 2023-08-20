@@ -260,8 +260,6 @@ gl:
           explanation_html: Para realizar esta acción necesitas estar autorizado, antes de facer isto necesitas confirmar o teu correo <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instrucións de confirmación
           title: Confirma o teu correo electrónico
-      show:
-        close_modal: Pechar modal
     collapsible_list:
       hidden_elements_count:
         one: e %{count} máis
@@ -353,7 +351,6 @@ gl:
         newsletter_modal:
           buttons:
             check: Comprobar e continuar
-            close_modal: Pechar modal
           notice: |-
             <p>Ola, estás seguro de que non queres recibir un boletín informativo?<br>
             Por favor, considere nuevamente marcar a caixa de verificación seguinte.<br>
@@ -684,7 +681,6 @@ gl:
         body_1: Estás a punto de visitar unha ligazón externa e gustaríanos ser cautelosos canto ao contido deste sitio externo.
         body_2: Por favor, verifica a ligazón a punto de visitar e asegúrate de que é un sitio seguro antes de continuar.
         cancel: Cancelar
-        close_modal: Pechar modal
         proceed: Continuar
         title: Abrir ligazón externa
     log:
@@ -729,7 +725,6 @@ gl:
         create:
           error: Non se iniciou a conversa. Téntao de novo máis tarde
         index:
-          close: Pechar modal
           no_conversations: Aínda non tes conversas
           title: Conversas
           to: Para
@@ -853,7 +848,6 @@ gl:
         refuse:
           modal_body: Rexeitar, non será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">Descargar seus datos</a> e / ou <a href="%{delete_path}">eliminar a súa conta</a>.
           modal_btn_exit: Vou revisalo máis tarde
-          modal_close: Pechar modal
           modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
         required_review:
           alert: Actualizamos as nosas Condicións de servizo, por favor revíselas.
@@ -926,7 +920,6 @@ gl:
           future: Futuro
           past: Pasado
       filters_small_view:
-        close_modal: Pechar modal
         filter: Filtro
         filter_by: Filtrar por
         unfold: Despregar
@@ -958,7 +951,6 @@ gl:
       follow_button:
         sign_in_before_follow: Inicia sesión antes de realizar esta acción
       login_modal:
-        close_modal: Pechar modal
         please_sign_in: Inicia sesión
         sign_up: Rexistrarse
       participatory_space_filters:
