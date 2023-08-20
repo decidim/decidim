@@ -102,11 +102,6 @@ fr-CA:
           category_prompt: Sélectionner une catégorie
           search: Rechercher
           state: État
-        filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtrer
-          filter_by: Filtrer par
-          unfold: Dérouler
         linked_sortitions:
           selected_proposals: Propositions sélectionnées
         orders:
