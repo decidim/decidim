@@ -96,11 +96,6 @@ it:
           category_prompt: Seleziona una categoria
           search: Ricerca
           state: Stato
-        filters_small_view:
-          close_modal: Chiudi modale
-          filter: Filtro
-          filter_by: Filtra per
-          unfold: Espandi
         linked_sortitions:
           selected_proposals: Proposte selezionate
         orders:
