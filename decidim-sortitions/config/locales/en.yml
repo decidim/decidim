@@ -103,11 +103,6 @@ en:
           category_prompt: Select a category
           search: Search
           state: Status
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         linked_sortitions:
           selected_proposals: Selected proposals
         orders:
