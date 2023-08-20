@@ -321,11 +321,6 @@ el:
           search: Αναζήτηση
           state: Κατάσταση
           type: Τύπος
-        filters_small_view:
-          close_modal: Κλείσιμο παραθύρου
-          filter: Φίλτρο
-          filter_by: Φιλτράρισμα κατά
-          unfold: Αποκάλυψη
         index_header:
           new_initiative: Νέα πρωτοβουλία
         interactions:
