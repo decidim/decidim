@@ -108,11 +108,6 @@ cs:
           category_prompt: Vyberte kategorii
           search: Vyhledávání
           state: Stav
-        filters_small_view:
-          close_modal: Zavřít okno
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozbalit
         linked_sortitions:
           selected_proposals: Vybrané návrhy
         orders:
