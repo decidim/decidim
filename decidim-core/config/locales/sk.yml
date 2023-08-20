@@ -846,10 +846,8 @@ sk:
           future: Budúcnosť
           past: Uplynulé
       filters_small_view:
-        close_modal: Zatvoriť modálne
         filter: Filter
         filter_by: Filtrovať podľa
-        unfold: Rozbaliť
       results:
         view_all: Zobrazit všechny (%{count})
     shared:
