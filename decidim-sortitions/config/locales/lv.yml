@@ -96,11 +96,6 @@ lv:
           category_prompt: Izvēlieties kategoriju
           search: Meklēt
           state: Statuss
-        filters_small_view:
-          close_modal: Aizvērt modal
-          filter: Filtrēt
-          filter_by: Filtrēt pēc
-          unfold: Atritināt
         linked_sortitions:
           selected_proposals: Atlasītie priekšlikumi
         orders:
