@@ -300,11 +300,6 @@ ar:
           search: بحث
           state: الحالة
           type: نوع
-        filters_small_view:
-          close_modal: أغلق النافذة
-          filter: منقي
-          filter_by: مصنف بواسطة
-          unfold: كشف
         index_header:
           new_initiative: مبادرة جديدة
         interactions:
