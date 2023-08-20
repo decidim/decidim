@@ -1250,10 +1250,8 @@ hu:
           future: Jövő
           past: Múlt
       filters_small_view:
-        close_modal: Modal bezárása
         filter: Szűrés
         filter_by: 'Szűrés ez alapján:'
-        unfold: Kibont
       results:
         view_all: Összes megtekintése (%{count})
     security:
