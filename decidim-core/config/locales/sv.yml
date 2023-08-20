@@ -364,7 +364,7 @@ sv:
           request_confirmation_instructions: Begär bekräftelseanvisningar
           title: Bekräfta din e-postadress
       show:
-        close_modal: Stäng fönster
+        close_modal: Stäng modal
     block_user_mailer:
       notify:
         body_1: Ditt konto har spärrats.
@@ -500,7 +500,7 @@ sv:
         newsletter_modal:
           buttons:
             check: Kontrollera och fortsätt
-            close_modal: Stäng fönster
+            close_modal: Stäng modal
             uncheck: Behåll avmarkeringen
           notice: |-
             <p>Hej, är du säker på att du inte vill få nyhetsbrevet?<br>
@@ -902,7 +902,7 @@ sv:
         body_1: Du är på väg att besöka en extern länk och vi vill att du ska vara försiktig med innehållet på den externa webbplatsen.
         body_2: Kontrollera länken du är på väg att besöka och se till att den är säker innan du fortsätter.
         cancel: Avbryt
-        close_modal: Stäng fönster
+        close_modal: Stäng modal
         proceed: Fortsätt
         title: Öppna extern länk
     log:
@@ -992,7 +992,7 @@ sv:
           ok: OK
         index:
           ago: sedan
-          close: Stäng fönster
+          close: Stäng modal
           from: Från
           groups: Mina grupper
           last_message: Senaste meddelande
@@ -1161,7 +1161,7 @@ sv:
           legend: Godkänn användarvillkoren
         refuse:
           modal_btn_exit: Jag granskar dem senare
-          modal_close: Stäng fönster
+          modal_close: Stäng modal
           modal_title: Avvisar du de uppdaterade användarvillkoren?
         required_review:
           alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
@@ -1255,10 +1255,10 @@ sv:
           future: Framtida
           past: Tidigare
       filters_small_view:
-        close_modal: Stäng fönster
+        close_modal: Stäng modal
         filter: Filtrera
         filter_by: Filtrera efter
-        unfold: Vik ut
+        unfold: Veckla ut
       results:
         results:
           one: "%{count} resultat"
@@ -1309,7 +1309,7 @@ sv:
       follow_button:
         sign_in_before_follow: Logga in innan du genomför åtgärden
       login_modal:
-        close_modal: Stäng fönster
+        close_modal: Stäng modal
         please_sign_in: Logga in
         sign_up: Registrera dig
       participatory_space_filters:
