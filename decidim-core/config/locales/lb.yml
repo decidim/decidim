@@ -981,10 +981,8 @@ lb:
           future: Zukunft
           past: Vergaangenes
       filters_small_view:
-        close_modal: Modal schließen
         filter: Filter
         filter_by: Filtern nach
-        unfold: Opklappen
       results:
         view_all: Alles uweisen (%{count})
     security:
