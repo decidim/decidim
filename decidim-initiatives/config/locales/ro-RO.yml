@@ -440,11 +440,6 @@ ro:
           search: Caută
           state: Status
           type: Tip
-        filters_small_view:
-          close_modal: Închide fereastra
-          filter: Filtrare
-          filter_by: Filtrare după
-          unfold: Desfășurat
         index_header:
           new_initiative: Inițiativă nouă
         initiatives:
