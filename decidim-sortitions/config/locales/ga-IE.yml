@@ -31,9 +31,6 @@ ga:
           category: Catagóir
           search: Cuardaigh
           state: Stádas
-        filters_small_view:
-          filter: Scagaire
-          unfold: Oscail
         orders:
           random: Randamach
           recent: Is Déanaí
