@@ -1370,10 +1370,8 @@ lt:
           future: Ateitis
           past: Praėję
       filters_small_view:
-        close_modal: Uždaryti modalinį langą
         filter: Filtruoti
         filter_by: Filtruoti pagal
-        unfold: Išskleisti
       results:
         view_all: Peržiūrėti viską (%{count})
     security:
