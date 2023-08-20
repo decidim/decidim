@@ -102,11 +102,6 @@ lt:
           category_prompt: Pasirinkite kategoriją
           search: Ieškoti
           state: Būsena
-        filters_small_view:
-          close_modal: Uždaryti modalinį langą
-          filter: Filtruoti
-          filter_by: Filtruoti pagal
-          unfold: Išskleisti
         linked_sortitions:
           selected_proposals: Pasirinkti pasiūlymai
         orders:
