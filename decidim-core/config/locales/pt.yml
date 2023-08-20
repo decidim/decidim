@@ -984,10 +984,8 @@ pt:
           future: Futuro
           past: Passado
       filters_small_view:
-        close_modal: Fechar modal
         filter: Filtrar
         filter_by: Filtrar por
-        unfold: Desdobrar
       results:
         view_all: Ver todos (%{count})
     security:
