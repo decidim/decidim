@@ -99,11 +99,6 @@ ja:
           category_prompt: カテゴリを選択
           search: 検索
           state: ステータス
-        filters_small_view:
-          close_modal: モーダルを閉じる
-          filter: フィルター
-          filter_by: フィルター
-          unfold: 展開する
         linked_sortitions:
           selected_proposals: 選択された提案
         orders:
