@@ -227,7 +227,6 @@ ga:
           past: Roimhe
       filters_small_view:
         filter: Scagaire
-        unfold: Oscail
     security:
       selfxss_warning:
         title: Stad!
