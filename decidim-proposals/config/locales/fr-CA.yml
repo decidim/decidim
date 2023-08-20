@@ -845,6 +845,8 @@ fr-CA:
           recent: Les plus récentes
           with_more_authors: Avec le plus d'auteurs
         participatory_texts:
+          index:
+            document_index: Index de document
           view_index:
             see_index: Voir index
         placeholder:
