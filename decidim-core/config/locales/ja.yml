@@ -408,7 +408,7 @@ ja:
           request_confirmation_instructions: 確認手順をリクエストする
           title: メールアドレスを確認してください
       show:
-        close_modal: モーダルを閉じる
+        close_modal: ウィンドウを閉じる
     block_user_mailer:
       notify:
         body_1: あなたのアカウントはブロックされました。
@@ -543,7 +543,7 @@ ja:
         newsletter_modal:
           buttons:
             check: 確認して続ける
-            close_modal: モーダルを閉じる
+            close_modal: ウィンドウを閉じる
             uncheck: チェックを外してください
           notice: |-
             <p>本当にニュースレターを購読しなくて良いですか？<br>
@@ -960,7 +960,7 @@ ja:
         body_1: あなたは外部リンクにアクセスしようとしています。外部サイトの内容にはご注意ください。
         body_2: サイトにアクセスする前に、訪問しようとしているリンクをチェックし、安全なサイトであるか確認してください。
         cancel: キャンセル
-        close_modal: モーダルを閉じる
+        close_modal: ウィンドウを閉じる
         proceed: 続行
         title: 外部リンクを開く
     log:
@@ -1053,7 +1053,7 @@ ja:
           ok: OK
         index:
           ago: 前
-          close: モーダルを閉じる
+          close: ウィンドウを閉じる
           from: '差出人:'
           groups: 自分のグループ
           last_message: 最後のメッセージ
@@ -1245,7 +1245,7 @@ ja:
           modal_btn_continue: 利用規約に同意して続ける
           modal_btn_exit: 後で確認する
           modal_button: 利用規約に同意しない
-          modal_close: モーダルを閉じる
+          modal_close: ウィンドウを閉じる
           modal_title: 更新された利用規約を本当に拒否しますか?
         required_review:
           alert: サービス利用規約を更新しました。ご確認ください。
@@ -1344,7 +1344,7 @@ ja:
           future: 未来
           past: 過去
       filters_small_view:
-        close_modal: モーダルを閉じる
+        close_modal: ウィンドウを閉じる
         filter: フィルター
         filter_by: フィルター
         unfold: 展開する
@@ -1397,7 +1397,7 @@ ja:
       follow_button:
         sign_in_before_follow: このアクションを実行する前にログインしてください
       login_modal:
-        close_modal: モーダルを閉じる
+        close_modal: ウィンドウを閉じる
         please_sign_in: ログインしてください
         sign_up: 新規登録
       mentions_modal:
