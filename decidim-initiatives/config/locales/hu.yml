@@ -466,11 +466,6 @@ hu:
           search: Keresés
           state: Állapot
           type: Típus
-        filters_small_view:
-          close_modal: Ablak bezárása
-          filter: Szűrés
-          filter_by: 'Szűrés ez alapján:'
-          unfold: Kibont
         index_header:
           new_initiative: Új kezdeményezés
         initiatives:
