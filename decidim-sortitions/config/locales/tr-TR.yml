@@ -94,11 +94,6 @@ tr:
           category_prompt: Bir kategori seç
           search: Arama
           state: Statü
-        filters_small_view:
-          close_modal: Pencereyi kapat
-          filter: Filtrele
-          filter_by: Şuna göre filtrele
-          unfold: Aç
         linked_sortitions:
           selected_proposals: Seçili teklifler
         orders:
