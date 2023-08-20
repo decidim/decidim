@@ -99,11 +99,6 @@ zh-TW:
           category_prompt: 選擇一個類別
           search: 搜尋
           state: 狀態
-        filters_small_view:
-          close_modal: 關閉視窗
-          filter: 篩選
-          filter_by: 篩選條件
-          unfold: 展開
         linked_sortitions:
           selected_proposals: 選擇的提案
         orders:
