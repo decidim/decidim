@@ -433,11 +433,6 @@ lt:
           search: Ieškoti
           state: Būsena
           type: Tipas
-        filters_small_view:
-          close_modal: Uždaryti langą
-          filter: Filtruoti
-          filter_by: Filtruoti pagal
-          unfold: Išskleisti
         index_header:
           new_initiative: Nauja iniciatyva
         initiatives:
