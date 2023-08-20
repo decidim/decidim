@@ -420,10 +420,8 @@ uk:
       term_input_placeholder: Шукати
     searches:
       filters_small_view:
-        close_modal: Закрити віконце
         filter: Відібрати
         filter_by: 'Відібрати за ознакою:'
-        unfold: Розгорнути
     shared:
       flag_modal:
         already_reported: Про цей вміст вже передано скаргу, і її перегляне адміністратор.
