@@ -411,11 +411,6 @@ pt-BR:
           search: Pesquisa
           state: Estado
           type: Tipo
-        filters_small_view:
-          close_modal: Janela fechada
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Desdobrar
         index_header:
           new_initiative: Nova iniciativa
         initiatives:
