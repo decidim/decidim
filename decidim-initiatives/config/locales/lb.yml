@@ -351,11 +351,6 @@ lb:
           search: Suche
           state: Zustand
           type: Art
-        filters_small_view:
-          close_modal: Fenster schließen
-          filter: Filter
-          filter_by: Filtern nach
-          unfold: Entfalten
         index_header:
           new_initiative: Neue Initiative
         initiatives:
