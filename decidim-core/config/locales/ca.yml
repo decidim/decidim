@@ -1427,11 +1427,9 @@ ca:
           future: Futurs
           past: Passats
       filters_small_view:
-        close_modal: Tancar el modal
         filter: Filtra
         filter_and_search: Filtrar i cercar
         filter_by: Filtra per
-        unfold: Desplega
       results:
         view_all: Mostra-ho tot (%{count})
     security:
