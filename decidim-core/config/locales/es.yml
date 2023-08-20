@@ -1427,11 +1427,9 @@ es:
           future: Futuros
           past: Pasados
       filters_small_view:
-        close_modal: Cerrar el modal
         filter: Filtra
         filter_and_search: Filtrar y buscar
         filter_by: Filtra por
-        unfold: Desplega
       results:
         view_all: Ver todo (%{count})
     security:
