@@ -1429,11 +1429,9 @@ fi-pl:
           future: Tulevat
           past: Menneet
       filters_small_view:
-        close_modal: Sulje ikkuna
         filter: Suodata
         filter_and_search: Suodata ja hae
         filter_by: Suodata
-        unfold: Avaa
       results:
         view_all: Näytä kaikki (%{count})
     security:
