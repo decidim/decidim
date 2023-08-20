@@ -1338,10 +1338,8 @@ zh-TW:
           future: 未來
           past: 過去
       filters_small_view:
-        close_modal: 關閉視窗
         filter: 篩選器
         filter_by: 篩選條件
-        unfold: 展開
       results:
         view_all: 查看全部(%{count})
     security:
