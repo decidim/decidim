@@ -863,10 +863,8 @@ bg:
           future: Бъдещи
           past: Минали
       filters_small_view:
-        close_modal: Затвори прозорчето
         filter: Филтър
         filter_by: Филтър по
-        unfold: Разгъване
       results:
         view_all: Виж всички (%{count})
     shared:
