@@ -1217,10 +1217,8 @@ ar:
           future: مستقبل
           past: الماضي
       filters_small_view:
-        close_modal: إغلاق مشروط
         filter: منقي
         filter_by: مصنف بواسطة
-        unfold: كشف
       results:
         view_all: عرض الكل (%{count})
     security:
