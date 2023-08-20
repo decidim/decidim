@@ -285,11 +285,6 @@ gl:
           search: Busca
           state: Estado
           type: Tipo
-        filters_small_view:
-          close_modal: Pechar ventá
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Despregar
         index_header:
           new_initiative: Nova iniciativa
         interactions:
