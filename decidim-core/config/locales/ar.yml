@@ -437,7 +437,7 @@ ar:
           request_confirmation_instructions: طلب تعليمات التأكيد
           title: تأكيد البريد الإلكتروني
       show:
-        close_modal: إغلاق مشروط
+        close_modal: اغلاق النموذج
     block_user_mailer:
       notify:
         body_1: تم حظر الحساب الخاص بك.
@@ -577,7 +577,7 @@ ar:
         newsletter_modal:
           buttons:
             check: تحقق واستمر
-            close_modal: إغلاق مشروط
+            close_modal: اغلاق النموذج
             uncheck: إبقاءه غير مختار
           notice: |-
             <p>مهلا ، هل أنت متأكد أنك لا تريد تلقي رسالة إخبارية؟<br>
@@ -995,7 +995,7 @@ ar:
         body_1: أنت على وشك زيارة رابط خارجي ونرجو منك أن تتحلى بالحذر فيما يتعلق بالمحتوى الموجود في الموقع الخارجي.
         body_2: الرجاء التحقق من الرابط الذي توشك على زيارته والتأكد من التعرف عليه كموقع آمن قبل المتابعة.
         cancel: إلغاء
-        close_modal: إغلاق مشروط
+        close_modal: اغلاق النموذج
         proceed: المواصلة
         title: فتح رابط خارجي
     log:
@@ -1086,7 +1086,7 @@ ar:
           ok: حسناً
         index:
           ago: منذ
-          close: إغلاق مشروط
+          close: اغلاق النموذج
           from: من
           groups: فِرَقي
           last_message: آخر رسالة
@@ -1274,7 +1274,7 @@ ar:
         refuse:
           modal_body: إذا قمت بالرفض، لن تتمكن من استخدام المنصة، يمكنك <a href="%{download_your_data_path}">تنزيل بياناتك</a> و/أو <a href="%{delete_path}">حذف حسابك</a>.
           modal_btn_exit: سأراجعها لاحقًا
-          modal_close: إغلاق مشروط
+          modal_close: اغلاق النموذج
           modal_title: هل ترفض حقًا الأحكام والشروط المحدثة؟
         required_review:
           alert: لقد قمنا بتحديث شروط الخدمة الخاصة بنا ، يرجى مراجعتها.
@@ -1372,7 +1372,7 @@ ar:
           future: مستقبل
           past: الماضي
       filters_small_view:
-        close_modal: إغلاق مشروط
+        close_modal: اغلاق النموذج
         filter: منقي
         filter_by: مصنف بواسطة
         unfold: كشف
@@ -1430,7 +1430,7 @@ ar:
       follow_button:
         sign_in_before_follow: يرجى تسجيل الدخول قبل تنفيذ هذا الإجراء
       login_modal:
-        close_modal: إغلاق مشروط
+        close_modal: اغلاق النموذج
         please_sign_in: الرجاء تسجيل الدخول
         sign_up: انشئ حسابًا
       mentions_modal:
