@@ -148,11 +148,6 @@ is-IS:
           myself: Verkefni mín
           search: Leita
           type: Gerð
-        filters_small_view:
-          close_modal: Lokaðu glugga
-          filter: Sía
-          filter_by: Sía eftir
-          unfold: Fella út
         index_header:
           new_initiative: Nýtt frumkvæði
         orders:
