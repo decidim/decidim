@@ -175,7 +175,7 @@ de:
           tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
       step_navigation:
         show:
-          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Bist du sicher?
+          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Sind Sie sicher?
           back: Zurück
           continue: Weiter
           submit: einreichen
