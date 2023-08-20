@@ -138,9 +138,6 @@ ga:
           search: Cuardaigh
           state: Stádas
           type: Cineál
-        filters_small_view:
-          filter: Scag
-          unfold: Oscail
         orders:
           random: Randamach
         print:
