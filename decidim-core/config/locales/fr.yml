@@ -1256,7 +1256,7 @@ fr:
         close_modal: Fermer la fenêtre de dialogue
         filter: Filtrer
         filter_by: Filtrer par
-        unfold: Voir plus
+        unfold: Afficher
       results:
         results:
           one: "%{count} résultat"
