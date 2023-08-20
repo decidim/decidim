@@ -857,10 +857,8 @@ lv:
           future: Nākotnes
           past: Iepriekšējie
       filters_small_view:
-        close_modal: Aizvērt modal
         filter: Filtrēt
         filter_by: Filtrēt pēc
-        unfold: Atritināt
       results:
         view_all: Skatīt visus (%{count})
     shared:
