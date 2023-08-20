@@ -102,11 +102,6 @@ de:
           category_prompt: Wählen Sie eine Kategorie
           search: Suche
           state: Zustand
-        filters_small_view:
-          close_modal: Modal schließen
-          filter: Filter
-          filter_by: Filtern nach
-          unfold: Entfalten
         linked_sortitions:
           selected_proposals: Ausgewählte Vorschläge
         orders:
