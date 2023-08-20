@@ -488,11 +488,6 @@ es:
           search: Buscar
           state: Estado
           type: Tipo
-        filters_small_view:
-          close_modal: Cerrar ventana
-          filter: Filtrar
-          filter_by: Filtrado por
-          unfold: Desplegar
         index_header:
           new_initiative: Nueva iniciativa
         initiatives:
