@@ -1110,10 +1110,8 @@ eu:
           future: Etorkizuna
           past: Iragana
       filters_small_view:
-        close_modal: Itxi modal
         filter: Filter
         filter_by: Iragazi arabera
-        unfold: Zabaldu
       results:
         view_all: Ikusi dena (%{count})
     security:
