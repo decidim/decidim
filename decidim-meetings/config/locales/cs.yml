@@ -663,7 +663,7 @@ cs:
         in_person: Osobně
         online: Online
       types:
-        private_meeting: Privátní setkání
+        private_meeting: Soukromá schůzka
         transparent: Průhledný
         withdraw: Staženo
       versions:
