@@ -1472,11 +1472,9 @@ cs:
           future: Budoucí
           past: Minulé
       filters_small_view:
-        close_modal: Zavřít modální
         filter: Filtr
         filter_and_search: Filtrovat a hledat
         filter_by: Filtrovat podle
-        unfold: Rozvinout
       results:
         view_all: Zobrazit všechny (%{count})
     security:
