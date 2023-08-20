@@ -96,11 +96,6 @@ sv:
           category_prompt: Välj en kategori
           search: Sök
           state: Status
-        filters_small_view:
-          close_modal: Stäng fönster
-          filter: Filtrera
-          filter_by: Filtrera efter
-          unfold: Veckla ut
         linked_sortitions:
           selected_proposals: Utvalda förslag
         orders:
