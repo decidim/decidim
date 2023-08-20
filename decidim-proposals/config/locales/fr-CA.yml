@@ -386,6 +386,7 @@ fr-CA:
         title: Votes
     participatory_spaces:
       highlighted_proposals:
+        last: Dernières propositions
         see_all: Tout voir (%{count})
     proposals:
       actions:
@@ -650,6 +651,8 @@ fr-CA:
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier un brouillon collaboratif
+        empty: Il n'y a pas encore de brouillons collaboratifs
+        empty_filters: Il n'y a pas de brouillon collaboratif avec ce critère
         filters:
           all: Tout
           amendment: Amendements
@@ -666,6 +669,7 @@ fr-CA:
           filter: Filtre
           filter_by: Filtrer par
           unfold: Se dérouler
+        name: Brouillons collaboratifs
         new:
           add_file: Ajouter un fichier
           edit_file: Modifier le fichier
@@ -716,6 +720,9 @@ fr-CA:
           back_from_collaborative_draft: Retour aux brouillons collaboratifs
         wizard_header:
           title: Créez votre projet collaboratif
+      content_blocks:
+        highlighted_proposals:
+          name: Propositions
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès. Enregistrée comme brouillon.
@@ -807,6 +814,9 @@ fr-CA:
           random: Aléatoire
           recent: Les plus récentes
           with_more_authors: Avec le plus d'auteurs
+        participatory_texts:
+          view_index:
+            document_index: Index de document
         placeholder:
           address: 60 Boulevard Victor Hugo Saint-Jean-de-Luz, BP 64500
         preview:
