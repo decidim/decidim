@@ -1430,11 +1430,9 @@ es-PY:
           future: Futuro
           past: Pasado
       filters_small_view:
-        close_modal: Cerrar modal
         filter: Filtrar
         filter_and_search: Filtrar y buscar
         filter_by: Filtrar por
-        unfold: Desplegar
       results:
         view_all: Ver todo (%{count})
     security:
