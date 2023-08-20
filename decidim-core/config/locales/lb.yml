@@ -337,7 +337,7 @@ lb:
           request_confirmation_instructions: Instruktiounen fir d'Bestätegung ufroen
           title: Email bestätegen
       show:
-        close_modal: Modal schließen
+        close_modal: Modal zou maachen
     block_user_mailer:
       notify:
         body_1: Däin Kont ass gespaart.
@@ -480,7 +480,7 @@ lb:
         newsletter_modal:
           buttons:
             check: Iwwerpréiwen an weider maachen
-            close_modal: Modal schließen
+            close_modal: Modal zou maachen
             uncheck: Ouni Kontakt-Erlabnis weidermaachen
           notice: |-
             <p>Hey, bass de sécher, dass de keen Newsletter wëlls?<br>
@@ -848,7 +848,7 @@ lb:
         body_1: Du kënns elo op en externen Link an mir bieden dech, virsiichteg mam Inhalt vun externen Säiten ëmzegoen.
         body_2: W. e. g. iwwerpréif de Link den s'de besiche wëlls an iwwerpréif ob et eng sécher Säit ass, éier s'de weider méchs.
         cancel: Ofbriechen
-        close_modal: Modal schließen
+        close_modal: Modal zou maachen
         proceed: Weidermaachen
         title: Externen Link op maachen
     log:
@@ -938,7 +938,7 @@ lb:
           ok: OK
         index:
           ago: virun
-          close: Modal schließen
+          close: Modal zou maachen
           from: Vum
           groups: Meng Gruppen
           last_message: Lescht Noriicht
@@ -1092,7 +1092,7 @@ lb:
         refuse:
           modal_body: Wann s'du refuséiers, wàert et dir net méiglech sinn dës Plattform ze benotzen, du kanns <a href="%{data_portability_path}">lDaten eroflueden</a> an / oder <a href="%{delete_path}">Konto läschen</a>.
           modal_btn_exit: Ech iwwerpréiwen dat méi spéit
-          modal_close: Modal schließen
+          modal_close: Modal zou maachen
           modal_title: Bass du wierklech wëlles d'Konditiounen vum Benotzen net unzehuelen?
         required_review:
           alert: Mir hunn eis Konditiounen vum Benotzen aktualiséiert, iwwerpréif se w. e. g.
@@ -1186,7 +1186,7 @@ lb:
           future: Zukunft
           past: Vergaangenes
       filters_small_view:
-        close_modal: Modal schließen
+        close_modal: Modal zou maachen
         filter: Filter
         filter_by: Filtern nach
         unfold: Opklappen
@@ -1240,7 +1240,7 @@ lb:
       follow_button:
         sign_in_before_follow: Mell dech w. e. g. un, éier s'du dës Aktioun ausféiers
       login_modal:
-        close_modal: Modal schließen
+        close_modal: Modal zou maachen
         please_sign_in: W. e. g. umellen
         sign_up: Registréieren
       participatory_space_filters:
