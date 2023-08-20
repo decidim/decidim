@@ -96,11 +96,6 @@
           category_prompt: Velg en kategori
           search: Søk
           state: Status
-        filters_small_view:
-          close_modal: Lukk modal
-          filter: Filter
-          filter_by: Filtrer etter
-          unfold: Åpne
         linked_sortitions:
           selected_proposals: Utvalgte forslag
         orders:
