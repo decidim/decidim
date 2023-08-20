@@ -102,11 +102,6 @@ es:
           category_prompt: Selecciona una categoría
           search: Buscar
           state: Estado
-        filters_small_view:
-          close_modal: Cierra el modal
-          filter: Filtro
-          filter_by: Filtra por
-          unfold: Desplegar
         linked_sortitions:
           selected_proposals: Propuestas seleccionadas
         orders:
