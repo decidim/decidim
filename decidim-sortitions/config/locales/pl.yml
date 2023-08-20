@@ -100,11 +100,6 @@ pl:
           category_prompt: Wybierz kategorię
           search: Szukaj
           state: Status
-        filters_small_view:
-          close_modal: Zamknij okno
-          filter: Filtr
-          filter_by: Filtruj według
-          unfold: Rozwiń
         linked_sortitions:
           selected_proposals: Wybrane propozycje
         orders:
