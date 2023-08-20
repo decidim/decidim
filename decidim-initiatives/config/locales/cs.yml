@@ -498,11 +498,6 @@ cs:
           search: Vyhledávání
           state: Stav
           type: Typ
-        filters_small_view:
-          close_modal: Zavřít okno
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozvinout
         index_header:
           new_initiative: Nová iniciativa
         initiatives:
