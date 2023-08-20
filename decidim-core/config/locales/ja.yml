@@ -1411,11 +1411,9 @@ ja:
           future: 未来
           past: 過去
       filters_small_view:
-        close_modal: モーダルを閉じる
         filter: フィルター
         filter_and_search: フィルターと検索
         filter_by: フィルター
-        unfold: 展開する
       results:
         view_all: すべて表示 (%{count})
     security:
