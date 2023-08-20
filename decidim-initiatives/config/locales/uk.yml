@@ -206,11 +206,6 @@ uk:
           search: Шукати
           state: Стан
           type: Різновид
-        filters_small_view:
-          close_modal: Закрити вікно
-          filter: Відібрати
-          filter_by: 'Відібрати за ознакою:'
-          unfold: Розгорнути
         index_header:
           new_initiative: Започаткувати почин
         orders:
