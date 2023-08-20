@@ -339,11 +339,6 @@ zh-CN:
           search: 搜索
           state: 状态
           type: 类型
-        filters_small_view:
-          close_modal: 关闭窗口
-          filter: 筛选器
-          filter_by: 筛选方式
-          unfold: 展开...
         index_header:
           new_initiative: 新举措
         initiatives:
