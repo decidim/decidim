@@ -1434,11 +1434,9 @@ de:
           future: Zukunft
           past: Vergangenheit
       filters_small_view:
-        close_modal: Fenster schließen
         filter: Filter
         filter_and_search: Filtern und suchen
         filter_by: Filtern nach
-        unfold: Entfalten
       results:
         view_all: Alle anzeigen (%{count})
     security:
