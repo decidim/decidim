@@ -1070,10 +1070,8 @@ sv:
           future: Framtida
           past: Tidigare
       filters_small_view:
-        close_modal: Stäng fönster
         filter: Filtrera
         filter_by: Filtrera efter
-        unfold: Vik ut
       results:
         view_all: Visa alla (%{count})
     security:
