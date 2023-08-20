@@ -90,11 +90,6 @@ id:
           category_prompt: Pilih Kategori
           search: Pencarian
           state: Status
-        filters_small_view:
-          close_modal: Tutup modal
-          filter: Filter
-          filter_by: Saring menurut
-          unfold: Membuka
         linked_sortitions:
           selected_proposals: Usulan yang dipilih
         orders:
