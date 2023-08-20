@@ -83,7 +83,7 @@ cs:
         other: Konference
       decidim/conference_speaker:
         one: Řečník Konference
-        few: Řečnící Konference
+        few: Řečníci Konference
         many: Řečníci Konference
         other: Řečníci Konference
       decidim/conference_user_role:
@@ -123,7 +123,7 @@ cs:
           title: Aktualizovat řečníka konference.
           update: Aktualizace
         index:
-          conference_speakers_title: Řečnící konference
+          conference_speakers_title: Řečníci konference
         new:
           create: Vytvořit
           title: Nový řečník konference.
