@@ -79,11 +79,6 @@ is-IS:
           category: Flokkur
           category_prompt: Veldu flokk
           search: Leita
-        filters_small_view:
-          close_modal: Loka mát
-          filter: Sía
-          filter_by: Sía eftir
-          unfold: Fella út
         linked_sortitions:
           selected_proposals: Valdar tillögur
         orders:
