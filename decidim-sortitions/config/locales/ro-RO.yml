@@ -104,11 +104,6 @@ ro:
           category_prompt: Selectează o categorie
           search: Caută
           state: Stadiu
-        filters_small_view:
-          close_modal: Închide fereastra
-          filter: Filtrează
-          filter_by: Filtrează după
-          unfold: Extinde
         linked_sortitions:
           selected_proposals: Propuneri selectate
         orders:
