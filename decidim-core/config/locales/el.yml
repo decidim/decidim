@@ -1164,10 +1164,8 @@ el:
           future: Μέλλον
           past: Παρελθόν
       filters_small_view:
-        close_modal: Κλείσιμο βοηθητικού στοιχείου
         filter: Φίλτρο
         filter_by: Φιλτράρισμα κατά
-        unfold: Αποκάλυψη
       results:
         view_all: Προβολή όλων (%{count})
     security:
