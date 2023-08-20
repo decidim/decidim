@@ -355,11 +355,6 @@ nl:
           search: Zoeken
           state: Staat
           type: Type
-        filters_small_view:
-          close_modal: Sluit venster
-          filter: Sorteer
-          filter_by: Sorteer op
-          unfold: Uitvouwen
         index_header:
           new_initiative: Nieuw initiatief
         initiatives:
