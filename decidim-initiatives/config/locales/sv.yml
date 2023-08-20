@@ -380,11 +380,6 @@ sv:
           search: Sök
           state: Status
           type: Typ
-        filters_small_view:
-          close_modal: Stäng fönster
-          filter: Filter
-          filter_by: Filtrera efter
-          unfold: Veckla ut
         index_header:
           new_initiative: Nytt initiativ
         initiatives:
