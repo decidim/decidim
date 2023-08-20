@@ -774,10 +774,8 @@ gl:
           future: Futuro
           past: Pasado
       filters_small_view:
-        close_modal: Pechar modal
         filter: Filtro
         filter_by: Filtrar por
-        unfold: Despregar
       results:
         view_all: Ver todos (%{count})
     shared:
