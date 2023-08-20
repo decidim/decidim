@@ -323,11 +323,6 @@ lv:
           search: Meklēt
           state: Statuss
           type: Veids
-        filters_small_view:
-          close_modal: Aizvērt logu
-          filter: Filtrēt
-          filter_by: Filtrēt pēc
-          unfold: Atritināt
         index_header:
           new_initiative: Jauna iniciatīva
         interactions:
