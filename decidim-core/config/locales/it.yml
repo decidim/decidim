@@ -993,10 +993,8 @@ it:
           future: Futuro
           past: Conclusi
       filters_small_view:
-        close_modal: Chiudi modale
         filter: Filtro
         filter_by: Filtra per
-        unfold: spiegare
       results:
         view_all: Visualizza tutto (%{count})
     security:
