@@ -238,8 +238,6 @@ id:
           explanation_html: Untuk melakukan tindakan ini Anda harus diotorisasi, sebelum melakukan itu Anda perlu mengkonfirmasi email Anda <strong>%{email}</strong>.
           request_confirmation_instructions: Meminta instruksi konfirmasi
           title: Konfirmasikan email Anda
-      show:
-        close_modal: Tutup modal
     collapsible_list:
       hidden_elements_count:
         other: dan %{count} lagi
@@ -324,7 +322,6 @@ id:
         newsletter_modal:
           buttons:
             check: Periksa dan lanjutkan
-            close_modal: Tutup modal
           notice: |-
             <p>Hai, apakah Anda yakin tidak ingin menerima buletin?<br>
             Harap pertimbangkan lagi mencentang kotak nawala di bawah ini.<br>
@@ -643,9 +640,6 @@ id:
       index:
         last_activity: Aktivitas terakhir
         resource_type: Mengetik
-    links:
-      warning:
-        close_modal: Tutup modal
     log:
       base_presenter:
         create: "%{user_name} dibuat %{resource_name}"
@@ -688,7 +682,6 @@ id:
         create:
           error: Percakapan tidak dimulai. Coba lagi nanti
         index:
-          close: Tutup modal
           no_conversations: Anda belum memiliki percakapan
           title: Percakapan
         reply:
@@ -801,7 +794,6 @@ id:
           legend: Setujui persyaratan dan ketentuan penggunaan
         refuse:
           modal_btn_exit: Saya akan memeriksanya nanti
-          modal_close: Tutup modal
           modal_title: Apakah Anda benar-benar menolak Syarat dan Ketentuan yang diperbarui?
         required_review:
           alert: Kami telah memperbarui Persyaratan Layanan, harap tinjau.
@@ -874,7 +866,6 @@ id:
           future: Masa depan
           past: Lalu
       filters_small_view:
-        close_modal: Tutup modal
         filter: Filter
         filter_by: Filter berdasarkan
         unfold: Membuka
@@ -904,7 +895,6 @@ id:
       follow_button:
         sign_in_before_follow: Harap masuk sebelum melakukan tindakan ini
       login_modal:
-        close_modal: Tutup modal
         please_sign_in: Silakan masuk
         sign_up: Daftar
       participatory_space_filters:
