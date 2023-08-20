@@ -96,11 +96,6 @@ gl:
           category_prompt: Selecciona unha categoría
           search: Busca
           state: Estado
-        filters_small_view:
-          close_modal: Pechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Despregar
         linked_sortitions:
           selected_proposals: Propostas seleccionadas
         orders:
