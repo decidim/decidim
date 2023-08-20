@@ -102,11 +102,6 @@ el:
           category_prompt: Επιλέξτε μια κατηγορία
           search: Αναζήτηση
           state: Κατάσταση
-        filters_small_view:
-          close_modal: Κλείσιμο βοηθητικού στοιχείου
-          filter: Φίλτρο
-          filter_by: Φιλτράρισμα κατά
-          unfold: Αποκάλυψη
         linked_sortitions:
           selected_proposals: Επιλεγμένες προτάσεις
         orders:
