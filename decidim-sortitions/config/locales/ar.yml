@@ -105,11 +105,6 @@ ar:
           category_prompt: اختر تصنيف
           search: بحث
           state: الحالة
-        filters_small_view:
-          close_modal: إغلاق مشروط
-          filter: منقي
-          filter_by: مصنف بواسطة
-          unfold: كشف
         linked_sortitions:
           selected_proposals: مقترحات مختارة
         orders:
