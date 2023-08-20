@@ -897,10 +897,8 @@ zh-CN:
           future: 未来
           past: 过去的
       filters_small_view:
-        close_modal: 关闭模式
         filter: 筛选器
         filter_by: 筛选方式
-        unfold: 展开...
       results:
         view_all: 查看所有 (%{count})
     security:
