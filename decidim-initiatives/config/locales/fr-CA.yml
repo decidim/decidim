@@ -565,6 +565,11 @@ fr-CA:
         status_change_for: L'initiative %{title} a changé de statut
       last_activity:
         new_initiative: Nouvelle initiative
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Pétitions actives
+            see_all_initiatives: Voir toutes les pétitions
       show:
         badge_name:
           accepted: Assez de signatures
