@@ -403,11 +403,6 @@ eu:
           search: Bilatu
           state: Estatu
           type: Mota
-        filters_small_view:
-          close_modal: Itxi leihoa
-          filter: Filter
-          filter_by: Iragazi arabera
-          unfold: Zabaldu
         index_header:
           new_initiative: Ekimen berria
         initiatives:
