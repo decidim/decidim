@@ -91,11 +91,6 @@ zh-CN:
           category_prompt: 选择一个类别
           search: 搜索
           state: 状态
-        filters_small_view:
-          close_modal: 关闭模式
-          filter: 筛选器
-          filter_by: 筛选方式
-          unfold: 展开...
         linked_sortitions:
           selected_proposals: 选定的建议
         orders:
