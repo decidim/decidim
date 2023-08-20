@@ -402,11 +402,6 @@ it:
           search: Ricerca
           state: Stato
           type: genere
-        filters_small_view:
-          close_modal: Chiudi la finestra
-          filter: Filtro
-          filter_by: Filtra per
-          unfold: spiegare
         index_header:
           new_initiative: Nuova iniziativa
         initiatives:
