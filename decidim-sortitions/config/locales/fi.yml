@@ -102,11 +102,6 @@ fi:
           category_prompt: Valitse aihepiiri
           search: Hae
           state: Tila
-        filters_small_view:
-          close_modal: Sulje ikkuna
-          filter: Rajaa
-          filter_by: Rajaa hakua
-          unfold: Avaa
         linked_sortitions:
           selected_proposals: Valitut ehdotukset
         orders:
