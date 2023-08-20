@@ -361,7 +361,7 @@ eu:
           request_confirmation_instructions: Eska ezazu berrespen-argibideak
           title: Berretsi zure posta elektronikoa
       show:
-        close_modal: Itxi modal
+        close_modal: Itxi leihoa
     block_user_mailer:
       notify:
         body_1: Zure kontua blokeatu egin da.
@@ -503,7 +503,7 @@ eu:
         newsletter_modal:
           buttons:
             check: Egiaztatu eta jarraitu
-            close_modal: Itxi modal
+            close_modal: Itxi leihoa
             uncheck: Mantendu markatu gabe
           notice: |-
             <p>Hola, ziur zaude buletin bat jaso nahi duzula?<br>
@@ -880,7 +880,7 @@ eu:
         body_1: Kanpoko lesteka bat bisitatuko duzu eta eskatzen dizugu zuhurra izatea kanpoko orrialdeen edukiarekin.
         body_2: Mesedez, jarraitu aurretik, egiaztatu bisitatuko duzun lotura leku seguru batena dela.
         cancel: Utzi
-        close_modal: Itxi modal
+        close_modal: Itxi leihoa
         proceed: Jarraitu
         title: Ireki kanpoko lotura
     log:
@@ -970,7 +970,7 @@ eu:
           ok: Ados
         index:
           ago: orain dela
-          close: Itxi modal
+          close: Itxi leihoa
           from: Nork
           groups: Nire taldeak
           last_message: Azken mezua
@@ -1128,7 +1128,7 @@ eu:
         refuse:
           modal_body: Uko egiten baduzu, ezin izango duzu plataforman erabiltzeko gai, ezin duzu <a href="%{data_portability_path}">deskargatu zure datu</a> edo / <a href="%{delete_path}">zure kontua ezabatu</a>.
           modal_btn_exit: Berriro berrikusiko dut geroago
-          modal_close: Itxi modal
+          modal_close: Itxi leihoa
           modal_title: Baldintza eta baldintza eguneratuak uko dituzu benetan?
         required_review:
           alert: Zerbitzu-baldintzak eguneratu ditugu, mesedez, berrikusi.
@@ -1222,7 +1222,7 @@ eu:
           future: Etorkizuna
           past: Iragana
       filters_small_view:
-        close_modal: Itxi modal
+        close_modal: Itxi leihoa
         filter: Filter
         filter_by: Iragazi arabera
         unfold: Zabaldu
@@ -1276,7 +1276,7 @@ eu:
       follow_button:
         sign_in_before_follow: Hasi saioa ekintza hau burutu baino lehen
       login_modal:
-        close_modal: Itxi modal
+        close_modal: Itxi leihoa
         please_sign_in: Mesedez, erregistratu
         sign_up: Erregistratu
       participatory_space_filters:
