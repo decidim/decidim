@@ -987,10 +987,8 @@ nl:
           future: Toekomstige
           past: Verleden
       filters_small_view:
-        close_modal: Modal sluiten
         filter: Filter
         filter_by: Filteren op
-        unfold: Ontvouwen
       results:
         view_all: Bekijk alles (%{count})
     security:
