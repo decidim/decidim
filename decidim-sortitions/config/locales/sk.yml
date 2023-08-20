@@ -99,11 +99,6 @@ sk:
           category_prompt: Vyberte kategóriu
           search: Vyhľadávanie
           state: Štát
-        filters_small_view:
-          close_modal: Zatvoriť modálne
-          filter: Filtrovať
-          filter_by: Filtrovať podľa
-          unfold: Rozbaliť
         linked_sortitions:
           selected_proposals: Vybrané návrhy
         orders:
