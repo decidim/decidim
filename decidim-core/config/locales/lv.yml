@@ -300,8 +300,6 @@ lv:
           explanation_html: Lai veiktu šo darbību, jums jābūt autorizētam, bet pirms tam jāapstiprina savs e-pasts <strong>%{email}</strong>.
           request_confirmation_instructions: Pieprasīt apstiprināšanas norādījumus
           title: Apstiprināt e-pastu
-      show:
-        close_modal: Aizvērt modal
     collapsible_list:
       hidden_elements_count:
         zero: un %{count} vēl
@@ -415,7 +413,6 @@ lv:
         newsletter_modal:
           buttons:
             check: Pārbaudīt un turpināt
-            close_modal: Aizvērt modal
           notice: |-
             <p>Hei, vai tiešām nevēlaties saņemt informatīvo biļetenu?<br>
             Lūdzu, vēlreiz apsveriet iespēju atzīmēt turpmāk esošo informatīvā biļetena saņemšanas izvēles rūtiņu<br>
@@ -751,9 +748,6 @@ lv:
       index:
         last_activity: Pēdējā aktivitāte
         resource_type: Veids
-    links:
-      warning:
-        close_modal: Aizvērt modal
     log:
       base_presenter:
         create: "%{user_name} izveidoja %{resource_name}"
@@ -827,7 +821,6 @@ lv:
           error: Saruna nav sākusies. Pamēģiniet vēlreiz vēlāk
         index:
           ago: pirms
-          close: Aizvērt modal
           from: "No"
           groups: Manas grupas
           last_message: Pēdējā ziņa
@@ -971,7 +964,6 @@ lv:
         refuse:
           modal_body: Ja atteiksieties, nevarēsiet izmantot platformu, varat <a href="%{data_portability_path}"> lejupielādēt savus datus </a> un/vai <a href="%{delete_path}"> izdzēst savu kontu </a>.
           modal_btn_exit: Es tos pārskatīšu vēlāk
-          modal_close: Aizvērt modal
           modal_title: Vai jūs tiešām atsakāties no atjauninātajiem lietošanas noteikumiem?
         required_review:
           alert: Mēs esam atjauninājuši mūsu pakalpojumu sniegšanas noteikumus, lūdzu, pārskatiet tos.
@@ -1048,7 +1040,6 @@ lv:
           future: Nākotnes
           past: Iepriekšējie
       filters_small_view:
-        close_modal: Aizvērt modal
         filter: Filtrēt
         filter_by: Filtrēt pēc
         unfold: Atritināt
@@ -1079,7 +1070,6 @@ lv:
       follow_button:
         sign_in_before_follow: Lūdzu, pierakstieties pirms šīs darbības veikšanas
       login_modal:
-        close_modal: Aizvērt modal
         please_sign_in: Lūdzu, pierakstieties
         sign_up: Reģistrēties
       participatory_space_filters:
