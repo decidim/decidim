@@ -483,11 +483,6 @@ ja:
           search: 検索
           state: ステータス
           type: タイプ
-        filters_small_view:
-          close_modal: ウィンドウを閉じる
-          filter: フィルター
-          filter_by: フィルター
-          unfold: 展開する
         index_header:
           new_initiative: 新たなイニシアチブを作成
         initiatives:
