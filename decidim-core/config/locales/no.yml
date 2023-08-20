@@ -1004,10 +1004,8 @@
           future: Fremtidige
           past: Fortid
       filters_small_view:
-        close_modal: Lukk modal
         filter: Filter
         filter_by: Filtrer etter
-        unfold: Åpne
       results:
         view_all: Vis alle (%{count})
     security:
