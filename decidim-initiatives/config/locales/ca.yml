@@ -488,11 +488,6 @@ ca:
           search: Cerca
           state: Estat
           type: Tipus
-        filters_small_view:
-          close_modal: Tanca la finestra
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Desplegar
         index_header:
           new_initiative: Nova iniciativa
         initiatives:
