@@ -410,11 +410,6 @@
           search: Søk
           state: Status
           type: Type
-        filters_small_view:
-          close_modal: Lukk vindu
-          filter: Filter
-          filter_by: Filtrer etter
-          unfold: Åpne
         index_header:
           new_initiative: Nytt initiativ
         initiatives:
