@@ -99,11 +99,6 @@ uk:
           category_prompt: Оберіть категорію
           search: Шукати
           state: Стан
-        filters_small_view:
-          close_modal: Закрити віконце
-          filter: Відібрати
-          filter_by: 'Відібрати за ознакою:'
-          unfold: Розгорнути
         linked_sortitions:
           selected_proposals: Вибрані пропозиції
         orders:
