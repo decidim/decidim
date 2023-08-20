@@ -373,11 +373,6 @@ tr:
           search: Arama
           state: Statü
           type: Tür
-        filters_small_view:
-          close_modal: Pencereyi kapat
-          filter: Filtrele
-          filter_by: Şuna göre filtrele
-          unfold: Aç
         index_header:
           new_initiative: Yeni girişim
         initiatives:
