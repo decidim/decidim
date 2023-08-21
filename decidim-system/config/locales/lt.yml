@@ -43,6 +43,9 @@ lt:
       admins:
         create:
           error: Kuriant naują administratorių iškilo problema.
+          success: Administratorius sukurtas.
+        destroy:
+          success: Administratorius pašalintas.
         edit:
           title: Redaguoti administratorių
           update: Atnaujinti
@@ -53,13 +56,16 @@ lt:
           title: Naujas administratorius
         update:
           error: Atnaujinant šį administratorių iškilo problema.
+          success: Administratorius atnaujintas.
       dashboard:
         show:
           current_organizations: Dabartinės organizacijos
       default_pages:
         placeholders:
           content: Administratoriaus suvestinės statiniame puslapyje %{page} įrašykite prasmingą turinį.
+          summary: Prašome pridėti prasmingą santrauką %{page} statiniam puslapiui administravimo skydelyje.
           title: '%{page} numatytasis pavadinimas'
+        terms-of-service: Paslaugų teikimo sąlygos
       menu:
         admins: Administratoriai
         dashboard: Švieslentė
@@ -83,6 +89,7 @@ lt:
           actions:
             save_and_invite: Sukurti organizaciją ir pakviesti administratorių
           fields:
+            content_security_policy: Turinio saugumo politika
             created_at: Sukurta
             file_upload_settings: Failų įkėlimo nustatymai
             name: Vardas
@@ -117,6 +124,16 @@ lt:
         create:
           error: Kuriant naują organizaciją iškilo problema.
           success: Organizacija sėkmingai sukurta.
+        csp_settings:
+          connect_src: Prijungti src
+          connect_src_hint: |
+            Direktyva connect-src riboja URL, kuriuos galima įkelti naudojant <script> elementus.
+            Decidim pridės 'self', bet leidžia pridėti daugiau. Palikite tuščią, jei nesate tikri.
+          default_src: Numatytasis src
+          default_src_hint: |
+            Direktyva default-src yra numatytoji politika įkeliant turinį, tokį kaip JavaScript, paveikslėliai, CSS, šriftai, AJAX užklausos, rėmeliai, HTML5 medija.
+            Decidim pridės "'self' 'unsafe-inline'", bet leidžia pridėti daugiau. Palikite tuščią, jei nesate tikri.
+          font_src: Šrifto src
         edit:
           secondary_hosts_hint: Kiekvieną iš jų įrašykite į naują eilutę
         file_upload_settings:
