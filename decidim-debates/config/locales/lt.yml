@@ -10,6 +10,7 @@ lt:
         end_time: Biagiasi
         information_updates: Informacijos atnaujinimai
         instructions: Dalyvavimo instrukcija
+        scope_id: Sritis
         start_time: Prasideda
         title: Pavadinimas
         user_group_id: Sukurti diskusiją kaip
