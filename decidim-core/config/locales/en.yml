@@ -1914,7 +1914,7 @@ en:
         terms_and_conditions: Terms and Conditions
       header:
         main_menu: Main menu
-        sign_in: Log In
+        log_in: Log In
         user_menu: User menu
       impersonation_warning:
         close_session: Close session
