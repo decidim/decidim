@@ -308,7 +308,6 @@ pt-BR:
           more_information: "(Mais Informações)"
           send_my_initiative: Enviar minha iniciativa para validação técnica
         finish_help:
-          access_reminder: Você pode acessar suas iniciativas através do filtro %{link} na página de iniciativas.
           publish_helper_text: Lembre-se de que para que sua iniciativa seja publicada, você precisa preencher as informações necessárias e <strong>enviá-las à validação técnica</strong> para que um administrador as analise.
         previous_form:
           back: Costas
