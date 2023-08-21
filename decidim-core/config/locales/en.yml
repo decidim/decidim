@@ -592,7 +592,7 @@ en:
       registrations:
         new:
           already_have_an_account?: Already have an account?
-          log_in: Log in
+          log_in: Log In
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
@@ -1702,7 +1702,7 @@ en:
     sessions:
       already_signed_out: Signed out successfully.
       new:
-        log_in: Log in
+        log_in: Log In
       signed_in: Signed in successfully.
       signed_out: Signed out successfully.
     shared:
@@ -1711,7 +1711,7 @@ en:
         didn_t_receive_confirmation_instructions: Did not receive confirmation instructions?
         didn_t_receive_unlock_instructions: Did not receive unlock instructions?
         forgot_your_password: Forgot your password?
-        log_in: Log in
+        log_in: Log In
         log_in_with_provider: Log in with %{provider}
         sign_up: Sign up
       minimum_password_length:
@@ -1907,13 +1907,13 @@ en:
         decidim_logo: Decidim Logo
         decidim_title: Decidim
         download_open_data: Download Open Data files
-        log_in: Log in
+        log_in: Log In
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Resources
         sign_up: Sign Up
         terms_and_conditions: Terms and Conditions
       header:
-        log_in: Log in
+        log_in: Log In
         main_menu: Main menu
         user_menu: User menu
       impersonation_warning:
