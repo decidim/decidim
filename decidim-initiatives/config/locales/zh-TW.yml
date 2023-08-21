@@ -369,7 +369,6 @@ zh-TW:
           more_information: "(更多資訊)"
           send_my_initiative: 將我的倡議送交技術審核
         finish_help:
-          access_reminder: 您可以透過「倡議」頁面上的 %{link} 過濾器來訪問您的倡議。
           publish_helper_text: 請記住，要使您的倡議能夠被發佈，您必須填寫必要的資訊並將其<strong>送交技術審核</strong>以供管理員審查。
         previous_form:
           back: 返回
