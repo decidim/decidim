@@ -373,7 +373,6 @@ de:
           more_information: "(Weitere Informationen)"
           send_my_initiative: Meine Initiative zur technischen Validierung senden
         finish_help:
-          access_reminder: Sie können auf Ihre Initiativen über den Filter %{link} auf der Seite Initiativen zugreifen.
           publish_helper_text: Denken Sie daran, dass Sie für die Veröffentlichung Ihrer Initiative die erforderlichen Informationen ausfüllen müssen und <strong>diese an die technische Validierung</strong> senden müssen, damit ein Administrator sie prüfen kann.
         previous_form:
           back: Zurück
