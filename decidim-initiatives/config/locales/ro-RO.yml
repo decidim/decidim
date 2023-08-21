@@ -341,7 +341,6 @@ ro:
           more_information: "(Mai multe informații)"
           send_my_initiative: Trimite inițiativa mea spre validarea tehnică
         finish_help:
-          access_reminder: Poți accesa inițiativele tale prin filtrul %{link} de pe pagina de inițiative.
           publish_helper_text: Reţine faptul că pentru ca iniţiativa ta să fie publicată, trebuie să completezi informaţiile necesare şi <strong>să le trimiți spre validarea tehnică</strong> pentru ca un administrator să le revizuiască.
         previous_form:
           back: Înapoi
