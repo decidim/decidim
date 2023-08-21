@@ -95,6 +95,6 @@ describe "Admin passwords", type: :system do
     click_link "Log In", match: :first
     fill_in :session_user_email, with: email
     fill_in :session_user_password, with: password
-    click_button "Log in"
+    click_button "Log In"
   end
 end

@@ -208,7 +208,7 @@ describe "Initiative", type: :system do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
             fill_in "Password", with: "decidim123456789"
-            click_button "Log in"
+            click_button "Log In"
 
             expect(page).to have_content("Create a new initiative")
           end
@@ -224,7 +224,7 @@ describe "Initiative", type: :system do
               click_button "New initiative"
               fill_in "Email", with: authorized_user.email
               fill_in "Password", with: "decidim123456789"
-              click_button "Log in"
+              click_button "Log In"
 
               expect(page).to have_content("Create a new initiative")
             end
@@ -237,7 +237,7 @@ describe "Initiative", type: :system do
               click_button "New initiative"
               fill_in "Email", with: authorized_user.email
               fill_in "Password", with: "decidim123456789"
-              click_button "Log in"
+              click_button "Log In"
 
               expect(page).to have_content("You are not authorized to perform this action")
             end
@@ -264,7 +264,7 @@ describe "Initiative", type: :system do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
             fill_in "Password", with: "decidim123456789"
-            click_button "Log in"
+            click_button "Log In"
 
             expect(page).to have_content("You are not authorized to perform this action")
           end
@@ -360,7 +360,7 @@ describe "Initiative", type: :system do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
             fill_in "Password", with: "decidim123456789"
-            click_button "Log in"
+            click_button "Log In"
 
             expect(page).to have_content("Which initiative do you want to launch")
           end
@@ -376,7 +376,7 @@ describe "Initiative", type: :system do
               click_button "New initiative"
               fill_in "Email", with: authorized_user.email
               fill_in "Password", with: "decidim123456789"
-              click_button "Log in"
+              click_button "Log In"
 
               expect(page).to have_content("Which initiative do you want to launch")
             end
@@ -389,7 +389,7 @@ describe "Initiative", type: :system do
               click_button "New initiative"
               fill_in "Email", with: authorized_user.email
               fill_in "Password", with: "decidim123456789"
-              click_button "Log in"
+              click_button "Log In"
 
               expect(page).to have_css("button[data-dialog-open=not-authorized-modal]", visible: :all, count: 2)
             end
@@ -416,7 +416,7 @@ describe "Initiative", type: :system do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
             fill_in "Password", with: "decidim123456789"
-            click_button "Log in"
+            click_button "Log In"
 
             expect(page).to have_content("Create a new initiative")
             click_on "Verify your account to promote this initiative", match: :first
