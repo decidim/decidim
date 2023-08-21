@@ -2,19 +2,19 @@
 <%= append_stylesheet_pack_tag "decidim_blogs" %>
 
 <% content_for :aside do %>
-  <h1 class="h1 decorator"><%= component_name %></h1>
+  <h1 class="h3 md:h1 decorator"><%= component_name %></h1>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
 
   <%= render partial: "decidim/shared/component_announcement" %>
 
-  <div id="blogs" class="space-y-12">
+  <section id="blogs" class="layout-main__section layout-main__heading">
     <% paginate_posts.each do |post| %>
       <%= card_for post, size: :l %>
     <% end %>
 
     <%= decidim_paginate paginate_posts %>
-  </div>
+  </section>
 
 <% end %>

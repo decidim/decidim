@@ -1435,11 +1435,9 @@ en:
           future: Future
           past: Past
       filters_small_view:
-        close_modal: Close modal
         filter: Filter
         filter_and_search: Filter and Search
         filter_by: Filter by
-        unfold: Unfold
       results:
         view_all: View all (%{count})
     security:

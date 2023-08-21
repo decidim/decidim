@@ -1,4 +1,4 @@
-var $budgets = $('#budgets-to-vote');
+var $budgets = $('#budgets');
 
 if ($budgets.length > 0) {
   $budgets.html('<%= j(cell("decidim/budgets/budgets_list", current_workflow).main_list).strip.html_safe %>');
