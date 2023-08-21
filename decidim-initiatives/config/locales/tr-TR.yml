@@ -293,7 +293,6 @@ tr:
           more_information: "(Daha fazla bilgi)"
           send_my_initiative: Girişimimi teknik doğrulamaya gönder
         finish_help:
-          access_reminder: Girişimlerinize Girişimler sayfasındaki %{link} filtresinden erişebilirsiniz.
           publish_helper_text: Girişiminizin yayınlanması için gerekli bilgileri tamamlamanız ve bir yöneticinin incelemesi için <strong> teknik doğrulamaya göndermeniz </strong> gerektiğini unutmayın.
         previous_form:
           back: Geri
