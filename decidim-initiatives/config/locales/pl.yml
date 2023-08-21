@@ -311,7 +311,6 @@ pl:
           more_information: "(Więcej informacji)"
           send_my_initiative: Wyślij moją inicjatywę do weryfikacji technicznej
         finish_help:
-          access_reminder: Możesz uzyskać dostęp do swoich inicjatyw poprzez filtr %{link} na stronie inicjatyw.
           publish_helper_text: Pamiętaj, że aby Twoja inicjatywa została opublikowana, musisz uzupełnić wymagane informacje i <strong>przesłać ją do weryfikacji technicznej</strong>, aby administrator mógł ją przejrzeć.
         previous_form:
           back: Wróć
