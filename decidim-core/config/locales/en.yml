@@ -1484,7 +1484,7 @@ en:
       floating_help:
         help: Help
       follow_button:
-        sign_in_before_follow: Please log in before performing this action
+        log_in_before_follow: Please log in before performing this action
       login_modal:
         please_sign_in: Please log in
         sign_up: Sign up
