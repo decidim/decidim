@@ -73,9 +73,9 @@ const createDialog = (component) => {
     closingSelector: `[data-dialog-close="${dialog}"]`,
     backdropSelector: `[data-dialog="${dialog}"]`,
     enableAutoFocus: false,
-    onOpen: (params) => {
+    onOpen: (params, trigger) => {
       setFocusOnTitle(params);
-      window.focusGuard.trap(params);
+      window.focusGuard.trap(trigger);
       params.dispatchEvent(new CustomEvent("open.dialog"));
     },
     onClose: (params) => {
