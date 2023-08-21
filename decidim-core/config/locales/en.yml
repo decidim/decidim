@@ -1909,7 +1909,7 @@ en:
         download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Resources
-        sign_in: Log In
+        log_in: Log In
         sign_up: Sign Up
         terms_and_conditions: Terms and Conditions
       header:
