@@ -307,7 +307,6 @@ it:
           more_information: "(Maggiori informazioni)"
           send_my_initiative: Invia la mia iniziativa alla convalida tecnica
         finish_help:
-          access_reminder: Puoi accedere alle tue iniziative tramite il filtro %{link} nella pagina Iniziative.
           publish_helper_text: Ricorda che affinché la tua iniziativa sia pubblicata, devi completare le informazioni richieste e <strong>inviarle alla convalida tecnica</strong> per un amministratore per rivederle.
         previous_form:
           back: Indietro
