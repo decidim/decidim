@@ -226,6 +226,7 @@ ja:
           global_status: グローバル実行状況
         nav_breadcrumb:
           global: グローバル実行
+        no_results: プロジェクトがありません
         search:
           search: アクションを検索
         show:
