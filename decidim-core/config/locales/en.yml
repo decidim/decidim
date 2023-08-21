@@ -1486,6 +1486,7 @@ en:
       follow_button:
         log_in_before_follow: Please log in before performing this action
       login_modal:
+        please_log_in: Please log in
         sign_up: Sign up
       mentions_modal:
         remove_recipient: Remove recipient %{name}
@@ -1906,11 +1907,13 @@ en:
         decidim_logo: Decidim Logo
         decidim_title: Decidim
         download_open_data: Download Open Data files
+        log_in: Log in
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Resources
         sign_up: Sign Up
         terms_and_conditions: Terms and Conditions
       header:
+        log_in: Log in
         main_menu: Main menu
         user_menu: User menu
       impersonation_warning:

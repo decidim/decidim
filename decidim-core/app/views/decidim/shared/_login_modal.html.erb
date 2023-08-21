@@ -11,7 +11,7 @@
   <%= decidim_form_for(Decidim::User.new, namespace: "login", as: :user, url: path, html: { class: nil }) do |f| %>
     <div data-dialog-container>
       <%= icon "login-box-line", class: "w-6 h-6 text-gray fill-current" %>
-      <h3 id="dialog-title-loginModal" class="h3"><%= t(".please_sign_in") %></h3>
+      <h3 id="dialog-title-loginModal" class="h3"><%= t(".please_log_in") %></h3>
       <div>
         <% if current_organization.sign_in_enabled? %>
           <% cache current_organization do %>
