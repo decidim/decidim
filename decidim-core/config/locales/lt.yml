@@ -611,6 +611,8 @@ lt:
           all: Visos
     devise:
       omniauth_registrations:
+        create:
+          email_already_exists: Kita paskyra naudoja tą patį el. pašto adresą.
         new:
           complete_profile: Užbaigti profilį
           nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai ir brūkšneliai.
@@ -626,6 +628,7 @@ lt:
           sign_in: Prisijungti
           sign_up: Užsiregistruoti
           subtitle: Užsiregistruokite, kad galėtumėte dalyvauti diskusijose ir paremti pasiūlymus.
+          terms: paslaugų teikimo sąlygos
           tos_agreement: Užsiregistruodami jūs sutinkate su %{link}.
           tos_title: Paslaugų teikimo sąlygos
           username_help: Viešas vardas, kuris bus rodomas jūsų įrašuose. Tai gali būti bet koks vardas, nes siekame užtikrinti anonimiškumą.
@@ -633,6 +636,8 @@ lt:
         new:
           are_you_new?: Naujas platformos naudotojas?
           register: Sukurti paskyrą
+          sign_in_disabled: Galite prisijungti su išorine paskyra.
+          sign_up_disabled: Registracija išjungta, norėdami prisijungti, naudokite jau egzistuojančią paskyrą.
         user:
           timed_out: Per ilgai buvote neaktyvus ir buvote automatiškai atjungtas nuo paslaugos. Jei norite ir toliau naudotis paslauga, prisijunkite dar kartą.
       shared:
@@ -640,6 +645,17 @@ lt:
           buttons:
             check: Pažymėti ir tęsti
             uncheck: Palikti nepažymėtą
+          notice: |-
+            <p>Sveiki, ar tikrai nenorite gauti naujienlaiškio?<br>
+            Dar kartą pagalvokite, ar nevertėtų pažymėti žymimojo naujienlaiškio langelio.<br>
+            Mums labai svarbu, kad kartais gautumėte e. laiškus,
+            kuriuose skelbiame svarbią informaciją, o tai visada galite pakeisti savo
+            pranešimų nuostatų puslapyje.</p>
+            <p>nepažymėję langelio, galite negauti svarbios informacijos
+            apie naujas dalyvavimo galimybes platformoje.<br>
+            tačiau jeigu vis dar nenorite gauti naujienlaiškių, puikiai
+            suprantame jūsų sprendimą.</p>
+            <p>Ačiū, kad tai perskaitėte!</p>
           title: Pranešimai apie naujienlaiškį (-ius)
         omniauth_buttons:
           or: Arba
@@ -649,6 +665,7 @@ lt:
           authorize: Leisti naudoti programą
           by_organization_link_html: <small class="heading-small"> %{link}</small>
           cancel: Atšaukti
+          connect_your_account_html: Prijunkite savo paskyrą prisijungtami prie %{organization}.
           publish_content: Skelbti turinį už Jus
           see_email: Žiūrėti savo el. paštą
           see_name: Žiūrėti savo vardą ir pavardę
@@ -665,7 +682,13 @@ lt:
         download_data_description: Rinkmena su visais su Jūsų paskyra susijusiais duomenimis bus išsiųsta į <strong>%{user_email}</strong>. Šis el. laiškas turės .zip rinkmeną ir slaptažodį, su kuriuo reikės jį atidaryti.<br/><br/>Norėdami jį atidaryti, Jums reikės <a href="https://www.7-zip.org/">7-Zip</a>(Windows) arba <a href="https://www.keka.io/">Keka</a>(MacOS). Jei naudojate Linux, dažniausiai viskas bus paruošta iš anksto. Jei ne, galite naudoti <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> arba <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Prašyti duomenų
     editor_images:
+      create:
+        error: Klaida įkeliant paveikslėlį.
+        success: Paveikslėlis įkeltas sėkmingai.
       drag_and_drop_help: Pridėkite paveikslėlius juos užvesdami ant lango arba juos įklijuodami.
+    endorsement_buttons_cell:
+      already_endorsed: Nepatinka
+      endorse: Patinka
     endorsements:
       identities:
         done: Atlikta
@@ -677,6 +700,7 @@ lt:
         copied: Tekstas nukopijuotas!
         copy_error_message_clarification: Nukopijuokite klaidos pranešimą į mainų sritį
         copy_to_clipboard: Kopijuoti į mainų sritį
+        date_and_time: Data ir laikas
         reference: Nuoroda
         request_method: Prašymo būdas
         title: Serveryje kilo problema
@@ -687,6 +711,7 @@ lt:
       not_found:
         back_home: Grįžti į pagrindinį puslapį
         content_doesnt_exist: Šis adresas neteisingas arba pašalintas.
+        title: Puslapio, kurio ieškote, nėra
     events:
       amendments:
         amendment_accepted:
@@ -752,9 +777,15 @@ lt:
         email_subject: '%{resource_title} atnaujinimas'
       gamification:
         badge_earned:
+          email_intro: Sveikiname! Jūs pelnėte <a href="%{resource_url}">%{badge_name} ženklelį</a> (lygis %{current_level}).
           email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
+          email_subject: 'Jūs pelnėte naują ženklelį – %{badge_name}!'
+          notification_title: Sveikiname! Jūs pelnėte <a href="%{resource_path}">%{badge_name} ženklelį </a> (lygis %{current_level}).
         level_up:
+          email_intro: Sveikiname! Jūs pasiekėte %{current_level} lygio <a href="%{resource_url}">%{badge_name} ženklelį</a>!
           email_outro: Šį pranešimą gavote dėl to, kad mūsų interneto svetainėje pradėjote veiklą.
+          email_subject: Jūs pelnėte %{current_level} lygio ženklelį %{badge_name}!
+          notification_title: Sveikiname! Jūs pelnėte %{current_level} lygio ženklelį <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> grupės administratorius pašalino jūsų administratoriaus teises, susijusias su šia grupe.
@@ -801,6 +832,8 @@ lt:
           email_outro: Šį pranešimą gavote dėl to, kad esate platformos administratorius.
           email_subject: Naudotojų grupė atnaujino savo profilį
           notification_title: Naudotojų grupė pavadinimu %{user_group_name} atnaujino savo profilį, bet jo nepatvirtino. Galite jį patvirtinti <a href="%{groups_admin_path}">administratoriaus srityje</a>.
+      nickname_event:
+        notification_body: Pataisėme slapyvardžių naudojimo būdą, kad nebūtų dublikatų, todėl pašalinome didžiųjų ir mažųjų raidžių skyrimo taisyklę. <br/> Jūsų slapyvardis buvo sukurtas po kitu tokiu pačiu pavadinimu, todėl jį automatiškai pervardijome. Jį galite pakeisti <a href="%{link_to_account_settings}">savo paskyros nustatymuose</a>.
       notification_event:
         notification_title: Kažkas įvyko <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -838,6 +871,7 @@ lt:
     filters:
       linked_classes:
         all: Visi
+        answer: Atsakymas
         collaborative_draft: Bendras juodraštis
         dummy_resource: Fiktyvūs ištekliai
         meeting: Susitikimai
@@ -846,6 +880,7 @@ lt:
         result: Rezultatai
     fingerprint:
       check: Patikrinti piršto atspaudą
+      explanation: Toliau pateiktas tekstas yra sutrumpintas ir šifruotas jo turinys. Naudinga užtikrinti, kad turinys nebūtų pažeistas, nes padarius vieną pakeitimą būtų gauta visiškai kitokia vertė.
       online_calculator_name: MD5 internetinė skaičiuoklė
       replicate_help: Šis piršto atspaudas apskaičiuojamas naudojant SHA256 maišos algoritmą. Kad galėtumėte jį atkartoti, galite naudoti %{online_calculator_link} ir kopijuoti bei įklijuoti šaltinio duomenis.
       source: Šaltinis
@@ -864,6 +899,7 @@ lt:
         few: "%{count} sekėjai"
         many: "%{count} sekėjų"
         other: "%{count} sekėjai"
+      no_followings: Nieko neseka.
       non_public_followings: Kai kurie sekami ištekliai nėra vieši.
     follows:
       create:
@@ -878,6 +914,7 @@ lt:
         decidim/user:
           password: Slaptažodis yra per trumpas.
           password_confirmation: Slaptažodžio patvirtinimas turi sutapti su įvestu slaptažodžiu.
+        error: Šiame laukelyje yra klaida.
       file_help:
         file:
           explanation: 'Rinkmenai skirtos gairės:'
@@ -895,6 +932,8 @@ lt:
         allowed_file_extensions: 'Leidžiami rinkmenų plėtiniai: %{extensions}'
         max_file_dimension: 'Maksimalūs rinkmenos matmenys: %{resolution} pikselių'
         max_file_size: 'Maksimalus rinkmenos dydis: %{megabytes} MB'
+      files:
+        extension_allowlist: 'Galimi formatai: %{extensions}'
       upload:
         labels:
           add_attachment: Prisegti priedą
@@ -904,6 +943,7 @@ lt:
           edit_image: Redaguoti atvaizdą
           error: Klaida!
           file_size_too_large: 'Per didelė rinkemena! Didžiausias leistinas rinkemos dydis: %{megabytes} MB'
+          filename: Rinkmenos pavadinimas
           remove: Pašalinti
           replace: Pakeisti
           save: Išsaugoti
@@ -912,7 +952,9 @@ lt:
           uploaded: Įkelta
           validating: Tvirtinama...
           validation_error: Tvirtinimo klaida!
+        select_file: Pasirinkite rinkmeną
       upload_help:
+        dropzone: Užvilkite rinkmeną čia arba spauskite įkėlimo mygtuką
         explanation: Instrukcijos %{attribute}
     gamification:
       all_badges_link: Žiūrėti visus prieinamus ženklelius.
@@ -925,6 +967,8 @@ lt:
           description_own: "Jus seka %{score} žmonės (-ių)."
           name: Sekėjai
           next_level_in: Būkite sekamas %{count} dalyvių, kad pasiekti kitą lygį!
+          unearned_another: Šis dalyvis dar neturi sekėjų.
+          unearned_own: Jūs dar neturite sekėjų.
         index:
           badge_title: "%{name} ženklelis"
           how: Kaip jį užsitarnauti
@@ -932,21 +976,39 @@ lt:
           title: Ženkleliai
       description: Ženkleliai – tai dalyvių veiksmų ir veiklos platformoje pripažinimas. Susipažindami su platforma, joje dalyvaudami ir bendraudami, pelnysite įvairių ženklelių.
       level: '%{level} lygis'
+      reached_top: Pasiekėte aukščiausią šio ženklelio lygį.
       title: Kas yra ženkleliai?
     group_admins:
       actions:
+        are_you_sure: Ar tikrai? Tai nepašalins dalyvio iš grupės.
         demote_admin: Pašalinti administratorių
+      demote:
+        error: Šalinant šį dalyvį iš administratorių sąrašo kilo problema.
+        success: Dalyvis pašalintas iš administratorių.
       index:
         current_admins: 'Dabartiniai administratoriai:'
         manage_admins: Valdyti administratorių duomenis
     group_invites:
+      accept:
+        error: Priimant šį kvietimą iškilo problema.
+        success: Kvietimas priimtas.
       accept_invitation: Sutikti
       accept_or_reject_group_invitations: 'Šios grupės jus pakvietė prie jų prisijungti. Priimkite arba atmeskite jų prašymus:'
       index:
         invite: Pakviesti
         invite_user: Pakviesti dalyvį
+      invite:
+        error: Kviečiant šį dalyvį iškilo problema.
+        success: Dalyvis pakviestas.
+      pending_invitations: Laukiantys prašymai
+      reject:
+        error: Atmetant šį kvietimą iškilo problema.
+        success: Kvietimas atmestas.
       reject_invitation: Atmesti
     group_members:
+      accept:
+        error: Priimant šį prisijungimo kvietimą iškilo problema.
+        success: Prisijungimo kvietimas priimtas.
       actions:
         are_you_sure: Ar esate tikri?
         promote_to_admin: Padaryti administratoriumi
