@@ -379,7 +379,6 @@ cs:
           more_information: "(Více informací)"
           send_my_initiative: Poslat moji iniciativu na technické ověření
         finish_help:
-          access_reminder: K iniciativám můžete přistupovat prostřednictvím filtru %{link} na stránce Iniciativy.
           publish_helper_text: Nezapomeňte, že pro publikování vaší iniciativy musíte vyplnit požadované informace a <strong>je zašlete na technické potvrzení</strong>, aby ji správce mohl zkontrolovat.
         previous_form:
           back: Zpět
