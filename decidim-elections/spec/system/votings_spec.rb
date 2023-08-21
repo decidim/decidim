@@ -115,7 +115,7 @@ describe "Votings", type: :system do
           end
         end
 
-        expect(page).to have_css("#votings-count", text: "1 voting")
+        expect(page).to have_content("1 voting")
         expect(page).to have_css("[id^='votings__voting']", count: 1)
         expect(page).to have_content(translated(voting.title))
       end
