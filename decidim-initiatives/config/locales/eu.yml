@@ -309,7 +309,6 @@ eu:
           more_information: "(Informazio gehiago)"
           send_my_initiative: Bidali nire ekimena baliozkotze eknikora
         finish_help:
-          access_reminder: Zure ekimenetara sartu ahal zara iragazki honen bidez %{link} Ekimenen orrialdean.
           publish_helper_text: Gogoratu zure ekimena argitaratu ahal izateko eskatzen zaizun informazioa bete behar duzula, eta <strong>baliozkotze teknikora</strong> bidali, administratzaile batek berrikus dezan.
         previous_form:
           back: Back
