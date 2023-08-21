@@ -1486,7 +1486,7 @@ en:
       follow_button:
         log_in_before_follow: Please log in before performing this action
       login_modal:
-        please_sign_in: Please log in
+        please_log_in: Please log in
         sign_up: Sign up
       mentions_modal:
         remove_recipient: Remove recipient %{name}
@@ -1712,7 +1712,7 @@ en:
         didn_t_receive_unlock_instructions: Did not receive unlock instructions?
         forgot_your_password: Forgot your password?
         sign_in: Log in
-        sign_in_with_provider: Log in with %{provider}
+        log_in_with_provider: Log in with %{provider}
         sign_up: Sign up
       minimum_password_length:
         one: "(%{count} character minimum)"
@@ -1909,12 +1909,12 @@ en:
         download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Resources
-        sign_in: Log In
+        log_in: Log In
         sign_up: Sign Up
         terms_and_conditions: Terms and Conditions
       header:
         main_menu: Main menu
-        sign_in: Log In
+        log_in: Log In
         user_menu: User menu
       impersonation_warning:
         close_session: Close session
