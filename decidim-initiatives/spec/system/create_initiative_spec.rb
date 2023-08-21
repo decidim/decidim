@@ -264,7 +264,7 @@ describe "Initiative", type: :system do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
             fill_in "Password", with: "decidim123456789"
-            click_button "Log In"
+            click_button "Log in"
 
             expect(page).to have_content("You are not authorized to perform this action")
           end
@@ -389,7 +389,7 @@ describe "Initiative", type: :system do
               click_button "New initiative"
               fill_in "Email", with: authorized_user.email
               fill_in "Password", with: "decidim123456789"
-              click_button "Log In"
+              click_button "Log in"
 
               expect(page).to have_css("button[data-dialog-open=not-authorized-modal]", visible: :all, count: 2)
             end
