@@ -119,11 +119,27 @@
     }
 
     &-dropdown{
-      .dropdown__item a{
-        @apply flex items-center gap-x-4 text-secondary;
+      .dropdown__item{
+        @apply flex-col items-start;
 
-        svg{
-          @apply fill-gray;
+        ul {
+          @apply ml-12;
+        }
+
+        a{
+          @apply flex items-center gap-x-4 text-secondary;
+
+          svg{
+            @apply fill-gray;
+          }
+
+          &:hover {
+            @apply underline;
+          }
+        }
+
+        &:hover {
+          @apply no-underline;
         }
       }
     }
