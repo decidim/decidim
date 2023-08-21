@@ -373,7 +373,6 @@ es-PY:
           more_information: "(Más información)"
           send_my_initiative: Enviar mi iniciativa a validación técnica
         finish_help:
-          access_reminder: Puede acceder a tus iniciativas a través del filtro %{link} en la página de Iniciativas.
           publish_helper_text: Recuerda que para que tu iniciativa sea publicada debes completar la información requerida y <strong>enviarla a validación técnica</strong> para que una administradora la revise.
         previous_form:
           back: Volver
