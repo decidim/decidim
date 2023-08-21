@@ -3,12 +3,7 @@
 require "bullet"
 
 RSpec.configure do |config|
-  if defined?(Bullet::ActiveJob)
-    Decidim::ApplicationJob.include(Bullet::ActiveJob)
-    Decidim::Admin::ApplicationJob.include(Bullet::ActiveJob)
-    Decidim::System::ApplicationJob.include(Bullet::ActiveJob)
-    Decidim::Verifications::CsvCensus::ApplicationJob.include(Bullet::ActiveJob)
-  end
+  Decidim::ApplicationJob.include(Bullet::ActiveJob) if defined?(Bullet::ActiveJob)
 
   Rails.application.config.after_initialize do
     Bullet.enable = Decidim::Env.new("DECIDIM_BULLET_ENABLED", "false").present?

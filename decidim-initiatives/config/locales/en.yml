@@ -489,11 +489,6 @@ en:
           search: Search
           state: Status
           type: Type
-        filters_small_view:
-          close_modal: Close window
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         index_header:
           new_initiative: New initiative
         initiatives:
