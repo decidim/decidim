@@ -1470,6 +1470,7 @@ ja:
           areas: エリア
           scope: スコープ
           select_an_area: エリアを選択
+      progress: 進捗状況
       public_participation:
         public_participation: 参加を公開する
       reference:
