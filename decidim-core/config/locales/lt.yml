@@ -1145,6 +1145,7 @@ lt:
     newsletter_mailer:
       newsletter:
         note: Šį el. laišką gavote, nes užsiprenumeravote %{organization_name} naujienlaiškius. Galite pakeisti nuostatas savo <a href="%{link}">pranešimų puslapyje</a>.
+        see_on_website: Negalite teisingai matyti šio el. laiško? Peržiūrėkite jį <a href="%{link}" target="_blank">interneto svetainėje</a>.
         unsubscribe: Jei nenorite gauti tokio tipo el. laiško, <a href="%{link}" target="_blank" class="unsubscribe">Atsisakykite prenumeratos</a>.
     newsletter_templates:
       basic_only_text:
@@ -1291,12 +1292,15 @@ lt:
           legend: Sutikti su naudojimosi nuostatomis ir sąlygomis
         refuse:
           modal_body: Jeigu nesutiksite, negalėsite naudotis platforma. Galite <a href="%{data_portability_path}">pasisiųsti savo duomenis</a> ir (arba) <a href="%{delete_path}">pašalinti savo paskyrą</a>.
+          modal_btn_continue: Sutikti su sąlygomis ir tęsti
           modal_btn_exit: Peržiūrėsiu vėliau
+          modal_button: Nesutikti su sąlygomis
           modal_close: Uždaryti modalinį langą
           modal_title: Ar iš tikrųjų nesutinkate su atnaujintomis naudojimo sąlygomis?
         required_review:
           alert: Mes atnaujinome naudojimo sąlygas, kviečiame jas peržiūrėti.
           body: Kviečiame peržiūrėti naujimo sąlygu atnaujinimus. Kitu atveju negalėsite naudotis platforma.
+          title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
     participatory_space_private_users:
       not_allowed: Jūs negalite peržiūrėti šio turinio
     passwords:
@@ -1489,6 +1493,9 @@ lt:
       help_text: "<strong>Dėmesio:</strong> Turinys gali būti išverstas automatiškai, bet nebus visiškai tikslus."
       show_original: Rodyti teksto originalą
       show_translated: Rodyti automatiškai išverstą tekstą
+    user_activity:
+      index:
+        no_activities_warning: Šis dalyvis dar neturi jokios veiklos.
     user_contact_disabled: Šis dalyvis nepriima tiesioginių žinučių.
     user_conversations:
       create:
@@ -1717,6 +1724,7 @@ lt:
       public: Jūsų vieši duomenys.
   errors:
     messages:
+      allowed_file_content_types: 'leidžiamos tik rinkmenos su šiomis galūnėmis: %{types}'
       already_confirmed: jau patvirtinta, pabandykite prisijungti
       confirmation_period_expired: turi būti patvirtintas per %{period}, prašome paprašyti naujo
       content_type_allowlist_error: rinkmenos tipas netinkamas
@@ -1736,6 +1744,8 @@ lt:
         other: 'Vykdant jūsų prašymus įvyko klaida:'
       too_many_marks: naudojama per daug skyrybos ženklų iš eilės (pvz., ! ir ?)
       too_much_caps: naudojama per daug didžiųjų raidžių (daugiau kaip 25 proc. teksto)
+      too_short: per trumpas (mažiau nei %{count} ženklų)
+      url_format: Nuoroda neteisingo formato
   forms:
     correct_errors: Formoje yra klaidų, ištaisykite jas ir tęskite.
     length_validator:
