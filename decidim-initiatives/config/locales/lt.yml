@@ -331,7 +331,6 @@ lt:
           more_information: "(Daugiau informacijos)"
           send_my_initiative: Siųsti mano iniciatyvą techniniam patvirtinimui
         finish_help:
-          access_reminder: Galite pasiekti savo iniciatyvas per %{link} filtrą iniciatyvų puslapyje.
           publish_helper_text: Prisiminkite, kad tam, kad iniciatyva būtų publikuota turite užpildyti būtiną informaciją ir <strong>išsiųsti ją techniniam patvirtinimui</strong> atliekamam administratorių.
         previous_form:
           back: Atgal
