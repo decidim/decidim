@@ -369,7 +369,6 @@ hu:
           more_information: "(További információk)"
           send_my_initiative: A kezdeményezésem technikai ellenőrzésre küldése
         finish_help:
-          access_reminder: A kezdeményezéseidet elérheted a %{link} a kezdeményezések oldalon.
           publish_helper_text: Emlékeztetünk, hogy a kezdeményezésed publikációjához minden szükséges információt meg kell adjál <strong>és technikai ellenőrzésen kell átesnie</strong> egy adminisztrátor segítségével.
         previous_form:
           back: Vissza
