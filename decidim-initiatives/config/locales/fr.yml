@@ -373,7 +373,6 @@ fr:
           more_information: "(Plus d'informations)"
           send_my_initiative: Envoyer ma pétition pour validation technique
         finish_help:
-          access_reminder: Vous pouvez accéder à vos pétitions via le filtre %{link} sur la page Pétitions.
           publish_helper_text: N'oubliez pas que pour que votre pétition soit publiée, vous devez compléter les informations requises et <strong>l'envoyer à la validation technique</strong> pour qu'un administrateur puisse l'examiner.
         previous_form:
           back: Retour
