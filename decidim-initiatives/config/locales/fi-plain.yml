@@ -373,7 +373,6 @@ fi-pl:
           more_information: "(Lisää tietoa)"
           send_my_initiative: Lähetä aloitteeni tekniseen tarkastukseen
         finish_help:
-          access_reminder: Pääset käsiksi aloitteisiin suodatuslinkin %{link} kautta aloitteiden sivulla.
           publish_helper_text: Saadaksesi aloitteesi julkaistuksi, sinun tulee viimeistellä vaaditut tiedot ja <strong>lähettää aloite hallintakäyttäjän tekniseen tarkastukseen</strong>.
         previous_form:
           back: Takaisin
