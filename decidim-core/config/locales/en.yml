@@ -1712,7 +1712,7 @@ en:
         didn_t_receive_unlock_instructions: Did not receive unlock instructions?
         forgot_your_password: Forgot your password?
         sign_in: Log in
-        sign_in_with_provider: Log in with %{provider}
+        log_in_with_provider: Log in with %{provider}
         sign_up: Sign up
       minimum_password_length:
         one: "(%{count} character minimum)"
