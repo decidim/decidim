@@ -1,5 +1,5 @@
 .button {
-  @apply inline-flex items-center justify-center font-semibold text-center border border-transparent rounded transition cursor-pointer [&>svg]:flex-none [&>svg]:fill-current first-letter:[&>span]:uppercase [&>span]:text-center [&>span]:break-words;
+  @apply inline-flex items-center justify-center font-semibold text-center border border-transparent rounded transition cursor-pointer [&>svg]:flex-none [&>svg]:fill-current [&>span]:text-center [&>span]:break-words;
 
   &__xs {
     @apply text-sm [&:not([class*="button\\_\\_text"])]:px-3 [&:not([class*="button\\_\\_text"])]:py-1 gap-1;
@@ -91,6 +91,6 @@
   }
 
   &__pill--count {
-    @apply rounded-full bg-secondary text-white inline-block h-[18px] w-[18px] ml-2 text-xs;
+    @apply rounded-full bg-secondary text-white inline-grid place-items-center h-[18px] w-[18px] ml-2 text-xs;
   }
 }

@@ -179,6 +179,17 @@ module Decidim::Comments
             expect(subject).to have_css("form.button_to[action='/comments/#{comment.id}/votes?weight=-1']")
             expect(subject).to have_css("form.button_to[action='/comments/#{comment.id}/votes?weight=1']")
           end
+
+          context "with own vote" do
+            before do
+              create(:comment_vote, :up_vote, comment:, author: current_user)
+            end
+
+            it "renders the opposite vote button disabled" do
+              expect(subject).not_to have_css(".js-comment__votes--up[disabled='disabled']")
+              expect(subject).to have_css(".js-comment__votes--down[disabled='disabled']")
+            end
+          end
         end
       end
     end

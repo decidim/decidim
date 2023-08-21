@@ -9,8 +9,6 @@ module Decidim
       helper InitiativeHelper
       helper Decidim::ActionAuthorizationHelper
 
-      layout "layouts/decidim/application"
-
       # GET /initiatives/:initiative_id/committee_requests/new
       def new
         enforce_permission_to :request_membership, :initiative, initiative: current_initiative

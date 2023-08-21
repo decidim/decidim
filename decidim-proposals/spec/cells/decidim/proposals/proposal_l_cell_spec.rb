@@ -31,7 +31,7 @@ module Decidim::Proposals
       it_behaves_like "m-cell", :proposal
 
       it "renders the card" do
-        expect(subject).to have_css(".proposal-list-item")
+        expect(subject).to have_css("[id^='proposals__proposal']")
       end
 
       context "and is a proposal" do

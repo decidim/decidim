@@ -18,7 +18,7 @@
 <meta property="og:image" content="<%= decidim_meta_image_url %>">
 
 <% if current_organization.colors.present? %>
-  <meta name="theme-color" content="<%= current_organization.colors["theme"] %>">
+  <meta name="theme-color" content="<%= current_organization.colors["primary"] %>">
 <% end %>
 
 <%= legacy_favicon %>

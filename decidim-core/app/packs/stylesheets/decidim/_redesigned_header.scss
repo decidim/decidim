@@ -319,10 +319,14 @@ header {
       /* overwrite default dropdown styles */
       [id*="dropdown-menu"] {
         @apply mx-0 py-0 border-0;
+
+        &[aria-hidden="true"] {
+          @apply md:hidden lg:flex;
+        }
       }
 
       [data-target*="dropdown"] {
-        @apply w-auto last-of-type:[&>svg]:block;
+        @apply md:block lg:hidden w-auto last-of-type:[&>svg]:block;
 
         > svg {
           @apply text-white;

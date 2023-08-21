@@ -34,18 +34,14 @@ module Decidim
       options[:highlight] == true
     end
 
-    def skip_id?
-      options[:skip_id] == true
-    end
-
     def classes
       @classes ||= highlight? ? HIGHLIGHT_CSS : DEFAULT_CSS
     end
 
     def resource_id
-      return if skip_id?
+      return "#{id_base_name}#{"_highlight" if highlight?}_#{resource.id}" unless options.has_key?(:id)
 
-      "#{id_base_name}#{"_highlight" if highlight?}_#{resource.id}"
+      options[:id]
     end
 
     def resource_path
@@ -78,6 +74,10 @@ module Decidim
 
     def title
       decidim_html_escape(translated_attribute(resource.title))
+    end
+
+    def alt_title
+      [t("decidim.application.photo.alt"), decidim_html_escape(translated_attribute(resource.title))].join(": ")
     end
 
     def title_tag

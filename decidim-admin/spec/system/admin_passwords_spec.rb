@@ -55,6 +55,21 @@ describe "Admin passwords", type: :system do
         expect(page).to have_current_path(decidim_admin.root_path)
       end
     end
+
+    context "when password expiry is disabled" do
+      around do |ex|
+        original = Decidim.config.admin_password_expiration_days
+        Decidim.config.admin_password_expiration_days = 0
+        ex.run
+        Decidim.config.admin_password_expiration_days = original
+      end
+
+      it "does not prompt to change password" do
+        manual_login(user.email, password)
+        expect(page).not_to have_content("Admin users need to change their password every")
+        expect(page).not_to have_content("Password change")
+      end
+    end
   end
 
   context "when users password is expired" do
