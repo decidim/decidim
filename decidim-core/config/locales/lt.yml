@@ -862,6 +862,8 @@ lt:
         allowed_file_extensions: 'Leidžiami rinkmenų plėtiniai: %{extensions}'
         max_file_dimension: 'Maksimalūs rinkmenos matmenys: %{resolution} pikselių'
         max_file_size: 'Maksimalus rinkmenos dydis: %{megabytes} MB'
+      files:
+        extension_allowlist: 'Galimi formatai: %{extensions}'
       upload:
         labels:
           add_attachment: Prisegti priedą
