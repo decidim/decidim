@@ -1016,9 +1016,21 @@ lt:
       index:
         current_members_without_admins: 'Dabartiniai nariai (be administratorių):'
         manage_members: Valdyti narius
+      promote:
+        error: Paaukštinant šį dalyvį iškilo problema.
+        success: Dalyvis paaukštintas sėkmingai.
+      reject:
+        error: Atmetant šį prisijungimo kvietimą iškilo problema.
+        success: Prisijungimo kvietimas atmestas.
+      remove:
+        error: Šalinant šį dalyvį iš grupės iškilo problema.
+        success: Dalyvis pašalintas iš grupės.
     groups:
       actions:
         are_you_sure: Ar esate tikri?
+      create:
+        error: Kuriant grupę iškilo problema.
+        success: Grupė sukurta.
       edit:
         edit_user_group: Redaguoti grupę
         update_user_group: Atnaujinti grupę
@@ -1343,11 +1355,29 @@ lt:
           success: Puiku! Jūs sutikote su administratoriaus naudojimosi sąlygomis.
         form:
           agreement: Aš sutinku su šiomis sąlygomis
+          legend: Sutikti su naudojimosi sąlygomis
+        refuse:
+          modal_body: Jeigu nesutiksite, negalėsite naudotis platforma. Galite <a href="%{data_portability_path}">pasisiųsti savo duomenis</a> ir (arba) <a href="%{delete_path}">pašalinti savo paskyrą</a>.
+          modal_btn_continue: Sutikti su sąlygomis ir tęsti
+          modal_btn_exit: Peržiūrėsiu vėliau
+          modal_button: Nesutikti su sąlygomis
+          modal_title: Ar iš tikrųjų nesutinkate su atnaujintomis naudojimo sąlygomis?
+        required_review:
+          alert: Mes atnaujinote savo sąlygas, peržiūrėkite jas.
+          body: Prašytume peržiūrėti mūsų atnaujintas sąlygas. Priešingu atveju šia platforma naudotis negalėsite.
+          title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
     participatory_space_private_users:
       not_allowed: Jūs negalite peržiūrėti šio turinio
+    passwords:
+      update:
+        error: Atnaujinant slaptažodį iškilo problema.
+        success: Slaptažodis buvo sėkmingai atnaujintas.
     profile:
       deleted: Ištrintas dalyvis
+      inaccessible_message: Profilis neprieinamas dėl naudojimo sąlygų pažeidimų!
     profiles:
+      default_officialization_text_for_user_groups: Ši grupė yra patikrinta, jos pavadinimas atitinka realybę.
+      default_officialization_text_for_users: Šis dalyvis yra patikrintas, jo vardas ir pavardė arba pareigos buvo patikrintos ir atitinka jo tikrąjį vardą ir pavardę bei pareigas.
       show:
         activity: Veikla
         badges: Ženkleliai
@@ -1365,16 +1395,22 @@ lt:
       user:
         actions:
           create_user_group: Sukurti grupę
+          disabled_message: Žinutė
           edit_profile: Redaguoti profilį
           edit_user_group: Redaguoti grupės profilį
           invite_user: Kviesti dalyvį
           join_user_group: Prašyti prisijungti prie grupės
+          leave_user_group: Palikti grupę
+          manage_user_group: Tvarkyti grupę
           manage_user_group_admins: Valdyti administratorių duomenis
           manage_user_group_users: Valdyti narius
           message: Pranešimas
+          resend_email_confirmation_instructions: Išsiųsti patvirtinimo instrukcijas dar kartą
+        confirmation_instructions_sent: Patvirtinimo el. laiškas išsiųstas.
         create_user_group: Sukurti grupę
         edit_profile: Redaguoti profilį
         edit_user_group: Redaguoti grupės profilį
+        fill_in_email_to_confirm_it: Prašau įveskite grupės el. paštą tam, kad jį patvirtinti.
         invite_user: Kviesti dalyvį
         join_user_group: Prašyti prisijungti prie grupės
         leave_user_group: Palikti grupę
@@ -1420,12 +1456,14 @@ lt:
       scopes_picker_input:
         select_scope: 'Pasirinkite sritį (dabar: %{current})'
     search:
+      name: Ieškoti
       results: Paieškos rezultatai
       results_found_for_term: '%{count} rezultatai atlikus paiešką: "%{term}"'
       term_input_placeholder: Ieškoti
     searches:
       filters:
         jump_to: 'Pereiti į:'
+        search: Ieškoti
         state:
           active: Aktyvūs
           all: Visi
@@ -1433,6 +1471,7 @@ lt:
           past: Praėję
       filters_small_view:
         filter: Filtruoti
+        filter_and_search: Filtruoti ir ieškoti
         filter_by: Filtruoti pagal
       results:
         view_all: Peržiūrėti viską (%{count})
@@ -1456,6 +1495,9 @@ lt:
         already_reported: Šis turinys jau praneštas ir bus peržiūrėtas administratoriaus.
         close: Uždaryti
         description: Ar šis turinys netinkamas?
+        does_not_belong: Pateikiama informacija yra neteisėta veikla, grasinimai nusižudyti, asmeninė informacija arba tai, kas, jūsų nuomone, nepriklauso %{organization_name}.
+        hide: Slėpti
+        hide_content: Slėpti šį turinį
         offensive: Pateikiamame turinyje yra rasizmo, seksizmo, užgauliojimų, asmeninių išpuolių, grasinimų mirtimi, savižudybės prašymų ar bet kokios formos neapykantos kurstymo.
         reason: Priežastis
         report: Pranešti
@@ -1463,8 +1505,11 @@ lt:
         title: Pranešti apie netinkamą turinį
       flag_user_modal:
         already_reported: Apie šį turinį jau pranešta ir jį peržiūrės administratorius.
+        block: Blokuoti šį naudotoją
         close: Uždaryti
         description: Kas netinka apie naudotoją?
+        does_not_belong: Pateikiama informacija yra neteisėta veikla, grasinimai nusižudyti, asmeninė informacija arba tai, kas, jūsų nuomone, nepriklauso %{organization_name}.
+        hide: Slėpti visą jų turinį
         offensive: Pateikiamoje informacijoje yra rasizmo, seksizmo, keiksmažodžių, asmeninių atakų, grasinimų ar kitokios neapykantos kalbos.
         report: Pranešti
         spam: Pateikiamoje informacijoje yra reklamos, antraščių mąsalo ar apgavysčių.
@@ -1480,8 +1525,11 @@ lt:
         remove_recipient: Išimti gavėją %{name}
       participatory_space_filters:
         filters:
+          area: Aplinka
           areas: Erdvės
+          scope: Sritis
           select_an_area: Pasirinkti erdvę
+      progress: Progresas
       public_participation:
         public_participation: Rodyti mano dalyvavimą viešai
       reference:
@@ -1499,6 +1547,7 @@ lt:
         copy_share_link_message: Kodas sėkmingai nukopijuotas į iškarpinę.
         share: Dalintis
         share_link: Dalintis nuoroda
+        share_to: Dalintis %{service}
     statistics:
       comments_count: Komentarai
       endorsements_count: Pritarimai
@@ -1515,9 +1564,13 @@ lt:
       help_text: "<strong>Dėmesio:</strong> Turinys gali būti išverstas automatiškai, bet nebus visiškai tikslus."
       show_original: Rodyti teksto originalą
       show_translated: Rodyti automatiškai išverstą tekstą
+    user_activity:
+      index:
+        no_activities_warning: Šis dalyvis dar neturi jokios veiklos.
     user_contact_disabled: Šis dalyvis nepriima tiesioginių žinučių.
     user_conversations:
       create:
+        error: Žinutės nepavyko sukurti. Bandykite dar kartą vėliau.
         existing_error: Pranešimo nepavyko sukurti. Pokalbis jau egzistuoja, dabar bandykite dar kartą.
         success: Pokalbis pradėtas!
       index:
@@ -1532,6 +1585,8 @@ lt:
     user_interests:
       show:
         my_interests: Mano interesai
+        no_scopes: Šioje organizacijoje dar nėra aplinkų!
+        select_your_interests: Pasirinkite jus dominančias temas, kad savo profilio kortelėje „Laiko juosta“ gautumėte su jomis susijusių renginių nuorodų.
         update_my_interests: Atnaujinti mane dominančias temas
       update:
         error: Atnaujinant jūs dominančias temas iškilo problema.
@@ -1559,6 +1614,7 @@ lt:
       show:
         version_index: Versija %{index}
     welcome_notification:
+      default_body: <p>Sveiki {{name}}, dėkojame, kad prisijungėte prie {{organization}}. Sveikiname!</p><ul><li>Jeigu norite greitai sužinoti, ką čia galite nuveikti, peržiūrėkite <a href="{{help_url}}">Pagalbos</a> skyrelį.</li><li>Jį perskaitę, gausite savo pirmąjį ženklelį. Čia <a href="{{badges_url}}">pateikiamas sąrašas visų ženklelių,</a> kuriuos galite gauti dalyvaudami {{organization}}</li><li>Galiausiai, prisijunkite prie kitų žmonių, dalykitės su jais veiklos ir dalyvavimo {{organization}} patirtimi. Teikite pasiūlymus, komentuokite, diskutuokite, galvokite, kaip prisidėti prie bendros gerovės, teikite argumentus, kad įtikintumėte, klausykitės ir skaitykite, kad įsitikintumėte, reikškite savo idėjas konkrečiai ir tiesiogiai, atsakykite kantriai ir siūlykite sprendimą, ginkite savo idėjas ir likite atviri bendradarbiauti ir paremti kitų žmonių idėjas.</li></ul>
       default_subject: Dėkojame, kad prisijungėte prie {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1606,25 +1662,40 @@ lt:
         subject: Patvirtinimo instrukcijos
       email_changed:
         greeting: Sveiki %{recipient}!
+        message: Kreipiamės į jus ir pranešame, kad jūsų e. pašto adresas keičiamas į %{email}.
         subject: El. pašto adresas pakeistas
       invitation_instructions:
         accept: Priimti kvietimą
         accept_until: Šis kvietimas turi būti priimtas iki %{due_date}.
         decline: Atmesti kvietimą
         hello: Sveiki %{email},
+        ignore: |-
+          Jei nenorite priimti kvietimo, nekreipkite dėmesio į šį e. laišką. <br />
+          jūsų paskyra nebus sukurta tol, kol nespustelėsite pirmiau pateiktos nuorodos ir nenustatysite savo naudotojo vardo ir slaptažodžio.
         invited_you_as_admin: "%{invited_by} pakvietė jus kaip %{application} administratorių. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą."
         invited_you_as_private_user: "%{invited_by} pakvietė jus kaip %{application} privatų dalyvį. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą."
         someone_invited_you: Kažkas pakvietė jus į %{application}. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
         someone_invited_you_as_admin: Kažkas pakvietė jus kaip %{application} administratorių. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
         someone_invited_you_as_private_user: Kažkas pakvietė jus kaip %{application} privatų dalyvį. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
         subject: Kvietimo nurodymai
+      invite_admin:
+        subject: Esate pakviestas tvarkyti %{organization}
+      invite_collaborator:
+        subject: Esate pakviesta(-s) bendradarbiauti %{organization}
+      invite_private_user:
+        subject: Esate pakviesta(-s) į %{organization} uždarą dalyvaujamąjį procesą
+      organization_admin_invitation_instructions:
+        subject: Esate pakviesta(-s) tvarkyti %{organization}
       password_change:
         greeting: Sveiki %{recipient}!
+        message: Kreipiamės į jus ir pranešame, kad jūsų slaptažodis pakeistas.
         subject: Slaptažodis pakeistas
       reset_password_instructions:
         action: Keisti slaptažodį
         greeting: Sveiki %{recipient}!
         instruction: Kažkas paprašė slaptažodžio pakeitimo nuorodos. Jūs galite tai padaryti paspaudę žemiau esančią nuorodą.
+        instruction_2: Jei Jūs to neprašėte, prašome ignoruoti šį el. laišką.
+        instruction_3: Jūsų slaptažodis nesikeis, kol nespustelėsite pirmiau pateiktos nuorodos ir nesusikursite naujo.
         subject: Slaptažodžio atstatymo nurodymai
       unlock_instructions:
         action: Atblokuoti mano paskyrą
@@ -1646,6 +1717,7 @@ lt:
       new:
         forgot_your_password: Pamiršote savo slaptažodį?
         send_me_reset_password_instructions: Atsiųskite slaptažodžio atstatymo instrukciją
+      no_token: Šį puslapį galėsite atsiversti tik iš slaptažodžio nustatymo e. laiško. Jei naudojate slaptažodžio nustatymo iš naujo e. laišką, būtinai naudokite visą pateiktą URL adresą.
       send_instructions: Per kelias minutes Jūs gausite elektroninį laišką su instrukcijomis, kaip iš naujo nustatyti savo slaptažodį.
       send_paranoid_instructions: Jei jūsų el. pašto adresas yra mūsų duomenų bazėje, per kelias minutes savo el. pašto adresu gausite nuorodą su slaptažodžio atkūrimo nurodymais.
       updated: Jūsų slaptažodis buvo sėkmingai pakeistas. Dabar esate prisijungę.
@@ -1669,6 +1741,8 @@ lt:
     shared:
       links:
         back: Atgal
+        didn_t_receive_confirmation_instructions: Negavote patvirtinimo nurodymų?
+        didn_t_receive_unlock_instructions: Negavote atblokavimo nurodymų?
         forgot_your_password: Pamiršote savo slaptažodį?
         sign_in: Prisijungti
         sign_in_with_provider: Prisijunkite su %{provider}
@@ -1690,6 +1764,7 @@ lt:
   editor:
     extensions:
       image:
+        altLabel: Alternatyvus tekstas paveikslėliui
         nodeView:
           resizer:
             control:
@@ -1722,16 +1797,69 @@ lt:
     toolbar:
       control:
         blockquote: Kabutės
+        bold: Paryškintai
+        bulletList: Nerikiuojamas sąrašas
+        codeBlock: Kodo blokas
+        common:
+          eraseStyles: Pašalinti stilizavimą
+        hardBreak: Eilutės peršokimas
+        heading: Teksto stilius
+        image: Paveikslėlis
+        indent:
+          indent: Įtraukti
+          outdent: Ištrauka
+        italic: Pasviręs
+        link: Nuoroda
+        orderedList: Rikiuotas sąrašas
+        underline: Pabraukti
+        videoEmbed: Įtraukti vaizdo įrašą
+      textStyle:
+        heading: Antraštė %level%
+        normal: Normalus tekstas
+    upload:
+      uploadedFile: Įkelti rinkmeną
+  emojis:
+    button: Pridėti jaustuką
+    categories:
+      activities: Veiklos
+      animals-nature: Gyvūnai ir gamta
+      custom: Individualizuoti
+      flags: Vėliavos
+      food-drink: Maistas ir Gėrimai
+      objects: Objektai
+      people-body: Žmonės ir Kūnai
+      recents: Neseniai naudota
+      smileys-emotion: Šypsenos ir Emocijos
+      symbols: Simboliai
+      travel-places: Kelionės ir Vietos
+    error:
+      load: Nepavyko užkrauti jaustukų
+    recents:
+      clear: Pašalinti nesenai naudotus jaustukus
+      none: Nepasirinkote jaustukų.
+    retry: Bandykite dar kartą
+    search:
+      _: Ieškoti jaustukų...
+      clear: Išvalyti paiešką
+      error: Nepavyko ieškoti jaustukų
+      not_found: Rezultatų nerasta
   errors:
     messages:
+      allowed_file_content_types: 'leidžiamos tik rinkmenos su šiomis galūnėmis: %{types}'
       already_confirmed: jau patvirtinta, pabandykite prisijungti
+      blank: negali būti tuščias
+      cannot_be_blank: negali būti tuščias
+      confirmation: neatitinka %{attribute}
       confirmation_period_expired: turi būti patvirtintas per %{period}, prašome paprašyti naujo
       content_type_allowlist_error: rinkmenos tipas netinkamas
+      cycle_detected: srities pirminis elementas, negali būti vienas iš jos poelemenčių
+      empty: negali būti tuščias
       expired: nustojo galioti, prašykite iš naujo
       file_size_is_less_than_or_equal_to: rinkmenos dydis turi būti ne didesnis kaip %{count} arba jam lygus
       invalid_time_zone: netinkama laiko juosta
       long_words: yra per ilgų žodžių (daugiau kaip 35 ženklai)
       must_start_with_caps: pradėti būtina didžąja raide
+      nesting_too_deep: negali priklausyti pakategorei
       not_found: nepavyko rasti. Ar užsiregistravote anksčiau?
       not_locked: nebuvo užrakintas
       not_saved:
@@ -1741,6 +1869,8 @@ lt:
         other: 'Vykdant jūsų prašymus įvyko klaida:'
       too_many_marks: naudojama per daug skyrybos ženklų iš eilės (pvz., ! ir ?)
       too_much_caps: naudojama per daug didžiųjų raidžių (daugiau kaip 25 proc. teksto)
+      too_short: per trumpas (mažiau nei %{count} ženklų)
+      url_format: Nuoroda neteisingo formato
   forms:
     correct_errors: Formoje yra klaidų, ištaisykite jas ir tęskite.
     length_validator:
@@ -1756,6 +1886,9 @@ lt:
     timestamp_error_message: Atsiprašome, tai buvo per greitai! Pateikite iš naujo.
   layouts:
     decidim:
+      announcements:
+        close: Uždaryti
+        view_more: Daugiau informacijos
       data_consent:
         details:
           columns:
@@ -1811,9 +1944,13 @@ lt:
         cc_by_license: '„Creative Commons“ licencija'
         data_consent_settings: Slapukų nustatymai
         decidim_logo: '„Decidim“ logotipas'
+        decidim_title: Decidim
         download_open_data: Parsisiųsti atvirųjų duomenų rinkmenas
         made_with_open_source: Interneto svetainė sukurta naudojant <a target="_blank" href="https://github.com/decidim/decidim">atvirą programinę įrangą</a>.
+        resources: Ištekliai
+        sign_in: Prisijungti
         sign_up: Registruotis
+        terms_and_conditions: Nuostatos ir sąlygos
       header:
         main_menu: Pagrindinis meniu
         sign_in: Prisijungti
@@ -1827,6 +1964,8 @@ lt:
       notifications_dashboard:
         mark_all_as_read: Visus žymėti kaip skaitytus
         mark_as_read: Žymėti kaip skaitytą
+      offline_banner:
+        cache_version_page: Regis nebeturite prieigos prie interneto! Šis puslapis - anksčiau išsaugotas vaizdas, tad gali būti, kad jame nėra naujausių atnaujinimų.
       social_media_links:
         facebook: "%{organization} – „Facebook“"
         github: "%{organization} – „GitHub“"
@@ -1843,6 +1982,7 @@ lt:
       user_menu:
         account: 'Naudotojo paskyra: %{name}'
         admin_dashboard: Administratoriaus skydelis
+        configuration: Konfigūracija
         conversations: Pokalbiai
         notifications: Pranešimai
         profile: Mano paskyra
@@ -1856,12 +1996,14 @@ lt:
         my_data: Mano duomenys
         my_interests: Mano interesai
         notifications_settings: Pranešimų nustatymai
+        profile: Profilis
         title: Dalyvio nuostatos
         user_groups: Grupės
   locale:
     name: Lietuvių
     name_with_error: Lietuvių (klaida!)
   password_validator:
+    denied: neleista
     domain_included_in_password: per daug panašus į šio domeno vardą
     email_included_in_password: per daug panašus į jūsų el. pašto adresą
     fallback: negalioja
@@ -1919,6 +2061,7 @@ lt:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%Y %B %d, %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
