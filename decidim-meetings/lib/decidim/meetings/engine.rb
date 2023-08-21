@@ -38,7 +38,11 @@ module Decidim
             resources :answers, only: [:index, :create]
           end
         end
-        root to: "meetings#index"
+        scope "/meetings" do
+          root to: "meetings#index"
+        end
+        get "/", to: redirect("meetings", status: 301)
+
         resource :calendar, only: [:show], format: :text do
           resources :meetings, only: [:show], controller: :calendars, action: :meeting_calendar
         end
