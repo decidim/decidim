@@ -110,10 +110,6 @@ export default function generateTimePicker(input, row) {
 
   time.after(timePicker);
 
-  time.addEventListener("focus", () => {
-    timePicker.style.display = "none";
-  })
-
   const timePickerDisplay = (event) => {
     if (!timeColumn.contains(event.target)) {
       timePicker.style.display = "none";
@@ -152,8 +148,6 @@ export default function generateTimePicker(input, row) {
     };
   };
 
-  display("clock");
-
   const changeDisplay = (change, target) => {
     if (target === "hour") {
       if (change === "increase") {
@@ -187,6 +181,12 @@ export default function generateTimePicker(input, row) {
     };
     display();
   };
+
+  display("clock");
+
+  time.addEventListener("focus", () => {
+    timePicker.style.display = "none";
+  })
 
   time.addEventListener("paste", (event) => {
     event.preventDefault();
