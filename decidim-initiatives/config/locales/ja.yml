@@ -370,7 +370,6 @@ ja:
           more_information: "(詳細)"
           send_my_initiative: 自分のイニシアチブを技術検証に提出
         finish_help:
-          access_reminder: イニシアチブには、「イニシアチブ」ページの「%{link}」フィルターからアクセスできます。
           publish_helper_text: イニシアチブを公開するためには、必要な情報を記入し、<strong>技術検証に提出</strong>して管理者に確認してもらう必要があることを覚えておいてください。
         previous_form:
           back: 戻る
