@@ -18,6 +18,26 @@ module Decidim
       def show_embed?
         model.iframe_embed_type_embed_in_meeting_page? && embedder.embeddable?
       end
+
+      def iframe_container_meetings_css_class
+        @iframe_container_meetings_css_class ||= begin
+          css_class = ["iframe_container_meetings"]
+
+          case model.online_meeting_url
+          when /youtube/
+            css_class << "youtube"
+          when /twitch/
+            css_class << "twitch"
+          when /meet\.jit\.si/
+            css_class << "jitsi"
+          when /vimeo/
+            css_class << "vimeo"
+            default
+            ""
+          end
+          css_class.join(" ")
+        end
+      end
     end
   end
 end

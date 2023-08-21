@@ -178,6 +178,10 @@
 
 .iframe {
   &_container_meetings {
-    @apply h-[60vh] w-full overflow-x-scroll;
+    @apply h-[60vh] w-full overflow-y-scroll;
+
+    &.jitsi {
+      @apply h-[60vh] overflow-y-scroll;
+    }
   }
 }
