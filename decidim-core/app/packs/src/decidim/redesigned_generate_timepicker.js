@@ -272,7 +272,7 @@ export default function generateTimePicker(input, row) {
     event.preventDefault();
     hour = 0;
     minute = 0;
-    display("clock");
+    display();
   });
 
   closeClock.addEventListener("click", (event) => {
