@@ -25,7 +25,7 @@
         @apply pr-1 pl-6 py-0.5 text-sm;
       }
 
-      &.is-invalid-input {
+      &.is-invalid-input:not(:focus) {
         @apply outline-2 outline-alert;
       }
     }
