@@ -1,9 +1,13 @@
+.sc-wc-datepicker-h {
+  @apply absolute w-11/12 h-96 left-0;
+}
+
 .wc-datepicker {
-  @apply w-80 max-w-lg absolute z-20;
+  @apply w-80 h-96 absolute z-20;
 }
 
 .wc-datepicker__header {
-  @apply px-0 py-0 pt-7 pb-0 gap-0;
+  @apply px-0 py-0 pb-0 gap-0 h-14;
 }
 
 .wc-datepicker__month-select,
@@ -39,20 +43,113 @@
   @apply flex gap-4;
 }
 
-.date_column {
+.time_row {
+  @apply flex top-4 absolute w-full;
+}
+
+.date_column,
+.time_column {
   @apply flex-1 w-1/2 relative;
 }
 
-.time_column {
-  @apply flex-1 w-1/2;
+.hour_column,
+.minute_column {
+  @apply rounded border border-solid border-gray flex-1 h-12 relative my-2 mx-1;
 }
 
 .calendar_button {
   @apply w-10 h-9 bg-[#FAFBFC] rounded absolute top-4 mt-0.5 pb-px pl-2 leading-3 right-2;
 }
 
-.close_button {
-  @apply w-6 h-8 bg-white text-secondary absolute z-30 left-64 ml-9 top-14 mt-px;
+.clock_button {
+  @apply w-10 h-8 bg-[#FAFBFC] rounded absolute top-4 mt-0.5 pb-px pl-2 leading-3 right-2;
+}
+
+.clock {
+  @apply w-60 max-w-lg h-28 bg-white absolute border border-solid border-gray z-20;
+}
+
+.timepicker {
+  &::placeholder {
+    @apply text-black opacity-100;
+  }
+}
+
+.hourpicker,
+.minutepicker {
+  @apply w-1/2 left-4 h-full text-center text-xl font-bold absolute;
+
+  &:hover {
+    @apply cursor-default;
+  }
+
+  &:focus-visible {
+    @apply outline-0;
+  }
+}
+
+.close_calendar {
+  @apply border border-solid border-gray rounded absolute z-30 bottom-2 right-0 w-14 h-6;
+}
+
+.pick_calendar {
+  @apply rounded absolute z-30 bottom-2 right-16 w-14 h-6 bg-secondary text-white;
+
+  &:disabled {
+    @apply bg-gray;
+  }
+}
+
+.close_clock {
+  @apply border border-solid border-gray rounded absolute z-30 bottom-2 right-1 w-14 h-6;
+}
+
+.reset_clock {
+  @apply rounded absolute z-30 bottom-2 right-16 w-14 h-6 bg-secondary text-white;
+}
+
+.hourup {
+  @apply rounded border border-solid border-gray absolute right-0;
+
+  &:hover {
+    @apply bg-gray
+  }
+}
+
+.hourdown {
+  @apply rounded border border-solid border-gray absolute right-0 bottom-0;
+
+  &:hover {
+    @apply bg-gray
+  }
+}
+
+.minuteup {
+  @apply rounded border border-solid border-gray absolute right-0;
+
+  &:hover {
+    @apply bg-gray
+  }
+}
+
+.minutedown {
+  @apply rounded border border-solid border-gray absolute right-0 bottom-0;
+
+    &:hover {
+    @apply bg-gray
+  }
+}
+
+.label_row {
+  @apply absolute flex top-1 w-full;
+}
+
+.hour_label_container {
+  @apply flex-1 relative pl-2;
+}
+
+.minute_label_container {
+  @apply flex-1 relative pl-1.5;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
