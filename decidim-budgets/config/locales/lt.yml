@@ -126,6 +126,9 @@ lt:
               selected: 'Šie projektai jau pasirinkti įgyvendinimui: %{projects}.'
               unselected: 'Šie projektai jau nebėra pasirinkti įgyvendinimui: %{projects}.'
             select_a_project: Pasirinkite projektą
+            success:
+              selected: 'Šie projektai jau pasirinkti įgyvendinimui: %{projects}.'
+              unselected: 'Šių projektų įgyvendinimo atsisakyta: %{projects}.'
         proposals_imports:
           create:
             invalid: Importuojant pasiūlymus į projektus kilo problema
@@ -296,6 +299,7 @@ lt:
             few: balsai
             many: balsai
             other: balsai
+          you_voted: Balsavote už
         project_budget_button:
           add: Pridėti prie balsų
           add_descriptive: Pridėti projektą %{resource_name} prie balsų
