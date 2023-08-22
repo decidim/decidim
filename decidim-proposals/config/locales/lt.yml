@@ -604,6 +604,7 @@ lt:
             success: Pasiūlymai pavesti vertintojui.
           delete:
             invalid: Naikinant vertintojui pavestus pasiūlymus įvyko klaida.
+            success: Vertintojas sėkmingai pašalintas nuo pasiūlymų.
       admin_log:
         proposal:
           answer: "%{user_name} atsakė į pasiūlymą %{resource_name} %{space_name} erdvėje"
@@ -643,6 +644,7 @@ lt:
           publish:
             error: Skelbiant bendrąjį juodraštį iškilo problema.
             irreversible_action_modal:
+              body: Paskelbus projektą kaip pasiūlymą, projekto nebebus galima redaguoti. Į pasiūlymą negalės įsitraukti nauji autoriai ir nebus galima pateikti naujų nuomonių.
               cancel: Atšaukti
               ok: Paskelbti kaip Pasiūlymą
               title: Tai yra negrįžtamas veiksmas
@@ -650,11 +652,13 @@ lt:
           withdraw:
             error: Uždarant bendrąjį juodraštį iškilo problema.
             irreversible_action_modal:
+              body: Uždarius juodraštį, projekto nebebus galima redaguoti. Į projektą negalės įsitraukti nauji autoriai ir nebus galima pateikti naujų nuomonių.
               cancel: Atšaukti
               ok: Atsiimti bendrąjį juodraštį
               title: Tai yra negrįžtamas veiksmas
             success: Bendrasis juodraštis atsiimtas.
         create:
+          error: Kuriant šį bendrąjį juodraštį iškilo problema.
           success: Bendrasis juodraštis sukurtas.
         edit:
           attachment_legend: "(Neprivaloma) Pridėti priedą"
@@ -662,6 +666,8 @@ lt:
           select_a_category: Pasirinkite kategoriją
           send: Siųsti
           title: Redaguoti bendrąjį juodraštį
+        empty: Dar nėra bendrų juodraščių
+        empty_filters: Su šiais kriterijais nėra juodrasčių
         filters:
           all: Visi
           amendment: Pataisos
@@ -678,6 +684,7 @@ lt:
           filter: Filtruoti
           filter_by: Filtruoti pagal
           unfold: Išskleisti
+        name: Bendri juodraščiai
         new:
           add_file: Pridėti failą
           edit_file: Redaguoti failą
@@ -692,14 +699,17 @@ lt:
         requests:
           accepted_request:
             error: Nepavyko patvirtinti bendraautoriumi. Bandykite dar kartą vėliau.
+            success: "%{user} buvo priimtas kaip bendraautorius."
           access_requested:
             error: Jūsų užklausos įvykdyti nepavyko. Bandykite dar kartą vėliau.
+            success: Jūsų bendradarbiavimo užklausa išsiųsta.
           collaboration_requests:
             accept_request: Sutikti
             reject_request: Atmesti
             title: Bendradarbiavimo užklausos
           rejected_request:
             error: Nepavyko atmesti kaip bendraautoriaus. Bandykite dar kartą vėliau.
+            success: "@%{user} atmestas kaip bendraautorius."
         show:
           edit: Redaguoti bendrąjį juodraštį
           final_proposal: galutinis pasiūlymas
@@ -709,6 +719,7 @@ lt:
             few: ir dar %{count} žmonės (-ių)
             many: ir dar %{count} žmonės (-ių)
             other: ir dar %{count} žmonės (-ių)
+          info-message: Tai bendras pasiūlymo <strong>projektas</strong>. Tai reiškia, kad galite padėti savo autoriams parengti pasiūlymą naudodamiesi komentarų skirsniu arba tiesiogiai jį patobulinti, prašydami prieigos jį keisti. Kai autoriai jums suteiks prieigą, galėsite keisti šį projektą.
           publish: Paskelbti
           publish_info: Skelbti šią juodraščio versiją arba
           published_proposal: paskelbtas pasiūlymas
@@ -726,6 +737,9 @@ lt:
           back_from_collaborative_draft: Grįžti į bendruosius juodraščius
         wizard_header:
           title: Sukurkite savo bendrąjį juodraštį
+      content_blocks:
+        highlighted_proposals:
+          name: Pasiūlymai
       create:
         error: Išsaugant šį pasiūlymą iškilo problema.
         success: Pasiūlymas sukurtas. Išsaugotas kaip Juodraštis.
@@ -751,6 +765,8 @@ lt:
             valuator: Vertintojas
             valuators: Vertintojai
             votes: Balsai
+      new:
+        limit_reached: Naujų pasiūlymų rengti negalite, nes viršijote nustatytą ribą.
       participatory_text_proposal:
         alternative_title: Šiuo metu dalyvaujamųjų tekstų nėra
         buttons:
@@ -815,6 +831,9 @@ lt:
           random: Atsitiktinai
           recent: Naujausi
           with_more_authors: Turintys daug autorių
+        participatory_texts:
+          view_index:
+            document_index: Dokumentų rodyklė
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -828,6 +847,9 @@ lt:
             other: Šį pasiūlymą galėsite keisti pirmąsias %{count} minutes (-čių) po pasiūlymo paskelbimo. Šiam laiko intervalui pasibaigus, pasiūlymo keisti nebegalėsite.
           publish: Paskelbti
           title: Paskelbkite savo pasiūlymą
+        proposals:
+          empty: Pasiūlymų dar nėra.
+          empty_filters: Pagal šį kriterijų nėra nė vieno pasiūlymo.
         show:
           answer: Atsakymas
           changes_at_title: '„%{title}“ pakeitimas'
@@ -870,9 +892,12 @@ lt:
             description: Kiekvienas pasiūlymas gali sukaupti daugiau nei %{limit} balsų
           minimum_votes_per_user:
             description: Turite paskirstyti mažiausiai %{votes} balsų tarp skirtingų pasiūlymų.
+            given_enough_votes: Jūs parėmėte pakankamai.
             supports_remaining: Kad į jūsų balsus būtų atsižvelgta, turite paremti dar %{remaining_votes} pasiūlymus (-ų).
           proposal_limit:
             description: Galite parengti iki %{limit} pasiūlymų.
+          threshold_per_proposal:
+            description: Kad pasiūlymai būtų priimti, jie turi surinkti %{limit} palaikymų.
           title: 'Paramai taikomos šios taisyklės:'
           vote_limit:
             description: Galite paremti iki %{limit} pasiūlymų.
@@ -894,6 +919,7 @@ lt:
         choose_proposals: Pasirinkti pasiūlymus
         close: Uždaryti
         more_proposals: Yra dar %{number} pasiūlymai (-ų). Kad nustatytumėte jų vietą, patikslinkite savo paiešką.
+        no_proposals: Jūsų paieškos kriterijus atitinkančių pasiūlymų nerasta arba pasiūlymų nėra.
       publish:
         error: Skelbiant šį pasiūlymą iškilo problema.
         success: Pasiūlymas paskelbtas.
@@ -908,6 +934,9 @@ lt:
       versions:
         index:
           title: Versijos
+      withdraw:
+        errors:
+          has_supports: Šis pasiūlymo negalima atsiimti, nes jam jau pritarta.
     resource_links:
       copied_from_component:
         proposal_proposal: Susiję pasiūlymai
