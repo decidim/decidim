@@ -43,6 +43,7 @@ module Decidim
           menu.add_item :questionnaires,
                         I18n.t("template_types.questionnaires", scope: "decidim.templates"),
                         decidim_admin_templates.questionnaire_templates_path,
+                        icon_name: "clipboard-line",
                         if: allowed_to?(:index, :templates),
                         active: (
                           is_active_link?(decidim_admin_templates.questionnaire_templates_path) ||
@@ -52,6 +53,7 @@ module Decidim
           menu.add_item :user_reports,
                         I18n.t("template_types.block_user", scope: "decidim.templates"),
                         decidim_admin_templates.block_user_templates_path,
+                        icon_name: "user-forbid-line",
                         if: allowed_to?(:index, :templates),
                         active: is_active_link?(decidim_admin_templates.block_user_templates_path)
         end
