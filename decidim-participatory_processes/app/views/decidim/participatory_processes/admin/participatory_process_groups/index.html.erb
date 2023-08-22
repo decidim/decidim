@@ -28,7 +28,7 @@
           <tr>
             <td>
               <% if group.promoted? %>
-                <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin"), class: "action-icon--copy" %>
+                <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin") %>
               <% end %>
               <% if allowed_to? :update, :process_group, process_group: group %>
                 <%= link_to translated_attribute(group.title), [:edit, group] %>

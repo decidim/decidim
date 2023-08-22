@@ -30,7 +30,7 @@
         <tr>
           <td>
             <% if process.promoted? %>
-              <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin"), class: "action-icon--copy" %>
+              <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin") %>
             <% end %>
             <% if allowed_to? :update, :process, process: process %>
               <%= link_to translated_attribute(process.title), participatory_process_path(process) %><br>

@@ -36,7 +36,7 @@
           <tr>
             <td>
               <% if assembly.promoted? %>
-                <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin"), class: "action-icon--copy" %>
+                <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin") %>
               <% end %>
 
               <% if allowed_to? :update, :assembly, assembly: assembly %>
