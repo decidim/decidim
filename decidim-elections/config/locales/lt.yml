@@ -7,15 +7,32 @@ lt:
         image: Paveikslėlis
         proposals: Susiję pasiūlymai
         title: Pavadinimas
+      ballot_style:
+        code: Kodas
       election:
         description: Aprašymas
         end_time: Balsavimas baigiasi
         start_time: Balsavimas prasideda
         title: Pavadinimas
+      monitoring_committee_member:
+        email: El. paštas
+        name: Pavadinimas
+      polling_officer:
+        email: El. paštas
+        name: Pavadinimas
+      polling_station:
+        address: Adresas
+        location: Vieta
+        location_hints: Vietos užuomina
+        polling_station_managers: Vadybininkai
+        polling_station_president_id: Pirmininkas
+        title: Pavadinimas
       question:
         max_selections: Didžiausias pasirenkimų skaičius
         min_selections: Nei vienas iš pasiūlytų variantų
         title: Pavadinimas
+      trustees_participatory_space:
+        user_id: Dalyvis
       voting:
         banner_image: Reklamjuostės paveikslėlis
         census_contact_information: Surašytojų kontaktinė informacija
@@ -133,6 +150,7 @@ lt:
           label: Patvirtinta
           values:
             'false': Patvirtinta
+            'true': Nepatvirtinta
     components:
       elections:
         actions:
@@ -819,8 +837,28 @@ lt:
           highlighted_votings:
             max_results: Didžiausias rodomų elementų skaičius
           landing_page:
+            attachments_and_folders:
+              name: Balsavimo prisegimai ir aplankai
             description:
               name: Balsavimo aprašymas
+            elections:
+              name: Balsavimo rinkimai
+            header:
+              name: Balsavimo antraštė
+            html_block_1:
+              name: Balsavimo html blokas 1
+            html_block_2:
+              name: Balsavimo html blokas 2
+            html_block_3:
+              name: Balsavimo html blokas 3
+            metrics:
+              name: Balsavimo rodikliai
+            polling_stations:
+              name: Balsavimo punktai
+            stats:
+              name: Balsavimo statistika
+            timeline:
+              name: Balsavimo laiko juosta
         index:
           not_published: Nebeskelbiama
           published: Paskelbta
