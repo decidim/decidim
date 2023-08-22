@@ -6,6 +6,8 @@ lt:
         offline: Offline
         offline_explanation: Tikrinimo fiziškai instrukcija
         online: Virtualus
+      confirmation:
+        verification_code: Patvirtinimo kodas
       id_document_information:
         document_number: Dokumento numeris (su raide)
         document_type: Dokumento tipas
@@ -14,6 +16,8 @@ lt:
         document_type: Jūsų dokumento rūšis
         user: Dalyvis
         verification_attachment: Jūsų dokumento nuskenuota kopija
+      mobile_phone:
+        mobile_phone_number: Mobilaus telefono numeris
       offline_confirmation:
         email: Dalyvio el. pašto adresas
       postal_letter_address:
