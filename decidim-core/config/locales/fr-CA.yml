@@ -1039,6 +1039,7 @@ fr-CA:
       index:
         last_activity: Dernière Activité
       name: Dernières activités
+      no_activities_warning: Il n'y a aucune entrée à afficher pour ce type d'activité.
     linked_resource_from:
       included_in: Compris dans
     links:
