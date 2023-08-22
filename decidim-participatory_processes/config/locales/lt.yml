@@ -445,7 +445,10 @@ lt:
               few: "%{count} būsimi procesai"
               many: "%{count} būsimi procesai"
               other: "%{count} būsimi procesai"
+          date: Data
           explanations:
+            no_active: Aktyvių procesų nėra.
+            no_active_nor_upcoming: Nei aktyvių, nei būsimų procesų nėra.
             no_active_nor_upcoming_callout: Nei aktyvių, nei būsimų procesų nėra. Čia pateikiamas buvusių procesų sąrašas.
           filter_by: Rodyti
           names:
@@ -454,6 +457,7 @@ lt:
             past: Praėję
             upcoming: Artėjantys
           see: Žiūrėti
+          type: Tipas
         show:
           title: Apie šį procesą
       show:
