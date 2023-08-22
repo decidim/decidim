@@ -1040,6 +1040,7 @@ de:
       index:
         last_activity: Letzte Aktivität
       name: Letzte Aktivitäten
+      no_activities_warning: Es gibt keine anzuzeigende Einträge für diesen Aktivitätstyp.
     linked_resource_from:
       included_in: Enthalten in
     links:
