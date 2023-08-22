@@ -17,5 +17,7 @@
 <% end %>
 
 <% if @orphan_pages.any? %>
-  <%= render partial: "topic", locals: { pages: @orphan_pages, topic: nil } %>
+  <div class="mt-4">
+    <%= render partial: "topic", locals: { pages: @orphan_pages, topic: nil } %>
+  </div>
 <% end %>
