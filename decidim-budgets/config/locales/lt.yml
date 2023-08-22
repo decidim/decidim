@@ -126,6 +126,7 @@ lt:
               selected: 'Šie projektai jau pasirinkti įgyvendinimui: %{projects}.'
               unselected: 'Šie projektai jau nebėra pasirinkti įgyvendinimui: %{projects}.'
             select_a_project: Pasirinkite projektą
+            select_a_selection: Prašau pasirinkite įgyvendinimo būseną
             success:
               selected: 'Šie projektai jau pasirinkti įgyvendinimui: %{projects}.'
               unselected: 'Šių projektų įgyvendinimo atsisakyta: %{projects}.'
