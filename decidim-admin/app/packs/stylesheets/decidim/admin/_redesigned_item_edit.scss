@@ -25,6 +25,10 @@
     .card-divider-button{
       @apply flex items-center justify-start w-full pb-3;
 
+      svg{
+        @apply fill-secondary;
+      }
+
       &[aria-expanded="true"]{
         @apply border-solid border-b border-gray w-full rounded-none;
 

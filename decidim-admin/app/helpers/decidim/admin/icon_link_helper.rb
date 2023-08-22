@@ -5,8 +5,7 @@ module Decidim
     module IconLinkHelper
       # This helper adds the necessary boilerplate for the admin icon links.
       #
-      # icon_name - A String representing the icon name from Iconic
-      #             http://useiconic.com/open
+      # icon_name - A String representing the icon name
       # link      - The path or url where the link should point to.
       # title     - A String that will be shown when hovering the icon.
       # options   - An optional Hash containing extra data for the link:

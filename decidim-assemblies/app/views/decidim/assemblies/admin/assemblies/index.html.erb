@@ -36,13 +36,11 @@
           <tr>
             <td>
               <% if assembly.promoted? %>
-                <span data-tooltip class="icon-state icon-highlight" data-disable-hover="false" title="<%= t("models.assembly.fields.promoted", scope: "decidim.admin") %>">
-                  <%= icon "star-s-fill" %>
-                </span>
+                <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin"), class: "action-icon--copy" %>
               <% end %>
 
               <% if allowed_to? :update, :assembly, assembly: assembly %>
-                <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %><br>
+                <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %>
               <% else %>
                 <%= translated_attribute(assembly.title) %>
               <% end %>

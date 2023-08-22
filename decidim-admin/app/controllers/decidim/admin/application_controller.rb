@@ -22,6 +22,7 @@ module Decidim
       helper Decidim::Admin::AttributesDisplayHelper
       helper Decidim::Admin::SettingsHelper
       helper Decidim::Admin::IconLinkHelper
+      helper Decidim::Admin::IconWithTooltipHelper
       helper Decidim::Admin::MenuHelper
       helper Decidim::Admin::ScopesHelper
       helper Decidim::Admin::Paginable::PerPageHelper
