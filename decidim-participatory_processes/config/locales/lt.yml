@@ -12,15 +12,22 @@ lt:
         decidim_area_id: Aplinka
         description: Aprašymas
         developer_group: Rėmėjų grupė
+        document: Dokumentas
         domain: Domenas
         end_date: Pabaigos data
         hashtag: Grotažymė
         hero_image: Pradžios paveikslėlis
+        import_attachments: Importuoti priedus
+        import_categories: Importuoti kategorijas
+        import_components: Importuoti komponentus
+        import_steps: Importuoti žingsnius
         local_area: Organizacijos aplinka
         meta_scope: Srities metaduomenys
         participatory_process_group_id: Procesų grupė
+        participatory_process_type_id: Proceso tipas
         participatory_scope: Kas nuspręsta
         participatory_structure: Kaip nuspręsta
+        private_space: Privatus procesas
         promoted: Paaukštintas/a
         published_at: Publikuota
         related_process_ids: Susiję procesai
@@ -63,6 +70,12 @@ lt:
         email: El. paštas
         name: Vardas
         role: Rolė
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Nevalidus turinio tipas. Leidžiamos rinkmenos tik su šiomis galūnėmis: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Etapas aktyvuotas
       decidim/participatory_process_step_changed_event: Eatapas pakeistas
@@ -367,6 +380,7 @@ lt:
         html_3:
           name: Trečias HTML blokas
         metadata:
+          developer_group: Paaukštinta(-s)
           name: Metaduomenys
           participatory_scope: Kas nuspręsta
           participatory_structure: Kaip nuspręsta
@@ -439,11 +453,13 @@ lt:
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktyvūs procesai
             active_step: Aktyvusis etapas
             more_information: Daugiau informacijos
             participate: Dalyvauti
             participate_in: Dalyvauti procese %{resource_name}
             processes_button_title: Nuoroda į puslapį „Procesai“, kuriame pateikiami visi procesai
+            see_all_processes: Žiūrėti visus procesus
       participatory_process_steps:
         index:
           back_to_process: Grįžti į procesų puslapį
@@ -492,6 +508,7 @@ lt:
         dates: Datos
         developer_group: Rėmėjų grupė
         end_date: Pabaigos data
+        local_area: Organizacijos vietovė
         participatory_scope: Kas nuspręsta
         participatory_structure: Kaip nuspręsta
         private_space: Tai yra uždaras procesas
