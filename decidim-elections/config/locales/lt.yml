@@ -6,15 +6,32 @@ lt:
         image: Paveikslėlis
         proposals: Susiję pasiūlymai
         title: Pavadinimas
+      ballot_style:
+        code: Kodas
       election:
         description: Aprašymas
         end_time: Balsavimas baigiasi
         start_time: Balsavimas prasideda
         title: Pavadinimas
+      monitoring_committee_member:
+        email: El. paštas
+        name: Pavadinimas
+      polling_officer:
+        email: El. paštas
+        name: Pavadinimas
+      polling_station:
+        address: Adresas
+        location: Vieta
+        location_hints: Vietos užuomina
+        polling_station_managers: Vadybininkai
+        polling_station_president_id: Pirmininkas
+        title: Pavadinimas
       question:
         max_selections: Didžiausias pasirenkimų skaičius
         min_selections: Nei vienas iš pasiūlytų variantų
         title: Pavadinimas
+      trustees_participatory_space:
+        user_id: Dalyvis
       voting:
         banner_image: Reklamjuostės paveikslėlis
         census_contact_information: Surašytojų kontaktinė informacija
@@ -36,11 +53,29 @@ lt:
           attributes:
             attachment:
               needs_to_be_reattached: Reikia pridėti iš naujo
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: negali būti pakeistas
+            public_key:
+              cant_be_changed: negali būti pakeistas
         voting:
           attributes:
             voting_type:
               inclusion: "%{value} nėra tinkamas balsavimo tipas"
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Balsavimo prižiūrėtojas jau yra balsavimo punkto prezidentas/vadybininkas.
+            voting:
+              different_organization: Balsavimas turi būti toje pačioje organizacijoje kaip naudotojas.
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Balsavimo prižiūrėtojas turi būti tame pačiame balsavime kaip balsavimo punktas.
     models:
       decidim/elections/answer:
         one: Atsakymas
@@ -112,6 +147,9 @@ lt:
             'true': Nepasirašyta
         validated_eq:
           label: Patvirtinta
+          values:
+            'false': Nepatvirtinta
+            'true': Patvirtinta
     components:
       elections:
         actions:
@@ -139,10 +177,17 @@ lt:
         unpublish: Depublikuoti
       admin:
         answers:
+          create:
+            invalid: Kuriant šią atsakymą iškilo problema.
+            success: Atsakymas sukurtas.
+          destroy:
+            invalid: Šalinant šį atsakymą iškilo problema.
+            success: Atsakymas pašalintas.
           edit:
             title: Redaguoti atsakymą
             update: Atnaujinti atsakymą
           index:
+            invalid_max_selections: Jums reikia dar %{missing_answers} atsakymų, kad atitikti pasirinkimą.
             title: Atsakymai
           new:
             create: Sukurti atsakymą
@@ -151,7 +196,12 @@ lt:
           select:
             disable: Nebepasirinkti atsakymo
             enable: Pažymėti atsakymą kaip pasirinktą
+            invalid: Pasirenkant šį atsakymą iškilo problema.
+            success: Atsakymas sėkmingai pasirinktas.
           selected: Pasirinkta
+          unselect:
+            invalid: Nebepasirinktant šio atsakymo iškilo problema.
+            success: Atsakymas sėkmingai nebepasirinktas.
         elections:
           edit:
             title: Redaguoti rinkimus
@@ -538,6 +588,11 @@ lt:
               submit_title: Įkelti viešo atpažinimo raktą
               title: Patikėtinių atpažinimo raktai
               upload: Įkelkite atpažinimo raktus
+              upload_error:
+                invalid_key: Atpažinimo raktai negali būti įkelti.
+                invalid_public_key: Atpažinimo raktai įkeltoje rinkmenoje nesutampa su viešu apažinimo raktu.
+              upload_legend: Serveris turi atpažinimo raktus, tačiau naršyklė jų neturi. Turite importuoti atpažinimo raktų rinkimeną į kompiuterį iš atsarginės saugyklos kurią sukūrėte sugeneravę raktus.
+            not_supported_browser_description: Regis naudojate patikėtinio rolei netinkamą naršyklę. Įsitikinkite, kad naršyklė atnaujinta arba pabandykite naudoti kitas naršykles.
             not_supported_browser_title: Atnaujinkite naršyklę
             trustee_role_description: Buvote priskirtas kaip patikėtinis šioje platformoje vyksiantiems rinkimams.
           update:
@@ -548,6 +603,7 @@ lt:
           back: Vėl pradėti balsavimo procesą
           ballot_hash: 'Biuletenio identifikacinis kodas:'
           cast: Užpildykite biuletenį norėdami baigti balsavimą
+          description: Čia galite balsuoti arba patikrinti ar Jūsų balsas buvo teisingai užšifruotas. Saugumo sumetimais audito atlikimas sugadins jūsų balsavimo biuletenį. Tai reiškia, kad, norėdami atiduoti balsą, turėsite iš naujo pradėti balsavimo procesą.
           header: 'Biuletenis užšifruotas: galite jį įskaityti arba audituoti'
         casting:
           header: Biuletenis įskaitomas...
@@ -580,6 +636,9 @@ lt:
         header:
           ballot_decision: Balsuokite arba audituokite savo balsą
           confirm: Patvirtinkite savo balsą
+          election: Rinkimai
+          register: Registruotis
+          vote_for: Balsuoti dėl %{title}
         messages:
           invalid_token: Jūsų sesija balsavimo kabinoje nėra validi. Pabandykite balsuoti iš naujo.
           not_allowed: Dabar balsuoti šiuose rinkimuose negalite.
@@ -616,10 +675,12 @@ lt:
             title: Patikrinkite savo balsą
           success:
             header: Balsas rastas!
+            info: Jūsų užkoduotas balsas yra %{link} balsadėžėje.
         voting_step:
           back: Atgal
           continue: Kita
       warnings:
+        no_elections_warning: Jūsų paieškos kriterijus atitinkančių rinkimų nerasta arba neplanuojama.
         no_scheduled_elections_warning: Dabar neplanuojama rinkimų, tačiau čia galite rasti visų įvykusių rinkimų sąrašą.
     events:
       elections:
@@ -631,15 +692,18 @@ lt:
         trustees:
           new_election:
             email_intro: Buvote pridėtas kaip patikėtinis į %{resource_title} rinkimus.
+            email_outro: Gavote šį pranešimą nes buvote pridėtas kaip patikėtinis %{resource_title} rinkimams.
             email_subject: Esate patikėtinis %{resource_title} rinkimuose..
             notification_title: Esate patikėtinis <a href="%{resource_path}">%{resource_title}</a> rinkimuose.
           new_trustee:
             email_intro: Administratorius pridėjo Jus kaip %{resource_name} patikėtinį. Galite sukurti viešą raktą <a href='%{trustee_zone_url}'>patikėtinių zonoje</a>
+            email_outro: Gavote šį pranešimą nes buvote pridėtas kaip patikėtinis %{resource_name}.
             email_subject: Esate %{resource_name} patikėtinis.
             notification_title: Esate <a href="%{participatory_space_url}">%{resource_name}</a> patikėtinis.
         votes:
           accepted_votes:
             email_intro: 'Jūsų balsas priimtas. Naudodami balsavimo žetoną: %{encrypted_vote_hash} galite patikrinti savo balsą <a href="%{verify_url}">čia</a>.'
+            email_outro: Gavote šį pranešimą nes balsavote %{resource_name} rinkimuose.
             email_subject: Jūsų balsas %{resource_name} buvo priimtas.
             notification_title: 'Jūsų balsas buvo priimtas. Patikrinkite savo balsą <a href="%{verify_url}">čia</a> naudodami balsavimo žetoną %{encrypted_vote_hash}'
       votings:
@@ -660,18 +724,29 @@ lt:
           title: Kas yra balsavimai?
     menu:
       votings: Balsavimai
+    participatory_spaces:
+      related_elections:
+        see_all: Žiūrėti visus rinkimus
     statistics:
       elections_count: Rinkimai
       votings_count: Balsavimai
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Kuriant šį biuletenio tipą iškilo problema.
+            success: Biuletenio tipas sukurtas sėkmingai.
+          destroy:
+            invalid: Ištrinant šį biuletenio tipą iškilo problema.
+            success: Biuletenio tipas ištrintas.
           edit:
             title: Redaguoti biuletenio tipą
             update: Atnaujinti
           form:
+            code_help: 'Užuomina: kodas yra sujungėjas tarp surašymo ir biuletenio tipo. Kai įkeliate surašymo duomenis, kiekvienai įvesčiai priskiriamas biuletenio stilius ir atitinkamas kodas.'
             election: Rinkimai
             questions: Klausimai biuletenio tipui
+            questions_help: 'Užuomina: pasirinkite klausimus iš rinkimų komponentų, kurie bus pristatyti balsuotojams priskirtiems šiam biuletenio tipui.'
           index:
             actions:
               confirm_destroy: Ar esate tikri?
@@ -680,13 +755,37 @@ lt:
               new: Naujas
               title: Veiksmai
             associated_census_data: Susiję surašymo duomenys
+            explanation_callout: Biuletenio tipas numato kokie klausimai bus užduoti balsuotojui. Biuletenio tipe, galite pasirinkti kokie klausimai iš balsavimo komponento priklauso biuletenio tipui. Biuletenio tipo kodas naudojamas sujungti balsuotoją iš surašymo su biuleteniu, kuris jiems pateikiamas balsavimo kabinoje. Nekurkite biuletenio tipų jei norite, kad visi gautų visus klausimus.
             title: Biuletenio tipas
           new:
             create: Sukurti
             title: Sukurti biuletenio tipą
+          update:
+            invalid: Atnaujinant šį biuletenio tipą iškilo problema.
+            success: Biuletenio tipas atnaujintas sėkmingai.
         content_blocks:
+          attachments_and_folders:
+            name: Balsavimo prisegimai ir aplankai
+          header:
+            name: Balsavimo antraštė
           highlighted_votings:
             max_results: Didžiausias rodomų elementų skaičius
+          html_block_1:
+            name: Balsavimo html blokas 1
+          html_block_2:
+            name: Balsavimo html blokas 2
+          html_block_3:
+            name: Balsavimo html blokas 3
+          main_data:
+            name: Pavadinimas ir aprašymas
+          metrics:
+            name: Balsavimo rodikliai
+          polling_stations:
+            name: Balsavimo punktai
+          related_elections:
+            name: Balsavimo rinkimai
+          stats:
+            name: Balsavimo statistika
         index:
           not_published: Nebeskelbiama
           published: Paskelbta
