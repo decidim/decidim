@@ -68,6 +68,11 @@ lt:
               title: Pavadinimo laukas neturėtų būti tuščias
   activerecord:
     models:
+      decidim/initiative:
+        one: Iniciatyva
+        few: Iniciatyvos
+        many: Iniciatyvos
+        other: Iniciatyvos
       decidim/initiative_comittee:
         one: Komitetas
         few: Komitetai
@@ -364,6 +369,7 @@ lt:
         fill_data:
           back: Atgal
           continue: Tęsti
+          decidim_user_group_id_help: Neįmanoma pakeisti iniciatyvos autorystės po jos sukūrimo
           fill_data_help: "<ul> <li>Peržiūrėkite savo iniciatyvos turinį. Ar jūsų pavadinimas lengvai suprantamas? Ar jūsų iniciatyvos tikslas aiškus?</li> <li>Turite pasirinkti parašo rūšį. Asmeniškai, internetu, derinti abu būdus</li> <li>Kokia iniciatyvos geografinė taikymo sritis?</li> </ul>"
           more_information: "(Daugiau informacijos)"
           select_area: Pasirinkti erdvę
@@ -445,6 +451,7 @@ lt:
         delete_attachment: Ištrinti
       index:
         title: Iniciatyvos
+        uninitialized: Iniciatyvos dar nesukonfiguruotos
       initiative_signatures:
         fill_personal_data:
           continue: Tęsti
