@@ -44,6 +44,7 @@ lt:
         visible: Matomas
       meeting_agenda_items:
         description: Aprašymas
+        duration: Trukmė
         title: Pavadinimas
       meeting_registration_invite:
         email: El. paštas
