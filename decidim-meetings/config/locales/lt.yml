@@ -43,6 +43,7 @@ lt:
         visible: Matomas
       meeting_agenda_items:
         description: Aprašymas
+        duration: Trukmė
         title: Pavadinimas
       meeting_registration_invite:
         email: El. paštas
@@ -534,6 +535,7 @@ lt:
           edit_meeting: Redaguoti susitikimą
           join_meeting: Prisijunkite prie susitikimo
         meetings:
+          no_meetings_warning: Jūsų paieškos kriterijus atitinkančių susirinkimų nerasta arba neplanuojama.
           upcoming_meetings_warning: Šiuo metu suplanuotų susitikimų nėra, tačiau čia galite rasti visus buvusius susitikimus.
         new:
           back: Atgal
@@ -614,6 +616,7 @@ lt:
             question_replied: Klausimas atsakytas
             reply_question: Atsakyti į klausimą
       public_participants_list:
+        attending_organizations: Organizacijos
         attending_participants: Dalyviai
         hidden_participants_count:
           one: ir dar %{count} žmogus
@@ -633,6 +636,7 @@ lt:
       registrations:
         create:
           invalid: Jungiantis prie šio susirinkimo iškilo problema.
+          success: Jūs prisijungėte prie susirinkimo. Kadangi užsiregistravote šiame posėdyje, jums bus pranešta, jeigu jo informacija bus atnaujinta.
         decline_invitation:
           invalid: Atmetant kvietimą iškilo problema.
           success: Jūs atmetėte kvietimą.
@@ -647,6 +651,9 @@ lt:
         private_meeting: Uždaras posėdis
         transparent: Skaidrus
         withdraw: Atsiimta
+      withdraw:
+        error: Išimant susirinkimą įvyko klaida.
+        success: Susirinkimas sėkmingai išimtas.
     metrics:
       meetings:
         description: Sukurtų susirinkimų skaičius
