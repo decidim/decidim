@@ -667,6 +667,7 @@ lt:
             many: "%{count} bendri projektai"
             other: "%{count} bendri projektai"
         create:
+          error: Kuriant šį bendrąjį juodraštį iškilo problema.
           success: Bendrasis juodraštis sukurtas.
         edit:
           attachment_legend: "(Neprivaloma) Pridėti priedą"
@@ -867,6 +868,8 @@ lt:
           recent: Naujausi
           with_more_authors: Turintys daug autorių
         participatory_texts:
+          index:
+            document_index: Dokumentų rodyklė
           view_index:
             see_index: Žiūrėti rodyklę
         placeholder:
