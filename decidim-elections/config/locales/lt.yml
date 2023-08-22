@@ -40,6 +40,7 @@ lt:
         end_time: Balsavimas baigiasi
         introductory_image: Įvadinis paveikslėlis
         promoted: Paremta
+        scope_id: Sritis
         show_check_census: Rodyti "patikrinti surašymą" puslapį
         start_time: Balsavimas prasideda
         title: Pavadinimas
@@ -280,6 +281,8 @@ lt:
           create_election:
             census: Surašymas
             errors:
+              census_codes_generated: Rinkimų kodai surašymui nėra sugeneruoti.
+              census_frozen: Rinkimų kodai surašymui nėra eksportuoti.
               census_uploaded: Šiems rinkimams nėra surašymo.
               component_published: Rinkimų komponentas <strong>nėra publikuotas</strong>.
               max_selections: Klausimai neturi <strong>teisingos vertės atsakymų kiekiui</strong>
@@ -295,6 +298,8 @@ lt:
               'false': neturi <strong>viešo rakto</strong>
               'true': turi <strong>viešą raktą</strong>
             requirements:
+              census_codes_generated: Rinkimų kodai surašymui sugeneruoti.
+              census_frozen: Rinkimų kodai surašymui eksportuoti ir surašymas sustabdytas.
               census_uploaded: Surašymas įkeliamas.
               component_published: Rinkimų komponentas <strong>paskelbtas</strong>.
               max_selections: Visi klausimai turi teisingą kiekį <strong>maksimalių klausimų</strong>.
@@ -1177,6 +1182,8 @@ lt:
         highlighted_votings:
           name: Paryškinti balsavimai
         landing_page:
+          description:
+            title: Apie šį balsavimą
           metrics:
             heading: Rodikliai
           polling_stations:
@@ -1193,6 +1200,8 @@ lt:
       pages:
         home:
           highlighted_votings:
+            active_votings: Aktyvūs balsavimai
+            see_all_votings: Žiūrėti visus balsavimus
             votings_button_title: Nuoroda į puslapį „Balsavimai“, kuriame pateikiami visi balsavimai
       polling_officer_zone:
         closures:
