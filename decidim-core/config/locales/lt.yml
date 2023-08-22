@@ -1076,6 +1076,7 @@ lt:
       index:
         last_activity: Paskutinė veikla
       name: Paskutinė veikla
+      no_activities_warning: Nėra jokių įrašų šiam veiklos tipui.
     linked_resource_from:
       included_in: Įtraukta į
     links:
