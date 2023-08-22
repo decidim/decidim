@@ -65,7 +65,7 @@
 
   th:not(:first-child),
   td:not(:first-child){
-    text-align: center;
+    @apply text-center;
   }
 
   th [type="checkbox"],
@@ -76,7 +76,7 @@
   &.table-list--selectable{
     th:nth-child(2),
     td:nth-child(2){
-      text-align: left;
+      @apply text-left;
     }
   }
 
@@ -90,12 +90,7 @@
   }
 
   td > .button{
-    margin-bottom: 0;
-  }
-
-  .switch.tiny{
-    margin: 0 auto;
-    width: 48px;
+    @apply mb-0;
   }
 
   .table-list__date,
@@ -145,18 +140,13 @@
 }
 
 .table-list__type-icon{
-  position: relative;
-  top: 1px;
-  cursor: pointer;
+  @apply relative cursor-pointer;
 }
 
 .table-list__type-label{
-  display: none;
-  position: relative;
-  top: -1px;
-  font-weight: 600;
+  @apply hidden relative font-semibold;
 
   &.expanded{
-    display: inline-block;
+    @apply inline-block;
   }
 }

@@ -21,7 +21,7 @@
 
   .button,
   .input-group{
-    margin-bottom: 0;
+    @apply mb-0;
   }
 
   .input-group{
@@ -68,21 +68,18 @@
 }
 
 .filter-status{
-  position: relative;
-  width: 100%;
-  margin-top: .5rem;
+  @apply relative w-full mt-2;
 
   .label{
-    font-weight: 600;
-    margin-top: .5rem;
+    @apply font-semibold mt-2;
 
     .type-icon{
-      vertical-align: top;
+      @apply align-top;
     }
 
     .action-icon{
       span{
-        margin-left: .25rem;
+        @apply ml-1;
       }
 
       &.action-icon--remove{

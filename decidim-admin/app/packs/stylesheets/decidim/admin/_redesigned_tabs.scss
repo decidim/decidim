@@ -57,24 +57,18 @@
 
 .form{
   .language-change{
-    height: 2rem;
-    margin-bottom: 1rem;
+    @apply h-8 mb-4;
   }
 }
 
 .tab-custom-error-wrapper {
-  display: flex;
-  flex-wrap: wrap;
+  @apply flex flex-wrap;
 }
 
 .tab-custom-error {
-  @extend .form-error;
-
-  margin-right: 0.3rem;
+  @apply mr-1;
 }
 
 .is-tab-custom-error-visible {
-  display: block;
+  @apply block;
 }
-
-
