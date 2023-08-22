@@ -2,8 +2,13 @@ lt:
   activemodel:
     attributes:
       initiative:
+        answer: Atsakyti
+        answer_url: Atsakymo nuoroda
+        area_id: Aplinka
+        decidim_scope_id: Sritis
         decidim_user_group_id: Autorė(-ius)
         description: Aprašymas
+        hashtag: Grotažymė
         offline_votes: Fiziniai parašai
         offline_votes_for_scope: Fiziniai parašai%{scope_name}
         scope_id: Apimtis
@@ -16,6 +21,7 @@ lt:
           online: Internetiniai
         state: Būsena
         title: Pavadinimas
+        type_id: Tipas
       initiatives_committee_member:
         user: Komiteto narys
       initiatives_type:
