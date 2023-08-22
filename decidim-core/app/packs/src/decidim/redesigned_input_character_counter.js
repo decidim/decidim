@@ -55,7 +55,7 @@ export default class InputCharacterCounter {
       if (this.$input.attr("id") && this.$input.attr("id").length > 0) {
         targetId = `${this.$input.attr("id")}_characters`;
       } else {
-        targetId = `characters_${Math.random().toString(36).substr(2, 9)}`;
+        targetId = `characters_${Math.random().toString(36).substring(2, 9)}`;
       }
     }
 
@@ -148,6 +148,11 @@ export default class InputCharacterCounter {
 
     this.$userInput.on("keyup", () => {
       this.updateStatus();
+
+      if (this.$userInput.val().length >= this.maxCharacters) {
+        this.$userInput.get(0).setCustomValidity(MESSAGES.limit)
+        this.$userInput.get(0).reportValidity()
+      }
     });
     this.$userInput.on("focus", () => {
       this.updateScreenReaderStatus();
