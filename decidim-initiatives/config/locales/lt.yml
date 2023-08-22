@@ -25,6 +25,8 @@ lt:
         type_id: Tipas
       initiatives_committee_member:
         user: Komiteto narys
+      initiatives_settings:
+        initiatives_order: Eiliškumas
       initiatives_type:
         area_enabled: Leisti autoriams pasirinkti savo iniciatyvos erdvę
         attachments_enabled: Leisti priedus
@@ -40,9 +42,13 @@ lt:
         online_signature_enabled: Pasirašymas internetu įjungtas
         only_global_scope_enabled: Leisti tik globalių apimčių iniciatyvų kūrimą
         promoting_committee_enabled: Leisti sklaidos komitetus
+        signature_type: Parašo tipas
         title: Pavadinimas
         undo_online_signatures_enabled: Suteikti dalyviams galimybę panaikinti savo skaitmeninius parašus
         validate_sms_code_on_votes: Į pasirašymo procesą įtraukti SMS kodo patvirtinimo etapą
+      initiatives_type_scope:
+        decidim_scopes_id: Sritys
+        supports_required: Parama aktyvuota
       initiatives_vote:
         date_of_birth: Gimimo data
         document_number: Dokumento numeris
@@ -591,6 +597,11 @@ lt:
         status_change_for: Iniciatyvos %{title} būsena pasikeitė
       last_activity:
         new_initiative: Nauja iniciatyva
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktyvios iniciatyvos
+            see_all_initiatives: Žiūrėti visas iniciatyvas
       show:
         badge_name:
           accepted: Parašų užtenka
