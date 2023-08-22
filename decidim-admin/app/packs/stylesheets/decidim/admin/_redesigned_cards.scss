@@ -30,10 +30,7 @@
   }
 
   .data-picker{
-    font-weight: normal;
-    letter-spacing: 0;
-    margin-bottom: 0;
-    text-transform: none;
+    @apply font-normal tracking-normal mb-0 normal-case;
   }
 
   .button--title{
@@ -106,6 +103,10 @@
   svg{
     @apply w-4 h-4 inline-block fill-secondary;
   }
+}
+
+.fcell .label {
+  @apply p-2 mb-2;
 }
 
 .card-section-draggable-list{
