@@ -47,7 +47,9 @@
       <div class="cell small-6 medium-6 large-6">
         <%= render partial: "decidim/admin/logs/logs_list", locals: { logs: latest_action_logs, display_filters: false } %>
         <% if latest_action_logs.any? %>
-          <div class="text-center"><%= link_to t(".view_more_logs"), logs_path %></div>
+          <div class="mt-4">
+            <%= link_to t(".view_more_logs"), logs_path, class: "button button__sm button__secondary" %>
+          </div>
         <% end %>
       </div>
     <% end %>
