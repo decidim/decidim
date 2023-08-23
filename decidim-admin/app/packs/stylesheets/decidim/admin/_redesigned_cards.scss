@@ -144,3 +144,17 @@
     }
   }
 }
+
+.admin-terms-of-service {
+  h2{
+    @apply text-md w-full text-gray-2 font-semibold;
+  }
+
+  p{
+    @apply my-2;
+  }
+
+  ol{
+    @apply list-decimal ml-4;
+  }
+}

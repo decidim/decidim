@@ -1,10 +1,10 @@
 <%= cell("decidim/announcement", announcement_body, callout_class: current_user.admin_terms_accepted? ? "success" : "warning" ) %>
 
 <article class="card">
-  <div class="card-section grid-x grid-margin-x">
+  <div class="card-section p-4">
     <div class="cell medium-12">
 
-      <div class="content">
+      <div class="admin-terms-of-service">
         <%= admin_terms_of_service_body %>
       </div>
     </div>
