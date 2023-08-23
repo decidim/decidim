@@ -678,6 +678,7 @@ fr:
           confirm: Confirmer votre vote
           election: Élection
           register: S'inscrire
+          vote_for: Voter pour %{title}
         messages:
           invalid_token: Votre session dans l'isoloir n'est pas valide. Essayez de voter à nouveau.
           not_allowed: Vous n'êtes pas autorisé à voter sur cette élection pour le moment.
@@ -763,6 +764,9 @@ fr:
           title: Que sont les élections ?
     menu:
       votings: Élections
+    participatory_spaces:
+      related_elections:
+        see_all: Voir toutes les élections
     statistics:
       elections_count: Élections
       votings_count: Votes
@@ -800,8 +804,30 @@ fr:
             invalid: Un problème est survenu lors de la mise à jour de ce style de scrutin.
             success: Mise à jour réussie du style de scrutin.
         content_blocks:
+          attachments_and_folders:
+            name: Pièces jointes et dossiers du vote
+          header:
+            name: En-tête de vote
           highlighted_votings:
             max_results: Nombre maximum d'éléments à afficher
+          html_block_1:
+            name: Bloc HTML 1 du Vote
+          html_block_2:
+            name: Bloc HTML 2 du Vote
+          html_block_3:
+            name: Bloc HTML 3 du Vote
+          main_data:
+            name: Titre et description
+          metrics:
+            name: Métriques de vote
+          polling_stations:
+            name: Bureaux de vote
+          related_elections:
+            name: Élections
+          stats:
+            name: Statistiques du vote
+          timeline:
+            name: Calendrier du vote
         index:
           not_published: Non publié
           published: Publié
@@ -1140,6 +1166,11 @@ fr:
           destroy: Supprimer
           new: Nouveau membre
           title: Actions
+      pages:
+        home:
+          highlighted_votings:
+            active_spaces: Votations en cours
+            see_all_spaces: Voir toutes les votations
       polling_officer_zone:
         closures:
           back_to_polling_stations: Retourner aux bureaux de vote
