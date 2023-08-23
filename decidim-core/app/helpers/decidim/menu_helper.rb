@@ -37,7 +37,7 @@ module Decidim
       @footer_menu ||= ::Decidim::FooterMenuPresenter.new(
         :menu,
         self,
-        element_class: "font-semibold",
+        element_class: "font-semibold hover:underline",
         active_class: "is-active",
         container_options: { class: "space-y-4 break-inside-avoid" },
         label: t("layouts.decidim.footer.decidim_title")
