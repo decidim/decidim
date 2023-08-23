@@ -9,7 +9,7 @@
   <%= decidim_form_for(resource, namespace: "unlock", as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
 
     <div class="form__wrapper">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "hi@email.com" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "hi@example.com" %>
     </div>
 
     <div class="form__wrapper-block">

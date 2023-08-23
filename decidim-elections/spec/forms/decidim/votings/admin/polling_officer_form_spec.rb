@@ -34,7 +34,7 @@ module Decidim
           end
 
           describe "when email is invalid" do
-            let(:email) { "invalid#email.org" }
+            let(:email) { "invalid#example.org" }
 
             it { is_expected.not_to be_valid }
           end
