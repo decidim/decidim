@@ -7,7 +7,7 @@
   }
 
   .process-title-content{
-    @apply flex items-center;
+    @apply flex items-center min-h-[28px];
 
     .dropdown__trigger{
       @apply flex underline px-2 pt-0.5 pb-1;
