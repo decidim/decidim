@@ -65,6 +65,11 @@ en:
             official_blog_post: Official post
             published_at: Publish time
             title: Title
+      posts:
+        index:
+          count:
+            one: "%{count} post"
+            other: "%{count} posts"
     components:
       blogs:
         actions:
