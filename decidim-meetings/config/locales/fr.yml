@@ -519,7 +519,7 @@ fr:
           close_meeting: Clore la rencontre
           edit_close_meeting: Modifier le compte-rendu de la rencontre
           edit_meeting: Modifier la rencontre
-          join_meeting: Rejoindre la rencontre
+          join_meeting: Participer à la rencontre
         meetings:
           no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'a été créée.
           upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontres planifiées. Ici vous trouverez une liste de toutes les rencontres passées.
@@ -601,7 +601,7 @@ fr:
             reply_question: Répondre
       public_participants_list:
         attending_organizations: Organisations
-        attending_participants: Participants présents
+        attending_participants: Participants
         hidden_participants_count:
           one: et %{count} personne de plus
           other: et %{count} personnes de plus
@@ -644,7 +644,7 @@ fr:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Rencontres passées
-        see_all: Tout voir (%{count})
+        see_all: Voir toutes les rencontres
         upcoming_meetings: Rencontres à venir
     resource_links:
       meetings_through_proposals:
