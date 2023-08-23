@@ -39,32 +39,35 @@ export default class PasswordToggler {
   }
 
   createControls() {
+    this.createButton();
+    this.createStatusText();
+    this.addInputGroupWrapperAsParent();
+  }
+
+  createButton() {
     const button = document.createElement("button");
-    button.classList.add("mt-10")
+    button.classList.add("mt-5")
     button.setAttribute("aria-controls", this.input.getAttribute("id"));
     button.setAttribute("aria-label", this.texts.showPassword);
     button.innerHTML = this.icons.show;
     this.button = button;
+  }
 
+  createStatusText() {
     const statusText = document.createElement("span");
     statusText.classList.add("sr-only");
     statusText.setAttribute("aria-live", "polite");
     statusText.textContent = this.texts.hiddenPassword;
     this.statusText = statusText;
+  }
 
+  addInputGroupWrapperAsParent(){
     const inputGroupWrapper = document.createElement("div");
     inputGroupWrapper.classList.add("filter-search", "filter-container");
 
-    const inputParent = this.input.parentNode;
-    const inputGrandParent = inputParent.parentNode;
-    const label = this.password.querySelector("label");
-
-    inputGrandParent.replaceChild(inputGroupWrapper, this.input.parentNode);
-    inputGroupWrapper.appendChild(label);
-    label.appendChild(this.input);
-
-    label.after(this.button);
-    label.after(this.statusText);
+    this.input.parentNode.replaceChild(inputGroupWrapper, this.input);
+    inputGroupWrapper.appendChild(this.input);
+    this.input.after(this.button);
   }
 
   toggleVisibiliy(evt) {
