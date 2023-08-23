@@ -387,7 +387,7 @@ fr:
     participatory_spaces:
       highlighted_proposals:
         last: Dernières propositions
-        see_all: Tout voir (%{count})
+        see_all: Voir toutes les propositions
     proposals:
       actions:
         answer_proposal: Répondre à la proposition
@@ -697,7 +697,7 @@ fr:
             success: "@%{user} a été rejeté en tant que collaborateur avec succès."
         show:
           edit: Modifier un brouillon collaboratif
-          final_proposal: proposition finale
+          final_proposal: Proposition finale
           final_proposal_help_text: Ce brouillon est terminé. Vous pouvez voir la proposition finale terminée
           hidden_authors_count:
             one: et %{count} personne de plus
@@ -705,7 +705,7 @@ fr:
           info-message: Ceci est le <strong>brouillon collaboratif</strong> d'une proposition. Cela signifie que vous pouvez aider les auteurs à façonner la proposition en utilisant la section commentaire ci-dessous ou l'améliorer directement en demandant un accès pour la modifier. Une fois que les auteurs vous accordent l'accès, vous pourrez apporter des modifications à ce brouillon de proposition.
           publish: Publier
           publish_info: Publiez cette version du brouillon ou
-          published_proposal: proposition publiée
+          published_proposal: Proposition publiée
           request_access: Demande d'accès
           requested_access: Accès demandé
           withdraw: retirer le projet
@@ -816,7 +816,7 @@ fr:
           with_more_authors: Avec le plus d'auteurs
         participatory_texts:
           view_index:
-            document_index: Index de document
+            document_index: Index du document
         placeholder:
           address: 60 Boulevard Victor Hugo Saint-Jean-de-Luz, BP 64500
         preview:
@@ -878,7 +878,7 @@ fr:
           title: 'Les soutiens sont soumis aux règles suivantes :'
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
-            votes: Votes
+            votes: '%{number} votes restants'
         wizard_aside:
           back: Retour
           back_from_step_1: Retour aux propositions
