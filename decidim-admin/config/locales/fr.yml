@@ -320,7 +320,7 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création de cette fonctionnalité.
           success: Fonctionnalité créée avec succès.
-          success_landing_page: Composant créé avec succès. Vous pouvez ajouter un bloc de contenu pour ce composant à la page accueil de l'espace. Allez à <a href="%{landing_page_path}">la page de destination</a> pour la configurer.
+          success_landing_page: Fonctionnalité créée avec succès. Vous pouvez ajouter un bloc de contenu pour cette fonctionnalité sur la page d'accueil de l'espace. Rendez-vous sur <a href="%{landing_page_path}">la page d'accueil de l'espace</a> pour la configurer.
         destroy:
           error: Une erreur s'est produite lors de la suppression de cette fonctionnalité.
           success: La fonctionnalité a été supprimée avec succès.
@@ -934,7 +934,7 @@ fr:
           update: Mettre à jour
         new:
           create: Créer un type de secteur
-          title: Nouveau secteur
+          title: Créer un type de secteurs
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce type de secteur.
           success: Type de secteur mis à jour avec succès
