@@ -7,19 +7,19 @@
     </div>
     <div class="card-section">
       <div class="row column">
-        <div class="column xlarge-8">
-          <%= form.translated :text_field, :title, autofocus: true %>
-        </div>
-        <div class="column xlarge-4 slug">
-          <%= form.text_field :slug %>
-          <p class="help-text"><%== t(".slug_help", url: decidim_form_slug_url(:assemblies, form.object.slug)) %></p>
-        </div>
-        <div class="column xlarge-8">
-          <fieldset>
-            <legend><%= t(".document_legend") %> </legend>
-              <%= form.upload :document, button_class: "button button__sm button__transparent-secondary" %>
-          </fieldset>
-        </div>
+        <%= form.translated :text_field, :title, autofocus: true %>
+      </div>
+      <div class="row column">
+        <%= form.text_field :slug %>
+        <p class="help-text"><%== t(".slug_help", url: decidim_form_slug_url(:assemblies, form.object.slug)) %></p>
+      </div>
+      <div class="row column">
+        <fieldset>
+          <legend><%= t(".document_legend") %> </legend>
+            <%= form.upload :document, button_class: "button button__sm button__transparent-secondary" %>
+        </fieldset>
+      </div>
+      <div class="row column">
         <div class="card">
           <div class="card-divider">
             <legend><%= select %></legend>
