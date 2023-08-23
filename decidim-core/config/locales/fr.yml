@@ -105,7 +105,7 @@ fr:
         one: moins d'une seconde
         other: moins de %{count} secondes
       short:
-        about_x_days: "%{count} jrs"
+        about_x_days: "%{count} j"
         about_x_hours: "%{count} h"
         about_x_minutes: "%{count} min"
         about_x_months: "%{count} mois"
@@ -115,7 +115,7 @@ fr:
         less_than_x_minutes: "%{count} min"
         less_than_x_seconds: "%{count} s"
         over_x_years: "%{count} an(s)"
-        x_days: "%{count} jrs"
+        x_days: "%{count} j"
         x_hours: "%{count} h"
         x_minutes: "%{count} min"
         x_months: "%{count} mois"
@@ -524,7 +524,7 @@ fr:
       highlighted_elements_settings_form:
         components:
           all: Tout
-          label: 'Sélectionnez un composant:'
+          label: 'Sélectionnez une fonctionnalité :'
         orders:
           label: 'Trier les éléments par:'
           random: Aléatoire
@@ -631,9 +631,9 @@ fr:
       authorizations:
         new:
           authorize: Autoriser l'application
-          by_organization_link_html: <small class="heading-small">par %{link}</small>
+          by_organization_link_html: par %{link}
           cancel: Annuler
-          connect_your_account_html: Connectez votre compte en vous connectant à <strong>%{organization}</strong>.
+          connect_your_account_html: Connectez-vous à votre compte en vous connectant à %{organization}.
           publish_content: Publier du contenu pour vous
           see_email: Voir votre email
           see_name: Voir votre nom
@@ -641,7 +641,7 @@ fr:
           this_application_will_be_able_to: 'Cette application sera capable de :'
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
+          wants_to_use_your_account_html: "%{application_name} veut utiliser votre compte"
     download_your_data:
       export:
         ready: Prêt
@@ -1312,7 +1312,7 @@ fr:
       participatory_space:
         metrics:
           headline: Participation en chiffres
-          link: Afficher toutes les statistiques
+          link: Tout afficher
       terms_of_service:
         accept:
           error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation.
@@ -1576,7 +1576,7 @@ fr:
         version: Numéro de version %{number}
     versions_list_item:
       show:
-        version_index: Version %{index}
+        version_index: Version %{index} de %{total}
     welcome_notification:
       default_body: <p>Bonjour {{name}}, merci d'avoir rejoint {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>En somme, rejoignez d'autres personnes, partagez avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, lancez des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées dans un esprit ouvert pour collaborer et enrichir les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!
@@ -1904,8 +1904,8 @@ fr:
         decidim_title: Decidim
         download_open_data: Télécharger les fichiers Open Data
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
-        resources: Documentation
-        sign_in: Se connecter
+        resources: Ressources
+        sign_in: S'identifier
         sign_up: Créer un compte
         terms_and_conditions: Conditions générales
       header:
