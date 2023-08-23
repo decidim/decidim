@@ -19,7 +19,6 @@ describe "Authentication", type: :system do
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
           fill_in :registration_user_name, with: "Responsible Citizen"
-          fill_in :registration_user_nickname, with: "responsible"
           fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
           fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :registration_user_tos_agreement
@@ -44,7 +43,6 @@ describe "Authentication", type: :system do
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
           fill_in :registration_user_name, with: "Responsible Citizen"
-          fill_in :registration_user_nickname, with: "responsible"
           fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
           fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :registration_user_tos_agreement
@@ -65,7 +63,6 @@ describe "Authentication", type: :system do
           page.execute_script("$($('.new_user > div > input')[0]).val('Ima robot :D')")
           fill_in :registration_user_email, with: "user@example.org"
           fill_in :registration_user_name, with: "Responsible Citizen"
-          fill_in :registration_user_nickname, with: "responsible"
           fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
           fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :registration_user_tos_agreement
@@ -226,15 +223,14 @@ describe "Authentication", type: :system do
     end
 
     context "when nickname is not unique case insensitively" do
-      let!(:user) { create(:user, nickname: "Nick", organization:) }
+      let!(:user) { create(:user, nickname: "Responsible_Citizen", organization:) }
 
-      it "show an error message" do
+      it "creates a new User" do
         click_link("Sign Up")
 
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
           fill_in :registration_user_name, with: "Responsible Citizen"
-          fill_in :registration_user_nickname, with: "NiCk"
           fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
           fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :registration_user_tos_agreement
@@ -242,7 +238,8 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("has already been taken")
+        expect(page).to have_content("confirmation link")
+        expect(last_user.nickname).to eq("responsible_citize_2")
       end
     end
 
@@ -630,7 +627,6 @@ describe "Authentication", type: :system do
           within ".new_user" do
             fill_in :registration_user_email, with: user.email
             fill_in :registration_user_name, with: "Responsible Citizen"
-            fill_in :registration_user_nickname, with: "responsible"
             fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
             fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
             check :registration_user_tos_agreement

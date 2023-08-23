@@ -594,7 +594,6 @@ en:
           already_have_an_account?: Already have an account?
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
-          nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           sign_in: Log in
           sign_up: Sign up
           subtitle: Sign up to participate in discussions and support proposals.
