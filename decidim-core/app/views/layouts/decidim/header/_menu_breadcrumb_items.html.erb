@@ -1,5 +1,5 @@
 <% breadcrumb_items.each_with_index do |item, i| %>
-  <% item_label = decidim_html_escape(translated_attribute(item[:label])) %>
+  <% item_label = translated_attribute(item[:label]) %>
   <span>/</span>
   <% if item[:dropdown_cell].present? %>
     <div class="relative">
@@ -22,9 +22,9 @@
       </div>
     </div>
   <% else %>
-    <%= link_to_if(item[:url].present? && !is_active_link?(item[:url], :exclusive), item_label, item[:url], class:"menu-bar__breadcrumb-desktop__dropdown-wrapper menu-bar__breadcrumb-desktop__dropdown-trigger", "aria-current": (item[:active] ? "page" : nil)) do %>
+    <%= link_to_if(item[:url].present? && !is_active_link?(item[:url], :exclusive), item_label, item[:url], class: "menu-bar__breadcrumb-desktop__dropdown-wrapper menu-bar__breadcrumb-desktop__dropdown-trigger", "aria-current": (item[:active] ? "page" : nil)) do %>
       <%# alternative template %>
-      <%= content_tag :span, item_label, class:"menu-bar__breadcrumb-desktop__dropdown-trigger no-interactive", tabindex: "0", "aria-current": "page" if item[:active] %>
+      <%= content_tag :span, item_label, class: "menu-bar__breadcrumb-desktop__dropdown-trigger no-interactive", tabindex: "0", "aria-current": "page" if item[:active] %>
     <% end %>
   <% end %>
 <% end %>
