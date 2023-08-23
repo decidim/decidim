@@ -1,5 +1,6 @@
 /* eslint-disable require-jsdoc */
 import icon from "src/decidim/redesigned_icon"
+import { changeHourDisplay, changeMinuteDisplay } from "./redesigned_timepicker_functions";
 
 export default function generateTimePicker(input, row) {
   const timeColumn = document.createElement("div");
@@ -139,47 +140,11 @@ export default function generateTimePicker(input, row) {
     if (element === "clock") {
       hours.value = displayHour;
       minutes.value = displayMinute;
-    } else if (element === "input") {
-      time.value = `${displayHour}:${displayMinute}`;
     } else {
       hours.value = displayHour;
       minutes.value = displayMinute;
       time.value = `${displayHour}:${displayMinute}`;
     };
-  };
-
-  const changeDisplay = (change, target) => {
-    if (target === "hour") {
-      if (change === "increase") {
-        if (hour === 23) {
-          hour = 0;
-        } else {
-          hour += 1;
-        };
-      } else if (change === "decrease") {
-        if (hour === 0) {
-          hour = 23;
-        } else {
-          hour -= 1;
-        };
-      };
-    };
-    if (target === "minute") {
-      if (change === "increase") {
-        if (minute === 59) {
-          minute = 0;
-        } else {
-          minute += 1;
-        };
-      } else if (change === "decrease") {
-        if (minute === 0) {
-          minute = 59;
-        } else {
-          minute -= 1;
-        };
-      };
-    };
-    display();
   };
 
   display("clock");
@@ -207,21 +172,27 @@ export default function generateTimePicker(input, row) {
     }
   });
 
-  time.addEventListener("keydown", (event) => {
-    const selectionStart = [1, 2, 3];
-    const inputLength = [4, 5];
+  time.addEventListener("click", (event) => {
+    if (event.target.selectionStart < 3) {
+      time.setSelectionRange(2, 5);
+    };
+  });
 
+  time.addEventListener("keydown", (event) => {
     switch (event.key) {
     case "ArrowUp":
       break;
     case "ArrowDown":
       break;
     case "ArrowLeft":
+      if (time.value.length > 3 && event.target.selectionStart < 4) {
+        event.preventDefault();
+      }
       break;
     case "ArrowRight":
       break;
     case "Backspace":
-      if (inputLength.includes(time.value.length) && selectionStart.includes(event.target.selectionStart)) {
+      if (time.value.length > 3 && event.target.selectionStart < 4) {
         event.preventDefault();
       } else if (time.value.length === 4) {
         time.value = time.value.replace(":", "");
@@ -289,21 +260,25 @@ export default function generateTimePicker(input, row) {
 
   hourUp.addEventListener("click", (event) => {
     event.preventDefault();
-    changeDisplay("increase", "hour");
+    hour = changeHourDisplay("increase", hour);
+    display();
   });
 
   hourDown.addEventListener("click", (event) => {
     event.preventDefault();
-    changeDisplay("decrease", "hour");
+    hour = changeHourDisplay("decrease", hour);
+    display();
   });
 
   minuteUp.addEventListener("click", (event) => {
     event.preventDefault();
-    changeDisplay("increase", "minute");
+    minute = changeMinuteDisplay("increase", minute);
+    display();
   });
 
   minuteDown.addEventListener("click", (event) => {
     event.preventDefault();
-    changeDisplay("decrease", "minute");
+    minute = changeMinuteDisplay("decrease", minute);
+    display();
   });
 };
