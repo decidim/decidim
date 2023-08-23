@@ -1078,6 +1078,7 @@ cs:
       index:
         last_activity: Poslední aktivita
       name: Poslední aktivity
+      no_activities_warning: Pro tento typ aktivity nejsou k dispozici žádné položky.
     linked_resource_from:
       included_in: Zahrnuto v
     links:
