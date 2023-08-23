@@ -1847,7 +1847,7 @@ en:
   layouts:
     decidim:
       announcements:
-        close: Close
+        view_less: Show less
         view_more: More information
       data_consent:
         details:
