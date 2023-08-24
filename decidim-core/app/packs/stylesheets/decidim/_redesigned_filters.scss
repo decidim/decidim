@@ -60,6 +60,10 @@
     }
   }
 
+  &-help {
+    @apply text-xs text-gray-2 mb-4;
+  }
+
   &-search {
     @apply w-full relative;
 

@@ -13,6 +13,8 @@
     </button>
 
     <div id="dropdown-menu-filters">
+      <p class="filter-help"><%= t("help", scope: "decidim.shared.filter_form_help") %></p>
+
       <% if local_assigns.has_key?(:search_variable) %>
         <div class="filter-search filter-container">
           <%= form.search_field search_variable,
