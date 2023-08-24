@@ -158,3 +158,9 @@
     @apply list-decimal ml-4;
   }
 }
+
+.code-block{
+  @apply font-normal text-gray-2 block overflow-auto whitespace-pre p-4 mb-6 bg-gray;
+
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
