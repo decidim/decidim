@@ -1456,7 +1456,6 @@ en:
         unfold: Unfold
       filter_form_help:
         help: The form below filters the search results dynamically when the search conditions are changed.
-        skip: Skip to results
       flag_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
