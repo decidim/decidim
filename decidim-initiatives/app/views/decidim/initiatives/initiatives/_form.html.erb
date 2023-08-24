@@ -7,7 +7,7 @@
 <%= form.text_field :hashtag, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
 
 <% if @form.state_updatable? %>
-  <%= form.select :state, Decidim::Initiative.states.keys.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] } %>
+  <%= form.select :state, Decidim::Initiative.states.keys.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] }, {} %>
 <% end %>
 
 <% unless single_initiative_type? %>
@@ -25,8 +25,7 @@
                   } %>
 <% end %>
 
-<%= form.select :scope_id,
-                @form.available_scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] }  %>
+<%= form.select :scope_id, @form.available_scopes.map { |scope| [translated_attribute(scope.scope_name), scope.scope&.id] }, {} %>
 
 <% if can_edit_custom_signature_end_date?(current_initiative) %>
   <%= form.date_field :signature_end_date, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
