@@ -391,7 +391,7 @@ fr-CA:
         main_data:
           name: Titre et description
         participatory_processes:
-          active: Processus participatifs actifs
+          active: Concertations actives
           name: Concertations
         stats:
           name: Statistiques
@@ -452,11 +452,11 @@ fr-CA:
         extra_data:
           name: Phase & durée
         hero:
-          name: Image du hero et CTA
+          name: Image principale et bouton d'action
         highlighted_processes:
           name: Concertations mises en avant
         related_processes:
-          name: Processus participatifs liés
+          name: Concertations liées
       index:
         title: Concertations
       last_activity:
@@ -464,8 +464,8 @@ fr-CA:
       pages:
         home:
           highlighted_processes:
-            active_spaces: Processus participatifs actifs
-            see_all_spaces: Voir tous les processus participatifs
+            active_spaces: Concertations actives
+            see_all_spaces: Voir toutes les concertations
       participatory_process_steps:
         index:
           back_to_process: Retour à la page du processus
@@ -479,7 +479,7 @@ fr-CA:
           participatory_scope: Ce qui est décidé
           participatory_structure: Modalités de décision
           target: Qui participe
-          title: À propos de ce processus participatif
+          title: A propos de cette concertation
         filters:
           all_types: Tous les types
           counters:
