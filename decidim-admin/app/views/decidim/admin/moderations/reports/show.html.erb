@@ -46,17 +46,16 @@
       <dd><%= @report.details %>
       </div>
     </dl>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
+        <%= link_to t("actions.unreport", scope: "decidim.moderations"), unreport_moderation_path(id: moderation), method: :put, class: "button button__sm md:button__lg button__secondary" %>
+      <% end %>
+      <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
+        <%= link_to t("actions.hide", scope: "decidim.moderations"), hide_moderation_path(id: moderation), method: :put, class: "button button__sm md:button__lg button__secondary alert" %>
+      <% end %>
+      <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
+        <%= link_to t("actions.unhide", scope: "decidim.moderations"), unhide_moderation_path(id: moderation), method: :put, class: "button button__sm md:button__lg button__secondary alert" %>
+      <% end %>
+    </div>
   </div>
-</div>
-
-<div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-  <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
-    <%= link_to t("actions.unreport", scope: "decidim.moderations"), unreport_moderation_path(id: moderation), method: :put, class: "button button__sm md:button__lg button__secondary" %>
-  <% end %>
-  <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
-    <%= link_to t("actions.hide", scope: "decidim.moderations"), hide_moderation_path(id: moderation), method: :put, class: "button button__sm md:button__lg button__secondary alert" %>
-  <% end %>
-  <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
-    <%= link_to t("actions.unhide", scope: "decidim.moderations"), unhide_moderation_path(id: moderation), method: :put, class: "button button__sm md:button__lg button__secondary alert" %>
-  <% end %>
 </div>
