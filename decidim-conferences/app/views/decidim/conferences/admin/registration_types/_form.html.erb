@@ -25,7 +25,11 @@
 
       <div class="row column">
         <%= form.label t(".select_conference_meetings") %>
-        <%= form.collection_check_boxes :conference_meeting_ids, @form.meetings, :value, :title, legend_title: "" %>
+        <%= form.collection_check_boxes :conference_meeting_ids, @form.meetings, :value, :title, legend_title: "" do |b| %>
+          <div>
+            <%= b.label { b.check_box + b.text } %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
