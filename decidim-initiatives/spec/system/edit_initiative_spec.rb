@@ -52,6 +52,10 @@ describe "Edit initiative", type: :system do
       end
     end
 
+    it "does not have status field" do
+      expect(page).not_to have_xpath("//select[@id='initiative_state']")
+    end
+
     context "when initiative is published" do
       let(:initiative) { create(:initiative, author: user, scoped_type:, organization:) }
 
