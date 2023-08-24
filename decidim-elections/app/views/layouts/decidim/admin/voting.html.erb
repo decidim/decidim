@@ -7,10 +7,10 @@
       </span>
     <% end %>
     <div class="inline-block relative">
-      <%= button_tag id: "assembly-dropdown-menu-trigger", data: { component: 'dropdown', target: 'assembly-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
+      <%= button_tag id: "voting-dropdown-menu-trigger", data: { component: 'dropdown', target: 'voting-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
         <%= icon "more-line" %>
       <% end %>
-      <div id="assembly-dropdown-menu-settings" class="process-title-content-dropdown">
+      <div id="voting-dropdown-menu-settings" class="process-title-content-dropdown">
         <%= sidebar_menu(:admin_voting_menu).render %>
       </div>
     </div>

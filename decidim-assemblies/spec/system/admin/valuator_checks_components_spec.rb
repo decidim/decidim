@@ -32,18 +32,16 @@ describe "Valuator checks components", type: :system do
 
   context "when listing the space components in the sidebar" do
     it "can only see the proposals component" do
-      within ".layout-nav #components-list" do
-        expect(page).to have_content(translated(current_component.name))
-        expect(page).not_to have_content(translated(another_component.name))
-      end
+      click_button('#conference-dropdown-menu-trigger')
+      expect(page).to have_content(translated(current_component.name))
+      expect(page).not_to have_content(translated(another_component.name))
     end
   end
 
   context "when listing components in the space components page" do
     it "can only see the proposals component" do
-      within ".layout-nav" do
-        click_link "Components"
-      end
+      click_button('#conference-dropdown-menu-trigger')
+      click_link "Components"
 
       within ".card" do
         expect(page).to have_content(translated(current_component.name))
