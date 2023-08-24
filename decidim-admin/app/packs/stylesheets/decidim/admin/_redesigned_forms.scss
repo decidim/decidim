@@ -37,6 +37,10 @@
   .form-defaults select.chosen-select{
     @apply bg-none;
   }
+
+  #q_with_participatory_space{
+    @apply h-9;
+  }
 }
 
 .questionnaire-question{
