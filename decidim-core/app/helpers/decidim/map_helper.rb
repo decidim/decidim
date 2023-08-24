@@ -68,9 +68,9 @@ module Decidim
       map_html_options = { id: "map" }.merge(html_options)
       bottom_id = "#{map_html_options[:id]}_bottom"
 
-      help = content_tag(:div, class: "sr-only") do
-        sr_content = content_tag(:p, t("screen_reader_explanation", scope: "decidim.map.dynamic"))
-        link = link_to(t("skip_button", scope: "decidim.map.dynamic"), "##{bottom_id}")
+      help = content_tag(:div, class: "map__skip-container") do
+        sr_content = content_tag(:p, t("screen_reader_explanation", scope: "decidim.map.dynamic"), class: "sr-only")
+        link = link_to(t("skip_button", scope: "decidim.map.dynamic"), "##{bottom_id}", class: "map__skip")
 
         sr_content + link
       end

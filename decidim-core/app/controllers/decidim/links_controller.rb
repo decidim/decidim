@@ -36,7 +36,7 @@ module Decidim
     end
 
     def external_url
-      @external_url ||= URI.parse(params[:external_url])
+      @external_url ||= URI.parse(URI::Parser.new.escape(params[:external_url]))
     end
   end
 end

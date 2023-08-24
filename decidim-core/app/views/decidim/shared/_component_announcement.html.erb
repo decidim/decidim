@@ -1,5 +1,6 @@
-<% if translated_attribute(current_settings.announcement).present? %>
-  <%= cell("decidim/announcement", current_settings.announcement, callout_class: "editor-content") %>
-<% elsif translated_attribute(component_settings.announcement).present? %>
-  <%= cell("decidim/announcement", component_settings.announcement, callout_class: "editor-content") %>
+<% announcement = translated_attribute(current_settings.announcement).presence || translated_attribute(component_settings.announcement).presence %>
+<% if announcement %>
+  <section class="layout-main__section">
+    <%= cell("decidim/announcement", announcement, local_assigns.merge(callout_class: "editor-content")) %>
+  </section>
 <% end %>

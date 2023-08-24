@@ -12,7 +12,6 @@ end
 
 <div class="layout-container">
   <header>
-    <%= link_to t("skip_button", scope: "decidim.accessibility"), url_for(anchor: "content"), class: "layout-container__skip" %>
     <%= render partial: "layouts/decidim/admin_links" if current_user&.admin %>
     <%= render partial: "layouts/decidim/header/main" %>
     <%= render partial: "layouts/decidim/header/menu" unless controller_name == "homepage" %>

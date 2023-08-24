@@ -1,8 +1,8 @@
 <table class="meeting-calendar__month">
   <caption><%= month_name %></caption>
   <thead>
-    <% abbr_day_names.each do |day| %>
-      <th><%= day %></th>
+    <% abbr_day_names.each_with_index do |day, i| %>
+      <th><abbr title="<%= day_names[i] %>"><%= day %></abbr></th>
     <% end %>
   </thead>
   <tbody>
@@ -17,7 +17,9 @@
         <% end %>
 
         <% days.each do |day| %>
-          <%= content_tag :td, l(day, format: "%d"), class: day_class(day) %>
+          <%= content_tag :td, class: day_class(day) do %>
+            <time datetime="<%= day %>"><%= l(day, format: "%d") %></time>
+          <% end %>
         <% end %>
 
         <% if !is_first_day %>

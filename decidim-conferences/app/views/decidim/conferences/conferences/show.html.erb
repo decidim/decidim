@@ -35,7 +35,7 @@ edit_link(
 
   <%= render partial: "conference_hero" %>
 
-  <%= render layout:"layouts/decidim/shared/layout_two_col", locals: { reverse: true, main_enabled: false } do %>
+  <%= render layout: "layouts/decidim/shared/layout_two_col", locals: { reverse: true, main_enabled: false } do %>
 
     <%= participatory_space_floating_help %>
 
@@ -54,11 +54,15 @@ edit_link(
 
       <div>
         <% if current_participatory_space.registrations_enabled? %>
-          <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button__lg button__secondary" %>
+          <% if current_participatory_space.has_registration_for?(current_user) %>
+            <%= link_to t("decidim.conferences.conferences.show.manage_registration"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__primary" %>
+          <% else %>
+            <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__secondary" %>
+          <% end %>
         <% end %>
         <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
           <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
-            <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button__lg button__transparent-secondary" %>
+            <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class: "button button__lg button__transparent-secondary" %>
           <% end %>
         <% end %>
       </div>
@@ -88,7 +92,11 @@ edit_link(
               <p class="conference__box-description"><%= t("decidim.conferences.conferences.show.login_as", name: current_user.name, email: current_user.email ) %></p>
             </div>
             <div>
-              <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button__lg button__secondary" %>
+              <% if current_participatory_space.has_registration_for?(current_user) %>
+                <%= link_to t("decidim.conferences.conferences.show.manage_registration"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__primary" %>
+              <% else %>
+                <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__secondary" %>
+              <% end %>
             </div>
           </div>
         <% else %>

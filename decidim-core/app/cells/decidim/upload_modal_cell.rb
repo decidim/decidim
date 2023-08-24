@@ -96,7 +96,7 @@ module Decidim
     # This should only be necessary when file is required by the form.
     def input_validation_field
       object_name = form.object.present? ? "#{form.object.model_name.param_key}[#{add_attribute}_validation]" : "#{add_attribute}_validation"
-      input = check_box_tag object_name, 1, attachments.present?, class: "hide", label: false, required: required?
+      input = check_box_tag object_name, 1, attachments.present?, class: "reset-defaults", hidden: true, label: false, required: required?
       message = form.send(:abide_error_element, add_attribute) + form.send(:error_and_help_text, add_attribute)
       input + message
     end

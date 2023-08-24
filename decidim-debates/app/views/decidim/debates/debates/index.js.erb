@@ -1,8 +1,6 @@
 var $debates = $('#debates');
-var $debatesCount = $('#debates-count');
 
 $debates.html('<%= j(render partial: "debates").strip.html_safe %>');
-$debatesCount.html('<%= j(render partial: "count").strip.html_safe %>');
 
 $debates[0].innerHTML = $debates[0].innerHTML.replace('data-open="false"', 'data-open="true"');
 document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $debates[0] }));

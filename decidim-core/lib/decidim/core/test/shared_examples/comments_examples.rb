@@ -774,6 +774,20 @@ shared_examples "comments" do
             end
           end
         end
+
+        context "when the comment has a thread" do
+          let!(:comment_on_comment) { create(:comment, :comment_on_comment, commentable: comments[0], root_commentable: comments[0].commentable) }
+
+          it "does not increase the votes for the children of the upvoting comment" do
+            skip "Commentable comments has no votes" unless commentable.comments_have_votes?
+
+            visit current_path
+            expect(page).to have_selector("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+            page.find("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up").click
+            expect(page).to have_selector("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/)
+            expect(page).to have_selector("#comment_#{comment_on_comment.id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+          end
+        end
       end
 
       context "when downvoting a comment" do
