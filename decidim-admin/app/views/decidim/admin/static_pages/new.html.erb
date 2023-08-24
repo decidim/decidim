@@ -6,18 +6,13 @@
 </div>
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
-    <div class="form__wrapper">
-      <%= decidim_form_for(@form, html: { class: "form form-defaults new_static_page" }) do |f| %>
-        <div class="card pt-4">
-          <div class="card-section">
-            <%= render partial: "form", object: f %>
-          </div>
-        </div>
-        <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-          <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
-        </div>
-      <% end %>
-    </div>
+    <%= decidim_form_for(@form, html: { class: "form form-defaults new_static_page" }) do |f| %>
+      <%= render partial: "form", object: f %>
+
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+        <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
+      </div>
+    <% end %>
   </div>
 </div>
 
