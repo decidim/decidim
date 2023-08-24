@@ -2029,13 +2029,13 @@ en:
       left: Deletions
       right: Additions
     dropdown:
-      toggle: Toggle view
       choose_diff_view_html: 'HTML view mode:'
       choose_diff_view_mode: 'Compare view mode:'
       option_escaped: Escaped
       option_split: Side-by-side
       option_unescaped: Unescaped
       option_unified: Unified
+      toggle: Toggle view
   views:
     pagination:
       next: Next
