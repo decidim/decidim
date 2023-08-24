@@ -455,6 +455,7 @@ fr:
         show:
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
           make_conference_registration: S'inscrire à la conférence
+          manage_registration: Gérer l'inscription
           register: S'inscrire
       content_blocks:
         highlighted_conferences:
@@ -567,6 +568,7 @@ fr:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Gérer l'inscription
         register: S'inscrire
       conferences:
         conference:
