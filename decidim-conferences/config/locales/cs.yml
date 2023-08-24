@@ -465,6 +465,7 @@ cs:
         show:
           login_as: Jste přihlášeni jako %{name} <%{email}>
           make_conference_registration: Registrovat na konferenci
+          manage_registration: Správa registrace
           register: Registrovat
       content_blocks:
         highlighted_conferences:
@@ -577,6 +578,7 @@ cs:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Správa registrace
         register: Registrovat
       conferences:
         conference:
