@@ -105,7 +105,7 @@ fr-CA:
         one: moins d'une seconde
         other: moins de %{count} secondes
       short:
-        about_x_days: "%{count} jrs"
+        about_x_days: "%{count} j"
         about_x_hours: "%{count} h"
         about_x_minutes: "%{count} min"
         about_x_months: "%{count} mois"
@@ -115,7 +115,7 @@ fr-CA:
         less_than_x_minutes: "%{count} min"
         less_than_x_seconds: "%{count} s"
         over_x_years: "%{count} an(s)"
-        x_days: "%{count} jrs"
+        x_days: "%{count} j"
         x_hours: "%{count} h"
         x_minutes: "%{count} min"
         x_months: "%{count} mois"
@@ -524,7 +524,7 @@ fr-CA:
       highlighted_elements_settings_form:
         components:
           all: Tout
-          label: 'Sélectionnez un composant:'
+          label: 'Sélectionnez une fonctionnalité :'
         orders:
           label: 'Trier les éléments par:'
           random: Aléatoire
@@ -1904,8 +1904,8 @@ fr-CA:
         decidim_title: Decidim
         download_open_data: Télécharger les fichiers Open Data
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
-        resources: Documentation
-        sign_in: Se connecter
+        resources: Ressources
+        sign_in: S'identifier
         sign_up: S'inscrire
         terms_and_conditions: Conditions générales
       header:
