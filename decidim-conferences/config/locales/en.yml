@@ -570,6 +570,7 @@ en:
     decidim:
       conference_hero:
         register: Register
+        manage_registration: Manage registration
       conferences:
         conference:
           more_info: More info

@@ -54,7 +54,11 @@ edit_link(
 
       <div>
         <% if current_participatory_space.registrations_enabled? %>
-          <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__secondary" %>
+          <% if current_participatory_space.has_registration_for?(current_user) %>
+            <%= link_to t("decidim.conferences.conferences.show.manage_registration"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__primary" %>
+          <% else %>
+            <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__secondary" %>
+          <% end %>
         <% end %>
         <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
           <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
