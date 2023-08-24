@@ -536,7 +536,7 @@ fr-CA:
           initiative_data: Données de la pétition
           scope: Secteur
           send_to_technical_validation: Envoyer à la validation technique
-          signature_collection: Collection de signatures
+          signature_collection: Collecte de signatures
           state: État
           type: Type
         signatures_count:
