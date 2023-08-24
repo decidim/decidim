@@ -569,8 +569,8 @@ en:
   layouts:
     decidim:
       conference_hero:
-        register: Register
         manage_registration: Manage registration
+        register: Register
       conferences:
         conference:
           more_info: More info
