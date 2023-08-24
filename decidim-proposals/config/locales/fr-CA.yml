@@ -816,7 +816,7 @@ fr-CA:
           with_more_authors: Avec le plus d'auteurs
         participatory_texts:
           view_index:
-            document_index: Index de document
+            document_index: Index du document
         placeholder:
           address: 60 Boulevard Victor Hugo Saint-Jean-de-Luz, BP 64500
         preview:
