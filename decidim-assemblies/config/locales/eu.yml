@@ -7,6 +7,7 @@ eu:
       assemblies_type:
         title: Izenburua
       assembly:
+        announcement: Jakinaraztea
         area_id: Arloa
         assembly_type: Batzar mota
         assembly_type_other: Batzar mota beste
@@ -32,6 +33,7 @@ eu:
         github: GitHub
         hashtag: Traola
         hero_image: Orri nagusiko irudia
+        import_categories: Kategoriak inportatu
         included_at: Barruan sartzen da
         instagram: Instagram
         internal_organisation: Barneko antolaketa
