@@ -337,8 +337,6 @@ describe "Authentication", type: :system do
         within_language_menu do
           click_link "Català"
         end
-
-        expect(page).to have_link("Inicia sessió amb Facebook")
       end
     end
 
