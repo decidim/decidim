@@ -39,6 +39,7 @@ eu:
         body: Testua
         subject: Gaia
       organization:
+        admin_terms_of_service_body: Administratzailearen zerbitzu-baldintzen testuaren gorputza
         alert_color: Alerta
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Intsigniak gaitu
@@ -148,6 +149,10 @@ eu:
           attributes:
             file:
               malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: MIME mota baliogabea.
   activerecord:
     attributes:
       decidim/static_page:
@@ -187,6 +192,9 @@ eu:
         user:
           new: Administratzaile berria
         verify: Egiaztatu
+      admin_terms_of_service:
+        actions:
+          accept: Bat nator baldintzekin
       area_types:
         create:
           error: Errorea eremu mota berri bat sortzean.
@@ -367,6 +375,7 @@ eu:
           reports_reason_eq:
             label: Arrazoiaren berri eman
             values:
+              does_not_belong: Ez dagokio
               offensive: Iraingarria
               spam: Spam
         moderations:
@@ -483,6 +492,8 @@ eu:
         filters:
           participatory_space: Espazio parte-hartzailea bilatu
           user: Erabiltzailea
+        logs_list:
+          no_logs_yet: Oraindik ez dago erregistrorik.
       managed_users:
         promotion:
           error: Errorea gertatu da kudeatutako erabiltzailea mailaz igotzean.
@@ -499,6 +510,7 @@ eu:
         area_types: Area motak
         areas: Arloak
         configuration: konfigurazioa
+        content: Erreportatutako edukia
         dashboard: Kontrol-panela
         external_domain_whitelist: Kanpoko domeinuak baimenduta
         help_sections: Laguntza atalak
@@ -615,6 +627,8 @@ eu:
           blocked: Blokeatuta
           unblocked: Ez blokeatuta
       moderations:
+        index:
+          title: Jakinarazitako edukia
         report:
           reasons:
             does_not_belong: Ez du zer ikusirik
@@ -781,6 +795,7 @@ eu:
         edit:
           active_content_blocks: Eduki bloke aktiboak
           inactive_content_blocks: Eduki eduki gabeko blokeak
+          title: Orriaren edukiak
       participatory_space_private_users:
         create:
           error: Errore bat gertatu da partaidetza espazio honen erabiltzaile pribatua gehitzean.
@@ -862,6 +877,7 @@ eu:
         gallery:
           add_images: Gehiru irudiak
           delete_image: Ezabatu irudia
+          edit_images: Editatu irudia
           gallery_legend: Gehitu irudi-galeria bat (aukerakoa)
       static_page_topics:
         create:
@@ -914,6 +930,7 @@ eu:
         impersonatable_users: Erabiltzaile erabilgarriak
         impersonations: Erabiltzaileen kudeaketa
         metrics: Metrikak
+        pages: Orriak
         panel: Administratzailea
         participants: erabiltzaileak
         scope_types: Esparru motak
