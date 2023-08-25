@@ -12,7 +12,7 @@ describe "Admin manages conference attachments", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
-    click_button('#conference-dropdown-menu-trigger')
+    click_button("#conference-dropdown-menu-trigger")
     click_link "Files"
   end
 
