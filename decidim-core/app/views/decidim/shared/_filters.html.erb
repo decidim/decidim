@@ -13,6 +13,9 @@
     </button>
 
     <div id="dropdown-menu-filters">
+      <% if local_assigns.has_key?(:skip_to_id) %>
+        <%= link_to t("skip", scope: "decidim.shared.filter_form_help"), "##{skip_to_id}", class: "filter-skip" %>
+      <% end %>
       <p class="filter-help"><%= t("help", scope: "decidim.shared.filter_form_help") %></p>
 
       <% if local_assigns.has_key?(:search_variable) %>
