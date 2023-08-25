@@ -2032,6 +2032,7 @@ fr-CA:
       option_split: Côte à côte
       option_unescaped: Non échappé
       option_unified: Unifié
+      toggle: Basculer l’affichage
   views:
     pagination:
       next: Suivant
