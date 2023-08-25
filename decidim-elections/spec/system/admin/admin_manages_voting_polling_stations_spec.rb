@@ -12,6 +12,7 @@ describe "Admin manages polling stations", serves_geocoding_autocomplete: true, 
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
+    click_button('#voting-dropdown-menu-trigger')
     click_link "Polling Stations"
   end
 
