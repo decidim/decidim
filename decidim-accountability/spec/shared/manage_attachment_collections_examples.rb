@@ -5,7 +5,7 @@ shared_examples "manage accountability attachment collections" do
 
   before do
     within find("tr", text: translated(result.title)) do
-      click_button("#processes-dropdown-menu-trigger")
+      click_button(id: "#processes-dropdown-menu-trigger")
       click_link "Folders"
     end
   end

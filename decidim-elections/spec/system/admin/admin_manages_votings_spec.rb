@@ -296,7 +296,7 @@ describe "Admin manages votings", type: :system do
       end
     end
 
-    click_button('#voting-dropdown-menu-trigger')
+    click_button(id: "#voting-dropdown-menu-trigger")
     expect(page).to have_content("Information")
     expect(page).to have_content("Landing Page")
     expect(page).to have_content("Components")

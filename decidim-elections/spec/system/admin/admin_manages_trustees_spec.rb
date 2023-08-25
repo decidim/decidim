@@ -11,7 +11,7 @@ describe "Admin manages trustees", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit_component_admin
-    click_button('#voting-dropdown-menu-trigger')
+    click_button(id: "#voting-dropdown-menu-trigger")
     click_link "Trustees"
   end
 
