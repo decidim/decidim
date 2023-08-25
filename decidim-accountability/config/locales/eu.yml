@@ -210,6 +210,7 @@ eu:
           global_status: Gauzatzearen egoera orokorra
         nav_breadcrumb:
           global: Gauzatze osoa
+        no_results: Ez dago proiekturik
         search:
           search: Ekintzak bilatu
         show:
