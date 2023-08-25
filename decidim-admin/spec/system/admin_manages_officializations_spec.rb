@@ -30,7 +30,7 @@ describe "Admin manages officializations", type: :system do
     let!(:external_not_officialized) { create(:user) }
 
     before do
-      click_button("#user-dropdown-menu-trigger")
+      click_button(id: "#user-dropdown-menu-trigger")
       click_link "Participants"
     end
 
@@ -51,7 +51,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :blocked, organization:) }
 
     before do
-      click_button("#user-dropdown-menu-trigger")
+      click_button(id: "#user-dropdown-menu-trigger")
       click_link "Participants"
     end
 
@@ -69,7 +69,7 @@ describe "Admin manages officializations", type: :system do
       let!(:user) { create(:user, organization:) }
 
       before do
-        click_button("#user-dropdown-menu-trigger")
+        click_button(id: "#user-dropdown-menu-trigger")
         click_link "Participants"
 
         within "tr[data-user-id=\"#{user.id}\"]" do
@@ -116,7 +116,7 @@ describe "Admin manages officializations", type: :system do
       end
 
       before do
-        click_button("#user-dropdown-menu-trigger")
+        click_button(id: "#user-dropdown-menu-trigger")
         click_link "Participants"
 
         within "tr[data-user-id=\"#{user.id}\"]" do
@@ -147,7 +147,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :officialized, organization:) }
 
     before do
-      click_button("#user-dropdown-menu-trigger")
+      click_button(id: "#user-dropdown-menu-trigger")
       click_link "Participants"
 
       within "tr[data-user-id=\"#{user.id}\"]" do
@@ -168,7 +168,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization:) }
 
     before do
-      click_button("#user-dropdown-menu-trigger")
+      click_button(id: "#user-dropdown-menu-trigger")
       click_link "Participants"
     end
 
@@ -184,7 +184,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization:) }
 
     before do
-      click_button("#user-dropdown-menu-trigger")
+      click_button(id: "#user-dropdown-menu-trigger")
       click_link "Participants"
     end
 
@@ -203,7 +203,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization:) }
 
     before do
-      click_button("#user-dropdown-menu-trigger")
+      click_button(id: "#user-dropdown-menu-trigger")
       click_link "Participants"
     end
 
@@ -222,7 +222,7 @@ describe "Admin manages officializations", type: :system do
     let!(:users) { create_list(:user, 3, organization:) }
 
     before do
-      click_button("#user-dropdown-menu-trigger")
+      click_button(id: "#user-dropdown-menu-trigger")
       click_link "Participants"
     end
 

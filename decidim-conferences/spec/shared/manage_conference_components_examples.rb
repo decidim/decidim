@@ -10,7 +10,7 @@ shared_examples "manage conference components" do
     before do
       visit decidim_admin_conferences.components_path(conference)
 
-      click_button("#conference-dropdown-menu-trigger")
+      click_button(id: "#conference-dropdown-menu-trigger")
 
       click_button("button[data-toggle=add-component-dropdown]")
 
