@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 def visit_edit_diplomas_page
-  within ".secondary-nav" do
-    page.click_link "Certificate of Attendance"
-  end
+  click_button('#conference-dropdown-menu-trigger')
+  page.click_link "Certificate of Attendance"
 end
 
 shared_examples "manage diplomas" do

@@ -30,9 +30,8 @@ describe "Admin manages officializations", type: :system do
     let!(:external_not_officialized) { create(:user) }
 
     before do
-      within ".secondary-nav" do
-        click_link "Participants"
-      end
+      click_button('#user-dropdown-menu-trigger')
+      click_link "Participants"
     end
 
     it_behaves_like "a filtered collection", options: "State", filter: "Officialized" do
@@ -52,9 +51,8 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :blocked, organization:) }
 
     before do
-      within ".secondary-nav" do
-        click_link "Participants"
-      end
+      click_button('#user-dropdown-menu-trigger')
+      click_link "Participants"
     end
 
     context "when user is blocked" do
@@ -71,9 +69,8 @@ describe "Admin manages officializations", type: :system do
       let!(:user) { create(:user, organization:) }
 
       before do
-        within ".secondary-nav" do
-          click_link "Participants"
-        end
+        click_button('#user-dropdown-menu-trigger')
+        click_link "Participants"
 
         within "tr[data-user-id=\"#{user.id}\"]" do
           click_link "Officialize"
@@ -119,9 +116,8 @@ describe "Admin manages officializations", type: :system do
       end
 
       before do
-        within ".secondary-nav" do
-          click_link "Participants"
-        end
+        click_button('#user-dropdown-menu-trigger')
+        click_link "Participants"
 
         within "tr[data-user-id=\"#{user.id}\"]" do
           click_link "Reofficialize"
@@ -151,9 +147,8 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :officialized, organization:) }
 
     before do
-      within ".secondary-nav" do
-        click_link "Participants"
-      end
+      click_button('#user-dropdown-menu-trigger')
+      click_link "Participants"
 
       within "tr[data-user-id=\"#{user.id}\"]" do
         click_link "Unofficialize"
@@ -173,9 +168,8 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization:) }
 
     before do
-      within ".secondary-nav" do
-        click_link "Participants"
-      end
+      click_button('#user-dropdown-menu-trigger')
+      click_link "Participants"
     end
 
     it "redirect to conversation path" do
@@ -190,9 +184,8 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization:) }
 
     before do
-      within ".secondary-nav" do
-        click_link "Participants"
-      end
+      click_button('#user-dropdown-menu-trigger')
+      click_link "Participants"
     end
 
     it "redirect to user profile page" do
@@ -210,9 +203,8 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization:) }
 
     before do
-      within ".secondary-nav" do
-        click_link "Participants"
-      end
+      click_button('#user-dropdown-menu-trigger')
+      click_link "Participants"
     end
 
     it "redirect to user profile page" do
@@ -230,9 +222,8 @@ describe "Admin manages officializations", type: :system do
     let!(:users) { create_list(:user, 3, organization:) }
 
     before do
-      within ".secondary-nav" do
-        click_link "Participants"
-      end
+      click_button('#user-dropdown-menu-trigger')
+      click_link "Participants"
     end
 
     it "shows the users emails to admin users and logs the action" do

@@ -296,14 +296,13 @@ describe "Admin manages votings", type: :system do
       end
     end
 
-    within ".secondary-nav--subnav" do
-      expect(page).to have_content("Information")
-      expect(page).to have_content("Landing Page")
-      expect(page).to have_content("Components")
-      expect(page).to have_content("Attachments")
-      expect(page).to have_content("Polling Stations")
-      expect(page).to have_content("Polling Officers")
-      expect(page).to have_css(".is-active", text: "Information")
-    end
+    click_button('#voting-dropdown-menu-trigger')
+    expect(page).to have_content("Information")
+    expect(page).to have_content("Landing Page")
+    expect(page).to have_content("Components")
+    expect(page).to have_content("Attachments")
+    expect(page).to have_content("Polling Stations")
+    expect(page).to have_content("Polling Officers")
+    expect(page).to have_css(".is-active", text: "Information")
   end
 end

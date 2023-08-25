@@ -58,9 +58,7 @@ describe "Content pages", type: :system do
       end
 
       it "can create topics" do
-        within ".secondary-nav" do
-          click_link "Create topic"
-        end
+        click_link "Create topic"
 
         within ".new_static_page_topic" do
           fill_in_i18n(
@@ -167,9 +165,7 @@ describe "Content pages", type: :system do
     end
 
     it "can create new pages" do
-      within ".secondary-nav" do
-        click_link "Create page"
-      end
+      click_link "Create page"
 
       within ".new_static_page" do
         fill_in :static_page_slug, with: "welcome"

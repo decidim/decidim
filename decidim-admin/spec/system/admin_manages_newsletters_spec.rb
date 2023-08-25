@@ -31,9 +31,7 @@ describe "Admin manages newsletters", type: :system do
     it "allows a newsletter to be created" do
       visit decidim_admin.newsletters_path
 
-      within ".secondary-nav" do
-        find(".button.new").click
-      end
+      find(".button.new").click
 
       within "#image_text_cta" do
         click_link "Use this template"
