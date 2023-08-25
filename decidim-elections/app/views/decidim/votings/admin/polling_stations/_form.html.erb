@@ -8,12 +8,12 @@
         <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
       </div>
 
-      <div class="field">
+      <div class="row column">
         <%= form.geocoding_field :address %>
         <p class="help-text"><%= t(".address_help") %></p>
       </div>
 
-      <div class="field">
+      <div class="row column">
         <%= form.translated :text_area, :location %>
         <p class="help-text"><%= t(".location_help") %></p>
       </div>
