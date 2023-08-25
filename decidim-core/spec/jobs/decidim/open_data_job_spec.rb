@@ -21,10 +21,8 @@ describe Decidim::OpenDataJob do
     organization = create(:organization)
 
     expect(File).to receive(:delete) do |path|
-      expect(path.to_s).to match(%r{tmp\/.*})
+      expect(path.to_s).to match(%r{tmp/.*})
     end
-
     described_class.perform_now(organization)
-
   end
 end
