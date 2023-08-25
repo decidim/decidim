@@ -11,7 +11,7 @@ module Decidim
 
       generate_zip_file(user, path, password, export_format)
       save_or_upload_file(user, path)
-      #Deletes temporary file
+      # Deletes temporary file
       File.delete(path)
       ExportMailer.download_your_data_export(user, filename, password).deliver_later
     end
