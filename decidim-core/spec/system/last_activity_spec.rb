@@ -148,7 +148,7 @@ describe "Last activity", type: :system do
 
         it "does not show the activities" do
           expect(page).to have_css("[data-activity]", count: 0)
-          expect(page).to have_content "This participant does not have any activity yet."
+          expect(page).to have_content "There are no entries to show for this activity type."
         end
       end
     end
