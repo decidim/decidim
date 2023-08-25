@@ -14,4 +14,11 @@
       @apply z-10;
     }
   }
+
+  #js-other-actions-wrapper,
+  #js-bulk-actions-wrapper{
+    .dropdown{
+      @apply relative;
+    }
+  }
 }
