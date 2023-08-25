@@ -93,6 +93,8 @@ eu:
             title: Proiektu berria
           update_category:
             select_a_category: Mesedez, hautatu kategoria bat.
+          update_scope:
+            select_a_project: Mesedez, hautatu proiektu bat.
           update_selected:
             invalid:
               selected: 'Honako proiektu hauek dagoeneko gauzatzeko hautatu dira: %{projects}.'
