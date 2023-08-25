@@ -21,7 +21,7 @@ module Decidim
       user = create(:user)
 
       expect(File).to receive(:delete) do |path|
-        expect(path.to_s).to match(%r{tmp\/[a-zA-Z0-9_-]+\.zip})
+        expect(path.to_s).to match(%r{tmp/[a-zA-Z0-9_-]+\.zip})
       end
 
       described_class.perform_now(user)
