@@ -204,6 +204,7 @@ eu:
           error: Errorea gertatu da Administrazioaren Gaiak eta Baldintzak onartzean.
           success: Ederto! Onartu dituzu Administrazioaren Gaiak eta Baldintzak.
         actions:
+          accept: Bat nator baldintzekin
           are_you_sure: Ziur zaude ez dituzula onartu nahi administratzaileentzako erabilera-irizpideak?
           title: Onartzen ditut Administrazio-irizpideak eta baldintzak
         required_review:
@@ -393,6 +394,7 @@ eu:
           reports_reason_eq:
             label: Arrazoiaren berri eman
             values:
+              does_not_belong: Ez dagokio
               offensive: Iraingarria
               spam: Spam
         moderations:
@@ -645,6 +647,8 @@ eu:
           blocked: Blokeatuta
           unblocked: Ez blokeatuta
       moderations:
+        index:
+          title: Jakinarazitako edukia
         report:
           reasons:
             does_not_belong: Ez du zer ikusirik
@@ -899,6 +903,7 @@ eu:
         gallery:
           add_images: Gehiru irudiak
           delete_image: Ezabatu irudia
+          edit_images: Editatu irudia
           gallery_legend: Gehitu irudi-galeria bat (aukerakoa)
       static_page_topics:
         create:
@@ -952,6 +957,7 @@ eu:
         impersonatable_users: Erabiltzaile erabilgarriak
         impersonations: Erabiltzaileen kudeaketa
         metrics: Metrikak
+        pages: Orriak
         panel: Administratzailea
         participants: erabiltzaileak
         scope_types: Esparru motak
