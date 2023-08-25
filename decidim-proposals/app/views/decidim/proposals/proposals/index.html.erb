@@ -22,7 +22,7 @@
     <% end %>
   </div>
 
-  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont } do %>
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont, skip_to_id: "proposals" } do %>
     <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
   <% end %>
 <% end %>
