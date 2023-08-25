@@ -171,7 +171,7 @@ shared_examples "manage invites" do
       it "allows searching by text" do
         visit_meeting_invites_page
 
-        within ".filters__search" do
+        within ".fcell.search" do
           fill_in :q, with: invites.first.user.email
           find("button[type='submit']").click
         end
@@ -188,7 +188,7 @@ shared_examples "manage invites" do
         rejected_invite = create(:invite, :rejected, meeting:)
         visit_meeting_invites_page
 
-        within ".filters" do
+        within ".filters__section" do
           find("ul.dropdown > li > a").click # Open the dropdown-menu
           find_link("Accepted", visible: false).click
         end
@@ -199,7 +199,7 @@ shared_examples "manage invites" do
           expect(page).not_to have_content(rejected_invite.user.name)
         end
 
-        within ".filters" do
+        within ".filters__section" do
           find("ul.dropdown > li > a").click # Open the dropdown-menu
           find_link("Rejected", visible: false).click
         end
