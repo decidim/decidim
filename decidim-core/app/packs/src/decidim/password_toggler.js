@@ -61,7 +61,7 @@ export default class PasswordToggler {
     this.statusText = statusText;
   }
 
-  addInputGroupWrapperAsParent(){
+  addInputGroupWrapperAsParent() {
     const inputGroupWrapper = document.createElement("div");
     inputGroupWrapper.classList.add("filter-search", "filter-container");
 
