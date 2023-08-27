@@ -68,6 +68,11 @@ export default class PasswordToggler {
     this.input.parentNode.replaceChild(inputGroupWrapper, this.input);
     inputGroupWrapper.appendChild(this.input);
     this.input.after(this.button);
+
+    const formError = this.password.querySelector(".form-error");
+    if (formError) {
+      this.input.after(formError);
+    }
   }
 
   toggleVisibiliy(evt) {
