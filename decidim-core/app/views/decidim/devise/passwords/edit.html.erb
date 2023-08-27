@@ -10,7 +10,7 @@
     <div class="form__wrapper">
       <%= f.hidden_field :reset_password_token %>
 
-      <%= render partial: "decidim/account/password_fields", locals: { form: f, user: current_user || params["reset_password_token"] } %>
+      <%= render partial: "decidim/account/password_fields", locals: { form: f, user: current_user || params["reset_password_token"], show_help_text: true } %>
     </div>
 
     <div class="form__wrapper-block">
