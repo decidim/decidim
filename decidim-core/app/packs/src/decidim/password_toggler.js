@@ -47,6 +47,7 @@ export default class PasswordToggler {
   createButton() {
     const button = document.createElement("button");
     button.classList.add("mt-5")
+    button.setAttribute("type", "button");
     button.setAttribute("aria-controls", this.input.getAttribute("id"));
     button.setAttribute("aria-label", this.texts.showPassword);
     button.innerHTML = this.icons.show;
