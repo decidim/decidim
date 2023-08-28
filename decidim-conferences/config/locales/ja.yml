@@ -450,6 +450,7 @@ ja:
         show:
           login_as: '%{name} <%{email} >としてログインしています'
           make_conference_registration: カンファレンスに登録する
+          manage_registration: 登録の管理
           register: 登録
       content_blocks:
         highlighted_conferences:
@@ -562,6 +563,7 @@ ja:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: 登録の管理
         register: 登録
       conferences:
         conference:
