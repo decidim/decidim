@@ -41,7 +41,7 @@
 
       <%= f.password_field :password, password_field_options_for(:user) %>
 
-      <%= f.password_field "Confirm password", password_field_options_for(:user).except(:help_text) %>
+      <%= f.password_field :password_confirmation_form, password_field_options_for(:user).except(:help_text) %>
     </div>
 
     <div id="card__tos" class="form__wrapper-block">
