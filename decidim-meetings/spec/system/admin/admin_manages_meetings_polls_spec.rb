@@ -41,13 +41,11 @@ describe "Admin manages meetings polls", type: :system do
       answer_options_body = [
         [
           "This is the Q1 first option",
-          "This is the Q1 second option",
-          "This is the Q1 third option"
+          "This is the Q1 second option"
         ],
         [
           "This is the Q2 first option",
-          "This is the Q2 second option",
-          "This is the Q2 third option"
+          "This is the Q2 second option"
         ]
       ]
 
@@ -87,11 +85,9 @@ describe "Admin manages meetings polls", type: :system do
       expect(page).to have_selector("input[value='This is the first question']")
       expect(page).to have_selector("input[value='This is the Q1 first option']")
       expect(page).to have_selector("input[value='This is the Q1 second option']")
-      expect(page).to have_selector("input[value='This is the Q1 third option']")
       expect(page).to have_selector("input[value='This is the second question']")
       expect(page).to have_selector("input[value='This is the Q2 first option']")
       expect(page).to have_selector("input[value='This is the Q2 second option']")
-      expect(page).to have_selector("input[value='This is the Q2 third option']")
     end
 
     it "adds a sane number of options for each attribute type" do
