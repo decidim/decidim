@@ -3,17 +3,9 @@
     <%= t(".title") %>
   </h2>
 </div>
-<div class="item__edit">
-  <div class="item__edit-menu">
-    <div class="item__edit-menu-sticky">
-      <p class="item__edit-menu-title">
-        <%= t("sections", scope: "decidim.assemblies.admin.assemblies.form") %>
-      </p>
-    </div>
-  </div>
-
+<div class="item__edit-1col">
   <div class="item__edit-form">
-    <%= decidim_form_for(@form, url: meeting_agenda_index_path(meeting), html: { method: :post, class: "form new_agenda" }) do |f| %>
+    <%= decidim_form_for(@form, url: meeting_agenda_index_path(meeting), html: { method: :post, class: "form form-defaults new_agenda" }) do |f| %>
 
       <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 

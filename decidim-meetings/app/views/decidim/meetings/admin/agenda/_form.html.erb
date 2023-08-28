@@ -9,14 +9,16 @@
         </div>
       </h2>
     </div>
-    <div class="card-section">
-      <div class="grid-x card-title">
-        <div class="cell small-2"><strong><%= t(".start_date") %></strong></div>
-        <div class="cell small-2"><strong><%= t(".end_date") %></strong></div>
-      </div>
-      <div class="grid-x text-muted">
-        <div class="cell small-2"><%= meeting.start_time.strftime("%m/%d/%Y %R") %></div>
-        <div class="cell small-2"><%= meeting.end_time.strftime("%m/%d/%Y %R") %></div>
+    <div class="row column">
+      <div class="flex items-center gap-x-4">
+        <div>
+          <div><strong><%= t(".start_date") %></strong></div>
+          <div><%= meeting.start_time.strftime("%m/%d/%Y %R") %></div>
+        </div>
+        <div>
+          <div><strong><%= t(".end_date") %></strong></div>
+          <div><%= meeting.end_time.strftime("%m/%d/%Y %R") %></div>
+        </div>
       </div>
     </div>
   </div>
@@ -44,7 +46,7 @@
       <h2 class="card-title"><%= t(".agenda_items") %></h2>
     </div>
 
-    <div class="card-section">
+    <div class="row column">
       <div class="meeting-agenda-items">
         <%= fields_for "meeting_agenda[agenda_items][#{blank_agenda_item.to_param}]", blank_agenda_item do |agenda_item_form| %>
           <script type="text/template" class="decidim-template">
