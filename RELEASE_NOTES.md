@@ -252,7 +252,7 @@ By default, the CSP is enabled, and is configured to be as restrictive as possib
         "style-src" => %w('self' 'unsafe-inline'),
         "img-src" => %w('self' *.hereapi.com data:),
         "font-src" => %w('self'),
-        "connect-src" => %w('self' *.hereapi.com *.jsdelivr.net),
+        "connect-src" => %w('self' *.hereapi.com),
         "frame-src" => %w('self'),
         "media-src" => %w('self')
 }
