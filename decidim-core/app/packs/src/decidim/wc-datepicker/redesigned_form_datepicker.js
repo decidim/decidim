@@ -13,15 +13,16 @@ export default function redesignedFormDatePicker() {
     const label = input.closest("label");
 
     const row = document.createElement("div");
-    row.setAttribute("class", "timepicker_row");
+    row.setAttribute("class", "datepicker_row");
 
     generateDatePicker(input, row);
-    generateTimePicker(input, row);
+    generateTimePicker(input, row, 12);
 
     if (label) {
       label.after(row);
     } else {
       input.after(row);
     }
+
   });
 };

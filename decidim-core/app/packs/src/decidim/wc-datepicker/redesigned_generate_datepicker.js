@@ -1,5 +1,7 @@
 /* eslint-disable require-jsdoc */
 import icon from "src/decidim/redesigned_icon"
+import { formatDate, displayDate } from "./redesigned_datepicker_functions"
+import { dateKeyDownListener, dateBeforeInputListener, datePasteListener } from "./redesigned_datepicker_listeners"
 
 export default function generateDatePicker(input, row) {
   const dateColumn = document.createElement("div");
@@ -8,7 +10,8 @@ export default function generateDatePicker(input, row) {
   const date = document.createElement("input");
   date.setAttribute("id", `${input.id}_date`);
   date.setAttribute("class", "datepicker");
-  date.setAttribute("type", "date");
+  date.setAttribute("type", "text");
+  date.setAttribute("placeholder", "dd/mm/yyyy");
 
   const calendar = document.createElement("button");
   calendar.innerHTML = icon("calendar-2-fill", {class: "w-6 h-6"})
@@ -38,16 +41,26 @@ export default function generateDatePicker(input, row) {
 
   let prevDate = null;
 
+  const datePickerDisplay = (event) => {
+    if (!dateColumn.contains(event.target)) {
+      datePicker.style.display = "none";
+      document.removeEventListener("click", datePickerDisplay)
+    };
+  };
+
+  dateKeyDownListener(date);
+  dateBeforeInputListener(date);
+  datePasteListener(date);
+
   date.addEventListener("focus", () => {
     datePicker.style.display = "none";
   });
 
-  date.addEventListener("change", () => {
-    if (date.value === "") {
-      date.value = prevDate;
-    } else {
-      datePicker.value = new Date(date.value);
-      prevDate = date.value;
+  date.addEventListener("keyup", () => {
+    if (date.value.length === 10) {
+      prevDate = formatDate(date.value, "us");
+
+      input.value = `${formatDate(date.value, "input")}T${document.querySelector(`#${input.id}_time`).value}`;
     };
   });
 
@@ -67,24 +80,16 @@ export default function generateDatePicker(input, row) {
   pickCalendar.addEventListener("click", (event) => {
     event.preventDefault();
 
-    date.value = pickedDate;
+    date.value = displayDate(datePicker.value);
     prevDate = pickedDate;
+    input.value = `${pickedDate}T${document.querySelector(`#${input.id}_time`).value}`;
     datePicker.style.display = "none";
     pickCalendar.setAttribute("disabled", true);
   });
 
-  const datePickerDisplay = (event) => {
-    if (!dateColumn.contains(event.target)) {
-      datePicker.style.display = "none";
-      document.removeEventListener("click", datePickerDisplay)
-    };
-  };
-
   calendar.addEventListener("click", (event) => {
     event.preventDefault();
-    if (prevDate === null) {
-      datePicker.value = prevDate;
-    } else {
+    if (prevDate !== null && new Date(prevDate).toString() !== "Invalid Date") {
       datePicker.value = new Date(prevDate);
     };
     pickedDate = null;

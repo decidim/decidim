@@ -39,7 +39,7 @@
   @apply bg-secondary;
 }
 
-.timepicker_row {
+.datepicker_row {
   @apply flex gap-4;
 }
 
@@ -57,16 +57,25 @@
   @apply rounded border border-solid border-gray flex-1 h-12 relative my-2 mx-1;
 }
 
+.period_column {
+  @apply w-8 h-12 relative my-2 mx-1;
+}
+
 .calendar_button {
-  @apply w-10 h-9 bg-[#FAFBFC] rounded absolute top-4 mt-0.5 pb-px pl-2 leading-3 right-2;
+  @apply w-10 h-8 bg-[#FAFBFC] rounded absolute top-4 mt-0.5 pb-px pl-2 leading-3 right-2;
 }
 
 .clock_button {
   @apply w-10 h-8 bg-[#FAFBFC] rounded absolute top-4 mt-0.5 pb-px pl-2 leading-3 right-2;
 }
 
-.clock {
+.format_24 {
   @apply w-60 max-w-lg h-28 bg-white absolute border border-solid border-gray z-20;
+}
+
+.format_12 {
+  @apply w-80 max-w-lg h-28 bg-white absolute border border-solid border-gray z-20;
+  ;
 }
 
 .timepicker {
@@ -137,6 +146,22 @@
 
     &:hover {
     @apply bg-gray
+  }
+}
+
+.period_am {
+  @apply w-8 rounded border border-solid border-gray absolute right-0;
+
+    &:active {
+      @apply bg-gray;
+    }
+}
+
+.period_pm {
+  @apply w-8 rounded border border-solid border-gray absolute right-0 bottom-0;
+
+  &:active {
+    @apply bg-gray;
   }
 }
 
