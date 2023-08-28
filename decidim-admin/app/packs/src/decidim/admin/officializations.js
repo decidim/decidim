@@ -15,13 +15,10 @@ $(() => {
     $button.show()
     $button.attr("data-remote-url", event.currentTarget.href)
     $fullName.text($(event.currentTarget).data("full-name"))
-    $email.html('');
+    $email.html("");
   })
 
-  $("[data-open=user_email]").on("click", (event) => {
-    getUserEmail(event.currentTarget.dataset.remoteUrl);
-  })
-
+  /* eslint-disable */
   async function getUserEmail(url) {
     let response = await fetch(url);
     if (response.ok) {
@@ -29,8 +26,13 @@ $(() => {
       $("#user_email").html(userEmail);
       $button.hide()
     } else {
-      alert("Error-HTTP: " + response.status);
+      console.log(`Error-HTTP: " + ${response.status}`);
     }
   }
+  /* eslint-enable */
+
+  $("[data-open=user_email]").on("click", (event) => {
+    getUserEmail(event.currentTarget.dataset.remoteUrl);
+  })
 
 })
