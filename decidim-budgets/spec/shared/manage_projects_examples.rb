@@ -4,7 +4,7 @@ shared_examples "manage projects" do
   describe "admin form" do
     before do
       within ".process-content" do
-        page.find(".button--title.new").click
+        click_link("New Project", class: "button")
       end
     end
 
