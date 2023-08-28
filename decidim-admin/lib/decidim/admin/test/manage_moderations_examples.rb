@@ -13,7 +13,7 @@ shared_examples "sorted moderations" do
 
   before do
     visit participatory_space_path
-    within_admin_menu do
+    within "div.layout-nav" do
       click_link moderations_link_text
     end
   end
@@ -49,7 +49,7 @@ shared_examples "manage moderations" do
 
   before do
     visit participatory_space_path
-    within_admin_menu do
+    within "div.layout-nav" do
       click_link moderations_link_text
     end
   end
