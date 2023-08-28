@@ -39,7 +39,7 @@ shared_examples "manage impersonations examples" do
       let(:document_number) { "123456789Y" }
 
       it "shows the errors in the form" do
-        expect(page).to have_selector("label", text: "Document number*Required field\nis invalid")
+        expect(page).to have_selector("label", text: "Document number*\nRequired field\nis invalid")
       end
     end
 
