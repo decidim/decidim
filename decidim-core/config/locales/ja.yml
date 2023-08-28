@@ -1017,6 +1017,7 @@ ja:
       index:
         last_activity: 最後のアクティビティ
       name: 最後のアクティビティ
+      no_activities_warning: このアクティビティ種別に表示するエントリがありません。
     linked_resource_from:
       included_in: 含まれるリスト
     links:
@@ -2006,6 +2007,7 @@ ja:
       option_split: 並べて表示
       option_unescaped: エスケープなし
       option_unified: 統合された
+      toggle: 表示の切り替え
   views:
     pagination:
       next: 次
