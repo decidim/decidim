@@ -231,6 +231,7 @@ fi:
           global_status: Yleisen toteutuksen tila
         nav_breadcrumb:
           global: Yleinen toteutus
+        no_results: Hankkeita ei ole saatavilla
         search:
           search: Hae toimintoja
         show:
