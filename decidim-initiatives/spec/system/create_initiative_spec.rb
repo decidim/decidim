@@ -480,6 +480,10 @@ describe "Initiative", type: :system do
           expect(page).to have_xpath("//textarea[@id='initiative_description']", visible: :all)
         end
 
+        it "does not have status field" do
+          expect(page).not_to have_xpath("//select[@id='initiative_state']")
+        end
+
         it "offers contextual help" do
           within ".callout.secondary" do
             expect(page).to have_content("Review the content of your initiative.")
@@ -509,6 +513,10 @@ describe "Initiative", type: :system do
         it "have fields for title and description" do
           expect(page).to have_xpath("//input[@id='initiative_title']")
           expect(page).to have_xpath("//textarea[@id='initiative_description']", visible: :all)
+        end
+
+        it "does not have status field" do
+          expect(page).not_to have_xpath("//select[@id='initiative_state']")
         end
 
         it "offers contextual help" do

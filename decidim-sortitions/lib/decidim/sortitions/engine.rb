@@ -13,7 +13,10 @@ module Decidim
 
       routes do
         resources :sortitions, only: [:index, :show]
-        root to: "sortitions#index"
+        scope "/sortitions" do
+          root to: "sortitions#index"
+        end
+        get "/", to: redirect("sortitions", status: 301)
       end
 
       initializer "decidim_sortitions.add_cells_view_paths" do

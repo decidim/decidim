@@ -458,6 +458,7 @@ en:
         show:
           login_as: You are logged in as %{name} <%{email}>
           make_conference_registration: Register for the conference
+          manage_registration: Manage registration
           register: Register
       content_blocks:
         highlighted_conferences:
@@ -570,6 +571,7 @@ en:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Manage registration
         register: Register
       conferences:
         conference:

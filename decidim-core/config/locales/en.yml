@@ -1041,6 +1041,7 @@ en:
       index:
         last_activity: Last activity
       name: Last activities
+      no_activities_warning: There are no entries to show for this activity type.
     linked_resource_from:
       included_in: Included in
     links:
@@ -2034,6 +2035,7 @@ en:
       option_split: Side-by-side
       option_unescaped: Unescaped
       option_unified: Unified
+      toggle: Toggle view
   views:
     pagination:
       next: Next
