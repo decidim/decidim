@@ -4,7 +4,7 @@
       <%= t(".destroy.title") %>
     </h2>
   </div>
-  <div class="card-section">
+  <div class="card-section p-4">
     <% if @count != 0 %>
       <p><%= t(".destroy.explanation", count: @count) %></p>
       <%= link_to t(".destroy.button"),
@@ -23,7 +23,7 @@
       <%= t ".title" %>
     </h2>
   </div>
-  <div class="card-section">
+  <div class="card-section  p-4">
     <%= decidim_form_for(@form, url: participatory_space_private_users_csv_imports_path, html: { class: "form form-defaults" }) do |form| %>
       <div class="mb-s">
         <p><%= t(".explanation") %></p>
