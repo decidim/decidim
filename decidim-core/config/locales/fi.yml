@@ -1035,6 +1035,7 @@ fi:
       index:
         last_activity: Viimeaikainen toiminta
       name: Viimeisin toiminta
+      no_activities_warning: Tälle toimintatyypille ei ole näytettäviä merkintöjä.
     linked_resource_from:
       included_in: Sisältyy kohteeseen
     links:
@@ -2028,6 +2029,7 @@ fi:
       option_split: Vierekkäin
       option_unescaped: Teknisten elementtien käsittely pois käytöstä
       option_unified: Yhdistetty
+      toggle: Vaihda näkymää
   views:
     pagination:
       next: Seuraava
