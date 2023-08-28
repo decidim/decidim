@@ -32,7 +32,6 @@ describe "Space moderator manages global moderations", type: :system do
 
     it "does not have the menu item in the main navigation" do
       visit participatory_space_path
-      byebug
       within ".main-nav + .main-nav" do
         expect(page).not_to have_text("Global moderations")
       end
