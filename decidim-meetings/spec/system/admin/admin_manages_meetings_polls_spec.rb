@@ -41,11 +41,13 @@ describe "Admin manages meetings polls", type: :system do
       answer_options_body = [
         [
           "This is the Q1 first option",
-          "This is the Q1 second option"
+          "This is the Q1 second option",
+          "This is the Q1 third option"
         ],
         [
           "This is the Q2 first option",
-          "This is the Q2 second option"
+          "This is the Q2 second option",
+          "This is the Q2 third option"
         ]
       ]
 
@@ -85,9 +87,11 @@ describe "Admin manages meetings polls", type: :system do
       expect(page).to have_selector("input[value='This is the first question']")
       expect(page).to have_selector("input[value='This is the Q1 first option']")
       expect(page).to have_selector("input[value='This is the Q1 second option']")
+      expect(page).to have_selector("input[value='This is the Q1 third option']")
       expect(page).to have_selector("input[value='This is the second question']")
       expect(page).to have_selector("input[value='This is the Q2 first option']")
       expect(page).to have_selector("input[value='This is the Q2 second option']")
+      expect(page).to have_selector("input[value='This is the Q2 third option']")
     end
 
     it "adds a sane number of options for each attribute type" do
@@ -160,7 +164,7 @@ describe "Admin manages meetings polls", type: :system do
         fill_in find_nested_form_field_locator("body_en"), with: "Else"
       end
 
-      select "2", from: "Maximum number of choices"
+      select "3", from: "Maximum number of choices"
 
       click_button "Save"
       expand_all_questions
@@ -173,7 +177,7 @@ describe "Admin manages meetings polls", type: :system do
         fill_in find_nested_form_field_locator("body_en"), with: "Else"
       end
 
-      expect(page).to have_select("Maximum number of choices", selected: "2")
+      expect(page).to have_select("Maximum number of choices", selected: "3")
     end
 
     context "when adding a multiple option question" do
