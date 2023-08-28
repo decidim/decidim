@@ -318,9 +318,11 @@ shared_examples "manage impersonations examples" do
       fill_in :impersonate_user_authorization_birthday, with: Time.current.change(day: 12)
     end
 
-    expect(page).to have_selector("*[type=submit]", count: 1)
+    within "[data-content]" do
+      expect(page).to have_selector("*[type=submit]", count: 1)
 
-    click_button "Impersonate"
+      click_button "Impersonate"
+    end
   end
 
   def impersonate(user, reason: nil)
