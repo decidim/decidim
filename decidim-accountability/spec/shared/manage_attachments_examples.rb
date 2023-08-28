@@ -8,7 +8,6 @@ shared_examples "manage accountability attachments" do
 
   before do
     within find("tr", text: translated(result.title)) do
-      click_button(id: "processes-dropdown-menu-trigger")
       click_link "Attachments"
     end
   end
