@@ -86,7 +86,7 @@ module Decidim
                 "Nickname cannot be blank",
                 "Nickname is invalid",
                 "Your email cannot be blank",
-                "Confirm your password does not match Password",
+                '"Confirm your password" does not match Password',
                 "Password is too short",
                 "Password does not have enough unique characters",
                 "Terms of service agreement must be accepted"
