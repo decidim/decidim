@@ -42,7 +42,7 @@ describe "Admin manages participatory space private users via csv import", type:
 
       expect(page).to have_content("Are you sure you want to delete all private participants?")
 
-      find("a.button[data-confirm-ok]").click
+      click_button("OK")
 
       expect(page).to have_content("You have no private participants")
     end
