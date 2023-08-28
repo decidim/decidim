@@ -164,7 +164,7 @@ describe "Admin manages meetings polls", type: :system do
         fill_in find_nested_form_field_locator("body_en"), with: "Else"
       end
 
-      select "3", from: "Maximum number of choices"
+      select "2", from: "Maximum number of choices"
 
       click_button "Save"
       expand_all_questions
@@ -177,7 +177,7 @@ describe "Admin manages meetings polls", type: :system do
         fill_in find_nested_form_field_locator("body_en"), with: "Else"
       end
 
-      expect(page).to have_select("Maximum number of choices", selected: "3")
+      expect(page).to have_select("Maximum number of choices", selected: "2")
     end
 
     context "when adding a multiple option question" do
@@ -274,7 +274,7 @@ describe "Admin manages meetings polls", type: :system do
   end
 
   def expand_all_questions
-    find(".button.expand-all").click
+    click_button "Expand all questions"
   end
 
   def visit_questionnaire_edit_path_and_expand_all
