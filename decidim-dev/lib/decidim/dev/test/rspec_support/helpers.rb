@@ -28,7 +28,7 @@ module Decidim
 
     def within_language_menu(options = {})
       within(options.fetch(:admin, !Decidim.redesign_active) ? ".topbar__dropmenu.language-choose" : "footer") do
-        find(options.fetch(:admin, !Decidim.redesign_active) ? "ul.dropdown.menu" : "#trigger-dropdown-language-chooser").click
+        find(options.fetch(:admin, !Decidim.redesign_active) ? "#admin-dropdown-menu-trigger" : "#trigger-dropdown-language-chooser").click
         yield
       end
     end
