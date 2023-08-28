@@ -81,7 +81,7 @@ shared_examples "copy conferences" do
       within find("tr", text: "Copy conference") do
         click_link "Configure"
       end
-      click_button(id: "#conference-dropdown-menu-trigger")
+      click_button(id: "conference-dropdown-menu-trigger")
       click_link "Components"
 
       within ".table-list" do

@@ -7,7 +7,7 @@ shared_examples "manage registration types examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
-    click_button(id: "#conference-dropdown-menu-trigger")
+    click_button(id: "conference-dropdown-menu-trigger")
     click_link "Registration Types"
   end
 

@@ -14,7 +14,7 @@ describe "Conference admin accesses admin sections", type: :system do
   end
 
   it "can access all sections" do
-    click_button(id: "#conference-dropdown-menu-trigger")
+    click_button(id: "conference-dropdown-menu-trigger")
     expect(page).to have_content("Info")
     expect(page).to have_content("Components")
     expect(page).to have_content("Categories")

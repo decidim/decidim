@@ -15,7 +15,7 @@ describe "Assembly admin accesses admin sections", type: :system do
       visit decidim_admin_assemblies.assemblies_path
       click_link "Configure"
 
-      click_button(id: "#assembly-dropdown-menu-trigger")
+      click_button(id: "assembly-dropdown-menu-trigger")
       expect(page).to have_content("Info")
       expect(page).to have_content("Components")
       expect(page).to have_content("Categories")
@@ -42,7 +42,7 @@ describe "Assembly admin accesses admin sections", type: :system do
     end
 
     it "can access all sections" do
-      click_button(id: "#assembly-dropdown-menu-trigger")
+      click_button(id: "assembly-dropdown-menu-trigger")
       expect(page).to have_content("Info")
       expect(page).to have_content("Components")
       expect(page).to have_content("Categories")
