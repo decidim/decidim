@@ -61,7 +61,7 @@ export const formatDate = (value, format) => {
   const formatArray = value.split("/");
 
   let formatValue = null;
-  if (format === "us") {
+  if (format === "datepicker") {
     formatValue = `${formatArray[1]}/${formatArray[0]}/${formatArray[2]}`;
   } else if (format === "input") {
     formatValue = `${formatArray[2]}-${formatArray[1]}-${formatArray[0]}`

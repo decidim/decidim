@@ -101,11 +101,11 @@ export const datePasteListener = (date) => {
     event.preventDefault();
     const value = event.clipboardData.getData("text/plain");
 
-    if ((/^([0-9]|0[0-9]|1[0-9]|2[0-9]|3[0-1])(-|\/)([0-9]|0[0-9]|1[0-9]|2[0-9]|3[0-1])(-|\/)([0-9]{4})$/).test(value)) {
-      if ((/(^[0-9])(-|\/)([0-9])(-|\/)([0-9]{4})$/).test(value)) {
+    if ((/^([0-9]|[0-2][0-9]|3[0-1])(-|.|\/)([0-9]|[0-2][0-9]|3[0-1])(-|.|\/)([0-9]{4})$/).test(value)) {
+      if ((/(^[0-9])(-|\/)([0-9])(-|.|\/)([0-9]{4})$/).test(value)) {
         date.value = `0${value[0]}/0${value[2]}/${value.substring(value.length - 4)}`
       } else {
-        date.value = value.replaceAll("-", "/");
+        date.value = value.replace(/[-.]/g, "/");
       };
     };
   });

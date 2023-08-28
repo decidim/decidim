@@ -58,7 +58,7 @@ export default function generateDatePicker(input, row) {
 
   date.addEventListener("keyup", () => {
     if (date.value.length === 10) {
-      prevDate = formatDate(date.value, "us");
+      prevDate = formatDate(date.value, "datepicker");
 
       input.value = `${formatDate(date.value, "input")}T${document.querySelector(`#${input.id}_time`).value}`;
     };
