@@ -21,11 +21,13 @@ module Decidim
           choices:
         )
       end
+      let(:organization) { create(:organization) }
 
-      let(:current_participatory_space) { create(:participatory_process) }
+      let(:current_participatory_space) { create(:participatory_process, organization:) }
 
       before do
         allow(view).to receive(:current_participatory_space).and_return(current_participatory_space)
+        allow(view).to receive(:current_organization).and_return(organization)
       end
 
       def render_input
@@ -155,9 +157,13 @@ module Decidim
 
       describe "scopes" do
         let(:type) { :scope }
+        let!(:scope1) { create(:scope, organization:, name: { "en" => "Scope1" }) }
+        let!(:scope2) { create(:scope, organization:, name: { "en" => "Scope2" }) }
+        let(:choices) { [["  Scope1", scope1.id], ["  Scope2", scope2.id]] }
+        let(:options) { { include_blank: "Select a scope" } }
 
         it "is supported" do
-          expect(form).to receive(:scopes_picker).with(:test, { checkboxes_on_top: true })
+          expect(form).to receive(:select).with(:test, choices, options)
           render_input
         end
       end
