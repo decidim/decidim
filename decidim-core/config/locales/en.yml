@@ -28,7 +28,6 @@ en:
         nickname: Nickname
         password: Password
         password_confirmation: '"Confirm your password"'
-        password_confirmation_form: Confirm your password
         personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms of service agreement
