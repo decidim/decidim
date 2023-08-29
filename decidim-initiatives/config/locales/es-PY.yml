@@ -438,10 +438,6 @@ es-PY:
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
-          date_select:
-            day: Día
-            month: Mes
-            year: Año
           help: Por favor, rellena los siguientes campos con tus datos personales para firmar la iniciativa.
         finish:
           back_to_initiative: Volver a la iniciativa
