@@ -105,12 +105,18 @@ sv:
             values:
               accepted: Accepterat
               evaluating: Utvärderas
+              not_answered: Ej besvarade
               published: Publicerad
               rejected: Avvisad
               validating: Teknisk validering
               withdrawn: Tillbakadragen
           valuator_role_ids_has:
             label: Tilldelad till värderare
+          with_any_state:
+            label: Besvarade
+            values:
+              state_not_published: Ej besvarade
+              state_published: Besvarade
         search_placeholder:
           id_string_or_title_cont: Sök %{collection} efter ID eller titel.
     components:
@@ -349,6 +355,7 @@ sv:
         title: Stöd
     participatory_spaces:
       highlighted_proposals:
+        last: Senaste förslag
         see_all: Visa alla (%{count})
     proposals:
       actions:
@@ -585,6 +592,7 @@ sv:
           unfold: Veckla ut
         new:
           add_file: Lägg till fil
+          edit_file: Redigera fil
           send: Fortsätt
         new_collaborative_draft_button:
           new_collaborative_draft: Nytt gemensamt utkast
@@ -628,6 +636,9 @@ sv:
           back_from_collaborative_draft: Tillbaka till gemensamma utkast
         wizard_header:
           title: Skapa ditt gemensamma utkast
+      content_blocks:
+        highlighted_proposals:
+          name: Förslag
       create:
         error: Det gick inte att spara förslaget.
         success: Förslaget har skapats. Det är sparat som ett utkast.
@@ -716,6 +727,9 @@ sv:
           random: Slumpmässig
           recent: Senaste
           with_more_authors: Med fler författare
+        participatory_texts:
+          view_index:
+            document_index: Dokumentindex
         placeholder:
           address: Drottninggatan 23, 123 45 Stockholm
         preview:
