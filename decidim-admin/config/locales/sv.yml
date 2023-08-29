@@ -602,6 +602,7 @@ sv:
             created_at: Skapad
             document_number: Dokumentnummer
             name: Namn
+            nickname: Smeknamn
             phone: Telefon
             state: Status
             users_count: Antal användare
@@ -759,6 +760,7 @@ sv:
           colors:
             colors_title: Organisationsfärger
             colors_warning_html: Varning! Att ändra dessa färger kan bryta minska kontrasterna och tillgängligheten. Du kan kontrollera kontrasten i ditt val med <a href="%{link}">WebAIM Contrast Checker</a> eller andra liknande verktyg.
+            title: Färgväljare
           cta_button_path_help: 'Du kan ändra vad uppmaningsknappen på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga URL:er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
           cta_button_text_help: Du kan ha separata texter på uppmaningsknappen på hemsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen.
           homepage_appearance_title: Redigera startsidans utseende
@@ -779,9 +781,13 @@ sv:
           add: Lägg till i vitlistan
           title: Vitlista för externa domäner
       organization_homepage:
+        content_blocks:
+          edit:
+            update: Uppdatera
         edit:
           active_content_blocks: Block med aktivt innehåll
           inactive_content_blocks: Block med inaktivt innehåll
+          title: Sidans innehåll
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat deltagare i deltagarutrymmet.
@@ -893,6 +899,8 @@ sv:
           view: Visa offentlig sida
         content_blocks:
           active_content_blocks: Aktiva innehållsblock
+          edit:
+            update: Uppdatera
           inactive_content_blocks: Inactiva innehållsblock
           title: Sidans innehåll
         create:
@@ -923,9 +931,11 @@ sv:
         areas: Områden
         authorization_workflows: Verifieringsmetoder
         dashboard: Adminpanel
+        edit_landing_page: Sidans innehåll
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
         metrics: Metrik
+        pages: Sidor
         panel: Administratör
         participants: Deltagare
         scope_types: Omfattningstyper
@@ -1012,12 +1022,15 @@ sv:
       models:
         moderation:
           fields:
+            created_at: Rapporterat den
             deleted_resource: Borttagen resurs
             hidden_at: Dold
             participatory_space: Deltagarutrymme
+            report_count: Antal anmälningar
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: Rapporterad innehållsadress
+            reports: Anledning
             visit_url: Besök URL
         report:
           fields:
