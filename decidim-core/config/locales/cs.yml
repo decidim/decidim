@@ -1890,6 +1890,7 @@ cs:
   layouts:
     decidim:
       announcements:
+        view_less: Zobrazit méně
         view_more: Více informací
       data_consent:
         details:
@@ -2077,6 +2078,7 @@ cs:
       option_split: Vedle sebe
       option_unescaped: Neošetřené Esc
       option_unified: Sjednocené
+      toggle: Přepnout zobrazení
   views:
     pagination:
       next: Další
