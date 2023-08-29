@@ -428,10 +428,6 @@ zh-TW:
       initiative_signatures:
         fill_personal_data:
           continue: 繼續
-          date_select:
-            day: 日
-            month: 月
-            year: 年
           help: 以下請填寫您的個人資料以簽署此倡議。
         finish:
           back_to_initiative: 回到倡議
