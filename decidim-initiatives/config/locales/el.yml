@@ -285,10 +285,6 @@ el:
       initiative_signatures:
         fill_personal_data:
           continue: Συνέχεια
-          date_select:
-            day: Ημέρα
-            month: Μήνας
-            year: Έτος
         finish:
           back_to_initiative: Επιστροφή στην πρωτοβουλία
         sms_code:
