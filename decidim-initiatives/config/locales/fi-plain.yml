@@ -438,10 +438,6 @@ fi-pl:
       initiative_signatures:
         fill_personal_data:
           continue: Jatka
-          date_select:
-            day: Päivä
-            month: Kuukausi
-            year: vuosi
           help: Täytä henkilötietosi seuraaviin kohtiin allekirjoittaaksesi aloitteen.
         finish:
           back_to_initiative: Takaisin aloitteeseen
