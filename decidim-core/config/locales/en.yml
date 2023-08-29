@@ -1847,7 +1847,7 @@ en:
   layouts:
     decidim:
       announcements:
-        close: Close
+        view_less: Show less
         view_more: More information
       data_consent:
         details:
@@ -2035,6 +2035,7 @@ en:
       option_split: Side-by-side
       option_unescaped: Unescaped
       option_unified: Unified
+      toggle: Toggle view
   views:
     pagination:
       next: Next
