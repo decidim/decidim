@@ -17,12 +17,14 @@ describe "Organization admins", type: :system do
       login_as admin, scope: :user
       visit decidim_admin.root_path
       click_link "Participants"
-      click_link "Admins"
+      within_admin_menu do
+        click_link "Admins"
+      end
     end
 
     it "can invite new users" do
       within ".card-title" do
-        find(".button--title").click
+        click_link "New admin"
       end
 
       within ".new_user" do
@@ -41,7 +43,7 @@ describe "Organization admins", type: :system do
 
     it "can invite a user with a specific role" do
       within ".card-title" do
-        find(".button--title").click
+        click_link "New admin"
       end
 
       within ".new_user" do
