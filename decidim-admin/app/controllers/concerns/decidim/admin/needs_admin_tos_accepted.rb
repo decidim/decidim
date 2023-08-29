@@ -15,7 +15,7 @@ module Decidim
       def tos_accepted_by_admin
         return unless request.format.html?
         return unless current_user
-        return if current_user.roles.empty?
+        return unless user_has_any_role?
         return if current_user.admin_terms_accepted?
         return if permitted_paths?
 
@@ -37,6 +37,14 @@ module Decidim
 
       def admin_tos_path
         decidim_admin.admin_terms_show_path
+      end
+
+      def user_has_any_role?
+        return true if current_user.admin
+        return true if current_user.roles.any?
+        return true if current_user.moderator?
+
+        false
       end
     end
   end
