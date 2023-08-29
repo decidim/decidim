@@ -310,10 +310,6 @@ lb:
       initiative_signatures:
         fill_personal_data:
           continue: Fortsetzen
-          date_select:
-            day: Tag
-            month: Monat
-            year: Jahr
         finish:
           back_to_initiative: Zurück zur Initiative
         sms_code:
