@@ -305,10 +305,6 @@ zh-CN:
       initiative_signatures:
         fill_personal_data:
           continue: 继续
-          date_select:
-            day: 日
-            month: 月
-            year: 年份
         finish:
           back_to_initiative: 回到倡议
         sms_code:
