@@ -258,10 +258,6 @@ ar:
       initiative_signatures:
         fill_personal_data:
           continue: استمر
-          date_select:
-            day: يوم
-            month: شهر
-            year: عام
         finish:
           back_to_initiative: العودة إلى المبادرة
         sms_code:
