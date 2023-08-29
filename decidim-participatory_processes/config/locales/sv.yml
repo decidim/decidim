@@ -140,6 +140,7 @@ sv:
           name: Steg i dialog
         participatory_process_type:
           fields:
+            created_at: Skapad den
             title: Titel
           name: Processtyp
         participatory_process_user_role:
@@ -420,6 +421,7 @@ sv:
           back_to_process: Tillbaka till dialogsidan
       participatory_processes:
         filters:
+          all_types: Alla typer
           counters:
             active:
               one: En pågående dialog
