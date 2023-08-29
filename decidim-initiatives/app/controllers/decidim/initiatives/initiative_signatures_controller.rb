@@ -16,10 +16,11 @@ module Decidim
       before_action :authenticate_user!
       before_action :authorize_wizard_step, only: [
         :fill_personal_data,
+        :store_personal_data,
         :sms_phone_number,
-        :update_sms_phone_number,
+        :store_sms_phone_number,
         :sms_code,
-        :update_sms_code,
+        :store_sms_code,
         :finish
       ]
 
@@ -63,7 +64,7 @@ module Decidim
                 )
       end
 
-      def update_fill_personal_data
+      def store_personal_data
         redirect_to(sms_phone_number_path) && return unless fill_personal_data_step?
 
         build_vote_form(params)
@@ -84,7 +85,7 @@ module Decidim
         @form = Decidim::Verifications::Sms::MobilePhoneForm.new
       end
 
-      def update_sms_phone_number
+      def store_sms_phone_number
         redirect_to(finish_path) && return unless sms_step?
 
         @form = Decidim::Verifications::Sms::MobilePhoneForm.from_params(params.merge(user: current_user))
@@ -110,7 +111,7 @@ module Decidim
         @form = Decidim::Verifications::Sms::ConfirmationForm.new
       end
 
-      def update_sms_code
+      def store_sms_code
         redirect_to(finish_path) && return unless sms_step?
 
         @form = Decidim::Verifications::Sms::ConfirmationForm.from_params(params)
@@ -152,19 +153,19 @@ module Decidim
       attr_reader :wizard_steps
 
       def fill_personal_data_path
-        fill_personal_data_initiative_initiative_signatures_path(current_initiative)
+        fill_personal_data_initiative_signatures_path(current_initiative)
       end
 
       def sms_code_path
-        sms_code_initiative_initiative_signatures_path(current_initiative)
+        sms_code_initiative_signatures_path(current_initiative)
       end
 
       def finish_path
-        finish_initiative_initiative_signatures_path(current_initiative)
+        finish_initiative_signatures_path(current_initiative)
       end
 
       def sms_phone_number_path
-        sms_phone_number_initiative_initiative_signatures_path(current_initiative)
+        sms_phone_number_initiative_signatures_path(current_initiative)
       end
 
       def build_vote_form(parameters)
