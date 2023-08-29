@@ -205,7 +205,7 @@ module Decidim
     end
 
     def admin_terms_accepted?
-      return true if admin_terms_accepted_at
+      true if admin_terms_accepted_at
     end
 
     # Whether this user can be verified against some authorization or not.
