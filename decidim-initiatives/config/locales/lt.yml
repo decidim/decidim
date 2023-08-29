@@ -444,10 +444,6 @@ lt:
       initiative_signatures:
         fill_personal_data:
           continue: Tęsti
-          date_select:
-            day: Diena
-            month: Mėnuo
-            year: Metai
           help: Kad pasirašytumėte iniciatyvą, įrašykite savo asmens duomenis toliau nurodomuose laukeliuose.
         finish:
           back_to_initiative: Grįžti į iniciatyvą
