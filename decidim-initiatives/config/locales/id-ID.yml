@@ -244,10 +244,6 @@ id:
       initiative_signatures:
         fill_personal_data:
           continue: Terus
-          date_select:
-            day: Hari
-            month: Bulan
-            year: Tahun
         finish:
           back_to_initiative: Kembali ke inisiatif
         sms_code:
