@@ -54,7 +54,6 @@ describe "Admin invite", type: :system do
         page.find(".close-button").click
       end
 
-      expect(page).to have_content("Dashboard")
       expect(page).to have_current_path "/admin/admin_terms/show"
     end
   end

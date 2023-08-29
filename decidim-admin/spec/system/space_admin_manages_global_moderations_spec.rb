@@ -34,10 +34,9 @@ describe "Space admin manages global moderations", type: :system do
       expect(page).to have_content("Please take a moment to review the admin terms of service")
     end
 
-    it "has only the Dashboard menu item in the main navigation" do
-      within ".main-nav" do
-        expect(page).to have_text("Dashboard")
-        expect(page).to have_selector("li a", count: 1)
+    it "has the main navigation empty" do
+      within ".layout-nav" do
+        expect(page).to_not have_selector("li a")
       end
     end
 
