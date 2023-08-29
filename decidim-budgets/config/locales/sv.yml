@@ -13,6 +13,7 @@ sv:
         decidim_scope_id: Omfång
         description: Beskrivning
         proposal_ids: Relaterade förslag
+        proposals: Förslag
         selected: Valda för genomförande
         title: Titel
       proposals_import:
