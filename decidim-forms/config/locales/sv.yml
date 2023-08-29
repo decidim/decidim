@@ -143,6 +143,7 @@ sv:
         show:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Logga in med ditt konto</a> eller <a href="%{sign_up_link}">registrera dig</a> om du vill svara på formuläret.
+            are_you_new?: Ny användare?
             title: Besvara formuläret
           current_step: Steg %{step}
           of_total_steps: av %{total_steps}
