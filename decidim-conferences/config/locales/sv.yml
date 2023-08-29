@@ -61,6 +61,7 @@ sv:
         full_name: Fullständigt namn
         personal_url: Personlig URL
         position: Plats
+        short_bio: Kort biographi
         twitter_handle: Twitternamn
         user_id: Användare
       conference_user_role:
