@@ -80,12 +80,12 @@
               <%= render "decidim/meetings/admin/poll/answer_option", form: answer_option_form, question:, editable: %>
             <% end %>
           <% end %>
-          <% if editable %>
-            <div class="row column">
-              <button type="button" class="button button__sm md:button__lg button__secondary add-answer-option"><%= t("add_answer_option", scope: "decidim.forms.admin.questionnaires.question") %></button>
-            </div>
-          <% end %>
         </div>
+        <% if editable %>
+          <div class="row column">
+            <button type="button" class="button button__sm md:button__lg button__secondary add-answer-option"><%= t("add_answer_option", scope: "decidim.forms.admin.questionnaires.question") %></button>
+          </div>
+        <% end %>
       </div>
 
 
