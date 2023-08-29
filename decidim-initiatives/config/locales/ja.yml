@@ -435,10 +435,6 @@ ja:
       initiative_signatures:
         fill_personal_data:
           continue: 続ける
-          date_select:
-            day: 日
-            month: 月
-            year: 年
           help: イニシアチブに署名するために、以下のフォームに個人情報を入力してください。
         finish:
           back_to_initiative: イニシアチブに戻る
