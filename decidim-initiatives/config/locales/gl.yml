@@ -251,10 +251,6 @@ gl:
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
-          date_select:
-            day: Día
-            month: Mes
-            year: Ano
         finish:
           back_to_initiative: Volver á iniciativa
         sms_code:
