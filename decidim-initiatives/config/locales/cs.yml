@@ -444,10 +444,6 @@ cs:
       initiative_signatures:
         fill_personal_data:
           continue: Pokračovat
-          date_select:
-            day: Den
-            month: Měsíc
-            year: Rok
           help: Chcete-li iniciativu podepsat, vyplňte své osobní údaje do následujících polí.
         finish:
           back_to_initiative: Zpět na iniciativu
