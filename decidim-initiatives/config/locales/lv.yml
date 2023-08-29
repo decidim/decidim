@@ -285,10 +285,6 @@ lv:
       initiative_signatures:
         fill_personal_data:
           continue: Turpināt
-          date_select:
-            day: Diena
-            month: Mēnesis
-            year: Gads
         finish:
           back_to_initiative: Atpakaļ pie iniciatīvas
         sms_code:
