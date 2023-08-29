@@ -78,6 +78,7 @@ sv:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
@@ -91,6 +92,36 @@ sv:
         one: ungefär 1 månad
         other: ungefär %{count} månader
       half_a_minute: en halv minut
+      short:
+        about_x_days: "%{count}d"
+        about_x_hours: "%{count}tim"
+        about_x_minutes: "%{count}min"
+        about_x_years: "%{count}år"
+        almost_x_years: "%{count}år"
+        half_a_minute: 1 min
+        less_than_x_minutes: "%{count}min"
+        less_than_x_seconds: "%{count}sek"
+        over_x_years: "%{count}år"
+        x_days: "%{count}d"
+        x_hours: "%{count}tim"
+        x_minutes: "%{count}min"
+        x_seconds: "%{count}sek"
+        x_years: "%{count}år"
+      x_days:
+        one: 1 dag
+        other: "%{count} dagar"
+      x_hours:
+        one: 1 timme
+        other: "%{count} minuter"
+      x_minutes:
+        one: 1 minut
+        other: "%{count} minuter"
+      x_months:
+        one: 1 månad
+        other: "%{count} månader"
+      x_seconds:
+        one: 1 sekund
+        other: "%{count} sekunder"
   decidim:
     accessibility:
       external_link: Extern länk
@@ -114,12 +145,15 @@ sv:
         body2: Vill du att vi ska skicka verifieringsmailet igen? %{resend_link} eller %{cancel_link}.
         cancel: avbryt
         cancel_error: Kunde inte avbryta ändringen av e-postadressen.
+        send_again: Skicka igen
       show:
         change_password: Ändra lösenord
         update_account: Uppdatera konto
       update:
         error: Det gick inte att uppdatera ditt konto.
         success: Ditt konto har uppdaterats.
+    activity:
+      time_ago: "%{time} sedan"
     admin:
       actions:
         cancel: Avbryt
@@ -227,6 +261,7 @@ sv:
           rejected: "Detta ändringsförslag till %{amendable_type} %{amendable_link}\navslogs <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Detta ändringsförslag till %{amendable_type} %{proposal_link} har dragits tillbaka av författaren.
+      name: Ändringsförslag
       new:
         amendment_author: Förslagsställare
         send: Skapa
@@ -256,8 +291,13 @@ sv:
       document:
         download: Hämta fil
       documents:
+        documents: Dokument
         related_documents: Relaterade dokument
+      photo:
+        alt: Mediabild
+        title: Bild
       photos:
+        photos: Bilder
         related_photos: Relaterade bilder
     author:
       avatar: 'Avatar: %{name}'
@@ -386,6 +426,8 @@ sv:
         description: Beskrivning
       footer_sub_hero:
         name: Sidfot sub hero banner
+      global_menu:
+        name: Global meny
       hero:
         name: Hjältebild
       hero_settings_form:
@@ -394,6 +436,8 @@ sv:
       highlighted_content_banner:
         name: Banner för uppmärksammat innehåll
       highlighted_elements_settings_form:
+        components:
+          all: Alla
         orders:
           label: 'Sortera element efter:'
           random: Slumpmässig
@@ -407,12 +451,37 @@ sv:
         name: Senaste aktiviteten
         title: Senaste aktiviteten
         view_all: Visa alla
+      metadata:
+        name: Metadata
       metrics:
         name: Organisationsmetrik
+      participatory_space_metrics:
+        name: Metriker
+      participatory_space_stats:
+        name: Statistik
+      social_networks_metadata:
+        name: Sociala nätverk
+      static_page:
+        section:
+          name: Sektion
+          section_content: Innehåll
+        summary:
+          name: Sammanfattning
+          summary_content: Innehåll
+        two_pane_section:
+          left_column: Vänsterkolumn
       stats:
         name: Organisationsstatistik
       sub_hero:
         name: Sub hjälte banner
+    core:
+      application_helper:
+        filter_area_values:
+          all: Alla
+        filter_category_values:
+          all: Alla
+        filter_scope_values:
+          all: Alla
     devise:
       omniauth_registrations:
         new:
@@ -470,14 +539,20 @@ sv:
         request_data: Begär data
     editor_images:
       drag_and_drop_help: Lägg till bilder genom att dra och släppa eller klistra in dem.
+    endorsement_buttons_cell:
+      already_endorsed: Ogilla
+      endorse: Gilla
     endorsements:
       identities:
         done: Klar
         select_identity: Välj identitet
+    endorsers_list:
+      endorsed_by: Gillad av…
     errors:
       internal_server_error:
         copied: Text kopierad!
         date_and_time: Datum och tid
+        reference: Referens
         title: Det uppstod ett problem med vår server
         unknown: Okänd
         url: URL
@@ -631,6 +706,7 @@ sv:
     filters:
       linked_classes:
         all: Alla
+        answer: Svar
         collaborative_draft: Samarbetsförslag
         dummy_resource: Dummyresurser
         meeting: Möten
@@ -650,6 +726,9 @@ sv:
         other: "%{count} följare"
       no_followers: Inga följare än.
     following:
+      following_count:
+        one: "%{count} följare"
+        other: "%{count} följare"
       non_public_followings: Vissa resurser som följs är inte offentliga.
     follows:
       create:
@@ -694,6 +773,7 @@ sv:
           uploaded: Uppladdad
           validating: Bekräftar...
           validation_error: Valideringsfel!
+        select_file: Välj fil
     gamification:
       all_badges_link: Se alla tillgängliga märken.
       badges:
@@ -770,6 +850,7 @@ sv:
       all: Alla aktivitetstyper
       index:
         last_activity: Senaste aktivitet
+      name: Senaste aktiviteten
     links:
       invalid_url: Ogiltig URL
       warning:
@@ -815,29 +896,35 @@ sv:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} har startat en ny konversation i namnet %{group}. Klicka här för att se den:"
+          outro: Upplev Decidim!
           subject: "%{manager} har startat en ny konversation som %{group}"
         comanagers_new_message:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} har postat nya meddelanden i en konversation i namnet %{group}. Klicka här för att se dem:"
+          outro: Upplev Decidim!
           subject: "%{manager} har skickat nya meddelanden som %{group}"
         new_conversation:
           greeting: Hej %{recipient}!
           intro: "%{sender} har startat en ny konversation med dig. Klicka här för att se den:"
+          outro: Upplev Decidim!
           subject: "%{sender} har startat en konversation med dig"
         new_group_conversation:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} har startat en ny konversation med gruppen %{group}. Klicka här för att se den:"
+          outro: Upplev Decidim!
           subject: "%{sender} har startat en konversation med %{group}"
         new_group_message:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} har postat nya meddelanden i en konversation med gruppen %{group}. Klicka här för att se den:"
+          outro: Upplev Decidim!
           subject: "%{group} har nya meddelanden från %{sender}"
         new_message:
           greeting: Hej %{recipient}!
           intro: "%{sender} har lagt upp nya meddelanden i er konversation. Klicka här för att se dem:"
+          outro: Upplev Decidim!
           subject: Du har fått nya meddelanden från %{sender}
       conversations:
         add_conversation_users:
@@ -863,7 +950,11 @@ sv:
           not_allowed: Deltagaren tar inte emot direktmeddelanden.
           title: Samtal med %{usernames}
         start:
+          placeholder: Ditt meddelande...
           send: Skicka
+    metadata:
+      progress:
+        active: Aktiv
     metrics:
       download:
         csv: Ladda ner data (CSV)
@@ -935,6 +1026,7 @@ sv:
         notifications_sending_frequencies:
           daily: Dagligen
           none: Ingen
+          real_time: Realtid
           weekly: Veckovis
         own_activity: Min egen verksamhet, som när någon kommenterar mitt förslag eller nämner mig
         push_notifications: Push-meddelanden
@@ -944,6 +1036,7 @@ sv:
         error: Det gick inte att uppdatera dina meddelandeinställningar.
         success: Dina meddelandeinställningar har uppdaterats.
     offline:
+      name: Offline
       show:
         retry: Försök igen
     open_data:
@@ -1004,6 +1097,7 @@ sv:
       user:
         actions:
           create_user_group: Skapa grupp
+          disabled_message: Meddelande
           edit_profile: Redigera profil
           edit_user_group: Redigera grupprofil
           invite_user: Bjud in deltagare
@@ -1058,12 +1152,14 @@ sv:
       scopes_picker_input:
         select_scope: 'Välj ett omfång (nuvarande: %{current})'
     search:
+      name: Sök
       results: Sökresultat
       results_found_for_term: '%{count} resultat för sökningen: "%{term}"'
       term_input_placeholder: Sök
     searches:
       filters:
         jump_to: 'Gå till:'
+        search: Sök
         state:
           active: Aktiva
           all: Alla
@@ -1094,6 +1190,7 @@ sv:
         already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
         close: Stäng
         description: Är detta innehåll olämpligt?
+        hide: Dölj
         offensive: Innehåller rasism, sexism, nedsättande kommentarer, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hatpropaganda.
         reason: Anledning
         report: Rapportera
@@ -1116,8 +1213,11 @@ sv:
         sign_up: Registrera dig
       participatory_space_filters:
         filters:
+          area: Område
           areas: Områden
+          scope: Omfång
           select_an_area: Välj ett område
+      progress: Framsteg
       public_participation:
         public_participation: Gör mitt deltagande synligt
       reference:
@@ -1276,6 +1376,7 @@ sv:
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
         password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
+        title: Lösenordsändring
       new:
         forgot_your_password: Glömt ditt lösenord?
         send_me_reset_password_instructions: Skicka mig anvisningar om återställning av lösenord
@@ -1318,8 +1419,48 @@ sv:
   doorkeeper:
     scopes:
       public: Din offentliga information.
+  editor:
+    extensions:
+      link:
+        bubbleMenu:
+          edit: Redigera
+          remove: Ta bort
+          url: URL
+        hrefLabel: Länk-URL
+        targetLabel: Mål
+        targets:
+          blank: Ny flik
+      videoEmbed:
+        titleLabel: Titel
+        urlLabel: Video-URL
+    inputDialog:
+      buttons:
+        cancel: Avbryta
+        remove: Ta bort
+        save: Spara
+    toolbar:
+      control:
+        blockquote: Blockcitat
+        bold: Fet
+        bulletList: Osorterad lista
+        codeBlock: Kodblock
+        hardBreak: Radbrytning
+        heading: Textstil
+        image: Bild
+        indent:
+          indent: Indentera
+          outdent: Minska indrag
+        italic: Kursiv
+        link: Länk
+        underline: Understruken
+      textStyle:
+        normal: Normal
+    upload:
+      uploadedFile: Uppladdad fil
   emojis:
+    button: Lägg till emoji
     categories:
+      activities: Aktiviteter
       custom: Anpassad
       flags: Flaggor
       food-drink: Mat & Dryck
@@ -1327,6 +1468,7 @@ sv:
       people-body: Personer & kropp
       recents: Nyligen använd
       symbols: Symboler
+    retry: Försök igen
     search:
       clear: Rensa sök
   errors:
@@ -1378,8 +1520,14 @@ sv:
             cookie: Cookie
             local_storage: Lokal lagring
         dialog:
+          accept_all: Acceptera alla
           settings: Inställningar
         modal:
+          accept_all: Acceptera alla
+          essential:
+            title: Nödvändigt
+          marketing:
+            title: Marknadsföring
           save_settings: Spara inställningar
         warning:
           consent_required: Du måste aktivera %{categories} för att kunna se innehållet.
@@ -1388,8 +1536,11 @@ sv:
       footer:
         cc_by_license: Creative Commons licens
         decidim_logo: Decidim logotyp
+        decidim_title: Decidim
         download_open_data: Hämta öppna datafiler
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
+        resources: Resurser
+        sign_in: Logga in
         sign_up: Registrera
       header:
         main_menu: Huvudmeny
@@ -1420,6 +1571,7 @@ sv:
       user_menu:
         account: 'Användarkonto: %{name}'
         admin_dashboard: Adminpanel
+        configuration: Konfiguration
         conversations: Konversationer
         notifications: Meddelanden
         profile: Mitt konto
@@ -1433,6 +1585,7 @@ sv:
         my_data: Mitt data
         my_interests: Mina intressen
         notifications_settings: Meddelandeinställningar
+        profile: Profil
         title: Deltagarinställningar
         user_groups: Grupper
   locale:
