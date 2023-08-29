@@ -270,6 +270,14 @@ module Decidim
       password_updated_at < Decidim.config.admin_password_expiration_days.days.ago
     end
 
+    def moderator?
+      Decidim.participatory_space_manifests.map do |manifest|
+        participatory_space_type = manifest.model_class_name.constantize
+        return true if participatory_space_type.moderators(organization).exists?(id:)
+      end
+      false
+    end
+
     protected
 
     # Overrides devise email required validation.
