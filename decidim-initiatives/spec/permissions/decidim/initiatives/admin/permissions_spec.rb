@@ -239,7 +239,7 @@ describe Decidim::Initiatives::Admin::Permissions do
         it { is_expected.to be true }
       end
 
-      context "when reading a initiatives settings" do
+      context "when reading an initiatives settings" do
         let(:action_subject) { :initiatives_settings }
         let(:action_name) { :update }
 
@@ -471,7 +471,7 @@ describe Decidim::Initiatives::Admin::Permissions do
       end
     end
 
-    context "when reading a initiatives settings" do
+    context "when reading an initiatives settings" do
       let(:action_subject) { :initiatives_settings }
       let(:action_name) { :update }
 
