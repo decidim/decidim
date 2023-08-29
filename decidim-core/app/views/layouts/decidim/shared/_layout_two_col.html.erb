@@ -4,7 +4,7 @@
   <aside class="layout-2col__aside">
     <%= yield :aside %>
   </aside>
-  <% main_tag = redesign_enabled? && main_enabled ? :main : :div %>
+  <% main_tag = main_enabled ? :main : :div %>
   <%= content_tag main_tag, class: "layout-2col__main" do %>
     <%= content_for :flash_messages %>
     <%= yield %>

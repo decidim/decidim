@@ -3,54 +3,18 @@
 require "faraday"
 require "json"
 
+require_relative "querier/by_issue_id"
+require_relative "querier/by_label"
+require_relative "querier/related_issues"
+
 module Decidim
   module GithubManager
     # Allows to make GET requests to GitHub Rest API about Issues and Pull Requests
     # @see https://docs.github.com/en/rest
-    class Querier
-      def initialize(token:, issue_id:)
-        @token = token
-        @issue_id = issue_id
-      end
-
-      # Makes the GET request and parses the response of an Issue or Pull Request in GitHub
-      #
-      # @return [Hash]
-      def call
-        data = issue_metadata
-        return unless data["number"]
-
-        parse(issue_metadata)
-      end
-
-      private
-
-      attr_reader :token, :issue_id
-
-      # Makes a GET request for the metadata of an Issue or Pull Request in GitHub
-      #
-      # @see https://docs.github.com/en/rest/issues/issues#get-an-issue GitHub API documentation
-      # @return [Hash]
-      def issue_metadata
-        uri = "https://api.github.com/repos/decidim/decidim/issues/#{issue_id}"
-        response = Faraday.get(uri, nil, { Authorization: "token #{token}" })
-        JSON.parse(response.body)
-      end
-
-      # Parses the response of an Issue or Pull Request in GitHub
-      #
-      # @return [Hash]
-      def parse(metadata)
-        labels = metadata["labels"].map { |l| l["name"] }.sort
-
-        {
-          id: metadata["number"],
-          title: metadata["title"],
-          labels:,
-          type: labels.select { |l| l.match(/^type: /) || l == "target: developer-experience" },
-          modules: labels.select { |l| l.match(/^module: /) }
-        }
-      end
+    module Querier
+      autoload :ByIssueId, "decidim/github_manager/querier/by_issue_id"
+      autoload :ByLabel, "decidim/github_manager/querier/by_label"
+      autoload :RelatedIssues, "decidim/github_manager/querier/related_issues"
     end
   end
 end

@@ -29,7 +29,7 @@
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
 
-  <% if component_settings.geocoding_enabled? %>
+  <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
     <div class="proposal-list__map">
       <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
         <template id="marker-popup">
@@ -52,10 +52,14 @@
 
   <%= render partial: "decidim/shared/component_announcement" %>
 
-  <%= render partial: "voting_rules" %>
+  <% if show_voting_rules? %>
+    <section class="layout-main__section">
+      <%= render partial: "voting_rules" %>
+    </section>
+  <% end %>
 
-  <div id="proposals">
+  <section id="proposals" class="layout-main__section layout-main__heading">
     <%= render partial: "proposals" %>
-  </div>
+  </section>
 
 <% end %>

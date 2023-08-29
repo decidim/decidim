@@ -24,9 +24,6 @@ module Decidim
     include NeedsPasswordChange
     include LinkedResourceReference
 
-    include RedesignLayout
-    redesign active: true
-
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
     helper Decidim::LanguageChooserHelper

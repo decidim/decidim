@@ -22,18 +22,28 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        transaction do
+        with_events(with_transaction: true) do
           update_meeting!
-          send_notification if should_notify_followers?
-          schedule_upcoming_meeting_notification if start_time_changed?
         end
 
+        send_notification if should_notify_followers?
+        schedule_upcoming_meeting_notification if start_time_changed?
         broadcast(:ok, meeting)
       end
 
       private
 
       attr_reader :form, :current_user, :meeting
+
+      def event_arguments
+        {
+          resource: meeting,
+          extra: {
+            event_author: form.current_user,
+            locale:
+          }
+        }
+      end
 
       def update_meeting!
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite

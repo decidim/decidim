@@ -108,16 +108,6 @@
                         { multiple: true, class: "chosen-select" } %>
       <% end %>
     </div>
-
-    <div class="row column">
-      <% if @form.consultations_for_select %>
-        <%= form.select :consultations_ids,
-                        options_for_select(@form.consultations_for_select, selected: consultations_selected ),
-                        { include_blank: true },
-                        { multiple: true, class: "chosen-select" } %>
-      <% end %>
-    </div>
-
   </div>
 </div>
 

@@ -105,7 +105,7 @@ describe "Initiative", type: :system do
         it_behaves_like "initiative does not show signatures"
       end
 
-      it_behaves_like "has redesigned attachments"
+      it_behaves_like "has attachments tabs"
 
       it "displays comments section" do
         expect(page).to have_css(".comments")

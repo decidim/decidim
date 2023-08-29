@@ -2,8 +2,6 @@
 
 shared_examples "share link" do
   it "allows copying the share link from the share modal" do
-    skip_unless_redesign_enabled "Fix this test once integrated share link with full redesign"
-
     click_button("Share")
 
     # This overrides document.execCommand in order to ensure it was called.

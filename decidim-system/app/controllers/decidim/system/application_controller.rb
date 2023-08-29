@@ -8,7 +8,6 @@ module Decidim
       include PayloadInfo
       include Headers::HttpCachingDisabler
       include DisableRedirectionToExternalHost
-      include DisabledRedesignLayout
 
       protect_from_forgery with: :exception, prepend: true
 

@@ -191,7 +191,6 @@ module Decidim
 
       def vote_button_to(path, params, &)
         # actions are linked to objects belonging to a component
-        # In consultations, a question belong to a participatory_space but it has comments
         # To apply :comment permission, the modal authorizer should be refactored to allow participatory spaces-level comments
         return button_to(path, params, &) unless current_component
 

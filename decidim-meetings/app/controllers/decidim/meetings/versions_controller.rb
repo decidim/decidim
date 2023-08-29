@@ -6,8 +6,6 @@ module Decidim
     class VersionsController < Decidim::Meetings::ApplicationController
       include Decidim::ResourceVersionsConcern
 
-      redesign active: true
-
       def versioned_resource
         @versioned_resource ||= Meeting.not_hidden.where(component: current_component).find(params[:meeting_id])
       end

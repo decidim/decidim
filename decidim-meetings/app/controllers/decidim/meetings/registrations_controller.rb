@@ -6,8 +6,6 @@ module Decidim
     class RegistrationsController < Decidim::Meetings::ApplicationController
       include Decidim::Forms::Concerns::HasQuestionnaire
 
-      redesign active: true
-
       def answer
         enforce_permission_to(:join, :meeting, meeting:)
 

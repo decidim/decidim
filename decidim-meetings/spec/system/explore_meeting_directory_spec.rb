@@ -145,8 +145,6 @@ describe "Explore meeting directory", type: :system do
       let!(:user_group_meeting) { create(:meeting, :published, :user_group_author, component: components.first) }
 
       it "lists the filtered meetings" do
-        skip_unless_redesign_enabled
-
         visit directory
 
         within "#panel-dropdown-menu-origin" do
@@ -155,12 +153,6 @@ describe "Explore meeting directory", type: :system do
         end
 
         expect(page).to have_css(meetings_selector, count: 1)
-        # REDESIGN_PENDING: The redesigned card_l cell is not expected to show
-        # the author, only display if a meeting is official
-        #
-        # within meetings_selector do
-        #   expect(page).to have_content(user_group_meeting.normalized_author.name)
-        # end
       end
     end
 
@@ -267,7 +259,7 @@ describe "Explore meeting directory", type: :system do
 
         expect(page).to have_content(translated(past_meeting1.title))
 
-        result = page.find("#meetings .meeting-list__container").text
+        result = page.find("#meetings .card__list-list").text
         expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(past_meeting1.title))
         expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting3.title))
         expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(upcoming_meeting1.title))
@@ -286,7 +278,7 @@ describe "Explore meeting directory", type: :system do
 
         expect(page).not_to have_content(translated(upcoming_meeting1.title))
 
-        result = page.find("#meetings .meeting-list__container").text
+        result = page.find("#meetings .card__list-list").text
         expect(result.index(translated(past_meeting3.title))).to be < result.index(translated(past_meeting1.title))
         expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting2.title))
       end
@@ -296,7 +288,7 @@ describe "Explore meeting directory", type: :system do
       it "orders them by start date" do
         visit directory
 
-        result = page.find("#meetings .meeting-list__container").text
+        result = page.find("#meetings .card__list-list").text
         expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
         expect(result.index(translated(upcoming_meeting1.title))).to be < result.index(translated(upcoming_meeting2.title))
       end
@@ -313,8 +305,6 @@ describe "Explore meeting directory", type: :system do
     end
 
     it "allows filtering by space" do
-      skip_unless_redesign_enabled
-
       expect(page).to have_content(assembly_meeting.title["en"])
 
       # Since in the first load all the meeting are present, we need cannot rely on

@@ -11,14 +11,14 @@
 
   <div class="vertical-tabs">
     <nav>
-      <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
+      <button id="dropdown-trigger-pages" data-component="dropdown" data-target="dropdown-menu-pages" data-auto-close="true" data-disabled-md="true">
         <span>
           <%= translated_attribute(page.title) %>
         </span>
         <%= icon "arrow-down-s-line" %>
         <%= icon "arrow-up-s-line" %>
       </button>
-      <ul id="dropdown-menu" class="vertical-tabs__list">
+      <ul id="dropdown-menu-pages" class="vertical-tabs__list">
         <% pages.each do |sibling| %>
           <li class="<%= "is-active" if page == sibling %>">
             <%= link_to translated_attribute(sibling.title), page_path(sibling.slug) %>

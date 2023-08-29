@@ -38,7 +38,11 @@ module Decidim
             resources :answers, only: [:index, :create]
           end
         end
-        root to: "meetings#index"
+        scope "/meetings" do
+          root to: "meetings#index"
+        end
+        get "/", to: redirect("meetings", status: 301)
+
         resource :calendar, only: [:show], format: :text do
           resources :meetings, only: [:show], controller: :calendars, action: :meeting_calendar
         end
@@ -47,6 +51,12 @@ module Decidim
       initializer "decidim_meetings.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:meeting]
+        end
+      end
+
+      initializer "decidim_meetings.content_security_handlers" do |_app|
+        Decidim.configure do |config|
+          config.content_security_policies_extra.deep_merge!({ "frame-src" => %w(player.twitch.tv meet.jit.si) })
         end
       end
 
@@ -150,7 +160,7 @@ module Decidim
 
       initializer "decidim_meetings.moderation_content" do
         config.to_prepare do
-          Decidim::EventsManager.subscribe("decidim.admin.block_user:after") do |_event_name, data|
+          ActiveSupport::Notifications.subscribe("decidim.admin.block_user:after") do |_event_name, data|
             Decidim::Meetings::HideAllCreatedByAuthorJob.perform_later(**data)
           end
         end

@@ -8,7 +8,7 @@ const createAccordion = (component) => {
   accordionOptions.isMultiSelectable = component.dataset.multiselectable !== "false";
   accordionOptions.isCollapsible = component.dataset.collapsible !== "false";
 
-  // This snippet allows to change a data-attribute based on the current viewport
+  // This snippet allows to change the OPEN data-attribute based on the current viewport
   // Just include the breakpoint where the different value will be applied from.
   // Ex:
   // data-open="false" data-open-md="true"
@@ -28,6 +28,15 @@ const createDropdown = (component) => {
   dropdownOptions.hover = component.dataset.hover === "true";
   dropdownOptions.isOpen = component.dataset.open === "true";
   dropdownOptions.autoClose = component.dataset.autoClose === "true";
+
+  // This snippet allows to disable the dropdown based on the current viewport
+  // Just include the breakpoint where the different value will be applied from.
+  // Ex:
+  // data-disabled-md="true"
+  const isDisabled = Object.keys(screens).some((key) => (window.matchMedia(`(min-width: ${screens[key]})`).matches) && Boolean(component.dataset[`disabled-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())]));
+  if (isDisabled) {
+    return
+  }
 
   if (!component.id) {
     // when component has no id, we enforce to have it one

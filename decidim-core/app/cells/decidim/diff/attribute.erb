@@ -1,7 +1,7 @@
 <div id="diff-for-<%= data[:label].parameterize %>" class="version__diff">
-  <h3 class="h4">
+  <h2 class="h4">
     <%= data[:label] %>
-  </h3>
+  </h2>
 
   <%= unified_mode? ? diff_unified(data, display_html_config) : diff_split_full(data, display_html_config) %>
 </div>

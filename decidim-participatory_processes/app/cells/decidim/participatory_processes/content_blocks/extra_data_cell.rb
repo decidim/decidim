@@ -5,8 +5,6 @@ module Decidim
     module ContentBlocks
       class ExtraDataCell < Decidim::ContentBlocks::ParticipatorySpaceExtraDataCell
         include ParticipatorySpaceContentBlocksHelper
-        include ParticipatoryProcessHelper
-        include Decidim::ModalHelper
 
         delegate :steps, :active_step, :start_date, :end_date, :participatory_process_group, to: :resource
 

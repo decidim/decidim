@@ -14,15 +14,15 @@
   @apply container grid grid-rows-[max-content] grid-cols-12 mb-12 md:mb-32 grow;
 
   &.cols-6 > * {
-    @apply col-span-12 md:col-start-3 md:col-span-8 lg:col-start-4 lg:col-span-6 first:self-start;
+    @apply col-span-12 md:col-start-3 md:col-span-8 lg:col-start-4 lg:col-span-6 self-start;
   }
 
   &.cols-8 > * {
-    @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8 first:self-start;
+    @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8 self-start;
   }
 
   &.cols-10 > * {
-    @apply col-span-12 lg:col-start-2 lg:col-span-10 first:self-start;
+    @apply col-span-12 lg:col-start-2 lg:col-span-10 self-start;
   }
 
   footer {
@@ -34,11 +34,11 @@
   @apply md:grid grid-cols-12 container grow;
 
   &__aside {
-    @apply col-span-3 md:pr-16 py-6 md:py-12 gap-6 md:gap-12 flex flex-col justify-between items-start md:justify-start before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-1/2 before:-z-10 md:before:bg-background;
+    @apply col-span-4 lg:col-span-3 md:pr-16 py-6 md:py-12 gap-6 md:gap-12 flex flex-col justify-between items-start md:justify-start before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-1/2 before:-z-10 md:before:bg-background;
   }
 
   &__main {
-    @apply col-span-9 bg-white md:pl-16 py-6 md:py-12;
+    @apply col-span-8 lg:col-span-9 bg-white md:pl-16 py-6 md:py-12;
   }
 
   &__reverse &__aside {

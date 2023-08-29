@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-shared_examples_for "has attachments" do
+shared_examples_for "has attachments content blocks" do
   context "when it has attachments" do
     let!(:document) { create(:attachment, :with_pdf, attached_to:) }
 
@@ -45,7 +45,7 @@ shared_examples_for "has attachments" do
   end
 end
 
-shared_examples_for "has redesigned attachments" do
+shared_examples_for "has attachments tabs" do
   context "when it has attachments" do
     let!(:document) { create(:attachment, :with_pdf, attached_to:) }
 

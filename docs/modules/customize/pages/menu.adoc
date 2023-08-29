@@ -15,7 +15,6 @@ Depending in the kind of space and module, then you can see or not some of the s
 
 - For participatory processes, it appears when there is some published content by an administrator.
 - For assemblies, it appears when there is some published content by an administrator.
-- For consultations, you need to enable the module and it appears when there is some published content by an administrator.
 - For conferences, you need to enable the module and it appears when there is some published content by an administrator.
 - For initiatives, you need to enable the module. Every participant can see it, as anyone can create one. That is because is a bottom-up kind of mechanism.
 

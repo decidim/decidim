@@ -17,8 +17,6 @@ namespace :decidim do
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Assembly", [:short_description, :description])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Conference", [:short_description, :description, :registration_terms])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Conferences::RegistrationType", [:description])
-      Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Consultation", [:description])
-      Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Consultations::Question", [:title, :what_is_decided, :question_context, :instructions])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Initiative", [:description, :answer])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::InitiativesType", [:description, :extra_fields_legal_information])
       Decidim::Upgrade::WysiwygMigrator.register_model("Decidim::Votings::Voting", [:description])

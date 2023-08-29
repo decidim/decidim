@@ -117,6 +117,7 @@ ignore_missing:
   - decidim.budgets.projects_helper.current_rule_call_for_action_text.*
   - decidim.debates.debate_m.footer.commented_time_ago
   - date.abbr_day_names
+  - date.day_names
   - date.month_names
   - explanation
 
@@ -160,6 +161,11 @@ ignore_unused:
   - decidim.proposals.proposals.wizard_aside.back_from_step_2
   - decidim.proposals.proposals.wizard_aside.back_from_step_3
   - decidim.proposals.proposals.wizard_aside.back_from_step_4
+  - decidim.proposals.proposals.wizard_steps.current_step
+  - decidim.proposals.proposals.wizard_steps.step_1
+  - decidim.proposals.proposals.wizard_steps.step_2
+  - decidim.proposals.proposals.wizard_steps.step_3
+  - decidim.proposals.proposals.wizard_steps.step_4
   - decidim.proposals.proposals.show.proposal_accepted_reason
   - decidim.proposals.proposals.show.proposal_in_evaluation_reason
   - decidim.proposals.proposals.show.proposal_rejected_reason
@@ -214,9 +220,6 @@ ignore_unused:
   - decidim.budgets.projects.filters.*
   - decidim.sortitions.admin_log.*
   - decidim.sortitions.sortitions.orders.*
-  - decidim.consultations.admin_log.*
-  - decidim.consultations.consultations.orders.*
-  - decidim.consultations.show.badge_name.*
   - decidim.votings.admin_log.*
   - decidim.votings.votings.filters.*
   - decidim.votings.votings.orders.*
@@ -246,7 +249,6 @@ ignore_unused:
   - decidim.participatory_process_groups.content_blocks.*.name
   - decidim.assemblies.content_blocks.*.name
   - decidim.initiatives.content_blocks.*.name
-  - decidim.consultations.content_blocks.*.name
   - decidim.meetings.content_blocks.*.name
   - decidim.votings.content_blocks.*.name
   - decidim.blogs.content_blocks.*.name
@@ -364,7 +366,6 @@ ignore_unused:
   - layouts.decidim.votings.promoted_voting.vote
   - versions.directions.*
   - layouts.decidim.conferences.conference.*
-  - decidim.consultations.show.footer_button_text.*
   - decidim.admin.conflicts.*
   - decidim.profiles.show.badges
   - decidim.profiles.show.conversations
@@ -374,6 +375,7 @@ ignore_unused:
   - versions.dropdown.option_*
   - decidim.meetings.meetings.filters.*
   - decidim.meetings.directory.meetings.index.space_type
+  - decidim.authorization_modals.content.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

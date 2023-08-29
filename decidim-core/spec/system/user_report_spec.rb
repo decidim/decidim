@@ -32,8 +32,6 @@ describe "Report User", type: :system do
 
   context "when the user is not logged in" do
     it "gives the option to sign in" do
-      skip_unless_redesign_enabled "The login modal only works with redesign enabled"
-
       page.visit reportable_path
 
       expect(page).not_to have_css("#loginModal-content")
@@ -55,8 +53,6 @@ describe "Report User", type: :system do
 
     context "and the admin has not reported the resource yet" do
       it "reports the resource" do
-        skip_unless_redesign_enabled "The profile report link has differnt selectors, and works only works with redesign enabled"
-
         visit reportable_path
 
         expect(page).to have_selector(".profile__actions-secondary")
@@ -78,8 +74,6 @@ describe "Report User", type: :system do
       end
 
       it "chooses to block the resource" do
-        skip_unless_redesign_enabled "The profile report link has differnt selectors, and works only works with redesign enabled"
-
         visit reportable_path
 
         expect(page).to have_selector(".profile__actions-secondary")

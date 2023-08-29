@@ -9,18 +9,17 @@ describe "Support Proposal", slow: true, type: :system do
   let!(:proposals) { create_list(:proposal, 3, component:) }
   let!(:proposal) { Decidim::Proposals::Proposal.find_by(component:) }
   let(:proposal_title) { translated(proposal.title) }
+  let(:other_proposals_titles) { Decidim::Proposals::Proposal.where.not(id: proposal.id).map { |p| translated(p.title) } }
   let!(:user) { create(:user, :confirmed, organization:) }
 
   def expect_page_not_to_include_votes
     expect(page).not_to have_button("Support")
-    expect(page).not_to have_css(".card__support__data span", text: "0 Supports")
+    expect(page).not_to have_css(".progress-bar__container .progress-bar__number span", text: "0\nSupports")
   end
 
   context "when votes are not enabled" do
     context "when the user is not logged in" do
       it "does not show the vote proposal button and counts" do
-        skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
         visit_component
         expect_page_not_to_include_votes
 
@@ -35,8 +34,6 @@ describe "Support Proposal", slow: true, type: :system do
       end
 
       it "does not show the vote proposal button and counts" do
-        skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
         visit_component
         expect_page_not_to_include_votes
 
@@ -55,8 +52,6 @@ describe "Support Proposal", slow: true, type: :system do
     end
 
     it "shows the vote count and the vote button is disabled" do
-      skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
       visit_component
       expect_page_not_to_include_votes
     end
@@ -72,11 +67,10 @@ describe "Support Proposal", slow: true, type: :system do
 
     context "when the user is not logged in" do
       it "is given the option to sign in" do
-        skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
         visit_component
+        click_link proposal_title
 
-        within ".card__support", match: :first do
+        within ".proposal__aside-vote" do
           click_button "Support"
         end
 
@@ -92,18 +86,17 @@ describe "Support Proposal", slow: true, type: :system do
       context "when the proposal is not voted yet" do
         before do
           visit_component
+          click_link proposal_title
         end
 
         it "is able to vote the proposal" do
-          skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
           within "#proposal-#{proposal.id}-vote-button" do
             click_button "Support"
             expect(page).to have_button("Already supported")
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1 Support")
+            expect(page).to have_content("1\nSupport")
           end
         end
       end
@@ -112,31 +105,28 @@ describe "Support Proposal", slow: true, type: :system do
         before do
           create(:proposal_vote, proposal:, author: user)
           visit_component
+          click_link proposal_title
         end
 
         it "is not able to vote it again" do
-          skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
           within "#proposal-#{proposal.id}-vote-button" do
             expect(page).to have_button("Already supported")
             expect(page).not_to have_button("Support")
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1 Support")
+            expect(page).to have_content("1\nSupport")
           end
         end
 
         it "is able to undo the vote" do
-          skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
           within "#proposal-#{proposal.id}-vote-button" do
             click_button "Already supported"
             expect(page).to have_button("Support")
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("0 Supports")
+            expect(page).to have_content("0\nSupports")
           end
         end
       end
@@ -165,7 +155,6 @@ describe "Support Proposal", slow: true, type: :system do
             end
 
             it "does not show the remaining votes counter" do
-              skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
               visit_component
 
               expect(page).to have_css("#voting-rules")
@@ -184,8 +173,6 @@ describe "Support Proposal", slow: true, type: :system do
             end
 
             it "shows the remaining votes counter" do
-              skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
               visit_component
 
               expect(page).to have_css("#voting-rules")
@@ -197,17 +184,16 @@ describe "Support Proposal", slow: true, type: :system do
         context "when the proposal is not voted yet" do
           before do
             visit_component
+            click_link proposal_title
           end
 
           it "updates the remaining votes counter" do
-            skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
-            within "#proposal-#{proposal.id}-vote-button" do
+            within ".proposal__aside-vote" do
               click_button "Support"
               expect(page).to have_button("Already supported")
             end
 
-            expect(page).to have_content("REMAINING\n9\nSupports")
+            expect(page).to have_content("Remaining 9 supports")
           end
         end
 
@@ -223,11 +209,10 @@ describe "Support Proposal", slow: true, type: :system do
 
             component.update!(permissions:)
             visit_component
+            click_link proposal_title
           end
 
           it "shows a modal dialog" do
-            skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
             within "#proposal-#{proposal.id}-vote-button" do
               click_button "Support"
             end
@@ -240,11 +225,10 @@ describe "Support Proposal", slow: true, type: :system do
           before do
             create(:proposal_vote, proposal:, author: user)
             visit_component
+            click_link proposal_title
           end
 
           it "is not able to vote it again" do
-            skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
             within "#proposal-#{proposal.id}-vote-button" do
               expect(page).to have_button("Already supported")
               expect(page).not_to have_button("Support")
@@ -252,18 +236,16 @@ describe "Support Proposal", slow: true, type: :system do
           end
 
           it "is able to undo the vote" do
-            skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
-            within "#proposal-#{proposal.id}-vote-button" do
+            within ".proposal__aside-vote" do
               click_button "Already supported"
               expect(page).to have_button("Support")
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
-              expect(page).to have_content("0 Supports")
+              expect(page).to have_content("0\nSupports")
             end
 
-            expect(page).to have_content("REMAINING\n10\nSupports")
+            expect(page).to have_content("Remaining 10 supports")
           end
         end
 
@@ -276,9 +258,19 @@ describe "Support Proposal", slow: true, type: :system do
           end
 
           it "is not able to vote other proposals" do
-            skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
+            click_link proposal_title
+            within ".proposal__aside-vote" do
+              expect(page).to have_content("1\nSupport")
+            end
 
-            expect(page).to have_css(".button[disabled]", count: 2)
+            other_proposals_titles.each do |title|
+              visit_component
+              click_link title
+              within ".proposal__aside-vote" do
+                expect(page).to have_content("No supports remaining")
+                expect(page).to have_css(".button[disabled]")
+              end
+            end
           end
 
           context "when votes are blocked" do
@@ -290,13 +282,19 @@ describe "Support Proposal", slow: true, type: :system do
             end
 
             it "shows the vote count but not the vote button" do
-              skip "REDESIGN PENDING - Vote proposals from index is not defined yet. With card-l the count displayed correspond to endorsements"
-
-              within "#proposal_#{proposal.id} .card__support" do
-                expect(page).to have_content("1 Support")
+              click_link proposal_title
+              within ".proposal__aside-vote" do
+                expect(page).to have_content("1\nSupport")
               end
 
-              expect(page).to have_content("Supports disabled")
+              other_proposals_titles.each do |title|
+                visit_component
+                click_link title
+                within ".proposal__aside-vote" do
+                  expect(page).to have_content("Supports disabled")
+                  expect(page).to have_css(".button[disabled]")
+                end
+              end
             end
           end
         end
@@ -312,18 +310,15 @@ describe "Support Proposal", slow: true, type: :system do
       end
 
       it "cannot be voted" do
-        skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
         visit_component
 
-        within ".filters .with_any_state_check_boxes_tree_filter" do
+        within "#panel-dropdown-menu-state" do
           check "All"
           uncheck "All"
           check "Rejected"
         end
 
         page.find_link rejected_proposal_title
-        expect(page).not_to have_selector("#proposal-#{rejected_proposal.id}-vote-button")
 
         click_link rejected_proposal_title
         expect(page).not_to have_selector("#proposal-#{rejected_proposal.id}-vote-button")
@@ -344,31 +339,22 @@ describe "Support Proposal", slow: true, type: :system do
       end
 
       it "does not allow users to vote to a proposal that is reached the limit" do
-        skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
         create(:proposal_vote, proposal:)
         visit_component
+        click_link proposal_title
 
-        proposal_element = page.find(".item-list", text: proposal_title)
-
-        within proposal_element do
-          within ".card__support", match: :first do
-            expect(page).to have_content("Support limit reached")
-          end
+        within "#proposal-#{proposal.id}-vote-button" do
+          expect(page).to have_content("Support limit reached")
         end
       end
 
       it "allows users to vote on proposals under the limit" do
-        skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
         visit_component
+        click_link proposal_title
 
-        proposal_element = page.find(".item-list", text: proposal_title)
-
-        within proposal_element do
-          within ".card__support", match: :first do
-            click_button "Support"
-            expect(page).to have_content("Already supported")
-          end
+        within ".proposal__aside-vote" do
+          click_button "Support"
+          expect(page).to have_content("Already supported")
         end
       end
     end
@@ -388,17 +374,12 @@ describe "Support Proposal", slow: true, type: :system do
       end
 
       it "allows users to vote on proposals over the limit" do
-        skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
         create(:proposal_vote, proposal:)
         visit_component
+        click_link proposal_title
 
-        proposal_element = page.find(".item-list", text: proposal_title)
-
-        within proposal_element do
-          within "[data-likes]", match: :first do
-            expect(page).to have_content("1")
-          end
+        within ".proposal__aside-vote" do
+          expect(page).to have_content("1\nSupport")
         end
       end
     end
@@ -418,37 +399,46 @@ describe "Support Proposal", slow: true, type: :system do
       end
 
       it "does not count votes unless the minimum is achieved" do
-        skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
         visit_component
 
-        proposal_elements = proposals.map do |proposal|
-          page.find(".item-list", text: translated(proposal.title))
+        proposal_titles = proposals.map do |proposal|
+          translated(proposal.title)
         end
 
-        within proposal_elements[0] do
+        click_link proposal_titles[0]
+
+        within ".proposal__aside-vote" do
           click_button "Support"
           expect(page).to have_content("Already supported")
-          expect(page).to have_content("0 Supports")
+          expect(page).to have_content("0\nSupports")
         end
 
-        within proposal_elements[1] do
+        visit_component
+        click_link proposal_titles[1]
+        within ".proposal__aside-vote" do
           click_button "Support"
           expect(page).to have_content("Already supported")
-          expect(page).to have_content("0 Supports")
+          expect(page).to have_content("0\nSupports")
         end
 
-        within proposal_elements[2] do
+        visit_component
+        click_link proposal_titles[2]
+        within ".proposal__aside-vote" do
           click_button "Support"
           expect(page).to have_content("Already supported")
-          expect(page).to have_content("1 Support")
+          expect(page).to have_content("1\nSupport")
         end
 
-        within proposal_elements[0] do
-          expect(page).to have_content("1 Support")
+        visit_component
+        click_link proposal_titles[0]
+        within ".proposal__aside-vote" do
+          expect(page).to have_content("1\nSupport")
         end
 
-        within proposal_elements[1] do
-          expect(page).to have_content("1 Support")
+        visit_component
+        click_link proposal_titles[1]
+        within ".proposal__aside-vote" do
+          expect(page).to have_content("1\nSupport")
         end
       end
     end
@@ -459,18 +449,13 @@ describe "Support Proposal", slow: true, type: :system do
       end
 
       it "gives a point after voting" do
-        skip "REDESIGN PENDING - Vote proposals from index is not defined yet"
-
         visit_component
-
-        proposal_element = page.find(".item-list", text: proposal_title)
+        click_link proposal_title
 
         expect do
-          within proposal_element do
-            within ".card__support", match: :first do
-              click_button "Support"
-              expect(page).to have_content("1 Support")
-            end
+          within ".proposal__aside-vote" do
+            click_button "Support"
+            expect(page).to have_content("1\nSupport")
           end
         end.to change { Decidim::Gamification.status_for(user, :proposal_votes).score }.by(1)
       end

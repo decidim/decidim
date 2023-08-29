@@ -57,7 +57,9 @@ describe "sortitions", type: :system do
 
         within "form.new_filter" do
           fill_in("filter[search_text_cont]", with: "foobar")
-          click_button "Search"
+          within "div.filter-search" do
+            click_button
+          end
         end
 
         expect(page).not_to have_content("Another sortition")

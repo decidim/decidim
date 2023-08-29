@@ -12,8 +12,6 @@ module Decidim
     helper Decidim::ResourceHelper
     helper_method :activities, :resource_types, :user
 
-    redesign active: true
-
     def index
       raise ActionController::RoutingError, "Missing user: #{params[:nickname]}" unless user
       raise ActionController::RoutingError, "Blocked User" if user.blocked? && !current_user&.admin?
@@ -65,8 +63,7 @@ module Decidim
                    Decidim::Initiative
                    Decidim::Meetings::Meeting
                    Decidim::Blogs::Post
-                   Decidim::Proposals::Proposal
-                   Decidim::Consultations::Question)
+                   Decidim::Proposals::Proposal)
         array << "Decidim::Budgets::Order" if own_activities?
         array
       end

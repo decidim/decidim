@@ -5,9 +5,6 @@ module Decidim
     # The main admin application controller for initiatives
     class ApplicationController < Decidim::ApplicationController
       include NeedsPermission
-      include RedesignLayout
-      redesign active: true
-
       register_permissions(::Decidim::Initiatives::ApplicationController,
                            ::Decidim::Initiatives::Permissions,
                            ::Decidim::Admin::Permissions,

@@ -33,7 +33,7 @@ module Decidim
           return broadcast(:invalid) if attachments_invalid?
         end
 
-        transaction do
+        with_events(with_transaction: true) do
           if @proposal.draft?
             update_draft
           else
@@ -51,6 +51,16 @@ module Decidim
       private
 
       attr_reader :form, :proposal, :current_user, :attachment
+
+      def event_arguments
+        {
+          resource: proposal,
+          extra: {
+            event_author: form.current_user,
+            locale:
+          }
+        }
+      end
 
       def invalid?
         form.invalid? || !proposal.editable_by?(current_user) || proposal_limit_reached?

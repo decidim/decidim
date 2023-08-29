@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 
-export default function formDatePicker() {
-  $("[data-datepicker]").each((_index, node) => {
+export default function formDatePicker(element) {
+  $("[data-datepicker]", element).each((_index, node) => {
     const language = $("html").attr("lang") || "en";
     const initialDate = $(node).data("startdate") || "";
     const pickTime = $(node).data("timepicker") === "";

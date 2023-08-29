@@ -116,8 +116,7 @@ describe "Proposals", type: :system do
               fill_in :proposal_body, with: "Cities need more people, not more cars"
               fill_in_geocoding :proposal_address, with: address
 
-              # REDESIGN_PENDING - The map should work in redesign
-              # expect(page).to have_css("[data-decidim-map]")
+              expect(page).to have_css("[data-decidim-map]")
               expect(page).to have_content("You can move the point on the map.")
 
               select translated(category.name), from: :proposal_category_id
@@ -281,8 +280,6 @@ describe "Proposals", type: :system do
           end
 
           it "shows a modal dialog" do
-            # skip "REDESIGN_PENDING - The upload feature has to be simplified in redesign and multiple files upload fails"
-
             visit_component
             click_link "New proposal"
             expect(page).to have_content("Authorization required")
@@ -301,8 +298,6 @@ describe "Proposals", type: :system do
           let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.") }
 
           it "creates a new proposal with attachments" do
-            # skip "REDESIGN_PENDING - The upload feature has to be simplified in redesign and multiple files upload fails"
-
             visit complete_proposal_path(component, proposal_draft)
 
             within ".edit_proposal" do

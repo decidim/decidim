@@ -6,7 +6,7 @@ module Decidim
     # public layout.
     class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
-      redesign_participatory_space_layout only: [:show, :all_metrics]
+      participatory_space_layout only: [:show, :all_metrics]
       include FilterResource
       include Paginable
       include HasParticipatorySpaceContentBlocks

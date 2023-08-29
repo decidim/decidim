@@ -16,9 +16,9 @@
     <% end %>
 
     <% if questionnaire.description.present? %>
-    <div class="text-lg text-gray-2 text-left">
-      <%= decidim_sanitize_editor_admin translated_attribute questionnaire.description %>
-    </div>
+      <div class="text-left editor-content">
+        <%= decidim_sanitize_editor_admin translated_attribute questionnaire.description %>
+      </div>
     <% end %>
   </div>
 
@@ -28,18 +28,20 @@
     <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.questionnaire_not_published.body"), callout_class: "warning") %>
   <% end %>
 
-  <% if allow_answers? %>
-    <% if visitor_can_answer? %>
-      <% if visitor_already_answered? %>
-        <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_answered.title"), body: t("decidim.forms.questionnaires.show.questionnaire_answered.body") }) %>
+  <section>
+    <% if allow_answers? %>
+      <% if visitor_can_answer? %>
+        <% if visitor_already_answered? %>
+          <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_answered.title"), body: t("decidim.forms.questionnaires.show.questionnaire_answered.body") }) %>
+        <% else %>
+          <%= render partial: "decidim/forms/questionnaires/questionnaire" %>
+        <% end %>
       <% else %>
-        <%= render partial: "decidim/forms/questionnaires/questionnaire" %>
+        <%= render partial: "decidim/forms/questionnaires/questionnaire_readonly" %>
       <% end %>
     <% else %>
-      <%= render partial: "decidim/forms/questionnaires/questionnaire_readonly" %>
+      <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_closed.title"), body: t("decidim.forms.questionnaires.show.questionnaire_closed.body") }, callout_class: "warning") %>
     <% end %>
-  <% else %>
-    <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_closed.title"), body: t("decidim.forms.questionnaires.show.questionnaire_closed.body") }, callout_class: "warning") %>
-  <% end %>
+  </section>
 
 <% end %>

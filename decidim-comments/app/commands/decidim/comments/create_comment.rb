@@ -21,20 +21,32 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        create_comment
+        with_events do
+          create_comment
+        end
 
         broadcast(:ok, comment)
       end
 
       private
 
-      attr_reader :form, :comment
+      attr_reader :form, :comment, :author
+
+      def event_arguments
+        {
+          resource: comment,
+          extra: {
+            event_author: form.current_user,
+            locale:
+          }
+        }
+      end
 
       def create_comment
         parsed = Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization)
 
         params = {
-          author: @author,
+          author:,
           commentable: form.commentable,
           root_commentable: root_commentable(form.commentable),
           body: { I18n.locale => parsed.rewrite },
@@ -45,7 +57,7 @@ module Decidim
 
         @comment = Decidim.traceability.create!(
           Comment,
-          @author,
+          author,
           params,
           visibility: "public-only"
         )

@@ -46,12 +46,9 @@ describe "Explore versions", type: :system, versioning: true do
       click_link("Version 2 of 2")
     end
 
-    # REDESIGN_PENDING: The accessibility should be tested after complete redesign
-    # it_behaves_like "accessible page"
+    it_behaves_like "accessible page"
 
     it "shows the version author and creation date" do
-      skip_unless_redesign_enabled("this test pass using redesigned version_author cell")
-
       within ".version__author" do
         expect(page).to have_content(author.name)
         expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))

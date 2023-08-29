@@ -14,9 +14,11 @@
     <% end %>
   <% end %>
 </div>
-<div class="meeting-list__block-map">
-  <%= cell "decidim/meetings/meetings_map", collection %>
-</div>
+<% if show_map? %>
+  <div class="meeting-list__block-map">
+    <%= cell "decidim/meetings/meetings_map", collection %>
+  </div>
+<% end %>
 <div class="meeting-list__block-list">
   <% if show_calendar? %>
     <div class="meeting-list__block-list-aside">
@@ -25,7 +27,7 @@
       <% end %>
     </div>
   <% end %>
-  <div class="meeting-list__container">
+  <div class="card__list-list">
     <span class="meeting-list__block-list-title"><%= title %></span>
     <% collection.includes(:component).each do |meeting| %>
       <%= cell "decidim/meetings/meeting_l", meeting, title_tag: :h3, **options.slice(:show_space) %>

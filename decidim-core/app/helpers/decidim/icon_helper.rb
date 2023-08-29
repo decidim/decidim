@@ -14,8 +14,6 @@ module Decidim
       "Decidim::Meetings::Meeting" => "map-pin-line",
       "Decidim::Blogs::Post" => "pen-nib-line",
       "Decidim::Proposals::Proposal" => "chat-new-line",
-      "Decidim::Consultations::Question" => "question-mark",
-      "Decidim::Consultation" => "question-mark",
       "Decidim::Budgets::Order" => "check-double-line",
       "Decidim::Budgets::Budget" => "coin-line",
       "Decidim::Assembly" => "government-line",

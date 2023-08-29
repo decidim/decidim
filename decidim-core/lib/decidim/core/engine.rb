@@ -89,6 +89,10 @@ module Decidim
         app.config.middleware.use BatchLoader::Middleware
       end
 
+      initializer "decidim_core.param_filtering" do |app|
+        app.config.filter_parameters += [:document_number, :postal_code, :mobile_phone_number]
+      end
+
       initializer "decidim_core.default_form_builder" do |_app|
         ActionView::Base.default_form_builder = Decidim::FormBuilder
       end

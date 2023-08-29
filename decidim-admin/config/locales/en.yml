@@ -321,6 +321,7 @@ en:
         create:
           error: There was a problem creating this component.
           success: Component created successfully.
+          success_landing_page: Component created successfully. You can add a content block for this component in the home of the space. Go to <a href="%{landing_page_path}">Landing page</a> to configure it.
         destroy:
           error: There was a problem destroying this component.
           success: Component deleted successfully.

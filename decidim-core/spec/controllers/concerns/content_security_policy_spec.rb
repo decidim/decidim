@@ -46,7 +46,7 @@ module Decidim
         expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://via.placeholder.com;")
         expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com *.jsdelivr.net;")
         expect(response.headers["Content-Security-Policy"]).to include("font-src 'self';")
-        expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self';")
+        expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com;")
         expect(response.headers["Content-Security-Policy"]).to include("media-src 'self'")
       end
 
@@ -61,7 +61,7 @@ module Decidim
           expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://via.placeholder.com https://img.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com *.jsdelivr.net https://connect.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("font-src 'self' https://font.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self' https://frame.example.org;")
+          expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com https://frame.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("media-src 'self' https://example.org")
         end
       end
@@ -76,7 +76,7 @@ module Decidim
           expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://img.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com *.jsdelivr.net https://connect.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("font-src 'self' https://font.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self' https://frame.example.org;")
+          expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com https://frame.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("media-src 'self' https://example.org")
         end
       end
@@ -122,7 +122,7 @@ module Decidim
           expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://img.example.org https://via.placeholder.com;")
           expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com *.jsdelivr.net https://connect.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("font-src 'self' https://font.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self' https://frame.example.org;")
+          expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com https://frame.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("media-src 'self' https://example.org")
         end
       end

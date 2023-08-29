@@ -14,13 +14,11 @@ module Decidim
     let!(:organization) { create(:organization) }
     let!(:participatory_space) { create(:participatory_process, organization:) }
     let!(:component) { create(:component, participatory_space:) }
-    let(:redesign_enabled) { false }
 
     before do
       allow(helper).to receive(:current_participatory_space).and_return(participatory_space)
       allow(helper).to receive(:current_component).and_return(component)
       allow(helper).to receive(:current_organization).and_return(organization)
-      allow(helper).to receive(:redesign_enabled?).and_return(redesign_enabled)
     end
 
     describe "#filter_scopes_values" do

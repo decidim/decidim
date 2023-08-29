@@ -65,9 +65,6 @@ en:
             official_blog_post: Official post
             published_at: Publish time
             title: Title
-      posts:
-        show:
-          view: View
     components:
       blogs:
         actions:

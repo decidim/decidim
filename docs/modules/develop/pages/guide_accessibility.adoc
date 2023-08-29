@@ -16,6 +16,12 @@ Accessibility of websites is based on the https://www.w3.org/WAI/standards-guide
 
 These guidelines are constantly evolving and new versions can come out that may require changes in already implemented functionality. Some of the violations can be noticed automatically but others violations require a real person to test the website with the common assistive technologies used for browsing the internet (see the "Testing" section below).
 
+Accessibility is not only technical. The end results have to be well tested and audited by unbiased 3rd parties to ensure the best outcome. With the core development we aim to consider the following criteria for creating accessible user interfaces:
+
+. Technical accessibility using https://dequeuniversity.com/rules/axe/latest[Axe]
+. Perceived accessibility using latest version of https://www.w3.org/WAI/standards-guidelines/wcag/[the WCAG recommendations]
+. Cognitive accessibility using https://www.w3.org/WAI/WCAG2/supplemental/#cognitiveaccessibilityguidance[the WCAG Cognitive Accessibility Guidance] and the guide for https://www.w3.org/TR/coga-usable/[Making Content Usable for People with Cognitive and Learning Disabilities]
+
 === Common mistakes
 
 This section contains some common mistakes that developers tend to do regarding accessibility. These do not cover all of the things you need to consider regarding accessibility but we add common issues in this list as we notice them.

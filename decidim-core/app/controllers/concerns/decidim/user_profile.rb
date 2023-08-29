@@ -15,7 +15,6 @@ module Decidim
 
     included do
       helper Decidim::UserProfileHelper
-      redesign active: true
       layout "layouts/decidim/user_profile"
 
       helper_method :available_verification_workflows

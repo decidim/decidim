@@ -1,0 +1,30 @@
+<% breadcrumb_items.each_with_index do |item, i| %>
+  <% item_label = translated_attribute(item[:label]) %>
+  <span>/</span>
+  <% if item[:dropdown_cell].present? %>
+    <div class="relative">
+      <div class="menu-bar__breadcrumb-desktop__dropdown-wrapper" <%== 'aria-current="page"' if item[:active] %> onmouseenter="document.getElementById('secondary-dropdown-menu-<%= i %>').classList.remove('no-animation')">
+        <%= link_to item[:url], class: "menu-bar__breadcrumb-desktop__dropdown-trigger", onmouseenter: "document.getElementById('secondary-dropdown-summary-#{i}').click()" do %>
+          <%= item_label %>
+        <% end %>
+        <button id="secondary-dropdown-summary-<%= i %>"
+          class="menu-bar__breadcrumb-desktop__dropdown-trigger"
+          data-component="dropdown"
+          data-hover="true"
+          data-target="secondary-dropdown-menu-<%= i %>">
+          <%= icon "arrow-drop-down-line" %>
+          <span class="sr-only"><%= t("layouts.decidim.header.user_menu") %></span>
+        </button>
+      </div>
+
+      <div id="secondary-dropdown-menu-<%= i %>" class="menu-bar__breadcrumb-desktop__dropdown-content-secondary no-animation" aria-hidden="true">
+        <%= cell item[:dropdown_cell], item[:resource] %>
+      </div>
+    </div>
+  <% else %>
+    <%= link_to_if(item[:url].present? && !is_active_link?(item[:url], :exclusive), item_label, item[:url], class: "menu-bar__breadcrumb-desktop__dropdown-wrapper menu-bar__breadcrumb-desktop__dropdown-trigger", "aria-current": (item[:active] ? "page" : nil)) do %>
+      <%# alternative template %>
+      <%= content_tag :span, item_label, class: "menu-bar__breadcrumb-desktop__dropdown-trigger no-interactive", tabindex: "0", "aria-current": "page" if item[:active] %>
+    <% end %>
+  <% end %>
+<% end %>

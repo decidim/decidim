@@ -35,6 +35,11 @@ export default class VoteQuestionsComponent {
     this.updateWizardSteps(this.$currentStep.attr("id"));
   }
 
+  errored() {
+    this.$currentStep.attr("hidden", true);
+    this.$currentStep = this.$voteWrapper.find("#failed").attr("hidden", false);
+  }
+
   toggleContinueButton() {
     // ignore the button if the step is not a question
     if (!this.isQuestion(this.$currentStep.attr("id"))) {

@@ -74,7 +74,6 @@ shared_examples "comments" do
       let!(:reply) { create(:comment, commentable: deleted_comment, root_commentable: commentable, body: "Please, delete your comment") }
 
       it "shows replies of deleted comments" do
-        skip "REDESIGN PENDING: This seems to be a bug in the redesign. The replies of deleted comments are not shown. This is related to #10457"
         visit resource_path
 
         within "#comment_#{deleted_comment.id}" do
@@ -387,8 +386,6 @@ shared_examples "comments" do
         end
 
         it "let the emoji button works properly when there are not too much characters" do
-          skip_unless_redesign_enabled "This test does not pass without redesign because the emoji button is not visible"
-
           if component.present?
             component.update!(settings: { comments_max_length: 100 })
             visit current_path
@@ -408,8 +405,6 @@ shared_examples "comments" do
         end
 
         it "deactivate the emoji button when there are less than 4 characters left" do
-          skip_unless_redesign_enabled "This test does not pass without redesign because the emoji button is not visible"
-
           if component.present?
             component.update!(settings: { comments_max_length: 30 })
             visit current_path
@@ -459,7 +454,6 @@ shared_examples "comments" do
 
       # REDESIGN PENDING: the new JS of external links is not working in tests until the redesign is enabled
       it "adds external link css" do
-        skip_unless_redesign_enabled
         expect(page).to have_css("a", text: "http://www.debian.org")
         within("a", text: "http://www.debian.org") do
           expect(page).to have_text "(External link)"
@@ -468,7 +462,6 @@ shared_examples "comments" do
 
       # REDESIGN PENDING: the new JS of external links is not working in tests until the redesign is enabled
       it "changes link to point to /link" do
-        skip_unless_redesign_enabled
         expect(page).to have_link("http://www.debian.org", href: "/link?external_url=http%3A%2F%2Fwww.debian.org%2F")
       end
     end
@@ -506,7 +499,6 @@ shared_examples "comments" do
         end
 
         it "displays the show button" do
-          skip_unless_redesign_enabled "This spec is not working on the old design."
           visit current_path
           within "#comment_#{thread.id}" do
             click_button "Hide replies"
@@ -519,7 +511,6 @@ shared_examples "comments" do
           let!(:new_replies) { create_list(:comment, 2, commentable: thread, root_commentable: commentable, body: new_reply_body) }
 
           it "displays the show button" do
-            skip_unless_redesign_enabled "This spec is not working on the old design."
             visit current_path
             within "#comment_#{thread.id}" do
               click_button "Hide replies"
@@ -603,8 +594,6 @@ shared_examples "comments" do
         let(:comment_author) { user }
 
         it "the context menu of the comment shows a delete link" do
-          skip_unless_redesign_enabled "This test does not pass without redesign because the comments:loaded action is not being triggered"
-
           within "#comment_#{comment.id}" do
             page.find("[id^='dropdown-trigger']").click
             expect(page).to have_link("Delete")
@@ -612,8 +601,6 @@ shared_examples "comments" do
         end
 
         it "the user can delete the comment and updates the comments counter" do
-          skip_unless_redesign_enabled("this test pass with redesign enabled because old Dropdowns are being activated here and raise a JS error")
-
           expect(Decidim::Comments::Comment.not_deleted.count).to eq(4)
 
           within "#comment_#{comment.id}" do
@@ -660,8 +647,6 @@ shared_examples "comments" do
         let!(:comment_author) { user }
 
         it "the context menu of the comment show an edit button" do
-          skip_unless_redesign_enabled "This test does not pass without redesign because the comments:loaded action is not being triggered"
-
           within "#comment_#{comment.id}" do
             # Toolbar
             page.find("[id^='dropdown-trigger']").click
@@ -671,8 +656,6 @@ shared_examples "comments" do
 
         context "when the user edits a comment" do
           before do
-            skip_unless_redesign_enabled "This test does not pass without redesign because the comments:loaded action is not being triggered"
-
             within "#comment_#{comment.id}" do
               # Toolbar
               page.find("[id^='dropdown-trigger']").click
@@ -683,7 +666,6 @@ shared_examples "comments" do
           end
 
           it "the comment body changes" do
-            skip_unless_redesign_enabled "This test does not pass without redesign because the comments:loaded action is not being triggered"
             within "#comment_#{comment.id}" do
               expect(page).to have_content("This comment has been fixed")
               expect(page).not_to have_content(comment_body)
@@ -691,7 +673,6 @@ shared_examples "comments" do
           end
 
           it "the header of the comment displays an edited message" do
-            skip_unless_redesign_enabled "This test does not pass without redesign because the comments:loaded action is not being triggered"
             within "#comment_#{comment.id}" do
               expect(page).to have_content("Edited")
             end
@@ -793,6 +774,20 @@ shared_examples "comments" do
             end
           end
         end
+
+        context "when the comment has a thread" do
+          let!(:comment_on_comment) { create(:comment, :comment_on_comment, commentable: comments[0], root_commentable: comments[0].commentable) }
+
+          it "does not increase the votes for the children of the upvoting comment" do
+            skip "Commentable comments has no votes" unless commentable.comments_have_votes?
+
+            visit current_path
+            expect(page).to have_selector("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+            page.find("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up").click
+            expect(page).to have_selector("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/)
+            expect(page).to have_selector("#comment_#{comment_on_comment.id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+          end
+        end
       end
 
       context "when downvoting a comment" do
@@ -827,7 +822,6 @@ shared_examples "comments" do
 
         context "when text finish with a mention" do
           it "shows the tribute container" do
-            skip_unless_redesign_enabled "This test does not pass without redesign because the tribute container is not visible"
             expect(page).to have_selector(".tribute-container", text: mentioned_user.name, wait: 10)
           end
         end
@@ -855,7 +849,6 @@ shared_examples "comments" do
         let(:content) { "A confirmed user group mention: @#{mentioned_group.nickname}" }
 
         it "shows the tribute container" do
-          skip_unless_redesign_enabled "This test does not pass without redesign because the tribute container is not visible"
           expect(page).to have_selector(".tribute-container", text: mentioned_group.nickname, wait: 10)
         end
       end
@@ -921,6 +914,30 @@ shared_examples "comments" do
       it "replaces the hashtag with a link to the hashtag search" do
         expect(page).to have_comment_from(user, "A comment with a hashtag #decidim", wait: 20)
         expect(page).to have_link "#decidim", href: "/search?term=%23decidim"
+      end
+    end
+
+    describe "export_serializer" do
+      let(:comment) { comments.first }
+
+      it "returns the serializer for the comment" do
+        expect(comment.class.export_serializer).to eq(Decidim::Comments::CommentSerializer)
+      end
+
+      context "with instance" do
+        subject { comment.class.export_serializer.new(comment).serialize }
+
+        it { is_expected.to have_key(:id) }
+        it { is_expected.to have_key(:created_at) }
+        it { is_expected.to have_key(:body) }
+        it { is_expected.to have_key(:locale) }
+        it { is_expected.to have_key(:author) }
+        it { is_expected.to have_key(:alignment) }
+        it { is_expected.to have_key(:depth) }
+        it { is_expected.to have_key(:user_group) }
+        it { is_expected.to have_key(:commentable_id) }
+        it { is_expected.to have_key(:commentable_type) }
+        it { is_expected.to have_key(:root_commentable_url) }
       end
     end
   end

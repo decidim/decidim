@@ -279,7 +279,7 @@ module Decidim
 
       initializer "decidim_admin.register_events" do
         config.to_prepare do
-          Decidim::EventsManager.subscribe("decidim.admin.block_user:after") do |_event_name, data|
+          ActiveSupport::Notifications.subscribe("decidim.admin.block_user:after") do |_event_name, data|
             Decidim::BlockUserMailer.notify(data[:resource], data.dig(:extra, :justification)).deliver_later
           end
         end

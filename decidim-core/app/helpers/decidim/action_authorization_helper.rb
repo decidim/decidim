@@ -11,7 +11,7 @@ module Decidim
     #
     # Returns a String with the link.
     def action_authorized_link_to(action, *arguments, &block)
-      redesign_enabled? ? redesign_authorized_to(:link, action, arguments, block) : authorized_to(:link, action, arguments, block)
+      !respond_to?(:redesign_enabled?) || redesign_enabled? ? redesign_authorized_to(:link, action, arguments, block) : authorized_to(:link, action, arguments, block)
     end
 
     # Public: Emulates a `button_to` but conditionally renders a popup modal
@@ -23,7 +23,7 @@ module Decidim
     #
     # Returns a String with the button.
     def action_authorized_button_to(action, *arguments, &block)
-      redesign_enabled? ? redesign_authorized_to(:button, action, arguments, block) : authorized_to(:button, action, arguments, block)
+      !respond_to?(:redesign_enabled?) || redesign_enabled? ? redesign_authorized_to(:button, action, arguments, block) : authorized_to(:button, action, arguments, block)
     end
 
     # Public: Emulates a `link_to` but conditionally renders a popup modal
@@ -69,13 +69,13 @@ module Decidim
       if !current_user
         html_options = clean_authorized_to_data_open(html_options)
 
-        html_options["data-open"] = "loginModal"
+        html_options["data-dialog-open"] = "loginModal"
         url = "#"
       elsif action && !action_authorized_to(action, resource:, permissions_holder:).ok?
         html_options = clean_authorized_to_data_open(html_options)
 
-        html_options["data-open"] = "authorizationModal"
-        html_options["data-open-url"] = modal_path(action, resource)
+        html_options["data-dialog-open"] = "authorizationModal"
+        html_options["data-dialog-remote-url"] = modal_path(action, resource)
         url = "#"
       end
 
@@ -140,8 +140,8 @@ module Decidim
     end
 
     def clean_authorized_to_data_open(html_options)
-      html_options.delete(:"data-open")
-      html_options.delete(:"data-open-url")
+      html_options.delete(:"data-dialog-open")
+      html_options.delete(:"data-dialog-remote-url")
 
       [:data, "data"].each do |key|
         next unless html_options[key].is_a?(Hash)

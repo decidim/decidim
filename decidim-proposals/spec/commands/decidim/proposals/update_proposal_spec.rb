@@ -104,6 +104,9 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.proposals.update_proposal:before"
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.proposals.update_proposal:after"
+
           it "updates the proposal" do
             command.call
             proposal.reload

@@ -39,7 +39,9 @@ module Decidim
     end
 
     def resource_id
-      "#{id_base_name}#{"_highlight" if highlight?}_#{resource.id}"
+      return "#{id_base_name}#{"_highlight" if highlight?}_#{resource.id}" unless options.has_key?(:id)
+
+      options[:id]
     end
 
     def resource_path
@@ -72,6 +74,10 @@ module Decidim
 
     def title
       decidim_html_escape(translated_attribute(resource.title))
+    end
+
+    def alt_title
+      [t("decidim.application.photo.alt"), decidim_html_escape(translated_attribute(resource.title))].join(": ")
     end
 
     def title_tag

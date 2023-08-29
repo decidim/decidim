@@ -18,7 +18,7 @@ module Decidim
       it { expect(subject.output_policy).to include("img-src 'self' *.hereapi.com data:;") }
       it { expect(subject.output_policy).to include("connect-src 'self' *.hereapi.com *.jsdelivr.net;") }
       it { expect(subject.output_policy).to include("font-src 'self';") }
-      it { expect(subject.output_policy).to include("frame-src 'self';") }
+      it { expect(subject.output_policy).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com;") }
       it { expect(subject.output_policy).to include("media-src 'self'") }
     end
 

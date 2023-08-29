@@ -47,6 +47,9 @@ Decidim.configure do |config|
 
   # Map and Geocoder configuration
   #
+  # See Decidim docs at https://docs.decidim.org/en/develop/services/maps.html
+  # for more information about how it works and how to set it up.
+  #
   # == HERE Maps ==
   # config.maps = {
   #   provider: :here,
@@ -446,12 +449,6 @@ if Decidim.module_installed? :accountability
     unless Rails.application.secrets.dig(:decidim, :accountability, :enable_proposal_linking) == "auto"
       config.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :accountability, :enable_proposal_linking).present?
     end
-  end
-end
-
-if Decidim.module_installed? :consultations
-  Decidim::Consultations.configure do |config|
-    config.stats_cache_expiration_time = Rails.application.secrets.dig(:decidim, :consultations, :stats_cache_expiration_time).to_i.minutes
   end
 end
 
