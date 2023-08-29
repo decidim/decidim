@@ -425,10 +425,6 @@ hu:
       initiative_signatures:
         fill_personal_data:
           continue: Tovább
-          date_select:
-            day: Nap
-            month: Hónap
-            year: Év
         finish:
           back_to_initiative: Vissza a kezdeményezéshez
         sms_code:
