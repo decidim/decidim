@@ -1844,6 +1844,7 @@ fr-CA:
   layouts:
     decidim:
       announcements:
+        view_less: Afficher moins
         view_more: Plus d'informations
       data_consent:
         details:
