@@ -11,7 +11,9 @@ describe "Admin manages scope types", type: :system do
     login_as admin, scope: :user
     visit decidim_admin.root_path
     click_link "Settings"
-    click_link "Scope types"
+    within_admin_menu do
+      click_link "Scope types"
+    end
   end
 
   it "can create new scope types" do
