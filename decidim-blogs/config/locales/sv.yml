@@ -2,6 +2,7 @@ sv:
   activemodel:
     attributes:
       post:
+        body: Innehåll
         decidim_author_id: Författare
         title: Titel
     models:
@@ -35,6 +36,12 @@ sv:
             title: Skapa inlägg
           update:
             invalid: Det gick inte att spara inlägget.
+      content_blocks:
+        highlighted_posts:
+          name: Inlägg
+          see_all: Se alla inlägg
+      last_activity:
+        new_post: 'Nytt inlägg:'
       models:
         post:
           fields:
@@ -45,8 +52,10 @@ sv:
     components:
       blogs:
         actions:
+          comment: Kommentera
           create: Skapa
           destroy: Radera
+          endorse: Instäm
           update: Uppdatera
         name: Blogg
         settings:
