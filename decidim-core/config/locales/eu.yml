@@ -802,6 +802,7 @@ eu:
       all: Jarduera mota guztiak
       index:
         last_activity: Azken jarduerak
+      no_activities_warning: Ez dago sarrerarik ikusgai jarduera mota honetan.
     links:
       invalid_url: URL baliogabea
       warning:
@@ -1432,6 +1433,8 @@ eu:
     timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, bidali.
   layouts:
     decidim:
+      announcements:
+        view_less: Erakutsi gutxiago
       data_consent:
         details:
           columns:
@@ -1569,6 +1572,7 @@ eu:
       option_split: Paraleloan
       option_unescaped: Ez ihes eginda
       option_unified: Bateratua
+      toggle: Aldatu ikuspegia
   views:
     pagination:
       next: Hurrengoa
