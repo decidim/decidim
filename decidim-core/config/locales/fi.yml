@@ -1841,7 +1841,6 @@ fi:
   layouts:
     decidim:
       announcements:
-        close: Sulje
         view_more: Lisätietoa
       data_consent:
         details:
