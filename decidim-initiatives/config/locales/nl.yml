@@ -319,10 +319,6 @@ nl:
       initiative_signatures:
         fill_personal_data:
           continue: Doorgaan met
-          date_select:
-            day: Dag
-            month: Maand
-            year: Jaar
         finish:
           back_to_initiative: Terug naar initiatief
         sms_code:
