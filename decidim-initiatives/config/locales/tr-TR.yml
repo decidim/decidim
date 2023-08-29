@@ -332,10 +332,6 @@ tr:
       initiative_signatures:
         fill_personal_data:
           continue: Devam et
-          date_select:
-            day: Gün
-            month: Ay
-            year: Yıl
         finish:
           back_to_initiative: Girişime geri dön
         sms_code:
