@@ -32,6 +32,7 @@ sv:
         slug: URL-slug
         start_date: Startdatum
         title: Titel
+        weight: Position i listan
       conference_media_link:
         date: Datum
         link: Länk
@@ -60,6 +61,7 @@ sv:
         full_name: Fullständigt namn
         personal_url: Personlig URL
         position: Plats
+        short_bio: Kort biographi
         twitter_handle: Twitternamn
         user_id: Användare
       conference_user_role:
@@ -428,6 +430,11 @@ sv:
       conference_speaker_cell:
         personal_url:
           personal_website: Personlig hemsida
+      conference_speakers:
+        index:
+          speakers:
+            one: Talare
+            other: Talare
       conferences:
         partners:
           collaborators: Partners
