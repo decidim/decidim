@@ -362,10 +362,6 @@ eu:
       initiative_signatures:
         fill_personal_data:
           continue: Jarraitu
-          date_select:
-            day: eguna
-            month: hilabetea
-            year: Urtea
         finish:
           back_to_initiative: Ekimenera itzuli
         sms_code:
