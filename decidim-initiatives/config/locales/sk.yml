@@ -233,10 +233,6 @@ sk:
       initiative_signatures:
         fill_personal_data:
           continue: Pokračovať
-          date_select:
-            day: Deň
-            month: Mesiac
-            year: Rok
         finish:
           back_to_initiative: Späť na iniciatívu
         sms_code:
