@@ -11,7 +11,9 @@ describe "Admin manages scope types", type: :system do
     login_as admin, scope: :user
     visit decidim_admin.root_path
     click_link "Settings"
-    click_link "Scope types"
+    within_admin_menu do
+      click_link "Scope types"
+    end
   end
 
   it "can create new scope types" do
@@ -19,7 +21,7 @@ describe "Admin manages scope types", type: :system do
       find(".new").click
     end
 
-    within ".new_scope_type" do
+    within ".item__edit-form" do
       fill_in_i18n(
         :scope_type_name,
         "#scope_type-name-tabs",
@@ -64,7 +66,7 @@ describe "Admin manages scope types", type: :system do
         click_link "Edit"
       end
 
-      within ".edit_scope_type" do
+      within ".item__edit-form" do
         fill_in_i18n(
           :scope_type_name,
           "#scope_type-name-tabs",

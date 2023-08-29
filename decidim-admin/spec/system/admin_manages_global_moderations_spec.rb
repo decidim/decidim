@@ -89,10 +89,12 @@ describe "Admin manages global moderations", type: :system do
 
   it_behaves_like "manage moderations" do
     let(:moderations_link_text) { "Global moderations" }
+    let(:moderations_link_in_admin_menu) { false }
   end
 
   it_behaves_like "sorted moderations" do
     let!(:reportables) { create_list(:dummy_resource, 17, component: current_component) }
     let(:moderations_link_text) { "Global moderations" }
+    let(:moderations_link_in_admin_menu) { false }
   end
 end

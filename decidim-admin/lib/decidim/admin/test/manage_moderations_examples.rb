@@ -10,11 +10,14 @@ shared_examples "sorted moderations" do
   end
   let!(:moderation) { moderations.first }
   let(:moderations_link_text) { "Moderations" }
+  let(:moderations_link_in_admin_menu) { true }
 
   before do
     visit participatory_space_path
-    within "div.layout-nav" do
-      click_link moderations_link_text
+    if moderations_link_in_admin_menu
+      within_admin_menu { click_link(moderations_link_text) }
+    else
+      within("div.layout-nav") { click_link(moderations_link_text) }
     end
   end
 
@@ -46,11 +49,14 @@ shared_examples "manage moderations" do
     end
   end
   let(:moderations_link_text) { "Moderations" }
+  let(:moderations_link_in_admin_menu) { true }
 
   before do
     visit participatory_space_path
-    within "div.layout-nav" do
-      click_link moderations_link_text
+    if moderations_link_in_admin_menu
+      within_admin_menu { click_link(moderations_link_text) }
+    else
+      within("div.layout-nav") { click_link(moderations_link_text) }
     end
   end
 
