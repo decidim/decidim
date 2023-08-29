@@ -365,10 +365,6 @@ pl:
       initiative_signatures:
         fill_personal_data:
           continue: Dalej
-          date_select:
-            day: Dzień
-            month: Miesiąc
-            year: Rok
         finish:
           back_to_initiative: Wróć do inicjatywy
         sms_code:
