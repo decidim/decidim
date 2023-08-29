@@ -3,6 +3,7 @@ sv:
     attributes:
       initiative:
         answer: Svar
+        answer_url: Svars URL
         area_id: Område
         decidim_scope_id: Omfång
         decidim_user_group_id: Författare
@@ -60,6 +61,9 @@ sv:
               needs_to_be_reattached: Måste återknytas
   activerecord:
     models:
+      decidim/initiative:
+        one: Initiativ
+        other: Initiativ
       decidim/initiative_comittee:
         one: Kommitté
         other: Kommittéer
@@ -337,6 +341,11 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: '%{author_nickname} instämmer i Initiativet'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> instämde i initiativet <a href="%{resource_path}">%{resource_title}</a>.
+      form:
+        add_documents: Lägg till dokument
+        add_image: Lägg till bild
+        edit_documents: Redigera dokument
+        edit_image: Redigera bild
       initiative_signatures:
         fill_personal_data:
           continue: Fortsätt
@@ -366,6 +375,7 @@ sv:
         committee_members:
           approve: Godkänn
           confirm_revoke: Är du säker?
+          link: Länk
           title: Kommittémedlemmar
         count:
           title:
@@ -418,8 +428,12 @@ sv:
         result:
           initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på underskrifter.
         show:
+          area: Område
           edit: Redigera
+          scope: Omfång
           send_to_technical_validation: Skicka till teknisk validering
+          state: Status
+          type: Typ
         signatures_count:
           one: " underskrift"
           other: " underskrifter"
