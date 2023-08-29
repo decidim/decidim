@@ -45,7 +45,7 @@
           <div class="row column">
             <span class="component__show-title"><%= t ".body" %></span>
             <p class="component__show-text">
-              <%= present(proposal).body %>
+              <%= decidim_sanitize_editor(present(proposal).body) %>
             </p>
           </div>
         </div>
