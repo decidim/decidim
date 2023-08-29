@@ -413,7 +413,7 @@ fr:
           notification_title: Vous avez été inscrit en tant que membre de l'assemblée <a href="%{resource_path}">%{resource_name}</a>. Consultez la <a href="%{resource_path}">page de l'assemblée</a> pour contribuer !
       assembly:
         role_assigned:
-          email_intro: Vous avez été assigné le rôle de %{role} de l'assemblée "%{resource_title}".
+          email_intro: Un administrateur vous a assigné le rôle de %{role} de l'assemblée "%{resource_title}".
           email_outro: Vous avez reçu cette notification parce que vous êtes %{role} de l'assemblée "%{resource_title}".
           email_subject: Vous avez été assigné le rôle de %{role} pour l'assemblée "%{resource_title}".
           notification_title: Vous avez été assigné le rôle de %{role} pour l'assemblée <a href="%{resource_url}">%{resource_title}</a>.
