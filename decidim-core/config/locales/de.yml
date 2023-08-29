@@ -1846,7 +1846,6 @@ de:
   layouts:
     decidim:
       announcements:
-        close: Schliessen
         view_more: Mehr Informationen
       data_consent:
         details:
