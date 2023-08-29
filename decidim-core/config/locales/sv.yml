@@ -1359,6 +1359,8 @@ sv:
     timestamp_error_message: Det gick för snabbt! Försök igen.
   layouts:
     decidim:
+      announcements:
+        view_less: Visa mindre
       data_consent:
         details:
           columns:
