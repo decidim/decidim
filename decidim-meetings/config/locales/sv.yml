@@ -32,6 +32,7 @@ sv:
         registration_terms: Registreringsvillkor
         registration_url: URL för anmälan
         registrations_enabled: Registreringar aktiverade
+        start_time: Starttid
         title: Titel
         transparent: Transparent
         type_of_meeting: Typ
@@ -470,6 +471,7 @@ sv:
             all: Alla
             official: Officiell
             participants: Deltagare
+            user_groups: Grupper
           scope: Omfång
           search: Sök
           type: Typ
