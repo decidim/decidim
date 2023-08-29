@@ -438,10 +438,6 @@ ca:
       initiative_signatures:
         fill_personal_data:
           continue: Continua
-          date_select:
-            day: Dia
-            month: Mes
-            year: Any
           help: Si us plau, omple els següents camps amb les teves dades personals per signar la iniciativa.
         finish:
           back_to_initiative: Torna a la iniciativa
