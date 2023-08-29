@@ -1890,7 +1890,6 @@ cs:
   layouts:
     decidim:
       announcements:
-        close: Zavřít‏
         view_more: Více informací
       data_consent:
         details:
