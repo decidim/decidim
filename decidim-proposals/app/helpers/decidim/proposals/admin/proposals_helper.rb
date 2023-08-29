@@ -127,12 +127,12 @@ module Decidim
         def icon_with_link_to_proposal(proposal)
           icon, tooltip = if allowed_to?(:create, :proposal_answer, proposal:) && !proposal.emendation?
                             [
-                              "comment-square",
+                              "question-answer-line",
                               t(:answer_proposal, scope: "decidim.proposals.actions")
                             ]
                           else
                             [
-                              "info",
+                              "information-line",
                               t(:show, scope: "decidim.proposals.actions")
                             ]
                           end
