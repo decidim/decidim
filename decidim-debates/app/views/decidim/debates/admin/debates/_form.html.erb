@@ -23,7 +23,10 @@
 
       <div class="row column">
         <%= label_tag :debate_type, t(".debate_type") %>
-        <%= form.collection_radio_buttons(:finite, [[t(".finite"), true], [t(".open"), false]], :last, :first) %>
+        <div>
+          <%= form.collection_radio_buttons(:finite, [[t(".finite"), true], [t(".open"), false]], :last, :first) do |builder|
+            builder.label(for: nil, class: "form__wrapper-checkbox-label") { builder.radio_button(id: nil) + builder.text } end %>
+        </div>
       </div>
 
       <div class="row debate-fields--finite">
