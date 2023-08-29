@@ -94,6 +94,7 @@ sv:
           invalid: Det gick inte att stänga debatten.
           success: Debatten har stängts.
         close_debate_modal:
+          cancel: Avbryta
           description: Vad är sammanfattningen för denna debatt?
           send: Stäng debatt
         closed: Stängd
@@ -125,6 +126,7 @@ sv:
           state_values:
             closed: Stängda
             open: Öppna
+          user_group: Grupper
         form:
           select_a_category: Välj en kategori
         index:
@@ -155,8 +157,10 @@ sv:
       models:
         debate:
           fields:
+            end: Slut
             end_time: Slutdatum
             official_debate: Officiell debatt
+            start: Start
             start_time: Startdatum
             title: Titel
     events:
