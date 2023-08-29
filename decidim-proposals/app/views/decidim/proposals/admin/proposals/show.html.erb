@@ -130,28 +130,33 @@
         <% end %>
       </div>
       <div class="component__show_grid-item">
-        <div class="card-section">
-          <div class="row column">
-            <span class="component__show-title"><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></span>
-            <div class="flex items-center gap-x-2 mt-2">
-              <%= icon "price-tag-3-line", class: "fill-gray" %>
-              <p class="component__show-icon-text">
-                <%= translated_attribute proposal.category.name %>
-              </p>
+        <% if proposal.category.present? %>
+          <div class="card-section">
+            <div class="row column">
+              <span class="component__show-title"><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></span>
+              <div class="flex items-center gap-x-2 mt-2">
+                <%= icon "price-tag-3-line", class: "fill-gray" %>
+                <p class="component__show-icon-text">
+                  <%= translated_attribute proposal.category.name %>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card-section">
-          <div class="row column">
-            <span class="component__show-title"><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></span>
-            <div class="flex items-center gap-x-2 mt-2">
-              <%= icon "scan-line", class: "fill-gray" %>
-              <p class="component__show-icon-text">
-                <%= translated_attribute proposal.scope.name %>
-              </p>
+        <% end %>
+
+        <% if proposal.scope.present? %>
+          <div class="card-section">
+            <div class="row column">
+              <span class="component__show-title"><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></span>
+              <div class="flex items-center gap-x-2 mt-2">
+                <%= icon "scan-line", class: "fill-gray" %>
+                <p class="component__show-icon-text">
+                  <%= translated_attribute proposal.scope.name %>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
 
         <div class="card-section">
           <div class="row column">
