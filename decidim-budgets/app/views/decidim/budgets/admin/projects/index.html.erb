@@ -1,17 +1,16 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card with-overflow">
-  <div class="card-divider">
-    <h2 class="card-title flex--sbc">
+  <div class="card-divider pb-4 border-b border-gray mb-4">
+    <h2 class="text-xl font-bold inline-block">
       <div>
         <%= link_to translated_attribute(budget.title), budgets_path %> &gt;
         <%= t(".title") %>
         <span id="js-selected-resources-count" class="component-counter component-counter--inline" title="<%= t("decidim.budgets.admin.projects.index.selected") %>"></span>
       </div>
-      <%= render partial: "bulk-actions" %>
     </h2>
   </div>
-
   <%= admin_filter_selector(:projects) %>
+  <%= render partial: "bulk-actions" %>
   <div class="table-scroll">
     <table class="table-list">
       <thead>
