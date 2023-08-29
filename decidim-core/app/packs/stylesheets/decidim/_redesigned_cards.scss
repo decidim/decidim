@@ -40,6 +40,8 @@
 
     &-text {
       @apply grow px-4 py-3 flex flex-col gap-y-2 md:gap-y-4 text-gray-2;
+
+      overflow-wrap: break-word;
     }
 
     &:hover &-text h3 {
