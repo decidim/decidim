@@ -54,12 +54,16 @@ module Decidim
         Decidim::Budgets::AdminLog::ProjectPresenter
       end
 
+      def resource_locator
+        ::Decidim::ResourceLocatorPresenter.new([budget, self])
+      end
+
       def polymorphic_resource_path(url_params)
-        ::Decidim::ResourceLocatorPresenter.new([budget, self]).path(url_params)
+        resource_locator.path(url_params)
       end
 
       def polymorphic_resource_url(url_params)
-        ::Decidim::ResourceLocatorPresenter.new([budget, self]).url(url_params)
+        resource_locator.url(url_params)
       end
 
       # Public: Overrides the `comments_have_votes?` Commentable concern method.
