@@ -286,7 +286,9 @@ shared_examples "manage impersonations examples" do
 
       it "show only verifications of current organization" do
         navigate_to_impersonations_page
-        click_link "Verification conflicts"
+        within_admin_menu do
+          click_link "Verification conflicts"
+        end
 
         expect(page).to have_content("Rigoberto")
       end
@@ -300,7 +302,9 @@ shared_examples "manage impersonations examples" do
 
       it "show only verifications of current organization" do
         navigate_to_impersonations_page
-        click_link "Verification conflicts"
+        within_admin_menu do
+          click_link "Verification conflicts"
+        end
 
         expect(page).not_to have_content("Rigoberto")
       end
