@@ -438,10 +438,6 @@ fr-CA:
       initiative_signatures:
         fill_personal_data:
           continue: Continuer
-          date_select:
-            day: journée
-            month: Mois
-            year: Année
           help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles pour signer la pétition.
         finish:
           back_to_initiative: Retour à l'initiative
