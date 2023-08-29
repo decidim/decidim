@@ -20,8 +20,16 @@
   .picker-header{
     @apply mb-4;
 
-    > a{
-      @apply underline text-secondary;
+    li{
+      @apply mb-2;
+
+      a{
+        @apply text-secondary;
+
+        &:hover{
+          @apply underline;
+        }
+      }
     }
   }
 
