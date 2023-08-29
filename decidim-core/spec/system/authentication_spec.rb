@@ -326,7 +326,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Signed in successfully")
+        expect(page).to have_content("Logged in successfully")
         expect_current_user_to_be(user)
       end
 
@@ -412,18 +412,18 @@ describe "Authentication", type: :system do
       end
     end
 
-    describe "Sign Out" do
+    describe "Log Out" do
       before do
         login_as user, scope: :user
         visit decidim.root_path
       end
 
-      it "signs out the user" do
+      it "logs out the user" do
         within_user_menu do
-          click_link("Sign out")
+          click_link("Log out")
         end
 
-        expect(page).to have_content("Signed out successfully.")
+        expect(page).to have_content("Logged out successfully.")
         expect(page).not_to have_content(user.name)
       end
     end
