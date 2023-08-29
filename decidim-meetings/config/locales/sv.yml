@@ -31,6 +31,7 @@ sv:
         registration_terms: Registreringsvillkor
         registration_url: URL för anmälan
         registrations_enabled: Registreringar aktiverade
+        start_time: Starttid
         title: Titel
         transparent: Transparent
         type_of_meeting: Typ
@@ -414,6 +415,7 @@ sv:
             all: Alla
             official: Officiell
             participants: Deltagare
+            user_group: Grupper
           search: Sök
           type: Typ
           type_values:
@@ -439,6 +441,8 @@ sv:
           see_all: Se alla möten
           see_all_withdrawn: Se alla tillbakadragna möten
           text_banner: Du tittar på listan över möten som dragits tillbaka av sina författare. %{go_back_link}.
+        meeting:
+          close_meeting: Avsluta möte
         meetings:
           upcoming_meetings_warning: För närvarande finns det inga planerade möten, men här hittar du alla tidigare möten listade.
         new:
@@ -517,6 +521,7 @@ sv:
             question_replied: Besvarad fråga
             reply_question: Svara på fråga
       public_participants_list:
+        attending_organizations: Organisationer
         attending_participants: Deltagare
         hidden_participants_count:
           one: och %{count} person till
