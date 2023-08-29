@@ -13,6 +13,7 @@ sv:
         decidim_scope_id: Omfång
         description: Beskrivning
         proposal_ids: Relaterade förslag
+        proposals: Förslag
         selected: Valda för genomförande
         title: Titel
       proposals_import:
@@ -115,12 +116,14 @@ sv:
         continue: Fortsätt
         more_information: Mer information
       budgets_list:
+        budgets: Budgetar
         cancel_order:
           more_than_one: dra tillbaka din röst på %{name} och börja om
           only_one: dra tillbaka din röst och börja om.
         highlighted_cta: Rösta på %{name}
         my_budgets: Mina budgetar
         progress: Avsluta röstning
+        remove_vote: Ta bort röst
         show: Visa projekt
         vote: Rösta
       limit_announcement:
@@ -162,6 +165,7 @@ sv:
           cancel_order: dra tillbaka din röst och börja om
           checked_out:
             title: Budgetomröstning slutförd
+          vote: Rösta i budgeten
         count:
           projects_count:
             one: Ett projekt
@@ -180,6 +184,10 @@ sv:
             all: Alla
             not_selected: Inte vald
             selected: Valda
+        order_progress:
+          assigned: Tilldelade
+          budget: Budget
+          minimum: Minst
         orders:
           highest_cost: Högst kostnad
           label: Ordna projekt efter
@@ -196,6 +204,9 @@ sv:
         project_budget_button:
           add: Lägg till i din röst
           added: Lades till i din röst
+        project_filter:
+          added: Lades till i din röst
+          all: Alla
         projects_for: Projekt för %{name}
         show:
           budget: Budget
