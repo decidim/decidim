@@ -397,10 +397,6 @@ ro:
       initiative_signatures:
         fill_personal_data:
           continue: Continuă
-          date_select:
-            day: Zi
-            month: Lună
-            year: An
         finish:
           back_to_initiative: Înapoi la inițiativă
         sms_code:
