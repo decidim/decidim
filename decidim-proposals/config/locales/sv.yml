@@ -808,6 +808,8 @@ sv:
           recent: Senaste
           with_more_authors: Med fler författare
         participatory_texts:
+          index:
+            document_index: Dokumentindex
           view_index:
             see_index: Visa index
         placeholder:
