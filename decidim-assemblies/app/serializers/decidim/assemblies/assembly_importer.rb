@@ -17,7 +17,7 @@ module Decidim
       #   - title: The +title+ for the new Assembly
       #   - slug: The +slug+ for the new Assembly
       #
-      # Returns a Assembly.
+      # Returns an Assembly.
       def import(attributes, _user, opts)
         title = opts[:title]
         slug = opts[:slug]
