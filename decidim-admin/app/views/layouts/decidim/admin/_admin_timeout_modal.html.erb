@@ -11,7 +11,7 @@
     <p><%= t("body", scope: "layouts.decidim.timeout_modal", minutes: (timeout_time_seconds / 60) - 2) %></p>
 
     <div class="reveal__buttons">
-      <%= link_to t("sign_out", scope: "layouts.decidim.timeout_modal"), decidim.destroy_user_session_path, method: :delete, class: "button warning" %>
+      <%= link_to t("log_out", scope: "layouts.decidim.timeout_modal"), decidim.destroy_user_session_path, method: :delete, class: "button warning" %>
       <%= link_to "", decidim.destroy_user_session_path(translation_suffix: :timed_out), method: :delete, id: "reveal-hidden-sign-out", class: "hide" %>
       <%= button_to t("continue_session", scope: "layouts.decidim.timeout_modal"),
         decidim.heartbeat_path,

@@ -1944,10 +1944,10 @@ en:
         admin_dashboard: Admin dashboard
         configuration: Configuration
         conversations: Conversations
+        log_out: Log out
         notifications: Notifications
         profile: My account
         public_profile: My public profile
-        log_out: Log out
         title: Profile links
       user_profile:
         account: Account
