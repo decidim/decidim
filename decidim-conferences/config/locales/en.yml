@@ -426,11 +426,11 @@ en:
         create:
           invalid: There was a problem joining this conference.
           success: You have successfully joined the conference.
-          unauthorized: You need to sign in before registering to the conference.
+          unauthorized: You need to log in before registering to the conference.
         decline_invitation:
           invalid: There was a problem declining the invitation.
           success: You have successfully declined the invitation.
-          unauthorized: You need to sign in before declining the invitation.
+          unauthorized: You need to log in before declining the invitation.
         destroy:
           invalid: There was a problem leaving this conference.
           success: You have successfully left the conference.

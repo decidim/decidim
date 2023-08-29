@@ -635,7 +635,7 @@ en:
           authorize: Authorize application
           by_organization_link_html: by %{link}
           cancel: Cancel
-          connect_your_account_html: Connect your account by signing in to %{organization}.
+          connect_your_account_html: Connect your account by logging in to %{organization}.
           publish_content: Publish content for you
           see_email: See your email
           see_name: See your name
@@ -1810,7 +1810,7 @@ en:
   errors:
     messages:
       allowed_file_content_types: 'only files with the following extensions are allowed: %{types}'
-      already_confirmed: was already confirmed, please try signing in
+      already_confirmed: was already confirmed, please try logging in
       blank: cannot be blank
       cannot_be_blank: cannot be blank
       confirmation: does not match %{attribute}
@@ -1935,7 +1935,7 @@ en:
       timeout_modal:
         body: You have been inactive for %{minutes} minutes. If you continue being inactive, you will be automatically signed out for your own security.
         continue_session: Continue session
-        sign_out: Sign out
+        log_out: Log out
         title: Would you like to continue your session?
       upload_modal:
         close_modal: Close modal
@@ -1947,7 +1947,7 @@ en:
         notifications: Notifications
         profile: My account
         public_profile: My public profile
-        sign_out: Sign out
+        log_out: Log out
         title: Profile links
       user_profile:
         account: Account

@@ -643,7 +643,7 @@ en:
           fields:
             created_at: Creation date
             email: Email
-            last_sign_in_at: Last sign in date
+            last_sign_in_at: Last log in date
             name: Name
             role: Role
             roles:
