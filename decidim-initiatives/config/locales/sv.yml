@@ -4,6 +4,7 @@ sv:
     attributes:
       initiative:
         answer: Svar
+        answer_url: Svars URL
         area_id: Område
         decidim_scope_id: Omfång
         decidim_user_group_id: Författare
@@ -62,6 +63,9 @@ sv:
               title: Titeln bör inte vara tom
   activerecord:
     models:
+      decidim/initiative:
+        one: Initiativ
+        other: Initiativ
       decidim/initiative_comittee:
         one: Kommitté
         other: Kommittéer
