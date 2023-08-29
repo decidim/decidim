@@ -320,6 +320,20 @@ sv:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Område
+          created_by: Skapad av
+          data: Gruppdata
+          developer_group: Kampanjgrupp
+          duration: Varaktighet
+          included_at: Inkluderad den
+          indefinite_duration: Permanent
+          meta_scope: Omfång
+          participatory_scope: Vad som bestäms
+        filters:
+          names:
+            all: Alla
+          type: Typ
         show:
           title: Om den här gruppen
       assembly_members:
@@ -334,6 +348,8 @@ sv:
         participatory: Deltagande
         working_group: Arbetsgrupp
       content_blocks:
+        children_assemblies:
+          name: Grupper
         highlighted_assemblies:
           name: Viktiga grupper
       created_by:
