@@ -19,6 +19,9 @@ sv:
         name: Mall
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Spara
         questionnaire_templates:
           choose:
             label: Välj mall
