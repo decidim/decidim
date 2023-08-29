@@ -373,6 +373,7 @@ sv:
         developer_group: Kampanjgrupp
         duration: Varaktighet
         included_at: Inkluderad vid
+        indefinite_duration: Permanent
         internal_organisation: Intern organisation
         is_transparent:
           'false': ogenomskinlig
