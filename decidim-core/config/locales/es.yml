@@ -1837,7 +1837,6 @@ es:
   layouts:
     decidim:
       announcements:
-        close: Cerrar
         view_more: Más información
       data_consent:
         details:
