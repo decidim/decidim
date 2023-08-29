@@ -438,10 +438,6 @@ de:
       initiative_signatures:
         fill_personal_data:
           continue: Fortsetzen
-          date_select:
-            day: Tag
-            month: Monat
-            year: Jahr
           help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen.
         finish:
           back_to_initiative: Zurück zur Initiative
