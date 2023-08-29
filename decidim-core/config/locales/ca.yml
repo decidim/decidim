@@ -1837,7 +1837,6 @@ ca:
   layouts:
     decidim:
       announcements:
-        close: Tancar
         view_more: Més informació
       data_consent:
         details:
