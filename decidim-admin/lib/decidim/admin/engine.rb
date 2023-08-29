@@ -103,14 +103,6 @@ module Decidim
                         active: is_active_link?(decidim_admin.impersonatable_users_path),
                         if: allowed_to?(:index, :impersonatable_user),
                         submenu: { target_menu: :impersonate_menu }
-
-          menu.add_item :conflicts,
-                        I18n.t("title", scope: "decidim.admin.conflicts"),
-                        decidim_admin.conflicts_path,
-                        icon_name: "flag-line",
-                        active: is_active_link?(decidim_admin.conflicts_path),
-                        if: allowed_to?(:index, :impersonatable_user)
-
           menu.add_item :authorization_workflows,
                         I18n.t("menu.authorization_workflows", scope: "decidim.admin"), decidim_admin.authorization_workflows_path,
                         icon_name: "key-2-line",
