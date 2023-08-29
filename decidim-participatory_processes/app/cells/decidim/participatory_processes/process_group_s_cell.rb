@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     # This cell renders the Search (:s) process group card
-    # for a given instance of a Process Group
+    # for a given instance of a ParticipatoryProcessGroup
     class ProcessGroupSCell < Decidim::CardSCell
       private
 

@@ -8,7 +8,7 @@ module Decidim
       include Decidim::ResourceHelper
       include Decidim::TranslationsHelper
 
-      # Public: Initializes the serializer with an assembly.
+      # Public: Initializes the serializer with an Assembly instance.
       def initialize(assembly)
         @assembly = assembly
       end
