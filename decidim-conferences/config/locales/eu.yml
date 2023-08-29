@@ -442,7 +442,7 @@ eu:
           main_promotors: Antolatzaileak
         show:
           login_as: '%{name} <%{email}> gisa erregistratuta zaude'
-          manage_registration: Erregistroa kudeatzea
+          manage_registration: Erregistroa kudeatu
           register: Eman izena
       content_blocks:
         highlighted_conferences:
@@ -546,7 +546,7 @@ eu:
   layouts:
     decidim:
       conference_hero:
-        manage_registration: Erregistroa kudeatzea
+        manage_registration: Erregistroa kudeatu
         register: Eman izena
       conferences:
         conference:
