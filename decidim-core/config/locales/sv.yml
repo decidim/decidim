@@ -90,6 +90,21 @@ sv:
         one: ungefär 1 månad
         other: ungefär %{count} månader
       half_a_minute: en halv minut
+      x_days:
+        one: 1 dag
+        other: "%{count} dagar"
+      x_hours:
+        one: 1 timme
+        other: "%{count} minuter"
+      x_minutes:
+        one: 1 minut
+        other: "%{count} minuter"
+      x_months:
+        one: 1 månad
+        other: "%{count} månader"
+      x_seconds:
+        one: 1 sekund
+        other: "%{count} sekunder"
   decidim:
     accessibility:
       external_link: Extern länk
@@ -117,6 +132,7 @@ sv:
         body2: Vill du att vi ska skicka verifieringsmailet igen? %{resend_link} eller %{cancel_link}.
         cancel: avbryt
         cancel_error: Kunde inte avbryta ändringen av e-postadressen.
+        send_again: Skicka igen
       show:
         available_locales_helper: Välj det språk du vill använda på plattformen och få i notiserna
         change_password: Ändra lösenord
@@ -1096,6 +1112,7 @@ sv:
         notifications_sending_frequencies:
           daily: Dagligen
           none: Ingen
+          real_time: Realtid
           weekly: Veckovis
         own_activity: Min egen verksamhet, som när någon kommenterar mitt förslag eller nämner mig
         push_notifications: Push-meddelanden
@@ -1526,6 +1543,7 @@ sv:
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
         password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
+        title: Lösenordsändring
       new:
         forgot_your_password: Glömt ditt lösenord?
         send_me_reset_password_instructions: Skicka mig anvisningar om återställning av lösenord
@@ -1620,8 +1638,14 @@ sv:
             cookie: Cookie
             local_storage: Lokal lagring
         dialog:
+          accept_all: Acceptera alla
           settings: Inställningar
         modal:
+          accept_all: Acceptera alla
+          essential:
+            title: Nödvändigt
+          marketing:
+            title: Marknadsföring
           save_settings: Spara inställningar
         warning:
           consent_required: Du måste aktivera %{categories} för att kunna se innehållet.
