@@ -1819,7 +1819,6 @@ ja:
   layouts:
     decidim:
       announcements:
-        close: 閉じる
         view_more: 詳しい情報
       data_consent:
         details:
