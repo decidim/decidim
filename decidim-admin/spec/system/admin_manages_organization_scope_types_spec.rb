@@ -21,7 +21,7 @@ describe "Admin manages scope types", type: :system do
       find(".new").click
     end
 
-    within ".new_scope_type" do
+    within ".item__edit-form" do
       fill_in_i18n(
         :scope_type_name,
         "#scope_type-name-tabs",
@@ -66,7 +66,7 @@ describe "Admin manages scope types", type: :system do
         click_link "Edit"
       end
 
-      within ".edit_scope_type" do
+      within ".item__edit-form" do
         fill_in_i18n(
           :scope_type_name,
           "#scope_type-name-tabs",
