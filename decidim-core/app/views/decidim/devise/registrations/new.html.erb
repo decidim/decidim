@@ -41,7 +41,8 @@
 
       <%= f.password_field :password, password_field_options_for(:user) %>
 
-      <%= f.password_field :password_confirmation_form, password_field_options_for(:user).except(:help_text) %>
+      <%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text).merge(label: t("password_confirmation", scope: "decidim.devise.registrations.new")) %>
+
     </div>
 
     <div id="card__tos" class="form__wrapper-block">
