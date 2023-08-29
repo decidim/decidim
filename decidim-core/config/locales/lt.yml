@@ -1888,7 +1888,6 @@ lt:
   layouts:
     decidim:
       announcements:
-        close: Uždaryti
         view_more: Daugiau informacijos
       data_consent:
         details:
