@@ -123,10 +123,6 @@ ga:
       initiative_signatures:
         fill_personal_data:
           continue: Lean ar aghaidh
-          date_select:
-            day: Lá
-            month: Mí
-            year: Bliain
       initiatives:
         committee_members:
           approve: Ceadaigh
