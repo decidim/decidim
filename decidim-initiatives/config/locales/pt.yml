@@ -361,10 +361,6 @@ pt:
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
-          date_select:
-            day: Dia
-            month: Mês
-            year: Ano
         finish:
           back_to_initiative: Retroceder para a iniciativa
         sms_code:
