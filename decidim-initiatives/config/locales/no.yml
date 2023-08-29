@@ -369,10 +369,6 @@
       initiative_signatures:
         fill_personal_data:
           continue: Fortsett
-          date_select:
-            day: Dag
-            month: Måned
-            year: År
         finish:
           back_to_initiative: Tilbake til initiativ
         sms_code:
