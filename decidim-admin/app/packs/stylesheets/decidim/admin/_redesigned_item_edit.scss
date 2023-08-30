@@ -20,10 +20,6 @@
       *:not(.button--title) > svg{
         @apply inline-block w-6 h-6;
       }
-
-      .button--title svg{
-        @apply fill-white;
-      }
     }
 
     .card-divider-button{
