@@ -249,7 +249,7 @@ describe "Admin manages officializations", type: :system do
 
           expect(page).to have_content(user.email)
 
-          find("button[data-close]").click
+          find("button[data-dialog-close]").click
         end
       end
 
