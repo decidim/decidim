@@ -43,8 +43,15 @@ module Decidim
         return true if current_user.admin
         return true if current_user.roles.any?
         return true if current_user.moderator?
+        return true if voting_monitoring_commitee_member?
 
         false
+      end
+
+      def voting_monitoring_commitee_member?
+        return false unless defined?(Decidim::Votings::MonitoringCommitteeMember)
+
+        true if Decidim::Votings::MonitoringCommitteeMember.exists?(user: current_user)
       end
     end
   end
