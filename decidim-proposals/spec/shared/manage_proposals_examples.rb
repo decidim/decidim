@@ -153,7 +153,7 @@ shared_examples "manage proposals" do
                 fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
                 fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
                 select category.name["en"], from: :proposal_category_id
-                scope_repick :proposal_scope_id, scope, child_scope
+                select translated(child_scope.name), from: :proposal_scope_id
                 find("*[type=submit]").click
               end
 
@@ -344,7 +344,7 @@ shared_examples "manage proposals" do
             ca: "La proposta no te sentit"
           )
           choose "Rejected"
-          click_button "Answer"
+          click_button "Update"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
@@ -363,7 +363,7 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Accepted"
-          click_button "Answer"
+          click_button "Update"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
@@ -382,7 +382,7 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Evaluating"
-          click_button "Answer"
+          click_button "Update"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
@@ -409,7 +409,7 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Not answered"
-          click_button "Answer"
+          click_button "Update"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
@@ -442,7 +442,7 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Accepted"
-          click_button "Answer"
+          click_button "Update"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
