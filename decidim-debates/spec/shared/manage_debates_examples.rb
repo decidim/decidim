@@ -107,15 +107,8 @@ RSpec.shared_examples "manage debates" do
       choose "Finite"
     end
 
-    page.execute_script("$('#debate_start_time').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.find(".datepicker-dropdown .hour", text: "10:00").click
-    page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-    page.execute_script("$('#debate_end_time').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.find(".datepicker-dropdown .hour", text: "12:00").click
-    page.find(".datepicker-dropdown .minute", text: "12:50").click
+    fill_in :debate_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+    fill_in :debate_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
     within ".new_debate" do
       select translated(category.name), from: :debate_decidim_category_id

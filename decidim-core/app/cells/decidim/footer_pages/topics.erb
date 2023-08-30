@@ -4,7 +4,7 @@
       <h2 class="h5 mb-4"><%= topic[:title] %></h2>
       <ul class="space-y-4 break-inside-avoid">
         <% topic[:pages].each do |page| %>
-          <%= page_item(page, class: "font-semibold") %>
+          <%= page_item(page, class: "font-semibold underline") %>
         <% end %>
       </ul>
     </nav>

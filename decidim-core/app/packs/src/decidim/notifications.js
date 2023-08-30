@@ -1,11 +1,10 @@
 /**
- * REDESIGN_PENDING: This file will be unnecessary once Turbo is implemented.
  * The topbar__notifications element has changes after redesign
  * @param {HTMLElement} node target node
  * @returns {void}
  */
 export default function(node = document) {
-  const noNotificationsText = node.querySelector(".empty-notifications")
+  const noNotificationsText = node.querySelector("#empty-notifications")
   const handleRemove = ({ currentTarget }) => currentTarget.remove()
   const handleFadeOut = (element) => {
     if (element) {
@@ -14,8 +13,7 @@ export default function(node = document) {
     }
   }
   const emptyNotifications = () => {
-    noNotificationsText.classList.remove("hidden")
-    noNotificationsText.classList.remove("hide")
+    noNotificationsText.hidden = false
 
     node.querySelector("#dropdown-menu-account [data-unread-notifications]").remove()
     if (!node.querySelector(".main-bar__notification").dataset.unreadConversations) {

@@ -265,7 +265,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(page).to have_current_path(meeting_path)
   end
 
-  it "creates a new meeting", :serves_geocoding_autocomplete, :slow do # rubocop:disable RSpec/ExampleLength
+  it "creates a new meeting", :serves_geocoding_autocomplete, :slow do
     find(".card-title a.button").click
 
     fill_in_i18n(
@@ -305,15 +305,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     select "Registration disabled", from: :meeting_registration_type
 
-    page.execute_script("$('#meeting_start_time').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.find(".datepicker-dropdown .hour", text: "10:00").click
-    page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-    page.execute_script("$('#meeting_end_time').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.find(".datepicker-dropdown .hour", text: "12:00").click
-    page.find(".datepicker-dropdown .minute", text: "12:50").click
+    fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+    fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
     scope_pick select_data_picker(:meeting_decidim_scope_id), scope
     select translated(category.name), from: :meeting_decidim_category_id
@@ -377,15 +370,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
         select "Registration disabled", from: :meeting_registration_type
 
-        page.execute_script("$('#meeting_start_time').focus()")
-        page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-        page.find(".datepicker-dropdown .hour", text: "10:00").click
-        page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-        page.execute_script("$('#meeting_end_time').focus()")
-        page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-        page.find(".datepicker-dropdown .hour", text: "12:00").click
-        page.find(".datepicker-dropdown .minute", text: "12:50").click
+        fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+        fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
       end
     end
   end
@@ -526,15 +512,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       fill_in :meeting_address, with: address
       select "Registration disabled", from: :meeting_registration_type
 
-      page.execute_script("$('#meeting_start_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "10:00").click
-      page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-      page.execute_script("$('#meeting_end_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "12:00").click
-      page.find(".datepicker-dropdown .minute", text: "12:50").click
+      fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+      fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
       scope_pick select_data_picker(:meeting_decidim_scope_id), scope
       select translated(category.name), from: :meeting_decidim_category_id

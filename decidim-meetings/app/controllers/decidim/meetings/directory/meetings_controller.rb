@@ -20,7 +20,6 @@ module Decidim
 
         def year_calendar
           @filter_options = {
-            # REDESIGN_PENDING: This variable must be set
             date: !@forced_past_meetings,
             type: true,
             directory_scopes: true,

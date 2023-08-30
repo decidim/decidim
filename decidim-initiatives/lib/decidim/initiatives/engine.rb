@@ -41,7 +41,18 @@ module Decidim
         }, constraints: { initiative_id: /[0-9]+/ }
 
         resources :initiatives, param: :slug, only: [:index, :show, :edit, :update], path: "initiatives" do
-          resources :initiative_signatures
+          resources :signatures, controller: "initiative_signatures" do
+            collection do
+              get :fill_personal_data
+              put :fill_personal_data, to: "initiative_signatures#store_personal_data"
+              get :sms_phone_number
+              put :sms_phone_number, to: "initiative_signatures#store_sms_phone_number"
+              get :sms_code
+              put :sms_code, to: "initiative_signatures#store_sms_code"
+              get :finish
+              put :finish, to: "initiative_signatures#store_finish"
+            end
+          end
 
           member do
             get :authorization_sign_modal, to: "authorization_sign_modals#show"

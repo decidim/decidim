@@ -117,6 +117,7 @@ ignore_missing:
   - decidim.budgets.projects_helper.current_rule_call_for_action_text.*
   - decidim.debates.debate_m.footer.commented_time_ago
   - date.abbr_day_names
+  - date.day_names
   - date.month_names
   - explanation
 
@@ -160,6 +161,11 @@ ignore_unused:
   - decidim.proposals.proposals.wizard_aside.back_from_step_2
   - decidim.proposals.proposals.wizard_aside.back_from_step_3
   - decidim.proposals.proposals.wizard_aside.back_from_step_4
+  - decidim.proposals.proposals.wizard_steps.current_step
+  - decidim.proposals.proposals.wizard_steps.step_1
+  - decidim.proposals.proposals.wizard_steps.step_2
+  - decidim.proposals.proposals.wizard_steps.step_3
+  - decidim.proposals.proposals.wizard_steps.step_4
   - decidim.proposals.proposals.show.proposal_accepted_reason
   - decidim.proposals.proposals.show.proposal_in_evaluation_reason
   - decidim.proposals.proposals.show.proposal_rejected_reason

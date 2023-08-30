@@ -1,8 +1,6 @@
-<strong id="order-total-budget" class="budget-summary__progressbar-legend-strong">
-  <% if current_order.projects_rule? %>
-    <%= current_order.projects.count %> /
-    <%= current_order.maximum_projects %>
-  <% else %>
-    <%= budget_to_currency current_order&.total_budget.to_f %>
-  <% end %>
-</strong>
+<% if current_order.projects_rule? %>
+  <%= current_order.projects.count %> /
+  <%= current_order.maximum_projects %>
+<% else %>
+  <%= budget_to_currency current_order&.total_budget.to_f %>
+<% end %>

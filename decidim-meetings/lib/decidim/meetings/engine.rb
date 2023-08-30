@@ -38,7 +38,11 @@ module Decidim
             resources :answers, only: [:index, :create]
           end
         end
-        root to: "meetings#index"
+        scope "/meetings" do
+          root to: "meetings#index"
+        end
+        get "/", to: redirect("meetings", status: 301)
+
         resource :calendar, only: [:show], format: :text do
           resources :meetings, only: [:show], controller: :calendars, action: :meeting_calendar
         end
@@ -59,22 +63,6 @@ module Decidim
       initializer "decidim_meetings.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
           view_context.cell("decidim/meetings/highlighted_meetings", view_context.current_participatory_space)
-        end
-
-        # This view hook is used in card cells. It renders the next upcoming
-        # meeting for the given participatory space.
-        Decidim.view_hooks.register(:upcoming_meeting_for_card, priority: Decidim::ViewHooks::LOW_PRIORITY) do |view_context|
-          published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
-          upcoming_meeting = Decidim::Meetings::Meeting.where(component: published_components).published.upcoming.order(:start_time, :end_time).first
-
-          next unless upcoming_meeting
-
-          view_context.render(
-            partial: "decidim/participatory_spaces/upcoming_meeting_for_card.html",
-            locals: {
-              upcoming_meeting:
-            }
-          )
         end
 
         Decidim.view_hooks.register(:conference_venues, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|

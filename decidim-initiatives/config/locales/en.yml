@@ -374,7 +374,6 @@ en:
           more_information: "(More information)"
           send_my_initiative: Send my initiative to technical validation
         finish_help:
-          access_reminder: You can access your initiatives through the %{link} filter on the Initiatives page.
           publish_helper_text: Remember that for your initiative to be published you must complete the required information and <strong>send it to technical validation</strong> for an administrator to review it.
         previous_form:
           back: Back
@@ -440,10 +439,6 @@ en:
       initiative_signatures:
         fill_personal_data:
           continue: Continue
-          date_select:
-            day: Day
-            month: Month
-            year: Year
           help: Please, fill the following fields with your personal data to sign the initiative.
         finish:
           back_to_initiative: Back to initiative
@@ -489,11 +484,6 @@ en:
           search: Search
           state: Status
           type: Type
-        filters_small_view:
-          close_modal: Close window
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         index_header:
           new_initiative: New initiative
         initiatives:
@@ -615,8 +605,6 @@ en:
         finish: Finish
         promotal_committee: Promoter committee
         select_initiative_type: Choose
-      initiative_header:
-        initiative_menu_item: Initiative
       initiative_signature_creation_header:
         fill_personal_data: Complete your data
         finish: Finish

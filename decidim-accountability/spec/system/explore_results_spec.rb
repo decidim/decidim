@@ -123,7 +123,7 @@ describe "Explore results", type: :system, versioning: true do
           find("*[type=submit]").click
         end
 
-        within("div#results") do
+        within("#results") do
           expect(page).to have_content(translated(matching_result1.title))
           expect(page).to have_content(translated(matching_result2.title))
 
@@ -278,7 +278,10 @@ describe "Explore results", type: :system, versioning: true do
       before do
         result.link_resources(proposals, "included_proposals")
         visit current_path
-        select_tab("Included proposals")
+      end
+
+      it "shows the tab" do
+        expect(page).to have_content("Included proposals")
       end
 
       it "shows related proposals" do
@@ -311,18 +314,19 @@ describe "Explore results", type: :system, versioning: true do
       before do
         result.link_resources(projects, "included_projects")
         visit current_path
-        select_tab("Included projects")
+      end
+
+      it "shows the tab" do
+        expect(page).to have_content("Included projects")
       end
 
       it "shows related projects" do
-        click_button "Included projects"
         projects.each do |project|
           expect(page).to have_content(translated(project.title))
         end
       end
 
       it "the result is mentioned in the project page" do
-        click_button "Included projects"
         click_link translated(project.title)
         expect(page).to have_i18n_content(result.title)
       end
@@ -338,11 +342,13 @@ describe "Explore results", type: :system, versioning: true do
       before do
         result.link_resources(meetings, "meetings_through_proposals")
         visit current_path
-        select_tab("Included meetings")
+      end
+
+      it "shows the tab" do
+        expect(page).to have_content("Included meetings")
       end
 
       it "shows related meetings" do
-        click_button "Included meetings"
         meetings.each do |meeting|
           expect(page).to have_i18n_content(meeting.title)
         end
@@ -392,7 +398,7 @@ describe "Explore results", type: :system, versioning: true do
       end
     end
 
-    it_behaves_like "has redesigned attachments" do
+    it_behaves_like "has attachments tabs" do
       let(:attached_to) { result }
     end
   end

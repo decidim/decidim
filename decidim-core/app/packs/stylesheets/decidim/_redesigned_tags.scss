@@ -1,5 +1,5 @@
 .tag {
-  @apply flex items-center gap-1;
+  @apply flex items-center gap-1 hover:underline;
 
   &-container {
     @apply flex items-center gap-2 text-sm text-gray-2;

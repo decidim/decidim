@@ -669,7 +669,7 @@ Additional context: This has been revealed as an issue during a security audit o
 |No
 
 |DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS
-|Defines how many days admin passwords are valid before they need to be reset.
+|Defines how many days admin passwords are valid before they need to be reset. If you want to disable password expiration, you can set this value to `0`.
 |90
 |No
 

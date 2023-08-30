@@ -315,10 +315,8 @@ shared_examples "manage impersonations examples" do
       fill_in(:impersonate_user_reason, with: reason) if reason
       fill_in :impersonate_user_authorization_document_number, with: document_number
       fill_in :impersonate_user_authorization_postal_code, with: "08224"
-      page.execute_script("$('#impersonate_user_authorization_birthday').focus()")
+      fill_in :impersonate_user_authorization_birthday, with: Time.current.change(day: 12)
     end
-
-    page.find(".datepicker-dropdown .datepicker-days", text: "12").click
 
     expect(page).to have_selector("*[type=submit]", count: 1)
 

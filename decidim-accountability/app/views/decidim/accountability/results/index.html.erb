@@ -6,14 +6,12 @@
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <% if category.present? %>
-    <h2 class="h4"><%= translated_attribute category.name %></h2>
-  <% else %>
-    <h2 class="h4"><%= t("decidim.accountability.results.home_header.global_status") %></h2>
-  <% end %>
+  <section class="layout-main__section">
+    <h2 class="h4"><%= category.present? ? translated_attribute(category.name) : t("decidim.accountability.results.home_header.global_status") %></h2>
+  </section>
 
-  <div id="results" class="my-20">
+  <section id="results" class="layout-main__section">
     <%= cell "decidim/accountability/results", results %>
     <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope) %>
-  </div>
+  </section>
 <% end %>

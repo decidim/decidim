@@ -579,8 +579,6 @@ en:
           all: All
         filter_scope_values:
           all: All
-    datepicker:
-      help_text: 'Expected format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -658,9 +656,6 @@ en:
         error: Error uploading image.
         success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
-    endorsable:
-      endorsements: Endorsements
-      endorsements_count: Endorsements count
     endorsement_buttons_cell:
       already_endorsed: Dislike
       endorse: Like
@@ -1046,6 +1041,7 @@ en:
       index:
         last_activity: Last activity
       name: Last activities
+      no_activities_warning: There are no entries to show for this activity type.
     linked_resource_from:
       included_in: Included in
     links:
@@ -1440,11 +1436,9 @@ en:
           future: Future
           past: Past
       filters_small_view:
-        close_modal: Close modal
         filter: Filter
         filter_and_search: Filter and Search
         filter_by: Filter by
-        unfold: Unfold
       results:
         view_all: View all (%{count})
     security:
@@ -1501,6 +1495,7 @@ en:
           areas: Areas
           scope: Scope
           select_an_area: Select an area
+      progress: Progress
       public_participation:
         public_participation: Show my attendance publicly
       reference:
@@ -1852,7 +1847,7 @@ en:
   layouts:
     decidim:
       announcements:
-        close: Close
+        view_less: Show less
         view_more: More information
       data_consent:
         details:
@@ -2040,6 +2035,7 @@ en:
       option_split: Side-by-side
       option_unescaped: Unescaped
       option_unified: Unified
+      toggle: Toggle view
   views:
     pagination:
       next: Next

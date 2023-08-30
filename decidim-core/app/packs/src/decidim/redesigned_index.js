@@ -15,8 +15,8 @@ import svg4everybody from "svg4everybody"
 import morphdom from "morphdom"
 
 // vendor customizated scripts (bad practice: these ones should be removed eventually)
-import "./vendor/foundation-datepicker"
-import "./foundation_datepicker_locales"
+// import "./vendor/foundation-datepicker" -- deprecated
+// import "./foundation_datepicker_locales" -- deprecated
 import "./vendor/modernizr"
 
 /**
@@ -57,12 +57,10 @@ import "./gallery"
 import "./direct_uploads/redesigned_upload_field"
 import "./data_consent"
 import "./sw"
-import changeReportFormBehavior from "./redesigned_change_report_form_behavior"
-
 
 // local deps that require initialization
-import formDatePicker from "./form_datepicker"
-import fixDropdownMenus from "./dropdowns_menus"
+// import formDatePicker from "./form_datepicker" -- deprecated
+// import fixDropdownMenus from "./dropdowns_menus" -- deprecated
 import Configuration from "./configuration"
 import ExternalLink from "./redesigned_external_link"
 import updateExternalDomainLinks from "./external_domain_warning"
@@ -71,7 +69,7 @@ import InputCharacterCounter, { createCharacterCounter } from "./redesigned_inpu
 import FormValidator from "./form_validator"
 import FormFilterComponent from "./redesigned_form_filter"
 import addInputEmoji, { EmojiButton } from "./input_emoji"
-import dialogMode from "./dialog_mode"
+// import dialogMode from "./dialog_mode" -- deprecated
 import FocusGuard from "./focus_guard"
 import backToListLink from "./back_to_list"
 import markAsReadNotifications from "./notifications"
@@ -85,6 +83,7 @@ import {
   createDropdown,
   Dialogs
 } from "./redesigned_a11y"
+import changeReportFormBehavior from "./redesigned_change_report_form_behavior"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referrenced through a single Decidim.I18n object
@@ -116,39 +115,15 @@ const initializer = (element = document) => {
   }
   window.focusGuard = new FocusGuard(focusContainer);
 
+  // REDESIGN_PENDING: deprecated
   $(element).foundation();
-  $(element).on("open.zf.reveal", (ev) => {
-    dialogMode($(ev.target));
-  });
-
-  // Trap the focus within the mobile menu if the user enters it. This is an
-  // accessibility feature forcing the focus within the offcanvas container
-  // which holds the mobile menu.
-  $("#offCanvas").on("openedEnd.zf.offCanvas", (ev) => {
-    ev.target.querySelector(".main-nav a").focus();
-    window.focusGuard.trap(ev.target);
-  }).on("closed.zf.offCanvas", () => {
-    window.focusGuard.disable();
-  });
-
-  fixDropdownMenus();
 
   svg4everybody();
 
-  // Prevent data-open buttons e.g. from submitting the underlying form in
-  // authorized action buttons.
-  $("[data-open]").on("click", (event) => {
-    event.preventDefault();
-  });
-
-  formDatePicker();
-
-  document.querySelectorAll(".editor-container").forEach((container) => {
-    window.createEditor(container);
-  });
+  element.querySelectorAll(".editor-container").forEach((container) => window.createEditor(container));
 
   // initialize character counter
-  $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
+  $("input[type='text'], textarea, .editor>input[type='hidden']", element).each((_i, elem) => {
     const $input = $(elem);
 
     if (!$input.is("[minlength]") && !$input.is("[maxlength]")) {
@@ -158,7 +133,7 @@ const initializer = (element = document) => {
     createCharacterCounter($input);
   });
 
-  $("form.new_filter").each(function () {
+  $("form.new_filter", element).each(function () {
     // eslint-disable-next-line no-invalid-this
     const formFilter = new FormFilterComponent($(this));
 
@@ -176,9 +151,9 @@ const initializer = (element = document) => {
 
   backToListLink(element.querySelectorAll(".js-back-to-list"));
 
-  markAsReadNotifications()
+  markAsReadNotifications(element)
 
-  scrollToLastChild()
+  scrollToLastChild(element)
 
   // https://github.com/jonathanlevaillant/a11y-accordion-component
   element.querySelectorAll('[data-component="accordion"]').forEach((component) => createAccordion(component))
@@ -201,7 +176,7 @@ const initializer = (element = document) => {
   // Initialize data-toggles
   element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
 
-  document.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
+  element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
 }
 
 // If no jQuery is used the Tribute feature used in comments to autocomplete

@@ -81,10 +81,9 @@
           help_text: t("attachment_legend", scope: "decidim.initiatives.form") %>
     <% end %>
 
-    <%= f.select :state,
-                    Decidim::Initiative.states.keys.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] },
-                    {},
-                    { disabled: !@form.state_updatable? } %>
+    <% if @form.state_updatable? %>
+      <%= f.select :state, Decidim::Initiative.states.keys.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] }, {} %>
+    <% end %>
 
     <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
       <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>

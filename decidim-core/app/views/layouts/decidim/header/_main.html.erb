@@ -11,20 +11,20 @@
     </div>
 
     <div class="lg:hidden">
-      <%# Sticky menu mobile %>
-      <div class="main-bar__links-mobile">
-        <%= render partial: "layouts/decidim/header/main_links_mobile" %>
-      </div>
-
       <%# Main dropdown mobile %>
-      <div id="main-dropdown-summary-mobile" class="main-bar__links-mobile__trigger"
+      <button id="main-dropdown-summary-mobile" class="main-bar__links-mobile__trigger"
         data-component="dropdown"
         data-target="dropdown-menu-main-mobile">
         <%= icon "menu-line" %><span class="sr-only"><%= t("main_menu", scope: "layouts.decidim.header") %></span>
-      </div>
+      </button>
 
       <div id="dropdown-menu-main-mobile" class="main-bar__links-mobile__dropdown" aria-hidden="true">
         <%= render partial: "layouts/decidim/header/menu_breadcrumb_main_dropdown", locals: { id: "breadcrumb-main-dropdown-mobile" } %>
+      </div>
+
+      <%# Sticky menu mobile %>
+      <div class="main-bar__links-mobile">
+        <%= render partial: "layouts/decidim/header/main_links_mobile" %>
       </div>
 
       <%# Overlay menus mobile %>
