@@ -1,4 +1,4 @@
-<div class="row column gallery__container">
+<div class="row column gallery__container mt-4">
   <fieldset>
     <legend><%= t(".gallery_legend") %></legend>
 
@@ -14,7 +14,7 @@
       <% end %>
     <% end %>
 
-    <div class="row column">
+    <div>
       <%= form.attachment :photos,
         multiple: true,
         label: t(".add_images"),

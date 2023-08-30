@@ -11,7 +11,7 @@
       <%= t(".description") %>
     </div>
 
-    <%= decidim_form_for([questionnaire], url: decidim_admin_templates.apply_questionnaire_templates_url(questionnaire_id: questionnaire, url: request.url), method: :post, html: { class: "form choose_questionnaire_templates" }) do |form| %>
+    <%= decidim_form_for([questionnaire], url: decidim_admin_templates.apply_questionnaire_templates_url(questionnaire_id: questionnaire, url: request.url), method: :post, html: { class: "form form-defaults choose_questionnaire_templates" }) do |form| %>
       <%= datalist_select(templates,
         {
           id: "choose-template",
