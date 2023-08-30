@@ -1846,6 +1846,7 @@ de:
   layouts:
     decidim:
       announcements:
+        view_less: Weniger anzeigen
         view_more: Mehr Informationen
       data_consent:
         details:
@@ -2033,6 +2034,7 @@ de:
       option_split: Nebeneinander
       option_unescaped: aus der Seite nicht herausgekommen
       option_unified: Zusammengefasst
+      toggle: Ansicht wechseln
   views:
     pagination:
       next: Weiter
