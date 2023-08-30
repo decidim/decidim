@@ -10,7 +10,7 @@
     @apply flex items-center min-h-[28px];
 
     .dropdown__trigger{
-      @apply flex underline px-2 pt-0.5 pb-1;
+      @apply flex no-underline px-1.5 py-1 text-sm;
 
       svg{
         @apply block h-5 fill-white;
