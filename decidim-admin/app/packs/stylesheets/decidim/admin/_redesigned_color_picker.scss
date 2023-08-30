@@ -34,15 +34,15 @@
   }
 
   &__color_primary {
-    @apply bg-primary;
+    @apply bg-[var(--primary)]
   }
 
   &__color_secondary {
-    @apply bg-secondary;
+    @apply bg-[var(--secondary)]
   }
 
   &__color_tertiary {
-    @apply bg-tertiary;
+    @apply bg-[var(--tertiary)]
   }
 
   .button {
