@@ -51,7 +51,7 @@ module Devise
       # Passwords are always required if it is a new record, or if the password
       # is being set somewhere.
       def password_required?
-        !persisted? || !password.nil?
+        new_record? || password.present?
       end
 
       def email_required?
