@@ -44,6 +44,10 @@
   a:hover{
     @apply underline text-secondary;
   }
+
+  &.picker-multiple{
+    @apply block;
+  }
 }
 
 .data-picker.picker-single .picker-values:not(:empty) + .picker-prompt{
