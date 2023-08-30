@@ -5,30 +5,22 @@ module Decidim
     module Admin
       # Controller that allows managing voting publications.
       #
-      class VotingPublicationsController < Admin::ApplicationController
+      class VotingPublicationsController < Decidim::Admin::SpacePublicationsController
         include VotingAdmin
 
-        def create
-          enforce_permission_to :publish, :voting, voting: current_voting
+        private
 
-          PublishVoting.call(current_voting, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("votings.publish.success", scope: "decidim.votings.admin")
-              redirect_to edit_voting_path(voting)
-            end
-          end
-        end
+        def current_participatory_space = current_voting
 
-        def destroy
-          enforce_permission_to :unpublish, :voting, voting: current_voting
+        def enforce_permission_to_publish = enforce_permission_to(:publish, :voting, voting: current_voting)
 
-          UnpublishVoting.call(current_voting, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("votings.unpublish.success", scope: "decidim.votings.admin")
-              redirect_to edit_voting_path(voting)
-            end
-          end
-        end
+        def publish_command = PublishVoting
+
+        def unpublish_command = UnpublishVoting
+
+        def i18n_scope = "decidim.admin.voting_publications"
+
+        def fallback_location = votings_path
       end
     end
   end

@@ -17,6 +17,8 @@ shared_examples "manage participatory space publications" do |_options|
     it "publishes it" do
       click_link "Publish"
 
+      expect(page).to have_content("successfully")
+
       visit public_collection_path
 
       expect(page).to have_content title
@@ -41,6 +43,8 @@ shared_examples "manage participatory space publications" do |_options|
       # we can not use "a 404 page" shared example as we want to check it
       # inside an example
       click_link "Unpublish"
+
+      expect(page).to have_content("successfully")
 
       visit public_collection_path
 
