@@ -22,7 +22,7 @@
                 target: :blank
               ) %>
               <% if presented_author.can_be_contacted? && presented_author.nickname != present(current_user).nickname %>
-                <%= link_to "envelope-closed", current_or_new_conversation_path_with(presented_author), t("decidim.contact") %>
+                <%= link_to_current_or_new_conversation_with(presented_author) %>
               <% end %>
             </li>
           <% end %>
@@ -45,7 +45,7 @@
           <div class="row column">
             <span class="component__show-title"><%= t ".body" %></span>
             <p class="component__show-text">
-              <%= present(proposal).body %>
+              <%= decidim_sanitize_editor(present(proposal).body) %>
             </p>
           </div>
         </div>
