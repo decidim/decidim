@@ -1,18 +1,23 @@
-<% add_decidim_page_title(t(".preview")) %>
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title"><%= t ".preview" %></h2>
-  </div>
-  <div class="card-section">
-    <dl>
-      <dt><%= t ".subject" %></dt>
-      <dd><%= @email.subject %></dd>
-      <dt><%= t("models.newsletter.fields.sent_to", scope: "decidim.admin") %></dt>
-      <dd><%= selective_newsletter_to newsletter %></dd>
-    </dl>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t ".preview" %>
+  </h2>
+</div>
+<div class="form__wrapper">
+  <div class="card">
+    <div class="card-section p-4">
+      <div class="row column">
+        <dl>
+          <dt class="font-bold"><%= t ".subject" %></dt>
+          <dd><%= @email.subject %></dd>
+          <dt class="font-bold"><%= t("models.newsletter.fields.sent_to", scope: "decidim.admin") %></dt>
+          <dd><%= selective_newsletter_to newsletter %></dd>
+        </dl>
 
-    <iframe src="<%= preview_newsletter_path(@newsletter) %>" class="email-preview">
-    </iframe>
+        <iframe src="<%= preview_newsletter_path(@newsletter) %>" class="email-preview w-full">
+        </iframe>
+      </div>
+    </div>
   </div>
 </div>
 <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
