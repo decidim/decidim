@@ -201,7 +201,7 @@ describe "Admin manages newsletters", type: :system do
             expect(page).to have_content(recipients_count)
           end
 
-          within ".button--double" do
+          within "form.newsletter_deliver .form__wrapper-block" do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
@@ -238,7 +238,7 @@ describe "Admin manages newsletters", type: :system do
             expect(page).to have_content(recipients_count)
           end
 
-          within ".button--double" do
+          within "form.newsletter_deliver .form__wrapper-block" do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
@@ -275,7 +275,7 @@ describe "Admin manages newsletters", type: :system do
             expect(page).to have_content(recipients_count)
           end
 
-          within ".button--double" do
+          within "form.newsletter_deliver .form__wrapper-block" do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
@@ -319,7 +319,7 @@ describe "Admin manages newsletters", type: :system do
             expect(page).to have_content(recipients_count)
           end
 
-          within ".button--double" do
+          within "form.newsletter_deliver .form__wrapper-block" do
             accept_confirm { find("*", text: "Deliver").click }
           end
 
