@@ -5,40 +5,22 @@ module Decidim
     module Admin
       # Controller that allows managing participatory process publications.
       #
-      class ParticipatoryProcessPublicationsController < Decidim::Admin::ApplicationController
+      class ParticipatoryProcessPublicationsController < Decidim::Admin::SpacePublicationsController
         include Concerns::ParticipatoryProcessAdmin
 
-        def create
-          enforce_permission_to :publish, :process, process: current_participatory_process
+        private
 
-          PublishParticipatoryProcess.call(current_participatory_process, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("participatory_process_publications.create.success", scope: "decidim.admin")
-            end
+        def current_participatory_space = current_participatory_process
 
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_process_publications.create.error", scope: "decidim.admin")
-            end
+        def enforce_permission_to_publish = enforce_permission_to(:publish, :process, process: current_participatory_process)
 
-            redirect_back(fallback_location: participatory_processes_path)
-          end
-        end
+        def publish_command = PublishParticipatoryProcess
 
-        def destroy
-          enforce_permission_to :publish, :process, process: current_participatory_process
+        def unpublish_command = UnpublishParticipatoryProcess
 
-          UnpublishParticipatoryProcess.call(current_participatory_process, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("participatory_process_publications.destroy.success", scope: "decidim.admin")
-            end
+        def i18n_scope = "decidim.admin.participatory_process_publications"
 
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_process_publications.destroy.error", scope: "decidim.admin")
-            end
-
-            redirect_back(fallback_location: participatory_processes_path)
-          end
-        end
+        def fallback_location = participatory_processes_path
       end
     end
   end

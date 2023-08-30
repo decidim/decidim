@@ -5,40 +5,22 @@ module Decidim
     module Admin
       # Controller that allows managing assembly publications.
       #
-      class AssemblyPublicationsController < Decidim::Assemblies::Admin::ApplicationController
+      class AssemblyPublicationsController < Decidim::Admin::SpacePublicationsController
         include Concerns::AssemblyAdmin
 
-        def create
-          enforce_permission_to :publish, :assembly, assembly: current_assembly
+        private
 
-          PublishAssembly.call(current_assembly, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("assembly_publications.create.success", scope: "decidim.admin")
-            end
+        def current_participatory_space = current_assembly
 
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("assembly_publications.create.error", scope: "decidim.admin")
-            end
+        def enforce_permission_to_publish = enforce_permission_to(:publish, :assembly, assembly: current_assembly)
 
-            redirect_back(fallback_location: assemblies_path)
-          end
-        end
+        def publish_command = PublishAssembly
 
-        def destroy
-          enforce_permission_to :publish, :assembly, assembly: current_assembly
+        def unpublish_command = UnpublishAssembly
 
-          UnpublishAssembly.call(current_assembly, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("assembly_publications.destroy.success", scope: "decidim.admin")
-            end
+        def i18n_scope = "decidim.admin.assembly_publications"
 
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("assembly_publications.destroy.error", scope: "decidim.admin")
-            end
-
-            redirect_back(fallback_location: assemblies_path)
-          end
-        end
+        def fallback_location = assemblies_path
       end
     end
   end
