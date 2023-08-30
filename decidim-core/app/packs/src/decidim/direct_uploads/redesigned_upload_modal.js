@@ -215,7 +215,7 @@ export default class UploadModal {
       <li ${attachmentId} data-filename="${file.name}" data-state="${state}">
         <div data-template="${template}">
           ${content.trim()}
-          <button>${this.locales.remove}</button>
+          <button class="upload-modal__dropzone-file-remove">${this.locales.remove}</button>
         </div>
         <progress max="100" value="${opts.value || 0}"></progress>
       </li>`

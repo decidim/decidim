@@ -124,7 +124,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // update the DOM with the validated items from the modal
     modal.saveButton.addEventListener("click", (event) => event.preventDefault() || updateActiveUploads(modal));
-    // remove the uploaded files if cancel button is clicked
-    modal.cancelButton.addEventListener("click", (event) => event.preventDefault() || modal.cleanAllFiles());
+    document.addEventListener("click", function (event) {
+      if (event.target.matches("button.upload-modal__dropzone-file-remove")) {
+        event.preventDefault();
+        updateActiveUploads(modal);
+      }
+    }, false);
   })
 })
