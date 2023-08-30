@@ -186,7 +186,7 @@ describe "Content pages", type: :system do
           ca: "<p>Contingut HTML</p>"
         )
 
-        select topic.title[I18n.locale.to_s], from: "Topic"
+        select topic.title[I18n.locale.to_s], from: :static_page_topic_id
         find("*[type=submit]").click
       end
 
@@ -231,7 +231,7 @@ describe "Content pages", type: :system do
             "#static_page-content-tabs",
             en: "This is the new <strong>content</strong>"
           )
-          select topic.title[I18n.locale.to_s], from: "Topic"
+          select topic.title[I18n.locale.to_s], from: :static_page_topic_id
           find("*[type=submit]").click
         end
 
@@ -255,13 +255,17 @@ describe "Content pages", type: :system do
       end
 
       it "can visit them" do
-        within find("tr", text: translated(decidim_page.title)) do
-          click_link "View public page"
+        new_window = window_opened_by do
+          within find("tr", text: translated(decidim_page.title)) do
+            click_link "View public page"
+          end
         end
 
-        expect(page).to have_content(translated(decidim_page.title))
-        expect(page).to have_content(strip_tags(translated(decidim_page.content)))
-        expect(page).to have_current_path(/#{decidim_page.slug}/)
+        page.within_window(new_window) do
+          expect(page).to have_content(translated(decidim_page.title))
+          expect(page).to have_content(strip_tags(translated(decidim_page.content)))
+          expect(page).to have_current_path(/#{decidim_page.slug}/)
+        end
       end
     end
   end
