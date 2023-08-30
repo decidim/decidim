@@ -42,10 +42,31 @@ module Decidim
       def user_has_any_role?
         return true if current_user.admin
         return true if current_user.roles.any?
-        return true if current_user.moderator?
+        # return true if current_user.moderator?
+        return true if participatory_process_user_role?
+        return true if assembly_user_role?
+        return true if conference_user_role?
         return true if voting_monitoring_commitee_member?
 
         false
+      end
+
+      def participatory_process_user_role?
+        return false unless defined?(Decidim::ParticipatoryProcessUserRole)
+
+        true if Decidim::ParticipatoryProcessUserRole.exists?(user: current_user)
+      end
+
+      def assembly_user_role?
+        return false unless defined?(Decidim::AssemblyUserRole)
+
+        true if Decidim::AssemblyUserRole.exists?(user: current_user)
+      end
+
+      def conference_user_role?
+        return false unless defined?(Decidim::ConferenceUserRole)
+
+        true if Decidim::ConferenceUserRole.exists?(user: current_user)
       end
 
       def voting_monitoring_commitee_member?
