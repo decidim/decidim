@@ -22,4 +22,12 @@ describe "AdminAccess", type: :system do
 
     it_behaves_like "admin participatory space access"
   end
+
+  context "with participatory space moderator" do
+    let(:role) { create(:conference_moderator, :confirmed, organization:, conference: participatory_space) }
+    let(:target_path) { decidim_admin_conferences.moderations_path(participatory_space) }
+    let(:unauthorized_target_path) { decidim_admin_conferences.moderations_path(other_participatory_space) }
+
+    it_behaves_like "admin participatory space access"
+  end
 end
