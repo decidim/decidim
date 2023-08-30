@@ -81,6 +81,7 @@ en:
     admin:
       actions:
         new_initiative_type: New initiative type
+        manage: Manage
       filters:
         initiatives:
           decidim_area_id_eq:

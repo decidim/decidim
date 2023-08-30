@@ -11,6 +11,7 @@ en:
     admin:
       menu:
         templates: Templates
+        manage: Manage
       templates:
         apply:
           error: There was a problem applying this template.

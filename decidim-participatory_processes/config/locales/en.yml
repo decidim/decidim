@@ -112,6 +112,7 @@ en:
         see_process: See process
         unpublish: Unpublish
       menu:
+        manage: Manage
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
           info: Info

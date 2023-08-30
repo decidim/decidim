@@ -134,6 +134,8 @@ en:
           values:
             'false': Not validated
             'true': Validated
+      menu:
+        manage: Manage
     components:
       elections:
         actions:
