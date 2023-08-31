@@ -195,6 +195,18 @@
         </div>
 
         <div class="card-section">
+          <div class="row column" data-amendments>
+            <span class="component__show-title"><%= t ".amendments_count" %></span>
+            <div class="flex items-center gap-x-2 mt-2" data-count>
+              <%= icon "git-branch-line", class: "fill-gray" %>
+              <p class="component__show-icon-text">
+                <%= proposal.amendments.count %>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-section">
           <div class="row column" data-comments>
             <span class="component__show-title"><%= t ".comments_count" %></span>
             <div class="flex items-center gap-x-2 mt-2">
