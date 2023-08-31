@@ -40,7 +40,7 @@ shared_examples "manage participatory space publications" do |_options|
     end
 
     it "unpublishes it" do
-      # we can not use "a 404 page" shared example as we want to check it
+      # we cannot use "a 404 page" shared example as we want to check it
       # inside an example
       click_link "Unpublish"
 
