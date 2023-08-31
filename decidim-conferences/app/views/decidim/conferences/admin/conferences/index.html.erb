@@ -41,7 +41,7 @@
               <% end %>
 
               <% if allowed_to? :create, :conference, conference: conference %>
-                <%= icon_link_to "clipboard-line", new_conference_copy_path(conference), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
+                <%= icon_link_to "file-copy-line", new_conference_copy_path(conference), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
               <% end %>
 
               <% if allowed_to? :preview, :conference, conference: conference %>

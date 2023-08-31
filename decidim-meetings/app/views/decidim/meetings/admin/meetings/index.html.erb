@@ -81,7 +81,7 @@
               <% end %>
 
               <% if allowed_to? :copy, :meeting, meeting: meeting %>
-                <%= icon_link_to "clipboard-line", new_meeting_copy_path(meeting), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
+                <%= icon_link_to "file-copy-line", new_meeting_copy_path(meeting), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
               <% else %>
                 <span class="action-space icon"></span>
               <% end %>
