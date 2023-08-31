@@ -23,7 +23,7 @@ shared_context "when a simple event" do
       create :organization
     end
   end
-  let(:user) { create :user, organization: }
+  let(:user) { create(:user, organization:) }
   let(:user_role) { :follower }
   let(:extra) { {} }
   let(:resource_path) { resource_locator(resource).path }
