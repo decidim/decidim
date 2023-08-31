@@ -5,6 +5,10 @@ module Decidim
     module Admin
       # Controller that allows managing assembly publications.
       #
+      # i18n-tasks-use t('decidim.admin.assembly_publications.create.error')
+      # i18n-tasks-use t('decidim.admin.assembly_publications.create.success')
+      # i18n-tasks-use t('decidim.admin.assembly_publications.destroy.error')
+      # i18n-tasks-use t('decidim.admin.assembly_publications.destroy.success')
       class AssemblyPublicationsController < Decidim::Admin::SpacePublicationsController
         include Concerns::AssemblyAdmin
 

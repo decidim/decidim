@@ -1036,8 +1036,6 @@ en:
             confirm_destroy: Are you sure?
             destroy: Destroy
             new_voting: New Voting Space
-            publish: Publish
-            unpublish: Unpublish
           create:
             invalid: There was a problem creating this voting.
             success: Voting successfully created.

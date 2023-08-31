@@ -5,6 +5,10 @@ module Decidim
     module Admin
       # Controller that allows managing conference publications.
       #
+      # i18n-tasks-use t('decidim.admin.conference_publications.create.error')
+      # i18n-tasks-use t('decidim.admin.conference_publications.create.success')
+      # i18n-tasks-use t('decidim.admin.conference_publications.destroy.error')
+      # i18n-tasks-use t('decidim.admin.conference_publications.destroy.success')
       class ConferencePublicationsController < Decidim::Admin::SpacePublicationsController
         include Concerns::ConferenceAdmin
 
