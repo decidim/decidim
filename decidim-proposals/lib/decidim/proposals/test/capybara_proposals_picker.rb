@@ -34,7 +34,7 @@ module Capybara
       data_picker = proposals_picker.data_picker
 
       expect(data_picker).to have_selector(".picker-prompt")
-      data_picker.find(".picker-prompt").click
+      data_picker.find(".picker-prompt").click_link
 
       proposals.each do |proposal|
         data_picker_choose_value(proposal.id)
