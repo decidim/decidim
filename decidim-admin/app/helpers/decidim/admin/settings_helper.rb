@@ -109,7 +109,7 @@ module Decidim
                                                :last,
                                                :first,
                                                { checked: form.object.send(name) },
-                                               options) { |b| b.label { b.radio_button + b.text } }
+                                               options) { |b| b.label(class: "form__wrapper-checkbox-label") { b.radio_button + b.text } }
         end
         html << content_tag(:p, options[:help_text], class: "help-text") if options[:help_text]
         html
