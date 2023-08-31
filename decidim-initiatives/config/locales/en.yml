@@ -528,8 +528,7 @@ en:
           initiative_rejected_reason: This initiative has been rejected due to its lack of signatures.
         show:
           area: Area
-          before_send_to_technical_validation_announcement: "Before sending your initiative for technical validation, you need to add %{count} more members to the promoter
-            committee.<br/><br/>Share this link with the people you want to be part of your committee: %{href}"
+          before_send_to_technical_validation_announcement: 'Before sending your initiative for technical validation, you need to add %{count} more members to the promoter committee.<br/><br/>Share this link with the people you want to be part of your committee: %{href}'
           confirm: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
           edit: Edit
           initiative_data: Initiative data
