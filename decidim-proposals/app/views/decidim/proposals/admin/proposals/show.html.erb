@@ -159,16 +159,16 @@
         <% end %>
 
         <div class="card-section">
-          <div class="row column">
+          <div class="row column" data-supports>
             <span class="component__show-title"><%= t ".votes_count" %></span>
             <div class="flex items-center gap-x-2 mt-2">
               <%= icon "service-line", class: "fill-gray" %>
-              <p class="component__show-icon-text">
+              <p class="component__show-icon-text" data-count>
                 <%= proposal.proposal_votes_count %>
               </p>
               <div class="flex items-center gap-x-2 border-l border-gray pl-2">
                 <%= icon "bar-chart-2-line", class: "fill-gray" %>
-                <p class="component__show-icon-text">
+                <p class="component__show-icon-text" data-ranking>
                   <%= i18n_votes_ranking_for(proposal) %>
                 </p>
               </div>
@@ -177,16 +177,16 @@
         </div>
 
         <div class="card-section">
-          <div class="row column">
+          <div class="row column" data-endorsements>
             <span class="component__show-title"><%= t ".endorsements_count" %></span>
             <div class="flex items-center gap-x-2 mt-2">
               <%= icon "heart-add-line", class: "fill-gray" %>
-              <p class="component__show-icon-text">
+              <p class="component__show-icon-text" data-count>
                 <%= proposal.endorsements_count %>
               </p>
               <div class="flex items-center gap-x-2 border-l border-gray pl-2">
                 <%= icon "bar-chart-2-line", class: "fill-gray" %>
-                <p class="component__show-icon-text">
+                <p class="component__show-icon-text" data-ranking>
                   <%= i18n_endorsements_ranking_for(proposal) %>
                 </p>
               </div>
@@ -195,28 +195,28 @@
         </div>
 
         <div class="card-section">
-          <div class="row column">
+          <div class="row column" data-comments>
             <span class="component__show-title"><%= t ".comments_count" %></span>
             <div class="flex items-center gap-x-2 mt-2">
               <%= icon "chat-1-line", class: "fill-gray" %>
-              <p class="component__show-icon-text">
+              <p class="component__show-icon-text" data-count>
                 <%= proposal.comments_count %>
               </p>
-              <div class="flex items-center gap-x-3 border-l border-gray pl-2">
+              <div class="flex items-center gap-x-3 border-l border-gray pl-2" id="proposal-comments-alignment-count">
                 <div>
-                  <p class="component__show-icon-text">
+                  <p class="component__show-icon-text" data-positive>
                     <%= icon "thumb-up-line", class: "fill-gray" %>
                     <%= proposal.comments.positive.count %>
                   </p>
                 </div>
                 <div>
-                  <p class="component__show-icon-text">
+                  <p class="component__show-icon-text" data-neutral>
                     <%= icon "scales-line", class: "fill-gray" %>
                     <%= proposal.comments.neutral.count %>
                   </p>
                 </div>
                 <div>
-                  <p class="component__show-icon-text">
+                  <p class="component__show-icon-text" data-negative>
                     <%= icon "thumb-up-fill", class: "fill-gray" %>
                     <%= proposal.comments.negative.count %>
                   </p>
