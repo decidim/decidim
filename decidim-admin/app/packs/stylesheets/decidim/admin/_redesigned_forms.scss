@@ -34,8 +34,19 @@
     }
   }
 
-  .form-defaults select.chosen-select{
-    @apply bg-none;
+  .form-defaults {
+    select.chosen-select{
+      @apply bg-none;
+    }
+
+    select#component_step_settings_1_default_sort_order{
+      @apply block my-2;
+    }
+
+    textarea#component_step_settings_1_automatic_hashtags,
+    textarea#component_step_settings_1_suggested_hashtags{
+      @apply block w-full;
+    }
   }
 
   #q_with_participatory_space{
