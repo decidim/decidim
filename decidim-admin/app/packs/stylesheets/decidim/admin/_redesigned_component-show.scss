@@ -63,7 +63,7 @@
 
   &_notes{
     &-grid{
-      @apply grid grid-cols-2 gap-x-4 my-4;
+      @apply grid grid-cols-2 gap-4 my-4;
 
       .comment{
         @apply p-4 rounded;
