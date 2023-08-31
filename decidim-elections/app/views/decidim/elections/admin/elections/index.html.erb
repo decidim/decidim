@@ -62,7 +62,7 @@
                 <% if allowed_to?(:unpublish, :election, election: election) %>
                   <%= icon_link_to "close-circle-line", url_for(action: :unpublish, id: election, controller: "elections"), t("actions.unpublish", scope: "decidim.elections"), class: "action-icon--unpublish", method: :put %>
                 <% else %>
-                  <%= icon "x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.unpublish", scope: "decidim.elections") %>
+                  <%= icon "close-circle-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.unpublish", scope: "decidim.elections") %>
                 <% end %>
               <% else %>
                 <% if allowed_to?(:publish, :election, election: election) %>
