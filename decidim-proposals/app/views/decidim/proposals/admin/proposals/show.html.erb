@@ -45,7 +45,7 @@
           <div class="row column">
             <span class="component__show-title"><%= t ".body" %></span>
             <p class="component__show-text">
-              <%= decidim_sanitize_editor(present(proposal).body) %>
+              <%= simple_format(present(proposal).body(strip_tags: true)) %>
             </p>
           </div>
         </div>
@@ -111,7 +111,7 @@
                 <% proposal.linked_resources(:meetings, "proposals_from_meeting").each do |meeting| %>
                   <% presented_meeting = present(meeting) %>
                   <li>
-                    <%= link_to presented_meeting.title, presented_meeting.profile_path %>
+                    <%= link_to presented_meeting.title(html_escape: true), presented_meeting.profile_path %>
                   </li>
                 <% end %>
               </ul>
