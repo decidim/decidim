@@ -60,8 +60,9 @@
         <% end %>
       </tbody>
     </table>
-    <%= decidim_paginate proposals, theme: "decidim" %>
   </div>
 </div>
+
+<%= decidim_paginate proposals, theme: "decidim" %>
 
 <%= append_javascript_pack_tag "decidim_proposals_admin" %>
