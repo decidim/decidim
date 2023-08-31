@@ -62,21 +62,21 @@
   @apply bg-black;
   button[aria-expanded="true"]{
     .icon-collapse{
-      @apply hidden;
+      @apply block;
     }
 
     .icon-expand{
-      @apply block;
+      @apply hidden;
     }
   }
 
   button[aria-expanded="false"]{
     .icon-collapse{
-      @apply block;
+      @apply hidden;
     }
 
     .icon-expand{
-      @apply hidden;
+      @apply block;
     }
   }
 }
