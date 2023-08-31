@@ -30,21 +30,20 @@
       </div>
 
       <div id="panel-<%= t ".global_settings" %>" class="card-section">
-        <div class="row column">
-          <fieldset class="global-settings">
-            <div class="card-section">
-              <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
-                <%= render partial: "decidim/admin/components/settings_fields",
-                           locals: {
-                             form: settings_fields,
-                             manifest: form.object.manifest,
-                             settings_name: :global,
-                             tabs_prefix: "global-settings"
-                           } %>
-              <% end %>
-            </div>
-          </fieldset>
         </div>
+        <fieldset class="global-settings">
+          <div class="card-section">
+            <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
+              <%= render partial: "decidim/admin/components/settings_fields",
+                         locals: {
+                           form: settings_fields,
+                           manifest: form.object.manifest,
+                           settings_name: :global,
+                           tabs_prefix: "global-settings"
+                         } %>
+            <% end %>
+          </div>
+        </fieldset>
       </div>
     </div>
   <% end %>
