@@ -10,26 +10,25 @@
   <div class="item__edit-form">
     <%= decidim_form_for([questionnaire], url: decidim_admin_templates.apply_questionnaire_templates_url(questionnaire_id: questionnaire, url: request.url), method: :post, html: { class: "form form-defaults choose_questionnaire_templates" }) do |form| %>
       <div class="form__wrapper">
-        <div class="row column">
+        <div class="card p-4">
           <%= t(".description") %>
-        </div>
-        <%= datalist_select(templates,
-          {
-            id: "choose-template",
-            list: "template-list",
-            label: t(".label"),
-            name: "select-template",
-            placeholder: t("placeholder", scope: "decidim.templates.admin.questionnaire_templates.choose"),
-            data: {
-              previewurl: decidim_admin_templates.preview_questionnaire_templates_url(format: :js)
+          <%= datalist_select(templates,
+            {
+              id: "choose-template",
+              list: "template-list",
+              label: t(".label"),
+              name: "select-template",
+              placeholder: t("placeholder", scope: "decidim.templates.admin.questionnaire_templates.choose"),
+              data: {
+                previewurl: decidim_admin_templates.preview_questionnaire_templates_url(format: :js)
+              }
             }
-          }
-        ) { form.hidden_field :questionnaire_template_id } %>
-
-        <div class="card-section questionnaire-template-preview">
-          <h3 class="template-name"></h3>
-          <p class="template-description"></p>
-          <div class="row column choose-template-preview">
+          ) { form.hidden_field :questionnaire_template_id } %>
+          <div class="card-section questionnaire-template-preview">
+            <h3 class="template-name"></h3>
+            <p class="template-description"></p>
+            <div class="row column choose-template-preview">
+            </div>
           </div>
         </div>
       </div>
