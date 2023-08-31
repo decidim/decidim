@@ -125,13 +125,75 @@ describe "Conferences", type: :system do
   describe "when going to the conference page" do
     let!(:conference) { base_conference }
     let!(:proposals_component) { create(:component, :published, participatory_space: conference, manifest_name: :proposals) }
-    let!(:meetings_component) { create(:component, :unpublished, participatory_space: conference, manifest_name: :meetings) }
+    let!(:meetings_component) { create(:meeting_component, :unpublished, participatory_space: conference) }
 
     before do
       create_list(:proposal, 3, component: proposals_component)
       allow(Decidim).to receive(:component_manifests).and_return([proposals_component.manifest, meetings_component.manifest])
 
       visit decidim_conferences.conference_path(conference)
+    end
+
+    describe "conference venues" do
+      before do
+        meetings.empty?
+        allow(Decidim).to receive(:address).and_return("foo bar")
+
+        visit decidim_conferences.conference_path(conference)
+      end
+
+      context "when the meeting component is not published" do
+        let!(:meetings_component) { create(:meeting_component, :unpublished, participatory_space: conference) }
+        let!(:meetings) { create_list(:meeting, 3, :published, component: meetings_component) }
+
+        it "does not show the venues" do
+          expect(page).not_to have_content("Conference Venues")
+        end
+      end
+
+      context "when the meeting component is published" do
+        let!(:meetings_component) { create(:meeting_component, :published, participatory_space: conference) }
+
+        context "when there are published meetings" do
+          let!(:meetings) { create_list(:meeting, 3, :published, component: meetings_component) }
+
+          it "does show the venues" do
+            expect(page).to have_content("Conference Venues")
+          end
+        end
+
+        context "when there are moderated meetings" do
+          let!(:meetings) { create_list(:meeting, 3, :moderated, :published, component: meetings_component) }
+
+          it "does not show the venues" do
+            expect(page).not_to have_content("Conference Venues")
+          end
+        end
+
+        context "when there are no published meetings" do
+          let!(:meetings) { create_list(:meeting, 3, published_at: nil, component: meetings_component) }
+
+          it "does not show the venues" do
+            expect(page).not_to have_content("Conference Venues")
+          end
+        end
+
+        context "when there are no visible meetings" do
+          let!(:meetings) { create_list(:meeting, 3, :published, private_meeting: true, transparent: false, component: meetings_component) }
+
+          it "does not show the venues" do
+            expect(page).not_to have_content("Conference Venues")
+          end
+        end
+
+        context "when there are visible meetings" do
+          let!(:meetings) { create_list(:meeting, 3, :published, private_meeting: true, transparent: true, component: meetings_component) }
+
+          it "does not show the venues" do
+            expect(page).to have_content("Conference Venues")
+          end
+        end
+      end
     end
 
     it "shows the details of the given conference" do
