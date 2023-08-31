@@ -159,7 +159,7 @@ module Decidim
             caption = translated_attribute(component.name)
             caption += content_tag(
               :span,
-              t(component.published_at? ? "published" : "not_published", scope: "decidim.admin.participatory_processes.index"),
+              t(component.published_at? ? "published" : "unpublished", scope: "decidim.admin.participatory_processes.index"),
               class: component.published_at? ? "label success !text-sm" : "label reverse !text-sm"
             )
 

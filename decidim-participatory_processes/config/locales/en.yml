@@ -288,7 +288,7 @@ en:
         edit:
           update: Update
         index:
-          not_published: Not published
+          unpublished: Unpublished
           private: Private
           public: Public
           published: Published
