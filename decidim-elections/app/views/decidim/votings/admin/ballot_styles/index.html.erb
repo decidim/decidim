@@ -37,7 +37,7 @@
             </td>
             <% voting_elections.each do |election| %>
               <% election.questions.each do |question| %>
-                <% icon_name, icon_style = ballot_style.questions.include?(question) ? ["check", "ballot-style__question--checked"] : ["x", "ballot-style__question--unchecked"] %>
+                <% icon_name, icon_style = ballot_style.questions.include?(question) ? ["check-line", "ballot-style__question--checked"] : ["close-circle-line", "ballot-style__question--unchecked"] %>
                 <td> <%= icon icon_name, class: icon_style %> </td>
               <% end %>
             <% end %>
