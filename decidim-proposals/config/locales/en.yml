@@ -514,6 +514,7 @@ en:
             publish: Publish
             publish_answers: Publish answers
             select_component: Select a component
+            selected: selected
             split: Split proposals
             split_button: Split
             title: Proposals
@@ -528,6 +529,7 @@ en:
             number_of_proposals: Answers for %{number} proposals will be published.
             select_a_proposal: Please select a proposal.
           show:
+            amendments_count: Amendments count
             assigned_valuators: Assigned valuators
             body: Body
             comments_count: Comments count
