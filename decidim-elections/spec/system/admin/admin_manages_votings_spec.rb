@@ -186,7 +186,7 @@ describe "Admin manages votings", type: :system do
         input_element.attach_file(image_invalid_path)
 
         expect(page).to have_content("only files with the following extensions are allowed: jpeg, jpg, png", count: 1)
-        expect(page).to have_css(".upload-errors .form-error", count: 1)
+        expect(page).to have_css("div[data-template='error']", text: "Validation error!", count: 1)
       end
     end
   end
