@@ -1033,6 +1033,7 @@ ca:
       index:
         last_activity: Última activitat
       name: Darreres activitats
+      no_activities_warning: No hi ha res a mostrar per a aquest tipus d'activitat.
     linked_resource_from:
       included_in: Inclòs a
     links:
