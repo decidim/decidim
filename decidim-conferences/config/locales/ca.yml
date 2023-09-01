@@ -455,6 +455,7 @@ ca:
         show:
           login_as: Has iniciat la sessió com a %{name} <%{email}>
           make_conference_registration: Inscriu-te a la jornada
+          manage_registration: Gestionar inscripcions
           register: Inscripcions
       content_blocks:
         highlighted_conferences:
@@ -567,6 +568,7 @@ ca:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Gestionar inscripcions
         register: Inscripció
       conferences:
         conference:
