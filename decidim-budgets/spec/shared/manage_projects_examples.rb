@@ -141,7 +141,9 @@ shared_examples "manage projects" do
   end
 
   it "creates a new project", :slow do
-    find(".card-title a.button.new").click
+    within ".bulk-actions-budgets" do
+      click_link "New Project"
+    end
 
     within ".new_project" do
       fill_in_i18n(
@@ -244,7 +246,9 @@ shared_examples "manage projects" do
     end
 
     it "creates a new project", :slow do
-      find(".card-title a.button.new").click
+      within ".bulk-actions-budgets" do
+        click_link "New Project"
+      end
 
       within ".new_project" do
         fill_in_i18n(
