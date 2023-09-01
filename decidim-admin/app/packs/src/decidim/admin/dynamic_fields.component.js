@@ -159,7 +159,6 @@ class DynamicFieldsComponent {
       $newField.appendTo($container);
     }
 
-    $newField.foundation();
 
     if (this.onAddField) {
       this.onAddField($newField);

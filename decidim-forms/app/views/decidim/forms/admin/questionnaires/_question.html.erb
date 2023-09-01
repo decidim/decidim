@@ -13,7 +13,7 @@
         </span>
 
         <span class="ml-auto flex flex-row-reverse items-center gap-2">
-          <button type="button" class="question--collapse" data-controls="panel-<%= id %>-question-card">
+          <button type="button" class="question--collapse <%= "question-error" if is_expanded %>" data-controls="panel-<%= id %>-question-card">
             <span class="icon-collapse">
               <%== icon("arrow-up-s-line", aria_label: t(".collapse"), role: "img") %>
             </span>
@@ -43,7 +43,7 @@
       </h2>
     </div>
 
-    <div id="panel-<%= id %>-question-card" class="card-section collapsible" aria-hidden="true">
+    <div id="panel-<%= id %>-question-card" class="panel-question-card card-section collapsible <%= "panel-error" if is_expanded %>">
       <div class="row column">
         <%=
           form.translated(
@@ -132,7 +132,9 @@
         </div>
 
         <% if editable %>
-          <button type="button" class="button button__sm md:button__lg button__secondary add-answer-option"><%= t(".add_answer_option") %></button>
+          <div class="row column">
+            <button type="button" class="button button__sm md:button__lg button__secondary add-answer-option"><%= t(".add_answer_option") %></button>
+          </div>
         <% end %>
       </div>
 
@@ -158,7 +160,9 @@
 
         <% if editable %>
           <% disabled = !question.persisted? %>
-          <button <%= "disabled" if disabled %> title="<%= disabled ? t(".add_display_condition_info") : t(".add_display_condition_info") %>" class="button button__sm md:button__lg button__secondary add-display-condition"><%= t(".add_display_condition") %></button>
+          <div class="row column">
+            <button <%= "disabled" if disabled %> title="<%= disabled ? t(".add_display_condition_info") : t(".add_display_condition_info") %>" class="button button__sm md:button__lg button__secondary add-display-condition"><%= t(".add_display_condition") %></button>
+          </div>
         <% end %>
       </div>
     </div>

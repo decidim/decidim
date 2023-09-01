@@ -13,7 +13,7 @@
         </span>
 
         <span class="ml-auto flex flex-row-reverse items-center gap-2">
-          <button id="<%= id %>-button" type="button" class="question--collapse" data-controls="panel-<%= id %>-question-card">
+          <button id="<%= id %>-button" type="button" class="question--collapse <%= "question-error" if is_expanded %>" data-controls="panel-<%= id %>-question-card">
             <span class="icon-collapse">
               <%== icon "arrow-up-s-line", aria_label: t("collapse", scope: "decidim.forms.admin.questionnaires.question"), role: "img" %>
             </span>
@@ -42,7 +42,7 @@
       </h2>
     </div>
 
-    <div id="panel-<%= id %>-question-card" class="card-section collapsible" aria-hidden="true">
+    <div id="panel-<%= id %>-question-card" class="panel-question-card card-section collapsible <%= "panel-error" if is_expanded %>">
       <div class="row column">
         <%=
           form.translated(
