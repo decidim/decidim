@@ -1838,6 +1838,7 @@ es:
   layouts:
     decidim:
       announcements:
+        view_less: Mostrar menos
         view_more: Más información
       data_consent:
         details:
@@ -2025,6 +2026,7 @@ es:
       option_split: En paralelo
       option_unescaped: Desescapado
       option_unified: Unificado
+      toggle: Cambiar vista
   views:
     pagination:
       next: Siguiente
