@@ -10,7 +10,7 @@
   <% if current_participatory_space.published? %>
     <span class="label success !text-sm"><%= t("participatory_processes.index.published", scope: "decidim.admin") %></span>
   <% else %>
-    <span class="label alert !text-sm"><%= t("participatory_processes.index.not_published", scope: "decidim.admin") %></span>
+    <span class="label alert !text-sm"><%= t("participatory_processes.index.unpublished", scope: "decidim.admin") %></span>
   <% end %>
 </div>
 

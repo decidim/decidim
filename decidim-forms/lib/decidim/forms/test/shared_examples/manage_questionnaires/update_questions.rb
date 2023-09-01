@@ -419,7 +419,6 @@ shared_examples_for "update questions" do
       shared_examples_for "collapsing a question" do
         it "changes the toggle button" do
           within ".questionnaire-question:last-of-type" do
-            page.find(".question--collapse").click
             expect(page).to have_selector(".icon-expand")
           end
         end
