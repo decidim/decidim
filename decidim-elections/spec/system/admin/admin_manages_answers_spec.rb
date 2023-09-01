@@ -185,7 +185,7 @@ describe "Admin manages answers", type: :system do
       end
 
       within find("tr", text: translated(answer.title)) do
-        first(".icon--check").click
+        click_link "Mark answer as selected"
       end
 
       within find("tr", text: translated(answer.title)) do

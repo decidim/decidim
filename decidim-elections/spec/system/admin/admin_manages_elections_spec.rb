@@ -31,7 +31,7 @@ describe "Admin manages elections", type: :system do
   describe "creating an election" do
     it "creates a new election" do
       within ".card-title" do
-        page.find(".button.button--title").click
+        click_link "New Election"
       end
 
       within ".new_election" do
@@ -75,7 +75,7 @@ describe "Admin manages elections", type: :system do
 
       it "shows the correct time zone" do
         within ".card-title" do
-          page.find(".button.button--title").click
+          click_link "New Election"
         end
 
         expect(page).to have_content("Check that the organization time zone is correct")
