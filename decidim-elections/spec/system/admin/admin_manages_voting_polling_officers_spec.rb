@@ -12,8 +12,9 @@ describe "Admin manages polling officers", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    click_button(id: "voting-dropdown-menu-trigger")
-    click_link "Polling Officers"
+    within_admin_menu do
+      click_link "Polling Officers"
+    end
   end
 
   context "when listing the polling officers" do
