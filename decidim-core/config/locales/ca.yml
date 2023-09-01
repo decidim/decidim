@@ -1838,6 +1838,7 @@ ca:
   layouts:
     decidim:
       announcements:
+        view_less: Mostra menys
         view_more: Més informació
       data_consent:
         details:
@@ -2025,6 +2026,7 @@ ca:
       option_split: Costat per costat
       option_unescaped: No escapada
       option_unified: Unificat
+      toggle: Canviar vista
   views:
     pagination:
       next: Següent
