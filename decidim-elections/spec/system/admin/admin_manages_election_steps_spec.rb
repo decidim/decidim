@@ -318,9 +318,7 @@ describe "Admin manages election steps", :slow, type: :system do
         expect(page).to have_css(".card-title", text: "Setup election")
       end
     else
-      within ".process-content .card .card-divider", match: :first do
-        expect(page).to have_css(".card-title", text: translated(election.title))
-      end
+      expect(page).to have_css(".item_show__header .item_show__header-title", text: translated(election.title))
     end
   end
 end
