@@ -1819,6 +1819,7 @@ ja:
   layouts:
     decidim:
       announcements:
+        view_less: 一部のみ表示
         view_more: 詳しい情報
       data_consent:
         details:
