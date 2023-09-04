@@ -44,13 +44,15 @@ describe "Admin manages organization", type: :system do
         find(".color-picker summary").click
         selector = find("#primary-selector")
 
-        selector.click(x: 23, y: 23)
+        selector.click(x: 20, y: 23)
         expect(find("#preview-primary", visible: :all).value).to eq "#40b3bf"
         expect(find("#preview-secondary", visible: :all).value).to eq "#bf40b3"
+        expect(find("#preview-tertiary", visible: :all).value).to eq "#b3bf40"
 
-        selector.click(x: 323, y: 13)
+        selector.click(x: 255, y: 13)
         expect(find("#preview-primary", visible: :all).value).to eq "#6e40bf"
         expect(find("#preview-secondary", visible: :all).value).to eq "#bf6f40"
+        expect(find("#preview-tertiary", visible: :all).value).to eq "#40bf6f"
       end
     end
 
