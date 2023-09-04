@@ -11,10 +11,10 @@
 }
 
 .main .title-bar .dropdown__trigger{
-  @apply block;
+  @apply block border-transparent;
 
   svg{
-    @apply fill-black;
+    @apply fill-black w-4 h-4 md:w-12 md:h-8;
   }
 }
 
@@ -35,11 +35,15 @@
 }
 
 .tool-bar{
-  @apply ml-auto gap-x-4 flex items-center text-sm;
+  @apply ml-auto gap-x-2 md:gap-x-4 flex items-center text-sm;
 
   .user-login,
   .language-choose{
     @apply inline-block;
+  }
+
+  [id*="dropdown-menu"]{
+    @apply mx-0 md:mx-3;
   }
 
   .button__site{

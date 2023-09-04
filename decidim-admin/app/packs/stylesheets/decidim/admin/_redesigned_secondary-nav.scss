@@ -7,7 +7,7 @@
   }
 
   .process-title-content{
-    @apply flex items-center min-h-[28px];
+    @apply flex-col md:flex-row flex items-start gap-y-2 md:items-center min-h-[28px];
 
     .dropdown__trigger{
       @apply flex no-underline px-1.5 py-1 text-sm flex-row items-center;
@@ -45,7 +45,7 @@
       }
 
       &-container-right{
-        @apply ml-auto flex items-center gap-x-4;
+        @apply md:ml-auto flex items-center gap-x-4;
 
         &-link{
           @apply button button__transparent flex items-center gap-x-1 px-1.5 py-1;
