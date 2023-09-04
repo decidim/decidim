@@ -1,5 +1,5 @@
 .item__edit{
-  @apply grid grid-cols-[20%_80%] mb-8;
+  @apply grid grid-cols-1 md:grid-cols-[20%_80%] mb-8;
 
   &-form{
     .card{
@@ -106,7 +106,7 @@
   }
 
   &-sticky{
-    @apply w-full fixed left-[120px] bottom-0 bg-gray-2 border-t border-white;
+    @apply w-full fixed left-0 md:left-[120px] bottom-0 bg-gray-2 border-t border-white;
 
     &-container{
       @apply container flex gap-x-4 justify-end;
