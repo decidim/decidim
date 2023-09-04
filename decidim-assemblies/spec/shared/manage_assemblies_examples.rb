@@ -68,12 +68,16 @@ shared_examples "manage assemblies" do
       let!(:assembly) { create(:assembly, :unpublished, :with_content_blocks, organization:, parent: parent_assembly) }
 
       it "allows the user to preview the unpublished assembly" do
-        within find("tr", text: translated(assembly.title)) do
-          click_link "Preview"
+        new_window = window_opened_by do
+          within find("tr", text: translated(assembly.title)) do
+            click_link "Preview"
+          end
         end
 
-        within(".participatory-space__container") do
-          expect(page).to have_content(translated(assembly.title))
+        page.within_window(new_window) do
+          within(".participatory-space__container") do
+            expect(page).to have_content(translated(assembly.title))
+          end
         end
       end
     end
@@ -82,12 +86,16 @@ shared_examples "manage assemblies" do
       let!(:assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
       it "allows the user to preview the unpublished assembly" do
-        within find("tr", text: translated(assembly.title)) do
-          click_link "Preview"
+        new_window = window_opened_by do
+          within find("tr", text: translated(assembly.title)) do
+            click_link "Preview"
+          end
         end
 
-        expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
-        expect(page).to have_content(translated(assembly.title))
+        page.within_window(new_window) do
+          expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
+          expect(page).to have_content(translated(assembly.title))
+        end
       end
     end
   end
