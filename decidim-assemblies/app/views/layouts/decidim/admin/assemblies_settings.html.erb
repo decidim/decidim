@@ -2,7 +2,10 @@
   <div class="process-title-content-breadcrumb-container-right">
     <div class="inline-block relative">
       <%= button_tag id: "assemblies-dropdown-menu-trigger", data: { component: 'dropdown', target: 'assemblies-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
-        <%= t("menu.manage", scope: "decidim.admin") %>
+        <span>
+          <%= t("menu.manage", scope: "decidim.admin") %>
+        </span>
+        <%= icon "arrow-down-s-line" %>
       <% end %>
       <div id="assemblies-dropdown-menu-settings">
         <ul class="dropdown dropdown__bottom">

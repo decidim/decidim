@@ -2,6 +2,7 @@
   <div class="inline-block relative">
     <%= button_tag id: "initiative-dropdown-menu-trigger", data: { component: 'dropdown', target: 'initiative-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
       <%= t("actions.manage", scope: "decidim.admin") %>
+      <%= icon "arrow-down-s-line" %>
     <% end %>
     <div id="initiative-dropdown-menu-settings" class="process-title-content-dropdown">
       <%= sidebar_menu(:admin_initiative_menu).render %>

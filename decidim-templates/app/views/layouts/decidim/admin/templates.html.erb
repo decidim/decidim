@@ -2,7 +2,10 @@
   <div class="process-title-content-breadcrumb-container-right">
     <div class="inline-block relative">
       <%= button_tag id: "template-dropdown-menu-trigger", data: { component: 'dropdown', target: 'template-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
-        <%= t("menu.manage", scope: "decidim.admin") %>
+        <span>
+          <%= t("menu.manage", scope: "decidim.admin") %>
+        </span>
+        <%= icon "arrow-down-s-line" %>
       <% end %>
       <div id="template-dropdown-menu-settings" class="process-title-content-dropdown">
         <%= sidebar_menu(:admin_template_types_menu).render %>

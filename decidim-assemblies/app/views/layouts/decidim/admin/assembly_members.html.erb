@@ -3,7 +3,10 @@
     <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.assembly_member.name", scope: "decidim.admin")), new_assembly_member_path(current_assembly), class: "process-title-content-breadcrumb-container-right-link" %>
     <div class="inline-block relative">
       <%= button_tag id: "assembly-dropdown-menu-trigger", data: { component: 'dropdown', target: 'assembly-dropdown-menu-settings' }, class: 'dropdown__trigger button button__transparent' do %>
-        <%= t("menu.manage", scope: "decidim.admin") %>
+        <span>
+          <%= t("menu.manage", scope: "decidim.admin") %>
+        </span>
+        <%= icon "arrow-down-s-line" %>
       <% end %>
       <div id="assembly-dropdown-menu-settings" class="process-title-content-dropdown">
         <%= sidebar_menu(:admin_assembly_menu).render %>
