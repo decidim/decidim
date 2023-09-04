@@ -14,4 +14,8 @@
       @apply z-10;
     }
   }
+
+  [id*="dropdown-menu"]{
+    @apply mx-0 py-0;
+  }
 }
