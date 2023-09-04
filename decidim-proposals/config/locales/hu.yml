@@ -507,6 +507,7 @@ hu:
             no_components: Ebben a részvételi térben nincs több javaslati elem az importálásához.
             select_component: Válassz ki egy elemet
             select_states: Ellenőrizd az importálandó javaslatok állapotát
+            title: Javaslatok importálása
         proposals_merges:
           create:
             success: A javaslatokat sikeresen egy újba egyesítettük.
@@ -745,6 +746,7 @@ hu:
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
         index:
+          click_here: Összes javaslat megtekintése
           collaborative_drafts_list: Hozzáférés közös vázlatokhoz
           new_proposal: Új javaslat
           see_all_withdrawn: Összes visszavont javaslat
@@ -882,3 +884,5 @@ hu:
       included_proposals:
         proposal_project: 'Ezen projektekben megjelenő javaslat:'
         proposal_result: 'Az eredményekben megjelenő javaslat:'
+    statistics:
+      proposals_count: Javaslatok
