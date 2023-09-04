@@ -1219,6 +1219,7 @@ hu:
           legend: Elfogadom a felhasználási feltételeket
         refuse:
           modal_body: Ha elutasítja, akkor nem fogja tudni használni a platformot. <a href="%{download_your_data_path}">Töltse le az adatait</a> és/vagy <a href="%{delete_path}">törölje a fiókját</a>.
+          modal_btn_continue: Feltételek elfogadása és folytatás
           modal_btn_exit: Később átnézem
           modal_close: Felugró ablak bezárása
           modal_title: Tényleg elutasítod az ÁSZF frissített szövegét?
