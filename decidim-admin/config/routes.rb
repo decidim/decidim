@@ -39,6 +39,8 @@ Decidim::Admin::Engine.routes.draw do
       mount manifest.admin_engine, at: "/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
     end
 
+    mount Decidim::Templates::AdminEngine, at: "/admin/templates", as: "decidim_admin_templates" if defined?(Decidim::Templates)
+
     resources :users, except: [:edit, :update], controller: "users" do
       member do
         post :resend_invitation, to: "users#resend_invitation"
