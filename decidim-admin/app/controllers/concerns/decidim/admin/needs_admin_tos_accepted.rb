@@ -42,7 +42,6 @@ module Decidim
       def user_has_any_role?
         return true if current_user.admin
         return true if current_user.roles.any?
-        # return true if current_user.moderator?
         return true if participatory_process_user_role?
         return true if assembly_user_role?
         return true if conference_user_role?
