@@ -15,15 +15,11 @@ body{
 }
 
 .layout-wrapper{
-  @apply flex grow;
+  @apply md:flex;
 }
 
 .layout-nav{
   @apply max-w-[340px] bg-gray-2;
-
-  &.is-nav-open{
-    transform: translateX(0);
-  }
 }
 
 .layout-content{

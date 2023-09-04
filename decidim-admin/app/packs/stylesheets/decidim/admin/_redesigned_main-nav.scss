@@ -1,14 +1,37 @@
-.layout-nav{
-  .main-nav{
-    @apply bg-gray-2 w-[120px] text-center last:pt-4;
+.layout-wrapper{
+  &.is-nav-open{
+    .layout-nav{
+      @apply translate-x-0;
+
+      .main-nav{
+        @apply w-[100px];
+      }
+
+      .logo{
+        @apply hidden;
+      }
+    }
   }
 
-  .main-nav__modules{
-    @apply pb-4 pt-0 border-b;
+  .layout-nav{
+    @apply absolute md:relative top-0 bottom-0 z-50 -translate-x-full md:translate-x-0 ease-in transition;
 
-    border-color: #2A3745;
+    .main-nav{
+      @apply bg-gray-2 w-[120px] text-center last:pt-4;
+    }
+
+    .main-nav__modules{
+      @apply pb-4 pt-0 border-b;
+
+      border-color: #2A3745;
+    }
+  }
+  &.is-nav-open{
+
   }
 }
+
+
 
 .main-nav ul{
   @apply list-none w-full;

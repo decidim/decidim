@@ -6,7 +6,7 @@
   }
 
   .container{
-    @apply pt-2.5 pb-2 px-8 flex items-center;
+    @apply pt-2.5 pb-2 px-2 md:px-8 flex items-center;
   }
 }
 
@@ -23,7 +23,7 @@
 }
 
 .logo{
-  @apply p-4 block max-w-[80px] md:max-w-[120px] bg-gray-2 relative pt-7 pb-8 min-h-[88px];
+  @apply p-4 block max-w-[80px] md:max-w-[120px] bg-transparent md:bg-gray-2 relative pt-7 pb-8 min-h-[68px] md:min-h-[88px];
 
   img{
     @apply block;
