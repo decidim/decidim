@@ -331,6 +331,7 @@ hu:
         title: Szavazatok
     participatory_spaces:
       highlighted_proposals:
+        last: Legutóbbi javaslatok
         see_all: Összes (%{count})
     proposals:
       actions:
@@ -500,6 +501,7 @@ hu:
             no_components: Ebben a részvételi térben nincs több javaslati elem az importálásához.
             select_component: Válassz ki egy elemet
             select_states: Ellenőrizd az importálandó javaslatok állapotát
+            title: Javaslatok importálása
         proposals_merges:
           create:
             success: A javaslatokat sikeresen egy újba egyesítettük.
@@ -624,6 +626,9 @@ hu:
           success: Közös vázlat frissítése sikeres.
         wizard_header:
           title: Hozd létre a közös vázlatod
+      content_blocks:
+        highlighted_proposals:
+          name: Javaslatok
       create:
         error: Hiba történt a javaslat mentése során.
         success: Javaslat létrehozása sikeres. Vázlatként mentve.
@@ -689,6 +694,7 @@ hu:
           type: Típus
           voted: Szavazott
         index:
+          click_here: Összes javaslat megtekintése
           collaborative_drafts_list: Hozzáférés közös vázlatokhoz
           new_proposal: Új javaslat
           see_all_withdrawn: Összes visszavont javaslat
@@ -786,3 +792,5 @@ hu:
       included_proposals:
         proposal_project: 'Ezen projektekben megjelenő javaslat:'
         proposal_result: 'Az eredményekben megjelenő javaslat:'
+    statistics:
+      proposals_count: Javaslatok
