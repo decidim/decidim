@@ -51,7 +51,9 @@ shared_examples "manage assemblies" do
     end
 
     it "update an assembly without images does not delete them" do
-      click_submenu_link "Info"
+      within_admin_menu do
+        click_link "Info"
+      end
       click_button "Update"
 
       expect(page).to have_admin_callout("successfully")
