@@ -35,6 +35,10 @@ describe "AdminAccess", type: :system do
     end
 
     it_behaves_like "a 404 page" do
+      let(:target_path) { decidim_admin_id_documents.root_path }
+    end
+
+    it_behaves_like "a 404 page" do
       let(:target_path) { decidim_admin_templates.questionnaire_templates_path }
     end
   end
