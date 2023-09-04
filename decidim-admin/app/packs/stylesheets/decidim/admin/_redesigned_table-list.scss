@@ -1,8 +1,12 @@
 //Override Foundation defaults
-.table-scroll table{
-  border-collapse: unset;
+.table-scroll{
+  @apply overflow-x-auto;
 
-  @apply mb-0 text-gray-2 border border-background-4 w-full;
+  table{
+    border-collapse: unset;
+
+    @apply mb-0 text-gray-2 border border-background-4 w-full;
+  }
 }
 
 //Table list
