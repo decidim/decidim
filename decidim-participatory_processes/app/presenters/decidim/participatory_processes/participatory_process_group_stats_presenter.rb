@@ -13,7 +13,7 @@ module Decidim
       def participatory_space_sym = :participatory_process_group
 
       def participatory_processes
-        @participatory_processes ||= participatory_process_group.participatory_processes
+        @participatory_processes ||= participatory_space.participatory_processes
       end
 
       def published_components
