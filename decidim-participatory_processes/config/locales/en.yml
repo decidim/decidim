@@ -287,10 +287,10 @@ en:
         edit:
           update: Update
         index:
-          unpublished: Unpublished
           private: Private
           public: Public
           published: Published
+          unpublished: Unpublished
         new:
           create: Create
           title: New participatory process

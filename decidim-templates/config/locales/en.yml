@@ -10,8 +10,8 @@ en:
   decidim:
     admin:
       menu:
-        templates: Templates
         manage: Manage
+        templates: Templates
       templates:
         apply:
           error: There was a problem applying this template.
