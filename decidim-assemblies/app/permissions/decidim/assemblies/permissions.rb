@@ -136,7 +136,7 @@ module Decidim
         allow!
       end
 
-      # All users with a relation to a assembly and organization admins can enter
+      # All users with a relation to an assembly and organization admins can enter
       # the space area. The sapce area is considered to be the assemblies zone,
       # not the assembly groups one.
       def user_can_enter_space_area?

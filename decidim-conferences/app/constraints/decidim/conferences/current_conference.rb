@@ -6,7 +6,7 @@ module Decidim
     # looking at the request parameters and the organization in the request
     # environment, and injects it into the environment.
     class CurrentConference
-      # Public: Matches the request against an conference and injects it
+      # Public: Matches the request against a conference and injects it
       #         into the environment.
       #
       # request - The request that holds the conference relevant
