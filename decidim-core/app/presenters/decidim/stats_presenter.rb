@@ -57,8 +57,6 @@ module Decidim
 
     def participatory_space_sym = raise "Not implemented"
 
-    def participatory_space_for_components = participatory_space
-
     def participatory_space_participants_stats
       Decidim.stats.only([:participants_count]).with_context(participatory_space)
              .map { |stat_title, stat_number| [participatory_space.manifest.name, stat_title, stat_number] }
@@ -80,10 +78,8 @@ module Decidim
              .map { |stat_title, stat_number| [participatory_space.manifest.name, stat_title, stat_number] }
     end
 
-    # We use participatory_space_for_components instead of participatory_space as in ParticipatoryProcessGroupStatsPresenter
-    # needs to be different
     def published_components
-      @published_components ||= Component.where(participatory_space: participatory_space_for_components).published
+      @published_components ||= Component.where(participatory_space:).published
     end
   end
 end
