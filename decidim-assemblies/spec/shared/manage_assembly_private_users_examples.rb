@@ -9,7 +9,9 @@ shared_examples "manage assembly private users examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    click_link "Private users"
+    within_admin_menu do
+      click_link "Private users"
+    end
   end
 
   it "shows assembly private user list" do

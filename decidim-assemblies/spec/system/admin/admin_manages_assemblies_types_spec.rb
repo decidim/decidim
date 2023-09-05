@@ -16,13 +16,15 @@ describe "Admin manages assemblies", type: :system do
     end
 
     it "can create new assemblies types" do
-      click_link "New assembly type"
+      within "[data-content]" do
+        click_link "New assembly type"
 
-      within ".new_assembly_type" do
-        fill_in_i18n :assemblies_type_title, "#assemblies_type-title-tabs", en: "My assembly type",
-                                                                            es: "Mi assembly type",
-                                                                            ca: "La meva assembly type"
-        find("*[type=submit]").click
+        within ".new_assembly_type" do
+          fill_in_i18n :assemblies_type_title, "#assemblies_type-title-tabs", en: "My assembly type",
+            es: "Mi assembly type",
+            ca: "La meva assembly type"
+          find("*[type=submit]").click
+        end
       end
 
       expect(page).to have_admin_callout("successfully")

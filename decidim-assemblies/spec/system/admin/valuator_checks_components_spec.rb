@@ -30,18 +30,11 @@ describe "Valuator checks components", type: :system do
     let(:user) { create(:user, :confirmed, organization:) }
   end
 
-  context "when listing the space components in the sidebar" do
-    it "can only see the proposals component" do
-      click_button(id: "conference-dropdown-menu-trigger")
-      expect(page).to have_content(translated(current_component.name))
-      expect(page).not_to have_content(translated(another_component.name))
-    end
-  end
-
   context "when listing components in the space components page" do
     it "can only see the proposals component" do
-      click_button(id: "conference-dropdown-menu-trigger")
-      click_link "Components"
+      within_admin_menu do
+        click_link "Components"
+      end
 
       within ".card" do
         expect(page).to have_content(translated(current_component.name))

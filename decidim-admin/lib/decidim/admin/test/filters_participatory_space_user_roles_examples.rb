@@ -98,7 +98,7 @@ shared_examples "filterable participatory space user roles" do
       it "returns participatory space users" do
         apply_filter("Invite accepted", "Yes")
 
-        within ".stack tbody" do
+        within ".table-list tbody" do
           expect(page).to have_content(invited_user2.name)
           expect(page).to have_css("tr", count: 1)
         end
@@ -109,7 +109,7 @@ shared_examples "filterable participatory space user roles" do
       it "returns participatory space users" do
         apply_filter("Invite accepted", "No")
 
-        within ".stack tbody" do
+        within ".table-list tbody" do
           expect(page).to have_content(invited_user1.name)
           expect(page).to have_css("tr", count: 1)
         end
@@ -122,7 +122,7 @@ shared_examples "filterable participatory space user roles" do
       it "returns participatory space users" do
         apply_filter("Ever logged in", "Yes")
 
-        within ".stack tbody" do
+        within ".table-list tbody" do
           expect(page).to have_content(invited_user2.name)
           expect(page).to have_css("tr", count: 1)
         end
@@ -133,7 +133,7 @@ shared_examples "filterable participatory space user roles" do
       it "returns participatory space users" do
         apply_filter("Ever logged in", "No")
 
-        within ".stack tbody" do
+        within ".table-list tbody" do
           expect(page).to have_content(invited_user1.name)
           expect(page).to have_css("tr", count: 1)
         end
@@ -147,7 +147,7 @@ shared_examples "searchable participatory space user roles" do
     it "can be searched by name" do
       search_by_text(name)
 
-      within ".stack tbody" do
+      within ".table-list tbody" do
         expect(page).to have_content(name)
         expect(page).to have_css("tr", count: 1)
       end
@@ -156,7 +156,7 @@ shared_examples "searchable participatory space user roles" do
     it "can be searched by email" do
       search_by_text(email)
 
-      within ".stack tbody" do
+      within ".table-list tbody" do
         expect(page).to have_content(email)
         expect(page).to have_css("tr", count: 1)
       end
