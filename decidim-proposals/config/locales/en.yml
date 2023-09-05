@@ -473,6 +473,7 @@ en:
         proposal_answers:
           form:
             accepted: Accepted
+            answer_proposal: Answer
             evaluating: Evaluating
             not_answered: Not answered
             rejected: Rejected

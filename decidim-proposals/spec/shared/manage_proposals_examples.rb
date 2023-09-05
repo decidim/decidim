@@ -344,7 +344,7 @@ shared_examples "manage proposals" do
             ca: "La proposta no te sentit"
           )
           choose "Rejected"
-          click_button "Update"
+          click_button "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
@@ -363,7 +363,7 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Accepted"
-          click_button "Update"
+          click_button "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
@@ -382,7 +382,7 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Evaluating"
-          click_button "Update"
+          click_button "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
@@ -409,7 +409,7 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Not answered"
-          click_button "Update"
+          click_button "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
@@ -442,7 +442,7 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Accepted"
-          click_button "Update"
+          click_button "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
