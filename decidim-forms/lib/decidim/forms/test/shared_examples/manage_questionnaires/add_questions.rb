@@ -3,6 +3,38 @@
 require "spec_helper"
 
 shared_examples_for "add questions" do
+  shared_examples_for "updating the max choices selector according to the configured options" do
+    it "updates them" do
+      expect(page).not_to have_select("Maximum number of choices")
+
+      select "Multiple option", from: "Type"
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
+
+      click_button "Add answer option"
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
+
+      click_button "Add answer option"
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3 4))
+
+      within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
+
+      within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
+      expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
+
+      click_button "Add question"
+      expand_all_questions
+
+      within(".questionnaire-question:last-of-type") do
+        select multiple_option_string, from: "Type"
+        expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
+
+        select single_option_string, from: "Type"
+        expect(page).not_to have_select("Maximum number of choices")
+      end
+    end
+  end
+
   it "adds a few questions and separators to the questionnaire" do
     fields_body = ["This is the first question", "This is the second question", "This is the first title and description"]
 
@@ -369,6 +401,9 @@ shared_examples_for "add questions" do
   end
 
   context "when adding a multiple option question" do
+    let(:multiple_option_string) { "Multiple option" }
+    let(:single_option_string) { "Single option" }
+
     before do
       visit questionnaire_edit_path
 
@@ -399,38 +434,13 @@ shared_examples_for "add questions" do
       expect(page).to have_selector("input[type=checkbox][id$=_free_text]")
     end
 
-    it "updates the max choices selector according to the configured options" do
-      expect(page).not_to have_select("Maximum number of choices")
-
-      select "Multiple option", from: "Type"
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
-
-      click_button "Add answer option"
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
-
-      click_button "Add answer option"
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3 4))
-
-      within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
-
-      within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
-
-      click_button "Add question"
-      expand_all_questions
-
-      within(".questionnaire-question:last-of-type") do
-        select "Multiple option", from: "Type"
-        expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
-
-        select "Single option", from: "Type"
-        expect(page).not_to have_select("Maximum number of choices")
-      end
-    end
+    it_behaves_like "updating the max choices selector according to the configured options"
   end
 
   context "when adding a matrix question" do
+    let(:multiple_option_string) { "Matrix (Multiple option)" }
+    let(:single_option_string) { "Matrix (Single option)" }
+
     before do
       visit questionnaire_edit_path
 
@@ -461,34 +471,6 @@ shared_examples_for "add questions" do
       expect(page).to have_selector("input[type=checkbox][id$=_free_text]")
     end
 
-    it "updates the max choices selector according to the configured options" do
-      expect(page).not_to have_select("Maximum number of choices")
-
-      select "Matrix (Multiple option)", from: "Type"
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
-
-      click_button "Add answer option"
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
-
-      click_button "Add answer option"
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3 4))
-
-      within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
-
-      within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
-      expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
-
-      click_button "Add question"
-      expand_all_questions
-
-      within(".questionnaire-question:last-of-type") do
-        select "Matrix (Multiple option)", from: "Type"
-        expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
-
-        select "Matrix (Single option)", from: "Type"
-        expect(page).not_to have_select("Maximum number of choices")
-      end
-    end
+    it_behaves_like "updating the max choices selector according to the configured options"
   end
 end
