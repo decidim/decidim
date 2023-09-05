@@ -11,10 +11,10 @@
       <p class="item__edit-menu-title">
         <%= t("sections", scope: "decidim.assemblies.admin.assemblies.form") %>
       </p>
-      <%= link_to t("initiatives_types.form.title", scope: "decidim.initiatives.admin"), edit_initiatives_type_path(anchor: t("initiatives_types.form.title", scope: "decidim.initiatives.admin")), class: "item__edit-menu-anchor" %>
-      <%= link_to t("initiatives_types.form.options", scope: "decidim.initiatives.admin"), edit_initiatives_type_path(anchor: t("initiatives_types.form.options", scope: "decidim.initiatives.admin")), class: "item__edit-menu-anchor" %>
-      <%= link_to t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin"), edit_initiatives_type_path(anchor: t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin")), class: "item__edit-menu-anchor" %>
-      <%= link_to t("initiatives_types.initiative_type_scopes.title", scope: "decidim.initiatives.admin"), edit_initiatives_type_path(anchor: t("initiatives_types.initiative_type_scopes.title", scope: "decidim.initiatives.admin")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("initiatives_types.form.title", scope: "decidim.initiatives.admin"), edit_initiatives_type_path(anchor: "title"), class: "item__edit-menu-anchor" %>
+      <%= link_to t("initiatives_types.form.options", scope: "decidim.initiatives.admin"), edit_initiatives_type_path(anchor: "options"), class: "item__edit-menu-anchor" %>
+      <%= link_to t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin"), edit_initiatives_type_path(anchor: "authorizations"), class: "item__edit-menu-anchor" %>
+      <%= link_to t("initiatives_types.initiative_type_scopes.title", scope: "decidim.initiatives.admin"), edit_initiatives_type_path(anchor: "initiative_type_scopes"), class: "item__edit-menu-anchor" %>
     </div>
   </div>
   <div class="item__edit-form">

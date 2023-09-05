@@ -1,14 +1,14 @@
 <div class="form__wrapper">
-  <div class="card" data-component="accordion" id="accordion-<%= t("title", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>">
+  <div class="card" data-component="accordion" id="accordion-title">
     <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t("title", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>" type="button">
+      <button class="card-divider-button" data-open="true" data-controls="panel-title" type="button">
         <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="<%= t("title", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>">
+        <h2 class="card-title" id="title">
           <%= t("title", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>
         </h2>
       </button>
     </div>
-    <div id="panel-<%= t("title", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>" class="card-section">
+    <div id="panel-title" class="card-section">
       <div class="row column">
         <%= form.translated :text_field, :title, autofocus: true %>
       </div>
@@ -29,17 +29,17 @@
     </div>
   </div>
 
-  <div class="card" data-component="accordion" id="accordion-<%= t("metadata", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>">
+  <div class="card" data-component="accordion" id="accordion-metadata">
     <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t("metadata", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>" type="button">
+      <button class="card-divider-button" data-open="true" data-controls="panel-metadata" type="button">
         <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="<%= t("metadata", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>">
+        <h2 class="card-title" id="metadata">
           <%= t("metadata", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>
         </h2>
       </button>
     </div>
 
-    <div id="panel-<%= t("metadata", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>" class="card-section">
+    <div id="panel-metadata" class="card-section">
       <div class="row column">
         <%= form.text_field :hashtag %>
       </div>
@@ -74,17 +74,17 @@
     </div>
   </div>
 
-  <div class="card" data-component="accordion" id="accordion-<%= t("visibility", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>">
+  <div class="card" data-component="accordion" id="accordion-visibility">
     <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t("visibility", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>" type="button">
+      <button class="card-divider-button" data-open="true" data-controls="panel-visibility" type="button">
         <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="<%= t("visibility", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>">
+        <h2 class="card-title" id="visibility">
           <%= t("visibility", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>
         </h2>
       </button>
     </div>
 
-    <div id="panel-<%= t("visibility", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>" class="card-section">
+    <div id="panel-visibility" class="card-section">
       <div class="row column">
         <%= form.check_box :promoted %>
       </div>

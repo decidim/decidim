@@ -9,7 +9,7 @@
       <p class="item__edit-menu-title">
         <%= t("sections", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
       </p>
-      <%= link_to t("participatory_process_user_roles.new.title", scope: "decidim.admin"), new_participatory_process_user_role_path(current_participatory_process, anchor: t("participatory_process_user_roles.new.title", scope: "decidim.admin")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("participatory_process_user_roles.new.title", scope: "decidim.admin"), new_participatory_process_user_role_path(current_participatory_process, anchor: "title"), class: "item__edit-menu-anchor" %>
     </div>
   </div>
 

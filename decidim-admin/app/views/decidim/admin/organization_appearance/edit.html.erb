@@ -10,11 +10,11 @@
       <p class="item__edit-menu-title">
         <%= t("sections", scope: "decidim.assemblies.admin.assemblies.form") %>
       </p>
-      <%= link_to t("homepage_appearance_title", scope: "decidim.admin.organization_appearance.form"), decidim_admin.edit_organization_appearance_path(anchor: t("homepage_appearance_title", scope: "decidim.admin.organization_appearance.form")), class: "item__edit-menu-anchor" %>
-      <%= link_to t("homepage_highlighted_content_banner_title", scope: "decidim.admin.organization_appearance.form"), decidim_admin.edit_organization_appearance_path(anchor: t("homepage_highlighted_content_banner_title", scope: "decidim.admin.organization_appearance.form")), class: "item__edit-menu-anchor" %>
-      <%= link_to t("omnipresent_banner_appearance_title", scope: "decidim.admin.organization_appearance.form"), decidim_admin.edit_organization_appearance_path(anchor: t("omnipresent_banner_appearance_title", scope: "decidim.admin.organization_appearance.form")), class: "item__edit-menu-anchor" %>
-      <%= link_to t("layout_appearance_title", scope: "decidim.admin.organization_appearance.form.images"), decidim_admin.edit_organization_appearance_path(anchor: t("layout_appearance_title", scope: "decidim.admin.organization_appearance.form.images")), class: "item__edit-menu-anchor" %>
-      <%= link_to t("colors_title", scope: "decidim.admin.organization_appearance.form.colors"), decidim_admin.edit_organization_appearance_path(anchor: t("colors_title", scope: "decidim.admin.organization_appearance.form.colors")), class: "item__edit-menu-anchor" %>
+      <%= link_to t("homepage_appearance_title", scope: "decidim.admin.organization_appearance.form"), decidim_admin.edit_organization_appearance_path(anchor: "homepage_appearance_title"), class: "item__edit-menu-anchor" %>
+      <%= link_to t("homepage_highlighted_content_banner_title", scope: "decidim.admin.organization_appearance.form"), decidim_admin.edit_organization_appearance_path(anchor: "homepage_highlighted_content_banner_title"), class: "item__edit-menu-anchor" %>
+      <%= link_to t("omnipresent_banner_appearance_title", scope: "decidim.admin.organization_appearance.form"), decidim_admin.edit_organization_appearance_path(anchor: "omnipresent_banner_appearance_title"), class: "item__edit-menu-anchor" %>
+      <%= link_to t("layout_appearance_title", scope: "decidim.admin.organization_appearance.form.images"), decidim_admin.edit_organization_appearance_path(anchor: "layout_appearance_title"), class: "item__edit-menu-anchor" %>
+      <%= link_to t("colors_title", scope: "decidim.admin.organization_appearance.form.colors"), decidim_admin.edit_organization_appearance_path(anchor: "colors"), class: "item__edit-menu-anchor" %>
     </div>
   </div>
 

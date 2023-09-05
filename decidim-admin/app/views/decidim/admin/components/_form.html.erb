@@ -1,15 +1,15 @@
 <div class="form__wrapper">
-  <div class="card" data-component="accordion" id="accordion-<%= title %>">
+  <div class="card" data-component="accordion" id="accordion-title">
     <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-<%= title %>" type="button">
+      <button class="card-divider-button" data-open="true" data-controls="panel-title" type="button">
         <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="<%= title %>">
+        <h2 class="card-title" id="title">
           <%= title %>
         </h2>
       </button>
     </div>
 
-    <div id="panel-<%= title %>" class="card-section">
+    <div id="panel-title" class="card-section">
       <div class="row column">
         <%= form.translated :text_field, :name, autofocus: true %>
       </div>
@@ -19,17 +19,17 @@
     </div>
   </div>
   <% if form.object.settings? %>
-    <div class="card" data-component="accordion" id="accordion-<%= t ".global_settings" %>">
+    <div class="card" data-component="accordion" id="accordion-global_settings">
       <div class="card-divider">
-        <button class="card-divider-button" data-open="true" data-controls="panel-<%= t ".global_settings" %>" type="button">
+        <button class="card-divider-button" data-open="true" data-controls="panel-global_settings" type="button">
           <%= icon "arrow-right-s-line" %>
-          <h2 class="card-title" id="<%= t ".global_settings" %>">
+          <h2 class="card-title" id="global_settings">
             <%= t ".global_settings" %>
           </h2>
         </button>
       </div>
 
-      <div id="panel-<%= t ".global_settings" %>" class="card-section">
+      <div id="panel-global_settings" class="card-section">
         <fieldset class="global-settings">
           <div class="card-section">
             <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
@@ -47,17 +47,17 @@
     </div>
   <% end %>
   <% if current_participatory_space.has_steps? %>
-    <div class="card" data-component="accordion" id="accordion-<%= t '.step_settings' %>">
+    <div class="card" data-component="accordion" id="accordion-step_settings">
       <div class="card-divider">
-        <button class="card-divider-button" data-open="true" data-controls="panel-<%= t '.step_settings' %>" type="button">
+        <button class="card-divider-button" data-open="true" data-controls="panel-step_settings" type="button">
           <%= icon "arrow-right-s-line" %>
-          <h2 class="card-title" id="<%= t '.step_settings' %>">
+          <h2 class="card-title" id="step_settings">
             <%= t '.step_settings' %>
           </h2>
         </button>
       </div>
 
-      <div id="panel-<%= t '.step_settings' %>" class="card-section">
+      <div id="panel-step_settings" class="card-section">
         <div class="row column">
           <fieldset class="step-settings">
             <div class="card-section">
@@ -85,17 +85,17 @@
       </div>
     </div>
   <% elsif form.object.default_step_settings? %>
-    <div class="card"  data-component="accordion" id="accordion-<%= t ".default_step_settings" %>">
+    <div class="card"  data-component="accordion" id="accordion-default_step_settings">
       <div class="card-divider">
-        <button class="card-divider-button" data-open="true" data-controls="panel-<%= t ".default_step_settings" %>" type="button">
+        <button class="card-divider-button" data-open="true" data-controls="panel-default_step_settings" type="button">
           <%= icon "arrow-right-s-line" %>
-          <h2 class="card-title" id="<%= t ".default_step_settings" %>">
+          <h2 class="card-title" id="default_step_settings">
             <%= t ".default_step_settings" %>
           </h2>
         </button>
       </div>
 
-      <div id="panel-<%= t ".default_step_settings" %>" class="card-section">
+      <div id="panel-default_step_settings" class="card-section">
         <div class="row column">
           <fieldset class="default-step-settings">
             <div class="card-section">
@@ -115,8 +115,8 @@
     </div>
   <% end %>
   <% if component && component.persisted? && !component.published? %>
-    <div class="card" data-component="accordion" id="accordion-<%= title %>">
-      <div id="panel-<%= title %>" class="card-section">
+    <div class="card" data-component="accordion" id="accordion-share_tokens">
+      <div id="panel-share_tokens" class="card-section">
         <div class="row column">
             <%= render partial: "decidim/admin/share_tokens/share_tokens", locals: { share_tokens: form.object.share_tokens } %>
         </div>

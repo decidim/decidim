@@ -1,15 +1,15 @@
 <div class="form__wrapper">
-  <div class="card" data-component="accordion" id="accordion-<%= t("initiatives.form.title", scope: "decidim.initiatives.admin") %>">
+  <div class="card" data-component="accordion" id="accordion-title">
     <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t("initiatives.form.title", scope: "decidim.initiatives.admin") %>" type="button">
+      <button class="card-divider-button" data-open="true" data-controls="panel-title" type="button">
         <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="<%= t("initiatives.form.title", scope: "decidim.initiatives.admin") %>">
+        <h2 class="card-title" id="title">
           <%= t("initiatives.form.title", scope: "decidim.initiatives.admin") %>
         </h2>
       </button>
     </div>
 
-    <div id="panel-<%= t("initiatives.form.title", scope: "decidim.initiatives.admin") %>" class="card-section">
+    <div id="panel-title" class="card-section">
       <div class="row column">
         <%= form.translated :text_field, :title, autofocus: true %>
       </div>
@@ -26,17 +26,17 @@
     </div>
   </div>
 
-  <div class="card" data-component="accordion" id="accordion-<%= t("initiatives_types.form.options", scope: "decidim.initiatives.admin") %>">
+  <div class="card" data-component="accordion" id="accordion-options">
     <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t("initiatives_types.form.options", scope: "decidim.initiatives.admin") %>" type="button">
+      <button class="card-divider-button" data-open="true" data-controls="panel-options" type="button">
         <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="<%= t("initiatives_types.form.options", scope: "decidim.initiatives.admin") %>">
+        <h2 class="card-title" id="options">
           <%= t("initiatives_types.form.options", scope: "decidim.initiatives.admin") %>
         </h2>
       </button>
     </div>
 
-    <div id="panel-<%= t("initiatives_types.form.options", scope: "decidim.initiatives.admin") %>" class="card-section">
+    <div id="panel-options" class="card-section">
       <div class="row column">
         <%= form.select :signature_type, form.object.signature_type_options %>
       </div>
@@ -89,17 +89,17 @@
     </div>
   </div>
 
-  <div class="card" data-component="accordion" id="accordion-<%= t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin") %>">
+  <div class="card" data-component="accordion" id="accordion-authorizations">
     <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin") %>" type="button">
+      <button class="card-divider-button" data-open="true" data-controls="panel-authorizations" type="button">
         <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="<%= t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin") %>">
+        <h2 class="card-title" id="authorizations">
           <%= t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin") %>
         </h2>
       </button>
     </div>
 
-    <div id="panel-<%= t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin") %>" class="card-section">
+    <div id="panel-authorizations" class="card-section">
       <div class="row column">
         <%=
           form.select(
