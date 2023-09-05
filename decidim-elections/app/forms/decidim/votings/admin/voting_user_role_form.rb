@@ -3,8 +3,6 @@
 module Decidim
   module Votings
     module Admin
-      # Base class to be inherited by other forms that have roles
-      # in the Votings space
       class VotingUserRoleForm < Decidim::Form
         attribute :name, String
         attribute :email, String
