@@ -89,9 +89,10 @@ module Decidim
       end
 
       def set_import_breadcrumb_item
+        url = try(:new_import_path) || request.path
         context_breadcrumb_items << {
           label: t("import", scope: "decidim.admin.actions"),
-          url: new_import_path,
+          url:,
           active: true
         }
       end
