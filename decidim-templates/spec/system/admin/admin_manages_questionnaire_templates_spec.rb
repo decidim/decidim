@@ -55,7 +55,7 @@ describe "Admin manages questionnaire templates", type: :system do
           ca: "Descripció"
         )
 
-        click_button "Save"
+        click_button "Save", match: :first
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -114,7 +114,7 @@ describe "Admin manages questionnaire templates", type: :system do
           ca: "Descripció"
         )
 
-        find("*[type=submit]").click
+        find("*[type=submit]", match: :first).click
       end
 
       expect(page).to have_admin_callout("problem")
