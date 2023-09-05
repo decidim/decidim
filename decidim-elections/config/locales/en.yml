@@ -897,7 +897,6 @@ en:
           voting:
             fields:
               created_at: Created at
-              promoted: Highlighted
               published: Published
               title: Title
         monitoring_committee_election_results:

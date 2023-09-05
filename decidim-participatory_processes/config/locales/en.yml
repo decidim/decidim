@@ -137,7 +137,6 @@ en:
             actions: Actions
             created_at: Created at
             private: Private
-            promoted: Highlighted
             published: Published
             title: Title
           name: Participatory process

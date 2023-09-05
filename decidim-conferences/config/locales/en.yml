@@ -208,7 +208,6 @@ en:
         conference:
           fields:
             created_at: Created at
-            promoted: Highlighted
             published: Published
             title: Title
         conference_speaker:
