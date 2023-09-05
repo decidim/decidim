@@ -57,7 +57,7 @@ shared_examples "manage participatory process private users examples" do
       visit current_path
     end
 
-    it "deletes a assembly_private_user" do
+    it "deletes an assembly_private_user" do
       within find("#private_users tr", text: other_user.email) do
         accept_confirm { click_link "Delete" }
       end

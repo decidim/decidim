@@ -105,7 +105,7 @@ shared_examples "manage conferences" do
     end
   end
 
-  describe "updating an conference without images" do
+  describe "updating a conference without images" do
     before do
       within find("tr", text: translated(conference.title)) do
         click_link "Configure"
