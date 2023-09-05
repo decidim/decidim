@@ -187,7 +187,6 @@ en:
         export: Export all
         export-selection: Export selection
         import: Import
-        manage: Manage
         new: New %{name}
         newsletter:
           new: New newsletter
@@ -563,7 +562,6 @@ en:
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
-        manage: Manage
         moderation: Global moderations
         newsletters: Newsletters
         participants: Participants
