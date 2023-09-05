@@ -147,12 +147,16 @@ shared_examples "manage conferences" do
       let!(:conference) { create(:conference, organization:) }
 
       it "allows the user to preview the unpublished conference" do
-        within find("tr", text: translated(conference.title)) do
-          click_link "Preview"
+        new_window = window_opened_by do
+          within find("tr", text: translated(conference.title)) do
+            click_link "Preview"
+          end
         end
 
-        expect(page).to have_current_path decidim_conferences.conference_path(conference)
-        expect(page).to have_content(translated(conference.title))
+        page.within_window(new_window) do
+          expect(page).to have_current_path decidim_conferences.conference_path(conference)
+          expect(page).to have_content(translated(conference.title))
+        end
       end
     end
   end
