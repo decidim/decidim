@@ -2,7 +2,7 @@
   <div class="container">
     <div class="process-title-content">
       <div class="process-title-content-breadcrumb-container-left">
-        <%= link_to decidim_admin.root_path, class: "process-title-content-icon-home", data: { "external-link": false } do %>
+        <%= link_to decidim_admin.root_path, class: "process-title-content-icon-home", data: { "external-link": false }, aria: { label: "home" } do %>
           <%= icon "home-gear-line" %>
         <% end %>
 
