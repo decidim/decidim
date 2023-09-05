@@ -59,7 +59,6 @@
 }
 
 .questionnaire-question{
-  @apply bg-black;
   button[aria-expanded="true"]{
     .icon-collapse{
       @apply block;
