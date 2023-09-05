@@ -118,7 +118,9 @@ shared_examples "manage conferences" do
     it_behaves_like "having a rich text editor for field", "#conference_registrations_terms", "content"
 
     it "update an conference without images does not delete them" do
-      click_submenu_link "Info"
+      within_admin_menu do
+        click_link "Info"
+      end
       click_button "Update"
 
       expect(page).to have_admin_callout("successfully")
