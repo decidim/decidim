@@ -38,7 +38,7 @@ describe "Admin copies participatory process", type: :system do
 
       expect(page).to have_content("successfully")
       expect(page).to have_content("Copy participatory process")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
     end
   end
 

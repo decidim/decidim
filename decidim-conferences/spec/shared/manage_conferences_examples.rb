@@ -118,7 +118,9 @@ shared_examples "manage conferences" do
     it_behaves_like "having a rich text editor for field", "#conference_registrations_terms", "content"
 
     it "update an conference without images does not delete them" do
-      click_submenu_link "Info"
+      within_admin_menu do
+        click_link "Info"
+      end
       click_button "Update"
 
       expect(page).to have_admin_callout("successfully")
@@ -145,12 +147,16 @@ shared_examples "manage conferences" do
       let!(:conference) { create(:conference, organization:) }
 
       it "allows the user to preview the unpublished conference" do
-        within find("tr", text: translated(conference.title)) do
-          click_link "Preview"
+        new_window = window_opened_by do
+          within find("tr", text: translated(conference.title)) do
+            click_link "Preview"
+          end
         end
 
-        expect(page).to have_current_path decidim_conferences.conference_path(conference)
-        expect(page).to have_content(translated(conference.title))
+        page.within_window(new_window) do
+          expect(page).to have_current_path decidim_conferences.conference_path(conference)
+          expect(page).to have_content(translated(conference.title))
+        end
       end
     end
   end
@@ -225,8 +231,7 @@ shared_examples "manage conferences" do
 
       uncheck :conference_scopes_enabled
 
-      expect(page).to have_selector("#conference_scope_id.disabled")
-      expect(page).to have_selector("#conference_scope_id .picker-values div input[disabled]", visible: :all)
+      expect(page).to have_selector("select#conference_scope_id[disabled]")
 
       within ".edit_conference" do
         find("*[type=submit]").click

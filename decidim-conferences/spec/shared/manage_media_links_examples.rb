@@ -5,7 +5,9 @@ shared_examples "manage media links examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
-    click_link "Media Links"
+    within_admin_menu do
+      click_link "Media Links"
+    end
   end
 
   describe "creating media link" do
@@ -14,21 +16,23 @@ shared_examples "manage media links examples" do
     end
 
     it "creates a new media link" do
-      within ".new_media_link" do
-        fill_in_i18n(
-          :conference_media_link_title,
-          "#conference_media_link-title-tabs",
-          en: "Media Link en",
-          es: "Media Link es",
-          ca: "Media Link ca"
-        )
+      within "[data-content]" do
+        within ".new_media_link" do
+          fill_in_i18n(
+            :conference_media_link_title,
+            "#conference_media_link-title-tabs",
+            en: "Media Link en",
+            es: "Media Link es",
+            ca: "Media Link ca"
+          )
 
-        fill_in :conference_media_link_link, with: "https://decidim.org"
-        fill_in :conference_media_link_weight, with: 2
-        fill_in :conference_media_link_date, with: "24/10/2018"
+          fill_in :conference_media_link_link, with: "https://decidim.org"
+          fill_in :conference_media_link_weight, with: 2
+          fill_in :conference_media_link_date, with: "24/10/2018"
+        end
+
+        find("*[type=submit]").click
       end
-
-      find("*[type=submit]").click
 
       expect(page).to have_admin_callout("successfully")
 
