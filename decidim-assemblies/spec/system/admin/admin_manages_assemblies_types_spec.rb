@@ -20,9 +20,13 @@ describe "Admin manages assemblies", type: :system do
         click_link "New assembly type"
 
         within ".new_assembly_type" do
-          fill_in_i18n :assemblies_type_title, "#assemblies_type-title-tabs", en: "My assembly type",
+          fill_in_i18n(
+            :assemblies_type_title,
+            "#assemblies_type-title-tabs",
+            en: "My assembly type",
             es: "Mi assembly type",
             ca: "La meva assembly type"
+          )
           find("*[type=submit]").click
         end
       end
