@@ -42,7 +42,7 @@
                 <% end %>
 
                 <% if step_index + 1 == @preview_form.total_steps %>
-                  <div class="row column tos-agreement">
+                  <div class="tos-agreement">
                     <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement", disabled: false %>
                     <div class="help-text">
                       <%= decidim_sanitize translated_attribute questionnaire.tos %>
@@ -50,13 +50,15 @@
                   </div>
                 <% end %>
 
-                <%= cell(
-                  "decidim/forms/step_navigation",
-                  step_index,
-                  total_steps: @preview_form.total_steps,
-                  button_disabled: true,
-                  form:
-                ) %>
+                <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+                  <%= cell(
+                    "decidim/forms/step_navigation",
+                    step_index,
+                    total_steps: @preview_form.total_steps,
+                    button_disabled: true,
+                    form:
+                  ) %>
+                </div>
               </div>
             <% end %>
           <% end %>
