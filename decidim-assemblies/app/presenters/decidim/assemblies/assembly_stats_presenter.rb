@@ -6,19 +6,11 @@ module Decidim
     class AssemblyStatsPresenter < Decidim::StatsPresenter
       include Decidim::IconHelper
 
-      def assembly
-        __getobj__.fetch(:assembly)
-      end
-
       private
 
-      def participatory_space
-        assembly
-      end
+      def participatory_space = __getobj__.fetch(:assembly)
 
-      def participatory_space_sym
-        :assemblies
-      end
+      def participatory_space_sym = :assemblies
     end
   end
 end

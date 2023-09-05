@@ -6,17 +6,11 @@ module Decidim
     class ParticipatoryProcessStatsPresenter < Decidim::StatsPresenter
       include Decidim::IconHelper
 
-      def participatory_process
-        __getobj__.fetch(:participatory_process)
-      end
+      private
 
-      def participatory_space
-        participatory_process
-      end
+      def participatory_space = __getobj__.fetch(:participatory_process)
 
-      def participatory_space_sym
-        :participatory_processes
-      end
+      def participatory_space_sym = :participatory_processes
     end
   end
 end

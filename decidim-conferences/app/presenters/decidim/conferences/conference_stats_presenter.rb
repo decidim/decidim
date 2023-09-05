@@ -6,17 +6,11 @@ module Decidim
     class ConferenceStatsPresenter < Decidim::StatsPresenter
       include IconHelper
 
-      def conference
-        __getobj__.fetch(:conference)
-      end
+      private
 
-      def participatory_space
-        conference
-      end
+      def participatory_space = __getobj__.fetch(:conference)
 
-      def participatory_space_sym
-        :conferences
-      end
+      def participatory_space_sym = :conferences
     end
   end
 end
