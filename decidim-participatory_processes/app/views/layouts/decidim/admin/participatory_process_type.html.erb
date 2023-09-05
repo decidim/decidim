@@ -19,7 +19,7 @@
         <ul class="dropdown dropdown__bottom">
           <li class="dropdown__item">
             <% if allowed_to? :import, :process %>
-              <%= icon "price-tag-3-line", class: "fill-gray-2" %>
+              <%= icon "upload-line", class: "fill-gray-2" %>
               <%= link_to t("actions.import_process", scope: "decidim.admin"),
                           new_import_path,
                           class: "text-secondary" %>
