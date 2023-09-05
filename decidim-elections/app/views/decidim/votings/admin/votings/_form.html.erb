@@ -11,11 +11,11 @@
 
     <div id="panel-title" class="card-section">
       <div class="row column">
-        <%= form.translated :text_field, :title, autofocus: true %>
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :description %>
+        <%= form.translated :editor, :description, aria: { label: :description } %>
       </div>
 
       <div class="row">

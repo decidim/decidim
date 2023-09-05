@@ -7,14 +7,14 @@
       <div class="grid-x">
         <div class="cell">
           <div id="import-title" class="row column">
-            <%= form.translated :text_field, :title, autofocus: true %>
+            <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
           </div>
         </div>
       </div>
       <div class="grid-x">
         <div class="cell">
           <div id="import-desc" class="row column">
-            <%= form.translated :text_area, :description %>
+            <%= form.translated :text_area, :description, aria: { label: :description } %>
           </div>
         </div>
       </div>

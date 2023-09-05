@@ -6,7 +6,7 @@
 
     <div class="card-section">
       <div class="row column">
-        <%= form.translated :text_field, :name, autofocus: true %>
+        <%= form.translated :text_field, :name, autofocus: true, aria: { label: :name } %>
       </div>
 
       <div class="row column">
@@ -14,7 +14,7 @@
       </div>
 
       <div class="row column">
-        <%= form.translated :text_field, :description %>
+        <%= form.translated :text_field, :description, aria: { label: :description } %>
       </div>
     </div>
   </div>

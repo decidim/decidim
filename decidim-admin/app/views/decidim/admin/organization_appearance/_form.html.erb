@@ -10,7 +10,7 @@
     </div>
     <div id="panel-homepage_appearance_title" class="card-section">
       <div class="row column">
-        <%= form.translated :editor, :description %>
+        <%= form.translated :editor, :description, aria: { label: :description } %>
       </div>
 
       <div class="row">
@@ -20,7 +20,7 @@
         </div>
 
         <div class="columns xlarge-6">
-          <%= form.translated :text_field, :cta_button_text %>
+          <%= form.translated :text_field, :cta_button_text, aria: { label: :cta_button_text } %>
           <p class="help-text"><%= t(".cta_button_text_help") %></p>
         </div>
       </div>
@@ -42,19 +42,19 @@
       </div>
 
       <div class="row column">
-        <%= form.translated :text_area, :highlighted_content_banner_title %>
+        <%= form.translated :text_area, :highlighted_content_banner_title, aria: { label: :highlighted_content_banner_title } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :highlighted_content_banner_short_description %>
+        <%= form.translated :editor, :highlighted_content_banner_short_description, aria: { label: :highlighted_content_banner_short_description } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :text_area, :highlighted_content_banner_action_title %>
+        <%= form.translated :text_area, :highlighted_content_banner_action_title, aria: { label: :highlighted_content_banner_action_title } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :text_area, :highlighted_content_banner_action_subtitle %>
+        <%= form.translated :text_area, :highlighted_content_banner_action_subtitle, aria: { label: :highlighted_content_banner_action_subtitle } %>
       </div>
 
       <div class="row column">
@@ -84,11 +84,11 @@
       </div>
 
       <div class="row column">
-        <%= form.translated :text_field, :omnipresent_banner_title %>
+        <%= form.translated :text_field, :omnipresent_banner_title, aria: { label: :omnipresent_banner_title } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :text_field, :omnipresent_banner_short_description %>
+        <%= form.translated :text_field, :omnipresent_banner_short_description, aria: { label: :omnipresent_banner_short_description } %>
       </div>
 
       <div class="row column">

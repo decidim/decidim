@@ -45,12 +45,12 @@
       </div>
 
       <div id="customize_registration_email-div" class="row column hidden">
-        <%= form.translated :editor, :registration_email_custom_content, lines: 10 %>
+        <%= form.translated :editor, :registration_email_custom_content, lines: 10, aria: { label: :registration_email_custom_content } %>
         <p class="help-text"><%= t(".registration_email_help") %></p>
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :registration_terms, toolbar: :content %>
+        <%= form.translated :editor, :registration_terms, toolbar: :content, aria: { label: :registration_terms } %>
       </div>
     </div>
   </div>

@@ -10,11 +10,11 @@
       </div>
 
       <div class="row column">
-        <%= form.translated :text_field, :name %>
+        <%= form.translated :text_field, :name, aria: { label: :name } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :text_area, :description %>
+        <%= form.translated :text_area, :description, aria: { label: :description } %>
       </div>
 
       <div class="row column">

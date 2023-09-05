@@ -11,11 +11,11 @@
 
     <div id="panel-title" class="card-section">
       <div class="row column">
-        <%= form.translated :text_field, :title, autofocus: true %>
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :text_field, :subtitle %>
+        <%= form.translated :text_field, :subtitle, aria: { label: :subtitle } %>
       </div>
 
       <div class="row column">
@@ -36,27 +36,27 @@
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :short_description %>
+        <%= form.translated :editor, :short_description, aria: { label: :short_description } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :description %>
+        <%= form.translated :editor, :description, aria: { label: :description } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :purpose_of_action %>
+        <%= form.translated :editor, :purpose_of_action, aria: { label: :purpose_of_action } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :composition %>
+        <%= form.translated :editor, :composition, aria: { label: :composition } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :internal_organisation %>
+        <%= form.translated :editor, :internal_organisation, aria: { label: :internal_organisation } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :announcement %>
+        <%= form.translated :editor, :announcement, aria: { label: :announcement } %>
         <p class="help-text"><%== t(".announcement_help") %></p>
       </div>
     </div>
@@ -91,7 +91,7 @@
       </div>
 
       <div class="row column" id="closing_date_reason_div">
-        <%= form.translated :editor, :closing_date_reason, toolbar: :content %>
+        <%= form.translated :editor, :closing_date_reason, toolbar: :content, aria: { label: :closing_date_reason } %>
       </div>
     </div>
   </div>
@@ -159,30 +159,30 @@
 
     <div id="panel-metadata" class="card-section">
       <div class="row column">
-        <%= form.translated :text_field, :participatory_scope %>
+        <%= form.translated :text_field, :participatory_scope, aria: { label: :participatory_scope } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :text_field, :participatory_structure %>
+        <%= form.translated :text_field, :participatory_structure, aria: { label: :participatory_structure } %>
       </div>
       <div class="row">
         <div class="columns xlarge-6">
-          <%= form.translated :text_field, :meta_scope %>
+          <%= form.translated :text_field, :meta_scope, aria: { label: :meta_scope } %>
         </div>
       </div>
 
       <div class="row">
         <div class="columns xlarge-6">
-          <%= form.translated :text_field, :developer_group %>
+          <%= form.translated :text_field, :developer_group, aria: { label: :developer_group } %>
         </div>
 
         <div class="columns xlarge-6">
-          <%= form.translated :text_field, :local_area %>
+          <%= form.translated :text_field, :local_area, aria: { label: :local_area } %>
         </div>
       </div>
 
       <div class="row column">
-        <%= form.translated :text_field, :target %>
+        <%= form.translated :text_field, :target, aria: { label: :target } %>
       </div>
     </div>
   </div>
@@ -246,7 +246,7 @@
       </div>
 
       <div class="row column" id="created_by_other">
-        <%= form.translated :text_field, :created_by_other %>
+        <%= form.translated :text_field, :created_by_other, aria: { label: :created_by_other } %>
       </div>
 
       <div class="row column">
@@ -269,7 +269,7 @@
       </div>
 
       <div class="row column" id="special_features">
-        <%= form.translated :editor, :special_features %>
+        <%= form.translated :editor, :special_features, aria: { label: :special_features } %>
       </div>
 
       <div class="row column">

@@ -11,11 +11,11 @@
 
     <div id="panel-title" class="card-section">
       <div class="row column">
-        <%= form.translated :text_field, :title, autofocus: true %>
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :text_field, :slogan %>
+        <%= form.translated :text_field, :slogan, aria: { label: :slogan } %>
       </div>
 
       <div class="row column">
@@ -38,15 +38,15 @@
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :short_description %>
+        <%= form.translated :editor, :short_description, aria: { label: :short_description } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :description %>
+        <%= form.translated :editor, :description, aria: { label: :description } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :objectives %>
+        <%= form.translated :editor, :objectives, aria: { label: :objectives } %>
       </div>
 
       <div class="row column">
@@ -94,7 +94,7 @@
       </div>
 
       <div class="row column" id="conference_registrations_terms">
-        <%= form.translated :editor, :registration_terms, toolbar: :content %>
+        <%= form.translated :editor, :registration_terms, toolbar: :content, aria: { label: :registration_terms } %>
       </div>
 
       <div class="row column">

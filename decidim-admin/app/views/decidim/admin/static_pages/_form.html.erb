@@ -2,7 +2,7 @@
   <div class="card pt-4">
     <div class="card-section">
       <div class="row column">
-        <%= form.translated :text_field, :title, autofocus: true %>
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
       </div>
 
       <% if allowed_to? :update_slug, :static_page, static_page: form.object %>
@@ -16,7 +16,7 @@
       <% end %>
 
       <div class="row column mt-2">
-        <%= form.translated :editor, :content %>
+        <%= form.translated :editor, :content, aria: { label: :content } %>
       </div>
 
       <div class="row column">

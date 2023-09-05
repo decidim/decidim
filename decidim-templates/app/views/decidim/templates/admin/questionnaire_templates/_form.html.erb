@@ -9,11 +9,11 @@
 
     <div class="card-section">
       <div class="row column">
-        <%= form.translated :text_field, :name %>
+        <%= form.translated :text_field, :name, aria: { label: :name } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :text_area, :description, rows: 3 %>
+        <%= form.translated :text_area, :description, rows: 3, aria: { label: :description } %>
       </div>
     </div>
   </div>

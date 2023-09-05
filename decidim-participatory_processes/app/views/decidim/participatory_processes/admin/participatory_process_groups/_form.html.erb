@@ -10,11 +10,11 @@
     </div>
     <div id="panel-title" class="card-section">
       <div class="row column">
-        <%= form.translated :text_field, :title, autofocus: true %>
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :description %>
+        <%= form.translated :editor, :description, aria: { label: :description } %>
       </div>
 
       <div class="row column">
@@ -49,27 +49,27 @@
       </div>
 
       <div class="row column">
-        <%= form.translated :text_field, :developer_group %>
+        <%= form.translated :text_field, :developer_group, aria: { label: :developer_group } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :text_field, :local_area %>
+        <%= form.translated :text_field, :local_area, aria: { label: :local_area } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :text_field, :meta_scope %>
+        <%= form.translated :text_field, :meta_scope, aria: { label: :meta_scope } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :text_field, :target %>
+        <%= form.translated :text_field, :target, aria: { label: :target } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :text_field, :participatory_scope %>
+        <%= form.translated :text_field, :participatory_scope, aria: { label: :participatory_scope } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :text_field, :participatory_structure %>
+        <%= form.translated :text_field, :participatory_structure, aria: { label: :participatory_structure } %>
       </div>
     </div>
   </div>

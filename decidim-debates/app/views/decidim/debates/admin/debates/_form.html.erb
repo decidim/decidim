@@ -6,19 +6,19 @@
 
     <div class="card-section debate-fields">
        <div class="row column hashtags__container">
-        <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
+        <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title } %>
       </div>
 
        <div class="row column hashtags__container">
-        <%= form.translated :editor, :description, hashtaggable: true %>
+        <%= form.translated :editor, :description, hashtaggable: true, aria: { label: :description } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :instructions %>
+        <%= form.translated :editor, :instructions, aria: { label: :instructions } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :information_updates %>
+        <%= form.translated :editor, :information_updates, aria: { label: :information_updates } %>
       </div>
 
       <div class="row column">

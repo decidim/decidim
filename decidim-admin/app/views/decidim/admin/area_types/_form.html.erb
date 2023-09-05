@@ -2,10 +2,10 @@
   <div class="card pt-4">
     <div class="card-section">
       <div class="row column">
-        <%= form.translated :text_field, :name %>
+        <%= form.translated :text_field, :name, aria: { label: :name } %>
       </div>
       <div class="row column">
-        <%= form.translated :text_field, :plural %>
+        <%= form.translated :text_field, :plural, aria: { label: :plural } %>
       </div>
     </div>
   </div>
