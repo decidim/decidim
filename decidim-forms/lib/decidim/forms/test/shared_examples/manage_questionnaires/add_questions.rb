@@ -3,7 +3,7 @@
 require "spec_helper"
 
 shared_examples_for "add questions" do
-  shared_example_for "updating the max choices selector according to the configured options" do
+  shared_examples_for "updating the max choices selector according to the configured options" do
     expect(page).not_to have_select("Maximum number of choices")
 
     select "Multiple option", from: "Type"
