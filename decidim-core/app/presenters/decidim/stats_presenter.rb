@@ -46,7 +46,7 @@ module Decidim
       card_stats = Decidim.stats.only([:followers_count, :votings_count])
                           .filter(priority: StatsRegistry::HIGH_PRIORITY)
                           .with_context(participatory_space)
-                          .map { |stat_title, stat_number| [participatory_space.manifest.name, stat_title, stat_number] }
+                          .map { |stat_title, stat_number| [participatory_space_sym, stat_title, stat_number] }
 
       statistics(card_stats.group_by(&:first))
     end
@@ -59,7 +59,7 @@ module Decidim
 
     def participatory_space_participants_stats
       Decidim.stats.only([:participants_count]).with_context(participatory_space)
-             .map { |stat_title, stat_number| [participatory_space.manifest.name, stat_title, stat_number] }
+             .map { |stat_title, stat_number| [participatory_space_sym, stat_title, stat_number] }
     end
 
     def component_stats(conditions)
@@ -75,7 +75,7 @@ module Decidim
       Decidim.stats.only([:followers_count])
              .filter(conditions)
              .with_context(participatory_space)
-             .map { |stat_title, stat_number| [participatory_space.manifest.name, stat_title, stat_number] }
+             .map { |stat_title, stat_number| [participatory_space_sym, stat_title, stat_number] }
     end
 
     def published_components
