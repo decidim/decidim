@@ -26,6 +26,10 @@
   @apply relative after:absolute after:content-[''] after:h-1 after:w-10 after:top-[calc(100%+0.25rem)] after:left-0 after:bg-tertiary after:rounded-b;
 }
 
+.title-decorator {
+  @apply h3 md:h1 decorator;
+}
+
 /* default styles for those dynamic text blocks */
 .editor-content {
   @apply prose max-w-full text-gray-2 text-lg prose-a:text-secondary break-words prose-ul:pl-4;
