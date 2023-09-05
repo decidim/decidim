@@ -3,11 +3,11 @@
 
   setTimeout(() => {
     [...getButtons].forEach((button) => {
-      if(button.classList.contains("question-error")){
+      if (button.classList.contains("question-error")) {
         button.click()
       }
     })
-  },100)
+  }, 100)
 
   $("button.collapse-all").on("click", () => {
     $("[id$=field]").find("button.question--collapse[aria-expanded='true']").click()
