@@ -39,7 +39,7 @@ describe "Admin imports participatory process", type: :system do
     it "imports the json document" do
       expect(page).to have_content("successfully")
       expect(page).to have_content("Import participatory process")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
 
       within find("tr", text: "Import participatory process") do
         click_link "Import participatory process"
