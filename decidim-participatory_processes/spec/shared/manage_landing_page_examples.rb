@@ -15,8 +15,6 @@ shared_examples "manage landing page examples" do
 
   context "when editing a participatory process group landing page" do
     it "has breadcrumb with landing page" do
-      skip "REDESIGN_PENDING - Implement breadcrumb for groups"
-
       visit edit_landing_page_path
 
       within("div.process-title-content-breadcrumb-container-left") do
