@@ -42,7 +42,7 @@ module Decidim
 
     # A String with the component's icon. The icon must be stored in the
     # engine's assets path.
-    attribute :icon,  String
+    attribute :icon, String
 
     # A String with the component's icon key.
     attribute :icon_key, String
