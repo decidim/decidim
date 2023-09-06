@@ -1161,6 +1161,7 @@ eu:
         filters:
           areas: Arloak
           select_an_area: Hautatu eremu bat
+      progress: Aurrerapena 
       public_participation:
         public_participation: Erakutsi nire asistentzia publikoki
       reference:
