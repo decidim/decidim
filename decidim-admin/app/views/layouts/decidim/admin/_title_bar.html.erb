@@ -10,7 +10,7 @@
       <% end %>
       <% if available_locales.length > 1 %>
         <div class="topbar__dropmenu language-choose relative">
-          <%= button_tag  id: "admin-dropdown-menu-trigger", data: { component: 'dropdown', target: 'admin-dropdown-menu-language' }, class: 'dropdown__trigger' do %>
+          <%= button_tag id: "admin-dropdown-menu-trigger", data: { component: "dropdown", target: "admin-dropdown-menu-language" }, class: "dropdown__trigger" do %>
               <%= t("name", scope: "locale") %>
               <%= icon "arrow-down-s-line" %>
           <% end %>
@@ -19,7 +19,7 @@
             <ul class="dropdown dropdown__bottom">
               <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
                 <li class="dropdown__item">
-                  <%= link_to(locale_name(locale), decidim.locale_path(locale: locale), method: :post, tabindex: "-1") %>
+                  <%= link_to(locale_name(locale), decidim.locale_path(locale), method: :post, tabindex: "-1") %>
                 </li>
               <% end %>
             </ul>
@@ -28,7 +28,7 @@
       <% end %>
 
       <div class="user-login relative">
-        <%= button_tag current_user.email, id: "admin-dropdown-menu-login-trigger", data: { component: 'dropdown', target: 'admin-dropdown-menu-login' } , class: 'dropdown__trigger' do %>
+        <%= button_tag current_user.email, id: "admin-dropdown-menu-login-trigger", data: { component: "dropdown", target: "admin-dropdown-menu-login" } , class: "dropdown__trigger" do %>
           <%= current_user.email %>
           <%= icon "arrow-down-s-line" %>
         <% end %>

@@ -33,7 +33,6 @@
         </div>
       <% end %>
 
-
       <div class="row column">
         <% other_available_authorizations.each do |authorization| %>
           <%= form.fields_for :authorization, authorization, builder: Decidim::AuthorizationFormBuilder do |f| %>

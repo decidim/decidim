@@ -11,11 +11,11 @@
 
     <div id="panel-title" class="card-section">
       <div class="row column">
-        <%= form.translated :text_field, :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), aria: {label: :title } %>
+        <%= form.translated :text_field, :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), aria: { label: :title } %>
       </div>
 
       <div class="row column">
-        <%= form.translated :editor, :description, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), aria: {label: :description } %>
+        <%= form.translated :editor, :description, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), aria: { label: :description } %>
       </div>
 
       <div class="row column">
