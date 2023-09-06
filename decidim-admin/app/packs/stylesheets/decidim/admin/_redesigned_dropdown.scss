@@ -19,7 +19,7 @@
     @apply mx-0 py-0;
   }
 
-  #processes{
+  #processes {
     button.dropdown {
       @apply divide-y divide-gray-3 z-20 relative py-1 px-3 bg-secondary text-white;
 
@@ -27,7 +27,7 @@
         @apply z-10;
       }
 
-      svg{
+      svg {
         @apply fill-white p-0 ml-2;
       }
     }
