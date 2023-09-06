@@ -2,9 +2,10 @@
 <%= admin_tabs(:admin_participatory_processes_menu).render %>
 
 <div class="card with-overflow" id="processes">
-  <div class="flex" data-group-filter>
-    <button data-toggle="process_groups" class="dropdown button tiny button--title">
+  <div class="flex justify-end" data-group-filter>
+    <button data-toggle="process_groups" class="dropdown button">
       <%= t("actions.filter.process_groups", scope: "decidim.admin") %>
+      <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
     </button>
     <div id="process_groups" class="dropdown-pane" data-position="bottom" data-dropdown data-auto-focus="true">
       <ul class="list-reset">
@@ -19,9 +20,6 @@
       </ul>
     </div>
   </div>
-  <br>
-  <br>
-  <br>
   <% if process_group %>
     <div>
       <%= link_to translated_attribute(process_group.title),

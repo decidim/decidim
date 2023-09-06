@@ -378,6 +378,11 @@ li.opens-left > .is-dropdown-submenu {
   color: var(--secondary);
 }
 
+.dropdown-pane li:hover {
+  color: #fff;
+  background-color: var(--secondary);
+}
+
 .dropdown-pane li:not(:last-child) {
   border-bottom: 1px solid #eee;
 }
