@@ -30,15 +30,15 @@
   }
 
   &__color {
-    @apply grid w-48 h-8 rounded
+    @apply grid w-48 h-8 rounded;
   }
 
   &__color_primary {
-    @apply bg-[var(--primary)]
+    @apply bg-[var(--primary)];
   }
 
   &__color_secondary {
-    @apply bg-[var(--secondary)]
+    @apply bg-[var(--secondary)];
   }
 
   &__color_tertiary {

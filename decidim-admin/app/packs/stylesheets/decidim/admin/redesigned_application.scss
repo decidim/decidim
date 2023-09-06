@@ -2,7 +2,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-:root{
+:root {
   --primary: #e02d2d;
   --primary-rgb: 224 45 45;
   --secondary: #155abf;
@@ -29,7 +29,6 @@
 @import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_callout.scss";
 @import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_tabs_x.scss";
 @import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_tooltip.scss";
-
 @import "stylesheets/decidim/admin/_redesigned_forms.scss";
 @import "stylesheets/decidim/admin/_redesigned_color_picker.scss";
 @import "stylesheets/decidim/admin/_redesigned_main-nav.scss";

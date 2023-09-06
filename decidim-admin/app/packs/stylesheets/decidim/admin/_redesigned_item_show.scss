@@ -1,59 +1,59 @@
-.item_show__header{
+.item_show__header {
   @apply flex items-center pb-4 border-b border-gray mb-4 gap-x-2;
 
-  > svg{
+  > svg {
     @apply w-4 h-4;
   }
 
-  &-title{
+  &-title {
     @apply text-xl font-bold inline-block flex items-center w-full;
   }
 }
 
-.item_show__content{
+.item_show__content {
   @apply grid grid-cols-1 md:grid-cols-[70%_30%];
 
-  &-activity{
+  &-activity {
     @apply pr-8;
   }
 
-  &-aside{
+  &-aside {
     @apply h-full border-l border-gray pl-8;
   }
 
-  .card{
+  .card {
     @apply mb-6;
   }
 
-  .card-section{
+  .card-section {
     @apply p-6;
   }
 
-  &-title{
+  &-title {
     @apply text-lg font-semibold text-black mb-6;
   }
 
-  &-menu{
-    li{
+  &-menu {
+    li {
       @apply flex items-center gap-x-2 pb-3;
 
-      svg{
+      svg {
         @apply w-4 h-4 fill-gray;
       }
 
-      a{
+      a {
         @apply text-md font-semibold flex items-center gap-x-4 w-full text-secondary;
 
-        &:hover span{
+        &:hover span {
           @apply no-underline;
         }
 
-        span{
+        span {
           @apply ml-auto;
         }
       }
 
-      &:not(:last-child){
+      &:not(:last-child) {
         @apply border-b border-gray mb-3;
       }
     }

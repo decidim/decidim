@@ -1,80 +1,75 @@
-.layout-wrapper{
-  &.is-nav-open{
-    .layout-nav{
+.layout-wrapper {
+  &.is-nav-open {
+    .layout-nav {
       @apply translate-x-0;
 
-      .main-nav{
+      .main-nav {
         @apply w-[100px];
       }
 
-      .logo{
+      .logo {
         @apply hidden;
       }
     }
   }
 
-  .layout-nav{
+  .layout-nav {
     @apply absolute md:relative top-0 bottom-0 z-50 -translate-x-full md:translate-x-0 ease-in transition;
 
-    .main-nav{
+    .main-nav {
       @apply bg-gray-2 w-[120px] text-center last:pt-4;
     }
 
-    .main-nav__modules{
+    .main-nav__modules {
       @apply pb-4 pt-0 border-b;
 
       border-color: #2A3745;
     }
   }
-  &.is-nav-open{
-
-  }
 }
 
-
-
-.main-nav ul{
+.main-nav ul {
   @apply list-none w-full;
 
-  li{
+  li {
     @apply pb-2;
   }
 
-  a{
+  a {
     @apply text-white py-2 block text-xs w-full bg-transparent transition;
 
-    &:hover{
+    &:hover {
       @apply underline;
 
       background-color:rgba(4, 11, 23, 0.3);
     }
   }
 
-  .is-active a{
+  .is-active a {
     @apply text-white underline;
 
     background-color:rgba(4, 11, 23, 0.3);
   }
 
-  svg{
+  svg {
     @apply w-5 h-5 block mx-auto mb-1 fill-background-4;
   }
 
-  &.tab-x-container{
+  &.tab-x-container {
     @apply mb-6;
 
-    svg{
+    svg {
       @apply mx-0 inline-block;
     }
 
-    li{
+    li {
       @apply pb-0;
     }
 
-    a{
+    a {
       @apply w-full flex gap-2 justify-center items-center text-md text-gray-2 border-gray border-b-2 py-2 rounded-t cursor-pointer;
 
-      svg{
+      svg {
         @apply fill-gray-2 w-4 h-4 mb-0;
       }
 
@@ -87,7 +82,7 @@
       }
     }
 
-    .is-active a{
+    .is-active a {
       @apply bg-white text-secondary border-secondary;
 
       svg {

@@ -1,8 +1,8 @@
 //Override Foundation defaults
-.table-scroll{
+.table-scroll {
   @apply overflow-x-auto;
 
-  table{
+  table {
     border-collapse: unset;
 
     @apply mb-0 text-gray-2 border border-background-4 w-full;
@@ -10,103 +10,103 @@
 }
 
 //Table list
-.table-list{
+.table-list {
   @apply border-collapse border-spacing-0 ;
 
-  thead tr{
+  thead tr {
     @apply bg-background-2;
 
-    a{
+    a {
       @apply font-semibold;
 
-      &:hover{
+      &:hover {
         @apply underline;
       }
     }
   }
 
-  td{
+  td {
     @apply border-b border-background-4 text-sm;
 
-    &:not(:last-child){
+    &:not(:last-child) {
       @apply border-r border-background-4;
     }
   }
 
-  th{
+  th {
     .sort_link.desc,
-    .sort_link.asc{
+    .sort_link.asc {
       @apply underline;
     }
   }
 
-  thead th{
+  thead th {
     @apply border-b border-background-4 text-xs font-semibold;
 
-    &:not(:last-child){
+    &:not(:last-child) {
       @apply border-r border-background-4;
     }
 
-    &:first-child{
+    &:first-child {
       @apply text-left pl-4;
     }
   }
 
-  tbody tr td{
+  tbody tr td {
     @apply p-3;
   }
 
   thead th,
   thead td,
   tfoot th,
-  tfoot td{
+  tfoot td {
     @apply p-2;
   }
 
-  tr:nth-child(even){
+  tr:nth-child(even) {
     @apply bg-background-2;
   }
 
   th:not(:first-child),
-  td:not(:first-child){
+  td:not(:first-child) {
     @apply text-center;
   }
 
   th [type="checkbox"],
-  td [type="checkbox"]{
+  td [type="checkbox"] {
     @apply m-0;
   }
 
-  &.table-list--selectable{
+  &.table-list--selectable {
     th:nth-child(2),
-    td:nth-child(2){
+    td:nth-child(2) {
       @apply text-left;
     }
   }
 
   thead tr a,
-  thead tr{
+  thead tr {
     @apply text-gray-2 text-xs;
   }
 
-  td a:not(.button){
+  td a:not(.button) {
     @apply underline text-md font-semibold text-secondary;
   }
 
-  td > .button{
+  td > .button {
     @apply mb-0;
   }
 
   .table-list__date,
-  .table-list__state{
+  .table-list__state {
     @apply text-sm;
   }
 
-  .tabel-list__left{
+  .tabel-list__left {
     @apply text-left;
   }
 
-  .icon-active{
+  .icon-active {
     @apply bg-[#5dc560] inline-block w-3 h-3 align-middle mr-2 rounded-[50%];
   }
 }
@@ -114,7 +114,7 @@
 .table-list__actions {
   @apply text-center whitespace-nowrap;
 
-  a:not(:last-child){
+  a:not(:last-child) {
     @apply pr-2;
   }
 
@@ -122,35 +122,35 @@
     @apply text-right;
   }
 
-  span{
+  span {
     @apply mr-1;
   }
 
-  svg{
+  svg {
     @apply fill-secondary w-5 h-5;
 
-    &.action-icon--disabled{
+    &.action-icon--disabled {
       @apply fill-gray mr-2;
     }
   }
 
-  .action-space{
+  .action-space {
     @apply w-5 h-5;
   }
 }
 
-.table-list__state{
+.table-list__state {
   @apply text-center;
 }
 
-.table-list__type-icon{
+.table-list__type-icon {
   @apply relative cursor-pointer;
 }
 
-.table-list__type-label{
+.table-list__type-label {
   @apply hidden relative font-semibold;
 
-  &.expanded{
+  &.expanded {
     @apply inline-block;
   }
 }

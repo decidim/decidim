@@ -1,56 +1,56 @@
-.item__edit{
+.item__edit {
   @apply grid grid-cols-1 md:grid-cols-[20%_80%] mb-8;
 
-  &-form{
-    .card{
+  &-form {
+    .card {
       @apply rounded bg-white border-background border fill-secondary;
     }
 
-    .card-section{
+    .card-section {
       @apply px-0 pb-0;
     }
 
-    .row{
+    .row {
       @apply px-4;
     }
 
-    .card-divider{
+    .card-divider {
       @apply p-4 mt-0 pb-2 rounded-none;
 
-      *:not(.button--title) > svg{
+      *:not(.button--title) > svg {
         @apply inline-block w-6 h-6;
       }
     }
 
-    .card-divider-button{
+    .card-divider-button {
       @apply flex items-center justify-start w-full pb-3;
 
-      svg{
+      svg {
         @apply fill-secondary;
       }
 
-      &[aria-expanded="true"]{
+      &[aria-expanded="true"] {
         @apply border-solid border-b border-gray w-full rounded-none;
 
-        svg{
+        svg {
           @apply rotate-90 transition-transform;
         }
       }
     }
 
-    .card-title{
+    .card-title {
       @apply font-semibold text-md text-left inline-block text-secondary;
     }
 
-    .label--tabs{
+    .label--tabs {
       @apply mb-2;
     }
 
-    label{
+    label {
       @apply text-gray-2 text-sm;
     }
 
-    .form{
+    .form {
       [type="text"],
       [type="password"],
       [type="date"],
@@ -65,63 +65,62 @@
       [type="time"],
       [type="url"],
       [type="color"],
-      textarea{
+      textarea {
         @apply shadow-none bg-background-2 text-md h-[40px];
 
         color: rgba(146, 146, 146, 1);
         border: 1px solid rgba(208, 215, 222, 1);
       }
 
-      .editor-container .editor-input .ProseMirror{
+      .editor-container .editor-input .ProseMirror {
         @apply bg-background-2;
       }
 
-      &.edit_content_block{
-
-        button{
+      &.edit_content_block {
+        button {
           @apply button button__secondary button__sm;
         }
 
-        .tabs-content{
+        .tabs-content {
           @apply mb-2;
         }
       }
     }
   }
 
-  &-menu{
+  &-menu {
     @apply pr-4;
 
-    &-anchor{
+    &-anchor {
       @apply block underline mb-3 text-secondary text-sm;
     }
 
-    &-title{
+    &-title {
       @apply text-black font-semibold mb-3;
     }
 
-    &-sticky{
+    &-sticky {
       @apply sticky top-0;
     }
   }
 
-  &-sticky{
+  &-sticky {
     @apply w-full fixed left-0 md:left-[120px] bottom-0 bg-gray-2 border-t border-white;
 
-    &-container{
+    &-container {
       @apply container flex gap-x-4 justify-end;
 
-      .button{
+      .button {
         @apply bg-white text-secondary;
       }
     }
   }
 }
 
-.item__edit-1col{
+.item__edit-1col {
   @apply grid grid-cols-[80%_20%];
 }
 
-.process-content .label--tabs{
+.process-content .label--tabs {
   @apply mb-2;
 }

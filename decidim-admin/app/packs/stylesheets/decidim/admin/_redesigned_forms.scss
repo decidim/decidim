@@ -1,5 +1,5 @@
-.layout-content{
-  .form__wrapper{
+.layout-content {
+  .form__wrapper {
     @apply pt-0;
 
     input[type="date"],
@@ -20,61 +20,61 @@
     }
 
     & label:not(&-checkbox-label),
-    &-block label:not(&-checkbox-label){
+    &-block label:not(&-checkbox-label) {
       @apply text-sm;
     }
 
-    .help-text{
+    .help-text {
       @apply mt-1;
     }
 
     .row .columns,
-    .row.column{
+    .row.column {
       @apply mb-4;
     }
   }
 
   .form-defaults {
-    select.chosen-select{
+    select.chosen-select {
       @apply bg-none;
     }
 
-    select#component_step_settings_1_default_sort_order{
+    select#component_step_settings_1_default_sort_order {
       @apply block my-2;
     }
 
     textarea#component_step_settings_1_automatic_hashtags,
-    textarea#component_step_settings_1_suggested_hashtags{
+    textarea#component_step_settings_1_suggested_hashtags {
       @apply block w-full;
     }
 
-    #choose-template label{
+    #choose-template label {
       @apply block my-2;
     }
   }
 
-  #q_with_participatory_space{
+  #q_with_participatory_space {
     @apply h-9;
   }
 }
 
-.questionnaire-question{
-  button[aria-expanded="true"]{
-    .icon-collapse{
+.questionnaire-question {
+  button[aria-expanded="true"] {
+    .icon-collapse {
       @apply block;
     }
 
-    .icon-expand{
+    .icon-expand {
       @apply hidden;
     }
   }
 
-  button[aria-expanded="false"]{
-    .icon-collapse{
+  button[aria-expanded="false"] {
+    .icon-collapse {
       @apply hidden;
     }
 
-    .icon-expand{
+    .icon-expand {
       @apply block;
     }
   }
