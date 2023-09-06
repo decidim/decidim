@@ -112,7 +112,6 @@ en:
         see_process: See process
         unpublish: Unpublish
       menu:
-        manage: Manage
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
           info: Info
@@ -137,7 +136,6 @@ en:
             actions: Actions
             created_at: Created at
             private: Private
-            promoted: Highlighted
             published: Published
             title: Title
           name: Participatory process
@@ -288,10 +286,10 @@ en:
         edit:
           update: Update
         index:
-          unpublished: Unpublished
           private: Private
           public: Public
           published: Published
+          unpublished: Unpublished
         new:
           create: Create
           title: New participatory process

@@ -134,8 +134,6 @@ en:
           values:
             'false': Not validated
             'true': Validated
-      menu:
-        manage: Manage
     components:
       elections:
         actions:
@@ -897,7 +895,6 @@ en:
           voting:
             fields:
               created_at: Created at
-              promoted: Highlighted
               published: Published
               title: Title
         monitoring_committee_election_results:

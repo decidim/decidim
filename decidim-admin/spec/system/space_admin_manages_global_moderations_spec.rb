@@ -36,7 +36,7 @@ describe "Space admin manages global moderations", type: :system do
 
     it "has the main navigation empty" do
       within ".layout-nav" do
-        expect(page).to_not have_selector("li a")
+        expect(page).not_to have_selector("li a")
       end
     end
 

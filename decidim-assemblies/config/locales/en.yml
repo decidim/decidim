@@ -209,7 +209,6 @@ en:
           private_users: Private users
           see_assembly: See assembly
         assemblies_types: Assemblies types
-        manage: Manage
       models:
         assemblies_types:
           fields:

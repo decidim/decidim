@@ -203,12 +203,10 @@ en:
           registrations: Registrations
           see_conference: See conference
           user_registrations: User Registrations
-        manage: Manage
       models:
         conference:
           fields:
             created_at: Created at
-            promoted: Highlighted
             published: Published
             title: Title
         conference_speaker:

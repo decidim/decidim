@@ -9,7 +9,7 @@ $(() => {
 
     $customizeRegistrationEmail.on("click", (event) => {
 
-      if(event.target.checked) {
+      if (event.target.checked) {
         $("#customize_registration_email-div").removeClass("hidden");
       } else {
         $("#customize_registration_email-div").addClass("hidden");

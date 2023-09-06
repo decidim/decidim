@@ -80,8 +80,8 @@ en:
   decidim:
     admin:
       actions:
-        new_initiative_type: New initiative type
         manage: Manage
+        new_initiative_type: New initiative type
       filters:
         initiatives:
           decidim_area_id_eq:
