@@ -103,6 +103,8 @@ describe "Admin manages election steps", :slow, type: :system do
     include_context "when performing the whole process"
 
     it "shows the step information" do
+      skip "REDESIGN_PENDING: This example must be fixed with an instance with the full elections functionality working. https://github.com/decidim/decidim/issues/11569"
+
       setup_election
 
       visit_steps_page
@@ -238,6 +240,8 @@ describe "Admin manages election steps", :slow, type: :system do
     let(:trustee) { election.trustees.first }
 
     it "marks the trustee as missing" do
+      skip "REDESIGN_PENDING: This example must be fixed with an instance with the full elections functionality working. https://github.com/decidim/decidim/issues/11569"
+
       visit_steps_page
 
       # allows admin to mark trustees as missing
