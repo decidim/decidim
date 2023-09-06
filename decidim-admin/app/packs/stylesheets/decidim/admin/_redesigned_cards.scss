@@ -41,6 +41,14 @@
       @apply relative;
     }
   }
+
+  .card__filter {
+    @apply ml-auto flex items-center gap-x-4;
+
+    a {
+      @apply text-secondary underline;
+    }
+  }
 }
 
 .card-footer {
