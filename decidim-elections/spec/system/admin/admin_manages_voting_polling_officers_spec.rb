@@ -89,8 +89,8 @@ describe "Admin manages polling officers", type: :system do
 
     it "creates a new user" do
       within ".new_polling_officer" do
-        fill_in :polling_officer_email, with: "joe@doe.com"
-        fill_in :polling_officer_name, with: "Joe Doe"
+        fill_in :voting_user_role_email, with: "joe@doe.com"
+        fill_in :voting_user_role_name, with: "Joe Doe"
 
         find("*[type=submit]").click
       end
@@ -105,7 +105,7 @@ describe "Admin manages polling officers", type: :system do
 
     it "uses an existing user" do
       within ".new_polling_officer" do
-        select "Existing participant", from: :polling_officer_existing_user
+        select "Existing participant", from: :voting_user_role_existing_user
         autocomplete_select "#{existing_user.name} (@#{existing_user.nickname})", from: :user_id
 
         find("*[type=submit]").click

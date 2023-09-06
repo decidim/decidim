@@ -5,7 +5,7 @@
 </div>
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
-    <%= decidim_form_for([current_voting, @form], html: { class: "form-defaults form new_monitoring_committee_member" }) do |f| %>
+    <%= decidim_form_for([current_voting, @form], url: voting_monitoring_committee_members_path(current_voting), html: { class: "form-defaults form new_monitoring_committee_member" }) do |f| %>
       <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 
       <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">

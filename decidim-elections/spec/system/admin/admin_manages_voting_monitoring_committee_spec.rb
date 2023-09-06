@@ -32,8 +32,8 @@ describe "Admin manages the monitoring committee", type: :system do
 
     it "creates a new user" do
       within ".new_monitoring_committee_member" do
-        fill_in :monitoring_committee_member_email, with: "joe@doe.com"
-        fill_in :monitoring_committee_member_name, with: "Joe Doe"
+        fill_in :voting_user_role_email, with: "joe@doe.com"
+        fill_in :voting_user_role_name, with: "Joe Doe"
 
         find("*[type=submit]").click
       end
@@ -48,7 +48,7 @@ describe "Admin manages the monitoring committee", type: :system do
 
     it "uses an existing user" do
       within ".new_monitoring_committee_member" do
-        select "Existing participant", from: :monitoring_committee_member_existing_user
+        select "Existing participant", from: :voting_user_role_existing_user
         autocomplete_select "#{existing_user.name} (@#{existing_user.nickname})", from: :user_id
 
         find("*[type=submit]").click
