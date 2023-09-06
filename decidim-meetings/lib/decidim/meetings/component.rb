@@ -6,6 +6,7 @@ Decidim.register_component(:meetings) do |component|
   component.engine = Decidim::Meetings::Engine
   component.admin_engine = Decidim::Meetings::AdminEngine
   component.icon = "media/images/decidim_meetings.svg"
+  component.icon_key = "map-pin-line"
   component.permissions_class_name = "Decidim::Meetings::Permissions"
 
   component.query_type = "Decidim::Meetings::MeetingsType"

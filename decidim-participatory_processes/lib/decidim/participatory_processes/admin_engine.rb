@@ -166,7 +166,7 @@ module Decidim
             menu.add_item [component.manifest_name, component.id].join("_"),
                           caption.html_safe,
                           manage_component_path(component),
-                          icon_name: "pages-line",
+                          icon_name: component.manifest.icon_key || "pages-line",
                           if: component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name)
           end
         end
