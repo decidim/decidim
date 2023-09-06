@@ -1,15 +1,15 @@
-.main{
+.main {
   #js-other-actions-wrapper,
-  #js-bulk-actions-wrapper{
+  #js-bulk-actions-wrapper {
     .dropdown{
       @apply relative;
     }
   }
 
-  .bulk-actions-budgets{
+  .bulk-actions-budgets {
     @apply flex items-center gap-x-4 ml-auto;
 
-    .dropdown{
+    .dropdown {
       @apply relative;
     }
   }

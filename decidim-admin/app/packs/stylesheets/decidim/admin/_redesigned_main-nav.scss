@@ -23,7 +23,7 @@
     .main-nav__modules {
       @apply pb-4 pt-0 border-b;
 
-      border-color: #2A3745;
+      border-color: #2a3745;
     }
   }
 }
@@ -41,14 +41,14 @@
     &:hover {
       @apply underline;
 
-      background-color:rgba(4, 11, 23, 0.3);
+      background-color: rgba(4, 11, 23, 0.3);
     }
   }
 
   .is-active a {
     @apply text-white underline;
 
-    background-color:rgba(4, 11, 23, 0.3);
+    background-color: rgba(4, 11, 23, 0.3);
   }
 
   svg {
