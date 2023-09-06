@@ -4,45 +4,32 @@ module Decidim
   module Conferences
     module Admin
       # A command that sets a Conference as published.
-      class PublishConference < Decidim::Command
-        # Public: Initializes the command.
-        #
-        # conference - A Conference that will be published
-        # current_user - the user performing the action
-        def initialize(conference, current_user)
-          @conference = conference
-          @current_user = current_user
-        end
-
-        # Executes the command. Broadcasts these events:
-        #
-        # - :ok when everything is valid.
-        # - :invalid if the data was not valid and we could not proceed.
-        #
-        # Returns nothing.
+      class PublishConference < Decidim::Admin::ParticipatorySpace::Publish
         def call
-          return broadcast(:invalid) if conference.nil? || conference.published?
+          return broadcast(:invalid) if participatory_space.nil? || participatory_space.published?
 
-          Decidim.traceability.perform_action!("publish", conference, current_user) do
-            conference.publish!
+          with_events do
+            Decidim.traceability.perform_action!(:publish, participatory_space, user, **default_options) do
+              participatory_space.publish!
+            end
           end
 
-          broadcast(:ok)
           send_notification
+          broadcast(:ok, participatory_space)
         end
 
         private
 
-        attr_reader :conference, :current_user
+        def default_options = {}
 
         def send_notification
-          return unless conference.registrations_enabled?
+          return unless participatory_space.registrations_enabled?
 
           Decidim::EventsManager.publish(
             event: "decidim.events.conferences.registrations_enabled",
             event_class: Decidim::Conferences::ConferenceRegistrationsEnabledEvent,
-            resource: conference,
-            followers: conference.followers
+            resource: participatory_space,
+            followers: participatory_space.followers
           )
         end
       end

@@ -33,7 +33,7 @@ module Decidim::ParticipatoryProcesses
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with("unpublish", my_process, user)
+          .with(:unpublish, my_process, user)
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
