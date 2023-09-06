@@ -2,7 +2,7 @@
 
 module Decidim
   module Assemblies
-    # This type represents a assembly.
+    # This type represents an AssemblyMember instance.
     class AssemblyMemberType < Decidim::Api::Types::BaseObject
       description "An assembly member"
 

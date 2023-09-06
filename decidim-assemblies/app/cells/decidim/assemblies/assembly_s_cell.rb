@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     # This cell renders the Search (:s) process card
-    # for an given instance of a Assembly
+    # for a given instance of an Assembly
     class AssemblySCell < Decidim::CardSCell
       private
 
