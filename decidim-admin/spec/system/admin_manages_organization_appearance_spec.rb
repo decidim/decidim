@@ -37,6 +37,12 @@ describe "Admin manages organization", type: :system do
     end
 
     context "when the color picker is used" do
+      # Adjust the browser size so that when you click
+      # on the color picker you always click on the same/right place.
+      before do
+        Capybara.page.current_window.resize_to(1024, 768)
+      end
+
       it "changes the color on click" do
         visit decidim_admin.edit_organization_appearance_path
 
@@ -45,14 +51,14 @@ describe "Admin manages organization", type: :system do
         selector = find("#primary-selector")
 
         selector.click(x: 20, y: 23)
-        expect(find("#preview-primary", visible: :all).value).to eq "#40b3bf"
-        expect(find("#preview-secondary", visible: :all).value).to eq "#bf40b3"
-        expect(find("#preview-tertiary", visible: :all).value).to eq "#b3bf40"
+        expect(find("#preview-primary", visible: :all).value).to eq "#40a8bf"
+        expect(find("#preview-secondary", visible: :all).value).to eq "#bf40a8"
+        expect(find("#preview-tertiary", visible: :all).value).to eq "#a8bf40"
 
         selector.click(x: 255, y: 13)
-        expect(find("#preview-primary", visible: :all).value).to eq "#6e40bf"
-        expect(find("#preview-secondary", visible: :all).value).to eq "#bf6f40"
-        expect(find("#preview-tertiary", visible: :all).value).to eq "#40bf6f"
+        expect(find("#preview-primary", visible: :all).value).to eq "#bf408c"
+        expect(find("#preview-secondary", visible: :all).value).to eq "#8cbf40"
+        expect(find("#preview-tertiary", visible: :all).value).to eq "#408cbf"
       end
     end
 
