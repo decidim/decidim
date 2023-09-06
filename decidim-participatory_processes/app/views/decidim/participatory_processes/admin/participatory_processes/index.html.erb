@@ -2,6 +2,23 @@
 <%= admin_tabs(:admin_participatory_processes_menu).render %>
 
 <div class="card with-overflow" id="processes">
+  <div class="flex" data-group-filter>
+    <button data-toggle="process_groups" class="dropdown button tiny button--title">
+      <%= t("actions.filter.process_groups", scope: "decidim.admin") %>
+    </button>
+    <div id="process_groups" class="dropdown-pane" data-position="bottom" data-dropdown data-auto-focus="true">
+      <ul class="list-reset">
+        <%= link_to query_params_with(decidim_participatory_process_group_id_eq: nil) do %>
+          <li><%= t("actions.filter.all_processes", scope: "decidim.admin") %></li>
+        <% end %>
+        <% process_groups_for_select.each do |group_title, group_id| %>
+          <%= link_to query_params_with(decidim_participatory_process_group_id_eq: group_id) do %>
+            <li><%= group_title %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
   <%= admin_filter_selector %>
 </div>
 <div class="table-scroll">
