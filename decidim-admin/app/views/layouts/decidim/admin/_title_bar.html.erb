@@ -19,7 +19,7 @@
             <ul class="dropdown dropdown__bottom">
               <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
                 <li class="dropdown__item">
-                  <%= link_to(locale_name(locale), decidim.locale_path(locale), method: :post, tabindex: "-1") %>
+                  <%= link_to(locale_name(locale), decidim.locale_path(locale:), method: :post, tabindex: "-1") %>
                 </li>
               <% end %>
             </ul>
