@@ -19,6 +19,16 @@
       </ul>
     </div>
   </div>
+  <br>
+  <br>
+  <br>
+  <% if process_group %>
+    <div>
+      <%= link_to translated_attribute(process_group.title),
+        edit_participatory_process_group_path(process_group) %>
+    </div>
+  <% end %>
+  <br>
   <%= admin_filter_selector %>
 </div>
 <div class="table-scroll">
