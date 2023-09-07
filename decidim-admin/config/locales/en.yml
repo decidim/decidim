@@ -371,6 +371,7 @@ en:
           title: Pending Moderations
         show:
           view_more_logs: View more logs
+          dropdown: Dropdown
       domain_whitelist:
         form:
           domain_too_short: Domain too short

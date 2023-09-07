@@ -94,7 +94,7 @@ module Decidim
         return h.content_tag(:div, "", class: "logs__log__actions") if present_diff.blank?
 
         h.content_tag(:div, class: "logs__log__actions") do
-          h.content_tag(:a, "", class: "logs__log__actions-dropdown", data: { controls: "panel-#{h.dom_id(action_log)}" })
+          h.content_tag(:a, "", class: "logs__log__actions-dropdown", data: { controls: "panel-#{h.dom_id(action_log)}" }, aria: { label: I18n.t("decidim.admin.dashboard.show.dropdown") })
         end
       end
 
@@ -151,7 +151,7 @@ module Decidim
       # Returns an HTML-safe String.
       def present_action_log
         classes = ["logs__log"] + action_log_extra_classes.to_a
-        h.content_tag(:li, id: "accordion-#{h.dom_id(action_log)}", class: classes.join(" "), data: { component: "accordion" }) do
+        h.content_tag(:div, id: "accordion-#{h.dom_id(action_log)}", class: classes.join(" "), data: { component: "accordion" }) do
           h.concat(present_content)
           h.concat(present_diff)
         end
