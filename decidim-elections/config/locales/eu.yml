@@ -92,6 +92,10 @@ eu:
             'true': Sinatu gabe
         validated_eq:
           label: Baliozkotuta
+      voting_publications:
+        create:
+          error: Arazo bat sortu da bozketa hau argitaratzean.
+          success: Bozketa zuzen argitaratu da.
     components:
       elections:
         actions:
