@@ -1036,6 +1036,7 @@ es-PY:
       index:
         last_activity: Última actividad
       name: Últimas actividades
+      no_activities_warning: No hay nada que mostrar para este tipo de actividad.
     linked_resource_from:
       included_in: Incluido en
     links:
@@ -1840,6 +1841,7 @@ es-PY:
   layouts:
     decidim:
       announcements:
+        view_less: Mostrar menos
         view_more: Más información
       data_consent:
         details:
@@ -2027,6 +2029,7 @@ es-PY:
       option_split: En paralelo
       option_unescaped: Desescapado
       option_unified: Unificado
+      toggle: Cambiar vista
   views:
     pagination:
       next: Siguiente
