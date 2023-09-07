@@ -8,10 +8,8 @@ module Decidim
         def call
           return broadcast(:invalid) if participatory_space.nil? || participatory_space.published?
 
-          with_events do
-            Decidim.traceability.perform_action!(:publish, participatory_space, user, **default_options) do
-              participatory_space.publish!
-            end
+          Decidim.traceability.perform_action!(:publish, participatory_space, user, **default_options) do
+            participatory_space.publish!
           end
 
           send_notification
