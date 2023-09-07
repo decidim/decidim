@@ -274,6 +274,9 @@ export default class InputCharacterCounter {
     if (this.maxCharacters > 0) {
       const remaining = this.maxCharacters - inputLength;
       let message = MESSAGES.charactersLeft.other;
+      if (remaining === 0) {
+        message = MESSAGES.charactersLeft.zero;
+      }
       if (remaining === 1) {
         message = MESSAGES.charactersLeft.one;
       }
