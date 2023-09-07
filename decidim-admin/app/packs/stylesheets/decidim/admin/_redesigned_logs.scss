@@ -1,14 +1,14 @@
 .logs {
   @apply ml-0 mb-0 list-none p-4;
 
+  &__log:not(:last-child) {
+    @apply border-b border-gray-3;
+  }
+
   li {
     .logs__log__content,
     .logs__log__diff-row {
-      @apply flex flex-row gap-x-4 p-2 px-4 items-center border-b border-gray-3;
-    }
-
-    .logs__log__diff-row:last-child {
-      border-bottom: none;
+      @apply flex flex-row gap-x-4 p-2 px-4 items-center;
     }
 
     &:last-child {
@@ -44,6 +44,10 @@
     &[aria-hidden="false"] {
       @apply block;
     }
+  }
+
+  .logs__log__actions {
+    @apply h-5 w-5;
   }
 
   .logs__log__actions-dropdown {
