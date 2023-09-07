@@ -775,8 +775,6 @@ eu:
             confirm_destroy: Ziur zaude?
             destroy: Ezabatu
             new_voting: Bozketa-gune berri bat
-            publish: Argitaratu
-            unpublish: Desargitaratu
           edit:
             update: Eguneratu
           form:
