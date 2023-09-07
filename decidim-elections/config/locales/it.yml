@@ -769,8 +769,6 @@ it:
             confirm_destroy: Sei sicuro?
             destroy: Elimina
             new_voting: Nuovo Spazio Di Votazione
-            publish: Pubblica
-            unpublish: Annulla la pubblicazione
           edit:
             update: Aggiorna
           form:
