@@ -235,6 +235,11 @@ zh-CN:
           email_subject: '%{resource_title} 的选举现在对 %{participatory_space_title} 生效。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 选区现已启用 %{participatory_space_title}。
     votings:
+      admin:
+        votings:
+          actions:
+            publish: 发布
+            unpublish: 取消发布
       polling_officer_zone:
         closures:
           new:
