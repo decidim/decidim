@@ -1026,8 +1026,6 @@ fr:
             confirm_destroy: Êtes-vous sûr(e) ?
             destroy: Supprimer
             new_voting: Nouvel espace de vote
-            publish: Publier
-            unpublish: Dépublier
           create:
             invalid: Une erreur s'est produite lors de la création de cette élection.
             success: Élection créée avec succès.
@@ -1054,10 +1052,6 @@ fr:
           new:
             create: Créer
             title: Nouveau vote
-          publish:
-            success: Vote publié avec succès.
-          unpublish:
-            success: Vote dépublié avec succès.
           update:
             invalid: Une erreur s'est produite lors de la mise à jour de ce vote.
             success: Vote mis à jour avec succès.
