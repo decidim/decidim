@@ -91,7 +91,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_dropdown
-        return h.content_tag(:div, "", class: "logs__log__actions") unless has_diff?
+        return h.content_tag(:div, "", class: "logs__log__actions") if present_diff.blank?
 
         h.content_tag(:div, class: "logs__log__actions") do
           h.content_tag(:a, "", class: "logs__log__actions-dropdown", data: { controls: "panel-#{h.dom_id(action_log)}" })
