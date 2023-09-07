@@ -579,8 +579,6 @@ sv:
             confirm_destroy: Är du säker?
             destroy: Ta bort
             new_voting: Ny omröstningsutrymme
-            publish: Publicera
-            unpublish: Avpublicera
           edit:
             update: Uppdatera
           form:
