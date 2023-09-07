@@ -14,7 +14,7 @@ sv:
         description: Beskrivning
         proposal_ids: Relaterade förslag
         proposals: Förslag
-        selected: Valda för genomförande
+        selected: Valt för genomförande
         title: Titel
       proposals_import:
         scope_id: Omfång
