@@ -133,6 +133,13 @@ ca:
           values:
             'false': Sense validar
             'true': Validada
+      voting_publications:
+        create:
+          error: S'ha produït un error en publicar aquesta votació.
+          success: La votació s'ha publicat correctament.
+        destroy:
+          error: Hi ha hagut un problema en despublicar aquesta votació.
+          success: La votació s'ha despublicat correctament.
     components:
       elections:
         actions:
@@ -1026,8 +1033,6 @@ ca:
             confirm_destroy: N'estàs segura?
             destroy: Eliminar
             new_voting: Nou espai de votació
-            publish: Publicar
-            unpublish: Despublicar
           create:
             invalid: S'ha produït un error en crear aquesta votació.
             success: Votació creada correctament.
@@ -1054,10 +1059,6 @@ ca:
           new:
             create: Crear
             title: Nova votació
-          publish:
-            success: La votació s'ha publicat correctament.
-          unpublish:
-            success: La votació s'ha despublicat correctament.
           update:
             invalid: S'ha produït un error en actualitzar aquesta votació.
             success: La votació s'ha actualitzat correctament.
