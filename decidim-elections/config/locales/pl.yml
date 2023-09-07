@@ -955,8 +955,8 @@ pl:
             confirm_destroy: Jesteś pewny?
             destroy: Usuń
             new_voting: Nowa przestrzeń do głosowania
-            publish: Publikuj
-            unpublish: Cofnij publikowanie
+            publish: Opublikuj
+            unpublish: Cofnij publikację
           create:
             invalid: Podczas tworzenia głosowania wystąpił błąd
             success: Utworzono głosowanie
