@@ -43,6 +43,15 @@ module Decidim
       it "renders the radio buttons inside its labels" do
         expect(parsed.css("label input")).not_to be_empty
       end
+
+      context "when a help text is defined" do
+        let(:field) { "input" }
+        let(:output) do
+          builder.collection_radio_buttons :order_start_time, [%w(asc asc), %w(desc desc)], :first, :last, legend_title: "Date", help_text: "This is the help"
+        end
+
+        it_behaves_like "having a help text"
+      end
     end
 
     describe "#collection_check_boxes" do

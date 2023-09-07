@@ -42,7 +42,7 @@ module Decidim
     # Renders a collection of radio buttons.
     # rubocop:disable Metrics/ParameterLists
     def collection_radio_buttons(attribute, collection, value_attribute, text_attribute, options = {}, html_options = {})
-      super + error_and_help_text(attribute, options)
+      error_and_help_text(attribute, options) + super
     end
     # rubocop:enable Metrics/ParameterLists
 
