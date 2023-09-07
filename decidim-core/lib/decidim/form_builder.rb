@@ -25,7 +25,7 @@ module Decidim
     # Renders a collection of check boxes.
     # rubocop:disable Metrics/ParameterLists
     def collection_check_boxes(attribute, collection, value_attribute, text_attribute, options = {}, html_options = {})
-      super + error_and_help_text(attribute, options)
+      error_and_help_text(attribute, options) + super
     end
     # rubocop:enable Metrics/ParameterLists
 
