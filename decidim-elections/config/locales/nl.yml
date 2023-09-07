@@ -833,8 +833,8 @@ nl:
             confirm_destroy: Ben je zeker?
             destroy: Verwijder
             new_voting: Nieuwe stemruimte
-            publish: Publiceer
-            unpublish: Publicatie ongedaan maken
+            publish: Publiceren
+            unpublish: Depubliceer
           create:
             invalid: Er is een probleem opgetreden bij het aanmaken van deze stemronde
             success: Stemronde succesvol aangemaakt
