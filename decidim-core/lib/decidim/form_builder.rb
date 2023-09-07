@@ -371,11 +371,11 @@ module Decidim
 
     # Public: Override so checkboxes are rendered before the label.
     def check_box(attribute, options = {}, checked_value = "1", unchecked_value = "0")
-      custom_label(attribute, options[:label], options[:label_options], field_before_label: true) do
+      error_and_help_text(attribute, options) + custom_label(attribute, options[:label], options[:label_options], field_before_label: true) do
         options.delete(:label)
         options.delete(:label_options)
         @template.check_box(@object_name, attribute, objectify_options(options), checked_value, unchecked_value)
-      end + error_and_help_text(attribute, options)
+      end
     end
 
     # Public: Generates a file upload field for Decidim::Attachment type of attachment.

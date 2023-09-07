@@ -334,7 +334,7 @@ module Decidim
       end
     end
 
-    describe "#checkbox" do
+    describe "#check_box" do
       let(:output) do
         builder.check_box :name
       end
@@ -345,6 +345,15 @@ module Decidim
           '<input type="checkbox" value="1" name="resource[name]" id="resource_name" />Name' \
           "</label>"
         )
+      end
+
+      context "when a help text is defined" do
+        let(:field) { "input" }
+        let(:output) do
+          builder.check_box :name, help_text: "This is the help"
+        end
+
+        it_behaves_like "having a help text"
       end
     end
 
