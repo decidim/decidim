@@ -571,7 +571,7 @@ module Decidim
       content = content.html_safe
 
       html = error_and_help_text(attribute, options.merge(help_text:))
-      wrap_prefix_and_postfix(content, prefix, postfix) + html
+      html + wrap_prefix_and_postfix(content, prefix, postfix)
     end
 
     # rubocop: disable Metrics/CyclomaticComplexity

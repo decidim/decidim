@@ -136,6 +136,15 @@ module Decidim
           it "does not render a dropdown" do
             expect(parsed.css("option")).to be_empty
           end
+
+          context "when a help text is defined" do
+            let(:field) { "textarea" }
+            let(:output) do
+              builder.translated :text_area, :name, help_text: "This is the help"
+            end
+
+            it_behaves_like "having a help text"
+          end
         end
 
         context "when there are more than 4 locales" do
@@ -230,6 +239,17 @@ module Decidim
             expect(parsed.css(".editor .editor-container")).not_to be_empty
           end
         end
+      end
+    end
+
+    describe "#hashtaggable_text_field" do
+      let(:output) do
+        builder.hashtaggable_text_field :text_field, :name, "en", { autofocus: true, class: "js-hashtags", label: false }
+      end
+
+      it "renders" do
+        expect(parsed.css(".hashtags__container")).not_to be_empty
+        expect(parsed.css("input#resource_name_en")).not_to be_empty
       end
     end
 
@@ -374,6 +394,15 @@ module Decidim
           expect(output).to eq('<label for="resource_password">Password<input autocomplete="new-password" type="password" name="resource[password]" id="resource_password" /></label>')
         end
       end
+
+      context "when a help text is defined" do
+        let(:field) { "input" }
+        let(:output) do
+          builder.password_field :slug, help_text: "This is the help"
+        end
+
+        it_behaves_like "having a help text"
+      end
     end
 
     describe "#date_field" do
@@ -413,6 +442,15 @@ module Decidim
 
         it "renders the input with the proper class" do
           expect(parsed.css("input.is-invalid-input")).not_to be_empty
+        end
+
+        context "when a help text is defined" do
+          let(:field) { "input" }
+          let(:output) do
+            builder.datetime_field :born_at, help_text: "This is the help"
+          end
+
+          it_behaves_like "having a help text"
         end
       end
     end
