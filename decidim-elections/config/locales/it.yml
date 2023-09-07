@@ -942,7 +942,7 @@ it:
             destroy: Elimina
             new_voting: Nuovo Spazio Di Votazione
             publish: Pubblica
-            unpublish: Annulla la pubblicazione
+            unpublish: Ritira
           create:
             invalid: Si è verificato un problema durante la creazione di questa votazione
             success: Votazione creata con successo
