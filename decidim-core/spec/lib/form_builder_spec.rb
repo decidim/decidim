@@ -231,7 +231,7 @@ module Decidim
       end
     end
 
-    describe "categories_for_select" do
+    describe "#categories_for_select" do
       subject { Nokogiri::HTML(output) }
 
       let!(:component) { create(:component) }
@@ -332,7 +332,7 @@ module Decidim
       end
     end
 
-    describe "checkbox" do
+    describe "#checkbox" do
       let(:output) do
         builder.check_box :name
       end
@@ -365,7 +365,7 @@ module Decidim
       end
     end
 
-    describe "date_field" do
+    describe "#date_field" do
       context "when the resource has errors" do
         before do
           resource.valid?
@@ -378,10 +378,19 @@ module Decidim
         it "renders the input with the proper class" do
           expect(parsed.css("input.is-invalid-input")).not_to be_empty
         end
+
+        context "when a help text is defined" do
+          let(:field) { "input" }
+          let(:output) do
+            builder.date_field :born_at, help_text: "This is the help"
+          end
+
+          it_behaves_like "having a help text"
+        end
       end
     end
 
-    describe "datetime_field" do
+    describe "#datetime_field" do
       let(:output) do
         builder.datetime_field :start_time
       end
@@ -613,7 +622,7 @@ module Decidim
       end
     end
 
-    describe "upload" do
+    describe "#upload" do
       let(:present?) { false }
       let(:filename) { "my_image.jpg" }
       let(:image?) { false }
