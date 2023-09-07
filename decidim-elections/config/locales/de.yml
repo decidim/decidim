@@ -133,6 +133,13 @@ de:
           values:
             'false': Nicht überprüft
             'true': Validiert
+      voting_publications:
+        create:
+          error: Bei der Veröffentlichung der Abstimmung ist ein Fehler aufgetreten.
+          success: Abstimmung erfolgreich veröffentlicht.
+        destroy:
+          error: Beim Aufheben der Veröffentlichung der Abstimmung ist ein Fehler aufgetreten.
+          success: Veröffentlichung der Abstimmung erfolgreich aufgehoben.
     components:
       elections:
         actions:
@@ -1026,8 +1033,6 @@ de:
             confirm_destroy: Sind Sie sicher?
             destroy: Löschen
             new_voting: Neue Abstimmung
-            publish: Veröffentlichen
-            unpublish: Veröffentlichung rückgängig machen
           create:
             invalid: Beim Erstellen dieser Abstimmung ist ein Problem aufgetreten.
             success: Abstimmung erfolgreich erstellt.
@@ -1054,10 +1059,6 @@ de:
           new:
             create: Erstellen
             title: Neue Abstimmung
-          publish:
-            success: Abstimmung erfolgreich veröffentlicht.
-          unpublish:
-            success: Veröffentlichung der Abstimmung erfolgreich rückgängig gemacht.
           update:
             invalid: Beim Aktualisieren dieser Abstimmung ist ein Problem aufgetreten.
             success: Abstimmung erfolgreich aktualisiert.
