@@ -1050,8 +1050,6 @@ lt:
             confirm_destroy: Ar esate tikri?
             destroy: Sunaikinti
             new_voting: Nauja balsavimo erdvė
-            publish: Publikuoti
-            unpublish: Depublikuoti
           create:
             invalid: Kuriant šį balsavimą iškilo problema.
             success: Balsavimas sukurtas sėkmingai.
@@ -1078,10 +1076,6 @@ lt:
           new:
             create: Sukurti
             title: Naujas balsavimas
-          publish:
-            success: Balsavimas sėkmingai paskelbtas.
-          unpublish:
-            success: Balsavimas sėkmingai depublikuotas.
           update:
             invalid: Atnaujinant šį balsavimą iškilo problema.
             success: Balsavimas sėkmingai atnaujintas.
