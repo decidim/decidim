@@ -401,6 +401,8 @@ gl:
             not_available: Aínda non dispoñíbel
             title: Eleccións
         votings:
+          actions:
+            publish: Publicar
           form:
             select_a_voting_type: Por favor, selecciona un tipo de votación
             voting_type:
