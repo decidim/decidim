@@ -14,7 +14,6 @@ module Decidim
 
         private
 
-        def current_participatory_space = current_conference
 
         def enforce_permission_to_publish = enforce_permission_to(:publish, :conference, conference: current_conference)
 
