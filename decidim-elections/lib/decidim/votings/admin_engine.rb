@@ -11,9 +11,8 @@ module Decidim
 
       routes do
         resources :votings, param: :slug do
+          resource :publish, controller: "voting_publications", only: [:create, :destroy]
           member do
-            put :publish
-            put :unpublish
             get :available_polling_officers
             get :polling_officers_picker
           end
