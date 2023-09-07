@@ -37,6 +37,14 @@ tr:
         one: Soru
         other: Sorular
   decidim:
+    admin:
+      voting_publications:
+        create:
+          error: Bu soruyu yayınlarken bir hata oluştu.
+          success: Soru başarıyla yayınlandı.
+        destroy:
+          error: Bu soruyu yayınlarken bir hata oluştu.
+          success: Soru başarıyla yayınlandı.
     components:
       elections:
         actions:
