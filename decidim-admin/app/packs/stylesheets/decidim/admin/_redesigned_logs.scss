@@ -4,7 +4,7 @@
   li {
     .logs__log__content,
     .logs__log__diff-row {
-      @apply flex flex-row gap-x-4 pb-4 items-center;
+      @apply flex flex-row gap-x-4 p-2 px-4 items-center border-b border-gray-3;
     }
 
     .logs__log__diff-row:last-child {
