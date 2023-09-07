@@ -673,8 +673,6 @@ nl:
             confirm_destroy: Ben je zeker?
             destroy: Verwijder
             new_voting: Nieuwe stemruimte
-            publish: Publiceer
-            unpublish: Publicatie ongedaan maken
           edit:
             update: Bijwerken
           form:
