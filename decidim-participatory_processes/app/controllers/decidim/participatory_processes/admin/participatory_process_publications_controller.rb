@@ -14,7 +14,6 @@ module Decidim
 
         private
 
-
         def enforce_permission_to_publish = enforce_permission_to(:publish, :process, process: current_participatory_process)
 
         def publish_command = PublishParticipatoryProcess

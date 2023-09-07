@@ -14,7 +14,6 @@ module Decidim
 
         private
 
-
         def enforce_permission_to_publish = enforce_permission_to(:publish, :assembly, assembly: current_assembly)
 
         def publish_command = PublishAssembly

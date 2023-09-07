@@ -14,7 +14,6 @@ module Decidim
 
         private
 
-
         def enforce_permission_to_publish = enforce_permission_to(:publish, :conference, conference: current_conference)
 
         def publish_command = PublishConference
