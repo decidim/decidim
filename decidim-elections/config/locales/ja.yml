@@ -1014,8 +1014,6 @@ ja:
             confirm_destroy: 本当に削除してよろしいですか？
             destroy: 削除
             new_voting: 新しい投票スペース
-            publish: 公開
-            unpublish: 非公開にする
           create:
             invalid: 投票の作成中に問題が発生しました。
             success: 投票を作成しました。
@@ -1042,10 +1040,6 @@ ja:
           new:
             create: 作成
             title: 新しい投票
-          publish:
-            success: 投票は正常に公開されました。
-          unpublish:
-            success: 投票を非公開にしました。
           update:
             invalid: 投票の更新中に問題が発生しました。
             success: 投票が更新されました。
