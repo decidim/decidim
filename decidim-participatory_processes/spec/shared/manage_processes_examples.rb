@@ -11,7 +11,7 @@ shared_examples "manage processes examples" do
     def filter_by_group(group_title)
       visit current_path
       within("[data-group-filter]") do
-        click_button("Process Groups")
+        click_button("Filter processes in groups")
         click_link(group_title)
       end
     end

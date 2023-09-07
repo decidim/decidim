@@ -101,7 +101,7 @@ en:
         edit: Edit
         filter:
           all_processes: Show all processes
-          process_groups: Process Groups
+          process_groups: Filter processes in groups
         import_process: Import
         moderate: Moderate
         new_process: New process
