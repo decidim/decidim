@@ -1026,8 +1026,6 @@ fi-pl:
             confirm_destroy: Oletko varma?
             destroy: Tuhoa
             new_voting: Uusi äänestystila
-            publish: Julkaise
-            unpublish: Lopeta julkaisu
           create:
             invalid: Äänestyksen luonti epäonnistui.
             success: Äänestyksen luonti onnistui.
@@ -1054,10 +1052,6 @@ fi-pl:
           new:
             create: Luo
             title: Uusi äänestys
-          publish:
-            success: Äänestyksen julkaisu onnistui.
-          unpublish:
-            success: Äänestyksen julkaisun peruminen onnistui.
           update:
             invalid: Äänestyksen päivitys epäonnistui.
             success: Äänestyksen päivitys onnistui.
