@@ -151,6 +151,13 @@ cs:
           values:
             'false': Neschváleno
             'true': Schváleno
+      voting_publications:
+        create:
+          error: Při publikování tohoto hlasování došlo k chybě.
+          success: Hlasování bylo úspěšně publikováno.
+        destroy:
+          error: Při rušení publikování tohoto hlasování došlo k chybě.
+          success: Hlasování bylo úspěšně nezveřejněno.
     components:
       elections:
         actions:
