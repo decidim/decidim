@@ -133,6 +133,13 @@ fr:
           values:
             'false': Non validé
             'true': Validé
+      voting_publications:
+        create:
+          error: Une erreur s'est produite lors de la publication de ce vote.
+          success: Vote publié avec succès.
+        destroy:
+          error: Il y a eu un problème lors de la dépublication de ce vote.
+          success: Vote dépublié avec succès.
     components:
       elections:
         actions:
