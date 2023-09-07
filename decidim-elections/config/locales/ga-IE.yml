@@ -242,7 +242,6 @@ ga:
         votings:
           actions:
             destroy: Scrios
-            publish: Foilsigh
           edit:
             update: Nuashonraigh
           form:
