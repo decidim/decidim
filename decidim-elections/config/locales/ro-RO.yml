@@ -673,7 +673,7 @@ ro:
           actions:
             confirm_destroy: Sigur dorești asta?
             publish: Publică
-            unpublish: Anulează publicarea
+            unpublish: De-publicare
           edit:
             add_election_component: Nu ai alegeri configurate pentru acest vot. Te rugăm să o adaugi în secțiunea Componente
           form:
