@@ -56,7 +56,7 @@ module Decidim
 
     # Public: Generates a form field for each locale.
     #
-    # type - The form field's type, like `text_area` or `text_input`
+    # type - The form field's type, like `text_area` or `text_field`
     # name - The name of the field
     # options - The set of options to send to the field
     #
@@ -112,9 +112,9 @@ module Decidim
     end
 
     # Public: Generates a field for hashtaggable type.
-    # type - The form field's type, like `text_area` or `text_input`
+    # type - The form field's type, like `text_area` or `text_field`
     # name - The name of the field
-    # handlers - The social handlers to be created
+    # locale - The locale to be created
     # options - The set of options to send to the field
     #
     # Renders form fields for each locale.
@@ -132,7 +132,7 @@ module Decidim
 
     # Public: Generates a form field for each social.
     #
-    # type - The form field's type, like `text_area` or `text_input`
+    # type - The form field's type, like `text_area` or `text_field`
     # name - The name of the field
     # handlers - The social handlers to be created
     # options - The set of options to send to the field
