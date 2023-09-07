@@ -754,8 +754,6 @@ pt-BR:
             confirm_destroy: Você tem certeza?
             destroy: Destruir
             new_voting: Novo espaço de votação
-            publish: Publicar
-            unpublish: Despublicar
           edit:
             update: Atualizar
           form:
