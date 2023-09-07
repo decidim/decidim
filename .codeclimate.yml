@@ -12,6 +12,8 @@ checks:
 
   identical-code:
     enabled: true
+    exclude_patterns:
+    - "decidim_app-design/packages/"
 
   method-complexity:
     enabled: false
@@ -30,6 +32,8 @@ checks:
 
   similar-code:
     enabled: true
+    exclude_patterns:
+    - "decidim-*/lib/decidim/*/admin_engine.rb"
 
 plugins:
   bundler-audit:
