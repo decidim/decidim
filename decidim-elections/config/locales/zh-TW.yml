@@ -984,8 +984,6 @@ zh-TW:
             confirm_destroy: 您確定嗎？
             destroy: 摧毀
             new_voting: 新投票空間
-            publish: 發布
-            unpublish: 取消發佈
           create:
             invalid: 創建此投票時出現問題.
             success: 投票已成功創建.
@@ -1012,10 +1010,6 @@ zh-TW:
           new:
             create: 創建
             title: 新投票
-          publish:
-            success: 投票成功發布.
-          unpublish:
-            success: 投票成功取消發布.
           update:
             invalid: 更新此投票時出現問題.
             success: 投票已成功更新.
