@@ -134,6 +134,13 @@ en:
           values:
             'false': Not validated
             'true': Validated
+      voting_publications:
+        create:
+          error: There was a problem publishing this voting.
+          success: Voting successfully published.
+        destroy:
+          error: There was a problem unpublishing this voting.
+          success: Voting successfully unpublished.
     components:
       elections:
         actions:
@@ -1029,8 +1036,6 @@ en:
             confirm_destroy: Are you sure?
             destroy: Destroy
             new_voting: New Voting Space
-            publish: Publish
-            unpublish: Unpublish
           create:
             invalid: There was a problem creating this voting.
             success: Voting successfully created.
@@ -1057,10 +1062,6 @@ en:
           new:
             create: Create
             title: New Voting
-          publish:
-            success: Voting successfully published.
-          unpublish:
-            success: Voting successfully unpublished.
           update:
             invalid: There was a problem updating this voting.
             success: Voting successfully updated.
