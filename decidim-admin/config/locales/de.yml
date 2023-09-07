@@ -726,8 +726,8 @@ de:
         select_recipients_to_deliver:
           all_spaces: Alle
           all_users_help: Sendet Newsletter an alle bestätigten Benutzer.
-          confirm_deliver: Möchten Sie diesen Newsletter wirklich liefern? Diese Aktion kann nicht rückgängig gemacht werden.
-          deliver: Liefern Newsletter
+          confirm_deliver: Möchten Sie diesen Newsletter wirklich versenden? Diese Aktion kann nicht rückgängig gemacht werden.
+          deliver: Newsletter versenden
           followers_help: Sendet den Newsletter an alle bestätigten Benutzer, die den ausgewählten Teilnehmerräumen in der Liste folgen.
           none: Niemand
           participants_help: Sendet den Newsletter an alle bestätigten Benutzer, die an den ausgewählten Teilnehmerräumen der Liste teilgenommen haben.
