@@ -455,6 +455,7 @@ es-PY:
         show:
           login_as: Has iniciado sesión como %{name} <%{email}>
           make_conference_registration: Inscríbete en la jornada
+          manage_registration: Gestionar inscripciones
           register: Registro
       content_blocks:
         highlighted_conferences:
@@ -567,6 +568,7 @@ es-PY:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Gestionar inscripciones
         register: Inscripción
       conferences:
         conference:
