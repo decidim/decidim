@@ -1050,8 +1050,6 @@ cs:
             confirm_destroy: Jsi si jist?
             destroy: Zničit
             new_voting: Nové hlasovací místo
-            publish: Publikovat
-            unpublish: Zrušit publikování
           create:
             invalid: Při vytváření tohoto hlasování došlo k chybě.
             success: Hlasování bylo úspěšně vytvořeno.
@@ -1078,10 +1076,6 @@ cs:
           new:
             create: Vytvořit
             title: Nové hlasování
-          publish:
-            success: Hlasování bylo úspěšně publikováno.
-          unpublish:
-            success: Hlasování bylo úspěšně nezveřejněno.
           update:
             invalid: Při aktualizaci tohoto hlasování došlo k chybě.
             success: Hlasování bylo úspěšně aktualizováno.
