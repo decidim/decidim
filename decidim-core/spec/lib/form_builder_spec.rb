@@ -818,6 +818,15 @@ module Decidim
         it "renders a hidden field and a container for the editor" do
           expect(parsed.css("label[for='resource_scopes']").text).to eq("Scopes")
         end
+
+        context "when a help text is defined" do
+          let(:field) { "rendering" }
+          let(:output) do
+            builder.data_picker(:scopes, { help_text: "This is the help" }, prompt_params)
+          end
+
+          it_behaves_like "having a help text"
+        end
       end
     end
   end

@@ -364,8 +364,8 @@ module Decidim
 
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
-      template += @template.render("decidim/widgets/data_picker", picker_options:, prompt_params:, items:)
       template += error_and_help_text(attribute, options)
+      template += @template.render("decidim/widgets/data_picker", picker_options:, prompt_params:, items:)
       template.html_safe
     end
 
