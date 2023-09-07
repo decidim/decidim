@@ -1015,7 +1015,7 @@ ja:
             destroy: 削除
             new_voting: 新しい投票スペース
             publish: 公開
-            unpublish: 非公開にする
+            unpublish: 公開しない
           create:
             invalid: 投票の作成中に問題が発生しました
             success: 投票が正常に作成されました
