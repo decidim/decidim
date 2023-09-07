@@ -3,6 +3,8 @@
 require "spec_helper"
 require "nokogiri"
 
+require "decidim/core/test/shared_examples/form_builder_examples"
+
 module Decidim
   describe FilterFormBuilder do
     let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
