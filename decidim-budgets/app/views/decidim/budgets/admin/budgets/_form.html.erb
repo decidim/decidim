@@ -7,18 +7,25 @@
     <div class="card-section">
       <div class="row column">
         <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
+      </div>
 
+      <div class="row column">
         <%= form.number_field :weight %>
+      </div>
 
+      <div class="row column">
         <%= form.translated :editor, :description, toolbar: :content, aria: { label: :description } %>
+      </div>
 
+      <div class="row column">
         <%= form.number_field :total_budget %>
+      </div>
 
-        <% if current_component.has_subscopes? %>
-          <div class="row column">
-            <%= scopes_select_field form, :decidim_scope_id, root: current_component.scope %>
-          </div>
-        <% end %>
+      <% if current_component.has_subscopes? %>
+        <div class="row column">
+          <%= scopes_select_field form, :decidim_scope_id, root: current_component.scope %>
+        </div>
+      <% end %>
       </div>
     </div>
   </div>
