@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div class="debate-fields--finite">
+      <div class="row column debate-fields--finite">
         <div class="column xlarge-6">
           <%= form.datetime_field :start_time %>
         </div>
@@ -39,16 +39,16 @@
       </div>
 
       <% if current_component.has_subscopes? %>
-        <div class="column">
+        <div class="row column">
           <%= scopes_select_field form, :scope_id, root: current_component.scope %>
         </div>
       <% end %>
 
-      <div class="column">
+      <div class="row column">
         <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: "", disable_parents: false %>
       </div>
 
-      <div class="column">
+      <div class="row column">
         <%= form.check_box :comments_enabled, label: t("enabled", scope: "decidim.comments.admin.shared.availability_fields") %>
       </div>
     </div>
