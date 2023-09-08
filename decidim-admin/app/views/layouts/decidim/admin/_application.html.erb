@@ -44,7 +44,7 @@
             <%= yield :aside_menu_nav if content_for? :aside_menu_nav %>
 
             <%= render partial: "layouts/decidim/admin/breadcrumb" %>
-            <div class="container" data-content>
+            <div class="layout-content__container" data-content>
               <%= render partial: "layouts/decidim/admin/callouts_full" %>
               <%= yield %>
             </div>

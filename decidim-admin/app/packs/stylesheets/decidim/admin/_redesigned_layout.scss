@@ -15,7 +15,7 @@ body {
 }
 
 .layout-wrapper {
-  @apply md:flex;
+  @apply md:flex h-full;
 }
 
 .layout-nav {
@@ -27,6 +27,9 @@ body {
 
   svg {
     @apply w-4 h-4 fill-current inline-block;
+  }
+  &__container{
+    @apply p-8 m-0;
   }
 
   .hide {
