@@ -17,9 +17,10 @@
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: participatory_process_step_path(@participatory_process_step.participatory_process, @participatory_process_step), html: { class: "form form-defaults edit_participatory_process_step" }) do |f| %>
       <%= render partial: "form", object: f, locals: { title: t("participatory_process_steps.edit.title", scope: "decidim.admin") } %>
-
-      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= f.submit t("participatory_process_steps.edit.update", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t("participatory_process_steps.edit.update", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
+        </div>
       </div>
     <% end %>
   </div>

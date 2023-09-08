@@ -3,9 +3,10 @@
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: conference_copies_path(current_conference), method: :post, html: { class: "form form-defaults copy_conference" }) do |f| %>
       <%= render partial: "form", object: f, locals: { title: t("conference_copies.new.title", scope: "decidim.admin"), select: t("conference_copies.new.select", scope: "decidim.admin") } %>
-
-      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= f.submit t("conference_copies.new.copy", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t("conference_copies.new.copy", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
+        </div>
       </div>
     <% end %>
   </div>

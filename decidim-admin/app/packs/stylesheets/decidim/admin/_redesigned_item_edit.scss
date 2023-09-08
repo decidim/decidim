@@ -105,10 +105,10 @@
   }
 
   &-sticky {
-    @apply w-full fixed left-0 md:left-[120px] bottom-0 bg-gray-2 border-t border-white;
+    @apply w-full fixed left-0 bottom-0 bg-gray-2 border-t border-white;
 
     &-container {
-      @apply container flex gap-x-4 justify-end;
+      @apply px-8 py-4 flex gap-x-4 justify-end;
 
       .button {
         @apply bg-white text-secondary;

@@ -2,7 +2,9 @@
   <div class="form__wrapper">
     <%= f.text_area :body, rows: 4, label: t(".note"), class: "rounded border border-text-gray-2 mt-2" %>
   </div>
-  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= f.submit t(".submit"), class: "button button__sm md:button__lg button__secondary" %>
+  <div class="item__edit-sticky">
+    <div class="item__edit-sticky-container">
+      <%= f.submit t(".submit"), class: "button button__sm md:button__lg button__secondary" %>
+    </div>
   </div>
 <% end %>

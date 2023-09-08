@@ -12,8 +12,10 @@
           <%= render partial: "form", object: f %>
         </div>
       </div>
-      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
+        </div>
       </div>
     <% end %>
   </div>

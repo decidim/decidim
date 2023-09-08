@@ -27,9 +27,10 @@
         </div>
       </div>
     </div>
-
-    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-      <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
+      </div>
     </div>
   <% else %>
       <p><%= t(".no_components") %></p>
