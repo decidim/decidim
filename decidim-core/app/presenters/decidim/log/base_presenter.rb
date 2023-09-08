@@ -94,7 +94,13 @@ module Decidim
         return h.content_tag(:div, "", class: "logs__log__actions") if present_diff.blank?
 
         h.content_tag(:div, class: "logs__log__actions") do
-          h.content_tag(:a, "", class: "logs__log__actions-dropdown", data: { controls: "panel-#{h.dom_id(action_log)}" }, aria: { label: I18n.t("decidim.admin.dashboard.show.dropdown") })
+          h.content_tag(
+            :a,
+            "",
+            class: "logs__log__actions-dropdown",
+            data: { controls: "panel-#{h.dom_id(action_log)}" },
+            aria: { label: I18n.t("decidim.admin.dashboard.show.dropdown") }
+          )
         end
       end
 
