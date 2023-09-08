@@ -370,8 +370,8 @@ en:
           goto_moderation: Go to global moderations
           title: Pending Moderations
         show:
-          view_more_logs: View more logs
           dropdown: Dropdown
+          view_more_logs: View more logs
       domain_whitelist:
         form:
           domain_too_short: Domain too short
