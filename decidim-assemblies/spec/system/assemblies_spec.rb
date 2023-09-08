@@ -220,6 +220,15 @@ describe "Assemblies", type: :system do
         end
       end
 
+      context "when last activities block enabled" do
+        let!(:user) { create(:user, :confirmed, organization:) }
+        let(:blocks_manifests) { [:last_activity] }
+        let(:followable) { assembly }
+        let(:followable_path) { decidim_assemblies.assembly_path(assembly) }
+
+        include_examples "follows"
+      end
+
       context "when having rich content" do
         let(:blocks_manifests) { [:hero, :main_data, :metadata] }
 

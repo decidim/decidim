@@ -270,6 +270,15 @@ describe "Participatory Processes", type: :system do
           end
         end
 
+        context "when last activities block enabled" do
+          let!(:user) { create(:user, :confirmed, organization:) }
+          let(:blocks_manifests) { [:last_activity] }
+          let(:followable) { participatory_process }
+          let(:followable_path) { decidim_participatory_processes.participatory_process_path(participatory_process) }
+
+          include_examples "follows"
+        end
+
         context "and it belongs to a group" do
           let!(:group) { create(:participatory_process_group, participatory_processes: [participatory_process], organization:) }
           let(:blocks_manifests) { [:extra_data] }
