@@ -1,8 +1,19 @@
 <% add_decidim_page_title(t(".title")) %>
-<%= decidim_form_for(@form, url: url_for([@attachment.attached_to, @attachment]), html: { class: "form edit_attachment" }) do |f| %>
-  <%= render partial: "decidim/admin/attachments/form", object: f, locals: { title: t(".title") } %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t(".title") %>
+  </h2>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: url_for([@attachment.attached_to, @attachment]), html: { class: "form form-defaults edit_attachment" }) do |f| %>
+      <%= render partial: "decidim/admin/attachments/form", object: f, locals: { title: t(".title") } %>
 
-  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
