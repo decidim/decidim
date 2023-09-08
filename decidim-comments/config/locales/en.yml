@@ -59,7 +59,7 @@ en:
           positive: Positive
           positive_selected: Your opinion about this topic is positive
         remaining_characters: "%{count} characters left"
-        remaining_characters_0: "you have reached the maximum of characters"
+        remaining_characters_0: you have reached the maximum of characters
         remaining_characters_1: "%{count} character left"
         title: Add your comment
       comment:
