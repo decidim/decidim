@@ -96,6 +96,9 @@ eu:
         create:
           error: Arazo bat sortu da bozketa hau argitaratzean.
           success: Bozketa zuzen argitaratu da.
+        destroy:
+          error: Arazo bat sortu da bozketa honen argitalpena kentzean.
+          success: Bozketa honen argitalpena zuzen kendu da.
     components:
       elections:
         actions:
