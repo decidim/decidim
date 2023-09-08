@@ -285,7 +285,7 @@ shared_examples "comments" do
 
               field.native.send_keys "c"
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("0 characters left")
+                expect(page).to have_content("you have reached the maximum of characters")
               end
 
               # Test that the SR counter will stick at the last announced
@@ -302,12 +302,12 @@ shared_examples "comments" do
                 expect(page).to have_content("150 characters left") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("0 characters left") # Screen reader
+                expect(page).to have_content("you have reached the maximum of characters") # Screen reader
               end
 
               field.native.send_keys "d"
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("0 characters left")
+                expect(page).to have_content("you have reached the maximum of characters")
               end
             end
           end
@@ -318,10 +318,10 @@ shared_examples "comments" do
             within ".add-comment form" do
               fill_in field_id, with: "a" * 2000
               within ".remaining-character-count" do
-                expect(page).to have_content("0 characters left") # Normal
+                expect(page).to have_content("you have reached the maximum of characters") # Normal
               end
               within ".remaining-character-count-sr" do
-                expect(page).to have_content("0 characters left") # Screen reader
+                expect(page).to have_content("you have reached the maximum of characters") # Screen reader
               end
 
               # Test that the SR counter updates correctly after hitting the

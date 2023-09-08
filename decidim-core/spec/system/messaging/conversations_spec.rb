@@ -228,7 +228,7 @@ describe "Conversations", type: :system do
         expect(page).to have_content("Send")
         field = find_field("message_body")
         field.native.send_keys message_body
-        expect(page).to have_content("0 characters left")
+        expect(page).to have_content("you have reached the maximum of characters")
         click_button "Send"
         expect(page).to have_content(message)
         expect(page).not_to have_content(overflow)
