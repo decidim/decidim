@@ -1,5 +1,11 @@
 ru:
   activemodel:
+    attributes:
+      post:
+        body: Основной текст
+        decidim_author_id: Автор
+        published_at: Время публикации
+        title: Заголовок
     models:
       decidim/blogs/create_post_event: Создать пост в блоге
   activerecord:
@@ -17,6 +23,7 @@ ru:
         edit: Редактировать
         new: Создать новый пост
         title: Действия
+        user_group_id: Создать пост как
       admin:
         models:
           post:
@@ -29,6 +36,7 @@ ru:
             success: Пост успешно удален
           edit:
             save: Обновить
+            title: Изменить пост
           index:
             title: Посты
           new:
@@ -45,8 +53,11 @@ ru:
             author: Автор
             body: Основной текст
             created_at: 'Создано:'
+            title: Название
       posts:
         show:
+          back: Назад к списку
+          comments: Комментарии
           view: Посмотреть
         sidebar_blog:
           comments: комментарии
@@ -54,14 +65,23 @@ ru:
       read_more: Читать подробнее
     components:
       blogs:
+        actions:
+          comment: Комментарий
+          create: Создать
+          destroy: Удалить
+          endorse: Поддержать
+          update: Обновить
         name: Блог
         settings:
           global:
             announcement: Объявление
             comments_enabled: Комментарии включены
+            comments_max_length: Максимальная длина комментариев (оставьте 0 для значения по умолчанию)
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
+            endorsements_blocked: Возможность выразить поддержку отключена
+            endorsements_enabled: Возможность выразить поддержку включена
     events:
       blogs:
         post_created:
@@ -69,3 +89,5 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
           email_subject: В %{participatory_space_title} обнародован новый пост
           notification_title: В %{participatory_space_title} был обнародован пост <a href="%{resource_path}">%{resource_title}</a>
+    statistics:
+      posts_count: Посты
