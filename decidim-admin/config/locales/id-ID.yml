@@ -60,7 +60,6 @@ id:
         secondary_color: Sekunder
         success_color: Keberhasilan
         tos_version: Versi persyaratan layanan
-        twitter_handler: Penangan Twitter
         user_groups_enabled: Aktifkan grup pengguna
         warning_color: Peringatan
         youtube_handler: Penangan YouTube
@@ -444,7 +443,6 @@ id:
           github: GitHub
           instagram: Instagram
           social_handlers: Sosial
-          twitter: Kericau
           youtube: Youtube
         update:
           error: Terjadi kesalahan saat memperbarui organisasi ini.
