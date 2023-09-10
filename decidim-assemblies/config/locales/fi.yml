@@ -58,7 +58,6 @@ fi:
         subtitle: Alaotsikko
         target: Kuka osallistuu
         title: Otsikko
-        twitter: Twitter
         weight: Järjestysnumero
         youtube: YouTube
       assembly_member:
