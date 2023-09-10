@@ -1970,7 +1970,6 @@ lt:
         facebook: "%{organization} – „Facebook“"
         github: "%{organization} – „GitHub“"
         instagram: "%{organization} – „Instagram“"
-        twitter: "%{organization} – „Twitter“"
         youtube: "%{organization} – „YouTube“"
       timeout_modal:
         body: Nebuvote aktyvus(-i) %{minutes} minučių. Jei nenorite grįžti į platformą, dėl Jūsų saugumo paprašysime Jūsų prisijungti iš naujo.
