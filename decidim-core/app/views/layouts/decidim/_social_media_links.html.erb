@@ -3,8 +3,8 @@
     <% if current_organization.twitter_handler.present? %>
       <li>
         <a class="footer-social__icon" target="_blank" rel="noopener" href="https://twitter.com/<%= current_organization.twitter_handler %>">
-          <span class="show-for-sr"><%= t("layouts.decidim.social_media_links.twitter", organization: translated_attribute(current_organization.name)) %></span>
-            <%= icon "twitter", role: "img", aria_label: "Twitter" %>
+          <span class="show-for-sr"><%= t("layouts.decidim.social_media_links.x", organization: translated_attribute(current_organization.name)) %></span>
+            <%= icon "twitter-x", role: "img", aria_label: "X" %>
         </a>
       </li>
     <% end %>

@@ -19,9 +19,14 @@ describe "Admin manages organization", type: :system do
 
       fill_in "Name", with: "My super-uber organization"
 
-      %w(Twitter Facebook Instagram YouTube GitHub).each do |network|
-        click_link network
-        fill_in "organization_#{network.downcase}_handler", with: "decidim"
+      %w(X Facebook Instagram YouTube GitHub).each do |network|
+        within "#organization_social_handlers" do
+          click_link network
+        end
+
+        field_name = "organization_#{network.downcase}_handler"
+        field_name = "organization_twitter_handler" if network == "X"
+        fill_in field_name, with: "decidim"
       end
 
       select "Castellano", from: "Default locale"
