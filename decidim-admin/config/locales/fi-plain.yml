@@ -93,7 +93,6 @@ fi-pl:
         tertiary_color: Kolmiasteinen värimääritys
         time_zone: Aikavyöhyke
         tos_version: Käyttöehtojen versio
-        twitter_handler: Twitter-käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
         users_registration_mode: Käyttäjien rekisteröintitila
         warning_color: Varoitus
@@ -819,7 +818,6 @@ fi-pl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Joissain tekstikentissä osallistujat voivat syöttää tiettyjä HTML-elementtejä rikkaan tekstieditorin kautta.
           social_handlers: Sosiaalinen media
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
