@@ -1299,7 +1299,6 @@ it:
         facebook: "%{organization} su Facebook"
         github: "%{organization} su GitHub"
         instagram: "%{organization} su Instagram"
-        twitter: "%{organization} su Twitter"
         youtube: "%{organization} su YouTube"
       timeout_modal:
         body: Sei stato inattivo per %{minutes} minuti. Se continui ad essere inattivo, sarai automaticamente disconnesso per la tua sicurezza.
