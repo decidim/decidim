@@ -421,7 +421,6 @@ pl:
           invalid: Podczas opuszczania tej konferencji wystąpił błąd.
           success: Opuszczono konferencję.
       conference_speaker:
-        go_to_twitter: Idź do Twittera
         more_info: więcej informacji
         personal_website: Osobista strona internetowa
         show:
