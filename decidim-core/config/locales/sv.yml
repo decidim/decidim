@@ -1559,7 +1559,6 @@ sv:
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
         instagram: "%{organization} på Instagram"
-        twitter: "%{organization} på Twitter"
         youtube: "%{organization} på YouTube"
       timeout_modal:
         body: Du har varit inaktiv i %{minutes} minuter. Om du fortsätter att vara inaktiv kommer du automatiskt att loggas ut för din egen säkerhet.
