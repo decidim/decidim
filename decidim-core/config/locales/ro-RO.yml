@@ -1452,7 +1452,6 @@ ro:
         facebook: "%{organization} pe Facebook"
         github: "%{organization} pe GitHub"
         instagram: "%{organization} la Instagram"
-        twitter: "%{organization} pe Twitter"
         youtube: "%{organization} pe YouTube"
       timeout_modal:
         body: Ai fost inactiv de %{minutes} minute. Dacă continui să fii inactiv, vei fi deconectat automat pentru propria ta securitate.
