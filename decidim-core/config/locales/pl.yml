@@ -1367,7 +1367,6 @@ pl:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubie"
         instagram: "%{organization} na Instagramie"
-        twitter: "%{organization} na Twitterze"
         youtube: "%{organization} na YouTube"
       timeout_modal:
         body: Byłeś nieaktywny przez %{minutes} min. Jeśli pozostaniesz nieaktywny, zostaniesz automatycznie wylogowany ze względów bezpieczeństwa.
