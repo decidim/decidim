@@ -84,7 +84,6 @@
         success_color: Vellykket
         time_zone: Tidssone
         tos_version: Vilkår for tjenesten
-        twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
         users_registration_mode: Brukerregistrering
         warning_color: Advarsel
@@ -719,7 +718,6 @@
           instagram: Instagram
           rich_text_editor_in_public_views_help: I noen tekstområder vil deltakerne kunne sette inn noen HTML-tagger med å bruke den rike tekst redigereren.
           social_handlers: Sosial
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
