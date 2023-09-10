@@ -1475,7 +1475,6 @@ eu:
         facebook: "%{organization} Facebooken"
         github: "%{organization} GitHuben"
         instagram: "%{organization} Instagramen"
-        twitter: "%{organization} Twitterren"
         youtube: "%{organization} YouTuben"
       timeout_modal:
         body: Jarduerarik gabe egon zara %{minutes} minututan. Aktibatu gabe jarraitzen baduzu, deskonektatuko zaitugu zure segurtasunerako.
