@@ -152,6 +152,7 @@ tr:
           global_status: Genel yürütme durumu
         nav_breadcrumb:
           global: Global yürütme
+        no_results: Proje Bulunamadı
         search:
           search: İşlemleri ara
         show:
