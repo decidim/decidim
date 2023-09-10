@@ -1929,7 +1929,6 @@ de:
         facebook: "%{organization} auf Facebook"
         github: "%{organization} auf GitHub"
         instagram: "%{organization} auf Instagram"
-        twitter: "%{organization} bei Twitter"
         youtube: "%{organization} auf YouTube"
       timeout_modal:
         body: Sie sind seit %{minutes} Minuten inaktiv. Wenn Sie weiterhin inaktiv sind, werden Sie aus Sicherheitsgründen automatisch abgemeldet.
