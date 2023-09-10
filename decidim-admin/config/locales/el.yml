@@ -93,7 +93,6 @@ el:
         tertiary_color: Τριτοβάθμιος
         time_zone: Ζώνη ώρας
         tos_version: Έκδοση όρων χρήσης υπηρεσίας
-        twitter_handler: Πρόγραμμα χειρισμού Twitter
         user_groups_enabled: Ενεργοποίηση ομάδων
         users_registration_mode: Λειτουργία εγγραφής χρηστών
         warning_color: Προειδοποίηση
@@ -814,7 +813,6 @@ el:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Σε ορισμένες περιοχές κειμένου, οι συμμετέχοντες θα μπορούν να εισαγάγουν μερικές ετικέτες HTML χρησιμοποιώντας το πρόγραμμα επεξεργασίας εμπλουτισμένου κειμένου.
           social_handlers: Μέσα κοινωνικής δικτύωσης
-          twitter: Twitter
           url: Διεύθυνση URL
           youtube: YouTube
         update:
