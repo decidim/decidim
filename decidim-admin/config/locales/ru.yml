@@ -62,7 +62,6 @@ ru:
         send_welcome_notification: Отправить приветственное уведомление
         success_color: Успешно
         tos_version: Версия условий участия
-        twitter_handler: Обработчик Twitter
         user_groups_enabled: Включить группы
         warning_color: Предупреждение
         welcome_notification_body: Текст приветствия
@@ -461,7 +460,6 @@ ru:
           github: ГитХаб
           instagram: Инстаграм
           social_handlers: Социальные сети
-          twitter: Твиттер
           youtube: ЮТуб
         update:
           error: При попытке обновить эту организацию произошла ошибка.
