@@ -92,7 +92,6 @@ zh-TW:
         success_color: 成功
         time_zone: 時區
         tos_version: 服務條款版本
-        twitter_handler: Twitter 處理器
         user_groups_enabled: 啟用群組功能
         users_registration_mode: 使用者註冊模式
         warning_color: 警告
@@ -808,7 +807,6 @@ zh-TW:
           instagram: Instagram
           rich_text_editor_in_public_views_help: 在某些文字區域中，參與者可以使用所提供的富文本編輯器插入一些 HTML 標籤。
           social_handlers: 社群
-          twitter: Twitter
           url: 網址
           youtube: YouTube
         update:
