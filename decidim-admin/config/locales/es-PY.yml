@@ -93,7 +93,6 @@ es-PY:
         tertiary_color: Terciario
         time_zone: Zona Horaria
         tos_version: Versión de los Términos de Servicio
-        twitter_handler: Nombre de Twitter
         user_groups_enabled: Habilitar grupos de usuarios
         users_registration_mode: Modo de registro de usuarios
         warning_color: Advertencia
@@ -819,7 +818,6 @@ es-PY:
           instagram: Instagram
           rich_text_editor_in_public_views_help: En algunas áreas de texto, los participantes podrán insertar algunas etiquetas HTML utilizando el editor de texto enriquecido.
           social_handlers: Social
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
