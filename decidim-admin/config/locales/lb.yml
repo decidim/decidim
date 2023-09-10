@@ -84,7 +84,6 @@ lb:
         success_color: Erfolg
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
-        twitter_handler: Twitter-Handler
         user_groups_enabled: Benutzergruppen aktivieren
         users_registration_mode: Benutzerregistrierungs-Modus
         warning_color: Warnung
@@ -678,7 +677,6 @@ lb:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
