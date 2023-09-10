@@ -62,7 +62,6 @@ lv:
         success_color: Panākumi
         time_zone: Laika josla
         tos_version: Pakalpojumu sniegšanas noteikumu versija
-        twitter_handler: Twitter apdarinātājs
         user_groups_enabled: Iespējot grupas
         warning_color: Brīdinājums
         welcome_notification_body: Sveiciena paziņojuma pamatteksts
