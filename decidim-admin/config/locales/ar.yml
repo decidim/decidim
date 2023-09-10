@@ -87,7 +87,6 @@ ar:
         success_color: نجاح
         time_zone: المنطقة الزمنية
         tos_version: شروط وأحكام الخدمة
-        twitter_handler: مُعرّف حساب تويتر
         user_groups_enabled: تمكين المجموعات
         warning_color: تحذير
         welcome_notification_body: محتوى إشعار الترحيب
@@ -666,7 +665,6 @@ ar:
           github: غِت‌ هَب
           instagram: إينستاجرام
           social_handlers: التواصل الاجتماعي
-          twitter: تويتر
           url: عنوان الرابط
           youtube: يوتيوب
         update:
