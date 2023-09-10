@@ -92,7 +92,6 @@ ro:
         success_color: Succes
         time_zone: Fus orar
         tos_version: Versiune a condițiilor de furnizare a serviciului
-        twitter_handler: Responsabil Twitter
         user_groups_enabled: Activează grupurile
         users_registration_mode: Mod înregistrare utilizatori
         warning_color: Avertizare
@@ -818,7 +817,6 @@ ro:
           instagram: Instagram
           rich_text_editor_in_public_views_help: În unele zone de text, participanții vor putea introduce anumite tag-uri HTML utilizând editorul avansat de text.
           social_handlers: Rețele de socializare
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
