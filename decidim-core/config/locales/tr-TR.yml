@@ -1254,7 +1254,6 @@ tr:
         facebook: "Facebook'ta %{organization}"
         github: "GitHub'da %{organization}"
         instagram: "Instagram'da %{organization}"
-        twitter: "Twitter'da %{organization}"
         youtube: "YouTube'da %{organization}"
       user_menu:
         account: 'Kullanıcı hesabı: %{name}'
