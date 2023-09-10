@@ -1284,7 +1284,6 @@ nl:
         facebook: "%{organization} op Facebook"
         github: "%{organization} op GitHub"
         instagram: "%{organization} op Instagram"
-        twitter: "%{organization} op Twitter"
         youtube: "%{organization} op YouTube"
       user_menu:
         account: 'Gebruikersaccount: %{name}'
