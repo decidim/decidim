@@ -1759,7 +1759,6 @@ zh-TW:
         facebook: "%{organization} 在 Facebook"
         github: "%{organization} 在 GitHub"
         instagram: "%{organization} 在 Instagram"
-        twitter: "%{organization} 在 Twitter"
         youtube: "%{organization} 在 YouTube"
       timeout_modal:
         body: 您已經閒置了 %{minutes} 分鐘。如果您繼續閒置，為了您的安全，您將被自動登出。
