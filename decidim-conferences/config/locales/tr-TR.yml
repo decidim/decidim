@@ -375,6 +375,7 @@ tr:
           invalid: Bu konferansı terk etmekle ilgili bir sorun oluştu.
           success: Konferansı başarıyla terk ettiniz.
       conference_speaker:
+        go_to_twitter: x'e git
         more_info: Daha fazla bilgi
         personal_website: Kişisel web sitesi
         show:
@@ -389,6 +390,7 @@ tr:
           main_promotors: Organizatörler
         show:
           login_as: '%{name} <%{email}> olarak giriş yaptınız'
+          manage_registration: Kayıt İşlemini Yönet
           register: Kayıt olmak
       content_blocks:
         highlighted_conferences:
