@@ -1290,7 +1290,6 @@ pt:
         facebook: "%{organization} no Facebook"
         github: "%{organization} no GitHub"
         instagram: "%{organization} no Instagram"
-        twitter: "%{organization} no Twitter"
         youtube: "%{organization} no YouTube"
       timeout_modal:
         body: Está inactivo há %{minutes}. Se continuar inactivo será automaticamente desligado para a sua própria segurança.
