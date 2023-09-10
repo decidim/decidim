@@ -62,7 +62,6 @@ eu:
         personal_url: URL pertsonala
         position: Lekua
         short_bio: Biografia laburra
-        twitter_handle: Twitter kontua
         user_id: Erabiltzailea
       conference_user_role:
         email: Helbide elektronikoa
@@ -427,7 +426,6 @@ eu:
           invalid: Arazo bat izan da hitzaldi hau utziz.
           success: Kongresua behar bezala utzi duzu.
       conference_speaker:
-        go_to_twitter: Joan Twitterrera
         more_info: informazio gehiago
         personal_website: Webgune pertsonala
         show:
