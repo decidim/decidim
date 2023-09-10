@@ -40,11 +40,11 @@ tr:
     admin:
       voting_publications:
         create:
-          error: Bu soruyu yayınlarken bir hata oluştu.
-          success: Soru başarıyla yayınlandı.
+          error: Bu oylama yayınlanırken bir sorun oluştu.
+          success: Soru/oylama başarıyla yayınlandı.
         destroy:
-          error: Bu soruyu yayınlarken bir hata oluştu.
-          success: Soru başarıyla yayınlandı.
+          error: Bu soru/Oylama yayından kaldırılırken bir hata oluştu.
+          success: Soru başarıyla yayından kaldırıldı
     components:
       elections:
         actions:
