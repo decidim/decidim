@@ -62,7 +62,6 @@ es:
         personal_url: URL personal
         position: Cargo
         short_bio: Breve biografía
-        twitter_handle: Cuenta de Twitter
         user_id: Usuaria
       conference_user_role:
         email: Correo electrónico
@@ -434,7 +433,6 @@ es:
           invalid: Se ha producido un error al abandonar esta jornada.
           success: Has abandonado la jornada correctamente.
       conference_speaker:
-        go_to_twitter: Ir a twitter
         more_info: más información
         personal_website: Sitio web personal
         show:
