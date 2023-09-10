@@ -1166,7 +1166,6 @@ zh-CN:
         facebook: "%{organization} 在 Facebook"
         github: "%{organization} 在 GitHub"
         instagram: "%{organization} 在 Instagram"
-        twitter: "%{organization} 在 Twitter"
         youtube: "%{organization} 在 YouTube"
       user_menu:
         account: '用户帐户: %{name}'
