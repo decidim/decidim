@@ -84,7 +84,6 @@ nl:
         success_color: Succes
         time_zone: Tijdszone
         tos_version: Servicevoorwaarden versie
-        twitter_handler: Twitter gebruikersnaam
         user_groups_enabled: Groepen inschakelen
         users_registration_mode: Gebruikers registratiemodus
         warning_color: Waarschuwing
@@ -727,7 +726,6 @@ nl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In bepaalde teksten kunnen deelnemers enkele HTML-tags toevoegen door gebruik te maken van de rich text-editor.
           social_handlers: Sociaal
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
