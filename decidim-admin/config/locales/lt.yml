@@ -93,7 +93,6 @@ lt:
         tertiary_color: Tretinis
         time_zone: Laiko zona
         tos_version: Paslaugų teikimo sąlygų versija
-        twitter_handler: '„Twitter“ tvarkyklė'
         user_groups_enabled: Įjungti grupes
         users_registration_mode: Vartotojo registracijos tipas
         warning_color: Perspėjimas
@@ -829,7 +828,6 @@ lt:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Kai kuriose teksto laukuose dalyviai, naudodami raiškiojo teksto redaktoriaus funkciją, galės įterpti HTML žymes.
           social_handlers: Socialinis
-          twitter: Twitter
           url: Nuoroda
           youtube: YouTube
         update:
