@@ -83,7 +83,6 @@ gl:
         success_color: Éxito
         time_zone: Fuso horario
         tos_version: Versión de condicións de servizo
-        twitter_handler: Xestor de Twitter
         user_groups_enabled: Activar grupos de usuarios
         users_registration_mode: Modo rexistro de usuarios/as
         warning_color: Aviso
@@ -710,7 +709,6 @@ gl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Nalgúns cadros de texto, os participantes poderán inserir algunhas etiquetas HTML empregando o editor de texto avanzado.
           social_handlers: Social
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
