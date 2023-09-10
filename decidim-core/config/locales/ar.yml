@@ -1616,7 +1616,6 @@ ar:
         facebook: "%{organization} على الفيسبوك"
         github: "%{organization} في GitHub"
         instagram: "%{organization} في إنستاجرام"
-        twitter: "%{organization} في تويتر"
         youtube: "%{organization} على اليوتيوب"
       timeout_modal:
         body: لقد كنت غير نشط لمدة %{minutes} دقائق. إذا استمريت في كونك غير نشط، سيتم تسجيل خروجك تلقائيًا من أجل الأمان الخاص بك.
