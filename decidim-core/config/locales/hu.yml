@@ -1623,7 +1623,6 @@ hu:
         facebook: "%{organization} a Facebookon"
         github: "%{organization} a GitHubon"
         instagram: "%{organization} az Instagramon"
-        twitter: "%{organization} a Twitteren"
         youtube: "%{organization} a YouTube-on"
       timeout_modal:
         body: Ön %{minutes} percig inaktív volt. Ha továbbra is inaktív marad, a saját biztonsága érdekében automatikusan kijelentkeztetjük.
