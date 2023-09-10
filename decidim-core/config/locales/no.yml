@@ -1310,7 +1310,6 @@
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
         instagram: "%{organization} på Instagram"
-        twitter: "%{organization} på Twitter"
         youtube: "%{organization} på YouTube"
       timeout_modal:
         body: Du har vært inaktiv i %{minutes} minutter. Hvis du fortsetter å være inaktiv, vil du automatisk bli logget ut for din egen sikkerhet.
