@@ -71,6 +71,7 @@ tr:
         success_color: başarı
         time_zone: Zaman Dilimi
         tos_version: Hizmet sürümü şartları
+        twitter_handler: "X işleyicisi.\nX Çözümleyici\n\n"
         user_groups_enabled: Kullanıcı gruplarını etkinleştir
         warning_color: Uyarı
         welcome_notification_body: Karşılama bildirimi gövdesi
@@ -594,6 +595,7 @@ tr:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Bazı metin alanlarında, katılımcılar zengin metin düzenleyicisini kullanarak HTML etiketleri ekleyebilecekler.
           social_handlers: Sosyal
+          twitter: x
           url: URL
           youtube: YouTube
         update:
