@@ -409,9 +409,11 @@ tr:
         result:
           initiative_rejected_reason: Bu girişim, imza eksikliği nedeniyle reddedildi.
         show:
+          before_send_to_technical_validation_announcement: 'Girişiminizi/önerinizi teknik doğrulama için göndermeden önce, tanıtım komitesine %{count} üye daha eklemeniz gerekir.<br/><br/>Bu bağlantıyı komitenizin bir parçası olmasını istediğiniz kişilerle paylaşınız: %{href}'
           confirm: Bir yöneticinin gözden geçirmesi ve yayınlaması için inisiyatif göndereceksiniz. Yayınlandıktan sonra onu düzenleyemezsiniz. Emin misiniz?
           edit: Düzenle
           send_to_technical_validation: Teknik doğrulamaya gönder
+          send_to_technical_validation_announcement: Her şey doğru görünüyorsa yöneticinizin önerinizi/girişinizi incelemesi ve yayınlaması için "Teknik doğrulamaya gönder" seçeneğini tıklayın
         signatures_count:
           one: " imza"
           other: " imzalar"
