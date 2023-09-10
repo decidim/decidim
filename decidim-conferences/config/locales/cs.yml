@@ -62,7 +62,6 @@ cs:
         personal_url: Osobní URL
         position: Pozice
         short_bio: Krátký životopis
-        twitter_handle: Twitter účet
         user_id: Uživatel
       conference_user_role:
         email: E-mail
@@ -442,7 +441,6 @@ cs:
           invalid: Při této konferenci došlo k problému.
           success: Konference jste úspěšně opustili.
       conference_speaker:
-        go_to_twitter: Přejděte na Twitter
         more_info: více informací
         personal_website: Osobní web
         show:
