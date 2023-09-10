@@ -1924,7 +1924,6 @@ es-PY:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"
         instagram: "%{organization} en Instagram"
-        twitter: "%{organization} en Twitter"
         youtube: "%{organization} en YouTube"
       timeout_modal:
         body: Has estado sin actividad durante %{minutes} minutos. Si sigues estando inactivo, serás desconectado automáticamente por tu propia seguridad.
