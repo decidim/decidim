@@ -93,7 +93,6 @@ hu:
         tertiary_color: Harmadlagos
         time_zone: Időzóna
         tos_version: Használati feltételek
-        twitter_handler: Twitter kezelő
         user_groups_enabled: Csoportok engedélyezése
         users_registration_mode: Felhasználói regisztrációs mód
         warning_color: Figyelmeztetés
@@ -818,7 +817,6 @@ hu:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Néhány szövegmezőbe, a résztvevők HTML tag-eket tudnak majd beilleszteni a szövegszerkesztő segítségével.
           social_handlers: Social
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
