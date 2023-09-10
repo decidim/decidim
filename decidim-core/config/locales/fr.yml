@@ -1927,7 +1927,6 @@ fr:
         facebook: "%{organization} sur Facebook"
         github: "%{organization} sur GitHub"
         instagram: "%{organization} sur Instagram"
-        twitter: "%{organization} sur Twitter"
         youtube: "%{organization} sur YouTube"
       timeout_modal:
         body: Vous avez été inactif pendant %{minutes} minutes. Si vous continuez à être inactif, vous serez automatiquement déconnecté de la plateforme pour des raisons de sécurité.
