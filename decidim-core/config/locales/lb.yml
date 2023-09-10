@@ -1287,7 +1287,6 @@ lb:
         facebook: "%{organization} op Facebook"
         github: "%{organization} op GitHub"
         instagram: "%{organization} op Instagram"
-        twitter: "%{organization} opTwitter"
         youtube: "%{organization} op YouTube"
       timeout_modal:
         body: Du wos säit %{minutes} Minutten inaktiv. Wann s'du weider inaktiv bleifs, gëss de aus Sécherheetsgrënn ofgemellt.
