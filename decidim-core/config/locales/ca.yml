@@ -1921,7 +1921,6 @@ ca:
         facebook: "%{organization} a Facebook"
         github: "%{organization} a GitHub"
         instagram: "%{organization} a Instagram"
-        twitter: "%{organization} a Twitter"
         youtube: "%{organization} a YouTube"
       timeout_modal:
         body: Has estat sense activitat durant %{minutes} minuts. Si continues inactiva, es tancarà la teva sessió automàticament per la teva pròpia seguretat.
