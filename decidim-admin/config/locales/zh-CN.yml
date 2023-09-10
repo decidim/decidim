@@ -71,7 +71,6 @@ zh-CN:
         success_color: 成功
         time_zone: 时区
         tos_version: 服务条款版本
-        twitter_handler: Twitter handler
         user_groups_enabled: 启用组
         warning_color: 警告
         welcome_notification_body: 欢迎通知机构
@@ -535,7 +534,6 @@ zh-CN:
           instagram: Instagram
           rich_text_editor_in_public_views_help: 在某些文本领域，参与者将能够通过使用丰富的文本编辑器插入一些HTML标签。
           social_handlers: 社交活动
-          twitter: 推特
           youtube: YouTube
         update:
           error: 更新这个组织时出现问题。
