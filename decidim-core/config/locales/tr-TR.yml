@@ -416,6 +416,11 @@ tr:
           title: Bülten bildirimleri
         omniauth_buttons:
           or: Veya
+        password_fields:
+          hidden_password: Şifreniz Gizlidir
+          hide_password: Şifrenizi Gizleyin
+          show_password: Şifreyi Göster
+          shown_password: Şifreniz Gösteriliyor
     doorkeeper:
       authorizations:
         new:
@@ -706,6 +711,7 @@ tr:
       all: Tüm aktivite türleri
       index:
         last_activity: Son Aktivite
+      no_activities_warning: Bu aktivite türü için gösterilecek giriş/kayıt yok.
     log:
       base_presenter:
         create: "%{user_name}, %{resource_name} oluşturdu"
@@ -1254,6 +1260,7 @@ tr:
         facebook: "Facebook'ta %{organization}"
         github: "GitHub'da %{organization}"
         instagram: "Instagram'da %{organization}"
+        x: "X 'de % organizasyon "
         youtube: "YouTube'da %{organization}"
       user_menu:
         account: 'Kullanıcı hesabı: %{name}'
@@ -1307,6 +1314,7 @@ tr:
     weibo: Sina Weibo
     whatsapp_app: Whatsapp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
