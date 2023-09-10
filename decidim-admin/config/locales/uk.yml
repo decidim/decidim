@@ -55,7 +55,6 @@ uk:
         omnipresent_banner_url: Веб-адреса
         reference_prefix: Довідковий префікс
         tos_version: Версія умов участі
-        twitter_handler: Адреса Twitter
         youtube_handler: Адреса YouTube
       scope:
         code: Код
@@ -417,7 +416,6 @@ uk:
           github: ГітХаб
           instagram: Інстаграм
           social_handlers: Соціальні мережі
-          twitter: Твіттер
           youtube: ЮТуб
         update:
           error: При спробі оновити цю організацію сталася помилка.
