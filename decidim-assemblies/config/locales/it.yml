@@ -51,7 +51,6 @@ it:
         subtitle: Sottotitolo
         target: A chi è destinato il processo
         title: Titolo
-        twitter: Twitter
         weight: Ordine di posizionamento
         youtube: Youtube
       assembly_member:
