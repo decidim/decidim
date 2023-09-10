@@ -93,7 +93,6 @@ eu:
         tertiary_color: Terciario
         time_zone: Ordu-zona
         tos_version: Zerbitzu-baldintzak bertsioa
-        twitter_handler: Twitter kudeatzailea
         user_groups_enabled: Gaitu erabiltzaileen taldeak
         users_registration_mode: Erabiltzaileak erregistratzeko modua
         warning_color: Abisua
@@ -750,7 +749,6 @@ eu:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Testu-eremu batzuetan, parte-hartzaileek HTML etiketa batzuk txertatu ahal izango dituzte testu-editore aberastua erabiliz.
           social_handlers: Gizarte
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
