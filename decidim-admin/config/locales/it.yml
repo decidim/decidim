@@ -84,7 +84,6 @@ it:
         success_color: Successo
         time_zone: Fuso Orario
         tos_version: Termini di versione del servizio
-        twitter_handler: Gestore di Twitter
         user_groups_enabled: Abilita gruppi
         users_registration_mode: Modalità di registrazione utenti
         warning_color: Attenzione
@@ -681,7 +680,6 @@ it:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In alcune aree di testo, i partecipanti saranno in grado di inserire alcuni tag HTML utilizzando l'editor di testo rich text.
           social_handlers: Social networks
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
