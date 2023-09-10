@@ -58,7 +58,6 @@ el:
         subtitle: Υπότιτλος
         target: Ποιος συμμετέχει
         title: Τίτλος
-        twitter: Twitter
         weight: Θέση κατάταξης
         youtube: YouTube
       assembly_member:
