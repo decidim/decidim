@@ -1321,7 +1321,6 @@ pt-BR:
         facebook: "%{organization} no Facebook"
         github: "%{organization} no GitHub"
         instagram: "%{organization} no Instagram"
-        twitter: "%{organization} no Twitter"
         youtube: "%{organization} no YouTube"
       timeout_modal:
         body: Você está inativo por %{minutes} minutos. Se você continuar inativo, será automaticamente desconectado para sua própria segurança.
