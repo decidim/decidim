@@ -1973,7 +1973,6 @@ cs:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubu"
         instagram: "%{organization} na Instagramu"
-        twitter: "%{organization} na Twitteru"
         youtube: "%{organization} na YouTube"
       timeout_modal:
         body: '%{minutes} minut jste byli neaktivní. Pokud budete i nadále neaktivní, budete automaticky odhlášeni z důvodu své vlastní bezpečnosti.'
