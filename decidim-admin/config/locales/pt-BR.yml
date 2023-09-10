@@ -93,7 +93,6 @@ pt-BR:
         tertiary_color: Terciário
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
-        twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos de usuários
         users_registration_mode: Modo de registro de usuários
         warning_color: Aviso
@@ -815,7 +814,6 @@ pt-BR:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes poderão inserir algumas tags HTML usando o editor de texto rico.
           social_handlers: Social
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
