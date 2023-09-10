@@ -84,7 +84,6 @@ pl:
         success_color: Powodzenie
         time_zone: Strefa czasowa
         tos_version: Warunki korzystania z Platformy
-        twitter_handler: Handler Twittera
         user_groups_enabled: Włącz grupy użytkowników
         users_registration_mode: Tryb rejestracji użytkowników
         warning_color: Ostrzeżenie
@@ -726,7 +725,6 @@ pl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: W niektórych polach tekstowych uczestnicy będą mogli wstawiać znaczniki HTML za pomocą edytora.
           social_handlers: Profile społecznościowe
-          twitter: Twitter
           url: Adres URL
           youtube: YouTube
         update:
