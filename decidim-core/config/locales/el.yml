@@ -1432,7 +1432,6 @@ el:
         facebook: "%{organization} στο Facebook"
         github: "%{organization} στο GitHub"
         instagram: "%{organization} στο Instagram"
-        twitter: "%{organization} στο Twitter"
         youtube: "%{organization} στο YouTube"
       user_menu:
         account: 'Λογαριασμός χρήστη: %{name}'
