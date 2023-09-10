@@ -64,7 +64,6 @@ sk:
         success_color: Úspech
         time_zone: Časové pásmo
         tos_version: Verzia podmienok použitia
-        twitter_handler: Twitter handler
         user_groups_enabled: Povoliť skupiny
         warning_color: Varovanie
         welcome_notification_body: Telo textu úvodného privítania
@@ -510,7 +509,6 @@ sk:
           instagram: Instagram
           rich_text_editor_in_public_views_help: V niektorých textových oknách budú účastníci môcť vkladať niektoré HTML tagy pomocou pokročilého textového editoru.
           social_handlers: Sociálne
-          twitter: Twitter
           youtube: YouTube
         update:
           error: Pri aktualizácii organizácie došlo k chybe.
