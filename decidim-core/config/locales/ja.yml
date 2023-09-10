@@ -1902,7 +1902,6 @@ ja:
         facebook: "Facebook の %{organization}"
         github: "GitHub の %{organization}"
         instagram: "Instagramの%{organization}"
-        twitter: "Twitter の %{organization}"
         youtube: "YouTube の %{organization}"
       timeout_modal:
         body: '%{minutes} 分間アクティブではありませんでした。このまま非アクティブ状態を続けると、自動的にログアウトされます。'
