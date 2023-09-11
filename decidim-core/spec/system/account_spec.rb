@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Account", type: :system do
-  let(:user) { create(:user, :confirmed, password:, password_confirmation: password) }
+  let(:user) { create(:user, :confirmed, password:) }
   let(:password) { "dqCFgjfDbC7dPbrv" }
   let(:organization) { user.organization }
 
@@ -86,46 +86,6 @@ describe "Account", type: :system do
       end
     end
 
-    describe "updating the password" do
-      context "when password and confirmation match" do
-        it "updates the password successfully" do
-          within "form.edit_user" do
-            page.find("span", text: "Change password").click
-
-            fill_in :user_password, with: "sekritpass123"
-            fill_in :user_password_confirmation, with: "sekritpass123"
-
-            find("*[type=submit]").click
-          end
-
-          within_flash_messages do
-            expect(page).to have_content("successfully")
-          end
-
-          expect(user.reload.valid_password?("sekritpass123")).to be(true)
-        end
-      end
-
-      context "when passwords do not match" do
-        it "does not update the password" do
-          within "form.edit_user" do
-            page.find("span", text: "Change password").click
-
-            fill_in :user_password, with: "sekritpass123"
-            fill_in :user_password_confirmation, with: "oopseytypo"
-
-            find("*[type=submit]").click
-          end
-
-          within_flash_messages do
-            expect(page).to have_content("There was a problem")
-          end
-
-          expect(user.reload.valid_password?("sekritpass123")).to be(false)
-        end
-      end
-    end
-
     context "when updating the email" do
       let(:pending_email) { "foo@bar.com" }
 
@@ -194,7 +154,7 @@ describe "Account", type: :system do
       end
 
       context "when the user is an admin" do
-        let!(:user) { create(:user, :confirmed, :admin, password:, password_confirmation: password) }
+        let!(:user) { create(:user, :confirmed, :admin, password:) }
 
         before do
           login_as user, scope: :user
@@ -300,7 +260,7 @@ describe "Account", type: :system do
 
   context "when on the notifications page in a PWA browser" do
     let(:organization) { create(:organization, host: "pwa.lvh.me") }
-    let(:user) { create(:user, :confirmed, password:, password_confirmation: password, organization:) }
+    let(:user) { create(:user, :confirmed, password:, organization:) }
     let(:password) { "dqCFgjfDbC7dPbrv" }
     let(:vapid_keys) do
       {
