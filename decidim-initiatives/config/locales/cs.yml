@@ -539,11 +539,13 @@ cs:
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
         show:
           area: Oblast
+          before_send_to_technical_validation_announcement: 'Před odesláním vaší iniciativy pro technické ověření musíte přidat %{count} více členů do výboru promoteru.<br/><br/>Sdílejte tento odkaz s lidmi, které chcete být součástí vašeho výboru: %{href}'
           confirm: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
           edit: Upravit
           initiative_data: Údaje o iniciativách
           scope: Oblast působnosti
           send_to_technical_validation: Poslat na technické ověření
+          send_to_technical_validation_announcement: Pokud vše vypadá v pořádku, klikněte na "Odeslat na technické ověření", aby správce mohl zkontrolovat a publikovat vaši iniciativu
           signature_collection: Sbírka podpisů
           state: Stav
           type: Typ
