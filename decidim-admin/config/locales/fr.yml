@@ -93,6 +93,7 @@ fr:
         tertiary_color: Tertiaire
         time_zone: Fuseau horaire
         tos_version: Version des conditions d'utilisation
+        twitter_handler: Gestionnaire X (ancien Twitter)
         user_groups_enabled: Activer les groupes d'utilisateurs
         users_registration_mode: Mode d'inscription des utilisateurs
         warning_color: Attention
@@ -818,6 +819,7 @@ fr:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Dans certains champs textuels, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
+          twitter: X
           url: URL
           youtube: YouTube
         update:
