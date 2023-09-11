@@ -527,11 +527,13 @@ de:
           initiative_rejected_reason: Diese Initiative wurde wegen fehlender Unterstützung abgelehnt.
         show:
           area: Gebiet
+          before_send_to_technical_validation_announcement: 'Bevor Sie Ihre Initiative zur technischen Validierung senden, müssen Sie %{count} weitere Mitglieder dem Unterstützungskomittee hinzufügen.<br/><br/>Teilen Sie diesen Link mit den Personen, die Sie in Ihrem Ausschuss sein möchten: %{href}'
           confirm: Sie werden die Initiative an einen Administrator senden, welcher sie zu überprüft und veröffentlicht. Sobald die Initiative veröffentlicht ist, können Sie sie nicht bearbeiten. Sind Sie sicher?
           edit: Bearbeiten
           initiative_data: Initiativdaten
           scope: Bereich
           send_to_technical_validation: Zur technischen Validierung senden
+          send_to_technical_validation_announcement: Wenn alles in Ordnung ist, klicken Sie auf "Zur technischen Validierung senden" um Ihre Initiative zu überprüfen und zu veröffentlichen
           signature_collection: Unterschriftssammlung
           state: Status
           type: Typ
