@@ -62,6 +62,7 @@ de:
         personal_url: Persönliche URL
         position: Position
         short_bio: Kurze Beschreibung
+        twitter_handle: X-Handler
         user_id: Nutzer
       conference_user_role:
         email: Email
@@ -433,6 +434,7 @@ de:
           invalid: Beim Verlassen dieser Konferenz ist ein Problem aufgetreten.
           success: Sie haben die Konferenz erfolgreich verlassen.
       conference_speaker:
+        go_to_twitter: Gehe zu X
         more_info: Mehr Informationen
         personal_website: Persönliche Webseite
         show:
