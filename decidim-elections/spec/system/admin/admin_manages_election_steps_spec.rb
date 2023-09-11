@@ -103,14 +103,12 @@ describe "Admin manages election steps", :slow, type: :system do
     include_context "when performing the whole process"
 
     it "shows the step information" do
-      skip "REDESIGN_PENDING: This example must be fixed with an instance with the full elections functionality working. https://github.com/decidim/decidim/issues/11569"
-
       setup_election
 
       visit_steps_page
       expect(page).to have_content("Key ceremony")
-      expect(page).to have_css(".loading-spinner") # It shows the loading icon
-      expect(page).not_to have_css("svg.icon--task") # The trustees did not participate yet
+      expect(page).to have_css(".loading") # It shows the loading icon
+      expect(page).not_to have_css(".active") # The trustees did not participate yet
       expect(page).to have_link("Continue", class: "disabled")
 
       download_election_keys(0)
@@ -119,8 +117,9 @@ describe "Admin manages election steps", :slow, type: :system do
 
       visit_steps_page
       expect(page).to have_content("Key ceremony")
-      expect(page).not_to have_css(".loading-spinner") # It is not waiting for any trustee
-      expect(page).to have_css("svg.icon--task") # All the trustees are active
+      byebug
+      expect(page).not_to have_css(".loading") # It is not waiting for any trustee
+      expect(page).to have_css(".active") # All the trustees are active
       expect(page).not_to have_link("Continue", class: "disabled")
       expect(page).to have_link("Continue")
     end
@@ -240,8 +239,6 @@ describe "Admin manages election steps", :slow, type: :system do
     let(:trustee) { election.trustees.first }
 
     it "marks the trustee as missing" do
-      skip "REDESIGN_PENDING: This example must be fixed with an instance with the full elections functionality working. https://github.com/decidim/decidim/issues/11569"
-
       visit_steps_page
 
       # allows admin to mark trustees as missing
@@ -255,7 +252,7 @@ describe "Admin manages election steps", :slow, type: :system do
 
       # shows the trustee as missing
       within find("tr", text: trustee.name) do
-        expect(page).to have_css("svg.icon--x")
+        expect(page).to have_css(".missing")
       end
 
       # do not allow to mark more trustees as missing
