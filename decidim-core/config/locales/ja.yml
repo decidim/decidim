@@ -607,6 +607,11 @@ ja:
           title: ニュースレター通知
         omniauth_buttons:
           or: または
+        password_fields:
+          hidden_password: あなたのパスワードは非表示です
+          hide_password: パスワードを隠す
+          show_password: パスワードを表示
+          shown_password: パスワードは表示されています
     doorkeeper:
       authorizations:
         new:
@@ -1902,6 +1907,7 @@ ja:
         facebook: "Facebook の %{organization}"
         github: "GitHub の %{organization}"
         instagram: "Instagramの%{organization}"
+        x: "X の %{organization}"
         youtube: "YouTube の %{organization}"
       timeout_modal:
         body: '%{minutes} 分間アクティブではありませんでした。このまま非アクティブ状態を続けると、自動的にログアウトされます。'
@@ -1974,6 +1980,7 @@ ja:
     weibo: Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
