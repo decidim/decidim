@@ -215,8 +215,8 @@ ja:
           index:
             approve: 承認
             confirm_revoke: よろしいですか？
-            invite_to_committee_help: 他の参加者をプロモーター委員会に招待するために、このリンクを共有してください。
-            no_members_yet: プロモーター委員会にはメンバーがいません。
+            invite_to_committee_help: 他の参加者を推進委員会に招待するために、このリンクを共有してください。
+            no_members_yet: 推進委員会にはメンバーがいません。
             revoke: 取り消し
             title: 委員会メンバー
         content_blocks:
@@ -521,11 +521,13 @@ ja:
           initiative_rejected_reason: このイニシアチブは、署名がないために拒否されました。
         show:
           area: エリア
+          before_send_to_technical_validation_announcement: 'イニシアチブを技術検証に送信する前に、 %{count} 名のメンバーを推進委員会に追加する必要があります。 <br/><br/>あなたが委員会に参加させたい人とこのリンクを共有します: %{href}'
           confirm: イニシアチブを提出し、管理者がレビューして公開することになります。一度公開すると編集できなくなりますが、よろしいですか？
           edit: 編集
           initiative_data: イニシアチブデータ
           scope: スコープ
           send_to_technical_validation: 技術検証に提出する
+          send_to_technical_validation_announcement: 問題は何もないと思われる場合、「技術検証に送信する」をクリックして管理者があなたのイニシアチブを確認し公開できるようにします
           signature_collection: 署名の収集
           state: 状態
           type: 種別
@@ -548,7 +550,7 @@ ja:
         more_information: ここでは、イニシアチブの作成プロセスについての詳細情報があります。
         progress_report_body_for: '%{title} が必要な署名の %{percentage}%に達しました。'
         progress_report_for: 'イニシアチブの概要: %{title}'
-        promotal_committee_help: 少なくとも %{member_count} 人をプロモーター委員会に招待する必要があります。推進委員会に招待するには、次のリンクを進めてください。
+        promotal_committee_help: 少なくとも %{member_count} 人を推進委員会に招待する必要があります。推進委員会に招待するには、次のリンクを進めてください。
         status_change_body_for: 'イニシアチブ %{title} がステータスを %{state}に変更しました'
         status_change_for: イニシアチブ %{title} のステータスが変更されました
       last_activity:
