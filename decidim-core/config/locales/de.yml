@@ -628,6 +628,11 @@ de:
           title: Newsletter Benachrichtigungen
         omniauth_buttons:
           or: Oder
+        password_fields:
+          hidden_password: Ihr Passwort ist versteckt
+          hide_password: Passwort verstecken
+          show_password: Passwort anzeigen
+          shown_password: Ihr Passwort wird angezeigt
     doorkeeper:
       authorizations:
         new:
@@ -1929,6 +1934,7 @@ de:
         facebook: "%{organization} auf Facebook"
         github: "%{organization} auf GitHub"
         instagram: "%{organization} auf Instagram"
+        x: "%{organization} auf X"
         youtube: "%{organization} auf YouTube"
       timeout_modal:
         body: Sie sind seit %{minutes} Minuten inaktiv. Wenn Sie weiterhin inaktiv sind, werden Sie aus Sicherheitsgründen automatisch abgemeldet.
@@ -2001,6 +2007,7 @@ de:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
