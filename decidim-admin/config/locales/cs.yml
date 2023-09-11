@@ -93,6 +93,7 @@ cs:
         tertiary_color: Terciární
         time_zone: Časové pásmo
         tos_version: Verze podmínek služby
+        twitter_handler: X handler
         user_groups_enabled: Povolit skupiny
         users_registration_mode: Režim registrace uživatelů
         warning_color: Varování
@@ -828,6 +829,7 @@ cs:
           instagram: Instagram
           rich_text_editor_in_public_views_help: V některých textových polích budou účastníci moci vložit některé HTML tagy pomocí textového editoru.
           social_handlers: Sociální
+          twitter: X
           url: URL
           youtube: Youtube
         update:
