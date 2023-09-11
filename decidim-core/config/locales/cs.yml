@@ -662,6 +662,11 @@ cs:
           title: Oznámení zpravodaje
         omniauth_buttons:
           or: Nebo
+        password_fields:
+          hidden_password: Vaše heslo je skryté
+          hide_password: Skrýt heslo
+          show_password: Zobrazit heslo
+          shown_password: Vaše heslo je zobrazeno
     doorkeeper:
       authorizations:
         new:
@@ -1973,6 +1978,7 @@ cs:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubu"
         instagram: "%{organization} na Instagramu"
+        x: "%{organization} v X"
         youtube: "%{organization} na YouTube"
       timeout_modal:
         body: '%{minutes} minut jste byli neaktivní. Pokud budete i nadále neaktivní, budete automaticky odhlášeni z důvodu své vlastní bezpečnosti.'
@@ -2045,6 +2051,7 @@ cs:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
