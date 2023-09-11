@@ -62,6 +62,7 @@ fr:
         personal_url: Site internet personnel
         position: Profession
         short_bio: Courte biographie
+        twitter_handle: Compte X
         user_id: Utilisateur
       conference_user_role:
         email: Email
@@ -433,6 +434,7 @@ fr:
           invalid: Il y a eu un problème pour quitter cette conférence.
           success: Vous avez quitté la conférence avec succès.
       conference_speaker:
+        go_to_twitter: Aller sur X
         more_info: Plus d'informations
         personal_website: Site Web personnel
         show:
