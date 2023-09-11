@@ -1,5 +1,5 @@
 [role="tooltip"] {
-  @apply absolute bg-black z-10 p-2 w-max max-w-xs rounded text-left text-white;
+  @apply absolute bg-black z-10 px-4 py-2 w-max max-w-xs rounded text-left text-white;
 
   & > * {
     @apply relative z-20;
@@ -52,7 +52,7 @@
   --arrow-margin: var(--arrow-visible-size) * 1.4142135623730951; // due to the rotation, the margin is SQRT2 times the visible size
 
   &.top {
-    @apply -translate-x-[calc(100%-var(--arrow-offset)-var(--arrow-visible-size))] -translate-y-[calc(100%+var(--arrow-margin))] before:content-[''] before:absolute before:-z-10 before:right-[var(--arrow-offset)] before:-bottom-[var(--arrow-visible-size)] before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-black before:rounded-br;
+    @apply -translate-x-[calc(100%-var(--arrow-offset))] -translate-y-[calc(100%+var(--arrow-margin))] before:content-[''] before:absolute before:-z-10 before:right-[calc(var(--arrow-offset)-var(--arrow-visible-size))] before:-bottom-[var(--arrow-visible-size)] before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-black before:rounded-br;
   }
 
   &.right {
@@ -60,7 +60,7 @@
   }
 
   &.bottom {
-    @apply -translate-x-[calc(100%-var(--arrow-offset)-var(--arrow-visible-size))] translate-y-[calc(var(--arrow-margin))] before:content-[''] before:absolute before:-z-10 before:right-[var(--arrow-offset)] before:-top-[var(--arrow-visible-size)] before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-black before:rounded-tl;
+    @apply -translate-x-[calc(100%-var(--arrow-offset))] translate-y-[calc(var(--arrow-margin))] before:content-[''] before:absolute before:-z-10 before:right-[calc(var(--arrow-offset)-var(--arrow-visible-size))] before:-top-[var(--arrow-visible-size)] before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-black before:rounded-tl;
   }
 
   &.left {
