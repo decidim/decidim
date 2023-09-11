@@ -117,7 +117,6 @@ describe "Admin manages election steps", :slow, type: :system do
 
       visit_steps_page
       expect(page).to have_content("Key ceremony")
-      byebug
       expect(page).not_to have_css(".loading") # It is not waiting for any trustee
       expect(page).to have_css(".active") # All the trustees are active
       expect(page).not_to have_link("Continue", class: "disabled")
