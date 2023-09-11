@@ -124,6 +124,13 @@ ja:
           values:
             'false': 未検証
             'true': 検証済み
+      voting_publications:
+        create:
+          error: この投票の公開中に問題が発生しました。
+          success: 投票を公開しました。
+        destroy:
+          error: 投票を非公開にする際に問題が発生しました。
+          success: 投票を非公開にしました。
     components:
       elections:
         actions:
@@ -153,7 +160,7 @@ ja:
         answers:
           create:
             invalid: 回答を作成する際に問題がありました。
-            success: 回答が正常に作成されました。
+            success: 回答を作成しました。
           destroy:
             invalid: 回答を削除する際に問題が発生しました。
             success: 回答を削除しました。
@@ -171,7 +178,7 @@ ja:
             disable: 回答の選択を解除
             enable: 回答を選択済みとしてマーク
             invalid: 回答を選択する際に問題が発生しました。
-            success: 回答が正常に選択されました。
+            success: 回答を選択しました。
           selected: 選択済み
           unselect:
             invalid: 回答の選択を解除する際に問題が発生しました。
@@ -198,9 +205,9 @@ ja:
             create: 選挙を作成
             title: 新しい選挙
           publish:
-            success: 選挙は正常に公開されました。
+            success: 選挙を公開しました。
           unpublish:
-            success: 選挙は正常に非公開になりました。
+            success: 選挙を非公開にしました。
           update:
             invalid: 選挙を更新する際に問題が発生しました。
             success: 選挙を更新しました。
@@ -236,7 +243,7 @@ ja:
           create:
             election_started: 選挙はすでに始まっています。
             invalid: 質問を作成中に問題が発生しました。
-            success: 質問が正常に作成されました。
+            success: 質問を作成しました。
           destroy:
             invalid: 質問を削除する際に問題が発生しました。
             success: 質問を削除しました。
@@ -250,7 +257,7 @@ ja:
             title: 新しい質問
           update:
             invalid: 質問の更新中に問題が発生しました。
-            success: 質問が正常に更新されました。
+            success: 質問を更新しました。
         steps:
           create_election:
             census: センサス
@@ -283,13 +290,13 @@ ja:
               time_before: 選挙開始の <strong>少なくとも %{hours} 時間前</strong> までに準備を完了させます。
               trustees_number: 参加スペースには <strong>少なくとも %{number} 人の公開鍵を持つ受託者</strong>がいます。
             submit: 選挙を設定
-            success: 選挙は正常に掲示板に送信されました。
+            success: 選挙を掲示板に送信しました。
             title: 選挙を設定する
             trustees: 選挙受託者
           created:
             invalid: キーセレモニーを開始する際に問題が発生しました。
             submit: キーセレモニーを開始
-            success: キーセレモニーの開始リクエストは掲示板に正常に送信されました。
+            success: キーセレモニーの開始リクエストを掲示板に送信しました。
             title: 選挙の作成
             trustees: 受託者
           key_ceremony:
@@ -302,7 +309,7 @@ ja:
             requirements:
               time_before: 選挙はまもなく開始されます。手動で投票期間を開始するか、開始時刻の %{start_time} より前に自動的に開始されます。
             submit: 投票期間を開始
-            success: 投票期間の開始リクエストは掲示板に正常に送信されました。
+            success: 投票期間の開始リクエストを掲示板に送信しました。
             title: 開始準備完了
           processing: 処理しています...
           results_published:
@@ -320,7 +327,7 @@ ja:
             result: 結果
             selected: 選択済み
             submit: 結果を公開
-            success: 公開結果リクエストは掲示板に正常に送信されました。
+            success: 公開結果リクエストを掲示板に送信しました。
             title: 計算結果
           tally_started:
             continue: 続ける
@@ -419,7 +426,7 @@ ja:
           chained_hash: このメッセージの連鎖的ハッシュ
           complete: 完了
           creation_description:
-            complete: 選挙は作成され、掲示板に正常に設定されています。
+            complete: 選挙は作成され、掲示板に設定されています。
             not_created: 選挙はまだ作成されていません。
           creation_title: 選挙が作成されました
           description: これは各ステップの状態、例えば選挙が行われた時、集計が完了した時、選曲が終わった時などを確認できる選挙ログです。
@@ -500,7 +507,7 @@ ja:
         answer:
           invalid: フィードバックの送信中に問題が発生しました。
           spam_detected: フォームに回答する際に問題が発生しました。もう一度やり直していただけますか？
-          success: フィードバックは正常に送信されました
+          success: フィードバックを送信しました
       models:
         answer:
           fields:
@@ -624,7 +631,7 @@ ja:
             not_supported_browser_title: ブラウザをアップグレードして受託者として行動する
             trustee_role_description: あなたは、このプラットフォームで行われる選挙のいくつかで受託者を務めることになっています。
           update:
-            success: 公開識別キーが正常に保存されました。
+            success: 公開識別キーを保存しました。
       votes:
         ballot_decision:
           audit: (監査投票)
@@ -649,7 +656,7 @@ ja:
           feedback: フィードバックを送る
           header: 投票が確定されました
           lead: あなたの投票が行われました!
-          text: '投票が投票箱に正常に追加されたことを、次の識別子で確認できます: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          text: '投票が投票箱に追加されたことを、次の識別子で確認できます: <strong class="evote__poll-id">%{e_vote_poll_id}</strong> '
           verify_link: 確認するには、識別子をコピーして <a href="%{link}">投票検証ページ</a> に貼り付けます
         create:
           error: 投票を行う際に問題が発生しました。もう一度やり直してください。
@@ -790,7 +797,7 @@ ja:
             title: 投票スタイルを作成
           update:
             invalid: この投票スタイルの更新中に問題が発生しました。
-            success: 投票スタイルが正常に更新されました。
+            success: 投票スタイルを更新しました。
         content_blocks:
           attachments_and_folders:
             name: 投票の添付ファイルとフォルダ
@@ -823,7 +830,7 @@ ja:
           content_blocks:
             create:
               error: コンテンツブロックの作成中に問題が発生しました。
-              success: コンテンツブロックが正常に作成されました。
+              success: コンテンツブロックを作成しました。
             destroy:
               error: コンテンツブロックの削除中に問題が発生しました。
               success: コンテンツブロックを削除しました。
@@ -908,11 +915,11 @@ ja:
           update:
             invalid: 結果の公表中に問題が発生しました。
             rejected: 結果の公開が掲示板によって拒否されました。もう一度試すか、システム管理者に連絡してください。
-            success: 結果は正常に公開されました。
+            success: 結果を公開しました。
         monitoring_committee_members:
           create:
             invalid: 監視委員会のメンバーの作成中に問題が発生しました。
-            success: 監視委員会メンバーが正常に作成されました。
+            success: 監視委員会メンバーを作成しました。
           destroy:
             invalid: 監視委員会メンバーの削除中に問題が発生しました。
             success: 監視委員会のメンバーを削除しました。
@@ -1162,7 +1169,7 @@ ja:
             heading: 投票の再集計 - 証明書をアップロード
             info_text: 選挙閉鎖証明の写真をアップロードしてください
             submit: 証明書をアップロードする
-            success: 証明書が正常にアップロードされました。
+            success: 証明書をアップロードしました。
           create:
             error: 閉鎖の作成中にエラーが発生しました。後でもう一度お試しください。
             success: 閉鎖を作成しました。
