@@ -78,8 +78,8 @@ shared_examples "proposals wizards" do |options|
 
         it "shows similar proposals" do
           expect(page).to have_content("Similar Proposals (2)")
-          expect(page).to have_css(".proposal-list-item", text: "More sidewalks and less roads")
-          expect(page).to have_css(".proposal-list-item", count: 2)
+          expect(page).to have_css("[id^='proposals__proposal']", text: "More sidewalks and less roads")
+          expect(page).to have_css("[id^='proposals__proposal']", count: 2)
         end
 
         it "show continue button" do

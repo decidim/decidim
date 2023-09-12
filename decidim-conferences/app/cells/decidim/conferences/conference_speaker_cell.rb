@@ -2,7 +2,7 @@
 
 module Decidim
   module Conferences
-    # This cell renders the card for an instance of an Conference Speaker
+    # This cell renders the card for an instance of a Conference Speaker
     class ConferenceSpeakerCell < Decidim::AuthorCell
       include Decidim::Meetings::MeetingCellsHelper
       include Cell::ViewModel::Partial

@@ -17,7 +17,7 @@ module Decidim
 
           @query = params[:q]
           @status = params[:status]
-          @conference_invites = Decidim::Conferences::Admin::ConferenceInvites.for(current_participatory_space.conference_invites, @query, @status).page(params[:page]).per(15)
+          @conference_invites = Decidim::Admin::Invites.for(current_participatory_space.conference_invites, @query, @status).page(params[:page]).per(15)
         end
 
         def new

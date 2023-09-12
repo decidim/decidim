@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Defines a relation between a user and an conference, and what kind of relation
+  # Defines a relation between a user and a Conference, and what kind of relation
   # does the user have.
   class ConferenceUserRole < ApplicationRecord
     include Traceable

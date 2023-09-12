@@ -47,7 +47,11 @@
     }
 
     input:focus ~ &-content {
-      @apply outline outline-tertiary outline-offset-2 outline-1 transition-none;
+      @apply outline outline-alert outline-offset-2 transition-none;
+    }
+
+    input:focus:checked ~ &-content {
+      @apply outline-success;
     }
 
     input:checked ~ &-content {

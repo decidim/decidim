@@ -392,7 +392,7 @@ module Decidim
 
   # Social Networking services used for social sharing
   config_accessor :social_share_services do
-    %w(Twitter Facebook WhatsApp Telegram)
+    %w(X Facebook WhatsApp Telegram)
   end
 
   # If set to true redesigned versions of layouts and cells will be used by

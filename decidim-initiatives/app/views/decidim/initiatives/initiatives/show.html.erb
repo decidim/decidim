@@ -146,6 +146,17 @@ edit_link(
 
 <%= participatory_space_floating_help %>
 
+<% if current_initiative.created? %>
+  <% if allowed_to? :send_to_technical_validation, :initiative, initiative: current_initiative %>
+    <%= cell("decidim/announcement", t(".send_to_technical_validation_announcement"), callout_class: "success") %>
+  <% else %>
+    <%= cell("decidim/announcement", t(".before_send_to_technical_validation_announcement",
+                                       count: current_initiative.missing_committee_members,
+                                       href: link_to(new_initiative_committee_request_url(current_initiative),
+                                                     new_initiative_committee_request_path(current_initiative))), callout_class: "warning") %>
+  <% end %>
+<% end %>
+
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 
 <section class="layout-main__section layout-main__heading">
@@ -200,10 +211,10 @@ edit_link(
   </div>
 </section>
 
-<section class="layout-main__section">
+<section class="layout-main__section layout-item__aside--footer">
   <%= comments_for current_initiative if current_initiative.commentable? && current_initiative.published? %>
-  <ul class="drawer-metadata__container layout-main__section" data-metadata-footer>
-    <%= content_tag :li, resource_reference(current_initiative), class: "drawer-metadata__item" %>
-    <%= content_tag :li, resource_version(current_initiative, versions_path: initiative_version_path(current_initiative, current_initiative.versions.count)), class: "drawer-metadata__item" %>
+  <ul class="metadata__container layout-main__section" data-metadata-footer>
+    <%= content_tag :li, resource_reference(current_initiative), class: "metadata__item" %>
+    <%= content_tag :li, resource_version(current_initiative, versions_path: initiative_version_path(current_initiative, current_initiative.versions.count)), class: "metadata__item" %>
   </ul>
 </section>

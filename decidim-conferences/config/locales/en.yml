@@ -63,7 +63,7 @@ en:
         personal_url: Personal URL
         position: Position
         short_bio: Short bio
-        twitter_handle: Twitter handle
+        twitter_handle: X handle
         user_id: User
       conference_user_role:
         email: Email
@@ -435,7 +435,7 @@ en:
           invalid: There was a problem leaving this conference.
           success: You have successfully left the conference.
       conference_speaker:
-        go_to_twitter: Go to Twitter
+        go_to_twitter: Go to X
         more_info: more info
         personal_website: Personal website
         show:
@@ -456,6 +456,7 @@ en:
         show:
           login_as: You are logged in as %{name} <%{email}>
           make_conference_registration: Register for the conference
+          manage_registration: Manage registration
           register: Register
       content_blocks:
         highlighted_conferences:
@@ -568,6 +569,7 @@ en:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Manage registration
         register: Register
       conferences:
         conference:

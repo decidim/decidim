@@ -11,7 +11,9 @@ checks:
     enabled: false
 
   identical-code:
-    enabled: false
+    enabled: true
+    exclude_patterns:
+    - "decidim_app-design/packages/"
 
   method-complexity:
     enabled: false
@@ -29,7 +31,9 @@ checks:
     enabled: false
 
   similar-code:
-    enabled: false
+    enabled: true
+    exclude_patterns:
+      - "decidim-*/lib/decidim/*/admin_engine.rb"
 
 plugins:
   bundler-audit:
@@ -62,7 +66,9 @@ plugins:
       - 4cd229a46c20efb3b58249cd528bc66c
 
     exclude_patterns:
+      - "decidim-*/lib/decidim/*/admin_engine.rb"
       - "decidim-*/spec/**/*"
+      - "**/eslint-config/index.js"
 
   eslint:
     enabled: false
