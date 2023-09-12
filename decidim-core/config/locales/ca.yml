@@ -621,6 +621,11 @@ ca:
           title: Notificacions de butlletins
         omniauth_buttons:
           or: O
+        password_fields:
+          hidden_password: La contrasenya està amagada
+          hide_password: Amagar contrasenya
+          show_password: Mostrar contrasenya
+          shown_password: La contrasenya és visible
     doorkeeper:
       authorizations:
         new:
