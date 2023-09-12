@@ -398,7 +398,6 @@ it:
           already_have_an_account?: Hai già un account?
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
-          nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
           sign_in: Accedi
           sign_up: Registrati
           subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
