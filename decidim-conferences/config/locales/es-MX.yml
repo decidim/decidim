@@ -62,6 +62,7 @@ es-MX:
         personal_url: URL personal
         position: Cargo
         short_bio: Breve biografía
+        twitter_handle: Cuenta en X
         user_id: Usuaria
       conference_user_role:
         email: Correo electrónico
@@ -433,6 +434,7 @@ es-MX:
           invalid: Ha habido un problema al abandonar esta conferencia.
           success: Has abandonado la conferencia con éxito.
       conference_speaker:
+        go_to_twitter: Ir a X
         more_info: más información
         personal_website: Sitio web personal
         show:
