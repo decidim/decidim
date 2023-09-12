@@ -576,7 +576,6 @@ ja:
           already_have_an_account?: 既にアカウントをお持ちですか？
           newsletter: 関連するお知らせを受け取る
           newsletter_title: ニュースレターを受け取る
-          nickname_help: '%{organization} でのニックネームです。文字、数字、''-'' および ''_'' のみを使用できます。'
           sign_in: ログイン
           sign_up: 新規登録
           subtitle: 参加するにはユーザ登録をしてください。
