@@ -470,7 +470,6 @@ pl:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
-          nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
           sign_in: Zaloguj się
           sign_up: Zarejestruj się
           subtitle: Zarejestruj się, aby brać udział w dyskusjach i wspierać propozycje.
