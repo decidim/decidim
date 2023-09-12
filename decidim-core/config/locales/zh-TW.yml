@@ -523,7 +523,6 @@ zh-TW:
           already_have_an_account?: 已經有帳號了嗎？
           newsletter: 偶爾收到包含相關信息的時事通訊。
           newsletter_title: 聯絡人權限
-          nickname_help: 在 %{organization} 中的別名。只能包含字母、數字、'-' 和 '_'。
           sign_in: 登入
           sign_up: 註冊登記
           subtitle: 註冊以參與討論並支持提案。
