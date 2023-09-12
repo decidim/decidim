@@ -51,25 +51,25 @@ module Decidim
       end
 
       def participatory_process_user_role?
-        return false unless defined?(Decidim::ParticipatoryProcessUserRole)
+        return false unless Decidim.module_installed?(:participatory_process)
 
         true if Decidim::ParticipatoryProcessUserRole.exists?(user: current_user)
       end
 
       def assembly_user_role?
-        return false unless defined?(Decidim::AssemblyUserRole)
+        return false unless Decidim.module_installed?(:assemblies)
 
         true if Decidim::AssemblyUserRole.exists?(user: current_user)
       end
 
       def conference_user_role?
-        return false unless defined?(Decidim::ConferenceUserRole)
+        return false unless Decidim.module_installed?(:conferences)
 
         true if Decidim::ConferenceUserRole.exists?(user: current_user)
       end
 
       def voting_monitoring_commitee_member?
-        return false unless defined?(Decidim::Votings::MonitoringCommitteeMember)
+        return false unless Decidim.module_installed?(:elections)
 
         true if Decidim::Votings::MonitoringCommitteeMember.exists?(user: current_user)
       end
