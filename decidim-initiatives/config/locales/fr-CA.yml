@@ -527,11 +527,13 @@ fr-CA:
           initiative_rejected_reason: Cette initiative a été rejetée car elle n'a pas atteint le nombre de signatures requis dans le délai de collecte.
         show:
           area: Périmètre d'assemblée
+          before_send_to_technical_validation_announcement: 'Avant d''envoyer votre pétition à la validation technique, vous devez inviter %{count} membres du comité de promotion. <br/><br/>Partagez ce lien avec les personnes que vous souhaitez voir faire partie de votre comité : %{href}'
           confirm: Vous allez envoyer la pétition à un administrateur pour qu'il la consulte et la publie. Une fois publiée, vous ne serez plus en mesure de l'éditer. Êtes-vous sûr que votre pétition est prête ?
           edit: Modifier
           initiative_data: Données de la pétition
           scope: Secteur
           send_to_technical_validation: Envoyer à la validation technique
+          send_to_technical_validation_announcement: Si tout semble correct, cliquez sur "Envoyer à la validation technique" pour qu'un administrateur puisse relire et publier votre pétition
           signature_collection: Collecte de signatures
           state: État
           type: Type
