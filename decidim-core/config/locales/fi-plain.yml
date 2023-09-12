@@ -593,7 +593,6 @@ fi-pl:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           newsletter: Vastaanota silloin tällöin olennaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
-          nickname_help: Nimimerkkisi palvelussa %{organization}. Voi sisältää ainoastaan kirjaimia, numeroita sekä yhdysmerkkejä "-" ja alaviivoja "_".
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           subtitle: Rekisteröidy osallistuaksesi keskusteluihin ja kannattaaksesi ehdotuksia.
