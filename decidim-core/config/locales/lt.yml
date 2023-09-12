@@ -569,7 +569,7 @@ lt:
           already_have_an_account?: Jau turite paskyrą?
           newsletter: Kartais gauti naujienlaiškį su aktualia informacija
           newsletter_title: Leidimas susisiekti
-          nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai, „-“ ir „_“.
+          nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai ir brūkšneliai.
           sign_in: Prisijungti
           sign_up: Užsiregistruoti
           sign_up_as:
