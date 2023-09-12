@@ -593,7 +593,6 @@ es-PY:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
           sign_in: Entra
           sign_up: Regístrate
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
@@ -624,6 +623,11 @@ es-PY:
           title: Notificaciones de boletines
         omniauth_buttons:
           or: O
+        password_fields:
+          hidden_password: Tu contraseña está oculta
+          hide_password: Ocultar contraseña
+          show_password: Mostrar contraseña
+          shown_password: La contraseña es visible
     doorkeeper:
       authorizations:
         new:
@@ -1920,10 +1924,15 @@ es-PY:
         mark_as_read: Marcar como leído
       offline_banner:
         cache_version_page: '¡Ups! Tu red está desconectada. Esta es una versión previa en caché de la página que estás visitando, quizás el contenido no está actualizado.'
+      shared:
+        layout_item:
+          next: Siguiente tema
+          prev: Tema anterior
       social_media_links:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"
         instagram: "%{organization} en Instagram"
+        x: "%{organization} en X"
         youtube: "%{organization} en YouTube"
       timeout_modal:
         body: Has estado sin actividad durante %{minutes} minutos. Si sigues estando inactivo, serás desconectado automáticamente por tu propia seguridad.
@@ -1996,6 +2005,7 @@ es-PY:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x:
     xing: Xing
   time:
     formats:
