@@ -649,7 +649,10 @@ en:
         ready: Ready
       show:
         download_data: Download the data
-        download_data_description: A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>. This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS). If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
+        download_data_description_html: |-
+          A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>.
+          This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS).
+          If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Request data
     editor_images:
       create:
