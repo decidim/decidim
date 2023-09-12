@@ -404,7 +404,6 @@
           already_have_an_account?: Har du allerede en bruker?
           newsletter: Motta et sporadisk nyhetsbrev med relevant informasjon
           newsletter_title: Kontakt tillatelse
-          nickname_help: Ditt alias i %{organization}, kan bare inneholde bokstaver, tall, '-' og '_'.
           sign_in: Logg inn
           sign_up: Registrer deg
           subtitle: Registrer deg for å delta i diskusjoner og medvirkningsprosesser.
