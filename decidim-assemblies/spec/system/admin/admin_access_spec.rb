@@ -2,6 +2,8 @@
 
 require "spec_helper"
 
+require "decidim/admin/test/admin_participatory_space_access_examples"
+
 describe "AdminAccess", type: :system do
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:assembly, organization:, title: { en: "My space" }) }

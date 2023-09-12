@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/admin/test/admin_participatory_space_access_examples"
 require "decidim/admin/test/manage_attachments_examples"
 require "decidim/admin/test/manage_attachment_collections_examples"
 require "decidim/admin/test/manage_categories_examples"
