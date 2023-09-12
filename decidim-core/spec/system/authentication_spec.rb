@@ -20,7 +20,6 @@ describe "Authentication", type: :system do
           fill_in :registration_user_email, with: "user@example.org"
           fill_in :registration_user_name, with: "Responsible Citizen"
           fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
-          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :registration_user_tos_agreement
           check :registration_user_newsletter
           find("*[type=submit]").click
@@ -44,7 +43,6 @@ describe "Authentication", type: :system do
           fill_in :registration_user_email, with: "user@example.org"
           fill_in :registration_user_name, with: "Responsible Citizen"
           fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
-          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :registration_user_tos_agreement
           check :registration_user_newsletter
           find("*[type=submit]").click
@@ -64,7 +62,6 @@ describe "Authentication", type: :system do
           fill_in :registration_user_email, with: "user@example.org"
           fill_in :registration_user_name, with: "Responsible Citizen"
           fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
-          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :registration_user_tos_agreement
           check :registration_user_newsletter
           find("*[type=submit]").click
@@ -143,7 +140,7 @@ describe "Authentication", type: :system do
         it "redirects the user to a finish signup page" do
           click_link("Sign Up")
 
-          find(".button--twitter").click
+          find(".button--x").click
 
           expect(page).to have_content("Successfully")
           expect(page).to have_content("Please complete your profile")
@@ -159,7 +156,7 @@ describe "Authentication", type: :system do
             create(:user, :confirmed, email: "user@from-twitter.com", organization:)
             click_link("Sign Up")
 
-            find(".button--twitter").click
+            find(".button--x").click
 
             expect(page).to have_content("Successfully")
             expect(page).to have_content("Please complete your profile")
@@ -180,7 +177,7 @@ describe "Authentication", type: :system do
 
         it "creates a new User" do
           click_link("Sign Up")
-          find(".login__omniauth-button.button--twitter").click
+          find(".login__omniauth-button.button--x").click
 
           expect_user_logged
         end
@@ -232,7 +229,6 @@ describe "Authentication", type: :system do
           fill_in :registration_user_email, with: "user@example.org"
           fill_in :registration_user_name, with: "Responsible Citizen"
           fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
-          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :registration_user_tos_agreement
           check :registration_user_newsletter
           find("*[type=submit]").click
@@ -374,7 +370,6 @@ describe "Authentication", type: :system do
 
         within ".new_user" do
           fill_in :password_user_password, with: "DfyvHn425mYAy2HL"
-          fill_in :password_user_password_confirmation, with: "DfyvHn425mYAy2HL"
           find("*[type=submit]").click
         end
 
@@ -387,7 +382,6 @@ describe "Authentication", type: :system do
 
         within ".new_user" do
           fill_in :password_user_password, with: "whatislove"
-          fill_in :password_user_password_confirmation, with: "whatislove"
           find("*[type=submit]").click
         end
 
@@ -402,12 +396,10 @@ describe "Authentication", type: :system do
 
         within ".new_user" do
           fill_in :password_user_password, with: "example"
-          fill_in :password_user_password_confirmation, with: "example"
           find("*[type=submit]").click
         end
 
         expect(page).to have_content("The password is too short.")
-        expect(page).to have_content("Password confirmation must match the password.")
       end
     end
 
@@ -628,7 +620,6 @@ describe "Authentication", type: :system do
             fill_in :registration_user_email, with: user.email
             fill_in :registration_user_name, with: "Responsible Citizen"
             fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
-            fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
             check :registration_user_tos_agreement
             check :registration_user_newsletter
             find("*[type=submit]").click

@@ -41,7 +41,7 @@ module Decidim::Conferences
     end
 
     context "when everything is ok" do
-      it "duplicates an conference" do
+      it "duplicates a conference" do
         expect { subject.call }.to change(Decidim::Conference, :count).by(1)
 
         old_conference = Decidim::Conference.first
@@ -86,7 +86,7 @@ module Decidim::Conferences
     context "when copy_components exists" do
       let(:copy_components) { true }
 
-      it "duplicates an conference and the components" do
+      it "duplicates a conference and the components" do
         dummy_hook = proc {}
         component.manifest.on :copy, &dummy_hook
         expect(dummy_hook).to receive(:call).with({ new_component: an_instance_of(Decidim::Component), old_component: component })

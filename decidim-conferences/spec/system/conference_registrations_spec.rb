@@ -93,6 +93,22 @@ describe "Conference registrations", type: :system do
         login_as user, scope: :user
       end
 
+      it "shows register buttons" do
+        visit_conference
+
+        within ".conference__hero" do
+          expect(page).to have_content "Register"
+        end
+
+        within ".conference__content-block" do
+          expect(page).to have_content "Register"
+        end
+
+        within ".conference__box" do
+          expect(page).to have_content "Register"
+        end
+      end
+
       it "they can join the conference" do
         visit_conference_registration_types
 
@@ -117,6 +133,22 @@ describe "Conference registrations", type: :system do
     before do
       create(:conference_registration, conference:, user:, registration_type:)
       login_as user, scope: :user
+    end
+
+    it "shows manage registration buttons" do
+      visit_conference
+
+      within ".conference__hero" do
+        expect(page).to have_content "Manage registration"
+      end
+
+      within ".conference__content-block" do
+        expect(page).to have_content "Manage registration"
+      end
+
+      within ".conference__box" do
+        expect(page).to have_content "Manage registration"
+      end
     end
 
     it "they can leave the conference" do

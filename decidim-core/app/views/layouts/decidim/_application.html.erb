@@ -8,6 +8,7 @@
 
   <body class="text-black text-md form-defaults">
     <!--noindex--><!--googleoff: all-->
+    <%= link_to t("skip_button", scope: "decidim.accessibility"), "#content", class: "layout-container__skip" %>
     <%= cell("decidim/data_consent", current_organization) %>
     <%= render partial: "layouts/decidim/impersonation_warning" %>
     <%= render partial: "layouts/decidim/omnipresent_banner" %>

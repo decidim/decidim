@@ -138,7 +138,7 @@ module Decidim
       describe "initiativeVotesCount" do
         let(:query) { "{ initiativeVotesCount }" }
 
-        it "has a initiativeVotesCount" do
+        it "has an initiativeVotesCount" do
           expect(response).to include("initiativeVotesCount" => model.online_votes_count)
         end
       end
@@ -146,7 +146,7 @@ module Decidim
       describe "initiativeSupportsCount" do
         let(:query) { "{ initiativeSupportsCount }" }
 
-        it "has a initiativeSupportsCount" do
+        it "has an initiativeSupportsCount" do
           expect(response).to include("initiativeSupportsCount" => model.supports_count)
         end
       end

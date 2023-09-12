@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     module Admin
-      # A command that sets an conference as published.
+      # A command that sets a Conference as published.
       class PublishConference < Decidim::Command
         # Public: Initializes the command.
         #

@@ -10,7 +10,6 @@ def fill_registration_form(
   fill_in :registration_user_name, with: name
   fill_in :registration_user_email, with: email
   fill_in :registration_user_password, with: password
-  fill_in :registration_user_password_confirmation, with: password
 end
 
 describe "Registration", type: :system do
@@ -29,7 +28,6 @@ describe "Registration", type: :system do
         expect(page).to have_field("registration_user_name", with: "")
         expect(page).to have_field("registration_user_email", with: "")
         expect(page).to have_field("registration_user_password", with: "")
-        expect(page).to have_field("registration_user_password_confirmation", with: "")
         expect(page).to have_field("registration_user_newsletter", checked: false)
       end
     end

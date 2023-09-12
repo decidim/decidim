@@ -1,5 +1,5 @@
 <% if profile_path? %>
-  <%= link_to display_name, profile_path, class: "author__name" %>
+  <%= link_to display_name, profile_path, class: "author__name underline" %>
 <% else %>
   <%= content_tag :span, display_name, class: "author__name" %>
 <% end %>

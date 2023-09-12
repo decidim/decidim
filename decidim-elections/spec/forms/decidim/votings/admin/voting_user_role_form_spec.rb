@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Votings
     module Admin
-      describe MonitoringCommitteeMemberForm do
+      describe VotingUserRoleForm do
         subject(:form) { described_class.from_params(attributes).with_context(context) }
 
         let(:organization) { create(:organization) }
