@@ -526,7 +526,6 @@ hu:
           already_have_an_account?: Már van egy fiókod?
           newsletter: Hírlevél fogadása a legfontosabb információkkal
           newsletter_title: Kapcsolatfelvételi engedély
-          nickname_help: A beceneved itt %{organization} csak betűket, számokat '-' és '_' jeleket tartalmazhat.
           sign_in: Belépés
           sign_up: Regisztráció
           subtitle: Jelentkezz be, hogy javaslatokat tudj megvitatni és támogatni.
