@@ -421,7 +421,6 @@ pt-BR:
           already_have_an_account?: Você já tem uma conta?
           newsletter: Receba um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contato
-          nickname_help: Seu alias em %{organization}. Só pode conter letras, números, '-' e '_'.
           sign_in: Iniciar sessão
           sign_up: Inscreva-se
           subtitle: Inscreva-se para participar de discussões e propostas de suporte.
