@@ -629,6 +629,11 @@ en:
           title: Newsletter notifications
         omniauth_buttons:
           or: Or
+        password_fields:
+          hidden_password: Your password is hidden
+          hide_password: Hide password
+          show_password: Show password
+          shown_password: Your password is shown
     doorkeeper:
       authorizations:
         new:
@@ -1926,11 +1931,15 @@ en:
         mark_as_read: Mark as read
       offline_banner:
         cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you are visiting, perhaps the content is not up to date.
+      shared:
+        layout_item:
+          next: Next item
+          prev: Previous item
       social_media_links:
         facebook: "%{organization} at Facebook"
         github: "%{organization} at GitHub"
         instagram: "%{organization} at Instagram"
-        twitter: "%{organization} at Twitter"
+        x: "%{organization} at X"
         youtube: "%{organization} at YouTube"
       timeout_modal:
         body: You have been inactive for %{minutes} minutes. If you continue being inactive, you will be automatically signed out for your own security.
@@ -2003,6 +2012,7 @@ en:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
