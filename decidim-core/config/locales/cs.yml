@@ -627,7 +627,6 @@ cs:
           already_have_an_account?: Máte již účet?
           newsletter: Chci dostávat příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
-          nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
           sign_in: Přihlásit se
           sign_up: Zaregistrovat se
           subtitle: Registrujte se, abyste se mohli účastnit Diskusí a podpořit Návrhy.
