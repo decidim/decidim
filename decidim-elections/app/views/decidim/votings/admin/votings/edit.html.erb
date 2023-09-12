@@ -5,19 +5,13 @@
                      html: { class: "form edit_voting" } do |f| %>
   <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
-    <%= f.submit t("votings.edit.update", scope: "decidim.votings.admin"), class: "button", disabled: !allowed_to?(:update, :voting, voting: current_voting) %>
+    <%= f.submit t("votings.edit.update", scope: "decidim.votings.admin"), class: "button", disabled: !allowed_to?(:update, :voting, voting: @current_voting) %>
 
     <% if allowed_to? :publish, :voting, voting: @current_voting %>
       <% if @current_voting.published? %>
-        <%= link_to t("votings.actions.unpublish", scope: "decidim.votings.admin"),
-                    url_for(action: :unpublish, id: @current_voting, controller: "votings"),
-                    method: :put,
-                    class: "button muted" %>
+        <%= link_to t("actions.unpublish", scope: "decidim.admin"), voting_publish_path(@current_voting), method: :delete, class: "button muted" %>
       <% else %>
-        <%= link_to t("votings.actions.publish", scope: "decidim.votings.admin"),
-                    url_for(action: :publish, id: @current_voting, controller: "votings"),
-                    method: :put,
-                    class: "button hollow" %>
+        <%= link_to t("actions.publish", scope: "decidim.admin"), voting_publish_path(@current_voting), method: :post, class: "button hollow" %>
       <% end %>
     <% end %>
 

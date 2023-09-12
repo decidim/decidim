@@ -353,14 +353,14 @@ module Decidim
       let(:options) { {} }
 
       it "renders the input type password" do
-        expect(output).to eq('<label for="resource_password">Password<input autocomplete="off" type="password" name="resource[password]" id="resource_password" /></label>')
+        expect(output).to eq('<label for="resource_password">Password<input autocomplete="off" class="input-group-field" type="password" name="resource[password]" id="resource_password" /></label>')
       end
 
       context "when autocomplete attribute is defined" do
         let(:options) { { autocomplete: "new-password" } }
 
         it "renders the input type password with given autocomplete attribute" do
-          expect(output).to eq('<label for="resource_password">Password<input autocomplete="new-password" type="password" name="resource[password]" id="resource_password" /></label>')
+          expect(output).to eq('<label for="resource_password">Password<input autocomplete="new-password" class="input-group-field" type="password" name="resource[password]" id="resource_password" /></label>')
         end
       end
     end
