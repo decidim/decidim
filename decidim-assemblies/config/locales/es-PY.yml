@@ -58,6 +58,7 @@ es-PY:
         subtitle: Subtítulo
         target: Quién participa
         title: Título
+        twitter:
         weight: Orden de posición
         youtube: Youtube
       assembly_member:
