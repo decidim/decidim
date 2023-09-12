@@ -621,6 +621,11 @@ es:
           title: Notificaciones de boletines
         omniauth_buttons:
           or: O
+        password_fields:
+          hidden_password: Tu contraseña está oculta
+          hide_password: Ocultar contraseña
+          show_password: Mostrar contraseña
+          shown_password: La contraseña es visible
     doorkeeper:
       authorizations:
         new:
