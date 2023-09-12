@@ -527,11 +527,13 @@ ca:
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per falta de signatures.
         show:
           area: Àrea
+          before_send_to_technical_validation_announcement: 'Abans d''enviar la teva iniciativa a validació tècnica, has d''afegir %{count} membres més a la comissió promotora.<br/><br/>Comparteix aquest enllaç amb les persones que vulguis que siguin part de la comissió: %{href}'
           confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. Segur?
           edit: Editar
           initiative_data: Dades sobre la iniciativa
           scope: Àmbit
           send_to_technical_validation: Enviar a validació tècnica
+          send_to_technical_validation_announcement: Si tot sembla correcte, fes clic a "Enviar a validació tècnica" perquè una administradora revisi i publiqui la teva iniciativa
           signature_collection: Signatures recollides
           state: Estat
           type: Tipus
