@@ -1974,6 +1974,10 @@ cs:
         mark_as_read: Označit jako přečtené
       offline_banner:
         cache_version_page: Jejda! Vaše síť je offline. Toto je dříve uložená verze stránky, kterou navštívíte, možná není aktualizovaná.
+      shared:
+        layout_item:
+          next: Další položka
+          prev: Předchozí položka
       social_media_links:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubu"
