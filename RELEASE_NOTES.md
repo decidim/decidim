@@ -292,7 +292,7 @@ You can read more about this change on PR [\#9026](https://github.com/decidim/de
 
 As the gem that we were using for sharing to Social Network do not support Webpacker, we have implemented the same functionality in `decidim-core`.
 
-If you want to have the default social share services enabled (Twitter, Facebook, WhatsApp and Telegram), then you can just remove the initializer in your application:
+If you want to have the default social share services enabled (X/Twitter, Facebook, WhatsApp and Telegram), then you can just remove the initializer in your application:
 
 ```console
 rm config/initializers/social_share_button.rb

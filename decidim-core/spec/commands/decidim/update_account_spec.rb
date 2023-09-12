@@ -12,7 +12,6 @@ module Decidim
         nickname: user.nickname,
         email: user.email,
         password: nil,
-        password_confirmation: nil,
         avatar: nil,
         remove_avatar: nil,
         personal_url: "https://example.org",
@@ -27,7 +26,6 @@ module Decidim
         nickname: data[:nickname],
         email: data[:email],
         password: data[:password],
-        password_confirmation: data[:password_confirmation],
         avatar: data[:avatar],
         remove_avatar: data[:remove_avatar],
         personal_url: data[:personal_url],
@@ -129,7 +127,6 @@ module Decidim
 
         before do
           form.password = "pNY6h9crVtVHZbdE"
-          form.password_confirmation = "pNY6h9crVtVHZbdE"
         end
 
         it "updates the password" do
