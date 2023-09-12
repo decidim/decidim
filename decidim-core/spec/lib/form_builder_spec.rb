@@ -382,7 +382,16 @@ module Decidim
           builder.check_box :name, help_text: "This is the help"
         end
 
-        it_behaves_like "having a help text"
+        it "renders the help text" do
+          expect(parsed.css(".help-text")).not_to be_empty
+        end
+
+        # Mind that we are not using the "having a help text" shared example
+        # for #check_box, as in this case we actually want to show it after
+        # the input
+        it "renders the help text after the field" do
+          expect(parsed.to_s.index("help-text")).to be > parsed.to_s.index(field)
+        end
       end
     end
 
