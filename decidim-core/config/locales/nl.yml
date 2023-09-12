@@ -395,7 +395,6 @@ nl:
           already_have_an_account?: Heb je al een account?
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
-          nickname_help: Je alias in %{organization}. Kan alleen letters, cijfers, '-' en '_' bevatten.
           sign_in: Aanmelden
           sign_up: Registratie
           subtitle: Meld je aan om deel te nemen aan discussies en om voorstellen te steunen.
