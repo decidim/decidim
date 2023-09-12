@@ -38,6 +38,9 @@ en:
         user_group_id: Create imports as
       newsletter:
         body: Body
+        send_to_all_users: Send to all users
+        send_to_followers: Send to followers
+        send_to_participants: Send to participants
         subject: Subject
       organization:
         admin_terms_of_service_body: Body for the admin terms of service
@@ -754,9 +757,6 @@ en:
           select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
           select_spaces: Select spaces to segment the newsletter
           select_users: Select which users you want to send the newsletter
-          send_to_all_users: Send to all users
-          send_to_followers: Send to followers
-          send_to_participants: Send to participants
           title: Select recipients to deliver
           warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."
         send:
