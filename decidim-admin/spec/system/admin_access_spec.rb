@@ -6,26 +6,12 @@ require "decidim/admin/test/admin_participatory_space_access_examples"
 
 describe "AdminAccess", type: :system do
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, organization:, title: { en: "My process" }) }
+  let(:participatory_process) { create(:participatory_process, organization:, title: { en: "My space" }) }
   let(:other_participatory_process) { create(:participatory_process, organization:) }
 
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-  end
-
-  shared_examples "showing the page" do
-    it "shows the page" do
-      expect(page).to have_content("View public page")
-      expect(page).to have_content("My process")
-    end
-  end
-
-  shared_examples "showing the unauthorized error message" do
-    it "redirects to the relevant unauthorized page" do
-      expect(page).to have_content("You are not authorized to perform this action")
-      expect(page).to have_current_path("/admin/")
-    end
   end
 
   context "when the user is a normal user" do
