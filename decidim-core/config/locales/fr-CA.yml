@@ -627,6 +627,11 @@ fr-CA:
           title: Inscription à la newsletter
         omniauth_buttons:
           or: Ou
+        password_fields:
+          hidden_password: Votre mot de passe est masqué
+          hide_password: Masquer le mot de passe
+          show_password: Montrer le mot de passe
+          shown_password: Votre mot de passe est affiché
     doorkeeper:
       authorizations:
         new:
@@ -1927,6 +1932,7 @@ fr-CA:
         facebook: "%{organization} sur Facebook"
         github: "%{organization} sur GitHub"
         instagram: "%{organization} sur Instagram"
+        x: "%{organization} sur X"
         youtube: "%{organization} sur YouTube"
       timeout_modal:
         body: Vous avez été inactif pendant %{minutes} minutes. Si vous continuez à être inactif, vous serez automatiquement déconnecté pour votre propre sécurité.
@@ -1999,6 +2005,7 @@ fr-CA:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
