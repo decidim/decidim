@@ -54,7 +54,7 @@ module Decidim
       end
     end
 
-    # Public: Generates an form field for each locale.
+    # Public: Generates a form field for each locale.
     #
     # type - The form field's type, like `text_area` or `text_input`
     # name - The name of the field
@@ -97,6 +97,7 @@ module Decidim
     def password_field(attribute, options = {})
       field attribute, options do |opts|
         opts[:autocomplete] ||= :off
+        opts[:class] ||= "input-group-field"
         method(__method__).super_method.super_method.call(attribute, opts)
       end
     end
@@ -130,7 +131,7 @@ module Decidim
       end
     end
 
-    # Public: Generates an form field for each social.
+    # Public: Generates a form field for each social.
     #
     # type - The form field's type, like `text_area` or `text_input`
     # name - The name of the field

@@ -17,7 +17,6 @@ module Decidim
     let(:nickname) { "justme" }
     let(:email) { "user@example.org" }
     let(:password) { "S4CGQ9AM4ttJdPKS" }
-    let(:password_confirmation) { password }
     let(:tos_agreement) { "1" }
 
     let(:attributes) do
@@ -26,7 +25,6 @@ module Decidim
         nickname:,
         email:,
         password:,
-        password_confirmation:,
         tos_agreement:
       }
     end
@@ -131,18 +129,6 @@ module Decidim
 
     context "when the password is weak" do
       let(:password) { "aaaabbbbcccc" }
-
-      it { is_expected.to be_invalid }
-    end
-
-    context "when the password confirmation is not present" do
-      let(:password_confirmation) { nil }
-
-      it { is_expected.to be_invalid }
-    end
-
-    context "when the password confirmation is different from password" do
-      let(:password_confirmation) { "invalid" }
 
       it { is_expected.to be_invalid }
     end

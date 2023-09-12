@@ -47,7 +47,7 @@ shared_examples "manage assembly admins examples" do
       visit current_path
     end
 
-    it "updates a assembly admin" do
+    it "updates an assembly admin" do
       within "#assembly_admins" do
         within find("#assembly_admins tr", text: other_user.email) do
           click_link "Edit"
@@ -67,7 +67,7 @@ shared_examples "manage assembly admins examples" do
       end
     end
 
-    it "deletes a assembly_user_role" do
+    it "deletes an assembly_user_role" do
       within find("#assembly_admins tr", text: other_user.email) do
         accept_confirm(admin: true) { click_link "Delete" }
       end

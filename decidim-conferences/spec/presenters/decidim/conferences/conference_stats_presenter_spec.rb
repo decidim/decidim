@@ -11,7 +11,7 @@ module Decidim
     let!(:conference) { create(:conference, organization:) }
     let!(:component) { create(:component, participatory_space: conference) }
 
-    describe "#highlighted" do
+    describe "#collection" do
       let(:manifest) do
         Decidim::ComponentManifest.new.tap do |manifest|
           manifest.name = "Test"
@@ -36,7 +36,7 @@ module Decidim
       end
 
       it "renders a collection of stats including users and proceses" do
-        expect(subject.highlighted).to include({ stat_number: 10, stat_title: :foo })
+        expect(subject.collection).to include({ stat_number: 10, stat_title: :foo })
       end
     end
 
@@ -79,14 +79,14 @@ module Decidim
       end
 
       it "return the sum of all the comments from debates, meetings and budgets" do
-        data = subject.highlighted.first
+        data = subject.collection.first
         expect(data).not_to be_nil
         expect(data[:stat_title]).to eq :comments_count
         expect(data[:stat_number]).to eq 18
       end
 
       it "contains only one stat" do
-        data = subject.highlighted.second
+        data = subject.collection.second
         expect(data).to be_nil
       end
     end

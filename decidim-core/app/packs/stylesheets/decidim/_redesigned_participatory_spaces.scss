@@ -148,7 +148,6 @@
           @apply text-white bg-secondary;
         }
 
-        &:hover &-title,
         &[aria-expanded="true"] &-title {
           @apply font-semibold;
         }

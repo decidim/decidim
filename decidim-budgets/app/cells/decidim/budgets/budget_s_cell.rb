@@ -3,7 +3,7 @@
 module Decidim
   module Budgets
     # This cell renders the Search (:s) budget card
-    # for an given instance of a Decidim::Budgets::Budget
+    # for a given instance of a Budget
     class BudgetSCell < Decidim::CardSCell
       private
 
