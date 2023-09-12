@@ -527,11 +527,13 @@ es-MX:
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de apoyo.
         show:
           area: Área
+          before_send_to_technical_validation_announcement: 'Antes de enviar tu iniciativa de validación técnica, tienes que añadir %{count} miembros más a la comisión promotora.<br/><br/>Comparte este enlace con las personas que quieres formar parte de la comisión: %{href}'
           confirm: Vas a enviar la iniciativa para que una administrador ala revise y publique. Una vez publicada no podrás editarla. ¿Estás segura?
           edit: Editar
           initiative_data: Datos sobre la iniciativa
           scope: Ámbito
           send_to_technical_validation: Enviar a validación técnica
+          send_to_technical_validation_announcement: Si todo parece correcto, haga clic en "Enviar a validación técnica" para que una administradora revise y publique tu iniciativa
           signature_collection: Firmas recogidas
           state: Estado
           type: Tipo
