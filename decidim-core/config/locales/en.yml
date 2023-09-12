@@ -1931,6 +1931,10 @@ en:
         mark_as_read: Mark as read
       offline_banner:
         cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you are visiting, perhaps the content is not up to date.
+      shared:
+        layout_item:
+          next: Next item
+          prev: Previous item
       social_media_links:
         facebook: "%{organization} at Facebook"
         github: "%{organization} at GitHub"
