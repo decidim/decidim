@@ -93,6 +93,7 @@ ca:
         tertiary_color: Terciari
         time_zone: Zona horària
         tos_version: Versió dels Termes de Servei
+        twitter_handler: Nom d'usuària a X
         user_groups_enabled: Habilitar grups
         users_registration_mode: Mode registre d'usuàries
         warning_color: Avís
@@ -818,6 +819,7 @@ ca:
           instagram: Instagram
           rich_text_editor_in_public_views_help: En algunes àrees de text, les participants podran inserir algunes etiquetes HTML amb l'editor de text enriquit.
           social_handlers: Social
+          twitter: X
           url: URL
           youtube: YouTube
         update:
