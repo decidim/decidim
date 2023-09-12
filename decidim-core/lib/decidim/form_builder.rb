@@ -180,6 +180,7 @@ module Decidim
     #           :toolbar - The String value to configure WYSIWYG toolbar. It should be 'basic' or
     #                      or 'full' (optional) (default: 'basic')
     #           :lines - The Integer to indicate how many lines should editor have (optional) (default: 10)
+    #           :help_text - The help text to display
     #           :disabled - Whether the editor should be disabled
     #
     # Renders a container with both hidden field and editor container
@@ -205,6 +206,7 @@ module Decidim
         template = ""
         template += label(name, label_text + required_for_attribute(name), for: nil) if options.fetch(:label, true)
         template += hidden_field(name, hidden_options.merge(id: nil))
+        template += content_tag(:span, options[:help_text], class: "help-text") if options[:help_text]
         template += content_tag(
           :div,
           nil,

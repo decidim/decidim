@@ -107,6 +107,15 @@ module Decidim
           expect(parsed.css(".editor .editor-container[data-toolbar='full']")).not_to be_empty
         end
       end
+
+      context "when a help text is defined" do
+        let(:field) { "editor-input" }
+        let(:output) do
+          builder.editor :slug, help_text: "This is the help"
+        end
+
+        it_behaves_like "having a help text"
+      end
     end
 
     describe "#translated" do
