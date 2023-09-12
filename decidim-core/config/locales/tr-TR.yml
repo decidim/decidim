@@ -397,7 +397,6 @@ tr:
           already_have_an_account?: Zaten hesabınız var mı?
           newsletter: Ara sıra ilgili bilgileri içeren bir haber bülteni alın
           newsletter_title: İletişim izni
-          nickname_help: Takma adınız %{organization}. Yalnızca harf, rakam, "-" ve "_" içerebilir.
           sign_in: Oturum aç
           sign_up: kaydol
           subtitle: Tartışmalara katılmak ve teklifleri desteklemek için kaydolun.
