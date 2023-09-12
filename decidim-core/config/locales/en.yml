@@ -633,6 +633,7 @@ en:
           hide_password: Hide password
           show_password: Show password
           shown_password: Your password is shown
+        placeholder_email: hi@example.org
     doorkeeper:
       authorizations:
         new:
