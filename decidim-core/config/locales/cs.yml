@@ -666,6 +666,7 @@ cs:
           hide_password: Skrýt heslo
           show_password: Zobrazit heslo
           shown_password: Vaše heslo je zobrazeno
+        placeholder_email: hi@example.org
     doorkeeper:
       authorizations:
         new:
