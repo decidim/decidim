@@ -397,7 +397,6 @@ pt:
           already_have_an_account?: Já tem uma conta?
           newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
-          nickname_help: A sua alcunha em %{organization}. Só pode conter letras, números, “-”, e “_”
           sign_in: Entrar
           sign_up: Inscreva-se
           subtitle: Inscreva-se para participar em discussões e propostas de suporte.
