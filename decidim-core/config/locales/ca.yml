@@ -590,7 +590,6 @@ ca:
           already_have_an_account?: Ja tens un compte?
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           newsletter_title: Permís de contacte
-          nickname_help: El teu àlies a %{organization}. Només pot contenir lletres, números, '-' and '_'.
           sign_in: Entra
           sign_up: Registra't
           subtitle: Crea un compte per poder participar en els debats i donar suport a les propostes.
