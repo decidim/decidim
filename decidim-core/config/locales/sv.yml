@@ -495,7 +495,6 @@ sv:
           already_have_an_account?: Har du redan ett konto?
           newsletter: Få enstaka nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
-          nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
           sign_in: Logga in
           sign_up: Registrera dig
           subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
