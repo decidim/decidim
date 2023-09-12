@@ -593,7 +593,6 @@ de:
           already_have_an_account?: Haben Sie bereits ein Konto?
           newsletter: Gelegentlich einen Newsletter mit relevanten Informationen erhalten
           newsletter_title: Kontakterlaubnis
-          nickname_help: Ihr Pseudonym in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
           sign_in: Anmelden
           sign_up: Registrieren
           subtitle: Registrieren Sie sich, um an Diskussionen teilzunehmen und Vorschläge zu unterstützen.
