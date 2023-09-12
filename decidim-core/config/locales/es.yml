@@ -590,7 +590,6 @@ es:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
           sign_in: Entra
           sign_up: Regístrate
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
