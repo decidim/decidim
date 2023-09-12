@@ -78,9 +78,9 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full"
 
     it "shows help text" do
-      expect(help_text_for("label[for*='meeting_address']")).to be_present
-      expect(help_text_for("div[data-tabs-content*='meeting-location']")).to be_present
-      expect(help_text_for("div[data-tabs-content*='meeting-location_hints']")).to be_present
+      expect(page).to have_content("used by Geocoder to find the location")
+      expect(page).to have_content("message directed to the users implying the spot to meet at")
+      expect(page).to have_content("the floor of the building if it is an in-person meeting")
     end
 
     context "when there are multiple locales" do
@@ -611,9 +611,5 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
         fill_in current_scope.find("[id$=title_en]", visible: :visible)["id"], with: service_titles[index]
       end
     end
-  end
-
-  def help_text_for(css)
-    page.find_all(css).first.sibling(".help-text")
   end
 end
