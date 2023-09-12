@@ -455,7 +455,6 @@ eu:
           already_have_an_account?: Baduzu kontu bat?
           newsletter: Jaso nahi dut noizbehinka informazio garrantzitsua duen buletina
           newsletter_title: Harremanetarako baimena
-          nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
           sign_in: Sartu
           sign_up: Erregistratu
           subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
