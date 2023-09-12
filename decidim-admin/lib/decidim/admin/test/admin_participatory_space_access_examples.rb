@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "showing the page" do
+shared_examples "accessing the participatory space" do
   it "shows the page" do
     expect(page).to have_content("View public page")
     expect(page).to have_content("My space")
@@ -35,7 +35,7 @@ shared_examples "admin participatory space access" do
         visit target_path
       end
 
-      it_behaves_like "showing the page"
+      it_behaves_like "accessing the participatory space"
     end
 
     context "and does not have permission" do
