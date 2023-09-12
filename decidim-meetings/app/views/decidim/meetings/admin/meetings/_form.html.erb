@@ -19,31 +19,28 @@
     </div>
 
     <div class="field" data-meeting-type="in_person">
-      <%= form.geocoding_field :address %>
-      <p class="help-text"><%= t(".address_help") %></p>
+      <%= form.geocoding_field :address, help_text: t(".address_help") %>
     </div>
 
     <div class="field" data-meeting-type="in_person">
-      <%= form.translated :text_area, :location %>
-      <p class="help-text"><%= t(".location_help") %></p>
+      <%= form.translated :text_area, :location, help_text: t(".location_help") %>
     </div>
 
     <div class="row column">
-      <%= form.translated :text_area, :location_hints %>
-      <p class="help-text"><%= t(".location_hints_help") %></p>
+      <%= form.translated :text_area, :location_hints, help_text: t(".location_hints_help") %>
     </div>
 
     <div class="field" data-meeting-type="online">
-      <%= form.text_field :online_meeting_url %>
-      <p class="help-text"><%= t(".online_meeting_url_help") %></p>
+      <%= form.text_field :online_meeting_url, help_text: t(".online_meeting_url_help") %>
     </div>
 
     <div class="iframe-fields">
       <div class="row column field iframe-fields--embed-type" id="meeting_iframe_embed_type" data-meeting-type="online">
         <%= form.select :iframe_embed_type,
           @form.iframe_embed_type_select,
-          { multiple: false } %>
-        <p class="help-text"><%= t(".show_embedded_iframe_help", domains: Decidim::Meetings.embeddable_services&.join(" ")) %></p>
+          { multiple: false },
+          help_text: t(".show_embedded_iframe_help", domains: Decidim::Meetings.embeddable_services&.join(" "))
+        %>
       </div>
 
       <div class="row column field iframe-fields--access-level" data-meeting-type="online-access-level">
@@ -83,8 +80,7 @@
     </div>
 
     <div class="field" id="meeting_registration_url">
-      <%= form.text_field :registration_url %>
-      <p class="help-text"><%= t(".registration_url_help") %></p>
+      <%= form.text_field :registration_url, help_text: t(".registration_url_help") %>
       <div class="callout alert">
         <%= t(".disclaimer", organization: current_component.organization.name) %>
       </div>

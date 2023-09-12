@@ -4,12 +4,10 @@
   </div>
   <div class="card-section">
     <div class="row column">
-      <%= form.text_field :code, autofocus: true %>
-    <p class="help-text"><%= t(".code_help") %></p>
+      <%= form.text_field :code, autofocus: true, help_text: t(".code_help") %>
     </div>
 
-    <%= form.label :question_ids, t(".questions") %>
-    <p class="help-text"><%= t(".questions_help") %></p>
+    <%= form.label :question_ids, t(".questions"), help_text: t(".questions_help") %>
 
     <% voting_elections.each do |election| %>
       <div class="row column">
