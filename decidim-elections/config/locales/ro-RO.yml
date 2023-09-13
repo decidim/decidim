@@ -556,7 +556,6 @@ ro:
           actions:
             confirm_destroy: Sigur dorești asta?
           form:
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces de votare. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
             title: Titlu
           new:
             create: Creează
