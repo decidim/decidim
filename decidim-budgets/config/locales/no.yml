@@ -111,7 +111,6 @@
           more_than_one: slett stemmen din på %{name} og start på nytt
           only_one: slett stemmen din og begynn på nytt.
         highlighted_cta: Stem på %{name}
-        my_budgets: Mine budsjetter
         progress: Fullfør stemmegivningen
         show: Se prosjekter
         vote: Stem
