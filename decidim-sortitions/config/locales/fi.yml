@@ -99,8 +99,6 @@ fi:
           all: Kaikki
           cancelled: Peruttu
           category: Aihepiiri
-          category_prompt: Valitse aihepiiri
-          search: Hae
           state: Tila
         linked_sortitions:
           selected_proposals: Valitut ehdotukset
