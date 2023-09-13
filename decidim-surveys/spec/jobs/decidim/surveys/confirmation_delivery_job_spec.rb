@@ -11,8 +11,8 @@ module Decidim
       let(:component) { survey.component }
       let(:user) { create(:user, organization: component.organization) }
       let(:questionnaire) { survey.questionnaire }
-      let!(:questions) { create_list(:questionnaire_question, 3, questionnaire:) }
-      let!(:answers) { questions.map { |q| create(:answer, question: q, questionnaire:) } }
+      let!(:questions) { create_list(:questionnaire_question, 3, questionnaire: questionnaire) }
+      let!(:answers) { questions.map { |q| create(:answer, question: q, questionnaire: questionnaire) } }
       let!(:collection) { [answers] }
 
       describe "queue" do

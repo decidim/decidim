@@ -6,13 +6,13 @@ require "zip"
 module Decidim
   module Surveys
     describe SurveyConfirmationMailer, type: :mailer do
-      let(:user) { create(:user, name: "Sarah Connor", organization:) }
+      let(:user) { create(:user, name: "Sarah Connor", organization: organization) }
       let!(:organization) { create(:organization) }
       let(:survey) { create(:survey) }
       let(:component) { survey.component }
       let(:questionnaire) { survey.questionnaire }
-      let!(:questions) { create_list(:questionnaire_question, 3, questionnaire:) }
-      let!(:answers) { questions.map { |q| create(:answer, question: q, questionnaire:) } }
+      let!(:questions) { create_list(:questionnaire_question, 3, questionnaire: questionnaire) }
+      let!(:answers) { questions.map { |q| create(:answer, question: q, questionnaire: questionnaire) } }
 
       describe "confirmation" do
         let(:serializer) { Decidim::Forms::UserAnswersSerializer }
