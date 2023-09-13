@@ -677,7 +677,6 @@ nl:
             update: Bijwerken
           form:
             select_a_voting_type: Selecteer een type stemming
-            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             title: Titel
             voting_type:
               hybrid: Hybride
