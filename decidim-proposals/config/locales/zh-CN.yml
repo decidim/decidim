@@ -506,6 +506,9 @@ zh-CN:
           filter: 筛选器
           filter_by: 筛选方式
           unfold: 展开...
+        index:
+          count:
+            other: "%{count} 协作草稿"
         new:
           send: 继续
         new_collaborative_draft_button:
@@ -613,6 +616,8 @@ zh-CN:
           voted: 支持的
         index:
           collaborative_drafts_list: 访问协作草稿
+          count:
+            other: "%{count} 个提议"
           new_proposal: 新提案
           see_all_withdrawn: 查看所有已撤销的提案
         new:
