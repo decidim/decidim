@@ -362,9 +362,6 @@ eu:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatuak
@@ -373,10 +370,8 @@ eu:
         participatory_process_imports:
           form:
             document_legend: Gehitu dokumentu bat
-            slug_help: 'URLko slugak prozesu horretan adierazten diren URLak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak baino ez ditu onartzen, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Erabili bideak partzialak, ez URL osoak hemen. Letrak, zenbakiak, marrak eta barrak onartzen ditu eta gutun batekin hasi behar duzu. Ezartzen bada, botoia ez da agertuko. Adibidea: %{url}'
             cta_text_help: Ezartzen bada, botoia ez da agertuko.
         participatory_processes:
           form:
@@ -389,7 +384,6 @@ eu:
             related_processes: Elkarrekin lotutako prozesuak
             select_an_area: Hautatu eremu bat
             select_process_group: Hautatu prozesu talde bat
-            slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
             title: Informazio orokorra
             visbility: ikusgarritasuna
       content_blocks:
