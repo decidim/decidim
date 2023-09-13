@@ -646,7 +646,6 @@ es:
         ready: Listo
       show:
         download_data: Descárgate los datos
-        download_data_description: Se enviará un archivo con toda la información asociada a tu cuenta a <strong>%{user_email}</strong>. Este correo electrónico contendrá un archivo .zip y una contraseña para abrirlo.<br/><br/>Para descomprimir el archivo, necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) o <a href="https://www.keka.io/">Keka</a> (para MacOS). Si usas Linux, la mayoría de las veces lo tendrás instalado por defecto. Si no, puedes utilizar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Solicita datos
     editor_images:
       create:
@@ -1600,6 +1599,8 @@ es:
       last_attempt: Tienes un intento más antes de que tu cuenta se bloquee.
       locked: Tu cuenta está bloqueada.
       not_found_in_database: '%{authentication_keys} o contraseña no son válidos.'
+      timeout: Tu sesión expiró. Por favor, vuelve a iniciarla para continuar.
+      unauthenticated: Debes iniciar sesión o registrarte antes de continuar.
     invitations:
       edit:
         header: Termina de crear tu cuenta
@@ -1661,6 +1662,7 @@ es:
         action: Desbloquear mi cuenta
         greeting: '¡Hola %{recipient}!'
         instruction: 'Haz clic en el siguiente enlace para desbloquear tu cuenta:'
+        message: Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos fallidos de inicio de sesión.
         subject: Desbloquear instrucciones
     omniauth_callbacks:
       failure: No puedes autenticarte desde %{kind} porque "%{reason}".
@@ -1691,12 +1693,20 @@ es:
       signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a tu dirección de correo electrónico. Por favor, sigue el enlace para activar tu cuenta.
       update_needs_confirmation: Has actualizado tu cuenta con éxito, pero necesitamos verificar tu nueva dirección. Verifica tu bandeja de entrada y sigue el enlace para confirmar tu nueva dirección de correo electrónico.
       updated: Tu cuenta se ha actualizado correctamente.
+    sessions:
+      already_signed_out: La sesión se ha cerrado correctamente.
+      new:
+        log_in: Entra
+      signed_in: Sesión iniciada con éxito.
+      signed_out: La sesión se ha cerrado correctamente.
     shared:
       links:
         back: Volver
         didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
         didn_t_receive_unlock_instructions: '¿No has recibido las instrucciones para desbloquear?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
+        log_in: Entra
+        log_in_with_provider: Inicia sesión con %{provider}
         sign_up: Regístrate
       minimum_password_length:
         one: "(%{count} caracteres como mínimo)"
@@ -1706,6 +1716,7 @@ es:
         resend_unlock_instructions: Reenviar las instrucciones de desbloqueo
       send_instructions: Recibirás un correo electrónico con instrucciones para desbloquear tu cuenta en unos minutos.
       send_paranoid_instructions: Si tu cuenta existe, recibirás un correo electrónico con instrucciones para desbloquearla en unos minutos.
+      unlocked: Tu cuenta se ha desbloqueado con éxito. Inicia sesión para continuar.
   doorkeeper:
     scopes:
       public: Tu información pública
@@ -1794,6 +1805,7 @@ es:
   errors:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
+      already_confirmed: ya ha sido confirmado, por favor, intente iniciar sesión de nuevo
       blank: no puede estar en blanco
       cannot_be_blank: no puede estar en blanco
       confirmation: no coincide con %{attribute}
@@ -1889,11 +1901,13 @@ es:
         decidim_logo: Logo Decidim
         decidim_title: Decidim
         download_open_data: Descargar ficheros de datos abiertos
+        log_in: Entra
         made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
         resources: Recursos
         sign_up: Regístrate
         terms_and_conditions: Términos y condiciones
       header:
+        log_in: Entra
         main_menu: Menú principal
         user_menu: Menú de usuario
       impersonation_warning:
@@ -1920,6 +1934,7 @@ es:
       timeout_modal:
         body: Has estado sin actividad durante %{minutes} minutos. Si sigues estando inactivo, serás desconectado automáticamente por tu propia seguridad.
         continue_session: Continuar sesión
+        log_out: Salir
         title: '¿Quieres continuar con la sesión?'
       upload_modal:
         close_modal: Cerrar ventana
@@ -1928,6 +1943,7 @@ es:
         admin_dashboard: Tablero de administración
         configuration: Configuración
         conversations: Conversaciones
+        log_out: Salir
         notifications: Notificaciones
         profile: Mi cuenta
         public_profile: Mi perfil público
