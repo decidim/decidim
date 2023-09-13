@@ -355,9 +355,6 @@ tr:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL sümükleri, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         participatory_process_groups:
           form:
             metadata: Meta veri
@@ -366,10 +363,8 @@ tr:
         participatory_process_imports:
           form:
             document_legend: Doküman Ekle
-            slug_help: 'Sahte URL, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Yalnızca harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Tam URL’leri değil kısmi yolları kullanın. Harfleri, sayıları, kısa çizgileri ve eğik çizgileri kabul eder ve bir harfle başlamalıdır. Ayarlanmazsa, düğme gösterilmeyecektir. Örnek: %{url}'
             cta_text_help: Ayarlanmazsa, düğme gösterilmeyecektir.
         participatory_processes:
           form:
@@ -383,7 +378,6 @@ tr:
             scope_type_max_depth_help: Kapsam filtresi derinliğini sınırlayın; Filtre genelden seçilen kapsam türüne kadar gösterilecektir.
             select_an_area: Bir alan seçin
             select_process_group: Bir işlem grubu seçin
-            slug_help: 'URL sümükleri, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
             title: Genel bilgi
             visbility: görünürlük
       content_blocks:
