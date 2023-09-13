@@ -20,6 +20,7 @@ cs:
         description: Popis
         end_time: Čas ukončení
         id: ID
+        iframe_access_level: Úroveň přístupu do iframe
         iframe_embed_type: Typ vloženého rámu
         location: Umístění
         location_hints: Nápověda k poloze
