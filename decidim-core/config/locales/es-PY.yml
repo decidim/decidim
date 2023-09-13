@@ -539,6 +539,7 @@ es-PY:
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
           nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
+          sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
             legend: Inscribirse como
@@ -1660,6 +1661,8 @@ es-PY:
       updated: Su cuenta ha sido actualizada con éxito.
     sessions:
       already_signed_out: Firmado con éxito.
+      new:
+        sign_in: Entra
       signed_in: Firmado con éxito
       signed_out: Firmado con éxito.
     shared:
@@ -1668,6 +1671,7 @@ es-PY:
         didn_t_receive_confirmation_instructions: '¿No recibió las instrucciones de confirmación?'
         didn_t_receive_unlock_instructions: '¿No recibió instrucciones de desbloqueo?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
+        sign_in: Entra
         sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Regístrate
       minimum_password_length:
