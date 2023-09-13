@@ -496,6 +496,7 @@ es:
           newsletter_title: Permiso de contacto
           nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
           password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
+          sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
             legend: Inscribirse como
@@ -1548,6 +1549,8 @@ es:
       updated: Tu cuenta se ha actualizado correctamente.
     sessions:
       already_signed_out: Sesión finalizada correctamente.
+      new:
+        sign_in: Entra
       signed_in: Sesión iniciada con éxito.
       signed_out: Sesión finalizada con éxito.
     shared:
@@ -1556,6 +1559,7 @@ es:
         didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
         didn_t_receive_unlock_instructions: '¿No has recibido instrucciones de desbloqueo?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
+        sign_in: Entra
         sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Regístrate
       minimum_password_length:
