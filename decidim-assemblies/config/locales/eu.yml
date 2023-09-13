@@ -33,7 +33,9 @@ eu:
         github: GitHub
         hashtag: Traola
         hero_image: Orri nagusiko irudia
+        import_attachments: Eranskinak inportatu
         import_categories: Kategoriak inportatu
+        import_components: Osagaiak inportatu
         included_at: Barruan sartzen da
         instagram: Instagram
         internal_organisation: Barneko antolaketa
@@ -374,6 +376,7 @@ eu:
         developer_group: Sustatzailearen taldea
         duration: Iraupena
         included_at: Barruan sartzen da
+        indefinite_duration: Zehaztu gabe
         internal_organisation: Barneko antolaketa
         is_transparent:
           'false': opakua
