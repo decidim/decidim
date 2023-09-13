@@ -265,7 +265,7 @@ describe "Authentication", type: :system do
 
       within_user_menu do
         expect(page).to have_content("My account")
-        expect(page).to have_content("Sign out")
+        expect(page).to have_content("Log out")
       end
     end
   end
