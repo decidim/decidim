@@ -20,7 +20,6 @@ zh-CN:
           error: 在表决该评论时出现问题。
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">使用您的帐户</a> 或 <a href="%{sign_up_url}">注册</a> 来添加您的评论。
         form:
           body:
             label: 评论
