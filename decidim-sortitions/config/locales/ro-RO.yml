@@ -101,8 +101,6 @@ ro:
           all: Toate
           cancelled: Anulate
           category: Categorie
-          category_prompt: Selectează o categorie
-          search: Caută
           state: Stadiu
         linked_sortitions:
           selected_proposals: Propuneri selectate
