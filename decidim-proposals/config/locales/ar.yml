@@ -646,6 +646,14 @@ ar:
           filter: منقي
           filter_by: مصنف بواسطة
           unfold: كشف
+        index:
+          count:
+            zero: "%{count} مسودات تعاونية"
+            one: "%{count} مشروع تعاوني"
+            two: "%{count} مسودات تعاونية"
+            few: "%{count} مسودات تعاونية"
+            many: "%{count} مسودات تعاونية"
+            other: "%{count} مسودات تعاونية"
         new:
           add_file: إضافة ملف
           edit_file: تحرير الملف
@@ -769,6 +777,13 @@ ar:
         index:
           click_here: عرض جميع الاقتراحات
           collaborative_drafts_list: الوصول إلى المسودات التعاونية
+          count:
+            zero: "%{count} مقترحات"
+            one: "%{count} اقتراح"
+            two: "%{count} مقترحات"
+            few: "%{count} مقترحات"
+            many: "%{count} مقترحات"
+            other: "%{count} مقترحات"
           new_proposal: عرض جديد
           see_all: عرض جميع الاقتراحات
           see_all_withdrawn: الاطلاع على جميع المقترحات المسحوبة
