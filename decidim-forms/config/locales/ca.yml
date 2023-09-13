@@ -156,7 +156,6 @@ ca:
         show:
           answer_questionnaire:
             already_have_an_account?: Ja tens un compte?
-            anonymous_user_message: <a href="%{sign_in_link}">Inicia sessió amb el teu compte</a> o <a href="%{sign_up_link}">registra't</a> per respondre el formulari.
             are_you_new?: Ets una nova usuària?
             sign_in_description: Inicia la teva sessió per respondre l'enquesta
             sign_up_description: Crea un compte de participant per a respondre l'enquesta
