@@ -285,7 +285,6 @@ de:
             select_an_area: Wählen Sie einen Bereich
             select_an_assembly_type: Wählen Sie einen Gremiumstyp
             select_parent_assembly: Wählen Sie die übergeordnete Baugruppe aus
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
             title: Allgemeine Information
             visbility: Sichtweite
@@ -297,13 +296,9 @@ de:
         assemblies_types:
           form:
             title: Titel
-        assembly_copies:
-          form:
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_imports:
           form:
             document_legend: Dokument hinzufügen
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Versammlung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_members:
           form:
             existing_user: Existierender Benutzer
