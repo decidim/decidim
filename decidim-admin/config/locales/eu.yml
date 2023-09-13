@@ -362,6 +362,7 @@ eu:
       dashboard:
         show:
           view_more_logs: Ikusi gehiago erregistroak
+          welcome: Ongi etorri Decidim Administrazio Panelera.
       domain_whitelist:
         form:
           domain_too_short: Domeinu laburregia
