@@ -397,7 +397,6 @@ tr:
           already_have_an_account?: Zaten hesabınız var mı?
           newsletter: Ara sıra ilgili bilgileri içeren bir haber bülteni alın
           newsletter_title: İletişim izni
-          sign_in: Oturum aç
           sign_up: kaydol
           subtitle: Tartışmalara katılmak ve teklifleri desteklemek için kaydolun.
           tos_agreement: Kaydolarak %{link}kabul ediyorsunuz.
@@ -1011,10 +1010,7 @@ tr:
         title: Uygunsuz Kullanıcıyı bildirin
       floating_help:
         help: yardım et
-      follow_button:
-        sign_in_before_follow: Bu eylemi gerçekleştirmeden önce lütfen giriş yapın
       login_modal:
-        please_sign_in: Lütfen giriş yapın
         sign_up: kaydol
       participatory_space_filters:
         filters:
@@ -1105,8 +1101,6 @@ tr:
       last_attempt: Hesabınız kilitlenmeden önce bir kez daha denemeniz var.
       locked: Hesabınız kilitli.
       not_found_in_database: '%{authentication_keys} veya şifre geçersiz.'
-      timeout: Oturumunuzun süresi doldu. Devam etmek için lütfen tekrar oturum açın.
-      unauthenticated: Devam etmeden önce giriş yapmalı veya kaydolmalısınız.
     invitations:
       edit:
         header: Hesabınızı oluşturmayı bitirin
@@ -1153,7 +1147,6 @@ tr:
         action: Hesabımın kilidini aç
         greeting: Merhaba %{recipient}!
         instruction: 'Hesabınızın kilidini açmak için aşağıdaki bağlantıyı tıklayın:'
-        message: Hesabınız, fazla sayıda başarısız giriş denemesi nedeniyle kilitlendi.
         subject: Talimat kilidini
     omniauth_callbacks:
       failure: '"%{reason}" olduğu için %{kind} kimliğinizi doğrulayamadı.'
@@ -1181,18 +1174,10 @@ tr:
       signed_up_but_unconfirmed: E-posta adresinize onay bağlantısına sahip bir mesaj gönderildi. Hesabınızı etkinleştirmek için lütfen bağlantıyı takip edin.
       update_needs_confirmation: Hesabınızı başarıyla güncellediniz, ancak yeni e-posta adresinizi doğrulamamız gerekiyor. Lütfen yeni e-posta adresinizi onaylamak için e-postanızı kontrol edin ve onaylama bağlantısını takip edin.
       updated: Hesabınız başarıyla güncellendi.
-    sessions:
-      already_signed_out: Başarıyla imzalandı.
-      new:
-        sign_in: Oturum aç
-      signed_in: Başarıyla imzalandı.
-      signed_out: Başarıyla imzalandı.
     shared:
       links:
         back: Geri
         forgot_your_password: Parolanızı mı unuttunuz?
-        sign_in: Oturum aç
-        sign_in_with_provider: '%{provider}ile giriş yap'
         sign_up: kaydol
       minimum_password_length:
         one: "(En az%{count} karakter)"
@@ -1202,13 +1187,11 @@ tr:
         resend_unlock_instructions: Kilit açma talimatlarını tekrar gönder
       send_instructions: Hesabınızın birkaç dakika içinde nasıl açılacağıyla ilgili talimatları içeren bir e-posta alacaksınız.
       send_paranoid_instructions: Hesabınız varsa, birkaç dakika içinde kilidini açmak için talimatları içeren bir e-posta alacaksınız.
-      unlocked: Hesabınız başarıyla açıldı. Devam etmek için giriş yapın.
   doorkeeper:
     scopes:
       public: Genel bilgileriniz.
   errors:
     messages:
-      already_confirmed: zaten onaylandı, lütfen giriş yapmayı deneyin
       confirmation_period_expired: '%{period}içinde onaylanması gerekiyor, lütfen yeni bir tane isteyin'
       content_type_allowlist_error: dosya türü geçerli değil
       expired: süresi doldu, lütfen yeni bir tane isteyin
@@ -1244,8 +1227,6 @@ tr:
         download_open_data: Açık Veri dosyalarını indir
         made_with_open_source: Web sitesi <a target="_blank" href="https://github.com/decidim/decidim">ücretsiz yazılımla yapılmıştır</a>.
         sign_up: Kaydol
-      header:
-        sign_in: Oturum aç
       impersonation_warning:
         close_session: Oturumu kapat
         description_html: Kullanıcının kimliğine bürünüyorsunuz <b>%{user_name}</b>.
@@ -1268,7 +1249,6 @@ tr:
         notifications: Bildirimler
         profile: Hesabım
         public_profile: Genel profilim
-        sign_out: oturumu Kapat
       user_profile:
         account: hesap
         authorizations: Yetkileri
