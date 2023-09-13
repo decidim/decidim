@@ -264,7 +264,6 @@ zh-CN:
             select_an_area: 选择区域
             select_an_assembly_type: 选择程序集类型
             select_parent_assembly: 选择父程序集
-            slug_help: 'URL slugs 用于生成指向此程序集的 URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
             social_handlers: 社交活动
             title: 一般信息
             visbility: 可见性
@@ -276,13 +275,9 @@ zh-CN:
         assemblies_types:
           form:
             title: 标题
-        assembly_copies:
-          form:
-            slug_help: 'URL slugs 用于生成指向此程序集的 URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
         assembly_imports:
           form:
             document_legend: 添加文档
-            slug_help: 'URL slugs 用于生成指向此程序集的 URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
         assembly_members:
           form:
             existing_user: 现有参与者
