@@ -102,7 +102,6 @@ ga:
     devise:
       registrations:
         new:
-          sign_in: Logáil isteach
           sign_up: Cláraigh
       shared:
         omniauth_buttons:
@@ -277,13 +276,9 @@ ga:
     registrations:
       new:
         sign_up: Cláraigh
-    sessions:
-      new:
-        sign_in: Logáil isteach
     shared:
       links:
         back: Ar Ais
-        sign_in: Logáil isteach
         sign_up: Cláraigh
   layouts:
     decidim:
@@ -295,12 +290,6 @@ ga:
         edit: Eagar
       footer:
         sign_up: Cláraigh
-      header:
-        sign_in: Sínigh Isteach
-      timeout_modal:
-        sign_out: Sínigh amach
-      user_menu:
-        sign_out: Sínigh amach
       user_profile:
         account: Cuntas
         my_data: Mo chuid sonraí
