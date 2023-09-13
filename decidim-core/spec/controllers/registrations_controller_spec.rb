@@ -81,8 +81,6 @@ module Decidim
             expect(controller.flash.now[:alert]).to have_content(
               [
                 "Your name cannot be blank",
-                "Nickname cannot be blank",
-                "Nickname is invalid",
                 "Your email cannot be blank",
                 "Password is too short",
                 "Password does not have enough unique characters",

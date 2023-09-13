@@ -596,6 +596,7 @@ en:
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
+          sign_in: Log in
           sign_up: Sign up
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms of service
@@ -634,6 +635,7 @@ en:
           hide_password: Hide password
           show_password: Show password
           shown_password: Your password is shown
+        placeholder_email: hi@example.org
     doorkeeper:
       authorizations:
         new:

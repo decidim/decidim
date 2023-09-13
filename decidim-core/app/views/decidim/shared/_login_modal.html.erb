@@ -19,7 +19,7 @@
           <% end %>
 
           <div class="form__wrapper">
-            <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
+            <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
 
             <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
           </div>
