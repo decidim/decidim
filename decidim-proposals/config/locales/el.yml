@@ -666,6 +666,10 @@ el:
           filter: Φίλτρο
           filter_by: Φιλτράρισμα κατά
           unfold: Αποκάλυψη
+        index:
+          count:
+            one: "%{count} προσχέδιο συνεργασίας"
+            other: "%{count} προσχέδια συνεργασίας"
         new:
           add_file: Προσθήκη αρχείου
           edit_file: Επεξερφασία αρχείου
@@ -791,6 +795,9 @@ el:
         index:
           click_here: Δείτε όλες τις προτάσεις
           collaborative_drafts_list: Πρόσβαση σε προσχέδια συνεργασίας
+          count:
+            one: "%{count} πρόταση"
+            other: "%{count} προτάσεις"
           new_proposal: Νέα πρόταση
           see_all: Δείτε όλες τις προτάσεις
           see_all_withdrawn: Δείτε όλες τις προτάσεις που αποσύρθηκαν
