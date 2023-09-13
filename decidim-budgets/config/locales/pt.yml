@@ -93,7 +93,6 @@ pt:
           more_than_one: apague o seu voto em %{name} e comece de novo
           only_one: apague o seu voto e comece de novo
         highlighted_cta: Votar em %{name}
-        my_budgets: Os meus orçamentos
         progress: Finalizar votação
         show: Ver projectos
         vote: Votar
