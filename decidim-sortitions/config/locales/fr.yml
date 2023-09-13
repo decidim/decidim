@@ -99,8 +99,6 @@ fr:
           all: Tout
           cancelled: Annulé
           category: Catégorie
-          category_prompt: Sélectionner une catégorie
-          search: Rechercher
           state: État
         linked_sortitions:
           selected_proposals: Propositions sélectionnées
