@@ -1000,7 +1000,6 @@ zh-TW:
             select_a_voting_type: 請選擇一種投票類型。
             show_check_census_help: 是否在公開投票菜單中顯示「我可以投票嗎？」鏈接.
             slug: 附址
-            slug_help: 'URL slugs 用於產生指向此投票的網址。它只接受字母、數字和連字符，且必須以字母開頭。例如: %{url}'
             title: 標題
             voting_type:
               hybrid: 混合
