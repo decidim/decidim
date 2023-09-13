@@ -43,7 +43,6 @@ lt:
           error: Balsuojant už komentarą iškilo problema.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Prisijunkite</a>arba<a href="%{sign_up_url}">registruokitės</a>norėdami komentuoti.
         form:
           body:
             label: Komentaras
