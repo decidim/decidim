@@ -447,7 +447,6 @@ tr:
           fields:
             created_at: Oluşturulma tarihi
             email: E-posta
-            last_sign_in_at: Son giriş tarihi
             name: isim
             role: rol
             roles:
