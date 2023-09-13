@@ -495,7 +495,6 @@ sv:
           newsletter: Få enstaka nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
           nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
-          sign_in: Logga in
           sign_up: Registrera dig
           sign_up_as:
             legend: Registrera dig som
@@ -1564,8 +1563,6 @@ sv:
       updated: Ditt konto har uppdaterats.
     sessions:
       already_signed_out: Du har loggats ut.
-      new:
-        sign_in: Logga in
       signed_in: Inloggningen är klar.
       signed_out: Du är utloggad.
     shared:
@@ -1574,7 +1571,6 @@ sv:
         didn_t_receive_confirmation_instructions: Fick du inte anvisningar om bekräftelse?
         didn_t_receive_unlock_instructions: Fick du inte anvisningar om att låsa upp?
         forgot_your_password: Glömt ditt lösenord?
-        sign_in: Logga in
         sign_in_with_provider: Logga in med %{provider}
         sign_up: Registrera dig
       minimum_password_length:
