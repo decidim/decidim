@@ -684,6 +684,12 @@ lt:
           filter: Filtruoti
           filter_by: Filtruoti pagal
           unfold: Išskleisti
+        index:
+          count:
+            one: "%{count} bendras projektas"
+            few: "%{count} bendri projektai"
+            many: "%{count} bendri projektai"
+            other: "%{count} bendri projektai"
         name: Bendri juodraščiai
         new:
           add_file: Pridėti failą
@@ -815,6 +821,11 @@ lt:
         index:
           click_here: Žiūrėti visus pasiūlymus
           collaborative_drafts_list: Prieiga prie bendrų projektų (juodraščių)
+          count:
+            one: "%{count} pasiūlymas"
+            few: "%{count} pasiūlymai"
+            many: "%{count} pasiūlymų"
+            other: "%{count} pasiūlymai"
           new_proposal: Naujas pasiūlymas
           see_all: Žiūrėti visus pasiūlymus
           see_all_withdrawn: Žiūrėti visus atsiimtus pasiūlymus
