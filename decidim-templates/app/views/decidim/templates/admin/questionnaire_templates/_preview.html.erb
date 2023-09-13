@@ -47,11 +47,10 @@
 
                 <% if step_index + 1 == @preview_form.total_steps %>
                   <div class="row column tos-agreement">
-                    <%= form.check_box :tos_agreement,
-                      label: t(".tos_agreement"),
-                      id: "questionnaire_tos_agreement",
-                      disabled: false,
-                      help_text: decidim_sanitize(translated_attribute(questionnaire.tos)) %>
+                    <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement", disabled: false %>
+                    <div class="help-text">
+                      <%= decidim_sanitize translated_attribute questionnaire.tos %>
+                    </div>
                   </div>
                 <% end %>
 
