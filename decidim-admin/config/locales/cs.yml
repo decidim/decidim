@@ -37,6 +37,9 @@ cs:
         user_group_id: Vytvořit importy jako
       newsletter:
         body: Tělo
+        send_to_all_users: Odeslat všem uživatelům
+        send_to_followers: Odeslat sledujícím
+        send_to_participants: Odeslat účastníkům
         subject: Předmět
       organization:
         admin_terms_of_service_body: Tělo zprávy správcovských podmínek použití
@@ -846,6 +849,7 @@ cs:
             saturation: Sytost
             title: Výběr barev
             update_suggested_colors: Aktualizovat navrhované barvy
+          cta_button_path_help_html: 'Místo, kam tlačítko Výzva k akci na domovské stránce vede, lze přepsat. V tomto případě použijte částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Tlačítko Výzva k akci je na domovské stránce umístěno mezi uvítacím textem a popisem. Příklad: %{url}'
           cta_button_text_help: Text tlačítka výzvy k akci můžete na domovské stránce přepsat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastaveno, bude použita výchozí hodnota. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem.
           homepage_appearance_title: Upravit vzhled stránky
           homepage_highlighted_content_banner_title: Zvýrazněný obsahový banner
@@ -1023,6 +1027,7 @@ cs:
           update: Aktualizace
         form:
           none: Žádný
+          slug_help_html: 'Použijte v tomto případě částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Příklad: %{url}'
         index:
           last_notable_change: Poslední významná změna
         new:
