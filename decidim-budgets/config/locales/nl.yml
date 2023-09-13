@@ -129,7 +129,6 @@ nl:
           more_than_one: verwijder je stem op %{name} en begin opnieuw
           only_one: verwijder je stem en begin opnieuw.
         highlighted_cta: Stem op %{name}
-        my_budgets: Mijn budgetten
         progress: Beëindig stemmen
         show: Bekijk projecten
         vote: Stem
