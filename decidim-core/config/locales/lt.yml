@@ -674,7 +674,6 @@ lt:
         ready: Pasirengęs
       show:
         download_data: Parsisiųsti duomenis
-        download_data_description: Rinkmena su visais su Jūsų paskyra susijusiais duomenimis bus išsiųsta į <strong>%{user_email}</strong>. Šis el. laiškas turės .zip rinkmeną ir slaptažodį, su kuriuo reikės jį atidaryti.<br/><br/>Norėdami jį atidaryti, Jums reikės <a href="https://www.7-zip.org/">7-Zip</a>(Windows) arba <a href="https://www.keka.io/">Keka</a>(MacOS). Jei naudojate Linux, dažniausiai viskas bus paruošta iš anksto. Jei ne, galite naudoti <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> arba <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Prašyti duomenų
     editor_images:
       create:
