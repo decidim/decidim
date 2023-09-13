@@ -173,7 +173,6 @@ cs:
         finished_message: Dokončili jste hlasovací proces. Děkujeme za účast!
         highlighted_cta: Hlasovat na %{name}
         if_change_opinion: Pokud jste změnili názor, můžete
-        my_budgets: Mé rozpočty
         progress: Dokončit hlasování
         remove_vote: Odebrat hlas
         show: Zobrazit projekty
