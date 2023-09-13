@@ -51,7 +51,7 @@ module Decidim
       end
 
       def participatory_process_user_role?
-        return false unless Decidim.module_installed?(:participatory_process)
+        return false unless Decidim.module_installed?(:participatory_processes)
 
         true if Decidim::ParticipatoryProcessUserRole.exists?(user: current_user)
       end
