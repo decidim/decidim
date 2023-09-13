@@ -311,9 +311,6 @@ pt:
         title: Oradores
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para esta conferência. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         conference_invites:
           create:
             error: Ocorreu um problema ao convidar o participante para se juntar à conferência.
@@ -354,7 +351,6 @@ pt:
             registrations_count:
               one: Ocorreu 1 registo.
               other: Ocorreram %{count} registos.
-            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para esta conferência. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         diplomas:
           edit:
             save: Guardar
