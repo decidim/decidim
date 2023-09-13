@@ -627,7 +627,6 @@ cs:
           already_have_an_account?: Máte již účet?
           newsletter: Chci dostávat příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
-          sign_in: Přihlásit se
           sign_up: Zaregistrovat se
           subtitle: Registrujte se, abyste se mohli účastnit Diskusí a podpořit Návrhy.
           terms: podmínky poskytování služeb
@@ -640,8 +639,6 @@ cs:
           register: Vytvořit účet
           sign_in_disabled: Můžete přistupovat pomocí externího účtu.
           sign_up_disabled: Registrace je zakázána, můžete použít existující účet k přístupu.
-        user:
-          timed_out: Byli jste příliš dlouho neaktivní a byli jste automaticky odhlášeni ze služby. Pokud chcete pokračovat v používání služby, přihlaste se znovu.
       shared:
         newsletter_modal:
           buttons:
@@ -673,7 +670,6 @@ cs:
           authorize: Autorizovat aplikaci
           by_organization_link_html: <small class="heading-small">podle %{link}</small>
           cancel: Zrušit
-          connect_your_account_html: Připojte svůj účet přihlášením k <strong>%{organization}</strong>.
           publish_content: Publikujte obsah pro vás
           see_email: Podívejte se na svůj e-mail
           see_name: Zobrazte své jméno
@@ -1524,10 +1520,7 @@ cs:
         title: Nahlásit nevhodného uživatele
       floating_help:
         help: Pomoc
-      follow_button:
-        sign_in_before_follow: Před provedením této akce se prosím přihlaste
       login_modal:
-        please_sign_in: Přihlaste se, prosím
         sign_up: Přihlásit se
       mentions_modal:
         remove_recipient: Odebrat příjemce %{name}
@@ -1645,8 +1638,6 @@ cs:
       last_attempt: Máte poslední pokus, pak dojde k uzamčení účtu.
       locked: Váš účet je uzamčen.
       not_found_in_database: Neplatný %{authentication_keys} nebo heslo.
-      timeout: Vaše relace vypršela. Pro pokračování se prosím přihlašte.
-      unauthenticated: Před pokračováním se musíte přihlásit nebo zaregistrovat.
     invitations:
       edit:
         header: Dokončete vytvoření účtu
@@ -1709,7 +1700,6 @@ cs:
         action: Odemkněte svůj účet
         greeting: Dobrý den %{recipient}!
         instruction: 'Kliknutím na odkaz níže odemknete svůj účet:'
-        message: Váš účet byl uzamčen kvůli nadměrnému počtu neúspěšných pokusů o přihlášení.
         subject: Odemkněte pokyny
     omniauth_callbacks:
       failure: Nelze vás autentizovat z %{kind} protože "%{reason}".
@@ -1740,20 +1730,12 @@ cs:
       signed_up_but_unconfirmed: Na vaši e-mailovou adresu byla odeslána zpráva s potvrzujícím odkazem. Klepnutím na odkaz aktivujte svůj účet.
       update_needs_confirmation: Účet jste úspěšně aktualizovali, ale musíme ověřit novou e-mailovou adresu. Zkontrolujte e-mail a potvrďte novou e-mailovou adresu.
       updated: Účet byl úspěšně aktualizován.
-    sessions:
-      already_signed_out: Bylo úspěšně odhlášeno.
-      new:
-        sign_in: Přihlásit se
-      signed_in: Úspěšně jste se přihlásili.
-      signed_out: Odhlášení proběhlo úspěšně.
     shared:
       links:
         back: Zpět
         didn_t_receive_confirmation_instructions: Neobdrželi jste pokyny pro potvrzení?
         didn_t_receive_unlock_instructions: Nepřišly vám instrukce k odemknutí?
         forgot_your_password: Zapomněli jste heslo?
-        sign_in: Přihlásit se
-        sign_in_with_provider: Přihlásit se přes %{provider}
         sign_up: Zaregistrovat se
       minimum_password_length:
         one: "(Minimálně%{count} znaků)"
@@ -1765,7 +1747,6 @@ cs:
         resend_unlock_instructions: Obnovte pokyny k odemknutí
       send_instructions: Obdržíte e-mail s pokyny pro odemčení účtu během několika minut.
       send_paranoid_instructions: Pokud váš účet existuje, obdržíte e-mail s pokyny, jak jej odemknout během několika minut.
-      unlocked: Váš účet byl úspěšně odblokován. Chcete-li pokračovat, přihlaste se.
   doorkeeper:
     scopes:
       public: Vaše veřejné informace.
@@ -1854,7 +1835,6 @@ cs:
   errors:
     messages:
       allowed_file_content_types: 'jsou povoleny pouze soubory s následujícími příponami: %{types}'
-      already_confirmed: bylo již potvrzeno, zkuste prosím přihlásit
       blank: nemůže být prázdné
       cannot_be_blank: nemůže být prázdné
       confirmation: nesouhlasí s %{attribute}
@@ -1956,12 +1936,10 @@ cs:
         download_open_data: Stáhněte si soubory s otevřenými daty
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
         resources: Zdroje
-        sign_in: Přihlásit se
         sign_up: Registrovat
         terms_and_conditions: Podmínky používání
       header:
         main_menu: Hlavní menu
-        sign_in: Přihlásit se
         user_menu: Uživatelské Menu
       impersonation_warning:
         close_session: Zavřít sezení
@@ -1987,7 +1965,6 @@ cs:
       timeout_modal:
         body: '%{minutes} minut jste byli neaktivní. Pokud budete i nadále neaktivní, budete automaticky odhlášeni z důvodu své vlastní bezpečnosti.'
         continue_session: Pokračovat v relaci
-        sign_out: Odhlásit se
         title: Chcete pokračovat v relaci?
       upload_modal:
         close_modal: Zavřít modal
@@ -1999,7 +1976,6 @@ cs:
         notifications: Oznámení
         profile: Můj účet
         public_profile: Můj veřejný profil
-        sign_out: Odhlásit se
         title: Profilové odkazy
       user_profile:
         account: Účet
