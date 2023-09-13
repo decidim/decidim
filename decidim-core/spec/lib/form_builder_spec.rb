@@ -110,8 +110,9 @@ module Decidim
 
       context "when a help text is defined" do
         let(:field) { "editor-input" }
+        let(:help_text_text) { "This is the help" }
         let(:output) do
-          builder.editor :slug, help_text: "This is the help"
+          builder.editor :slug, help_text: help_text_text
         end
 
         it_behaves_like "having a help text"
@@ -148,8 +149,9 @@ module Decidim
 
           context "when a help text is defined" do
             let(:field) { "textarea" }
+            let(:help_text_text) { "This is the help" }
             let(:output) do
-              builder.translated :text_area, :name, help_text: "This is the help"
+              builder.translated :text_area, :name, help_text: help_text_text
             end
 
             it_behaves_like "having a help text"
@@ -378,8 +380,9 @@ module Decidim
 
       context "when a help text is defined" do
         let(:field) { "input" }
+        let(:help_text_text) { "This is the help" }
         let(:output) do
-          builder.check_box :name, help_text: "This is the help"
+          builder.check_box :name, help_text: help_text_text
         end
 
         it "renders the help text" do
@@ -391,6 +394,10 @@ module Decidim
         # the input
         it "renders the help text after the field" do
           expect(parsed.to_s.index("help-text")).to be > parsed.to_s.index(field)
+        end
+
+        it "renders the help text text only once" do
+          expect(parsed.to_s.scan(/#{help_text_text}/).size).to eq 1
         end
       end
     end
@@ -415,8 +422,9 @@ module Decidim
 
       context "when a help text is defined" do
         let(:field) { "input" }
+        let(:help_text_text) { "This is the help" }
         let(:output) do
-          builder.password_field :slug, help_text: "This is the help"
+          builder.password_field :slug, help_text: help_text_text
         end
 
         it_behaves_like "having a help text"
@@ -439,8 +447,9 @@ module Decidim
 
         context "when a help text is defined" do
           let(:field) { "input" }
+          let(:help_text_text) { "This is the help" }
           let(:output) do
-            builder.date_field :born_at, help_text: "This is the help"
+            builder.date_field :born_at, help_text: help_text_text
           end
 
           it_behaves_like "having a help text"
@@ -464,8 +473,9 @@ module Decidim
 
         context "when a help text is defined" do
           let(:field) { "input" }
+          let(:help_text_text) { "This is the help" }
           let(:output) do
-            builder.datetime_field :born_at, help_text: "This is the help"
+            builder.datetime_field :born_at, help_text: help_text_text
           end
 
           it_behaves_like "having a help text"
@@ -886,8 +896,9 @@ module Decidim
 
         context "when a help text is defined" do
           let(:field) { "rendering" }
+          let(:help_text_text) { "This is the help" }
           let(:output) do
-            builder.data_picker(:scopes, { help_text: "This is the help" }, prompt_params)
+            builder.data_picker(:scopes, { help_text: help_text_text }, prompt_params)
           end
 
           it_behaves_like "having a help text"
