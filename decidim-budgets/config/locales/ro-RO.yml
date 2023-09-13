@@ -118,7 +118,6 @@ ro:
           more_than_one: șterge votul tău pentru %{name} și reia procesul
           only_one: șterge votul și reia procesul.
         highlighted_cta: Votează pentru %{name}
-        my_budgets: Bugetele mele
         progress: Finalizează votul
         show: Vezi proiectele
         vote: Votează
