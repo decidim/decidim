@@ -662,6 +662,9 @@ ja:
           filter: フィルター
           filter_by: フィルター
           unfold: 展開する
+        index:
+          count:
+            other: "%{count} 件の共同草案"
         name: 共同草案
         new:
           add_file: ファイルを追加
@@ -790,6 +793,8 @@ ja:
         index:
           click_here: すべての提案を見る
           collaborative_drafts_list: 共同草案にアクセスする
+          count:
+            other: "%{count} の提案"
           new_proposal: 新しい提案
           see_all: すべての提案を見る
           see_all_withdrawn: すべての撤回された提案を見る
