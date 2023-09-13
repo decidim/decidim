@@ -88,8 +88,6 @@ zh-CN:
           all: 所有的
           cancelled: 已取消
           category: 类别
-          category_prompt: 选择一个类别
-          search: 搜索
           state: 状态
         linked_sortitions:
           selected_proposals: 选定的建议
