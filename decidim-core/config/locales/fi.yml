@@ -539,7 +539,6 @@ fi:
           newsletter: Vastaanota silloin tällöin ajankohtaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
           nickname_help: Nimimerkkisi palvelussa %{organization}. Voi sisältää ainoastaan kirjaimia, numeroita sekä yhdysmerkkejä "-" ja alaviivoja "_".
-          sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
             legend: Rekisteröidy
@@ -1660,8 +1659,6 @@ fi:
       updated: Tilisi päivitys onnistui.
     sessions:
       already_signed_out: Uloskirjautuminen onnistui.
-      new:
-        sign_in: Kirjaudu sisään
       signed_in: Sisäänkirjautuminen onnistui.
       signed_out: Uloskirjautuminen onnistui.
     shared:
@@ -1670,7 +1667,6 @@ fi:
         didn_t_receive_confirmation_instructions: Etkö saanut vahvistusohjeita?
         didn_t_receive_unlock_instructions: Etkö saanut ohjeita tilin lukituksen poistoon?
         forgot_your_password: Unohditko salasanasi?
-        sign_in: Kirjaudu sisään
         sign_in_with_provider: Kirjaudu sisään palvelulla %{provider}
         sign_up: Rekisteröidy
       minimum_password_length:
