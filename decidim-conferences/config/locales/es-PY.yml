@@ -329,9 +329,6 @@ es-PY:
         title: Altavoces
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Las barras URL se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         conference_invites:
           create:
             error: Ha habido un problema al invitar al usuario a unirse a la conferencia.
@@ -373,7 +370,6 @@ es-PY:
             registrations_count:
               one: Ha habido 1 registro.
               other: Ha habido %{count} registros.
-            slug_help: 'Las barras URL se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         diplomas:
           edit:
             save: Salvar
