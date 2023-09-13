@@ -640,6 +640,8 @@ cs:
           register: Vytvořit účet
           sign_in_disabled: Můžete přistupovat pomocí externího účtu.
           sign_up_disabled: Registrace je zakázána, můžete použít existující účet k přístupu.
+        user:
+          timed_out: Byli jste neaktivní příliš dlouho a byli jste automaticky odhlášeni ze služby. Pokud chcete pokračovat v používání služby, přihlaste se prosím znovu.
       shared:
         newsletter_modal:
           buttons:
@@ -671,6 +673,7 @@ cs:
           authorize: Autorizovat aplikaci
           by_organization_link_html: <small class="heading-small">podle %{link}</small>
           cancel: Zrušit
+          connect_your_account_html: Připojte svůj účet přihlášením k %{organization}.
           publish_content: Publikujte obsah pro vás
           see_email: Podívejte se na svůj e-mail
           see_name: Zobrazte své jméno
@@ -684,6 +687,8 @@ cs:
         ready: Připraven
       show:
         download_data: Stáhnout data
+        download_data_description_html: |-
+          Soubor obsahující všechny informace spojené s vaším účtem bude odeslán na adresu <strong>%{user_email}</strong>. Tento e-mail bude obsahovat .zip soubor a heslo pro jeho otevření.<br/><br/>Pro rozbalení souboru budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows) nebo <a href="https://www.keka.io/">Keku</a> (pro MacOS). Pokud používáte Linux, většinou jej budete mít nainstalovaný ve výchozím nastavení. Pokud ne, můžete použít <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> nebo <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Vyžádat data
     editor_images:
       create:
@@ -1520,6 +1525,8 @@ cs:
         title: Nahlásit nevhodného uživatele
       floating_help:
         help: Pomoc
+      follow_button:
+        log_in_before_follow: Před provedením této akce se přihlaste
       login_modal:
         please_log_in: Přihlaste se
         sign_up: Přihlásit se
@@ -1640,6 +1647,7 @@ cs:
       locked: Váš účet je uzamčen.
       not_found_in_database: Neplatný %{authentication_keys} nebo heslo.
       timeout: Vaše relace vypršela. Chcete-li pokračovat, přihlaste se znovu.
+      unauthenticated: Před pokračováním se musíte přihlásit nebo se zaregistrovat.
     invitations:
       edit:
         header: Dokončete vytvoření účtu
@@ -1702,6 +1710,7 @@ cs:
         action: Odemkněte svůj účet
         greeting: Dobrý den %{recipient}!
         instruction: 'Kliknutím na odkaz níže odemknete svůj účet:'
+        message: Váš účet byl uzamčen kvůli nadměrnému množství neúspěšných pokusů o přihlášení.
         subject: Odemkněte pokyny
     omniauth_callbacks:
       failure: Nelze vás autentizovat z %{kind} protože "%{reason}".
@@ -1733,8 +1742,11 @@ cs:
       update_needs_confirmation: Účet jste úspěšně aktualizovali, ale musíme ověřit novou e-mailovou adresu. Zkontrolujte e-mail a potvrďte novou e-mailovou adresu.
       updated: Účet byl úspěšně aktualizován.
     sessions:
+      already_signed_out: Odhlášení proběhlo úspěšně.
       new:
         log_in: Přihlásit
+      signed_in: Přihlášení proběhlo úspěšně.
+      signed_out: Odhlášení proběhlo úspěšně.
     shared:
       links:
         back: Zpět
@@ -1742,6 +1754,7 @@ cs:
         didn_t_receive_unlock_instructions: Nepřišly vám instrukce k odemknutí?
         forgot_your_password: Zapomněli jste heslo?
         log_in: Přihlásit
+        log_in_with_provider: Přihlásit se pomocí %{provider}
         sign_up: Zaregistrovat se
       minimum_password_length:
         one: "(Minimálně%{count} znaků)"
@@ -1753,6 +1766,7 @@ cs:
         resend_unlock_instructions: Obnovte pokyny k odemknutí
       send_instructions: Obdržíte e-mail s pokyny pro odemčení účtu během několika minut.
       send_paranoid_instructions: Pokud váš účet existuje, obdržíte e-mail s pokyny, jak jej odemknout během několika minut.
+      unlocked: Váš účet byl úspěšně odemčen. Chcete-li pokračovat, přihlaste se.
   doorkeeper:
     scopes:
       public: Vaše veřejné informace.
@@ -1841,6 +1855,7 @@ cs:
   errors:
     messages:
       allowed_file_content_types: 'jsou povoleny pouze soubory s následujícími příponami: %{types}'
+      already_confirmed: byl již potvrzen, zkuste se prosím přihlásit
       blank: nemůže být prázdné
       cannot_be_blank: nemůže být prázdné
       confirmation: nesouhlasí s %{attribute}
