@@ -358,7 +358,6 @@ sk:
           already_have_an_account?: Už máte účet?
           newsletter: Dostávajte príležitostný spravodajca s relevantnými informáciami
           newsletter_title: Povolenie kontaktu
-          sign_in: Prihlásiť sa
           sign_up: Zaregistrovať sa
           subtitle: Registrujte sa, aby ste sa zúčastnili diskusií a návrhov podpory.
           tos_agreement: Prihlásením súhlasíte s%{link}.
@@ -864,10 +863,7 @@ sk:
         title: Nahlásiť problém
       floating_help:
         help: Pomoc
-      follow_button:
-        sign_in_before_follow: Pred vykonaním tejto akcie sa prosím prihláste
       login_modal:
-        please_sign_in: prosím prihláste sa
         sign_up: Prihlásiť sa
       participatory_space_filters:
         filters:
@@ -920,8 +916,6 @@ sk:
       last_attempt: Máte posledný pokus, potom dôjde k uzamknutiu účtu.
       locked: Váš účet je uzamknutý.
       not_found_in_database: Neplatný%{authentication_keys} alebo heslo.
-      timeout: Vaša relácia vypršala. Pre pokračovanie sa prosím prihláste.
-      unauthenticated: Pred pokračovaním sa musíte prihlásiť alebo zaregistrovať.
     invitations:
       edit:
         header: Dokončite vytvorenie účtu
@@ -968,7 +962,6 @@ sk:
         action: Odomknite svoj účet
         greeting: Dobrý deň, %{recipient}!
         instruction: 'Kliknutím na odkaz nižšie odomknete svoj účet:'
-        message: Váš účet bol uzamknutý kvôli nadmernému počtu neúspešných pokusov o prihlásenie.
         subject: Odomknite pokyny
     omniauth_callbacks:
       failure: Nemožno vás autentizovať z%{kind} pretože "%{reason}".
@@ -996,18 +989,10 @@ sk:
       signed_up_but_unconfirmed: Na vašu e-mailovú adresu bola odoslaná správa s potvrdzujúcim odkazom. Kliknutím na odkaz aktivujte svoj účet.
       update_needs_confirmation: Účet ste úspešne aktualizovali, ale musíme overiť novú e-mailovú adresu. Skontrolujte e-mail a potvrďte novú e-mailovú adresu.
       updated: Účet bol úspešne aktualizovaný.
-    sessions:
-      already_signed_out: Bolo úspešne odhlási.
-      new:
-        sign_in: Prihlásiť sa
-      signed_in: Úspešne ste sa prihlásili.
-      signed_out: Odhlásenie prebehlo úspešne.
     shared:
       links:
         back: Späť
         forgot_your_password: Zabudli ste heslo?
-        sign_in: Prihlásiť sa
-        sign_in_with_provider: Prihlásiť sa cez%{provider}
         sign_up: Prihlásiť sa
       minimum_password_length:
         one: "(Minimálne %{count} znakov)"
@@ -1019,13 +1004,11 @@ sk:
         resend_unlock_instructions: Obnovte pokyny k odomknutiu
       send_instructions: Dostanete e-mail s pokynmi pre odomknutie účtu v priebehu niekoľkých minút.
       send_paranoid_instructions: Ak váš účet existuje, dostanete e-mail s pokynmi, ako ho odomknúť v priebehu niekoľkých minút.
-      unlocked: Váš účet bol úspešne odblokovaný. Ak chcete pokračovať, prihláste sa.
   doorkeeper:
     scopes:
       public: Vaše veřejné informace.
   errors:
     messages:
-      already_confirmed: bolo už potvrdené, skúste prosím prihlásiť
       confirmation_period_expired: musí byť potvrdené v rámci %{period}, požiadajte o nový
       content_type_allowlist_error: typ súboru nie je platný
       expired: uplynula, požiadajte o novú
@@ -1059,8 +1042,6 @@ sk:
         download_open_data: Stiahnite si súbory s otvorenými dátami
         made_with_open_source: Webová stránka vytvorená s <a target="_blank" href="https://github.com/decidim/decidim"> slobodným softvérom </a>.
         sign_up: Registrovať
-      header:
-        sign_in: Prihlásiť sa
       impersonation_warning:
         close_session: Zatvoriť sedenie
         description_html: Spravujete účastníka <b>%{user_name} </ b>.
@@ -1073,7 +1054,6 @@ sk:
         notifications: Oznámenie
         profile: Môj účet
         public_profile: Môj verejný profil
-        sign_out: Odhlásiť sa
       user_profile:
         account: Účet
         authorizations: Autorizácia
