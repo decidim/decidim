@@ -385,6 +385,15 @@ module Decidim
           builder.check_box :name, help_text: help_text_text
         end
 
+        it "renders correctly" do
+          expect(output).to eq(
+            '<label for="resource_name"><input name="resource[name]" type="hidden" value="0" autocomplete="off" />' \
+            '<input type="checkbox" value="1" name="resource[name]" id="resource_name" />Name' \
+            "</label>" \
+            '<span class="help-text">This is the help</span>'
+          )
+        end
+
         it "renders the help text" do
           expect(parsed.css(".help-text")).not_to be_empty
         end

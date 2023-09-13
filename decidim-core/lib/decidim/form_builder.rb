@@ -376,7 +376,7 @@ module Decidim
       custom_label(attribute, options[:label], options[:label_options], field_before_label: true) do
         options.delete(:label)
         options.delete(:label_options)
-        @template.check_box(@object_name, attribute, objectify_options(options), checked_value, unchecked_value)
+        @template.check_box(@object_name, attribute, objectify_options(options.except(:help_text)), checked_value, unchecked_value)
       end + error_and_help_text(attribute, options)
     end
 
