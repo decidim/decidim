@@ -403,9 +403,6 @@ es-PY:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatos
@@ -414,10 +411,8 @@ es-PY:
         participatory_process_imports:
           form:
             document_legend: Añadir un documento
-            slug_help: 'Los slugs de URL se utilizan para generar las URLs que apuntan a este proceso. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Use rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no está configurado, el botón no se mostrará. Ejemplo: %{url}'
             cta_text_help: Si no está configurado, el botón no se mostrará.
         participatory_processes:
           form:
@@ -432,7 +427,6 @@ es-PY:
             select_an_area: Seleccione una área
             select_participatory_process_type: Selecciona un tipo de proceso
             select_process_group: Seleccione un grupo de proceso
-            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Información general
             visbility: Visibilidad
       content_blocks:
