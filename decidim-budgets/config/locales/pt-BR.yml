@@ -128,7 +128,6 @@ pt-BR:
           more_than_one: exclua seu voto em %{name} e comece de novo
           only_one: exclua seu voto e comece novamente.
         highlighted_cta: Votar em %{name}
-        my_budgets: Meus orçamentos
       limit_announcement:
         limit_reached: Você tem votos ativos em %{links}. Para votar neste orçamento você deve <a href="%{landing_path}">excluir seu voto e começar do zero</a>.
       models:
