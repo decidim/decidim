@@ -96,8 +96,6 @@ sk:
           all: Všetko
           cancelled: Zrušil
           category: Kategória
-          category_prompt: Vyberte kategóriu
-          search: Vyhľadávanie
           state: Štát
         linked_sortitions:
           selected_proposals: Vybrané návrhy
