@@ -545,6 +545,10 @@ it:
           filter: Filtro
           filter_by: Filtra per
           unfold: spiegare
+        index:
+          count:
+            one: "%{count} bozza collaborativa"
+            other: "%{count} bozza collaborativa"
         new:
           send: Continua
         new_collaborative_draft_button:
@@ -656,6 +660,9 @@ it:
           voted: Votata
         index:
           collaborative_drafts_list: Accedi alle bozze di collaborazione
+          count:
+            one: "%{count} proposta"
+            other: "%{count} proposte"
           new_proposal: Nuova proposta
           see_all_withdrawn: Vedi tutte le proposte ritirate
         new:
