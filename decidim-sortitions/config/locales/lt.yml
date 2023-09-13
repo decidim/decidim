@@ -105,8 +105,6 @@ lt:
           all: Visos
           cancelled: Atšaukti
           category: Kategorija
-          category_prompt: Pasirinkite kategoriją
-          search: Ieškoti
           state: Būsena
         linked_sortitions:
           selected_proposals: Pasirinkti pasiūlymai
