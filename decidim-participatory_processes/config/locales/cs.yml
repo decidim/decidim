@@ -372,9 +372,6 @@ cs:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které směřují k tomuto procesu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadata
@@ -383,10 +380,8 @@ cs:
         participatory_process_imports:
           form:
             document_legend: Přidat dokument
-            slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na toto shromáždění. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Není-li nastaveno, tlačítko se nezobrazí. Příklad: %{url}'
             cta_text_help: Není-li nastaveno, tlačítko se nezobrazí.
         participatory_processes:
           form:
@@ -400,7 +395,6 @@ cs:
             scope_type_max_depth_help: Omezit hloubku filtru rozsahu. Filtr se zobrazí od obecného k vybranému typu rozsahu.
             select_an_area: Vyberte oblast
             select_process_group: Vyberte skupinu procesů
-            slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které směřují k tomuto procesu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Obecná informace
             visbility: Viditelnost
       content_blocks:
