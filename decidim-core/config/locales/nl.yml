@@ -458,7 +458,6 @@ nl:
           newsletter_title: Contact toestemming
           nickname_help: Je alias in %{organization}. Kan alleen letters, cijfers, '-' en '_' bevatten.
           password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
-          sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
             legend: Aanmelden als
@@ -1461,8 +1460,6 @@ nl:
       updated: Uw account is succesvol bijgewerkt.
     sessions:
       already_signed_out: Succesvol ondertekend.
-      new:
-        sign_in: Aanmelden
       signed_in: Succesvol aangemeld.
       signed_out: Succesvol afgemeld.
     shared:
@@ -1471,7 +1468,6 @@ nl:
         didn_t_receive_confirmation_instructions: Geen bevestigingsinstructies ontvangen?
         didn_t_receive_unlock_instructions: Geen ontgrendelingsinstructies ontvangen?
         forgot_your_password: Uw wachtwoord vergeten?
-        sign_in: Aanmelden
         sign_in_with_provider: Meld aan met %{provider}
         sign_up: Registreren
       minimum_password_length:
