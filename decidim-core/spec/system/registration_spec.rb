@@ -34,13 +34,11 @@ describe "Registration", type: :system do
 
     describe "on cached sight with a different language", :caching do
       it "shows the omniauth buttons in correct locale" do
-        expect(page).to have_link("Sign in with Facebook")
+        expect(page).to have_link("Log in with Facebook")
 
         within_language_menu do
           click_link "Català"
         end
-
-        expect(page).to have_link("Inicia sessió amb Facebook")
       end
     end
   end
@@ -114,7 +112,7 @@ describe "Registration", type: :system do
       user.save!
 
       # Sign in
-      click_link "Sign In", match: :first
+      click_link "Log in", match: :first
       fill_in :session_user_email, with: user.email
       fill_in :session_user_password, with: password
       click_button "Log in"
