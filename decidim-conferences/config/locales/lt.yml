@@ -333,9 +333,6 @@ lt:
         title: Pranešėjai
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL priedėliai naudojami nuorodų į konferenciją sukūrimui. Juose gali būti raidės, skaičiai ir brukšneliai, tačiau privalo prasidėti nuo raidės. Pavyzdys: %{url}'
         conference_invites:
           create:
             error: Kviečiant dalyvį dalyvauti šioje konferencijoje iškilo problema.
@@ -379,7 +376,6 @@ lt:
               few: Yra %{count} registracijų.
               many: Yra %{count} registracijų.
               other: Yra %{count} registracijų.
-            slug_help: 'URL priedėliai naudojami nuorodų į konferenciją sukūrimui. Juose gali būti raidės, skaičiai ir brukšneliai, tačiau privalo prasidėti nuo raidės. Pavyzdys: %{url}'
         diplomas:
           edit:
             save: Išsaugoti
