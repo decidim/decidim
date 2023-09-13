@@ -97,8 +97,6 @@ pl:
           all: Wszystko
           cancelled: Anulowane
           category: Kategoria
-          category_prompt: Wybierz kategorię
-          search: Szukaj
           state: Status
         linked_sortitions:
           selected_proposals: Wybrane propozycje
