@@ -633,7 +633,6 @@ zh-TW:
           fields:
             created_at: 創建日期
             email: 電子郵件
-            last_sign_in_at: 上次登入日期
             name: 姓名
             role: 角色
             roles:
