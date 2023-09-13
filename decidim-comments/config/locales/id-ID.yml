@@ -19,7 +19,6 @@ id:
           error: Terjadi masalah saat memilih komentar.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Masuk dengan akun Anda</a> atau <a href="%{sign_up_url}">mendaftar</a> untuk menambahkan komentar Anda.
         form:
           body:
             label: Komentar
