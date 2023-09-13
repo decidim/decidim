@@ -524,6 +524,10 @@ tr:
           filter: Filtrele
           filter_by: Şuna göre filtrele
           unfold: Aç
+        index:
+          count:
+            one: "%{count} ortak taslak"
+            other: "%{count} ortak taslak"
         new:
           send: Devam et
         new_collaborative_draft_button:
@@ -632,6 +636,9 @@ tr:
           voted: Desteklenmiş
         index:
           collaborative_drafts_list: Ortak çalışmaya dayalı taslaklara erişin
+          count:
+            one: "%{count} teklif"
+            other: "%{count} teklif"
           new_proposal: Yeni teklif
           see_all_withdrawn: Geri çekilen tüm tekliflere bakın
         new:
