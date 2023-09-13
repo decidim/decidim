@@ -450,7 +450,6 @@ lb:
           newsletter: Heiansdo en Newsletter mat relevanten Informatiounen zougeschéckt kréien
           newsletter_title: Erlabnis Kontakt opzehuelen
           nickname_help: Däin Pseudonym an %{organization}. Dierf nëmmen aus Buschtawen, Zuelen, _ an - bestoen.
-          sign_in: Umelden
           sign_up: Registréieren
           sign_up_as:
             legend: Registréieren als
@@ -1465,8 +1464,6 @@ lb:
       updated: Däin Kont gouf aktualiséiert.
     sessions:
       already_signed_out: Du bass elo ausgeloggt.
-      new:
-        sign_in: Aloggen
       signed_in: Du bass elo ageloggt.
       signed_out: Du bass elo ausgeloggt.
     shared:
@@ -1475,7 +1472,6 @@ lb:
         didn_t_receive_confirmation_instructions: Du hues keng Instruktiounen kritt fir d'Bestätegung?
         didn_t_receive_unlock_instructions: Du hues keng Instruktiounen kritt fir ze entspären?
         forgot_your_password: Passwuert vergiess?
-        sign_in: Umellen
         sign_in_with_provider: Registréier dech iwwer %{provider}
         sign_up: Registréieren
       minimum_password_length:
