@@ -67,15 +67,8 @@ eo:
       edit_draft:
         send: Antaŭvido
   devise:
-    sessions:
-      new:
-        sign_in: Ensaluti
     unlocks:
       send_instructions: Vi ricevos retpoŝton kun instrukcioj pri kiel malŝlosi vian konton en kelkaj minutoj.
-  layouts:
-    decidim:
-      user_menu:
-        sign_out: Elsaluti
   locale:
     name: Esperanto
     name_with_error: Esperanto (eraro!)
