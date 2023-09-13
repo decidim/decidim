@@ -93,7 +93,6 @@ it:
           more_than_one: elimina il tuo voto su %{name} e ricomincia
           only_one: cancella il tuo voto e ricomincia.
         highlighted_cta: Vota su %{name}
-        my_budgets: I miei budget
         progress: Chiusura voto
         show: Vedi progetti
         vote: Vota
