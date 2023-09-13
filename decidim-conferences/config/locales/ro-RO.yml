@@ -332,9 +332,6 @@ ro:
         title: Vorbitori
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această conferință. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         conference_invites:
           create:
             error: A apărut o problemă la invitarea participantului să participe la conferinţă.
@@ -377,7 +374,6 @@ ro:
               one: A existat o înregistrare.
               few: Au fost %{count} înregistrări.
               other: Au fost %{count} înregistrări.
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această conferință. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         diplomas:
           edit:
             save: Salvează
