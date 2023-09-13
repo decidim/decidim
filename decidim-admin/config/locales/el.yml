@@ -639,7 +639,6 @@ el:
           fields:
             created_at: Ημερομηνία δημιουργίας
             email: Email
-            last_sign_in_at: Ημερομηνία τελευταίας εισόδου
             name: Όνομα
             role: Ρόλος
             roles:
