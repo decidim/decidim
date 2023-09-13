@@ -33,7 +33,6 @@
           error: Det oppstod et problem med å stemme kommentaren.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Logg på med kontoen din</a> eller <a href="%{sign_up_url}">opprett en</a> for å legge til kommentaren din.
         form:
           body:
             label: Kommentar
