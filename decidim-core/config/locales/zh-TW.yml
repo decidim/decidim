@@ -523,7 +523,6 @@ zh-TW:
           already_have_an_account?: 已經有帳號了嗎？
           newsletter: 偶爾收到包含相關信息的時事通訊。
           newsletter_title: 聯絡人權限
-          sign_in: 登入
           sign_up: 註冊登記
           subtitle: 註冊以參與討論並支持提案。
           terms: 此服務條款
@@ -536,8 +535,6 @@ zh-TW:
           register: 建立一個帳號
           sign_in_disabled: 你可以使用外部帳戶登入。
           sign_up_disabled: 註冊已停用，您可以使用現有帳戶來登入。
-        user:
-          timed_out: 您已經有一段時間未活動，因此已自動從服務中登出。如果您希望繼續使用服務，請重新登錄。
       shared:
         newsletter_modal:
           buttons:
@@ -560,7 +557,6 @@ zh-TW:
           authorize: 授權應用程式
           by_organization_link_html: <small class="heading-small">由 %{link} 提供</small>
           cancel: 取消
-          connect_your_account_html: 透過登入<strong>%{organization}</strong>連接您的帳戶.
           publish_content: 代表您發佈內容
           see_email: 查看您的電子郵件
           see_name: 查看你的名稱
@@ -1382,10 +1378,7 @@ zh-TW:
         title: 舉報不適當的使用者
       floating_help:
         help: 幫助
-      follow_button:
-        sign_in_before_follow: 請在執行此操作之前登入。
       login_modal:
-        please_sign_in: 請先登入
         sign_up: 註冊登記
       mentions_modal:
         remove_recipient: 移除收件人 %{name}。
@@ -1500,8 +1493,6 @@ zh-TW:
       last_attempt: 您還有最後一次嘗試機會，再次失敗您的帳號將會被鎖定。
       locked: 您的帳號已被鎖定。
       not_found_in_database: 無效的 %{authentication_keys} 或密碼。
-      timeout: 登入階段逾時。請重新登入以繼續。
-      unauthenticated: 您需要先登入或註冊後才能繼續。
     invitations:
       edit:
         header: 完成您的帳戶設置
@@ -1563,7 +1554,6 @@ zh-TW:
         action: 解鎖我的帳戶
         greeting: 哈囉 %{recipient}!
         instruction: '請按一下下面的網址來解鎖您的帳戶：'
-        message: 您的帳戶已鎖定由於過量的不成功登錄嘗試。
         subject: 解鎖說明
     omniauth_callbacks:
       failure: 無法驗證您的 %{kind} 因為"%{reason}"。
@@ -1594,20 +1584,12 @@ zh-TW:
       signed_up_but_unconfirmed: 確認信件已送至您的 Email 信箱，請點擊信件內連結以啓動您的帳號。
       update_needs_confirmation: 您已經成功的更新帳號資訊，但我們仍需確認您的電子信箱，請至新信箱收信並點擊連結以確認您的新電子郵件帳號。
       updated: 您的帳號已成功升級。
-    sessions:
-      already_signed_out: 已成功登出。
-      new:
-        sign_in: 登入
-      signed_in: 已成功登入。
-      signed_out: 已成功登出。
     shared:
       links:
         back: 返回
         didn_t_receive_confirmation_instructions: 沒有收到確認的說明嗎？
         didn_t_receive_unlock_instructions: 沒有收到解鎖說明？
         forgot_your_password: 忘記密碼了嗎？
-        sign_in: 登入
-        sign_in_with_provider: 用%{provider} 登錄
         sign_up: 註冊登記
       minimum_password_length:
         other: "One\n(最少%{count} 個字符)\n\nOther\n(最少%{count} 個字符)"
@@ -1616,7 +1598,6 @@ zh-TW:
         resend_unlock_instructions: 重新發送解鎖說明
       send_instructions: 您將在幾分鐘後收到一封電子郵件，內有將帳號解除鎖定的步驟說明。
       send_paranoid_instructions: 如果你的賬戶存在，你將會在幾分鐘內收到一封電郵，內有解鎖賬戶的方法。
-      unlocked: 您的帳戶已成功解鎖。請登錄以繼續。
   doorkeeper:
     scopes:
       public: 您的公開資訊。
@@ -1648,7 +1629,6 @@ zh-TW:
   errors:
     messages:
       allowed_file_content_types: '只允許使用以下擴展名的檔案： %{types}'
-      already_confirmed: 已經確認，請嘗試登入
       blank: 不能為空白
       cannot_be_blank: 不能為空白
       confirmation: 不符合 %{attribute}
@@ -1741,7 +1721,6 @@ zh-TW:
         sign_up: 註冊
       header:
         main_menu: 主選單
-        sign_in: 登入
         user_menu: 使用者選單
       impersonation_warning:
         close_session: 關閉階段
@@ -1762,7 +1741,6 @@ zh-TW:
       timeout_modal:
         body: 您已經閒置了 %{minutes} 分鐘。如果您繼續閒置，為了您的安全，您將被自動登出。
         continue_session: 繼續會話
-        sign_out: 登出
         title: 您是否想要繼續進行本次對話？
       upload_modal:
         close_modal: 關閉視窗
@@ -1773,7 +1751,6 @@ zh-TW:
         notifications: 通知訊息
         profile: 我的帳號
         public_profile: 我的公開個人資料
-        sign_out: 登出
         title: 個人資料連結
       user_profile:
         account: 帳號
