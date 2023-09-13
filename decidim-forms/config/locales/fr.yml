@@ -156,7 +156,6 @@ fr:
         show:
           answer_questionnaire:
             already_have_an_account?: Vous avez déjà un compte ?
-            anonymous_user_message: <a href="%{sign_in_link}">Identifiez-vous avec votre compte</a> ou <a href="%{sign_up_link}">créez un compte</a> pour répondre au questionnaire.
             are_you_new?: Nouvel utilisateur ?
             sign_in_description: Connectez-vous pour répondre à l'enquête
             sign_up_description: Créez votre compte utilisateur pour répondre à l'enquête
