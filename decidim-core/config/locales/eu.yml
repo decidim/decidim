@@ -491,7 +491,7 @@ eu:
           newsletter: Jaso nahi dut noizbehinka informazio garrantzitsua duen buletina
           newsletter_title: Harremanetarako baimena
           nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
-          sign_in: Sartu
+          sign_in:
           sign_up: Erregistratu
           sign_up_as:
             legend: Izena eman honako hau gisa
@@ -1556,7 +1556,7 @@ eu:
     sessions:
       already_signed_out: Sinatu arrakastaz.
       new:
-        sign_in: Saioa hasi
+        sign_in:
       signed_in: Saioa hasi da behar bezala.
       signed_out: Sinatu arrakastaz.
     shared:
@@ -1565,7 +1565,7 @@ eu:
         didn_t_receive_confirmation_instructions: Ez dituzu jaso berresteko jarraibideak?
         didn_t_receive_unlock_instructions: Ez dituzu jaso desblokeatzeko jarraibideak?
         forgot_your_password: Zure pasahitza ahaztu duzu?
-        sign_in: Saioa hasi
+        sign_in:
         sign_in_with_provider: Hasi saioa %{provider}
         sign_up: Eman izena
       minimum_password_length:
