@@ -652,7 +652,6 @@ cs:
           fields:
             created_at: Datum vzniku
             email: E-mail
-            last_sign_in_at: Datum posledního přihlášení
             name: Název
             role: Role
             roles:
