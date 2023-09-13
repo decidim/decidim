@@ -343,7 +343,6 @@ lv:
           already_have_an_account?: Jums jau ir konts?
           newsletter: Saņemiet neregulāru informatīvo biļetenu ar būtisko informāciju
           newsletter_title: Atļauja sazināties
-          sign_in: Pieteikties
           sign_up: Reģistrēties
           subtitle: Reģistrēties, lai piedalītos diskusijās un atbalstītu priekšlikumus.
           tos_agreement: Reģistrējoties jūs piekrītat %{link}.
@@ -874,10 +873,7 @@ lv:
         spam: Satur klikšķu ēsmu (clickbait), reklāmu, krāpšanu vai skriptu robotprogrammatūru.
       floating_help:
         help: Palīdzība
-      follow_button:
-        sign_in_before_follow: Lūdzu, pierakstieties pirms šīs darbības veikšanas
       login_modal:
-        please_sign_in: Lūdzu, pierakstieties
         sign_up: Reģistrēties
       participatory_space_filters:
         filters:
@@ -952,8 +948,6 @@ lv:
       last_attempt: Jums ir vēl viens mēģinājums, pirms jūsu konts tiek bloķēts.
       locked: Jūsu konts ir bloķēts.
       not_found_in_database: Nederīga %{authentication_keys} vai parole.
-      timeout: Jūsu sesijas termiņš beidzās. Lūdzu, pierakstieties vēlreiz, lai turpinātu.
-      unauthenticated: Pirms turpināšanas jums jāpierakstās vai jāreģistrējas.
     invitations:
       edit:
         header: Pabeidziet sava konta izveidi
@@ -1000,7 +994,6 @@ lv:
         action: Atbloķēt manu kontu
         greeting: Sveiki, %{recipient}!
         instruction: 'Lai atbloķētu kontu, noklikšķiniet uz turpmāk esošās saites:'
-        message: Jūsu konts ir bloķēts, jo ir bijuši pārāk daudzi neveiksmīgi pierakstīšanās mēģinājumi.
         subject: Atbloķēšanas norādījumi
     omniauth_callbacks:
       failure: Nevarēju jūs autentificēt no %{kind}, jo "%{reason}".
@@ -1028,18 +1021,10 @@ lv:
       signed_up_but_unconfirmed: Uz jūsu e-pasta adresi ir nosūtīts ziņojums ar apstiprinājuma saiti. Lūdzu, izmantojiet saiti, lai aktivizētu savu kontu.
       update_needs_confirmation: Jūs veiksmīgi atjauninājāt kontu, taču mums ir jāpārbauda jūsu jaunā e-pasta adrese. Lūdzu, pārbaudiet savu e-pastu un izmantojiet apstiprināšanas saiti, lai apstiprinātu jauno e-pasta adresi.
       updated: Jūsu konts tika veiksmīgi atjaunināts.
-    sessions:
-      already_signed_out: Veiksmīgi izrakstījāties.
-      new:
-        sign_in: Pieteikties
-      signed_in: Veiksmīgi pierakstījāties.
-      signed_out: Veiksmīgi izrakstījāties.
     shared:
       links:
         back: Atpakaļ
         forgot_your_password: Aizmirsāt paroli?
-        sign_in: Pieteikties
-        sign_in_with_provider: Pierakstīties, izmantojot %{provider}
         sign_up: Reģistrēties
       minimum_password_length:
         zero: "(vismaz %{count} rakstzīmes)"
@@ -1050,13 +1035,11 @@ lv:
         resend_unlock_instructions: Atkārtoti nosūtīt atbloķēšanas norādījumus
       send_instructions: Jūs dažu minūšu laikā saņemsiet e-pastu ar norādījumiem, kā atbloķēt savu kontu.
       send_paranoid_instructions: Ja jūsu konts eksistē, jūs dažu minūšu laikā saņemsiet e-pastu ar norādījumiem, kā to atbloķēt.
-      unlocked: Jūsu konts ir veiksmīgi atbloķēts. Lūdzu, pierakstieties, lai turpinātu.
   doorkeeper:
     scopes:
       public: Jūsu publiski pieejamā informācija.
   errors:
     messages:
-      already_confirmed: jau tika apstiprināts, lūdzu, mēģiniet pierakstīties
       confirmation_period_expired: jāapstiprina %{period} laikā, lūdzu, pieprasiet jaunu
       content_type_allowlist_error: faila tips nav derīgs
       expired: ir beidzies derīguma termiņš, lūdzu, pieprasiet jaunu
@@ -1087,8 +1070,6 @@ lv:
         download_open_data: Lejupielādējiet atvērto datu failus
         made_with_open_source: Vietne, kas izveidota ar <a target="_blank" href="https://github.com/decidim/decidim"> bezmaksas programmatūru </a>.
         sign_up: Reģistrēties
-      header:
-        sign_in: Ieiet
       impersonation_warning:
         close_session: Aizvērt sesiju
         description_html: Jūs pārvaldāt dalībnieku <b>%{user_name}</b>.
@@ -1101,7 +1082,6 @@ lv:
         notifications: Paziņojumi
         profile: Mans konts
         public_profile: Mans publiskais profils
-        sign_out: Izrakstīties
       user_profile:
         account: Konts
         authorizations: Autorizācijas
