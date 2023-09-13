@@ -91,8 +91,6 @@ tr:
           all: Tümü
           cancelled: İptal edildi
           category: Kategori
-          category_prompt: Bir kategori seç
-          search: Arama
           state: Statü
         linked_sortitions:
           selected_proposals: Seçili teklifler
