@@ -449,7 +449,6 @@ pt:
           newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
           nickname_help: A sua alcunha em %{organization}. Só pode conter letras, números, “-”, e “_”
-          sign_in: Entrar
           sign_up: Inscreva-se
           sign_up_as:
             legend: Inscreva-se como
@@ -1468,8 +1467,6 @@ pt:
       updated: A sua conta foi atualizada corretamente.
     sessions:
       already_signed_out: Sessão terminada corretamente.
-      new:
-        sign_in: Iniciar sessão
       signed_in: Sessão iniciada corretamente.
       signed_out: Sessão terminada corretamente.
     shared:
@@ -1478,7 +1475,6 @@ pt:
         didn_t_receive_confirmation_instructions: Não recebeu as instruções de confirmação?
         didn_t_receive_unlock_instructions: Não recebeu as instruções de desbloqueio?
         forgot_your_password: Esqueceu a sua palavra-passe?
-        sign_in: Iniciar sessão
         sign_in_with_provider: Iniciar sessão com %{provider}
         sign_up: Inscrever-se
       minimum_password_length:
