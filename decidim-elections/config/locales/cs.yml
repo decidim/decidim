@@ -1061,6 +1061,7 @@ cs:
             promoted: Propagováno
             select_a_voting_type: Vyberte prosím typ hlasování
             slug: Slug
+            slug_help: 'URL slug se používá k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Název
             voting_type:
               hybrid: Hybridní
