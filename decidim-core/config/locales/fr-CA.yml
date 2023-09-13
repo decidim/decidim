@@ -593,7 +593,6 @@ fr-CA:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
-          sign_in: Se connecter
           sign_up: S'inscrire
           subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
           terms: Conditions d'Utilisation
@@ -606,8 +605,6 @@ fr-CA:
           register: Créer un compte
           sign_in_disabled: Vous pouvez vous connecter avec un compte externe.
           sign_up_disabled: La création de compte est désactivée, mais vous pouvez vous identifier avec un compte existant.
-        user:
-          timed_out: Vous avez été inactif pendant trop longtemps et vous avez été automatiquement déconnecté du service. Si vous souhaitez continuer à utiliser le service, veuillez vous reconnecter.
       shared:
         newsletter_modal:
           buttons:
@@ -631,13 +628,13 @@ fr-CA:
           hide_password: Masquer le mot de passe
           show_password: Montrer le mot de passe
           shown_password: Votre mot de passe est affiché
+        placeholder_email: salut@exemple.org
     doorkeeper:
       authorizations:
         new:
           authorize: Autoriser l'application
           by_organization_link_html: <small class="heading-small">par %{link}</small>
           cancel: Annuler
-          connect_your_account_html: Connectez votre compte en vous connectant à <strong>%{organization}</strong>.
           publish_content: Publier du contenu pour vous
           see_email: Voir votre email
           see_name: Voir votre nom
@@ -1484,10 +1481,7 @@ fr-CA:
         title: Signaler un utilisateur inapproprié
       floating_help:
         help: Aidez-moi
-      follow_button:
-        sign_in_before_follow: Veuillez vous connecter avant d'effectuer cette action
       login_modal:
-        please_sign_in: Veuillez vous connecter
         sign_up: S'inscrire
       mentions_modal:
         remove_recipient: Supprimer le destinataire %{name}
@@ -1605,8 +1599,6 @@ fr-CA:
       last_attempt: Vous avez encore une tentative avant que votre compte soit verrouillé.
       locked: Votre compte est bloqué.
       not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
-      timeout: Votre session a expiré. Veuillez vous connecter à nouveau pour continuer.
-      unauthenticated: Vous devez vous connecter ou vous inscrire avant de continuer.
     invitations:
       edit:
         header: Terminer la création de votre compte
@@ -1668,7 +1660,6 @@ fr-CA:
         action: Débloquer mon compte
         greeting: Bonjour %{recipient}!
         instruction: 'Cliquez sur le lien ci-dessous pour débloquer votre compte :'
-        message: Votre compte a été verrouillé en raison d'une quantité excessive de tentatives de connexion infructueuses.
         subject: Instructions de déverrouillage
     omniauth_callbacks:
       failure: Impossible de vous authentifier à partir de %{kind} car "%{reason}".
@@ -1699,20 +1690,12 @@ fr-CA:
       signed_up_but_unconfirmed: Un message avec un lien de confirmation a été envoyé à votre adresse e-mail. Veuillez suivre le lien pour activer votre compte.
       update_needs_confirmation: Vous avez mis à jour votre compte avec succès, mais nous devons vérifier votre nouvelle adresse e-mail. S'il vous plaît vérifier votre email et suivez le lien de confirmation pour confirmer votre nouvelle adresse e-mail.
       updated: Votre compte a été mis à jour avec succès.
-    sessions:
-      already_signed_out: Déconnecté(e) avec succès.
-      new:
-        sign_in: S'identifier
-      signed_in: Connexion réussie.
-      signed_out: Déconnecté(e) avec succès.
     shared:
       links:
         back: Retour
         didn_t_receive_confirmation_instructions: Vous n’avez pas reçu les instructions de confirmation ?
         didn_t_receive_unlock_instructions: Vous n’avez pas reçu les instructions de déverrouillage ?
         forgot_your_password: Mot de passe oublié?
-        sign_in: S'identifier
-        sign_in_with_provider: Se connecter avec %{provider}
         sign_up: S'inscrire
       minimum_password_length:
         one: "(%{count} caractère minimum)"
@@ -1722,7 +1705,6 @@ fr-CA:
         resend_unlock_instructions: Renvoyer les instructions de déverrouillage
       send_instructions: Vous recevrez un email avec des instructions pour débloquer votre compte en quelques minutes.
       send_paranoid_instructions: Si votre compte existe, vous recevrez un email avec des instructions pour le débloquer en quelques minutes.
-      unlocked: Votre compte a été débloqué avec succès. Veuillez vous connecter pour continuer.
   doorkeeper:
     scopes:
       public: Votre information publique
@@ -1811,7 +1793,6 @@ fr-CA:
   errors:
     messages:
       allowed_file_content_types: 'seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
-      already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
       blank: ne peut être vide
       cannot_be_blank: ne peut être vide
       confirmation: ne correspond pas à %{attribute}
@@ -1909,12 +1890,10 @@ fr-CA:
         download_open_data: Télécharger les fichiers Open Data
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
         resources: Ressources
-        sign_in: S'identifier
         sign_up: S'inscrire
         terms_and_conditions: Conditions générales
       header:
         main_menu: Menu principal
-        sign_in: Se connecter
         user_menu: Menu utilisateur
       impersonation_warning:
         close_session: Fermer la session
@@ -1940,7 +1919,6 @@ fr-CA:
       timeout_modal:
         body: Vous avez été inactif pendant %{minutes} minutes. Si vous continuez à être inactif, vous serez automatiquement déconnecté pour votre propre sécurité.
         continue_session: Continuer la session
-        sign_out: Se déconnecter
         title: Voulez-vous poursuivre votre session ?
       upload_modal:
         close_modal: Fermer la fenêtre
@@ -1952,7 +1930,6 @@ fr-CA:
         notifications: Notifications
         profile: Mon compte
         public_profile: Mon profil public
-        sign_out: Déconnexion
         title: Liens du profil
       user_profile:
         account: Compte
