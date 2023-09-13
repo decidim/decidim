@@ -625,6 +625,7 @@ ca:
           hide_password: Amagar contrasenya
           show_password: Mostrar contrasenya
           shown_password: La contrasenya és visible
+        placeholder_email: hi@example.org
     doorkeeper:
       authorizations:
         new:
