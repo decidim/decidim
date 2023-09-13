@@ -370,7 +370,6 @@ ru:
           fields:
             created_at: Дата создания
             email: Эл. адрес
-            last_sign_in_at: Дата последнего входа
             name: Имя
             role: Роль
             roles:
