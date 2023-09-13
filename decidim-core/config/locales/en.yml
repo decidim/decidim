@@ -585,7 +585,6 @@ en:
           email_already_exists: Another account is using the same email address.
         new:
           complete_profile: Complete profile
-          nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
@@ -595,8 +594,6 @@ en:
           log_in: Log in
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
-          nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
-          sign_in: Log in
           sign_up: Sign up
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms of service
