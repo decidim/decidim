@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     # This cell renders the Grid (:g) voting card
-    # for an given instance of a Voting
+    # for a given instance of a Voting
     class VotingGCell < Decidim::CardGCell
       private
 

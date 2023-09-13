@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/meetings/test/factories"
 
-module Decidim::Meetings::Admin
+module Decidim::Admin
   describe Invites do
     subject { described_class.for(Decidim::Meetings::Invite.all, search, filter) }
 

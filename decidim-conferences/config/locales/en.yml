@@ -63,7 +63,7 @@ en:
         personal_url: Personal URL
         position: Position
         short_bio: Short bio
-        twitter_handle: Twitter handle
+        twitter_handle: X handle
         user_id: User
       conference_user_role:
         email: Email
@@ -426,16 +426,16 @@ en:
         create:
           invalid: There was a problem joining this conference.
           success: You have successfully joined the conference.
-          unauthorized: You need to sign in before registering to the conference.
+          unauthorized: You need to log in before registering to the conference.
         decline_invitation:
           invalid: There was a problem declining the invitation.
           success: You have successfully declined the invitation.
-          unauthorized: You need to sign in before declining the invitation.
+          unauthorized: You need to log in before declining the invitation.
         destroy:
           invalid: There was a problem leaving this conference.
           success: You have successfully left the conference.
       conference_speaker:
-        go_to_twitter: Go to Twitter
+        go_to_twitter: Go to X
         more_info: more info
         personal_website: Personal website
         show:

@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Votings
     module Admin
-      describe PollingOfficerForm do
+      describe VotingUserRoleForm do
         subject(:form) { described_class.from_params(attributes).with_context(context) }
 
         let(:organization) { create(:organization) }
@@ -34,7 +34,7 @@ module Decidim
           end
 
           describe "when email is invalid" do
-            let(:email) { "invalid#email.org" }
+            let(:email) { "invalid#example.org" }
 
             it { is_expected.not_to be_valid }
           end

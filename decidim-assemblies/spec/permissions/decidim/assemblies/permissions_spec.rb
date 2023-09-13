@@ -91,7 +91,7 @@ describe Decidim::Assemblies::Permissions do
       )
     end
 
-    context "when reading a assembly" do
+    context "when reading an assembly" do
       let(:action) do
         { scope: :public, action: :read, subject: :assembly }
       end
@@ -281,7 +281,7 @@ describe Decidim::Assemblies::Permissions do
     )
   end
 
-  context "when creating a assembly" do
+  context "when creating an assembly" do
     let(:action) do
       { scope: :admin, action: :create, subject: :assembly }
     end
@@ -326,7 +326,7 @@ describe Decidim::Assemblies::Permissions do
     )
   end
 
-  context "when reading a assemblies settings" do
+  context "when reading an assemblies settings" do
     let(:action) do
       { scope: :admin, action: :read, subject: :assemblies_setting }
     end
@@ -341,7 +341,7 @@ describe Decidim::Assemblies::Permissions do
     )
   end
 
-  context "with a assembly" do
+  context "with an assembly" do
     let(:context) { { assembly: } }
 
     context "when moderating a resource" do
@@ -359,7 +359,7 @@ describe Decidim::Assemblies::Permissions do
       )
     end
 
-    context "when publishing a assembly" do
+    context "when publishing an assembly" do
       let(:action) do
         { scope: :admin, action: :publish, subject: :assembly }
       end
@@ -402,10 +402,10 @@ describe Decidim::Assemblies::Permissions do
       end
     end
 
-    context "when user is a assembly admin" do
+    context "when user is an assembly admin" do
       let(:user) { assembly_admin }
 
-      context "when creating a assembly" do
+      context "when creating an assembly" do
         let(:action) do
           { scope: :admin, action: :create, subject: :assembly }
         end
@@ -435,7 +435,7 @@ describe Decidim::Assemblies::Permissions do
     end
 
     context "when user is an org admin" do
-      context "when creating a assembly" do
+      context "when creating an assembly" do
         let(:action) do
           { scope: :admin, action: :create, subject: :assembly }
         end

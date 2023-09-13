@@ -12,7 +12,6 @@ module Decidim
         nickname: user.nickname,
         email: user.email,
         password: nil,
-        password_confirmation: nil,
         avatar: nil,
         remove_avatar: nil,
         personal_url: "https://example.org",
@@ -27,7 +26,6 @@ module Decidim
         nickname: data[:nickname],
         email: data[:email],
         password: data[:password],
-        password_confirmation: data[:password_confirmation],
         avatar: data[:avatar],
         remove_avatar: data[:remove_avatar],
         personal_url: data[:personal_url],
@@ -81,7 +79,7 @@ module Decidim
         let(:validator) { instance_double(ValidEmail2::Address) }
 
         before do
-          form.email = "new@email.com"
+          form.email = "new@example.com"
 
           allow(ValidEmail2::Address).to receive(:new).and_return(validator)
           allow(validator).to receive(:valid?).and_return(true)
@@ -96,7 +94,7 @@ module Decidim
           expect do
             perform_enqueued_jobs { command.call }
           end.to broadcast(:ok, true)
-          expect(last_email.to).to include("new@email.com")
+          expect(last_email.to).to include("new@example.com")
         end
       end
 
@@ -129,7 +127,6 @@ module Decidim
 
         before do
           form.password = "pNY6h9crVtVHZbdE"
-          form.password_confirmation = "pNY6h9crVtVHZbdE"
         end
 
         it "updates the password" do

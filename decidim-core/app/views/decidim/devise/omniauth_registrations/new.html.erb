@@ -20,7 +20,7 @@
 
       <%= f.text_field :nickname, help_text: t("decidim.devise.omniauth_registrations.new.nickname_help", organization: current_organization.name), autocomplete: "nickname", placeholder: "johndoe" %>
 
-      <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
+      <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
 
       <%= f.hidden_field :uid %>
       <%= f.hidden_field :provider %>

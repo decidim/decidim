@@ -3,7 +3,7 @@
 module Decidim
   module Debates
     # This cell renders the Medium (:m) debate card
-    # for an given instance of a Debate
+    # for a given instance of a Debate
     class DebateMCell < Decidim::CardMCell
       include DebateCellsHelper
 

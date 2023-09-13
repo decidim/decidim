@@ -13,7 +13,6 @@ module Decidim
     attribute :nickname
     attribute :email
     attribute :password
-    attribute :password_confirmation
     attribute :avatar, Decidim::Attributes::Blob
     attribute :remove_avatar, Boolean, default: false
     attribute :personal_url
@@ -24,9 +23,7 @@ module Decidim
     validates :nickname, presence: true, format: { with: Decidim::User::REGEXP_NICKNAME }
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
-    validates :password, confirmation: true
     validates :password, password: { name: :name, email: :email, username: :nickname }, if: -> { password.present? }
-    validates :password_confirmation, presence: true, if: :password_present
     validates :avatar, passthru: { to: Decidim::User }
 
     validate :unique_email
@@ -44,10 +41,6 @@ module Decidim
     end
 
     private
-
-    def password_present
-      password.present?
-    end
 
     def unique_email
       return true if Decidim::UserBaseEntity.where(
