@@ -532,6 +532,10 @@ pt-BR:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Desdobrar
+        index:
+          count:
+            one: "%{count} rascunho colaborativo"
+            other: "%{count} rascunho colaborativo"
         new:
           send: Continuar
         new_collaborative_draft_button:
@@ -646,6 +650,9 @@ pt-BR:
           voted: Votado
         index:
           collaborative_drafts_list: Acesse rascunhos colaborativos
+          count:
+            one: "%{count} proposta"
+            other: "%{count} propostas"
           new_proposal: Nova proposta
           see_all_withdrawn: Veja todas as propostas retiradas
         new:
