@@ -327,9 +327,6 @@ hu:
         title: Hangszórók
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Az URL-csigákat használják az e konferenciára utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
         conference_invites:
           create:
             error: Probléma merült fel a felhasználó csatlakozásakor.
@@ -371,7 +368,6 @@ hu:
             registrations_count:
               one: 1 regisztráció volt.
               other: '%{count} regisztráció volt.'
-            slug_help: 'Az URL-csigákat használják az e konferenciára utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
         diplomas:
           edit:
             save: Mentés
