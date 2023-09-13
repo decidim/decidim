@@ -253,6 +253,41 @@ module Decidim
       end
     end
 
+    describe "#select" do
+      let(:options) { [%w(All all), %w(None none)] }
+      let(:output) do
+        builder.select :scopes, options
+      end
+
+      it "renders" do
+        expect(output).to match(
+          "<label for=\"resource_scopes\">Scopes" \
+          "<select name=\"resource[scopes]\" id=\"resource_scopes\">" \
+          "<option value=\"all\">All</option>\n" \
+          "<option value=\"none\">None</option></select></label>"
+        )
+      end
+
+      context "when a help text is defined" do
+        let(:field) { "select" }
+        let(:help_text_text) { "This is the help" }
+        let(:output) do
+          builder.select :scopes, options, help_text: help_text_text
+        end
+
+        it "renders" do
+          expect(output).to match(
+            "<label for=\"resource_scopes\">Scopes<span class=\"help-text\">This is the help</span>" \
+            "<select name=\"resource[scopes]\" id=\"resource_scopes\">" \
+            "<option value=\"all\">All</option>\n" \
+            "<option value=\"none\">None</option></select></label>"
+          )
+        end
+
+        it_behaves_like "having a help text"
+      end
+    end
+
     describe "#hashtaggable_text_field" do
       let(:output) do
         builder.hashtaggable_text_field :text_field, :name, "en", { autofocus: true, class: "js-hashtags", label: false }
