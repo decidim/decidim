@@ -121,7 +121,6 @@ sv:
           more_than_one: dra tillbaka din röst på %{name} och börja om
           only_one: dra tillbaka din röst och börja om.
         highlighted_cta: Rösta på %{name}
-        my_budgets: Mina budgetar
         progress: Avsluta röstning
         remove_vote: Ta bort röst
         show: Visa projekt
