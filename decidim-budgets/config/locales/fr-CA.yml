@@ -169,7 +169,6 @@ fr-CA:
         finished_message: Vous avez terminé le processus de vote. Merci de votre participation !
         highlighted_cta: Voter pour %{name}
         if_change_opinion: Si vous avez changé d’avis, vous pouvez
-        my_budgets: Mes Budgets
         progress: Terminer le vote
         remove_vote: Retirer le vote
         show: Voir les projets
