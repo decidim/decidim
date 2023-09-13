@@ -2,8 +2,8 @@ eu:
   activerecord:
     models:
       decidim/pages/page:
-        one: page
-        other: orrialdeak
+        one: Orria
+        other: Orriak
   decidim:
     admin_log:
       page:

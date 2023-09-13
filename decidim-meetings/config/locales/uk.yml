@@ -257,6 +257,12 @@ uk:
           value_types:
             organizer_presenter:
               not_found: 'Цього організатора не знайдено в базі даних (ID: %{id})'
+      application_helper:
+        filter_scope_values:
+          all: Усі
+      content_blocks:
+        upcoming_meetings:
+          upcoming_meetings: Прийдешні зустрічі
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -270,6 +276,7 @@ uk:
         filters:
           category: Категорія
           date: Дата
+          scope: Обсяг
           search: Шукати
         filters_small_view:
           close_modal: Закрити віконце
@@ -286,8 +293,8 @@ uk:
           confirm: Підтвердити
         show:
           attendees: Кількість учасників
+          close_meeting: Закрити зустріч
           contributions: Кількість внесених пропозицій
-          join: Долучитись до зустрічі
           meeting_minutes: Протокол зустрічі
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь

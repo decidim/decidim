@@ -206,7 +206,7 @@ ja:
             other: "%{count} プロジェクト"
         exit_modal:
           cancel: 投票に戻る
-          close_modal: 閉じる
+          close_modal: ウィンドウを閉じる
           exit: 投票を終了
           message: 投票プロセスがまだ完了していないため、投票が登録されていません。投票を終了してもよろしいですか？
           title: まだ投票していません
@@ -220,7 +220,7 @@ ja:
             not_selected: 未選択
             selected: 選択済
         filters_small_view:
-          close_modal: モーダルを閉じる
+          close_modal: ウィンドウを閉じる
           filter: フィルター
           filter_by: フィルター
           unfold: 展開する

@@ -28,6 +28,7 @@ de:
         show_statistics: Zeige Statistiken
         sign_date: Unterzeichnungsdatum
         signature: Unterschrift
+        signature_name: Signaturname
         slogan: Slogan
         slug: URL-Block
         start_date: Startdatum
@@ -132,6 +133,8 @@ de:
         edit:
           title: Aktualisieren Sie den Konferenzbenutzer.
           update: Aktualisieren
+        index:
+          conference_admins_title: Konferenzadmins
         new:
           create: Erstellen
           title: Neuer Konferenzbenutzer
@@ -309,6 +312,7 @@ de:
           update: "%{user_name} hat den Partner %{resource_name} in der Konferenz %{space_name} aktualisiert"
         registration_type:
           create: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} erstellt"
+          delete: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} entfernt"
           publish: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} veröffentlicht"
           unpublish: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} auf \"unveröffentlicht\" gesetzt"
           update: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} aktualisiert"
@@ -377,6 +381,7 @@ de:
           invite:
             decline: Einladung '%{conference_title}' ablehnen
             invited_existing_user_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz um %{application}teilzunehmen. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
+            invited_user_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz auf %{application} teilzunehmen. Sie können die Einladung über den unten stehenden Link akzeptieren."
             registration: Registrierung für '%{conference_title}'
         partners:
           index:
@@ -427,9 +432,11 @@ de:
         create:
           invalid: Bei dieser Konferenz ist ein Problem aufgetreten.
           success: Sie sind der Konferenz erfolgreich beigetreten.
+          unauthorized: Sie müssen sich anmelden, um sich bei der Konferenz anzumelden.
         decline_invitation:
           invalid: Es ist ein Problem aufgetreten, dass die Einladung abgelehnt wurde.
           success: Sie haben die Einladung erfolgreich abgelehnt.
+          unauthorized: Sie müssen sich anmelden, bevor Sie die Einladung ablehnen.
         destroy:
           invalid: Beim Verlassen dieser Konferenz ist ein Problem aufgetreten.
           success: Sie haben die Konferenz erfolgreich verlassen.

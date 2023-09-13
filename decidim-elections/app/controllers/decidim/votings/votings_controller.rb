@@ -99,7 +99,7 @@ module Decidim
       end
 
       def election
-        @election ||= Decidim::Elections::Election.find(params[:election_id])
+        @election ||= Decidim::Elections::Election.where(component: current_participatory_space.components).find(params[:election_id])
       end
 
       def elections

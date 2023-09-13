@@ -494,7 +494,6 @@ it:
           highlighted_conferences:
             active_conferences: Conferenze attive
             conferences_button_title: Link alla pagina Conferenze in cui sono visualizzate tutte le conferenze
-            see_all_conferences: Vedi tutte le conferenze
       photo:
         image:
           attributes:
@@ -596,7 +595,7 @@ it:
             one: "%{count} conferenza"
             other: "%{count} conferenze"
         promoted_conference:
-          more_info: Maggiori informazioni
+          more_info: Ulteriori informazioni
           take_part: Partecipa
       conferences_nav:
         conference_menu_item: Informazioni

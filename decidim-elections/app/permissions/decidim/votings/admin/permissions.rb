@@ -132,7 +132,7 @@ module Decidim
           when :ballot_styles
             toggle_allow(user.admin?) if permission_action.action == :read
           when :component_data
-            toggle_allow(user.admin?) if permission_action.action == :import
+            toggle_allow(user.admin?) if [:import, :export].member? permission_action.action
           end
         end
 

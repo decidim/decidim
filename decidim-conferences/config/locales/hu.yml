@@ -505,7 +505,6 @@ hu:
           highlighted_conferences:
             active_conferences: Aktív konferenciák
             conferences_button_title: Link a Konferenciák oldalra, ahol az összes konferencia látható
-            see_all_conferences: Lásd az összes konferenciát
       photo:
         image:
           attributes:

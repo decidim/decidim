@@ -56,6 +56,8 @@ fi:
           attributes:
             iframe_embed_type:
               not_embeddable: Tätä URL-osoitetta ei voi upottaa tapaamisen sivulle tai reaaliaikaisen tapahtuman sivulle
+            online_meeting_url:
+              url_format: URL-osoitteen tulee olla oikean muotoinen
         meeting_agenda:
           attributes:
             base:
@@ -477,7 +479,6 @@ fi:
             all: Kaikki
             citizens: Kansalaiset
             official: Viralliset
-            user_groups: Ryhmät
           scope: Teema
           search: Hae
           type: Tyyppi
@@ -529,10 +530,8 @@ fi:
           close_meeting: Sulje tapaaminen
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
-          edit_close_meeting: Muokkaa tapahtumaraporttia
           edit_meeting: Muokkaa tapaamista
           going: Olet ilmoittautunut tähän tapaamiseen
-          join: Ilmoittaudu tapaamiseen
           leave: Peruuta ilmoittautumisesi
           leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?
           link_available_soon: Linkki julkaistaan pian

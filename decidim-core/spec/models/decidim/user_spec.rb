@@ -227,7 +227,7 @@ module Decidim
 
       it { is_expected.to be_truthy }
 
-      context "when user accepted ToS before organization last update" do
+      context "when user accepted TOS before organization last update" do
         let(:organization) { build(:organization, tos_version: Time.current) }
         let(:accepted_tos_version) { 1.year.before }
 
@@ -241,7 +241,7 @@ module Decidim
         end
       end
 
-      context "when user didn't accepted ToS" do
+      context "when user has not accepted the TOS" do
         let(:accepted_tos_version) { nil }
 
         it { is_expected.to be_falsey }

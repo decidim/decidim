@@ -8,6 +8,8 @@ bg:
   decidim:
     debates:
       debates:
+        filters:
+          user_groups: Групи
         show:
           groups_count: Групи
           last_comment_by: Последно коментиран от

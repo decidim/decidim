@@ -163,7 +163,7 @@ lb:
           rules:
             title: Budgetregeln
           title: Sie entscheiden über das Budget
-          total_budget: Gesamtbudget
+          total_budget: Gesamtbudget; Gesamtetat
           total_projects: Stimmen insgesamt
           vote_threshold_percent_rule:
             description: Welche Projekte sollen finanziert werden? Wählen Sie Projekte im Wert von mindestens %{minimum_budget} aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
@@ -172,6 +172,8 @@ lb:
           projects_count:
             one: 1 Projekt
             other: "%{count} Projekte"
+        exit_modal:
+          close_modal: Dialog schließen
         filters:
           category: Kategorie
           scope: Umfang
@@ -182,12 +184,12 @@ lb:
             not_selected: Nicht ausgewählt
             selected: Ausgewählt
         filters_small_view:
-          close_modal: Modal schließen
+          close_modal: Dialog schließen
           filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
         order_progress:
-          vote: Abstimmung
+          vote: Abstimmen
         order_selected_projects:
           remove: Löschen
           selected_projects:

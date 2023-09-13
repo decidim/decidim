@@ -112,7 +112,7 @@
               validating: Teknisk validering
               withdrawn: Tilbakekalt
           state_null:
-            label: Tilstand
+            label: Delstat
             values:
               'true': Ikke besvart
         search_placeholder:
@@ -649,6 +649,9 @@
           info: Du oppretter et <strong>samarbeids utkast</strong>.
         wizard_header:
           title: Opprett ditt samarbeids utkast
+      content_blocks:
+        highlighted_proposals:
+          proposals: Forslag
       create:
         error: Det oppstod et problem med å lagre forslaget.
         success: Forslag opprettet. Lagret som et utkast.
@@ -751,8 +754,6 @@
           recent: Nylig
           with_more_authors: Med flere forfattere
         participatory_texts:
-          index:
-            document_index: Dokument indeks
           view_index:
             see_index: Se index
         placeholder:

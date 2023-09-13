@@ -317,9 +317,7 @@ lv:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktīvās asamblejas
             assemblies_button_title: Saite uz lapu Asamblejas, kurā norādītas visas asamblejas
-            see_all_assemblies: Skatīt visas asamblejas
         user_profile:
           member_of:
             member_of: Dalībnieks
@@ -334,7 +332,6 @@ lv:
         developer_group: Atbalstītāju grupa
         duration: Ilgums
         included_at: Iekļauts plkst.
-        indefinite_duration: Nenoteikts
         internal_organisation: Iekšējā organizācija
         is_transparent:
           'false': neskaidra

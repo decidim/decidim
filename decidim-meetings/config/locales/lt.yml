@@ -474,7 +474,6 @@ lt:
             all: Visi
             citizens: Piliečiai
             official: Oficialus
-            user_groups: Grupės
           scope: Apimtis
           search: Ieškoti
           type: Tipas
@@ -523,13 +522,11 @@ lt:
         show:
           attendees: Dalyvių skaičius
           back: Grįžti į sąrašą
-          close_meeting: Uždaryti susitikimą
+          close_meeting: Baigti susirinkimą
           contributions: Nuomonių skaičius
           date: Data
-          edit_close_meeting: Redaguoti susitikimo ataskaitą
-          edit_meeting: Redaguoti susitikimą
+          edit_meeting: Redaguoti susirinkimą
           going: Jūs užsiregistravote šiame susitikime
-          join: Prisijunkite prie susitikimo
           leave: Atšaukti registraciją
           leave_confirmation: Ar tikrai norite atšaukti savo registraciją į šį susirinkimą?
           link_available_soon: Nuoroda bus prieinama neužilgo

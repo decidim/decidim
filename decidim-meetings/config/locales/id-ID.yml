@@ -273,6 +273,9 @@ id:
           value_types:
             organizer_presenter:
               not_found: 'Organiser tidak ditemukan di database (ID: %{id})'
+      application_helper:
+        filter_scope_values:
+          all: Semua
       calendar_modal:
         calendar_url: URL Kalender
         close_window: Tutup jendela
@@ -280,6 +283,7 @@ id:
       conference_venues: Tempat Konferensi
       content_blocks:
         upcoming_meetings:
+          upcoming_meetings: Pertemuan yang akan datang
           view_all_meetings: Lihat semua
       directory:
         meetings:
@@ -301,6 +305,7 @@ id:
         filters:
           category: Kategori
           date: Tanggal
+          scope: Cakupan
           search: Pencarian
         filters_small_view:
           close_modal: Tutup modal
@@ -317,8 +322,8 @@ id:
           confirm: Memastikan
         show:
           attendees: Jumlah peserta
+          close_meeting: Tutup rapat
           contributions: Kontribusi dihitung
-          join: Bergabunglah dengan rapat
           meeting_minutes: Risalah Pertemuan
           no_slots_available: Tidak ada slot yang tersedia
           organizations: Menghadiri organisasi

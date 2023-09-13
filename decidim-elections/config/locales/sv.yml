@@ -438,7 +438,7 @@ sv:
           casting: Rösta
           confirm: Bekräfta din röst
           confirmed: Rösta bekräftad
-          failed: Omröstningen misslyckades
+          failed: Röst ej framgångsrik
         messages:
           not_allowed: Ni får inte rösta om detta val just nu.
         modal:
@@ -507,16 +507,6 @@ sv:
             title: Valtyper
           new:
             create: Skapa
-        content_blocks:
-          landing_page:
-            header:
-              name: Omröstningsbanner
-            metrics:
-              name: Omröstningsmetrik
-            stats:
-              name: Omröstningsstatistik
-            timeline:
-              name: Omröstningstidslinje
         index:
           not_published: Ej publicerade
           published: Publicerad
@@ -657,8 +647,6 @@ sv:
             download: Ladda ner
       content_blocks:
         landing_page:
-          description:
-            title: Om den här omröstningen
           metrics:
             heading: Metrik
           polling_stations:
@@ -671,11 +659,6 @@ sv:
           destroy: Radera
           new: Ny medlem
           title: Åtgärder
-      pages:
-        home:
-          highlighted_votings:
-            active_votings: Activa omröstningar
-            see_all_votings: Se alla omröstningar
       polling_officer_zone:
         closures:
           certify:

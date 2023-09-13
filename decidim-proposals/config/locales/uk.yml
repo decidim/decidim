@@ -51,6 +51,12 @@ uk:
         many: Голосів
         other: Голосів
   decidim:
+    admin:
+      filters:
+        proposals:
+          state_null:
+            values:
+              'true': Без відповідей
     components:
       proposals:
         actions:
@@ -225,6 +231,9 @@ uk:
           official: Службове
         filter_state_values:
           not_answered: Без відповідей
+      content_blocks:
+        highlighted_proposals:
+          proposals: Пропозиції
       create:
         error: При спробі збереження цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено. Збережено як чернетку.
@@ -232,6 +241,9 @@ uk:
         error: При спробі видалити чернетку цієї пропозиції сталися помилки.
         success: Чернетку пропозиції успішно видалено.
       models:
+        collaborative_draft:
+          fields:
+            comments: Коментарі
         proposal:
           fields:
             category: Категорія
@@ -246,6 +258,9 @@ uk:
             votes: Голоси
       new:
         limit_reached: Ви не можете вносити нові пропозиції, оскільки ви перевищили ліміт.
+      participatory_text_proposal:
+        buttons:
+          comments: Коментарі
       proposal_votes:
         create:
           error: При голосуванні щодо пропозиції сталися помилки.
@@ -274,11 +289,6 @@ uk:
           search: Шукати
           state: Стан
           voted: Проголосоване
-        filters_small_view:
-          close_modal: Закрити віконце
-          filter: Відібрати
-          filter_by: 'Відібрати за ознакою:'
-          unfold: Розгорнути
         index:
           new_proposal: Додати нову пропозицію
           see_all_withdrawn: Переглянути всі відкликані пропозиції
@@ -345,7 +355,6 @@ uk:
           vote_limit:
             description: Ви можете проголосувати до %{limit} пропозицій.
             left: Залишилось
-            votes: Голоси
         wizard_aside:
           back: Повернутись
           info: Ви вносите <strong>пропозицію</strong>.

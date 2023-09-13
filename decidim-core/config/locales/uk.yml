@@ -542,6 +542,8 @@ uk:
     statistics:
       comments_count: Коментарів
     user_conversations:
+      index:
+        close: Закрити
       update:
         error: Повідомлення не надіслано. Спробуйте ще раз пізніше
     version_author:

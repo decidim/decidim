@@ -791,8 +791,6 @@ pt:
           recent: Recente
           with_more_authors: Com mais autores
         participatory_texts:
-          index:
-            document_index: Índice de documentos
           view_index:
             see_index: Ver o índice
         placeholder:

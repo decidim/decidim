@@ -100,6 +100,7 @@ hu:
         welcome_notification_subject: Üdvözlő üzenet tárgya
         youtube_handler: YouTube kezelő
       participatory_space_private_user:
+        email: Email
         name: Név
       scope:
         code: Kód

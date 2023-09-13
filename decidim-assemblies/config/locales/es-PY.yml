@@ -378,11 +378,11 @@ es-PY:
         closing_date: Fecha de cierre
         composition: Composición
         created_by: Creado por
-        creation_date: Fecha de creación
+        creation_date: Fecha de creacion
         developer_group: Grupo promotor
         duration: Duración
         included_at: Incluido en
-        indefinite_duration: Indefinido
+        indefinite_duration: Indefinida
         internal_organisation: Organización interna
         is_transparent:
           'false': opaco

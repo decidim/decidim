@@ -1603,6 +1603,7 @@ en:
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
       too_short: is too short (under %{count} characters)
+      url_format: This URL is in the incorrect format
   forms:
     correct_errors: There are errors on the form, please correct them to continue.
     length_validator:

@@ -21,6 +21,3 @@ sl:
               accepted: Sprejeto
               published: Objavljeno
               rejected: Zavrnjen
-          state_null:
-            values:
-              'true': Neodgovorjen

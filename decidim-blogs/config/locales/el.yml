@@ -1,5 +1,11 @@
 el:
   activemodel:
+    attributes:
+      post:
+        body: Σώμα
+        decidim_author_id: Συντάκτης
+        published_at: Ώρα δημοσίευσης
+        title: Τίτλος
     models:
       decidim/blogs/create_post_event: Νέα ανάρτηση ιστολογίου
   activerecord:
@@ -45,6 +51,7 @@ el:
             author: Συντάκτης
             body: Σώμα
             created_at: Δημιουργήθηκε στις
+            title: Τίτλος
       posts:
         show:
           back: Επιστροφή στη λίστα
@@ -56,6 +63,12 @@ el:
       read_more: Διαβάστε περισσότερα
     components:
       blogs:
+        actions:
+          comment: Σχόλιο
+          create: Δημιουργία
+          destroy: Διαγραφή
+          endorse: Επιδοκιμασία
+          update: Ενημέρωση
         name: Ιστολόγιο
         settings:
           global:

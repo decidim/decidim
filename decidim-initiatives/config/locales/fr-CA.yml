@@ -417,7 +417,7 @@ fr-CA:
           email_subject: "%{applicant_nickname} veut rejoindre le comité de promotion de votre pétition"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a postulé pour faire partie du comité de promotion de votre pétition <a href="%{resource_url}">%{resource_title}</a>. Pour accepter ou rejeter la demande, cliquez <a href="%{resource_url}/edit">ici</a>.
       form:
-        add_attachments: Pièces-jointes
+        add_attachments: Documents
         attachment_legend: "(Facultatif) Ajouter une pièce jointe"
         delete_attachment: Supprimer
       index:
@@ -565,11 +565,6 @@ fr-CA:
         status_change_for: L'initiative %{title} a changé de statut
       last_activity:
         new_initiative: Nouvelle initiative
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Initiatives actives
-            see_all_initiatives: Voir toutes les initiatives
       show:
         badge_name:
           accepted: Assez de signatures
@@ -608,7 +603,7 @@ fr-CA:
         promotal_committee: Comité de promotion
         select_initiative_type: Sélectionnez le type de d'initiative
         show_similar_initiatives: Comparez avec les autres initiatives
-        step: Étape %{current} de %{total}
+        step: Étape %{current} sur %{total}
         title: Créer une nouvelle initiative
       initiative_header:
         initiative_menu_item: Pétition

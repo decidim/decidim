@@ -504,7 +504,6 @@ lt:
           highlighted_conferences:
             active_conferences: Aktyvios konferencijos
             conferences_button_title: Nuoroda į puslapį „Konferencijos“, kuriame pateikiamos visos konferencijos
-            see_all_conferences: Žiūrėti visas konferencijas
       photo:
         image:
           attributes:

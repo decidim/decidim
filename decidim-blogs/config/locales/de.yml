@@ -1,5 +1,11 @@
 de:
   activemodel:
+    attributes:
+      post:
+        body: Haupttext
+        decidim_author_id: Autor*in
+        published_at: Veröffentlicht am
+        title: Titel
     models:
       decidim/blogs/create_post_event: Neuer Blogeintrag
   activerecord:
@@ -45,6 +51,7 @@ de:
             author: Autor
             body: Haupttext
             created_at: Hergestellt in
+            title: Titel
       posts:
         show:
           back: Zurück zur Liste
@@ -57,8 +64,10 @@ de:
     components:
       blogs:
         actions:
+          comment: Kommentieren
           create: Erstellen
           destroy: Löschen
+          endorse: Unterstützen
           update: Aktualisieren
         name: Blog
         settings:

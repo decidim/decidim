@@ -290,6 +290,9 @@ sk:
           value_types:
             organizer_presenter:
               not_found: 'Organizátor nebol nájdený v databáze (ID:%{id})'
+      application_helper:
+        filter_scope_values:
+          all: Všetko
       calendar_modal:
         calendar_url: URL kalendára
         close_window: Zatvorte okno
@@ -297,6 +300,7 @@ sk:
       conference_venues: Konferenčné priestory
       content_blocks:
         upcoming_meetings:
+          upcoming_meetings: Nadchádzajúce schôdzky
           view_all_meetings: Zobraziť všetko
       directory:
         meetings:
@@ -318,6 +322,7 @@ sk:
         filters:
           category: Kategória
           date: dátum
+          scope: Rozsah
           search: Vyhľadávanie
         filters_small_view:
           close_modal: Zatvoriť modálne
@@ -335,8 +340,8 @@ sk:
         show:
           attendees: Počet účastníkov
           back: Späť na zoznam
+          close_meeting: Zatvorte schôdzku
           contributions: Počet príspevkov
-          join: Pripojte sa k stretnutie
           meeting_minutes: Zápisnica z porady
           no_slots_available: Žiadne sloty nie sú k dispozícii
           organizations: Účastnícke organizácie

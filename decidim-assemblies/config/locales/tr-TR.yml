@@ -357,9 +357,7 @@ tr:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktif kurullar
             assemblies_button_title: Tüm kurulları görüntüleyen Kurullar sayfasına bağlantı
-            see_all_assemblies: Tüm kurulları gör
         user_profile:
           member_of:
             member_of: Üyesi
@@ -368,13 +366,12 @@ tr:
         assembly_type: Kurul türü
         children: Kurullar
         closing_date: Kapanış tarihi
-        composition: Komposizyon
-        created_by: Oluşturan
-        creation_date: Oluşturulma tarihi
+        composition: bileştirme, kompozisyon
+        created_by: Tarafından yaratıldı
+        creation_date: Tarih oluşturuldu
         developer_group: Tanıtım grubu
         duration: Süre
         included_at: Dahil
-        indefinite_duration: Belirsiz
         internal_organisation: İç organizasyon
         is_transparent:
           'false': opak
@@ -387,7 +384,7 @@ tr:
         read_less: Daha az oku
         read_more: Daha fazla oku
         related_participatory_processes: İlgili katılımcı süreçleri
-        scope: Kapsam
+        scope: kapsam
         social_networks: Sosyal ağlar
         target: Katılanlar
     assembly_members:

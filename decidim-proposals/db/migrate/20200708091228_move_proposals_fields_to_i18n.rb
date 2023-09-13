@@ -1,15 +1,38 @@
 # frozen_string_literal: true
 
 class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
+  class Proposal < ApplicationRecord
+    include Decidim::HasComponent
+
+    self.table_name = :decidim_proposals_proposals
+  end
+
+  class Coauthorship < ApplicationRecord
+    self.table_name = :decidim_coauthorships
+  end
+
+  class UserBaseEntity < ApplicationRecord
+    self.table_name = :decidim_users
+    self.inheritance_column = nil # disable the default inheritance
+  end
+
+  class Organization < ApplicationRecord
+    self.table_name = :decidim_organizations
+  end
+
   def up
     add_column :decidim_proposals_proposals, :new_title, :jsonb
     add_column :decidim_proposals_proposals, :new_body, :jsonb
 
-    reset_column_information
-
     PaperTrail.request(enabled: false) do
-      Decidim::Proposals::Proposal.find_each do |proposal|
-        author = proposal.coauthorships.first.author
+      Proposal.find_each do |proposal|
+        coauthorship = Coauthorship.order(:id).find_by(coauthorable_type: "Decidim::Proposals::Proposal", coauthorable_id: proposal.id)
+        author =
+          if coauthorship.decidim_author_type == "Decidim::Organization"
+            Organization.find_by(id: coauthorship.decidim_author_id)
+          else
+            UserBaseEntity.find_by(id: coauthorship.decidim_author_id)
+          end
 
         locale = if author
                    author.try(:locale).presence || author.try(:default_locale).presence || author.try(:organization).try(:default_locale).presence
@@ -38,17 +61,13 @@ class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
     rename_column :decidim_proposals_proposals, :new_body, :body
 
     create_indexs
-
-    reset_column_information
   end
 
   def down
     add_column :decidim_proposals_proposals, :new_title, :string
     add_column :decidim_proposals_proposals, :new_body, :string
 
-    reset_column_information
-
-    Decidim::Proposals::Proposal.find_each do |proposal|
+    Proposal.find_each do |proposal|
       proposal.new_title = proposal.title.values.first
       proposal.new_body = proposal.body.values.first
 
@@ -63,15 +82,6 @@ class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
     rename_column :decidim_proposals_proposals, :new_body, :body
 
     create_indexs
-
-    reset_column_information
-  end
-
-  def reset_column_information
-    Decidim::User.reset_column_information
-    Decidim::Coauthorship.reset_column_information
-    Decidim::Proposals::Proposal.reset_column_information
-    Decidim::Organization.reset_column_information
   end
 
   def remove_indexs

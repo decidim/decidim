@@ -51,6 +51,12 @@ describe Decidim::Budgets::Admin::BudgetForm do
     it { is_expected.not_to be_valid }
   end
 
+  describe "when total_budget is equal to 0" do
+    let(:total_budget) { 0 }
+
+    it { is_expected.not_to be_valid }
+  end
+
   describe "when the scope does not exist" do
     let(:scope_id) { scope.id + 10 }
 

@@ -327,11 +327,10 @@ tr:
         html_3:
           name: Üçüncü HTML bloğu
         metadata:
-          developer_group: Tarafından teşvik
           name: Meta veri
           participatory_scope: Karar nedir
           participatory_structure: Nasıl karar verilir
-          target: Katılanlar
+          target: Kimler katılır
         participatory_processes:
           name: Katılımcı süreçleri
         stats:
@@ -397,12 +396,10 @@ tr:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktif süreçler
             active_step: Aktif adım
             more_information: Daha fazla bilgi
             participate: Katıl
             participate_in: '%{resource_name} sürecine katılın'
-            see_all_processes: Tüm süreçleri gör
       participatory_process_steps:
         index:
           back_to_process: Süreç sayfasına geri dön
@@ -439,7 +436,6 @@ tr:
         dates: Tarihler
         developer_group: Tanıtım grubu
         end_date: Bitiş tarihi
-        local_area: Organizasyon Alanı
         participatory_scope: Karar nedir
         participatory_structure: Nasıl karar verilir
         private_space: Bu özel bir süreç
@@ -471,7 +467,7 @@ tr:
         promoted_process:
           active_step: 'Mevcut adım:'
           more_info: Daha fazla bilgi
-          more_info_about: '%{resource_name} süreci hakkında daha fazla bilgi'
+          more_info_about: '%{resource_name} hakkında daha fazla bilgi'
           take_part: Yer almak
           take_part_in: '%{resource_name} sürecine katılın'
         promoted_process_group:

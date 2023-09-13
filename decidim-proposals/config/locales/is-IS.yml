@@ -16,6 +16,12 @@ is-IS:
         copy_proposals: Ég skil að þetta mun flytja allar tillögur úr völdu hlutanum í núverandi og að þessi aðgerð geti ekki snúið við.
         origin_component_id: Hluti til að afrita tillögurnar frá
   decidim:
+    admin:
+      filters:
+        proposals:
+          state_null:
+            values:
+              'true': Ekki svarað
     components:
       proposals:
         actions:
@@ -172,7 +178,13 @@ is-IS:
           official: Opinber
         filter_state_values:
           not_answered: Ekki svarað
+      content_blocks:
+        highlighted_proposals:
+          proposals: Tillögur
       models:
+        collaborative_draft:
+          fields:
+            comments: Athugasemdir
         proposal:
           fields:
             category: Flokkur
@@ -185,6 +197,9 @@ is-IS:
             votes: Atkvæði
       new:
         limit_reached: Þú getur ekki búið til nýjar tillögur þar sem þú hefur farið yfir mörkin.
+      participatory_text_proposal:
+        buttons:
+          comments: Athugasemdir
       proposals:
         compare:
           no_similars_found: Vel gert! Engar svipaðar tillögur fundust
@@ -207,11 +222,6 @@ is-IS:
           origin: Uppruni
           related_to: Tengjast
           search: Leita
-        filters_small_view:
-          close_modal: Loka mát
-          filter: Sía
-          filter_by: Sía eftir
-          unfold: Fella út
         index:
           new_proposal: Ný tillaga
           see_all_withdrawn: Sjá öll afturkallað tillögur

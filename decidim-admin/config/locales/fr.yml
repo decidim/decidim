@@ -386,7 +386,7 @@ fr:
           reports_reason_eq:
             label: Raison du signalement
             values:
-              does_not_belong: N'appartient pas
+              does_not_belong: inapproprié
               offensive: Offensant
               spam: Spam
         moderations:
@@ -956,9 +956,12 @@ fr:
         areas: Périmètres d'assemblée
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
+        edit_external_domains: Liste des domaines externes autorisés
+        edit_organization_appearance: Modifier l'apparence de la page d'accueil
         impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         metrics: Indicateurs
+        pages: Page(s)
         panel: Administrateur
         participants: Utilisateurs
         scope_types: Types de secteur

@@ -1,4 +1,3 @@
-import * as L from "leaflet";
 import { SVGIcon } from "leaflet-svgicon"
 
 L.DivIcon.SVGIcon = SVGIcon;

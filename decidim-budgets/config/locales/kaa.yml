@@ -1,1 +1,11 @@
 kaa:
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: Papkalar
+        destroy: Óshiriw
+        edit: Ózgeris kirgiziw
+      admin:
+        projects:
+          edit:
+            update: Jańalaw

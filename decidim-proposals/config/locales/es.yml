@@ -813,7 +813,7 @@ es:
           type: Tipo
           voted: Has dado apoyo
         filters_small_view:
-          close_modal: Cerrar ventana
+          close_modal: Cerrar la ventana
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar

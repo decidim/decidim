@@ -44,11 +44,11 @@ module Decidim
       private
 
       def project
-        @project ||= Project.includes(:budget).find_by(id: params[:project_id], decidim_budgets_budget_id: params[:budget_id])
+        @project ||= budget&.projects&.find_by(id: params[:project_id])
       end
 
       def budget
-        @budget ||= project.budget
+        @budget ||= Budget.find_by(id: params[:budget_id], component: current_component)
       end
     end
   end

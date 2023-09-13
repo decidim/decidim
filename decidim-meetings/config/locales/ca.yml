@@ -56,6 +56,8 @@ ca:
           attributes:
             iframe_embed_type:
               not_embeddable: Aquesta adreça URL no es pot incrustar a la pàgina de la trobada o de l'esdeveniment en directe
+            online_meeting_url:
+              url_format: Ha de ser una URL vàlida
         meeting_agenda:
           attributes:
             base:
@@ -529,7 +531,7 @@ ca:
           close_meeting: Tancar trobada
           contributions: Nombre d'aportacions
           date: Data
-          edit_close_meeting: Editeu l'informe de la reunió
+          edit_close_meeting: Editar l'informe de la trobada
           edit_meeting: Editar la trobada
           going: T'has inscrit en aquesta trobada
           join: Unir-se a la trobada

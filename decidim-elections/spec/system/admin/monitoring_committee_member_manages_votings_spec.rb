@@ -11,6 +11,18 @@ describe "Monitoring committee member manages votings", type: :system do
     visit decidim_admin_votings.votings_path
   end
 
+  it_behaves_like "needs admin TOS accepted" do
+    let(:user) { create(:user, :confirmed, organization: organization) }
+  end
+
+  context "when the user has not accepted the admin TOS" do
+    let(:user) { create(:user, :confirmed, organization: organization) }
+
+    it "shows a message to accept the admin TOS" do
+      expect(page).to have_content("Please take a moment to review Admin Terms of Use")
+    end
+  end
+
   describe "when listing votings" do
     let(:other_voting) { create(:voting, organization: organization) }
 

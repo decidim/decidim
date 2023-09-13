@@ -190,7 +190,7 @@ eu:
           rules:
             title: Aurrekontuaren arauak
           title: Zure esku dago aurrekontua erabakitzea
-          total_budget: Aurrekontua guztira
+          total_budget: Aurrekontu osoa
           total_projects: Botoak guztira
           vote_threshold_percent_rule:
             description: Zure ustez, zein proiekturi eman beharko genieke aurrekontua? Hautatu %{minimum_budget} arte eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
@@ -201,6 +201,7 @@ eu:
             other: "%{count} proiektu"
         exit_modal:
           cancel: Berriro bozkatu
+          close_modal: Itxi modala
           exit: Bozketatik irten
           message: Zure botoa ez da erregistratu, oraindik ez duzulako osatu bozketa-prozesua. Ziur zaude bozketatik irten nahi duzula?
           title: Oraindik ez duzu bozkatu
@@ -214,18 +215,18 @@ eu:
             not_selected: Ez hautatua
             selected: Hautatua
         filters_small_view:
-          close_modal: Itxi leihoa
+          close_modal: Itxi modala
           filter: Iragazi
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
         order_progress:
-          vote: Proiektuaren alde egin
+          vote: Bozkatu
         order_selected_projects:
           remove: Kendu
           selected_projects:
             one: hautatutako proiektua
             other: hautatutako proiektuak
-          view: Ikusi
+          view: ikusi
         orders:
           highest_cost: Kostu handiena
           label: Antolatu proiektuak honen arabera

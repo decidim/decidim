@@ -152,8 +152,12 @@ hu:
           trustee:
             name: Felügyelő
         proposals_imports:
+          create:
+            invalid: Hiba történt a javaslatok válaszokba történő importálása során
+            success: "%{number} javaslat sikeresen importálva a válaszokba"
           new:
             create: Válaszjavaslatok importálása
+            no_components: Ezen a részvételi téren nincsenek más javaslati komponensek, amelyek a javaslatokat kérdésekbe importálják.
             select_component: Kérjük, válassz egy komponenst
             title: Javaslatok importálása
         questions:
@@ -212,6 +216,10 @@ hu:
             verify_here: Itt ellenőrizheted szavazatod.
             will_verify: A választás megkezdését követően ellenőrizheted szavazatod.
       votes:
+        confirm:
+          answer: Válasz
+        modal:
+          proposal_header: 'Javaslatok:'
         onboarding_modal:
           title: Kezdő a Decidim -ben?
         verify:
@@ -253,3 +261,6 @@ hu:
             access_link: e-mailen keresztül.
         login:
           start_voting: Szavazás kezdete
+      votings_m:
+        footer_button_text:
+          vote: Szavazás

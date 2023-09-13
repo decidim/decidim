@@ -310,10 +310,9 @@ gl:
         html_3:
           name: Terceiro bloque HTML
         metadata:
-          developer_group: Promovido por
           name: Metadatos
-          participatory_scope: Que se decide
-          participatory_structure: Como é decidido
+          participatory_scope: O que se decide
+          participatory_structure: Como se decide
           target: Quen participa
         participatory_processes:
           name: Procesos participativos
@@ -378,13 +377,11 @@ gl:
       pages:
         home:
           highlighted_processes:
-            active_processes: Procesos activos
             active_step: Paso activo
             more_information: Máis información
             participate: Participar
             participate_in: Participar no proceso %{resource_name}
             processes_button_title: Ligazón á páxina de Procesos que amosa todas as procesos
-            see_all_processes: Ver todos os procesos
       participatory_process_steps:
         index:
           back_to_process: Volver á páxina do proceso
@@ -423,7 +420,6 @@ gl:
         dates: Datas
         developer_group: Grupo promotor
         end_date: Data de finalización
-        local_area: Área de organización
         participatory_scope: O que se decide
         participatory_structure: Como se decide
         private_space: Este é un proceso privado

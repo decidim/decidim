@@ -361,6 +361,10 @@ de:
         actions:
           comment: Kommentar
           vote: Abstimmung
+      question:
+        actions:
+          comment: Kommentieren
+          vote: Abstimmen
     statistics:
       consultations_count: Beratungen
       votes_count: Stimmen

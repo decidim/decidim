@@ -810,7 +810,7 @@ ja:
             elections:
               name: 投票する選挙
             header:
-              name: 投票のヘッダー
+              name: 投票ヘッダー
             html_block_1:
               name: 投票htmlブロック1
             html_block_2:
@@ -818,9 +818,9 @@ ja:
             html_block_3:
               name: 投票htmlブロック3
             metrics:
-              name: 投票メトリクス
+              name: 投票メトリック
             polling_stations:
-              name: 投票ステーション
+              name: 投票所
             stats:
               name: 投票の統計
             timeline:
@@ -1157,7 +1157,7 @@ ja:
       pages:
         home:
           highlighted_votings:
-            active_votings: アクティブな投票
+            active_votings: 有効な投票
             see_all_votings: すべての投票を表示
             votings_button_title: すべての投票を表示する投票ページへのリンク
       polling_officer_zone:

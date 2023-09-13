@@ -14,6 +14,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Endorsable
       include Decidim::Followable
+      include Decidim::Reportable
       include Decidim::TranslatableResource
       include Traceable
       include Loggable
@@ -64,6 +65,21 @@ module Decidim
 
       def attachment_context
         :admin
+      end
+
+      # Public: Overrides the `reported_content_url` Reportable concern method.
+      def reported_content_url
+        ResourceLocatorPresenter.new(self).url
+      end
+
+      # Public: Overrides the `reported_attributes` Reportable concern method.
+      def reported_attributes
+        [:title, :body]
+      end
+
+      # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
+      def reported_searchable_content_extras
+        [normalized_author.name]
       end
     end
   end

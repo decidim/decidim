@@ -75,6 +75,9 @@ eo:
     group_admins:
       demote:
         success: Partoprenanto sukcese forigita de administranto
+    shared:
+      embed_modal:
+        close_window: Fermu la fenestron
   devise:
     sessions:
       new:

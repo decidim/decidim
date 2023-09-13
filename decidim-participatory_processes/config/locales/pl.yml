@@ -334,7 +334,6 @@ pl:
         html_3:
           name: Trzeci blok HTML
         metadata:
-          developer_group: Promowany przez
           name: Metadane
           participatory_scope: Zaproponowano
           participatory_structure: Jak decydowano
@@ -406,12 +405,10 @@ pl:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktualne procesy
             active_step: Aktualny etap
             more_information: Więcej informacji
             participate: Dołącz
             participate_in: Dołącz do procesu %{resource_name}
-            see_all_processes: Zobacz wszystkie procesy
       participatory_process_steps:
         index:
           back_to_process: Powrót do strony procesu
@@ -451,12 +448,11 @@ pl:
         index:
           loading: Ładowanie wyników...
       show:
-        area: Obszar
+        area: Kategoria
         belongs_to_group: Ten proces należy do
         dates: Daty
         developer_group: Grupa inicjatorów
         end_date: Data zakończenia
-        local_area: Obszar Organizacji
         participatory_scope: Zaproponowano
         participatory_structure: Jak decydowano
         private_space: To jest prywatny proces

@@ -296,7 +296,7 @@ fi:
             title: Ryhmien asetukset
         assemblies_types:
           form:
-            title: Otsikko
+            title: Muokkaa ryhmätyyppiä
         assembly_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
@@ -372,10 +372,10 @@ fi:
           member_of:
             member_of: Jäsen ryhmässä
       show:
-        area: alue
+        area: Alue
         assembly_type: Ryhmän tyyppi
         children: Ryhmät
-        closing_date: Sulkemispäivä
+        closing_date: Sulkeutumispäivä
         composition: Kokoonpano
         created_by: Luonut
         creation_date: Luontipäivämäärä
@@ -460,7 +460,7 @@ fi:
             one: "%{count} ryhmä"
             other: "%{count} ryhmää"
         promoted_assembly:
-          more_info: Lisätiedot
+          more_info: Lisätietoja
           take_part: Osallistu
       assembly_navigation:
         assembly_member_menu_item: Jäsenet
