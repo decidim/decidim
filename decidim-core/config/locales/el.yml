@@ -487,7 +487,6 @@ el:
           newsletter: Λάβετε ένα περιστασιακό ενημερωτικό δελτίο με σχετικές πληροφορίες
           newsletter_title: Άδεια επικοινωνίας
           nickname_help: Το ψευδώνυμό σας στο %{organization}. Μπορεί να περιέχει μόνο γράμματα, αριθμούς, '-' και '_'.
-          sign_in: Σύνδεση
           sign_up: Εγγραφή
           sign_up_as:
             legend: Εγγραφή ως
@@ -1475,8 +1474,6 @@ el:
       updated: Ο λογαριασμός σας ενημερώθηκε με επιτυχία.
     sessions:
       already_signed_out: Η έξοδος ολοκληρώθηκε με επιτυχία.
-      new:
-        sign_in: Σύνδεση
       signed_in: Η είσοδος ολοκληρώθηκε με επιτυχία.
       signed_out: Η έξοδος ολοκληρώθηκε με επιτυχία.
     shared:
@@ -1485,7 +1482,6 @@ el:
         didn_t_receive_confirmation_instructions: Δεν λάβατε οδηγίες επιβεβαίωσης;
         didn_t_receive_unlock_instructions: Δεν λάβατε οδηγίες ξεκλειδώματος;
         forgot_your_password: Ξεχάσατε τον κωδικό πρόσβασής σας;
-        sign_in: Σύνδεση
         sign_in_with_provider: Είσοδος με %{provider}
         sign_up: Εγγραφή
       minimum_password_length:
