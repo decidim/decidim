@@ -332,7 +332,6 @@ gl:
           already_have_an_account?: Xa ten unha conta?
           newsletter: Recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          sign_in: Iniciar sesión
           sign_up: Rexistrarse
           sign_up_as:
             legend: Rexístrate como
@@ -1119,8 +1118,6 @@ gl:
       updated: A túa conta foi actualizada correctamente.
     sessions:
       already_signed_out: Saíu con éxito.
-      new:
-        sign_in: Iniciar sesión
       signed_in: Iniciar sesión con éxito.
       signed_out: Saíu con éxito.
     shared:
@@ -1129,7 +1126,6 @@ gl:
         didn_t_receive_confirmation_instructions: Non recibiches instrucións de confirmación?
         didn_t_receive_unlock_instructions: Non recibiches instrucións de desbloqueo?
         forgot_your_password: Esqueceu o contrasinal?
-        sign_in: Iniciar sesión
         sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Rexistrarse
       minimum_password_length:
