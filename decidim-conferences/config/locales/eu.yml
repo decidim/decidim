@@ -324,9 +324,6 @@ eu:
         title: Hizlariak
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugs erabiltzen dira konferentzia honetara bidaltzen dituzten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
         conference_invites:
           create:
             error: Arazo bat izan da erabiltzaileak konferentziara sartzeko gonbidatuta.
@@ -367,7 +364,6 @@ eu:
             registrations_count:
               one: Izena eman da.
               other: Dena den, %{count} matrikulazioak.
-            slug_help: 'URL slugs erabiltzen dira konferentzia honetara bidaltzen dituzten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
         diplomas:
           edit:
             save: Gorde
