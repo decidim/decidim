@@ -422,6 +422,7 @@ eu:
         decline_invitation:
           invalid: Arazo bat izan da gonbidapena gaindituz gero.
           success: Gonbidapena ongi egin du.
+          unauthorized: Gonbidapenari uko egin aurretik hasi behar duzu saioa.
         destroy:
           invalid: Arazo bat izan da hitzaldi hau utziz.
           success: Kongresua behar bezala utzi duzu.
