@@ -397,7 +397,6 @@ pt:
           already_have_an_account?: Já tem uma conta?
           newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
-          sign_in: Entrar
           sign_up: Inscreva-se
           subtitle: Inscreva-se para participar em discussões e propostas de suporte.
           tos_agreement: Ao se inscrever, aceita %{link}.
@@ -407,8 +406,6 @@ pt:
         new:
           are_you_new?: Novo na plataforma?
           register: Criar uma conta
-        user:
-          timed_out: Esteve inactivo por muito tempo e foi automaticamente desligado do serviço. Se quiser continuar a usar o serviço, por favor ligue-se de novo.
       shared:
         newsletter_modal:
           buttons:
@@ -1022,10 +1019,7 @@ pt:
         title: Denunciar utilizador inapropriado
       floating_help:
         help: Ajuda
-      follow_button:
-        sign_in_before_follow: Por favor inicie sessão antes de executar esta ação
       login_modal:
-        please_sign_in: Por favor, inicie a sessão
         sign_up: Inscrever-se
       participatory_space_filters:
         filters:
@@ -1129,8 +1123,6 @@ pt:
       last_attempt: Tem mais uma tentativa antes que a sua conta seja bloqueada.
       locked: A sua conta está bloqueada.
       not_found_in_database: '%{authentication_keys} ou palavra-passe inválidos(as).'
-      timeout: A sua sessão expirou. Por favor, inicie sessão novamente para continuar.
-      unauthenticated: É necessário iniciar sessão ou inscrever-se antes de continuar.
     invitations:
       edit:
         header: Termine a criação da sua conta
@@ -1177,7 +1169,6 @@ pt:
         action: Desbloquear a minha conta
         greeting: Olá %{recipient}!
         instruction: 'Clique na hiperligação abaixo para desbloquear a sua conta:'
-        message: A sua conta foi bloqueada devido a uma quantidade excessiva de tentativas de início de sessão malsucedidas.
         subject: Desbloquear instruções
     omniauth_callbacks:
       failure: Não foi possível autenticá-lo(a) a partir de %{kind} porque "%{reason}".
@@ -1205,18 +1196,10 @@ pt:
       signed_up_but_unconfirmed: Uma mensagem com uma hiperligação de confirmação foi enviada para o seu endereço de e-mail. Por favor, siga a hiperligação para ativar a sua conta.
       update_needs_confirmation: Atualizou a sua conta corretamente, mas precisamos de confirmar o seu novo endereço de e-mail. Por favor, verifique o seu e-mail e siga a hiperligação de confirmação para confirmar o seu novo endereço de e-mail.
       updated: A sua conta foi atualizada corretamente.
-    sessions:
-      already_signed_out: Sessão terminada corretamente.
-      new:
-        sign_in: Iniciar sessão
-      signed_in: Sessão iniciada corretamente.
-      signed_out: Sessão terminada corretamente.
     shared:
       links:
         back: Retroceder
         forgot_your_password: Esqueceu a sua palavra-passe?
-        sign_in: Iniciar sessão
-        sign_in_with_provider: Iniciar sessão com %{provider}
         sign_up: Inscrever-se
       minimum_password_length:
         one: "(%{count} carácter no mínimo)"
@@ -1226,13 +1209,11 @@ pt:
         resend_unlock_instructions: Reenviar as instruções de desbloqueio
       send_instructions: Receberá um e-mail com instruções sobre como desbloquear a sua conta dentro de poucos minutos.
       send_paranoid_instructions: Se a sua conta existir, receberá um e-mail com instruções sobre como desbloqueá-la dentro de poucos minutos.
-      unlocked: Sua conta foi desbloqueada com sucesso. Por favor, entre para continuar.
   doorkeeper:
     scopes:
       public: A sua informação pública.
   errors:
     messages:
-      already_confirmed: já foi confirmado, por favor tente iniciar sessão
       confirmation_period_expired: necessita de ser confirmado dentro de %{period}, por favor solicite um novo
       content_type_allowlist_error: o tipo de ficheiro não é válido
       expired: expirou, por favor solicite um novo
@@ -1274,7 +1255,6 @@ pt:
         sign_up: Inscrever-se
       header:
         main_menu: Menu principal
-        sign_in: Entrar
         user_menu: Menu de utilizador
       impersonation_warning:
         close_session: Terminar sessão
@@ -1293,7 +1273,6 @@ pt:
       timeout_modal:
         body: Está inactivo há %{minutes}. Se continuar inactivo será automaticamente desligado para a sua própria segurança.
         continue_session: Continuar sessão
-        sign_out: Desligar
         title: Gostaria de continuar a sua sessão?
       user_menu:
         account: 'Conta de utilizador: %{name}'
@@ -1302,7 +1281,6 @@ pt:
         notifications: Notificações
         profile: A minha conta
         public_profile: O meu perfil público
-        sign_out: Sair
         title: Ligações de perfil
       user_profile:
         account: Conta
