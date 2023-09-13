@@ -520,7 +520,6 @@ lb:
           fields:
             created_at: Erstellungsdatum
             email: Email
-            last_sign_in_at: Letztes Anmeldedatum
             name: Name
             role: Rolle
             roles:
