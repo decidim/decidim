@@ -546,6 +546,10 @@
           filter: Filter
           filter_by: Filtrer etter
           unfold: Åpne
+        index:
+          count:
+            one: "%{count} samarbeids utkast"
+            other: "%{count} samarbeids utkaster"
         new:
           send: Fortsett
         new_collaborative_draft_button:
@@ -649,6 +653,9 @@
           voted: Støttet
         index:
           collaborative_drafts_list: Lag utkast sammen med andre
+          count:
+            one: "%{count} forslag"
+            other: "%{count} forslag"
           new_proposal: Nytt forslag
           see_all: Se alle forslag
           see_all_withdrawn: Se alle tilbaketrukne forslag
