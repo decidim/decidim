@@ -522,7 +522,6 @@ ro:
         ready: Gata
       show:
         download_data: Descarcă datele
-        download_data_description: Un fișier care conține toate informațiile asociate contului tău va fi trimis la <strong>%{user_email}</strong>. Acest e-mail va conține un fișier .zip și o parolă pentru a-l deschide.<br/><br/>Pentru a dezarhiva fişierul, aveţi nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows) sau <a href="https://www.keka.io/">Keka</a> (pentru MacOS). Dacă utilizați Linux, de cele mai multe ori îl veți instala în mod implicit. Dacă nu, puteți utiliza <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> sau <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Cere date
     editor_images:
       drag_and_drop_help: Adaugă imagini prin tragere & plasare sau lipirea lor.
