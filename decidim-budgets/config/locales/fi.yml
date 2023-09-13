@@ -169,7 +169,6 @@ fi:
         finished_message: Olet äänestänyt. Kiitos osallistumisestasi!
         highlighted_cta: Äänestä budjetista %{name}
         if_change_opinion: Jos olet muuttanut mieltäsi, voit
-        my_budgets: Omat budjetit
         progress: Viimeistele äänestys
         remove_vote: Poista ääni
         show: Näytä hankkeet
