@@ -363,9 +363,6 @@ hu:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
         participatory_process_groups:
           form:
             metadata: Metaadat
@@ -374,10 +371,8 @@ hu:
         participatory_process_imports:
           form:
             document_legend: Dokumentum hozzáadása
-            slug_help: 'Az URL darabok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz és betűvel kell kezdened. Példa: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Használjon részleges útvonalakat, nem teljes URL-eket itt. Betűk, számok, vonalak és vágások fogadhatók el, és betűvel kell kezdődniük. Ha nincs beállítva, a gomb nem jelenik meg. Példa: %{url}'
             cta_text_help: Ha nincs beállítva, a gomb nem jelenik meg.
         participatory_processes:
           form:
@@ -391,7 +386,6 @@ hu:
             scope_type_max_depth_help: Hatáskör szűrő mélység korlátozása; A szűrő az általánostól a kiválasztott hatáskörtípus típusáig jelenik meg.
             select_an_area: Válasszon egy területet
             select_process_group: Válassza ki a folyamatcsoportot
-            slug_help: 'Az URL slugok a folyamatok linkjeinek generáláshoz szükségesek. Csak betűket, számokat és kötőjeleket használhatsz. Betűvel kell kezdened. Példa: %{url}'
             title: Általános információk
             visbility: Láthatóság
       content_blocks:
