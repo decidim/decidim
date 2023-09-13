@@ -150,14 +150,10 @@ is-IS:
         title: Þátttaka ferli hópa
     participatory_processes:
       admin:
-        participatory_process_copies:
-          form:
-            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessarar ferlis. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
         participatory_processes:
           form:
             announcement_help: Textinn sem þú slærð inn hér verður sýndur fyrir notandann rétt fyrir neðan ferlið.
             related_processes: Tengd ferli
-            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessarar ferlis. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
             title: Almennar upplýsingar
       index:
         title: Þátttökuferli
