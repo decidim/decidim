@@ -643,7 +643,6 @@ ro:
           fields:
             created_at: Data creării
             email: E-mail
-            last_sign_in_at: Ultima dată de conectare
             name: Nume
             role: Rol
             roles:
