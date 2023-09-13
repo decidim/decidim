@@ -494,6 +494,11 @@ lv:
           filter: Filtrēt
           filter_by: Filtrēt pēc
           unfold: Atritināt
+        index:
+          count:
+            zero: "%{count} sadarbības projekti"
+            one: "%{count} sadarbības projekts"
+            other: "%{count} sadarbības projekti"
         new:
           send: Turpināt
         new_collaborative_draft_button:
@@ -600,6 +605,10 @@ lv:
           voted: Atbalstīts
         index:
           collaborative_drafts_list: Piekļūt sadarbības projektam
+          count:
+            zero: "%{count} priekšlikumi"
+            one: "%{count} priekšlikums"
+            other: "%{count} priekšlikumi"
           new_proposal: Jauns priekšlikums
           see_all_withdrawn: Skatīt visus atsauktos priekšlikumus
         new:
