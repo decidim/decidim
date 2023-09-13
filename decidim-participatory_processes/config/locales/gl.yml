@@ -319,9 +319,6 @@ gl:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatos
@@ -332,7 +329,6 @@ gl:
             document_legend: Engadir un documento
         participatory_process_steps:
           form:
-            cta_path_help: 'Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. Se non está establecido, non se mostrará o botón. Exemplo: %{url}'
             cta_text_help: Se non está establecido, non se mostrará o botón.
         participatory_processes:
           form:
@@ -345,7 +341,6 @@ gl:
             related_processes: Procesos relacionados
             select_an_area: Seleccione unha área
             select_process_group: Seleccione un grupo de procesos
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
             title: Información xeral
             visbility: Visibilidade
       content_blocks:
