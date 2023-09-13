@@ -453,9 +453,9 @@ eu:
       registrations:
         new:
           already_have_an_account?: Baduzu kontu bat?
+          log_in:
           newsletter: Jaso nahi dut noizbehinka informazio garrantzitsua duen buletina
           newsletter_title: Harremanetarako baimena
-          sign_in: Sartu
           sign_up: Erregistratu
           subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
@@ -465,8 +465,6 @@ eu:
         new:
           are_you_new?: Berria zara plataforman?
           register: Sortu zure kontua
-        user:
-          timed_out: Denbora gehiegi egon zara lanik egin gabe, eta automatikoki bidali zaituzte zerbitzutik. Zerbitzua erabiltzen jarraitu nahi baduzu, sinatu berriro.
       shared:
         newsletter_modal:
           buttons:
@@ -1157,10 +1155,8 @@ eu:
         title: Jakinarazi erabiltzaile desegokia
       floating_help:
         help: Laguntza
-      follow_button:
-        sign_in_before_follow: Hasi saioa ekintza hau burutu baino lehen
       login_modal:
-        please_sign_in: Mesedez, erregistratu
+        please_log_in: Mesedez, hasi saioa
         sign_up: Erregistratu
       participatory_space_filters:
         filters:
@@ -1266,8 +1262,6 @@ eu:
       last_attempt: Zure kontua blokeatuta dago aurretik zure saiakera gehiago duzu.
       locked: Zure kontua blokeatuta dago.
       not_found_in_database: '%{authentication_keys} edo pasahitza baliogabea.'
-      timeout: Zure saioa iraungi da. Hasi saioa berriro jarraitzeko.
-      unauthenticated: Saioa hasi edo saioa hasi behar duzu jarraitu aurretik.
     invitations:
       edit:
         header: Amaitu zure kontua sortzea
@@ -1316,7 +1310,6 @@ eu:
         action: Desblokeatu nire kontua
         greeting: Kaixo %{recipient}!
         instruction: 'Egin klik beheko estekan zure kontua desblokeatzeko:'
-        message: Zure kontua blokeatu egin da saiakera okerreko saiakuntza gehiegizko baten ondorioz.
         subject: Desblokeatu argibideak
     omniauth_callbacks:
       failure: Ezin izan da autentifikatu %{kind} "%{reason}" delako.
@@ -1347,17 +1340,15 @@ eu:
       update_needs_confirmation: Zure kontua arrakastaz eguneratu duzu, baina helbide elektroniko berria egiaztatu behar dugu. Egiaztatu zure posta elektronikoa eta berretsi esteka jarraitu zure helbide elektroniko berria berresteko.
       updated: Zure kontua ondo eguneratu da.
     sessions:
-      already_signed_out: Sinatu arrakastaz.
       new:
-        sign_in: Saioa hasi
-      signed_in: Saioa hasi da behar bezala.
-      signed_out: Sinatu arrakastaz.
+        log_in: Sartu
+      signed_in: Saioa behar bezala hasi da.
+      signed_out: Saioa behar bezala amaitu da.
     shared:
       links:
         back: Atzera
         forgot_your_password: Zure pasahitza ahaztu duzu?
-        sign_in: Saioa hasi
-        sign_in_with_provider: Hasi saioa %{provider}
+        log_in:
         sign_up: Eman izena
       minimum_password_length:
         one: "(%{count} karaktere gutxienez)"
@@ -1367,7 +1358,6 @@ eu:
         resend_unlock_instructions: Berriro desblokeatzeko argibideak berriro bidaltzea
       send_instructions: Mezu elektroniko bat jasoko duzu jarraibideak zure kontua desblokeatzeko minutu gutxi barru.
       send_paranoid_instructions: Zure kontua badago, mezu elektroniko bat jasoko duzu minutu batzuk barru nola desblokeatzeko argibideekin.
-      unlocked: Zure kontua desblokeatu egin da. Hasi saioa jarraitzeko.
   doorkeeper:
     scopes:
       public: Zure informazio publikoa.
@@ -1410,7 +1400,6 @@ eu:
   errors:
     messages:
       allowed_file_content_types: 'soilik onartuko dira honako hedapenak: %{types}'
-      already_confirmed: dagoeneko baieztatu da. Saiatu saioa hasi
       confirmation_period_expired: '%{period}barruan baieztatu behar da, eskatu beste bat'
       content_type_allowlist_error: fitxategiaren mota ez da baliozkoa
       expired: iraungi egin da, eskatu beste bat
@@ -1461,11 +1450,12 @@ eu:
         cc_by_license: Creative Commons lizentziaduna
         decidim_logo: Decidimen logoa
         download_open_data: Deskargatu Open Data fitxategiak
+        log_in:
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
         sign_up: Eman izena
       header:
+        log_in:
         main_menu: Menu nagusia
-        sign_in: Sartu
         user_menu: Erabiltzailearen menua
       impersonation_warning:
         close_session: Itxi saioa
@@ -1484,7 +1474,7 @@ eu:
       timeout_modal:
         body: Jarduerarik gabe egon zara %{minutes} minututan. Aktibatu gabe jarraitzen baduzu, deskonektatuko zaitugu zure segurtasunerako.
         continue_session: Jarraitu saioa
-        sign_out: Itxi saioa
+        log_out: Amaitu saioa
         title: Saioan jarraitu nahi duzu?
       upload_modal:
         close_modal: Itxi leihoa
@@ -1492,10 +1482,10 @@ eu:
         account: '%{name} erabiltzailearen kontua'
         admin_dashboard: Administrazioko aginte-mahaia
         conversations: Elkarrizketak
+        log_out: Amaitu saioa
         notifications: jakinarazpenak
         profile: Nire kontua
         public_profile: Nire profil publikoa
-        sign_out: Irten
         title: Profilaren loturak
       user_profile:
         account: Kontua
