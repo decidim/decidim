@@ -338,7 +338,6 @@ uk:
           fields:
             created_at: Дата створення
             email: Адреса електронної пошти
-            last_sign_in_at: Дата останнього входу
             name: Ім'я
             role: Роль
             roles:
