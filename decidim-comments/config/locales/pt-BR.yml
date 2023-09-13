@@ -27,7 +27,6 @@ pt-BR:
           error: Houve erros ao votar o comentário.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Inscreva-se com sua conta</a> ou <a href="%{sign_up_url}">sign up</a> para adicionar seu comentário.
         form:
           body:
             label: Comente
