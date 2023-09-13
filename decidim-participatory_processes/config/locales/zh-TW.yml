@@ -397,9 +397,6 @@ zh-TW:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL slugs用於生成指向此程序的URL。僅接受字母、數字和破折號，必須以字母開頭。例如：%{url}'
         participatory_process_groups:
           form:
             metadata: 元數據
@@ -408,10 +405,8 @@ zh-TW:
         participatory_process_imports:
           form:
             document_legend: 添加文檔
-            slug_help: 'URL slugs用於生成指向此程序的URL。僅接受字母、數字和破折號，必須以字母開頭。例如：%{url}'
         participatory_process_steps:
           form:
-            cta_path_help: '在這裡使用部分路徑，而不是完整的 URL。只接受字母、數字、破折號和斜線，並且必須以字母開頭。如果未設置，按鈕將不會顯示。例如：%{url}'
             cta_text_help: 如果未設置，按鈕將不會顯示。
         participatory_processes:
           form:
@@ -426,7 +421,6 @@ zh-TW:
             select_an_area: 選擇一個地區
             select_participatory_process_type: 選擇一個程序類型
             select_process_group: 選擇一個程序群組
-            slug_help: 'URL slugs用於生成指向此程序的URL。僅接受字母、數字和破折號，必須以字母開頭。例如：%{url}'
             title: 基本資訊
             visbility: 可見度
       content_blocks:
