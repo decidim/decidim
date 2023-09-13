@@ -156,7 +156,6 @@ ro:
         show:
           answer_questionnaire:
             already_have_an_account?: Ai deja un cont?
-            anonymous_user_message: <a href="%{sign_in_link}">Autentifică-te cu contul tău</a> sau <a href="%{sign_up_link}">înregistrează-te</a> pentru a răspunde la chestionar.
             are_you_new?: Utilizator nou?
             sign_in_description: Autentifică-te pentru a participa la sondaj
             sign_up_description: Creați un cont de participant pentru a participa la sondaj
