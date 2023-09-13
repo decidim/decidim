@@ -291,7 +291,6 @@ ro:
             select_an_area: Selectați o zonă
             select_an_assembly_type: Selectaţi un tip de grup de lucru
             select_parent_assembly: Selectați grupul de lucru părinte
-            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
             social_handlers: Rețele de socializare
             title: Informaţii generale
             visbility: Vizibilitate
@@ -303,13 +302,9 @@ ro:
         assemblies_types:
           form:
             title: Titlu
-        assembly_copies:
-          form:
-            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         assembly_imports:
           form:
             document_legend: Adaugă un document
-            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         assembly_members:
           form:
             existing_user: Participant existent
