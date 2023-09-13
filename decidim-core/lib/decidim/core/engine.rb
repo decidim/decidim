@@ -203,6 +203,8 @@ module Decidim
             get "forms", to: "forms#index"
             get "cards", to: "cards#index"
             get "spacing", to: "spacing#index"
+
+            root to: "home#index"
           end
         end
       end
