@@ -334,7 +334,6 @@ is-IS:
           fields:
             created_at: Sköpunardegi
             email: Email
-            last_sign_in_at: Síðasta skilti inn dagsetning
             name: Nafn
             role: Hlutverk
             roles:
