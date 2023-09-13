@@ -191,6 +191,7 @@ module Decidim
       label_text = options[:label].to_s
       label_text = label_for(name) if label_text.blank?
       options.delete(:required)
+      help_text = options.delete(:help_text)
       editor_image = Decidim::EditorImage.new
       editor_options = editor_options(editor_image, options)
       hidden_options = extract_validations(name, options).merge(options)
@@ -206,7 +207,7 @@ module Decidim
         template = ""
         template += label(name, label_text + required_for_attribute(name), for: nil) if options.fetch(:label, true)
         template += hidden_field(name, hidden_options.merge(id: nil))
-        template += content_tag(:span, options[:help_text], class: "help-text") if options[:help_text]
+        template += content_tag(:span, help_text, class: "help-text") if help_text
         template += content_tag(
           :div,
           nil,
