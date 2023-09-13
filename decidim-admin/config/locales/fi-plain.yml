@@ -641,7 +641,6 @@ fi-pl:
           fields:
             created_at: Luontipäivämäärä
             email: Sähköposti
-            last_sign_in_at: Viimeisen kirjautumisen päivämäärä
             name: Nimi
             role: Rooli
             roles:
