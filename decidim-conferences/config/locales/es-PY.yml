@@ -425,11 +425,9 @@ es-PY:
         create:
           invalid: Ha habido un problema al unirse a esta conferencia.
           success: Te has unido a la conferencia con éxito.
-          unauthorized: Necesitas iniciar tu sesión antes de registrarse en la jornada.
         decline_invitation:
           invalid: Ha habido un problema al rechazar la invitación.
           success: Has rechazado la invitación con éxito.
-          unauthorized: Necesitas iniciar tu sesión antes de rechazar la invitación.
         destroy:
           invalid: Ha habido un problema al abandonar esta conferencia.
           success: Usted ha abandonado la conferencia con éxito.
