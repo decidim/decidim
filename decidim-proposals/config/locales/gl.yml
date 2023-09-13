@@ -516,6 +516,10 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
+        index:
+          count:
+            one: "%{count} borrador colaborativo"
+            other: "%{count} borrador colaborativo"
         new:
           add_file: Engadir ficheiro
           edit_file: Editar ficheiro
@@ -629,6 +633,9 @@ gl:
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Acceda a borradores colaborativos
+          count:
+            one: "%{count} proposta"
+            other: "%{count} propostas"
           new_proposal: Nova proposta
           see_all: Ver todas as propostas
           see_all_withdrawn: Ver todas as propostas retiradas
