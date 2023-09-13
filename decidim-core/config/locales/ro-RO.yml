@@ -511,7 +511,6 @@ ro:
           newsletter: Primește un buletin informativ ocazional cu informații relevante
           newsletter_title: Drepturi privind contactele
           nickname_help: Pseudonimul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
-          sign_in: Autentificare
           sign_up: Înscrie-te
           sign_up_as:
             legend: Înregistrează-te ca
@@ -1590,8 +1589,6 @@ ro:
       updated: Contul dvs. a fost actualizat cu succes.
     sessions:
       already_signed_out: Deconectat cu succes.
-      new:
-        sign_in: Autentificare
       signed_in: Conectat cu succes.
       signed_out: Deconectat cu succes.
     shared:
@@ -1600,7 +1597,6 @@ ro:
         didn_t_receive_confirmation_instructions: Nu ai primit instrucțiuni de confirmare?
         didn_t_receive_unlock_instructions: Nu ai primit instrucțiuni de deblocare?
         forgot_your_password: Ți-ai uitat parola?
-        sign_in: Autentificare
         sign_in_with_provider: Conectează-te cu %{provider}
         sign_up: Înscrie-te
       minimum_password_length:
