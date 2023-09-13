@@ -669,6 +669,10 @@ es-PY:
           filter: Filtrar
           filter_by: Filtrado por
           unfold: Desplegar
+        index:
+          count:
+            one: "%{count} borrador colaborativo"
+            other: "%{count} borrador colaborativo"
         name: Borradores colaborativos
         new:
           add_file: Añadir archivo
@@ -798,6 +802,9 @@ es-PY:
         index:
           click_here: Ver todas las propuestas
           collaborative_drafts_list: Acceder a borradores colaborativos
+          count:
+            one: "%{count} propuesta"
+            other: "%{count} propuestas"
           new_proposal: Nueva propuesta
           see_all: Ver todas las propuestas
           see_all_withdrawn: Ver todas las propuestas retiradas
