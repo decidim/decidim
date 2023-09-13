@@ -346,7 +346,6 @@ bg:
           already_have_an_account?: Вече имате профил?
           newsletter: Получавайте извънреден бюлетин с подходяща информация
           newsletter_title: Разрешение за контакт с Вас
-          sign_in: Вход
           sign_up: Регистрация
           subtitle: Регистрирайте се за да участвате в обсъждания и поддържате предложения.
           tos_agreement: Регистрирайки се, приемате %{link}.
@@ -881,10 +880,7 @@ bg:
         title: Съобщи за проблем
       floating_help:
         help: Помощ
-      follow_button:
-        sign_in_before_follow: Моля влезте, преди да извършите това действие
       login_modal:
-        please_sign_in: Моля, влезте
         sign_up: Регистрация
       participatory_space_filters:
         filters:
@@ -960,8 +956,6 @@ bg:
       last_attempt: Имате още един опит, преди профилът ви да бъде заключен.
       locked: Профилът Ви е заключен.
       not_found_in_database: Неправилни %{authentication_keys} или парола.
-      timeout: Вашата сесия изтече. Влезте отново за да продължите.
-      unauthenticated: Трябва да влезете или да се регистрирате, преди да продължите.
     invitations:
       edit:
         header: Завършете създаването на профила си
@@ -1008,7 +1002,6 @@ bg:
         action: Отключи моя профил
         greeting: Здравейте %{recipient}!
         instruction: 'Натиснете връзката по-долу, за да отключите Вашия профил:'
-        message: Вашият акаунт е заключен поради множество неуспешни опити за влизане.
         subject: Инструкции за отключване
     omniauth_callbacks:
       failure: Не бяхте удостоверени от %{kind}, защото %{reason}.
@@ -1036,18 +1029,10 @@ bg:
       signed_up_but_unconfirmed: На Вашата ел. поща е изпратено писмо с връзка за потвърждение. Следвайте връзката, за да активирате профила си.
       update_needs_confirmation: Обновихте успешно профила си, но трябва да потвърдим Вашия нов адрес за ел. поща. Моля, проверете пощата си и следвайте връзката за потвърждение, за да потвърдите новия си адрес.
       updated: Профилът Ви беше обновен успешно.
-    sessions:
-      already_signed_out: Излязохте успешно.
-      new:
-        sign_in: Вход
-      signed_in: Влязохте успешно.
-      signed_out: Излязохте успешно.
     shared:
       links:
         back: Назад
         forgot_your_password: Забравили сте паролата си?
-        sign_in: Вход
-        sign_in_with_provider: Влез със %{provider}
         sign_up: Регистрация
       minimum_password_length:
         one: "(%{count} символ минимум)"
@@ -1057,13 +1042,11 @@ bg:
         resend_unlock_instructions: Повторно изпращане на инструкции за отключване
       send_instructions: След няколко минути ще получите ел. писмо с инструкции, как да отключите профила си.
       send_paranoid_instructions: Ако профилът ви съществува, след няколко минути ще получите ел. писмо с инструкции как да го отключите.
-      unlocked: Вашият профил е успешно отключен. Моля, влезте за да продължите.
   doorkeeper:
     scopes:
       public: Вашата публична информация.
   errors:
     messages:
-      already_confirmed: вече сте потвърдени, опитайте да влезете
       confirmation_period_expired: трябва Ви потвърдят в рамките на %{period}, моля заявете отново
       content_type_allowlist_error: типа файл не е валиден
       expired: е изтекла, моля поискайте нова
@@ -1095,8 +1078,6 @@ bg:
         download_open_data: Изтеглете файлове с отворени данни
         made_with_open_source: Уебсайта работи със <a target="_blank" href="https://github.com/decidim/decidim">свободен софтуер</a>.
         sign_up: Регистрация
-      header:
-        sign_in: Влизане
       impersonation_warning:
         close_session: Затвори сесия
         description_html: Вие управлявате участника <b>%{user_name}</b>.
@@ -1109,7 +1090,6 @@ bg:
         notifications: Известия
         profile: Моят профил
         public_profile: Моя публичен профил
-        sign_out: Изход
       user_profile:
         account: Профил
         authorizations: Идентификация
