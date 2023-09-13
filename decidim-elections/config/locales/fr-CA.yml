@@ -1041,7 +1041,6 @@ fr-CA:
             promoted: Mis en avant
             select_a_voting_type: Veuillez sélectionner un type de vote
             slug: Slug
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
             title: Titre
             voting_type:
               hybrid: Hybride
