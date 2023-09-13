@@ -37,7 +37,6 @@ el:
           error: Υπήρξε ένα πρόβλημα κατά την ψηφοφορία του σχολίου.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Είσοδος με τον λογαριασμό σας</a> ή <a href="%{sign_up_url}">εγγραφείτε</a> για να προσθέσετε το σχόλιό σας.
         form:
           body:
             label: Σχόλιο
