@@ -590,6 +590,10 @@ sv:
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
+        index:
+          count:
+            one: "%{count} gemensamt utkast"
+            other: "%{count} gemensamma utkast"
         new:
           add_file: Lägg till fil
           edit_file: Redigera fil
@@ -712,6 +716,9 @@ sv:
         index:
           click_here: Se alla förslag
           collaborative_drafts_list: Visa gemensamma utkast
+          count:
+            one: "%{count} förslag"
+            other: "%{count} förslag"
           new_proposal: Nytt förslag
           see_all: Se alla förslag
           see_all_withdrawn: Se alla tillbakadragna förslag
