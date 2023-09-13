@@ -500,6 +500,12 @@ sk:
           filter: Filter
           filter_by: Filtrovať podľa
           unfold: Rozbaliť
+        index:
+          count:
+            one: "%{count} návrh spolupráce"
+            few: "%{count} návrh spolupráce"
+            many: "%{count} návrh spolupráce"
+            other: "%{count} návrh spolupráce"
         new:
           send: Pokračovať
         new_collaborative_draft_button:
@@ -608,6 +614,11 @@ sk:
           voted: Hlasoval
         index:
           collaborative_drafts_list: Získajte prístup k spolupráci
+          count:
+            one: "%{count} návrh"
+            few: "%{count} návrhov"
+            many: "%{count} návrhov"
+            other: "%{count} návrhov"
           new_proposal: Nový návrh
           see_all_withdrawn: Pozrite sa na všetky stiahnuté návrhy
         new:
