@@ -637,7 +637,6 @@ ja:
           fields:
             created_at: 作成日
             email: Eメールアドレス
-            last_sign_in_at: 最終ログイン日
             name: 名前
             role: ロール
             roles:
