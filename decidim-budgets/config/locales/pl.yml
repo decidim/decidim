@@ -96,7 +96,6 @@ pl:
           more_than_one: usuń swój głos na %{name} i zacznij od nowa
           only_one: usuń głos i zacznij od nowa.
         highlighted_cta: Głosuj na %{name}
-        my_budgets: Moje budżety
         progress: Zakończ głosowanie
         show: Zobacz projekty
       limit_announcement:
