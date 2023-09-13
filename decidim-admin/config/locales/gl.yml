@@ -555,7 +555,6 @@ gl:
           fields:
             created_at: Data de creación
             email: Correo electrónico
-            last_sign_in_at: Última data de inicio de sesión
             name: Nome
             role: Rol
             roles:
