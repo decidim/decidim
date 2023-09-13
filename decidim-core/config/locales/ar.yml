@@ -515,7 +515,6 @@ ar:
           already_have_an_account?: هل لديك حساب؟
           newsletter: تلقي رسالة إخبارية من حين لآخر مع المعلومات ذات الصلة
           newsletter_title: الاتصال إذن
-          sign_in: تسجيل الدخول
           sign_up: انشئ حسابًا
           subtitle: اشترك للمشاركة في المناقشات ودعم المقترحات.
           tos_agreement: بالتسجيل فإنك توافق على %{link}.
@@ -525,8 +524,6 @@ ar:
         new:
           are_you_new?: جديد على المنصة؟
           register: انشئ حساب
-        user:
-          timed_out: لقد كنت غير نشطاً لفترة طويلة للغاية وتم تسجيل خروجك تلقائياً من الخدمة. في حال تود مواصلة استخدام الخدمة يجب عليك إعادة تسجيل الدخول.
       shared:
         newsletter_modal:
           buttons:
@@ -1257,10 +1254,7 @@ ar:
         title: الإبلاغ عن مستخدم مخل
       floating_help:
         help: المساعدة
-      follow_button:
-        sign_in_before_follow: يرجى تسجيل الدخول قبل تنفيذ هذا الإجراء
       login_modal:
-        please_sign_in: الرجاء تسجيل الدخول
         sign_up: انشئ حسابًا
       mentions_modal:
         remove_recipient: إزالة المستلم %{name}
@@ -1368,8 +1362,6 @@ ar:
       last_attempt: لديك محاولة أخرى قبل قفل حسابك.
       locked: حسابك مغلق.
       not_found_in_database: غير صالح %{authentication_keys} أو كلمة المرور.
-      timeout: انتهت جلستك. يرجى تسجيل الدخول مرة أخرى للمتابعة.
-      unauthenticated: تحتاج إلى تسجيل الدخول أو التسجيل قبل المتابعة.
     invitations:
       edit:
         header: الانتهاء من إنشاء حسابك
@@ -1417,7 +1409,6 @@ ar:
         action: فتح حسابي
         greeting: مرحبا %{recipient}!
         instruction: 'انقر على الرابط أدناه لفتح حسابك:'
-        message: تم قفل حسابك بسبب كثرة محاولات تسجيل الدخول غير الناجحة.
         subject: فتح التعليمات
     omniauth_callbacks:
       failure: تعذرت مصادقتك من %{kind} لأن "%{reason}".
@@ -1447,18 +1438,10 @@ ar:
       signed_up_but_unconfirmed: تم إرسال رسالة مع رابط التأكيد إلى عنوان بريدك الإلكتروني. يرجى اتباع الرابط لتفعيل حسابك.
       update_needs_confirmation: لقد قمت بتحديث حسابك بنجاح ، لكننا بحاجة إلى التحقق من عنوان بريدك الإلكتروني الجديد. يرجى التحقق من بريدك الإلكتروني واتبع رابط التأكيد لتأكيد عنوان بريدك الإلكتروني الجديد.
       updated: تم تحديث حسابك بنجاح.
-    sessions:
-      already_signed_out: تم الخروج بنجاح
-      new:
-        sign_in: تسجيل الدخول
-      signed_in: تم تسجيل الدخول بنجاح
-      signed_out: تم الخروج بنجاح
     shared:
       links:
         back: الى الخلف
         forgot_your_password: نسيت رقمك السري؟
-        sign_in: تسجيل الدخول
-        sign_in_with_provider: تسجيل الدخول مع %{provider}
         sign_up: انشئ حسابًا
       minimum_password_length:
         zero: "(%{count} حرف كحد أدنى)"
@@ -1472,7 +1455,6 @@ ar:
         resend_unlock_instructions: إعادة إرسال تعليمات فتح
       send_instructions: ستتلقى رسالة بريد إلكتروني تحتوي على إرشادات حول كيفية فتح حسابك في بضع دقائق.
       send_paranoid_instructions: إذا كان حسابك موجودًا ، فستتلقى رسالة بريد إلكتروني تحتوي على إرشادات حول كيفية فتحه في غضون بضع دقائق.
-      unlocked: تم فتح حسابك بنجاح. من فضلك سجل دخولك للمتابعة.
   doorkeeper:
     scopes:
       public: معلوماتك العامة.
@@ -1503,7 +1485,6 @@ ar:
   errors:
     messages:
       allowed_file_content_types: 'يسمح فقط بالملفات ذات الإضافات التالية: %{types}'
-      already_confirmed: تم التأكيد بالفعل ، يرجى محاولة تسجيل الدخول
       confirmation_period_expired: يحتاج إلى تأكيد خلال %{period}، يرجى طلب واحدة جديدة
       content_type_allowlist_error: نوع الملف غير صالح
       expired: انتهت صلاحيتها ، يرجى طلب واحدة جديدة
@@ -1600,7 +1581,6 @@ ar:
         sign_up: انشئ حسابًا
       header:
         main_menu: القائمة الرئيسية
-        sign_in: تسجيل الدخول
         user_menu: قائمة المستخدم
       impersonation_warning:
         close_session: اغلق الموسم
@@ -1619,7 +1599,6 @@ ar:
       timeout_modal:
         body: لقد كنت غير نشط لمدة %{minutes} دقائق. إذا استمريت في كونك غير نشط، سيتم تسجيل خروجك تلقائيًا من أجل الأمان الخاص بك.
         continue_session: متابعة الجلسة
-        sign_out: تسجيل الخروج
         title: هل ترغب في متابعة جلستك؟
       upload_modal:
         close_modal: اغلاق النموذج
@@ -1630,7 +1609,6 @@ ar:
         notifications: إخطارات
         profile: حسابي
         public_profile: ملفي الشخصي العام
-        sign_out: خروج
         title: روابط الملف الشخصي
       user_profile:
         account: الحساب
