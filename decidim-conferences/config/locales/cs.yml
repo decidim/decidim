@@ -334,6 +334,9 @@ cs:
         title: Řečníci
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         conference_invites:
           create:
             error: Při pozvání uživatele do konference došlo k problému.
@@ -377,6 +380,7 @@ cs:
               few: Bylo zde %{count} registrací.
               many: Bylo zde %{count} registrací.
               other: Bylo zde %{count} registrací.
+            slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         diplomas:
           edit:
             save: Uložit
@@ -429,9 +433,11 @@ cs:
         create:
           invalid: Do této konference došlo k problému.
           success: Do konference jste se úspěšně připojili.
+          unauthorized: Před registrací na konferenci se musíte přihlásit.
         decline_invitation:
           invalid: Došlo k potížím s odmítnutím pozvánky.
           success: Odmítli jste pozvánku úspěšně.
+          unauthorized: Před odmítnutím pozvánky se musíte přihlásit.
         destroy:
           invalid: Při této konferenci došlo k problému.
           success: Konference jste úspěšně opustili.
