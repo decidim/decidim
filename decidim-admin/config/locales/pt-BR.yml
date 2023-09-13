@@ -747,9 +747,6 @@ pt-BR:
           select_scopes: Filtrar por usuários que ativaram qualquer escopo selecionado nas configurações de meus interesses em sua conta.
           select_spaces: Selecionar espaços para segmentar a newsletter
           select_users: Selecione quais usuários você deseja enviar a newsletter
-          send_to_all_users: Enviar para todos os usuários
-          send_to_followers: Enviar para seguidores
-          send_to_participants: Enviar para participantes
           title: Selecionar destinatários para entregar
           warning: "<strong>Atenção:</strong> Esta newsletter será enviada apenas para usuários que ativaram <em>quero receber newsletters</em> nas configurações de notificação."
         send:
@@ -831,7 +828,6 @@ pt-BR:
             saturation: Saturação
             title: Seletor de cores
             update_suggested_colors: Atualizar cores sugeridas
-          cta_button_path_help: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Banner de conteúdo elevado
@@ -1003,7 +999,6 @@ pt-BR:
           update: Atualizar
         form:
           none: Nenhum
-          slug_help: 'Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. Se não estiver definido, o botão não será mostrado. Exemplo: %{url}'
         index:
           last_notable_change: Última alteração notável
         new:
