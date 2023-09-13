@@ -744,6 +744,9 @@ cs:
           select_scopes: Filtrovat uživatele, kteří aktivovali jakoukoli vybranou oblast působnosti v nastavení jejich účtu Moje Zájmy.
           select_spaces: Vybrat mezery pro rozdělení zpravodaje
           select_users: Vybrat, kterým uživatelům chcete poslat zpravodaj
+          send_to_all_users: Odeslat všem uživatelům
+          send_to_followers: Odeslat sledujícím
+          send_to_participants: Odeslat účastníkům
           title: Vybrat příjemce k doručení
           warning: "<strong> Pozor: </strong> Tento zpravodaj bude zasílán pouze uživatelům, kteří si aktivovali <em> chci dostávat zpravodaj </em> v nastavení oznámení."
         send:
@@ -818,6 +821,7 @@ cs:
             colors_title: Organizační barvy
             colors_warning_html: Varování! Změna těchto barev může narušit kontrasty přístupnosti. Můžete zkontrolovat kontrast výběru s <a href="%{link}">kontrolou kontrastu WebAIM Contrast Checker</a> nebo jinými podobnými nástroji.
             header_snippets_help: Toto pole použijte k přidání věcí do hlavičky HTML. Nejběžnějším používáním je integrace služeb třetích stran, které vyžadují nějaký extra JavaScript nebo CSS. Můžete také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoliv v sekci admin.
+          cta_button_path_help: 'Místo, kam tlačítko Výzva k akci na domovské stránce vede, lze přepsat. V tomto případě použijte částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Tlačítko Výzva k akci je na domovské stránce umístěno mezi uvítacím textem a popisem. Příklad: %{url}'
           cta_button_text_help: Text tlačítka výzvy k akci můžete na domovské stránce přepsat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastaveno, bude použita výchozí hodnota. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem.
           homepage_appearance_title: Upravit vzhled stránky
           homepage_highlighted_content_banner_title: Zvýrazněný obsahový banner
@@ -968,6 +972,7 @@ cs:
           update: Aktualizace
         form:
           none: Žádný
+          slug_help: 'Použijte v tomto případě částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Příklad: %{url}'
         index:
           last_notable_change: Poslední významná změna
         new:
