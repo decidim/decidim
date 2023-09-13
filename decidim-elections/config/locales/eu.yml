@@ -786,7 +786,6 @@ eu:
             update: Eguneratu
           form:
             select_a_voting_type: Mesedez, hautatu bozketa mota bat
-            slug_help: 'URLko testu laburrak erabiltzen dira bozketa hau aipatzen duten URLak sortzeko. Letrak, zenbakiak eta gidoiak baino ez ditu onartzen, eta letra batez hasi behar da. Adibidea: %{url}'
             title: Izenburua
             voting_type:
               hybrid: Hibridoa
