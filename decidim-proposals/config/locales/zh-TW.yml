@@ -655,6 +655,9 @@ zh-TW:
           filter: 篩選
           filter_by: 篩選條件
           unfold: 展開
+        index:
+          count:
+            other: "%{count} 個協作草稿"
         new:
           add_file: 添加檔案
           edit_file: 編輯檔案
@@ -779,6 +782,8 @@ zh-TW:
         index:
           click_here: 檢視所有提案
           collaborative_drafts_list: 進入協作草稿
+          count:
+            other: "%{count} 個提案"
           new_proposal: 新提案
           see_all: 檢視所有提案
           see_all_withdrawn: 查看所有撤回的提案
