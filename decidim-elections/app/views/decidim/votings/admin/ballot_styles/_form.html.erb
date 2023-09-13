@@ -7,7 +7,8 @@
       <%= form.text_field :code, autofocus: true, help_text: t(".code_help") %>
     </div>
 
-    <%= form.label :question_ids, t(".questions"), help_text: t(".questions_help") %>
+    <%= form.label :question_ids, t(".questions") %>
+    <p class="help-text"><%= t(".questions_help") %></p>
 
     <% voting_elections.each do |election| %>
       <div class="row column">
