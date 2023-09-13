@@ -99,8 +99,6 @@ el:
           all: Όλα
           cancelled: Ακυρώθηκε
           category: Κατηγορία
-          category_prompt: Επιλέξτε μια κατηγορία
-          search: Αναζήτηση
           state: Κατάσταση
         linked_sortitions:
           selected_proposals: Επιλεγμένες προτάσεις
