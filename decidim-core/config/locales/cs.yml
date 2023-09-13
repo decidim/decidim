@@ -625,6 +625,7 @@ cs:
       registrations:
         new:
           already_have_an_account?: Máte již účet?
+          log_in: Přihlásit
           newsletter: Chci dostávat příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
           sign_up: Zaregistrovat se
@@ -1521,6 +1522,7 @@ cs:
       floating_help:
         help: Pomoc
       login_modal:
+        please_log_in: Přihlaste se
         sign_up: Přihlásit se
       mentions_modal:
         remove_recipient: Odebrat příjemce %{name}
@@ -1638,6 +1640,7 @@ cs:
       last_attempt: Máte poslední pokus, pak dojde k uzamčení účtu.
       locked: Váš účet je uzamčen.
       not_found_in_database: Neplatný %{authentication_keys} nebo heslo.
+      timeout: Vaše relace vypršela. Chcete-li pokračovat, přihlaste se znovu.
     invitations:
       edit:
         header: Dokončete vytvoření účtu
@@ -1730,12 +1733,16 @@ cs:
       signed_up_but_unconfirmed: Na vaši e-mailovou adresu byla odeslána zpráva s potvrzujícím odkazem. Klepnutím na odkaz aktivujte svůj účet.
       update_needs_confirmation: Účet jste úspěšně aktualizovali, ale musíme ověřit novou e-mailovou adresu. Zkontrolujte e-mail a potvrďte novou e-mailovou adresu.
       updated: Účet byl úspěšně aktualizován.
+    sessions:
+      new:
+        log_in: Přihlásit
     shared:
       links:
         back: Zpět
         didn_t_receive_confirmation_instructions: Neobdrželi jste pokyny pro potvrzení?
         didn_t_receive_unlock_instructions: Nepřišly vám instrukce k odemknutí?
         forgot_your_password: Zapomněli jste heslo?
+        log_in: Přihlásit
         sign_up: Zaregistrovat se
       minimum_password_length:
         one: "(Minimálně%{count} znaků)"
@@ -1934,11 +1941,13 @@ cs:
         decidim_logo: Logo Decidim
         decidim_title: Decidim
         download_open_data: Stáhněte si soubory s otevřenými daty
+        log_in: Přihlásit
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
         resources: Zdroje
         sign_up: Registrovat
         terms_and_conditions: Podmínky používání
       header:
+        log_in: Přihlásit
         main_menu: Hlavní menu
         user_menu: Uživatelské Menu
       impersonation_warning:
@@ -1965,6 +1974,7 @@ cs:
       timeout_modal:
         body: '%{minutes} minut jste byli neaktivní. Pokud budete i nadále neaktivní, budete automaticky odhlášeni z důvodu své vlastní bezpečnosti.'
         continue_session: Pokračovat v relaci
+        log_out: Odhlásit
         title: Chcete pokračovat v relaci?
       upload_modal:
         close_modal: Zavřít modal
@@ -1973,6 +1983,7 @@ cs:
         admin_dashboard: Ovládací panel
         configuration: Konfigurace
         conversations: Konverzace
+        log_out: Odhlásit
         notifications: Oznámení
         profile: Můj účet
         public_profile: Můj veřejný profil
