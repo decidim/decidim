@@ -529,7 +529,6 @@ ar:
           fields:
             created_at: تاريخ الإنشاء
             email: البريد الإلكتروني
-            last_sign_in_at: تسجيل الدخول الأخير في التاريخ
             name: اسم
             role: وظيفة
             roles:
