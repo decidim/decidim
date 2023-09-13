@@ -311,7 +311,6 @@ id:
           already_have_an_account?: Sudah memiliki akun?
           newsletter: Terima sesekali newsletter dengan informasi yang relevan
           newsletter_title: Izin kontak
-          sign_in: Masuk
           sign_up: Daftar
           sign_up_as:
             legend: Mendaftar sebagai
@@ -1054,8 +1053,6 @@ id:
       updated: Akun Anda telah berhasil diperbarui.
     sessions:
       already_signed_out: Berhasil keluar.
-      new:
-        sign_in: Masuk
       signed_in: Berhasil masuk.
       signed_out: Berhasil keluar.
     shared:
@@ -1064,7 +1061,6 @@ id:
         didn_t_receive_confirmation_instructions: Tidak menerima instruksi konfirmasi?
         didn_t_receive_unlock_instructions: Tidak menerima instruksi buka kunci?
         forgot_your_password: lupa kata sandi Anda?
-        sign_in: Masuk
         sign_in_with_provider: Masuk dengan %{provider}
         sign_up: Daftar
       minimum_password_length:
