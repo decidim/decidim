@@ -666,9 +666,6 @@ it:
           select_scopes: Filtra per gli utenti che hanno attivato qualsiasi ambito selezionato nelle impostazioni interessi personali del proprio account.
           select_spaces: Selezionare gli spazi per segmentare la newsletter
           select_users: Seleziona gli utenti a cui desideri inviare la newsletter
-          send_to_all_users: Invia a tutti gli utenti
-          send_to_followers: Invia ai follower
-          send_to_participants: Invia ai partecipanti
           title: Seleziona destinatari a cui inviare
           warning: "<strong>Attenzione:</strong> Questa newsletter sarà inviata solo agli utenti che hanno attivato <em>Voglio ricevere newsletter</em> nelle impostazioni delle notifiche."
         send:
@@ -742,7 +739,6 @@ it:
           colors:
             colors_title: Colori dell'organizzazione
             header_snippets_help: Utilizza questo campo per aggiungere le cose alla testa HTML. L'uso più comune è quello di integrare i servizi di terze parti che richiedono JavaScript o CSS extra. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra all'HTML. Tieni presente che questo sarà reso solo nelle pagine pubbliche, non nella sezione admin.
-          cta_button_path_help: 'Puoi sovrascrivere il collegamento del pulsante di "Chiamata all''azione" nella home page. Utilizza i percorsi parziali e non gli URL completi qui. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Il pulsante "Chiamata all''azione" è mostrato nella homepage tra il testo di benvenuto e la descrizione. Esempio: %{url}'
           cta_button_text_help: Puoi sovrascrivere il testo del pulsante Chiamata all'azione nella home page per ogni lingua disponibile nell'organizzazione. Se non è impostato, verrà utilizzato il valore predefinito. Il pulsante Chiamata all'azione è mostrato nella homepage tra il testo di benvenuto e la descrizione.
           homepage_appearance_title: Modifica l'aspetto della home page
           homepage_highlighted_content_banner_title: Banner con contenuti Highligted
@@ -881,7 +877,6 @@ it:
           update: Aggiorna
         form:
           none: Nessuna
-          slug_help: 'Usa URL relativi, non URL assoluti. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Esempio: %{url}'
         index:
           last_notable_change: Ultimo cambiamento significativo
         new:
