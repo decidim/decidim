@@ -33,7 +33,6 @@ gl:
           error: Houbo erros ao votar o comentario.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Inicia sesión coa túa conta</a> ou <a href="%{sign_up_url}">iniciar</a> para engadir o teu comentario.
         form:
           body:
             label: Comentario
