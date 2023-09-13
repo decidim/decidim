@@ -499,7 +499,6 @@ de:
           newsletter_title: Kontakterlaubnis
           nickname_help: Ihr Pseudonym in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
           password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
-          sign_in: Anmelden
           sign_up: Registrieren
           sign_up_as:
             legend: Registrieren als
@@ -1553,8 +1552,6 @@ de:
       updated: Ihr Konto wurde erfolgreich aktualisiert.
     sessions:
       already_signed_out: Erfolgreich abgemeldet.
-      new:
-        sign_in: Einloggen
       signed_in: Erfolgreich angemeldet
       signed_out: Erfolgreich abgemeldet.
     shared:
@@ -1563,7 +1560,6 @@ de:
         didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungs-Mail erhalten?
         didn_t_receive_unlock_instructions: Haben Sie keine Entsperrungsanweisungen erhalten?
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
-        sign_in: Einloggen
         sign_in_with_provider: Mit %{provider} anmelden
         sign_up: Registrieren
       minimum_password_length:
