@@ -93,8 +93,6 @@ pt:
           all: Todos
           cancelled: Cancelado
           category: Categoria
-          category_prompt: Selecione uma categoria
-          search: Pesquisar
           state: Estado
         linked_sortitions:
           selected_proposals: Propostas selecionadas
