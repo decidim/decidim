@@ -291,7 +291,6 @@ ar:
             select_an_area: اختر منطقة
             select_an_assembly_type: حدد نوع الجمعية
             select_parent_assembly: حدد الجمعية الأصلية
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
             visbility: الرؤية
@@ -303,13 +302,9 @@ ar:
         assemblies_types:
           form:
             title: العنوان
-        assembly_copies:
-          form:
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
         assembly_imports:
           form:
             document_legend: إضافة وثيقة
-            slug_help: 'يتم استخدام سبائك URL لإنشاء عناوين URL التي تشير إلى هذا التجمع. تُقبل الحروف والأرقام والشرطات فقط، ويجب أن تبدأ بحرف. مثال: %{url}'
         assembly_members:
           form:
             existing_user: المشارك الحالي
