@@ -536,6 +536,7 @@ ca:
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           newsletter_title: Permís de contacte
           nickname_help: El teu àlies a %{organization}. Només pot contenir lletres, números, '-' and '_'.
+          sign_in: Entra
           sign_up: Registra't
           sign_up_as:
             legend: Inscriure's com a
@@ -1656,6 +1657,8 @@ ca:
       updated: El teu compte s'ha actualitzat correctament.
     sessions:
       already_signed_out: Sessió finalitzada correctament.
+      new:
+        sign_in: Entra
       signed_in: Sessió iniciada correctament.
       signed_out: S'ha iniciat la sessió correctament.
     shared:
@@ -1664,6 +1667,7 @@ ca:
         didn_t_receive_confirmation_instructions: No has rebut instruccions de confirmació?
         didn_t_receive_unlock_instructions: No has rebut instruccions de desbloqueig?
         forgot_your_password: Has oblidat la teva contrasenya?
+        sign_in: Entra
         sign_in_with_provider: Inicia sessió amb %{provider}
         sign_up: Registra't
       minimum_password_length:
