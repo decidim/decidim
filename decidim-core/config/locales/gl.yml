@@ -288,7 +288,6 @@ gl:
           already_have_an_account?: Xa ten unha conta?
           newsletter: Recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          sign_in: Iniciar sesión
           sign_up: Rexistrarse
           subtitle: Rexístrate para participar en discusións e propostas de apoio.
           tos_agreement: Ao rexistrarte, aceptas %{link}.
@@ -793,10 +792,7 @@ gl:
         title: Informar dun problema
       floating_help:
         help: Axuda
-      follow_button:
-        sign_in_before_follow: Inicia sesión antes de realizar esta acción
       login_modal:
-        please_sign_in: Inicia sesión
         sign_up: Rexistrarse
       mentions_modal:
         remove_recipient: Eliminar o destinatario %{name}
@@ -859,8 +855,6 @@ gl:
       last_attempt: Tes unha tentativa máis antes de que a túa conta estea bloqueada.
       locked: A túa conta está bloqueada.
       not_found_in_database: O %{authentication_keys} ou o contrasinal non son válidos.
-      timeout: A túa sesión caducou. Inicia sesión de novo para continuar.
-      unauthenticated: Necesitas iniciar sesión ou rexistrarte antes de continuar.
     invitations:
       edit:
         header: Acaba de crear a túa conta
@@ -907,7 +901,6 @@ gl:
         action: Desbloquea a miña conta
         greeting: Ola %{recipient}
         instruction: 'Fai clic na seguinte ligazón para desbloquear a túa conta:'
-        message: A túa conta foi bloqueada debido a unha cantidade excesiva de intentos de inicio de sesión incorrectos.
         subject: Desbloquear instrucións
     omniauth_callbacks:
       failure: Non puiden autenticarme desde %{kind} porque "%{reason}".
@@ -934,18 +927,10 @@ gl:
       signed_up_but_unconfirmed: Enviouse unha mensaxe cunha ligazón de confirmación ao seu enderezo de correo electrónico. Sigue a ligazón para activar a túa conta.
       update_needs_confirmation: Actualizou a súa conta correctamente, pero necesitamos verificar o seu novo enderezo de correo electrónico. Verifique o seu correo electrónico e siga a ligazón de confirmación para confirmar o seu novo enderezo de correo electrónico.
       updated: A túa conta foi actualizada correctamente.
-    sessions:
-      already_signed_out: Saíu con éxito.
-      new:
-        sign_in: Iniciar sesión
-      signed_in: Iniciar sesión con éxito.
-      signed_out: Saíu con éxito.
     shared:
       links:
         back: De volta
         forgot_your_password: Esqueceu o contrasinal?
-        sign_in: Iniciar sesión
-        sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Rexistrarse
       minimum_password_length:
         one: "(Mínimo de%{count} caracteres)"
@@ -955,13 +940,11 @@ gl:
         resend_unlock_instructions: Reenvía instrucións de desbloqueo
       send_instructions: Recibirás un correo electrónico con instrucións sobre como desbloquear a túa conta nuns minutos.
       send_paranoid_instructions: Se a túa conta existe, recibirás un correo electrónico con instrucións sobre como desbloquearlo en poucos minutos.
-      unlocked: A túa conta foi desbloqueada con éxito. Inicia sesión para continuar.
   doorkeeper:
     scopes:
       public: A túa información pública.
   errors:
     messages:
-      already_confirmed: xa se confirmou, intente iniciar sesión
       confirmation_period_expired: Necesítase confirmar dentro de %{period}, solicita un novo
       content_type_allowlist_error: o tipo de ficheiro non é válido
       expired: caducou, por favor solicita unha nova
@@ -994,7 +977,6 @@ gl:
         sign_up: Rexistrarse
       header:
         main_menu: Menú principal
-        sign_in: Rexístrate
         user_menu: Menú de usuario
       impersonation_warning:
         close_session: Pechar sesión
@@ -1010,7 +992,6 @@ gl:
         notifications: Notificacións
         profile: A miña conta
         public_profile: O meu perfil público
-        sign_out: Saír
         title: Ligazóns do perfil
       user_profile:
         account: Conta
