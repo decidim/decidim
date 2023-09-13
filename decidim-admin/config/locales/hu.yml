@@ -736,9 +736,6 @@ hu:
           select_scopes: Kiszűri azokat a felhasználókat, akik a fiók "Saját érdeklődési kör" beállításainál aktiválták a kiválasztott hatókört.
           select_spaces: A hírlevél szegmentálására szolgáló terek kiválasztása
           select_users: Válassza ki, hogy mely felhasználók számára szeretné elküldeni a hírlevelet
-          send_to_all_users: Küldés mindenkinek
-          send_to_followers: Küldés a követőknek
-          send_to_participants: Küldés a résztvevőknek
           title: Címzettek kiválasztása
           warning: "<strong>Figyelem:</strong> Ez a hírlevél csak azoknak a felhasználóknak kerül elküldésre, akik bejelölték a <em>Hírleveleket szeretnék kapni</em> opciót az értesítési beállításokban."
         send:
@@ -813,7 +810,6 @@ hu:
             colors_title: Szervezet színei
             colors_warning_html: Óvatosan! A színek megváltoztatása megtörik az akadálymentes kontrasztokat. Ellenőrizheti a kontrasztot a <a href="%{link}">WebAIM Contrast Checker</a> vagy más, hasonló eszköz segítségével.
             header_snippets_help: Ebben a mezőben a HTML fejlécet szerkesztheted. Ennek akkor van jelentősége, ha olyan külső szolgáltatásokat szeretnél intergálni, amelyekhez JavaScript vagy CSS szükséges. Sőt, metacímkéket is hozzáadhatsz. Ez az adminban nem, csak a nyilvános oldalakon jelenik majd meg.
-          cta_button_path_help: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
           cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
           homepage_appearance_title: Honlap megjelenésének szerkesztése
           homepage_highlighted_content_banner_title: Kiemelt banner
@@ -962,7 +958,6 @@ hu:
           update: Frissítés
         form:
           none: Egyik sem
-          slug_help: 'Használjon részleges útvonalakat, nem teljes URL-eket itt. Betűk, számok, vonalak és per-jelek fogadhatók el, és betűvel kell kezdődniük. Példa: %{url}'
         index:
           last_notable_change: Utolsó jelentős változás
         new:
