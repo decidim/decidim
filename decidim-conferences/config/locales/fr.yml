@@ -425,11 +425,9 @@ fr:
         create:
           invalid: Il y a eu un problème pour rejoindre cette conférence.
           success: Vous avez rejoint la conférence avec succès.
-          unauthorized: Vous devez vous connecter avant de vous inscrire à la conférence.
         decline_invitation:
           invalid: Il y a eu un problème pour refuser l'invitation.
           success: Vous avez refusé l'invitation avec succès.
-          unauthorized: Vous devez vous connecter avant de refuser l'invitation.
         destroy:
           invalid: Il y a eu un problème pour quitter cette conférence.
           success: Vous avez quitté la conférence avec succès.
