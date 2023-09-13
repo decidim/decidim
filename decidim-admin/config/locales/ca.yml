@@ -642,7 +642,6 @@ ca:
           fields:
             created_at: Data de creació
             email: Correu electrònic
-            last_sign_in_at: Darrera data d'identificació
             name: Nom
             role: Rol
             roles:
