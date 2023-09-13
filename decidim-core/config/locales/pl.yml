@@ -470,7 +470,6 @@ pl:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
-          sign_in: Zaloguj się
           sign_up: Zarejestruj się
           subtitle: Zarejestruj się, aby brać udział w dyskusjach i wspierać propozycje.
           tos_agreement: Rejestrując się, zgadzasz się na %{link}.
@@ -480,8 +479,6 @@ pl:
         new:
           are_you_new?: Nowy na platformie?
           register: Utwórz konto
-        user:
-          timed_out: Byłeś długo nieaktywny i zostałeś automatycznie wylogowany z serwisu. Jeśli chcesz kontynuować korzystanie z serwisu zaloguj się ponownie.
       shared:
         newsletter_modal:
           buttons:
@@ -1097,10 +1094,7 @@ pl:
         title: Zgłoś użytkownika
       floating_help:
         help: Pomoc
-      follow_button:
-        sign_in_before_follow: Zaloguj się przed wykonaniem tej czynności
       login_modal:
-        please_sign_in: Zaloguj się
         sign_up: Zarejestruj się
       participatory_space_filters:
         filters:
@@ -1200,8 +1194,6 @@ pl:
       last_attempt: Masz jeszcze jedną próbę, zanim Twoje konto zostanie zablokowane.
       locked: Twoje konto jest zablokowane.
       not_found_in_database: 'Nieprawidłowe dane: %{authentication_keys} lub hasło.'
-      timeout: Twoja sesja wygasła. Zaloguj się ponownie, aby kontynuować.
-      unauthenticated: Zanim przejdziesz dalej, musisz się zalogować lub zarejestrować.
     invitations:
       edit:
         header: Zakończ tworzenie konta
@@ -1248,7 +1240,6 @@ pl:
         action: Odblokuj moje konto
         greeting: Witaj, %{recipient}!
         instruction: 'Kliknij w poniższy link, aby odblokować konto:'
-        message: Twoje konto zostało zablokowane z powodu nadmiernej liczby nieudanych prób logowania.
         subject: Instrukcje dotyczące odblokowania konta
     omniauth_callbacks:
       failure: Nie można uwierzytelnić użytkownika za pomocą %{kind} ponieważ "%{reason}".
@@ -1276,18 +1267,10 @@ pl:
       signed_up_but_unconfirmed: Wiadomość z linkiem potwierdzającym została wysłana na Twój adres e-mail. Kliknij link, aby aktywować swoje konto.
       update_needs_confirmation: Twoje konto zostało pomyślnie zaktualizowane, ale musimy zweryfikować Twój nowy adres e-mail. Sprawdź pocztę i kliknij link, by potwierdzić swój nowy adres e-mail.
       updated: Twoje konto zostało pomyślnie zaktualizowane.
-    sessions:
-      already_signed_out: Wylogowano pomyślnie.
-      new:
-        sign_in: Zaloguj się
-      signed_in: Zalogowano pomyślnie.
-      signed_out: Wylogowano pomyślnie.
     shared:
       links:
         back: Wróć
         forgot_your_password: Nie pamiętasz hasła?
-        sign_in: Zaloguj się
-        sign_in_with_provider: Zaloguj się, używając %{provider}
         sign_up: Zarejestruj się
       minimum_password_length:
         one: "(Minimum%{count} znak)"
@@ -1299,13 +1282,11 @@ pl:
         resend_unlock_instructions: Wyślij ponownie instrukcje odblokowania
       send_instructions: Za kilka minut otrzymasz wiadomość e-mail z instrukcjami, jak odblokować konto.
       send_paranoid_instructions: Jeśli Twoje konto istnieje, w ciągu kilku minut otrzymasz e-mail z instrukcjami, jak je odblokować.
-      unlocked: Twoje konto zostało odblokowane pomyślnie. Zaloguj się, aby kontynuować.
   doorkeeper:
     scopes:
       public: Twoje informacje publiczne.
   errors:
     messages:
-      already_confirmed: zostało już potwierdzone
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
       content_type_allowlist_error: typ pliku jest nieprawidłowy
       expired: wygasł, proszę poprosić o nowy
@@ -1351,7 +1332,6 @@ pl:
         sign_up: Zarejestruj się
       header:
         main_menu: Menu główne
-        sign_in: Zaloguj się
         user_menu: Menu użytkownika
       impersonation_warning:
         close_session: Zakończ sesję
@@ -1370,7 +1350,6 @@ pl:
       timeout_modal:
         body: Byłeś nieaktywny przez %{minutes} min. Jeśli pozostaniesz nieaktywny, zostaniesz automatycznie wylogowany ze względów bezpieczeństwa.
         continue_session: Kontynuuj sesję
-        sign_out: Wyloguj się
         title: Czy chcesz kontynuować sesję?
       user_menu:
         account: 'Konto użytkownika: %{name}'
@@ -1379,7 +1358,6 @@ pl:
         notifications: Powiadomienia
         profile: Moje konto
         public_profile: Mój profil publiczny
-        sign_out: Wyloguj się
       user_profile:
         account: Moje konto
         authorizations: Autoryzacje
