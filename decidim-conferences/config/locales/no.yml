@@ -311,9 +311,6 @@
         title: Talere
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konferansen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         conference_invites:
           create:
             error: Det oppstod et problem med å invitere deltakeren til å delta på konferansen.
@@ -354,7 +351,6 @@
             registrations_count:
               one: Det har vært 1 registrering.
               other: Det har vært %{count} registreringer.
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konferansen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         diplomas:
           edit:
             save: Lagre
