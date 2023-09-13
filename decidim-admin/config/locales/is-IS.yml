@@ -410,7 +410,6 @@ is-IS:
         edit:
           update: Uppfæra
         form:
-          cta_button_path_help: 'Þú getur skrifað yfir hvar Hnappurinn Hringja til aðgerða á heimasíðunni tengist. Notaðu hluta slóða, ekki fulla vefslóðir hér. Tekur bréf, tölur, bindur og rista, og verður að byrja með stafi. Hnappurinn Hringja til aðgerða er sýndur á heimasíðunni á milli velkomna textans og lýsingarinnar. Dæmi: %{url}'
           cta_button_text_help: Þú getur skrifað yfirskriftina Hringja til aðgerða hnappatexta á heimasíðunni fyrir hvert tiltækt tungumál í fyrirtækinu þínu. Ef ekki er valið verður sjálfgefið gildi. Hnappurinn Hringja til aðgerða er sýndur á heimasíðunni á milli velkomna textans og lýsingarinnar.
           homepage_appearance_title: Breyta heimasíðu útliti
           homepage_highlighted_content_banner_title: Hápunktur efni borði
