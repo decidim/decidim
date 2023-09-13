@@ -10,8 +10,7 @@
           <%= form.translated :text_field, :title, autofocus: true %>
         </div>
         <div class="column xlarge-4 slug">
-          <%= form.text_field :slug %>
-          <p class="help-text"><%== t(".slug_help", url: decidim_form_slug_url(:processes, form.object.slug)) %></p>
+          <%= form.text_field :slug, help_text: t(".slug_help_html", url: decidim_form_slug_url(:processes, form.object.slug)) %>
         </div>
       </div>
       <div class="card">
