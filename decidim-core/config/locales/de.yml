@@ -593,7 +593,6 @@ de:
           already_have_an_account?: Haben Sie bereits ein Konto?
           newsletter: Gelegentlich einen Newsletter mit relevanten Informationen erhalten
           newsletter_title: Kontakterlaubnis
-          sign_in: Anmelden
           sign_up: Registrieren
           subtitle: Registrieren Sie sich, um an Diskussionen teilzunehmen und Vorschläge zu unterstützen.
           terms: die Nutzungsbedingungen
@@ -606,8 +605,6 @@ de:
           register: Konto erstellen
           sign_in_disabled: Sie können mit einem externen Konto darauf zugreifen.
           sign_up_disabled: Registrierungen sind deaktiviert. Verwenden Sie ein bestehendes Konto für den Zugriff.
-        user:
-          timed_out: Sie waren zu lange inaktiv und wurden automatisch abgemeldet. Wenn Sie den Dienst weiterhin nutzen möchten, melden Sie sich bitte erneut an.
       shared:
         newsletter_modal:
           buttons:
@@ -638,7 +635,6 @@ de:
           authorize: App zulassen
           by_organization_link_html: <small class="heading-small">von %{link}</small>
           cancel: Abbrechen
-          connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei %{organization} anmelden.
           publish_content: Inhalte für Sie veröffentlichen
           see_email: Ihre E-Mail anzeigen
           see_name: Ihren Namen anzeigen
@@ -1485,10 +1481,7 @@ de:
         title: Unangemessenen Nutzer melden
       floating_help:
         help: Hilfe
-      follow_button:
-        sign_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion ausführen
       login_modal:
-        please_sign_in: Bitte einloggen
         sign_up: Registrieren
       mentions_modal:
         remove_recipient: Empfänger %{name} entfernen
@@ -1606,8 +1599,6 @@ de:
       last_attempt: Sie haben noch einen Versuch, bevor Ihr Konto gesperrt ist.
       locked: Dein Konto ist gesperrt.
       not_found_in_database: Ungültige %{authentication_keys} oder Passwort
-      timeout: Ihre Sitzung ist abgelaufen. Bitte loggen Sie sich erneut ein, um fortzufahren.
-      unauthenticated: Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren.
     invitations:
       edit:
         header: Beenden Sie die Erstellung Ihres Kontos
@@ -1670,7 +1661,6 @@ de:
         action: Entsperren Sie mein Konto
         greeting: Hallo %{recipient}!
         instruction: 'Klicken Sie auf den folgenden Link, um Ihr Konto zu entsperren:'
-        message: Ihr Konto wurde aufgrund einer übermäßigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt.
         subject: Entsperren Anweisungen
     omniauth_callbacks:
       failure: 'Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden. Grund: "%{reason}".'
@@ -1701,20 +1691,12 @@ de:
       signed_up_but_unconfirmed: Eine Nachricht mit einem Bestätigungslink wurde an Ihre E-Mail-Adresse gesendet. Bitte folgen Sie dem Link, um Ihr Konto zu aktivieren.
       update_needs_confirmation: Sie haben Ihr Konto erfolgreich aktualisiert, aber wir müssen Ihre neue E-Mail-Adresse bestätigen. Bitte überprüfen Sie Ihre E-Mail und folgen Sie dem Bestätigungslink, um Ihre neue E-Mail-Adresse zu bestätigen.
       updated: Ihr Konto wurde erfolgreich aktualisiert.
-    sessions:
-      already_signed_out: Erfolgreich abgemeldet.
-      new:
-        sign_in: Einloggen
-      signed_in: Erfolgreich angemeldet
-      signed_out: Erfolgreich abgemeldet.
     shared:
       links:
         back: Zurück
         didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungs-Mail erhalten?
         didn_t_receive_unlock_instructions: Anweisungen zum Entsperren nicht erhalten?
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
-        sign_in: Einloggen
-        sign_in_with_provider: Mit %{provider} anmelden
         sign_up: Registrieren
       minimum_password_length:
         one: "(%{count} Zeichen Minimum)"
@@ -1724,7 +1706,6 @@ de:
         resend_unlock_instructions: Erneute Anweisungen zum Entsperren senden
       send_instructions: Sie erhalten eine E-Mail mit Anweisungen zum Freischalten Ihres Kontos in wenigen Minuten.
       send_paranoid_instructions: Wenn Ihr Konto existiert, erhalten Sie eine E-Mail mit Anweisungen, wie Sie es in wenigen Minuten entsperren können.
-      unlocked: Ihr Konto wurde erfolgreich entsperrt. Bitte einloggen, um fortzufahren.
   doorkeeper:
     scopes:
       public: Ihre öffentlichen Informationen.
@@ -1813,7 +1794,6 @@ de:
   errors:
     messages:
       allowed_file_content_types: 'nur Dateien mit den folgenden Typen sind erlaubt: %types%'
-      already_confirmed: wurde bereits bestätigt, bitte versuchen Sie sich anzumelden
       blank: darf nicht leer sein
       cannot_be_blank: darf nicht leer sein
       confirmation: stimmt nicht mit %{attribute} überein
@@ -1911,12 +1891,10 @@ de:
         download_open_data: Open Data Dateien herunterladen
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
         resources: Ressourcen
-        sign_in: Anmelden
         sign_up: Registrieren
         terms_and_conditions: Nutzungsbedingungen
       header:
         main_menu: Hauptmenü
-        sign_in: Anmelden
         user_menu: Benutzer-Menü
       impersonation_warning:
         close_session: Sitzung schließen
@@ -1938,7 +1916,6 @@ de:
       timeout_modal:
         body: Sie sind seit %{minutes} Minuten inaktiv. Wenn Sie weiterhin inaktiv sind, werden Sie aus Sicherheitsgründen automatisch abgemeldet.
         continue_session: Sitzung fortsetzen
-        sign_out: Ausloggen
         title: Möchten Sie ihre Sitzung fortsetzen?
       upload_modal:
         close_modal: Fenster schließen
@@ -1950,7 +1927,6 @@ de:
         notifications: Benachrichtigungen
         profile: Mein Konto
         public_profile: Mein öffentliches Profil
-        sign_out: Ausloggen
         title: Profil-Links
       user_profile:
         account: Konto
