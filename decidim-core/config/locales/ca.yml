@@ -646,7 +646,6 @@ ca:
         ready: Llest
       show:
         download_data: Descarrega't les dades
-        download_data_description: S'enviarà un arxiu amb tota la informació associada al teu compte a <strong>%{user_email}</strong>. Aquest correu electrònic contindrà un arxiu .zip i una contrasenya per obrir-lo.<br/><br/>Per a descomprimir l'arxiu, necessitaràs <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows) o <a href="https://www.keka.io/">Keka</a> (per a MacOS). Si uses Linux, la majoria de les vegades ho tindràs instal·lat per defecte. Si no, pots utilitzar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Sol·licita dades
     editor_images:
       create:
@@ -1600,6 +1599,8 @@ ca:
       last_attempt: Tens un intent més abans que el teu compte es bloquegi.
       locked: El teu compte està bloquejat.
       not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
+      timeout: La teva sessió ha expirat. Si us plau, torna a iniciar-la per continuar.
+      unauthenticated: Cal iniciar sessió o registrar-te abans de continuar.
     invitations:
       edit:
         header: Acabar de crear el teu compte
@@ -1661,6 +1662,7 @@ ca:
         action: Desbloqueja el meu compte
         greeting: Hola %{recipient}!
         instruction: 'Fes clic a l''enllaç següent per desbloquejar el teu compte:'
+        message: El teu compte s'ha bloquejat a causa d'una quantitat excessiva d'intents fallits d'inici de sessió.
         subject: Desbloqueja les instruccions
     omniauth_callbacks:
       failure: No pots autenticar-te des de %{kind} perquè "%{reason}".
@@ -1691,12 +1693,20 @@ ca:
       signed_up_but_unconfirmed: S'ha enviat un missatge amb un enllaç de confirmació a la teva adreça de correu electrònic. Si us plau, segueix l'enllaç per activar el teu compte.
       update_needs_confirmation: Has actualitzat el teu compte amb èxit, però hem de verificar la teva nova adreça. Comprova la teva bústia electrònic i segueix l'enllaç per confirmar la teva nova adreça de correu electrònic.
       updated: El teu compte s'ha actualitzat correctament.
+    sessions:
+      already_signed_out: S'ha tancat la sessió correctament.
+      new:
+        log_in: Entra
+      signed_in: Sessió iniciada amb èxit.
+      signed_out: S'ha tancat la sessió correctament.
     shared:
       links:
         back: Torna
         didn_t_receive_confirmation_instructions: No has rebut instruccions de confirmació?
         didn_t_receive_unlock_instructions: No has rebut les instruccions de desbloqueig?
         forgot_your_password: Has oblidat la teva contrasenya?
+        log_in: Entra
+        log_in_with_provider: Inicia sessió amb %{provider}
         sign_up: Registra't
       minimum_password_length:
         one: "(Mínim de%{count} caràcters)"
@@ -1706,6 +1716,7 @@ ca:
         resend_unlock_instructions: Reenvia les instruccions de desbloqueig
       send_instructions: Rebràs un correu electrònic amb instruccions per desbloquejar el teu compte en uns minuts.
       send_paranoid_instructions: Si el teu compte existeix, rebràs un correu electrònic amb instruccions per desbloquejar-lo en uns minuts.
+      unlocked: El teu compte ha estat bloquejant correctament. Si us plau, inicia sessió per continuar.
   doorkeeper:
     scopes:
       public: La teva informació pública.
@@ -1794,6 +1805,7 @@ ca:
   errors:
     messages:
       allowed_file_content_types: 'només s''accepten arxius amb les següents extensions: %{types}'
+      already_confirmed: ja s'ha confirmat, si us plau, intenta iniciar la sessió
       blank: no pot estar en blanc
       cannot_be_blank: no pot estar en blanc
       confirmation: no coincideix amb %{attribute}
@@ -1889,11 +1901,13 @@ ca:
         decidim_logo: Logo Decidim
         decidim_title: Decidim
         download_open_data: Descarrega els fitxers de dades obertes
+        log_in: Entra
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
         resources: Recursos
         sign_up: Registra't
         terms_and_conditions: Termes i condicions
       header:
+        log_in: Entra
         main_menu: Menú principal
         user_menu: Menú d'usuari
       impersonation_warning:
@@ -1920,6 +1934,7 @@ ca:
       timeout_modal:
         body: Has estat sense activitat durant %{minutes} minuts. Si continues inactiva, es tancarà la teva sessió automàticament per la teva pròpia seguretat.
         continue_session: Continuar la sessió
+        log_out: Surt
         title: Vols continuar amb la sessió?
       upload_modal:
         close_modal: Tancar finestra
@@ -1928,6 +1943,7 @@ ca:
         admin_dashboard: Tauler d'administració
         configuration: Configuració
         conversations: Converses
+        log_out: Surt
         notifications: Notificacions
         profile: El meu compte
         public_profile: El meu perfil públic
