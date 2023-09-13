@@ -105,8 +105,6 @@ cs:
           all: Vše
           cancelled: Zrušeno
           category: Kategorie
-          category_prompt: Vyberte kategorii
-          search: Vyhledávání
           state: Stav
         linked_sortitions:
           selected_proposals: Vybrané návrhy
