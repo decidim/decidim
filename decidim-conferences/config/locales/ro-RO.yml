@@ -428,11 +428,9 @@ ro:
         create:
           invalid: A apărut o problemă la această conferință.
           success: V-aţi alăturat cu succes conferinţei.
-          unauthorized: Trebuie să te autentifici înainte de a te înregistra la conferință.
         decline_invitation:
           invalid: A existat o problemă la refuzarea invitaţiei.
           success: Ați refuzat cu succes invitația.
-          unauthorized: Trebuie să te autentifici înainte de a refuza invitația.
         destroy:
           invalid: A apărut o problemă la ieşirea din această conferinţă.
           success: Aţi părăsit cu succes conferinţa.
