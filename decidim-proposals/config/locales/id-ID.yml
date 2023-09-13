@@ -407,6 +407,9 @@ id:
           filter: Filter
           filter_by: Filter berdasarkan
           unfold: Membuka
+        index:
+          count:
+            other: "%{count} draf kolaboratif"
         new:
           send: Terus
         new_collaborative_draft_button:
@@ -506,6 +509,8 @@ id:
           voted: Dipilih
         index:
           collaborative_drafts_list: Akses draf kolaboratif
+          count:
+            other: "%{count} proposal"
           new_proposal: Proposal baru
           see_all_withdrawn: Lihat semua proposal yang ditarik
         new:
