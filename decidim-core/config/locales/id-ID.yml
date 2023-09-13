@@ -271,7 +271,6 @@ id:
           already_have_an_account?: Sudah memiliki akun?
           newsletter: Terima sesekali newsletter dengan informasi yang relevan
           newsletter_title: Izin kontak
-          sign_in: Masuk
           sign_up: Daftar
           subtitle: Mendaftarlah untuk berpartisipasi dalam diskusi dan dukung proposal.
           tos_agreement: Dengan mendaftar Anda menyetujui %{link}.
@@ -730,10 +729,7 @@ id:
         title: Laporkan masalah
       floating_help:
         help: Membantu
-      follow_button:
-        sign_in_before_follow: Harap masuk sebelum melakukan tindakan ini
       login_modal:
-        please_sign_in: Silakan masuk
         sign_up: Daftar
       participatory_space_filters:
         filters:
@@ -778,8 +774,6 @@ id:
       last_attempt: Anda memiliki satu upaya lagi sebelum akun Anda dikunci.
       locked: Akun Anda terkunci.
       not_found_in_database: Kata sandi atau %{authentication_keys} tidak valid.
-      timeout: Sesi Anda berakhir. Harap masuk lagi untuk melanjutkan.
-      unauthenticated: Anda harus masuk atau mendaftar sebelum melanjutkan.
     invitations:
       edit:
         header: Selesaikan membuat akun Anda
@@ -826,7 +820,6 @@ id:
         action: Buka kunci akun saya
         greeting: Halo %{recipient}!
         instruction: 'Klik tautan di bawah ini untuk membuka kunci akun Anda:'
-        message: Akun Anda telah dikunci karena jumlah upaya gagal masuk yang berlebihan.
         subject: Buka instruksi
     omniauth_callbacks:
       failure: Tidak dapat mengautentikasi Anda dari %{kind} karena "%{reason}".
@@ -853,18 +846,10 @@ id:
       signed_up_but_unconfirmed: Sebuah pesan dengan tautan konfirmasi telah dikirim ke alamat email Anda. Silakan ikuti tautan untuk mengaktifkan akun Anda.
       update_needs_confirmation: Anda telah memperbarui akun Anda, tetapi kami perlu memverifikasi alamat email baru Anda. Silakan periksa email Anda dan ikuti tautan konfirmasi untuk mengonfirmasi alamat email baru Anda.
       updated: Akun Anda telah berhasil diperbarui.
-    sessions:
-      already_signed_out: Berhasil keluar.
-      new:
-        sign_in: Masuk
-      signed_in: Berhasil masuk.
-      signed_out: Berhasil keluar.
     shared:
       links:
         back: Kembali
         forgot_your_password: lupa kata sandi Anda?
-        sign_in: Masuk
-        sign_in_with_provider: Masuk dengan %{provider}
         sign_up: Daftar
       minimum_password_length:
         other: "(Minimal%{count} karakter)"
@@ -873,13 +858,11 @@ id:
         resend_unlock_instructions: Kirim ulang instruksi buka kunci
       send_instructions: Anda akan menerima email berisi petunjuk cara membuka kunci akun Anda dalam beberapa menit.
       send_paranoid_instructions: Jika akun Anda ada, Anda akan menerima email berisi petunjuk cara membuka kuncinya dalam beberapa menit.
-      unlocked: Akun Anda telah berhasil dibuka kuncinya. Tolong masuk untuk melanjutkan.
   doorkeeper:
     scopes:
       public: Informasi publik Anda.
   errors:
     messages:
-      already_confirmed: sudah dikonfirmasi, silakan coba masuk
       confirmation_period_expired: perlu dikonfirmasi dalam %{period}, silakan minta yang baru
       content_type_allowlist_error: jenis file tidak valid
       expired: telah kedaluwarsa, silakan minta yang baru
@@ -906,8 +889,6 @@ id:
         download_open_data: Unduh file Open Data
         made_with_open_source: Situs web dibuat dengan <a target="_blank" href="https://github.com/decidim/decidim">perangkat lunak gratis</a>.
         sign_up: Daftar
-      header:
-        sign_in: Masuk
       impersonation_warning:
         close_session: Tutup sesi
         description_html: Anda meniru identitas pengguna <b>%{user_name}</b>.
@@ -920,7 +901,6 @@ id:
         notifications: Notifikasi
         profile: Akun saya
         public_profile: Profil publik saya
-        sign_out: Keluar
       user_profile:
         account: Rekening
         authorizations: Otorisasi
