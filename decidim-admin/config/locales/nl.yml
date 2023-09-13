@@ -569,7 +569,6 @@ nl:
           fields:
             created_at: Aanmaakdatum
             email: E-mail
-            last_sign_in_at: Datum laatste login
             name: Naam
             role: Rol
             roles:
