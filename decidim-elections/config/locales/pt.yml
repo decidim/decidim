@@ -958,7 +958,6 @@ pt:
             update: Actualizar
           form:
             select_a_voting_type: Por favor seleccione um tipo de votação
-            slug_help: 'Os identificadores URL são utilizados para gerar os URLs que direccionam para esta votação. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
             title: Título
             voting_type:
               hybrid: Híbrido
