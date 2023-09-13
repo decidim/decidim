@@ -85,9 +85,10 @@ module Decidim
 
       context "when a help text is defined" do
         let(:field) { "input" }
+        let(:help_text_text) { "This is the help text" }
         let(:output) do
           template.form_for :test, url: "/test" do |form|
-            form.geocoding_field(:address, help_text: "This is the help text")
+            form.geocoding_field(:address, help_text: help_text_text)
           end
         end
         let(:parsed) { Nokogiri::HTML(output) }

@@ -46,8 +46,9 @@ module Decidim
 
       context "when a help text is defined" do
         let(:field) { "input" }
+        let(:help_text_text) { "This is the help text" }
         let(:output) do
-          builder.collection_radio_buttons :order_start_time, [%w(asc asc), %w(desc desc)], :first, :last, legend_title: "Date", help_text: "This is the help"
+          builder.collection_radio_buttons :order_start_time, [%w(asc asc), %w(desc desc)], :first, :last, legend_title: "Date", help_text: help_text_text
         end
 
         it_behaves_like "having a help text"
@@ -68,8 +69,9 @@ module Decidim
 
       context "when a help text is defined" do
         let(:field) { "input" }
+        let(:help_text_text) { "This is the help text" }
         let(:output) do
-          builder.collection_check_boxes :scope_id, scopes, :id, :name, legend_title: "Date", help_text: "This is the help"
+          builder.collection_check_boxes :scope_id, scopes, :id, :name, legend_title: "Date", help_text: help_text_text
         end
 
         it_behaves_like "having a help text"
@@ -86,8 +88,9 @@ module Decidim
 
       context "when a help text is defined" do
         let(:field) { "<select" }
+        let(:help_text_text) { "This is the help text" }
         let(:output) do
-          builder.categories_select :category_id, categories, legend_title: "Date", disable_parents: false, label: false, include_blank: true, help_text: "This is the help"
+          builder.categories_select :category_id, categories, legend_title: "Date", disable_parents: false, label: false, include_blank: true, help_text: help_text_text
         end
 
         it_behaves_like "having a help text"
