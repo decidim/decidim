@@ -627,9 +627,6 @@ pt:
           select_scopes: Filtro para os utilizadores que ativaram qualquer âmbito selecionado nas definições "Os meus interesses" das suas contas.
           select_spaces: Selecione os espaços para segmentar o boletim informativo
           select_users: Selecione os utilizadores para os quais pretende enviar o boletim informativo
-          send_to_all_users: Enviar para todos os utilizadores
-          send_to_followers: Enviar para os seguidores
-          send_to_participants: Enviar para os participantes
           title: Selecione os destinatários
           warning: "<strong>Atenção:</strong> Este boletim informativo apenas será enviado para utilizadores que tenham ativado a opção <em>Pretendo receber boletins informativo</em> nas suas definições de notificações."
         show:
@@ -689,7 +686,6 @@ pt:
         form:
           colors:
             colors_title: Cores da organização
-          cta_button_path_help: 'Pode substituir onde o botão Chamar para Ação na página inicial liga. Aqui use caminhos parciais, não URLs completos. Aceita letras, números, traços e barras, e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível na sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Faixa de conteúdo realçado
@@ -810,7 +806,6 @@ pt:
           update: Atualizar
         form:
           none: Nenhum
-          slug_help: 'Utilize caminhos parciais e não URL completos aqui. Aceita letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         index:
           last_notable_change: Última alteração notável
         new:
