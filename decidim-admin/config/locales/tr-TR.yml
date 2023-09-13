@@ -545,9 +545,6 @@ tr:
           select_scopes: Hesaplarındaki 'İlgi Alanlarım' ayarlarında herhangi bir seçilmiş kapsam etkinleştirilmiş bulunan kullanıcılar için filtre.
           select_spaces: Haber bültenini bölmek için alanları seçin
           select_users: Haber bültenini göndermek istediğiniz kullanıcıları seçiniz
-          send_to_all_users: Tüm kullanıcılara gönder
-          send_to_followers: Takipçilere gönder
-          send_to_participants: Katılımcılara gönder
           title: Teslim etmek için alıcıları seçiniz
           warning: "<strong>Dikkat:</strong> Haber bülteni yalnızca bildirim seçeneklerinden <em>Haber bülteni almak istiyorum</em> ayarını etkinleştirmiş kullanıcılara gönderilecektir."
         show:
@@ -606,7 +603,6 @@ tr:
         form:
           colors:
             colors_title: Organizasyon renkleri
-          cta_button_path_help: 'Ana sayfadaki Harekete Geçirici Mesaj düğmesinin nereye bağlanacağı üzerine yazabilirsiniz. Tam URL’leri değil kısmi yolları kullanın. Harfleri, sayıları, kısa çizgileri ve eğik çizgileri kabul eder ve bir harfle başlamalıdır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir. Örnek: %{url}'
           cta_button_text_help: Kuruluşunuzdaki mevcut her dil için ana sayfada Harekete Geçirici Mesaj düğmesinin üzerine yazabilirsiniz. Ayarlanmazsa, varsayılan değer kullanılır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir.
           homepage_appearance_title: Ana sayfa görünümünü düzenle
           homepage_highlighted_content_banner_title: Yüksek içerikli banner
@@ -727,7 +723,6 @@ tr:
           update: Güncelleştirme
         form:
           none: Yok
-          slug_help: 'Burada tam URLleri değil, kısmi yolları kullanınız. Harfleri, sayıları, kesik çizgileri, taksimleri kabul eder ve bir harf ile başlamak zorundadır. Örnek: %{url}'
         index:
           last_notable_change: Son önemli değişiklik
         new:
