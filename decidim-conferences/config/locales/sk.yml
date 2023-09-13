@@ -279,9 +279,6 @@ sk:
         title: Rečníci
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Krátke URL odkazy sa používajú na tvorbu URL odkazov na túto konferenciu. Povolené sú iba písmená, čísla, pomlčky, a musia začínať písmenom. Príklad: %{url}'
         conference_invites:
           create:
             error: Nastal problém s pozývaním účastníka na konferenciu.
@@ -324,7 +321,6 @@ sk:
               few: Sú tu %{count} registrácie.
               many: Je tu %{count} registrácií.
               other: Je tu %{count} registrácií.
-            slug_help: 'Krátke URL odkazy sa používajú na tvorbu URL odkazov na túto konferenciu. Povolené sú iba písmená, čísla, pomlčky, a musia začínať písmenom. Príklad: %{url}'
         diplomas:
           edit:
             save: Uložiť
