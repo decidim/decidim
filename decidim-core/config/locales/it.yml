@@ -398,7 +398,6 @@ it:
           already_have_an_account?: Hai già un account?
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
-          sign_in: Accedi
           sign_up: Registrati
           subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
           tos_agreement: Iscrivendoti accetti i %{link} e dichiari di aver preso visione della privacy policy.
@@ -408,8 +407,6 @@ it:
         new:
           are_you_new?: Sei nuovo nella piattaforma?
           register: Crea un account
-        user:
-          timed_out: Sei stato inattivo per troppo tempo e sei stato automaticamente disconnesso dal servizio. Se desideri continuare a utilizzare il servizio, accedi di nuovo.
       shared:
         newsletter_modal:
           buttons:
@@ -1031,10 +1028,7 @@ it:
         title: Segnala utente inappropriato
       floating_help:
         help: Aiuto
-      follow_button:
-        sign_in_before_follow: Accedi prima di eseguire questa azione
       login_modal:
-        please_sign_in: Per cortesia, effettua l'accesso
         sign_up: Registrazione
       participatory_space_filters:
         filters:
@@ -1138,8 +1132,6 @@ it:
       last_attempt: Hai ancora un tentativo prima che il tuo account sia bloccato.
       locked: Il tuo account è bloccato.
       not_found_in_database: '%{authentication_keys} o password non validi.'
-      timeout: La tua sessione è scaduta. Per favore accedi di nuovo per continuare.
-      unauthenticated: Devi accedere o registrarti per continuare.
     invitations:
       edit:
         header: Completa la creazione del tuo account
@@ -1186,7 +1178,6 @@ it:
         action: Sblocca il mio account
         greeting: Ciao %{recipient}!
         instruction: 'Clicca sul link sottostante per sbloccare il tuo account:'
-        message: Il tuo account è stato bloccato a causa di una quantità eccessiva di tentativi di accesso non riusciti.
         subject: Sblocca le istruzioni
     omniauth_callbacks:
       failure: Impossibile autenticare da %{kind} perché "%{reason}".
@@ -1214,18 +1205,10 @@ it:
       signed_up_but_unconfirmed: Un messaggio con un link di conferma è stato inviato al tuo indirizzo email. Segui il link per attivare il tuo account.
       update_needs_confirmation: Hai aggiornato correttamente il tuo account, ma dobbiamo verificare il tuo nuovo indirizzo email. Controlla la tua email e segui il link di conferma per confermare il tuo nuovo indirizzo email.
       updated: Il tuo account è stato aggiornato correttamente.
-    sessions:
-      already_signed_out: Logout effettuato.
-      new:
-        sign_in: Accedi
-      signed_in: Login effettuato.
-      signed_out: Logout effettuato.
     shared:
       links:
         back: Indietro
         forgot_your_password: Hai dimenticato la password?
-        sign_in: Accedi
-        sign_in_with_provider: Accedi con %{provider}
         sign_up: Iscriviti
       minimum_password_length:
         one: "(Minimo%{count} caratteri)"
@@ -1235,13 +1218,11 @@ it:
         resend_unlock_instructions: Inviami nuovamente le istruzioni di sblocco
       send_instructions: Riceverai un'email con le istruzioni su come sbloccare il tuo account in pochi minuti.
       send_paranoid_instructions: Se il tuo account esiste, riceverai un'email con le istruzioni su come sbloccarlo in pochi minuti.
-      unlocked: Il tuo account è stato sbloccato correttamente. Per favore accedi per continuare.
   doorkeeper:
     scopes:
       public: Le tue informazioni pubbliche.
   errors:
     messages:
-      already_confirmed: era già confermato, per favore prova ad accedere
       confirmation_period_expired: deve essere confermato entro %{period}, si prega di richiederne uno nuovo
       content_type_allowlist_error: il tipo di file non è valido
       expired: è scaduto, si prega di richiederne uno nuovo
@@ -1283,7 +1264,6 @@ it:
         sign_up: Registrati
       header:
         main_menu: Menù principale
-        sign_in: Accedi
         user_menu: Menù utente
       impersonation_warning:
         close_session: Chiudere la sessione
@@ -1302,7 +1282,6 @@ it:
       timeout_modal:
         body: Sei stato inattivo per %{minutes} minuti. Se continui ad essere inattivo, sarai automaticamente disconnesso per la tua sicurezza.
         continue_session: Continua la sessione
-        sign_out: Esci
         title: Vorresti continuare la tua sessione?
       user_menu:
         account: 'Account utente: %{name}'
@@ -1311,7 +1290,6 @@ it:
         notifications: Notifiche
         profile: Il mio account
         public_profile: Il mio profilo
-        sign_out: Esci
         title: Link del profilo
       user_profile:
         account: Account
