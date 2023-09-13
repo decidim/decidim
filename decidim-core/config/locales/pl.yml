@@ -525,7 +525,6 @@ pl:
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
           nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
-          sign_in: Zaloguj się
           sign_up: Zarejestruj się
           sign_up_as:
             legend: Zarejestruj się jako
@@ -1544,8 +1543,6 @@ pl:
       updated: Twoje konto zostało pomyślnie zaktualizowane.
     sessions:
       already_signed_out: Wylogowano pomyślnie.
-      new:
-        sign_in: Zaloguj się
       signed_in: Zalogowano pomyślnie.
       signed_out: Wylogowano pomyślnie.
     shared:
@@ -1554,7 +1551,6 @@ pl:
         didn_t_receive_confirmation_instructions: Nie otrzymałeś(aś) instrukcji potwierdzenia?
         didn_t_receive_unlock_instructions: Nie otrzymałeś(aś) instrukcji odblokowania?
         forgot_your_password: Nie pamiętasz hasła?
-        sign_in: Zaloguj się
         sign_in_with_provider: Zaloguj się, używając %{provider}
         sign_up: Zarejestruj się
       minimum_password_length:
