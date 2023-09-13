@@ -2,7 +2,6 @@ is-IS:
   decidim:
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Skráðu þig inn með reikningnum þínum</a> eða <a href="%{sign_up_url}">skráðu þig</a> til að bæta við ummælum þínum.
         form:
           body:
             label: Athugasemd
