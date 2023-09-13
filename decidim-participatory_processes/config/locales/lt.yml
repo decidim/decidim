@@ -424,9 +424,6 @@ lt:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
         participatory_process_groups:
           form:
             metadata: Metaduomenys
@@ -435,10 +432,8 @@ lt:
         participatory_process_imports:
           form:
             document_legend: Pridėti dokumentą
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Naudokite dalines, ne pilnas, nuorodas. Galima naudoti raides, skaičius, brūkšnius ir pasviruosius brūkšnius, tačiau pradėti būtina raide. Pavyzdys: %{url}'
             cta_text_help: Jei nenustatyta, mygtukas nebus matomas.
         participatory_processes:
           form:
@@ -453,7 +448,6 @@ lt:
             select_an_area: Pasirinkti aplinką
             select_participatory_process_type: Pasirinkti proceso tipą
             select_process_group: Pasirinkti procesų grupę
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkretų procesą. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
             title: Bendroji informacija
             visbility: Matomumas
       content_blocks:
