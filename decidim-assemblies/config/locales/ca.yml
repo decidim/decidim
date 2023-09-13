@@ -289,7 +289,6 @@ ca:
             select_an_area: Selecciona una Àrea
             select_an_assembly_type: Selecciona un tipus d'assemblea
             select_parent_assembly: Selecciona una assemblea principal
-            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             social_handlers: Social
             title: Informació general
             visbility: Visibilitat
@@ -301,13 +300,9 @@ ca:
         assemblies_types:
           form:
             title: Títol
-        assembly_copies:
-          form:
-            slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_imports:
           form:
             document_legend: Afegir un document
-            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_members:
           form:
             existing_user: Participant existent
