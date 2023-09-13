@@ -393,7 +393,6 @@ sk:
           fields:
             created_at: Dátum vytvorenia
             email: E-mail
-            last_sign_in_at: Naposledy prihlásený
             name: Meno
             role: Rola
             roles:
