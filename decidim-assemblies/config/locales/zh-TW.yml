@@ -282,7 +282,6 @@ zh-TW:
             select_an_area: 選擇一個地區
             select_an_assembly_type: 選擇一個大會類型
             select_parent_assembly: 選擇父組件
-            slug_help: 'URL slug 用於生成指向該組件的 URL。 只接受字母、數字和破折號，並且必須以字母開頭。 示例：%{url}'
             social_handlers: 社群
             title: 基本資訊
             visbility: 可見度
@@ -294,13 +293,9 @@ zh-TW:
         assemblies_types:
           form:
             title: 標題
-        assembly_copies:
-          form:
-            slug_help: 'URL slug 用於生成指向該組件的 URL。 只接受字母、數字和破折號，並且必須以字母開頭。 示例：%{url}'
         assembly_imports:
           form:
             document_legend: 添加文檔
-            slug_help: 'URL slug 用於生成指向該組件的 URL。 只接受字母、數字和破折號，並且必須以字母開頭。 示例：%{url}'
         assembly_members:
           form:
             existing_user: 現有參與者
