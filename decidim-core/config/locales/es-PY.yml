@@ -593,7 +593,6 @@ es-PY:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          sign_in: Entra
           sign_up: Regístrate
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
           terms: los términos y condiciones de uso
@@ -606,8 +605,6 @@ es-PY:
           register: Créate una cuenta
           sign_in_disabled: Puedes acceder con una cuenta externa.
           sign_up_disabled: El registro está deshabilitado, puedes usar una cuenta existente para acceder.
-        user:
-          timed_out: Has estado sin actividad durante demasiado tiempo y se te ha cerrado automáticamente la sesión del servicio. Si quieres seguir utilizando el servicio, vuelve a iniciar sesión.
       shared:
         newsletter_modal:
           buttons:
@@ -628,13 +625,13 @@ es-PY:
           hide_password: Ocultar contraseña
           show_password: Mostrar contraseña
           shown_password: La contraseña es visible
+        placeholder_email: hi@example.org
     doorkeeper:
       authorizations:
         new:
           authorize: Autorice la aplicación
           by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
-          connect_your_account_html: Conecte tu cuenta iniciando sesión en <strong>%{organization}</strong>.
           publish_content: Publique contenido para usted
           see_email: Ver tu correo electrónico
           see_name: Ver tu nombre
@@ -1481,10 +1478,7 @@ es-PY:
         title: Reportar usuaria inapropiada
       floating_help:
         help: Ayuda
-      follow_button:
-        sign_in_before_follow: Inicia sesión antes de realizar esta acción
       login_modal:
-        please_sign_in: Por favor, regístrate
         sign_up: Regístrate
       mentions_modal:
         remove_recipient: Eliminar destinataria %{name}
@@ -1602,8 +1596,6 @@ es-PY:
       last_attempt: Tienes un intento más antes de que tu cuenta se bloquee.
       locked: Tu cuenta esta bloqueada.
       not_found_in_database: '%{authentication_keys} inválido o contraseña.'
-      timeout: Su sesión expiró Por favor, inicia sesión de nuevo para continuar.
-      unauthenticated: Debes iniciar sesión o registrarte antes de continuar.
     invitations:
       edit:
         header: Termina de crear tu cuenta
@@ -1665,7 +1657,6 @@ es-PY:
         action: Desbloquear mi cuenta
         greeting: Hola %{recipient}!
         instruction: 'Haga clic en el siguiente enlace para desbloquear su cuenta:'
-        message: Su cuenta ha sido bloqueada debido a una cantidad excesiva de intentos de inicio de sesión infructuosos.
         subject: Desbloquear instrucciones
     omniauth_callbacks:
       failure: No se pudo autenticar desde %{kind} porque "%{reason}".
@@ -1696,20 +1687,12 @@ es-PY:
       signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a su dirección de correo electrónico. Por favor, siga el enlace para activar su cuenta.
       update_needs_confirmation: Actualizó su cuenta con éxito, pero necesitamos verificar su nueva dirección de correo electrónico. Verifique su correo electrónico y siga el enlace confirmar para confirmar su nueva dirección de correo electrónico.
       updated: Su cuenta ha sido actualizada con éxito.
-    sessions:
-      already_signed_out: Firmado con éxito.
-      new:
-        sign_in: Iniciar sesión
-      signed_in: Firmado con éxito
-      signed_out: Firmado con éxito.
     shared:
       links:
         back: Espalda
         didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
         didn_t_receive_unlock_instructions: '¿No has recibido las instrucciones para desbloquear?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
-        sign_in: Iniciar sesión
-        sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Regístrate
       minimum_password_length:
         one: "(%{count} caracteres como mínimo)"
@@ -1719,7 +1702,6 @@ es-PY:
         resend_unlock_instructions: Reenviar instrucciones de desbloqueo
       send_instructions: Recibirá un correo electrónico con instrucciones sobre cómo desbloquear su cuenta en unos minutos.
       send_paranoid_instructions: Si su cuenta existe, recibirá un correo electrónico con instrucciones sobre cómo desbloquearla en unos minutos.
-      unlocked: Su cuenta ha sido desbloqueada con éxito. Por favor inicie sesión para continuar.
   doorkeeper:
     scopes:
       public: Tu información pública
@@ -1808,7 +1790,6 @@ es-PY:
   errors:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
-      already_confirmed: ya fue confirmado, intente iniciar sesión
       blank: no puede estar en blanco
       cannot_be_blank: no puede estar en blanco
       confirmation: no coincide con %{attribute}
@@ -1906,12 +1887,10 @@ es-PY:
         download_open_data: Descargar ficheros de datos abiertos
         made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
         resources: Recursos
-        sign_in: Entra
         sign_up: Regístrate
         terms_and_conditions: Términos y condiciones
       header:
         main_menu: Menú principal
-        sign_in: Entra
         user_menu: Menú de usuario
       impersonation_warning:
         close_session: Cerrar la sesión
@@ -1937,7 +1916,6 @@ es-PY:
       timeout_modal:
         body: Has estado sin actividad durante %{minutes} minutos. Si sigues estando inactivo, serás desconectado automáticamente por tu propia seguridad.
         continue_session: Continuar sesión
-        sign_out: Cerrar sesión
         title: '¿Quieres continuar con la sesión?'
       upload_modal:
         close_modal: Cerrar ventana
@@ -1949,7 +1927,6 @@ es-PY:
         notifications: Notificaciones
         profile: Mi cuenta
         public_profile: Mi perfil público
-        sign_out: Cerrar sesión
         title: Enlaces de perfil
       user_profile:
         account: Cuenta
