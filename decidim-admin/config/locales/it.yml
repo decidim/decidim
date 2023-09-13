@@ -523,7 +523,6 @@ it:
           fields:
             created_at: Data di creazione
             email: E-mail
-            last_sign_in_at: Data dell'ultimo accesso
             name: Nome
             role: Ruolo
             roles:
