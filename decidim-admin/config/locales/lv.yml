@@ -460,9 +460,6 @@ lv:
           select_scopes: Filtrēt lietotājus, kuri sava konta iestatījumos "Manas intereses" ir aktivizējuši jebkuru izvēlēto darbības tvērumu.
           select_spaces: Izvēlieties telpas, lai segmentētu informatīvo biļetenu
           select_users: Izvēlieties lietotājus, kuriem vēlaties nosūtīt informatīvo biļetenu
-          send_to_all_users: Nosūtīt visiem lietotājiem
-          send_to_followers: Nosūtīt sekotājiem
-          send_to_participants: Nosūtīt dalībniekiem
           title: Izvēlieties adresātus, kuriem nosūtīt
           warning: "<strong>Uzmanību:</strong> šis informatīvais biļetens tiks nosūtīts tikai tiem lietotājiem, kuri savos paziņojumu iestatījumos ir aktivizējuši <em>Vēlos saņemt informatīvos biļetenus</em>."
         show:
@@ -511,7 +508,6 @@ lv:
         form:
           colors:
             colors_title: Organizācijas krāsas
-          cta_button_path_help: 'Jūs varat mainīt to, uz kurieni ved sākumlapā atrodamā poga Call To Action. Šeit izmantojiet daļējus ceļus, nevis pilnus URL. Tajos var būt tikai burti, cipari, defises un slīpsvītras, un tiem jāsākas ar burtu. Poga Call To Action redzama sākumlapā starp sveiciena tekstu un aprakstu. Piemērs: %{url}'
           cta_button_text_help: Jūs varat pārrakstīt sākumlapā redzamās pogas Call To Action tekstu visās jūsu organizācijā pieejamajās valodās. Ja vērtība nav iestatīta, tiks izmantota noklusējuma vērtība. Poga Call To Action redzama sākumlapā starp sveiciena tekstu un aprakstu.
           homepage_appearance_title: Labot sākumlapas izskatu
           homepage_highlighted_content_banner_title: Izceltais satura reklāmkarogs
@@ -605,7 +601,6 @@ lv:
           update: Atjaunināt
         form:
           none: Nav
-          slug_help: 'Šeit izmantojiet daļējus ceļus, nevis pilnus URL. Tajos var būt tikai burti, cipari, defises un slīpsvītras, un tiem jāsākas ar burtu. Piemērs: %{url}'
         index:
           last_notable_change: Pēdējās nozīmīgās izmaiņas
         new:
