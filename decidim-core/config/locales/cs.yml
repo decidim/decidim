@@ -533,6 +533,7 @@ cs:
           newsletter_title: Povolení kontaktu
           nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
           password_help: "%{minimun_characters} je minimum znaků, nesmí být příliš běžné (např. 123456) a musí být jiné než vaše přezdívka a váš e-mail."
+          sign_in: Přihlásit
           sign_up: Zaregistrovat se
           sign_up_as:
             legend: Zaregistrovat se jako
@@ -1594,6 +1595,8 @@ cs:
       updated: Účet byl úspěšně aktualizován.
     sessions:
       already_signed_out: Bylo úspěšně odhlášeno.
+      new:
+        sign_in: Přihlásit
       signed_in: Úspěšně jste se přihlásili.
       signed_out: Odhlášení proběhlo úspěšně.
     shared:
@@ -1602,6 +1605,7 @@ cs:
         didn_t_receive_confirmation_instructions: Nedostali jste pokyny k potvrzení?
         didn_t_receive_unlock_instructions: Nezískali jste pokyny k odemknutí?
         forgot_your_password: Zapomněli jste heslo?
+        sign_in: Přihlásit
         sign_in_with_provider: Přihlásit se přes %{provider}
         sign_up: Zaregistrovat se
       minimum_password_length:
