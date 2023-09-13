@@ -669,6 +669,10 @@ de:
           filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
+        index:
+          count:
+            one: "%{count} kollaborativer Entwurf"
+            other: "%{count} kollaborativer Entwurf"
         name: Kollaborativer Entwurf
         new:
           add_file: Datei hinzufügen
@@ -798,6 +802,9 @@ de:
         index:
           click_here: Alle Vorschläge ansehen
           collaborative_drafts_list: Greifen Sie auf gemeinsame Entwürfe zu
+          count:
+            one: "%{count} Vorschlag"
+            other: "%{count} Vorschläge"
           new_proposal: Neuer Vorschlag
           see_all: Alle Vorschläge ansehen
           see_all_withdrawn: Sehen Sie sich alle zurückgezogenen Vorschläge an
