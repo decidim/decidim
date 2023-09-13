@@ -106,6 +106,7 @@ eu:
           new:
             create: Inportatu proposamenak proiektuetarako
             no_components: Proposamenak proiektuetan inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
+            origin_component_id: Jatorrizko osagaia
             select_component: Hautatu osagaia
             title: Inportatu proposamenak
       admin_log:
