@@ -637,7 +637,6 @@ pt-BR:
           fields:
             created_at: Data de criação
             email: E-mail
-            last_sign_in_at: Última data de início de sessão
             name: Nome
             role: Cargo
             roles:
