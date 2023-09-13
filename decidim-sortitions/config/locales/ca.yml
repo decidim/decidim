@@ -99,8 +99,6 @@ ca:
           all: Tots
           cancelled: Cancel·lat
           category: Categoria
-          category_prompt: Selecciona una categoria
-          search: Cerca
           state: Estat
         linked_sortitions:
           selected_proposals: Propostes seleccionades
