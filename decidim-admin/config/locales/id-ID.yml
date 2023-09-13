@@ -452,7 +452,6 @@ id:
         form:
           colors:
             colors_title: Warna organisasi
-          cta_button_path_help: 'Anda dapat menimpa tempat tombol Ajakan Bertindak di tautan beranda ke. Gunakan jalur parsial, bukan URL lengkap di sini. Menerima surat, angka, tanda pisah dan garis miring, dan harus dimulai dengan huruf. Tombol Ajakan Bertindak ditampilkan di homepage antara teks selamat datang dan deskripsi. Contoh: %{url}'
           cta_button_text_help: Anda dapat menimpa teks tombol Ajakan Bertindak di beranda untuk setiap bahasa yang tersedia di organisasi Anda. Jika tidak disetel, nilai default akan digunakan. Tombol Ajakan Bertindak ditampilkan di homepage antara teks selamat datang dan deskripsi.
           homepage_appearance_title: Edit tampilan homepage
           homepage_highlighted_content_banner_title: Spanduk konten berkecepatan tinggi
