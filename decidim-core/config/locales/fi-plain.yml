@@ -593,7 +593,6 @@ fi-pl:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           newsletter: Vastaanota silloin tällöin olennaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
-          sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           subtitle: Rekisteröidy osallistuaksesi keskusteluihin ja kannattaaksesi ehdotuksia.
           terms: käyttöehdot
@@ -606,8 +605,6 @@ fi-pl:
           register: Rekisteröidy
           sign_in_disabled: Voit käyttää ulkoista tiliä.
           sign_up_disabled: Rekisteröityminen on poistettu käytöstä, mutta voit kirjautua olemassaolevalla käyttäjätilillä.
-        user:
-          timed_out: Palvelua ei ole käytetty hetkeen, minkä takia sinut on kirjattu palvelusta ulos automaattisesti. Jos haluat jatkaa palvelun käyttöä, kirjaudu uudestaan sisään.
       shared:
         newsletter_modal:
           buttons:
@@ -629,7 +626,6 @@ fi-pl:
           authorize: Hyväksyn tietojeni käytön
           by_organization_link_html: '<small class="heading-small">palveluntarjoaja: %{link}</small>'
           cancel: Peruuta
-          connect_your_account_html: Yhdistä tilisi kirjautumalla kohteeseen <strong>%{organization}</strong>.
           publish_content: Julkaista sisältöä puolestasi
           see_email: Nähdä sähköpostiosoitteesi
           see_name: Nähdä nimesi
@@ -1475,10 +1471,7 @@ fi-pl:
         title: Ilmoita asiaton käyttäjä
       floating_help:
         help: Ohjeet
-      follow_button:
-        sign_in_before_follow: Kirjaudu sisään ennen tämän toiminnon suorittamista
       login_modal:
-        please_sign_in: Kirjaudu sisään
         sign_up: Rekisteröidy
       mentions_modal:
         remove_recipient: Poista vastaanottaja %{name}
@@ -1596,8 +1589,6 @@ fi-pl:
       last_attempt: Sinulla on vielä yksi yritys ennen kuin tunnuksesi lukitaan.
       locked: Tunnuksesi on lukittu.
       not_found_in_database: Virheellinen %{authentication_keys} tai salasana.
-      timeout: Istuntosi on vanhentunut, ole hyvä ja kirjaudu sisään jatkaaksesi.
-      unauthenticated: Sinun pitää kirjautua sisään tai rekisteröityä ennen kuin voit jatkaa.
     invitations:
       edit:
         header: Viimeistele tilisi
@@ -1660,7 +1651,6 @@ fi-pl:
         action: Avaa tilini
         greeting: Hei %{recipient}!
         instruction: 'Napsauttamalla seuraavaa linkkiä voit avata tilisi:'
-        message: Käyttäjätilisi on lukittu, koska epäonnistuneita kirjautumisyrityksiä oli liian monta.
         subject: Avaa ohjeet
     omniauth_callbacks:
       failure: Sisäänkirjautuminen epäonnistui palvelulla %{kind} koska "%{reason}".
@@ -1691,20 +1681,12 @@ fi-pl:
       signed_up_but_unconfirmed: Sähköpostiosoitteeseesi on lähetetty vahvistuslinkin sisältävä viesti. Aktivoi tilisi käyttämällä kyseistä linkkiä.
       update_needs_confirmation: Tilisi on päivitetty onnistuneesti, mutta meidän on vahvistettava uusi sähköpostiosoitteesi. Tarkista sähköpostisi ja vahvista sähköpostiosoitteesi käyttämällä sähköpostissa näkyvää linkkiä.
       updated: Tilisi on päivitetty onnistuneesti.
-    sessions:
-      already_signed_out: Kirjaudut ulos onnistuneesti.
-      new:
-        sign_in: Kirjaudu sisään
-      signed_in: Kirjauduit sisään onnistuneesti.
-      signed_out: Kirjauduit ulos onnistuneesti.
     shared:
       links:
         back: Takaisin
         didn_t_receive_confirmation_instructions: Etkö saanut vahvistusohjeita?
         didn_t_receive_unlock_instructions: Etkö saanut ohjeita tilin lukituksen poistoon?
         forgot_your_password: Unohditko salasanasi?
-        sign_in: Kirjaudu sisään
-        sign_in_with_provider: Kirjaudu sisään palvelulla %{provider}
         sign_up: Rekisteröidy
       minimum_password_length:
         one: "(vähintään %{count} merkki)"
@@ -1714,7 +1696,6 @@ fi-pl:
         resend_unlock_instructions: Lähetä uudelleen ohjeet tilin lukituksen poistoon
       send_instructions: Saat muutaman minuutin kuluessa sähköpostiviestin, jossa on ohjeet tilin lukituksen poistoon.
       send_paranoid_instructions: Jos tilisi on olemassa, saat muutaman minuutin kuluessa sähköpostiisi ohjeet tilin lukituksen poistoon.
-      unlocked: Tilisi lukitus on poistettu onnistuneesti. Kirjaudu sisään jatkaaksesi.
   doorkeeper:
     scopes:
       public: Julkiset tietosi.
@@ -1803,7 +1784,6 @@ fi-pl:
   errors:
     messages:
       allowed_file_content_types: 'ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
-      already_confirmed: on jo vahvistettu, yritä kirjautua sisään
       blank: ei voi olla tyhjä
       cannot_be_blank: ei voi olla tyhjä
       confirmation: ei täsmää kentän %{attribute} kanssa
@@ -1900,12 +1880,10 @@ fi-pl:
         download_open_data: Lataa avoimet datatiedostot
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
         resources: Resurssit
-        sign_in: Kirjaudu sisään
         sign_up: Rekisteröidy
         terms_and_conditions: Käyttöehdot
       header:
         main_menu: Päävalikko
-        sign_in: Kirjaudu sisään
         user_menu: Käyttäjän valikko
       impersonation_warning:
         close_session: Sulje istunto
@@ -1926,7 +1904,6 @@ fi-pl:
       timeout_modal:
         body: Et ole käyttänyt palvelua %{minutes} minuuttiin. Jos et jatka palvelun käyttöä, sinut kirjataan automaattisesti ulos oman turvallisuutesi takia.
         continue_session: Jatka palvelun käyttöä
-        sign_out: Kirjaudu ulos
         title: Haluatko jatkaa palvelun käyttöä?
       upload_modal:
         close_modal: Sulje ikkuna
@@ -1938,7 +1915,6 @@ fi-pl:
         notifications: Ilmoitukset
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
-        sign_out: Kirjaudu ulos
         title: Profiilin linkit
       user_profile:
         account: Käyttäjätili
