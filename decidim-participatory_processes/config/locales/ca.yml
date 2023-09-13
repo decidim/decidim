@@ -364,9 +364,6 @@ ca:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadades
@@ -375,10 +372,8 @@ ca:
         participatory_process_imports:
           form:
             document_legend: Afegeix un document
-            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Utilitza rutes parcials, no URL complerts aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Si no s''estableix cap ruta, el botó no es mostrarà. Exemple: %{url}'
             cta_text_help: Si no s'estableix cap ruta el botó no es mostrarà.
         participatory_processes:
           form:
@@ -392,7 +387,6 @@ ca:
             scope_type_max_depth_help: Restringeix la profunditat del filtre d'àmbit. Es mostrarà des del filtre general fins al filtre seleccionat.
             select_an_area: Selecciona una àrea
             select_process_group: Selecciona un grup de processos
-            slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             title: Informació general
             visbility: Visibilitat
       content_blocks:
