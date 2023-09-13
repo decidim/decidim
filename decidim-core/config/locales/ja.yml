@@ -576,7 +576,6 @@ ja:
           already_have_an_account?: 既にアカウントをお持ちですか？
           newsletter: 関連するお知らせを受け取る
           newsletter_title: ニュースレターを受け取る
-          sign_in: ログイン
           sign_up: 新規登録
           subtitle: 参加するにはユーザ登録をしてください。
           terms: 利用規約
@@ -589,8 +588,6 @@ ja:
           register: アカウントを作成
           sign_in_disabled: 外部アカウントでアクセスできます。
           sign_up_disabled: 新規登録は無効になっています。既存のアカウントを使用してアクセスすることができます。
-        user:
-          timed_out: 長時間非アクティブだったため、自動的にサービスからログアウトされました。 引き続きサービスをご利用になる場合、改めてログインしてください。
       shared:
         newsletter_modal:
           buttons:
@@ -617,7 +614,6 @@ ja:
           authorize: アプリケーションを承認する
           by_organization_link_html: <small class="heading-small">by %{link}</small>
           cancel: キャンセル
-          connect_your_account_html: <strong>%{organization}</strong> に登録し、アカウントを接続します。
           publish_content: コンテンツを公開する
           see_email: メールを見る
           see_name: 名前を確認してください
@@ -1462,10 +1458,7 @@ ja:
         title: 不適切なユーザーを報告
       floating_help:
         help: ヘルプ
-      follow_button:
-        sign_in_before_follow: このアクションを実行する前にログインしてください
       login_modal:
-        please_sign_in: ログインしてください
         sign_up: 新規登録
       mentions_modal:
         remove_recipient: 受信者 %{name} を削除
@@ -1583,8 +1576,6 @@ ja:
       last_attempt: アカウントがロックされる前にもう1回試行があります。
       locked: あなたのアカウントはロックされています。
       not_found_in_database: '%{authentication_keys} またはパスワードが無効です。'
-      timeout: セッションの有効期限が切れました。続行するには再度ログインしてください。
-      unauthenticated: 続行する前にログインまたはユーザ登録する必要があります。
     invitations:
       edit:
         header: アカウントの作成を完了する
@@ -1646,7 +1637,6 @@ ja:
         action: アカウントのロックを解除
         greeting: こんにちは、 %{recipient} さん!
         instruction: 'アカウントのロックを解除するには、下のリンクをクリックしてください:'
-        message: あなたのアカウントはログインに規定回数以上失敗したため、ロックされています。
         subject: 説明のロックを解除する
     omniauth_callbacks:
       failure: '「 %{kind} 」のため、%{reason}から認証できませんでした。'
@@ -1677,20 +1667,12 @@ ja:
       signed_up_but_unconfirmed: 確認リンクが記載されたメッセージがあなたのメールアドレスに送信されました。リンクに従ってアカウントを有効にしてください。
       update_needs_confirmation: アカウントを正常に更新しましたが、新しいメールアドレスを確認する必要があります。 メールを確認し、新しいメールアドレスを確認するためのリンクに従ってください。
       updated: アカウントが正常に更新されました。
-    sessions:
-      already_signed_out: 正常にログアウトしました。
-      new:
-        sign_in: ログイン
-      signed_in: 正常にログインしました。
-      signed_out: 正常にログアウトしました。
     shared:
       links:
         back: 戻る
         didn_t_receive_confirmation_instructions: ユーザ登録確認メールが届かない方はこちら
         didn_t_receive_unlock_instructions: ロック解除の手順を送信したい方はこちら
         forgot_your_password: パスワードをお忘れですか？
-        sign_in: ログイン
-        sign_in_with_provider: '%{provider} でログイン'
         sign_up: 新規登録
       minimum_password_length:
         other: "(%{count} 文字以上)"
@@ -1699,7 +1681,6 @@ ja:
         resend_unlock_instructions: ロック解除の手順を再送信する
       send_instructions: 数分でアカウントのロックを解除する方法が記載されたメールが届きます。
       send_paranoid_instructions: アカウントが存在する場合、数分でロックを解除する方法が記載されたメールが届きます。
-      unlocked: アカウントのロックが解除されました。続行するにはログインしてください。
   doorkeeper:
     scopes:
       public: 公開情報
@@ -1788,7 +1769,6 @@ ja:
   errors:
     messages:
       allowed_file_content_types: '次の拡張子を持つファイルのみが許可されています: %{types}'
-      already_confirmed: が確認されました。ログインしてみてください
       blank: 空白にできません
       cannot_be_blank: 空白にできません
       confirmation: '%{attribute} と一致しません'
@@ -1884,12 +1864,10 @@ ja:
         download_open_data: オープンデータファイルをダウンロード
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
         resources: リソース
-        sign_in: ログイン
         sign_up: 新規登録
         terms_and_conditions: 利用規約
       header:
         main_menu: メインメニュー
-        sign_in: ログイン
         user_menu: ユーザーメニュー
       impersonation_warning:
         close_session: セッションを閉じる
@@ -1911,7 +1889,6 @@ ja:
       timeout_modal:
         body: '%{minutes} 分間アクティブではありませんでした。このまま非アクティブ状態を続けると、自動的にログアウトされます。'
         continue_session: セッションを続ける
-        sign_out: ログアウト
         title: セッションを続行しますか？
       upload_modal:
         close_modal: モーダルを閉じる
@@ -1923,7 +1900,6 @@ ja:
         notifications: 通知
         profile: マイアカウント
         public_profile: 公開プロフィール
-        sign_out: ログアウト
         title: プロフィールリンク
       user_profile:
         account: アカウント
