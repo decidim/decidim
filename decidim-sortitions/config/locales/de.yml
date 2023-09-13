@@ -99,8 +99,6 @@ de:
           all: Alle
           cancelled: Abgebrochen
           category: Kategorie
-          category_prompt: Wählen Sie eine Kategorie
-          search: Suche
           state: Zustand
         linked_sortitions:
           selected_proposals: Ausgewählte Vorschläge
