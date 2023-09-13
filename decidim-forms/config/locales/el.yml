@@ -156,7 +156,6 @@ el:
         show:
           answer_questionnaire:
             already_have_an_account?: Έχετε ήδη λογαριασμό;
-            anonymous_user_message: <a href="%{sign_in_link}">Είσοδος με τον λογαριασμό σας</a> ή <a href="%{sign_up_link}">εγγραφή</a> για να απαντήσετε στη φόρμα.
             are_you_new?: Νέος χρήστης;
             sign_in_description: Συνδεθείτε για να πραγματοποιήσετε την έρευνα
             sign_up_description: Δημιουργήστε ένα λογαριασμό συμμετέχοντα για να κάνετε την έρευνα
