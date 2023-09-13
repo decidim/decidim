@@ -277,7 +277,6 @@ tr:
             select_an_area: Bir alan seçin
             select_an_assembly_type: Bir kurul türü seçin
             select_parent_assembly: Bağlı olduğu kurulu seçin
-            slug_help: 'URL sümüklü böcekleri, bu kurula işaret eden URL''leri oluşturmak için kullanılır. Yalnızca harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
             social_handlers: Sosyal
             title: Genel bilgi
             visbility: görünürlük
@@ -289,13 +288,9 @@ tr:
         assemblies_types:
           form:
             title: Başlık
-        assembly_copies:
-          form:
-            slug_help: 'URL sümükleri, bu derleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         assembly_imports:
           form:
             document_legend: Bir belge ekle
-            slug_help: 'URL sümüklü böcekleri, bu kurula işaret eden URL''leri oluşturmak için kullanılır. Yalnızca harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         assembly_members:
           form:
             existing_user: Mevcut katılımcı
