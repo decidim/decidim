@@ -96,8 +96,6 @@ zh-TW:
           all: 全部
           cancelled: 已取消
           category: 類別
-          category_prompt: 選擇一個類別
-          search: 搜尋
           state: 狀態
         linked_sortitions:
           selected_proposals: 選擇的提案
