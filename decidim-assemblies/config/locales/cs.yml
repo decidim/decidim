@@ -295,6 +295,7 @@ cs:
             select_an_area: Vyberte oblast
             select_an_assembly_type: Vyberte typ shromáždění
             select_parent_assembly: Vybrat nadřazené shromáždění
+            slug_help: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
             social_handlers: Sociální
             title: Obecná informace
             visbility: Viditelnost
@@ -306,9 +307,13 @@ cs:
         assemblies_types:
           form:
             title: Titul
+        assembly_copies:
+          form:
+            slug_help: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_imports:
           form:
             document_legend: Přidat dokument
+            slug_help: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_members:
           form:
             existing_user: Existující účastník
