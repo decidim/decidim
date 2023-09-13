@@ -395,7 +395,6 @@ nl:
           already_have_an_account?: Heb je al een account?
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
-          sign_in: Aanmelden
           sign_up: Registratie
           subtitle: Meld je aan om deel te nemen aan discussies en om voorstellen te steunen.
           tos_agreement: Door het aanmelden gaat u akkoord met %{link}.
@@ -1017,10 +1016,7 @@ nl:
         title: Meld een probleem
       floating_help:
         help: Help
-      follow_button:
-        sign_in_before_follow: Log alstublieft aan voordat u deze actie uitvoert
       login_modal:
-        please_sign_in: Log in alstublieft
         sign_up: Registreren
       participatory_space_filters:
         filters:
@@ -1112,8 +1108,6 @@ nl:
       last_attempt: Je hebt nog een poging voordat je account is vergrendeld.
       locked: Je account is geblokkeerd.
       not_found_in_database: Ongeldige %{authentication_keys} of wachtwoord.
-      timeout: Je sessie is verlopen. Log opnieuw in om door te gaan.
-      unauthenticated: U moet inloggen of aanmelden voordat u doorgaat.
     invitations:
       edit:
         header: Voltooi het aanmaken van je account
@@ -1160,7 +1154,6 @@ nl:
         action: Ontgrendel mijn account
         greeting: Hallo %{recipient}!
         instruction: 'Klik op de onderstaande link om uw account te ontgrendelen:'
-        message: Uw account is vergrendeld vanwege een overmatig aantal mislukte aanmeldingspogingen.
         subject: Ontgrendel instructies
     omniauth_callbacks:
       failure: Kon u niet authenticeren van %{kind} omdat "%{reason}".
@@ -1188,18 +1181,10 @@ nl:
       signed_up_but_unconfirmed: Een bericht met een bevestigingslink is verzonden naar je e-mailadres. Volg de link om je account te activeren.
       update_needs_confirmation: Je hebt je account bijgewerkt, maar we moeten je nieuwe e-mailadres verifiëren. Controleer uw e-mail en volg de bevestigingslink om uw nieuwe e-mailadres te bevestigen.
       updated: Uw account is succesvol bijgewerkt.
-    sessions:
-      already_signed_out: Succesvol ondertekend.
-      new:
-        sign_in: Aanmelden
-      signed_in: Succesvol aangemeld.
-      signed_out: Succesvol afgemeld.
     shared:
       links:
         back: Terug
         forgot_your_password: Uw wachtwoord vergeten?
-        sign_in: Aanmelden
-        sign_in_with_provider: Meld aan met %{provider}
         sign_up: Registreren
       minimum_password_length:
         one: "(Minimaal%{count} tekens)"
@@ -1209,13 +1194,11 @@ nl:
         resend_unlock_instructions: Verzend ontgrendel-instructies opnieuw
       send_instructions: U ontvangt binnen enkele minuten een e-mail met instructies voor het ontgrendelen van uw account.
       send_paranoid_instructions: Als uw account bestaat, ontvangt u een e-mail met instructies voor het ontgrendelen binnen een paar minuten.
-      unlocked: Uw account is succesvol ontgrendeld. Meld alstublieft aan om verder te gaan.
   doorkeeper:
     scopes:
       public: Jouw openbare informatie.
   errors:
     messages:
-      already_confirmed: was al bevestigd, probeer u aan te melden
       confirmation_period_expired: moet worden bevestigd binnen %{period}, vraag een nieuwe aan
       content_type_allowlist_error: het bestandstype is niet geldig
       expired: is verlopen, vraag een nieuwe aan
@@ -1268,7 +1251,6 @@ nl:
         sign_up: Registreren
       header:
         main_menu: Hoofdmenu
-        sign_in: Aanmelden
         user_menu: Gebruikersmenu
       impersonation_warning:
         close_session: Sluit sessie
@@ -1291,7 +1273,6 @@ nl:
         notifications: Meldingen
         profile: Mijn account
         public_profile: Mijn openbaar profiel
-        sign_out: Afmelden
         title: Profiellinks
       user_profile:
         account: Account
