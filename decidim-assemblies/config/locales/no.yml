@@ -271,7 +271,6 @@
             select_an_area: Velg et Område
             select_an_assembly_type: Velg en forsamlingstype
             select_parent_assembly: Velg foreldre-forsamling
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
             social_handlers: Sosial
             title: Generell Informasjon
             visbility: Synlighet
@@ -283,13 +282,9 @@
         assemblies_types:
           form:
             title: Tittel
-        assembly_copies:
-          form:
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         assembly_imports:
           form:
             document_legend: Legg til et dokument
-            slug_help: 'URL-slugs brukes til å generere URL-er som peker til denne forsamlingen. Aksepterer kun bokstaver, tall og bindestreker og må starte med en bokstav. Eksempel: %{url}'
         assembly_members:
           form:
             existing_user: Eksisterende deltaker
