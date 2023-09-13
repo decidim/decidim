@@ -34,7 +34,6 @@ nl:
           error: Er is een probleem opgetreden bij het stemmen op de opmerking.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Meld u aan met uw account</a> of <a href="%{sign_up_url}">schrijf u in</a> om uw reactie toe te voegen.
         form:
           body:
             label: Reactie
