@@ -151,7 +151,6 @@ eu:
         show:
           answer_questionnaire:
             already_have_an_account?: Baduzu kontu bat?
-            anonymous_user_message: <a href="%{sign_in_link}">Hasi saioa zure kontuarekin</a> edo <a href="%{sign_up_link}">saioa hasi</a> galdetegiari erantzuteko.
             are_you_new?: Erabiltzaile berria?
             sign_in_description: Sartu inkesta egiteko
             sign_up_description: Parte-hartzaileen kontua sortu inkesta egiteko
