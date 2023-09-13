@@ -282,12 +282,8 @@ id:
         content_blocks:
           highlighted_processes:
             max_results: Jumlah maksimum elemen untuk ditampilkan
-        participatory_process_copies:
-          form:
-            slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke proses ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Gunakan jalur parsial, bukan URL lengkap di sini. Menerima surat, angka, tanda pisah dan garis miring, dan harus dimulai dengan huruf. Jika tidak disetel, tombol tidak akan ditampilkan. Contoh: %{url}'
             cta_text_help: Jika tidak disetel, tombol tidak akan ditampilkan.
         participatory_processes:
           form:
@@ -300,7 +296,6 @@ id:
             related_processes: Proses terkait
             select_an_area: Pilih suatu Area
             select_process_group: Pilih grup proses
-            slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke proses ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
             title: Informasi Umum
             visbility: Visibilitas
       content_blocks:
