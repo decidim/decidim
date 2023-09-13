@@ -423,11 +423,9 @@ hu:
         create:
           invalid: Probléma merült fel a konferencián.
           success: A konferencia sikeresen csatlakozott.
-          unauthorized: A konferenciára való regisztráció előtt be kell jelentkeznie.
         decline_invitation:
           invalid: Hiba történt a meghívás visszautasításában.
           success: Elutasította a meghívást sikeresen.
-          unauthorized: A meghívás elutasítása előtt be kell jelentkeznie.
         destroy:
           invalid: Probléma merült fel a konferencián.
           success: A konferencia sikeres volt.
