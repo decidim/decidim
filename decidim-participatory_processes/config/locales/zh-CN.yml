@@ -309,16 +309,11 @@ zh-CN:
         content_blocks:
           highlighted_processes:
             max_results: 显示元素的最大数量
-        participatory_process_copies:
-          form:
-            slug_help: 'URL slugs 用于生成指向此进程的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
         participatory_process_imports:
           form:
             document_legend: 添加文档
-            slug_help: 'URL slugs 用于生成指向此进程的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: '在这里使用部分路径，不是完整的 URL。接受字母、数字、破折号和斜线，并且必须以字母开头。 如果未设置，按钮将不会显示。例如： %{url}'
             cta_text_help: 如果未设置，按钮将不会显示。
         participatory_processes:
           form:
@@ -332,7 +327,6 @@ zh-CN:
             scope_type_max_depth_help: 限制范围过滤器深度; 过滤器将从一般到所选范围类型显示。
             select_an_area: 选择区域
             select_process_group: 选择一个流程组
-            slug_help: 'URL slugs 用于生成指向此进程的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
             title: 一般信息
             visbility: 可见性
       content_blocks:
