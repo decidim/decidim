@@ -178,15 +178,11 @@ is-IS:
             select_a_created_by: Veldu búið til af
             select_an_area: Veldu svæði
             select_an_assembly_type: Veldu gerð samsetningar
-            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessa samkomu. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
             social_handlers: Félagsleg
             title: Almennar upplýsingar
         assemblies_types:
           form:
             title: Titill
-        assembly_copies:
-          form:
-            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessa samkomu. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
         assembly_members:
           form:
             select_a_position: Veldu stöðu
