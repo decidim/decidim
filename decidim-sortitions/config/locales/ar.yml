@@ -102,8 +102,6 @@ ar:
           all: الكل
           cancelled: ألغيت
           category: الفئة
-          category_prompt: اختر تصنيف
-          search: بحث
           state: الحالة
         linked_sortitions:
           selected_proposals: مقترحات مختارة
