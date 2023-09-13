@@ -551,7 +551,6 @@ ar:
         ready: جاهز
       show:
         download_data: قم بتنزيل البيانات
-        download_data_description: سيتم إرسال ملف يحتوي على جميع المعلومات المرتبطة بحسابك إلى <strong>%{user_email}</strong>. سوف يحتوي هذا البريد الإلكتروني على ملف .zip وكلمة مرور لفتحه.<br/><br/>لفك الملف ، ستحتاج إلى <a href="https://www.7-zip.org/">7-Zip</a> (للويندوز) أو <a href="https://www.keka.io/">Keka</a> (لماكوس). إذا كنت تستخدم لينوكس، في معظم الأحيان سيتم تثبيته بشكل افتراضي. إذا لم يكن الأمر كذلك، يمكنك استخدام <a href="https://gitlab.gnome.org/GNOME/file-roller">ملف Roller</a> أو <a href="https://peazip.github.io">PeaZip</a>).
         request_data: طلب البيانات
     editor_images:
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
