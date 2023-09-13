@@ -25,7 +25,6 @@ tr:
           error: Yorum oylanırken bir sorun oluştu.
     components:
       add_comment_form:
-        account_message: Yorumunuzu eklemek için <a href="%{sign_in_url}"> hesabınızla oturum açın </a> veya <a href="%{sign_up_url}"> kaydolun </a>.
         form:
           body:
             label: Yorum
