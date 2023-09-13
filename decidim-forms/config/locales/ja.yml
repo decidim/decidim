@@ -156,7 +156,6 @@ ja:
         show:
           answer_questionnaire:
             already_have_an_account?: 既にアカウントをお持ちですか？
-            anonymous_user_message: <a href="%{sign_in_link}">あなたのアカウントでログインする</a> か、 <a href="%{sign_up_link}">ユーザー登録</a> してフォームに回答してください。
             are_you_new?: 新しいユーザーですか？
             sign_in_description: ログインしてアンケートに答える
             sign_up_description: アンケートに答えるために参加者アカウントを作成します
