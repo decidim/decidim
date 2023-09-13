@@ -463,9 +463,6 @@ sr:
           select_scopes: Filter za korisnike koji su aktivirali makar jedan od odabranih opsega u podešavanjima "Moji interesi" svog naloga.
           select_spaces: Izaberite prostore da podelite bilten
           select_users: Izaberite kojim korisnicima želite da pošaljete bilten
-          send_to_all_users: Pošalji svim korisnicima
-          send_to_followers: Pošalji pratiocima
-          send_to_participants: Pošalji učesnicima
           title: Izaberi primaoce za dostavu
           warning: "<strong>Pažnja:</strong> Ovaj bilten će biti poslan samo korisnicima koji su aktivirali <em>Želim da dobijam biltene</em> u svojim podešavanjima obaveštenja."
         show:
