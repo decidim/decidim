@@ -526,7 +526,6 @@ hu:
           already_have_an_account?: Már van egy fiókod?
           newsletter: Hírlevél fogadása a legfontosabb információkkal
           newsletter_title: Kapcsolatfelvételi engedély
-          sign_in: Belépés
           sign_up: Regisztráció
           subtitle: Jelentkezz be, hogy javaslatokat tudj megvitatni és támogatni.
           terms: szolgáltatási feltételek
@@ -539,8 +538,6 @@ hu:
           register: Hozz létre egy fiókot
           sign_in_disabled: Külső fiókkal férhet hozzá.
           sign_up_disabled: A regisztráció le van tiltva, a hozzáféréshez használhat meglévő fiókot.
-        user:
-          timed_out: Túl sokáig volt inaktív, ezért automatikusan kijelentkezett a szolgáltatásból. Ha továbbra is használni szeretné a szolgáltatást, jelentkezzen be újra.
       shared:
         newsletter_modal:
           buttons:
@@ -1297,10 +1294,7 @@ hu:
         title: Nem megfelelően viselkedő felhasználó jelentése
       floating_help:
         help: Segítség
-      follow_button:
-        sign_in_before_follow: Kérlek, jelentkezz be ehhez a műveletethez
       login_modal:
-        please_sign_in: Jelentkezz be
         sign_up: Regisztrálj
       mentions_modal:
         remove_recipient: '%{name} címzett eltávolítása'
@@ -1410,8 +1404,6 @@ hu:
       last_attempt: Még egy kísérlet van még a fiók zárolása előtt.
       locked: A fiókja zárolva van.
       not_found_in_database: Érvénytelen %{authentication_keys} vagy jelszó.
-      timeout: A munkamenet lejárt. Kérjük, jelentkezzen be újra a folytatáshoz.
-      unauthenticated: Jelentkezzen be, vagy regisztráljon, mielőtt folytatja.
     invitations:
       edit:
         header: Profil létrehozásának befejezése
@@ -1459,7 +1451,6 @@ hu:
         action: Fiókom feloldása
         greeting: Hello %{recipient}!
         instruction: 'A fiók feloldásához kattintson az alábbi linkre:'
-        message: Fiókját lezárták, mert túl sok sikertelen bejelentkezési kísérlet történt.
         subject: Feloldási utasítások
     omniauth_callbacks:
       failure: Nem sikerült hitelesíteni Önt a %{kind} mert "%{reason}".
@@ -1489,18 +1480,10 @@ hu:
       signed_up_but_unconfirmed: A megerősítő linkre küldött üzenetet elküldtük e-mail címére. Kérjük, kövesse a linket a fiók aktiválásához.
       update_needs_confirmation: Fiókját sikeresen frissítette, de ellenőrizni kell az új e-mail címét. Kérjük, ellenőrizze az e-mail címét, és kövesse a megerősítő hivatkozást az új e-mail cím megerősítéséhez.
       updated: Fiókja sikeresen frissült.
-    sessions:
-      already_signed_out: Kijelentkezett sikeresen.
-      new:
-        sign_in: Belépés
-      signed_in: Bejelentkezett sikeresen.
-      signed_out: Kijelentkezett sikeresen.
     shared:
       links:
         back: Hát
         forgot_your_password: Elfelejtette a jelszavát?
-        sign_in: Belépés
-        sign_in_with_provider: Jelentkezzen be %{provider}
         sign_up: Regisztrálj
       minimum_password_length:
         one: "(Legalább%{count} karakter)"
@@ -1510,13 +1493,11 @@ hu:
         resend_unlock_instructions: Feloldási utasítások újraküldése
       send_instructions: Perceken belül kap egy e-mailt a fiók feloldásához szükséges útmutatásokkal.
       send_paranoid_instructions: Ha fiókod létezik, néhány perc múlva kapsz egy e-mailt, amely leírja, hogyan kell feloldani.
-      unlocked: A fiókot sikeresen feloldottuk. Kérjük, jelentkezzen be a folytatáshoz.
   doorkeeper:
     scopes:
       public: Nyilvános információk.
   errors:
     messages:
-      already_confirmed: már megerősítették, kérjük, próbáljon meg bejelentkezni
       confirmation_period_expired: meg kell erősíteni %{period}, kérem, kérjen újat
       content_type_allowlist_error: érvénytelen fájltípus
       expired: lejárt, kérjen újat
@@ -1605,7 +1586,6 @@ hu:
         sign_up: Regisztráció
       header:
         main_menu: Főmenü
-        sign_in: Bejelentkezés
         user_menu: Felhasználói menü
       impersonation_warning:
         close_session: Munkamenet bezárása
@@ -1626,7 +1606,6 @@ hu:
       timeout_modal:
         body: Ön %{minutes} percig inaktív volt. Ha továbbra is inaktív marad, a saját biztonsága érdekében automatikusan kijelentkeztetjük.
         continue_session: Munkamenet folytatása
-        sign_out: Kijelentkezés
         title: Folytatod a munkameneted?
       upload_modal:
         close_modal: Ablak bezárás
@@ -1637,7 +1616,6 @@ hu:
         notifications: Értesítések
         profile: Fiókom
         public_profile: Nyilvános profilom
-        sign_out: Kijelentkezés
         title: Profil linkek
       user_profile:
         account: Fiók
