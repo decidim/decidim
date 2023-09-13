@@ -433,11 +433,9 @@ cs:
         create:
           invalid: Do této konference došlo k problému.
           success: Do konference jste se úspěšně připojili.
-          unauthorized: Před registrací na konferenci se musíte přihlásit.
         decline_invitation:
           invalid: Došlo k potížím s odmítnutím pozvánky.
           success: Odmítli jste pozvánku úspěšně.
-          unauthorized: Před odmítnutím pozvání se musíte přihlásit.
         destroy:
           invalid: Při této konferenci došlo k problému.
           success: Konference jste úspěšně opustili.
