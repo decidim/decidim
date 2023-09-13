@@ -463,9 +463,6 @@ sk:
           select_scopes: Filtrovať užívateľov, ktorí aktivovali aspoň jednu označenú oblasť vo svojich nastaveniach "Moje záujmy".
           select_spaces: Vyberte skupiny pre rozdelenie spravodaja
           select_users: Vyberte, ktorým účastníkom chcete rozoslať spravodaj
-          send_to_all_users: Poslať všetkým účastníkom
-          send_to_followers: Poslať sledujúcim
-          send_to_participants: Poslať účastníkom
           title: Vyberte príjemcov
           warning: "<strong>Pozor:</strong> Tento spravodaj bude odoslaný len účastníkom, ktorí aktivovali možnosť <em>Chcem dostávať spravodaje</em> vo svojich nastaveniach."
         show:
@@ -518,7 +515,6 @@ sk:
         form:
           colors:
             colors_title: Farby organizácie
-          cta_button_path_help: 'Môžete prepísať, kam tlačidlo Výzva do Akcie na úvodnej stránke odkazuje. Používajte relatívne adresy, nie celé URL. Akceptuje písmená, čísla, pomlčky a lomky, ale musí začínať písmenom. Tlačidlo Výzva do Akcie sa zobrazuje na úvodnej strane medzi úvodným textom a popisom. Príklad: %{url}'
           cta_button_text_help: Môžete prepísať tlačidlo Výzva do Akcie pre každý dostupný jazyk Vašej organizácie. Ak to nespravíte, bude použitý primárny jazyk. Tlačidlo Výzva do Akcie sa zobrazuje na úvodnej strane medzi úvodným textom a popisom.
           homepage_appearance_title: Upraviť vzhľad úvodnej obrazovky
           homepage_highlighted_content_banner_title: Banner so zdôrazneným obsahom
@@ -611,7 +607,6 @@ sk:
           update: Aktualizovať
         form:
           none: Žiadne
-          slug_help: 'Použite tu čiastočné cesty, nie úplné adresy URL. Prijme písmená, čísla, pomlčky a lomítka a musí začínať písmenom. Príklad: %{url}'
         index:
           last_notable_change: Posledná výrazná úprava
         new:
