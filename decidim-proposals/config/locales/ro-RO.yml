@@ -589,6 +589,11 @@ ro:
           filter: Filtrează
           filter_by: Filtrează după
           unfold: Extinde
+        index:
+          count:
+            one: "%{count} ciornă colaborativă"
+            few: "%{count} ciorne colaborative"
+            other: "%{count} ciorne colaborative"
         new:
           send: Continuă
         new_collaborative_draft_button:
@@ -702,6 +707,10 @@ ro:
         index:
           click_here: Afișează toate propunerile
           collaborative_drafts_list: Accesează ciorne colaborative
+          count:
+            one: "%{count} propunere"
+            few: "%{count} propuneri"
+            other: "%{count} propuneri"
           new_proposal: Propunere nouă
           see_all: Afișează toate propunerile
           see_all_withdrawn: Afișează toate propunerile retrase
