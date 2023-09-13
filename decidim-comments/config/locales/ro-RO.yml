@@ -39,7 +39,6 @@ ro:
           error: A apărut o problemă la votarea comentariului.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Autentifică-te cu contul tău</a> sau <a href="%{sign_up_url}">înregistrează-te</a> pentru a adăuga comentariul tău.
         form:
           body:
             label: Comentariu
