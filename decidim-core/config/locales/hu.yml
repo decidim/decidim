@@ -565,7 +565,6 @@ hu:
         ready: Kész
       show:
         download_data: Töltsd le az adatokat
-        download_data_description: Minden, a fiókodhoz kapcsolód információt összesítő fájl elküldésre kerül a <strong>%{user_email}</strong> címre. Ez az email egy zip fájlt fog tartalmazni és egy jelszót a megnyitásához <br/><br/> A fájl kibontásához szükséged lesz egy programra pl <a href="https://www.7-zip.org/">7-Zip</a> Windowson vagy <a href="https://www.keka.io/">Keka</a> Macen. Ha Linuxot használsz, akkor biztos telepítve van egy megfelelő program. Ha nincs, akkor használni tudod a következőt <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> vagy ezt <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Adatkérés
     editor_images:
       create:
