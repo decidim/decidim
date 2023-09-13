@@ -311,9 +311,6 @@ it:
         title: Relatori
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa conferenza. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
         conference_invites:
           create:
             error: Si è verificato un problema durante l'invito dell'utente a partecipare alla conferenza.
@@ -354,7 +351,6 @@ it:
             registrations_count:
               one: C'è stata 1 registrazione.
               other: Ci sono state %{count} iscrizioni.
-            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa conferenza. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
         diplomas:
           edit:
             save: Salva
