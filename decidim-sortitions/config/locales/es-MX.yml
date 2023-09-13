@@ -99,8 +99,6 @@ es-MX:
           all: Todas
           cancelled: Cancelado
           category: Categoría
-          category_prompt: Selecciona una categoría
-          search: Buscar
           state: Estado
         linked_sortitions:
           selected_proposals: Propuestas seleccionadas
