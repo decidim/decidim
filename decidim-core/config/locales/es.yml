@@ -625,6 +625,7 @@ es:
           hide_password: Ocultar contraseña
           show_password: Mostrar contraseña
           shown_password: La contraseña es visible
+        placeholder_email: hi@example.org
     doorkeeper:
       authorizations:
         new:
