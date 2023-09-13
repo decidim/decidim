@@ -590,7 +590,6 @@ es:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          sign_in: Entra
           sign_up: Regístrate
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
           terms: los términos y condiciones de uso
@@ -603,8 +602,6 @@ es:
           register: Créate una cuenta
           sign_in_disabled: Puedes acceder con una cuenta externa.
           sign_up_disabled: El registro está deshabilitado, puedes usar una cuenta existente para acceder.
-        user:
-          timed_out: Has estado sin actividad durante demasiado tiempo y se te ha cerrado automáticamente la sesión del servicio. Si quieres seguir utilizando el servicio, vuelve a iniciar sesión.
       shared:
         newsletter_modal:
           buttons:
@@ -632,7 +629,6 @@ es:
           authorize: Autoriza la aplicación
           by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
-          connect_your_account_html: Conecte tu cuenta iniciando sesión en <strong>%{organization}</strong>.
           publish_content: Publique contenido para tí
           see_email: Consulta tu correo electrónico
           see_name: Consulta tu nombre
@@ -1479,10 +1475,7 @@ es:
         title: Reportar usuaria inapropiada
       floating_help:
         help: Ayuda
-      follow_button:
-        sign_in_before_follow: Inicia sesión antes de realizar esta acción
       login_modal:
-        please_sign_in: Por favor, inicia sesión
         sign_up: Regístrate
       mentions_modal:
         remove_recipient: Eliminar destinataria %{name}
@@ -1600,8 +1593,6 @@ es:
       last_attempt: Tienes un intento más antes de que tu cuenta se bloquee.
       locked: Tu cuenta está bloqueada.
       not_found_in_database: '%{authentication_keys} o contraseña no son válidos.'
-      timeout: Tu sesión expiró Por favor, inicia sesión de nuevo para continuar.
-      unauthenticated: Debes iniciar sesión o registrarte antes de continuar.
     invitations:
       edit:
         header: Termina de crear tu cuenta
@@ -1663,7 +1654,6 @@ es:
         action: Desbloquear mi cuenta
         greeting: '¡Hola %{recipient}!'
         instruction: 'Haz clic en el siguiente enlace para desbloquear tu cuenta:'
-        message: Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos de inicio de sesión fallidos.
         subject: Desbloquear instrucciones
     omniauth_callbacks:
       failure: No puedes autenticarte desde %{kind} porque "%{reason}".
@@ -1694,20 +1684,12 @@ es:
       signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a tu dirección de correo electrónico. Por favor, sigue el enlace para activar tu cuenta.
       update_needs_confirmation: Has actualizado tu cuenta con éxito, pero necesitamos verificar tu nueva dirección. Verifica tu bandeja de entrada y sigue el enlace para confirmar tu nueva dirección de correo electrónico.
       updated: Tu cuenta se ha actualizado correctamente.
-    sessions:
-      already_signed_out: Sesión finalizada correctamente.
-      new:
-        sign_in: Iniciar sesión
-      signed_in: Sesión iniciada con éxito.
-      signed_out: Sesión finalizada con éxito.
     shared:
       links:
         back: Volver
         didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
         didn_t_receive_unlock_instructions: '¿No has recibido las instrucciones para desbloquear?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
-        sign_in: Iniciar sesión
-        sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Regístrate
       minimum_password_length:
         one: "(%{count} caracteres como mínimo)"
@@ -1717,7 +1699,6 @@ es:
         resend_unlock_instructions: Reenviar las instrucciones de desbloqueo
       send_instructions: Recibirás un correo electrónico con instrucciones para desbloquear tu cuenta en unos minutos.
       send_paranoid_instructions: Si tu cuenta existe, recibirás un correo electrónico con instrucciones para desbloquearla en unos minutos.
-      unlocked: Se ha desbloqueado tu cuenta correctamente. Por favor, inicia sesión para continuar.
   doorkeeper:
     scopes:
       public: Tu información pública
@@ -1806,7 +1787,6 @@ es:
   errors:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
-      already_confirmed: ya fue confirmado, por favor intenta iniciar sesión
       blank: no puede estar en blanco
       cannot_be_blank: no puede estar en blanco
       confirmation: no coincide con %{attribute}
@@ -1904,12 +1884,10 @@ es:
         download_open_data: Descargar ficheros de datos abiertos
         made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
         resources: Recursos
-        sign_in: Entra
         sign_up: Regístrate
         terms_and_conditions: Términos y condiciones
       header:
         main_menu: Menú principal
-        sign_in: Entra
         user_menu: Menú de usuario
       impersonation_warning:
         close_session: Cerrar sesión
@@ -1935,7 +1913,6 @@ es:
       timeout_modal:
         body: Has estado sin actividad durante %{minutes} minutos. Si sigues estando inactivo, serás desconectado automáticamente por tu propia seguridad.
         continue_session: Continuar sesión
-        sign_out: Cerrar sesión
         title: '¿Quieres continuar con la sesión?'
       upload_modal:
         close_modal: Cerrar ventana
@@ -1947,7 +1924,6 @@ es:
         notifications: Notificaciones
         profile: Mi cuenta
         public_profile: Mi perfil público
-        sign_out: Cerrar sesión
         title: Enlaces de perfil
       user_profile:
         account: Cuenta
