@@ -640,7 +640,6 @@ hu:
           fields:
             created_at: Létrehozás dátuma
             email: Email
-            last_sign_in_at: Utolsó bejelentkezés dátuma
             name: Név
             role: Szerepkör
             roles:
