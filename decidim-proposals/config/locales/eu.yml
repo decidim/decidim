@@ -622,6 +622,10 @@ eu:
           filter: Iragazi
           filter_by: 'Honen arabera iragazi:'
           unfold: Zabaldu
+        index:
+          count:
+            one: "%{count} lankidetza zirriborroa"
+            other: "%{count} zirriborro kolaboratiboa"
         new:
           add_file: Gehitu fitxategiak
           edit_file: Fitxategia editatu
@@ -741,6 +745,9 @@ eu:
         index:
           click_here: Ikusi proposamen guztiak
           collaborative_drafts_list: Sar zaitez elkarlanerako zirriborroak
+          count:
+            one: "%{count} proposamen"
+            other: "%{count} proposamen"
           new_proposal: Proposamen berria
           see_all: Ikusi proposamen guztiak
           see_all_withdrawn: Ikusi erretiratutako proposamen guztiak
