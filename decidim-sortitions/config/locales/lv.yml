@@ -93,8 +93,6 @@ lv:
           all: Visi
           cancelled: Atcelts
           category: Kategorija
-          category_prompt: Izvēlieties kategoriju
-          search: Meklēt
           state: Statuss
         linked_sortitions:
           selected_proposals: Atlasītie priekšlikumi
