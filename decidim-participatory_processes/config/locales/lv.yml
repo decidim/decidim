@@ -320,16 +320,11 @@ lv:
         content_blocks:
           highlighted_processes:
             max_results: Maksimālais parādāmo elementu daudzums
-        participatory_process_copies:
-          form:
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo procesu. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
         participatory_process_imports:
           form:
             document_legend: Pievienot dokumentu
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo procesu. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Šeit izmantojiet daļējus ceļus, nevis pilnus URL. Tajos var būt tikai burti, cipari, defises un slīpsvītras, un tiem jāsākas ar burtu. Ja tas nav iestatīts, poga netiks rādīta. Piemērs:%{url}'
             cta_text_help: Ja tas nav iestatīts, poga netiks rādīta.
         participatory_processes:
           form:
@@ -343,7 +338,6 @@ lv:
             scope_type_max_depth_help: Ierobežojiet tvēruma filtra dziļumu; filtrētais rezultāts rādīs no vispārējā uz izvēlēto tvēruma veidu.
             select_an_area: Izvēlieties jomu
             select_process_group: Atlasiet procesa grupu
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo procesu. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
             title: Vispārēja informācija
             visbility: Redzamība
       content_blocks:
