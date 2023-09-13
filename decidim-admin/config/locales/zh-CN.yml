@@ -417,7 +417,6 @@ zh-CN:
           fields:
             created_at: 创建日期
             email: 电子邮件地址
-            last_sign_in_at: 最后登录日期
             name: 名称
             role: 作用
             roles:
