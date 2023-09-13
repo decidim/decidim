@@ -141,7 +141,6 @@ is:
         new:
           already_have_an_account?: Ertu þegar með reikning?
           newsletter: Fáðu einstaka fréttabréf með viðeigandi upplýsingum
-          sign_in: Skrá inn
           sign_up: Skráðu þig
           sign_up_as:
             legend: Skráðu þig sem
