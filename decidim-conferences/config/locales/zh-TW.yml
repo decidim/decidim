@@ -420,11 +420,9 @@ zh-TW:
         create:
           invalid: 加入此會議時發生問題。
           success: 您已成功加入此會議。
-          unauthorized: 在註冊會議前，您需要先登錄。
         decline_invitation:
           invalid: 拒絕邀請出現問題。
           success: 您已成功拒絕邀請。
-          unauthorized: 在拒絕邀請前，您需要先登錄。
         destroy:
           invalid: 離開此會議時發生問題。
           success: 您已成功離開此會議。
