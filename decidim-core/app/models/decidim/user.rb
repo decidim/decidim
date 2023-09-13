@@ -202,7 +202,7 @@ module Decidim
     end
 
     def admin_terms_accepted?
-      return true if admin_terms_accepted_at
+      admin_terms_accepted_at.present?
     end
 
     # Whether this user can be verified against some authorization or not.
@@ -251,6 +251,14 @@ module Decidim
 
     ransacker :last_sign_in_at do
       Arel.sql(%{("decidim_users"."last_sign_in_at")::text})
+    end
+
+    def moderator?
+      Decidim.participatory_space_manifests.map do |manifest|
+        participatory_space_type = manifest.model_class_name.constantize
+        return true if participatory_space_type.moderators(organization).exists?(id:)
+      end
+      false
     end
 
     protected

@@ -45,7 +45,7 @@
     </label>
   </div>
 
-  <% if @notifications_settings.user_is_moderator?(current_user) %>
+  <% if current_user.moderator? %>
     <p><strong><%= t(".administrators") %></strong></p>
     <div class="switch tiny switch-with-label email_on_moderations">
       <label>
