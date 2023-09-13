@@ -516,7 +516,6 @@ ar:
           newsletter_title: الاتصال إذن
           nickname_help: الاسم المستعار الخاص بك في %{organization}. يمكن أن يحتوي فقط على أحرف وأرقام '-' و '_'.
           password_help: "%{minimun_characters} أحرف كحد أدنى، يجب أن لا تكون شائعة جدا (مثل 123456) ويجب أن تكون مختلفة عن اسمك المستعار وعن بريدك الإلكتروني."
-          sign_in: تسجيل الدخول
           sign_up: انشئ حسابًا
           sign_up_as:
             legend: الاشتراك باسم
@@ -1564,8 +1563,6 @@ ar:
       updated: تم تحديث حسابك بنجاح.
     sessions:
       already_signed_out: تم الخروج بنجاح
-      new:
-        sign_in: تسجيل الدخول
       signed_in: تم تسجيل الدخول بنجاح
       signed_out: تم الخروج بنجاح
     shared:
@@ -1574,7 +1571,6 @@ ar:
         didn_t_receive_confirmation_instructions: لم تتلق تعليمات التأكيد؟
         didn_t_receive_unlock_instructions: لم تتلق تعليمات فتح؟
         forgot_your_password: نسيت رقمك السري؟
-        sign_in: تسجيل الدخول
         sign_in_with_provider: تسجيل الدخول مع %{provider}
         sign_up: انشئ حسابًا
       minimum_password_length:
