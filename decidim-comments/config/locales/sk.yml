@@ -25,7 +25,6 @@ sk:
           error: Pri hlasovaní za komentár sa vyskytol problém.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Prihláste sa so svojím účtom</a> alebo <a href="%{sign_up_url}"> sa zaregistrujte</a>, aby ste pridali svoj komentár.
         form:
           body:
             label: Komentár
