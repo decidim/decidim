@@ -1071,7 +1071,6 @@ lt:
             select_a_voting_type: Pasirinkite balsavimo tipą
             show_check_census_help: Ar rodyti "Ar galiu balsuoti?" nuorodą viešų balsavimų meniu
             slug: Nuorodos dalis
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkretų balsavimą. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
             title: Pavadinimas
             voting_type:
               hybrid: Hibridinis
