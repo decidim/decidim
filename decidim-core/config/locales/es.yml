@@ -588,6 +588,7 @@ es:
       registrations:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
+          log_in: Entra
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
           sign_up: Regístrate
@@ -602,6 +603,8 @@ es:
           register: Créate una cuenta
           sign_in_disabled: Puedes acceder con una cuenta externa.
           sign_up_disabled: El registro está deshabilitado, puedes usar una cuenta existente para acceder.
+        user:
+          timed_out: Has estado sin actividad durante demasiado tiempo y tu sesión se ha cerrado automáticamente. Si quieres seguir participando, inicia sesión de nuevo.
       shared:
         newsletter_modal:
           buttons:
@@ -629,6 +632,7 @@ es:
           authorize: Autoriza la aplicación
           by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
+          connect_your_account_html: Conecta tu cuenta iniciando sesión en %{organization}>.
           publish_content: Publique contenido para tí
           see_email: Consulta tu correo electrónico
           see_name: Consulta tu nombre
@@ -1475,7 +1479,10 @@ es:
         title: Reportar usuaria inapropiada
       floating_help:
         help: Ayuda
+      follow_button:
+        log_in_before_follow: Pro favor, inicia sesión antes de realizar esta acción
       login_modal:
+        please_log_in: Por favor, inicia la sesión
         sign_up: Regístrate
       mentions_modal:
         remove_recipient: Eliminar destinataria %{name}
