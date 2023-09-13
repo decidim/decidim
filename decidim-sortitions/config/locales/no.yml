@@ -93,8 +93,6 @@
           all: Alle
           cancelled: Avbrutt
           category: Kategori
-          category_prompt: Velg en kategori
-          search: Søk
           state: Status
         linked_sortitions:
           selected_proposals: Utvalgte forslag
