@@ -568,7 +568,6 @@ pl:
           fields:
             created_at: Data utworzenia
             email: E-mail
-            last_sign_in_at: Ostatnie logowanie
             name: Imię
             role: Rola
             roles:
