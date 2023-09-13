@@ -129,7 +129,6 @@ is-IS:
         new:
           already_have_an_account?: Ertu þegar með reikning?
           newsletter: Fáðu einstaka fréttabréf með viðeigandi upplýsingum
-          sign_in: Skrá inn
           sign_up: Skráðu þig
           subtitle: Skráðu þig til að taka þátt í umræðum og stuðningsatriðum.
           tos_agreement: Með því að skrá þig samþykkir þú %{link}.
@@ -281,10 +280,7 @@ is-IS:
         report: Skýrsla
         spam: Inniheldur clickbait, auglýsingar, óþekktarangi eða handritabots.
         title: Tilkynna um vandamál
-      follow_button:
-        sign_in_before_follow: Vinsamlegast skráðu þig inn áður en aðgerðin er framkvæmd
       login_modal:
-        please_sign_in: Vinsamlegast skráðu þig inn
         sign_up: Skráðu þig
       reference:
         reference: 'Tilvísun: %{reference}'
@@ -327,8 +323,6 @@ is-IS:
       footer:
         made_with_open_source: Website gert með <a target="_blank" href="https://github.com/decidim/decidim">ókeypis hugbúnaði</a>.
         sign_up: Skráðu þig
-      header:
-        sign_in: Skráðu þig inn
       impersonation_warning:
         close_session: Loka fundi
         expire_time_html: Session þín rennur út í <b><span class="minutes">%{minutes}</span> mínútur</b>.
@@ -340,7 +334,6 @@ is-IS:
         notifications: Tilkynningar
         profile: Minn reikningur
         public_profile: Opinbera prófílinn minn
-        sign_out: Útskrá
       user_profile:
         account: Reikningur
         authorizations: Heimildir
