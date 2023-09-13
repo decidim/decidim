@@ -284,9 +284,6 @@ lv:
         title: Runātāji
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo konferenci. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
         conference_invites:
           create:
             error: Uzaicinot dalībnieku pievienoties konferencei, radās problēma.
@@ -329,7 +326,6 @@ lv:
               zero: Ir notikušas %{count} reģistrācijas.
               one: Ir notikusi viena reģistrācija.
               other: Ir notikušas %{count} reģistrācijas.
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo konferenci. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
         diplomas:
           edit:
             save: Saglabāt
