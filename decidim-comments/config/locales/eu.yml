@@ -37,7 +37,6 @@ eu:
           error: Arazo bat dago iruzkina bozkatzeko.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Hasi saioa zure kontuarekin</a> o <a href="%{sign_up_url}">erregistratu</a> zure iruzkina txertatzeko.
         form:
           body:
             label: Iruzkina
