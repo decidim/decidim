@@ -295,7 +295,6 @@ lt:
             select_an_area: Pasirinkti aplinką
             select_an_assembly_type: Pasirinkti asamblėjos tipą
             select_parent_assembly: Pasirinkti pagrindinę asamblėją
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
             social_handlers: Socialiniai
             title: Bendroji informacija
             visbility: Matomumas
@@ -307,13 +306,9 @@ lt:
         assemblies_types:
           form:
             title: Pavadinimas
-        assembly_copies:
-          form:
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
         assembly_imports:
           form:
             document_legend: Pridėti dokumentą
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
         assembly_members:
           form:
             existing_user: Egzistuojantis dalyvis
