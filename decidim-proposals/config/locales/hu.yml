@@ -582,6 +582,10 @@ hu:
           filter: Szűrés
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
+        index:
+          count:
+            one: "%{count} közös vázlat"
+            other: "%{count} együttműködési tervezet"
         new:
           add_file: Fájl hozzáadása
           edit_file: Fájl szerkesztése
@@ -696,6 +700,9 @@ hu:
         index:
           click_here: Összes javaslat megtekintése
           collaborative_drafts_list: Hozzáférés közös vázlatokhoz
+          count:
+            one: "%{count} javaslat"
+            other: "%{count} javaslatot"
           new_proposal: Új javaslat
           see_all_withdrawn: Összes visszavont javaslat
         new:
