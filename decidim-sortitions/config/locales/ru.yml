@@ -96,8 +96,6 @@ ru:
           all: Все
           cancelled: Отмененные
           category: Категория
-          category_prompt: Выберите категорию
-          search: Поиск
           state: Cостояние
         linked_sortitions:
           selected_proposals: Выбранные предложения
