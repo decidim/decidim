@@ -401,7 +401,6 @@ sk:
           already_have_an_account?: Už máte účet?
           newsletter: Dostávajte príležitostný spravodajca s relevantnými informáciami
           newsletter_title: Povolenie kontaktu
-          sign_in: Prihlásiť sa
           sign_up: Zaregistrovať sa
           sign_up_as:
             legend: Zaregistrovať sa ako
@@ -1200,8 +1199,6 @@ sk:
       updated: Účet bol úspešne aktualizovaný.
     sessions:
       already_signed_out: Bolo úspešne odhlási.
-      new:
-        sign_in: Prihlásiť sa
       signed_in: Úspešne ste sa prihlásili.
       signed_out: Odhlásenie prebehlo úspešne.
     shared:
@@ -1210,7 +1207,6 @@ sk:
         didn_t_receive_confirmation_instructions: Nedostali ste pokyny na potvrdenie?
         didn_t_receive_unlock_instructions: Nezískali ste pokyny k odomknutiu?
         forgot_your_password: Zabudli ste heslo?
-        sign_in: Prihlásiť sa
         sign_in_with_provider: Prihlásiť sa cez%{provider}
         sign_up: Prihlásiť sa
       minimum_password_length:
