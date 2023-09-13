@@ -33,7 +33,6 @@ pt:
           error: Houve erros na votação do comentário.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Ligue-se com sua conta</a> ou <a href="%{sign_up_url}">sign up</a> para adicionar seu comentário.
         form:
           body:
             label: Comente
