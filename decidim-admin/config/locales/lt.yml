@@ -651,7 +651,6 @@ lt:
           fields:
             created_at: Sukūrimo data
             email: El. paštas
-            last_sign_in_at: Paskutinio prisijungimo data
             name: Pavadinimas
             role: Rolė
             roles:
