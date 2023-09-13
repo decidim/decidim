@@ -482,7 +482,6 @@ hu:
           newsletter_title: Kapcsolatfelvételi engedély
           nickname_help: A beceneved itt %{organization} csak betűket, számokat '-' és '_' jeleket tartalmazhat.
           password_help: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."
-          sign_in: Belépés
           sign_up: Regisztráció
           sign_up_as:
             legend: Regisztrálj mint
@@ -1501,8 +1500,6 @@ hu:
       updated: Fiókja sikeresen frissült.
     sessions:
       already_signed_out: Kijelentkezett sikeresen.
-      new:
-        sign_in: Belépés
       signed_in: Bejelentkezett sikeresen.
       signed_out: Kijelentkezett sikeresen.
     shared:
@@ -1511,7 +1508,6 @@ hu:
         didn_t_receive_confirmation_instructions: Nem kapott megerősítési utasítást?
         didn_t_receive_unlock_instructions: Nem kapott feloldási utasítást?
         forgot_your_password: Elfelejtette a jelszavát?
-        sign_in: Belépés
         sign_in_with_provider: Jelentkezzen be %{provider}
         sign_up: Regisztrálj
       minimum_password_length:
