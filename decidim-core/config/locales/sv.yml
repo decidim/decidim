@@ -495,7 +495,6 @@ sv:
           already_have_an_account?: Har du redan ett konto?
           newsletter: Få enstaka nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
-          sign_in: Logga in
           sign_up: Registrera dig
           subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
           tos_agreement: Genom att registrera dig godkänner du %{link}.
@@ -505,8 +504,6 @@ sv:
         new:
           are_you_new?: Ny här?
           register: Skapa ett konto
-        user:
-          timed_out: Du var inaktiv för länge och du har blivit automatiskt utloggad från tjänsten. Om du vill fortsätta använda tjänsten, vänligen logga in igen.
       shared:
         newsletter_modal:
           buttons:
@@ -1205,10 +1202,7 @@ sv:
         title: Rapportera olämplig användare
       floating_help:
         help: Hjälp
-      follow_button:
-        sign_in_before_follow: Logga in innan du genomför åtgärden
       login_modal:
-        please_sign_in: Logga in
         sign_up: Registrera dig
       participatory_space_filters:
         filters:
@@ -1316,8 +1310,6 @@ sv:
       last_attempt: Du har ett försök kvar innan ditt konto blir låst.
       locked: Ditt konto är låst.
       not_found_in_database: Ogiltig %{authentication_keys} eller ogiltigt lösenord.
-      timeout: Din session har förfallit. Logga in igen om du vill fortsätta.
-      unauthenticated: Du måste logga in eller registrera dig innan du fortsätter.
     invitations:
       edit:
         header: Slutför att skapa ditt konto
@@ -1364,7 +1356,6 @@ sv:
         action: Lås upp mitt konto
         greeting: Hej %{recipient}!
         instruction: 'Lås upp ditt konto med länken nedan:'
-        message: Ditt konto låsts på grund av ett stort antal misslyckade inloggningsförsök.
         subject: Anvisningar för att låsa upp
     omniauth_callbacks:
       failure: Kunde inte autentisera dig från %{kind} eftersom "%{reason}".
@@ -1393,18 +1384,10 @@ sv:
       signed_up_but_unconfirmed: Ett meddelande med en bekräftelselänk har skickats till din e-postadress. Aktivera kontot genom att följa länken.
       update_needs_confirmation: Kontot har uppdaterats, men vi måste verifiera din nya e-postadress. Kontrollera din e-post och följ länken som bekräftar din nya e-postadress.
       updated: Ditt konto har uppdaterats.
-    sessions:
-      already_signed_out: Du har loggats ut.
-      new:
-        sign_in: Logga in
-      signed_in: Inloggningen är klar.
-      signed_out: Du är utloggad.
     shared:
       links:
         back: Tillbaka
         forgot_your_password: Glömt ditt lösenord?
-        sign_in: Logga in
-        sign_in_with_provider: Logga in med %{provider}
         sign_up: Registrera dig
       minimum_password_length:
         one: "(minst %{count} tecken)"
@@ -1414,7 +1397,6 @@ sv:
         resend_unlock_instructions: Skicka anvisningarna om att låsa upp igen
       send_instructions: Du kommer att få ett e-brev med anvisningar om hur du låser upp ditt konto inom några minuter.
       send_paranoid_instructions: Om ditt konto finns, får du ett e-brev med instruktioner om hur du låser upp det på några minuter.
-      unlocked: Ditt konto har låsts upp. Logga in för att fortsätta.
   doorkeeper:
     scopes:
       public: Din offentliga information.
@@ -1472,7 +1454,6 @@ sv:
       clear: Rensa sök
   errors:
     messages:
-      already_confirmed: var redan bekräftat, försök att logga in
       confirmation_period_expired: behöver bekräftas inom %{period}, be om en ny
       content_type_allowlist_error: ogiltig filtyp
       expired: har förfallit, men du kan begära en ny
@@ -1539,11 +1520,9 @@ sv:
         download_open_data: Hämta öppna datafiler
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
         resources: Resurser
-        sign_in: Logga in
         sign_up: Registrera
       header:
         main_menu: Huvudmeny
-        sign_in: Logga in
         user_menu: Användarmeny
       impersonation_warning:
         close_session: Stäng session
@@ -1562,7 +1541,6 @@ sv:
       timeout_modal:
         body: Du har varit inaktiv i %{minutes} minuter. Om du fortsätter att vara inaktiv kommer du automatiskt att loggas ut för din egen säkerhet.
         continue_session: Förtsätt med din session
-        sign_out: Logga ut
         title: Vill du fortsätta med din session?
       upload_modal:
         close_modal: Stäng fönstret
@@ -1574,7 +1552,6 @@ sv:
         notifications: Meddelanden
         profile: Mitt konto
         public_profile: Min offentliga profil
-        sign_out: Logga ut
         title: Profillänkar
       user_profile:
         account: Konto
