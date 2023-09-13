@@ -1,13 +1,12 @@
 <% add_decidim_page_title(t("edit_external_domains", scope: "decidim.admin.titles")) %>
-<div class="item__edit item__edit-1col">
-  <div class="item__edit-form">
-    <%= decidim_form_for(@form, html: { class: "form-defaults form edit_organization_external_domain_whitelist" }, url: organization_external_domain_whitelist_path, method: :patch) do |f| %>
-      <%= render partial: "form", object: f %>
-      <div class="item__edit-sticky">
-        <div class="item__edit-sticky-container">
-          <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
-        </div>
+
+<div class="item__edit-form">
+  <%= decidim_form_for(@form, html: { class: "form-defaults form edit_organization_external_domain_whitelist" }, url: organization_external_domain_whitelist_path, method: :patch) do |f| %>
+    <%= render partial: "form", object: f %>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

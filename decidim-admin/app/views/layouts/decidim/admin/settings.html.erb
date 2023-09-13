@@ -1,18 +1,9 @@
-<% content_for :breadcrumb_context_menu do %>
-  <div class="process-title-content-breadcrumb-container-right">
-    <div class="inline-block relative">
-      <%= button_tag id: "admin-settings-dropdown-menu-trigger", data: { component: "dropdown", target: "admin-settings-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
-        <span>
-          <%= t("menu.manage", scope: "decidim.admin") %>
-        </span>
-        <%= icon "arrow-down-s-line" %>
-      <% end %>
-      <div id="admin-settings-dropdown-menu-settings" class="process-title-content-dropdown">
-        <%= sidebar_menu(:admin_settings_menu).render %>
-      </div>
-    </div>
-  </div>
-<% end %>
 <%= render "layouts/decidim/admin/application" do %>
-  <%= yield %>
+  <%= yield :title %>
+
+  <div class="settings-menu__container">
+    <%= sidebar_menu_settings(:admin_settings_menu).render %>
+
+    <%= yield %>
+  </div>
 <% end %>

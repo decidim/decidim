@@ -1,0 +1,26 @@
+.settings-menu {
+  @apply space-y-6 min-w-max;
+
+  &__item {
+    a {
+      @apply gap-x-2 flex items-center text-secondary text-sm;
+
+      > svg {
+        @apply w-4 h-4 flex-none text-gray fill-current;
+      }
+    }
+
+    &.is-active a,
+    &:hover a {
+      @apply underline font-semibold [&>svg]:text-secondary;
+    }
+  }
+
+  &__container {
+    @apply flex items-start gap-x-12 first:[&>*]:hidden lg:first:[&>*]:block;
+  }
+
+  & + * {
+    @apply grow;
+  }
+}

@@ -34,6 +34,16 @@ module Decidim
         )
       end
 
+      def sidebar_menu_settings(target_menu)
+        ::Decidim::Admin::SecondaryMenuPresenter.new(
+          target_menu,
+          self,
+          container_options: { class: "settings-menu" },
+          element_class: "settings-menu__item",
+          active_class: "is-active"
+        )
+      end
+
       def admin_tabs(target_menu)
         ::Decidim::MenuPresenter.new(
           target_menu,
