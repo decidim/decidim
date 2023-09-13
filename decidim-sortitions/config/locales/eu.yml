@@ -99,8 +99,6 @@ eu:
           all: Guztiak
           cancelled: Bertan behera
           category: Kategoria
-          category_prompt: Aukeratu kategoria bat
-          search: Bilatu
           state: Egoera
         linked_sortitions:
           selected_proposals: Aukeratutako proposamenak
