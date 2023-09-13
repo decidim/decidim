@@ -278,9 +278,6 @@ zh-CN:
         title: 发言者：
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugs 用于生成指向此会议的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
         conference_invites:
           create:
             error: 邀请与会者参加会议时出现问题。
@@ -321,7 +318,6 @@ zh-CN:
             available_slots_help: 如果您有无限空位可用，则将其留给0。
             registrations_count:
               other: 有 %{count} 个注册。
-            slug_help: 'URL slugs 用于生成指向此会议的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
         diplomas:
           edit:
             save: 保存
