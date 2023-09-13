@@ -77,8 +77,6 @@ is-IS:
           all: Allt
           cancelled: Hætt við
           category: Flokkur
-          category_prompt: Veldu flokk
-          search: Leita
         linked_sortitions:
           selected_proposals: Valdar tillögur
         orders:
