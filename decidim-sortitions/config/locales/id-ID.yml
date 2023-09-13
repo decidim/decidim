@@ -87,8 +87,6 @@ id:
           all: Semua
           cancelled: Dibatalkan
           category: Kategori
-          category_prompt: Pilih Kategori
-          search: Pencarian
           state: Status
         linked_sortitions:
           selected_proposals: Usulan yang dipilih
