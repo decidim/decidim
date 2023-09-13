@@ -87,7 +87,6 @@ lb:
           more_than_one: lösche deine Stimme am %{name} und beginne neu
           only_one: Löschen Sie Ihre Stimme und beginnen Sie von vorne.
         highlighted_cta: Über %{name} abstimmen
-        my_budgets: Meine Budgets
       limit_announcement:
         limit_reached: Sie haben aktive Stimmen in %{links}. Um über dieses Budget abstimmen zu können, müssen Sie <a href="%{landing_path}">Ihre Stimme löschen und neu </a> beginnen.
       models:
