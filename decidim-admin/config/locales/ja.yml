@@ -747,9 +747,6 @@ ja:
           select_scopes: アカウントの「趣味」設定で選択したスコープを有効にしているユーザーをフィルタリングします。
           select_spaces: ニュースレターをセグメント化するスペースを選択
           select_users: ニュースレターを送信したいユーザーを選択してください
-          send_to_all_users: すべてのユーザーに送信
-          send_to_followers: フォロワーに送る
-          send_to_participants: 参加者に送る
           title: 配信する宛先を選択
           warning: "<strong>注意:</strong> このニュースレターは、通知設定で <em>ニュースレターを受信したい</em> ユーザーにのみ送信されます。"
         send:
@@ -833,7 +830,6 @@ ja:
             saturation: 彩度
             title: 色の選択
             update_suggested_colors: 提案色を更新
-          cta_button_path_help: 'ホームページへのリンクの「通話先アクション」ボタンの場所を上書きすることができます。完全なURLではなく、部分的なパスを使用してください。 文字、数字、ダッシュ、スラッシュを使用でき、文字で始まる必要があります。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。例: %{url}'
           cta_button_text_help: 組織の利用可能な言語ごとにホームページの [Call To Action] ボタンのテキストを上書きできます。 設定されていない場合は、デフォルト値が使用されます。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。
           homepage_appearance_title: ホームページの外観を編集
           homepage_highlighted_content_banner_title: ハイライトされたコンテンツバナー
@@ -1008,7 +1004,6 @@ ja:
           update: 更新
         form:
           none: なし
-          slug_help: 'ここでは完全な URL ではなく、部分パスを使用してください。文字、数字、ダッシュ、スラッシュを受け入れ、文字で始める必要があります。例: %{url}'
         index:
           last_notable_change: 前回の注目すべき変更
         new:
