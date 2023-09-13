@@ -90,8 +90,6 @@ hu:
           all: Összes
           cancelled: Törölve
           category: Kategória
-          category_prompt: Válassz kategóriát
-          search: Keresés
           state: Állapot
         linked_sortitions:
           selected_proposals: Kiválasztott javaslatok
