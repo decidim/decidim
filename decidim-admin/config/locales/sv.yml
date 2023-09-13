@@ -588,7 +588,6 @@ sv:
           fields:
             created_at: Skapandedatum
             email: E-post
-            last_sign_in_at: Senast inloggningsdatum
             name: Namn
             role: Roll
             roles:
