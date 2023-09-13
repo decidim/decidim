@@ -669,6 +669,10 @@ ca:
           filter: Filtre
           filter_by: Filtra per
           unfold: Desplega
+        index:
+          count:
+            one: "%{count} esborrany de col·laboració"
+            other: "%{count} esborrany de col·laboració"
         name: Esborranys col·laboratius
         new:
           add_file: Afegir fitxer
@@ -798,6 +802,9 @@ ca:
         index:
           click_here: Veure totes les propostes
           collaborative_drafts_list: Accedeix a esborranys col·laboratius
+          count:
+            one: "%{count} proposta"
+            other: "%{count} propostes"
           new_proposal: Nova proposta
           see_all: Veure totes les propostes
           see_all_withdrawn: Veure totes les propostes retirades
