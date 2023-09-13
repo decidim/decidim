@@ -499,6 +499,7 @@ fr-CA:
           newsletter_title: Autorisation de contact
           nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
           password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
+          sign_in: Se connecter
           sign_up: S'inscrire
           sign_up_as:
             legend: S'inscrire en tant que
@@ -1547,6 +1548,8 @@ fr-CA:
       updated: Votre compte a été mis à jour avec succès.
     sessions:
       already_signed_out: Déconnecté(e) avec succès.
+      new:
+        sign_in: Se connecter
       signed_in: Connexion réussie.
       signed_out: Déconnecté(e) avec succès.
     shared:
@@ -1555,6 +1558,7 @@ fr-CA:
         didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
         didn_t_receive_unlock_instructions: Si la plateforme vous indique que votre compte est bloqué, cliquez ici pour recevoir les instructions de déblocage
         forgot_your_password: Mot de passe oublié?
+        sign_in: Se connecter
         sign_in_with_provider: Se connecter avec %{provider}
         sign_up: S'inscrire
       minimum_password_length:
