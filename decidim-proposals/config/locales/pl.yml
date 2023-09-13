@@ -558,6 +558,12 @@ pl:
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
+        index:
+          count:
+            one: "%{count} wspólny szkic"
+            few: "%{count} wspólne szkice"
+            many: "%{count} wspólne szkice"
+            other: "%{count} wspólne szkice"
         new:
           send: Dalej
         new_collaborative_draft_button:
@@ -668,6 +674,11 @@ pl:
           voted: Wsparte
         index:
           collaborative_drafts_list: Wspólne szkice
+          count:
+            one: "%{count} propozycja"
+            few: "%{count} propozycji"
+            many: "%{count} propozycji"
+            other: "%{count} propozycji"
           new_proposal: Nowa propozycja
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
         new:
