@@ -167,7 +167,6 @@ ja:
         finished_message: 投票プロセスが終了しました。ご参加ありがとうございます！
         highlighted_cta: '%{name} に投票'
         if_change_opinion: 'もし気が変わった場合は、以下を行うことができます:'
-        my_budgets: 私の予算
         progress: 投票を終了
         remove_vote: 投票を削除
         show: プロジェクトを表示
