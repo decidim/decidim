@@ -96,8 +96,6 @@ uk:
           all: Усі
           cancelled: Скасовані
           category: Категорія
-          category_prompt: Оберіть категорію
-          search: Шукати
           state: Стан
         linked_sortitions:
           selected_proposals: Вибрані пропозиції
