@@ -393,7 +393,6 @@ sr:
           fields:
             created_at: Datum kreiranja
             email: E-pošta
-            last_sign_in_at: Datum poslednjeg pristupanja
             name: Ime
             role: Uloga
             roles:
