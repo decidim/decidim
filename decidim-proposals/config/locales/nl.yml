@@ -563,6 +563,10 @@ nl:
           filter: Filter
           filter_by: Filteren op
           unfold: Ontvouwen
+        index:
+          count:
+            one: "%{count} gezamenlijk ontwerp"
+            other: "%{count} gezamenlijke ontwerpen"
         new:
           send: Doorgaan met
         new_collaborative_draft_button:
@@ -675,6 +679,9 @@ nl:
         index:
           click_here: Bekijk alle voorstellen
           collaborative_drafts_list: Toegang tot samenwerkende concepten
+          count:
+            one: "%{count} voorstel"
+            other: "%{count} voorstellen"
           new_proposal: Nieuw voorstel
           see_all: Bekijk alle voorstellen
           see_all_withdrawn: Bekijk alle ingetrokken voorstellen
