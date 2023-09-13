@@ -642,7 +642,6 @@ fr:
           fields:
             created_at: Date de création
             email: Email
-            last_sign_in_at: Date de la dernière connexion
             name: Nom
             role: Rôle
             roles:
