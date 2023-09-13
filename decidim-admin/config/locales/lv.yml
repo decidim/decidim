@@ -390,7 +390,6 @@ lv:
           fields:
             created_at: Izveides datums
             email: E-pasts
-            last_sign_in_at: Pēdējās pierakstīšanās datums
             name: Nosaukums
             role: Loma
             roles:
