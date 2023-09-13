@@ -719,9 +719,6 @@ sv:
           select_scopes: Filtrera för användare som har aktiverat något av de markerade omfången under Mina intressen i sina konton.
           select_spaces: Segmentera nyhetsbrevet genom att markera utrymmen
           select_users: Välj vilka användare som ska få nyhetsbrevet
-          send_to_all_users: Skicka till alla användare
-          send_to_followers: Skicka till följare
-          send_to_participants: Skicka till deltagare
           title: Välj mottagare att skicka till
           warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
         send:
@@ -796,7 +793,6 @@ sv:
             colors_title: Organisationsfärger
             colors_warning_html: Varning! Att ändra dessa färger kan bryta minska kontrasterna och tillgängligheten. Du kan kontrollera kontrasten i ditt val med <a href="%{link}">WebAIM Contrast Checker</a> eller andra liknande verktyg.
             header_snippets_help: Lägg till saker i HTML-huvudet med detta fält. Den vanligaste användningen är att integrera tjänster från tredje part som kräver särskild JavaScript eller CSS. Du kan också lägga till extra meta-taggar i HTML-koden. Märk att detta endast kommer att läggas in på offentliga sidor, inte i administratörsdelen.
-          cta_button_path_help: 'Du kan ändra vad uppmaningsknappen på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga URL:er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
           cta_button_text_help: Du kan ha separata texter på uppmaningsknappen på hemsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen.
           homepage_appearance_title: Redigera startsidans utseende
           homepage_highlighted_content_banner_title: Banner för uppmärksammat innehåll
@@ -930,7 +926,6 @@ sv:
           update: Uppdatera
         form:
           none: Ingen
-          slug_help: 'Använd relativa sökvägar, inte fullständiga URL: er här. Tar emot bokstäver, siffror, streck och snedstreck, och måste börja med en bokstav. Exempel: %{url}'
         index:
           last_notable_change: Senast märkbara förändring
         new:
