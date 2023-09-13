@@ -292,9 +292,7 @@ lb:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktive Gremien
             assemblies_button_title: Verknüpfung zu der Versammlungsseite mit einem Überblick aller Versammlungen
-            see_all_assemblies: Alle Gremien anzeigen
         user_profile:
           member_of:
             member_of: Mitglied von
@@ -309,14 +307,13 @@ lb:
         developer_group: Promoter-Gruppe
         duration: Dauer
         included_at: Inbegriffen bei
-        indefinite_duration: Unbestimmt
         internal_organisation: Interne Organisation
         is_transparent:
           'false': undurchsichtig
           'true': transparent
         local_area: Organisationsbereich
-        participatory_scope: Was ist entschieden?
-        participatory_structure: Wie ist es entschieden?
+        participatory_scope: Was wird entschieden?
+        participatory_structure: Wie wird es entschieden?
         private_space: Dies ist eine private Versammlung
         purpose_of_action: Zweck der Aktion
         read_less: Lese weniger

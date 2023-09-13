@@ -1,3 +1,4 @@
+<% add_decidim_page_title(translated_attribute(current_question.title)) %>
 <%= decidim_form_for @form,
                      url: question_path(current_question),
                      method: :patch,

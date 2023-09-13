@@ -956,9 +956,12 @@ fr-CA:
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
+        edit_external_domains: Liste des domaines externes autorisés
+        edit_organization_appearance: Modifier l'apparence de la page d'accueil
         impersonatable_users: Utilisateurs gérables
         impersonations: Gestion des utilisateurs
         metrics: Indicateurs
+        pages: Page(s)
         panel: Administrateur
         participants: Utilisateurs
         scope_types: Types de secteur

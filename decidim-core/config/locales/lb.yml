@@ -337,7 +337,7 @@ lb:
           request_confirmation_instructions: Instruktiounen fir d'Bestätegung ufroen
           title: Email bestätegen
       show:
-        close_modal: Modal zou maachen
+        close_modal: Modal schließen
     block_user_mailer:
       notify:
         body_1: Däin Kont ass gespaart.
@@ -480,7 +480,7 @@ lb:
         newsletter_modal:
           buttons:
             check: Iwwerpréiwen an weider maachen
-            close_modal: Modal zou maachen
+            close_modal: Modal schließen
             uncheck: Ouni Kontakt-Erlabnis weidermaachen
           notice: |-
             <p>Hey, bass de sécher, dass de keen Newsletter wëlls?<br>
@@ -848,7 +848,7 @@ lb:
         body_1: Du kënns elo op en externen Link an mir bieden dech, virsiichteg mam Inhalt vun externen Säiten ëmzegoen.
         body_2: W. e. g. iwwerpréif de Link den s'de besiche wëlls an iwwerpréif ob et eng sécher Säit ass, éier s'de weider méchs.
         cancel: Ofbriechen
-        close_modal: Modal zou maachen
+        close_modal: Modal schließen
         proceed: Weidermaachen
         title: Externen Link op maachen
     log:
@@ -938,7 +938,7 @@ lb:
           ok: OK
         index:
           ago: virun
-          close: Modal zou maachen
+          close: Modal schließen
           from: Vum
           groups: Meng Gruppen
           last_message: Lescht Noriicht
@@ -1092,7 +1092,7 @@ lb:
         refuse:
           modal_body: Wann s'du refuséiers, wàert et dir net méiglech sinn dës Plattform ze benotzen, du kanns <a href="%{data_portability_path}">lDaten eroflueden</a> an / oder <a href="%{delete_path}">Konto läschen</a>.
           modal_btn_exit: Ech iwwerpréiwen dat méi spéit
-          modal_close: Modal zou maachen
+          modal_close: Modal schließen
           modal_title: Bass du wierklech wëlles d'Konditiounen vum Benotzen net unzehuelen?
         required_review:
           alert: Mir hunn eis Konditiounen vum Benotzen aktualiséiert, iwwerpréif se w. e. g.
@@ -1288,7 +1288,7 @@ lb:
         existing_error: Dës Noriicht konnt net erstallt ginn. D'Konversatioun besteet schon, probéier elo nach eng Kéier.
         success: Konversatioun gestart!
       index:
-        add_max_users: 'Setz denger Konversatioun nei Teilnehmer bäi: max. 9 Teilnehmer'
+        add_max_users: 'Setz denger Konversatioun nei Benotzer bäi: max. 9 Benotzer'
         add_users_placeholder: Sich...
         close: Zoumaachen
         conversations_info: Konversatiounen sinn privat, keen aneren kann se gesinn. Eng Konversatioun kann vun all registréierten Benotzer op der Plattform oder all Grupp ugefaange ginn.
@@ -1298,7 +1298,7 @@ lb:
         new_conversation: Nei Konversatioun
         next: Weider
         no_conversations_warning: Et gëtt nach keng Konversatiounen.
-        no_results: Keng Resultater
+        no_results: Keen Resultat
         participant_with_disabled_message_reception: Dësen Teilnehmer huet Noriichten desaktivéiert
         time_ago: "Virun %{time}"
       new:
@@ -1310,7 +1310,7 @@ lb:
       show:
         back: All d'Konversatiounen uweisen
         not_allowed: Dësen Benotzer akzeptéiert keng direkt Noriichten méi.
-        title: Konversatioun mat %{usernames}
+        title: Konversatioun mam %{usernames}
       update:
         error: Noriicht gouf net geschéckt. Probéier méi spéit nach eng Kéier
     user_interests:

@@ -139,6 +139,9 @@ is-IS:
           value_types:
             organizer_presenter:
               not_found: 'Skipuleggjandi fannst ekki í gagnagrunninum (ID: %{id})'
+      content_blocks:
+        upcoming_meetings:
+          upcoming_meetings: Næstu fundir
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -152,11 +155,11 @@ is-IS:
         filters:
           category: Flokkur
           date: Dagsetning
+          scope: Umfang
           search: Leita
         filters_small_view:
           close_modal: Loka mát
           filter: Sía
-          filter_by: Sía eftir
           unfold: Fella út
         meetings:
           no_meetings_warning: Engar fundir samræmast leitarskilyrðum þínum eða það er ekki fundur áætlað.
@@ -166,8 +169,8 @@ is-IS:
           confirm: Staðfesta
         show:
           attendees: Þátttakendur telja
+          close_meeting: Loka fundi
           contributions: Framlög telja
-          join: Skráðu þig í fundi
           no_slots_available: Engar rifa í boði
           organizations: Mæta stofnanir
       models:

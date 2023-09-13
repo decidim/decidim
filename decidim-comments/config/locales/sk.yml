@@ -34,7 +34,6 @@ sk:
             label: Komentár
             placeholder: Čo si myslíte o tomto?
           form_error: Tento text je požadovaný a nesmie byť dlhší, než %{length} znakov.
-          submit: Odoslať
           user_group_id:
             label: Komentovať ako
         opinion:

@@ -515,11 +515,6 @@ tr:
         status_change_for: Girişim %{title} durumu değişti
       last_activity:
         new_initiative: Yeni girişim
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktif girişimler
-            see_all_initiatives: Tüm girişimleri görün
       show:
         badge_name:
           accepted: Yeterince imza
@@ -555,7 +550,7 @@ tr:
         promotal_committee: Tanıtım komitesi
         select_initiative_type: Seç
         show_similar_initiatives: Karşılaştır
-        step: '%{total} adımdan %{current}. adımda'
+        step: Adım %{current} / %{total}
         title: Yeni girişim oluştur
       initiative_header:
         initiative_menu_item: girişim

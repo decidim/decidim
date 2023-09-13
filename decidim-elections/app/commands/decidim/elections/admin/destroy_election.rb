@@ -31,7 +31,7 @@ module Decidim
         attr_reader :election, :current_user
 
         def invalid?
-          election.started?
+          election.blocked?
         end
 
         def destroy_election!

@@ -282,6 +282,7 @@ gl:
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi aprobada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       form:
         attachment_legend: "(Opcional) Engade un anexo"
+        delete_attachment: Eliminar
       index:
         title: Iniciativas
       initiative_signatures:
@@ -318,6 +319,8 @@ gl:
           hidden_authors_count:
             one: e 1 persoa máis
             other: e %{count} persoas máis
+        committee_members:
+          revoke: Revocar
         count:
           title:
             one: "Iniciativa %{count}"
@@ -381,11 +384,6 @@ gl:
         status_change_for: A iniciativa %{title} cambiou o seu estado
       last_activity:
         new_initiative: Nova iniciativa
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Iniciativas activas
-            see_all_initiatives: Ver todas as iniciativas
       states:
         accepted: Aceptada
         expired: Vencido

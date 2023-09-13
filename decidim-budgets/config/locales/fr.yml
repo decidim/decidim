@@ -222,7 +222,7 @@ fr:
             not_selected: Non sélectionné
             selected: Sélectionné
         filters_small_view:
-          close_modal: Fermez la fenêtre
+          close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Voir la suite

@@ -6,6 +6,8 @@ ca:
         offline: Sense connexió
         offline_explanation: Instruccions per a la verificació presencial
         online: En línia
+      confirmation:
+        verification_code: Codi de verificació
       id_document_information:
         document_number: Número de document (amb lletra)
         document_type: Tipus del document
@@ -14,6 +16,8 @@ ca:
         document_type: Tipus del teu document
         user: Participant
         verification_attachment: Còpia escanejada del teu document
+      mobile_phone:
+        mobile_phone_number: Número de telèfon mòbil
       offline_confirmation:
         email: Correu electrònic de la participant
       postal_letter_address:

@@ -213,7 +213,7 @@
             not_selected: Ikke valgt
             selected: Valgt
         filters_small_view:
-          close_modal: Lukk modal
+          close_modal: Lukk dialogboks
           filter: Filter
           filter_by: Filtrer etter
           unfold: Åpne

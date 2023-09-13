@@ -56,6 +56,8 @@ es-MX:
           attributes:
             iframe_embed_type:
               not_embeddable: Esta URL no puede ser incrustada en la página de encuentro o evento en directo
+            online_meeting_url:
+              url_format: Debe ser una URL válida
         meeting_agenda:
           attributes:
             base:
@@ -396,7 +398,7 @@ es-MX:
         filter_meeting_space_values:
           all: Todos
         filter_scope_values:
-          all: Todos
+          all: Todas
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
@@ -477,7 +479,6 @@ es-MX:
             all: Todos
             citizens: Ciudadanos
             official: Oficial
-            user_groups: Grupos
           scope: Ámbito
           search: Buscar
           type: Tipo
@@ -529,10 +530,8 @@ es-MX:
           close_meeting: Cerrar encuentro
           contributions: Número de contribuciones
           date: Fecha
-          edit_close_meeting: Editar informe del encuentro
-          edit_meeting: Editar el encuentro
+          edit_meeting: Editar encuentro
           going: Te has inscrito en este encuentro
-          join: Inscribirse al encuentro
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
           link_available_soon: Enlace disponible próximamente

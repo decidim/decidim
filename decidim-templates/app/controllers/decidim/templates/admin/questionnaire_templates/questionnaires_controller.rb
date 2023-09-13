@@ -33,7 +33,7 @@ module Decidim
           private
 
           def template
-            @template ||= Template.find(params[:id])
+            @template ||= current_organization.templates.where(templatable_type: "Decidim::Forms::Questionnaire").find(params[:id])
           end
         end
       end

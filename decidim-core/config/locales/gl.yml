@@ -940,7 +940,7 @@ gl:
         view_all: Ver todos (%{count})
     shared:
       embed_modal:
-        close_window: Pechar ventá
+        close_window: Pechar xanela
         embed: Pega este código na túa páxina
         embed_link: Inserir
       extended_navigation_bar:
@@ -994,9 +994,12 @@ gl:
       participants_count: Participantes
       users_count: Participantes
     user_conversations:
+      index:
+        close: Pechar
       show:
         back: Amosar todas as conversas
         deleted_accounts: Non podes manter unha conversa con contas eliminadas.
+        title: Conversa con %{usernames}
       update:
         error: Mensaxe non enviada. Téntao de novo máis tarde
     user_interests:

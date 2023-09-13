@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t("edit_organization_appearance", scope: "decidim.admin.titles")) %>
 <%= decidim_form_for(@form, html: { class: "form edit_organization_appearance" }, url: organization_appearance_path, method: :put) do |f| %>
   <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">

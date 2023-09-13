@@ -161,24 +161,15 @@ is-IS:
             title: Almennar upplýsingar
       index:
         title: Þátttökuferli
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Virk ferli
-            see_all_processes: Sjá öll ferli
       participatory_processes:
         index:
           loading: Loading niðurstöður ...
       show:
         end_date: Loka dagsetning
-        local_area: Skipulagssvæði
-        participatory_scope: Hvað er ákveðið
-        participatory_structure: Hvernig er það ákveðið
         private_space: Þetta er einkarekið ferli
         related_processes: Tengd ferli
         scope: Umfang
         start_date: Upphafsdagur
-        target: Hver tekur þátt
   layouts:
     decidim:
       participatory_process_groups:
@@ -194,7 +185,6 @@ is-IS:
         participatory_process:
           take_part: Taka þátt
         promoted_process:
-          more_info: Meiri upplýsingar
           take_part: Taka þátt
       process_navigation:
         process_menu_item: Árangurinn

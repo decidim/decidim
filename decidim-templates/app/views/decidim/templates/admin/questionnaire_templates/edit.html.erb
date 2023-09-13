@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t(".questionnaire")) %>
 <%= decidim_form_for(@form, url: questionnaire_template_path, html: { class: "form edit_questionnaire_template" }) do |f| %>
   <%= render partial: "form", object: f %>
 <% end %>

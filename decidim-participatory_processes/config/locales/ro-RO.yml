@@ -338,7 +338,6 @@ ro:
         html_3:
           name: Al treilea bloc HTML
         metadata:
-          developer_group: Promovat de
           name: Metadate
           participatory_scope: Ce se decide
           participatory_structure: Cum se decide
@@ -409,13 +408,11 @@ ro:
       pages:
         home:
           highlighted_processes:
-            active_processes: Procese active
             active_step: Etapă activă
             more_information: Mai multe informații
             participate: Participă
             participate_in: Participă la procesul %{resource_name}
             processes_button_title: Link către pagina unde sunt afișate toate procesele participative
-            see_all_processes: Afișează toate procesele
       participatory_process_steps:
         index:
           back_to_process: Înapoi la pagina de proces
@@ -458,7 +455,6 @@ ro:
         dates: Date
         developer_group: Grup promotor
         end_date: Data de încheiere
-        local_area: Zona organizației
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
         private_space: Acesta este un proces privat

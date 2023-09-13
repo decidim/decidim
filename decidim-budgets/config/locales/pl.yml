@@ -185,6 +185,8 @@ pl:
             few: "%{count} projekty"
             many: "%{count} projektów"
             other: "%{count} projektów"
+        exit_modal:
+          close_modal: Zamknij okno
         filters:
           category: Kategoria
           scope: Zakres
@@ -200,7 +202,7 @@ pl:
           filter_by: Filtruj według
           unfold: Rozwiń
         order_progress:
-          vote: Głosuj
+          vote: Wspieranie
         order_selected_projects:
           remove: Usuń
           selected_projects:

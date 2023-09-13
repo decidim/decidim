@@ -32,6 +32,11 @@ shared_examples "manage partners examples" do
           with: "Partner name"
         )
 
+        select(
+          "Collaborator",
+          from: :conference_partner_partner_type
+        )
+
         find("*[type=submit]").click
       end
 
@@ -40,6 +45,21 @@ shared_examples "manage partners examples" do
 
       within "#partners table" do
         expect(page).to have_content("Partner name")
+        expect(page).to have_content("Collaborator")
+      end
+    end
+
+    context "when the partner type is already a Collaborator" do
+      let!(:conference_partner) { create(:partner, partner_type: "collaborator", conference: conference) }
+
+      it "returns the correct partner type in the edit" do
+        visit decidim_admin_conferences.edit_conference_partner_path(conference, conference_partner)
+        within ".edit_partner" do
+          expect(page).to have_select(
+            :conference_partner_partner_type,
+            selected: "Collaborator"
+          )
+        end
       end
     end
 

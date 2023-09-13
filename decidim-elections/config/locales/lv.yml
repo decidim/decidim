@@ -137,3 +137,6 @@ lv:
             answers: Atbildes
             max_selections: Maks. izvēles
             title: Nosaukums
+      votes:
+        confirm:
+          answer: Atbilde

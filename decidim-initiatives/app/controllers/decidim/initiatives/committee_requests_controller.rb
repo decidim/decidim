@@ -70,7 +70,7 @@ module Decidim
       private
 
       def membership_request
-        @membership_request ||= InitiativesCommitteeMember.find(params[:id])
+        @membership_request ||= InitiativesCommitteeMember.where(initiative: current_participatory_space).find(params[:id])
       end
     end
   end

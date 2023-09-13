@@ -494,7 +494,6 @@ pt:
           highlighted_conferences:
             active_conferences: Conferências ativas
             conferences_button_title: Ligação para a página de Conferências que mostra todas as conferências
-            see_all_conferences: Ver todas as conferências
       photo:
         image:
           attributes:

@@ -1,1 +1,15 @@
 kaa:
+  decidim:
+    admin:
+      consultations:
+        edit:
+          update: Jańalaw
+      questions:
+        edit:
+          update: Jańalaw
+      response_groups:
+        edit:
+          update: Jańalaw
+      responses:
+        edit:
+          update: Jańalaw

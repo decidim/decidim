@@ -121,6 +121,16 @@ describe "Orders", type: :system do
           end
         end
       end
+
+      context "when the total budget is zero" do
+        let(:budget) { create(:budget, total_budget: 0, component: component) }
+
+        it "displays total budget" do
+          within ".budget-summary__total" do
+            expect(page).to have_content("TOTAL BUDGET €0")
+          end
+        end
+      end
     end
 
     context "and has not a pending order" do

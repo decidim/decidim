@@ -33,7 +33,7 @@ module Decidim
       end
 
       def project
-        @project ||= Project.find_by(id: params[:id])
+        @project ||= budget&.projects&.find_by(id: params[:id])
       end
 
       def search_klass
@@ -50,7 +50,11 @@ module Decidim
       end
 
       def default_filter_status_params
-        voting_finished? ? %w(selected) : %w(all)
+        show_selected_budgets? ? %w(selected) : %w(all)
+      end
+
+      def show_selected_budgets?
+        voting_finished? && budget.projects.selected.any?
       end
 
       def context_params

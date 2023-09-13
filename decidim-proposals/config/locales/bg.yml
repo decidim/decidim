@@ -80,6 +80,8 @@ bg:
     admin:
       filters:
         proposals:
+          state_null:
+            label: Състояние
           valuator_role_ids_has:
             label: Прикрепено към проверяващ
         search_placeholder:
@@ -218,6 +220,9 @@ bg:
           email_intro: Предложението "%{resource_title}" беше добавено в "%{participatory_space_title}", което следвате.
           email_outro: Получавате това известие, защото следвате "%{participatory_space_title}". Може да прекратите известията чрез предната връзка.
     proposals:
+      content_blocks:
+        highlighted_proposals:
+          proposals: Предложения
       versions:
         collaborative_drafts:
           back_to_resource: Обратно към съвместната чернова

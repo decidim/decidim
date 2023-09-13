@@ -56,6 +56,7 @@ module Decidim
             resources :imports, only: [:new, :create] do
               get :example, on: :collection
             end
+            resources :reminders, only: [:new, :create]
           end
         end
 

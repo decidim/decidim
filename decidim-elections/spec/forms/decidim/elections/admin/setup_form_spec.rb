@@ -76,6 +76,28 @@ describe Decidim::Elections::Admin::SetupForm do
     end
   end
 
+  context "when the hours before the start do not comply" do
+    before do
+      allow(Decidim::Elections).to receive(:setup_minimum_hours_before_start).and_return(hours_before)
+    end
+
+    context "and there is one hour" do
+      let(:hours_before) { 1 }
+
+      it "shows the message" do
+        expect(subject.messages).to match(hash_including({ time_before: "The setup is being done <strong>at least 1 hour</strong> before the election starts." }))
+      end
+    end
+
+    context "and there are three hours" do
+      let(:hours_before) { 3 }
+
+      it "shows the message" do
+        expect(subject.messages).to match(hash_including({ time_before: "The setup is being done <strong>at least 3 hours</strong> before the election starts." }))
+      end
+    end
+  end
+
   context "when there are no trustees for the election" do
     let(:trustees) { [] }
 

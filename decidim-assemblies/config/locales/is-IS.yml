@@ -216,11 +216,6 @@ is-IS:
         title: Þing
       last_activity:
         new_assembly: Nýtt þing
-      pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Virkir þættir
-            see_all_assemblies: Sjá allar þingmenn
       show:
         area: Svæði
         assembly_type: Samsetning gerð
@@ -231,11 +226,12 @@ is-IS:
         creation_date: Dagsetning búin til
         duration: Lengd
         included_at: Innifalið á
-        indefinite_duration: Óákveðinn
         internal_organisation: Innri skipulagning
         is_transparent:
           'false': ógagnsæ
           'true': gagnsæ
+        participatory_scope: Hvað er ákveðið
+        participatory_structure: Hvernig það er ákveðið
         private_space: Þetta er einkasamkoma
         purpose_of_action: Tilgangur aðgerða
         read_less: Lesa minna
@@ -243,6 +239,7 @@ is-IS:
         related_participatory_processes: Svipaðir þátttakandi ferli
         scope: Umfang
         social_networks: Samfélagsmiðlar
+        target: Hver tekur þátt
     assembly_members:
       index:
         title: Meðlimir
@@ -263,7 +260,6 @@ is-IS:
         index:
           promoted_assemblies: Hápunktar þingsins
         promoted_assembly:
-          more_info: Meiri upplýsingar
           take_part: Taka þátt
       assembly_navigation:
         assembly_menu_item: Samkoma

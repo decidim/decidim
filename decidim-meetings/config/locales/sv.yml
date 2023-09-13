@@ -388,7 +388,7 @@ sv:
         filter_meeting_space_values:
           all: Alla
         filter_scope_values:
-          all: Alla
+          all: Allt
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Stäng fönster
@@ -469,8 +469,7 @@ sv:
             all: Alla
             citizens: Medborgare
             official: Officiell
-            user_groups: Grupper
-          scope: Omfattning
+          scope: Omfång
           search: Sök
           type: Typ
           type_values:
@@ -518,13 +517,11 @@ sv:
         show:
           attendees: Antal deltagare
           back: Tillbaka till listan
-          close_meeting: Avsluta möte
+          close_meeting: Stäng mötet
           contributions: Antal bidrag
           date: Datum
-          edit_close_meeting: Redigera mötesrapport
           edit_meeting: Redigera möte
           going: Du har anmält dig för detta möte
-          join: Gå med i mötet
           leave: Avbryt din registrering
           leave_confirmation: Är du säker på att du vill avboka från detta möte?
           link_available_soon: Länk snart tillgänglig

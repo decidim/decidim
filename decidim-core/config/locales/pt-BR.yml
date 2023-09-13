@@ -1292,7 +1292,7 @@ pt-BR:
         success: Conversa iniciada com sucesso!
       index:
         add_max_users: 'Adicionar usuários à conversa: máximo de 9 usuários'
-        add_users_placeholder: Procurar...
+        add_users_placeholder: Buscar...
         close: Fechar
         conversations_info: As conversas são privadas. Ninguém mais pode vê-las. Uma conversa pode ser iniciada com qualquer participante ou grupo registrado na plataforma.
         from: De
