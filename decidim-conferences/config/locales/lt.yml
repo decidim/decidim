@@ -432,11 +432,9 @@ lt:
         create:
           invalid: Jungiantis prie šios konferencijos iškilo problema.
           success: Jūs prisijungėte prie konferencijos.
-          unauthorized: Prieš registruodamiesi į konferenciją turite prisijungti.
         decline_invitation:
           invalid: Atmetant kvietimą iškilo problema.
           success: Jūs atmetėte kvietimą.
-          unauthorized: Prieš atmetant kvietimą turite prisijungti.
         destroy:
           invalid: Paliekant šią konferenciją iškilo problema.
           success: Jūs sėkmingai palikote konferenciją.
