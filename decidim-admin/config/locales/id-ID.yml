@@ -365,7 +365,6 @@ id:
           fields:
             created_at: Tanggal pembuatan
             email: E-mail
-            last_sign_in_at: Tanggal masuk terakhir
             name: Nama
             role: Peran
             roles:
