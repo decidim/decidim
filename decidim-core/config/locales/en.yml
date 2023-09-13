@@ -586,6 +586,7 @@ en:
         new:
           complete_profile: Complete profile
           sign_up: Please complete your profile
+          nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
