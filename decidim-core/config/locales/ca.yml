@@ -590,7 +590,6 @@ ca:
           already_have_an_account?: Ja tens un compte?
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           newsletter_title: Permís de contacte
-          sign_in: Entra
           sign_up: Registra't
           subtitle: Crea un compte per poder participar en els debats i donar suport a les propostes.
           terms: els termes i condicions d'ús
@@ -603,8 +602,6 @@ ca:
           register: Crea't un compte
           sign_in_disabled: Pots accedir amb un compte extern.
           sign_up_disabled: El registre està deshabilitat, pots fer servir un compte existent per accedir-hi.
-        user:
-          timed_out: Has estat sense activitat durant massa temps i se t'ha tancat automàticament la sessió del servei. Si vols continuar utilitzant el servei, torna a iniciar sessió.
       shared:
         newsletter_modal:
           buttons:
@@ -632,7 +629,6 @@ ca:
           authorize: Autoritza l'aplicació
           by_organization_link_html: <small class="heading-small">per %{link}</small>
           cancel: Cancel·lar
-          connect_your_account_html: Connecta el teu compte iniciant la sessió a <strong>%{organization}</strong>.
           publish_content: Publica el contingut per a tu
           see_email: Consulta el teu correu electrònic
           see_name: Veure el teu nom
@@ -1479,10 +1475,7 @@ ca:
         title: Reportar contingut inapropiat
       floating_help:
         help: Ajuda
-      follow_button:
-        sign_in_before_follow: Inicia sessió abans de realitzar aquesta acció
       login_modal:
-        please_sign_in: Si us plau, inicia sessió
         sign_up: Registra't
       mentions_modal:
         remove_recipient: Eliminar destinatària %{name}
@@ -1600,8 +1593,6 @@ ca:
       last_attempt: Tens un intent més abans que el teu compte es bloquegi.
       locked: El teu compte està bloquejat.
       not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
-      timeout: La teva sessió ha caducat. Si us plau, torna a iniciar sessió per continuar.
-      unauthenticated: Has d'iniciar la sessió o registrar-te abans de continuar.
     invitations:
       edit:
         header: Acabar de crear el teu compte
@@ -1663,7 +1654,6 @@ ca:
         action: Desbloqueja el meu compte
         greeting: Hola %{recipient}!
         instruction: 'Fes clic a l''enllaç següent per desbloquejar el teu compte:'
-        message: El teu compte s'ha bloquejat a causa d'una quantitat excessiva d'intents d'inici de sessió incorrectes.
         subject: Desbloqueja les instruccions
     omniauth_callbacks:
       failure: No pots autenticar-te des de %{kind} perquè "%{reason}".
@@ -1694,20 +1684,12 @@ ca:
       signed_up_but_unconfirmed: S'ha enviat un missatge amb un enllaç de confirmació a la teva adreça de correu electrònic. Si us plau, segueix l'enllaç per activar el teu compte.
       update_needs_confirmation: Has actualitzat el teu compte amb èxit, però hem de verificar la teva nova adreça. Comprova la teva bústia electrònic i segueix l'enllaç per confirmar la teva nova adreça de correu electrònic.
       updated: El teu compte s'ha actualitzat correctament.
-    sessions:
-      already_signed_out: Sessió finalitzada correctament.
-      new:
-        sign_in: Iniciar sessió
-      signed_in: Sessió iniciada correctament.
-      signed_out: S'ha iniciat la sessió correctament.
     shared:
       links:
         back: Torna
         didn_t_receive_confirmation_instructions: No has rebut instruccions de confirmació?
         didn_t_receive_unlock_instructions: No has rebut les instruccions de desbloqueig?
         forgot_your_password: Has oblidat la teva contrasenya?
-        sign_in: Iniciar sessió
-        sign_in_with_provider: Inicia sessió amb %{provider}
         sign_up: Registra't
       minimum_password_length:
         one: "(Mínim de%{count} caràcters)"
@@ -1717,7 +1699,6 @@ ca:
         resend_unlock_instructions: Reenvia les instruccions de desbloqueig
       send_instructions: Rebràs un correu electrònic amb instruccions per desbloquejar el teu compte en uns minuts.
       send_paranoid_instructions: Si el teu compte existeix, rebràs un correu electrònic amb instruccions per desbloquejar-lo en uns minuts.
-      unlocked: S'ha desbloquejat el teu compte correctament. Si us plau, inicia sessió per continuar.
   doorkeeper:
     scopes:
       public: La teva informació pública.
@@ -1806,7 +1787,6 @@ ca:
   errors:
     messages:
       allowed_file_content_types: 'només s''accepten arxius amb les següents extensions: %{types}'
-      already_confirmed: ja s'ha confirmat, si us plau intenta iniciar la sessió
       blank: no pot estar en blanc
       cannot_be_blank: no pot estar en blanc
       confirmation: no coincideix amb %{attribute}
@@ -1904,12 +1884,10 @@ ca:
         download_open_data: Descarrega els fitxers de dades obertes
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
         resources: Recursos
-        sign_in: Entra
         sign_up: Registra't
         terms_and_conditions: Termes i condicions
       header:
         main_menu: Menú principal
-        sign_in: Entra
         user_menu: Menú d'usuari
       impersonation_warning:
         close_session: Tanca la sessió
@@ -1935,7 +1913,6 @@ ca:
       timeout_modal:
         body: Has estat sense activitat durant %{minutes} minuts. Si continues inactiva, es tancarà la teva sessió automàticament per la teva pròpia seguretat.
         continue_session: Continuar la sessió
-        sign_out: Tancar sessió
         title: Vols continuar amb la sessió?
       upload_modal:
         close_modal: Tancar finestra
@@ -1947,7 +1924,6 @@ ca:
         notifications: Notificacions
         profile: El meu compte
         public_profile: El meu perfil públic
-        sign_out: Surt
         title: Enllaços del perfil
       user_profile:
         account: Compte
