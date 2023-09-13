@@ -25,7 +25,6 @@ uk:
           error: При голосуванні щодо коментаря сталися помилки.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Увійдіть за допомогою свого облікового запису</a> або <a href="%{sign_up_url}">зареєструйтесь</a>, щоб додати свій коментар.
         form:
           body:
             label: Коментар
