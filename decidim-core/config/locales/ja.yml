@@ -522,7 +522,6 @@ ja:
           newsletter: 関連するお知らせを受け取る
           newsletter_title: ニュースレターを受け取る
           nickname_help: '%{organization} でのニックネームです。文字、数字、''-'' および ''_'' のみを使用できます。'
-          sign_in: ログイン
           sign_up: 新規登録
           sign_up_as:
             legend: として登録
@@ -1642,8 +1641,6 @@ ja:
       updated: アカウントが正常に更新されました。
     sessions:
       already_signed_out: 正常にログアウトしました。
-      new:
-        sign_in: ログイン
       signed_in: 正常にログインしました。
       signed_out: 正常にログアウトしました。
     shared:
@@ -1652,7 +1649,6 @@ ja:
         didn_t_receive_confirmation_instructions: ユーザ登録確認メールが届かない方はこちら
         didn_t_receive_unlock_instructions: ロック解除の手順を送信したい方はこちら
         forgot_your_password: パスワードをお忘れですか？
-        sign_in: ログイン
         sign_in_with_provider: '%{provider} でログイン'
         sign_up: 新規登録
       minimum_password_length:
