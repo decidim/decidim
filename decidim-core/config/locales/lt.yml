@@ -624,7 +624,6 @@ lt:
           already_have_an_account?: Jau turite paskyrą?
           newsletter: Kartais gauti naujienlaiškį su aktualia informacija
           newsletter_title: Leidimas susisiekti
-          sign_in: Prisijungti
           sign_up: Užsiregistruoti
           subtitle: Užsiregistruokite, kad galėtumėte dalyvauti diskusijose ir paremti pasiūlymus.
           terms: paslaugų teikimo sąlygos
@@ -637,8 +636,6 @@ lt:
           register: Sukurti paskyrą
           sign_in_disabled: Galite prisijungti su išorine paskyra.
           sign_up_disabled: Registracija išjungta, norėdami prisijungti, naudokite jau egzistuojančią paskyrą.
-        user:
-          timed_out: Per ilgai buvote neaktyvus ir buvote automatiškai atjungtas nuo paslaugos. Jei norite ir toliau naudotis paslauga, prisijunkite dar kartą.
       shared:
         newsletter_modal:
           buttons:
@@ -664,7 +661,6 @@ lt:
           authorize: Leisti naudoti programą
           by_organization_link_html: <small class="heading-small"> %{link}</small>
           cancel: Atšaukti
-          connect_your_account_html: Prijunkite savo paskyrą prisijungtami prie %{organization}.
           publish_content: Skelbti turinį už Jus
           see_email: Žiūrėti savo el. paštą
           see_name: Žiūrėti savo vardą ir pavardę
@@ -1516,10 +1512,7 @@ lt:
         title: Pranešti apie netinkamą turinį
       floating_help:
         help: Pagalba
-      follow_button:
-        sign_in_before_follow: Prašome prisijunkite norėdami atlikti šį veiksmą
       login_modal:
-        please_sign_in: Prašome prisijungti
         sign_up: Užsiregistruoti
       mentions_modal:
         remove_recipient: Išimti gavėją %{name}
@@ -1637,8 +1630,6 @@ lt:
       last_attempt: Jums liko dar vienas pabandymas, iki kol jūsų paskyra bus užblokuota.
       locked: Jūsų paskyra užrakinta.
       not_found_in_database: Netinkamas %{authentication_keys} arba slaptažodis.
-      timeout: Jūsų sesijos laikas baigėsi. Kad galėtumėte tęsti, prisijunkite iš naujo.
-      unauthenticated: Norėdami tęsti, turite prisijungti arba užsiregistruoti.
     invitations:
       edit:
         header: Baikite kurti savo paskyrą
@@ -1701,7 +1692,6 @@ lt:
         action: Atblokuoti mano paskyrą
         greeting: Sveiki %{recipient}!
         instruction: 'Norėdami atblokuoti savo paskyrą, spustelėkite toliau pateikiamą nuorodą:'
-        message: Jūsų paskyra buvo užrakinta dėl pernelyg daug nepavykusių bandymų prisijungti.
         subject: Paskyros atrakinimo instrukcijos
     omniauth_callbacks:
       failure: Jūsų nepavyko autentifikuoti pagal %{kind}. Priežastis – "%{reason}".
@@ -1732,20 +1722,12 @@ lt:
       signed_up_but_unconfirmed: Žinutė su patvirtinimo nuoroda buvo išsiųsta į jūsų el. paštą. Prašome sekite nuorodą norėdami aktyvuoti paskyrą.
       update_needs_confirmation: Sėkmingai atnaujinote paskyrą, bet turime patvirtinti jūsų naują el. pašto adresą. Prašome patikrinkite savo el. paštą ir spustelėkite patvirtinimo nuorodą.
       updated: Jūsų paskyra atnaujinta.
-    sessions:
-      already_signed_out: Atsijungėte.
-      new:
-        sign_in: Prisijungti
-      signed_in: Prisijungta sėkmingai.
-      signed_out: Atsijungta sėkmingai.
     shared:
       links:
         back: Atgal
         didn_t_receive_confirmation_instructions: Negavote patvirtinimo nurodymų?
         didn_t_receive_unlock_instructions: Negavote atblokavimo nurodymų?
         forgot_your_password: Pamiršote savo slaptažodį?
-        sign_in: Prisijungti
-        sign_in_with_provider: Prisijunkite su %{provider}
         sign_up: Užsiregistruoti
       minimum_password_length:
         one: "(bent %{count} simbolis)"
@@ -1757,7 +1739,6 @@ lt:
         resend_unlock_instructions: Dar kartą siųsti atrakinimo nurodymus
       send_instructions: Per kelias minutes gausite el. laišką su nurodymais, kaip atrakinti savo paskyrą.
       send_paranoid_instructions: Jei jūsų paskyra egzistuoja, per kelias minutes gausite elektroninį laišką su instrukcijomis, kaip ją atrakinti.
-      unlocked: Jūsų paskyra atrakinta. Kad galėtumėte tęsti, prisijunkite.
   doorkeeper:
     scopes:
       public: Jūsų vieši duomenys.
@@ -1846,7 +1827,6 @@ lt:
   errors:
     messages:
       allowed_file_content_types: 'leidžiamos tik rinkmenos su šiomis galūnėmis: %{types}'
-      already_confirmed: jau patvirtinta, pabandykite prisijungti
       blank: negali būti tuščias
       cannot_be_blank: negali būti tuščias
       confirmation: neatitinka %{attribute}
@@ -1947,12 +1927,10 @@ lt:
         download_open_data: Parsisiųsti atvirųjų duomenų rinkmenas
         made_with_open_source: Interneto svetainė sukurta naudojant <a target="_blank" href="https://github.com/decidim/decidim">atvirą programinę įrangą</a>.
         resources: Ištekliai
-        sign_in: Prisijungti
         sign_up: Registruotis
         terms_and_conditions: Nuostatos ir sąlygos
       header:
         main_menu: Pagrindinis meniu
-        sign_in: Prisijungti
         user_menu: Naudotojo meniu
       impersonation_warning:
         close_session: Uždaryti seansą
@@ -1973,7 +1951,6 @@ lt:
       timeout_modal:
         body: Nebuvote aktyvus(-i) %{minutes} minučių. Jei nenorite grįžti į platformą, dėl Jūsų saugumo paprašysime Jūsų prisijungti iš naujo.
         continue_session: Tęsti seansą
-        sign_out: Atsijungti
         title: Ar norite tęsti seansą?
       upload_modal:
         close_modal: Uždaryti modalinį langą
@@ -1985,7 +1962,6 @@ lt:
         notifications: Pranešimai
         profile: Mano paskyra
         public_profile: Mano viešas profilis
-        sign_out: Atsijungti
         title: Profilio nuorodos
       user_profile:
         account: Paskyra
