@@ -539,7 +539,6 @@ fr:
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
           nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
-          sign_in: S'identifier
           sign_up: Créer un compte
           sign_up_as:
             legend: Créer un compte en tant que
@@ -1656,8 +1655,6 @@ fr:
       updated: Votre compte a été mis à jour avec succès.
     sessions:
       already_signed_out: Déconnecté(e) avec succès.
-      new:
-        sign_in: S'identifier
       signed_in: Connexion réussie.
       signed_out: Déconnecté(e) avec succès.
     shared:
@@ -1666,7 +1663,6 @@ fr:
         didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
         didn_t_receive_unlock_instructions: Si la plateforme vous indique que votre compte est bloqué, cliquez ici pour recevoir les instructions de déblocage
         forgot_your_password: Mot de passe oublié?
-        sign_in: S'identifier
         sign_in_with_provider: S'identifier avec %{provider}
         sign_up: Créer un compte
       minimum_password_length:
