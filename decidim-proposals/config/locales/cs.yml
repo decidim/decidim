@@ -683,6 +683,12 @@ cs:
           filter: Filtr
           filter_by: Filtrovat podle
           unfold: Rozvinout
+        index:
+          count:
+            one: "%{count} návrh spolupráce"
+            few: "%{count} návrh spolupráce"
+            many: "%{count} návrh spolupráce"
+            other: "%{count} návrh spolupráce"
         name: Koncepty spolupráce
         new:
           add_file: Přidat soubor
@@ -814,6 +820,11 @@ cs:
         index:
           click_here: Zobrazit všechny návrhy
           collaborative_drafts_list: Přístup ke konceptům spolupráce
+          count:
+            one: "%{count} návrh"
+            few: "%{count} návrhů"
+            many: "%{count} návrhů"
+            other: "%{count} návrhů"
           new_proposal: Nový návrh
           see_all: Zobrazit všechny návrhy
           see_all_withdrawn: Podívejte se na všechny stažené návrhy
