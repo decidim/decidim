@@ -289,7 +289,6 @@ es:
             select_an_area: Selecciona un área
             select_an_assembly_type: Selecciona un tipo de asamblea
             select_parent_assembly: Selecciona una asamblea principal
-            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
             title: Información general
             visbility: Visibilidad
@@ -301,13 +300,9 @@ es:
         assemblies_types:
           form:
             title: Título
-        assembly_copies:
-          form:
-            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_imports:
           form:
             document_legend: Añadir un documento
-            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_members:
           form:
             existing_user: Participante existente
