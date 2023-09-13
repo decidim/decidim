@@ -156,7 +156,6 @@ es-MX:
         show:
           answer_questionnaire:
             already_have_an_account?: '¿Ya tienes una cuenta?'
-            anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_link}">regístrese</a> para responder al cuestionario.
             are_you_new?: '¿Eres una nueva usuaria?'
             sign_in_description: Inicia tu sesión para responder la encuesta
             sign_up_description: Crea una cuenta de participante para realizar la encuesta
