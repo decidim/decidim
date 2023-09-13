@@ -372,6 +372,9 @@ cs:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_copies:
+          form:
+            slug_help: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadata
@@ -380,8 +383,10 @@ cs:
         participatory_process_imports:
           form:
             document_legend: Přidat dokument
+            slug_help: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         participatory_process_steps:
           form:
+            cta_path_help: 'Zde použijte částečné cesty, nikoli úplné adresy URL. Jsou povolena písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Příklad: %{url}'
             cta_text_help: Není-li nastaveno, tlačítko se nezobrazí.
         participatory_processes:
           form:
@@ -395,6 +400,7 @@ cs:
             scope_type_max_depth_help: Omezit hloubku filtru rozsahu. Filtr se zobrazí od obecného k vybranému typu rozsahu.
             select_an_area: Vyberte oblast
             select_process_group: Vyberte skupinu procesů
+            slug_help: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Obecná informace
             visbility: Viditelnost
       content_blocks:
