@@ -255,13 +255,18 @@ describe "Authentication", type: :system do
   end
 
   describe "Confirm email" do
-    it "confirms the user" do
+    it "confirms and logs in the user" do
       perform_enqueued_jobs { create(:user, organization:) }
 
       visit last_email_link
 
       expect(page).to have_content("successfully confirmed")
       expect(last_user).to be_confirmed
+
+      within_user_menu do
+        expect(page).to have_content("My account")
+        expect(page).to have_content("Sign out")
+      end
     end
   end
 
