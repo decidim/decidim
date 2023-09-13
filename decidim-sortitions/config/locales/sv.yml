@@ -93,8 +93,6 @@ sv:
           all: Alla
           cancelled: Avbrutna
           category: Kategori
-          category_prompt: Välj en kategori
-          search: Sök
           state: Status
         linked_sortitions:
           selected_proposals: Utvalda förslag
