@@ -424,11 +424,9 @@ fi:
         create:
           invalid: Konferenssiin ilmoittautuminen epäonnistui.
           success: Ilmoittautuminen konferenssiin onnistui.
-          unauthorized: Sinun täytyy kirjautua sisään hyväksyäksesi konferenssikutsun.
         decline_invitation:
           invalid: Kutsun hylkääminen epäonnistui.
           success: Kutsun hylkääminen onnistui.
-          unauthorized: Sinun täytyy kirjautua sisään hylätäksesi konferenssikutsun.
         destroy:
           invalid: Konferenssista poistuminen epäonnistui.
           success: Konferenssista poistuminen onnistui.
