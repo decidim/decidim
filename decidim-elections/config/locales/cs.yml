@@ -1071,6 +1071,7 @@ cs:
             select_a_voting_type: Vyberte prosím typ hlasování
             show_check_census_help: Zda zobrazit odkaz "Mohu hlasovat?" v nabídce veřejného hlasování
             slug: Slug
+            slug_help: 'URL slug se používá k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Název
             voting_type:
               hybrid: Hybridní
