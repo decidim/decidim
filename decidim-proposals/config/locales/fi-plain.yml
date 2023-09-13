@@ -668,6 +668,10 @@ fi-pl:
           filter: Rajaa
           filter_by: Rajaa hakua
           unfold: Avaa
+        index:
+          count:
+            one: "%{count} yhteistyöluonnos"
+            other: "%{count} yhteistyöluonnosta"
         name: Yhteistyöluonnokset
         new:
           add_file: Lisää tiedosto
@@ -797,6 +801,9 @@ fi-pl:
         index:
           click_here: Näytä kaikki ehdotukset
           collaborative_drafts_list: Mene yhteistyöluonnoksiin
+          count:
+            one: "%{count} ehdotus"
+            other: "%{count} ehdotusta"
           new_proposal: Uusi ehdotus
           see_all: Näytä kaikki ehdotukset
           see_all_withdrawn: Näytä kaikki peruutetut ehdotukset
