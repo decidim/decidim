@@ -1061,7 +1061,6 @@ lt:
             promoted: Paremta
             select_a_voting_type: Pasirinkite balsavimo tipą
             slug: Nuorodos dalis
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkretų balsavimą. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
             title: Pavadinimas
             voting_type:
               hybrid: Hibridinis
