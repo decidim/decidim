@@ -669,6 +669,10 @@ fr-CA:
           filter: Filtre
           filter_by: Filtrer par
           unfold: Se dérouler
+        index:
+          count:
+            one: "%{count} brouillon collaboratif"
+            other: "%{count} brouillons collaboratifs"
         name: Brouillons collaboratifs
         new:
           add_file: Ajouter un fichier
@@ -798,6 +802,9 @@ fr-CA:
         index:
           click_here: Voir toutes les propositions
           collaborative_drafts_list: Accéder aux brouillons collaboratifs
+          count:
+            one: "%{count} proposition"
+            other: "%{count} propositions"
           new_proposal: Nouvelle proposition
           see_all: Voir toutes les propositions
           see_all_withdrawn: Voir toutes les propositions retirées
