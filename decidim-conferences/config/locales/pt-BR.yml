@@ -311,9 +311,6 @@ pt-BR:
         title: caixas de som
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Os slugs de URL são usados ​​para gerar as URLs que apontam para esta conferência. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         conference_invites:
           create:
             error: Houve um problema ao convidar o usuário para participar da conferência.
@@ -354,7 +351,6 @@ pt-BR:
             registrations_count:
               one: Houve 1 registro.
               other: Houve %{count} inscrições.
-            slug_help: 'Os slugs de URL são usados ​​para gerar as URLs que apontam para esta conferência. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         diplomas:
           edit:
             save: Salve 
