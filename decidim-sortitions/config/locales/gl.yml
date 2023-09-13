@@ -93,8 +93,6 @@ gl:
           all: Todo
           cancelled: Cancelada
           category: Categoría
-          category_prompt: Selecciona unha categoría
-          search: Busca
           state: Estado
         linked_sortitions:
           selected_proposals: Propostas seleccionadas
