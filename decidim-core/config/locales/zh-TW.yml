@@ -570,7 +570,6 @@ zh-TW:
         ready: 準備就緒
       show:
         download_data: 下載資料
-        download_data_description: 一個包含所有與您的帳戶相關的資訊的檔案將會寄到 <strong>%{user_email}</strong>。此電子郵件將包含一個 .zip 檔案和一個解壓縮密碼。<br/><br/>若要解壓縮此檔案，您需要使用 <a href="https://www.7-zip.org/">7-Zip</a> (Windows) 或 <a href="https://www.keka.io/">Keka</a> (MacOS)。如果您使用 Linux，大多數情況下您已經預設安裝了解壓縮軟體。如果還沒有，您可以使用 <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> 或 <a href="https://peazip.github.io">PeaZip</a>。
         request_data: 請求數據
     editor_images:
       create:
