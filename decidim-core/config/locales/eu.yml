@@ -480,6 +480,7 @@ eu:
           hide_password: Pasahitza ezkutatu
           show_password: Erakutsi pasahitza
           shown_password: Zure pasahitza ikusgarri dago
+        placeholder_email: kaixo@adibide.org
     doorkeeper:
       authorizations:
         new:
