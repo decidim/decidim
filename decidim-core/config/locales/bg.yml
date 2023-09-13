@@ -396,7 +396,6 @@ bg:
           newsletter: Получавайте извънреден бюлетин с подходяща информация
           newsletter_title: Разрешение за контакт с Вас
           password_help: "Минимум %{minimun_characters} символа, не трябва да са разпространени (например, 123456) и трябва да са различни от вашите име и ел. поща."
-          sign_in: Вход
           sign_up: Регистрация
           sign_up_as:
             legend: Регистрация като
@@ -1276,8 +1275,6 @@ bg:
       updated: Профилът Ви беше обновен успешно.
     sessions:
       already_signed_out: Излязохте успешно.
-      new:
-        sign_in: Вход
       signed_in: Влязохте успешно.
       signed_out: Излязохте успешно.
     shared:
@@ -1286,7 +1283,6 @@ bg:
         didn_t_receive_confirmation_instructions: Не получихте инструкции за потвърждение?
         didn_t_receive_unlock_instructions: Не получихте инструкции за отключване?
         forgot_your_password: Забравили сте паролата си?
-        sign_in: Вход
         sign_in_with_provider: Влез със %{provider}
         sign_up: Регистрация
       minimum_password_length:
