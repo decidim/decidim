@@ -200,7 +200,6 @@ uk:
           already_have_an_account?: Вже маєте обліковий запис?
           newsletter: Отримувати іноді розсилання зі свіжими новинами
           newsletter_title: Дозвіл на зв'язок
-          sign_in: Увійти
           sign_up: Зареєструватися
           subtitle: Зареєструйтесь, щоб брати участь у обговореннях та підтримувати пропозиції.
           tos_agreement: Реєструючись, ви приймаєте %{link}.
@@ -431,10 +430,7 @@ uk:
         report: Поскаржитись
         spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або лохотрони.
         title: Поскаржитись на ускладнення
-      follow_button:
-        sign_in_before_follow: Будь ласка, увійдіть, перш ніж виконувати цю дію
       login_modal:
-        please_sign_in: Будь ласка, увійдіть
         sign_up: Зареєструватися
       reference:
         reference: 'Посилання на джерело: %{reference}'
@@ -490,8 +486,6 @@ uk:
       footer:
         made_with_open_source: Цей веб-сайт створено за допомогою <a target="_blank" href="https://github.com/decidim/decidim">безкоштовного програмного забезпечення</a>.
         sign_up: Зареєструватися
-      header:
-        sign_in: Увійти
       impersonation_warning:
         close_session: Завершити сеанс
         description_html: Ви виступаєте в ролі учасника <b>%{user_name}</b>.
@@ -504,7 +498,6 @@ uk:
         notifications: Сповіщення
         profile: Мій обліковий запис
         public_profile: Мій загальнодоступний профіль
-        sign_out: Вийти
       user_profile:
         account: Обліковий запис
         authorizations: Підтвердження особи
