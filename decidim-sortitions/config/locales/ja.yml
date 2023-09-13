@@ -96,8 +96,6 @@ ja:
           all: すべて
           cancelled: キャンセルしました
           category: カテゴリ
-          category_prompt: カテゴリを選択
-          search: 検索
           state: ステータス
         linked_sortitions:
           selected_proposals: 選択された提案
