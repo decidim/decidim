@@ -398,7 +398,6 @@ lb:
           already_have_an_account?: Hues du schonn en Kont?
           newsletter: Heiansdo en Newsletter mat relevanten Informatiounen zougeschéckt kréien
           newsletter_title: Erlabnis Kontakt opzehuelen
-          sign_in: Umelden
           sign_up: Registréieren
           subtitle: Registréier dech fir bei Diskussiounen mat ze maachen an Virschléi ze ënnerstëtzen.
           tos_agreement: Mat der Umeldung erkläers du dech mat %{link} averstane.
@@ -408,8 +407,6 @@ lb:
         new:
           are_you_new?: Nei op dëser Plattform?
           register: Kont uleeën
-        user:
-          timed_out: Sie waren zu lange inaktiv und wurden automatisch abgemeldet. Wenn Sie den Dienst weiterhin nutzen möchten, melden Sie sich bitte erneut an.
       shared:
         newsletter_modal:
           buttons:
@@ -1019,10 +1016,7 @@ lb:
         title: Notzer mellen den net zoulässeg ass
       floating_help:
         help: Hëllef
-      follow_button:
-        sign_in_before_follow: Mell dech w. e. g. un, éier s'du dës Aktioun ausféiers
       login_modal:
-        please_sign_in: W. e. g. umellen
         sign_up: Registréieren
       participatory_space_filters:
         filters:
@@ -1126,8 +1120,6 @@ lb:
       last_attempt: Du hues nach een Essai, éier däin Kont gespaart gëtt.
       locked: Däin Kont ass gespaart.
       not_found_in_database: Ongülteg %{authentication_keys} oder Passwuert.
-      timeout: Deng Sëtzung ass ofgelaf. Mell dech w. e. g. op en Neits un, fir weider ze maachen.
-      unauthenticated: Du muss dech umellen oder registréieren, éier s'de weider kanns maachen.
     invitations:
       edit:
         header: D'Erstellen vun dengem Kont ass fäerdeg
@@ -1174,7 +1166,6 @@ lb:
         action: Entspäert mäin Kont
         greeting: Moien %{recipient}!
         instruction: 'Klickt op de Link hei ënnen fir Äre Kont z''entspären:'
-        message: Däin Kont gouf gespaart wéinst enger exzessiver Zuel vun net erfollegräichen Versich dech unzemellen.
         subject: Instruktiounen fir ze entspären
     omniauth_callbacks:
       failure: 'Du konnts net mam %{kind}-Account ugemellt ginn. Grond: "%{reason}".'
@@ -1202,18 +1193,10 @@ lb:
       signed_up_but_unconfirmed: Du krus eng Noriicht op den Email-Adress geschéckt. Klick do op de Link, fir däin Kont ze aktivéieren.
       update_needs_confirmation: Du hues däin Kont aktivéiert, mir kontrolléieren deng Email-Adress. W. e. g. iwwerpréif deng Email-Agäng an klick do op de Link fir deng nei Adress ze bestätegen.
       updated: Däin Kont gouf aktualiséiert.
-    sessions:
-      already_signed_out: Du bass elo ausgeloggt.
-      new:
-        sign_in: Aloggen
-      signed_in: Du bass elo ageloggt.
-      signed_out: Du bass elo ausgeloggt.
     shared:
       links:
         back: Zréck
         forgot_your_password: Passwuert vergiess?
-        sign_in: Umellen
-        sign_in_with_provider: Registréier dech iwwer %{provider}
         sign_up: Registréieren
       minimum_password_length:
         one: "(%{count} Minimum Zeechen)"
@@ -1223,13 +1206,11 @@ lb:
         resend_unlock_instructions: Instruktiounen fir ze entspären nach eng Kéier schécken
       send_instructions: Du kriss bannent e puer Minutten en Email mat den Instruktiounen fir ze entspären.
       send_paranoid_instructions: Mat engem valabelen Benotzer-Kont kriss du bannent Minutten en Email mat Instruktiounen fir ze entspären.
-      unlocked: Däin Kont ass entspärt ginn. Mell dech w. e. g. un fir weider ze fueren.
   doorkeeper:
     scopes:
       public: Deng ëffentlech Informatiounen.
   errors:
     messages:
-      already_confirmed: Gouf bestätegt, w.e.g. probéier dech ze registréieren
       confirmation_period_expired: muss bannent %{period} bestätegt ginn, fro w. e. g. en neit un
       content_type_allowlist_error: dësen Typ Datei ass net gülteg
       expired: ass ofgelaf, w. e. g. eng nei Ufro maachen
@@ -1271,7 +1252,6 @@ lb:
         sign_up: Registréieren
       header:
         main_menu: Hauptmenü
-        sign_in: Umellen
         user_menu: Benotzer-Menü
       impersonation_warning:
         close_session: Sëtzung zoumaachen
@@ -1290,7 +1270,6 @@ lb:
       timeout_modal:
         body: Du wos säit %{minutes} Minutten inaktiv. Wann s'du weider inaktiv bleifs, gëss de aus Sécherheetsgrënn ofgemellt.
         continue_session: Sëtzung fortsetzen
-        sign_out: Ofmellen
         title: Wëlls du deng Sëtzung weiderféieren?
       user_menu:
         account: 'Benotzer-Kont: %{name}'
@@ -1299,7 +1278,6 @@ lb:
         notifications: Noriichten
         profile: Mäin Kont
         public_profile: Mäin ëffentlechen Profil
-        sign_out: Ofmellen
         title: Profil-Links
       user_profile:
         account: Kont
