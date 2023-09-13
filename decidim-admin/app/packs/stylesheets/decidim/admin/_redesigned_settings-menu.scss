@@ -17,7 +17,15 @@
   }
 
   &__container {
-    @apply flex items-start gap-x-12 first:[&>*]:hidden lg:first:[&>*]:block;
+    @apply flex flex-col md:flex-row items-stretch gap-6 md:gap-12;
+
+    [id*="dropdown-menu"] {
+      @apply py-3.5;
+
+      [aria-hidden="false"] {
+        @apply block;
+      }
+    }
   }
 
   & + * {
