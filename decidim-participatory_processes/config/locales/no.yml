@@ -356,9 +356,6 @@
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadata
@@ -367,10 +364,8 @@
         participatory_process_imports:
           form:
             document_legend: Legg til et dokumentet
-            slug_help: 'URL-navn brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Bruk delte baner, ikke fullstendige nettadresser her. Godtar bokstaver, tall, streker og skråstreker, og må starte med en bokstav. Hvis den ikke er satt, vises ikke knappen. Eksempel: %{url}'
             cta_text_help: Hvis ikke angitt, vil ikke knappen vises.
         participatory_processes:
           form:
@@ -384,7 +379,6 @@
             scope_type_max_depth_help: Begrens temaets filternivå; Filteret viser fra generelt til valgt tematype.
             select_an_area: Velg et Område
             select_process_group: Velg en prosessgruppe
-            slug_help: 'URL-navn brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
             title: Generell informasjon
             visbility: Synlighet
       content_blocks:
