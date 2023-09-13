@@ -130,7 +130,6 @@ eu:
           more_than_one: ezabatu zure botoa hemen %{name} eta hasi berriro
           only_one: ezabatu zure botoa eta hasi berriro.
         highlighted_cta: Botoa eman hemen %{name}
-        my_budgets: Nire aurrekontuak
         progress: Amaitu bozketa
         show: Ikusi proiektuak
         vote: Eman botoa
