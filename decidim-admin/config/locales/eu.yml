@@ -590,7 +590,7 @@ eu:
           fields:
             created_at: Sortze-data
             email: Helbide elektronikoa
-            last_sign_in_at: Identifikazioaren azken-data
+            last_sign_in_at: Azken konexioaren data
             name: Izena
             role: Rola
             roles:
