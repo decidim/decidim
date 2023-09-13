@@ -588,6 +588,7 @@ ca:
       registrations:
         new:
           already_have_an_account?: Ja tens un compte?
+          log_in: Entra
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           newsletter_title: Permís de contacte
           sign_up: Registra't
@@ -602,6 +603,8 @@ ca:
           register: Crea't un compte
           sign_in_disabled: Pots accedir amb un compte extern.
           sign_up_disabled: El registre està deshabilitat, pots fer servir un compte existent per accedir-hi.
+        user:
+          timed_out: Has estat sense activitat durant massa temps i la teva sessió s'ha tancat automàticament. Si vols continuar participant, torna a iniciar sessió.
       shared:
         newsletter_modal:
           buttons:
@@ -629,6 +632,7 @@ ca:
           authorize: Autoritza l'aplicació
           by_organization_link_html: <small class="heading-small">per %{link}</small>
           cancel: Cancel·lar
+          connect_your_account_html: Connecta el teu compte iniciant la sessió a %{organization}.
           publish_content: Publica el contingut per a tu
           see_email: Consulta el teu correu electrònic
           see_name: Veure el teu nom
@@ -1475,7 +1479,10 @@ ca:
         title: Reportar contingut inapropiat
       floating_help:
         help: Ajuda
+      follow_button:
+        log_in_before_follow: Si us plau, inicia sessió abans de realitzar aquesta acció
       login_modal:
+        please_log_in: Si us plau, inicia la sessió
         sign_up: Registra't
       mentions_modal:
         remove_recipient: Eliminar destinatària %{name}
