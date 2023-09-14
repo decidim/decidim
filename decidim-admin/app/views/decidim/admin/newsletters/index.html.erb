@@ -1,11 +1,11 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title gap-x-4">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t ".title" %>
       <div class="flex ml-auto items-center gap-x-4">
-        <strong class="subscribed_title"><%= t("newsletters.index.subscribed_count", scope: "decidim.admin") %></strong>
-        <span class="subscribed_count"><%= recipients_count_query %></span>
+        <strong class="font-bold text-md text-gray-2"><%= t("newsletters.index.subscribed_count", scope: "decidim.admin") %></strong>
+        <span class="subscribed_count font-semibold text-md text-gray-2"><%= recipients_count_query %></span>
         <% if allowed_to? :create, :newsletter %>
           <%= link_to t("actions.newsletter.new", scope: "decidim.admin"), [:newsletter_templates], class: "button button__sm button__secondary new" %>
         <% end %>
