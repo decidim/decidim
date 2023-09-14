@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t("decidim.admin.titles.scopes")) %>
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <% if parent_scope %>
         <%= scope_breadcrumbs(parent_scope).join(" - ").html_safe %> <%= link_to t("actions.add", scope: "decidim.admin"), new_scope_scope_path(parent_scope), class: "button button__sm button__secondary" if allowed_to? :create, :scope %><%= link_to t("actions.edit", scope: "decidim.admin"), edit_scope_path(parent_scope), class: "button button__sm button__secondary" if allowed_to? :edit, :scope, scope: parent_scope %>
       <% else %>

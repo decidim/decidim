@@ -1,3 +1,9 @@
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t "decidim.admin.menu.help_sections" %>
+  </h2>
+</div>
+
 <div class="item__edit-form">
   <%= decidim_form_for(form, url: help_sections_path, method: :put, html: { class: "form-defaults form help_sections" }) do |f| %>
     <% f.object.sections.each do |section| %>
