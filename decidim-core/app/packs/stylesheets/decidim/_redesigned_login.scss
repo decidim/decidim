@@ -10,10 +10,6 @@
   &__omniauth {
     @apply flex flex-col items-center gap-8 text-gray-2 font-semibold w-fit mx-auto;
 
-    &-container {
-      @apply border-t-2 border-background pt-10;
-    }
-
     &-button {
       @apply button button__xl border border-gray shadow-[0_4px_6px_rgba(211,211,211,0.25)] justify-start gap-8 text-lg w-full;
 

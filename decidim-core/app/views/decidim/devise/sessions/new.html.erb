@@ -23,11 +23,9 @@
     <% end %>
   </div>
 
-  <div class="login__omniauth-container">
-    <% cache current_organization do %>
-      <%= render "decidim/devise/shared/omniauth_buttons" %>
-    <% end %>
-  </div>
+  <% cache current_organization do %>
+    <%= render "decidim/devise/shared/omniauth_buttons" %>
+  <% end %>
 
   <% if current_organization.sign_in_enabled? %>
     <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name) ) do |f| %>
