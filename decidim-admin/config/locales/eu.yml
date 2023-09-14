@@ -37,6 +37,9 @@ eu:
         user_group_id: Inportatu hau bezala
       newsletter:
         body: Testua
+        send_to_all_users: Bidali erabiltzaile guztiei
+        send_to_followers: Bidali jarraitzaileei
+        send_to_participants: Bidali parte-hartzaileei
         subject: Gaia
       organization:
         admin_terms_of_service_body: Administratzailearen zerbitzu-baldintzen testuaren gorputza
@@ -767,6 +770,7 @@ eu:
             saturation: Saturazioa
             title: Kolore-hautatzailea
             update_suggested_colors: Kolore iradokitzaileak eguneratu
+          cta_button_path_help_html: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batetik hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongietorri-testuaren eta deskribapenaren artean. Adibidez:%{url}'
           cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundeko hizkuntza bakoitzarentzat. Ezartzen bada, balio lehenetsia erabiliko da. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena.
           homepage_appearance_title: Editatu orriaren itxura
           homepage_highlighted_content_banner_title: Highligted edukien banner
