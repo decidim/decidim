@@ -64,6 +64,11 @@ de:
             official_blog_post: Offizieller Post
             published_at: Veröffentlicht am
             title: Titel
+      posts:
+        index:
+          count:
+            one: "%{count} Beitrag"
+            other: "%{count} Beiträge"
     components:
       blogs:
         actions:
