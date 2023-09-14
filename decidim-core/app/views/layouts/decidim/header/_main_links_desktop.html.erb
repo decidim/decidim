@@ -18,8 +18,8 @@
 
 <% if !current_user %>
   <div>
-    <%= link_to decidim.new_user_session_path, class: "main-bar__links-desktop__item", "aria-label": t("layouts.decidim.header.sign_in") do %>
-      <%= icon "login-box-line" %><span><%= t("layouts.decidim.header.sign_in") %></span>
+    <%= link_to decidim.new_user_session_path, class: "main-bar__links-desktop__item", "aria-label": t("layouts.decidim.header.log_in") do %>
+      <%= icon "login-box-line" %><span><%= t("layouts.decidim.header.log_in") %></span>
     <% end %>
   </div>
 <% else %>

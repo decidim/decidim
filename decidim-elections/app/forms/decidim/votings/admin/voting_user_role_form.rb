@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     module Admin
-      class MonitoringCommitteeMemberForm < Decidim::Form
+      class VotingUserRoleForm < Decidim::Form
         attribute :name, String
         attribute :email, String
         attribute :user_id, Integer

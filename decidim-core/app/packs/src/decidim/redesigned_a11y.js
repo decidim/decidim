@@ -73,11 +73,13 @@ const createDialog = (component) => {
     closingSelector: `[data-dialog-close="${dialog}"]`,
     backdropSelector: `[data-dialog="${dialog}"]`,
     enableAutoFocus: false,
-    onOpen: (params) => {
+    onOpen: (params, trigger) => {
       setFocusOnTitle(params);
+      window.focusGuard.trap(trigger);
       params.dispatchEvent(new CustomEvent("open.dialog"));
     },
     onClose: (params) => {
+      window.focusGuard.disable();
       params.dispatchEvent(new CustomEvent("close.dialog"));
     },
     // optional parameters (whenever exists the id, it will add the tagging)

@@ -11,7 +11,7 @@
   <%= decidim_form_for(Decidim::User.new, namespace: "login", as: :user, url: path, html: { class: nil }) do |f| %>
     <div data-dialog-container>
       <%= icon "login-box-line", class: "w-6 h-6 text-gray fill-current" %>
-      <h3 id="dialog-title-loginModal" class="h3"><%= t(".please_sign_in") %></h3>
+      <h3 id="dialog-title-loginModal" class="h3"><%= t(".please_log_in") %></h3>
       <div>
         <% if current_organization.sign_in_enabled? %>
           <% cache current_organization do %>
@@ -19,9 +19,9 @@
           <% end %>
 
           <div class="form__wrapper">
-            <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
+            <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
 
-            <%= f.password_field :password, autocomplete: "current-password", placeholder: "••••••" %>
+            <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
           </div>
 
           <div class="login__modal-links">
@@ -44,7 +44,7 @@
           <%= t("cancel", scope: "decidim.admin.actions") %>
         </button>
         <button type="submit" class="button button__lg button__secondary">
-          <%= t("devise.sessions.new.sign_in") %>
+          <%= t("devise.sessions.new.log_in") %>
           <%= icon "arrow-right-line", class: "fill-current" %>
         </button>
       </div>

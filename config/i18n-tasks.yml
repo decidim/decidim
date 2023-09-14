@@ -219,6 +219,7 @@ ignore_unused:
   # integration in budgets. Remove the following line after doing it
   - decidim.budgets.projects.filters.*
   - decidim.sortitions.admin_log.*
+  - decidim.sortitions.sortitions.filters.*
   - decidim.sortitions.sortitions.orders.*
   - decidim.votings.admin_log.*
   - decidim.votings.votings.filters.*
