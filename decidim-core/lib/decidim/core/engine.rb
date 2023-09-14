@@ -696,6 +696,13 @@ module Decidim
           service.optional_params = %w(hashtags via)
         end
 
+        Decidim.register_social_share_service("X") do |service|
+          service.icon = "twitter-x-line"
+          service.icon_color = "#000000"
+          service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
+          service.optional_params = %w(hashtags via)
+        end
+
         Decidim.register_social_share_service("Vkontakte") do |service|
           service.icon = "vkontakte.svg"
           service.share_uri = "http://vk.com/share.php?url=%{url}&title=%{title}&image=%{image}"

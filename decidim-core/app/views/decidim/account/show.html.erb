@@ -42,8 +42,8 @@
         <%= t("available_locales_helper", scope:"decidim.account.show") %>
       </p>
 
-      <% if @account.errors[:password].any? || @account.errors[:password_confirmation].any? %>
-        <%= render partial: "password_fields", locals: { form: f } %>
+      <% if @account.errors[:password].any? %>
+        <%= render partial: "password_fields", locals: { form: f, user: current_user } %>
       <% else %>
         <% if current_organization.sign_in_enabled? %>
           <div data-component="accordion" id="accordion-password">
@@ -51,7 +51,7 @@
               <%= t("change_password", scope:"decidim.account.show") %>
             </span>
             <div id="panel-password" class="form__wrapper">
-              <%= render partial: "password_fields", locals: { form: f } %>
+              <%= render partial: "password_fields", locals: { form: f, user: current_user } %>
             </div>
           </div>
         <% end %>

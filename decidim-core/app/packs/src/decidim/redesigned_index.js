@@ -109,11 +109,8 @@ Rails.start()
  * @returns {void}
  */
 const initializer = (element = document) => {
-  let focusContainer = element;
-  if (element === document) {
-    focusContainer = document.querySelector("body");
-  }
-  window.focusGuard = new FocusGuard(focusContainer);
+  // focus guard must be initialized only once
+  window.focusGuard = window.focusGuard || new FocusGuard(document.body);
 
   // REDESIGN_PENDING: deprecated
   $(element).foundation();

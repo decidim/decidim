@@ -1,7 +1,7 @@
 import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
 
 $(() => {
-  const $participantType = $("#polling_officer_existing_user");
+  const $participantType = $("#voting_user_role_existing_user");
 
   createFieldDependentInputs({
     controllerField: $participantType,

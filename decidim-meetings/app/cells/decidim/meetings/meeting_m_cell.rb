@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     # This cell renders the Medium (:m) meeting card
-    # for an given instance of a Meeting
+    # for a given instance of a Meeting
     class MeetingMCell < Decidim::CardMCell
       include MeetingCellsHelper
 

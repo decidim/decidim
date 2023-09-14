@@ -3,8 +3,7 @@
 module Decidim
   class PasswordForm < Form
     attribute :password
-    attribute :password_confirmation
 
-    validates :password, confirmation: true
+    validates :password, presence: true
   end
 end
