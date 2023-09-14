@@ -18,8 +18,7 @@
 
     <div class="row">
       <div class="columns xlarge-6 slug">
-        <%= form.text_field :slug %>
-        <p class="help-text"><%== t(".slug_help", url: decidim_form_slug_url(:conferences, form.object.slug)) %></p>
+        <%= form.text_field :slug, help_text: t(".slug_help_html", url: decidim_form_slug_url(:conferences, form.object.slug)) %>
       </div>
 
       <div class="columns xlarge-6">
@@ -83,8 +82,7 @@
 
     <div class="row column">
       <p><%= t(".registrations_count", count: current_participatory_space.present? ? current_participatory_space.conference_registrations.count : 0) %></p>
-      <%= form.number_field :available_slots %>
-      <p class="help-text"><%= t(".available_slots_help") %></p>
+      <%= form.number_field :available_slots, help_text: t(".available_slots_help") %>
     </div>
 
     <div class="row column" id="conference_registrations_terms">

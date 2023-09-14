@@ -648,7 +648,7 @@ Separate each item of the array with a comma AND a space, for instance:
 |The social networking services that will be available when using the "Share" feature on some resources.
 
 See xref:customize:social_shares.adoc[Social shares services documentation]
-|Twitter, Facebook, WhatsApp, Telegram
+|X, Facebook, WhatsApp, Telegram
 |No
 
 |DECIDIM_ALLOW_OPEN_REDIRECTS

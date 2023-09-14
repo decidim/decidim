@@ -138,11 +138,11 @@
   }
 
   &__container {
-    @apply absolute top-0 right-0 -translate-y-full;
+    @apply -translate-y-full;
   }
 
   &__text {
-    @apply font-normal inline-block text-xs text-gray-2;
+    @apply font-normal inline-block text-xs text-gray-2 float-right mt-1;
   }
 }
 

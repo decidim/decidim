@@ -157,7 +157,6 @@ en:
         show:
           answer_questionnaire:
             already_have_an_account?: Already have an account?
-            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the form.
             are_you_new?: New user?
             sign_in_description: Login to take the survey
             sign_up_description: Create a participant account to take the survey

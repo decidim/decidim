@@ -21,7 +21,7 @@
       <% if current_organization.sign_up_enabled? %>
         <li class="font-semibold underline"><%= link_to t("layouts.decidim.footer.sign_up"), decidim.new_user_registration_path %></li>
       <% end %>
-      <li class="font-semibold underline"><%= link_to t("layouts.decidim.footer.sign_in"), decidim.new_user_session_path %></li>
+      <li class="font-semibold"><%= link_to t("layouts.decidim.footer.log_in"), decidim.new_user_session_path %></li>
     <% end %>
   </ul>
 </nav>

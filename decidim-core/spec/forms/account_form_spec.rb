@@ -10,7 +10,6 @@ module Decidim
         email:,
         nickname:,
         password:,
-        password_confirmation:,
         avatar:,
         remove_avatar:,
         personal_url:,
@@ -29,7 +28,6 @@ module Decidim
     let(:email) { "depths@ofthe.bar" }
     let(:nickname) { "foo_bar" }
     let(:password) { "Rf9kWTqQfyqkwseH" }
-    let(:password_confirmation) { password }
     let(:avatar) { upload_test_file(Decidim::Dev.test_file("avatar.jpg", "image/jpeg")) }
     let(:remove_avatar) { false }
     let(:personal_url) { "http://example.org" }
