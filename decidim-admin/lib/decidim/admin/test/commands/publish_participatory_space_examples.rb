@@ -83,7 +83,7 @@ shared_examples "Unpublicable space" do |participatory_manifest_name|
     it "traces the action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:perform_action!)
-        .with(:unpublish, participatory_space, user)
+        .with(:unpublish, participatory_space, user, visibility: "all")
         .and_call_original
 
       expect { subject.call }.to change(Decidim::ActionLog, :count)

@@ -18,8 +18,6 @@ module Decidim
 
         private
 
-        def default_options = {}
-
         def send_notification
           return unless participatory_space.registrations_enabled?
 

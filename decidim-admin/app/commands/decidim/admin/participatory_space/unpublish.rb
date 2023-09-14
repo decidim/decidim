@@ -34,7 +34,7 @@ module Decidim
 
         attr_reader :participatory_space, :user
 
-        def default_options = {}
+        def default_options = { visibility: "all" }
       end
     end
   end

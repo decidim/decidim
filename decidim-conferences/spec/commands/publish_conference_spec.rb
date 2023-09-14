@@ -6,7 +6,6 @@ describe "Conference can be published", type: :system do
   it_behaves_like "Publicable space", :conference do
     let(:tested) { Decidim::Conferences::Admin::PublishConference }
     let(:follow) { create(:follow, followable: participatory_space, user:) }
-    let(:default_options) { {} }
     let(:space_options) { { registrations_enabled: true } }
 
     it "notifies the change" do
