@@ -13,19 +13,17 @@
         <%= form.translated :editor, :description, aria: { label: :description } %>
       </div>
 
-      <div class="row">
-        <div class="columns xlarge-6 slug">
-          <%= form.text_field :cta_button_path %>
-          <p class="help-text"><%== t(".cta_button_path_help", url: decidim_form_slug_url("", form.object.cta_button_path)) %></p>
-        </div>
+    <div class="row">
+      <div class="columns xlarge-6 slug">
+        <%= form.text_field :cta_button_path, help_text: t(".cta_button_path_help_html", url: decidim_form_slug_url("", form.object.cta_button_path)) %>
+      </div>
 
-        <div class="columns xlarge-6">
-          <%= form.translated :text_field, :cta_button_text, aria: { label: :cta_button_text } %>
-          <p class="help-text"><%= t(".cta_button_text_help") %></p>
-        </div>
+      <div class="columns xlarge-6">
+        <%= form.translated :text_field, :cta_button_text, help_text: t(".cta_button_text_help") %>
       </div>
     </div>
   </div>
+</div>
 
   <div class="card" data-component="accordion" id="accordion-homepage_highlighted_content_banner_title">
     <div class="card-divider">

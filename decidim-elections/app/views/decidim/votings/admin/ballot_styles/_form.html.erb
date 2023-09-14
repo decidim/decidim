@@ -5,8 +5,7 @@
     </div>
     <div class="card-section">
       <div class="row column">
-        <%= form.text_field :code, autofocus: true %>
-        <p class="help-text"><%= t(".code_help") %></p>
+        <%= form.text_field :code, autofocus: true, help_text: t(".code_help") %>
       </div>
 
       <div class="row column">

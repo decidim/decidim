@@ -79,7 +79,7 @@ module Decidim
         let(:validator) { instance_double(ValidEmail2::Address) }
 
         before do
-          form.email = "new@email.com"
+          form.email = "new@example.com"
 
           allow(ValidEmail2::Address).to receive(:new).and_return(validator)
           allow(validator).to receive(:valid?).and_return(true)
@@ -94,7 +94,7 @@ module Decidim
           expect do
             perform_enqueued_jobs { command.call }
           end.to broadcast(:ok, true)
-          expect(last_email.to).to include("new@email.com")
+          expect(last_email.to).to include("new@example.com")
         end
       end
 

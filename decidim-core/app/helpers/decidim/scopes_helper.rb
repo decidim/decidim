@@ -86,14 +86,16 @@ module Decidim
     # Renders a scopes picker field in a filter form.
     # form - FilterFormBuilder object
     # name - attribute name
+    # help_text - The help text to display
     # checkboxes_on_top - Show picker values on top (default) or below the picker prompt (only for multiple pickers)
     #
     # Returns nothing.
-    def scopes_picker_filter(form, name, checkboxes_on_top: true)
+    def scopes_picker_filter(form, name, help_text: nil, checkboxes_on_top: true)
       options = {
         multiple: true,
         legend_title: I18n.t("decidim.scopes.scopes"),
         label: false,
+        help_text:,
         checkboxes_on_top:
       }
 

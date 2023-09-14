@@ -10,8 +10,7 @@
           <div>
             <%= form.label :slug %>
           </div>
-          <%= form.text_field :slug, label: false %>
-          <p class="help-text"><%== t(".slug_help", url: decidim_form_slug_url("pages", form.object.slug)) %></p>
+          <%= form.text_field :slug, label: false, help_text: t(".slug_help_html", url: decidim_form_slug_url("pages", form.object.slug)) %>
         </div>
       <% end %>
 

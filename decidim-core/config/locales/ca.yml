@@ -1693,7 +1693,7 @@ ca:
     sessions:
       already_signed_out: Sessió finalitzada correctament.
       new:
-        sign_in: Iniciar sessió
+        log_in: Iniciar sessió
       signed_in: Sessió iniciada correctament.
       signed_out: S'ha iniciat la sessió correctament.
     shared:
@@ -1702,7 +1702,7 @@ ca:
         didn_t_receive_confirmation_instructions: No has rebut instruccions de confirmació?
         didn_t_receive_unlock_instructions: No has rebut les instruccions de desbloqueig?
         forgot_your_password: Has oblidat la teva contrasenya?
-        sign_in: Iniciar sessió
+        log_in: Iniciar sessió
         sign_in_with_provider: Inicia sessió amb %{provider}
         sign_up: Registra't
       minimum_password_length:

@@ -38,6 +38,9 @@ en:
         user_group_id: Create imports as
       newsletter:
         body: Body
+        send_to_all_users: Send to all users
+        send_to_followers: Send to followers
+        send_to_participants: Send to participants
         subject: Subject
       organization:
         admin_terms_of_service_body: Body for the admin terms of service
@@ -639,7 +642,7 @@ en:
           fields:
             created_at: Creation date
             email: Email
-            last_sign_in_at: Last sign in date
+            last_sign_in_at: Last log in date
             name: Name
             role: Role
             roles:
@@ -750,9 +753,6 @@ en:
           select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
           select_spaces: Select spaces to segment the newsletter
           select_users: Select which users you want to send the newsletter
-          send_to_all_users: Send to all users
-          send_to_followers: Send to followers
-          send_to_participants: Send to participants
           title: Select recipients to deliver
           warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."
         send:
@@ -835,7 +835,7 @@ en:
             saturation: Saturation
             title: Color chooser
             update_suggested_colors: Update suggested colors
-          cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
+          cta_button_path_help_html: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
           cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
           homepage_appearance_title: Edit homepage appearance
           homepage_highlighted_content_banner_title: Highligted content banner
@@ -1011,7 +1011,7 @@ en:
           update: Update
         form:
           none: None
-          slug_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
+          slug_help_html: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
         index:
           last_notable_change: Last notable change
         new:
