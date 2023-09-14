@@ -16,10 +16,6 @@ module Decidim
 
         def enforce_permission_to_publish = enforce_permission_to(:publish, :assembly, assembly: current_assembly)
 
-        def publish_command = PublishAssembly
-
-        def unpublish_command = UnpublishAssembly
-
         def i18n_scope = "decidim.admin.assembly_publications"
 
         def fallback_location = assemblies_path
