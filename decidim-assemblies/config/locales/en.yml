@@ -327,7 +327,6 @@ en:
               all: All
               ceased: Ceased
               not_ceased: Not ceased
-            filter_by: Filter by
             search: Search
         content_blocks:
           highlighted_assemblies:
