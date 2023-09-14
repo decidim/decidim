@@ -6,7 +6,7 @@
   }
 
   &-title {
-    @apply text-xl font-bold inline-block flex items-center justify-between gap-4 w-full first:[&>*]:ml-auto;
+    @apply text-xl font-bold inline-block flex items-center justify-between gap-4 w-full first-letter:capitalize first:[&>*]:ml-auto;
   }
 }
 
