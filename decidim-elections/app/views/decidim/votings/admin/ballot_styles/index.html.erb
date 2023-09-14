@@ -4,8 +4,8 @@
   <span class="callout-text"><%= t("explanation_callout", scope: "decidim.votings.admin.ballot_styles.index") %></span>
 </div>
 <div class="card" id="ballot_styles">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t(".title") %>
       <%= link_to t("actions.new", scope: "decidim.votings.admin.ballot_styles.index", name: t("models.ballot_style.name", scope: "decidim.votings.admin")), new_voting_ballot_style_path(current_voting), class: "button button__sm button__secondary" if allowed_to? :create, :ballot_style, voting: current_voting %>
     </h2>

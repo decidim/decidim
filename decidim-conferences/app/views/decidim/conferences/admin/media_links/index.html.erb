@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t("media_links.index.media_links_title", scope: "decidim.admin")) %>
-<div class='card' id="media_links">
-  <div class="card-divider">
-    <h2 class="card-title">
+<div class="card" id="media_links">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t("media_links.index.media_links_title", scope: "decidim.admin") %>
       <% if allowed_to? :create, :media_link %>
          <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.media_link.name", scope: "decidim.admin")), new_conference_media_link_path(current_conference), class: "button button__sm button__secondary new" %>

@@ -1,6 +1,6 @@
 <div class="card" id="polling_stations">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t(".title") %>
       <%= link_to t("actions.new", scope: "decidim.votings.polling_stations", name: t("models.polling_station.name", scope: "decidim.votings.admin")), new_voting_polling_station_path(current_voting), class: "button button__sm button__secondary" if allowed_to? :create, :polling_station, voting: current_voting %>
     </h2>

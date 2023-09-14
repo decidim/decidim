@@ -7,13 +7,10 @@
 <div class="item_show__header">
   <h2 class="item_show__header-title">
     <%= edit_questionnaire_title %>
-  </h2>
-  <% unless template? questionnaire.questionnaire_for %>
-    <div class="flex items-center gap-x-4 ml-auto">
+
+    <% unless template? questionnaire.questionnaire_for %>
       <% if allowed_to? :preview, :questionnaire %>
-        <div class="button--title">
-          <%= link_to t("preview", scope: "decidim.forms.admin.questionnaires.form"), public_url, class: "button button__sm button__secondary", target: :_blank, data: { "external-link": false } %>
-        </div>
+        <%= link_to t("preview", scope: "decidim.forms.admin.questionnaires.form"), public_url, class: "button button__sm button__secondary", target: :_blank, data: { "external-link": false } %>
       <% end %>
       <% if questionnaire.answers.any? %>
         <%= export_dropdown(current_component, questionnaire.id) if allowed_to? :export_answers, :questionnaire %>
@@ -23,8 +20,8 @@
       <% else %>
         <button class="button button__sm button__secondary whitespace-nowrap" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.answers") %></button>
       <% end %>
-    </div>
-  <% end %>
+    <% end %>
+  </h2>
 </div>
 
 <div class="item__edit item__edit-1col">

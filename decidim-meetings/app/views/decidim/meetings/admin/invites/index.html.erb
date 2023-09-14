@@ -16,16 +16,16 @@
         </div>
       <% end %>
     <% end %>
+
+    <%# NOTE: this old filters section should be refactorized in order to use the shared admin_filter_selector method
+    it would require the definition of concerns similar to decidim-conferences/app/controllers/concerns/decidim/conferences/admin/filterable.rb %>
     <div class="filters__section mt-4">
       <div class="fcell">
         <ul class="dropdown menu" data-dropdown-menu data-click-open="true" data-close-on-click-inside="false">
           <li class="is-dropdown-submenu-parent">
-            <a href="#">
-              <% if @status.present? %>
-                <%= t(".filter.#{@status}") %>
-              <% else %>
-                <%= t(".filter.all") %>
-              <% end %>
+            <a href="#" class="dropdown button">
+              <%= t("filter_label", scope: "decidim.admin.filters") %>
+              <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
             </a>
             <ul class="menu is-dropdown-submenu">
               <li><%= link_to t(".filter.sent"), url_for(status: "sent", q: @query) %></li>

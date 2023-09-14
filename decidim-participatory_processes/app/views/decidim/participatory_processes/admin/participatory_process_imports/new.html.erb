@@ -1,10 +1,10 @@
-<div class="item__edit">
-  <div class="item__edit-menu">
-    <p class="item__edit-menu-title">
-      <%= t("sections", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-    </p>
-    <%= link_to t("title", scope: "decidim.admin.participatory_process_imports.new"), new_import_path(anchor: t("title", scope: "decidim.admin.participatory_process_imports.new")), class: "item__edit-menu-anchor" %>
-  </div>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t("participatory_process_imports.new.title", scope: "decidim.admin") %>
+  </h2>
+</div>
+
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: imports_path, method: :post, html: { class: "form-defaults form import_participatory_process" }) do |f| %>
       <%= render partial: "form", object: f, locals: { title: t("participatory_process_imports.new.title", scope: "decidim.admin"), select: t("participatory_process_imports.new.select", scope: "decidim.admin") } %>

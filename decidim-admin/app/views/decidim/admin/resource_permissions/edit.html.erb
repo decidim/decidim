@@ -1,19 +1,10 @@
 <section id="components">
-  <div class="row">
-    <div class="columns">
-      <h3 class="card-title">
-        <%= t(".title") %>
-        <% if resource %>
-          -
-          <% if resource.is_a?(Decidim::Resourceable) %>
-            <%= link_to(resource_title(resource), resource_locator(resource).path) %>
-          <% else %>
-            <%= strip_tags resource_title(resource) %>
-          <% end %>
-        <% end %>
-      </h3>
-    </div>
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
+      <%= t(".title") %>
+    </h2>
   </div>
+
   <%= form_for @permissions_form, url: url_for(action: :update, **resource_params), html: { class: "form form-defaults" }, method: "put" do |permissions_form| %>
     <div class="form__wrapper">
       <%= permissions_form.fields_for :permissions, permissions_form.object do |action_permission_form| %>

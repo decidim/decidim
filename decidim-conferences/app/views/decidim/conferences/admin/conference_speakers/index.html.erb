@@ -14,9 +14,9 @@
   </div>
 </div>
 
-<div class='card' id="conference_speakers">
-  <div class="card-divider">
-    <h2 class="card-title">
+<div class="card" id="conference_speakers">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t("conference_speakers.index.conference_speakers_title", scope: "decidim.admin") %>
       <% if allowed_to? :create, :conference_speaker %>
          <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.conference_speaker.name", scope: "decidim.admin")), new_conference_speaker_path(current_conference), class: "button button__sm button__secondary new" %>

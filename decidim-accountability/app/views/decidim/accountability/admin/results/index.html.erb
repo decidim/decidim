@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= link_to "#{translated_attribute(parent_result.title)} > ", edit_result_path(parent_result) if parent_result %>
       <%= t(".title") %>
       <div class="button--title">

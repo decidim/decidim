@@ -1,15 +1,19 @@
-<div class='card' id="assembly_members">
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t("assembly_members_title", scope: "decidim.admin.assembly_members.index") %>
+  </h2>
+</div>
+
+<div class="card" id="assembly_members">
+  <%# NOTE: this old filters section should be refactorized in order to use the shared admin_filter_selector method
+  it would require the definition of concerns similar to decidim-conferences/app/controllers/concerns/decidim/conferences/admin/filterable.rb %>
   <div class="filters__section">
     <div class="fcell filter">
-      <span class="dropdown-menu-inverted_label"><%= t(".filter_by") %> :</span>
       <ul class="dropdown menu dropdown-inverted" data-dropdown-menu data-close-on-click-inside="false">
       <li class="is-dropdown-submenu-parent">
-        <a href="#">
-          <% if @status.present? %>
-            <%= t(".filter.#{@status}") %>
-          <% else %>
-            <%= t(".filter.all") %>
-          <% end %>
+        <a href="#" class="dropdown button">
+          <%= t("filter_label", scope: "decidim.admin.filters") %>
+          <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
         </a>
         <ul class="menu is-dropdown-submenu">
           <li><%= link_to t(".filter.ceased"), url_for(status: "ceased", q: @query) %></li>
