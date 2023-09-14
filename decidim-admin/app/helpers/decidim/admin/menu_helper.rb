@@ -38,7 +38,6 @@ module Decidim
         ::Decidim::Admin::SecondaryMenuPresenter.new(
           target_menu,
           self,
-          container_options: { class: "settings-menu" },
           element_class: "settings-menu__item",
           active_class: "is-active"
         )

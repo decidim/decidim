@@ -4,15 +4,13 @@
     <%= t ".title" %>
   </h2>
 </div>
-<div class="item__edit item__edit-1col">
-  <div class="item__edit-form">
-    <%= decidim_form_for(@form, html: { class: "form-defaults form edit_area_" }) do |f| %>
-      <%= render partial: "form", object: f %>
-      <div class="item__edit-sticky">
-        <div class="item__edit-sticky-container">
-          <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
-        </div>
+<div class="item__edit-form">
+  <%= decidim_form_for(@form, html: { class: "form-defaults form edit_area_" }) do |f| %>
+    <%= render partial: "form", object: f %>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t(".update"), class: "button button__sm md:button__lg button__secondary" %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

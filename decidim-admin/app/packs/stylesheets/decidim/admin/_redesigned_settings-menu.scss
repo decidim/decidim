@@ -1,5 +1,5 @@
 .settings-menu {
-  @apply space-y-6 min-w-max;
+  @apply flex-none w-full md:w-fit max-w-full md:max-w-[calc(100%/6)];
 
   &__item {
     a {
@@ -12,7 +12,15 @@
 
     &.is-active a,
     &:hover a {
-      @apply underline font-semibold [&>svg]:text-secondary;
+      @apply underline [&>svg]:text-secondary;
+    }
+
+    &.is-active a {
+      @apply font-semibold;
+    }
+
+    & + & {
+      @apply mt-6;
     }
   }
 
