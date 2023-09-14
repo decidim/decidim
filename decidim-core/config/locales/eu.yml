@@ -1155,6 +1155,8 @@ eu:
         title: Jakinarazi erabiltzaile desegokia
       floating_help:
         help: Laguntza
+      follow_button:
+        log_in_before_follow: Hasi saioa ekintza hau egin aurretik
       login_modal:
         please_log_in: Mesedez, hasi saioa
         sign_up: Erregistratu
@@ -1340,6 +1342,7 @@ eu:
       update_needs_confirmation: Zure kontua arrakastaz eguneratu duzu, baina helbide elektroniko berria egiaztatu behar dugu. Egiaztatu zure posta elektronikoa eta berretsi esteka jarraitu zure helbide elektroniko berria berresteko.
       updated: Zure kontua ondo eguneratu da.
     sessions:
+      already_signed_out: Saioa behar bezala amaitu da.
       new:
         log_in: Sartu
       signed_in: Saioa behar bezala hasi da.
@@ -1400,6 +1403,7 @@ eu:
   errors:
     messages:
       allowed_file_content_types: 'soilik onartuko dira honako hedapenak: %{types}'
+      already_confirmed: baieztatu da, mesedez saiatu konektatzen
       confirmation_period_expired: '%{period}barruan baieztatu behar da, eskatu beste bat'
       content_type_allowlist_error: fitxategiaren mota ez da baliozkoa
       expired: iraungi egin da, eskatu beste bat
