@@ -20,6 +20,7 @@ ca:
         description: Descripció
         end_time: Dia i hora de finalització
         id: ID
+        iframe_access_level: Visualització de la sala de videoconferència
         iframe_embed_type: Visualització de la sala de videoconferència
         location: Ubicació
         location_hints: Detalls d'ubicació
