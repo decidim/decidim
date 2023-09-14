@@ -1047,6 +1047,7 @@ es:
             select_a_voting_type: Por favor, selecciona un tipo de votación
             show_check_census_help: Si quieres mostrar el enlace "¿Puedo votar?" en el menú de votaciones públicas
             slug: Nombre corto de URL
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
             voting_type:
               hybrid: Hibrida
