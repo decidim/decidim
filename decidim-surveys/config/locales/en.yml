@@ -26,6 +26,7 @@ en:
             ends_at_help: Leave blank for no specific date
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            send_confirmation_email: Send email with the answers when the survey is answered
             starts_at: Answers accepted from
             starts_at_help: Leave blank for no specific date
           step:
@@ -62,6 +63,11 @@ en:
             success: Survey successfully saved.
       last_activity:
         new_survey_at_html: "<span>New survey at %{link}</span>"
+      survey_confirmation_mailer:
+        confirmation:
+          body: You have successfully answered the %{questionnaire_title} survey within %{participatory_space}
+          subject: Questionnaire %{questionnaire_title} answering confirmation
+        export_name: Survey answers
       surveys:
         answer:
           invalid: There was a problem answering the survey.
