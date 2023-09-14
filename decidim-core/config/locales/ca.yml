@@ -646,6 +646,10 @@ ca:
         ready: Llest
       show:
         download_data: Descarrega't les dades
+        download_data_description_html: |-
+          S'enviarà un arxiu amb tota la informació associada al teu compte a <strong>%{user_email}</strong>.
+          Aquest correu electrònic contindrà un arxiu .zip i una contrasenya per obrir-lo.<br/><br/>Per a descomprimir l'arxiu, necessitaràs <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows) o <a href="https://www.keka.io/">Keka</a> (per a MacOS). 
+          Si uses Linux, la majoria de les vegades ho tindràs instal·lat per defecte. Si no, pots utilitzar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Sol·licita dades
     editor_images:
       create:
