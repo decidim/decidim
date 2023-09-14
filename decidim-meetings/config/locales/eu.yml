@@ -20,6 +20,7 @@ eu:
         description: Deskribapena
         end_time: Bukaera ordua
         id: ID
+        iframe_access_level: Iframe sarbide-maila
         iframe_embed_type: Txertatutako iframe mota
         location: Kokapena
         location_hints: Kokapen-argibideak
