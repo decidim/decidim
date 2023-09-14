@@ -2,6 +2,6 @@
 
 require "spec_helper"
 
-describe "Any Participatory Process can be unpublished", type: :system do
+describe "Participatory Process can be unpublished", type: :system do
   it_behaves_like "Unpublicable space", :participatory_process
 end

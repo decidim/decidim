@@ -3,10 +3,11 @@
 module Decidim
   module Admin
     module ParticipatorySpace
+      # A command that sets a ParticipatorySpace as unpublished.
       class Unpublish < Decidim::Command
         # Public: Initializes the command.
         #
-        # participatory_space - A participatory_space that will be published
+        # participatory_space - A ParticipatorySpace that will be unpublished
         # user - the user performing the action
         def initialize(participatory_space, user)
           @participatory_space = participatory_space

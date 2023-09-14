@@ -2,6 +2,6 @@
 
 require "spec_helper"
 
-describe "Any Participatory Space can be unpublished", type: :system do
+describe "Conference can be unpublished", type: :system do
   it_behaves_like "Unpublicable space", :conference
 end
