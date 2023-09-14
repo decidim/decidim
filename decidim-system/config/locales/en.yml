@@ -10,10 +10,10 @@ en:
         redirect_uri: Redirect URI
       organization:
         address: SMTP hostname
+        change_your_password: Change your password
         from_email: Email address
         from_label: Label
         password: Password
-        change_your_password: Change your password
         port: Port
         user_name: Username
       organization_file_uploads:
