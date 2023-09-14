@@ -41,13 +41,13 @@
       @apply relative;
     }
   }
+}
 
-  .card__filter {
-    @apply ml-auto flex items-center gap-x-4;
+.card__filter {
+  @apply ml-auto flex items-center gap-x-4 font-normal;
 
-    a {
-      @apply text-secondary underline;
-    }
+  a {
+    @apply text-md text-secondary font-semibold underline;
   }
 }
 
