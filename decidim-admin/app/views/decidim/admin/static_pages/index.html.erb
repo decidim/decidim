@@ -1,8 +1,14 @@
 <% add_decidim_page_title(t("pages", scope: "decidim.admin.titles")) %>
-<div class="flex items-center gap-x-4 mb-4">
-  <%= link_to t("static_page_topics.new.create", scope: "decidim.admin"), [:new, :static_page_topic], class: "button button__sm md:button__lg button__secondary expanded small new" %>
-  <%= link_to t("static_pages.new.create", scope: "decidim.admin"), [:new, :static_page], class: "button button__sm md:button__lg button__secondary expanded small new" %>
+
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t("pages", scope: "decidim.admin.titles") %>
+
+    <%= link_to t("static_page_topics.new.create", scope: "decidim.admin"), [:new, :static_page_topic], class: "button button__sm md:button__lg button__secondary expanded small new" %>
+    <%= link_to t("static_pages.new.create", scope: "decidim.admin"), [:new, :static_page], class: "button button__sm md:button__lg button__secondary expanded small new" %>
+  </h2>
 </div>
+
 
 <% @topics.each do |topic| %>
   <%= render partial: "topic", locals: { pages: topic.pages, topic: } %>
