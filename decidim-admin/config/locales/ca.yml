@@ -37,6 +37,9 @@ ca:
         user_group_id: Importar com
       newsletter:
         body: Cos
+        send_to_all_users: Envia a totes les usuàries
+        send_to_followers: Envia a totes les seguidores
+        send_to_participants: Envia a les participants
         subject: Assumpte
       organization:
         admin_terms_of_service_body: Cos del text per les condicions del servei d'administració
@@ -836,6 +839,7 @@ ca:
             saturation: Saturació
             title: Selector de color
             update_suggested_colors: Actualitzar als colors recomenats
+          cta_button_path_help_html: 'Pots redirigir la direcció on enllaça el Botó d''Acció principal de la pàgina d''inici on desitgis. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El Botó d''Acció es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
           cta_button_text_help: Pots sobreescriure el text del botó d'acció principal a la pàgina d'inici per cada idioma disponible a la teva organització. Si no s'omple, s'utilitzarà el valor predeterminat. El botó d'acció principal es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
           homepage_appearance_title: Edita l'aparença de la pàgina d'inici
           homepage_highlighted_content_banner_title: Banner de contingut ressaltat
@@ -1011,6 +1015,7 @@ ca:
           update: Actualitzar
         form:
           none: Cap
+          slug_help_html: 'Utilitza rutes parcials, no URL completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Exemple: %{url}'
         index:
           last_notable_change: Últims canvis notables
         new:
