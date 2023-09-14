@@ -725,6 +725,9 @@ es:
           select_scopes: Filtrar para las participantes que hayan activado cualquier ámbito en su configuración de "Mis intereses".
           select_spaces: Selecciona espacios para segmentar el boletín
           select_users: Selecciona a qué usuarios deseas enviar el boletín
+          send_to_all_users: Enviar a todas las usuarias
+          send_to_followers: Enviar a las seguidoras
+          send_to_participants: Enviar a las participantes
           title: Selecciona los destinatarios
           warning: "<strong>Atención:</strong> Este boletín sólo será enviado a participantes que hayan activado <em>Quiero recibir boletines de noticias</em> en sus ajustes de notificaciones."
         send:
@@ -799,6 +802,7 @@ es:
             colors_title: Colores de la organización
             colors_warning_html: '¡Advertencia! Cambiar estos colores puede romper los contrastes de accesibilidad. Puedes comprobar el contraste de tu elección con <a href="%{link}">WebAIM Contrast Checker</a> u otras herramientas similares.'
             header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
+          cta_button_path_help: 'Puedes redirigir la dirección donde enlaza el Botón de Acción principal de la página de inicio donde desees. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El Botón de Acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           homepage_appearance_title: Editar apariencia de página de inicio
           homepage_highlighted_content_banner_title: Banner de contenido resaltado
@@ -932,6 +936,7 @@ es:
           update: Actualizar
         form:
           none: Ninguna
+          slug_help: 'Usa rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
         index:
           last_notable_change: Último cambio notable
         new:
