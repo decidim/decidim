@@ -646,6 +646,10 @@ es:
         ready: Listo
       show:
         download_data: Descárgate los datos
+        download_data_description_html: |-
+          Se enviará un archivo con toda la información asociada a tu cuenta a <strong>%{user_email}</strong>.
+          Este correo electrónico contendrá un archivo .zip y una contraseña para abrirlo.<br/><br/>Para descomprimir el archivo, necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) o <a href="https://www.keka.io/">Keka</a> (para MacOS). Si usas Linux, la mayoría de las veces lo tendrás instalado por defecto. 
+          Si no, puedes utilizar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Solicita datos
     editor_images:
       create:
