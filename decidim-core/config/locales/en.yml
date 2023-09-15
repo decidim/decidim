@@ -1941,9 +1941,6 @@ en:
         instagram: "%{organization} at Instagram"
         x: "%{organization} at X"
         youtube: "%{organization} at YouTube"
-      system:
-        login:
-          decidim: Decidim
       timeout_modal:
         body: You have been inactive for %{minutes} minutes. If you continue being inactive, you will be automatically signed out for your own security.
         continue_session: Continue session
