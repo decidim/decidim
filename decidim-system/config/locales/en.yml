@@ -11,6 +11,7 @@ en:
       organization:
         address: SMTP hostname
         change_your_password: Change your password
+        forgot_your_password: Forgot your password
         from_email: Email address
         from_label: Label
         password: Password
