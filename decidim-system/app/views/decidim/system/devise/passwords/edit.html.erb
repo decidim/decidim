@@ -6,7 +6,7 @@
 
   <div class="form__wrapper">
     <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> <%= t(".characters minimum")%> )</em><br>
+      <em>(<%= @minimum_password_length %> <%= t(".characters minimum") %> )</em><br>
     <% end %>
     <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
