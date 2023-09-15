@@ -10,8 +10,6 @@ en:
         redirect_uri: Redirect URI
       organization:
         address: SMTP hostname
-        change_your_password: Change your password
-        forgot_your_password: Forgot your password
         from_email: Email address
         from_label: Label
         password: Password
@@ -72,6 +70,24 @@ en:
           summary: Please add meaningful summary to the %{page} static page on the admin dashboard.
           title: Default title for %{page}
         terms-of-service: Terms of service
+      devise:
+        passwords:
+          edit:
+            change_your_password: Change your password
+            characters minimum: Characters minimum
+          new:
+            forgot_your_password: Forgot your password
+            send_me_reset_password_instructions: Send me reset password instructions
+        sessions:
+          new:
+            log in: Log in
+            log_in: Log in
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Did not receive confirmation instructions?
+            did_not_receive_unlock_instructions?: Did not receive unlock instructions?
+            forgot_your_password?: Forgot your password?
+            sign_up: Sign up
       menu:
         admins: Admins
         dashboard: Dashboard
@@ -186,6 +202,9 @@ en:
         index:
           title: Organizations
         new:
+          default: Default?
+          enabled: Enabled
+          locale: Locale
           reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organization.
           secondary_hosts_hint: Enter each one of them in a new line.
           title: New organization
