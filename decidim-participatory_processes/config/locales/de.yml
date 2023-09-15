@@ -417,6 +417,7 @@ de:
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         participatory_process_steps:
           form:
+            cta_path_help: 'Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt. Beispiel: %{url}'
             cta_text_help: Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt.
         participatory_processes:
           form:
