@@ -1457,7 +1457,7 @@ de:
       last_attempt: Sie haben noch einen Versuch, bevor Ihr Konto gesperrt ist.
       locked: Dein Konto ist gesperrt.
       not_found_in_database: Ungültige %{authentication_keys} oder Passwort
-      timeout: Ihre Sitzung ist abgelaufen. Bitte loggen Sie sich erneut ein, um fortzufahren.
+      timeout: Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an, um fortzufahren.
       unauthenticated: Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren.
     invitations:
       edit:
@@ -1574,7 +1574,7 @@ de:
         resend_unlock_instructions: Erneute Anweisungen zum Entsperren senden
       send_instructions: Sie erhalten eine E-Mail mit Anweisungen zum Freischalten Ihres Kontos in wenigen Minuten.
       send_paranoid_instructions: Wenn Ihr Konto existiert, erhalten Sie eine E-Mail mit Anweisungen, wie Sie es in wenigen Minuten entsperren können.
-      unlocked: Ihr Konto wurde erfolgreich entsperrt. Melden Sie ich an, um fortzufahren.
+      unlocked: Ihr Konto wurde erfolgreich entsperrt. Melden Sie sich an, um fortzufahren.
   doorkeeper:
     scopes:
       public: Ihre öffentlichen Informationen.
@@ -1648,7 +1648,7 @@ de:
       timeout_modal:
         body: Sie sind seit %{minutes} Minuten inaktiv. Wenn Sie weiterhin inaktiv sind, werden Sie aus Sicherheitsgründen automatisch abgemeldet.
         continue_session: Sitzung fortsetzen
-        sign_out: Ausloggen
+        sign_out: Abmelden
         title: Möchten Sie ihre Sitzung fortsetzen?
       user_menu:
         account: 'Benutzerkonto: %{name}'
@@ -1657,7 +1657,7 @@ de:
         notifications: Benachrichtigungen
         profile: Mein Konto
         public_profile: Mein öffentliches Profil
-        sign_out: Ausloggen
+        sign_out: Abmelden
         title: Profil-Links
       user_profile:
         account: Konto
