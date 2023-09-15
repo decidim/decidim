@@ -725,6 +725,9 @@ de:
           select_scopes: Nur Teilnehmer anzeigen, die einen der gewählten Themenbereiche in Ihren "Meine Interessen" Einstellungen ihres Kontos aktiviert haben.
           select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
           select_users: Wählen Sie aus, welchen Benutzern Sie den Newsletter senden möchten
+          send_to_all_users: An alle Benutzenden senden
+          send_to_followers: An Follower senden
+          send_to_participants: An Teilnehmende senden
           title: Empfänger auswählen
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
         send:
