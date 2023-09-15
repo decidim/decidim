@@ -1049,6 +1049,7 @@ de:
             select_a_voting_type: Bitte einen Abstimmungs-Typ auswählen
             show_check_census_help: Soll der Link "Kann ich abstimmen?" im Menü "öffentliche Abstimmung" angezeigt werden.
             slug: URL-Segment
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Abstimmung verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             title: Titel
             voting_type:
               hybrid: Hybrid
