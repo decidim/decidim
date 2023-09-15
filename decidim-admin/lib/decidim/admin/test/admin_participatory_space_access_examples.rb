@@ -2,7 +2,7 @@
 
 shared_examples "accessing the participatory space" do
   it "shows the page" do
-    expect(page).to have_content("View public page")
+    expect(page).to have_content("See conference")
     expect(page).to have_content("My space")
   end
 end
