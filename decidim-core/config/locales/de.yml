@@ -1485,7 +1485,10 @@ de:
         title: Unangemessenen Nutzer melden
       floating_help:
         help: Hilfe
+      follow_button:
+        log_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion durchführen
       login_modal:
+        please_log_in: Bitte melden Sie sich an
         sign_up: Registrieren
       mentions_modal:
         remove_recipient: Empfänger %{name} entfernen
@@ -1603,6 +1606,8 @@ de:
       last_attempt: Sie haben noch einen Versuch, bevor Ihr Konto gesperrt ist.
       locked: Dein Konto ist gesperrt.
       not_found_in_database: Ungültige %{authentication_keys} oder Passwort
+      timeout: Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an, um fortzufahren.
+      unauthenticated: Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren.
     invitations:
       edit:
         header: Beenden Sie die Erstellung Ihres Kontos
@@ -1665,6 +1670,7 @@ de:
         action: Entsperren Sie mein Konto
         greeting: Hallo %{recipient}!
         instruction: 'Klicken Sie auf den folgenden Link, um Ihr Konto zu entsperren:'
+        message: Ihr Konto wurde aufgrund einer übermäßigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt.
         subject: Entsperren Anweisungen
     omniauth_callbacks:
       failure: 'Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden. Grund: "%{reason}".'
@@ -1718,6 +1724,7 @@ de:
         resend_unlock_instructions: Erneute Anweisungen zum Entsperren senden
       send_instructions: Sie erhalten eine E-Mail mit Anweisungen zum Freischalten Ihres Kontos in wenigen Minuten.
       send_paranoid_instructions: Wenn Ihr Konto existiert, erhalten Sie eine E-Mail mit Anweisungen, wie Sie es in wenigen Minuten entsperren können.
+      unlocked: Ihr Konto wurde erfolgreich entsperrt. Melden Sie sich an, um fortzufahren.
   doorkeeper:
     scopes:
       public: Ihre öffentlichen Informationen.
@@ -1806,6 +1813,7 @@ de:
   errors:
     messages:
       allowed_file_content_types: 'nur Dateien mit den folgenden Typen sind erlaubt: %types%'
+      already_confirmed: wurde bereits bestätigt, bitte versuchen Sie sich anzumelden
       blank: darf nicht leer sein
       cannot_be_blank: darf nicht leer sein
       confirmation: stimmt nicht mit %{attribute} überein
