@@ -37,6 +37,9 @@ de:
         user_group_id: Importierte Inhalte erstellen als
       newsletter:
         body: Haupttext
+        send_to_all_users: An alle Benutzenden senden
+        send_to_followers: An Follower senden
+        send_to_participants: An Teilnehmende senden
         subject: Betreff
       organization:
         admin_terms_of_service_body: Inhalt für die Admin-Nutzungsbedingungen
@@ -642,6 +645,7 @@ de:
           fields:
             created_at: Erstellungsdatum
             email: Email
+            last_sign_in_at: Letztes Anmeldedatum
             name: Name
             role: Rolle
             roles:
