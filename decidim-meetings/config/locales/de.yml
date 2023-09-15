@@ -20,6 +20,7 @@ de:
         description: Beschreibung
         end_time: Endzeit
         id: ID
+        iframe_access_level: iFrame-Zugriffsebene
         iframe_embed_type: iFrame-Einbettungstyp
         location: Ort
         location_hints: Standorthinweise
