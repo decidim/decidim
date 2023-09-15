@@ -26,7 +26,7 @@ shared_examples "manage assembly admins examples" do
   end
 
   it "creates a new assembly admin" do
-    find(".card-title a.new").click
+    click_link "New Assembly admin"
 
     within ".new_assembly_user_role" do
       fill_in :assembly_user_role_email, with: other_user.email

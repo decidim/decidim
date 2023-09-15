@@ -30,9 +30,7 @@ describe "Admin manages elections", type: :system do
 
   describe "creating an election" do
     it "creates a new election" do
-      within ".card-title" do
-        click_link "New Election"
-      end
+      click_link "New Election"
 
       within ".new_election" do
         fill_in_i18n(
@@ -74,9 +72,7 @@ describe "Admin manages elections", type: :system do
       let(:organization) { create(:organization, time_zone: "Madrid") }
 
       it "shows the correct time zone" do
-        within ".card-title" do
-          click_link "New Election"
-        end
+        click_link "New Election"
 
         expect(page).to have_content("Check that the organization time zone is correct")
         expect(page).to have_content("The current configuration is Madrid")

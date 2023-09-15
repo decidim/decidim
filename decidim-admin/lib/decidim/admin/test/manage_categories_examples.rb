@@ -19,7 +19,7 @@ shared_examples "manage categories examples" do
   end
 
   it "creates a new category" do
-    find(".card-title a.new").click
+    click_link "New category"
 
     within ".new_category" do
       fill_in_i18n(

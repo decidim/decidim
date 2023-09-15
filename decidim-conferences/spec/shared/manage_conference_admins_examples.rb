@@ -26,7 +26,7 @@ shared_examples "manage conference admins examples" do
   end
 
   it "creates a new conference admin" do
-    find(".card-title a.new").click
+    click_link "New Conference Admin"
 
     within ".new_conference_user_role" do
       fill_in :conference_user_role_email, with: other_user.email

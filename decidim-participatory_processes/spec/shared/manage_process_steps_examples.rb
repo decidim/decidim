@@ -20,11 +20,11 @@ shared_examples "manage process steps examples" do
   end
 
   it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process_step-description-tabs']", "full" do
-    before { find(".card-title a.button").click }
+    before { click_link "New phase" }
   end
 
   it "creates a new participatory_process" do
-    find(".card-title a.button").click
+    click_link "New phase"
 
     fill_in_i18n(
       :participatory_process_step_title,

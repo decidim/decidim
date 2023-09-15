@@ -23,9 +23,7 @@ describe "Organization admins", type: :system do
     end
 
     it "can invite new users" do
-      within ".card-title" do
-        click_link "New admin"
-      end
+      click_link "New admin"
 
       within ".new_user" do
         fill_in :user_name, with: "New admin"
@@ -42,9 +40,7 @@ describe "Organization admins", type: :system do
     end
 
     it "can invite a user with a specific role" do
-      within ".card-title" do
-        click_link "New admin"
-      end
+      click_link "New admin"
 
       within ".new_user" do
         fill_in :user_name, with: "New user manager"

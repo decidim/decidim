@@ -21,7 +21,7 @@ shared_examples "manage participatory process private users examples" do
   end
 
   it "creates a new participatory process private users" do
-    find(".card-title a.new").click
+    click_link "New participatory space private user"
 
     within ".new_participatory_space_private_user" do
       fill_in :participatory_space_private_user_name, with: "John Doe"
@@ -39,7 +39,7 @@ shared_examples "manage participatory process private users examples" do
 
   describe "when import a batch of private users from csv" do
     it "import a batch of participatory space private users" do
-      find(".card-title a.import").click
+      click_link "Import via CSV"
 
       # The CSV has no headers
       expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("john.doe@example.org", "John Doe", participatory_process, user)

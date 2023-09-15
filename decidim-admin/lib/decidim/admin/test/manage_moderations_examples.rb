@@ -184,9 +184,7 @@ shared_examples "manage moderations" do
 
   context "when listing hidden resources" do
     before do
-      within ".card-title" do
-        click_link "Hidden"
-      end
+      click_link "Hidden"
     end
 
     it "user cannot unreport them" do

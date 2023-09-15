@@ -77,9 +77,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   it "creates a new finite debate" do
-    within ".card-title" do
-      click_link "New Debate"
-    end
+    click_link "New Debate"
 
     within ".new_debate" do
       fill_in_i18n(
@@ -126,9 +124,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   it "creates a new open debate" do
-    within ".card-title" do
-      click_link "New Debate"
-    end
+    click_link "New Debate"
 
     within ".new_debate" do
       fill_in_i18n(

@@ -18,7 +18,7 @@ describe "Admin manages trustees", type: :system do
 
   context "without existing trustee" do
     it "creates a new trustee" do
-      find(".card-title a.new").click
+      click_link "New Trustee"
 
       within ".new_trustee" do
         autocomplete_select "#{user.name} (@#{user.nickname})", from: :user_id

@@ -26,7 +26,7 @@ shared_examples "manage process admins examples" do
   end
 
   it "creates a new process admin" do
-    find(".card-title a.new").click
+    click_link "New process admin"
 
     within ".new_participatory_process_user_role" do
       fill_in :participatory_process_user_role_email, with: other_user.email

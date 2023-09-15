@@ -20,7 +20,7 @@ shared_examples "manage conference speakers examples" do
 
   context "without existing user" do
     it "creates a new conference speaker" do
-      find(".card-title a.new").click
+      click_link "New Conference Speaker"
 
       within ".new_conference_speaker" do
         fill_in(
@@ -44,7 +44,7 @@ shared_examples "manage conference speakers examples" do
     let!(:speaker_user) { create(:user, organization: conference.organization) }
 
     it "creates a new conference speaker" do
-      find(".card-title a.new").click
+      click_link "New Conference Speaker"
 
       within ".new_conference_speaker" do
         select "Existing participant", from: :conference_speaker_existing_user

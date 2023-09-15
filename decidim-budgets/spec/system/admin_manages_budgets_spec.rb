@@ -21,9 +21,7 @@ describe "Admin manages budgets", type: :system do
   end
 
   it "creates a new budget" do
-    within ".card-title" do
-      click_link "New Budget"
-    end
+    click_link "New Budget"
 
     within ".new_budget" do
       fill_in_i18n(
