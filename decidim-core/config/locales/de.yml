@@ -145,7 +145,7 @@ de:
     account:
       blocked: Dieses Konto wurde wegen Verletzung der Nutzungsbedingungen gesperrt
       delete:
-        alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr einloggen. Mit der Löschung ihres Kontos werden Ihre Beiträge anonymisiert. Sie können später wieder ein neues Konto erstellen, aber diese Beiträge werden nicht mehr mit dem neuen Konto verknüpft sein.
+        alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr anmelden. Mit der Löschung ihres Kontos werden Ihre Beiträge anonymisiert. Sie können später wieder ein neues Konto erstellen, aber diese Beiträge werden nicht mehr mit dem neuen Konto verknüpft sein.
         confirm:
           close: Fenster schließen
           ok: Ja, ich möchte mein Konto löschen
@@ -591,6 +591,7 @@ de:
       registrations:
         new:
           already_have_an_account?: Haben Sie bereits ein Konto?
+          log_in: Anmelden
           newsletter: Gelegentlich einen Newsletter mit relevanten Informationen erhalten
           newsletter_title: Kontakterlaubnis
           sign_up: Registrieren
@@ -605,6 +606,8 @@ de:
           register: Konto erstellen
           sign_in_disabled: Sie können mit einem externen Konto darauf zugreifen.
           sign_up_disabled: Registrierungen sind deaktiviert. Verwenden Sie ein bestehendes Konto für den Zugriff.
+        user:
+          timed_out: Sie waren zu lange inaktiv und wurden automatisch abgemeldet. Wenn Sie den Dienst weiterhin nutzen möchten, melden Sie sich bitte erneut an.
       shared:
         newsletter_modal:
           buttons:
@@ -629,12 +632,14 @@ de:
           hide_password: Passwort verstecken
           show_password: Passwort anzeigen
           shown_password: Ihr Passwort wird angezeigt
+        placeholder_email: hi@beispiel.org
     doorkeeper:
       authorizations:
         new:
           authorize: App zulassen
           by_organization_link_html: <small class="heading-small">von %{link}</small>
           cancel: Abbrechen
+          connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei %{organization} anmelden.
           publish_content: Inhalte für Sie veröffentlichen
           see_email: Ihre E-Mail anzeigen
           see_name: Ihren Namen anzeigen
@@ -1690,12 +1695,20 @@ de:
       signed_up_but_unconfirmed: Eine Nachricht mit einem Bestätigungslink wurde an Ihre E-Mail-Adresse gesendet. Bitte folgen Sie dem Link, um Ihr Konto zu aktivieren.
       update_needs_confirmation: Sie haben Ihr Konto erfolgreich aktualisiert, aber wir müssen Ihre neue E-Mail-Adresse bestätigen. Bitte überprüfen Sie Ihre E-Mail und folgen Sie dem Bestätigungslink, um Ihre neue E-Mail-Adresse zu bestätigen.
       updated: Ihr Konto wurde erfolgreich aktualisiert.
+    sessions:
+      already_signed_out: Erfolgreich abgemeldet.
+      new:
+        log_in: Anmelden
+      signed_in: Erfolgreich angemeldet.
+      signed_out: Erfolgreich abgemeldet.
     shared:
       links:
         back: Zurück
         didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungs-Mail erhalten?
         didn_t_receive_unlock_instructions: Anweisungen zum Entsperren nicht erhalten?
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
+        log_in: Anmelden
+        log_in_with_provider: Anmelden über %{provider}
         sign_up: Registrieren
       minimum_password_length:
         one: "(%{count} Zeichen Minimum)"
@@ -1888,11 +1901,13 @@ de:
         decidim_logo: Decidim-Logo
         decidim_title: Decidim
         download_open_data: Open Data Dateien herunterladen
+        log_in: Anmelden
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
         resources: Ressourcen
         sign_up: Registrieren
         terms_and_conditions: Nutzungsbedingungen
       header:
+        log_in: Anmelden
         main_menu: Hauptmenü
         user_menu: Benutzer-Menü
       impersonation_warning:
@@ -1906,6 +1921,10 @@ de:
         mark_as_read: Als gelesen markieren
       offline_banner:
         cache_version_page: Hoppla! Ihr Netzwerk ist offline. Dies ist eine zuvor gecachte Version der Seite, die Sie besuchen, möglicherweise ist der Inhalt nicht aktuell.
+      shared:
+        layout_item:
+          next: Nächstes Element
+          prev: Vorheriges Element
       social_media_links:
         facebook: "%{organization} auf Facebook"
         github: "%{organization} auf GitHub"
@@ -1915,6 +1934,7 @@ de:
       timeout_modal:
         body: Sie sind seit %{minutes} Minuten inaktiv. Wenn Sie weiterhin inaktiv sind, werden Sie aus Sicherheitsgründen automatisch abgemeldet.
         continue_session: Sitzung fortsetzen
+        log_out: Abmelden
         title: Möchten Sie ihre Sitzung fortsetzen?
       upload_modal:
         close_modal: Fenster schließen
@@ -1923,6 +1943,7 @@ de:
         admin_dashboard: Admin-Dashboard
         configuration: Konfiguration
         conversations: Gespräche
+        log_out: Abmelden
         notifications: Benachrichtigungen
         profile: Mein Konto
         public_profile: Mein öffentliches Profil
