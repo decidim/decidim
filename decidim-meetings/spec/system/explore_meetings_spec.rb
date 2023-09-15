@@ -343,7 +343,6 @@ describe "Explore meetings", :slow, type: :system do
         visit_component
 
         within "#panel-dropdown-menu-scope" do
-          click_filter_item "All"
           click_filter_item translated(scope.name)
         end
 
