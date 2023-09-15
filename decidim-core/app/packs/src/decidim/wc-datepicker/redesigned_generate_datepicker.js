@@ -3,7 +3,7 @@ import icon from "src/decidim/redesigned_icon"
 import { formatDate, displayDate } from "./redesigned_datepicker_functions"
 import { dateKeyDownListener, dateBeforeInputListener, datePasteListener } from "./redesigned_datepicker_listeners"
 
-export default function generateDatePicker(input, row) {
+export default function generateDatePicker(input, row, format) {
   const dateColumn = document.createElement("div");
   dateColumn.setAttribute("class", "date_column");
 
@@ -60,7 +60,7 @@ export default function generateDatePicker(input, row) {
     if (date.value.length === 10) {
       prevDate = formatDate(date.value, "datepicker");
 
-      input.value = `${formatDate(date.value, "input")}T${document.querySelector(`#${input.id}_time`).value}`;
+      input.value = `${formatDate(date.value, "input", format)}T${document.querySelector(`#${input.id}_time`).value}`;
     };
   });
 
@@ -80,7 +80,7 @@ export default function generateDatePicker(input, row) {
   pickCalendar.addEventListener("click", (event) => {
     event.preventDefault();
 
-    date.value = displayDate(datePicker.value);
+    date.value = displayDate(datePicker.value, format);
     prevDate = pickedDate;
     input.value = `${pickedDate}T${document.querySelector(`#${input.id}_time`).value}`;
     datePicker.style.display = "none";
@@ -88,6 +88,7 @@ export default function generateDatePicker(input, row) {
   });
 
   calendar.addEventListener("click", (event) => {
+
     event.preventDefault();
     if (prevDate !== null && new Date(prevDate).toString() !== "Invalid Date") {
       datePicker.value = new Date(prevDate);
