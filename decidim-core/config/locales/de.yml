@@ -125,7 +125,7 @@ de:
     account:
       blocked: Dieses Konto wurde wegen Verletzung der Allgemeinen Geschäftsbedingungen gesperrt
       delete:
-        alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr einloggen. Mit der Löschung ihres Accounts werden all Ihre Beiträge anonymisiert. Sie können später wieder ein neues Konto erstellen, aber diese Beiträge werden nicht mehr mit dem neuen Konto verknüpft sein.
+        alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr anmelden. Mit der Löschung ihres Accounts werden all Ihre Beiträge anonymisiert. Sie können später wieder ein neues Konto erstellen, aber diese Beiträge werden nicht mehr mit dem neuen Konto verknüpft sein.
         confirm:
           close: Fenster schließen
           ok: Ja, ich möchte mein Konto löschen
@@ -539,6 +539,7 @@ de:
           newsletter: Gelegentlich einen Newsletter mit relevanten Informationen erhalten
           newsletter_title: Kontakterlaubnis
           nickname_help: Ihr Pseudonym in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
+          sign_in: Anmelden
           sign_up: Registrieren
           sign_up_as:
             legend: Registrieren als
@@ -1416,7 +1417,7 @@ de:
         sign_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion ausführen
       login_modal:
         close_modal: Fenster schließen
-        please_sign_in: Bitte einloggen
+        please_sign_in: Bitte anmelden
         sign_up: Registrieren
       mentions_modal:
         remove_recipient: Empfänger %{name} entfernen
@@ -1660,6 +1661,8 @@ de:
       updated: Ihr Konto wurde erfolgreich aktualisiert.
     sessions:
       already_signed_out: Erfolgreich abgemeldet.
+      new:
+        sign_in: Anmelden
       signed_in: Erfolgreich angemeldet
       signed_out: Erfolgreich abgemeldet.
     shared:
@@ -1668,6 +1671,7 @@ de:
         didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungs-Mail erhalten?
         didn_t_receive_unlock_instructions: Haben Sie keine Entsperrungsanweisungen erhalten?
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
+        sign_in: Anmelden
         sign_in_with_provider: Mit %{provider} anmelden
         sign_up: Registrieren
       minimum_password_length:
@@ -1678,7 +1682,7 @@ de:
         resend_unlock_instructions: Erneute Anweisungen zum Entsperren senden
       send_instructions: Sie erhalten eine E-Mail mit Anweisungen zum Freischalten Ihres Kontos in wenigen Minuten.
       send_paranoid_instructions: Wenn Ihr Konto existiert, erhalten Sie eine E-Mail mit Anweisungen, wie Sie es in wenigen Minuten entsperren können.
-      unlocked: Ihr Konto wurde erfolgreich entsperrt. Bitte einloggen, um fortzufahren.
+      unlocked: Ihr Konto wurde erfolgreich entsperrt. Melden Sie ich an, um fortzufahren.
   doorkeeper:
     scopes:
       public: Ihre öffentlichen Informationen.
