@@ -81,7 +81,6 @@ describe "Explore projects", :slow, type: :system do
         visit_budget
 
         within "#panel-dropdown-menu-scope" do
-          click_filter_item "All"
           click_filter_item translated(scope.name)
         end
 
@@ -99,7 +98,6 @@ describe "Explore projects", :slow, type: :system do
         visit_budget
 
         within "#panel-dropdown-menu-category" do
-          click_filter_item "All"
           click_filter_item translated(category.name)
         end
 
