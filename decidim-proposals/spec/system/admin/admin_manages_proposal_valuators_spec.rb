@@ -139,6 +139,7 @@ describe "Admin manages proposals valuators", type: :system do
         expect(page).to have_content(valuator.name)
 
         accept_confirm do
+          byebug
           find("a.red-icon").click
         end
       end
