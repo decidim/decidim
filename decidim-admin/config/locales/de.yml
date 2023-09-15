@@ -401,7 +401,7 @@ de:
             'false': 'Nein'
             'true': 'Ja'
         last_sign_in_at_present:
-          label: Schon einmal eingeloggt
+          label: Zuletzt angemeldet
           values:
             'false': 'Nein'
             'true': 'Ja'
