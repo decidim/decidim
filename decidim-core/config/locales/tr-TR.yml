@@ -395,6 +395,7 @@ tr:
       registrations:
         new:
           already_have_an_account?: Zaten hesabınız var mı?
+          log_in: "Giriş \nGiriş Yapın "
           newsletter: Ara sıra ilgili bilgileri içeren bir haber bülteni alın
           newsletter_title: İletişim izni
           sign_up: kaydol
@@ -406,6 +407,8 @@ tr:
         new:
           are_you_new?: Platformda yeni misiniz?
           register: Hesap oluştur
+        user:
+          timed_out: Çok uzun süre işlem yapmadınız /hareketsiz kaldınız ve oturumunuz otomatik olarak kapatıldı. Hizmeti kullanmaya devam etmek istiyorsanız lütfen tekrar giriş yapın.
       shared:
         newsletter_modal:
           buttons:
