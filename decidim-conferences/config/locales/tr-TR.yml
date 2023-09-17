@@ -364,9 +364,11 @@ tr:
         create:
           invalid: Bu konferansa katılırken bir sorun oluştu.
           success: Konferansa başarılı bir şekilde katıldınız.
+          unauthorized: Konferansa kayıt olmadan önce giriş yapmanız gerekmektedir.
         decline_invitation:
           invalid: Davetin reddedilmesiyle ilgili bir sorun oluştu.
           success: Davetiyeyi başarıyla reddettiniz.
+          unauthorized: Gelen Daveti reddetmeden önce giriş yapmanız gerekmektedir.
         destroy:
           invalid: Bu konferansı terk etmekle ilgili bir sorun oluştu.
           success: Konferansı başarıyla terk ettiniz.
