@@ -428,6 +428,7 @@ tr:
           authorize: Uygulamayı yetkilendir
           by_organization_link_html: <small class="heading-small">x %{link}</small>
           cancel: İptal etmek
+          connect_your_account_html: '%{organization}''da oturum açarak hesabınızı bağlayın.'
           publish_content: İçeriği sizin için yayınlayın
           see_email: E-postanızı görün
           see_name: İsmini gör
@@ -1013,7 +1014,10 @@ tr:
         title: Uygunsuz Kullanıcıyı bildirin
       floating_help:
         help: yardım et
+      follow_button:
+        log_in_before_follow: Bu İşlemi gerçekleştirmeden önce lütfen giriş yapın
       login_modal:
+        please_log_in: Lütfen Giriş Yapın
         sign_up: kaydol
       participatory_space_filters:
         filters:
@@ -1104,6 +1108,8 @@ tr:
       last_attempt: Hesabınız kilitlenmeden önce bir kez daha denemeniz var.
       locked: Hesabınız kilitli.
       not_found_in_database: '%{authentication_keys} veya şifre geçersiz.'
+      timeout: Oturumunuzun süresi doldu. Devam etmek için lütfen tekrar giriş yapın.
+      unauthenticated: Devam etmeden önce giriş yapmanız veya kaydolmanız gerekmektedir.
     invitations:
       edit:
         header: Hesabınızı oluşturmayı bitirin
@@ -1150,6 +1156,7 @@ tr:
         action: Hesabımın kilidini aç
         greeting: Merhaba %{recipient}!
         instruction: 'Hesabınızın kilidini açmak için aşağıdaki bağlantıyı tıklayın:'
+        message: Çok sayıda başarısız giriş denemesi nedeniyle hesabınız kilitlendi.
         subject: Talimat kilidini
     omniauth_callbacks:
       failure: '"%{reason}" olduğu için %{kind} kimliğinizi doğrulayamadı.'
@@ -1177,10 +1184,17 @@ tr:
       signed_up_but_unconfirmed: E-posta adresinize onay bağlantısına sahip bir mesaj gönderildi. Hesabınızı etkinleştirmek için lütfen bağlantıyı takip edin.
       update_needs_confirmation: Hesabınızı başarıyla güncellediniz, ancak yeni e-posta adresinizi doğrulamamız gerekiyor. Lütfen yeni e-posta adresinizi onaylamak için e-postanızı kontrol edin ve onaylama bağlantısını takip edin.
       updated: Hesabınız başarıyla güncellendi.
+    sessions:
+      already_signed_out: Başarıyla Çıkış Yapıldı
+      new:
+        log_in: Giriş Yapın
+      signed_out:
     shared:
       links:
         back: Geri
         forgot_your_password: Parolanızı mı unuttunuz?
+        log_in: Giriş Yapın
+        log_in_with_provider: '%{provider} ile giriş yapın'
         sign_up: kaydol
       minimum_password_length:
         one: "(En az%{count} karakter)"
@@ -1190,11 +1204,13 @@ tr:
         resend_unlock_instructions: Kilit açma talimatlarını tekrar gönder
       send_instructions: Hesabınızın birkaç dakika içinde nasıl açılacağıyla ilgili talimatları içeren bir e-posta alacaksınız.
       send_paranoid_instructions: Hesabınız varsa, birkaç dakika içinde kilidini açmak için talimatları içeren bir e-posta alacaksınız.
+      unlocked: Hesabınızın kilidi başarıyla açıldı. Devam etmek için lütfen giriş yapınız.
   doorkeeper:
     scopes:
       public: Genel bilgileriniz.
   errors:
     messages:
+      already_confirmed: Onaylanmıştır. lütfen giriş yapmayı deneyin
       confirmation_period_expired: '%{period}içinde onaylanması gerekiyor, lütfen yeni bir tane isteyin'
       content_type_allowlist_error: dosya türü geçerli değil
       expired: süresi doldu, lütfen yeni bir tane isteyin
@@ -1228,8 +1244,11 @@ tr:
         cc_by_license: Kar Amaçsız Lisanslama (Creative Commons License)
         decidim_logo: Decidim Logo
         download_open_data: Açık Veri dosyalarını indir
+        log_in: Giriş Yapın
         made_with_open_source: Web sitesi <a target="_blank" href="https://github.com/decidim/decidim">ücretsiz yazılımla yapılmıştır</a>.
         sign_up: Kaydol
+      header:
+        log_in: Giriş Yapın
       impersonation_warning:
         close_session: Oturumu kapat
         description_html: Kullanıcının kimliğine bürünüyorsunuz <b>%{user_name}</b>.
@@ -1245,10 +1264,13 @@ tr:
         instagram: "Instagram'da %{organization}"
         x: "X 'de % organizasyon "
         youtube: "YouTube'da %{organization}"
+      timeout_modal:
+        log_out: Çıkış
       user_menu:
         account: 'Kullanıcı hesabı: %{name}'
         admin_dashboard: Yönetici kontrol paneli
         conversations: Konuşmalar
+        log_out: Oturumdan Çıkış
         notifications: Bildirimler
         profile: Hesabım
         public_profile: Genel profilim
