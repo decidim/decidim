@@ -436,6 +436,7 @@ tr:
           newsletter: Ara sıra ilgili bilgileri içeren bir haber bülteni alın
           newsletter_title: İletişim izni
           nickname_help: Takma adınız %{organization}. Yalnızca harf, rakam, "-" ve "_" içerebilir.
+          sign_in: "Giriş \nGiriş Yapın "
           sign_up: kaydol
           sign_up_as:
             legend: Olarak kaydol
@@ -1427,6 +1428,8 @@ tr:
       updated: Hesabınız başarıyla güncellendi.
     sessions:
       already_signed_out: Başarıyla imzalandı.
+      new:
+        sign_in: "Giriş \nGiriş Yapın "
       signed_in: Başarıyla imzalandı.
       signed_out: Başarıyla imzalandı.
     shared:
@@ -1435,6 +1438,7 @@ tr:
         didn_t_receive_confirmation_instructions: Onaylama talimatları almadı mı?
         didn_t_receive_unlock_instructions: Kilit açma talimatları almadı mı?
         forgot_your_password: Parolanızı mı unuttunuz?
+        sign_in: "Giriş \nGiriş Yapın "
         sign_in_with_provider: '%{provider}ile giriş yap'
         sign_up: kaydol
       minimum_password_length:
