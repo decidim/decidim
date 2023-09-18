@@ -10,7 +10,7 @@
 
 <% year = local_assigns[:year] || Date.current.year %>
 <% content_for :aside do %>
-  <h1 class="h3 md:h1 decorator"><%= t("decidim.components.meetings.name") %></h1>
+  <h1 class="title-decorator"><%= t("decidim.components.meetings.name") %></h1>
 
   <% if allowed_to?(:create, :meeting) %>
     <%= action_authorized_link_to :create, new_meeting_path, class: "button button__lg button__secondary", data: { "redirect_url" => new_meeting_path } do %>

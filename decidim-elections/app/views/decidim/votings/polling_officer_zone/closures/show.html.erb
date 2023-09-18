@@ -4,7 +4,7 @@
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
   <div class="text-center py-10">
-    <h1 class="h3 md:h1 decorator inline-block text-left">
+    <h1 class="title-decorator inline-block text-left">
       <%= if closure.certificate_phase?
             t("heading", scope: "decidim.votings.polling_officer_zone.closures.certify")
           elsif closure.signature_phase?
