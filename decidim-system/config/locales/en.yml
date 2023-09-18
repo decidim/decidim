@@ -88,6 +88,7 @@ en:
             did_not_receive_unlock_instructions?: Did not receive unlock instructions?
             forgot_your_password?: Forgot your password?
             sign_up: Sign up
+            log_in_with_provider: Log in with provider
       menu:
         admins: Admins
         dashboard: Dashboard
