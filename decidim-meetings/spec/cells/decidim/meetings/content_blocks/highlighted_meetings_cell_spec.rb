@@ -84,6 +84,42 @@ module Decidim
                 expect(meetings_ids).to include(item_id(meeting))
               end
             end
+
+            context "when the map is configured" do
+              before do
+                allow(Decidim::Map).to receive(:available?).and_return(true)
+              end
+
+              context "and there are in_person meetings" do
+                before do
+                  Decidim::Meetings::Meeting.update_all(type_of_meeting: "in_person") # rubocop:disable Rails/SkipsModelValidations
+                end
+
+                it "renders the map" do
+                  expect(html).to have_css(".meeting-list__block-map")
+                end
+              end
+
+              context "and there are hybrid meetings" do
+                before do
+                  Decidim::Meetings::Meeting.update_all(type_of_meeting: "hybrid") # rubocop:disable Rails/SkipsModelValidations
+                end
+
+                it "renders the map" do
+                  expect(html).to have_css(".meeting-list__block-map")
+                end
+              end
+
+              context "and there are online meetings" do
+                before do
+                  Decidim::Meetings::Meeting.update_all(type_of_meeting: "online") # rubocop:disable Rails/SkipsModelValidations
+                end
+
+                it "does not render the map" do
+                  expect(html).not_to have_css(".meeting-list__block-map")
+                end
+              end
+            end
           end
         end
 
