@@ -328,6 +328,9 @@ fr:
         title: Conférenciers
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
         conference_invites:
           create:
             error: Un problème est survenu lors de l'invitation de l'utilisateur à rejoindre la conférence.
@@ -369,6 +372,7 @@ fr:
             registrations_count:
               one: Il y a eu une inscription.
               other: Il y a eu %{count} inscriptions.
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
         diplomas:
           edit:
             save: sauvegarder
