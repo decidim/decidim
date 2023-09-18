@@ -49,7 +49,6 @@ describe "Filter Initiatives", :slow, type: :system do
     context "when selecting the global scope" do
       it "lists the filtered initiatives", :slow do
         within "#panel-dropdown-menu-scope" do
-          click_filter_item "All"
           click_filter_item "Global"
         end
 
@@ -220,7 +219,6 @@ describe "Filter Initiatives", :slow, type: :system do
       context "when selecting one type" do
         it "lists the filtered initiatives", :slow do
           within "#panel-dropdown-menu-type" do
-            click_filter_item "All"
             click_filter_item type1.title[I18n.locale.to_s]
           end
 
@@ -261,7 +259,6 @@ describe "Filter Initiatives", :slow, type: :system do
     context "when selecting one area" do
       it "lists the filtered initiatives", :slow do
         within "#panel-dropdown-menu-area" do
-          click_filter_item "All"
           within "label", text: area_type1.name[I18n.locale.to_s] do
             click_button
           end
@@ -279,7 +276,6 @@ describe "Filter Initiatives", :slow, type: :system do
     context "when selecting one area type" do
       it "lists the filtered initiatives", :slow do
         within "#panel-dropdown-menu-area" do
-          click_filter_item "All"
           click_filter_item area_type1.name[I18n.locale.to_s]
         end
 
