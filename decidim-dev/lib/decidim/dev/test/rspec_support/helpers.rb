@@ -20,7 +20,6 @@ module Decidim
     end
 
     def within_admin_menu
-      find("[data-component='dropdown'][data-target*='dropdown-menu-settings']").click
       within("[id*='dropdown-menu-settings']") do
         yield
       end

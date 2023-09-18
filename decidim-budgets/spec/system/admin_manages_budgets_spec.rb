@@ -43,9 +43,7 @@ describe "Admin manages budgets", type: :system do
       select translated(scope.name), from: :budget_decidim_scope_id
     end
 
-    within ".new_budget" do
-      find("*[type=submit]").click
-    end
+    click_button "Create budget"
 
     within ".callout-wrapper" do
       expect(page).to have_content("successfully")
@@ -70,9 +68,9 @@ describe "Admin manages budgets", type: :system do
           es: "Mi nuevo título",
           ca: "El meu nou títol"
         )
-
-        find("*[type=submit]").click
       end
+
+      click_button "Update budget"
 
       within ".callout-wrapper" do
         expect(page).to have_content("successfully")
