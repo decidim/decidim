@@ -364,6 +364,9 @@ fr:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_copies:
+          form:
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_process_groups:
           form:
             metadata: Métadonnées
@@ -372,8 +375,10 @@ fr:
         participatory_process_imports:
           form:
             document_legend: Ajouter un document
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_process_steps:
           form:
+            cta_path_help: 'Utilisez ici des chemins partiels, pas des URL complètes. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple : %{url}'
             cta_text_help: Si non défini, le bouton ne sera pas affiché.
         participatory_processes:
           form:
@@ -387,6 +392,7 @@ fr:
             scope_type_max_depth_help: Restreindre la profondeur du filtre de secteur; Le filtre s'affichera du secteur général au type de secteur sélectionné.
             select_an_area: Sélectionnez un secteur
             select_process_group: Sélectionnez un groupe de concertations
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
             title: Informations générales
             visbility: Visibilité
       content_blocks:
