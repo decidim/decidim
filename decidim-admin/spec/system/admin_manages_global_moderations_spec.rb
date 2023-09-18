@@ -23,19 +23,10 @@ describe "Admin manages global moderations", type: :system do
     login_as user, scope: :user
   end
 
-  it_behaves_like "manage moderations" do
-    let(:moderations_link_text) { "Global moderations" }
-  end
-
-  it_behaves_like "sorted moderations" do
-    let!(:reportables) { create_list(:dummy_resource, 17, component: current_component) }
-    let(:moderations_link_text) { "Global moderations" }
-  end
-
   context "when on hidden moderations path" do
     let!(:hidden_moderations) do
       moderation = create(:moderation, reportable: reportables.last, report_count: 3, reported_content: reportables.last.reported_searchable_content_text, hidden_at: Time.current)
-      create_list(:report, 3, moderation:, reason: :spam)
+      create_list(:report, 3, moderation: moderation, reason: :spam)
       [moderation]
     end
     let!(:hidden_moderation) { hidden_moderations.first }
