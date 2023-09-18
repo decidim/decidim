@@ -289,6 +289,7 @@ fr:
             select_an_area: Sélectionnez un périmètre d'assemblée
             select_an_assembly_type: Sélectionnez un type d'assemblée
             select_parent_assembly: Sélectionnez l'assemblée parente
+            slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             social_handlers: Réseaux sociaux
             title: Informations générales
             visbility: Visibilité
@@ -300,9 +301,13 @@ fr:
         assemblies_types:
           form:
             title: Modifier le type d'assemblée
+        assembly_copies:
+          form:
+            slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_imports:
           form:
             document_legend: Ajouter un document
+            slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
             existing_user: Utilisateur existant
