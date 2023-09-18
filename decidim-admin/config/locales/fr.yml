@@ -37,6 +37,9 @@ fr:
         user_group_id: Créer des imports en tant que
       newsletter:
         body: Corps de texte
+        send_to_all_users: Envoyer à tous les utilisateurs
+        send_to_followers: Envoyer aux abonnés
+        send_to_participants: Envoyer aux participants
         subject: Objet
       organization:
         admin_terms_of_service_body: Termes et conditions d'utilisation administrateur
@@ -836,6 +839,7 @@ fr:
             saturation: Saturation
             title: Sélecteur de couleurs
             update_suggested_colors: Mettre à jour les couleurs suggérées
+          cta_button_path_help_html: 'Vous pouvez remplacer le lien du bouton d''appel à l''action de la page d''accueil. Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Le bouton d''appel à l''action est affiché sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
           cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
           homepage_appearance_title: Modifier l'apparence de la page d'accueil
           homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
@@ -1011,6 +1015,7 @@ fr:
           update: Mettre à jour
         form:
           none: Aucun
+          slug_help_html: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Exemple : %{url}'
         index:
           last_notable_change: Dernier changement notable
         new:
