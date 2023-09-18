@@ -4,8 +4,6 @@ module Decidim
   module Admin
     class SecondaryMenuPresenter < Decidim::MenuPresenter
       def render(render_options = {}, &)
-        styles = %w(secondary-nav)
-        styles.push "secondary-nav--subnav" unless render_options.fetch(:title, false)
         output = []
         output.push render_title(render_options) if render_options.fetch(:title, false)
         output.push render_menu(&)
