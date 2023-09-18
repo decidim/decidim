@@ -12,7 +12,7 @@ edit_link(
 <%= append_stylesheet_pack_tag "decidim_votings" %>
 
 <% content_for :aside do %>
-  <h1 class="h3 md:h1 decorator"><%= t("decidim.menu.votings") %></h1>
+  <h1 class="title-decorator"><%= t("decidim.menu.votings") %></h1>
 
   <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont, skip_to_id: "votings" } do %>
     <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
