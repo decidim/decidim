@@ -87,8 +87,8 @@ en:
             did_not_receive_confirmation_instructions?: Did not receive confirmation instructions?
             did_not_receive_unlock_instructions?: Did not receive unlock instructions?
             forgot_your_password?: Forgot your password?
-            sign_up: Sign up
             log_in_with_provider: Log in with provider
+            sign_up: Sign up
       menu:
         admins: Admins
         dashboard: Dashboard
