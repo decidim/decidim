@@ -19,7 +19,6 @@ describe "Organization scopes", type: :system do
       login_as admin, scope: :user
       visit decidim_admin.root_path
       click_link "Settings"
-      click_button(id: "admin-settings-dropdown-menu-trigger")
       click_link "Scopes"
     end
 
