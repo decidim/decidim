@@ -1,14 +1,14 @@
 <% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
 <% content_for :breadcrumb_context_menu do %>
   <div class="process-title-content-breadcrumb-container-right">
-    <%= link_to decidim_assemblies.assembly_path(current_participatory_space), class: "process-title-content-breadcrumb-container-right-link", target: "_blank", data: { "external-link": false } do %>
+    <%= link_to decidim_assemblies.assembly_path(current_participatory_space), class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link", target: "_blank", data: { "external-link": false } do %>
       <%= icon "eye-line" %>
       <span>
         <%= t("see_assembly", scope: "decidim.admin.menu.assemblies_submenu") %>
       </span>
     <% end %>
     <div class="inline-block relative">
-      <%= button_tag id: "assembly-dropdown-menu-trigger", data: { component: "dropdown", target: "assembly-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
+      <%= button_tag id: "assembly-menu-trigger", data: { component: "dropdown", target: "assembly-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
         <span>
           <%= t("menu.manage", scope: "decidim.admin") %>
         </span>

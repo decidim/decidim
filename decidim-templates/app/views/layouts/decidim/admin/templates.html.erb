@@ -1,7 +1,7 @@
 <% content_for :breadcrumb_context_menu do %>
   <div class="process-title-content-breadcrumb-container-right">
     <div class="inline-block relative">
-      <%= button_tag id: "template-dropdown-menu-trigger", data: { component: "dropdown", target: "template-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
+      <%= button_tag id: "template-menu-trigger", data: { component: "dropdown", target: "template-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
         <span>
           <%= t("menu.manage", scope: "decidim.admin") %>
         </span>

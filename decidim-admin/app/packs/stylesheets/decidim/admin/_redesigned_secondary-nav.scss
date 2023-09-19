@@ -48,7 +48,7 @@
         @apply ml-auto flex items-center gap-x-4;
 
         &-link {
-          @apply button button__sm button__transparent flex items-center gap-x-1 px-1.5 py-1;
+          @apply flex items-center gap-x-1 px-1.5 py-1;
 
           span {
             @apply text-sm;

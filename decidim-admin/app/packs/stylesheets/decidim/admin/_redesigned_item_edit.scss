@@ -74,10 +74,6 @@
       }
 
       &.edit_content_block {
-        button {
-          @apply button button__secondary button__sm;
-        }
-
         .tabs-content {
           @apply mb-2;
         }

@@ -2,9 +2,7 @@
 
 <div class="form__wrapper">
   <div class="card" id="assemblies">
-    <div class="card-divider">
-      <h2 class="card-title"><%= title %></h2>
-    </div>
+    <div class="card-divider"></div>
     <div class="card-section">
       <div class="row column">
         <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
@@ -13,10 +11,7 @@
         <%= form.text_field :slug, help_text: t(".slug_help_html", url: decidim_form_slug_url(:assemblies, form.object.slug)) %>
       </div>
       <div class="row column">
-        <fieldset>
-          <legend><%= t(".document_legend") %> </legend>
-            <%= form.upload :document, button_class: "button button__sm button__transparent-secondary" %>
-        </fieldset>
+        <%= form.upload :document, button_class: "button button__sm button__transparent-secondary" %>
       </div>
       <div class="row column">
         <div class="card">

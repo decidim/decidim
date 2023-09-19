@@ -10,7 +10,7 @@
       <% end %>
       <% if available_locales.length > 1 %>
         <div class="topbar__dropmenu language-choose relative">
-          <%= button_tag id: "admin-dropdown-menu-trigger", data: { component: "dropdown", target: "admin-dropdown-menu-language" }, class: "dropdown__trigger" do %>
+          <%= button_tag id: "admin-menu-trigger", data: { component: "dropdown", target: "admin-dropdown-menu-language" }, class: "dropdown__trigger" do %>
               <%= t("name", scope: "locale") %>
               <%= icon "arrow-down-s-line" %>
           <% end %>

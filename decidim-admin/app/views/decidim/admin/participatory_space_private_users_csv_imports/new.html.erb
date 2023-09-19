@@ -10,7 +10,7 @@
       <%= link_to t(".destroy.button"),
                   destroy_all_participatory_space_private_users_csv_imports_path,
                   method: :delete,
-                  class: "button button__sm md:button__lg button__secondary alert",
+                  class: "button button__sm button__secondary alert",
                   data: { confirm: t(".destroy.confirm") } %>
     <% else %>
       <p><%= t(".destroy.empty") %></p>
@@ -35,7 +35,7 @@
       </div>
 
       <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= form.submit t(".upload"), class: "button button__sm md:button__lg button__secondary" %>
+        <%= form.submit t(".upload"), class: "button button__sm button__secondary" %>
       </div>
     <% end %>
   </div>

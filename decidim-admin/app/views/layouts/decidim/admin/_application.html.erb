@@ -19,7 +19,7 @@
         <div class="block md:hidden col-start-1 col-end-2">
           <%= render partial: "layouts/decidim/admin/title_bar_responsive" %>
         </div>
-        <div class="relative md:flex w-full">
+        <div class="relative md:flex grow min-h-max w-full">
           <div class="layout-nav">
             <%= link_to decidim_admin.root_path, class: "logo hidden md:block", data: { "external-link": false }, aria: { label: t("decidim.accessibility.logo") } do %>
                 <% if current_organization.logo.present? %>

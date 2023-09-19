@@ -1,14 +1,21 @@
 <% add_decidim_page_title(t("assemblies", scope: "decidim.admin.titles")) %>
 <div class="card" id="assemblies">
-  <div class="item_show__header">
-    <h2 class="item_show__header-title">
-      <% parent_assembly.self_and_ancestors.each do |assembly| %>
-        <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %>
-        <span>&gt;</span>
-      <% end if parent_assembly %>
-    </h2>
-  </div>
+
+  <% if parent_assembly && parent_assembly.self_and_ancestors.length %>
+    <div class="item_show__header">
+      <h2 class="item_show__header-title">
+        <% parent_assembly.self_and_ancestors.each_with_index do |assembly, ix| %>
+          <%= translated_attribute(assembly.title) %>
+          <% unless ix == parent_assembly.self_and_ancestors.length - 1 %>
+            &gt;
+          <% end %>
+        <% end if parent_assembly %>
+      </h2>
+    </div>
+  <% end %>
+
   <%= admin_filter_selector %>
+
   <div class="table-scroll">
     <table class="table-list">
       <thead>

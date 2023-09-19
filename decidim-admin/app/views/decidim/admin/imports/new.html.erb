@@ -8,7 +8,7 @@
         <div class="flex--cc flex-gap--1">
           <div id="js-other-actions-wrapper">
             <% if import_manifest.has_example? %>
-              <span class="imports-example dropdown tiny button button__sm md:button__lg button__secondary button--simple" data-toggle="example-dropdown"><%= t(".download_example") %></span>
+              <span class="imports-example dropdown tiny button button__sm button__secondary button--simple" data-toggle="example-dropdown"><%= t(".download_example") %></span>
               <div class="dropdown-pane" id="example-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
                 <ul class="vertical menu add-components">
                   <% mime_types.each do |format, name| %>
@@ -21,7 +21,7 @@
               </div>
             <% end %>
 
-            <%= link_to t(".actions.back"), manage_component_path(@current_component), class: "button button__sm md:button__lg button__secondary hollow tiny button--simple" %>
+            <%= link_to t(".actions.back"), manage_component_path(@current_component), class: "button button__sm button__secondary hollow tiny button--simple" %>
           </div>
         </div>
       </div>
@@ -46,6 +46,6 @@
     </div>
   </div>
   <div class="grid-x align-center mt-sm">
-    <%= form.submit t(".import"), class: "button button__sm md:button__lg button__secondary" %>
+    <%= form.submit t(".import"), class: "button button__sm button__secondary" %>
   </div>
 <% end -%>

@@ -3,7 +3,7 @@
 <div class="item_show__header">
   <h2 class="item_show__header-title">
     <%= t(".introduce_user_data") %>
-    <%= link_to t(".reject"), pending_authorization_rejection_path(@pending_authorization), method: :post, class: "button button__sm md:button__lg button__secondary alert tiny button--title destroy" %>
+    <%= link_to t(".reject"), pending_authorization_rejection_path(@pending_authorization), method: :post, class: "button button__sm button__secondary alert tiny button--title destroy" %>
   </h2>
 </div>
 
@@ -34,7 +34,7 @@
       </div>
 
       <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= form.submit t(".verify"), class: "button button__sm md:button__lg button__secondary" %>
+        <%= form.submit t(".verify"), class: "button button__sm button__secondary" %>
       </div>
     <% end %>
   </div>

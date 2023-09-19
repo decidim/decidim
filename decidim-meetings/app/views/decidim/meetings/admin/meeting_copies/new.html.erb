@@ -9,7 +9,7 @@
       <%= render partial: "decidim/meetings/admin/meetings/form", object: f, locals: { title: t("meeting_copies.new.title", scope: "decidim.admin"), select: t("meeting_copies.new.select", scope: "decidim.admin") } %>
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
-          <%= f.submit t("meeting_copies.new.copy", scope: "decidim.admin"), class: "button button__sm md:button__lg button__secondary" %>
+          <%= f.submit t("meeting_copies.new.copy", scope: "decidim.admin"), class: "button button__sm button__secondary" %>
         </div>
       </div>
     <% end %>

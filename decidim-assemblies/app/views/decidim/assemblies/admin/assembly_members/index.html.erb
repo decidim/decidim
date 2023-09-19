@@ -31,7 +31,7 @@
               <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
               <%= hidden_field_tag :status, @status %>
               <div class="input-group-button">
-                <button type="submit" class="button button__sm md:button__lg button__secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+                <button type="submit" class="button button__sm button__secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
                   <%= icon "search-line", class: "!fill-white w-4 h-4" %>
                 </button>
               </div>

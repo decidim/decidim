@@ -12,8 +12,8 @@
         <%= render partial: "form", object: f %>
         <div class="item__edit-sticky">
           <div class="item__edit-sticky-container">
-            <%= f.submit t(".create"), class: "button button__sm md:button__lg button__secondary" %>
-            <%= link_to t(".back"), edit_initiatives_type_path(params[:initiatives_type_id]), class: "button button__sm md:button__lg button__secondary" %>
+            <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
+            <%= link_to t(".back"), edit_initiatives_type_path(params[:initiatives_type_id]), class: "button button__sm button__secondary" %>
           </div>
         </div>
       <% end %>

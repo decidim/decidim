@@ -1,13 +1,13 @@
 <% content_for :breadcrumb_context_menu do %>
   <div class="process-title-content-breadcrumb-container-right">
-    <%= link_to decidim_conferences.conference_path(current_participatory_space), class: "process-title-content-breadcrumb-container-right-link", target: "_blank", data: { "external-link": false } do %>
+    <%= link_to decidim_conferences.conference_path(current_participatory_space), class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link", target: "_blank", data: { "external-link": false } do %>
       <%= icon "eye-line" %>
       <span>
         <%= t("see_conference", scope: "decidim.admin.menu.conferences_submenu") %>
       </span>
     <% end %>
     <div class="inline-block relative">
-      <%= button_tag id: "conference-dropdown-menu-trigger", data: { component: "dropdown", target: "conference-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
+      <%= button_tag id: "conference-menu-trigger", data: { component: "dropdown", target: "conference-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
         <span>
           <%= t("menu.manage", scope: "decidim.admin") %>
         </span>

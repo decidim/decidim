@@ -1,6 +1,10 @@
 .main {
-  [id*="dropdown-menu"][aria-hidden="true"] {
-    @apply hidden;
+  [id*="dropdown-menu"] {
+    @apply mx-0 py-0;
+
+    &[aria-hidden="true"] {
+      @apply hidden;
+    }
   }
 
   .dropdown__trigger {
@@ -13,10 +17,6 @@
     &.button {
       @apply z-10;
     }
-  }
-
-  [id*="dropdown-menu"] {
-    @apply mx-0 py-0;
   }
 
   #processes {

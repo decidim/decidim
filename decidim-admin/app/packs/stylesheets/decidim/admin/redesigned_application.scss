@@ -1,7 +1,3 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
 :root {
   --primary: #e02d2d;
   --primary-rgb: 224 45 45;
@@ -17,18 +13,6 @@
   --alert-rgb: 231 19 26;
 }
 
-/* Decidim-core */
-@import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_fonts.scss";
-@import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_dropdown.scss";
-@import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_buttons.scss";
-@import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_labels.scss";
-@import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_accordion.scss";
-@import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_forms.scss";
-@import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_modal.scss";
-@import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_modal_update.scss";
-@import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_callout.scss";
-@import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_tabs_x.scss";
-@import "../../../../../../decidim-core/app/packs/stylesheets/decidim/_redesigned_tooltip.scss";
 @import "stylesheets/decidim/admin/_redesigned_forms.scss";
 @import "stylesheets/decidim/admin/_redesigned_color_picker.scss";
 @import "stylesheets/decidim/admin/_redesigned_main-nav.scss";

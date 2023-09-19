@@ -21,7 +21,7 @@
             <%= link_to t("decidim.verifications.csv_census.admin.destroy.title"),
               destroy_all_census_path,
               method: :delete,
-              class: "button button__sm md:button__lg button__secondary alert",
+              class: "button button__sm button__secondary alert",
               data: { confirm: t("decidim.verifications.csv_census.admin.destroy.confirm") } %>
           </div>
         <% else %>
@@ -44,7 +44,7 @@
             <%= decidim_form_for @form, url: census_path, multipart: true do |form| %>
               <%= label_tag :file, t("admin.new.file", scope: "decidim.verifications.csv_census") %>
               <%= form.file_field :file %>
-              <%= submit_tag t("admin.new.submit", scope: "decidim.verifications.csv_census"), class: "button button__sm md:button__lg button__secondary" %>
+              <%= submit_tag t("admin.new.submit", scope: "decidim.verifications.csv_census"), class: "button button__sm button__secondary" %>
             <% end %>
           </div>
         </div>

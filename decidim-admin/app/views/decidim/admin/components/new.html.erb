@@ -30,7 +30,7 @@
       <%= render partial: "form", object: form, locals: { component: @component, title: t(".title", name: t("#{manifest.name}.name", scope: "decidim.components")) } %>
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
-          <%= form.submit t(".add"), class: "button button__sm md:button__lg button__secondary" %>
+          <%= form.submit t(".add"), class: "button button__sm button__secondary" %>
         </div>
       </div>
     <% end %>
