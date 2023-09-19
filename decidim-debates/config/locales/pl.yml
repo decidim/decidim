@@ -11,6 +11,7 @@ pl:
         end_time: Skończy się
         information_updates: Aktualizacje informacji
         instructions: Instrukcje uczestnictwa
+        scope_id: Zakres
         start_time: Zaczyna się
         title: Tytuł
         user_group_id: Utwórz debatę jako
@@ -18,6 +19,7 @@ pl:
       decidim/debates/close_debate_event: Debata zamknięta
       decidim/debates/create_debate_event: Debata
       decidim/debates/creation_disabled_event: Debaty wyłączone
+      decidim/debates/creation_enabled_event: Tworzenie debat włączone
   activerecord:
     models:
       decidim/debates/debate:
@@ -43,6 +45,7 @@ pl:
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
+            creation_enabled: Uczestnicy mogą tworzyć debaty
             endorsements_blocked: Rekomendacje zablokowane
             endorsements_enabled: Rekomendacje włączone
     debates:
@@ -124,6 +127,7 @@ pl:
           my_debates: Moje debaty
           official: Urzędnik
           origin: Źródło
+          participants: Uczestnicy
           scope: Zakres
           search: Szukaj
           state: Status
