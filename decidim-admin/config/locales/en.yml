@@ -1093,7 +1093,6 @@ en:
           last_week: Last week
           no_users_count_statistics_yet: There are no users count statistics yet.
           participants: Participants
-      view_public_page: View public page
     forms:
       errors:
         impersonate_user:
