@@ -80,7 +80,6 @@ en:
             send_me_reset_password_instructions: Send me reset password instructions
         sessions:
           new:
-            log in: Log in
             log_in: Log in
         shared:
           links:
