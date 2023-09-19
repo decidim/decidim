@@ -388,10 +388,6 @@ export default function createEditableForm() {
       setupInitialQuestionAttributes($field);
       createSortableList();
 
-      // $field[0].querySelectorAll(".editor-container").forEach((el) => {
-      //   window.createEditor(el);
-      // });
-
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
 
