@@ -74,7 +74,7 @@ en:
         passwords:
           edit:
             change_your_password: Change your password
-            characters minimum: Characters minimum
+            minimum_characters: "(%{minimum} characters minimum)"
           new:
             forgot_your_password: Forgot your password
             send_me_reset_password_instructions: Send me reset password instructions
