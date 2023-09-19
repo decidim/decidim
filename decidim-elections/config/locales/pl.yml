@@ -796,6 +796,7 @@ pl:
               hybrid: Hybrydowe
               in_person: Osobiste
               online: Online
+            voting_type_label: Typ głosowania
           new:
             create: Utwórz
             title: Nowe głosowanie
