@@ -56,6 +56,7 @@ pl:
         conference_meeting_ids: Powiązane spotkania
         full_name: Pełne imię i nazwisko
         position: Pozycja
+        twitter_handle: Nazwa użytkownika na Twitterze
         user_id: Użytkownik
       conference_user_role:
         email: E-mail
@@ -496,6 +497,7 @@ pl:
         home:
           highlighted_conferences:
             active_conferences: Aktualne konferencje
+            conferences_button_title: Link do strony Konferencji wyświetlającej wszystkie konferencje
       photo:
         image:
           attributes:
