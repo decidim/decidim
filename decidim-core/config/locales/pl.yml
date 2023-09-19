@@ -126,6 +126,7 @@ pl:
         error: Podczas usuwania Twojego konta wystąpił błąd.
         success: Twoje konto zostało pomyślnie usunięte.
       show:
+        available_locales_helper: Wybierz język, którego chcesz używać do przeglądania i odbierania powiadomień w Decidim
         change_password: Zmień hasło
         update_account: Zaktualizuj konto
       update:
@@ -537,6 +538,10 @@ pl:
           this_application_will_not_be_able_to: 'Ta aplikacja nie będzie mogła:'
           update_profile: Zaktualizuj swój profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce używać Twojego konta"
+    editor_images:
+      create:
+        error: Błąd podczas przesyłania obrazu
+        success: Obraz przesłany pomyślnie
     endorsable:
       endorsements: Rekomendacje
       endorsements_count: Liczba rekomendacji
@@ -978,6 +983,7 @@ pl:
           next: Dalej
           no_conversations: Nie masz jeszcze żadnych konwersacji
           title: Konwersacje
+          to: Do
         reply:
           placeholder: Twoja odpowiedź...
           send: Wyślij
@@ -985,6 +991,7 @@ pl:
         show:
           back: Powrót do wszystkich konwersacji
           chat_with: Konwersacja z
+          deleted_accounts: Nie można prowadzić rozmowy z usuniętymi kontami.
           not_allowed: Ten użytkownik nie przyjmuje wiadomości prywatnych.
           title: Konwersacja z %{usernames}
         start:
@@ -1010,6 +1017,7 @@ pl:
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz newslettery %{organization_name}. Możesz zmienić swoje ustawienia na <a href="%{link}">stronie powiadomień</a>.
+        see_on_website: Nie widzisz tego e-maila poprawnie? Zobacz go na stronie <a href="%{link}" target="_blank" class="see-on-website"></a>.
         unsubscribe: Aby zrezygnować z otrzymywania tego typu wiadomości e-mail, <a href="%{link}" target="_blank" class="unsubscribe">cofnij subskrypcję</a>.
     newsletter_templates:
       basic_only_text:
@@ -1311,6 +1319,9 @@ pl:
       help_text: "<strong>Uwaga:</strong> Zawartość może być tłumaczeniem automatycznym i może nie być w 100% dokładna."
       show_original: Pokaż oryginalny tekst
       show_translated: Pokaż automatyczne tłumaczenie
+    user_activity:
+      index:
+        no_activities_warning: Ten uczestnik nie ma jeszcze żadnej aktywności.
     user_contact_disabled: Ten użytkownik nie przyjmuje bezpośrednich wiadomości.
     user_conversations:
       create:
@@ -1339,6 +1350,7 @@ pl:
         title_reply: Odpowiedz
       show:
         back: Pokaż wszystkie rozmowy
+        deleted_accounts: Nie można prowadzić rozmowy z usuniętymi kontami.
         not_allowed: Ten użytkownik nie przyjmuje więcej bezpośrednich wiadomości.
         title: Konwersacja z %{usernames}
       update:
@@ -1628,6 +1640,7 @@ pl:
     name: Polski
     name_with_error: Polski (błąd!)
   password_validator:
+    blacklisted: jest na liście blokowania
     domain_included_in_password: jest zbyt podobne do tej nazwy domeny
     email_included_in_password: jest zbyt podobne do twojego adresu e-mail
     fallback: nie jest poprawne
@@ -1685,6 +1698,7 @@ pl:
     dropdown:
       choose_diff_view_html: 'Tryb widoku HTML:'
       choose_diff_view_mode: 'Porównaj tryb widoku:'
+      choose_diff_view_mode_menu: Wybierz tryb porównywania
       option_escaped: Cytowany
       option_split: Obok siebie
       option_unescaped: Niecytowany
