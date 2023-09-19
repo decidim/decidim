@@ -55,6 +55,11 @@ pl:
               title: Tytuł nie może być pusty
   activerecord:
     models:
+      decidim/initiative:
+        one: Inicjatywa
+        few: Inicjatywy
+        many: Inicjatyw
+        other: Inicjatyw
       decidim/initiative_comittee:
         one: Komitet
         few: Komitety
@@ -328,6 +333,7 @@ pl:
         fill_data:
           back: Wróć
           continue: Dalej
+          decidim_user_group_id_help: Zmiana autorstwa inicjatywy po utworzeniu nie jest możliwa
           fill_data_help: "<ul> <li>Sprawdź treść swojej inicjatywy. Czy tytuł jest łatwy do zrozumienia? Czy cel inicjatywy jest jasny?</li> <li>Musisz wybrać rodzaj podpisu. Na piśmie, online lub połączenie obu</li> <li>Jaki jest zasięg geograficzny inicjatywy?</li> </ul>"
           more_information: "(Więcej informacji)"
           select_area: Wybierz kategorię
@@ -408,6 +414,7 @@ pl:
         delete_attachment: Usuń
       index:
         title: Inicjatywy
+        uninitialized: Inicjatywy nie są jeszcze skonfigurowane przez administratora
       initiative_signatures:
         fill_personal_data:
           continue: Dalej
