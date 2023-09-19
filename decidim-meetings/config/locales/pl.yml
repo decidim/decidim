@@ -31,6 +31,8 @@ pl:
         title: Tytuł
         transparent: Transparentny
         type_of_meeting: Typ
+      meeting_agenda_items:
+        duration: Czas trwania
     models:
       decidim/meetings/close_meeting_event: Spotkanie zakończone
       decidim/meetings/create_meeting_event: Spotkanie
@@ -67,6 +69,13 @@ pl:
               'true': Zamknięte
           is_upcoming_true:
             label: Data
+          with_any_origin:
+            values:
+              user_group: Grupy użytkowników
+          with_any_type:
+            label: Rodzaj spotkania
+            values:
+              in_person: Osobiste
       meeting_copies:
         create:
           error: Wystąpił błąd podczas duplikowania tego spotkania.
