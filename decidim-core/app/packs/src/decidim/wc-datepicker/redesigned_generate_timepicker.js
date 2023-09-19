@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 import icon from "src/decidim/redesigned_icon"
-import { changeHourDisplay, changeMinuteDisplay, parseDate, hourDisplay, minuteDisplay, formatTime } from "./redesigned_datepicker_functions"
+import { changeHourDisplay, changeMinuteDisplay, parseDate, hourDisplay, minuteDisplay, formatTime, setHour, setMinute } from "./redesigned_datepicker_functions"
 import { timeKeyDownListener, timeBeforeInputListener } from "./redesigned_datepicker_listeners";
 
 export default function generateTimePicker(input, row, format) {
@@ -77,7 +77,7 @@ export default function generateTimePicker(input, row, format) {
     periodAm.setAttribute("type", "radio");
     periodAm.setAttribute("name", `period_${input.name}`);
     periodAm.setAttribute("id", `period_am_${input.name}`);
-    periodAm.setAttribute("class", "period_am");
+    periodAm.setAttribute("class", "reset-defaults");
     const periodAmLabel = document.createElement("label");
     periodAmLabel.innerText = "AM"
 
@@ -94,6 +94,14 @@ export default function generateTimePicker(input, row, format) {
     periodColumn.appendChild(periodPm);
     periodColumn.appendChild(periodPmLabel);
     timeColumn.appendChild(periodColumn);
+
+    periodAm.addEventListener("click", () => {
+      input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.name)}`;
+    });
+
+    periodPm.addEventListener("click", () => {
+      input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.name)}`;
+    });
   };
 
   const hourLabel = document.createElement("span");
@@ -129,12 +137,12 @@ export default function generateTimePicker(input, row, format) {
   timePicker.appendChild(labels);
 
   const closeClock = document.createElement("button");
-  closeClock.innerText = "Close";
+  closeClock.innerText = "Done";
   closeClock.setAttribute("class", "close_clock");
 
   const resetClock = document.createElement("button");
   resetClock.innerText = "Reset";
-  resetClock.setAttribute("class", "reset_clock");
+  resetClock.setAttribute("class", "button button__sm button__text-secondary reset_clock");
 
   timePicker.appendChild(closeClock);
   timePicker.appendChild(resetClock);
@@ -149,10 +157,17 @@ export default function generateTimePicker(input, row, format) {
   };
 
   let hour = 0;
+
   if (format === 12) {
     hour = 1;
   };
+
   let minute = 0;
+
+  if (input.value !== "") {
+    hour = setHour(input.value.split("T")[1], format);
+    minute = setMinute(input.value.split("T")[1]);
+  };
 
   time.addEventListener("focus", () => {
     timePicker.style.display = "none";
@@ -176,6 +191,7 @@ export default function generateTimePicker(input, row, format) {
       hours.value = hourDisplay(hour);
       minutes.value = minuteDisplay(minute);
       time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
+      input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.name)}`;
     }
   });
 
@@ -184,24 +200,22 @@ export default function generateTimePicker(input, row, format) {
 
   time.addEventListener("keyup", () => {
     if (time.value.length === 5) {
-      if (time.value[0] === "0") {
-        hour = Number(time.value[1]);
-      } else {
-        hour = Number(`${time.value[0]}${time.value[1]}`);
-      };
+      const inputHour = time.value.split(":")[0];
+      const inputMinute = time.value.split(":")[1];
 
-      if (time.value[3] === "0") {
-        minute = Number(time.value[4]);
-      } else {
-        minute = Number(`${time.value[3]}${time.value[4]}`);
+      if (format === 12 && Number(inputHour) <= 12 && Number(inputMinute) <= 59 ||
+          format === 24 && Number(inputHour) <= 23 && Number(inputMinute) <= 59) {
+        hour = Number(inputHour);
+        minute = Number(inputMinute);
+
+        hours.value = hourDisplay(hour);
+        minutes.value = minuteDisplay(minute);
+        input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.name)}`;
       };
     } else if (time.value.length === 0) {
-      hour = 0;
-      minute = 0;
-    }
-    hours.value = hourDisplay(hour);
-    minutes.value = minuteDisplay(minute);
-    input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.name)}`;
+      hours.value = "";
+      minutes.value = "";
+    };
   });
 
   resetClock.addEventListener("click", (event) => {
@@ -229,14 +243,12 @@ export default function generateTimePicker(input, row, format) {
     document.addEventListener("click", timePickerDisplay);
     hours.value = hourDisplay(hour);
     minutes.value = minuteDisplay(minute);
-    time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
   });
 
   hourUp.addEventListener("click", (event) => {
     event.preventDefault();
     hour = changeHourDisplay("increase", hour, format);
     hours.value = hourDisplay(hour);
-    minutes.value = minuteDisplay(minute);
     time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
     input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.name)}`;
   });
@@ -245,15 +257,13 @@ export default function generateTimePicker(input, row, format) {
     event.preventDefault();
     hour = changeHourDisplay("decrease", hour, format);
     hours.value = hourDisplay(hour);
-    minutes.value = minuteDisplay(minute);
     time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
     input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.name)}`;
   });
 
   minuteUp.addEventListener("click", (event) => {
     event.preventDefault();
-    minute = changeMinuteDisplay("increase", minute, format);
-    hours.value = hourDisplay(hour);
+    minute = changeMinuteDisplay("increase", minute);
     minutes.value = minuteDisplay(minute);
     time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
     input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.name)}`;
@@ -261,8 +271,7 @@ export default function generateTimePicker(input, row, format) {
 
   minuteDown.addEventListener("click", (event) => {
     event.preventDefault();
-    minute = changeMinuteDisplay("decrease", minute, format);
-    hours.value = hourDisplay(hour);
+    minute = changeMinuteDisplay("decrease", minute);
     minutes.value = minuteDisplay(minute);
     time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
     input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.name)}`;

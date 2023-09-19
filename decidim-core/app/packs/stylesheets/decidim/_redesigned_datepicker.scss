@@ -105,11 +105,11 @@
 }
 
 .close_clock {
-  @apply border border-solid border-gray rounded absolute z-30 bottom-2 right-1 w-14 h-6;
+  @apply rounded absolute z-30 bottom-2 right-1 w-14 h-6 bg-secondary text-white;
 }
 
 .reset_clock {
-  @apply rounded absolute z-30 bottom-2 right-16 w-14 h-6 bg-secondary text-white;
+  @apply absolute z-30 bottom-2 right-16;
 }
 
 .hourup {
@@ -144,8 +144,8 @@
   }
 }
 
-.period_am {
-  @apply ml-1;
+.period_am > label {
+  @apply inline bg-secondary border-2 border-black border-dashed rounded;
 }
 
 .period_pm {

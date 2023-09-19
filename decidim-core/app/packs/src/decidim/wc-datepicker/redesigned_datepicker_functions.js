@@ -1,5 +1,65 @@
 /* eslint-disable require-jsdoc */
 
+export const setHour = (value, format) => {
+  const hour = value.split(":")[0];
+  if (format === 12) {
+    if (Number(hour) > 12) {
+      return Number(hour) - 12;
+    };
+
+    if (Number(hour) === 0) {
+      return 12;
+    };
+
+    return Number(hour);
+  };
+
+  return Number(hour);
+};
+
+export const setMinute = (value) => {
+  const minute = value.split(":")[1];
+
+  return Number(minute);
+};
+
+export const formatInputDate = (date, format) => {
+  const dateList = date.split("-");
+  const year = dateList[0];
+  const month = dateList[1];
+  const day = dateList[2];
+
+  if (format === 12) {
+    return `${month}/${day}/${year}`;
+  };
+
+  return `${day}/${month}/${year}`;
+};
+
+export const formatInputTime = (time, format, input) => {
+  const timeList = time.split(":");
+  let hour = timeList[0];
+  const minute = timeList[1];
+
+  if (format === 12) {
+    if (Number(hour) === 12) {
+      document.getElementById(`period_pm_${input.name}`).checked = true;
+    } else if (Number(hour) > 12 && Number(hour) < 22) {
+      hour = `0${Number(hour) - 12}`;
+      document.getElementById(`period_pm_${input.name}`).checked = true;
+    } else if (Number(hour) >= 22) {
+      hour = `${Number(hour) - 12}`;
+      document.getElementById(`period_pm_${input.name}`).checked = true;
+    } else if (Number(hour) === 0) {
+      hour = "12";
+    }
+
+    return `${hour}:${minute}`;
+  };
+
+  return time;
+};
+
 export const changeHourDisplay = (change, hour, format) => {
   let value = null;
 
@@ -36,17 +96,15 @@ export const changeHourDisplay = (change, hour, format) => {
   return value;
 };
 
-export const changeMinuteDisplay = (change, minute, format) => {
+export const changeMinuteDisplay = (change, minute) => {
   let value = null;
 
   if (change === "increase") {
-    if (format === 12) {
-      if (minute === 59) {
-        value = 0;
-      } else {
-        value = minute + 1;
-      };
-    }
+    if (minute === 59) {
+      value = 0;
+    } else {
+      value = minute + 1;
+    };
   } else if (change === "decrease") {
     if (minute === 0) {
       value = 59;
@@ -82,78 +140,38 @@ export const formatDate = (value, type, format) => {
   let formatValue = null;
   if (type === "datepicker" && format === 24) {
     formatValue = `${formatArray[1]}/${formatArray[0]}/${formatArray[2]}`;
+  } else if (type === "datepicker" && format === 12) {
+    formatValue = value;
   } else if (type === "input" && format === 24) {
     formatValue = `${formatArray[2]}-${formatArray[1]}-${formatArray[0]}`
-  } else {
-    formatValue = `${formatArray[0]}-${formatArray[1]}-${formatArray[2]}`
-  }
+  } else if (type === "input" && format === 12) {
+    formatValue = `${formatArray[2]}-${formatArray[0]}-${formatArray[1]}`
+  };
 
   return formatValue;
 };
 
 export const formatTime = (value, format, inputname) => {
   if (format === 12) {
+    const splitValue = value.split(":");
+    let hour = splitValue[0];
+    const minute = splitValue[1];
     if (document.getElementById(`period_am_${inputname}`).checked) {
-      return value;
-    } else if (document.getElementById(`period_pm_${inputname}`).checked) {
-      const splitValue = value.split(":");
-      let hour = splitValue[0];
-      const minute = splitValue[1];
-
       switch (hour) {
-      case "01":
-        hour = "13";
-
-        break;
-      case "02":
-        hour = "14";
-
-        break;
-      case "03":
-        hour = "15";
-
-        break;
-      case "04":
-        hour = "16";
-
-        break;
-      case "05":
-        hour = "17";
-
-        break;
-      case "06":
-        hour = "18";
-
-        break;
-      case "07":
-        hour = "19";
-
-        break;
-      case "08":
-        hour = "20";
-
-        break;
-      case "09":
-        hour = "21";
-
-        break;
-      case "10":
-        hour = "22";
-
-        break;
-      case "11":
-        hour = "23";
-
-        break;
       case "12":
         hour = "00";
 
-        break;
+        return `${hour}:${minute}`;
       default:
-        return null;
-      }
+        return value;
+      };
+    } else if (document.getElementById(`period_pm_${inputname}`).checked) {
+      if (Number(hour) > 0 && Number(hour) < 12) {
+        hour = `${Number(hour) + 12}`;
+      };
+
       return `${hour}:${minute}`
-    }
+    };
   };
 
   return value;

@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 import icon from "src/decidim/redesigned_icon"
-import { formatDate, displayDate } from "./redesigned_datepicker_functions"
-import { dateKeyDownListener, dateBeforeInputListener, datePasteListener } from "./redesigned_datepicker_listeners"
+import { formatDate, displayDate, formatTime } from "./redesigned_datepicker_functions"
+import { dateKeyDownListener, dateBeforeInputListener } from "./redesigned_datepicker_listeners"
 
 export default function generateDatePicker(input, row, format) {
   const dateColumn = document.createElement("div");
@@ -50,7 +50,21 @@ export default function generateDatePicker(input, row, format) {
 
   dateKeyDownListener(date);
   dateBeforeInputListener(date);
-  datePasteListener(date);
+
+  date.addEventListener("paste", (event) => {
+    event.preventDefault();
+    const value = event.clipboardData.getData("text/plain");
+
+    if ((/^([0-9]|[0-2][0-9]|3[0-1])(-|.|\/)([0-9]|[0-2][0-9]|3[0-1])(-|.|\/)([0-9]{4})$/).test(value)) {
+      if ((/(^[0-9])(-|\/)([0-9])(-|.|\/)([0-9]{4})$/).test(value)) {
+        date.value = `0${value[0]}/0${value[2]}/${value.substring(value.length - 4)}`
+      } else {
+        date.value = value.replace(/[-.]/g, "/");
+      };
+    };
+
+    input.value = `${formatDate(date.value, "input", format)}T${formatTime(document.querySelector(`#${input.id}_time`).value)}`;
+  });
 
   date.addEventListener("focus", () => {
     datePicker.style.display = "none";
@@ -58,9 +72,9 @@ export default function generateDatePicker(input, row, format) {
 
   date.addEventListener("keyup", () => {
     if (date.value.length === 10) {
-      prevDate = formatDate(date.value, "datepicker");
-
-      input.value = `${formatDate(date.value, "input", format)}T${document.querySelector(`#${input.id}_time`).value}`;
+      prevDate = formatDate(date.value, "datepicker", format);
+      console.log(prevDate)
+      input.value = `${formatDate(date.value, "input", format)}T${formatTime(document.querySelector(`#${input.id}_time`).value)}`;
     };
   });
 
@@ -68,8 +82,10 @@ export default function generateDatePicker(input, row, format) {
 
   datePicker.addEventListener("changeMonth", () => {
     pickCalendar.setAttribute("disabled", true);
-    pickedDate = null;
-    datePicker.value = pickedDate;
+    if (pickedDate !== null) {
+      pickedDate = null;
+      datePicker.value = pickedDate;
+    }
   })
 
   datePicker.addEventListener("selectDate", (event) => {
@@ -82,14 +98,17 @@ export default function generateDatePicker(input, row, format) {
 
     date.value = displayDate(datePicker.value, format);
     prevDate = pickedDate;
-    input.value = `${pickedDate}T${document.querySelector(`#${input.id}_time`).value}`;
+    input.value = `${pickedDate}T${formatTime(document.querySelector(`#${input.id}_time`).value)}`;
     datePicker.style.display = "none";
     pickCalendar.setAttribute("disabled", true);
   });
 
   calendar.addEventListener("click", (event) => {
-
     event.preventDefault();
+
+    if (input.value !== "") {
+      prevDate = input.value.split("T")[0];
+    }
     if (prevDate !== null && new Date(prevDate).toString() !== "Invalid Date") {
       datePicker.value = new Date(prevDate);
     };
