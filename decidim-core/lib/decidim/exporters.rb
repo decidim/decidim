@@ -10,7 +10,7 @@ module Decidim
     autoload :ExportData, "decidim/exporters/export_data"
 
     # Lock the export formats to one of the available exporters
-    EXPORT_FORMATS = [:JSON, :CSV, :Excel, :PDF].freeze
+    EXPORT_FORMATS = [:JSON, :CSV, :Excel, :PDF, :FormPDF].freeze
 
     class UnknownFormatError < StandardError; end
 
@@ -26,6 +26,7 @@ module Decidim
     def self.find_exporter(format)
       raise UnknownFormatError unless format.respond_to?(:to_sym)
       raise UnknownFormatError unless EXPORT_FORMATS.include?(format.to_sym)
+      raise UnknownFormatError unless const_defined?(format.to_sym)
 
       const_get(format.to_sym)
     end
