@@ -20,6 +20,7 @@ module Decidim
     end
 
     def within_admin_menu
+      click_button "Manage"
       within("[id*='dropdown-menu-settings']") do
         yield
       end
