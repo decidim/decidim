@@ -78,14 +78,12 @@ en:
           new:
             forgot_your_password: Forgot your password
             send_me_reset_password_instructions: Send me reset password instructions
-        sessions:
-          new:
-            log_in: Log in
         shared:
           links:
             did_not_receive_confirmation_instructions?: Did not receive confirmation instructions?
             did_not_receive_unlock_instructions?: Did not receive unlock instructions?
             forgot_your_password?: Forgot your password?
+            log_in: Log in
             sign_up: Sign up
       menu:
         admins: Admins
