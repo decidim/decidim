@@ -1123,35 +1123,29 @@ lt:
           admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
           greeting: Sveiki, %{recipient}!
           intro: "%{manager} pradėjo naują pokalbį %{group} vardu. Spustelėkite čia ir pamatysite:"
-          outro: Mėgaukitės Decidim!
           subject: "%{manager} pradėjo naują pokalbį kaip %{group}"
         comanagers_new_message:
           admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
           greeting: Sveiki, %{recipient}!
           intro: "%{manager} paskelbė naujų žinučių pokalbyje %{group} vardu. Spustelkite čia norėdami juos pamatyti:"
-          outro: Mėgaukitės Decidim!
           subject: "%{manager} išsiuntė naujas žinutes kaip %{group}"
         new_conversation:
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} pradėjo naują pokalbį su jumis. Spustelėkite čia ir pamatysite:"
-          outro: Mėgaukitės Decidim!
           subject: "%{sender} pradėjo pokalbį su jumis"
         new_group_conversation:
           admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} pradėjo naują pokalbį su grupe %{group}. Spustelėkite čia ir pamatysite:"
-          outro: Mėgaukitės Decidim!
           subject: "%{sender} pradėjo pokalbį su %{group}"
         new_group_message:
           admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} paskelbė naujų pranešimų pokalbyje su grupe %{group}. Spustelėkite čia ir pamatysite:"
-          outro: Mėgaukitės Decidim!
           subject: "%{group} gavo naujų pranešimų iš %{sender}"
         new_message:
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} paskelbė naujų pranešimų jūsų pokalbyje. Spustelėkite čia ir pamatysite:"
-          outro: Mėgaukitės Decidim!
           subject: Gavote naujų pranešimų iš %{sender}
       conversations:
         add_conversation_users:
