@@ -144,8 +144,8 @@
   }
 }
 
-.period_am > label {
-  @apply inline bg-secondary border-2 border-black border-dashed rounded;
+.period_am {
+  @apply ml-1 accent-secondary bg-secondary
 }
 
 .period_pm {

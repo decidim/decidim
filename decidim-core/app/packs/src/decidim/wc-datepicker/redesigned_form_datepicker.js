@@ -14,6 +14,7 @@ export default function redesignedFormDatePicker() {
     const label = input.closest("label");
 
     const row = document.createElement("div");
+    row.setAttribute("id", `${input.id}_datepicker_row`)
     row.setAttribute("class", "datepicker_row");
 
     generateDatePicker(input, row, format);
@@ -26,7 +27,7 @@ export default function redesignedFormDatePicker() {
     };
 
     if (format === 12) {
-      document.getElementById(`period_am_${input.name}`).checked = true;
+      document.getElementById(`period_am_${input.id}`).checked = true;
     };
 
     const inputFieldValue = document.getElementById(`${input.id}`).value;
@@ -39,5 +40,17 @@ export default function redesignedFormDatePicker() {
       document.getElementById(`${input.id}_date`).value = formatInputDate(date, format, input);
       document.getElementById(`${input.id}_time`).value = formatInputTime(time, format, input);
     };
+  });
+
+  document.querySelector("button[name=\"commit\"]").addEventListener("click", () => {
+    inputs.forEach((input) => {
+      if (input.classList.contains("is-invalid-input")) {
+        document.getElementById(`${input.id}_date`).classList.add("is-invalid-input");
+        document.getElementById(`${input.id}_time`).classList.add("is-invalid-input");
+        document.getElementById(`${input.id}_datepicker_row`).after(document.getElementById(input.getAttribute("aria-describedby")));
+        document.getElementById(`${input.id}_date`).setAttribute("aria-describedby", input.getAttribute("aria-describedby"));
+        document.getElementById(`${input.id}_time`).setAttribute("aria-describedby", input.getAttribute("aria-describedby"));
+      };
+    });
   });
 };

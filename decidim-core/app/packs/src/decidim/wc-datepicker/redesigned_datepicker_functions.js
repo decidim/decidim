@@ -43,13 +43,13 @@ export const formatInputTime = (time, format, input) => {
 
   if (format === 12) {
     if (Number(hour) === 12) {
-      document.getElementById(`period_pm_${input.name}`).checked = true;
+      document.getElementById(`period_pm_${input.id}`).checked = true;
     } else if (Number(hour) > 12 && Number(hour) < 22) {
       hour = `0${Number(hour) - 12}`;
-      document.getElementById(`period_pm_${input.name}`).checked = true;
+      document.getElementById(`period_pm_${input.id}`).checked = true;
     } else if (Number(hour) >= 22) {
       hour = `${Number(hour) - 12}`;
-      document.getElementById(`period_pm_${input.name}`).checked = true;
+      document.getElementById(`period_pm_${input.id}`).checked = true;
     } else if (Number(hour) === 0) {
       hour = "12";
     }
