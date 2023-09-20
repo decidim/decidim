@@ -289,6 +289,7 @@ es-PY:
             select_an_area: Seleccione un Área
             select_an_assembly_type: Selecciona tipo de asamblea
             select_parent_assembly: Seleccionar ensamblaje principal
+            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
             title: Información general
             visbility: Visibilidad
@@ -300,9 +301,13 @@ es-PY:
         assemblies_types:
           form:
             title: Título
+        assembly_copies:
+          form:
+            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_imports:
           form:
             document_legend: Añadir un documento
+            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_members:
           form:
             existing_user: Usuario existente
