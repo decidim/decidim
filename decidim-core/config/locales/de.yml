@@ -1099,35 +1099,29 @@ de:
           admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
           greeting: Hallo, %{recipient}!
           intro: "%{manager} hat eine Unterhaltung im Namen von %{group} begonnen. Klicken Sie hier, um diese anzuzeigen:"
-          outro: Viel Spaß mit Decidim!
           subject: "%{manager} hat eine Unterhaltung als %{group} begonnen"
         comanagers_new_message:
           admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
           greeting: Hallo, %{recipient}!
           intro: "%{manager} hat Nachrichten in einer Unterhaltung im Namen von %{group} gesendet. Klicken Sie hier, um diese anzuzeigen:"
-          outro: Viel Spaß mit Decidim!
           subject: "%{manager} hat neue Nachrichten als %{group} gesendet"
         new_conversation:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat eine neue Unterhaltung mit Ihnen begonnen. Klicken Sie hier, um es zu sehen:"
-          outro: Viel Spaß mit Decidim!
           subject: "%{sender} hat ein Gespräch mit Ihnen begonnen"
         new_group_conversation:
           admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat eine neue Unterhaltung mit der Gruppe %{group} begonnen. Klicken Sie hier, um diese anzuzeigen:"
-          outro: Viel Spaß mit Decidim!
           subject: "%{sender} hat eine Unterhaltung mit %{group} begonnen"
         new_group_message:
           admin_in_group: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator von %{group} sind.
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat neue Nachrichten in einer Unterhaltung mit der Gruppe %{group} gesendet. Klicken Sie hier, um diese anzuzeigen:"
-          outro: Viel Spaß mit Decidim!
           subject: "%{group} hat neue Nachrichten von %{sender}"
         new_message:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} hat neue Nachrichten in Ihrer Konversation gepostet. Klicken Sie hier, um sie zu sehen:"
-          outro: Viel Spaß mit Decidim!
           subject: Sie haben neue Nachrichten von %{sender}
       conversations:
         add_conversation_users:
