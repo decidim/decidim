@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     module Admin
       # This class contains helpers needed to show the Proposals picker.
-      #
+      # REDESIGN_PENDING: deprecated
       module ProposalsPickerHelper
         def proposals_picker(form, field, url)
           picker_options = {

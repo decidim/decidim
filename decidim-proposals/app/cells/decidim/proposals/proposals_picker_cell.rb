@@ -9,45 +9,76 @@ module Decidim
       MAX_PROPOSALS = 1000
 
       def show
-        if filtered?
-          render :proposals
-        else
-          render
-        end
+        render
       end
 
       alias component model
 
-      def filtered?
-        !search_text.nil?
+      def form
+        options[:form]
       end
 
-      def picker_path
-        request.path
+      def field
+        options[:field]
       end
 
-      def search_text
-        params[:q]
+      def form_name
+        "#{form.object_name}[#{method_name}]"
       end
 
-      def more_proposals?
-        @more_proposals ||= more_proposals_count.positive?
+      def method_name
+        field.to_s.sub(/s$/, "_ids")
       end
 
-      def more_proposals_count
-        @more_proposals_count ||= proposals_count - MAX_PROPOSALS
+      def selected_ids
+        form.object.send(method_name)
       end
 
-      def proposals_count
-        @proposals_count ||= filtered_proposals.count
+      def proposals
+        @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, component)
+                         &.includes(:component)
+                         &.published
+                         &.not_hidden
+                         &.order(id: :asc)
       end
 
       def decorated_proposals
-        filtered_proposals.limit(MAX_PROPOSALS).each do |proposal|
+        proposals.limit(MAX_PROPOSALS).each do |proposal|
           yield Decidim::Proposals::ProposalPresenter.new(proposal)
         end
       end
 
+      # deprecated
+      def filtered?
+        !search_text.nil?
+      end
+
+      # deprecated
+      def picker_path
+        request.path
+      end
+
+      # deprecated
+      def search_text
+        params[:q]
+      end
+
+      # deprecated
+      def more_proposals?
+        @more_proposals ||= more_proposals_count.positive?
+      end
+
+      # deprecated
+      def more_proposals_count
+        @more_proposals_count ||= proposals_count - MAX_PROPOSALS
+      end
+
+      # deprecated
+      def proposals_count
+        @proposals_count ||= filtered_proposals.count
+      end
+
+      # deprecated
       def filtered_proposals
         @filtered_proposals ||= if filtered?
                                   table_name = Decidim::Proposals::Proposal.table_name
@@ -59,14 +90,7 @@ module Decidim
                                 end
       end
 
-      def proposals
-        @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, component)
-                         &.includes(:component)
-                         &.published
-                         &.not_hidden
-                         &.order(id: :asc)
-      end
-
+      # deprecated
       def proposals_collection_name
         Decidim::Proposals::Proposal.model_name.human(count: 2)
       end

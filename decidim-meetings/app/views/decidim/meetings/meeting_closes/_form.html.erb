@@ -1,13 +1,9 @@
-<div class="field hashtags__container">
-  <%= text_editor_for(form, :closing_report, hashtaggable: true) %>
-</div>
+<%= text_editor_for(form, :closing_report, hashtaggable: true) %>
 
-<div class="field hashtags__container">
-  <%= form.number_field :attendees_count, min: 0, help_text: t("decidim.forms.meetings.attendees_count_help_text") %>
-</div>
+<%= form.number_field :attendees_count, min: 0, help_text: t("decidim.forms.meetings.attendees_count_help_text") %>
 
 <% if Decidim::Meetings.enable_proposal_linking %>
-  <div class="field hashtags__container">
-    <%= proposals_picker(form, :proposals, proposals_picker_meeting_meeting_closes_path(meeting)) %>
-  </div>
+  <%= cell "decidim/proposals/proposals_picker", current_component, form:, field: :proposals %>
+
+  <%#= proposals_picker(form, :proposals, proposals_picker_meeting_meeting_closes_path(meeting)) %>
 <% end %>
