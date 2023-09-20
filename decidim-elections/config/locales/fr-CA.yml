@@ -1047,6 +1047,7 @@ fr-CA:
             select_a_voting_type: Veuillez sélectionner un type de vote
             show_check_census_help: Si vous voulez afficher le lien "Puis-je voter?" dans le menu des votes publics
             slug: Slug
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers ce vote. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             title: Titre
             voting_type:
               hybrid: Hybride
