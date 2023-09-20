@@ -20,6 +20,7 @@ fr-CA:
         description: Description
         end_time: Heure de fin
         id: ID
+        iframe_access_level: Niveau d'accès Iframe
         iframe_embed_type: Type d'Iframe encapsulée
         location: Lieu
         location_hints: Indicateurs d’emplacement
