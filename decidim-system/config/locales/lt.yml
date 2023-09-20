@@ -126,37 +126,13 @@ lt:
           success: Organizacija sėkmingai sukurta.
         csp_settings:
           connect_src: Prijungti src
-          connect_src_hint: |
-            Direktyva connect-src riboja URL, kuriuos galima įkelti naudojant <script> elementus.
-            Decidim pridės 'self', bet leidžia pridėti daugiau. Palikite tuščią, jei nesate tikri.
           default_src: Numatytasis src
-          default_src_hint: |
-            Direktyva default-src yra numatytoji politika įkeliant turinį, tokį kaip JavaScript, paveikslėliai, CSS, šriftai, AJAX užklausos, rėmeliai, HTML5 medija.
-            Decidim pridės "'self' 'unsafe-inline'", bet leidžia pridėti daugiau. Palikite tuščią, jei nesate tikri.
           font_src: Šrifto src
-          font_src_hint: |
-            Direktyva font-src riboja URL, kuriuos galima įkelti naudojant @font-face.
-            Decidim pridės 'self', bet leidžia pridėti daugiau. Palikite tuščią, jei nesate tikri.
           frame_src: Rėmelio src
-          frame_src_hint: |
-            Direktyva frame-src riboja URL, kuriuos galima įkelti naudojant <frame>, <iframe> ir <object> elementus.
-            Decidim pridės 'self', bet leidžia pridėti daugiau. Palikite tuščią, jei nesate tikri.
           img_src: Paveikslėlio src
-          img_src_hint: |
-            Direktyva img-src riboja URL, kuriuos galima įkelti naudojant <img>, <image>, <picture> ir <svg> elementus.
-            Decidim pridės 'self', bet leidžia pridėti daugiau. Palikite tuščią, jei nesate tikri.
           media_src: Medijos src
-          media_src_hint: |
-            Direktyva media-src riboja URL, kuriuos galima įkelti naudojant <video>, <audio> ir <source> elementus.
-            Decidim pridės 'self', bet leidžia pridėti daugiau. Palikite tuščią, jei nesate tikri.
           script_src: Script src
-          script_src_hint: |
-            Direktyva script-src riboja URL, kuriuos galima įkelti naudojant <script> elementus.
-            Decidim pridės "'self' 'unsafe-inline' 'unsafe-eval'", bet leidžia pridėti daugiau. Palikite tuščią, jei nesate tikri.
           style_src: Stiliaus src
-          style_src_hint: |
-            Direktyva style-src riboja URL, kuriuos galima įkelti naudojant <style> elementus.
-            Decidim pridės "'self' 'unsafe-inline'", bet leidžia pridėti daugiau. Palikite tuščią, jei nesate tikri.
         edit:
           secondary_hosts_hint: Kiekvieną iš jų įrašykite į naują eilutę
         file_upload_settings:
