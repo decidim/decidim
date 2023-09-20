@@ -20,6 +20,7 @@ es-MX:
         description: Descripción
         end_time: Día y hora de finalización
         id: ID
+        iframe_access_level: Visualización de la sala videoconferencia
         iframe_embed_type: Visualización de la sala de videoconferencia
         location: Ubicación
         location_hints: Pistas de ubicación
