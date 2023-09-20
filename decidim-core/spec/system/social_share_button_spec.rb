@@ -22,7 +22,7 @@ describe "Social share button", type: :system do
 
     it "shows the 'Share to X' button" do
       within ".social-share-button" do
-        expect(page).to have_css('a[data-site="x"]')
+        expect(page).to have_css('a[data-site="twitter"]')
       end
     end
 
