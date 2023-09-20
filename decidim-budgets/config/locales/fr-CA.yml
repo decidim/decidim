@@ -166,6 +166,9 @@ fr-CA:
         cancel_order:
           more_than_one: supprimer votre vote sur %{name} et recommencer
           only_one: supprimer votre vote et recommencez.
+        count:
+          one: "%{count} budget"
+          other: "%{count} budgets"
         finished_message: Vous avez terminé le processus de vote. Merci de votre participation !
         highlighted_cta: Voter pour %{name}
         if_change_opinion: Si vous avez changé d’avis, vous pouvez
