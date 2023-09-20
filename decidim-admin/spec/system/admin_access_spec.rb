@@ -59,7 +59,7 @@ describe "AdminAccess", type: :system do
         visit decidim_admin_participatory_processes.components_path(participatory_process)
       end
 
-      it_behaves_like "accessing the participatory space", participatory_process
+      it_behaves_like "accessing the participatory space"
     end
 
     context "and does not have permission" do

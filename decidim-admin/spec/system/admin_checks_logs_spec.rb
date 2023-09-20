@@ -18,7 +18,7 @@ describe "Admin checks logs", type: :system do
   it "lists all recent logs" do
     expect(page).to have_content("Admin log")
 
-    within ".content .logs.table" do
+    within ".logs.table" do
       expect(page).to have_selector("div.logs__log", count: 3)
     end
   end
@@ -59,7 +59,7 @@ describe "Admin checks logs", type: :system do
           find("*[type=submit]").click
         end
 
-        within ".content .logs.table" do
+        within ".logs.table" do
           expect(page).to have_selector("div.logs__log", count: 1)
         end
       end
@@ -80,7 +80,7 @@ describe "Admin checks logs", type: :system do
           find("*[type=submit]").click
         end
 
-        within ".content .logs.table" do
+        within ".logs.table" do
           expect(page).to have_selector("div.logs__log", count: 2)
         end
       end
@@ -91,7 +91,7 @@ describe "Admin checks logs", type: :system do
           find("*[type=submit]").click
         end
 
-        within ".content .logs.table" do
+        within ".logs.table" do
           expect(page).to have_selector("div.logs__log", count: 2)
         end
       end
@@ -103,7 +103,7 @@ describe "Admin checks logs", type: :system do
           find("*[type=submit]").click
         end
 
-        within ".content .logs.table" do
+        within ".logs.table" do
           expect(page).to have_selector("div.logs__log", count: 2)
         end
       end
@@ -127,7 +127,7 @@ describe "Admin checks logs", type: :system do
           find("*[type=submit]").click
         end
 
-        within ".content .logs.table" do
+        within ".logs.table" do
           expect(page).to have_selector("div.logs__log", count: 1)
         end
 
@@ -136,7 +136,7 @@ describe "Admin checks logs", type: :system do
           find("*[type=submit]").click
         end
 
-        within ".content .logs.table" do
+        within ".logs.table" do
           expect(page).to have_selector("div.logs__log", count: 1)
         end
       end
@@ -147,7 +147,7 @@ describe "Admin checks logs", type: :system do
           find("*[type=submit]").click
         end
 
-        within ".content .logs.table" do
+        within ".logs.table" do
           expect(page).to have_selector("div.logs__log", count: 1)
         end
       end
@@ -158,7 +158,7 @@ describe "Admin checks logs", type: :system do
           find("*[type=submit]").click
         end
 
-        within ".content .logs.table" do
+        within ".logs.table" do
           expect(page).to have_selector("div.logs__log", count: 1)
         end
       end

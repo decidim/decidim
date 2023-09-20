@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 def visit_edit_diplomas_page
-  click_button(id: "conference-dropdown-menu-trigger")
+  click_button(id: "conference-menu-trigger")
   page.click_link "Certificate of Attendance"
 end
 
