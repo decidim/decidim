@@ -891,35 +891,29 @@ sv:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} har startat en ny konversation i namnet %{group}. Klicka här för att se den:"
-          outro: Upplev Decidim!
           subject: "%{manager} har startat en ny konversation som %{group}"
         comanagers_new_message:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} har postat nya meddelanden i en konversation i namnet %{group}. Klicka här för att se dem:"
-          outro: Upplev Decidim!
           subject: "%{manager} har skickat nya meddelanden som %{group}"
         new_conversation:
           greeting: Hej %{recipient}!
           intro: "%{sender} har startat en ny konversation med dig. Klicka här för att se den:"
-          outro: Upplev Decidim!
           subject: "%{sender} har startat en konversation med dig"
         new_group_conversation:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} har startat en ny konversation med gruppen %{group}. Klicka här för att se den:"
-          outro: Upplev Decidim!
           subject: "%{sender} har startat en konversation med %{group}"
         new_group_message:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} har postat nya meddelanden i en konversation med gruppen %{group}. Klicka här för att se den:"
-          outro: Upplev Decidim!
           subject: "%{group} har nya meddelanden från %{sender}"
         new_message:
           greeting: Hej %{recipient}!
           intro: "%{sender} har lagt upp nya meddelanden i er konversation. Klicka här för att se dem:"
-          outro: Upplev Decidim!
           subject: Du har fått nya meddelanden från %{sender}
       conversations:
         add_conversation_users:
