@@ -1005,35 +1005,29 @@ zh-TW:
           admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
           greeting: 嗨, %{recipient}!
           intro: "%{manager} 以%{group} 的名義開始了一個新對話。點擊這裡查看："
-          outro: 享受Decidim!
           subject: "%{manager} 以%{group} 的身份開始了一個新對話。"
         comanagers_new_message:
           admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
           greeting: 嗨, %{recipient}!
           intro: "%{manager} 以%{group} 的名義在一個對話中發佈了新訊息。點擊這裡查看它們："
-          outro: 享受Decidim!
           subject: "%{manager} 以%{group} 的身份發送了新的訊息。點擊這裡查看它們："
         new_conversation:
           greeting: 嗨, %{recipient}!
           intro: "%{sender} 與您開始了一個新的對話。點擊這裡查看它："
-          outro: 享受Decidim!
           subject: "%{sender} 已與您開始對話"
         new_group_conversation:
           admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
           greeting: 嗨, %{recipient}!
           intro: "%{sender} 已與群組%{group} 開始了一個新的對話。點擊這裡查看："
-          outro: 享受Decidim!
           subject: "%{sender} 已與%{group} 開始了一個對話"
         new_group_message:
           admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
           greeting: 嗨, %{recipient}!
           intro: "%{sender} 在與 %{group} 的對話中發表了新訊息。點擊這裡查看："
-          outro: 享受Decidim!
           subject: "%{group} 收到了 %{sender} 的新訊息。"
         new_message:
           greeting: 嗨, %{recipient}!
           intro: "%{sender} 在您的對話中發布了新訊息。點擊這裡查看："
-          outro: 享受Decidim!
           subject: 您有來自 %{sender} 的新訊息。
       conversations:
         add_conversation_users:
