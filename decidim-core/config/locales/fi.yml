@@ -1082,35 +1082,29 @@ fi:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
           greeting: Hei %{recipient}!
           intro: "%{manager} on aloittanut uuden keskustelun ryhmän %{group} nimellä. Napsauta tätä linkkiä nähdäksesi keskustelun:"
-          outro: Nauti Decidimistä!
           subject: "%{manager} on aloittanut uuden keskutelun ryhmänä %{group}"
         comanagers_new_message:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
           greeting: Hei %{recipient}!
           intro: "%{manager} on lähettänyt uusia viestejä keskustelussa ryhmän %{group} nimellä. Napsauta tätä linkkiä nähdäksesi ne:"
-          outro: Nauti Decidimistä!
           subject: "%{manager} on lähettänyt uusia viestejä ryhmänä %{group}"
         new_conversation:
           greeting: Hei, %{recipient}!
           intro: "%{sender} on aloittanut uuden keskustelun kanssasi. Napsauta tätä linkkiä nähdäksesi keskustelun:"
-          outro: Nauti Decidimistä!
           subject: "%{sender} on aloittanut keskustelun kanssasi"
         new_group_conversation:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
           greeting: Hei %{recipient}!
           intro: "%{sender} on aloittanut uuden keskustelun ryhmänä %{group}. Napsauta tätä linkkiä nähdäksesi keskustelun:"
-          outro: Nauti Decidimistä!
           subject: "%{sender} on aloittanut keskustelun ryhmän %{group} kanssa"
         new_group_message:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
           greeting: Hei %{recipient}!
           intro: "%{sender} on lähettänyt uusia viestejä keskustelussa ryhmän %{group} kesken. Napsauta tätä linkkiä nähdäksesi ne:"
-          outro: Nauti Decidimistä!
           subject: "Ryhmällä %{group} on uusia viestejä lähettäjältä %{sender}"
         new_message:
           greeting: Hei, %{recipient}!
           intro: "%{sender} on lähettänyt uusia viestejä keskusteluusi. Klikkaa tästä linkistä nähdäksesi ne:"
-          outro: Nauti Decidimistä!
           subject: Sinulla on uusia viestejä lähettäjältä %{sender}
       conversations:
         add_conversation_users:
