@@ -3,7 +3,6 @@
 # https://github.com/orchidjs/tom-select/discussions/71#discussioncomment-641757
 module Capybara
   module TomSelect
-
     # A helper for Capyabara tests that need to set values from a tom-select.js input.
     #
     # This is a really hacky approach using execute_javascript, but it works. Not sure if there's
@@ -16,7 +15,7 @@ module Capybara
     # @example tom_select("#select_id", option_id: "2")
     # @example tom_select("#select_id", option_id: ["2", "10"]) # `multiple` input.
     def tom_select(select_selector, option_id:)
-      js_str = %Q(document.querySelector("#{select_selector}").tomselect.setValue(#{option_id.inspect}))
+      js_str = %(document.querySelector("#{select_selector}").tomselect.setValue(#{option_id.inspect}))
       execute_script(js_str)
     end
   end
