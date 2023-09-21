@@ -20,6 +20,7 @@ ja:
         description: 説明
         end_time: 終了時間
         id: ID
+        iframe_access_level: iframeアクセスレベル：
         iframe_embed_type: Iframe 埋め込みタイプ
         location: 場所
         location_hints: 位置情報のヒント
