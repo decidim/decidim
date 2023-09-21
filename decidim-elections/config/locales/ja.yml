@@ -1037,6 +1037,7 @@ ja:
             select_a_voting_type: 投票方式を選択してください
             show_check_census_help: 公開されている投票メニューに「投票できますか?」リンクを表示するかどうか。
             slug: スラグ
+            slug_help_html: 'URLスラグは、この投票を指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             title: タイトル
             voting_type:
               hybrid: ハイブリッド
