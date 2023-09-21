@@ -164,6 +164,8 @@ ja:
         cancel_order:
           more_than_one: '%{name} への投票を削除してからやり直してください'
           only_one: 投票を削除してやり直してください
+        count:
+          other: "%{count} 件の予算"
         finished_message: 投票プロセスが終了しました。ご参加ありがとうございます！
         highlighted_cta: '%{name} に投票'
         if_change_opinion: 'もし気が変わった場合は、以下を行うことができます:'
