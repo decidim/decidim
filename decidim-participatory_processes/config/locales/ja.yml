@@ -412,6 +412,9 @@ ja:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_copies:
+          form:
+            slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         participatory_process_groups:
           form:
             metadata: メタデータ
@@ -420,8 +423,10 @@ ja:
         participatory_process_imports:
           form:
             document_legend: ドキュメントを追加
+            slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         participatory_process_steps:
           form:
+            cta_path_help_html: 'ここでは完全な URL ではなく、相対パスを使用してください。英字、数字、ハイフン、スラッシュを受け入れ、英字で始まる必要があります。 設定されていない場合、ボタンは表示されません。例: %{url}'
             cta_text_help: 設定されていない場合、ボタンは表示されません。
         participatory_processes:
           form:
@@ -436,6 +441,7 @@ ja:
             select_an_area: エリアを選択
             select_participatory_process_type: プロセスの種別を選択
             select_process_group: 参加型プロセス グループを選択
+            slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             title: 一般情報
             visbility: 公開範囲
       content_blocks:
