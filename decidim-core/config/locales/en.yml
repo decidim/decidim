@@ -27,7 +27,8 @@ en:
         name: Your name
         nickname: Nickname
         password: Password
-        password_confirmation: 'Confirm your password'
+        password_confirmation: Confirm your password
+        password_confirmation_message: '"Confirm your password" does not match Password'
         personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms and conditions of use agreement

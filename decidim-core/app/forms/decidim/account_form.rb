@@ -24,7 +24,7 @@ module Decidim
     validates :nickname, presence: true, format: { with: Decidim::User::REGEXP_NICKNAME }
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
-    validates :password, confirmation: { message: "#{t(".password_confirmation")} does not match Password" }
+    validates :password, confirmation: { message: t("password_confirmation_message") }
     validates :password, password: { name: :name, email: :email, username: :nickname }, if: -> { password.present? }
     validates :password_confirmation, presence: true, if: :password_present
     validates :avatar, passthru: { to: Decidim::User }
