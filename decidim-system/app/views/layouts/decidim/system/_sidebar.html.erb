@@ -1,10 +1,6 @@
-<div class="title">
-  <h1>
-    <%= link_to root_path do %>
-      <%= title %>
-    <% end %>
-  </h1>
-</div>
+<%= link_to root_path, class: "hidden md:block bg-primary p-4 text-white font-bold text-lg" do %>
+  <%= title %>
+<% end %>
 
 <%= main_menu.render %>
 

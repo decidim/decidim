@@ -1,7 +1,5 @@
-<div class="section" id="budgets-to-vote">
-  <h2 class="h5 md:h3 decorator mt-8">
-    <%= t(:my_budgets, scope: i18n_scope) %>
-  </h2>
-  <%= render partial: "decidim/shared/orders.html", locals: { orders: AVAILABLE_ORDERS, i18n_scope: "decidim.budgets.projects.orders" } %>
-  <%= render :card_list %>
-</div>
+<h2 class="h5 md:h3 decorator"><%= t(:count, scope: i18n_scope, count: budgets.length) %></h2>
+
+<%= render partial: "decidim/shared/orders.html", locals: { orders: AVAILABLE_ORDERS, i18n_scope: "decidim.budgets.projects.orders" } %>
+
+<%= render :card_list %>

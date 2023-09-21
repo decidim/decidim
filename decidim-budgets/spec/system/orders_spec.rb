@@ -313,13 +313,13 @@ describe "Orders", type: :system do
         visit_budget
 
         within_user_menu do
-          click_link("Sign out")
+          click_link("Log out")
         end
 
         expect(page).to have_content "You have not yet voted"
 
         page.find("#exit-notification-link").click
-        expect(page).to have_content("Signed out successfully")
+        expect(page).to have_content("Logged out successfully")
       end
 
       context "and try to vote a project that exceed the total budget" do
@@ -627,7 +627,7 @@ describe "Orders", type: :system do
       visit resource_locator([budget, project]).path
     end
 
-    it_behaves_like "has redesigned attachments" do
+    it_behaves_like "has attachments tabs" do
       let(:attached_to) { project }
     end
 
@@ -653,7 +653,7 @@ describe "Orders", type: :system do
         proposals.each do |proposal|
           expect(page).to have_content(translated(proposal.title))
           expect(page).to have_content(proposal.creator_author.name)
-          expect(page).to have_content(proposal.votes.size)
+          expect(page).to have_content(proposal.endorsements.size)
         end
       end
 
@@ -664,28 +664,11 @@ describe "Orders", type: :system do
 
         let(:proposals) { create_list(:proposal, 1, :with_votes, component: proposal_component) }
 
-        it "shows the amount of supports" do
-          skip "REDESIGN_PENDING: This needs to be fixed after #10671 is being merged"
+        it "does not show the amount of supports" do
           visit_budget
           click_link translated(project.title)
 
-          expect(page.find('span[class="card--list__data__number"]')).to have_content("5")
-        end
-      end
-
-      context "with supports disabled" do
-        let(:proposal_component) do
-          create(:proposal_component, participatory_space: project.component.participatory_space)
-        end
-
-        let(:proposals) { create_list(:proposal, 1, :with_votes, component: proposal_component) }
-
-        it "does not show supports" do
-          skip "REDESIGN_PENDING: This needs to be fixed after #10671 is being merged"
-          visit_budget
-          click_link translated(project.title)
-
-          expect(page).not_to have_selector('span[class="card--list__data__number"]')
+          expect(page).not_to have_css(".card__list-metadata", text: "5")
         end
       end
     end

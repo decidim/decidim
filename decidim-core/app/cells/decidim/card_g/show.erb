@@ -1,7 +1,7 @@
 <%= link_to resource_path, class: classes[:default], id: resource_id do %>
   <div class="<%= classes[:img] %>">
     <% if has_image? %>
-      <%= image_tag resource_image_path, alt: title %>
+      <%= image_tag resource_image_path, alt: alt_title %>
     <% else %>
       <%= icon "placeholder-card-g", class: "w-full h-full fill-primary" %>
     <% end %>

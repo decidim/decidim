@@ -9,14 +9,14 @@ edit_link(
 %>
 
 <% content_for :aside do %>
-  <h1 class="h1 decorator"><%= t("decidim.conferences.index.title") %></h1>
+  <h1 class="title-decorator"><%= t("decidim.conferences.index.title") %></h1>
 <% end %>
 
 <%= render layout:"layouts/decidim/shared/layout_two_col" do %>
   <%= participatory_space_floating_help %>
 
   <% if promoted_conferences.any? %>
-    <section id="highlighted-conferences" class="card__highlight-container">
+    <section id="highlighted-conferences" class="layout-main__section layout-main__heading">
       <h2 class="h3 decorator"><%= t("conferences.index.promoted_conferences", scope: "layouts.decidim") %></h2>
       <% promoted_conferences.each do |promoted_conference| %>
         <%= card_for promoted_conference, highlight: true %>
@@ -24,7 +24,7 @@ edit_link(
     </section>
   <% end %>
 
-  <section id="conferences-grid" class="card__grid-container">
+  <section id="conferences-grid" class="layout-main__section layout-main__heading">
     <h2 class="h3 decorator"><%= t("conferences.order_by_conferences.conferences", scope: "layouts.decidim", count: conferences.size) %></h2>
     <div class="card__grid-grid">
       <%= render(collection) %>

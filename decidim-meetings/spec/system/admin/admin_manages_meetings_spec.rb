@@ -78,9 +78,9 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full"
 
     it "shows help text" do
-      expect(help_text_for("label[for*='meeting_address']")).to be_present
-      expect(help_text_for("div[data-tabs-content*='meeting-location']")).to be_present
-      expect(help_text_for("div[data-tabs-content*='meeting-location_hints']")).to be_present
+      expect(page).to have_content("used by Geocoder to find the location")
+      expect(page).to have_content("message directed to the users implying the spot to meet at")
+      expect(page).to have_content("the floor of the building if it is an in-person meeting")
     end
 
     context "when there are multiple locales" do
@@ -265,7 +265,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(page).to have_current_path(meeting_path)
   end
 
-  it "creates a new meeting", :serves_geocoding_autocomplete, :slow do # rubocop:disable RSpec/ExampleLength
+  it "creates a new meeting", :serves_geocoding_autocomplete, :slow do
     find(".card-title a.button").click
 
     fill_in_i18n(
@@ -305,15 +305,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     select "Registration disabled", from: :meeting_registration_type
 
-    page.execute_script("$('#meeting_start_time').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.find(".datepicker-dropdown .hour", text: "10:00").click
-    page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-    page.execute_script("$('#meeting_end_time').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.find(".datepicker-dropdown .hour", text: "12:00").click
-    page.find(".datepicker-dropdown .minute", text: "12:50").click
+    fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+    fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
     scope_pick select_data_picker(:meeting_decidim_scope_id), scope
     select translated(category.name), from: :meeting_decidim_category_id
@@ -377,15 +370,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
         select "Registration disabled", from: :meeting_registration_type
 
-        page.execute_script("$('#meeting_start_time').focus()")
-        page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-        page.find(".datepicker-dropdown .hour", text: "10:00").click
-        page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-        page.execute_script("$('#meeting_end_time').focus()")
-        page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-        page.find(".datepicker-dropdown .hour", text: "12:00").click
-        page.find(".datepicker-dropdown .minute", text: "12:50").click
+        fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+        fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
       end
     end
   end
@@ -526,15 +512,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       fill_in :meeting_address, with: address
       select "Registration disabled", from: :meeting_registration_type
 
-      page.execute_script("$('#meeting_start_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "10:00").click
-      page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-      page.execute_script("$('#meeting_end_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "12:00").click
-      page.find(".datepicker-dropdown .minute", text: "12:50").click
+      fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+      fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
       scope_pick select_data_picker(:meeting_decidim_scope_id), scope
       select translated(category.name), from: :meeting_decidim_category_id
@@ -632,9 +611,5 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
         fill_in current_scope.find("[id$=title_en]", visible: :visible)["id"], with: service_titles[index]
       end
     end
-  end
-
-  def help_text_for(css)
-    page.find_all(css).first.sibling(".help-text")
   end
 end

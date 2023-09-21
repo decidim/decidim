@@ -9,23 +9,15 @@
     /* negative main padding values */
     @apply md:-ml-16 -mt-6 md:-mt-12 aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
   }
+}
 
-  &__container {
-    @apply mt-6 space-y-10;
-  }
+/* overwrite defaults */
+.static-map,
+[data-decidim-map] {
+  @apply aspect-[5/1];
 }
 
 .proposal {
-  /* overwrite defaults */
-  .static-map,
-  [data-decidim-map] {
-    @apply aspect-[5/1];
-  }
-
-  &__voting-rules {
-    @apply flex flex-col md:flex-row justify-between items-center gap-2 md:gap-8 prose max-w-full last:[&>*:not(:only-child)]:flex-none last:[&>*:not(:only-child)]:w-1/4;
-  }
-
   &__cost {
     @apply space-y-3 bg-background rounded p-4 text-black;
 
@@ -43,7 +35,7 @@
 
 .proposal-participatory {
   &__heading {
-    @apply mt-10 first:mt-0 mb-6 pb-6 border-b-4 border-background font-sans font-semibold text-xl md:text-3xl;
+    @apply pb-6 border-b-4 border-background font-sans font-semibold text-xl md:text-3xl;
   }
 
   &__section {

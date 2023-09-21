@@ -10,8 +10,6 @@
         <ul class="conference__program-category-container">
           <% categories.each_with_index do |category, i| %>
             <li>
-              <!-- NOTE: The data-open attribute throws a console error related with Foundation and a11y-accordion-component.
-              Once Foundation will be remove after redesign, this error will not longer happen -->
               <button id="conference-item-trigger-<%= seed %>-tab<%= i %>" class="conference__program-category" data-controls="conference-item-panel-<%= seed %>-tab<%= i %>" data-open="<%= "true" if i.zero? %>">
                 <%= category.present? ? translated_attribute(category.name) : "other" %>
               </button>

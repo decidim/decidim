@@ -143,4 +143,24 @@ RSpec.describe "Election search", type: :request do
       end
     end
   end
+
+  describe "#index" do
+    let(:url) { "http://#{component.organization.host + request_path}" }
+
+    it "redirects to the index page" do
+      get(
+        url_to_root(request_path),
+        params: {},
+        headers: { "HOST" => component.organization.host }
+      )
+      expect(response["Location"]).to eq(url)
+    end
+  end
+
+  private
+
+  def url_to_root(url)
+    parts = url.split("/")
+    parts[0..-2].join("/")
+  end
 end

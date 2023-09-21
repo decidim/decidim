@@ -132,7 +132,7 @@ describe "Private meetings", type: :system do
         end
 
         it "redirects to index page" do
-          expect(page).to have_current_path "#{main_component_path(component)}meetings"
+          expect(page).to have_current_path main_component_path(component).to_s
           expect(page).to have_content "You are not allowed to view this meeting"
         end
       end

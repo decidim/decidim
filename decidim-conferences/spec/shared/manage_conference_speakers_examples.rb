@@ -65,7 +65,7 @@ shared_examples "manage conference speakers examples" do
       visit current_path
     end
 
-    it "updates an conference speaker" do
+    it "updates a conference speaker" do
       within find("#conference_speakers tr", text: conference_speaker.full_name) do
         click_link "Edit"
       end

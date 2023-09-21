@@ -2,10 +2,6 @@
   &__highlight {
     @apply ring-4 ring-background hover:ring-tertiary rounded flex flex-col md:flex-row hover:cursor-pointer transition;
 
-    &-container {
-      @apply space-y-10 mb-16 md:mb-28;
-    }
-
     &-img {
       @apply w-full md:w-1/2 aspect-video rounded-t md:rounded-t-none md:rounded-l overflow-hidden;
 
@@ -25,10 +21,6 @@
 
   &__grid {
     @apply flex flex-col ring-4 ring-background hover:ring-tertiary rounded hover:cursor-pointer transition;
-
-    &-container {
-      @apply space-y-10 mb-16;
-    }
 
     &-grid {
       @apply grid gap-4 md:gap-12 md:grid-cols-2;
@@ -57,6 +49,10 @@
 
   &__list {
     @apply flex flex-col md:flex-row gap-2.5 md:gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary focus-visible:border-tertiary focus-visible:outline-none transition;
+
+    &-list {
+      @apply space-y-10;
+    }
 
     &-content {
       @apply flex flex-col gap-2.5;
@@ -177,6 +173,6 @@
   }
 
   &__placeholder-l {
-    @apply top-[calc(100%-10rem)] left-[calc(100%-11.5rem)] absolute w-48 h-44 z-20 fill-primary;
+    @apply top-[calc(100%-10rem)] left-[calc(100%-11.5rem)] absolute w-48 h-44 z-10 fill-primary;
   }
 }

@@ -100,7 +100,7 @@ module Decidim::Conferences
     context "when everything is ok" do
       let(:conference) { Decidim::Conference.last }
 
-      it "creates an conference" do
+      it "creates a conference" do
         expect { subject.call }.to change(Decidim::Conference, :count).by(1)
       end
 

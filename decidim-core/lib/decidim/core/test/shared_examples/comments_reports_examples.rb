@@ -3,8 +3,6 @@
 shared_examples "comments_reports" do
   context "when the user is not logged in" do
     it "gives the option to sign in" do
-      skip_unless_redesign_enabled("this test pass with redesign enabled because this modal is not working in the old design")
-
       visit reportable_path
 
       # Open toolbar
@@ -22,8 +20,6 @@ shared_examples "comments_reports" do
 
     context "and the user has not reported the resource yet" do
       it "reports the resource" do
-        skip_unless_redesign_enabled("this test pass with redesign enabled because this modal is not working in the old design")
-
         visit reportable_path
 
         # Open toolbar
@@ -47,8 +43,6 @@ shared_examples "comments_reports" do
       end
 
       it "cannot report it twice" do
-        skip_unless_redesign_enabled("this test pass with redesign enabled because this modal is not working in the old design")
-
         visit reportable_path
 
         # Open toolbar

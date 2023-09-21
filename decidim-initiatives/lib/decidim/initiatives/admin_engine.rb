@@ -37,7 +37,7 @@ module Decidim
             get :export
           end
 
-          resources :attachments, controller: "initiative_attachments"
+          resources :attachments, controller: "initiative_attachments", except: [:show]
 
           resources :committee_requests, only: [:index] do
             member do

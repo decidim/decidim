@@ -89,6 +89,10 @@ module Decidim
         app.config.middleware.use BatchLoader::Middleware
       end
 
+      initializer "decidim_core.param_filtering" do |app|
+        app.config.filter_parameters += [:document_number, :postal_code, :mobile_phone_number]
+      end
+
       initializer "decidim_core.default_form_builder" do |_app|
         ActionView::Base.default_form_builder = Decidim::FormBuilder
       end
@@ -688,6 +692,13 @@ module Decidim
         Decidim.register_social_share_service("Twitter") do |service|
           service.icon = "twitter-line"
           service.icon_color = "#1da1f2"
+          service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
+          service.optional_params = %w(hashtags via)
+        end
+
+        Decidim.register_social_share_service("X") do |service|
+          service.icon = "twitter-x-line"
+          service.icon_color = "#000000"
           service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
           service.optional_params = %w(hashtags via)
         end

@@ -256,7 +256,6 @@ shared_examples "manage impersonations examples" do
 
       within "form.new_user" do
         fill_in :invitation_user_password, with: "decidim123456789"
-        fill_in :invitation_user_password_confirmation, with: "decidim123456789"
         check :invitation_user_tos_agreement
         find("*[type=submit]").click
       end
@@ -315,10 +314,8 @@ shared_examples "manage impersonations examples" do
       fill_in(:impersonate_user_reason, with: reason) if reason
       fill_in :impersonate_user_authorization_document_number, with: document_number
       fill_in :impersonate_user_authorization_postal_code, with: "08224"
-      page.execute_script("$('#impersonate_user_authorization_birthday').focus()")
+      fill_in :impersonate_user_authorization_birthday, with: Time.current.change(day: 12)
     end
-
-    page.find(".datepicker-dropdown .datepicker-days", text: "12").click
 
     expect(page).to have_selector("*[type=submit]", count: 1)
 

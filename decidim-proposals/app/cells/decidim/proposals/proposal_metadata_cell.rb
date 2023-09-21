@@ -14,6 +14,12 @@ module Decidim
         @items.prepend(*proposal_items)
       end
 
+      def state_item
+        return if state.blank?
+
+        { text: content_tag(:span, humanize_proposal_state(state), class: "label #{state_class}") }
+      end
+
       private
 
       def proposal_items
@@ -36,12 +42,6 @@ module Decidim
           text: presented_author.name,
           icon: "account-circle-line"
         }
-      end
-
-      def state_item
-        return if state.blank?
-
-        { text: content_tag(:span, humanize_proposal_state(state), class: "label #{state_class}") }
       end
 
       def state_class

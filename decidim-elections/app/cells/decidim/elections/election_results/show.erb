@@ -27,14 +27,14 @@
               <% end %>
             </p>
 
-            <%= render view: :progress_bar, locals: { results_percentage: answer.results_percentage, results_total: answer.results_total } %>
+            <%= render view: :progress_bar, locals: { id: answer.id, results_percentage: answer.results_percentage, results_total: answer.results_total } %>
           </div>
         <% end %>
 
         <% if question.results.blank_answers.any? %>
           <div>
             <p><%= t("decidim.elections.votes.new.nota_option") %></p>
-            <%= render view: :progress_bar, locals: { results_percentage: question.blank_votes_percentage, results_total: question.blank_votes } %>
+            <%= render view: :progress_bar, locals: { id: answer.id, results_percentage: question.blank_votes_percentage, results_total: question.blank_votes } %>
           </div>
         <% end %>
       </div>

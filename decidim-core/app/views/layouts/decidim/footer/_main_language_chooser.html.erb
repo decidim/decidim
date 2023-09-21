@@ -1,13 +1,9 @@
-<% if available_locales.length> 1 %>
-  <details class="relative">
-    <summary id="language-chooser-control"
-      class="flex items-center border border-white rounded py-1.5 px-2 cursor-pointer text-md font-semibold"
-      aria-controls="language-chooser-menu">
-      <%= icon "global-line" , class: "w-4 h-4 fill-current" %>
-      <span class="ml-1">
-        <%= t("name", scope: "locale" ) %>
-      </span>
-      <%= icon "arrow-down-s-line" , class: "w-4 h-4 ml-4 fill-current" %>
+<% if available_locales.length > 1 %>
+  <div class="main-footer__language-container">
+    <button id="trigger-dropdown-language-chooser" data-component="dropdown" data-target="dropdown-menu-language-chooser" class="main-footer__language-trigger">
+      <%= icon "global-line" %>
+      <span><%= t("name", scope: "locale" ) %></span>
+      <%= icon "arrow-down-s-line" %>
       <span class="sr-only">
         <% available_locales.each do |locale| %>
           <span lang="<%= locale %>">
@@ -15,15 +11,16 @@
           </span>
         <% end %>
       </span>
-    </summary>
+    </button>
 
-    <ul id="language-chooser-menu" class="absolute top-full left-0 bg-white rounded w-full" role="menu"
-      aria-labelledby="language-chooser-control">
-      <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
-        <li class="text-black text-md hover:bg-secondary hover:text-white transition" role="presentation">
-          <%= link_to locale_name(locale), decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale, class: "p-2 w-full block" %>
-        </li>
+    <div id="dropdown-menu-language-chooser" aria-hidden="true">
+      <ul class="main-footer__language" role="menu">
+        <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
+          <li class="text-black text-md hover:bg-secondary hover:text-white transition" role="presentation">
+            <%= link_to locale_name(locale), decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale, class: "p-2 w-full block" %>
+          </li>
         <% end %>
-    </ul>
-  </details>
+      </ul>
+    </div>
+  </div>
 <% end %>

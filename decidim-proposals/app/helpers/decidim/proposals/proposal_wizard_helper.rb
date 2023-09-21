@@ -17,43 +17,6 @@ module Decidim
         end
       end
 
-      # Returns the css classes used for the proposal wizard for the desired step
-      #
-      # step - A symbol of the target step
-      # current_step - A symbol of the current step
-      #
-      # Returns a string with the css classes for the desired step
-      #
-      # REDESIGN_PENDING: deprecated
-      def proposal_wizard_step_classes(step, current_step)
-        step_i = step.to_s.split("_").last.to_i
-        if step_i == proposal_wizard_step_number(current_step)
-          %(step--active #{step} #{current_step})
-        elsif step_i < proposal_wizard_step_number(current_step)
-          %(step--past #{step})
-        else
-          %()
-        end
-      end
-
-      # Returns the number of the step
-      #
-      # step - A symbol of the target step
-      #
-      # REDESIGN_PENDING: deprecated
-      def proposal_wizard_step_number(step)
-        step.to_s.split("_").last.to_i
-      end
-
-      # Returns the name of the step, translated
-      #
-      # step - A symbol of the target step
-      #
-      # REDESIGN_PENDING: deprecated
-      def proposal_wizard_step_name(step)
-        t("decidim.proposals.proposals.wizard_steps.#{step}")
-      end
-
       # Returns the page title of the given step, translated
       #
       # action_name - A string of the rendered action
@@ -68,61 +31,6 @@ module Decidim
                      end
 
         t("decidim.proposals.proposals.#{step_title}.title")
-      end
-
-      # Returns the list item of the given step, in html
-      #
-      # step - A symbol of the target step
-      # current_step - A symbol of the current step
-      #
-      # REDESIGN_PENDING: deprecated
-      def proposal_wizard_stepper_step(step, current_step)
-        attributes = { class: proposal_wizard_step_classes(step, current_step).to_s }
-        step_title = proposal_wizard_step_name(step)
-        if step.to_s.split("_").last.to_i == proposal_wizard_step_number(current_step)
-          current_step_title = proposal_wizard_step_name("current_step")
-          step_title = content_tag(:span, "#{current_step_title}: ", class: "show-for-sr") + step_title
-          attributes["aria-current"] = "step"
-        end
-
-        content_tag(:li, step_title, attributes)
-      end
-
-      # Returns the list with all the steps, in html
-      #
-      # current_step - A symbol of the current step
-      #
-      # REDESIGN_PENDING: deprecated
-      def proposal_wizard_stepper(current_step)
-        content_tag :ol, class: "wizard__steps" do
-          %(
-            #{proposal_wizard_stepper_step(ProposalsController::STEP1, current_step)}
-            #{proposal_wizard_stepper_step(ProposalsController::STEP2, current_step)}
-            #{proposal_wizard_stepper_step(ProposalsController::STEP3, current_step)}
-            #{proposal_wizard_stepper_step(ProposalsController::STEP4, current_step)}
-          ).html_safe
-        end
-      end
-
-      # Returns a string with the current step number and the total steps number
-      #
-      # REDESIGN_PENDING: deprecated
-      def proposal_wizard_current_step_of(step)
-        current_step_num = proposal_wizard_step_number(step)
-        see_steps = content_tag(:span, class: "hide-for-large") do
-          concat " ("
-          concat content_tag :a, t(:"decidim.proposals.proposals.wizard_steps.see_steps"), "data-toggle": "steps"
-          concat ")"
-        end
-        content_tag :span, class: "text-small" do
-          concat t(:"decidim.proposals.proposals.wizard_steps.step_of", current_step_num:, total_steps:)
-          concat see_steps
-        end
-      end
-
-      # REDESIGN_PENDING: deprecated
-      def proposal_wizard_steps_title
-        t("title", scope: "decidim.proposals.proposals.wizard_steps")
       end
 
       # Returns a boolean if the step has a help text defined
@@ -140,11 +48,6 @@ module Decidim
 
       def total_steps
         4
-      end
-
-      # REDESIGN_PENDING: deprecated
-      def wizard_aside_info_text
-        t("info", scope: "decidim.proposals.proposals.wizard_aside").html_safe
       end
 
       # Renders the back link except for step_2: compare

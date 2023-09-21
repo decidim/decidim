@@ -3,7 +3,7 @@
 module Decidim
   module Budgets
     # This cell renders the Medium (:m) project card
-    # for an given instance of a Project
+    # for a given instance of a Project
     class ProjectMCell < Decidim::CardMCell
       include ActiveSupport::NumberHelper
       include Decidim::Budgets::ProjectsHelper

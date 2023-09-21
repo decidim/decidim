@@ -105,7 +105,7 @@ shared_examples "manage conferences" do
     end
   end
 
-  describe "updating an conference without images" do
+  describe "updating a conference without images" do
     before do
       within find("tr", text: translated(conference.title)) do
         click_link "Configure"
@@ -117,7 +117,7 @@ shared_examples "manage conferences" do
     end
     it_behaves_like "having a rich text editor for field", "#conference_registrations_terms", "content"
 
-    it "update an conference without images does not delete them" do
+    it "update a conference without images does not delete them" do
       click_submenu_link "Info"
       click_button "Update"
 

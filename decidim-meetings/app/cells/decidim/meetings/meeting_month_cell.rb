@@ -25,6 +25,10 @@ module Decidim
         @abbr_day_names ||= I18n.t("date.abbr_day_names").rotate(first_week_date_rotation)
       end
 
+      def day_names
+        @day_names ||= I18n.t("date.day_names").rotate(first_week_date_rotation)
+      end
+
       def first_day_of_month?(date)
         date.day == 1
       end

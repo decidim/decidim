@@ -39,10 +39,8 @@ shared_examples "manage process steps examples" do
       ca: "Descripció més llarga"
     )
 
-    page.execute_script("$('#participatory_process_step_start_date').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.execute_script("$('#participatory_process_step_end_date').focus()")
-    page.find(".datepicker-dropdown .day", text: "22").click
+    fill_in :participatory_process_step_start_date, with: Time.current.change(day: 12)
+    fill_in :participatory_process_step_end_date, with: Time.current.change(day: 22)
 
     within ".new_participatory_process_step" do
       # For some reason, the form submit button click can fail unless the page

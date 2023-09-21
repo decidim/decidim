@@ -19,7 +19,7 @@
     @apply flex flex-col gap-2;
 
     &-container {
-      @apply mt-8 flex items-start gap-4 [&>*]:w-1/2;
+      @apply mt-8 flex items-end gap-4 [&>*]:grow last:[&>*]:flex-none;
     }
 
     > label {

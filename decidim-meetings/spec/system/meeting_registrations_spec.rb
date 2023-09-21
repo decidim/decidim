@@ -233,8 +233,6 @@ describe "Meeting registrations", type: :system do
           let!(:user_group) { create(:user_group, :verified, users: [user], organization:) }
 
           it "they can join the meeting representing a group and appear in the attending organizations list" do
-            skip_unless_redesign_enabled("This test pass using redesigned modals")
-
             visit_meeting
 
             click_button "Register"
@@ -306,8 +304,6 @@ describe "Meeting registrations", type: :system do
         end
 
         it "shows errors for invalid file" do
-          skip "REDESIGN_PENDING: using the new upload modal breaks the submit, here it was using a plain input file"
-
           visit questionnaire_public_path
 
           dynamically_attach_file("questionnaire_responses_0_add_documents", Decidim::Dev.asset("verify_user_groups.csv"), front_interface: true)

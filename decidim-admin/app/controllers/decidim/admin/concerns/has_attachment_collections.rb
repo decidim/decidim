@@ -69,12 +69,6 @@ module Decidim
             end
           end
 
-          def show
-            @attachment_collection = collection.find(params[:id])
-            enforce_permission_to :read, :attachment_collection, attachment_collection: @attachment_collection
-            render template: "decidim/admin/attachment_collections/show"
-          end
-
           def destroy
             @attachment_collection = collection.find(params[:id])
             enforce_permission_to :destroy, :attachment_collection, attachment_collection: @attachment_collection

@@ -21,21 +21,6 @@ module Decidim
         decidim_sanitize_editor(translated_attribute(model.cost_report).html_safe)
       end
 
-      # REDESIGN_PENDING: deprecated
-      def needs_text_toggle?
-        cost_report != cost_report_short
-      end
-
-      # REDESIGN_PENDING: deprecated
-      def cost_report_short
-        decidim_sanitize_editor(
-          html_truncate(
-            translated_attribute(model.cost_report).html_safe,
-            length: 200
-          )
-        )
-      end
-
       def execution_period
         decidim_sanitize_editor(translated_attribute(model.execution_period).html_safe)
       end

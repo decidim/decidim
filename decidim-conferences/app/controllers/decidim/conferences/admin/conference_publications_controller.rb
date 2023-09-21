@@ -5,40 +5,22 @@ module Decidim
     module Admin
       # Controller that allows managing conference publications.
       #
-      class ConferencePublicationsController < Decidim::Conferences::Admin::ApplicationController
+      # i18n-tasks-use t('decidim.admin.conference_publications.create.error')
+      # i18n-tasks-use t('decidim.admin.conference_publications.create.success')
+      # i18n-tasks-use t('decidim.admin.conference_publications.destroy.error')
+      # i18n-tasks-use t('decidim.admin.conference_publications.destroy.success')
+      class ConferencePublicationsController < Decidim::Admin::SpacePublicationsController
         include Concerns::ConferenceAdmin
 
-        def create
-          enforce_permission_to :publish, :conference, conference: current_conference
+        private
 
-          PublishConference.call(current_conference, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("conference_publications.create.success", scope: "decidim.admin")
-            end
+        def enforce_permission_to_publish = enforce_permission_to(:publish, :conference, conference: current_conference)
 
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("conference_publications.create.error", scope: "decidim.admin")
-            end
+        def publish_command = PublishConference
 
-            redirect_back(fallback_location: conferences_path)
-          end
-        end
+        def i18n_scope = "decidim.admin.conference_publications"
 
-        def destroy
-          enforce_permission_to :publish, :conference, conference: current_conference
-
-          UnpublishConference.call(current_conference, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("conference_publications.destroy.success", scope: "decidim.admin")
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("conference_publications.destroy.error", scope: "decidim.admin")
-            end
-
-            redirect_back(fallback_location: conferences_path)
-          end
-        end
+        def fallback_location = conferences_path
       end
     end
   end

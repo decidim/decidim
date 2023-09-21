@@ -17,11 +17,8 @@ module Decidim
 
       private
 
-      # REDESIGN_PENDING: size :m is deprecated
       def card_size
         case @options[:size]
-        when :m
-          "decidim/proposals/proposal_m"
         when :s
           "decidim/proposals/proposal_s"
         when :g
