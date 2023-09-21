@@ -1,6 +1,5 @@
 <%= decidim_modal id: "show-backup-modal" do %>
   <div data-dialog-container>
-    <%= external_icon "media/images/decidim-symbol.svg" %>
     <h2 id="dialog-title-show-backup-modal" tabindex="-1" data-dialog-title><%= t("title", scope: "decidim.elections.trustee_zone.elections.backup_modal", election: translated_attribute(election.title)) %></h2>
     <div>
       <p id="dialog-desc-show-backup-modal"><%= t("description", scope: "decidim.elections.trustee_zone.elections.backup_modal") %></p>
