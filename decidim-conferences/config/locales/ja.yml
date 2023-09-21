@@ -326,6 +326,9 @@ ja:
         title: スピーカー
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help: 'URLスラグは、このカンファレンスへのURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         conference_invites:
           create:
             error: 参加者をカンファレンスに招待する際に問題が発生しました。
@@ -366,6 +369,7 @@ ja:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             registrations_count:
               other: '%{count} 件の登録がありました。'
+            slug_help: 'URLスラグは、このカンファレンスへのURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         diplomas:
           edit:
             save: 保存
