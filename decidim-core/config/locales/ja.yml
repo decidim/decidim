@@ -574,6 +574,7 @@ ja:
       registrations:
         new:
           already_have_an_account?: 既にアカウントをお持ちですか？
+          log_in: ログイン
           newsletter: 関連するお知らせを受け取る
           newsletter_title: ニュースレターを受け取る
           sign_up: 新規登録
@@ -588,6 +589,8 @@ ja:
           register: アカウントを作成
           sign_in_disabled: 外部アカウントでアクセスできます。
           sign_up_disabled: 新規登録は無効になっています。既存のアカウントを使用してアクセスすることができます。
+        user:
+          timed_out: 長時間非アクティブであり、自動的にサービスからログアウトされました。 引き続きサービスをご利用いただく場合は、再度ログインしてください。
       shared:
         newsletter_modal:
           buttons:
@@ -608,12 +611,14 @@ ja:
           hide_password: パスワードを隠す
           show_password: パスワードを表示
           shown_password: パスワードは表示されています
+        placeholder_email: hi@example.org
     doorkeeper:
       authorizations:
         new:
           authorize: アプリケーションを承認する
           by_organization_link_html: <small class="heading-small">by %{link}</small>
           cancel: キャンセル
+          connect_your_account_html: '%{organization} にログインしてアカウントに接続します。'
           publish_content: コンテンツを公開する
           see_email: メールを見る
           see_name: 名前を確認してください
@@ -1069,29 +1074,35 @@ ja:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
           greeting: こんにちは、%{recipient}。
           intro: "%{manager} が %{group}という名前で新しい会話を開始しました。こちらをクリックしてください:"
+          outro: プラットフォームをお楽しみください!
           subject: "%{manager} が %{group} として新しい会話を開始しました"
         comanagers_new_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
           greeting: こんにちは、%{recipient}。
           intro: "%{manager} は、 %{group}という名前の新しいメッセージを会話に投稿しました。それらを表示するにはここをクリックしてください："
+          outro: プラットフォームをお楽しみください!
           subject: "%{manager} は %{group} として新しいメッセージを送信しました"
         new_conversation:
           greeting: こんにちは、%{recipient}。
           intro: "%{sender} があなたと新しい会話を開始しました。こちらをクリックしてください:"
+          outro: プラットフォームをお楽しみください!
           subject: "%{sender} があなたと会話を開始しました"
         new_group_conversation:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
           greeting: こんにちは、%{recipient}。
           intro: "%{sender} がグループ %{group}との新しい会話を開始しました。こちらをクリックしてください:"
+          outro: プラットフォームをお楽しみください!
           subject: "%{sender} が %{group} と会話を開始しました"
         new_group_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
           greeting: こんにちは、%{recipient}。
           intro: "%{sender} がグループ %{group}との会話に新しいメッセージを投稿しました。こちらをクリックしてください:"
+          outro: プラットフォームをお楽しみください!
           subject: "%{group} に %{sender} からの新しいメッセージがあります"
         new_message:
           greeting: こんにちは、%{recipient}。
           intro: "%{sender} さんがあなたの会話に新しいメッセージを投稿しました。こちらをクリックしてください："
+          outro: プラットフォームをお楽しみください!
           subject: '%{sender} からの新しいメッセージがあります'
       conversations:
         add_conversation_users:
@@ -1451,7 +1462,10 @@ ja:
         title: 不適切なユーザーを報告
       floating_help:
         help: ヘルプ
+      follow_button:
+        log_in_before_follow: このアクションを実行する前にログインしてください
       login_modal:
+        please_log_in: ログインしてください
         sign_up: 新規登録
       mentions_modal:
         remove_recipient: 受信者 %{name} を削除
@@ -1569,6 +1583,8 @@ ja:
       last_attempt: アカウントがロックされる前にもう1回試行があります。
       locked: あなたのアカウントはロックされています。
       not_found_in_database: '%{authentication_keys} またはパスワードが無効です。'
+      timeout: セッションの有効期限が切れました。再度ログインしてください。
+      unauthenticated: 続行する前にログインまたはサインアップする必要があります。
     invitations:
       edit:
         header: アカウントの作成を完了する
@@ -1630,6 +1646,7 @@ ja:
         action: アカウントのロックを解除
         greeting: こんにちは、 %{recipient} さん!
         instruction: 'アカウントのロックを解除するには、下のリンクをクリックしてください:'
+        message: あなたのアカウントは、ログインに失敗した回数が多すぎるためロックされています。
         subject: 説明のロックを解除する
     omniauth_callbacks:
       failure: '「 %{kind} 」のため、%{reason}から認証できませんでした。'
@@ -1660,12 +1677,20 @@ ja:
       signed_up_but_unconfirmed: 確認リンクが記載されたメッセージがあなたのメールアドレスに送信されました。リンクに従ってアカウントを有効にしてください。
       update_needs_confirmation: アカウントを正常に更新しましたが、新しいメールアドレスを確認する必要があります。 メールを確認し、新しいメールアドレスを確認するためのリンクに従ってください。
       updated: アカウントが正常に更新されました。
+    sessions:
+      already_signed_out: ログアウトしました。
+      new:
+        log_in: ログイン
+      signed_in: ログインしました。
+      signed_out: ログアウトしました。
     shared:
       links:
         back: 戻る
         didn_t_receive_confirmation_instructions: ユーザ登録確認メールが届かない方はこちら
         didn_t_receive_unlock_instructions: ロック解除の手順を送信したい方はこちら
         forgot_your_password: パスワードをお忘れですか？
+        log_in: ログイン
+        log_in_with_provider: '%{provider} でログイン'
         sign_up: 新規登録
       minimum_password_length:
         other: "(%{count} 文字以上)"
@@ -1855,11 +1880,13 @@ ja:
         decidim_logo: Decidim ロゴ
         decidim_title: Decidim
         download_open_data: オープンデータファイルをダウンロード
+        log_in: ログイン
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
         resources: リソース
         sign_up: 新規登録
         terms_and_conditions: 利用規約
       header:
+        log_in: ログイン
         main_menu: メインメニュー
         user_menu: ユーザーメニュー
       impersonation_warning:
@@ -1873,6 +1900,10 @@ ja:
         mark_as_read: 既読にする
       offline_banner:
         cache_version_page: 注意：あなたのネットワークはオフラインです。これは以前にアクセスしているページのキャッシュされたバージョンです。おそらくコンテンツが最新ではありません。
+      shared:
+        layout_item:
+          next: 次のアイテム
+          prev: 前のアイテム
       social_media_links:
         facebook: "Facebook の %{organization}"
         github: "GitHub の %{organization}"
@@ -1882,6 +1913,7 @@ ja:
       timeout_modal:
         body: '%{minutes} 分間アクティブではありませんでした。このまま非アクティブ状態を続けると、自動的にログアウトされます。'
         continue_session: セッションを続ける
+        log_out: ログアウト
         title: セッションを続行しますか？
       upload_modal:
         close_modal: モーダルを閉じる
@@ -1890,6 +1922,7 @@ ja:
         admin_dashboard: 管理ダッシュボード
         configuration: 設定
         conversations: 会話
+        log_out: ログアウト
         notifications: 通知
         profile: マイアカウント
         public_profile: 公開プロフィール
