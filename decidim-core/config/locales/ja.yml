@@ -1701,6 +1701,7 @@ ja:
         resend_unlock_instructions: ロック解除の手順を再送信する
       send_instructions: 数分でアカウントのロックを解除する方法が記載されたメールが届きます。
       send_paranoid_instructions: アカウントが存在する場合、数分でロックを解除する方法が記載されたメールが届きます。
+      unlocked: アカウントのロックが解除されました。続行するにはログインしてください。
   doorkeeper:
     scopes:
       public: 公開情報
@@ -1789,6 +1790,7 @@ ja:
   errors:
     messages:
       allowed_file_content_types: '次の拡張子を持つファイルのみが許可されています: %{types}'
+      already_confirmed: すでに確認済みです。ログインしてみてください。
       blank: 空白にできません
       cannot_be_blank: 空白にできません
       confirmation: '%{attribute} と一致しません'
