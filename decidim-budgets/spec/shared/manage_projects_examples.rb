@@ -233,7 +233,7 @@ shared_examples "manage projects" do
       end
 
       within ".edit_project" do
-        proposals_remove(select_data_picker(:project_proposals, multiple: true), proposals.last(4))
+        tom_select("#proposals_list", option_id: proposals.first(proposals.length - 4).map(&:id))
 
         find("*[type=submit]").click
       end
