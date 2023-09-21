@@ -325,6 +325,9 @@ ja:
         title: スピーカー
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help_html: 'URLスラグは、このカンファレンスへのURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         conference_invites:
           create:
             error: 参加者をカンファレンスに招待する際に問題が発生しました。
@@ -365,6 +368,7 @@ ja:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             registrations_count:
               other: '%{count} 件の登録がありました。'
+            slug_help_html: 'URLスラグは、このカンファレンスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         diplomas:
           edit:
             save: 保存
@@ -417,9 +421,11 @@ ja:
         create:
           invalid: このカンファレンスに参加するのに問題がありました。
           success: カンファレンスに参加しました。
+          unauthorized: カンファレンスに登録する前にログインする必要があります。
         decline_invitation:
           invalid: 招待を辞退するのに問題があった。
           success: 招待を拒否しました。
+          unauthorized: 招待を拒否する前にログインする必要があります。
         destroy:
           invalid: このカンファレンスから退会するのに問題がありました。
           success: カンファレンスから退会しました。
