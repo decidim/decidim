@@ -902,8 +902,6 @@ en:
           title: Proposal creation steps
       proposals_picker:
         choose_proposals: Choose proposals
-        close: Close
-        more_proposals: There are %{number} more proposals. Refine your search to locate them.
         no_proposals: No proposals match your search criteria or there is not any proposals.
       publish:
         error: There was a problem publishing the proposal.

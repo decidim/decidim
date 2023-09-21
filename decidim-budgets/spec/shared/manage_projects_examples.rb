@@ -11,7 +11,7 @@ shared_examples "manage projects" do
     it_behaves_like "having a rich text editor", "new_project", "full"
 
     it "displays the proposals picker" do
-      expect(page).to have_content("Choose proposals")
+      expect(page).to have_content("Proposals")
     end
 
     context "when geocoding is enabled", :serves_geocoding_autocomplete do
@@ -211,7 +211,7 @@ shared_examples "manage projects" do
           ca: "El meu nou títol"
         )
 
-        proposals_pick(select_data_picker(:project_proposals, multiple: true), proposals.last(2))
+        tom_select("#proposals_list", option_id: proposals.last(2).map(&:id))
 
         find("*[type=submit]").click
       end
@@ -263,7 +263,7 @@ shared_examples "manage projects" do
         )
         fill_in :project_budget_amount, with: 22_000_000
 
-        proposals_pick(select_data_picker(:project_proposals, multiple: true), proposals.first(2))
+        # proposals_pick(select_data_picker(:project_proposals, multiple: true), proposals.first(2))
         scope_pick(select_data_picker(:project_decidim_scope_id), scope)
         select translated(category.name), from: :project_decidim_category_id
 

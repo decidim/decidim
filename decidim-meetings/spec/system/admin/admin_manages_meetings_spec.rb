@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/proposals/test/capybara_proposals_picker"
+require "decidim/dev/test/rspec_support/tom_select"
 
 describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_map: true, type: :system do
   let(:manifest_name) { "meetings" }
@@ -542,7 +542,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       end
 
       within ".edit_close_meeting" do
-        expect(page).to have_content "Choose proposals"
+        expect(page).to have_content "Proposals"
 
         fill_in_i18n_editor(
           :close_meeting_closing_report,
@@ -554,7 +554,9 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
         fill_in :close_meeting_attendees_count, with: 12
         fill_in :close_meeting_contributions_count, with: 44
         fill_in :close_meeting_attending_organizations, with: "Neighbours Association, Group of People Complaining About Something and Other People"
-        proposals_pick(select_data_picker(:close_meeting_proposals, multiple: true), proposals.first(2))
+
+        tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
+
         click_button "Close"
       end
 
@@ -595,7 +597,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
         expect(page).to have_content "Close meeting"
 
         within "form.edit_close_meeting" do
-          expect(page).not_to have_content "Choose proposals"
+          expect(page).not_to have_content "Proposals"
         end
       end
     end

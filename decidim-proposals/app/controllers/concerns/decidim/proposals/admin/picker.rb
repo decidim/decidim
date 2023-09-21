@@ -2,6 +2,7 @@
 
 require "active_support/concern"
 
+# deprecated
 module Decidim
   module Proposals
     module Admin

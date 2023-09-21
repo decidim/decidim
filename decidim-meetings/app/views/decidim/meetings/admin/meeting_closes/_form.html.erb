@@ -24,7 +24,7 @@
 
     <% if Decidim::Meetings.enable_proposal_linking %>
       <div class="row column">
-        <%= proposals_picker(form, :proposals, proposals_picker_meeting_meeting_closes_path(meeting)) %>
+        <%= render partial: "decidim/proposals/proposals/proposals_picker.html.erb", locals: { form:, field: :proposals } %>
       </div>
     <% end %>
 
