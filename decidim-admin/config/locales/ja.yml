@@ -37,6 +37,9 @@ ja:
         user_group_id: インポートを作成
       newsletter:
         body: 本文
+        send_to_all_users: すべてのユーザーに送信
+        send_to_followers: フォロワーに送信
+        send_to_participants: 参加者に送信
         subject: 件名
       organization:
         admin_terms_of_service_body: 管理者向け利用規約本文
@@ -637,6 +640,7 @@ ja:
           fields:
             created_at: 作成日
             email: Eメールアドレス
+            last_sign_in_at: 最終ログイン日
             name: 名前
             role: ロール
             roles:
@@ -830,6 +834,7 @@ ja:
             saturation: 彩度
             title: 色の選択
             update_suggested_colors: 提案色を更新
+          cta_button_path_help_html: 'ホームページにあるCall to Actionボタンのリンク先を上書きすることができます。完全なURLではなく、相対パスを使用してください。 英字、数字、ハイフン、スラッシュを使用でき、英字で始まる必要があります。 Call To Actionボタンは、ホームページ内のウェルカムテキストと説明の間に表示されます。例: %{url}'
           cta_button_text_help: 組織の利用可能な言語ごとにホームページの [Call To Action] ボタンのテキストを上書きできます。 設定されていない場合は、デフォルト値が使用されます。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。
           homepage_appearance_title: ホームページの外観を編集
           homepage_highlighted_content_banner_title: ハイライトされたコンテンツバナー
@@ -1004,6 +1009,7 @@ ja:
           update: 更新
         form:
           none: なし
+          slug_help_html: 'ここでは完全な URL ではなく、相対パスを使用してください。英字、数字、ハイフン、スラッシュを受け入れ、英字で始まる必要があります。例: %{url}'
         index:
           last_notable_change: 前回の注目すべき変更
         new:
