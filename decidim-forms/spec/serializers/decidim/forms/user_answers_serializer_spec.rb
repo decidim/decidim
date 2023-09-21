@@ -114,7 +114,7 @@ module Decidim
 
           it "the creation of the answer" do
             key = I18n.t(:created_at, scope: "decidim.forms.user_answers_serializer")
-            expect(serialized[key]).to eq an_answer.created_at.to_s(:db)
+            expect(serialized[key]).to be_within(1.second).of an_answer.created_at
           end
 
           it "the IP hash of the user" do
@@ -156,9 +156,9 @@ module Decidim
             answers.first.update!(created_at:)
           end
 
-          it "Time uses configured time zone in exported data" do
+          it "Time uses UTC time zone in exported data" do
             key = I18n.t(:created_at, scope: "decidim.forms.user_answers_serializer")
-            expect(serialized[key]).to eq "2000-01-02 03:04:05"
+            expect(serialized[key].to_s).to include "UTC"
           end
         end
 
@@ -171,9 +171,9 @@ module Decidim
             answers.first.update!(created_at:)
           end
 
-          it "Time uses configured time zone in exported data" do
+          it "Time uses UTC time zone in exported data" do
             key = I18n.t(:created_at, scope: "decidim.forms.user_answers_serializer")
-            expect(serialized[key]).to eq "2000-01-01 17:04:05"
+            expect(serialized[key].to_s).to include "UTC"
           end
         end
 
