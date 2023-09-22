@@ -185,7 +185,6 @@ el:
         export: Εξαγωγή όλων
         export-selection: Εξαγωγή επιλογής
         import: Εισαγωγή
-        manage: Διαχείριση
         new: Νέο όνομα %{name}
         newsletter:
           new: Νέο ενημερωτικό δελτίο
@@ -254,7 +253,6 @@ el:
           title: Επεξεργασία φακέλου
           update: Ενημέρωση
         index:
-          attachment_collection_used: Δεν είναι δυνατή η κατάργηση αυτού του φακέλου επειδή χρησιμοποιείται.
           attachment_collections_title: Φάκελοι συνημμένου
         new:
           create: Δημιουργία
@@ -303,7 +301,6 @@ el:
           update: Ενημέρωση
         index:
           categories_title: Κατηγορίες
-          category_used: Δεν είναι δυνατή η κατάργηση αυτής της κατηγορίας επειδή χρησιμοποιείται.
         new:
           create: Δημιουργία κατηγορίας
           title: Νέα κατηγορία
@@ -370,7 +367,6 @@ el:
           title: Εκκρεμείς εγκρίσεις
         show:
           view_more_logs: Προβολή περισσότερων αρχείων καταγραφής
-          welcome: Καλώς ήλθατε στον Πίνακα Διαχειριστή.
       domain_whitelist:
         form:
           domain_too_short: Πολύ σύντομος τομέας
@@ -469,7 +465,6 @@ el:
             all: Όλα
             managed: Με διαχείριση
             not_managed: Χωρίς διαχείριση
-          filter_by: Φιλτράρισμα κατά
           impersonate: Αναπαράσταση
           impersonate_new_managed_user: Διαχείριση νέου συμμετέχοντα
           managed: Με διαχείριση
@@ -559,7 +554,6 @@ el:
         areas: Τομείς
         configuration: Διαμόρφωση
         content: Περιεχόμενο που αναφέρθηκε
-        dashboard: Πίνακας εργαλείων
         external_domain_whitelist: Επιτρεπόμενοι εξωτερικοί τομείς
         help_sections: Ενότητες βοήθειας
         homepage: Αρχική σελίδα
@@ -789,7 +783,6 @@ el:
           officialize: Επισημοποίηση
           title: Επισημοποίηση συμμετέχοντα «%{name}»
         show_email_modal:
-          close_modal: Κλείσιμο παραθύρου
           description: Αν θέλετε να επικοινωνήσετε απευθείας με κάποιον συμμετέχοντα, μπορείτε να κάνετε κλικ στο κουμπί Εμφάνιση για να δείτε τη διεύθυνση ηλεκτρονικού ταχυδρομείου του. Η ενέργεια αυτή θα καταγραφεί.
           email_address: Διεύθυνση email
           full_name: Ονοματεπώνυμο
@@ -1012,7 +1005,6 @@ el:
         participants: Συμμετέχοντες
         scope_types: Τύποι πεδίου εφαρμογής
         scopes: Πεδία εφαρμογής
-        static_pages: Σελίδες
         statistics: Δραστηριότητα
         user_groups: Ομάδες
         users: Διαχειριστές
@@ -1064,7 +1056,6 @@ el:
           last_week: Τελευταία εβδομάδα
           no_users_count_statistics_yet: Δεν υπάρχουν στατιστικά στοιχεία καταμέτρησης χρηστών ακόμα.
           participants: Συμμετέχοντες
-      view_public_page: Προβολή δημόσιας σελίδας
     forms:
       errors:
         impersonate_user:
@@ -1125,9 +1116,3 @@ el:
       admin:
         global_moderations:
           title: Γενικές εποπτεύσεις
-        newsletters:
-          title: Ενημερωτικά δελτία
-        settings:
-          title: Ρυθμίσεις
-        users:
-          title: Συμμετέχοντες
