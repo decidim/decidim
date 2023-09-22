@@ -1098,29 +1098,35 @@ fr-CA:
           admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
           greeting: Bonjour, %{recipient} !
           intro: "%{manager} a commencé une nouvelle conversation au nom de %{group}. Cliquez ici pour la voir :"
+          outro: Profitez de la plateforme !
           subject: "%{manager} a commencé une nouvelle conversation en tant que %{group}"
         comanagers_new_message:
           admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
           greeting: Bonjour %{recipient} !
           intro: "%{manager} a posté de nouveaux messages dans une conversation au nom de %{group}. Cliquez ici pour les voir:"
+          outro: Profitez de la plateforme !
           subject: "%{manager} a envoyé de nouveaux messages en tant que %{group}"
         new_conversation:
           greeting: Bonjour, %{recipient} !
           intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour la voir :"
+          outro: Profitez de la plateforme !
           subject: "%{sender} a commencé une conversation avec vous"
         new_group_conversation:
           admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
           greeting: Bonjour, %{recipient} !
           intro: "%{sender} a commencé une nouvelle conversation avec le groupe %{group}. Cliquez ici pour la voir :"
+          outro: Profitez de la plateforme !
           subject: "%{sender} a commencé une conversation avec %{group}"
         new_group_message:
           admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
           greeting: Bonjour, %{recipient} !
           intro: "%{sender} a posté de nouveaux messages dans une conversation avec le groupe %{group}. Cliquez ici pour le voir:"
+          outro: Profitez de la plateforme !
           subject: "%{group} a de nouveaux messages de %{sender}"
         new_message:
           greeting: Bonjour, %{recipient} !
           intro: "%{sender} a posté de nouveaux messages dans votre conversation. Cliquez ici pour les voir :"
+          outro: Profitez de la plateforme !
           subject: Vous avez de nouveaux messages de %{sender}
       conversations:
         add_conversation_users:
