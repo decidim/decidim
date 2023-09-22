@@ -181,7 +181,6 @@ eu:
         export: Esportatu dena
         export-selection: Esportatu hautatua
         import: Inportatu
-        manage: Kudeatu
         new: '%{name}berria'
         newsletter:
           new: Beste buletin bat
@@ -234,7 +233,6 @@ eu:
           title: Editatu karpeta
           update: Onartu
         index:
-          attachment_collection_used: Karpeta hau ezin da ezabatu erabiltzen ari delako.
           attachment_collections_title: Eranskinen karpetak
         new:
           create: Sortu
@@ -281,7 +279,6 @@ eu:
           update: Eguneratu
         index:
           categories_title: Kategoriak
-          category_used: Kategoria hau ezin da ezabatu erabiltzen ari delako.
         new:
           create: Sortu kategoria
           title: Kategoria berria
@@ -349,7 +346,6 @@ eu:
           title: Zain dauden moderazioak
         show:
           view_more_logs: Ikusi gehiago erregistroak
-          welcome: Ongi etorri Decidim Administrazio Panelera.
       domain_whitelist:
         form:
           domain_too_short: Domeinu laburregia
@@ -441,7 +437,6 @@ eu:
             all: Guztiak
             managed: Kudeatutako
             not_managed: Ez da kudeatzen
-          filter_by: Iragazi arabera
           impersonate: Ordeztu
           impersonate_new_managed_user: Ordezkatu erabiltzaile kudeatu berria
           managed: Kudeatutako
@@ -514,7 +509,6 @@ eu:
         areas: Arloak
         configuration: konfigurazioa
         content: Erreportatutako edukia
-        dashboard: Kontrol-panela
         external_domain_whitelist: Kanpoko domeinuak baimenduta
         help_sections: Laguntza atalak
         homepage: Hasiera
@@ -733,7 +727,6 @@ eu:
           officialize: Officialize
           title: Erabiltzaile ofiziala "%{name}"
         show_email_modal:
-          close_modal: Itxi leihoa
           description: Parte-hartzaile batekin zuzenean harremanetan jarri behar baduzu, Erakutsi botoian klik egin dezakezu helbide elektronikoa ikusteko. Ekintza hori erregistratu egingo da.
           email_address: Korreo elektronikoaren helbidea
           full_name: Izen osoa
@@ -936,7 +929,6 @@ eu:
         participants: erabiltzaileak
         scope_types: Esparru motak
         scopes: Esparruak
-        static_pages: Orriak
         statistics: Jarduera
         user_groups: Erabiltzaile-taldeak
       user_group:
@@ -982,7 +974,6 @@ eu:
           last_month: Azken hila
           last_week: Azken astea
           participants: Parte-hartzaileak
-      view_public_page: Ikusi orri publikoa
     metrics:
       blocked_users:
         object: erabiltzaileak blokeatuta
@@ -1031,12 +1022,3 @@ eu:
   errors:
     messages:
       invalid_json: JSON baliogabea
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Buletinak
-        settings:
-          title: Ezarpenak
-        users:
-          title: Erabiltzaileak
