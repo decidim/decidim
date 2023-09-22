@@ -120,7 +120,6 @@ sr:
       actions:
         add: Dodaj
         browse: Prеglеdaj
-        manage: Upravljaj
         new: Novo %{name}
         per_page: Po stranici
         permissions: Dozvole
@@ -161,7 +160,6 @@ sr:
           title: Izmeni fasciklu
           update: Ažuriraj
         index:
-          attachment_collection_used: Ova fascikla se ne može ukloniti jer se trenutno koristi.
           attachment_collections_title: Fascikle priloga
         new:
           create: Stvori
@@ -200,7 +198,6 @@ sr:
           update: Ažuriraj
         index:
           categories_title: Kategorije
-          category_used: Ova kategorija se ne može ukloniti jer se trenutno koristi.
         new:
           create: Stvori kategoriju
           title: Nova katеgorija
@@ -281,7 +278,6 @@ sr:
             all: Sve
             managed: Obrađeno
             not_managed: Neobrađeno
-          filter_by: Izaberi po
           impersonate: Predstavlja
           impersonate_new_managed_user: Upravljanje novim učesnikom
           managed: Obrađeno
@@ -324,7 +320,6 @@ sr:
         area_types: Tipovi oblasti
         areas: Oblasti
         configuration: Konfiguracija
-        dashboard: Kontrolna tabla
         help_sections: Sekcije za pomoć
         homepage: Početna stranica
         impersonations: Predstavljanja
