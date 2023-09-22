@@ -1007,7 +1007,7 @@ nl:
           last_week: Vorige week
           no_users_count_statistics_yet: Er zijn nog geen gebruikers teller statistieken
           participants: Deelnemers
-      view_public_page: Bekijk openbare pagina
+      view_public_page: Bekijk de openbare pagina
     forms:
       errors:
         impersonate_user:
