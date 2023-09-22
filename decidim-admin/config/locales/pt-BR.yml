@@ -525,7 +525,7 @@ pt-BR:
         area_types: Tipos de área
         areas: Áreas
         configuration: Configuração
-        dashboard: Painel de controle
+        dashboard: painel de controle
         external_domain_whitelist: Domínios externos permitidos
         help_sections: Seções de ajuda
         homepage: Pagina inicial
@@ -1053,8 +1053,8 @@ pt-BR:
         global_moderations:
           title: Moderadores globais
         newsletters:
-          title: Boletins informativos
+          title: Newsletters
         settings:
           title: Configurações
         users:
-          title: Usuários
+          title: Participantes
