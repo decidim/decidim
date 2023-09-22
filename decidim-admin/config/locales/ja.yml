@@ -189,7 +189,6 @@ ja:
         export: 全てエクスポート
         export-selection: 選択したものをエクスポート
         import: インポート
-        manage: 管理
         new: 新しい %{name}
         newsletter:
           new: 新しいニュースレター
@@ -259,7 +258,6 @@ ja:
           title: フォルダを編集
           update: 更新
         index:
-          attachment_collection_used: このフォルダは使用中のため削除できません。
           attachment_collections_title: 添付ファイルフォルダ
         new:
           create: 作成
@@ -308,7 +306,6 @@ ja:
           update: 更新
         index:
           categories_title: カテゴリ
-          category_used: このカテゴリは使用中のため削除できません。
         new:
           create: カテゴリを作成
           title: 新しいカテゴリ
@@ -375,7 +372,6 @@ ja:
           title: 保留中のモデレーション
         show:
           view_more_logs: もっとログを見る
-          welcome: 管理画面へようこそ。
       domain_whitelist:
         form:
           domain_too_short: ドメインが短すぎます
@@ -474,7 +470,6 @@ ja:
             all: すべて
             managed: 管理
             not_managed: 非管理対象
-          filter_by: フィルター
           impersonate: なりすまし
           impersonate_new_managed_user: 新規参加者の管理
           managed: 管理対象
@@ -560,7 +555,6 @@ ja:
         areas: エリア
         configuration: 設定
         content: 報告されたコンテンツ
-        dashboard: ダッシュボード
         external_domain_whitelist: 許可された外部ドメイン
         help_sections: ヘルプセクション
         homepage: ホームページ
@@ -794,7 +788,6 @@ ja:
           officialize: 公式化
           title: 参加者 "%{name} " を正規化
         show_email_modal:
-          close_modal: モーダルを閉じる
           description: 直接参加者に連絡する必要がある場合、彼らの電子メールアドレスを見るために表示ボタンをクリックしてください。このアクションは記録されます。
           email_address: メールアドレス
           full_name: フルネーム
@@ -1040,7 +1033,6 @@ ja:
         participants: 参加者
         scope_types: スコープ種別
         scopes: スコープ
-        static_pages: ページ
         statistics: アクティビティ
         user_groups: グループ
         users: 管理者
@@ -1092,7 +1084,6 @@ ja:
           last_week: 過去1週間
           no_users_count_statistics_yet: ユーザー数の統計情報はまだありません。
           participants: 参加者
-      view_public_page: 公開ページを表示
     forms:
       errors:
         impersonate_user:
@@ -1153,9 +1144,3 @@ ja:
       admin:
         global_moderations:
           title: グローバルモデレーション
-        newsletters:
-          title: ニュースレター
-        settings:
-          title: 設定
-        users:
-          title: 参加者
