@@ -189,7 +189,6 @@ es:
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
-        manage: Gestionar
         new: Nuevo %{name}
         newsletter:
           new: Nuevo boletín
@@ -259,7 +258,6 @@ es:
           title: Editar carpeta
           update: Actualizar
         index:
-          attachment_collection_used: Esta carpeta no se puede eliminar porque está en uso.
           attachment_collections_title: Carpetas de archivos adjuntos
         new:
           create: Crear
@@ -308,7 +306,6 @@ es:
           update: Actualizar
         index:
           categories_title: Categorías
-          category_used: Esta categoría no se puede eliminar porque está en uso.
         new:
           create: Crear categoría
           title: Nueva categoría
@@ -376,7 +373,6 @@ es:
           title: Moderaciones pendientes
         show:
           view_more_logs: Ver más registros
-          welcome: Bienvenida al panel de administración.
       domain_whitelist:
         form:
           domain_too_short: Dominio demasiado corto
@@ -475,7 +471,6 @@ es:
             all: Todas
             managed: Administrado
             not_managed: No gestionado
-          filter_by: Filtrado por
           impersonate: Impersonar
           impersonate_new_managed_user: Gestiona una nueva participante
           managed: Gestionado
@@ -565,7 +560,6 @@ es:
         areas: Áreas
         configuration: Configuración
         content: Contenido reportado
-        dashboard: Panel de control
         external_domain_whitelist: Dominios externos permitidos
         help_sections: Secciones de ayuda
         homepage: Página principal
@@ -799,7 +793,6 @@ es:
           officialize: Oficializar
           title: Oficializar participante "%{name}"
         show_email_modal:
-          close_modal: Cierra el modal
           description: Si necesitas contactar directamente con una participante, puedes hacer clic en el botón Mostrar para ver la dirección de correo electrónico. Esta acción se registrará.
           email_address: Dirección de correo electrónico
           full_name: Nombre completo
@@ -1046,7 +1039,6 @@ es:
         participants: Participantes
         scope_types: Tipos de ámbito
         scopes: Ámbitos
-        static_pages: Páginas
         statistics: Actividad
         user_groups: Grupos
         users: Administradoras
@@ -1098,7 +1090,6 @@ es:
           last_week: Última semana
           no_users_count_statistics_yet: Aún no hay estadísticas de recuento de usuarias.
           participants: Participantes
-      view_public_page: Ver página pública
     forms:
       errors:
         impersonate_user:
@@ -1159,9 +1150,3 @@ es:
       admin:
         global_moderations:
           title: Moderaciones globales
-        newsletters:
-          title: Boletines
-        settings:
-          title: Ajustes
-        users:
-          title: Partipantes
