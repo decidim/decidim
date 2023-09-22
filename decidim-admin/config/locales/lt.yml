@@ -1017,7 +1017,7 @@ lt:
           last_week: Praėjusią savaitę
           no_users_count_statistics_yet: Dar nėra dalyvių skaičiaus statistinių duomenų
           participants: Dalyviai
-      view_public_page: Peržiūrėti viešąjį puslapį
+      view_public_page: Peržiūrėti viešą puslapį
     forms:
       errors:
         impersonate_user:
