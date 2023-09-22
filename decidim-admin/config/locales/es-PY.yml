@@ -1040,7 +1040,7 @@ es-PY:
           last_week: La última semana
           no_users_count_statistics_yet: Aún no hay estadísticas de recuenteo de usuarias
           participants: Participantes
-      view_public_page: Ver página pública
+      view_public_page: Ver la página pública
     forms:
       errors:
         impersonate_user:
@@ -1104,6 +1104,6 @@ es-PY:
         newsletters:
           title: Boletines
         settings:
-          title: Ajustes
+          title: Configuración
         users:
-          title: Usuarios
+          title: Participantes
