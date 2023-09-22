@@ -367,6 +367,7 @@ hu:
           goto_moderation: Menj a globális moderációkhoz
           title: Függő moderációk
         show:
+          dropdown: Legördülő lista
           view_more_logs: További naplók megtekintése
       domain_whitelist:
         form:
@@ -565,6 +566,7 @@ hu:
         reported_users: Jelentett résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
+        see_site: Oldal megtekintése
         settings: Beállítások
         static_pages: Oldalak
         user_groups: Felhasználói csoportok
