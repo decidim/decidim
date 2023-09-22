@@ -152,7 +152,6 @@ gl:
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
-        manage: Xestionar
         new: Novo %{name}
         newsletter:
           new: Novo boletín
@@ -200,7 +199,6 @@ gl:
           title: Editar carpeta
           update: Actualización
         index:
-          attachment_collection_used: Non se pode eliminar este cartafol porque está en uso.
           attachment_collections_title: Cartafoles adxuntos
         new:
           create: Crear
@@ -246,7 +244,6 @@ gl:
           update: Actualización
         index:
           categories_title: Categorías
-          category_used: Esta categoría non se pode eliminar porque está en uso.
         new:
           create: Crear categoría
           title: Nova categoría
@@ -306,7 +303,6 @@ gl:
       dashboard:
         show:
           view_more_logs: Ver máis rexistros
-          welcome: Benvido/a ao panel de administración.
       domain_whitelist:
         form:
           domain_too_short: Dominio curto de máis
@@ -399,7 +395,6 @@ gl:
             all: Todo
             managed: Xestionado
             not_managed: Non se xestiona
-          filter_by: Filtrar por
           impersonate: Suplantar
           impersonate_new_managed_user: Substituír o novo usuario xestor
           managed: Xestionado
@@ -477,7 +472,6 @@ gl:
         area_types: Tipos de área
         areas: Campos
         configuration: Configuración
-        dashboard: Taboleiro de instrumentos
         help_sections: Seccións de axuda
         homepage: Páxina de inicio
         impersonations: Impersonacións
@@ -690,7 +684,6 @@ gl:
           officialize: Organizar
           title: Clasificar o usuario "%{name}"
         show_email_modal:
-          close_modal: Pechar modal
           email_address: Enderezo de correo electrónico
           full_name: Nome completo
           hidden: oculto
@@ -865,7 +858,6 @@ gl:
         participants: Usuarios
         scope_types: Tipos de alcance
         scopes: Ámbitos
-        static_pages: Páxinas
         statistics: Actividade
         user_groups: Grupos de usuarios
         users: Administradores
@@ -909,7 +901,6 @@ gl:
           last_month: O mes pasado
           last_week: A semana pasada
           participants: Participantes
-      view_public_page: Ver páxina pública
     metrics:
       blocked_users:
         object: usuarias bloqueadas
@@ -956,12 +947,3 @@ gl:
   errors:
     messages:
       invalid_json: JSON non válido
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Boletíns informativos
-        settings:
-          title: Configuración
-        users:
-          title: Usuarios
