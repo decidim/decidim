@@ -371,6 +371,7 @@ ja:
           goto_moderation: グローバルモデレーションへ移動
           title: 保留中のモデレーション
         show:
+          dropdown: ドロップダウン
           view_more_logs: もっとログを見る
       domain_whitelist:
         form:
@@ -565,6 +566,7 @@ ja:
         reported_users: 報告された参加者
         scope_types: スコープ種別
         scopes: スコープ
+        see_site: サイトを見る
         settings: 設定
         static_pages: ページ
         user_groups: グループ
