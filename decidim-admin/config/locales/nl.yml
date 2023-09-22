@@ -153,7 +153,6 @@ nl:
         export: Alles exporteren
         export-selection: Selectie exporteren
         import: Importeren
-        manage: Beheer
         new: Nieuwe %{name}
         newsletter:
           new: Nieuwe nieuwsbrief
@@ -203,7 +202,6 @@ nl:
           title: Bewerk map
           update: Bijwerken
         index:
-          attachment_collection_used: Deze map kan niet worden verwijderd omdat deze in gebruik is.
           attachment_collections_title: Bijlagemappen
         new:
           create: creëren
@@ -250,7 +248,6 @@ nl:
           update: Bijwerken
         index:
           categories_title: Categorieën
-          category_used: Deze categorie kan niet worden verwijderd omdat het in gebruik is.
         new:
           create: Categorie creëren
           title: Nieuwe categorie
@@ -311,7 +308,6 @@ nl:
       dashboard:
         show:
           view_more_logs: Bekijk meer logs
-          welcome: Welkom bij de beheerder omgeving.
       domain_whitelist:
         form:
           domain_too_short: Domein te kort
@@ -404,7 +400,6 @@ nl:
             all: Alle
             managed: Beheerd
             not_managed: Niet beheerd
-          filter_by: Sorteren op
           impersonate: Nabootsen
           impersonate_new_managed_user: Beheer nieuwe deelnemer
           managed: Beheerd
@@ -490,7 +485,6 @@ nl:
         area_types: Pagina types
         areas: Thema's
         configuration: Configuratie
-        dashboard: Dashboard
         external_domain_whitelist: Toegelaten externe domeinen
         help_sections: Helpsecties
         homepage: Startpagina
@@ -705,7 +699,6 @@ nl:
           officialize: Bevestigen
           title: Deelnemer "%{name}" officieel maken
         show_email_modal:
-          close_modal: Sluit venster
           description: Als je rechtstreeks contact wil opnemen met een deelnemer, kun je op de knop Weergeven klikken om het e-mailadres te zien. Voor deze actie worden logbestanden bewaard.
           email_address: E-mail adres
           full_name: Volledige naam
@@ -892,7 +885,6 @@ nl:
         participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
-        static_pages: Pagina's
         statistics: Activiteit
         user_groups: groepen
         users: Beheerders
@@ -936,7 +928,6 @@ nl:
           last_month: Vorige maand
           last_week: Vorige week
           participants: Deelnemers
-      view_public_page: Bekijk openbare pagina
     metrics:
       blocked_users:
         object: geblokkeerde gebruikers
@@ -984,12 +975,3 @@ nl:
   errors:
     messages:
       invalid_json: Ongeldige JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Nieuwsbrieven
-        settings:
-          title: Instellingen
-        users:
-          title: Deelnemers
