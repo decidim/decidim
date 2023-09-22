@@ -480,7 +480,7 @@ pt:
         area_types: Tipos de área
         areas: Áreas
         configuration: Configuração
-        dashboard: Painel de controlo
+        dashboard: Painel de Controlo
         external_domain_whitelist: Domínios externos autorizados
         help_sections: Secções de ajuda
         homepage: Página inicial
@@ -1004,7 +1004,7 @@ pt:
         global_moderations:
           title: Moderações globais
         newsletters:
-          title: Boletins Informativos
+          title: Boletins informativos
         settings:
           title: Configurações
         users:
