@@ -184,7 +184,6 @@ ro:
         export: Exportă tot
         export-selection: Exportă selecția
         import: Importă
-        manage: Gestionează
         new: '%{name} nou'
         newsletter:
           new: Buletin informativ nou
@@ -253,7 +252,6 @@ ro:
           title: Editează dosarul
           update: Actualizează
         index:
-          attachment_collection_used: Acest dosar nu poate fi eliminat deoarece este în uz.
           attachment_collections_title: Dosare atașate
         new:
           create: Creează
@@ -302,7 +300,6 @@ ro:
           update: Actualizează
         index:
           categories_title: Categorii
-          category_used: Această categorie nu poate fi ștearsă deoarece este în uz.
         new:
           create: Creează o categorie
           title: Categorie nouă
@@ -370,7 +367,6 @@ ro:
           title: Moderări în așteptare
         show:
           view_more_logs: Afișează mai multe înregistrări
-          welcome: Bine ați venit în Panoul de administrare.
       domain_whitelist:
         form:
           domain_too_short: Domeniul e prea scurt
@@ -469,7 +465,6 @@ ro:
             all: Toate
             managed: Gestionat
             not_managed: Negestionat
-          filter_by: Filtrare după
           impersonate: Impersonare
           impersonate_new_managed_user: Gestionează participantul nou
           managed: Gestionat
@@ -563,7 +558,6 @@ ro:
         areas: Zone
         configuration: Configurare
         content: Conținut raportat
-        dashboard: Panou de administrare
         external_domain_whitelist: Domenii externe permise
         help_sections: Secțiuni de ajutor
         homepage: Pagina principală
@@ -793,7 +787,6 @@ ro:
           officialize: Validează
           title: Validează participantul "%{name}"
         show_email_modal:
-          close_modal: Închide fereastra
           description: Dacă trebuie să contactezi direct un participant, poți apăsa pe butonul Arată pentru a vedea adresa lor de e-mail. Această acțiune va fi înregistrată.
           email_address: Adresa de e-mail
           full_name: Nume complet
@@ -1027,7 +1020,6 @@ ro:
         participants: Participanți
         scope_types: Tipuri de domeniu
         scopes: Domenii de interes
-        static_pages: Pagini
         statistics: Activitate
         user_groups: Grupuri
         users: Administratori
@@ -1079,7 +1071,6 @@ ro:
           last_week: Ultima săptămână
           no_users_count_statistics_yet: Încă nu există statistici privind numărul de utilizatori.
           participants: Participanți
-      view_public_page: Vezi pagina publică
     forms:
       errors:
         impersonate_user:
@@ -1140,9 +1131,3 @@ ro:
       admin:
         global_moderations:
           title: Moderare globală
-        newsletters:
-          title: Buletine informative
-        settings:
-          title: Setări
-        users:
-          title: Participanți
