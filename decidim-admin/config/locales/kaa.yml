@@ -198,6 +198,8 @@ kaa:
       static_pages:
         edit:
           update: Jańalaw
+      titles:
+        static_pages: Betler
       users_statistics:
         users_count:
           participants: Qatnasıwshılar
@@ -212,3 +214,5 @@ kaa:
       admin:
         settings:
           title: Sazlawlar
+        users:
+          title: Qatnasıwshılar
