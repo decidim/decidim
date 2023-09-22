@@ -184,7 +184,6 @@ zh-TW:
         export: 全部匯出
         export-selection: 匯出選擇
         import: 匯入
-        manage: 管理
         new: 新增 %{name}
         newsletter:
           new: 新電子報
@@ -253,7 +252,6 @@ zh-TW:
           title: 編輯資料夾
           update: 更新
         index:
-          attachment_collection_used: 這個資料夾使用中無法刪除
           attachment_collections_title: 附件資料夾
         new:
           create: 建立
@@ -302,7 +300,6 @@ zh-TW:
           update: 更新
         index:
           categories_title: 分類
-          category_used: 這個分類使用中無法刪除
         new:
           create: 建立類別
           title: 新分類
@@ -368,7 +365,6 @@ zh-TW:
           title: 等待的操作
         show:
           view_more_logs: 檢視更多記錄
-          welcome: 歡迎來到管理介面
       domain_whitelist:
         form:
           domain_too_short: 網址太短
@@ -467,7 +463,6 @@ zh-TW:
             all: 全部
             managed: 已管理
             not_managed: 未管理
-          filter_by: 篩選條件
           impersonate: 模擬
           impersonate_new_managed_user: 管理新參與者
           managed: 已管理
@@ -553,7 +548,6 @@ zh-TW:
         areas: 區域
         configuration: 配置
         content: 被檢舉的內容
-        dashboard: 儀表板
         external_domain_whitelist: 允許的外部域名
         help_sections: 幫助部分
         homepage: 首頁
@@ -783,7 +777,6 @@ zh-TW:
           officialize: 官方化
           title: 正式認證參與者 "%{name}"
         show_email_modal:
-          close_modal: 關閉視窗
           description: 如果您需要直接聯繫參與者，您可以點擊「顯示」按鈕以查看他們的電子郵件地址。此操作將被記錄。
           email_address: 電子郵件地址
           full_name: 全名
@@ -1015,7 +1008,6 @@ zh-TW:
         participants: 參與者
         scope_types: 範圍類型
         scopes: 範圍
-        static_pages: 頁
         statistics: 啟動
         user_groups: 群組
         users: 管理員
@@ -1067,7 +1059,6 @@ zh-TW:
           last_week: 上週
           no_users_count_statistics_yet: 目前還沒有使用者統計數據。
           participants: 參與者
-      view_public_page: 查看公開頁面。
     forms:
       errors:
         impersonate_user:
@@ -1128,9 +1119,3 @@ zh-TW:
       admin:
         global_moderations:
           title: 全局審查
-        newsletters:
-          title: 電子報
-        settings:
-          title: 設定
-        users:
-          title: 參與者
