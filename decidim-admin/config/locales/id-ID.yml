@@ -114,7 +114,6 @@ id:
       actions:
         add: Menambahkan
         browse: Jelajahi
-        manage: Mengelola
         new: Baru %{name}
         permissions: Izin
         reject: Menolak
@@ -154,7 +153,6 @@ id:
           title: Edit folder
           update: Memperbarui
         index:
-          attachment_collection_used: Folder ini tidak dapat dihapus karena sedang digunakan.
           attachment_collections_title: Folder lampiran
         new:
           create: Membuat
@@ -193,7 +191,6 @@ id:
           update: Memperbarui
         index:
           categories_title: Kategori
-          category_used: Kategori ini tidak dapat dihapus karena sedang digunakan.
         new:
           create: Buat kategori
           title: Kategori baru
@@ -257,7 +254,6 @@ id:
             all: Semua
             managed: Dikelola
             not_managed: Tidak dikelola
-          filter_by: Filter berdasarkan
           impersonate: Menirukan
           impersonate_new_managed_user: Meniru pengguna yang dikelola baru
           managed: Dikelola
@@ -300,7 +296,6 @@ id:
         area_types: Tipe area
         areas: Area
         configuration: Konfigurasi
-        dashboard: Dasbor
         help_sections: Bagian bantuan
         homepage: Homepage
         impersonations: Peniruan identitas
@@ -557,7 +552,6 @@ id:
         participants: Pengguna
         scope_types: Tipe lingkup
         scopes: Scopes
-        static_pages: Halaman
         user_groups: Grup Pengguna
       user_group:
         csv_verify:
@@ -595,7 +589,6 @@ id:
         users_count:
           admins: Admin
           participants: Peserta
-      view_public_page: Lihat halaman publik
     moderations:
       actions:
         hidden: Tersembunyi
@@ -624,12 +617,3 @@ id:
   errors:
     messages:
       invalid_json: JSON tidak valid
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Nawala
-        settings:
-          title: Pengaturan
-        users:
-          title: Pengguna
