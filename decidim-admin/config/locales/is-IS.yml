@@ -515,6 +515,7 @@ is:
       users_statistics:
         users_count:
           admins: Admins
+      view_public_page: Skoðaðu opinbera síðu
     moderations:
       actions:
         hidden: Falið
