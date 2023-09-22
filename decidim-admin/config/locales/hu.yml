@@ -185,7 +185,6 @@ hu:
         export: Összes exportálása
         export-selection: Kiválasztottak exportálása
         import: Import
-        manage: Kezelés
         new: Új %{name}
         newsletter:
           new: Új hírlevél
@@ -255,7 +254,6 @@ hu:
           title: Mappa szerkesztése
           update: Frissítés
         index:
-          attachment_collection_used: A mappát nem lehet eltávolítani, mert használatban van.
           attachment_collections_title: Melléklet mappák
         new:
           create: Létrehozás
@@ -304,7 +302,6 @@ hu:
           update: Frissítés
         index:
           categories_title: Kategóriák
-          category_used: Kategória nem távolítható el, mert használatban van.
         new:
           create: Kategória létrehozása
           title: Új kategória
@@ -371,7 +368,6 @@ hu:
           title: Függő moderációk
         show:
           view_more_logs: További naplók megtekintése
-          welcome: Üdvözölünk az Admin Panelben.
       domain_whitelist:
         form:
           domain_too_short: Túl rövid domain
@@ -470,7 +466,6 @@ hu:
             all: Összes
             managed: Felügyelt
             not_managed: Nem felügyelt
-          filter_by: Szűrés ez alapján
           impersonate: Megszemélyesítés
           impersonate_new_managed_user: Új résztvevő kezelése
           managed: Felügyelt
@@ -560,7 +555,6 @@ hu:
         areas: Területek
         configuration: Beállítások
         content: Jelentett tartalom
-        dashboard: Vezérlőpult
         external_domain_whitelist: Engedélyezett külső domainek
         help_sections: Súgó szakaszok
         homepage: Homepage
@@ -793,7 +787,6 @@ hu:
           officialize: Hivatalossá tétel
           title: '"%{name}" hivatalossá tétele'
         show_email_modal:
-          close_modal: Ablak bezárás
           description: Ha közvetlenül kapcsolatba kell lépnie egy résztvevővel, akkor kattintson a Megjelenítés gombra az e-mail cím megtekintéséhez. Ez a művelet naplózásra kerül.
           email_address: E-mail cím
           full_name: Teljes név
@@ -1032,7 +1025,6 @@ hu:
         participants: Résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
-        static_pages: Oldalak
         statistics: Tevékenység
         user_groups: Csoportok
         users: Adminisztrátorok
@@ -1084,7 +1076,6 @@ hu:
           last_week: Előző hét
           no_users_count_statistics_yet: Még nincsenek felhasználói statisztikák.
           participants: Résztvevők
-      view_public_page: Nyilvános oldal megtekintése
     forms:
       errors:
         impersonate_user:
@@ -1145,9 +1136,3 @@ hu:
       admin:
         global_moderations:
           title: Globális moderációk
-        newsletters:
-          title: Hírlevelek
-        settings:
-          title: Beállítások
-        users:
-          title: Résztvevők
