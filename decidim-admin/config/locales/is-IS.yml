@@ -125,7 +125,6 @@ is-IS:
         category:
           new: Nýr flokkur
         import: Flytja inn
-        manage: Stjórna
         new: Nýtt %{name}
         newsletter:
           new: Nýtt fréttabréf
@@ -161,8 +160,6 @@ is-IS:
         edit:
           title: Breyta möppu
           update: Uppfæra
-        index:
-          attachment_collection_used: Ekki er hægt að fjarlægja þessa möppu vegna þess að það er í notkun.
         new:
           create: Búa til
           title: Ný mappa
@@ -193,7 +190,6 @@ is-IS:
           update: Uppfæra
         index:
           categories_title: Flokkar
-          category_used: Ekki er hægt að fjarlægja þennan flokk vegna þess að hún er í notkun.
         new:
           create: Búa til flokk
           title: Ný flokkur
@@ -250,7 +246,6 @@ is-IS:
             all: Allt
             managed: Stýrður
             not_managed: Ekki tekist
-          filter_by: Sía eftir
           impersonate: Líkjast notanda
           managed: Stýrður
           name: Nafn
@@ -280,7 +275,6 @@ is-IS:
         area_types: Svæði tegundir
         areas: Svæði
         configuration: Stillingar
-        dashboard: Mælaborð
         impersonations: Impersonations
         newsletters: Fréttabréf
         scope_types: Gildissvið
@@ -466,7 +460,6 @@ is-IS:
         dashboard: Mælaborð
         scope_types: Gildissvið
         scopes: Scopes
-        static_pages: Síður
       user_groups:
         index:
           state:
@@ -505,10 +498,3 @@ is-IS:
   errors:
     messages:
       invalid_json: Ógilt JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Fréttabréf
-        settings:
-          title: Stillingar
