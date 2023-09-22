@@ -120,7 +120,6 @@ sk:
       actions:
         add: Pridať
         browse: Prechádzať
-        manage: Správa
         new: Nový %{name}
         per_page: Na stranu
         permissions: Práva
@@ -161,7 +160,6 @@ sk:
           title: Upraviť priečinok
           update: Aktualizovať
         index:
-          attachment_collection_used: Tento priečinok nemôže byť odstránený, pretože je používaný.
           attachment_collections_title: Priečinky s prílohami
         new:
           create: Vytvoriť
@@ -200,7 +198,6 @@ sk:
           update: Aktualizovať
         index:
           categories_title: Kategórie
-          category_used: Táto kategória nemôže byť odstránená, pretože je používaná.
         new:
           create: Vytvoriť kategóriu
           title: Nová kategória
@@ -281,7 +278,6 @@ sk:
             all: Všetko
             managed: Spravované
             not_managed: Nespravované
-          filter_by: Filtrovať podľa
           impersonate: Vydávať sa za používateľa
           impersonate_new_managed_user: Správa nového používateľa
           managed: Spravované
@@ -324,7 +320,6 @@ sk:
         area_types: Typy oblastí
         areas: Oblasti
         configuration: Konfigurácia
-        dashboard: Hlavný panel
         help_sections: Sekcie Pomoci
         homepage: Domovská stránka
         impersonations: Vydávanie sa za používateľa
@@ -630,7 +625,6 @@ sk:
         participants: Účastníci
         scope_types: Typy rozsahov
         scopes: Rozsahy
-        static_pages: Stránky
         statistics: Aktivita
         user_groups: Skupiny
       user_group:
@@ -672,7 +666,6 @@ sk:
           last_month: Posledný mesiac
           last_week: Posledný týždeň
           participants: Účastníci
-      view_public_page: Zobraziť verejnú stránku
     moderations:
       actions:
         hidden: Skryté
@@ -701,12 +694,3 @@ sk:
   errors:
     messages:
       invalid_json: Neplatný JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Spravodaje
-        settings:
-          title: Nastavenia
-        users:
-          title: Účastníci
