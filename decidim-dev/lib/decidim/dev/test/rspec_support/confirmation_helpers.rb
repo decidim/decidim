@@ -12,7 +12,7 @@ module ConfirmationHelpers
 
     # The test can already be "within", so find the body using xpath
     body = find(:xpath, "/html/body")
-    confirm_selector = options[:admin] ? ".confirm-modal-content" : "[data-confirm-modal-content]"
+    confirm_selector = "[data-confirm-modal-content]"
     message = nil
 
     within body do
