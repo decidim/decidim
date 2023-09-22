@@ -348,7 +348,6 @@ sr:
         area_types: Tipovi oblasti
         areas: Oblasti
         configuration: Konfiguracija
-        dashboard: Kontrolna tabla
         help_sections: Sekcije za pomoć
         homepage: Početna stranica
         impersonations: Predstavljanja
@@ -559,6 +558,7 @@ sr:
           gallery_legend: Dodaj galeriju slika (opciono)
       titles:
         metrics: Metrika
+        static_pages: Stranice
         statistics: Aktivnost
         users: Učesnici
       users_statistics:
@@ -572,3 +572,12 @@ sr:
         moderation:
           fields:
             created_at: Datum kreiranja
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Bilteni
+        settings:
+          title: Podešavanja
+        users:
+          title: Učesnici
