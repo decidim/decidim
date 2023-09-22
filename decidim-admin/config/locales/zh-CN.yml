@@ -127,7 +127,6 @@ zh-CN:
       actions:
         add: 添加
         browse: 浏览
-        manage: 管理
         new: 新建 %{name}
         per_page: 每页
         permissions: 权限
@@ -169,7 +168,6 @@ zh-CN:
           title: 编辑文件夹
           update: 更新
         index:
-          attachment_collection_used: 无法删除此文件夹，因为它正在使用。
           attachment_collections_title: 附件文件夹
         new:
           create: 创建
@@ -208,7 +206,6 @@ zh-CN:
           update: 更新
         index:
           categories_title: 类别管理
-          category_used: 无法删除此类别，因为它正在使用。
         new:
           create: 创建类别
           title: 新类别
@@ -297,7 +294,6 @@ zh-CN:
             all: 所有的
             managed: 已管理
             not_managed: 未管理
-          filter_by: 筛选方式
           impersonate: 仿冒的
           impersonate_new_managed_user: 管理新参与者
           managed: 已管理
@@ -340,7 +336,6 @@ zh-CN:
         area_types: 区域类型
         areas: 地区
         configuration: 配置
-        dashboard: 仪表板
         help_sections: 帮助部分
         homepage: 主页
         impersonations: 影像
@@ -515,7 +510,6 @@ zh-CN:
           officialize: 正式化
           title: 认证参与者 "%{name}"
         show_email_modal:
-          close_modal: 关闭模式
           email_address: 电子邮件地址
           full_name: 全名
           hidden: hidden
@@ -671,7 +665,6 @@ zh-CN:
         participants: 参加者
         scope_types: 范围类型
         scopes: 范围
-        static_pages: 页 次
         statistics: 活动
         user_groups: 群組
       user_group:
@@ -713,7 +706,6 @@ zh-CN:
           last_month: 上月
           last_week: 上周
           participants: 参加者
-      view_public_page: 查看公共页面
     moderations:
       actions:
         hidden: Hidden
@@ -742,12 +734,3 @@ zh-CN:
   errors:
     messages:
       invalid_json: 无效的 JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: 新闻通讯
-        settings:
-          title: 设置
-        users:
-          title: 参加者
