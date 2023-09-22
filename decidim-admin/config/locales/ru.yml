@@ -118,7 +118,6 @@ ru:
       actions:
         add: Добавить
         browse: Просмотреть
-        manage: Управлять
         new: Добавить %{name}
         permissions: Права
         reject: Отклонить
@@ -158,7 +157,6 @@ ru:
           title: Редактировать папку
           update: Обновить
         index:
-          attachment_collection_used: Эту папку нельзя удалить, так как она используется.
           attachment_collections_title: Папки вложений
         new:
           create: Создать
@@ -197,7 +195,6 @@ ru:
           update: Обновить
         index:
           categories_title: Категории
-          category_used: Эту категорию нельзя удалить, поскольку она используется.
         new:
           create: Создать категорию
           title: Добавить категорию
@@ -261,7 +258,6 @@ ru:
             all: Все
             managed: Управляемые
             not_managed: Не управляемые
-          filter_by: 'Отобрать по признаку:'
           impersonate: Олицетворить (выступить в роли участника)
           impersonate_new_managed_user: Выступить в роли нового управляемого участника
           managed: Управляемые
@@ -304,7 +300,6 @@ ru:
         area_types: Виды участков
         areas: Участки
         configuration: Конфигурация
-        dashboard: Панель управления
         help_sections: Разделы справки
         homepage: Домашняя страница
         impersonations: Выступления в роли участника
@@ -543,7 +538,6 @@ ru:
         dashboard: Панель управления
         scope_types: Виды охвата
         scopes: Охваты
-        static_pages: Страницы
         user_groups: Группы участников
       user_group:
         reject:
@@ -577,7 +571,6 @@ ru:
         users_count:
           admins: Администраторы
           participants: Участники
-      view_public_page: Просмотреть общедоступную страницу
     moderations:
       actions:
         hidden: Скрыт
@@ -606,12 +599,3 @@ ru:
   errors:
     messages:
       invalid_json: Недопустимый JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Рассылки новостей
-        settings:
-          title: Настройки
-        users:
-          title: Участники
