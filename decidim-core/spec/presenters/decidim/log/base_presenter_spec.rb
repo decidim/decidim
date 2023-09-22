@@ -48,7 +48,7 @@ describe Decidim::Log::BasePresenter, type: :helper do
     end
 
     context "when version exists" do
-      let(:version_double) { double(present?: true, changeset: ) }
+      let(:version_double) { double(present?: true, changeset:) }
 
       context "and changeset is present" do
         let(:changeset) { { test: "test" } }
