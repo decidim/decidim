@@ -63,7 +63,9 @@ shared_examples "copy assemblies" do
       within find("tr", text: "Copy assembly") do
         click_link "Configure"
       end
-      click_link "Categories"
+      within_admin_menu do
+        click_link "Categories"
+      end
 
       within ".table-list" do
         assembly.categories.each do |category|
@@ -81,7 +83,9 @@ shared_examples "copy assemblies" do
       within find("tr", text: "Copy assembly") do
         click_link "Configure"
       end
-      click_link "Components"
+      within_admin_menu do
+        click_link "Components"
+      end
 
       within ".table-list" do
         assembly.components.each do |component|

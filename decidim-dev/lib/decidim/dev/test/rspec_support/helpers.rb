@@ -19,9 +19,16 @@ module Decidim
       end
     end
 
+    def within_admin_menu
+      click_button "Manage"
+      within("[id*='dropdown-menu-settings']") do
+        yield
+      end
+    end
+
     def within_language_menu(options = {})
       within(options.fetch(:admin, !Decidim.redesign_active) ? ".topbar__dropmenu.language-choose" : "footer") do
-        find(options.fetch(:admin, !Decidim.redesign_active) ? "ul.dropdown.menu" : "#trigger-dropdown-language-chooser").click
+        find(options.fetch(:admin, !Decidim.redesign_active) ? "#admin-menu-trigger" : "#trigger-dropdown-language-chooser").click
         yield
       end
     end

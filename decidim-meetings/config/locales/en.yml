@@ -287,7 +287,6 @@ en:
               all: All
               rejected: Rejected
               sent: Sent
-            filter_by: Filter by
             invite_attendee: Invite attendee
             invites: Invites
             registrations_disabled: You cannot invite an attendee because the registrations are disabled.

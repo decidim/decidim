@@ -1,0 +1,35 @@
+.main {
+  [id*="dropdown-menu"] {
+    @apply mx-0 py-0;
+
+    &[aria-hidden="true"] {
+      @apply hidden;
+    }
+  }
+
+  .dropdown__trigger {
+    @apply flex underline p-0;
+  }
+
+  .dropdown {
+    @apply divide-y divide-gray-3 z-20;
+
+    &.button {
+      @apply z-10;
+    }
+  }
+
+  #processes {
+    button.dropdown {
+      @apply divide-y divide-gray-3 z-20 relative py-1 px-3 bg-secondary text-white;
+
+      &.button {
+        @apply z-10;
+      }
+
+      svg {
+        @apply fill-white p-0 ml-2;
+      }
+    }
+  }
+}

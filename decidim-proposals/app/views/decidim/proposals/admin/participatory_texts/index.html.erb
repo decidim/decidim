@@ -1,7 +1,7 @@
 <%= decidim_form_for(@preview_form, url: participatory_texts_path, class: "form grid-container") do |form| %>
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t(".title") %>
       <%= render partial: "bulk-actions" %>
     </h2>
@@ -27,9 +27,11 @@
   </div>
 </div>
 <% if @drafts.any? %>
-  <div class="button--double form-general-submit">
-    <%= form.submit t(".save_draft"), name: :save_draft, class: "button" %>
-    <%= form.submit t(".publish_document"), class: "button success" %>
+  <div class="item__edit-sticky">
+    <div class="item__edit-sticky-container">
+      <%= form.submit t(".save_draft"), name: :save_draft, class: "button button__sm button__secondary" %>
+      <%= form.submit t(".publish_document"), class: "button button__sm button__secondary" %>
+    </div>
   </div>
 <% end %>
 <% end -%>

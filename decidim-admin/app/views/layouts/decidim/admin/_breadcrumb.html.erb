@@ -1,0 +1,26 @@
+<div class="process-title">
+  <div class="layout-content__container">
+    <div class="process-title-content">
+      <div class="process-title-content-breadcrumb-container-left">
+        <%= link_to decidim_admin.root_path, class: "process-title-content-icon-home", data: { "external-link": false }, aria: { label: "home" } do %>
+          <%= icon "home-gear-line" %>
+        <% end %>
+
+        <% breadcrumb_items(:admin).each_with_index do |item, i| %>
+          <span class="text-white">/</span>
+          <% item_label = decidim_html_escape(translated_attribute(item[:label])) %>
+          <% if item[:url].present? && !is_active_link?(item[:url], :exclusive) %>
+            <%= link_to(item_label, item[:url], class: "process-title-content-breadcrumb", data: { "external-link": false }, "aria-current": (item[:active] ? "page" : nil)) %>
+          <% else %>
+            <%= content_tag(:span, item_label, tabindex: "0", "aria-current": "page", class: "process-title-content-breadcrumb") %>
+          <% end %>
+        <% end %>
+      </div>
+      <% if content_for?(:breadcrumb_context_menu) %>
+        <div class="process-title-content-breadcrumb-container-right">
+          <%= yield :breadcrumb_context_menu %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

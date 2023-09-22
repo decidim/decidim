@@ -1,16 +1,15 @@
-<% content_for :sidebar_menu_nav do %>
-  <%= sidebar_menu(:admin_initiative_menu).render do
-    public_page_link decidim_initiatives.initiative_path(current_participatory_space)
-  end %>
-<% end %>
-
-<%= render "layouts/decidim/admin/application" do %>
-  <div class="process-title">
-    <div class="process-title-content">
-      <%= link_to translated_attribute(current_participatory_space.title), decidim_initiatives.initiative_path(current_participatory_space), target: "_blank" %>
+<% content_for :breadcrumb_context_menu do %>
+  <div class="inline-block relative">
+    <%= button_tag id: "initiative-menu-trigger", data: { component: "dropdown", target: "initiative-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
+      <%= t("actions.manage", scope: "decidim.admin") %>
+      <%= icon "arrow-down-s-line" %>
+    <% end %>
+    <div id="initiative-dropdown-menu-settings" class="process-title-content-dropdown">
+      <%= sidebar_menu(:admin_initiative_menu).render %>
     </div>
   </div>
-
+<% end %>
+<%= render "layouts/decidim/admin/application" do %>
   <div class="process-content">
     <%= yield %>
   </div>

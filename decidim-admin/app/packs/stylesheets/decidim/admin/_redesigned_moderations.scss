@@ -1,0 +1,36 @@
+.moderation-details {
+  @apply p-4;
+
+  .toggle-content {
+    @apply cursor-pointer ml-2 text-sm;
+  }
+
+  .reported-content {
+    .original {
+      @apply hidden;
+    }
+  }
+
+  .callout {
+    &-text {
+      @apply ml-2;
+
+      .icon {
+        @apply w-2;
+      }
+    }
+  }
+
+  dd {
+    @apply p-4 bg-gray mb-1;
+  }
+
+  .reportable-authors {
+    list-style: none;
+    margin: 0;
+
+    .icon {
+      @apply ml-2;
+    }
+  }
+}

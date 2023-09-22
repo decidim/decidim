@@ -58,7 +58,7 @@ RSpec.shared_examples "manage component share tokens" do
 
       it "has a link to delete tokens" do
         within ".share_tokens tbody tr:first-child" do
-          accept_confirm(admin: true) { click_link "Delete" }
+          accept_confirm { click_link "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")

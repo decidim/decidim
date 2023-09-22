@@ -7,6 +7,9 @@ module Decidim
       # permissions in the admin panel.
       class InitiativesPermissionsController < Decidim::Admin::ResourcePermissionsController
         include Decidim::Initiatives::NeedsInitiative
+        include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
+
+        add_breadcrumb_item_from_menu :admin_initiative_actions_menu
 
         layout "decidim/admin/initiatives"
 

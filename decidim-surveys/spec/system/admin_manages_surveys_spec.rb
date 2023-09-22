@@ -63,7 +63,7 @@ describe "Admin manages surveys", type: :system do
         click_button "Expand all"
 
         within "form.edit_questionnaire" do
-          within "#questionnaire_question_#{question.id}-field" do
+          within "#accordion-questionnaire_question_#{question.id}-field" do
             find_nested_form_field("body_en").fill_in with: "Have you been writing specs today?"
           end
           click_button "Save"

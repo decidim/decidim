@@ -80,6 +80,7 @@ en:
   decidim:
     admin:
       actions:
+        manage: Manage
         new_initiative_type: New initiative type
       filters:
         initiatives:
@@ -107,6 +108,7 @@ en:
         committee_members: Committee members
         components: Components
         information: Information
+        initiative_type_scopes: Initiative type scopes
         initiatives: Initiatives
         initiatives_settings: Settings
         initiatives_types: Initiative types

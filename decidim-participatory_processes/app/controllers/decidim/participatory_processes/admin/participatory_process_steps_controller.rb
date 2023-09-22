@@ -8,6 +8,9 @@ module Decidim
       class ParticipatoryProcessStepsController < Decidim::Admin::ApplicationController
         include Concerns::ParticipatoryProcessAdmin
 
+        before_action :find_participatory_process_step, except: [:index, :new, :create]
+        before_action :set_controller_breadcrumb
+
         def index
           enforce_permission_to :read, :process_step
         end
@@ -35,13 +38,11 @@ module Decidim
         end
 
         def edit
-          @participatory_process_step = collection.find(params[:id])
           enforce_permission_to :update, :process_step, process_step: @participatory_process_step
           @form = form(ParticipatoryProcessStepForm).from_model(@participatory_process_step)
         end
 
         def update
-          @participatory_process_step = collection.find(params[:id])
           enforce_permission_to :update, :process_step, process_step: @participatory_process_step
           @form = form(ParticipatoryProcessStepForm).from_params(params)
 
@@ -59,12 +60,10 @@ module Decidim
         end
 
         def show
-          @participatory_process_step = collection.find(params[:id])
           enforce_permission_to :read, :process_step, process_step: @participatory_process_step
         end
 
         def destroy
-          @participatory_process_step = collection.find(params[:id])
           enforce_permission_to :destroy, :process_step, process_step: @participatory_process_step
 
           DestroyParticipatoryProcessStep.call(@participatory_process_step, current_user) do
@@ -84,6 +83,19 @@ module Decidim
 
         def collection
           @collection ||= current_participatory_process.steps
+        end
+
+        def find_participatory_process_step
+          @participatory_process_step = collection.find(params[:id])
+        end
+
+        def set_controller_breadcrumb
+          return if @participatory_process_step.blank?
+
+          controller_breadcrumb_items << {
+            label: translated_attribute(@participatory_process_step.title),
+            active: true
+          }
         end
       end
     end
