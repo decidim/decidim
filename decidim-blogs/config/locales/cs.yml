@@ -66,6 +66,13 @@ cs:
             official_blog_post: Oficiální příspěvek
             published_at: Čas zveřejnění
             title: Název
+      posts:
+        index:
+          count:
+            one: "%{count} příspěvek"
+            few: "%{count} příspěvky"
+            many: "%{count} příspěvků"
+            other: "%{count} příspěvků"
     components:
       blogs:
         actions:
