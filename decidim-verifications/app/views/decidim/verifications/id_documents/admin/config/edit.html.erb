@@ -10,8 +10,7 @@
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: { action: :update }, html: { class: "form form-defaults" }) do |form| %>
       <div class="form__wrapper">
-        <div class="card">
-          <div class="card-divider"></div>
+        <div class="card pt-4">
           <div class="card-section">
             <div class="row column">
               <%= label_tag(:available_methods, t("activemodel.attributes.config.available_methods")) %>
@@ -26,8 +25,10 @@
         </div>
       </div>
 
-      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= form.submit t(".update"), class: "button button__sm button__secondary" %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= form.submit t(".update"), class: "button button__sm button__secondary" %>
+        </div>
       </div>
     <% end %>
   </div>
