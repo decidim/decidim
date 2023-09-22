@@ -4,6 +4,6 @@
 
 <div class="actions">
   <hr>
-  <%= link_to "Edit", ["edit", @admin] %>
-  <%= link_to "Destroy", @admin, method: :delete, class: "alert button", data: { confirm: "Are you sure you want to do this?" } %>
+  <%= link_to t(".edit"), ["edit", @admin] %>
+  <%= link_to t(".destroy"), @admin, method: :delete, class: "alert button", data: { confirm: "Are you sure you want to do this?" } %>
 </div>
