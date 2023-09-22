@@ -1,8 +1,14 @@
 <% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t(".title") %>
+  </h2>
+</div>
+
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: page_path, method: :post, html: { class: "form-defaults form edit_page" }) do |form| %>
-      <%= render partial: "form", object: form, locals: { title: t(".title") } %>
+      <%= render partial: "form", object: form %>
 
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
