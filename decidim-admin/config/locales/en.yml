@@ -190,7 +190,6 @@ en:
         export: Export all
         export-selection: Export selection
         import: Import
-        manage: Manage
         new: New %{name}
         newsletter:
           new: New newsletter
@@ -260,7 +259,6 @@ en:
           title: Edit folder
           update: Update
         index:
-          attachment_collection_used: This folder cannot be removed because it is in use.
           attachment_collections_title: Attachment folders
         new:
           create: Create
@@ -309,7 +307,6 @@ en:
           update: Update
         index:
           categories_title: Categories
-          category_used: This category cannot be removed because it is in use.
         new:
           create: Create category
           title: New category
@@ -376,8 +373,8 @@ en:
           goto_moderation: Go to global moderations
           title: Pending Moderations
         show:
+          dropdown: Dropdown
           view_more_logs: View more logs
-          welcome: Welcome to the Admin Panel.
       domain_whitelist:
         form:
           domain_too_short: Domain too short
@@ -476,7 +473,6 @@ en:
             all: All
             managed: Managed
             not_managed: Not managed
-          filter_by: Filter by
           impersonate: Impersonate
           impersonate_new_managed_user: Manage new participant
           managed: Managed
@@ -566,7 +562,6 @@ en:
         areas: Areas
         configuration: Configuration
         content: Reported content
-        dashboard: Dashboard
         external_domain_whitelist: Allowed external domains
         help_sections: Help sections
         homepage: Homepage
@@ -577,6 +572,7 @@ en:
         reported_users: Reported participants
         scope_types: Scope types
         scopes: Scopes
+        see_site: See site
         settings: Settings
         static_pages: Pages
         user_groups: Groups
@@ -800,7 +796,6 @@ en:
           officialize: Officialize
           title: Officialize participant "%{name}"
         show_email_modal:
-          close_modal: Close modal
           description: If you need to contact a participant directly, you can click on the Show button to see their email address. This action will be logged.
           email_address: Email address
           full_name: Full name
@@ -1047,7 +1042,6 @@ en:
         participants: Participants
         scope_types: Scope types
         scopes: Scopes
-        static_pages: Pages
         statistics: Activity
         user_groups: Groups
         users: Administrators
@@ -1099,7 +1093,6 @@ en:
           last_week: Last week
           no_users_count_statistics_yet: There are no users count statistics yet.
           participants: Participants
-      view_public_page: View public page
     forms:
       errors:
         impersonate_user:
@@ -1160,9 +1153,3 @@ en:
       admin:
         global_moderations:
           title: Global moderations
-        newsletters:
-          title: Newsletters
-        settings:
-          title: Settings
-        users:
-          title: Participants

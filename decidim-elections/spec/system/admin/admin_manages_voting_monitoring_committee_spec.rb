@@ -12,7 +12,9 @@ describe "Admin manages the monitoring committee", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    click_link "Members"
+    within_admin_menu do
+      click_link "Members"
+    end
   end
 
   it "shows all members in the monitoring committee page" do
@@ -64,7 +66,7 @@ describe "Admin manages the monitoring committee", type: :system do
   context "when deleting a member" do
     it "deletes the member" do
       within find("#monitoring_committee_members tr", text: other_user.email) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

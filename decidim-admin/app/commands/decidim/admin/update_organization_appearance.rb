@@ -102,7 +102,7 @@ module Decidim
             success: form.success_color,
             warning: form.warning_color,
             alert: form.alert_color
-          }
+          }.compact_blank
         }
       end
     end

@@ -31,7 +31,7 @@ describe "Admin manages posts", type: :system do
       end
       within find("tr", text: translated(post2.title)) do
         expect(page).to have_content(two_days_from_now)
-        expect(find("td:nth-child(4) svg")[:class]).to have_content("icon--clock icon")
+        expect(find("td:nth-child(4) span")).to have_css("[aria-label='Not published yet.']")
       end
     end
   end

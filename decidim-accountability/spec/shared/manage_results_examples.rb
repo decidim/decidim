@@ -79,7 +79,7 @@ shared_examples "manage results" do
 
         tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
 
-        scope_pick(select_data_picker(:result_decidim_scope_id), scope)
+        select translated(scope.name), from: :result_decidim_scope_id
         select translated(category.name), from: :result_decidim_category_id
 
         find("*[type=submit]").click
@@ -115,7 +115,7 @@ shared_examples "manage results" do
 
     it "deletes a result" do
       within find("tr", text: translated(result2.title)) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

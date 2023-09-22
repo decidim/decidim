@@ -1,17 +1,18 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title"><%= title %></h2>
-  </div>
-  <div class="card-section">
-    <div class="row column hashtags__container">
-      <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
+<div class="form__wrapper">
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title"><%= title %></h2>
     </div>
+    <div class="card-section">
+      <div class="row column hashtags__container">
+        <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title } %>
+      </div>
 
-    <div class="field">
+    <div class="row column">
       <%= form.geocoding_field :address, help_text: t(".address_help") %>
     </div>
 
-    <div class="field">
+    <div class="row column">
       <%= form.translated :text_area, :location, help_text: t(".location_help") %>
     </div>
 
