@@ -118,7 +118,6 @@ lv:
       actions:
         add: Pievienot
         browse: Pārlūkot
-        manage: Pārvaldīt
         new: Jauns %{name}
         per_page: Lapā
         permissions: Atļaujas
@@ -159,7 +158,6 @@ lv:
           title: Rediģēt mapi
           update: Atjaunināt
         index:
-          attachment_collection_used: Šo mapi nevar noņemt, jo tā tiek izmantota.
           attachment_collections_title: Pielikumu mapes
         new:
           create: Izveidot
@@ -198,7 +196,6 @@ lv:
           update: Atjaunināt
         index:
           categories_title: Kategorijas
-          category_used: Šo kategoriju nevar noņemt, jo tā tiek izmantota.
         new:
           create: Izveidot kategoriju
           title: Jauna kategorija
@@ -279,7 +276,6 @@ lv:
             all: Visi
             managed: Tiek pārvaldīti
             not_managed: Netiek pārvaldīti
-          filter_by: Filtrēt pēc
           impersonate: Uzdoties par
           impersonate_new_managed_user: Pārvaldīt jaunu dalībnieku
           managed: Tiek pārvaldīti
@@ -322,7 +318,6 @@ lv:
         area_types: Jomu veidi
         areas: Jomas
         configuration: Konfigurācija
-        dashboard: Informācijas panelis
         help_sections: Palīdzības sadaļas
         homepage: Sākumlapa
         impersonations: Uzdošanās par citu personu
@@ -624,7 +619,6 @@ lv:
         participants: Dalībnieki
         scope_types: Tvēruma veidi
         scopes: Darbības tvērums
-        static_pages: Lapas
         statistics: Aktivitāte
         user_groups: Grupas
       user_group:
@@ -666,7 +660,6 @@ lv:
           last_month: Iepriekšējais mēnesis
           last_week: Iepriekšējā nedēļa
           participants: Dalībnieki
-      view_public_page: Skatīt publisko lapu
     moderations:
       actions:
         hidden: Slēpts
@@ -695,12 +688,3 @@ lv:
   errors:
     messages:
       invalid_json: Nederīgs JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Informatīvie biļeteni
-        settings:
-          title: Iestatījumi
-        users:
-          title: Dalībnieki
