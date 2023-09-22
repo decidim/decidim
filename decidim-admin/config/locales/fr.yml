@@ -372,6 +372,7 @@ fr:
           goto_moderation: Aller au panneau de modération global
           title: Modérations en attente
         show:
+          dropdown: Liste déroulante
           view_more_logs: Afficher plus
       domain_whitelist:
         form:
@@ -570,6 +571,7 @@ fr:
         reported_users: Participants signalés
         scope_types: Types de secteur
         scopes: Secteurs
+        see_site: Voir le site
         settings: Paramètres
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
