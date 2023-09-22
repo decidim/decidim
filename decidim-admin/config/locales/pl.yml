@@ -1011,7 +1011,7 @@ pl:
           last_week: Poprzedni tydzień
           no_users_count_statistics_yet: Nie ma jeszcze statystyk dotyczących liczby użytkowników
           participants: Użytkownicy
-      view_public_page: Zobacz stronę publiczną
+      view_public_page: Wyświetl stronę publiczną
     forms:
       errors:
         impersonate_user:
