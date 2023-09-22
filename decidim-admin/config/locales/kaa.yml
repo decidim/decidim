@@ -194,6 +194,7 @@ kaa:
         edit:
           update: Jańalaw
       titles:
+        static_pages: Betler
         users: Qatnasıwshılar
       users_statistics:
         users_count:
@@ -209,3 +210,5 @@ kaa:
       admin:
         settings:
           title: Sazlawlar
+        users:
+          title: Qatnasıwshılar
