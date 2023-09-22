@@ -153,7 +153,6 @@ pt:
         export: Exportar tudo
         export-selection: Exportar selecção
         import: Importar
-        manage: Gerir
         new: Novo %{name}
         newsletter:
           new: Novo boletim informativo
@@ -201,7 +200,6 @@ pt:
           title: Editar pasta
           update: Atualizar
         index:
-          attachment_collection_used: Esta pasta não pode ser removida porque está em uso.
           attachment_collections_title: Pastas de anexos
         new:
           create: Criar
@@ -246,7 +244,6 @@ pt:
           update: Atualizar
         index:
           categories_title: Categorias
-          category_used: Esta categoria não pode ser apagada porque está a ser usada.
         new:
           create: Criar categoria
           title: Nova categoria
@@ -390,7 +387,6 @@ pt:
             all: Todos
             managed: Gerido
             not_managed: Não gerido
-          filter_by: Filtrar por
           impersonate: Personificar
           impersonate_new_managed_user: Gerir novo participante
           managed: Gerido
@@ -443,7 +439,6 @@ pt:
         area_types: Tipos de área
         areas: Áreas
         configuration: Configuração
-        dashboard: Painel de controlo
         external_domain_whitelist: Domínios externos autorizados
         help_sections: Secções de ajuda
         homepage: Página inicial
@@ -658,7 +653,6 @@ pt:
           officialize: Oficializar
           title: Oficializar participante "%{name}"
         show_email_modal:
-          close_modal: Fechar modal
           description: Se precisar de contactar directamente um, pode clicar no botão Mostrar para ver seu endereço de e-mail.
           email_address: Endereço de e-mail
           full_name: Nome completo
@@ -830,7 +824,6 @@ pt:
         participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
-        static_pages: Páginas
         statistics: Atividade
         user_groups: Grupos
       user_group:
@@ -872,7 +865,6 @@ pt:
           last_month: Último mês
           last_week: Última semana
           participants: Participantes
-      view_public_page: Ver página pública
     metrics:
       blocked_users:
         object: utilizadores bloqueados
@@ -919,12 +911,3 @@ pt:
   errors:
     messages:
       invalid_json: JSON inválido
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Boletins Informativos
-        settings:
-          title: Configurações
-        users:
-          title: Participantes
