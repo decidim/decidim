@@ -245,7 +245,7 @@ shared_examples "manage projects" do
       expect(project.linked_resources(:proposals, "included_proposals").first.title).to eq(not_removed_projects_title)
     end
 
-    it "creates a new project", :slow do
+    it "creates a new project" do
       within ".bulk-actions-budgets" do
         click_link "New Project"
       end
@@ -267,7 +267,8 @@ shared_examples "manage projects" do
         )
         fill_in :project_budget_amount, with: 22_000_000
 
-        # proposals_pick(select_data_picker(:project_proposals, multiple: true), proposals.first(2))
+        tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
+
         select translated(scope.name), from: :project_decidim_scope_id
         select translated(category.name), from: :project_decidim_category_id
 
