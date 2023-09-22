@@ -172,7 +172,6 @@ sv:
         export: Exportera alla
         export-selection: Exportera markering
         import: Importera
-        manage: Hantera
         new: Ny %{name}
         newsletter:
           new: Nytt nyhetsbrev
@@ -222,7 +221,6 @@ sv:
           title: Redigera mapp
           update: Uppdatera
         index:
-          attachment_collection_used: Den här mappen kan inte tas bort eftersom den används.
           attachment_collections_title: Mappar för bilagor
         new:
           create: Skapa
@@ -269,7 +267,6 @@ sv:
           update: Uppdatera
         index:
           categories_title: Kategorier
-          category_used: Kategorin kan inte tas bort eftersom den används.
         new:
           create: Skapa kategori
           title: Ny kategori
@@ -330,7 +327,6 @@ sv:
       dashboard:
         show:
           view_more_logs: Visa fler loggar
-          welcome: Välkommen till Adminpanelen.
       domain_whitelist:
         form:
           domain_too_short: Domänen är för kort
@@ -423,7 +419,6 @@ sv:
             all: Alla
             managed: Hanterad
             not_managed: Inte hanterad
-          filter_by: Filtrera efter
           impersonate: Uppträd som
           impersonate_new_managed_user: Hantera ny deltagare
           managed: Hanterad
@@ -509,7 +504,6 @@ sv:
         area_types: Typer av område
         areas: Områden
         configuration: Konfiguration
-        dashboard: Adminpanel
         external_domain_whitelist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
         homepage: Hemsida
@@ -725,7 +719,6 @@ sv:
           officialize: Gör officiell
           title: Gör deltagaren "%{name}" officiell
         show_email_modal:
-          close_modal: Stäng modal
           description: Om du behöver kontakta en deltagare direkt kan du klicka på Visa för att se deras e-postadress. Denna åtgärd kommer att loggas.
           email_address: E-postadress
           full_name: Fullständigt namn
@@ -932,7 +925,6 @@ sv:
         participants: Deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
-        static_pages: Sidor
         statistics: Aktivitet
         user_groups: Grupper
         users: Administratörer
@@ -980,7 +972,6 @@ sv:
           last_month: Förra månaden
           last_week: Förra veckan
           participants: Deltagare
-      view_public_page: Visa offentlig sida
     metrics:
       blocked_users:
         object: blockerade användare
@@ -1032,12 +1023,3 @@ sv:
   errors:
     messages:
       invalid_json: Ogiltig JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Nyhetsbrev
-        settings:
-          title: Inställningar
-        users:
-          title: Deltagare
