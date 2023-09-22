@@ -185,7 +185,6 @@ fi-pl:
         export: Vie kaikki
         export-selection: Vie valitut
         import: Tuo
-        manage: Hallitse
         new: Uusi %{name}
         newsletter:
           new: Uusi uutiskirje
@@ -255,7 +254,6 @@ fi-pl:
           title: Muokkaa kansiota
           update: Päivitä
         index:
-          attachment_collection_used: Tätä kansiota ei voi poistaa, koska se on käytössä.
           attachment_collections_title: Liitetiedostojen kansiot
         new:
           create: Luo
@@ -304,7 +302,6 @@ fi-pl:
           update: Päivitä
         index:
           categories_title: Aihepiirit
-          category_used: Tätä aihepiiriä ei voida poistaa, koska se on käytössä.
         new:
           create: Luo aihepiiri
           title: Uusi aihepiiri
@@ -372,7 +369,6 @@ fi-pl:
           title: Odottavat moderoinnit
         show:
           view_more_logs: Näytä lisää lokitietoja
-          welcome: Tervetuloa hallintapaneeliin.
       domain_whitelist:
         form:
           domain_too_short: Verkkotunnus on liian lyhyt
@@ -471,7 +467,6 @@ fi-pl:
             all: Kaikki
             managed: Hallittu
             not_managed: Ei hallittu
-          filter_by: Suodata
           impersonate: Esiinny käyttäjänä
           impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjänä
           managed: Hallittu
@@ -561,7 +556,6 @@ fi-pl:
         areas: Alueet
         configuration: Asetukset
         content: Ilmoitettu sisältö
-        dashboard: Hallintapaneeli
         external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet
         help_sections: Ohjeosiot
         homepage: Kotisivu
@@ -794,7 +788,6 @@ fi-pl:
           officialize: Virallista
           title: Virallista käyttäjä "%{name}"
         show_email_modal:
-          close_modal: Sulje ikkuna
           description: Jos haluat ottaa suoraan yhteyttä osallistujaan, voit klikata Näytä-painiketta nähdäksesi hänen sähköpostiosoitteensa. Tästä toiminnosta jää jälki lokiin.
           email_address: Sähköpostiosoite
           full_name: Koko nimi
@@ -1038,7 +1031,6 @@ fi-pl:
         participants: Käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
-        static_pages: Sivut
         statistics: Toiminta
         user_groups: Käyttäjäryhmät
         users: Hallintakäyttäjät
@@ -1090,7 +1082,6 @@ fi-pl:
           last_week: Viimeinen viikko
           no_users_count_statistics_yet: Käyttäjämäärätilastoja ei vielä ole.
           participants: Osallistujat
-      view_public_page: Näytä julkinen sivu
     forms:
       errors:
         impersonate_user:
@@ -1151,9 +1142,3 @@ fi-pl:
       admin:
         global_moderations:
           title: Yleiset moderoinnit
-        newsletters:
-          title: Uutiskirjeet
-        settings:
-          title: Asetukset
-        users:
-          title: Käyttäjät
