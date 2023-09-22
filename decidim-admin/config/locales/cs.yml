@@ -374,6 +374,7 @@ cs:
           goto_moderation: Přejít na globální moderaci
           title: Čekající moderování
         show:
+          dropdown: Rozbalovací nabídka
           view_more_logs: Zobrazit další protokoly
       domain_whitelist:
         form:
@@ -580,6 +581,7 @@ cs:
         reported_users: Nahlášení účastníci
         scope_types: Typ oblasti působnosti
         scopes: Oblasti působnosti
+        see_site: Zobrazit web
         settings: Nastavení
         static_pages: Stránky
         user_groups: Skupiny
