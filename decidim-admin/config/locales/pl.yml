@@ -153,7 +153,6 @@ pl:
         export: Eksportuj wszystko
         export-selection: Eksportuj wybrane
         import: Importuj
-        manage: Zarządzanie
         new: 'Nowy: %{name}'
         newsletter:
           new: Nowy newsletter
@@ -201,7 +200,6 @@ pl:
           title: Edytuj folder
           update: Aktualizuj
         index:
-          attachment_collection_used: Tego folderu nie można usunąć, ponieważ jest on używany.
           attachment_collections_title: Foldery załączników
         new:
           create: Utwórz
@@ -246,7 +244,6 @@ pl:
           update: Aktualizuj
         index:
           categories_title: Kategorie
-          category_used: Ta kategoria nie może zostać usunięta, ponieważ jest w użyciu.
         new:
           create: Utwórz kategorię
           title: Nowa kategoria
@@ -307,7 +304,6 @@ pl:
       dashboard:
         show:
           view_more_logs: Zobacz więcej logów
-          welcome: Witamy w Panelu Administracyjnym.
       domain_whitelist:
         form:
           domain_too_short: Domena jest zbyt krótka
@@ -400,7 +396,6 @@ pl:
             all: Wszystko
             managed: Zamknięte
             not_managed: Niezamknięte
-          filter_by: Filtruj według
           impersonate: Podszywać się
           impersonate_new_managed_user: Zarządzaj nowym uczestnikiem
           managed: Zamknięte
@@ -489,7 +484,6 @@ pl:
         area_types: Typy kategorii
         areas: Kategorie
         configuration: Konfiguracja
-        dashboard: Panel
         external_domain_whitelist: Dozwolone domeny zewnętrzne
         help_sections: Sekcje pomocy
         homepage: Strona główna
@@ -704,7 +698,6 @@ pl:
           officialize: Oficjalizuj
           title: Oficjalizuj użytkownika "%{name}"
         show_email_modal:
-          close_modal: Zamknij okno
           description: Jeśli chcesz skontaktować się bezpośrednio z uczestnikiem, możesz kliknąć przycisk Pokaż aby zobaczyć jego adres e-mail. Ta akcja zostanie zarejestrowana.
           email_address: Adres e-mail
           full_name: Imię i nazwisko
@@ -892,7 +885,6 @@ pl:
         participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
-        static_pages: Strony
         statistics: Aktywność
         user_groups: Grupy użytkowników
         users: Administratorzy
@@ -937,7 +929,6 @@ pl:
           last_month: Poprzedni miesiąc
           last_week: Poprzedni tydzień
           participants: Użytkownicy
-      view_public_page: Zobacz stronę publiczną
     metrics:
       blocked_users:
         object: zablokowani użytkownicy
@@ -986,12 +977,3 @@ pl:
   errors:
     messages:
       invalid_json: Nieprawidłowy JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Newslettery
-        settings:
-          title: Ustawienia
-        users:
-          title: Użytkownicy
