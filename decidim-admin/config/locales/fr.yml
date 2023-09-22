@@ -189,7 +189,6 @@ fr:
         export: Tout exporter
         export-selection: Exporter la sélection
         import: Importer
-        manage: Gérer
         new: + %{name}
         newsletter:
           new: Nouvelle newsletter
@@ -259,7 +258,6 @@ fr:
           title: Modifier le dossier
           update: Mettre à jour
         index:
-          attachment_collection_used: Ce dossier ne peut pas être supprimé car il est en cours d'utilisation.
           attachment_collections_title: Dossiers de pièces jointes
         new:
           create: Créer
@@ -308,7 +306,6 @@ fr:
           update: Mettre à jour
         index:
           categories_title: Catégories
-          category_used: Cette catégorie ne peut pas être supprimée car elle est utilisée.
         new:
           create: Créer une catégorie
           title: Nouvelle catégorie
@@ -376,7 +373,6 @@ fr:
           title: Modérations en attente
         show:
           view_more_logs: Afficher plus
-          welcome: Bienvenue dans l'espace d'administration.
       domain_whitelist:
         form:
           domain_too_short: Le nom de domaine est trop court
@@ -475,7 +471,6 @@ fr:
             all: Tout
             managed: Géré
             not_managed: Non géré
-          filter_by: Filtrer par
           impersonate: Représenter
           impersonate_new_managed_user: Représenter un nouvel utilisateur
           managed: Représenté
@@ -565,7 +560,6 @@ fr:
         areas: Périmètres d'assemblée
         configuration: Configuration
         content: Contenu signalé
-        dashboard: Tableau de bord
         external_domain_whitelist: Domaines externes autorisés
         help_sections: Sections d'aide
         homepage: Page d'accueil
@@ -799,7 +793,6 @@ fr:
           officialize: Valider
           title: Valider l'utilisateur "%{name}"
         show_email_modal:
-          close_modal: Fermer la fenêtre de dialogue
           description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir son adresse mail. Cette action sera enregistrée.
           email_address: Adresse e-mail
           full_name: Nom complet
@@ -1046,7 +1039,6 @@ fr:
         participants: Utilisateurs
         scope_types: Types de secteur
         scopes: Secteurs
-        static_pages: Pages
         statistics: Activité
         user_groups: Groupes d'utilisateurs
         users: Administrateurs
@@ -1098,7 +1090,6 @@ fr:
           last_week: La semaine dernière
           no_users_count_statistics_yet: Il n'y a pas encore de statistiques du nombre d'utilisateurs.
           participants: Participants
-      view_public_page: Voir la page publique
     forms:
       errors:
         impersonate_user:
@@ -1159,9 +1150,3 @@ fr:
       admin:
         global_moderations:
           title: Modération globale
-        newsletters:
-          title: Newsletters
-        settings:
-          title: Paramètres
-        users:
-          title: Utilisateurs
