@@ -70,7 +70,7 @@ describe "Admin manages assemblies", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_assemblies.assemblies_path(q: { parent_id_eq: parent_assembly&.id })
         expect(page).to have_content("My assembly")
       end

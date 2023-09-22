@@ -4,7 +4,7 @@ shared_examples "admin is filtering participatory space users" do |label:, value
   it "returns participatory space users" do
     apply_filter(label, value)
 
-    within ".stack tbody" do
+    within ".table-list tbody" do
       expect(page).to have_content(compare_with)
       expect(page).to have_css("tr", count: 1)
     end
@@ -15,7 +15,7 @@ shared_examples "admin is searching participatory space users" do
   it "returns participatory space users" do
     search_by_text(value)
 
-    within ".stack tbody" do
+    within ".table-list tbody" do
       expect(page).to have_content(value)
       expect(page).to have_css("tr", count: 1)
     end

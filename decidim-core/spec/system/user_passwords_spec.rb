@@ -11,7 +11,7 @@ describe "User passwords", type: :system do
   end
 
   it "can toggle the password field" do
-    click_link "Sign In", match: :first
+    click_link "Log in", match: :first
     fill_in :session_user_password, with: "hello world"
     expect(find("#session_user_password")["type"]).to eq "password"
     find("button[aria-controls=session_user_password]").click

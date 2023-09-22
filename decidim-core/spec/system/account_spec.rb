@@ -33,7 +33,7 @@ describe "Account", type: :system do
 
     describe "update avatar" do
       it "can update avatar" do
-        dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true, front_interface: true)
+        dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true)
 
         within "form.edit_user" do
           find("*[type=submit]").click
@@ -234,7 +234,7 @@ describe "Account", type: :system do
           expect(page).to have_content("successfully")
         end
 
-        click_link("Sign In", match: :first)
+        click_link("Log in", match: :first)
 
         within ".new_user" do
           fill_in :session_user_email, with: user.email

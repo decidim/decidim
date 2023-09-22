@@ -1,7 +1,7 @@
 <%= footer_menu.render %>
 
 <nav role="navigation" aria-label="<%= t("layouts.decidim.footer.resources") %>">
-  <h2 class="h5 mb-4"><%= t("layouts.decidim.footer.resources") %></h2>
+  <h2 class="h4 mb-4"><%= t("layouts.decidim.footer.resources") %></h2>
   <ul class="space-y-4 break-inside-avoid">
     <li class="font-semibold underline"><%= link_to t("decidim.profiles.show.activity"), decidim.last_activities_path %></li>
     <li class="font-semibold underline"><%= link_to t("decidim.pages.home.extended.meetings"), Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path %></li>
@@ -10,7 +10,7 @@
 </nav>
 
 <nav role="navigation" aria-label="<%= t("layouts.decidim.user_menu.profile") %>">
-  <h2 class="h5 mb-4"><%= t("layouts.decidim.user_menu.profile") %></h2>
+  <h2 class="h4 mb-4"><%= t("layouts.decidim.user_menu.profile") %></h2>
   <ul class="space-y-4 break-inside-avoid">
     <% if current_user %>
       <li class="font-semibold underline"><%= link_to t("layouts.decidim.user_menu.configuration"), decidim.account_path %></li>
@@ -21,7 +21,7 @@
       <% if current_organization.sign_up_enabled? %>
         <li class="font-semibold underline"><%= link_to t("layouts.decidim.footer.sign_up"), decidim.new_user_registration_path %></li>
       <% end %>
-      <li class="font-semibold underline"><%= link_to t("layouts.decidim.footer.sign_in"), decidim.new_user_session_path %></li>
+      <li class="font-semibold"><%= link_to t("layouts.decidim.footer.log_in"), decidim.new_user_session_path %></li>
     <% end %>
   </ul>
 </nav>

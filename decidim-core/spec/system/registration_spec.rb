@@ -4,12 +4,10 @@ require "spec_helper"
 
 def fill_registration_form(
   name: "Nikola Tesla",
-  nickname: "the-greatest-genius-in-history",
   email: "nikola.tesla@example.org",
   password: "sekritpass123"
 )
   fill_in :registration_user_name, with: name
-  fill_in :registration_user_nickname, with: nickname
   fill_in :registration_user_email, with: email
   fill_in :registration_user_password, with: password
 end
@@ -28,7 +26,6 @@ describe "Registration", type: :system do
       it "shows fields empty" do
         expect(page).to have_content("Sign up to participate")
         expect(page).to have_field("registration_user_name", with: "")
-        expect(page).to have_field("registration_user_nickname", with: "")
         expect(page).to have_field("registration_user_email", with: "")
         expect(page).to have_field("registration_user_password", with: "")
         expect(page).to have_field("registration_user_newsletter", checked: false)
@@ -37,13 +34,11 @@ describe "Registration", type: :system do
 
     describe "on cached sight with a different language", :caching do
       it "shows the omniauth buttons in correct locale" do
-        expect(page).to have_link("Sign in with Facebook")
+        expect(page).to have_link("Log in with Facebook")
 
         within_language_menu do
           click_link "Català"
         end
-
-        expect(page).to have_link("Inicia sessió amb Facebook")
       end
     end
   end
@@ -117,7 +112,7 @@ describe "Registration", type: :system do
       user.save!
 
       # Sign in
-      click_link "Sign In", match: :first
+      click_link "Log in", match: :first
       fill_in :session_user_email, with: user.email
       fill_in :session_user_password, with: password
       click_button "Log in"

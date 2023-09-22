@@ -313,13 +313,13 @@ describe "Orders", type: :system do
         visit_budget
 
         within_user_menu do
-          click_link("Sign out")
+          click_link("Log out")
         end
 
         expect(page).to have_content "You have not yet voted"
 
         page.find("#exit-notification-link").click
-        expect(page).to have_content("Signed out successfully")
+        expect(page).to have_content("Logged out successfully")
       end
 
       context "and try to vote a project that exceed the total budget" do

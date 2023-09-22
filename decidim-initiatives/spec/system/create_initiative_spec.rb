@@ -200,7 +200,7 @@ describe "Initiative", type: :system do
 
         it "they need to login in" do
           click_button "New initiative"
-          expect(page).to have_content("Please sign in")
+          expect(page).to have_content("Please log in")
         end
 
         context "when they do not need to be verified" do
@@ -352,7 +352,7 @@ describe "Initiative", type: :system do
 
         it "they need to login in" do
           click_button "New initiative"
-          expect(page).to have_content("Please sign in")
+          expect(page).to have_content("Please log in")
         end
 
         context "when they do not need to be verified" do
@@ -746,7 +746,7 @@ describe "Initiative", type: :system do
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
           select("Online", from: "Signature collection type")
           select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
-          dynamically_attach_file(:initiative_add_documents, Decidim::Dev.asset("Exampledocument.pdf"), front_interface: true)
+          dynamically_attach_file(:initiative_add_documents, Decidim::Dev.asset("Exampledocument.pdf"))
           find_button("Continue").click
         end
 

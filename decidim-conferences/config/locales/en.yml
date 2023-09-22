@@ -151,6 +151,7 @@ en:
         exports:
           registrations: Registrations
         form:
+          sections: Sections
           title: General Information
         index:
           not_published: Not published
@@ -200,12 +201,12 @@ en:
           partners: Partners
           registration_types: Registration Types
           registrations: Registrations
+          see_conference: See conference
           user_registrations: User Registrations
       models:
         conference:
           fields:
             created_at: Created at
-            promoted: Highlighted
             published: Published
             title: Title
         conference_speaker:
@@ -331,7 +332,7 @@ en:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         conference_invites:
           create:
             error: There was a problem inviting the participant to join the conference.
@@ -348,7 +349,6 @@ en:
               all: All
               rejected: Rejected
               sent: Sent
-            filter_by: Filter by
             invite_attendee: Invite participant
             invites: Invites
             search: Search
@@ -373,7 +373,7 @@ en:
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
-            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         diplomas:
           edit:
             save: Save
@@ -426,11 +426,11 @@ en:
         create:
           invalid: There was a problem joining this conference.
           success: You have successfully joined the conference.
-          unauthorized: You need to sign in before registering to the conference.
+          unauthorized: You need to log in before registering to the conference.
         decline_invitation:
           invalid: There was a problem declining the invitation.
           success: You have successfully declined the invitation.
-          unauthorized: You need to sign in before declining the invitation.
+          unauthorized: You need to log in before declining the invitation.
         destroy:
           invalid: There was a problem leaving this conference.
           success: You have successfully left the conference.

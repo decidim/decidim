@@ -138,7 +138,7 @@ describe "Admin manages proposals valuators", type: :system do
       within "#valuators" do
         expect(page).to have_content(valuator.name)
 
-        accept_confirm admin: true do
+        accept_confirm do
           find("a.red-icon").click
         end
       end

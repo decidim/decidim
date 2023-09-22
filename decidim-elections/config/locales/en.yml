@@ -875,6 +875,7 @@ en:
             monitoring_committee_verify_elections: Verify Elections
             polling_officers: Polling Officers
             polling_stations: Polling Stations
+            see_voting: See voting
         models:
           ballot_style:
             fields:
@@ -901,7 +902,6 @@ en:
           voting:
             fields:
               created_at: Created at
-              promoted: Highlighted
               published: Published
               title: Title
         monitoring_committee_election_results:
@@ -1052,7 +1052,7 @@ en:
             select_a_voting_type: Please select a voting type
             show_check_census_help: Whether to show the "Can I vote?" link at the public votings menu.
             slug: Slug
-            slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
             voting_type:
               hybrid: Hybrid

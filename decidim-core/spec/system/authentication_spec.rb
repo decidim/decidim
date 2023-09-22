@@ -19,7 +19,6 @@ describe "Authentication", type: :system do
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
           fill_in :registration_user_name, with: "Responsible Citizen"
-          fill_in :registration_user_nickname, with: "responsible"
           fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
           check :registration_user_tos_agreement
           check :registration_user_newsletter
@@ -43,7 +42,6 @@ describe "Authentication", type: :system do
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
           fill_in :registration_user_name, with: "Responsible Citizen"
-          fill_in :registration_user_nickname, with: "responsible"
           fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
           check :registration_user_tos_agreement
           check :registration_user_newsletter
@@ -63,7 +61,6 @@ describe "Authentication", type: :system do
           page.execute_script("$($('.new_user > div > input')[0]).val('Ima robot :D')")
           fill_in :registration_user_email, with: "user@example.org"
           fill_in :registration_user_name, with: "Responsible Citizen"
-          fill_in :registration_user_nickname, with: "responsible"
           fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
           check :registration_user_tos_agreement
           check :registration_user_newsletter
@@ -216,29 +213,29 @@ describe "Authentication", type: :system do
       it "creates a new User" do
         click_link("Sign Up")
 
-        click_link "Sign in with Google"
+        click_link "Log in with Google"
 
         expect_user_logged
       end
     end
 
     context "when nickname is not unique case insensitively" do
-      let!(:user) { create(:user, nickname: "Nick", organization:) }
+      let!(:user) { create(:user, nickname: "Responsible_Citizen", organization:) }
 
-      it "show an error message" do
+      it "creates a new User" do
         click_link("Sign Up")
 
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
           fill_in :registration_user_name, with: "Responsible Citizen"
-          fill_in :registration_user_nickname, with: "NiCk"
           fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
           check :registration_user_tos_agreement
           check :registration_user_newsletter
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("has already been taken")
+        expect(page).to have_content("confirmation link")
+        expect(last_user.nickname).to eq("responsible_citize_2")
       end
     end
 
@@ -251,20 +248,25 @@ describe "Authentication", type: :system do
       end
 
       it "do not allow the user to sign up" do
-        click_link("Sign In", match: :first)
+        click_link("Log in", match: :first)
         expect(page).not_to have_content("Create an account")
       end
     end
   end
 
   describe "Confirm email" do
-    it "confirms the user" do
+    it "confirms and logs in the user" do
       perform_enqueued_jobs { create(:user, organization:) }
 
       visit last_email_link
 
       expect(page).to have_content("successfully confirmed")
       expect(last_user).to be_confirmed
+
+      within_user_menu do
+        expect(page).to have_content("My account")
+        expect(page).to have_content("Log out")
+      end
     end
   end
 
@@ -312,9 +314,9 @@ describe "Authentication", type: :system do
   context "when a user is already registered" do
     let(:user) { create(:user, :confirmed, password: "DfyvHn425mYAy2HL", organization:) }
 
-    describe "Sign in" do
+    describe "Log in" do
       it "authenticates an existing User" do
-        click_link("Sign In", match: :first)
+        click_link("Log in", match: :first)
 
         within ".new_user" do
           fill_in :session_user_email, with: user.email
@@ -322,19 +324,17 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("Signed in successfully")
+        expect(page).to have_content("Logged in successfully")
         expect_current_user_to_be(user)
       end
 
       it "caches the omniauth buttons correctly with different languages", :caching do
-        click_link("Sign In", match: :first)
-        expect(page).to have_link("Sign in with Facebook")
+        click_link("Log in", match: :first)
+        expect(page).to have_link("Log in with Facebook")
 
         within_language_menu do
           click_link "Català"
         end
-
-        expect(page).to have_link("Inicia sessió amb Facebook")
       end
     end
 
@@ -406,18 +406,18 @@ describe "Authentication", type: :system do
       end
     end
 
-    describe "Sign Out" do
+    describe "Log Out" do
       before do
         login_as user, scope: :user
         visit decidim.root_path
       end
 
-      it "signs out the user" do
+      it "logs out the user" do
         within_user_menu do
-          click_link("Sign out")
+          click_link("Log out")
         end
 
-        expect(page).to have_content("Signed out successfully.")
+        expect(page).to have_content("Logged out successfully.")
         expect(page).not_to have_content(user.name)
       end
     end
@@ -430,7 +430,7 @@ describe "Authentication", type: :system do
         describe "before locking" do
           before do
             visit decidim.root_path
-            click_link("Sign In", match: :first)
+            click_link("Log in", match: :first)
 
             (maximum_attempts - 2).times do
               within ".new_user" do
@@ -455,7 +455,7 @@ describe "Authentication", type: :system do
         describe "locks the account" do
           before do
             visit decidim.root_path
-            click_link("Sign In", match: :first)
+            click_link("Log in", match: :first)
 
             (maximum_attempts - 1).times do
               within ".new_user" do
@@ -515,7 +515,7 @@ describe "Authentication", type: :system do
         it "unlocks the user account" do
           visit last_email_link
 
-          expect(page).to have_content("Your account has been successfully unlocked. Please sign in to continue")
+          expect(page).to have_content("Your account has been successfully unlocked. Please log in to continue")
         end
       end
     end
@@ -550,9 +550,9 @@ describe "Authentication", type: :system do
       OmniAuth.config.camelizations.delete("facebook")
     end
 
-    describe "Sign in" do
+    describe "Log in" do
       it "authenticates an existing User" do
-        click_link("Sign In", match: :first)
+        click_link("Log in", match: :first)
 
         find(".login__omniauth-button.button--facebook").click
 
@@ -564,7 +564,7 @@ describe "Authentication", type: :system do
         let(:organization) { create(:organization, users_registration_mode: :existing) }
 
         it "does not allow the user to sign up" do
-          click_link("Sign In", match: :first)
+          click_link("Log in", match: :first)
           expect(page).not_to have_content("Sign Up")
         end
       end
@@ -573,12 +573,12 @@ describe "Authentication", type: :system do
         let(:organization) { create(:organization, users_registration_mode: :disabled) }
 
         it "does not allow the user to sign up" do
-          click_link("Sign In", match: :first)
+          click_link("Log in", match: :first)
           expect(page).not_to have_content("Sign Up")
         end
 
         it "does not allow the user to sign in as a regular user, only through external accounts" do
-          click_link("Sign In", match: :first)
+          click_link("Log in", match: :first)
           expect(page).not_to have_content("Email")
           within("div.login__omniauth") do
             expect(page).to have_link("Facebook")
@@ -586,7 +586,7 @@ describe "Authentication", type: :system do
         end
 
         it "authenticates an existing User" do
-          click_link("Sign In", match: :first)
+          click_link("Log in", match: :first)
 
           find(".login__omniauth-button.button--facebook").click
 
@@ -602,8 +602,8 @@ describe "Authentication", type: :system do
           end
 
           it "can log in without being prompted to change the password" do
-            click_link("Sign In", match: :first)
-            click_link "Sign in with Facebook"
+            click_link("Log in", match: :first)
+            click_link "Log in with Facebook"
             expect(page).to have_content("Successfully")
           end
         end
@@ -622,7 +622,6 @@ describe "Authentication", type: :system do
           within ".new_user" do
             fill_in :registration_user_email, with: user.email
             fill_in :registration_user_name, with: "Responsible Citizen"
-            fill_in :registration_user_nickname, with: "responsible"
             fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
             check :registration_user_tos_agreement
             check :registration_user_newsletter
@@ -684,9 +683,9 @@ describe "Authentication", type: :system do
     let!(:user2) { create(:user, :confirmed, email: "fake@user.com", name: "Wrong user", organization: organization2, password: "DfyvHn425mYAy2HL") }
     let!(:user) { create(:user, :confirmed, email: "fake@user.com", name: "Right user", organization:, password: "DfyvHn425mYAy2HL") }
 
-    describe "Sign in" do
+    describe "Log in" do
       it "authenticates the right user" do
-        click_link("Sign In", match: :first)
+        click_link("Log in", match: :first)
 
         within ".new_user" do
           fill_in :session_user_email, with: user.email

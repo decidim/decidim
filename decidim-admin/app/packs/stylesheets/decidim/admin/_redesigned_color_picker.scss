@@ -1,0 +1,61 @@
+.color-picker {
+  @apply cursor-pointer mb-4;
+
+  summary {
+    @apply cursor-pointer mb-4;
+  }
+
+  &__box {
+    @apply rounded p-4 border border-gray;
+  }
+
+  &__label_choose {
+    @apply h-20 flex flex-col mb-4;
+
+    div {
+      @apply flex h-full cursor-pointer;
+    }
+  }
+
+  &__label_saturation {
+    @apply h-12 mb-4;
+
+    input {
+      @apply block;
+    }
+  }
+
+  fieldset {
+    @apply flex gap-4 items-end;
+  }
+
+  &__color {
+    @apply grid w-48 h-8 rounded;
+  }
+
+  &__color_primary {
+    @apply bg-[var(--primary)];
+  }
+
+  &__color_secondary {
+    @apply bg-[var(--secondary)];
+  }
+
+  &__color_tertiary {
+    @apply bg-[var(--tertiary)];
+  }
+
+  .button {
+    @apply m-0;
+  }
+}
+
+.form__wrapper .organization-colors {
+  @apply grid grid-cols-1 md:grid-cols-8 gap-x-4;
+
+  label input[type="color"] {
+    @apply block w-full h-10 mb-4 p-2 rounded bg-white text-gray mt-2 border border-gray bg-white;
+
+    box-shadow: inset 0 1px 2px rgba(26, 24, 29, 0.1);
+  }
+}

@@ -1,22 +1,24 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= edit_questionnaire_title %>
-      <% if questionnaire.answers.any? %>
-        <div class="button--title">
-          <%= export_dropdown(current_component, questionnaire.id) if allowed_to?(:export_answers, :questionnaire) %>
-        </div>
-      <% else %>
-        <button class="button tiny button--title" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.answers") %></button>
-      <% end %>
-    </h2>
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-divider">
+      <h2 class="card-title">
+        <%= edit_questionnaire_title %>
+        <% if questionnaire.answers.any? %>
+          <div class="button--title">
+            <%= export_dropdown(current_component, questionnaire.id) if allowed_to?(:export_answers, :questionnaire) %>
+          </div>
+        <% else %>
+          <button class="button button__sm button__secondary" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.answers") %></button>
+        <% end %>
+      </h2>
+    </div>
   </div>
 </div>
 
 <div class="questionnaire-questions">
   <div class="row column text-center">
-    <button type="button" class="button collapse-all"><%= t("collapse", scope: "decidim.forms.admin.questionnaires.form") %></button>
-    <button type="button" class="button expand-all"><%= t("expand", scope: "decidim.forms.admin.questionnaires.form") %></button>
+    <button type="button" class="button button__sm button__secondary collapse-all"><%= t("collapse", scope: "decidim.forms.admin.questionnaires.form") %></button>
+    <button type="button" class="button button__sm button__secondary expand-all"><%= t("expand", scope: "decidim.forms.admin.questionnaires.form") %></button>
   </div>
 
   <% if questionnaire.questions_editable? %>
@@ -36,7 +38,7 @@
     </div>
   <% end %>
 
-  <div class="questionnaire-questions-list">
+  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">
     <% @form.questions.each_with_index do |question, index| %>
       <%= fields_for "questionnaire[questions][]", question do |question_form| %>
         <%= render "decidim/meetings/admin/poll/question",
@@ -50,7 +52,7 @@
   </div>
 
   <% if questionnaire.questions_editable? %>
-    <button class="button add-question"><%= t("add_question", scope: "decidim.forms.admin.questionnaires.form") %></button>
+    <button class="button button__sm button__secondary add-question"><%= t("add_question", scope: "decidim.forms.admin.questionnaires.form") %></button>
   <% end %>
 </div>
 

@@ -209,6 +209,7 @@ en:
           landing_page: Landing page
           moderations: Moderations
           private_users: Private users
+          see_assembly: See assembly
         assemblies_types: Assemblies types
       models:
         assemblies_types:
@@ -217,6 +218,7 @@ en:
             title: Title
         assembly:
           fields:
+            actions: Actions
             created_at: Created at
             private: Private
             promoted: Highlighted
@@ -286,11 +288,12 @@ en:
             included_at_help: Select the date when this assembly was added to the platform. It does not necessarily have to be the same as the creation date.
             metadata: Metadata
             other: Other
+            sections: Sections
             select_a_created_by: Select a created by
             select_an_area: Select an Area
             select_an_assembly_type: Select an assembly type
             select_parent_assembly: Select parent assembly
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
             title: General Information
             visbility: Visibility
@@ -304,11 +307,10 @@ en:
             title: Edit assembly type
         assembly_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_imports:
           form:
-            document_legend: Add a document
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_members:
           form:
             existing_user: Existing participant
@@ -324,7 +326,6 @@ en:
               all: All
               ceased: Ceased
               not_ceased: Not ceased
-            filter_by: Filter by
             search: Search
         content_blocks:
           highlighted_assemblies:
