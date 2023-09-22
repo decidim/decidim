@@ -152,7 +152,6 @@ ar:
           new: فئة جديدة
         export: تصدير الكل
         import: استيراد
-        manage: تدبير
         new: جديد %{name}
         newsletter:
           new: رسالة إخبارية جديدة
@@ -201,7 +200,6 @@ ar:
           title: تحرير المجلد
           update: تحديث
         index:
-          attachment_collection_used: لا يمكن إزالة هذا المجلد لأنه قيد الاستخدام.
           attachment_collections_title: مجلدات المرفقات
         new:
           create: إنشاء
@@ -244,7 +242,6 @@ ar:
           update: تحديث
         index:
           categories_title: الاقسام
-          category_used: لا يمكن إزالة هذه الفئة لأنها قيد الاستخدام.
         new:
           create: إنشاء فئة
           title: فئة جديدة
@@ -304,7 +301,6 @@ ar:
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
-          welcome: أهلا بك على اللوح الإداري.
       domain_whitelist:
         form:
           domain_too_short: نطاق الدومين قصير جداً
@@ -397,7 +393,6 @@ ar:
             all: الكل
             managed: تمكن
             not_managed: غير مُدار
-          filter_by: مصنف بواسطة
           impersonate: انتحال
           impersonate_new_managed_user: إدارة مشارك جديد
           managed: تمكن
@@ -458,7 +453,6 @@ ar:
         area_types: أنواع المناطق
         areas: المناطق
         configuration: الإعدادات
-        dashboard: لوحة القيادة
         help_sections: أقسام المساعدة
         homepage: الصفحة الرئيسية
         impersonations: التقليد
@@ -645,7 +639,6 @@ ar:
           officialize: الصفة الرسمية
           title: إضفاء الطابع الرسمي على المشارك "%{name}"
         show_email_modal:
-          close_modal: اغلاق النموذج
           description: إذا كنت بحاجة إلى الاتصال بأحد المشاركين مباشرة، يمكنك النقر على زر العرض لرؤية عنوان بريده الإلكتروني. سيتم تسجيل هذا الإجراء.
           email_address: عنوان البريد الإلكتروني
           full_name: الاسم الكامل
@@ -813,7 +806,6 @@ ar:
         participants: المشاركين
         scope_types: أنواع النطاق
         scopes: مجالات
-        static_pages: صفحات
         statistics: النشاط
         user_groups: المجموعات
         users: المدراء
@@ -857,7 +849,6 @@ ar:
           last_month: الشهر الماضي
           last_week: الأسبوع الماضي
           participants: المشاركون
-      view_public_page: عرض الصفحة العامة
     metrics:
       blocked_users:
         title: المستخدمين المحظورين
@@ -902,12 +893,3 @@ ar:
   errors:
     messages:
       invalid_json: JSON غير صالح
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: النشرات الإخبارية
-        settings:
-          title: الإعدادات
-        users:
-          title: المشاركين
