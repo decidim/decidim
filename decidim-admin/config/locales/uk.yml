@@ -561,6 +561,7 @@ uk:
       users_statistics:
         users_count:
           admins: Адміністратори
+      view_public_page: Переглянути загальнодоступну сторінку
     moderations:
       actions:
         hidden: Приховано
@@ -594,5 +595,3 @@ uk:
           title: Розсилання новин
         settings:
           title: Налаштування
-        users:
-          title: Учасники
