@@ -185,7 +185,6 @@ lt:
         export: Eksportuoti viską
         export-selection: Eksportuoti pasirinktą
         import: Importuoti
-        manage: Valdyti
         new: Naujas %{name}
         newsletter:
           new: Naujas naujienlaiškis
@@ -255,7 +254,6 @@ lt:
           title: Redaguoti aplanką
           update: Atnaujinti
         index:
-          attachment_collection_used: Šio aplanko negalima pašalinti, nes jis naudojamas.
           attachment_collections_title: Priedų aplankai
         new:
           create: Sukurti
@@ -304,7 +302,6 @@ lt:
           update: Atnaujinti
         index:
           categories_title: Kategorijos
-          category_used: Šios kategorijos negalima pašalinti, nes ji naudojama.
         new:
           create: Sukurti kategoriją
           title: Nauja kategorija
@@ -374,7 +371,6 @@ lt:
           title: Laukiantys Moderavimai
         show:
           view_more_logs: Peržiūrėti daugiau ataskaitų
-          welcome: Sveiki atvykę į administratorių puslapį.
       domain_whitelist:
         form:
           domain_too_short: Domenas per trumpas
@@ -473,7 +469,6 @@ lt:
             all: Visi
             managed: Valdomas
             not_managed: Nevaldomas
-          filter_by: Filtruoti pagal
           impersonate: Apsimesti
           impersonate_new_managed_user: Tvarkyti naujo dalyvio duomenis
           managed: Valdomas
@@ -571,7 +566,6 @@ lt:
         areas: Erdvės
         configuration: Konfigūracija
         content: Turinys, apie kurį pranešta
-        dashboard: Švieslentė
         external_domain_whitelist: Leistini išoriniai domenai
         help_sections: Pagalbos skyrius
         homepage: Pradinis puslapis
@@ -804,7 +798,6 @@ lt:
           officialize: Oficializuoti
           title: Oficializuoti dalyvį "%{name}"
         show_email_modal:
-          close_modal: Uždaryti modalinį langą
           description: Jei reikia tiesiogiai susisiekti su dalyviu, galite spustelėti mygtuką „Rodyti“ ir pamatysite e. pašto adresą. Šis veiksmas bus užregistruotas.
           email_address: El. pašto adresas
           full_name: Vardas, pavardė
@@ -1050,7 +1043,6 @@ lt:
         participants: Dalyviai
         scope_types: Apimties tipai
         scopes: Apimtys
-        static_pages: Puslapiai
         statistics: Veikla
         user_groups: Grupės
         users: Administratoriai
@@ -1102,7 +1094,6 @@ lt:
           last_week: Praėjusią savaitę
           no_users_count_statistics_yet: Dar nėra dalyvių skaičiaus statistinių duomenų.
           participants: Dalyviai
-      view_public_page: Peržiūrėti viešąjį puslapį
     forms:
       errors:
         impersonate_user:
@@ -1163,9 +1154,3 @@ lt:
       admin:
         global_moderations:
           title: Globalūs moderavimai
-        newsletters:
-          title: Naujienlaiškiai
-        settings:
-          title: Nustatymai
-        users:
-          title: Dalyviai
