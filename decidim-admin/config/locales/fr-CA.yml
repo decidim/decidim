@@ -1076,8 +1076,8 @@ fr-CA:
         global_moderations:
           title: Modération globale
         newsletters:
-          title: Newsletters
+          title: Bulletins d'information (newsletter)
         settings:
           title: Paramètres
         users:
-          title: Utilisateurs
+          title: Participants
