@@ -189,7 +189,6 @@ cs:
         export: Exportovat vše
         export-selection: Exportovat výběr
         import: Importovat
-        manage: Spravovat
         new: Nová %{name}
         newsletter:
           new: Nový zpravodaj
@@ -259,7 +258,6 @@ cs:
           title: Upravit složku
           update: Aktualizace
         index:
-          attachment_collection_used: Tuto složku nelze odstranit, protože je používána.
           attachment_collections_title: Složky přílohy
         new:
           create: Vytvořit
@@ -308,7 +306,6 @@ cs:
           update: Aktualizace
         index:
           categories_title: Kategorie
-          category_used: Tuto kategorii nelze odstranit, protože se používá.
         new:
           create: Vytvořit kategorii
           title: Nová kategorie
@@ -378,7 +375,6 @@ cs:
           title: Čekající moderování
         show:
           view_more_logs: Zobrazit další protokoly
-          welcome: Vítejte v Admin panelu.
       domain_whitelist:
         form:
           domain_too_short: Doména je příliš krátká
@@ -477,7 +473,6 @@ cs:
             all: Vše
             managed: Spravované
             not_managed: Není spravováno
-          filter_by: Filtrovat podle
           impersonate: Vydávat se za uživatele
           impersonate_new_managed_user: Spravovat nového účastníka
           managed: Spravované
@@ -575,7 +570,6 @@ cs:
         areas: Oblasti
         configuration: Konfigurace
         content: Nahlášený obsah
-        dashboard: Ovládací panel
         external_domain_whitelist: Povolené externí domény
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
@@ -809,7 +803,6 @@ cs:
           officialize: Ověřit
           title: Oficializovat účastníka "%{name}"
         show_email_modal:
-          close_modal: Zavřít okno
           description: Pokud potřebujete kontaktovat účastníka, můžete kliknout na tlačítko Zobrazit pro zobrazení e-mailové adresy. Tato akce bude zaznamenána.
           email_address: E-mailová adresa
           full_name: Celé jméno
@@ -1058,7 +1051,6 @@ cs:
         participants: Uživatelé
         scope_types: Typy oblastí působnosti
         scopes: Oblasti působnosti
-        static_pages: Stránky
         statistics: Aktivita
         user_groups: Skupiny
         users: Administrátoři
@@ -1110,7 +1102,6 @@ cs:
           last_week: Minulý týden
           no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu uživatelů.
           participants: Účastníci
-      view_public_page: Zobrazit veřejnou stránku
     forms:
       errors:
         impersonate_user:
@@ -1171,9 +1162,3 @@ cs:
       admin:
         global_moderations:
           title: Globální moderace
-        newsletters:
-          title: Zpravodaje
-        settings:
-          title: Nastavení
-        users:
-          title: Účastníci
