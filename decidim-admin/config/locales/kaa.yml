@@ -215,8 +215,3 @@ kaa:
           fields:
             locale: Til
             reason: Sebep
-  layouts:
-    decidim:
-      admin:
-        settings:
-          title: Sazlawlar
