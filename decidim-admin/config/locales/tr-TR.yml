@@ -133,7 +133,6 @@ tr:
       actions:
         add: Eklemek
         browse: Araştır
-        manage: yönetme
         new: Yeni %{name}
         per_page: Sayfa başına
         permissions: İzinler
@@ -175,7 +174,6 @@ tr:
           title: Klasörü düzenle
           update: Güncelleştirme
         index:
-          attachment_collection_used: Bu klasör kullanımda olduğundan kaldırılamaz.
           attachment_collections_title: Ek klasörleri
         new:
           create: yaratmak
@@ -219,7 +217,6 @@ tr:
           update: Güncelleştirme
         index:
           categories_title: Kategoriler
-          category_used: Bu kategori kullanımda olduğu için kaldırılamaz.
         new:
           create: Kategori oluştur
           title: Yeni kategori
@@ -326,7 +323,6 @@ tr:
             all: Herşey
             managed: Yönetilen
             not_managed: Yönetilmeyen
-          filter_by: Tarafından filtre
           impersonate: taklit etmek
           impersonate_new_managed_user: Yeni yönetilen kullanıcıyı taklit et
           managed: Yönetilen
@@ -369,7 +365,6 @@ tr:
         area_types: Alan türleri
         areas: alanlar
         configuration: Yapılandırma
-        dashboard: gösterge paneli
         help_sections: Yardım bölümleri
         homepage: Anasayfa
         impersonations: impersonations
@@ -576,7 +571,6 @@ tr:
           officialize: ', resmiyete'
           title: '"%{name}" kullanıcısını resmi olarak yetkilendir'
         show_email_modal:
-          close_modal: Pencereyi kapat
           email_address: E-posta adresi
           full_name: Tam adı
           hidden: saklı
@@ -751,7 +745,6 @@ tr:
         participants: Kullanıcılar
         scope_types: Kapsam türleri
         scopes: kapsamları
-        static_pages: Sayfalar
         statistics: Aktivite
         user_groups: Kullanıcı Grupları
       user_group:
@@ -793,7 +786,6 @@ tr:
           last_month: Geçen ay
           last_week: Geçen hafta
           participants: Katılımcılar
-      view_public_page: Genel sayfayı görüntüle
     moderations:
       actions:
         expand: Genişlet
@@ -830,12 +822,3 @@ tr:
   errors:
     messages:
       invalid_json: Geçersiz JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Haber bültenleri
-        settings:
-          title: Ayarlar
-        users:
-          title: Kullanıcılar
