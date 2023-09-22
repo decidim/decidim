@@ -5,8 +5,7 @@ module Decidim
     class FormsController < Decidim::ApplicationController
       include Decidim::ControllerHelpers
 
-      def index
-      end
+      def index; end
     end
   end
 end
