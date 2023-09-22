@@ -153,7 +153,6 @@
         export: Eksporter alt
         export-selection: Eksporter valg
         import: Importer
-        manage: Administrer
         new: Nytt %{name}
         newsletter:
           new: Nytt nyhetsbrev
@@ -203,7 +202,6 @@
           title: Rediger mappe
           update: Oppdater
         index:
-          attachment_collection_used: Denne mappen kan ikke fjernes fordi den er i bruk.
           attachment_collections_title: Vedleggsmapper
         new:
           create: Opprett
@@ -250,7 +248,6 @@
           update: Oppdater
         index:
           categories_title: Kategorier
-          category_used: Denne kategorien kan ikke fjernes fordi den er i bruk.
         new:
           create: Opprett kategori
           title: Ny kategori
@@ -311,7 +308,6 @@
       dashboard:
         show:
           view_more_logs: Vis flere logger
-          welcome: Velkommen til Admin-panelet.
       domain_whitelist:
         form:
           domain_too_short: Domene er for kort
@@ -404,7 +400,6 @@
             all: Alle
             managed: Fikk til
             not_managed: Ikke klart
-          filter_by: Filtrer etter
           impersonate: Etterligne
           impersonate_new_managed_user: Administrer ny deltaker
           managed: Fikk til
@@ -482,7 +477,6 @@
         area_types: Områdetyper
         areas: Områder
         configuration: Konfigurasjon
-        dashboard: Skrivebord
         external_domain_whitelist: Tillatte eksterne domener
         help_sections: Hjelpeseksjoner
         homepage: Hjemmeside
@@ -697,7 +691,6 @@
           officialize: Offisialiser
           title: Offisialiser deltaker "%{name}"
         show_email_modal:
-          close_modal: Lukk modal
           description: Hvis du trenger å kontakte en deltaker direkte, kan du klikke på Vis for å se e-postadressen. Denne handlingen vil bli logget.
           email_address: E-postadresser
           full_name: Fullt navn
@@ -884,7 +877,6 @@
         participants: Deltakere
         scope_types: Tematyper
         scopes: Tema
-        static_pages: Sider
         statistics: Aktivitet
         user_groups: Grupper
         users: Administratorer
@@ -928,7 +920,6 @@
           last_month: Siste måned
           last_week: Siste uke
           participants: Deltakere
-      view_public_page: Vis offentlig side
     metrics:
       blocked_users:
         object: blokkerte brukere
@@ -976,12 +967,3 @@
   errors:
     messages:
       invalid_json: Ugyldig JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Nyhetsbrev
-        settings:
-          title: Innstillinger
-        users:
-          title: Deltakere
