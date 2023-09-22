@@ -185,7 +185,6 @@ pt-BR:
         export: Exportar tudo
         export-selection: Exportar selecionado
         import: Importar
-        manage: Gerenciar
         new: Nova %{name}
         newsletter:
           new: Novo Boletim Informativo
@@ -255,7 +254,6 @@ pt-BR:
           title: Editar pasta
           update: Atualizar
         index:
-          attachment_collection_used: Esta pasta não pode ser removida porque está em uso.
           attachment_collections_title: Pastas de anexos
         new:
           create: Criar
@@ -304,7 +302,6 @@ pt-BR:
           update: Atualizar
         index:
           categories_title: Categorias
-          category_used: Esta categoria não pode ser removida porque está em uso.
         new:
           create: Criar categoria
           title: Nova categoria
@@ -371,7 +368,6 @@ pt-BR:
           title: Moderações pendentes
         show:
           view_more_logs: Ver mais registros
-          welcome: Bem-vindo ao painel de administração.
       domain_whitelist:
         form:
           domain_too_short: Domínio muito curto
@@ -470,7 +466,6 @@ pt-BR:
             all: Tudo
             managed: Gerenciou
             not_managed: Não gerenciado
-          filter_by: Filtrar por
           impersonate: Representar
           impersonate_new_managed_user: Representar novo usuário gerenciado
           managed: Gerenciou
@@ -557,7 +552,6 @@ pt-BR:
         areas: Áreas
         configuration: Configuração
         content: Conteúdo relatado
-        dashboard: Painel de controle
         external_domain_whitelist: Domínios externos permitidos
         help_sections: Seções de ajuda
         homepage: Pagina inicial
@@ -790,7 +784,6 @@ pt-BR:
           officialize: Oficialize
           title: Oficializar o usuário "%{name}"
         show_email_modal:
-          close_modal: Fechar Modal
           description: Se você precisar entrar em contato com um participante diretamente você pode clicar no botão Mostrar para ver o endereço de e-mail. Esta ação será registrada.
           email_address: Endereço de E-mail
           full_name: Nome completo
@@ -1025,7 +1018,6 @@ pt-BR:
         participants: Comercial
         scope_types: Tipos de âmbito
         scopes: Âmbitos
-        static_pages: Páginas
         statistics: Atividade
         user_groups: Grupos de usuários
         users: Administradores
@@ -1075,7 +1067,6 @@ pt-BR:
           last_month: Último mês
           last_week: Última semana
           participants: Participantes
-      view_public_page: Ver página pública
     metrics:
       blocked_users:
         object: usuários bloqueados
@@ -1131,9 +1122,3 @@ pt-BR:
       admin:
         global_moderations:
           title: Moderações globais
-        newsletters:
-          title: Boletins informativos
-        settings:
-          title: Configurações
-        users:
-          title: Usuários
