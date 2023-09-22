@@ -92,7 +92,6 @@ uk:
       actions:
         add: Додати
         browse: Переглянути
-        manage: Керувати
         new: Додати %{name}
         permissions: Права
         reject: Відхилити
@@ -132,7 +131,6 @@ uk:
           title: Редагувати теку
           update: Оновити
         index:
-          attachment_collection_used: Цю теку не можна видалити, оскільки вона використовується.
           attachment_collections_title: Теки вкладень
         new:
           create: Додати
@@ -171,7 +169,6 @@ uk:
           update: Оновити
         index:
           categories_title: Категорії
-          category_used: Цю категорію не можна видалити, оскільки вона використовується.
         new:
           create: Створити категорію
           title: Додати категорію
@@ -232,7 +229,6 @@ uk:
             all: Усі
             managed: Керовані
             not_managed: Не керовані
-          filter_by: 'Відібрати за ознакою:'
           impersonate: Виступити в ролі учасника
           impersonate_new_managed_user: Виступити в ролі нового керованого учасника
           managed: Керовані
@@ -275,7 +271,6 @@ uk:
         area_types: Різновиди дільниць
         areas: Дільниці
         configuration: Конфігурація
-        dashboard: Приладна дошка
         homepage: Домашня сторінка
         impersonations: Виступи в ролі учасника
         newsletters: Розсилання новин
@@ -501,7 +496,6 @@ uk:
         dashboard: Приладна дошка
         scope_types: Різновиди обсягу
         scopes: Обсяги
-        static_pages: Сторінки
         user_groups: Гурти учасників
       user_group:
         reject:
@@ -554,12 +548,3 @@ uk:
   errors:
     messages:
       invalid_json: Неприпустимий JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Розсилання новин
-        settings:
-          title: Налаштування
-        users:
-          title: Учасники
