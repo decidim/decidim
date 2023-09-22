@@ -961,8 +961,8 @@ ar:
     decidim:
       admin:
         newsletters:
-          title: النشرات الإخبارية
+          title: الرسائل الإخبارية
         settings:
           title: الإعدادات
         users:
-          title: المشاركين
+          title: المشاركون
