@@ -67,7 +67,6 @@ ga:
         category:
           new: Catagóir nua
         import: Iompórtáil
-        manage: Bainistigh
         per_page: In aghaidh an leathanach
         reject: Diúltaigh
         share: Roinn
@@ -356,7 +355,6 @@ ga:
         metrics: Méadrachtaí
         panel: Riarachán
         scopes: Scóip
-        static_pages: Leathanaigh
         user_groups: Grúpaí
       user_groups:
         index:
@@ -392,8 +390,3 @@ ga:
         report:
           fields:
             reason: Cúis
-  layouts:
-    decidim:
-      admin:
-        settings:
-          title: Socruithe
