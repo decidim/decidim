@@ -670,6 +670,10 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
+        index:
+          count:
+            one: "%{count} collaborative draft"
+            other: "%{count} collaborative drafts"
         name: Collaborative drafts
         new:
           add_file: Add file
@@ -799,6 +803,9 @@ en:
         index:
           click_here: See all proposals
           collaborative_drafts_list: Access collaborative drafts
+          count:
+            one: "%{count} proposal"
+            other: "%{count} proposals"
           new_proposal: New proposal
           see_all: See all proposals
           see_all_withdrawn: See all withdrawn proposals

@@ -4,8 +4,7 @@
 
 <% if allowed_to? :update_slug, :static_page, static_page: form.object %>
   <div class="row column slug">
-    <%= form.text_field :slug %>
-    <p class="help-text"><%== t(".slug_help", url: decidim_form_slug_url("pages", form.object.slug)) %></p>
+    <%= form.text_field :slug, help_text: t(".slug_help_html", url: decidim_form_slug_url("pages", form.object.slug)) %>
   </div>
 <% end %>
 

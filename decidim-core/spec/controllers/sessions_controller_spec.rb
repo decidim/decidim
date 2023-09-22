@@ -90,7 +90,7 @@ module Decidim
 
       describe "POST create" do
         let(:params) { { user: { email: user.email, password: } } }
-        let(:user) { create(:user, :confirmed, password:, password_confirmation: password) }
+        let(:user) { create(:user, :confirmed, password:) }
         let(:password) { "decidim123456789" }
 
         before do
@@ -122,12 +122,12 @@ module Decidim
           end
 
           context "with weak password" do
-            let(:user) { create(:user, :confirmed, password:, password_confirmation: password) }
+            let(:user) { create(:user, :confirmed, password:) }
             let(:password) { "decidim123" }
 
             # To avoid the password validation failing when creating the user
             before do
-              user.password = user.password_confirmation = nil
+              user.password = nil
               user.update!(admin: true)
             end
 

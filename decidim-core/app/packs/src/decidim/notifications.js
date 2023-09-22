@@ -26,6 +26,9 @@ export default function(node = document) {
       emptyNotifications()
     }
   }
+  const hideReadAllButton = () => {
+    handleFadeOut(node.querySelector("[data-notification-read-all]"))
+  }
 
   const notifications = node.querySelectorAll("[data-notification]")
 
@@ -37,6 +40,7 @@ export default function(node = document) {
         "click", () => {
           notifications.forEach((notification) => handleFadeOut(notification))
           emptyNotifications()
+          hideReadAllButton()
         }
       )
   }

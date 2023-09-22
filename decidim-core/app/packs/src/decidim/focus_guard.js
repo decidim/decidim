@@ -62,6 +62,7 @@ export default class FocusGuard {
       // Note that the Foundation methods expect the elements to be jQuery
       // elements which is why we pass them through jQuery.
       Keyboard.releaseFocus($(this.guardedElement));
+      this.guardedElement.focus();
       this.guardedElement = null;
     }
   }
@@ -88,6 +89,7 @@ export default class FocusGuard {
 
     let target = null;
     if (guard.dataset.position === "start") {
+
       // Focus at the start guard, so focus the first focusable element after that
       for (let ind = 0; ind < visibleNodes.length; ind += 1) {
         if (!this.isFocusGuard(visibleNodes[ind]) && this.isFocusable(visibleNodes[ind])) {

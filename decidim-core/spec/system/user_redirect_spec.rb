@@ -24,7 +24,7 @@ describe "UserRedirect", type: :system do
       end
 
       it "redirects the user to the page attempted to access before login" do
-        expect(page).to have_css("h1.h3", text: "Help")
+        expect(page).to have_css("h1.title-decorator", text: "Help")
       end
     end
   end
