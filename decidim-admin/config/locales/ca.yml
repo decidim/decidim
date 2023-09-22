@@ -1014,7 +1014,7 @@ ca:
           last_week: La darrera setmana
           no_users_count_statistics_yet: Encara no hi ha estadístiques de recompte d’usuàries
           participants: Participants
-      view_public_page: Mostra la pàgina pública
+      view_public_page: Visualitzar la pàgina pública
     forms:
       errors:
         impersonate_user:
