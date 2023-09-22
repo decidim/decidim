@@ -153,7 +153,6 @@ it:
         export: Esporta tutto
         export-selection: Esporta selezione
         import: Importazione
-        manage: Gestisci
         new: Nuovo %{name}
         newsletter:
           new: Nuova newsletter
@@ -201,7 +200,6 @@ it:
           title: Modifica cartella
           update: Aggiorna
         index:
-          attachment_collection_used: Questa cartella non può essere rimossa perché è in uso.
           attachment_collections_title: Cartelle dell'allegato
         new:
           create: Creare
@@ -246,7 +244,6 @@ it:
           update: Aggiorna
         index:
           categories_title: Categorie
-          category_used: Questa categoria non può essere rimossa perché è in uso.
         new:
           create: Crea nuova categoria
           title: Nuova categoria
@@ -390,7 +387,6 @@ it:
             all: Tutti
             managed: Gestito
             not_managed: Non gestito
-          filter_by: Filtra per
           impersonate: Impersonare
           impersonate_new_managed_user: Gestisci nuovi partecipanti
           managed: Gestito
@@ -443,7 +439,6 @@ it:
         area_types: Tipi di ambito territoriale
         areas: Ambiti territoriali
         configuration: Configurazione
-        dashboard: Cruscotto (Dashboard)
         external_domain_whitelist: Consenti l'uso di domini esterni
         help_sections: Sezioni di Aiuto
         homepage: Homepage
@@ -659,7 +654,6 @@ it:
           officialize: ufficializzare
           title: Utente ufficiale "%{name}"
         show_email_modal:
-          close_modal: Chiudi modalità
           description: Se hai bisogno di contattare un partecipante direttamente, puoi fare clic sul pulsante Mostra per vedere il loro indirizzo email. Questa azione sarà registrata.
           email_address: Indirizzo email
           full_name: Nome Completo
@@ -836,7 +830,6 @@ it:
         participants: Partecipanti
         scope_types: Tipi di ambito
         scopes: Ambiti
-        static_pages: Pagine
         statistics: Attività
         user_groups: Gruppi di utenti
       user_group:
@@ -878,7 +871,6 @@ it:
           last_month: Mese precedente
           last_week: Settimana precedente
           participants: Partecipanti
-      view_public_page: Visualizza la pagina pubblica
     metrics:
       blocked_users:
         object: utenti bloccati
@@ -925,12 +917,3 @@ it:
   errors:
     messages:
       invalid_json: Problemi con la trasmissione tramite JSON (JSON non valido)
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Newsletters
-        settings:
-          title: Impostazioni
-        users:
-          title: Partecipanti
