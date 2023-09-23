@@ -26,7 +26,9 @@
         <% if template.templatable.questions.any? %>
           <%= render partial: "preview", locals: { questionnaire: template.templatable } %>
         <% else %>
-          <%= t(".empty") %>
+          <div class="row columns pb-4">
+            <%= t(".empty") %>
+          </div>
         <% end %>
       </div>
     </div>
