@@ -27,13 +27,15 @@ describe "Search meetings", type: :system do
 
     context "when searching for indexed searchables" do
       it "does not contain these searchables" do
-        fill_in "term", with: term
-        find("input#term").native.send_keys :enter
+        within "#form-search_topbar" do
+          fill_in "term", with: term
+          click_button
+        end
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
-        expect(page).to have_content(%(results for the search: "#{term}").upcase)
-        expect(page).to have_selector(".filters__section")
-        expect(page.find("#search-count .section-heading").text.to_i).to eq(0)
+        expect(page).to have_content(%(Results for the search: "#{term}"))
+        expect(page).to have_selector(".filter-search.filter-container")
+        expect(page.find("#search-count h1").text.to_i).to eq(0)
       end
     end
   end

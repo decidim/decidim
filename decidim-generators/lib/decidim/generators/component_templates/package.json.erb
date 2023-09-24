@@ -1,0 +1,21 @@
+{
+  "name": "decidim-<%= component_name %>",
+  "version": "0.0.1",
+  "description": <%= JSON.generate(component_description || "") %>,
+  "private": true,
+  "license": "AGPL-3.0",
+  "scripts": {
+    "lint": "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ignore-pattern app/packs/vendor --ext .js app/packs",
+    "stylelint": "stylelint app/packs/**/*.scss"
+  },
+  "dependencies": {
+    "@decidim/browserslist-config": "<%= npm_package_version %>",
+    "@decidim/webpacker": "<%= npm_package_version %>"
+  },
+  "devDependencies": {
+    "@decidim/dev": "<%= npm_package_version %>",
+    "@decidim/eslint-config": "<%= npm_package_version %>",
+    "@decidim/stylelint-config": "<%= npm_package_version %>"
+  },
+  "browserslist": ["extends @decidim/browserslist-config"]
+}

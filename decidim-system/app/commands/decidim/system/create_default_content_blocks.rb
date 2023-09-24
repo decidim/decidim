@@ -19,23 +19,10 @@ module Decidim
       #
       # Returns nothing.
       def call
-        content_blocks.each_with_index do |manifest, index|
-          weight = (index + 1) * 10
-          Decidim::ContentBlock.create(
-            decidim_organization_id: organization.id,
-            weight:,
-            scope_name: :homepage,
-            manifest_name: manifest.name,
-            published_at: Time.current
-          )
-        end
+        Decidim::ContentBlocksCreator.new(organization).create_default!
       end
 
       private
-
-      def content_blocks
-        Decidim.content_blocks.for(:homepage).select(&:default)
-      end
 
       attr_reader :organization
     end

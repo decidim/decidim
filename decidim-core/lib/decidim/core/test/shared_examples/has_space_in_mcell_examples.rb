@@ -8,7 +8,6 @@ shared_examples_for "has space in m-cell" do
     let(:show_space) { true }
 
     it "renders the space where the model belongs to" do
-      expect(cell_html).to have_selector(".card__top .card__content.text-small")
       expect(cell_html).to have_content(translated(model.component.participatory_space.title, locale: :en))
     end
   end

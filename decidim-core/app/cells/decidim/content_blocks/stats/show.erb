@@ -1,20 +1,7 @@
-<section class="extended home-section" id="statistics">
-  <div class="wrapper-home">
-    <div class="row column text-center">
-      <h3 class="heading3"><%= t("decidim.pages.home.statistics.headline", organization: current_organization.name) %></h3>
-    </div>
-    <div class="row">
-      <div class="columns small-centered mediumlarge-10 large-8">
-        <div class="home-stats">
-          <div class="home-stats__highlight">
-            <%= cell("decidim/statistics", stats.highlighted, heading: false, design: "homepage" ) %>
-          </div>
+<section id="statistics" class="home__section home__section-content-block">
+  <h2 class="home__section-title mb-8">
+    <%= t("decidim.pages.home.statistics.headline", organization: current_organization.name) %>
+  </h2>
 
-          <div class="home-stats__lowlight">
-            <%= cell("decidim/statistics", stats.not_highlighted, heading: false, design: "homepage" ) %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= cell("decidim/statistics", stats.highlighted + stats.not_highlighted) %>
 </section>

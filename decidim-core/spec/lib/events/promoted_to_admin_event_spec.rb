@@ -12,7 +12,7 @@ module Decidim
     let(:event_name) { "decidim.events.groups.promoted_to_admin" }
     let(:resource) { user_group }
     let(:resource_path) do
-      Decidim::Core::Engine.routes.url_helpers.group_manage_users_path(resource.nickname)
+      Decidim::Core::Engine.routes.url_helpers.profile_group_members_path(resource.nickname)
     end
 
     it_behaves_like "a simple event", skip_space_checks: true

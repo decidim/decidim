@@ -1,40 +1,29 @@
-<%= content_tag :h5,
+<%= content_tag :h3,
                 t("edit.total_ballots", scope: "decidim.votings.polling_officer_zone.closures"),
-                class: "heading5" %>
+                class: "h4" %>
 
-<div class="card--secondary">
-  <div class="card__content">
-    <div class="row">
-      <%= form.fields_for "[ballot_results]", form.object.ballot_results do |ballot_form| %>
-        <%= content_tag :span,
-                        "",
-                        id: "closure_result-total-ballots",
-                        data: { total_ballots: ballot_form.object.total_ballots_count } %>
+<%= form.fields_for "[ballot_results]", form.object.ballot_results do |ballot_form| %>
+  <%= content_tag :span,
+                  "",
+                  id: "closure_result-total-ballots",
+                  hidden: true,
+                  data: { total_ballots: ballot_form.object.total_ballots_count } %>
 
-        <%= content_tag :div,
-                        ballot_form.number_field(
-                          :valid_ballots_count,
-                          label: t("edit.total_valid_ballots", scope: "decidim.votings.polling_officer_zone.closures"),
-                          min: 0
-                        ),
-                        class: "columns medium-4" %>
+  <%= ballot_form.number_field(
+                    :valid_ballots_count,
+                    label: t("edit.total_valid_ballots", scope: "decidim.votings.polling_officer_zone.closures"),
+                    min: 0
+                  ) %>
 
-        <%= content_tag :div,
-                        ballot_form.number_field(
-                          :blank_ballots_count,
-                          label: t("edit.total_blank_ballots", scope: "decidim.votings.polling_officer_zone.closures"),
-                          min: 0
-                        ),
-                        class: "columns medium-4" %>
+  <%= ballot_form.number_field(
+                    :blank_ballots_count,
+                    label: t("edit.total_blank_ballots", scope: "decidim.votings.polling_officer_zone.closures"),
+                    min: 0
+                  ) %>
 
-        <%= content_tag :div,
-                        ballot_form.number_field(
-                          :null_ballots_count,
-                          label: t("edit.total_null_ballots", scope: "decidim.votings.polling_officer_zone.closures"),
-                          min: 0
-                        ),
-                        class: "columns medium-4" %>
-      <% end %>
-    </div>
-  </div>
-</div>
+  <%= ballot_form.number_field(
+                    :null_ballots_count,
+                    label: t("edit.total_null_ballots", scope: "decidim.votings.polling_officer_zone.closures"),
+                    min: 0
+                  ) %>
+<% end %>

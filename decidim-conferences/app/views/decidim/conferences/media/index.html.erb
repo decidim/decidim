@@ -11,7 +11,7 @@ edit_link(
 
 <%# NOTE: this page does not use a regular layout %>
 <main class="container">
-  <h1 class="h3 md:h1 decorator my-12">
+  <h1 class="title-decorator my-12">
     <span class="not-sr-only"><%= t("media", scope: "layouts.decidim.conferences_nav") %></span>
     <span class="sr-only"><%= t("media", scope: "layouts.decidim.conferences_nav") %> (<%= translated_attribute current_participatory_space.title %>)</span>
   </h1>
@@ -39,7 +39,6 @@ edit_link(
     <section id="conference-media-documents" class="conference__media-section">
       <h2 class="h4 md:h3 decorator"><%= t("decidim.application.documents.related_documents") %></h2>
 
-      <%# REDESIGN_PENDING: maybe this partial would fit better in a cell %>
       <%= render partial: "decidim/application/documents", locals: { documents: current_participatory_space.documents } %>
     </section>
   <% end %>

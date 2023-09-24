@@ -35,14 +35,14 @@ shared_examples "split proposals" do
       end
 
       it "shows an update button" do
-        expect(page).to have_css("button#js-submit-split-proposals", count: 1)
+        expect(page).to have_button(id: "js-submit-split-proposals", count: 1)
       end
 
       context "when submiting the form" do
         before do
           within "#js-form-split-proposals" do
             select translated(target_component.name), from: :target_component_id_
-            page.find("button#js-submit-split-proposals").click
+            click_button(id: "js-submit-split-proposals")
           end
         end
 

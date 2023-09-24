@@ -31,6 +31,13 @@ module Decidim
 
       alias can_participate? can_participate_in_space?
 
+      scope :with_order, lambda { |order|
+        if order.present?
+          joins(:orders).where(decidim_budgets_orders: { id: order.id })
+        else
+          all
+        end
+      }
       scope :selected, -> { where.not(selected_at: nil) }
       scope :not_selected, -> { where(selected_at: nil) }
 
@@ -52,19 +59,23 @@ module Decidim
         # array. This is why we search for match ",2," instead to get the actual
         # position for ID 2.
         concat_ids = connection.quote(",#{ids.join(",")},")
-        order(Arel.sql("position(concat(',', id::text, ',') in #{concat_ids})"))
+        order(Arel.sql("position(concat(',', decidim_budgets_projects.id::text, ',') in #{concat_ids})"))
       end
 
       def self.log_presenter_class_for(_log)
         Decidim::Budgets::AdminLog::ProjectPresenter
       end
 
+      def resource_locator
+        ::Decidim::ResourceLocatorPresenter.new([budget, self])
+      end
+
       def polymorphic_resource_path(url_params)
-        ::Decidim::ResourceLocatorPresenter.new([budget, self]).path(url_params)
+        resource_locator.path(url_params)
       end
 
       def polymorphic_resource_url(url_params)
-        ::Decidim::ResourceLocatorPresenter.new([budget, self]).url(url_params)
+        resource_locator.url(url_params)
       end
 
       # Public: Overrides the `comments_have_votes?` Commentable concern method.

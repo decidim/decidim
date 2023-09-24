@@ -37,7 +37,7 @@ module Decidim
           get :show, params: { id: collaborative_draft.id }
 
           expect(response).to have_http_status(:ok)
-          expect(assigns(:collaborative_draft)).to be_kind_of(Decidim::Proposals::CollaborativeDraft)
+          expect(assigns(:collaborative_draft)).to be_a(Decidim::Proposals::CollaborativeDraft)
           expect(subject).to render_template("decidim/proposals/collaborative_drafts/show")
         end
       end
@@ -94,7 +94,7 @@ module Decidim
         it "renders the edit form" do
           get :edit, params: { id: collaborative_draft.id }
           expect(response).to have_http_status(:ok)
-          expect(assigns(:collaborative_draft)).to be_kind_of(Decidim::Proposals::CollaborativeDraft)
+          expect(assigns(:collaborative_draft)).to be_a(Decidim::Proposals::CollaborativeDraft)
           expect(subject).to render_template(:edit)
         end
       end
@@ -113,7 +113,7 @@ module Decidim
 
         it "updates the collaborative draft" do
           put(:update, params:)
-          expect(assigns(:collaborative_draft)).to be_kind_of(Decidim::Proposals::CollaborativeDraft)
+          expect(assigns(:collaborative_draft)).to be_a(Decidim::Proposals::CollaborativeDraft)
           expect(response).to have_http_status(:found)
         end
       end

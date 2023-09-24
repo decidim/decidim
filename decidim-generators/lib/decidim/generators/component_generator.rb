@@ -3,6 +3,7 @@
 
 require "bundler"
 require "thor"
+require "json"
 require "active_support/inflector"
 require "decidim/core/version"
 require "decidim/generators"
@@ -18,6 +19,7 @@ module Decidim
                   :component_folder,
                   :component_description,
                   :core_version,
+                  :npm_package_version,
                   :required_ruby_version,
                   :security_email,
                   :edge_git_branch
@@ -33,6 +35,7 @@ module Decidim
         @component_module_name = component_name.camelize
         @component_folder = options[:destination_folder] || "decidim-module-#{component_name}"
         @core_version = Decidim::Core.version
+        @npm_package_version = "^#{semver_friendly_version}"
         @edge_git_branch = Decidim::Generators.edge_git_branch
         @component_description = ask "Write a description for the new component:"
         @required_ruby_version = RUBY_VERSION.length == 5 ? RUBY_VERSION[0..2] : RUBY_VERSION
@@ -46,9 +49,12 @@ module Decidim
         template "README.md.erb", "#{component_folder}/README.md"
         template "gitignore", "#{component_folder}/.gitignore"
         template "github/ci.yml.erb", "#{component_folder}/.github/workflows/ci_#{component_name}.yml"
+        template "package.json.erb", "#{component_folder}/package.json"
         copy_file ".ruby-version", "#{component_folder}/.ruby-version"
         copy_file ".node-version", "#{component_folder}/.node-version"
         copy_file ".rubocop.yml", "#{component_folder}/.rubocop.yml"
+        copy_file ".eslintrc.json", "#{component_folder}/.eslintrc.json"
+        copy_file ".stylelintrc.json", "#{component_folder}/.stylelintrc.json"
 
         app_folder = "#{component_folder}/app"
         template "app/packs/js/entrypoint.js", "#{app_folder}/packs/entrypoints/decidim_#{component_name}.js"
@@ -102,6 +108,10 @@ module Decidim
         email = split.first
         domain = split.last.gsub(".", " [dot] ")
         @security_email = "#{email} [at] #{domain}"
+      end
+
+      def semver_friendly_version
+        Decidim::Generators.version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev").gsub(/.rc(\d*)/, "-rc\\1")
       end
     end
   end

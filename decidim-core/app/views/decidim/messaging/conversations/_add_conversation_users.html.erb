@@ -1,20 +1,20 @@
 <div data-dialog-container>
   <%= icon "question-answer-line" %>
-  <h2 id="dialog-title-conversation" tabindex="-1" data-dialog-title><%= t(".modal_title") %></h2>
+  <h2 id="dialog-title-conversation" tabindex="-1" data-dialog-title><%= t("modal_title", scope: "decidim.messaging.conversations.add_conversation_users") %></h2>
   <div>
     <div class="form__wrapper gap-1 js-multiple-mentions" data-name="recipient_id[]" data-multiple="true">
       <label for="add_conversation_users">
         <%= t("decidim.metrics.participants.title") %>
       </label>
-      <span id="dialog-desc-conversation" class="help-text"><%= t(".add_max_users") %></span>
+      <span id="dialog-desc-conversation" class="help-text"><%= t("add_max_users", scope: "decidim.messaging.conversations.add_conversation_users") %></span>
       <input id="add_conversation_users" type="text"
           spellcheck="false"
           autocomplete="off"
-          placeholder="<%= t(".add_users_placeholder") %>"
-          data-noresults="<%= t(".no_results") %>"
+          placeholder="<%= t("add_users_placeholder", scope: "decidim.messaging.conversations.add_conversation_users") %>"
+          data-noresults="<%= t("no_results", scope: "decidim.messaging.conversations.add_conversation_users") %>"
           data-selected="multiple-mentions-selected"
           contenteditable="true"
-          data-direct-messages-disabled="<%= t("decidim.messaging.conversations.add_conversation_users.participant_with_disabled_message_reception") %>">
+          data-direct-messages-disabled="<%= t("participant_with_disabled_message_reception", scope: "decidim.messaging.conversations.add_conversation_users") %>">
     </div>
     <ul class="conversation__modal-results multiple-mentions-selected"></ul>
   </div>

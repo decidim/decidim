@@ -233,6 +233,7 @@ en:
           global_status: Global execution status
         nav_breadcrumb:
           global: Global execution
+        no_results: There are no projects
         search:
           search: Search for actions
         show:
@@ -295,7 +296,7 @@ en:
         title: Results
     participatory_spaces:
       highlighted_results:
-        see_all: See all results (%{count})
+        see_all: See all results
     resource_links:
       included_projects:
         result_project: Projects included in this result

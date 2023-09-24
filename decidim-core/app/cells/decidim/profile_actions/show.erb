@@ -1,26 +1,12 @@
 <div class="profile__actions-main">
-  <% profile_actions.each do |item| %>
-    <% if item[:cell].present? %>
-      <%= cell item[:cell], profile_holder, item[:options] %>
-    <% else %>
-      <%= cell "decidim/button", item, item[:options] %>
-    <% end %>
-  <% end %>
+  <%= dropdown_actions %>
+  <%= profile_actions %>
 </div>
 
 <div class="profile__actions-secondary">
   <%= cell("decidim/follow_button", profile_holder) %>
 
-  <% if user_flaggable? %>
-    <%== cell("decidim/author", profile_holder, from: profile_holder).flag_user %>
-  <% end %>
-
-  <% if can_leave_group? %>
-    <%= cell(
-      "decidim/button",
-      { icon: "logout-box-r-line", text: t("decidim.profiles.user.leave_user_group"), path: decidim.leave_group_path(profile_holder.nickname) },
-      method: :delete,
-      button_classes: "button button__sm button__text-secondary only:m-auto"
-    ) %>
+  <% if user_flaggable? && model.try(:id) != current_user.try(:id) %>
+    <%= cell("decidim/report_button", profile_holder) %>
   <% end %>
 </div>

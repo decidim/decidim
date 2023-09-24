@@ -23,6 +23,18 @@ module Decidim
         end
       end
 
+      context "when the icon exists in the manifest but not in the file system" do
+        let(:path) { "media/images/google.svg" }
+
+        before do
+          allow(helper).to receive(:asset_pack_path).and_return("/unexisting/path.svg")
+        end
+
+        it "returns nil" do
+          expect(subject).to be_nil
+        end
+      end
+
       context "when using a custom host" do
         let(:path) { "media/images/google.svg" }
 
@@ -57,6 +69,18 @@ module Decidim
 
       context "when the icon does not exist" do
         let(:path) { "media/images/hooli.svg" }
+
+        it "returns nil" do
+          expect(subject).to be_nil
+        end
+      end
+
+      context "when the icon exists in the manifest but not in the file system" do
+        let(:path) { "media/images/google.svg" }
+
+        before do
+          allow(helper).to receive(:asset_pack_path).and_return("/unexisting/path.svg")
+        end
 
         it "returns nil" do
           expect(subject).to be_nil

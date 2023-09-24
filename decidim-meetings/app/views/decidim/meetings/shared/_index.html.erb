@@ -1,0 +1,24 @@
+<% add_decidim_page_title(t("decidim.meetings.directory.meetings.index.meetings")) %>
+
+<%= append_stylesheet_pack_tag "decidim_meetings", media: "all" %>
+<%= append_javascript_pack_tag "decidim_meetings" %>
+
+<% content_for :aside do %>
+  <%= render partial: "decidim/meetings/shared/meetings_aside", locals: { main_action: true, search_variable:, filter_options:, component: } %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <% if display_map %>
+    <div class="meeting-list__map">
+      <%= cell "decidim/meetings/meetings_map", search.result %>
+    </div>
+  <% end %>
+
+  <% if display_announcement %>
+    <%= render partial: "decidim/shared/component_announcement" %>
+  <% end %>
+
+  <section id="meetings" class="layout-main__section layout-main__heading">
+    <%= render partial: "decidim/meetings/shared/meetings", locals: { component: } %>
+  </section>
+<% end %>

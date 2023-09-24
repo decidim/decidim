@@ -112,6 +112,21 @@ module Decidim
       end
     end
 
+    describe "avatar_url" do
+      subject { described_class.new(assembly_member).avatar_url }
+
+      context "when user is present" do
+        let(:user) { build(:user, name: "Julia G.", nickname: "julia_g") }
+        let(:assembly_member) { build(:assembly_member, full_name: "Full name", user:) }
+
+        it { is_expected.to eq user.attached_uploader(:avatar).path }
+      end
+
+      context "when no user is present" do
+        it { is_expected.to include "default-avatar" }
+      end
+    end
+
     describe "non_user_avatar_path" do
       subject { described_class.new(assembly_member).non_user_avatar_path }
 

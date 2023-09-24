@@ -9,7 +9,19 @@ module Decidim
     # override its layout and provide all kinds of useful methods.
     module Directory
       class ApplicationController < Decidim::ApplicationController
+        include HasSpecificBreadcrumb
+
         helper Decidim::Meetings::Directory::ApplicationHelper
+
+        private
+
+        def breadcrumb_item
+          {
+            label: t("decidim.pages.home.extended.meetings"),
+            url: root_path,
+            active: true
+          }
+        end
       end
     end
   end

@@ -1,0 +1,9 @@
+<% visible_authors.each do |visible_author| %>
+  <%= cell "decidim/author", visible_author, layout: :avatar, skip_profile_link: true %>
+<% end %>
+
+<% if model.length > MAX_ITEMS_STACKED %>
+  <span class="author__avatar-counter" data-remaining-authors="<%= model.length - MAX_ITEMS_STACKED %>">
+    <%= "+" + (model.length - MAX_ITEMS_STACKED).to_s %>
+  </span>
+<% end %>

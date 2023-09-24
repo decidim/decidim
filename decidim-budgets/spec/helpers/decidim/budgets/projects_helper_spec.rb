@@ -6,6 +6,7 @@ module Decidim
   module Budgets
     describe ProjectsHelper do
       include Decidim::LayoutHelper
+      include ::Devise::Test::ControllerHelpers
 
       let!(:organization) { create(:organization) }
       let!(:budgets_component) { create(:budgets_component, :with_geocoding_enabled, organization:) }
@@ -16,13 +17,6 @@ module Decidim
       let(:address) { "Carrer Pic de Peguera 15, 17003 Girona" }
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }
-      let(:redesign_enabled) { false }
-
-      before do
-        # rubocop:disable RSpec/AnyInstance
-        allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
-        # rubocop:enable RSpec/AnyInstance
-      end
 
       describe "#has_position?" do
         subject { helper.has_position?(project) }

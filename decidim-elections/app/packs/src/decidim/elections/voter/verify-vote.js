@@ -4,8 +4,13 @@
 import { Client } from "@decidim/decidim-bulletin_board";
 
 $(() => {
-  const $voteVerifyWrapper = $(".verify-vote-wrapper");
-  const $verifySubmitButton = $voteVerifyWrapper.find("a.focus__next.confirm");
+  const $voteVerifyWrapper = $("#verify-vote-wrapper");
+
+  if (!$voteVerifyWrapper.length) {
+    return
+  }
+
+  const $verifySubmitButton = $voteVerifyWrapper.find("[type=submit]");
 
   let $formData = $voteVerifyWrapper.find(".vote-identifier");
 
@@ -33,11 +38,11 @@ $(() => {
   }
 
   function hideSuccessCallout() {
-    $voteVerifyWrapper.find(".verify-vote-success").addClass("hide");
+    $voteVerifyWrapper.find("#verify-vote-success").attr("hidden", true);
   }
 
   function hideErrorCallout() {
-    $voteVerifyWrapper.find(".verify-vote-error").addClass("hide");
+    $voteVerifyWrapper.find("#verify-vote-error").attr("hidden", true);
   }
 
   $verifySubmitButton.on("click", (event) => {
@@ -58,10 +63,10 @@ $(() => {
       then((result) => {
         if (result) {
           hideErrorCallout();
-          $voteVerifyWrapper.find(".verify-vote-success").removeClass("hide");
+          $voteVerifyWrapper.find("#verify-vote-success").attr("hidden", false);
         } else {
           hideSuccessCallout();
-          $voteVerifyWrapper.find(".verify-vote-error").removeClass("hide");
+          $voteVerifyWrapper.find("#verify-vote-error").attr("hidden", false);
         }
       });
   }

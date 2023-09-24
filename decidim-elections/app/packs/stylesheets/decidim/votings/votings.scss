@@ -1,2 +1,53 @@
-@import "stylesheets/decidim/votings/votings/polling-stations-cell";
-@import "stylesheets/decidim/votings/votings/voting-description-cell";
+.voting {
+  &__map {
+    @apply flex flex-col-reverse md:flex-row items-start gap-4 only:[&>*]:grow first:[&>*]:min-w-[40%];
+
+    & > :last-child:not(:only-child) {
+      @apply aspect-[4/3] w-full rounded overflow-hidden;
+    }
+
+    &-address {
+      @apply border-4 border-background rounded p-4 mt-4 first:mt-0;
+    }
+  }
+
+  &__polling-station {
+    @apply space-y-4 py-4;
+
+    & > * {
+      @apply flex items-center gap-2;
+    }
+
+    &__accordion {
+      @apply border-4 border-background rounded p-4;
+
+      &-trigger {
+        @apply flex justify-between items-center w-full text-secondary hover:underline;
+      }
+
+      &-arrow {
+        @apply w-8 h-8 text-secondary fill-current first-of-type:block last-of-type:hidden;
+      }
+
+      [role="button"][aria-expanded="true"] &-arrow {
+        @apply first-of-type:hidden last-of-type:block;
+      }
+
+      &-panel {
+        @apply border-t border-gray-3 mt-4 pt-4;
+
+        a {
+          @apply hover:underline;
+        }
+      }
+
+      & + & {
+        @apply mt-4;
+      }
+    }
+
+    & + & {
+      @apply mt-4 border-t border-background;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
+  <%= cell(
+        "decidim/announcement",
+        t("decidim.meetings.meetings.index.text_banner",
+          go_back_link: link_to(t("decidim.meetings.meetings.index.click_here"), meetings_path("filter[with_availability]" => nil))
+         ).html_safe,
+        callout_class: "info"
+      ) %>
+<% end %>
+
+<% if meetings.length.zero? %>
+  <%= cell("decidim/announcement", t("decidim.meetings.meetings.meetings.no_meetings_warning"), callout_class: "warning" ) %>
+<% else %>
+  <h2 class="h5 md:h3 decorator"><%= t("meetings_count", scope: "decidim.meetings.meetings.count", count: meetings.length) %></h2>
+
+  <%= cell("decidim/announcement", t("decidim.meetings.meetings.meetings.upcoming_meetings_warning"), callout_class: "warning" ) if @forced_past_meetings %>
+
+  <div class="card__list-list">
+    <% meetings.each do |meeting| %>
+      <%= card_for meeting %>
+    <% end %>
+  </div>
+
+  <%= decidim_paginate meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>
+<% end %>
+
+<% if component.present? %>
+  <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
+    <%= link_to t("decidim.meetings.meetings.index.see_all"), meetings_path("filter[with_availability]" => nil), class: "button button__sm button__text-secondary" %>
+  <% else %>
+    <%= link_to t("decidim.meetings.meetings.index.see_all_withdrawn"), meetings_path("filter[with_availability]" => "withdrawn"), class: "button button__sm button__text-secondary" %>
+  <% end %>
+<% end %>

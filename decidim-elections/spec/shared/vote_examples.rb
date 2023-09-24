@@ -79,20 +79,20 @@ def uses_the_voting_booth
   question_step(4) do |_question|
     check(I18n.t("decidim.elections.votes.new.nota_option"), allow_label_click: true)
 
-    expect(page).to have_selector("label.is-disabled").exactly(8).times
+    expect(page).to have_selector("label[aria-disabled='true']").exactly(8).times
 
     expect_valid
   end
 
   # confirm step
-  non_question_step("#step-4") do
-    expect(page).to have_content("CONFIRM YOUR VOTE")
+  non_question_step("#step-confirm") do
+    expect(page).to have_content("Confirm your vote")
 
     selected_answers.each { |answer| expect(page).to have_i18n_content(answer.title) }
     non_selected_answers.each { |answer| expect(page).not_to have_i18n_content(answer.title) }
 
     within "#edit-step-2" do
-      click_link("edit")
+      click_button("edit")
     end
   end
 
@@ -106,17 +106,17 @@ def uses_the_voting_booth
   question_step(4)
 
   # confirm step
-  non_question_step("#step-4") do
-    expect(page).to have_content("CONFIRM YOUR VOTE")
+  non_question_step("#step-confirm") do
+    expect(page).to have_content("Confirm your vote")
 
     selected_answers.each { |answer| expect(page).to have_i18n_content(answer.title) }
     non_selected_answers.each { |answer| expect(page).not_to have_i18n_content(answer.title) }
 
-    click_link("Confirm")
+    click_button("Confirm")
   end
 
   # cast ballot
-  non_question_step(".ballot_decision") do
+  non_question_step("#step-ballot_decision") do
     click_button("Cast ballot")
   end
 
@@ -130,12 +130,12 @@ def question_step(number)
   within "#step-#{number - 1}" do
     question = election.questions[number - 1]
 
-    expect(page).to have_content("QUESTION #{number} OF 4")
+    expect(page).to have_content("Question #{number} of 4")
     expect(page).to have_i18n_content(question.title)
 
     yield question if block_given?
 
-    click_link("Next")
+    click_button("Next")
   end
 end
 
@@ -174,13 +174,13 @@ def change_answer(question, selected, non_selected)
 end
 
 def expect_only_one_step
-  expect(page).to have_selector(".focus__step", count: 1)
+  expect(page).to have_selector('[id^="step"]:not([hidden])', count: 1)
 end
 
 def expect_not_valid
-  expect(page).not_to have_link("Next")
+  expect(page).not_to have_button("Next")
 end
 
 def expect_valid
-  expect(page).to have_link("Next")
+  expect(page).to have_button("Next")
 end

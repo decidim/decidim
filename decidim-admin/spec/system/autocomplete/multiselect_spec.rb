@@ -52,8 +52,8 @@ describe "Autocomplete multiselect", type: :system do
           <html lang="en">
           <head>
             <title>Autocomplete multiselect Test</title>
-            #{stylesheet_pack_tag "decidim_admin"}
-            #{javascript_pack_tag "decidim_admin"}
+            #{stylesheet_pack_tag "redesigned_decidim_core"}
+            #{javascript_pack_tag "redesigned_decidim_core", "decidim_admin", defer: false}
             #{head_extra}
           </head>
           <body>
@@ -83,7 +83,7 @@ describe "Autocomplete multiselect", type: :system do
     describe "render autocomplete wrapper with text input" do
       it "shows multiselect" do
         within ".autoComplete_wrapper" do
-          expect(page).to have_selector("input[type='text']", wait: 2)
+          expect(page).to have_field(wait: 2)
         end
       end
     end

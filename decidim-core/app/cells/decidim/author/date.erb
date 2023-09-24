@@ -1,5 +1,4 @@
-<% if creation_date? %>
-  <span>
-    <%= creation_date %> &nbsp;
-  </span>
-<% end %>
+<span class="author__metadata">
+  <%= icon "calendar-line" if show_icons? %>
+  <%= creation_date %>
+</span>

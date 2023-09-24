@@ -1,0 +1,35 @@
+<div role="complementary">
+  <%= yield :item_header %>
+</div>
+<div class="layout-item">
+  <main class="layout-item__main">
+    <% if params[:included_in] %>
+      <%= render partial: "layouts/decidim/shared/linked_resource" %>
+    <% end %>
+
+    <% if local_assigns.has_key?(:prev_path) %>
+      <%= link_to prev_path, class: "layout-item__arrow prev", title: t(".prev") do %>
+        <%= icon "arrow-left-s-line" %>
+        <span class="sr-only">%<%= t(".prev") %></span>
+      <% end %>
+    <% end %>
+
+    <% if local_assigns.has_key?(:next_path) %>
+      <%= link_to next_path, class: "layout-item__arrow next", title: t(".next") do %>
+        <%= icon "arrow-right-s-line" %>
+        <span class="sr-only"><%= t(".next") %></span>
+      <% end %>
+    <% end %>
+
+    <%= yield %>
+  </main>
+  <aside class="layout-item__aside" aria-label="aside">
+    <%= yield :aside %>
+  </aside>
+  <%# this aside is for moving comments and versions at the bottom of the page only in responsive. %>
+  <% if content_for?(:item_footer) %>
+    <aside class="layout-item__main layout-item__aside--footer" aria-label="comments">
+      <%= yield :item_footer %>
+    </aside>
+  <% end %>
+</div>

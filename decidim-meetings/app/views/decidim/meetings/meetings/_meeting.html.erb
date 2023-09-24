@@ -1,0 +1,74 @@
+<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths do %>
+  <section class="layout-main__section layout-main__heading">
+    <h1 class="h2 decorator"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
+
+    <%= cell "decidim/meetings/dates_and_map", meeting %>
+
+    <div class="layout-author">
+      <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), from: meeting, context_actions: nil, layout: :compact %>
+
+      <% if meeting.private_meeting? %>
+        <span class="<%= meeting_type_badge_css_class("private") %> label">
+          <%= t("private_meeting", scope: "decidim.meetings.types") %>
+        </span>
+      <% end %>
+      <% if meeting.private_meeting? and meeting.transparent? %>
+        <span class="<%= meeting_type_badge_css_class("transparent") %> label">
+          <%= t("transparent", scope: "decidim.meetings.types") %>
+        </span>
+      <% end %>
+      <% if meeting.withdrawn? %>
+        <span class="<%= meeting_type_badge_css_class("withdraw") %> label">
+          <%= t("withdraw", scope: "decidim.meetings.types") %>
+        </span>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="layout-main__section">
+    <div class="editor-content">
+      <%= render_meeting_body(@meeting) %>
+    </div>
+  </section>
+
+  <section class="layout-main__section">
+    <% unless meeting.in_person? || meeting.withdrawn? %>
+      <%= cell "decidim/meetings/online_meeting_link", meeting %>
+    <% end %>
+  </section>
+
+  <%= cell "decidim/tab_panels", tab_panel_items %>
+
+  <% if meeting.agenda.present? && meeting.agenda.visible? %>
+    <section class="layout-main__section">
+      <%= render "meeting_agenda" %>
+    </section>
+  <% end %>
+
+  <% if meeting.closed? && meeting.closing_visible? %>
+    <section class="layout-main__section">
+      <%= render "meeting_minutes" %>
+    </section>
+  <% end %>
+
+  <section class="layout-main__section layout-main__buttons" data-buttons>
+    <%= render partial: "actions" %>
+  </section>
+
+  <%= pad_iframe_for meeting %>
+
+  <% content_for :aside do %>
+    <%= render partial: "meeting_aside" %>
+  <% end %>
+
+  <% content_for :item_footer do %>
+    <%= comments_for meeting %>
+    <ul class="metadata__container layout-main__section" data-metadata-footer>
+      <%= content_tag :li, resource_reference(meeting), class: "metadata__item" %>
+      <%= content_tag :li, resource_version(meeting, versions_path: meeting_version_path(meeting, meeting.versions.count)), class: "metadata__item" %>
+      <%= content_tag :li, link_to(t("add_to_calendar", scope: "decidim.meetings.meetings.calendar_modal"), nil, remote: true, data: { dialog_open: "calendarShare_#{meeting.id}" }), class: "metadata__item" %>
+    </ul>
+  <% end %>
+<% end %>
+
+<%= render partial: "add_to_calendar_modal", locals: { ics_url: calendar_meeting_url(meeting), google_url: google_calendar_event_url(meeting), id: meeting.id } %>

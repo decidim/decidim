@@ -1,0 +1,28 @@
+<table class="election-trustee__table">
+  <thead>
+    <tr>
+      <th><%= t("elections.list.election", scope: "decidim.elections.trustee_zone.trustees.show") %></th>
+      <th><%= t("elections.list.voting_period", scope: "decidim.elections.trustee_zone.trustees.show") %></th>
+      <th><%= t("elections.list.bb_status", scope: "decidim.elections.trustee_zone.trustees.show") %></th>
+      <th><%= t("elections.list.action_required.name", scope: "decidim.elections.trustee_zone.trustees.show") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% trustee.elections.each do |election| %>
+      <tr>
+        <td><%= present(election).title %></td>
+        <td><%= l(election.start_time, format: :decidim_short) %> - <%= l(election.end_time, format: :decidim_short) %></td>
+        <td><%= election.bb_status %></td>
+        <td>
+          <% if election.trustee_action_required? %>
+            <%= link_to trustee_election_elections_path(election) do %>
+              <%= t("elections.list.action_required.true", scope: "decidim.elections.trustee_zone.trustees.show") %>
+            <% end %>
+          <% else %>
+            <%= t("elections.list.action_required.false", scope: "decidim.elections.trustee_zone.trustees.show") %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

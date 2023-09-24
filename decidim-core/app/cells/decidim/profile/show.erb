@@ -1,19 +1,29 @@
-<div class="wrapper">
-  <div class="row">
-    <div class="columns medium-9 medium-offset-3">
-      <%= profile_tabs %>
+<div class="profile__scaffold__top">
+  <div class="layout-1col cols-10">
+    <div class="profile__scaffold__top-content">
+      <div>
+        <%= render :avatar %>
+      </div>
+      <div>
+        <%= render :details %>
+      </div>
+      <div>
+        <%= cell "decidim/profile_actions", profile_holder, context %>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="columns medium-3">
-      <%= cell "decidim/profile_sidebar", profile_holder %>
-    </div>
-    <div class="columns medium-9">
-      <div class="tabs-content" data-tabs-content="profile-tabs">
-        <div class="tabs-panel is-active">
-          <%= cell content_cell, profile_holder, context %>
-        </div>
-      </div>
+</div>
+<div class="profile__scaffold__middle">
+  <div class="layout-1col cols-10">
+    <ul class="profile__scaffold__middle-content">
+      <%= render :tabs %>
+    </ul>
+  </div>
+</div>
+<div class="profile__scaffold__bottom">
+  <div class="layout-1col cols-10">
+    <div class="profile__scaffold__bottom-content">
+      <%= cell content_cell, profile_holder, context %>
     </div>
   </div>
 </div>

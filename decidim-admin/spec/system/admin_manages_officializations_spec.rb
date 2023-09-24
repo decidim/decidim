@@ -12,8 +12,6 @@ describe "Admin manages officializations", type: :system do
 
   let!(:admin) { create(:user, :admin, :confirmed, organization:) }
 
-  let(:profile_selector) { Decidim.redesign_active ? "div.bg-background" : ".profile--sidebar" }
-
   before do
     switch_to_host(organization.host)
     login_as admin, scope: :user
@@ -32,7 +30,7 @@ describe "Admin manages officializations", type: :system do
     let!(:external_not_officialized) { create(:user) }
 
     before do
-      within ".secondary-nav" do
+      within_admin_menu do
         click_link "Participants"
       end
     end
@@ -54,7 +52,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :blocked, organization:) }
 
     before do
-      within ".secondary-nav" do
+      within_admin_menu do
         click_link "Participants"
       end
     end
@@ -73,7 +71,7 @@ describe "Admin manages officializations", type: :system do
       let!(:user) { create(:user, organization:) }
 
       before do
-        within ".secondary-nav" do
+        within_admin_menu do
           click_link "Participants"
         end
 
@@ -121,7 +119,7 @@ describe "Admin manages officializations", type: :system do
       end
 
       before do
-        within ".secondary-nav" do
+        within_admin_menu do
           click_link "Participants"
         end
 
@@ -153,7 +151,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :officialized, organization:) }
 
     before do
-      within ".secondary-nav" do
+      within_admin_menu do
         click_link "Participants"
       end
 
@@ -175,7 +173,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization:) }
 
     before do
-      within ".secondary-nav" do
+      within_admin_menu do
         click_link "Participants"
       end
     end
@@ -192,7 +190,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization:) }
 
     before do
-      within ".secondary-nav" do
+      within_admin_menu do
         click_link "Participants"
       end
     end
@@ -202,7 +200,7 @@ describe "Admin manages officializations", type: :system do
         click_link user.name
       end
 
-      within profile_selector, match: :first do
+      within "div.profile__details" do
         expect(page).to have_content(user.name)
       end
     end
@@ -212,7 +210,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization:) }
 
     before do
-      within ".secondary-nav" do
+      within_admin_menu do
         click_link "Participants"
       end
     end
@@ -222,7 +220,7 @@ describe "Admin manages officializations", type: :system do
         click_link user.nickname
       end
 
-      within profile_selector, match: :first do
+      within "div.profile__details" do
         expect(page).to have_content(user.name)
       end
     end
@@ -232,7 +230,7 @@ describe "Admin manages officializations", type: :system do
     let!(:users) { create_list(:user, 3, organization:) }
 
     before do
-      within ".secondary-nav" do
+      within_admin_menu do
         click_link "Participants"
       end
     end
@@ -251,7 +249,7 @@ describe "Admin manages officializations", type: :system do
 
           expect(page).to have_content(user.email)
 
-          find("button[data-close]").click
+          find("button[data-dialog-close]").click
         end
       end
 

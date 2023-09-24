@@ -30,7 +30,6 @@ shared_examples "a proposal form" do |options|
   let(:scope_id) { scope.try(:id) }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
-  let(:has_address) { false }
   let(:address) { nil }
   let(:suggested_hashtags) { [] }
   let(:attachment_params) { nil }
@@ -43,7 +42,6 @@ shared_examples "a proposal form" do |options|
       category_id:,
       scope_id:,
       address:,
-      has_address:,
       meeting_as_author:,
       attachment: attachment_params,
       suggested_hashtags:
@@ -148,37 +146,31 @@ shared_examples "a proposal form" do |options|
   context "when geocoding is enabled" do
     let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space:) }
 
-    context "when the has address checkbox is checked" do
-      let(:has_address) { true }
+    context "when the address is not present" do
+      it "does not store the coordinates" do
+        expect(subject).to be_valid
+        expect(subject.address).to be_nil
+        expect(subject.latitude).to be_nil
+        expect(subject.longitude).to be_nil
+      end
+    end
 
-      context "when the address is not present" do
-        it "does not store the coordinates" do
-          expect(subject).to be_valid
-          expect(subject.address).to be_nil
-          expect(subject.latitude).to be_nil
-          expect(subject.longitude).to be_nil
-        end
+    context "when the address is present" do
+      let(:address) { "Some address" }
+
+      before do
+        stub_geocoding(address, [latitude, longitude])
       end
 
-      context "when the address is present" do
-        let(:address) { "Some address" }
-
-        before do
-          stub_geocoding(address, [latitude, longitude])
-        end
-
-        it "validates the address and store its coordinates" do
-          expect(subject).to be_valid
-          expect(subject.latitude).to eq(latitude)
-          expect(subject.longitude).to eq(longitude)
-        end
+      it "validates the address and store its coordinates" do
+        expect(subject).to be_valid
+        expect(subject.latitude).to eq(latitude)
+        expect(subject.longitude).to eq(longitude)
       end
     end
 
     context "when latitude and longitude are manually set" do
       context "when the has address checkbox is unchecked" do
-        let(:has_address) { false }
-
         it "is valid" do
           expect(subject).to be_valid
           expect(subject.latitude).to be_nil
@@ -213,7 +205,6 @@ shared_examples "a proposal form" do |options|
             author: previous_proposal.authors.first,
             category_id: previous_proposal.try(:category_id),
             scope_id: previous_proposal.try(:scope_id),
-            has_address:,
             address:,
             attachment: previous_proposal.try(:attachment_params),
             latitude:,
@@ -234,7 +225,7 @@ shared_examples "a proposal form" do |options|
     subject { form.category }
 
     context "when the category exists" do
-      it { is_expected.to be_kind_of(Decidim::Category) }
+      it { is_expected.to be_a(Decidim::Category) }
     end
 
     context "when the category does not exist" do
@@ -273,12 +264,12 @@ shared_examples "a proposal form" do |options|
         category_id:,
         scope_id:,
         address:,
-        has_address:,
         meeting_as_author:,
         suggested_hashtags:,
-        add_photos: [Decidim::Dev.test_file("city.jpeg", "image/jpeg")]
+        attachments_key => [Decidim::Dev.test_file("city.jpeg", "image/jpeg")]
       }
     end
+    let(:attachments_key) { options[:admin] ? :add_photos : :add_documents }
 
     it { is_expected.to be_valid }
 
@@ -292,8 +283,8 @@ shared_examples "a proposal form" do |options|
           expect(subject.errors.full_messages).to contain_exactly("Title en cannot be blank", "Add photos Needs to be reattached")
           expect(subject.errors.attribute_names).to contain_exactly(:title_en, :add_photos)
         else
-          expect(subject.errors.full_messages).to contain_exactly("Title cannot be blank", "Title is too short (under 15 characters)", "Add photos Needs to be reattached")
-          expect(subject.errors.attribute_names).to contain_exactly(:title, :add_photos)
+          expect(subject.errors.full_messages).to contain_exactly("Title cannot be blank", "Title is too short (under 15 characters)", "Add documents Needs to be reattached")
+          expect(subject.errors.attribute_names).to contain_exactly(:title, :add_documents)
         end
       end
     end

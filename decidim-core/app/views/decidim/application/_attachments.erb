@@ -1,9 +1,0 @@
-<% if attached_to.attachments.any? %>
-  <%= render partial: "decidim/application/documents", locals: { documents: attached_to.documents } %>
-
-  <% if redesign_enabled? %>
-    <%= cell("decidim/photos_list", attached_to.photos) %>
-  <% else %>
-    <%= render partial: "decidim/application/photos", locals: { photos: attached_to.photos } %>
-  <% end %>
-<% end %>

@@ -11,6 +11,7 @@ module Decidim
         return if model.iframe_embed_type_none?
         return unless model.iframe_access_level_allowed_for_user?(current_user)
         return unless assembly_privacy_allowed?
+        return unless live? || future?
 
         render
       end

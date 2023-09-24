@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/proposals/test/capybara_proposals_picker"
 
-describe "Admin manages meetings", type: :system, serves_map: true, serves_geocoding_autocomplete: true do
+describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_map: true, type: :system do
   let(:manifest_name) { "meetings" }
   let!(:meeting) { create(:meeting, :published, scope:, services: [], component: current_component) }
   let(:address) { "Some address" }
@@ -78,9 +78,9 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full"
 
     it "shows help text" do
-      expect(help_text_for("label[for*='meeting_address']")).to be_present
-      expect(help_text_for("div[data-tabs-content*='meeting-location']")).to be_present
-      expect(help_text_for("div[data-tabs-content*='meeting-location_hints']")).to be_present
+      expect(page).to have_content("used by Geocoder to find the location")
+      expect(page).to have_content("message directed to the users implying the spot to meet at")
+      expect(page).to have_content("the floor of the building if it is an in-person meeting")
     end
 
     context "when there are multiple locales" do
@@ -88,34 +88,34 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
         within "#meeting-title-tabs" do
           click_link "English"
         end
-        expect(page).to have_css("input", text: meeting.title[:en], visible: :visible)
+        expect(page).to have_field(text: meeting.title[:en], visible: :visible)
 
         within "#meeting-title-tabs" do
           click_link "Català"
         end
-        expect(page).to have_css("input", text: meeting.title[:ca], visible: :visible)
+        expect(page).to have_field(text: meeting.title[:ca], visible: :visible)
 
         within "#meeting-title-tabs" do
           click_link "Castellano"
         end
-        expect(page).to have_css("input", text: meeting.title[:es], visible: :visible)
+        expect(page).to have_field(text: meeting.title[:es], visible: :visible)
       end
 
       it "shows the description correctly in all available locales" do
         within "#meeting-description-tabs" do
           click_link "English"
         end
-        expect(page).to have_css("input", text: meeting.description[:en], visible: :visible)
+        expect(page).to have_field(text: meeting.description[:en], visible: :visible)
 
         within "#meeting-description-tabs" do
           click_link "Català"
         end
-        expect(page).to have_css("input", text: meeting.description[:ca], visible: :visible)
+        expect(page).to have_field(text: meeting.description[:ca], visible: :visible)
 
         within "#meeting-description-tabs" do
           click_link "Castellano"
         end
-        expect(page).to have_css("input", text: meeting.description[:es], visible: :visible)
+        expect(page).to have_field(text: meeting.description[:es], visible: :visible)
       end
     end
 
@@ -129,12 +129,12 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
       it "shows the title correctly" do
         expect(page).not_to have_css("#meeting-title-tabs")
-        expect(page).to have_css("input", text: meeting.title[:en], visible: :visible)
+        expect(page).to have_field(text: meeting.title[:en], visible: :visible)
       end
 
       it "shows the description correctly" do
         expect(page).not_to have_css("#meeting-description-tabs")
-        expect(page).to have_css("input", text: meeting.description[:en], visible: :visible)
+        expect(page).to have_field(text: meeting.description[:en], visible: :visible)
       end
     end
   end
@@ -265,8 +265,8 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     expect(page).to have_current_path(meeting_path)
   end
 
-  it "creates a new meeting", :slow, :serves_geocoding_autocomplete do # rubocop:disable RSpec/ExampleLength
-    find(".card-title a.button").click
+  it "creates a new meeting", :serves_geocoding_autocomplete do
+    click_link "New meeting"
 
     fill_in_i18n(
       :meeting_title,
@@ -305,17 +305,10 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
     select "Registration disabled", from: :meeting_registration_type
 
-    page.execute_script("$('#meeting_start_time').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.find(".datepicker-dropdown .hour", text: "10:00").click
-    page.find(".datepicker-dropdown .minute", text: "10:50").click
+    fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+    fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
-    page.execute_script("$('#meeting_end_time').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.find(".datepicker-dropdown .hour", text: "12:00").click
-    page.find(".datepicker-dropdown .minute", text: "12:50").click
-
-    scope_pick select_data_picker(:meeting_decidim_scope_id), scope
+    select translated(scope.name), from: :meeting_decidim_scope_id
     select translated(category.name), from: :meeting_decidim_category_id
 
     within ".new_meeting" do
@@ -341,7 +334,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
       before do
         # Prepare the view for submission (other than the address field)
-        find(".card-title a.button").click
+        click_link "New meeting"
 
         fill_in_i18n(
           :meeting_title,
@@ -377,21 +370,14 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
         select "Registration disabled", from: :meeting_registration_type
 
-        page.execute_script("$('#meeting_start_time').focus()")
-        page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-        page.find(".datepicker-dropdown .hour", text: "10:00").click
-        page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-        page.execute_script("$('#meeting_end_time').focus()")
-        page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-        page.find(".datepicker-dropdown .hour", text: "12:00").click
-        page.find(".datepicker-dropdown .minute", text: "12:50").click
+        fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+        fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
       end
     end
   end
 
   it "lets the user choose the meeting type" do
-    find(".card-title a.button").click
+    click_link "New meeting"
 
     within ".new_meeting" do
       select "In person", from: :meeting_type_of_meeting
@@ -412,7 +398,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
   end
 
   it "lets the user choose the registration type" do
-    find(".card-title a.button").click
+    click_link "New meeting"
 
     within ".new_meeting" do
       select "Registration disabled", from: :meeting_registration_type
@@ -481,7 +467,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     end
 
     it "does not display error message when opening meeting's create form" do
-      find(".card-title a.button").click
+      click_link "New meeting"
 
       within "label[for='meeting_registration_type']" do
         expect(page).not_to have_content("There is an error in this field.")
@@ -489,7 +475,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     end
 
     it "creates a new meeting", :slow do
-      find(".card-title a.button").click
+      click_link "New meeting"
 
       fill_in_i18n(
         :meeting_title,
@@ -526,17 +512,10 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       fill_in :meeting_address, with: address
       select "Registration disabled", from: :meeting_registration_type
 
-      page.execute_script("$('#meeting_start_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "10:00").click
-      page.find(".datepicker-dropdown .minute", text: "10:50").click
+      fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+      fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
-      page.execute_script("$('#meeting_end_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "12:00").click
-      page.find(".datepicker-dropdown .minute", text: "12:50").click
-
-      scope_pick select_data_picker(:meeting_decidim_scope_id), scope
+      select translated(scope.name), from: :meeting_decidim_scope_id
       select translated(category.name), from: :meeting_decidim_category_id
 
       within ".new_meeting" do
@@ -632,9 +611,5 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
         fill_in current_scope.find("[id$=title_en]", visible: :visible)["id"], with: service_titles[index]
       end
     end
-  end
-
-  def help_text_for(css)
-    page.find_all(css).first.sibling(".help-text")
   end
 end

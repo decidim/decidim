@@ -1,0 +1,6 @@
+<div class="inline-block pr-4">
+  <%= icon "git-pull-request-line", class: "text-gray fill-current inline-block" , aria_label: t("activerecord.models.decidim/budgets/project", count: 1) %>
+  <span class="text-sm">
+    <%= t(:projects_count, scope: "decidim.budgets.projects.count", count: budget.projects.size) %>
+  </span>
+</div>

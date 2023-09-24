@@ -32,8 +32,7 @@ describe "Space moderator manages global moderations", type: :system do
 
     it "does not have the menu item in the main navigation" do
       visit participatory_space_path
-
-      within ".main-nav" do
+      within ".main-nav + .main-nav" do
         expect(page).not_to have_text("Global moderations")
       end
     end
@@ -41,20 +40,20 @@ describe "Space moderator manages global moderations", type: :system do
     it "cannot access to the Global moderations page" do
       visit decidim_admin.moderations_path
 
-      within ".callout.alert" do
-        expect(page).to have_text("You are not authorized to perform this action")
-      end
+      expect(page).to have_content("Please take a moment to review the admin terms of service")
     end
   end
 
   context "when the user can manage a space that has moderations" do
     it_behaves_like "manage moderations" do
       let(:moderations_link_text) { "Global moderations" }
+      let(:moderations_link_in_admin_menu) { false }
     end
 
     it_behaves_like "sorted moderations" do
       let!(:reportables) { create_list(:dummy_resource, 17, component: current_component) }
       let(:moderations_link_text) { "Global moderations" }
+      let(:moderations_link_in_admin_menu) { false }
     end
   end
 
@@ -66,7 +65,7 @@ describe "Space moderator manages global moderations", type: :system do
     it "cannot see any moderation" do
       visit decidim_admin.moderations_path
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_content("Reported content")
 
         expect(page).not_to have_selector("table.table-list tbody tr")

@@ -1,0 +1,179 @@
+.initiatives {
+  @apply block;
+
+  &__selection {
+    .form-defaults {
+      @apply my-10;
+    }
+
+    .card__highlight {
+      @apply pl-4 pr-20 py-4 items-center justify-between gap-4;
+    }
+
+    .card__highlight-authorized {
+      @apply w-full my-10 hover:cursor-default hover:ring-background;
+    }
+
+    &__icon {
+      @apply flex-none w-8 h-8 text-gray fill-secondary;
+
+      &.is-granted {
+        @apply text-success;
+      }
+    }
+
+    &__text {
+      @apply grow space-y-2.5 text-left;
+
+      span {
+        @apply inline-block text-sm text-gray-2;
+      }
+    }
+
+    &:hover {
+      @apply border-tertiary;
+    }
+  }
+
+  &__progress-bar {
+    .progress-bar__container {
+      @apply w-16;
+    }
+
+    .progress-bar__number {
+      @apply text-gray-2 font-normal text-sm;
+    }
+
+    .progress-bar__units {
+      @apply hidden;
+    }
+  }
+
+  &__card__grid-metadata-dates {
+    @apply block justify-center content-center;
+
+    svg {
+      @apply fill-gray;
+    }
+
+    span {
+      @apply text-gray-2;
+    }
+  }
+}
+
+.initiative {
+  &__hero {
+    @apply backdrop-brightness-[30%];
+
+    &-text {
+      @apply container text-center text-white md:px-16 pt-10 pb-14 md:[&_a_+_a]:ml-6;
+    }
+
+    &-slogan {
+      @apply text-lg font-normal my-4;
+    }
+
+    &-location {
+      @apply text-lg;
+    }
+
+    .initiatives__card__grid-metadata-dates {
+      svg {
+        @apply fill-white;
+      }
+
+      span {
+        @apply text-white;
+      }
+    }
+  }
+
+  &__form__committee {
+    @apply flex items-center px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 focus:outline-2 focus:outline-secondary w-full;
+
+    span {
+      @apply text-black font-normal;
+    }
+  }
+
+  &__aside {
+    @apply md:px-6 md:pb-6 w-full;
+
+    .layout-aside__section {
+      .profile__user-nick {
+        @apply hidden;
+      }
+
+      .participatory-space__nav-container {
+        @apply ml-0;
+      }
+
+      .author {
+        @apply mb-6;
+      }
+
+      .profile__user-avatar-container {
+        @apply w-6 h-6;
+      }
+
+      .profile__user-name {
+        @apply text-sm ml-2;
+      }
+    }
+  }
+
+  &__aside__element__committee {
+    @apply mb-6 flex items-center;
+  }
+
+  &__aside__element__data {
+    @apply ml-2 mb-4 pb-4 border-b border-gray-3;
+  }
+
+  &__aside__element__data-title {
+    @apply text-gray-2 font-semibold text-sm mb-2;
+  }
+
+  &__aside__element__data-text {
+    @apply text-sm font-normal text-gray-2 block;
+  }
+
+  &__aside__element-title {
+    @apply inline-block text-gray-2 font-bold text-md align-middle;
+  }
+
+  &__aside__element__signature {
+    @apply bg-white rounded md:py-4 md:px-6;
+  }
+
+  &__aside__element__signature-title {
+    @apply text-sm text-gray-2 font-semibold mb-4 block;
+  }
+}
+
+#initiatives {
+  .card__grid {
+    @apply relative;
+  }
+
+  .card__grid-text {
+    @apply min-h-[120px];
+  }
+
+  .initiative-status {
+    @apply text-center ml-2;
+  }
+
+  .initiatives__card__grid-metadata-dates {
+    @apply mr-2;
+  }
+
+  .initiatives__progress-bar {
+    @apply mx-2;
+  }
+}
+
+.edit_initiative .profile__group__list {
+  @apply w-full;
+}

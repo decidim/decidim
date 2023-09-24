@@ -25,8 +25,8 @@ describe "Comments", type: :system do
       visit decidim_budgets.budget_project_path(id: commentable.id, budget_id: budget.id)
 
       another_window = window_opened_by do
-        within(".comment__header__context-menu", match: :first) do
-          page.find("label").click
+        within(".comment", match: :first) do
+          page.find("[id^='dropdown-trigger']").click
           click_link "Get link"
         end
       end

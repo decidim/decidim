@@ -8,6 +8,9 @@ module Decidim
       class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         include Decidim::Admin::ParticipatorySpaceAdminContext
         include Decidim::ParticipatoryProcesses::Admin::Filterable
+
+        add_breadcrumb_item_from_menu :admin_participatory_process_menu, only: :show
+
         participatory_space_admin_layout only: [:edit]
 
         helper ProcessGroupsForSelectHelper
@@ -50,6 +53,12 @@ module Decidim
           render layout: "decidim/admin/participatory_process"
         end
 
+        def show
+          raise ActionController::RoutingError, I18n.t("content_doesnt_exist", scope: "decidim.errors.not_found") if current_participatory_process.blank?
+
+          render layout: "decidim/admin/participatory_process"
+        end
+
         def update
           enforce_permission_to :update, :process, process: current_participatory_process
           @form = form(ParticipatoryProcessForm).from_params(
@@ -77,7 +86,7 @@ module Decidim
         private
 
         def process_group
-          @process_group ||= ParticipatoryProcessGroup.find_by(id: ransack_params[:decidim_participatory_process_group_id_eq])
+          @process_group ||= ParticipatoryProcessGroup.find_by(id: ransack_params[:decidim_participatory_process_group_id_eq], organization: current_organization)
         end
 
         def collection
@@ -94,6 +103,10 @@ module Decidim
 
         def participatory_process_params
           { id: params[:slug] }.merge(params[:participatory_process].to_unsafe_h)
+        end
+
+        def current_participatory_space_path
+          Decidim::ResourceLocatorPresenter.new(current_participatory_space).show
         end
       end
     end

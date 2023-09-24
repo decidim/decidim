@@ -1,46 +1,51 @@
-<div class="election-key-generation">
-  <h2><%= t(".title", election: translated_attribute(election.title)) %></h2>
-  <p><%= t(".description") %></p>
-  <div class="callout alert">
-    <p><%= t(".process_warning") %></p>
-  </div>
+<%= append_javascript_pack_tag "decidim_elections" %>
+<%= append_stylesheet_pack_tag "decidim_elections" %>
 
-  <div class="table-scroll">
-    <table class="table-list">
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+
+  <div class="election-trustee__container">
+    <h2 class="h3"><%= t("title", scope: "decidim.elections.trustee_zone.elections.key_ceremony_steps", election: translated_attribute(election.title)) %></h2>
+
+    <p><%= t("description", scope: "decidim.elections.trustee_zone.elections.key_ceremony_steps") %></p>
+
+    <%= cell("decidim/announcement", t("process_warning", scope: "decidim.elections.trustee_zone.elections.key_ceremony_steps"), callout_class: "alert" ) %>
+
+    <table class="election-trustee__table">
       <thead>
         <tr>
-          <th><%= t(".list.task") %></th>
-          <th><%= t(".list.status") %></th>
+          <th><%= t("list.task", scope: "decidim.elections.trustee_zone.elections.key_ceremony_steps") %></th>
+          <th><%= t("list.status", scope: "decidim.elections.trustee_zone.elections.key_ceremony_steps") %></th>
         </tr>
       </thead>
       <tbody>
         <% %w(create_election key_ceremony.step_1 key_ceremony.joint_election_key).each do |step| %>
         <tr>
-          <td><%= t(".keys.#{step}") %></td>
+          <td><%= t("keys.#{step}", scope: "decidim.elections.trustee_zone.elections.key_ceremony_steps") %></td>
           <td id="<%= step.gsub(".", "-") %>" class="step_status" data-step-status="pending">
-            <span class="pending"><%= t(".status.pending") %></span>
-            <span class="processing"><%= t(".status.processing") %></span>
-            <span class="completed"><%= t(".status.completed") %></span>
+            <span class="pending"><%= t("status.pending", scope: "decidim.elections.trustee_zone.elections.key_ceremony_steps") %></span>
+            <span class="processing"><%= t("status.processing", scope: "decidim.elections.trustee_zone.elections.key_ceremony_steps") %></span>
+            <span class="completed"><%= t("status.completed", scope: "decidim.elections.trustee_zone.elections.key_ceremony_steps") %></span>
           </td>
         </tr>
         <% end %>
       </tbody>
     </table>
+
     <%= render("backup_modal") %>
     <%= render("restore_modal") %>
+
+    <div class="election-trustee__buttons">
+      <button id="start" class="button button__sm md:button__lg button__secondary" disabled>
+        <%= icon "shut-down-line" %>
+        <span><%= t("start", scope: "decidim.elections.trustee_zone.elections.key_ceremony_steps") %></span>
+      </button>
+
+      <div id="back" hidden>
+        <%= link_to trustee_path, class: "button button__sm md:button__lg button__transparent-secondary" do %>
+          <%= t("back", scope: "decidim.elections.trustee_zone.elections.key_ceremony_steps") %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
-  <button class="button start" disabled>
-    <%= icon "power-standby", class: "icon", role: "img", aria_label: t(".start_icon") %>
-    <span><%= t(".start") %></span>
-  </button>
-
-  <%= link_to trustee_path, class: "back button hide" do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-    <%= t(".back") %>
-  <% end %>
-
-  <div class="election-status">
-    <%= link_to "", trustee_election_elections_path(election), method: :put, class: "hide" %>
-  </div>
-</div>
+<% end %>

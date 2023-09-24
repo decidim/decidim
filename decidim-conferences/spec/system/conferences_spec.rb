@@ -29,10 +29,12 @@ describe "Conferences", type: :system do
   end
 
   context "when there are no conferences and accessing from the homepage" do
+    let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
+
     it "the menu link is not shown" do
       visit decidim.root_path
 
-      within ".main-nav" do
+      within "#home__menu" do
         expect(page).not_to have_content("Conferences")
       end
     end
@@ -57,10 +59,12 @@ describe "Conferences", type: :system do
     end
 
     context "and accessing from the homepage" do
+      let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
+
       it "the menu link is not shown" do
         visit decidim.root_path
 
-        within ".main-nav" do
+        within "#home__menu" do
           expect(page).not_to have_content("Conferences")
         end
       end
@@ -82,11 +86,12 @@ describe "Conferences", type: :system do
     end
 
     context "and accessing from the homepage" do
+      let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
+
       it "the menu link is shown" do
         visit decidim.root_path
 
-        within ".main-nav" do
-          expect(page).to have_content("Conferences")
+        within "#home__menu" do
           click_link "Conferences"
         end
 
@@ -97,7 +102,7 @@ describe "Conferences", type: :system do
     it "lists all the highlighted conferences" do
       within "#highlighted-conferences" do
         expect(page).to have_content(translated(promoted_conference.title, locale: :en))
-        expect(page).to have_selector("[id^='promoted']", count: 1)
+        expect(page).to have_selector("[id^='conference_highlight']", count: 1)
       end
     end
 
@@ -127,13 +132,75 @@ describe "Conferences", type: :system do
   describe "when going to the conference page" do
     let!(:conference) { base_conference }
     let!(:proposals_component) { create(:component, :published, participatory_space: conference, manifest_name: :proposals) }
-    let!(:meetings_component) { create(:component, :unpublished, participatory_space: conference, manifest_name: :meetings) }
+    let!(:meetings_component) { create(:meeting_component, :unpublished, participatory_space: conference) }
 
     before do
       create_list(:proposal, 3, component: proposals_component)
       allow(Decidim).to receive(:component_manifests).and_return([proposals_component.manifest, meetings_component.manifest])
 
       visit decidim_conferences.conference_path(conference)
+    end
+
+    describe "conference venues" do
+      before do
+        meetings.empty?
+        allow(Decidim).to receive(:address).and_return("foo bar")
+
+        visit decidim_conferences.conference_path(conference)
+      end
+
+      context "when the meeting component is not published" do
+        let!(:meetings_component) { create(:meeting_component, :unpublished, participatory_space: conference) }
+        let!(:meetings) { create_list(:meeting, 3, :published, component: meetings_component) }
+
+        it "does not show the venues" do
+          expect(page).not_to have_content("Conference Venues")
+        end
+      end
+
+      context "when the meeting component is published" do
+        let!(:meetings_component) { create(:meeting_component, :published, participatory_space: conference) }
+
+        context "when there are published meetings" do
+          let!(:meetings) { create_list(:meeting, 3, :published, component: meetings_component) }
+
+          it "does show the venues" do
+            expect(page).to have_content("Conference Venues")
+          end
+        end
+
+        context "when there are moderated meetings" do
+          let!(:meetings) { create_list(:meeting, 3, :moderated, :published, component: meetings_component) }
+
+          it "does not show the venues" do
+            expect(page).not_to have_content("Conference Venues")
+          end
+        end
+
+        context "when there are no published meetings" do
+          let!(:meetings) { create_list(:meeting, 3, published_at: nil, component: meetings_component) }
+
+          it "does not show the venues" do
+            expect(page).not_to have_content("Conference Venues")
+          end
+        end
+
+        context "when there are no visible meetings" do
+          let!(:meetings) { create_list(:meeting, 3, :published, private_meeting: true, transparent: false, component: meetings_component) }
+
+          it "does not show the venues" do
+            expect(page).not_to have_content("Conference Venues")
+          end
+        end
+
+        context "when there are visible meetings" do
+          let!(:meetings) { create_list(:meeting, 3, :published, private_meeting: true, transparent: true, component: meetings_component) }
+
+          it "does not show the venues" do
+            expect(page).to have_content("Conference Venues")
+          end
+        end
+      end
     end
 
     it "shows the details of the given conference" do
@@ -151,8 +218,6 @@ describe "Conferences", type: :system do
     it_behaves_like "has embedded video in description", :short_description
 
     context "when the conference has some components" do
-      # REDESIGN_PENDING: Review if this part should be implemened in the
-      # redesigned layout
       it "shows the components" do
         within ".conference__nav" do
           expect(page).to have_content(translated(proposals_component.name, locale: :en))
@@ -161,7 +226,7 @@ describe "Conferences", type: :system do
       end
 
       it "renders the stats for those components that are visible" do
-        within "[data-statistics]" do
+        within "[data-statistic]" do
           expect(page).to have_css(".statistic__title", text: "Proposals")
           expect(page).to have_css(".statistic__number", text: "3")
           expect(page).not_to have_css(".statistic__title", text: "Meetings")

@@ -3,9 +3,12 @@
 Decidim.register_participatory_space(:votings) do |participatory_space|
   participatory_space.icon = "media/images/decidim_votings.svg"
   participatory_space.model_class_name = "Decidim::Votings::Voting"
+  participatory_space.content_blocks_scope_name = "voting_landing_page"
   participatory_space.permissions_class_name = "Decidim::Votings::Permissions"
   participatory_space.stylesheet = "decidim/votings/votings"
   participatory_space.query_type = "Decidim::Votings::VotingType"
+
+  participatory_space.breadcrumb_cell = "decidim/votings/voting_dropdown_metadata"
 
   participatory_space.participatory_spaces do |organization|
     Decidim::Votings::Voting.where(organization:)
@@ -100,7 +103,6 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
             name: Faker::Name.name,
             nickname: Faker::Twitter.unique.screen_name,
             password: "decidim123456789",
-            password_confirmation: "decidim123456789",
             organization:,
             confirmed_at: Time.current,
             locale: I18n.default_locale,
@@ -120,7 +122,7 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
         end
       end
 
-      landing_page_content_blocks = [:header, :description, :elections, :polling_stations, :attachments_and_folders, :stats, :metrics]
+      landing_page_content_blocks = [:hero, :title, :related_elections, :polling_stations, :related_documents, :related_images, :stats, :metrics]
 
       landing_page_content_blocks.each.with_index(1) do |manifest_name, index|
         Decidim::ContentBlock.create(

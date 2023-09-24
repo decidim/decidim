@@ -5,7 +5,6 @@ require "spec_helper"
 describe "Conversations", type: :system do
   let!(:organization) { create(:organization, twitter_handler: "redesigned") }
   let(:user) { create(:user, :confirmed, organization:) }
-  let!(:redesign_enabled?) { true }
 
   before do
     switch_to_host(organization.host)
@@ -22,8 +21,27 @@ describe "Conversations", type: :system do
     end
 
     it "shows the topbar button as inactive" do
-      within "#dropdown-summary-account" do
+      within "#trigger-dropdown-account" do
         expect(page).not_to have_selector("span[data-unread-items]")
+      end
+    end
+
+    context "when searching for a user group to a new conversation" do
+      let!(:user_group) { create(:user_group, :confirmed, name: "Example user group", nickname: "example", organization:) }
+
+      it "only shows one match even if the keyword matches both name and nickname" do
+        visit decidim.conversations_path
+
+        click_button "New conversation"
+
+        fill_in "add_conversation_users", with: "example"
+
+        expect(find("#autoComplete_list_1")).to have_selector("li", count: 1)
+
+        within "#autoComplete_result_0" do
+          expect(page).to have_content("example")
+          expect(page).to have_content("Example user group")
+        end
       end
     end
   end
@@ -116,10 +134,8 @@ describe "Conversations", type: :system do
     it "shows user's conversation list" do
       visit_inbox
 
-      within ".conversation__container" do
-        expect(page).to have_selector(".conversation__item img[alt='Avatar: #{interlocutor.name}']")
-        expect(page).to have_selector(".conversation__item", text: "who wants apples?")
-      end
+      expect(page).to have_selector(".conversation__item img[alt='Avatar: #{interlocutor.name}']")
+      expect(page).to have_selector(".conversation__item", text: "who wants apples?")
     end
 
     it "allows entering a conversation" do
@@ -138,7 +154,7 @@ describe "Conversations", type: :system do
       end
 
       it "shows the topbar button as active" do
-        within "#dropdown-summary-account" do
+        within "#trigger-dropdown-account" do
           expect(page).to have_selector("span[data-unread-items]")
         end
       end
@@ -152,7 +168,7 @@ describe "Conversations", type: :system do
       before { visit_inbox }
 
       it "shows the topbar button as inactive" do
-        within "#dropdown-summary-account" do
+        within "#trigger-dropdown-account" do
           expect(page).not_to have_selector("span[data-unread-items]")
         end
       end
@@ -169,8 +185,8 @@ describe "Conversations", type: :system do
         visit_inbox
         click_link "conversation-#{conversation.id}"
         expect(page).to have_content("Send")
-        fill_in "message_body", with: message_body
-        click_button "Send"
+        field = find_field("message_body")
+        field.native.send_keys message_body
       end
 
       it "appears as the last message", :slow do
@@ -210,7 +226,8 @@ describe "Conversations", type: :system do
         visit_inbox
         click_link "conversation-#{conversation.id}"
         expect(page).to have_content("Send")
-        fill_in "message_body", with: message_body
+        field = find_field("message_body")
+        field.native.send_keys message_body
         expect(page).to have_content("0 characters left")
         click_button "Send"
         expect(page).to have_content(message)
@@ -250,7 +267,9 @@ describe "Conversations", type: :system do
         end
 
         it "sends a message", :slow do
-          fill_in "message_body", with: "Please reply!"
+          field = find_field("message_body")
+          field.native.send_keys "Please reply!"
+
           expect(page).to have_content("Send")
           click_button "Send"
 
@@ -267,11 +286,7 @@ describe "Conversations", type: :system do
       end
 
       it "has a contact link" do
-        if Decidim.redesign_active
-          expect(page).to have_link(title: "Message", href: decidim.new_conversation_path(recipient_id: recipient.id))
-        else
-          expect(page).to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: recipient.id))
-        end
+        expect(page).to have_link(title: "Message", href: decidim.new_conversation_path(recipient_id: recipient.id))
       end
 
       context "and recipient has restricted communications" do
@@ -292,8 +307,10 @@ describe "Conversations", type: :system do
           expect(page).to have_content("New conversation")
           click_button "New conversation"
           expect(page).to have_selector("#add_conversation_users")
-          find("#add_conversation_users").fill_in with: "@#{interlocutor2.nickname.chars.first}"
-          expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 2)
+          field = find("#add_conversation_users")
+          field.set ""
+          field.native.send_keys "@#{interlocutor2.nickname.slice(0, 3)}"
+          expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 5)
         end
       end
     end
@@ -316,7 +333,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows only the other participant name" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).not_to have_content(user.name)
           end
@@ -329,7 +346,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows only the other participant name" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
           end
         end
@@ -369,7 +386,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other three participants names" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -384,7 +401,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other three participants names" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -439,7 +456,7 @@ describe "Conversations", type: :system do
         it_behaves_like "accessible page"
 
         it "shows the other nine participants names" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -460,7 +477,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other nine participants names" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -496,10 +513,8 @@ describe "Conversations", type: :system do
     it "shows user's conversation list" do
       visit_inbox
 
-      within ".conversation__container" do
-        expect(page).to have_selector(".conversation__item img[alt='Avatar: Deleted participant']")
-        expect(page).to have_selector(".conversation__item", text: "who wants apples?")
-      end
+      expect(page).to have_selector(".conversation__item img[alt='Avatar: Deleted participant']")
+      expect(page).to have_selector(".conversation__item", text: "who wants apples?")
     end
 
     it "allows entering a conversation" do
@@ -514,20 +529,18 @@ describe "Conversations", type: :system do
   private
 
   def start_conversation(message)
-    fill_in "conversation_body", with: message
+    field = find_field("conversation_body")
+    field.native.send_keys message
+
     click_button "Send"
   end
 
   def visit_inbox
     visit decidim.root_path
 
-    if Decidim.redesign_active
-      find("#dropdown-summary-account").click
+    find("#trigger-dropdown-account").click
+    within "#dropdown-menu-account" do
       click_link("Conversations")
-    else
-      within ".topbar__user__logged" do
-        find(".icon--envelope-closed").click
-      end
     end
   end
 end

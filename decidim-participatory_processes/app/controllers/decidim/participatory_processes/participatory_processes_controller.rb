@@ -8,6 +8,8 @@ module Decidim
       include ParticipatorySpaceContext
       participatory_space_layout only: [:show, :all_metrics]
       include FilterResource
+      include Paginable
+      include HasParticipatorySpaceContentBlocks
 
       helper_method :collection,
                     :promoted_collection,
@@ -46,9 +48,9 @@ module Decidim
 
       def default_filter_params
         {
-          with_scope: nil,
-          with_area: nil,
-          with_type: nil,
+          with_any_scope: nil,
+          with_any_area: nil,
+          with_any_type: nil,
           with_date: default_date_filter
         }
       end
@@ -63,6 +65,19 @@ module Decidim
         @current_participatory_space ||= organization_participatory_processes.where(slug: params["slug"]).or(
           organization_participatory_processes.where(id: params["slug"])
         ).first!
+      end
+
+      def active_content_blocks
+        @active_content_blocks ||= if current_participatory_space.present?
+                                     Decidim::ContentBlock.published.for_scope(
+                                       :participatory_process_homepage,
+                                       organization: current_organization
+                                     ).where(
+                                       scoped_resource_id: current_participatory_space.id
+                                     )
+                                   else
+                                     Decidim::ContentBlock.none
+                                   end
       end
 
       def published_processes
@@ -82,7 +97,7 @@ module Decidim
       end
 
       def collection
-        @collection ||= participatory_processes + participatory_process_groups
+        @collection ||= paginate(Kaminari.paginate_array(participatory_processes + participatory_process_groups))
       end
 
       def filtered_processes

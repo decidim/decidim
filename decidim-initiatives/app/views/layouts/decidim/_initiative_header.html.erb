@@ -21,27 +21,7 @@
           </p>
         </div>
       </div>
-      <%= render partial: "layouts/decidim/initiative_header_steps", locals: { initiative: current_participatory_space } %>
     </div>
   </div>
-  <%
-    components = current_participatory_space.components.published.or(Decidim::Component.where(id: self.try(:current_component)))
-  %>
-
-  <%=
-    extended_navigation_bar([
-      {
-        name: t(".initiative_menu_item"),
-        url: decidim_initiatives.initiative_path(current_participatory_space),
-        active: is_active_link?(decidim_initiatives.initiative_path(current_participatory_space), :exclusive) ||
-                is_active_link?(decidim_initiatives.initiative_versions_path(current_participatory_space), :inclusive)
-      }
-    ] + components.map do |component|
-      {
-        name: translated_attribute(component.name),
-        url: main_component_path(component),
-        active: is_active_link?(main_component_path(component), :inclusive)
-      }
-    end)
-  %>
+  <%= extended_navigation_bar(initiative_nav_items(current_participatory_space)) %>
 </div>

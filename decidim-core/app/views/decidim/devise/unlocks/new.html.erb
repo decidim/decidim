@@ -3,13 +3,13 @@
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
   <div class="flex justify-center">
-    <h1 class="h1 decorator my-12"><%= t("devise.unlocks.new.resend_unlock_instructions") %></h1>
+    <h1 class="title-decorator my-12"><%= t("devise.unlocks.new.resend_unlock_instructions") %></h1>
   </div>
 
   <%= decidim_form_for(resource, namespace: "unlock", as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
 
     <div class="form__wrapper">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "hi@email.com" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
     </div>
 
     <div class="form__wrapper-block">
@@ -18,10 +18,10 @@
         <%= icon "arrow-right-line", class: "fill-current" %>
       </button>
     </div>
-  <% end %>
 
-  <div class="login__links">
-    <%= render "decidim/devise/shared/redesigned_links" %>
-  </div>
+    <div class="login__links">
+      <%= render "decidim/devise/shared/links" %>
+    </div>
+  <% end %>
 
 <% end %>

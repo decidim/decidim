@@ -103,7 +103,7 @@ module Decidim
       end
 
       def slug_format
-        /\A[a-zA-Z]+[a-zA-Z0-9\-]+\z/
+        /\A[a-zA-Z]+[a-zA-Z0-9-]+\z/
       end
 
       def participatory_space_manifest

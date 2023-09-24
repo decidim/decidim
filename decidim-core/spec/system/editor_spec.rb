@@ -88,7 +88,7 @@ describe "Editor", type: :system do
             protection.
           -->
           <meta name="csrf-token" content="abcdef0123456789">
-          #{stylesheet_pack_tag "#{pack_prefix}decidim_core", "decidim_editor", media: "all"}
+          #{stylesheet_pack_tag "#{pack_prefix}decidim_core", media: "all"}
         </head>
         <body>
           <header>
@@ -96,7 +96,7 @@ describe "Editor", type: :system do
           </header>
           #{content_wrapper}
           <footer>Decidim</footer>
-          #{javascript_pack_tag "#{pack_prefix}decidim_core", "decidim_editor", defer: false}
+          #{javascript_pack_tag "#{pack_prefix}decidim_core", defer: false}
           <script>
             Decidim.config.set(#{js_configs.to_json});
           </script>
@@ -414,7 +414,7 @@ describe "Editor", type: :system do
 
     before do
       prosemirror.native.send_keys "Hello, world!", [:enter], "Another paragraph."
-      prosemirror.native.send_keys [:shift, *Array.new(10).map { :left }]
+      prosemirror.native.send_keys [:shift, *Array.new(15).map { :left }]
     end
 
     it "heading" do
@@ -1136,6 +1136,11 @@ describe "Editor", type: :system do
         HTML
       end
 
+      before do
+        # Focuses the image within the editor
+        prosemirror.native.send_keys [:left]
+      end
+
       shared_examples "resize controls" do |mode|
         context "with right side controls" do
           it "allows resizing the image" do
@@ -1207,11 +1212,6 @@ describe "Editor", type: :system do
       end
 
       context "when the resize controls receive a click event" do
-        before do
-          # Focuses the image within the editor
-          prosemirror.native.send_keys [:left]
-        end
-
         it "does not submit the form when resizing the image" do
           page.find("[data-image-resizer-control='top-left']").click
           page.find("[data-image-resizer-control='top-right']").click
@@ -1345,8 +1345,8 @@ describe "Editor", type: :system do
 
           within "[data-bubble-menu] [data-linkbubble]" do
             expect(page).to have_content("URL:\nhttps://decidim.org")
-            expect(page).to have_selector("button", text: "Edit")
-            expect(page).to have_selector("button", text: "Remove")
+            expect(page).to have_button(text: "Edit")
+            expect(page).to have_button(text: "Remove")
           end
         end
       end
@@ -1586,7 +1586,7 @@ describe "Editor", type: :system do
           add_file("city.jpeg", ".dropzone-container .dropzone", "drop")
           fill_in "Alternative text for the image", with: "City landscape"
 
-          find("button.add-file-file").click
+          click_button(class: "add-file-file")
         end
         expect(Decidim::EditorImage.count).to be(1)
 
@@ -1607,7 +1607,7 @@ describe "Editor", type: :system do
           add_file("city.jpeg", ".dropzone-container .dropzone", "select")
           fill_in "Alternative text for the image", with: "City landscape"
 
-          find("button.add-file-file").click
+          click_button(class: "add-file-file")
         end
         expect(Decidim::EditorImage.count).to be(1)
 

@@ -8,6 +8,7 @@ module Decidim
       include Decidim::ScopableResource
       include Decidim::HasComponent
       include Decidim::Searchable
+      include Decidim::Randomable
       include Traceable
       include Loggable
 

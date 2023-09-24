@@ -39,7 +39,7 @@ describe "Admin manages surveys", type: :system do
 
     it "allows to answer survey" do
       visit questionnaire_public_path
-      expect(page).to have_selector("input#questionnaire_responses_0")
+      expect(page).to have_field(id: "questionnaire_responses_0")
     end
 
     context "when the survey has answers" do
@@ -63,7 +63,7 @@ describe "Admin manages surveys", type: :system do
         click_button "Expand all"
 
         within "form.edit_questionnaire" do
-          within "#questionnaire_question_#{question.id}-field" do
+          within "#accordion-questionnaire_question_#{question.id}-field" do
             find_nested_form_field("body_en").fill_in with: "Have you been writing specs today?"
           end
           click_button "Save"

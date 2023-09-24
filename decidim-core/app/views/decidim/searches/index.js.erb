@@ -5,9 +5,3 @@ var $count = $('#search-count');
 $results.html('<%= j(cell("decidim/search_results", @sections, params:).show).strip.html_safe %>');
 $filters.html('<%= j(render partial: "filters").strip.html_safe %>');
 $count.html('<%= j(render partial: "count").strip.html_safe %>');
-
-if (window.Decidim.DataPicker) {
-  window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
-}
-
-$(document).foundation();

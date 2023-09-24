@@ -1,29 +1,25 @@
-<div class="focus__footer">
-  <div class="row">
-    <% if first_step? %>
-      <a></a>
-    <% else %>
-      <%= link_to(
-        icon("chevron-left", class: "icon", role: "img", "aria-hidden": true) + " " + t("decidim.elections.votes.voting_step.back"),
-        "#",
-        class: "focus__back",
-        data: {
-          toggle: [previous_step_dom_id, current_step_dom_id].join(" ")
-        }
-      ) %>
-    <% end %>
-
-    <span class="button focus__next disabled-continue disabled">
-      <%= button_continue_text %>
-    </span>
-
-    <%= link_to(
-      button_continue_text,
-      "#",
-      class: "button focus__next enabled-continue",
+<div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+  <% unless first_step? %>
+    <%= button_tag(
+      t("decidim.elections.votes.voting_step.back"),
+      type: "button",
+      id: "back-#{current_step_index}",
+      class: "button button__sm md:button__lg button__transparent-secondary",
       data: {
-        toggle: [next_step_dom_id, current_step_dom_id].join(" ")
+        toggle: [previous_step_dom_id, current_step_dom_id].join(" ")
       }
     ) %>
-  </div>
+  <% end %>
+
+  <%= button_tag(
+    class: "button button__sm md:button__lg button__secondary",
+    type: "button",
+    id: "next-#{current_step_index}",
+    data: {
+      toggle: [next_step_dom_id, current_step_dom_id].join(" ")
+    }
+  ) do %>
+    <span><%= button_continue_text %></span>
+    <%= icon "arrow-right-line" %>
+  <% end %>
 </div>

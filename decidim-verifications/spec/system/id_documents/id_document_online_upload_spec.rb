@@ -29,23 +29,25 @@ describe "Identity document online upload", type: :system do
     expect(page).to have_content("Document successfully uploaded")
   end
 
-  it "shows an error when upload failed" do
+  it "does not allow to upload an invalid file" do
     submit_upload_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",
-      file_name: "Exampledocument.pdf"
+      file_name: "Exampledocument.pdf",
+      keep_modal_open: true
     )
 
-    expect(page).to have_content("There was a problem uploading your document")
+    expect(page).to have_content("Validation error!")
+    expect(page).to have_css("button[disabled]", text: "Next")
   end
 
   private
 
-  def submit_upload_form(doc_type:, doc_number:, file_name:)
+  def submit_upload_form(doc_type:, doc_number:, file_name:, keep_modal_open: false)
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
-    dynamically_attach_file(:id_document_upload_verification_attachment, Decidim::Dev.asset(file_name)) if file_name
+    dynamically_attach_file(:id_document_upload_verification_attachment, Decidim::Dev.asset(file_name), keep_modal_open:) if file_name
 
-    click_button "Request verification"
+    click_button "Request verification" unless keep_modal_open
   end
 end

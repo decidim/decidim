@@ -7,16 +7,31 @@ describe "Last activity", type: :system do
   let(:commentable) { create(:dummy_resource, component:) }
   let(:comment) { create(:comment, commentable:) }
   let!(:action_log) do
-    create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: comment, organization:)
+    create(:action_log,
+           created_at: 1.day.ago,
+           visibility: "public-only",
+           participatory_space: comment.participatory_space,
+           resource: comment,
+           organization:)
+  end
+  let!(:another_action_log) do
+    create(:action_log,
+           created_at: 2.days.ago,
+           visibility: "public-only",
+           participatory_space: another_comment.participatory_space,
+           resource: another_comment,
+           organization:)
   end
   let!(:other_action_log) do
-    create(:action_log, action: "publish", visibility: "all", resource:, organization:, participatory_space: component.participatory_space)
+    create(:action_log,
+           action: "publish",
+           visibility: "all",
+           resource:,
+           participatory_space: resource.participatory_space,
+           organization:)
   end
   let(:long_body_comment) { "This is my very long comment for Last Activity card that must be shorten up because is more than 100 chars" }
   let(:another_comment) { create(:comment, body: long_body_comment) }
-  let!(:another_action_log) do
-    create(:action_log, created_at: 2.days.ago, action: "create", visibility: "public-only", resource: another_comment, organization:)
-  end
   let(:component) do
     create(:component, :published, organization:)
   end
@@ -80,14 +95,14 @@ describe "Last activity", type: :system do
       end
 
       it "shows the activities in correct order" do
-        result = page.find("#activities .row").text
+        result = page.find("#activities").text
         expect(result.index(translated(resource.title))).to be < result.index(translated(comment.commentable.title))
         expect(result.index(translated(comment.commentable.title))).to be < result.index(translated(another_comment.commentable.title))
       end
 
       it "allows filtering by type" do
-        within ".filters" do
-          choose "Comment"
+        within "#filters" do
+          find("label", text: "Comment").click
         end
 
         expect(page).to have_content(translated(comment.commentable.title))
@@ -121,14 +136,34 @@ describe "Last activity", type: :system do
 
       context "when there are activities from private spaces" do
         before do
+          comment.update(body: { es: "this is a private comment" })
+          another_comment.update(body: { es: "this is another private comment" })
+
           component.participatory_space.update(private_space: true)
           comment.participatory_space.update(private_space: true)
           another_comment.participatory_space.update(private_space: true)
+
           visit current_path
         end
 
         it "does not show the activities" do
           expect(page).to have_css("[data-activity]", count: 0)
+          expect(page).to have_content "There are no entries to show for this activity type."
+        end
+      end
+
+      context "when there are lots of moderated resources" do
+        before do
+          100.times.each do
+            comment = create(:comment)
+            create(:action_log, action: "create", visibility: "all", resource: comment, organization:)
+            create(:moderation, reportable: comment, hidden_at: 1.day.ago)
+          end
+          visit current_path
+        end
+
+        it "works without an empty pagination" do
+          expect(page).to have_css("[data-activity]", count: 3)
         end
       end
     end

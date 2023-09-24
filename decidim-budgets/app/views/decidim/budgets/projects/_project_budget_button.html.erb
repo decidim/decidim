@@ -1,19 +1,11 @@
-<% if current_user.blank? %>
-  <div id="project-<%= project.id %>-budget-button">
-    <button class="button expanded primary button--sc"
-            data-toggle="loginModal"
-            aria-label="<%= t(".added_descriptive", resource_name: translated_attribute(project.title)) %>">
-      <%= t(".add") %>
-    </button>
-  </div>
-<% else %>
-  <div id="project-<%= project.id %>-budget-button"
-       class="<%= "added" if voted_for?(project) %> button expanded primary button--sc budget-vote-button budget-list__data"
-       aria-label="<%= t(".#{voted_for?(project) ? ".added" : ".add"}_descriptive", resource_name: translated_attribute(project.title)) %>">
-    <span>
-      <%= t(voted_for?(project) ? ".added" : ".add") %>
-    </span>
-
-    <%= cell("decidim/budgets/project_vote_button", project) %>
-  </div>
-<% end %>
+<div id="project-<%= project.id %>-budget-button">
+  <% if current_user.blank? %>
+      <button class="button button__lg w-full button__secondary"
+        data-dialog-open="loginModal"
+        aria-label="<%= t(".added_descriptive", resource_name: translated_attribute(project.title)) %>">
+        <%= t("add", scope: "decidim.budgets.projects.project_budget_button") %>
+      </button>
+  <% else %>
+    <%= cell("decidim/budgets/project_vote_button", project, project_item: true) %>
+  <% end %>
+</div>

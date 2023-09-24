@@ -29,7 +29,7 @@ module Decidim
       # @return [Hash] The default options for the map builder.
       def builder_options
         {
-          marker_color: organization.colors.fetch("primary", "#ef604d"),
+          marker_color: organization.colors.fetch("primary", "#e02d2d"),
           tile_layer: tile_layer_configuration
         }
       end
@@ -67,9 +67,9 @@ module Decidim
             "data-markers-data" => options.fetch(:markers, []).to_json
           }.merge(html_options)
 
+          append_assets
           content = template.capture { yield }.html_safe if block_given?
 
-          append_assets
           template.content_tag(:div, map_html_options) do
             (content || "")
           end

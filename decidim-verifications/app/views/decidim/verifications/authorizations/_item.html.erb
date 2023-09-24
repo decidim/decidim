@@ -8,9 +8,9 @@
       <%= explanation %>
     </span>
   </div>
-  <% if local_assigns[:is_granted].present? %>
+  <% if local_assigns[:is_granted].present? && remote_url.present? %>
     <%= icon "refresh-line", class: "w-6 h-6 flex-none text-secondary fill-current" %>
-  <% else %>
+  <% elsif local_assigns[:url].present? %>
     <%= icon "arrow-right-s-line", class: "w-6 h-6 flex-none text-secondary fill-current" %>
   <% end %>
 <% end %>
@@ -25,5 +25,7 @@
   </div>
   <%= decidim_modal id: "renew-modal", class:"verification-modal", remote: true %>
 <% else %>
+  <div class="verification verification__no_clickable">
     <%= verification %>
+  </div>
 <% end %>

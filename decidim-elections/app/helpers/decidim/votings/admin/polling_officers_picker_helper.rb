@@ -10,6 +10,7 @@ module Decidim
             id: sanitize_to_id(field),
             class: "picker-multiple",
             name: "#{form.object_name}[#{field.to_s.sub(/s$/, "_ids")}]",
+            help_text: t("polling_station_managers_help", scope: "decidim.votings.admin.polling_stations.form"),
             multiple: true,
             autosort: true
           }

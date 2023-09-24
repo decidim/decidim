@@ -1,7 +1,19 @@
 # frozen_string_literal: true
 
 module Decidim
-  class CommentsButtonCell < RedesignedButtonCell
+  class CommentsButtonCell < ButtonCell
+    delegate :current_settings, :component_settings, to: :controller
+
+    def show
+      if options.has_key?(:display)
+        return render if options[:display]
+
+        return
+      end
+
+      render if component_settings.comments_enabled? && !current_settings.try(:comments_blocked?)
+    end
+
     private
 
     def path

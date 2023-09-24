@@ -1,58 +1,54 @@
-<div class="wrapper">
-  <div class="row collapse">
-    <div class="row">
-      <div class="columns large-8 medium-centered">
-        <div class="card">
-          <div class="card__content">
-            <div class="row">
-              <div class="columns medium-2 text-center">
-                <img src="<%= oauth_application.attached_uploader(:organization_logo).path %>" alt="<%= oauth_application.organization_name %>" width="75" height="75">
-              </div>
-              <div class="columns medium-10">
-                <h3 class="heading3"><%= t(".wants_to_use_your_account_html", application_name: oauth_application.name) %>
-                  <br>
-                  <%= t(".by_organization_link_html", link: link_to(oauth_application.organization_name, oauth_application.organization_url)) %>
-                </h3>
-                <br>
-                <p class="lead"><%= t(".connect_your_account_html", organization: current_organization.name) %></p>
-                <div>
-                  <p><strong><%= t(".this_application_will_be_able_to") %></strong></p>
-                  <ul>
-                    <li><%= t(".see_name") %></li>
-                    <li><%= t(".see_username") %></li>
-                    <li><%= t(".see_email") %></li>
-                  </ul>
-                </div>
-                <div>
-                  <p><strong class="primary"><%= t(".this_application_will_not_be_able_to") %></strong></p>
-                  <ul>
-                    <li><%= t(".update_profile") %></li>
-                    <li><%= t(".publish_content") %></li>
-                  </ul>
-                </div>
-                <div class="row">
-                  <%= form_tag oauth_authorization_path, method: :post, class: "column medium-5 small-7 medium-5" do %>
-                    <%= hidden_field_tag :client_id, @pre_auth.client.uid %>
-                    <%= hidden_field_tag :redirect_uri, @pre_auth.redirect_uri %>
-                    <%= hidden_field_tag :state, @pre_auth.state %>
-                    <%= hidden_field_tag :response_type, @pre_auth.response_type %>
-                    <%= hidden_field_tag :scope, @pre_auth.scope %>
-                    <button class="column button button--nomargin secondary light" type="submit" name="authorize"><%= t(".authorize") %></button>
-                  <% end %>
-                  <%= form_tag oauth_authorization_path, method: :delete, class: "column small-4 medium-3 small-push-1 end" do %>
-                    <%= hidden_field_tag :client_id, @pre_auth.client.uid %>
-                    <%= hidden_field_tag :redirect_uri, @pre_auth.redirect_uri %>
-                    <%= hidden_field_tag :state, @pre_auth.state %>
-                    <%= hidden_field_tag :response_type, @pre_auth.response_type %>
-                    <%= hidden_field_tag :scope, @pre_auth.scope %>
-                    <button class="column button button--nomargin" type="submit" name="cancel"><%= t(".cancel") %></button>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="flex justify-center">
+    <h1 class="title-decorator my-12">
+      <%= t("wants_to_use_your_account_html", scope: "decidim.doorkeeper.authorizations.new", application_name: oauth_application.name) %>
+      <%= t("by_organization_link_html", scope: "decidim.doorkeeper.authorizations.new", link: link_to(oauth_application.organization_name, oauth_application.organization_url)) %>
+    </h1>
   </div>
-</div>
+
+  <div class="login__info">
+    <p>
+      <%= t("connect_your_account_html", scope: "decidim.doorkeeper.authorizations.new", organization: current_organization.name) %>
+    </p>
+
+    <p><%= t("this_application_will_be_able_to", scope: "decidim.doorkeeper.authorizations.new") %></p>
+    <ul class="list-disc ml-4">
+      <li><%= t("see_name", scope: "decidim.doorkeeper.authorizations.new") %></li>
+      <li><%= t("see_username", scope: "decidim.doorkeeper.authorizations.new") %></li>
+      <li><%= t("see_email", scope: "decidim.doorkeeper.authorizations.new") %></li>
+    </ul>
+
+    <p><%= t("this_application_will_not_be_able_to", scope: "decidim.doorkeeper.authorizations.new") %></p>
+    <ul class="list-disc ml-4">
+      <li><%= t("update_profile", scope: "decidim.doorkeeper.authorizations.new") %></li>
+      <li><%= t("publish_content", scope: "decidim.doorkeeper.authorizations.new") %></li>
+    </ul>
+  </div>
+
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= form_tag oauth_authorization_path, method: :delete do %>
+      <%= hidden_field_tag :client_id, @pre_auth.client.uid %>
+      <%= hidden_field_tag :redirect_uri, @pre_auth.redirect_uri %>
+      <%= hidden_field_tag :state, @pre_auth.state %>
+      <%= hidden_field_tag :response_type, @pre_auth.response_type %>
+      <%= hidden_field_tag :scope, @pre_auth.scope %>
+
+      <button type="submit" class="button button__lg button__transparent-secondary">
+        <span><%= t("cancel", scope: "decidim.doorkeeper.authorizations.new") %></span>
+      </button>
+    <% end %>
+
+    <%= form_tag oauth_authorization_path, method: :post do %>
+      <%= hidden_field_tag :client_id, @pre_auth.client.uid %>
+      <%= hidden_field_tag :redirect_uri, @pre_auth.redirect_uri %>
+      <%= hidden_field_tag :state, @pre_auth.state %>
+      <%= hidden_field_tag :response_type, @pre_auth.response_type %>
+      <%= hidden_field_tag :scope, @pre_auth.scope %>
+
+      <button type="submit" class="button button__lg button__secondary">
+        <span><%= t("authorize", scope: "decidim.doorkeeper.authorizations.new") %></span>
+        <%= icon "arrow-right-line", class: "fill-current" %>
+      </button>
+    <% end %>
+  </div>
+<% end %>

@@ -1,36 +1,34 @@
-<%= render("focus_header", header_title: t("decidim.elections.votes.header.confirmed")) %>
+<div class="flex justify-center">
+  <h1 class="title-decorator my-12">
+    <%= t("decidim.elections.votes.confirmed.header") %>
+  </h1>
+</div>
 
-<div class="focus__content evote ballot_confirmed">
-  <div class="row">
-    <h1 class="heading2">
-      <%= t("decidim.elections.votes.confirmed.header") %>
-    </h1>
+<div class="space-y-4 text-center">
+  <p class="h4"><%= t("decidim.elections.votes.confirmed.lead") %></p>
 
-    <h2 class="h4"><%= t("decidim.elections.votes.confirmed.lead") %></h2>
-    <div class="evote__content">
-      <%= t("decidim.elections.votes.confirmed.text", e_vote_poll_id: h(params[:id])).html_safe %>
-      <p>
-        <%= t("decidim.elections.votes.confirmed.verify_link", link: election_vote_verify_path(election, vote_id: params[:id])).html_safe %>
-      </p>
-    </div>
+  <p class="election-question__description">
+    <%= t("decidim.elections.votes.confirmed.text") %>
+  </p>
 
-    <% if params[:token] && valid_questionnaire? %>
-      <div>
-        <p class="text-small">
-          <%= t("decidim.elections.votes.confirmed.experience") %>
-        </p>
-      </div>
-      <div class="button">
-        <%= link_to t("decidim.elections.votes.confirmed.feedback"), election_feedback_path(election, hash: params[:id], token: params[:token]) %>
-      </div>
-    <% end %>
+  <code class="block"><%= h(params[:id]) %></code>
 
-    <% if !valid_questionnaire? && current_user.nil? %>
-      <%= render partial: "decidim/elections/votes/onboarding_modal" %>
-    <% end %>
+  <p class="election-question__description">
+    <%= t("decidim.elections.votes.confirmed.verify_link", link: election_vote_verify_path(election, vote_id: params[:id])).html_safe %>
+  </p>
 
-    <%= link_to :elections, class: valid_questionnaire? ? "" : "button" do %>
-      <%= t("decidim.elections.votes.confirmed.back") %>
-    <% end %>
-  </div>
+  <% if params[:token] && valid_questionnaire? %>
+    <p class="election-question__description">
+      <%= t("decidim.elections.votes.confirmed.experience") %>
+      <%= link_to t("decidim.elections.votes.confirmed.feedback"), election_feedback_path(election, hash: params[:id], token: params[:token]) %>
+    </p>
+  <% end %>
+
+  <% if !valid_questionnaire? && current_user.nil? %>
+    <%= render partial: "decidim/elections/votes/onboarding_modal" %>
+  <% end %>
+
+  <%= link_to :elections, class: "button button__lg button__secondary" do %>
+    <span><%= t("decidim.elections.votes.confirmed.back") %></span>
+  <% end %>
 </div>

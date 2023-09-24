@@ -1,6 +1,20 @@
-<%= decidim_form_for(@form, html: { class: "form edit_initiatives_settings" }, url: initiatives_setting_path, method: :put) do |f| %>
-  <%= render partial: "form", object: f %>
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".update") %>
+<% add_decidim_page_title(t("decidim.initiatives.admin.initiatives_settings.form.title")) %>
+
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t "title", scope: "decidim.initiatives.admin.initiatives_settings.form" %>
+  </h2>
+</div>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, html: { class: "form form-defaults edit_initiatives_settings" }, url: initiatives_setting_path, method: :put) do |f| %>
+      <%= render partial: "form", object: f %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

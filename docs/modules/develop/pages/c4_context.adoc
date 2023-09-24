@@ -13,7 +13,7 @@ Person_Ext(visitor_user, "Visitor User", "Anonymous, non registered user.")
 Person(participant_user, "Participant User", "A registered user. Could also be verified.")
 Person(administration_user, "Administration User", "A registered user with special permissions.")
 
-System(decidim_system, "Decidim", "Allows participants to make decisions collaboratively through participatory processes, assemblies, consultations, initiatives, etc.")
+System(decidim_system, "Decidim", "Allows participants to make decisions collaboratively through participatory processes, assemblies, initiatives, etc.")
 
 System_Ext(decidim_bulletin_board_system, "Decidim Bulletin Board", "Allows participants to cast end-to-end verifiable secret votes.")
 System_Ext(mail_system, "SMTP system (e-mail)", "Sends mails to users, like confirmations, reminders, notifications, etc.")

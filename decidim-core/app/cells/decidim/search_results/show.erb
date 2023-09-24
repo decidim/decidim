@@ -2,7 +2,6 @@
   <%= cell(
     "decidim/search_results_section",
     { type => results },
-    is_paginated: has_selected_resource_type?,
-    is_last_section: (index + 1) < sections_to_render.count
+    is_paginated: has_selected_resource_type?
   ) %>
 <% end %>

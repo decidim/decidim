@@ -4,3 +4,5 @@ import "src/decidim/budgets/exit_handler"
 
 // Images
 require.context("../images", true)
+
+import "stylesheets/budgets.scss"

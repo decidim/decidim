@@ -70,7 +70,7 @@ describe "Admin manages assemblies", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_assemblies.assemblies_path(q: { parent_id_eq: parent_assembly&.id })
         expect(page).to have_content("My assembly")
       end
@@ -79,7 +79,7 @@ describe "Admin manages assemblies", type: :system do
 
   context "when managing parent assemblies" do
     let(:parent_assembly) { nil }
-    let!(:assembly) { create(:assembly, organization:) }
+    let!(:assembly) { create(:assembly, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
 
     before do
       switch_to_host(organization.host)
@@ -130,7 +130,7 @@ describe "Admin manages assemblies", type: :system do
 
   context "when managing child assemblies" do
     let!(:parent_assembly) { create(:assembly, organization:) }
-    let!(:child_assembly) { create(:assembly, organization:, parent: parent_assembly) }
+    let!(:child_assembly) { create(:assembly, :with_content_blocks, organization:, parent: parent_assembly, blocks_manifests: [:announcement]) }
     let(:assembly) { child_assembly }
 
     before do

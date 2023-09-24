@@ -25,8 +25,8 @@ describe "Conference partners", type: :system do
     it "the menu link is shown" do
       visit decidim_conferences.conference_path(conference)
 
-      within ".process-nav" do
-        expect(page).to have_content("PARTNERS")
+      within "aside .conference__nav-container" do
+        expect(page).to have_content("Partners")
         click_link "Partners"
       end
     end

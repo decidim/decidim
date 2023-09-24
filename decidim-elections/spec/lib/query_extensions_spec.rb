@@ -25,7 +25,7 @@ module Decidim
       end
 
       describe "voting" do
-        let(:query) { %({ voting(id: \"#{id}\") { id }}) }
+        let(:query) { %({ voting(id: "#{id}") { id }}) }
 
         context "with a voting that belongs to the current organization" do
           let!(:voting) { create(:voting, organization: current_organization) }

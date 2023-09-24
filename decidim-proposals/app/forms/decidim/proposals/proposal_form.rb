@@ -15,15 +15,12 @@ module Decidim
       attribute :longitude, Float
       attribute :category_id, Integer
       attribute :scope_id, Integer
-      attribute :has_address, Boolean
       attribute :attachment, AttachmentForm
       attribute :suggested_hashtags, Array[String]
 
-      attachments_attribute :photos
       attachments_attribute :documents
 
       validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
-      validates :address, presence: true, if: ->(form) { form.has_address? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
       validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
@@ -44,13 +41,7 @@ module Decidim
         # has to be manually mapped.
         self.scope_id = model.scope.id if model.scope
 
-        self.has_address = true if model.address.present?
-
-        # Proposals have the "photos" field reserved for the proposal card image
-        # so we do not want to show all photos there. Instead, only show the
-        # first photo.
-        self.photos = [model.photo].compact.select { |p| p.weight.zero? }
-        self.documents = model.attachments - photos
+        self.documents = model.attachments
       end
 
       # Finds the Category from the category_id.
@@ -78,15 +69,7 @@ module Decidim
         Decidim::Map.available?(:geocoding) && current_component.settings.geocoding_enabled?
       end
 
-      def address
-        return unless has_address
-
-        super
-      end
-
       def has_address?
-        return unless has_address
-
         geocoding_enabled? && address.present?
       end
 
@@ -99,7 +82,7 @@ module Decidim
       end
 
       def suggested_hashtags
-        downcased_suggested_hashtags = super.map(&:downcase).to_set
+        downcased_suggested_hashtags = super.to_set(&:downcase)
         component_suggested_hashtags.select { |hashtag| downcased_suggested_hashtags.member?(hashtag.downcase) }
       end
 
@@ -117,15 +100,11 @@ module Decidim
 
       private
 
-      # This method will add an error to the `add_photos` and/or "add_documents" fields
-      # only if there is any error in any other field. This is needed because when the
-      # form has an error, the attachment is lost, so we need a way to inform the user of
-      # this problem.
+      # This method will add an error to the "add_documents" field only if there is any error
+      # in any other field. This is needed because when the form has an error, the attachment
+      # is lost, so we need a way to inform the user of this problem.
       def notify_missing_attachment_if_errored
-        if errors.any?
-          errors.add(:add_photos, :needs_to_be_reattached) if add_photos.present?
-          errors.add(:add_documents, :needs_to_be_reattached) if add_documents.present?
-        end
+        errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
       end
 
       def ordered_hashtag_list(string)

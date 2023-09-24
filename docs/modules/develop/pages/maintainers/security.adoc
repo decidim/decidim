@@ -1,0 +1,52 @@
+= Security
+
+This page provides an overview of the security procedures followed by the Maintainers when handling security issues. For information on our security policy, see https://github.com/decidim/decidim/blob/develop/SECURITY.md[Decidim Security Policy].
+
+. Security issues can be received by email or by the https://github.com/decidim/decidim/security/advisories/new[GitHub Security Advisories] feature.
+. We will open a GitHub Security Advisory with:
+.. an explanation of the issue, without giving much details about the vulnerability.
+.. the metadata necessary, such as affected releases and severity.
+.. we will not give a step by step explanation on how to exploit the vulnerability.
+. The issue will be handled privately (on a private fork) until a fix is ready.
+. Once the fix is ready, we will open a PR to the `develop` branch with the fix.
+. We will do the backports to the https://github.com/decidim/decidim/blob/develop/SECURITY.md[supported versions].
+. We will release a new version with the fix.
+. On the Release Notes of the versions with the fix, we will add a note about the vulnerability with a reference to the CVE or the GitHub Security Advisory ID if there is not any ID. See below the `Template for the Release Notes`.
+. We will send a notification to the Decidim Devs Matrix chat room. We will not mention the vulnerability, just that there is a new version with a security fix. See below the `Template for the Decidim Devs chat room message`
+. We will wait the grace period (2 or 4 months depending on the severity) before disclosing the vulnerability.
+. After the grace period, we will publish the Security Advisory.
+
+== Template for the Release Notes
+
+[source,markdown]
+----
+## Security fixes
+
+This release addresses several security issues, including the following:
+
+* CVE-20XXX-XXX
+* CVE-20XXX-XXX
+
+The details regarding the security vulnerability will be published on XXX 2023, which is two months after the release date of this version. For more information, please refer to our [Security Policy](https://github.com/decidim/decidim/blob/develop/SECURITY.md).
+
+We highly recommend updating to this version as soon as possible to ensure the security of your system.
+----
+
+== Template for the Decidim Devs chat room message
+
+[source,markdown]
+----
+Hi everyone! On behalf of the Decidim Maintainers Team, I would like to share the following message:
+
+We want to inform you that there are new releases with some security vulnerabilities fixes, v0.XXX.XXX [0] and v0.XXX.XXX [1]. We strongly recommend that you plan to update your installations accordingly.
+
+As per our Security policy [2], we will publish information about these vulnerabilities on XXX.
+
+Regards,
+XXX
+(from the Decidim Maintainers Team)
+
+[0] https://github.com/decidim/decidim/releases/tag/v0.XXX.XXX
+[1] https://github.com/decidim/decidim/releases/tag/v0.XXX.XXX
+[2] https://github.com/decidim/decidim/blob/develop/SECURITY.md
+----

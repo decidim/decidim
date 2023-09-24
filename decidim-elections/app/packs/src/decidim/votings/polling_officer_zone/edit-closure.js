@@ -12,11 +12,11 @@ $(() => {
     let recount = validBallotsCount + blankBallotsCount + nullBallotsCount
 
     if (recount === totalBallots) {
-      $("#submit-ballot-recount").removeClass("hide");
-      $("#btn-modal-closure-results-count-error").addClass("hide");
+      $("#submit-ballot-recount").attr("hidden", false);
+      $("#btn-modal-closure-results-count-error").attr("hidden", true);
     } else {
-      $("#submit-ballot-recount").addClass("hide");
-      $("#btn-modal-closure-results-count-error").removeClass("hide");
+      $("#submit-ballot-recount").attr("hidden", true);
+      $("#btn-modal-closure-results-count-error").attr("hidden", false);
     }
   };
 

@@ -3,14 +3,37 @@
 module Decidim
   # A Helper to render and link to resources.
   module AttachmentsHelper
+    include IconHelper
+
     # Renders a the attachments of a model that includes the
     # HasAttachments concern.
     #
     # attached_to - The model to render the attachments from.
-    #
-    # Returns nothing.
     def attachments_for(attached_to)
-      render partial: "decidim/application/attachments", locals: { attached_to: }
+      return unless attached_to.is_a?(Decidim::HasAttachments)
+
+      cell "decidim/tab_panels", attachments_tab_panel_items(attached_to)
+    end
+
+    def attachments_tab_panel_items(attached_to)
+      [
+        {
+          enabled: attached_to.photos.any?,
+          id: "images",
+          text: t("decidim.application.photos.photos"),
+          icon: resource_type_icon_key("images"),
+          method: :cell,
+          args: ["decidim/images_panel", attached_to]
+        },
+        {
+          enabled: attached_to.documents.any?,
+          id: "documents",
+          text: t("decidim.application.documents.documents"),
+          icon: resource_type_icon_key("documents"),
+          method: :cell,
+          args: ["decidim/documents_panel", attached_to]
+        }
+      ]
     end
 
     # Renders the attachment's title.

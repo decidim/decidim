@@ -8,33 +8,32 @@ edit_link(
 )
 %>
 
-<%= participatory_space_wrapper do %>
+<%= append_javascript_pack_tag "decidim_votings" %>
+<%= append_stylesheet_pack_tag "decidim_votings" %>
+
+<% content_for :aside do %>
+  <h1 class="title-decorator"><%= t("decidim.menu.votings") %></h1>
+
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont, skip_to_id: "votings" } do %>
+    <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+  <% end %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+
+  <%= participatory_space_floating_help %>
+
   <% if promoted_votings.any? %>
-    <section id="highlighted-votings" class="row section">
-      <h1 class="section-heading"><%= t("votings.index.promoted_votings", scope: "layouts.decidim") %></h1>
-      <%= render partial: "promoted_voting", collection: promoted_votings, as: :promoted_voting %>
+    <section id="highlighted-votings" class="layout-main__section layout-main__heading">
+      <h2 class="h5 md:h3 decorator"><%= t("votings.index.promoted_votings", scope: "layouts.decidim") %></h2>
+
+      <% promoted_votings.each do |promoted_item| %>
+        <%= card_for promoted_item, highlight: true, size: :g %>
+      <% end %>
     </section>
   <% end %>
 
-  <div class="row columns">
-    <div class="title-action">
-      <div class="row collapse">
-        <h1 id="votings-count" class="title-action__title section-heading">
-          <%= render partial: "count", locals: { count: published_votings.count } %>
-        </h1>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="columns mediumlarge-4 large-3">
-      <%= render partial: "filters_small_view" %>
-      <div class="card card--secondary show-for-mediumlarge">
-        <%= render partial: "filters" %>
-      </div>
-    </div>
-    <div id="votings" class="columns mediumlarge-8 large-9">
-      <%= render partial: "votings" %>
-    </div>
-  </div>
+  <section id="votings" class="layout-main__section layout-main__heading">
+    <%= render partial: "votings" %>
+  </section>
 <% end %>

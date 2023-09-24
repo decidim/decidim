@@ -15,11 +15,11 @@ shared_examples "manage categories examples" do
     expect(page).to have_selector("input#category_name_en[value='#{translated(category.name, locale: :en)}']")
     expect(page).to have_selector("input#category_weight[value='#{category.weight}']")
 
-    expect(page).to have_selector("select#category_parent_id")
+    expect(page).to have_select(id: "category_parent_id")
   end
 
   it "creates a new category" do
-    find(".card-title a.new").click
+    click_link "New category"
 
     within ".new_category" do
       fill_in_i18n(

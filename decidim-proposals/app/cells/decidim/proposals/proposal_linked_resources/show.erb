@@ -1,9 +1,4 @@
-<div class="text-center mt-sm">
-  <%= link_to_resource %>
-
-  <div class="text-center">
-    <small>
-      <%= link_help_text %>
-    </small>
-  </div>
+<div class="text-center space-y-4">
+  <span class="block text-gray-2 text-xs"><%= link_help_text %></span>
+  <%= link_to link_to_resource_text, link_to_resource_url, class: "text-secondary hover:underline block" %>
 </div>

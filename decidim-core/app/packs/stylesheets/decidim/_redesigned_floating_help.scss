@@ -1,0 +1,7 @@
+[data-floating-help] {
+  @apply absolute z-10 top-5 md:top-10 right-0 [&_button]:bg-background [&_button]:px-2 [&_button]:rounded-r-none [&_svg]:text-gray [&_svg]:fill-current;
+
+  &:hover {
+    @apply [&_svg]:text-white [&_button]:text-white [&_button]:bg-secondary [&_button]:no-underline;
+  }
+}

@@ -90,9 +90,7 @@ module Decidim
       subject { described_class.new(user).display_mention }
 
       it do
-        expect(subject).to \
-          have_link(user.nickname, href: "http://#{user.organization.host}:#{Capybara.server_port}/profiles/#{user.nickname}") &
-          have_selector(".user-mention")
+        expect(subject).to have_link(user.nickname, href: "http://#{user.organization.host}:#{Capybara.server_port}/profiles/#{user.nickname}")
       end
     end
 

@@ -171,7 +171,7 @@ class ChangeLogGenerator
     id = get_pr_id(commit)
     return nil unless id
 
-    Decidim::GithubManager::Querier.new(
+    Decidim::GithubManager::Querier::ByIssueId.new(
       token: github_token,
       issue_id: id
     ).call

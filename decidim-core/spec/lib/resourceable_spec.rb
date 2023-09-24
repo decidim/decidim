@@ -117,7 +117,7 @@ module Decidim
     describe "resource_manifest" do
       it "finds the resource manifest for the model" do
         manifest = resource.class.resource_manifest
-        expect(manifest).to be_kind_of(Decidim::ResourceManifest)
+        expect(manifest).to be_a(Decidim::ResourceManifest)
         expect(manifest.model_class).to eq(resource.class)
       end
     end

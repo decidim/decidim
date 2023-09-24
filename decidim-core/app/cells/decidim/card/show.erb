@@ -1,19 +1,11 @@
-<div class="column">
-  <div class="card">
-    <div class="card__content">
-      <% if title.present? %>
-        <div class="card__header">
-          <span class="card__title">
-            <%= title %>
-          </span>
-        </div>
-      <% end %>
-
-      <% if body.present? %>
-        <p>
-         <%= body %>
-        </p>
-      <% end %>
+<div class="py-4 space-y-2">
+  <a href="" class="text-lg text-secondary font-semibold hover:underline"><%= title %></a>
+  <div class="flex items-center divide-x divide-gray-3">
+   <% metadata.first(4).each do |item| %>
+    <div class="flex items-center gap-1 px-4 lg:px-6 first:pl-0 last:pr-0 max-w-xs">
+      <%= icon item[:icon], class: "w-3.5 h-3.5 flex-none text-gray fill-current" %>
+      <span class="text-sm text-gray-2 truncate"><%= item[:value] %></span>
     </div>
+  <% end %>
   </div>
 </div>

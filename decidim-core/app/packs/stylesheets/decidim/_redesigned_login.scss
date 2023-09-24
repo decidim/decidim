@@ -1,18 +1,18 @@
 .login {
   &__info {
-    @apply text-gray-2 text-lg space-y-4 mb-10 prose-a:text-secondary prose-a:underline last:[&>*]:font-semibold;
+    @apply text-gray-2 text-lg space-y-4 mb-10 prose-a:text-secondary prose-a:underline;
   }
 
   &__info-required {
     @apply mb-10 text-gray-2 text-sm;
   }
 
-  &__omniauth {
-    @apply flex flex-col items-center gap-8 text-gray-2 font-semibold w-fit mx-auto;
+  &__info-separator {
+    @apply border border-background;
+  }
 
-    &-container {
-      @apply border-t-2 border-background pt-10;
-    }
+  &__omniauth {
+    @apply flex flex-col items-center gap-8 text-gray-2 font-semibold w-fit mx-auto mt-10;
 
     &-button {
       @apply button button__xl border border-gray shadow-[0_4px_6px_rgba(211,211,211,0.25)] justify-start gap-8 text-lg w-full;

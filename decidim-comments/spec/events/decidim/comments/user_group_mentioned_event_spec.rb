@@ -8,7 +8,7 @@ describe Decidim::Comments::UserGroupMentionedEvent do
   let(:event_name) { "decidim.events.comments.user_group_mentioned" }
   let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>" }
   let(:en_comment_content) { "<div><p>Comment mentioning some user group, #{author_link}</p></div>" }
-  let(:author_link) { "<a href=\"http://#{organization.host}:#{Capybara.server_port}/profiles/#{group.nickname}\" class=\"user-mention\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">@#{group.nickname}</a>" }
+  let(:author_link) { "<a href=\"http://#{organization.host}:#{Capybara.server_port}/profiles/#{group.nickname}\" data-external-link=\"false\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">@#{group.nickname}</a>" }
 
   let(:extra) do
     {

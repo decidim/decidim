@@ -10,7 +10,7 @@ edit_link(
 <%= render layout:"layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
 
   <div class="text-center py-10">
-    <h1 class="h3 md:h1 decorator inline-block text-left mb-12">
+    <h1 class="title-decorator inline-block text-left mb-12">
       <%= t "decidim.pages.index.title" %>
     </h1>
     <p class="text-lg text-gray-2">
@@ -18,12 +18,12 @@ edit_link(
     </p>
   </div>
 
-  <div class="space-y-16 mb-24">
+  <div class="space-y-16">
     <% if @topics.any? %>
       <div class="space-y-6">
         <h2 class="h2 decorator"><%= t "decidim.pages.index.topics" %></h2>
 
-        <div class="space-y-6" data-component="accordion">
+        <div class="space-y-6" data-component="accordion" id="topics-accordion">
           <% @topics.each_with_index do |topic, ix| %>
             <% if topic.pages.any? %>
               <div class="page__accordion">

@@ -38,6 +38,9 @@ en:
         user_group_id: Create imports as
       newsletter:
         body: Body
+        send_to_all_users: Send to all users
+        send_to_followers: Send to followers
+        send_to_participants: Send to participants
         subject: Subject
       organization:
         admin_terms_of_service_body: Body for the admin terms of service
@@ -91,9 +94,10 @@ en:
         secondary_hosts: Secondary hosts
         send_welcome_notification: Send welcome notification
         success_color: Success
+        tertiary_color: Tertiary
         time_zone: Time Zone
         tos_version: Terms of service version
-        twitter_handler: Twitter handler
+        twitter_handler: X handler
         user_groups_enabled: Enable groups
         users_registration_mode: Users registration mode
         warning_color: Warning
@@ -186,7 +190,6 @@ en:
         export: Export all
         export-selection: Export selection
         import: Import
-        manage: Manage
         new: New %{name}
         newsletter:
           new: New newsletter
@@ -195,6 +198,7 @@ en:
         per_page: Per page
         permissions: Permissions
         reject: Reject
+        send_me_a_test_email: Send me a test email
         share: Share
         user:
           new: New admin
@@ -255,7 +259,6 @@ en:
           title: Edit folder
           update: Update
         index:
-          attachment_collection_used: This folder cannot be removed because it is in use.
           attachment_collections_title: Attachment folders
         new:
           create: Create
@@ -304,7 +307,6 @@ en:
           update: Update
         index:
           categories_title: Categories
-          category_used: This category cannot be removed because it is in use.
         new:
           create: Create category
           title: New category
@@ -319,6 +321,7 @@ en:
         create:
           error: There was a problem creating this component.
           success: Component created successfully.
+          success_landing_page: Component created successfully. You can add a content block for this component in the home of the space. Go to <a href="%{landing_page_path}">Landing page</a> to configure it.
         destroy:
           error: There was a problem destroying this component.
           success: Component deleted successfully.
@@ -370,8 +373,8 @@ en:
           goto_moderation: Go to global moderations
           title: Pending Moderations
         show:
+          dropdown: Dropdown
           view_more_logs: View more logs
-          welcome: Welcome to the Admin Panel.
       domain_whitelist:
         form:
           domain_too_short: Domain too short
@@ -470,7 +473,6 @@ en:
             all: All
             managed: Managed
             not_managed: Not managed
-          filter_by: Filter by
           impersonate: Impersonate
           impersonate_new_managed_user: Manage new participant
           managed: Managed
@@ -560,7 +562,6 @@ en:
         areas: Areas
         configuration: Configuration
         content: Reported content
-        dashboard: Dashboard
         external_domain_whitelist: Allowed external domains
         help_sections: Help sections
         homepage: Homepage
@@ -571,6 +572,7 @@ en:
         reported_users: Reported participants
         scope_types: Scope types
         scopes: Scopes
+        see_site: See site
         settings: Settings
         static_pages: Pages
         user_groups: Groups
@@ -640,7 +642,7 @@ en:
           fields:
             created_at: Creation date
             email: Email
-            last_sign_in_at: Last sign in date
+            last_sign_in_at: Last log in date
             name: Name
             role: Role
             roles:
@@ -751,16 +753,16 @@ en:
           select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
           select_spaces: Select spaces to segment the newsletter
           select_users: Select which users you want to send the newsletter
-          send_to_all_users: Send to all users
-          send_to_followers: Send to followers
-          send_to_participants: Send to participants
           title: Select recipients to deliver
           warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."
         send:
           no_recipients: No recipients for this selection.
+        send_to_user:
+          sent_successfully: Newsletter has been sent successfully to %{email}
         show:
           preview: Preview
           select_recipients_to_deliver: Select recipients to deliver
+          send_me_a_test_email: Send me a test email
           subject: Subject
         update:
           error: There was a problem updating this newsletter.
@@ -794,7 +796,6 @@ en:
           officialize: Officialize
           title: Officialize participant "%{name}"
         show_email_modal:
-          close_modal: Close modal
           description: If you need to contact a participant directly, you can click on the Show button to see their email address. This action will be logged.
           email_address: Email address
           full_name: Full name
@@ -814,7 +815,7 @@ en:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
           social_handlers: Social
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -825,10 +826,16 @@ en:
           update: Update
         form:
           colors:
+            choose_color: Choose a primary color
             colors_title: Organization colors
-            colors_warning_html: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with <a href="%{link}">WebAIM Contrast Checker</a> or other similar tools.
-            header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
-          cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
+            colors_warning_html: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> or other similar tools.
+            explanation: This tool helps you out to choose a color scheme, made up of hues equally spaced around the color wheel, that will be used in the organization's website.
+            header_snippets_help_html: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section. If the code interacts with external APIs or does not comply with the application security guidelines, it will be necessary to change the Content Security Policy. Read more about <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">on the documentation site</a> .
+            legend_html: Main application colors, based on the <a href="https://www.color-meanings.com/triadic-colors/">Triadic algorithm</a>. The <i>secondary</i> color is auto-calculated from the primary color and the saturation you chose.
+            saturation: Saturation
+            title: Color chooser
+            update_suggested_colors: Update suggested colors
+          cta_button_path_help_html: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
           cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
           homepage_appearance_title: Edit homepage appearance
           homepage_highlighted_content_banner_title: Highligted content banner
@@ -923,7 +930,7 @@ en:
           update: Update
         new:
           create: Create scope type
-          title: New scope
+          title: New scope type
         update:
           error: There was a problem updating this scope type.
           success: Scope type updated successfully
@@ -1004,7 +1011,7 @@ en:
           update: Update
         form:
           none: None
-          slug_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
+          slug_help_html: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
         index:
           last_notable_change: Last notable change
         new:
@@ -1024,14 +1031,17 @@ en:
         areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
+        edit_external_domains: External domain whitelist
+        edit_landing_page: Page contents
+        edit_organization_appearance: Edit homepage appearance
         impersonatable_users: Manageable participants
         impersonations: Participants management
         metrics: Metrics
+        pages: Pages
         panel: Admin
         participants: Participants
         scope_types: Scope types
         scopes: Scopes
-        static_pages: Pages
         statistics: Activity
         user_groups: Groups
         users: Administrators
@@ -1083,7 +1093,6 @@ en:
           last_week: Last week
           no_users_count_statistics_yet: There are no users count statistics yet.
           participants: Participants
-      view_public_page: View public page
     forms:
       errors:
         impersonate_user:
@@ -1144,9 +1153,3 @@ en:
       admin:
         global_moderations:
           title: Global moderations
-        newsletters:
-          title: Newsletters
-        settings:
-          title: Settings
-        users:
-          title: Participants

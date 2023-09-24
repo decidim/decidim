@@ -22,7 +22,6 @@ describe "Admin passwords", type: :system do
       expect(page).to have_content("Admin users need to change their password every 90 days")
       expect(page).to have_content("Password change")
       fill_in :password_user_password, with: new_password
-      fill_in :password_user_password_confirmation, with: new_password
       click_button "Change my password"
       expect(page).to have_css("[data-alert-box].success")
       expect(page).to have_content("Password successfully updated")
@@ -32,20 +31,10 @@ describe "Admin passwords", type: :system do
     it "cannot dismiss password change" do
       manual_login(user.email, password)
       expect(page).to have_content("Password change")
-      click_link "Home"
+      click_link "Home", match: :first
       expect(page).to have_content("You need to change your password in order to proceed further")
       expect(page).to have_content("Password change")
       expect(page).to have_current_path(decidim.change_password_path)
-    end
-
-    it "shows error when passwords does not match" do
-      manual_login(user.email, password)
-      fill_in :password_user_password, with: new_password
-      fill_in :password_user_password_confirmation, with: "decidim12345678"
-      click_button "Change my password"
-      expect(page).to have_css("[data-alert-box].alert")
-      expect(page).to have_content("There was a problem updating the password")
-      expect(page).to have_content("does not match Password")
     end
 
     context "when user has strong password" do
@@ -55,7 +44,6 @@ describe "Admin passwords", type: :system do
         manual_login(user.email, password)
         expect(page).to have_content("Password change")
         fill_in :password_user_password, with: new_password
-        fill_in :password_user_password_confirmation, with: new_password
         click_button "Change my password"
         expect(page).to have_css("[data-alert-box].alert")
         expect(page).to have_content("There was a problem updating the password")
@@ -74,7 +62,6 @@ describe "Admin passwords", type: :system do
         manual_login(user.email, password)
         expect(page).to have_content("Password change")
         fill_in :password_user_password, with: new_password
-        fill_in :password_user_password_confirmation, with: new_password
         click_button "Change my password"
         expect(page).to have_css("[data-alert-box].success")
         expect(page).to have_current_path(decidim.page_path(static_page))
@@ -92,7 +79,7 @@ describe "Admin passwords", type: :system do
   end
 
   def manual_login(email, password)
-    click_link "Sign In"
+    click_link "Log in", match: :first
     fill_in :session_user_email, with: email
     fill_in :session_user_password, with: password
     click_button "Log in"

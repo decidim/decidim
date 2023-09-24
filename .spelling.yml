@@ -1,4 +1,5 @@
 exclude_paths:
+  - \.(gem|jpg|jpeg|png|ico|pdf|odt|xlsx|jwk|pem)$
   - config/locales/((?!en).)*\.yml
   - decidim-dev/lib/decidim/dev/assets/participatory_text.md
   - decidim-core/lib/decidim/db/common-passwords.txt
@@ -60,6 +61,8 @@ forbidden:
   "you’ve": you have
   "I've": I have
   "I’ve": I have
+  "I'm": I am
+  "I’m": I am
   "they've": they have
   "they’ve": they have
   "would've": would have

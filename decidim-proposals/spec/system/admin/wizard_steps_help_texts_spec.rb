@@ -32,7 +32,7 @@ describe "Manage proposal wizard steps help texts", type: :system do
     click_button "Update"
 
     visit new_proposal_path(current_component)
-    within ".proposal_wizard_help_text" do
+    within "#proposal_wizard_help_text" do
       expect(page).to have_content("This is the first step of the Proposal creation wizard.")
     end
   end
@@ -61,7 +61,7 @@ describe "Manage proposal wizard steps help texts", type: :system do
       find("*[type=submit]").click
     end
 
-    within ".proposal_wizard_help_text" do
+    within "#proposal_wizard_help_text" do
       expect(page).to have_content("This is the second step of the Proposal creation wizard.")
     end
   end
@@ -88,7 +88,7 @@ describe "Manage proposal wizard steps help texts", type: :system do
       find("*[type=submit]").click
     end
 
-    within ".proposal_wizard_help_text" do
+    within "#proposal_wizard_help_text" do
       expect(page).to have_content("This is the third step of the Proposal creation wizard.")
     end
   end
@@ -107,7 +107,7 @@ describe "Manage proposal wizard steps help texts", type: :system do
     click_button "Update"
 
     visit preview_proposal_path(current_component, create(:proposal, :draft, component: current_component, title: "This proposal has a similar", users: [user]))
-    within ".proposal_wizard_help_text" do
+    within "#proposal_wizard_help_text" do
       expect(page).to have_content("This is the fourth step of the Proposal creation wizard.")
     end
   end

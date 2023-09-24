@@ -1,13 +1,17 @@
-<div class="wrapper">
-  <div class="row">
-    <div class="large-8 large-centered">
-      <div class="static__message">
-        <h1 class="heading1 page-title"><%= t(".title") %></h1>
-        <p><%= t(".content_doesnt_exist") %></p>
-        <div class="static__message__cta">
-          <%= link_to t(".back_home"), root_path, class: "button" %>
-        </div>
-      </div>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+
+  <div class="place-self-center">
+    <div class="flex justify-center">
+      <h1 class="title-decorator my-12"><%= t("title", scope: "decidim.errors.not_found") %></h1>
+    </div>
+
+    <div class="text-center space-y-8">
+      <p class="text-lg text-gray-2">
+        <%= t("content_doesnt_exist", scope: "decidim.errors.not_found") %>
+      </p>
+
+      <%= link_to t("back_home", scope: "decidim.errors.not_found"), root_path, class: "button button__lg button__secondary" %>
     </div>
   </div>
-</div>
+
+<% end %>

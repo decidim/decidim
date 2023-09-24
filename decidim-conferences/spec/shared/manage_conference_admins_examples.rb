@@ -14,7 +14,9 @@ shared_examples "manage conference admins examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
-    click_link "Conference admins"
+    within_admin_menu do
+      click_link "Conference admins"
+    end
   end
 
   it "shows conference admin list" do
@@ -24,7 +26,7 @@ shared_examples "manage conference admins examples" do
   end
 
   it "creates a new conference admin" do
-    find(".card-title a.new").click
+    click_link "New Conference Admin"
 
     within ".new_conference_user_role" do
       fill_in :conference_user_role_email, with: other_user.email

@@ -1,70 +1,90 @@
-<div class="vote-wrapper"
-  data-election-id="<%== election.id %>"
-  data-api-endpoint-url="<%== bulletin_board_server %>"
-  data-authority-public-key="<%= authority_public_key %>"
-  data-election-unique-id="<%== election_unique_id %>"
-  data-voter-id="<%== voter_id %>"
-  data-scheme-name="<%== scheme_name %>"
-  <% if ballot_style_id.present? %>
-  data-ballot-style-id="<%== ballot_style_id %>"
-  <% end %>>
+<%= append_stylesheet_pack_tag "decidim_elections" %>
+<%= append_javascript_pack_tag "decidim_elections" %>
 
-  <% questions.each_with_index do |step_question, step_index| %>
-    <div id="step-<%= step_index %>" class="focus__step <%= "hide" if step_index.positive? %>"
-    data-toggler=".hide">
-      <div class="focus__header">
-        <div class="row">
-          <div class="focus__steps">
-            <strong>
-              <%= t("decidim.elections.votes.new.question_steps", current_step: step_index + 1, total_steps: questions_count) %>
-            </strong>
-          </div>
-          <div class="heading5 focus__header-title">
-            <%= translated_attribute(election.title) %>
-          </div>
-        </div>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div id="vote-wrapper"
+    data-preview-mode="<%= preview_mode? %>"
+    data-election-id="<%== election.id %>"
+    data-api-endpoint-url="<%== bulletin_board_server %>"
+    data-authority-public-key="<%= authority_public_key %>"
+    data-election-unique-id="<%== election_unique_id %>"
+    data-voter-id="<%== voter_id %>"
+    data-scheme-name="<%== scheme_name %>"
+    <% if ballot_style_id.present? %>
+    data-ballot-style-id="<%== ballot_style_id %>"
+    <% end %>>
+
+    <div id="heading">
+      <div class="flex justify-center">
+        <h1 class="title-decorator my-12">
+          <%= t("vote_for", scope: "decidim.elections.votes.header", title: translated_attribute(election.title) ) %>
+        </h1>
       </div>
 
-      <div class="focus__content evote">
-        <div class="row">
-          <%= render(
-            "new_question",
-            question: step_question
-          ) %>
-        </div>
-      </div>
-
-      <%= cell(
-        "decidim/elections/voting_step_navigation",
-        step_index,
-        total_steps: questions_count
-      ) %>
-
+      <ol id="wizard-steps" class="wizard-steps">
+        <% wizard_steps.each_with_index do |wizard_step, i| %>
+          <li data-step="step-<%= wizard_step %>" <%= "aria-current=step" if i.zero? %>><%= t(wizard_step, scope: "decidim.elections.votes.header") %></li>
+        <% end %>
+      </ol>
     </div>
-  <% end %>
 
-  <div id="step-<%= questions_count %>" class="hide focus__step" data-toggler=".hide">
-    <%= render(
-      "new_confirm_step",
-      questions:
-    ) %>
+    <%= cell("decidim/announcement", t("decidim.elections.votes.new.preview_alert"), callout_class: "warning mb-4") if preview_mode? %>
+
+    <% questions.each_with_index do |step_question, step_index| %>
+      <div id="step-<%= step_index %>" <%= "hidden" unless step_index.zero? %>>
+
+        <div class="election-question__intro">
+          <p class="election-question__counter">
+            <%= t("decidim.elections.votes.new.question_steps", current_step: step_index + 1, total_steps: questions_count) %>
+          </p>
+
+          <h2 class="h3">
+            <%= translated_attribute(step_question.title) %>
+          </h2>
+
+          <% if step_question.max_selections > 1 %>
+            <div class="election-question__maxselections">
+              <p>
+                <%= t("decidim.elections.votes.new.answer_choices", choices: step_question.max_selections) %>
+              </p>
+
+              <span>
+                <%= t("votes.new.selections", scope:"decidim.elections", selected: "<strong data-counter-selection></strong>", max_selections: step_question.max_selections ).html_safe %>
+              </span>
+            </div>
+          <% end %>
+        </div>
+
+        <%= render(
+          "new_question",
+          question: step_question
+        ) %>
+
+        <%= cell(
+          "decidim/elections/voting_step_navigation",
+          step_index,
+          total_steps: questions_count
+        ) %>
+
+      </div>
+    <% end %>
+
+    <div id="step-confirm" hidden>
+      <%= render("new_confirm_step", questions:) %>
+    </div>
+
+    <div id="step-encrypting" hidden>
+      <%= render("new_encrypting_step") %>
+    </div>
+
+    <div id="step-ballot_decision" hidden>
+      <%= render("new_ballot_decision_step") %>
+    </div>
+
+    <div id="failed" hidden>
+      <%= render("show_failed") %>
+    </div>
   </div>
 
-  <div id="encrypting" class="hide focus__step" data-toggler=".hide">
-    <%= render("new_encrypting_step") %>
-  </div>
-
-  <div id="ballot_decision" class="hide focus__step" data-redirect_url=".hide">
-    <%= render("new_ballot_decision_step") %>
-  </div>
-</div>
-
-<%= render "decidim/elections/shared/broken_promises_modal" %>
-
-<% if preview_mode? %>
-  <%= append_javascript_pack_tag "decidim_elections_voter_setup_preview" %>
-<% else %>
-  <%= append_javascript_pack_tag "decidim_elections_voter_setup_vote" %>
+  <%= render "decidim/elections/shared/broken_promises_modal" %>
 <% end %>
-
-<%= append_javascript_pack_tag "decidim_elections_voter_new_vote" %>

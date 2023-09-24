@@ -45,7 +45,7 @@ FactoryBot.define do
         if skip_injection
           Decidim::Faker::Localized.localized { generate(:title) }
         else
-          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings description\");</script> #{generate(:title)}" }
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings location\");</script> #{generate(:title)}" }
         end
       end
     end
@@ -54,7 +54,7 @@ FactoryBot.define do
         if skip_injection
           Decidim::Faker::Localized.localized { generate(:title) }
         else
-          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings description\");</script> #{generate(:title)}" }
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings location_hints\");</script> #{generate(:title)}" }
         end
       end
     end
@@ -72,7 +72,7 @@ FactoryBot.define do
         if skip_injection
           Decidim::Faker::Localized.localized { generate(:title) }
         else
-          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings description\");</script> #{generate(:title)}" }
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings registration_terms\");</script> #{generate(:title)}" }
         end
       end
     end

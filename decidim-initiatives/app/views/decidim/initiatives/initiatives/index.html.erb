@@ -1,3 +1,6 @@
+<%= append_javascript_pack_tag "decidim_initiatives" %>
+<%= append_stylesheet_pack_tag "decidim_initiatives", media: "all" %>
+
 <%
 edit_link(
   decidim_admin_initiatives.initiatives_path,
@@ -6,24 +9,19 @@ edit_link(
 )
 %>
 
-<% provide :meta_title, t("initiatives.index.title", scope: "decidim") %>
+<% content_for :aside do %>
+  <h1 class="title-decorator"><%= component_name %></h1>
+  <%= render partial: "new_initiative_button" %>
 
-<%= participatory_space_wrapper do %>
-  <div class="row columns">
-    <div class="title-action">
-      <%= render partial: "index_header" %>
-    </div>
-  </div>
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont, skip_to_id: "initiatives" } do %>
+    <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+  <% end %>
+<% end %>
 
-  <div class="row">
-    <div class="columns mediumlarge-4 large-3">
-      <%= render partial: "filters_small_view" %>
-      <div class="card card--secondary show-for-mediumlarge">
-        <%= render partial: "filters" %>
-      </div>
-    </div>
-    <div id="initiatives" class="columns mediumlarge-8 large-9">
-      <%= render partial: "initiatives" %>
-    </div>
-  </div>
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <%= participatory_space_floating_help %>
+
+  <section id="initiatives" class="layout-main__section layout-main__heading">
+    <%= render partial: "initiatives" %>
+  </section>
 <% end %>

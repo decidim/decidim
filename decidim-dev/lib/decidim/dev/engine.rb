@@ -8,6 +8,9 @@ module Decidim
       engine_name "decidim_dev"
 
       initializer "decidim_dev.tools" do
+        # Disable if the boost performance mode is enabled
+        next if Rails.application.config.try(:boost_performance)
+
         ActiveSupport.on_load(:action_controller) { include Decidim::Dev::NeedsDevelopmentTools }
       end
 

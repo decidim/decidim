@@ -3,6 +3,7 @@
 Decidim.register_participatory_space(:participatory_processes) do |participatory_space|
   participatory_space.icon = "media/images/decidim_participatory_processes.svg"
   participatory_space.model_class_name = "Decidim::ParticipatoryProcess"
+  participatory_space.content_blocks_scope_name = "participatory_process_homepage"
 
   participatory_space.participatory_spaces do |organization|
     Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(organization).query
@@ -14,6 +15,8 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
 
   participatory_space.permissions_class_name = "Decidim::ParticipatoryProcesses::Permissions"
 
+  participatory_space.breadcrumb_cell = "decidim/participatory_processes/process_dropdown_metadata"
+
   participatory_space.register_resource(:participatory_process) do |resource|
     resource.model_class_name = "Decidim::ParticipatoryProcess"
     resource.card = "decidim/participatory_processes/process"
@@ -23,6 +26,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   participatory_space.register_resource(:participatory_process_group) do |resource|
     resource.model_class_name = "Decidim::ParticipatoryProcessGroup"
     resource.card = "decidim/participatory_processes/process_group"
+    resource.content_blocks_scope_name = "participatory_process_group_homepage"
   end
 
   participatory_space.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |spaces, _start_at, _end_at|
@@ -89,19 +93,8 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
       )
     end
 
-    landing_page_content_blocks = [:title, :metadata, :cta, :highlighted_proposals, :highlighted_results, :highlighted_meetings, :stats, :participatory_processes]
-
     process_groups.each do |process_group|
-      landing_page_content_blocks.each.with_index(1) do |manifest_name, index|
-        Decidim::ContentBlock.create(
-          organization:,
-          scope_name: :participatory_process_group_homepage,
-          manifest_name:,
-          weight: index,
-          scoped_resource_id: process_group.id,
-          published_at: Time.current
-        )
-      end
+      Decidim::ContentBlocksCreator.new(process_group).create_default!
     end
 
     process_types = []
@@ -183,7 +176,6 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
           name: Faker::Name.name,
           nickname: Faker::Twitter.unique.screen_name,
           password: "decidim123456789",
-          password_confirmation: "decidim123456789",
           organization:,
           confirmed_at: Time.current,
           locale: I18n.default_locale,
@@ -195,6 +187,8 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
           participatory_process: process,
           role:
         )
+
+        Decidim::ContentBlocksCreator.new(process).create_default!
       end
 
       attachment_collection = Decidim::AttachmentCollection.create!(

@@ -85,6 +85,9 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.proposals.update_collaborative_draft:before"
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.proposals.update_collaborative_draft:after"
+
           it "updates the collaborative draft" do
             expect do
               command.call

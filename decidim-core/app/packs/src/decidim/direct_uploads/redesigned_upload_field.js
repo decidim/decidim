@@ -11,7 +11,15 @@ const updateModalTitle = (modal) => {
 }
 
 const updateActiveUploads = (modal) => {
-  const files = document.querySelector("[data-active-uploads]")
+  // remove the default image block, if exists
+  const defaultFile = document.getElementById(`default-active-${modal.modal.id}`)
+  if (defaultFile) {
+    defaultFile.remove()
+  }
+
+  const files = document.querySelector(`[data-active-uploads=${modal.modal.id}]`)
+  const previousId = Array.from(files.querySelectorAll("[type=hidden]"))
+  const isMultiple = modal.options.multiple
 
   // fastest way to clean children nodes
   files.textContent = ""
@@ -19,19 +27,43 @@ const updateActiveUploads = (modal) => {
   // divide the items between those will gonna be removed, and added
   const [removeFiles, addFiles] = [modal.items.filter(({ removable }) => removable), modal.items.filter(({ removable }) => !removable)]
 
-  addFiles.forEach((file) => {
+  addFiles.forEach((file, ix) => {
     let title = truncateFilename(file.name, 19)
 
-    let hidden = `<input type="hidden" name="${file.hiddenField.name}" value="${file.hiddenField.value}" />`
+    let hidden = ""
+    if (file.hiddenField) {
+      // if there is hiddenField, this file is new
+      // eslint-disable-next-line no-ternary
+      const fileField = isMultiple
+        ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`
+        : `${modal.options.resourceName}[${modal.options.addAttribute}]`
+
+      hidden = `<input type="hidden" name="${fileField}" value="${file.hiddenField}" />`
+    } else {
+      // otherwise, we keep the attachmentId
+      // eslint-disable-next-line no-ternary
+      const fileField = isMultiple
+        ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][id]`
+        : `${modal.options.resourceName}[${modal.options.addAttribute}]`
+
+      // convert all node attributes to string
+      const attributes = Array.from(previousId.find(({ id }) => id === file.attachmentId).attributes).reduce((acc, { name, value }) => `${acc} ${name}="${value}"`, "")
+      hidden = `<input ${attributes} />`
+      hidden += `<input type="hidden" name="${fileField}" value="${file.attachmentId}" />`
+    }
+
     if (modal.options.titled) {
-      const value = modal.modal.querySelector('input[type="text"]').value
-      title = `${value} (${truncateFilename(file.name)})`
-      hidden += `<input type="hidden" name="${file.hiddenTitle.name}" value="${value}" />`
+      const titleValue = modal.modal.querySelectorAll('input[type="text"]')[ix].value
+      // NOTE - Renaming the attachment is not supported when multiple uploader is disabled
+      const titleField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
+      hidden += `<input type="hidden" name="${titleField}" value="${titleValue}" />`
+
+      title = `${titleValue} (${truncateFilename(file.name)})`
     }
 
     const template = `
       <div data-filename="${file.name}" data-title="${title}">
-        <div><img src="" alt="${file.name}" /></div>
+        ${(/image/).test(file.type) && `<div><img src="" alt="${file.name}" /></div>` || ""}
         <span>${title}</span>
         ${hidden}
       </div>
@@ -75,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = new UploadModal(attachmentButton);
 
     // append to the modal items array those files already validated (only in first pageload)
-    const files = document.querySelector("[data-active-uploads]");
+    const files = document.querySelector(`[data-active-uploads=${modal.modal.id}]`);
     [...files.children].forEach((child) => modal.preloadFiles(child));
 
     // whenever the input fields changes, process the files

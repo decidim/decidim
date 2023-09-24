@@ -3,7 +3,7 @@
 module Decidim
   module Comments
     # This cell renders the comment card for an instance of a Comment
-    # the default size is the Medium Card (:m)
+    # the default size is the Search Card (:s)
     class CommentCardCell < Decidim::ViewModel
       include CommentCellsHelper
       include Cell::ViewModel::Partial
@@ -15,7 +15,7 @@ module Decidim
       private
 
       def card_size
-        "decidim/comments/comment_m"
+        "decidim/comments/comment_s"
       end
     end
   end

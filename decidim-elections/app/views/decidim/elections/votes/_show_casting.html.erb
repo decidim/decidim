@@ -1,27 +1,22 @@
-<%= render("focus_header", header_title: t("decidim.elections.votes.header.casting")) %>
-<div class="focus__content evote casting-vote-wrapper"
+<div id="casting-vote-wrapper"
   data-api-endpoint-url="<%= bulletin_board_server %>"
   data-message-id="<%= vote.message_id %>">
-  <div class="row">
-    <h1 class="heading2">
+
+  <div class="flex justify-center">
+    <h1 class="title-decorator my-12">
       <%= t("decidim.elections.votes.casting.header") %>
     </h1>
-    <div class="evote__casting" aria-hidden="true">
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-    </div>
-    <p>
+  </div>
+
+  <div class="space-y-4 text-center">
+    <%= icon "fingerprint-line", class: "w-40 h-40 text-tertiary animate-pulse fill-current mx-auto" %>
+
+    <p class="election-question__description">
       <%= t("decidim.elections.votes.casting.text") %>
     </p>
+
+    <%= form_tag election_vote_path(election, id: vote.encrypted_vote_hash), method: :patch, class: "update_vote_status" %>
   </div>
-  <%= form_tag election_vote_path(election, id: vote.encrypted_vote_hash), method: :patch, class: "update_vote_status" %>
 </div>
 
 <%= render "decidim/elections/shared/broken_promises_modal" %>
-
-<%= append_javascript_pack_tag "decidim_elections_voter_casting_vote" %>

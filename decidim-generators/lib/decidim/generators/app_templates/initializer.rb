@@ -47,6 +47,9 @@ Decidim.configure do |config|
 
   # Map and Geocoder configuration
   #
+  # See Decidim docs at https://docs.decidim.org/en/develop/services/maps.html
+  # for more information about how it works and how to set it up.
+  #
   # == HERE Maps ==
   # config.maps = {
   #   provider: :here,
@@ -377,6 +380,10 @@ Decidim.configure do |config|
   #   }
   # ]
 
+  # Defines additional content security policies following the structure
+  # Read more: https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy
+  config.content_security_policies_extra = {}
+
   # Admin admin password configurations
   Rails.application.secrets.dig(:decidim, :admin_password, :strong).tap do |strong_pw|
     # When the strong password is not configured, default to true
@@ -442,12 +449,6 @@ if Decidim.module_installed? :accountability
     unless Rails.application.secrets.dig(:decidim, :accountability, :enable_proposal_linking) == "auto"
       config.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :accountability, :enable_proposal_linking).present?
     end
-  end
-end
-
-if Decidim.module_installed? :consultations
-  Decidim::Consultations.configure do |config|
-    config.stats_cache_expiration_time = Rails.application.secrets.dig(:decidim, :consultations, :stats_cache_expiration_time).to_i.minutes
   end
 end
 

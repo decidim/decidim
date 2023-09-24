@@ -1,26 +1,20 @@
 <% if initiative.answered? && translated_attribute(initiative.answer).present? %>
-  <br>
-  <div class="row column">
-    <div class="callout success">
-      <h5><%= t("decidim.initiatives.initiatives.result.answer_title") %>:</h5>
-      <p>
-        <% if initiative.answer_url.present? %>
-          <a href="<%= initiative.answer_url %>" target="_blank">
-            <%= decidim_sanitize_editor translated_attribute initiative.answer %>
-          </a>
-        <% else %>
-          <%= decidim_sanitize_editor translated_attribute initiative.answer %>
-        <% end %>
-      </p>
-    </div>
-  </div>
+  <% announcement_body = capture do %>
+  <h5><%= t("decidim.initiatives.initiatives.result.answer_title") %>:</h5>
+  <p>
+    <% if initiative.answer_url.present? %>
+      <a href="<%= initiative.answer_url %>" target="_blank">
+        <%= decidim_sanitize_editor translated_attribute initiative.answer %>
+      </a>
+    <% else %>
+      <%= decidim_sanitize_editor translated_attribute initiative.answer %>
+    <% end %>
+  </p>
+  <% end %>
+
+  <%= cell("decidim/announcement", { body: announcement_body }, callout_class: "success") %>
 <% end %>
 
 <% if initiative.rejected? %>
-  <br>
-  <div class="row column">
-    <div class="callout warning">
-      <h5><%= t(".initiative_rejected_reason") %></h5>
-    </div>
-  </div>
+  <%= cell("decidim/announcement", t("decidim.initiatives.initiatives.result.initiative_rejected_reason"), callout_class: "warning") %>
 <% end %>

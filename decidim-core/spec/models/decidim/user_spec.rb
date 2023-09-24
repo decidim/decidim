@@ -227,7 +227,7 @@ module Decidim
 
       it { is_expected.to be_truthy }
 
-      context "when user accepted ToS before organization last update" do
+      context "when user accepted TOS before organization last update" do
         let(:organization) { build(:organization, tos_version: Time.current) }
         let(:accepted_tos_version) { 1.year.before }
 
@@ -241,7 +241,7 @@ module Decidim
         end
       end
 
-      context "when user did not accepted ToS" do
+      context "when user has not accepted the TOS" do
         let(:accepted_tos_version) { nil }
 
         it { is_expected.to be_falsey }
@@ -319,6 +319,29 @@ module Decidim
 
             it { is_expected.to be(false) }
           end
+        end
+      end
+    end
+
+    describe "#moderator?" do
+      context "when an organization has a moderator and a regular user" do
+        let(:organization) { create(:organization, available_locales: [:en]) }
+        let(:participatory_space) { create(:participatory_process, organization:) }
+        let(:moderator) do
+          create(
+            :process_moderator,
+            :confirmed,
+            organization:,
+            participatory_process: participatory_space
+          )
+        end
+
+        it "returns false when user is not a moderator" do
+          expect(subject.moderator?).to be false
+        end
+
+        it "returns true when user is a moderator" do
+          expect(moderator.moderator?).to be true
         end
       end
     end

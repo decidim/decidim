@@ -1,10 +1,11 @@
 <%= cell "decidim/user_group_pending_invitations_list", model %>
+
 <% if validation_messages.present? %>
   <% validation_messages.each do |validation| %>
-    <p><%= validation %></p>
+    <%= cell("decidim/announcement", validation) %>
   <% end %>
 <% else %>
-  <div class="grid md:grid-cols-2 gap-5 md:gap-10">
+  <div class="profile__user-grid">
     <% user_groups.each do |user_group| %>
       <%= card_for user_group %>
     <% end %>

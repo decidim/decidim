@@ -1,0 +1,25 @@
+<div class="meeting__calendar-container">
+  <div class="meeting__calendar meeting__calendar__lg">
+    <div class="meeting__calendar-month">
+      <span><%= l(start_time, format: !same_month? ? "%b" : "%B") %></span>
+      <span class="meeting__calendar-separator"><%= "-" if !same_month? %></span>
+      <span><%= l(end_time, format: "%b") if !same_month? %></span>
+    </div>
+    <div class="meeting__calendar-day">
+      <span><%= l(start_time, format: "%d") %></span>
+      <span class="meeting__calendar-separator"><%= "-" if !same_day? || !same_month? %></span>
+      <span><%= l(end_time, format: "%d") if !same_day? || !same_month? %></span>
+    </div>
+    <div class="meeting__calendar-time">
+      <time datetime="<%= start_time.iso8601 %>"><%= l(start_time, format: "%H:%M") %></time>
+      <span class="meeting__calendar-separator"><%= "-" %></span>
+      <time datetime="<%= end_time.iso8601 %>"><%= l(end_time, format: "%H:%M") %></time>
+    </div>
+  </div>
+
+  <%= static_map %>
+
+  <% if online? %>
+    <%= cell("decidim/address", meeting, online: true) %>
+  <% end %>
+</div>

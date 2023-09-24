@@ -7,4 +7,3 @@ Decidim::Webpacker.register_entrypoints(
   decidim_proposals: "#{base_path}/app/packs/entrypoints/decidim_proposals.js",
   decidim_proposals_admin: "#{base_path}/app/packs/entrypoints/decidim_proposals_admin.js"
 )
-Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/proposals/proposals")

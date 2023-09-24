@@ -8,8 +8,11 @@ module Decidim
       include Paginable
       include Decidim::Elections::Orderable
       include HasVoteFlow
+      include Decidim::IconHelper
 
-      helper_method :elections, :election, :paginated_elections, :scheduled_elections, :single?, :onboarding, :authority_public_key, :bulletin_board_server, :authority_slug
+      helper_method :elections, :election, :paginated_elections, :scheduled_elections,
+                    :single?, :onboarding, :authority_public_key, :bulletin_board_server,
+                    :authority_slug, :tabs, :panels
 
       def index
         redirect_to election_path(single, single: true) if single?

@@ -3,11 +3,11 @@
 module Decidim
   module Conferences
     module Admin
-      # A class used to find the admins for an conference or an organization conferences.
+      # A class used to find the admins for a conference or an organization conferences.
       class AdminUsers < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
-        # conference - an conference that needs to find its conference admins
+        # conference - a conference that needs to find its conference admins
         def self.for(conference)
           new(conference).query
         end
@@ -21,7 +21,7 @@ module Decidim
 
         # Initializes the class.
         #
-        # conference - an conference that needs to find its conference admins
+        # conference - a conference that needs to find its conference admins
         # organization - an organization that needs to find its conference admins
         def initialize(conference, organization = nil)
           @conference = conference

@@ -5,37 +5,33 @@
 <%= render partial: "layouts/decidim/system/header" %>
 </head>
 
-<body>
-  <div class="off-canvas-wrapper">
-    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-      <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
-        <div class="sidebar">
-          <%= render partial: "layouts/decidim/system/sidebar" %>
-        </div>
-      </div>
+<body class="text-black text-md form-defaults min-h-screen flex items-stretch">
+  <aside id="aside-system">
+    <%= render partial: "layouts/decidim/system/sidebar" %>
+  </aside>
 
-      <div class="off-canvas-content" data-off-canvas-content>
-        <div class="title-bar hide-for-large">
-          <div class="title-bar-left">
-            <button class="menu-icon" type="button" data-open="my-info"></button>
-            <span class="title-bar-title"><%= title %></span>
-          </div>
-        </div>
-        <div class="row main-content">
-          <div class="small-12 column">
-            <% if content_for?(:title) %>
-              <section class="page-title">
-                <%= content_for :title %>
-              </section>
-            <% end %>
+  <main class="grow">
+    <div class="flex md:hidden items-center gap-2 bg-primary p-4 text-white font-bold text-lg">
+      <button id="aside-trigger" class="flex-none md:hidden" data-component="dropdown" data-target="aside-system" data-disabled-md="true">
+        <%= icon "menu-line", class: "w-6 h-6 text-white fill-current" %>
+      </button>
 
-            <%= render "decidim/system/shared/notices" %>
-            <%= yield %>
-          </div>
-        </div>
-      </div>
+      <%= link_to root_path, class: "block" do %>
+        <%= title %>
+      <% end %>
     </div>
-  </div>
+
+    <div class="p-6 md:px-16 md:py-12 h-full w-full space-y-6">
+      <%= render "decidim/system/shared/notices" %>
+
+      <% if content_for?(:title) %>
+        <%= content_for :title %>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </main>
+
   <%= render partial: "decidim/shared/confirm_modal" %>
   <%= render partial: "layouts/decidim/system/js_configuration" %>
   <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>

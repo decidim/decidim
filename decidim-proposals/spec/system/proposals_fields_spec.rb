@@ -23,8 +23,8 @@ describe "Proposals", type: :system do
   end
 
   matcher :have_author do |name|
-    match { |node| node.has_selector?(".author-data", text: name) }
-    match_when_negated { |node| node.has_no_selector?(".author-data", text: name) }
+    match { |node| node.has_selector?("[data-author]", text: name) }
+    match_when_negated { |node| node.has_no_selector?("[data-author]", text: name) }
   end
 
   context "when creating a new proposal" do
@@ -75,7 +75,7 @@ describe "Proposals", type: :system do
             fill_in :proposal_title, with: "More sidewalks and less roads"
             fill_in :proposal_body, with: "Cities need more people, not more cars"
             select translated(category.name), from: :proposal_category_id
-            scope_pick scope_picker, scope
+            select translated(scope.name), from: :proposal_scope_id
 
             find("*[type=submit]").click
           end
@@ -93,7 +93,7 @@ describe "Proposals", type: :system do
           expect(page).to have_author(user.name)
         end
 
-        context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
+        context "when geocoding is enabled", :serves_geocoding_autocomplete, :serves_map do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
@@ -112,7 +112,6 @@ describe "Proposals", type: :system do
             visit complete_proposal_path(component, proposal_draft)
 
             within ".edit_proposal" do
-              check :proposal_has_address
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
               fill_in_geocoding :proposal_address, with: address
@@ -121,15 +120,13 @@ describe "Proposals", type: :system do
               expect(page).to have_content("You can move the point on the map.")
 
               select translated(category.name), from: :proposal_category_id
-              scope_pick scope_picker, scope
+              select translated(scope.name), from: :proposal_scope_id
 
               find("*[type=submit]").click
             end
 
-            within ".card__content.address" do
-              expect(page).to have_css(".address__info")
-              expect(page).to have_css(".address__map")
-              expect(page).to have_content(address)
+            within ".static-map__container" do
+              expect(page).to have_css(".static-map")
             end
 
             click_button "Publish"
@@ -157,7 +154,6 @@ describe "Proposals", type: :system do
               # Prepare the view for submission (other than the address field)
               visit complete_proposal_path(component, proposal_draft)
 
-              check :proposal_has_address
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
             end
@@ -212,7 +208,7 @@ describe "Proposals", type: :system do
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
               select translated(category.name), from: :proposal_category_id
-              scope_pick scope_picker, scope
+              select translated(scope.name), from: :proposal_scope_id
               select user_group.name, from: :proposal_user_group_id
 
               find("*[type=submit]").click
@@ -228,7 +224,7 @@ describe "Proposals", type: :system do
             expect(page).to have_author(user_group.name)
           end
 
-          context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
+          context "when geocoding is enabled", :serves_geocoding_autocomplete, :serves_map do
             let!(:component) do
               create(:proposal_component,
                      :with_creation_enabled,
@@ -249,10 +245,9 @@ describe "Proposals", type: :system do
               within ".edit_proposal" do
                 fill_in :proposal_title, with: "More sidewalks and less roads"
                 fill_in :proposal_body, with: "Cities need more people, not more cars"
-                check :proposal_has_address
                 fill_in :proposal_address, with: address
                 select translated(category.name), from: :proposal_category_id
-                scope_pick scope_picker, scope
+                select translated(scope.name), from: :proposal_scope_id
                 select user_group.name, from: :proposal_user_group_id
 
                 find("*[type=submit]").click
@@ -310,7 +305,7 @@ describe "Proposals", type: :system do
               fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
             end
 
-            dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
+            dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))
 
             within ".edit_proposal" do
               find("*[type=submit]").click
@@ -320,7 +315,7 @@ describe "Proposals", type: :system do
 
             expect(page).to have_content("successfully")
 
-            within ".section.images" do
+            within "#panel-images" do
               expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
             end
           end
@@ -335,11 +330,19 @@ describe "Proposals", type: :system do
               end
             end
 
-            it "sets the card image correctly with zero weight" do
+            it "sets the card image correctly with zero weight", :slow do
+              skip "REDESIGN_PENDING - Flaky test: upload modal fails on GitHub with multiple fileshttps://github.com/decidim/decidim/issues/10961"
+
               # Attach one card image and two document images and go to preview
-              dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))
+              expect(page).to have_content("city.jpeg")
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
+              expect(page).to have_content("city.jpeg")
+              expect(page).to have_content("city2.jpeg")
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
+              expect(page).to have_content("city.jpeg")
+              expect(page).to have_content("city2.jpeg")
+              expect(page).to have_content("city3.jpeg")
 
               within ".edit_proposal" do
                 find("*[type=submit]").click
@@ -351,20 +354,20 @@ describe "Proposals", type: :system do
 
               # See that the images are in correct positions and remove the card
               # image.
-              within ".upload-container-for-photos [data-active-uploads]" do
+              within "[data-active-uploads]" do
                 expect(page).to have_content("city.jpeg")
-              end
-              within ".upload-container-for-documents [data-active-uploads]" do
                 expect(page).to have_content("city2.jpeg")
                 expect(page).to have_content("city3.jpeg")
               end
 
-              within ".upload-container-for-photos" do
-                click_button "Edit image"
+              within ".upload-container-for-documents" do
+                click_button "Edit documents"
               end
               within ".upload-modal" do
-                find("button.remove-upload-item").click
-                click_button "Save"
+                within "[data-filename='city.jpeg']" do
+                  click_button("Remove")
+                end
+                click_button "Next"
               end
 
               within ".edit_proposal" do
@@ -375,12 +378,8 @@ describe "Proposals", type: :system do
               expect(page).to have_content("Your proposal has not yet been published")
               click_link "Modify the proposal"
 
-              # See that the card image is now empty and the two other images
-              # are still in the documents container as they should.
-              within ".upload-container-for-photos [data-active-uploads]" do
-                expect(page).not_to have_selector(".attachment-details")
-              end
-              within ".upload-container-for-documents [data-active-uploads]" do
+              within "[data-active-uploads]" do
+                expect(page).not_to have_content("city.jpeg")
                 expect(page).to have_content("city2.jpeg")
                 expect(page).to have_content("city3.jpeg")
               end
@@ -405,7 +404,7 @@ describe "Proposals", type: :system do
                  participatory_space: participatory_process)
         end
 
-        let!(:proposal_first) { create(:proposal, users: [user], component:, title: "Creating my first and only proposal", body: "This is my only proposal's body and I'm using it unwisely.") }
+        let!(:proposal_first) { create(:proposal, users: [user], component:, title: "Creating my first and only proposal", body: "This is my only proposal's body and I am using it unwisely.") }
 
         before do
           visit_component
@@ -415,7 +414,7 @@ describe "Proposals", type: :system do
         it "allows the creation of a single new proposal" do
           within ".new_proposal" do
             fill_in :proposal_title, with: "Creating my second proposal"
-            fill_in :proposal_body, with: "This is my second proposal's body and I'm using it unwisely."
+            fill_in :proposal_body, with: "This is my second proposal's body and I am using it unwisely."
 
             find("*[type=submit]").click
           end

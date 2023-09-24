@@ -14,7 +14,7 @@
 
   <%= form.check_boxes_tree :with_any_state, filter_states_values, legend_title: t(".state") %>
 
-  <%= form.check_boxes_tree :with_any_scope, filter_scopes_values, legend_title: t(".scope") %>
+  <%= form.check_boxes_tree :with_any_scope, filter_global_scopes_values, legend_title: t(".scope") %>
 
   <% unless single_initiative_type? %>
     <%= form.check_boxes_tree :with_any_type, filter_types_values, legend_title: t(".type") %>

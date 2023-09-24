@@ -59,7 +59,7 @@ module Decidim
 
           it "returns the correct URL" do
             expect(subject.url(latitude:, longitude:)).to eq(
-              "https://staticmaps.example.org/?latitude=#{latitude}&longitude=#{longitude}&zoom=15&width=120&height=120"
+              "https://staticmaps.example.org/?latitude=#{latitude}&longitude=#{longitude}&zoom=#{Decidim::Map::StaticMap::DEFAULT_ZOOM}&width=#{Decidim::Map::StaticMap::DEFAULT_SIZE}&height=#{Decidim::Map::StaticMap::DEFAULT_SIZE}"
             )
           end
 
@@ -68,7 +68,7 @@ module Decidim
 
             it "returns the correct URL" do
               expect(subject.url(latitude:, longitude:)).to eq(
-                "https://staticmaps.example.org/?key=123&msg=foo&latitude=#{latitude}&longitude=#{longitude}&zoom=15&width=120&height=120"
+                "https://staticmaps.example.org/?key=123&msg=foo&latitude=#{latitude}&longitude=#{longitude}&zoom=#{Decidim::Map::StaticMap::DEFAULT_ZOOM}&width=#{Decidim::Map::StaticMap::DEFAULT_SIZE}&height=#{Decidim::Map::StaticMap::DEFAULT_SIZE}"
               )
             end
           end
@@ -130,9 +130,9 @@ module Decidim
           ).to eq(
             latitude:,
             longitude:,
-            zoom: 15,
-            width: 120,
-            height: 120
+            zoom: Decidim::Map::StaticMap::DEFAULT_ZOOM,
+            width: Decidim::Map::StaticMap::DEFAULT_SIZE,
+            height: Decidim::Map::StaticMap::DEFAULT_SIZE
           )
         end
 
@@ -176,7 +176,7 @@ module Decidim
 
         context "when the URL is configured" do
           let(:config) { { url: "https://staticmaps.example.org/" } }
-          let(:image_url) { "https://staticmaps.example.org/?latitude=#{latitude}&longitude=#{longitude}&zoom=15&width=120&height=120" }
+          let(:image_url) { "https://staticmaps.example.org/?latitude=#{latitude}&longitude=#{longitude}&zoom=#{Decidim::Map::StaticMap::DEFAULT_ZOOM}&width=#{Decidim::Map::StaticMap::DEFAULT_SIZE}&height=#{Decidim::Map::StaticMap::DEFAULT_SIZE}" }
           let(:body) { "imagedata" }
 
           before do

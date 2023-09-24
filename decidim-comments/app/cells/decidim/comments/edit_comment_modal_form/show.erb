@@ -1,16 +1,15 @@
-<div class="reveal edit-comment-modal" id="<%= "editCommentModal#{model.id}" %>" data-reveal role="dialog" aria-modal="true" aria-labelledby="<%= "editCommentModal#{model.id}" %>-label">
-  <div class="reveal__header">
-    <h3 id="<%= "editCommentModal#{model.id}" %>-label" class="reveal__title"><%= t("decidim.components.edit_comment_modal_form.title") %></h3>
-    <button class="close-button" data-close aria-label="<%= t("decidim.components.edit_comment_modal_form.close") %>" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <%= form_for(form_object, url: decidim_comments.comment_path(comment), method: :put, remote: true, html: { id: form_id }) do |form| %>
-    <div class="field">
-      <label class="show-for-sr" for="<%= form_id %>">
-        <%= t("decidim.components.edit_comment_modal_form.form.body.label") %>
-      </label>
-      <div class="hashtags__container">
+<%= decidim_modal id: "editCommentModal#{model.id}" do %>
+  <%= form_for(form_object, url: decidim_comments.comment_path(comment), method: :put, remote: true, html: { id: nil }) do |form| %>
+    <div data-dialog-container>
+      <%= icon "edit-line" %>
+      <h2 class="h2" id="dialog-title-budget-confirm" data-dialog-title>
+        <%= t("decidim.components.edit_comment_modal_form.title") %>
+      </h2>
+
+      <div class="form__wrapper gap-2">
+        <label class="text-gray-2" for="<%= form_id %>">
+          <%= t("decidim.components.edit_comment_modal_form.form.body.label") %>
+        </label>
         <%= form.text_area(
           :body,
           id: form_id,
@@ -19,11 +18,17 @@
           required: true,
           placeholder: t("decidim.components.edit_comment_modal_form.form.body.placeholder"),
           label: false,
+          class: "w-full rounded border min-h-[160px] border-text-gray-2",
           data: { remaining_characters: "##{form_id}-remaining-characters", input_emoji: true }
         ) %>
       </div>
-      <button type="submit" data-close class="button button--sc"><%= t("decidim.components.edit_comment_modal_form.form.submit") %></button>
+    </div>
+    <div data-dialog-actions>
+      <button type="submit" data-dialog-close="editCommentModal<%= model.id %>" class="button button__sm md:button__lg button__secondary">
+        <%= t("decidim.components.edit_comment_modal_form.form.submit") %>
+      </button>
+
       <span id="<%= form_id %>-remaining-characters" class="remaining-character-count"></span>
     </div>
   <% end %>
-</div>
+<% end %>

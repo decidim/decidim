@@ -4,11 +4,13 @@ module Decidim
   class HideAllCreatedByAuthorJob < ApplicationJob
     queue_as :user_report
 
-    def perform(author:, justification:, current_user:)
-      @author = author.reload
+    def perform(resource:, extra: {})
+      return unless extra.fetch(:hide, false)
+
+      @author = resource.reload
 
       base_query.find_each do |content|
-        hide_content(content, current_user, justification)
+        hide_content(content, extra[:event_author], extra[:justification])
       end
     end
 

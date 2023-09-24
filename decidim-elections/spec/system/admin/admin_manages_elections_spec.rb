@@ -30,9 +30,7 @@ describe "Admin manages elections", type: :system do
 
   describe "creating an election" do
     it "creates a new election" do
-      within ".card-title" do
-        page.find(".button.button--title").click
-      end
+      click_link "New Election"
 
       within ".new_election" do
         fill_in_i18n(
@@ -54,15 +52,8 @@ describe "Admin manages elections", type: :system do
       expect(page).to have_content("Check that the organization time zone is correct")
       expect(page).to have_content("The current configuration is UTC")
 
-      page.execute_script("$('#election_start_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "10:00").click
-      page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-      page.execute_script("$('#election_end_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "12:00").click
-      page.find(".datepicker-dropdown .minute", text: "12:50").click
+      fill_in :election_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+      fill_in :election_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
       within ".new_election" do
         find("*[type=submit]").click
@@ -81,9 +72,7 @@ describe "Admin manages elections", type: :system do
       let(:organization) { create(:organization, time_zone: "Madrid") }
 
       it "shows the correct time zone" do
-        within ".card-title" do
-          page.find(".button.button--title").click
-        end
+        click_link "New Election"
 
         expect(page).to have_content("Check that the organization time zone is correct")
         expect(page).to have_content("The current configuration is Madrid")

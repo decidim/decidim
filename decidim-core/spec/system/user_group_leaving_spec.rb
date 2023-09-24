@@ -17,6 +17,7 @@ describe "User group leaving", type: :system do
       let!(:user_group) { create(:user_group, users: [user], organization: user.organization) }
 
       it "cannot leave group" do
+        click_button "Manage group"
         accept_confirm { click_link "Leave group" }
 
         expect(page).to have_content("You cannot remove yourself from this group as you are the last administrator")
@@ -31,6 +32,7 @@ describe "User group leaving", type: :system do
         end
 
         it "can leave the group" do
+          click_button "Manage group"
           accept_confirm { click_link "Leave group" }
 
           expect(page).to have_content("Group successfully abandoned")
@@ -50,6 +52,7 @@ describe "User group leaving", type: :system do
       it "allows the user to leave and join back" do
         visit decidim.profile_path(user_group.nickname)
 
+        click_button "Manage group"
         accept_confirm { click_link "Leave group" }
 
         expect(page).to have_content("Group successfully abandoned")

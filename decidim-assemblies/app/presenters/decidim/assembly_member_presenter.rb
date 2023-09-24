@@ -9,7 +9,7 @@ module Decidim
       (Time.current.strftime("%Y%m%d").to_i - birthday.strftime("%Y%m%d").to_i) / 10_000 if birthday
     end
 
-    delegate :profile_url, :avatar_url, to: :user, allow_nil: true
+    delegate :profile_url, to: :user, allow_nil: true
 
     def name
       user ? user.name : full_name
@@ -33,14 +33,28 @@ module Decidim
       I18n.t(__getobj__.position, scope: "decidim.admin.models.assembly_member.positions", default: "")
     end
 
-    def non_user_avatar_path
-      return non_user_avatar.default_url unless non_user_avatar.attached?
+    def avatar_url(variant = nil)
+      return user.avatar_url(variant) if user.present?
 
-      non_user_avatar.path
+      non_user_avatar_path(variant)
+    end
+
+    def non_user_avatar_path(variant = nil)
+      return non_user_avatar.default_url(variant) unless non_user_avatar.attached?
+
+      non_user_avatar.path(variant:)
     end
 
     def non_user_avatar
       attached_uploader(:non_user_avatar)
+    end
+
+    def has_tooltip?
+      false
+    end
+
+    def deleted?
+      false
     end
 
     private

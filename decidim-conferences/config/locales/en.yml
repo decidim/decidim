@@ -6,7 +6,6 @@ en:
         assemblies_ids: Related Assemblies
         available_slots: Available slots
         banner_image: Banner image
-        consultations_ids: Related Consultations
         copy_categories: Copy categories
         copy_components: Copy components
         copy_features: Copy features
@@ -64,7 +63,7 @@ en:
         personal_url: Personal URL
         position: Position
         short_bio: Short bio
-        twitter_handle: Twitter handle
+        twitter_handle: X handle
         user_id: User
       conference_user_role:
         email: Email
@@ -152,6 +151,7 @@ en:
         exports:
           registrations: Registrations
         form:
+          sections: Sections
           title: General Information
         index:
           not_published: Not published
@@ -201,12 +201,12 @@ en:
           partners: Partners
           registration_types: Registration Types
           registrations: Registrations
+          see_conference: See conference
           user_registrations: User Registrations
       models:
         conference:
           fields:
             created_at: Created at
-            promoted: Highlighted
             published: Published
             title: Title
         conference_speaker:
@@ -332,7 +332,7 @@ en:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         conference_invites:
           create:
             error: There was a problem inviting the participant to join the conference.
@@ -349,7 +349,6 @@ en:
               all: All
               rejected: Rejected
               sent: Sent
-            filter_by: Filter by
             invite_attendee: Invite participant
             invites: Invites
             search: Search
@@ -374,7 +373,7 @@ en:
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
-            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         diplomas:
           edit:
             save: Save
@@ -427,16 +426,16 @@ en:
         create:
           invalid: There was a problem joining this conference.
           success: You have successfully joined the conference.
-          unauthorized: You need to sign in before registering to the conference.
+          unauthorized: You need to log in before registering to the conference.
         decline_invitation:
           invalid: There was a problem declining the invitation.
           success: You have successfully declined the invitation.
-          unauthorized: You need to sign in before declining the invitation.
+          unauthorized: You need to log in before declining the invitation.
         destroy:
           invalid: There was a problem leaving this conference.
           success: You have successfully left the conference.
       conference_speaker:
-        go_to_twitter: Go to Twitter
+        go_to_twitter: Go to X
         more_info: more info
         personal_website: Personal website
         show:
@@ -457,6 +456,7 @@ en:
         show:
           login_as: You are logged in as %{name} <%{email}>
           make_conference_registration: Register for the conference
+          manage_registration: Manage registration
           register: Register
       content_blocks:
         highlighted_conferences:
@@ -499,9 +499,8 @@ en:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Active conferences
-            conferences_button_title: Link to the Conferences page displaying all the conferences
-            see_all_conferences: See all conferences
+            active_spaces: Conferences
+            see_all_spaces: See all conferences
       registration_types:
         index:
           choose_an_option: 'Choose your registration option:'
@@ -513,7 +512,6 @@ en:
         introduction: Introduction
         objectives: Objectives
         related_assemblies: Related assemblies
-        related_consultations: Related Consultations
         related_participatory_processes: Related participatory processes
     events:
       conferences:
@@ -571,10 +569,8 @@ en:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Manage registration
         register: Register
-      conference_widgets:
-        show:
-          take_part: Take part
       conferences:
         conference:
           more_info: More info
@@ -585,11 +581,7 @@ en:
           conferences:
             one: "%{count} conference"
             other: "%{count} conferences"
-        promoted_conference:
-          more_info: More info
-          take_part: Take part
       conferences_nav:
-        conference_menu_item: Information
         conference_partners_menu_item: Partners
         conference_speaker_menu_item: Speakers
         media: Media

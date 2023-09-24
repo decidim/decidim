@@ -28,7 +28,6 @@ module Decidim
           get :user, to: "conferences#user_diploma"
           resources :conference_speakers, only: :index, path: "speakers"
           resources :conference_program, only: :show, path: "program"
-          resource :conference_widget, only: :show, path: "embed"
           resources :registration_types, only: :index, path: "registration" do
             resource :conference_registration, only: [:create, :destroy] do
               collection do
@@ -67,6 +66,15 @@ module Decidim
                         I18n.t("menu.conferences", scope: "decidim"),
                         decidim_conferences.conferences_path,
                         position: 2.8,
+                        if: Decidim::Conference.where(organization: current_organization).published.any?,
+                        active: :inclusive
+        end
+
+        Decidim.menu :home_content_block_menu do |menu|
+          menu.add_item :conferences,
+                        I18n.t("menu.conferences", scope: "decidim"),
+                        decidim_conferences.conferences_path,
+                        position: 50,
                         if: Decidim::Conference.where(organization: current_organization).published.any?,
                         active: :inclusive
         end

@@ -1,34 +1,36 @@
-<% if upcoming_meetings.any? %>
-  <div class="section row collapse upcoming_meetings">
-    <h3 class="section-heading">
-      <%= translated_attribute(model.name) %> - <%= t("decidim.participatory_spaces.highlighted_meetings.upcoming_meetings") %>
-      <a href="<%= main_component_path(model) %>" class="text-small"><%= t("decidim.participatory_spaces.highlighted_meetings.see_all", count: upcoming_meetings_count) %></a>
-    </h3>
-    <div class="card card--list">
-      <% upcoming_meetings.includes(:component).each do |meeting| %>
-        <%= card_for meeting, size: :list_item %>
-      <% end %>
-    </div>
-    <%= link_to(
-      t("decidim.participatory_spaces.highlighted_meetings.see_all", count: upcoming_meetings_count),
-      main_component_path(model),
-      class: "button button--sc hollow button--right"
-    ) %>
-  </div>
-<% elsif past_meetings.any? %>
-  <div class="section row collapse past_meetings">
-    <h3 class="section-heading">
-      <%= translated_attribute(model.name) %> - <%= t("decidim.participatory_spaces.highlighted_meetings.past_meetings") %> <a href="<%= main_component_path(model) %>" class="text-small"><%= t("decidim.participatory_spaces.highlighted_meetings.see_all", count: past_meetings_count) %></a>
-    </h3>
-    <div class="card card--list">
-      <% past_meetings.each do |meeting| %>
-        <%= card_for meeting, size: :list_item %>
-      <% end %>
-    </div>
-    <%= link_to(
-      t("decidim.participatory_spaces.highlighted_meetings.see_all", count: past_meetings_count),
-      main_component_path(model),
-      class: "button button--sc hollow button--right"
-    ) %>
+<%# NOTE: Since this call can be called from outside decidim-meetings, frontend assets are required %>
+
+<%= apply_meetings_pack_tags %>
+
+<div class="content-block__title">
+  <h2 class="h2 decorator">
+    <%= single_component? ? translated_attribute(model.name) : t("decidim.components.meetings.name") %>
+  </h2>
+  <div class="label text-lg"><%= meetings_count %></div>
+  <% if see_all_path.present? %>
+    <%= link_to see_all_path, class: "button button__sm button__text-secondary" do %>
+      <span><%= t("decidim.participatory_spaces.highlighted_meetings.see_all") %></span>
+      <%= icon "arrow-right-line" %>
+    <% end %>
+  <% end %>
+</div>
+<% if show_map? %>
+  <div class="meeting-list__block-map">
+    <%= cell "decidim/meetings/meetings_map", collection %>
   </div>
 <% end %>
+<div class="meeting-list__block-list">
+  <% if show_calendar? %>
+    <div class="meeting-list__block-list-aside">
+      <% calendar_months.each do |start_date| %>
+        <%= cell "decidim/meetings/meeting_month", collection, start_date: %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="card__list-list">
+    <span class="meeting-list__block-list-title"><%= title %></span>
+    <% collection.includes(:component).each do |meeting| %>
+      <%= cell "decidim/meetings/meeting_l", meeting, title_tag: :h3, **options.slice(:show_space) %>
+    <% end %>
+  </div>
+</div>

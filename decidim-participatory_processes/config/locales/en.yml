@@ -101,7 +101,7 @@ en:
         edit: Edit
         filter:
           all_processes: Show all processes
-          process_groups: Process Groups
+          process_groups: Filter processes in groups
         import_process: Import
         moderate: Moderate
         new_process: New process
@@ -112,6 +112,7 @@ en:
         preview: Preview
         publish: Publish
         resend_invitation: Resend invitation
+        see_process: See process
         unpublish: Unpublish
       menu:
         participatory_process_groups: Process groups
@@ -126,7 +127,8 @@ en:
           attachments: Attachments
           categories: Categories
           components: Components
-          info: Info
+          info: About this process
+          landing_page: Landing page
           moderations: Moderations
           private_users: Private participants
           process_admins: Process admins
@@ -134,9 +136,9 @@ en:
       models:
         participatory_process:
           fields:
+            actions: Actions
             created_at: Created at
             private: Private
-            promoted: Highlighted
             published: Published
             title: Title
           name: Participatory process
@@ -287,10 +289,10 @@ en:
         edit:
           update: Update
         index:
-          not_published: Not published
           private: Private
           public: Public
           published: Published
+          unpublished: Unpublished
         new:
           create: Create
           title: New participatory process
@@ -372,30 +374,31 @@ en:
         description: Number of participatory processes in this organization
         object: participatory processes
         title: Participatory processes
-    participatory_process:
-      show:
-        related_assemblies: Related assemblies
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Promoted by
+          name: Metadata
+          participatory_scope: What is decided
+          participatory_structure: How is it decided
+          target: Who participates
+        html:
+          name: HTML block
         html_1:
           name: First HTML block
         html_2:
           name: Second HTML block
         html_3:
           name: Third HTML block
-        metadata:
-          developer_group: Promoted by
-          name: Metadata
-          participatory_scope: What is decided
-          participatory_structure: How is it decided
-          target: Who participates
+        main_data:
+          name: Title and description
         participatory_processes:
+          active: Active participatory processes
           name: Participatory processes
         stats:
           name: Statistics
         title:
           meta_scope: Scope
-          name: Title, description and hashtag
           participatory_processes:
             one: 1 process
             other: "%{count} processes"
@@ -404,30 +407,32 @@ en:
     participatory_process_steps:
       index:
         process_steps: Process phases
-        title: Participatory process phases
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Active
+            all: All
             max_results: Maximum amount of elements to show
+            selection_criteria: Selection criteria
         new_import:
           accepted_types:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadata
-            title: General Information
+            title: About this process
             visibility: Visibility
         participatory_process_imports:
           form:
             document_legend: Add a document
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
+            cta_path_help_html: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
             cta_text_help: If not set, the button will not be shown.
         participatory_processes:
           form:
@@ -439,15 +444,22 @@ en:
             other: Other
             related_processes: Related processes
             scope_type_max_depth_help: Restrict the scope filter depth; The filter will show from general to the selected scope type.
+            sections: Sections
             select_an_area: Select an Area
             select_participatory_process_type: Select a process type
             select_process_group: Select a process group
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: General Information
             visbility: Visibility
       content_blocks:
+        extra_data:
+          name: Phase & duration
+        hero:
+          name: Hero image and CTA
         highlighted_processes:
           name: Highlighted processes
+        related_processes:
+          name: Related processes
       index:
         title: Participatory processes
       last_activity:
@@ -455,17 +467,22 @@ en:
       pages:
         home:
           highlighted_processes:
-            active_processes: Active processes
-            active_step: Active phase
-            more_information: More information
-            participate: Participate
-            participate_in: Participate in process %{resource_name}
-            processes_button_title: Link to the Processes page displaying all the processes
-            see_all_processes: See all processes
+            active_spaces: Active processes
+            see_all_spaces: See all processes
       participatory_process_steps:
         index:
           back_to_process: Back to the process page
       participatory_processes:
+        description:
+          area_name: Area
+          data: Process data
+          developer_group: Promoter group
+          local_area: Organization Area
+          meta_scope: Scope
+          participatory_scope: What is decided
+          participatory_structure: How is it decided
+          target: Who participates
+          title: About this process
         filters:
           all_types: All types
           counters:
@@ -481,6 +498,7 @@ en:
             upcoming:
               one: 1 upcoming process
               other: "%{count} upcoming processes"
+          date: Date
           explanations:
             no_active: No active processes.
             no_active_nor_upcoming: No active nor upcoming processes.
@@ -492,25 +510,13 @@ en:
             past: Past
             upcoming: Upcoming
           see: See
-        index:
-          loading: Loading results...
+          type: Type
         show:
           title: About this process
       show:
-        area: Area
         belongs_to_group: This process belongs to
-        dates: Dates
-        developer_group: Promoter group
-        end_date: End date
-        local_area: Organization Area
-        participatory_scope: What is decided
-        participatory_structure: How is it decided
         private_space: This is a private process
         related_processes: Related processes
-        scope: Scope
-        start_date: Start date
-        target: Who participates
-        unspecified: Not specified
     statistics:
       processes_count: Processes
   layouts:
@@ -520,29 +526,12 @@ en:
           browse: Browse
           browse_resource: Browse process group %{resource_name}
           processes_count: 'Processes:'
-      participatory_process_widgets:
-        show:
-          active_step: Active phase
-          take_part: Take part
       participatory_processes:
         index:
           promoted_processes: Highlighted processes
         participatory_process:
-          active_step: 'Current phase:'
+          active_step: Current phase
           more_info: More info
           more_info_about: More info about process %{resource_name}
           take_part: Take part
           take_part_in: Take part in process %{resource_name}
-        promoted_process:
-          active_step: 'Current phase:'
-          more_info: More info
-          more_info_about: More info about process %{resource_name}
-          take_part: Take part
-          take_part_in: Take part in process %{resource_name}
-        promoted_process_group:
-          more_info: More info
-      process_header_steps:
-        step: Phase %{current} of %{total}
-        view_steps: Process phases
-      process_navigation:
-        process_menu_item: The process

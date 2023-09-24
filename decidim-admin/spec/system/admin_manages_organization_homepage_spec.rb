@@ -18,7 +18,7 @@ describe "Admin manages organization homepage", type: :system do
       expect(Decidim::ContentBlock.count).to eq 0
 
       within ".edit_content_blocks" do
-        find("button", text: "Add content block").click
+        click_button "Add content block"
         within ".add-components" do
           find("a", text: "Hero image").click
         end

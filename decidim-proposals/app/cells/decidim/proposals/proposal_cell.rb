@@ -18,7 +18,14 @@ module Decidim
       private
 
       def card_size
-        "decidim/proposals/proposal_m"
+        case @options[:size]
+        when :s
+          "decidim/proposals/proposal_s"
+        when :g
+          "decidim/proposals/proposal_g"
+        else
+          "decidim/proposals/proposal_l"
+        end
       end
 
       def resource_path

@@ -7,6 +7,7 @@ module Decidim
       class InPersonVotesController < Decidim::Votings::PollingOfficerZone::ApplicationController
         include FormFactory
         include Decidim::Elections::HasVoteFlow
+        before_action :append_csp_directives
 
         helper_method :polling_officer, :election, :in_person_form, :has_voter?,
                       :vote_check, :cant_vote_reason, :questions, :in_person_vote_form, :voted_online?,
@@ -58,6 +59,12 @@ module Decidim
         delegate :bulletin_board_server, to: :bulletin_board_client
         delegate :has_voter?, to: :vote_flow
         delegate :polling_station, to: :polling_officer
+
+        def append_csp_directives
+          return if bulletin_board_server.blank?
+
+          content_security_policy.append_csp_directive("connect-src", bulletin_board_server)
+        end
 
         def bulletin_board_client
           @bulletin_board_client ||= Decidim::Elections.bulletin_board
@@ -121,7 +128,10 @@ module Decidim
         end
 
         def election
-          @election ||= Decidim::Elections::Election.find(params[:election_id])
+          @election ||= Decidim::Elections::Election.joins(:component)
+                                                    .where(component: { participatory_space: current_organization.participatory_spaces })
+                                                    .includes(questions: :answers)
+                                                    .find_by(id: params[:election_id])
         end
 
         def polling_officer

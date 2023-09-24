@@ -11,7 +11,10 @@ module Decidim
     include ::Devise::Controllers::Helpers
     include ::Devise::Controllers::UrlHelpers
     include Messaging::ConversationHelper
+    include Decidim::FollowableHelper
     include ERB::Util
+
+    LAYOUTS = [:default, :compact, :avatar].freeze
 
     property :profile_path
     property :can_be_contacted?
@@ -23,43 +26,55 @@ module Decidim
       options[:author_name_text] || model.name
     end
 
-    def show
-      render
-    end
-
-    def profile
-      render
-    end
-
-    def profile_inline
-      render
-    end
-
-    def date
-      render
-    end
-
-    def flag_user_modal
-      render
-    end
-
-    def flag
-      render
+    def display_name
+      model.deleted? ? t("decidim.profile.deleted") : decidim_sanitize(author_name)
     end
 
     def flag_user
       render unless current_user == model
     end
 
-    def withdraw
-      render
-    end
-
     def perform_caching?
       true
     end
 
+    def raw_model
+      model.try(:__getobj__) || model
+    end
+
+    def context_actions_options
+      return unless options.has_key?(:context_actions)
+      return [] if options[:context_actions].blank?
+
+      @context_actions_options ||= options[:context_actions].map(&:to_sym)
+    end
+
     private
+
+    def layout
+      @layout ||= LAYOUTS.include?(options[:layout]) ? options[:layout] : :default
+    end
+
+    def show_icons?
+      layout != :compact
+    end
+
+    def context_actions
+      actions = [].tap do |list|
+        list << :date if creation_date?
+        list << :cancelled_on if cancelable?
+        list << :comments if commentable?
+        list << :endorsements if endorsable?
+        list << :withdraw if withdrawable?
+      end
+      return actions unless has_context_actions_options?
+
+      actions & context_actions_options
+    end
+
+    def has_context_actions_options?
+      context_actions_options.is_a?(Array)
+    end
 
     def cache_hash
       hash = []
@@ -73,8 +88,9 @@ module Decidim
       hash.push(endorsable?)
       hash.push(actionable?)
       hash.push(withdrawable?)
-      hash.push(flaggable?)
       hash.push(profile_path?)
+      hash.push(layout)
+      hash.push(context_actions.join)
       hash.join(Decidim.cache_key_separator)
     end
 
@@ -90,7 +106,7 @@ module Decidim
 
     def creation_date?
       return unless from_context
-      return unless show_action? && (from_context.respond_to?(:published_at) || from_context.respond_to?(:created_at))
+      return unless from_context.respond_to?(:published_at) || from_context.respond_to?(:created_at)
 
       true
     end
@@ -101,22 +117,28 @@ module Decidim
       l date_at, format: :decidim_short
     end
 
+    def cancelled_on_date
+      date_at = from_context.try(:cancelled_on)
+
+      l date_at, format: :decidim_short
+    end
+
     def commentable?
-      from_context && from_context.class.include?(Decidim::Comments::Commentable) && from_context.try(:commentable?)
+      from_context && from_context.class.include?(Decidim::Comments::Commentable)
+    end
+
+    def cancelable?
+      from_context && from_context.respond_to?(:cancelled_on)
     end
 
     def endorsable?
       from_context && from_context.class.include?(Decidim::Endorsable)
     end
 
-    def author_classes
-      (["author-data"] + options[:extra_classes].to_a).join(" ")
-    end
-
     def actionable?
       return options[:has_actions] if options.has_key?(:has_actions)
 
-      withdrawable? || flaggable?
+      withdrawable?
     end
 
     def user_author?
@@ -127,10 +149,6 @@ module Decidim
       return false if options[:skip_profile_link] == true
 
       profile_path.present?
-    end
-
-    def raw_model
-      model.try(:__getobj__) || model
     end
 
     def resource_i18n_scope

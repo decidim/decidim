@@ -1,27 +1,6 @@
-<div class="columns large-3">
-  <div class="m-bottom">
-    <%= link_to initiative_path current_initiative do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %> <%= t(".back") %>
-    <% end %>
-  </div>
-  <div class="section">
-    <p>
-      <%= t(".title", initiative_title: translated_attribute(current_initiative.title)) %>
-    </p>
-  </div>
-  <div class="show-for-large">
-    <ol class="wizard__steps">
-      <% wizard_steps.each do |wizard_step| %>
-        <% if step == wizard_step %>
-          <li class="step--active">
-            <%= t(".#{wizard_step}") %>
-          </li>
-        <% else %>
-          <li>
-            <%= t(".#{wizard_step}") %>
-          </li>
-        <% end %>
-      <% end %>
-    </ol>
-  </div>
+<div class="flex justify-center">
+  <h1 class="title-decorator my-12">
+    <%= t(".title", initiative_title: translated_attribute(current_initiative.title)) %>
+  </h1>
 </div>
+<%= render partial: "wizard_steps" %>

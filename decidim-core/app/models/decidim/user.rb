@@ -13,7 +13,7 @@ module Decidim
     include Decidim::UserReportable
     include Decidim::Traceable
 
-    REGEXP_NICKNAME = /\A[\w\-]+\z/
+    REGEXP_NICKNAME = /\A[\w-]+\z/
 
     class Roles
       def self.all
@@ -205,7 +205,7 @@ module Decidim
     end
 
     def admin_terms_accepted?
-      return true if admin_terms_accepted_at
+      admin_terms_accepted_at.present?
     end
 
     # Whether this user can be verified against some authorization or not.
@@ -261,11 +261,21 @@ module Decidim
     end
 
     def needs_password_update?
+      return false if organization.users_registration_mode == "disabled"
       return false unless admin?
       return false unless Decidim.config.admin_password_strong
+      return false if Decidim.config.admin_password_expiration_days.zero?
       return identities.none? if password_updated_at.blank?
 
       password_updated_at < Decidim.config.admin_password_expiration_days.days.ago
+    end
+
+    def moderator?
+      Decidim.participatory_space_manifests.map do |manifest|
+        participatory_space_type = manifest.model_class_name.constantize
+        return true if participatory_space_type.moderators(organization).exists?(id:)
+      end
+      false
     end
 
     protected
@@ -293,7 +303,8 @@ module Decidim
         event: "decidim.events.core.welcome_notification",
         event_class: WelcomeNotificationEvent,
         resource: self,
-        affected_users: [self]
+        affected_users: [self],
+        extra: { force_email: true }
       )
     end
 

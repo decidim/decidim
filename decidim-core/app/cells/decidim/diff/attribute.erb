@@ -1,27 +1,7 @@
-<div class="diff-for-<%= data[:label].parameterize %>">
-  <div class="row">
-    <h3 class="section-heading mediumlarge-12 columns">
-      <%= data[:label] %>
-    </h3>
-  </div>
+<div id="diff-for-<%= data[:label].parameterize %>" class="version__diff">
+  <h2 class="h4">
+    <%= data[:label] %>
+  </h2>
 
-  <div class="row diff_view diff_view_unified_unescaped<%= " hide" unless show_html_view_dropdown? %>" id="<%= attribute_diff_id("diff_view_unified_unescaped") %>">
-    <%= diff_unified(data, :unescaped_html) %>
-  </div>
-
-  <div class="row diff_view diff_view_unified_escaped<%= " hide" if show_html_view_dropdown? %>" id="<%= attribute_diff_id("diff_view_unified_escaped") %>">
-    <%= diff_unified(data, :html) %>
-  </div>
-
-  <div class="row diff_view diff_view_split_unescaped hide" id="<%= attribute_diff_id("diff_view_split_unescaped") %>">
-    <%= diff_split(data, "left", :unescaped_html) %>
-
-    <%= diff_split(data, "right", :unescaped_html) %>
-  </div>
-
-  <div class="row diff_view diff_view_split_escaped hide" id="<%= attribute_diff_id("diff_view_split_escaped") %>">
-    <%= diff_split(data, "left", :html) %>
-
-    <%= diff_split(data, "right", :html) %>
-  </div>
+  <%= unified_mode? ? diff_unified(data, display_html_config) : diff_split_full(data, display_html_config) %>
 </div>

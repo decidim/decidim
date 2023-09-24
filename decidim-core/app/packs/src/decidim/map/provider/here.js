@@ -1,4 +1,5 @@
-import * as L from "leaflet"
+import "leaflet"
+import "src/decidim/vendor/leaflet-tilelayer-here"
 
 /**
  * NOTE:

@@ -63,7 +63,7 @@ module Decidim
     # Returns nothing.
     def send_email_to(recipient, user_role:)
       return unless recipient
-      return unless recipient.notifications_sending_frequency == "real_time"
+      return unless should_send_email?(recipient)
       return if resource.respond_to?(:can_participate?) && !resource.can_participate?(recipient)
 
       wait_time = 0
@@ -79,6 +79,12 @@ module Decidim
           extra
         )
         .deliver_later(wait: wait_time)
+    end
+
+    def should_send_email?(recipient)
+      return extra[:force_email] if extra.has_key?(:force_email)
+
+      recipient.notifications_sending_frequency == "real_time"
     end
 
     def component

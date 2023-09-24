@@ -26,7 +26,7 @@ describe Decidim::ContentBlocks::SubHeroCell, type: :cell do
     end
 
     it "shows the custom welcome text with formating" do
-      expect(subject).to have_css(".subhero")
+      expect(subject).to have_css("#sub_hero")
       expect(subject.find("h2 strong")).to have_text("Bold titled text")
     end
 
@@ -39,8 +39,8 @@ describe Decidim::ContentBlocks::SubHeroCell, type: :cell do
 
       it "shows the custom welcome text with formating" do
         expect(
-          subject.find(".heading2").native.inner_html.strip
-        ).to eq("<strong>Bold titled text</strong>")
+          subject.find(".editor-content").native.inner_html.strip
+        ).to include("<strong>Bold titled text</strong>")
       end
     end
 
@@ -56,7 +56,7 @@ describe Decidim::ContentBlocks::SubHeroCell, type: :cell do
 
       it "shows the custom welcome text with formating" do
         expect(
-          subject.find(".heading2").native.inner_html.strip
+          subject.find(".editor-content").native.inner_html.strip
         ).to include(
           "<strong>First row of text</strong><br><br>Second row of text"
         )

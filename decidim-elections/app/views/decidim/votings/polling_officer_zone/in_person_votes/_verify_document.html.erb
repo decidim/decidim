@@ -1,23 +1,20 @@
-<div class="row section">
-  <div class="columns">
-    <div class="callout success mt-s">
-      <h5><%= t(".census_present") %></h5>
-    </div>
-    <div class="row mt-sm">
-      <div class="columns large-7">
-        <p><strong><%= t(".title") %></strong></p>
-        <div class="card--secondary">
-          <div class="card__content">
-            <p>
-              <strong><%= t(".name") %></strong>
-              <br><%= voter_name %>
-            </p>
-            <button type="button" class="button button--sc expanded mt-sm mb-none js-verify-document">
-              <%= t(".verify_document") %>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<%= cell("decidim/announcement", t(".census_present"), callout_class: "success") %>
+
+<div class="form__wrapper">
+  <p class="text-gray-2"><%= t(".title") %></p>
+
+  <p>
+    <%= t(".name") %>: <%= voter_name %>
+  </p>
+</div>
+
+<div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+  <%= link_to polling_officers_path, class: "button button__sm md:button__lg button__text-secondary" do %>
+    <%= icon "arrow-left-line" %>
+    <span><%= t("back", scope: "decidim.votings.polling_officer_zone.in_person_votes.new") %></span>
+  <% end %>
+
+  <button id="js-verify-document" class="button button__sm md:button__lg button__secondary">
+    <%= t(".verify_document") %>
+  </button>
 </div>

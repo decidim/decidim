@@ -1,6 +1,9 @@
+import PasswordToggler from "./password_toggler";
+
 $(() => {
   const $userRegistrationForm = $("#register-form");
   const $userGroupFields      = $userRegistrationForm.find(".user-group-fields");
+  const userPassword         =  document.querySelector(".user-password");
   const inputSelector         = 'input[name="user[sign_up_as]"]';
   const newsletterSelector    = 'input[type="checkbox"][name="user[newsletter]"]';
   const $newsletterModal      = $("#sign-up-newsletter-modal");
@@ -17,7 +20,7 @@ $(() => {
   const checkNewsletter = (check) => {
     $userRegistrationForm.find(newsletterSelector).prop("checked", check);
     $newsletterModal.data("continue", true);
-    $newsletterModal.foundation("close");
+    window.Decidim.currentDialogs["sign-up-newsletter-modal"].close()
     $userRegistrationForm.submit();
   }
 
@@ -34,12 +37,16 @@ $(() => {
     if (!$newsletterModal.data("continue")) {
       if (!newsletterChecked.prop("checked")) {
         event.preventDefault();
-        $newsletterModal.foundation("open");
+        window.Decidim.currentDialogs["sign-up-newsletter-modal"].open()
       }
     }
   });
 
-  $newsletterModal.find(".check-newsletter").on("click", (event) => {
+  $newsletterModal.find("[data-check]").on("click", (event) => {
     checkNewsletter($(event.target).data("check"));
   });
+
+  if (userPassword) {
+    new PasswordToggler(userPassword).init();
+  }
 });

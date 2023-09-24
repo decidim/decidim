@@ -10,7 +10,7 @@ describe "Valuator checks components", type: :system do
     decidim_admin_assemblies.components_path(assembly)
   end
   let(:components_path) { participatory_space_path }
-  let!(:user) { create(:user, :confirmed, organization:) }
+  let!(:user) { create(:user, :confirmed, :admin_terms_accepted, admin: false, organization:) }
   let!(:valuator_role) { create(:assembly_user_role, role: :valuator, user:, assembly:) }
   let(:another_component) { create(:component, participatory_space: assembly) }
 
@@ -19,8 +19,6 @@ describe "Valuator checks components", type: :system do
   include_context "when administrating an assembly"
 
   before do
-    user.update(admin: false)
-
     create(:valuation_assignment, proposal: assigned_proposal, valuator_role:)
 
     switch_to_host(organization.host)
@@ -28,18 +26,13 @@ describe "Valuator checks components", type: :system do
     visit components_path
   end
 
-  context "when listing the space components in the sidebar" do
-    it "can only see the proposals component" do
-      within ".layout-nav #components-list" do
-        expect(page).to have_content(translated(current_component.name))
-        expect(page).not_to have_content(translated(another_component.name))
-      end
-    end
+  it_behaves_like "needs admin TOS accepted" do
+    let(:user) { create(:user, :confirmed, organization:) }
   end
 
   context "when listing components in the space components page" do
     it "can only see the proposals component" do
-      within ".layout-nav" do
+      within_admin_menu do
         click_link "Components"
       end
 

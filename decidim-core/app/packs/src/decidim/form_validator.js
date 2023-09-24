@@ -36,7 +36,7 @@ export default class FormValidator {
       $announce.remove();
     }
     $announce = $("<div />");
-    $announce.attr("class", "sr-announce show-for-sr");
+    $announce.attr("class", "sr-announce sr-only");
     $announce.attr("aria-live", "assertive");
     this.$form.prepend($announce);
 

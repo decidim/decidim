@@ -5,15 +5,16 @@
     <%= render partial: "layouts/decidim/system/header" %>
   </head>
 
-  <body class="login">
-    <div class="login-form-wrapper">
-      <div class="login-form">
-        <h1>Decidim</h1>
-        <%= render "decidim/system/shared/notices" %>
-        <div class="login-form-inner">
-          <%= yield %>
-        </div>
+  <body class="text-black text-md form-defaults bg-gray-3 h-screen w-screen grid place-items-center">
+    <%= render layout: "layouts/decidim/shared/layout_center" do %>
+
+      <div class="space-y-8 my-10">
+        <h1 class="h1 decorator"><%= t("decidim", scope: "decidim.system.titles") %></h1>
       </div>
-    </div>
+
+      <%= render "decidim/system/shared/notices" %>
+
+      <%= yield %>
+    <% end %>
   </body>
 </html>

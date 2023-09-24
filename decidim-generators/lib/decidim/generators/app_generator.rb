@@ -132,7 +132,7 @@ module Decidim
       end
 
       def ruby_version
-        copy_file ".ruby-version", ".ruby-version"
+        copy_file ".ruby-version", ".ruby-version", force: true
       end
 
       def node_version
@@ -159,7 +159,7 @@ module Decidim
 
         gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
 
-        %w(conferences consultations elections initiatives templates).each do |component|
+        %w(conferences elections initiatives templates).each do |component|
           if options[:demo]
             gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
           else
@@ -223,26 +223,20 @@ module Decidim
         end
       end
 
-      def tweak_bootsnap
-        gsub_file "config/boot.rb", %r{require 'bootsnap/setup'.*$}, <<~RUBY.rstrip
-          require "bootsnap"
-
-          env = ENV["RAILS_ENV"] || "development"
-
-          Bootsnap.setup(
-            cache_dir: File.expand_path(File.join("..", "tmp", "cache"), __dir__),
-            development_mode: env == "development",
-            load_path_cache: true,
-            compile_cache_iseq: !ENV["SIMPLECOV"],
-            compile_cache_yaml: true
-          )
-        RUBY
-      end
-
       def tweak_spring
         return unless File.exist?("config/spring.rb")
 
         prepend_to_file "config/spring.rb", "require \"decidim/spring\"\n\n"
+      end
+
+      def tweak_csp_initializer
+        return unless File.exist?("config/initializers/content_security_policy.rb")
+
+        remove_file("config/initializers/content_security_policy.rb")
+        create_file "config/initializers/content_security_policy.rb" do
+          %(# For tuning the Content Security Policy, check the Decidim documentation site
+# https://docs.decidim.org/develop/en/customize/content_security_policy)
+        end
       end
 
       def puma_ssl_options
@@ -321,6 +315,26 @@ module Decidim
         gsub_file "config/initializers/decidim.rb",
                   /#{Regexp.escape("config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]")}/,
                   "# config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]"
+      end
+
+      def dev_performance_config
+        gsub_file "config/environments/development.rb", /^end\n$/, <<~CONFIG
+
+            # Performance configs for local testing
+            if ENV.fetch("RAILS_BOOST_PERFORMANCE", false).to_s == "true"
+              # Indicate boost performance mode
+              config.boost_performance = true
+              # Enable caching and eager load
+              config.eager_load = true
+              config.cache_classes = true
+              # Logging
+              config.log_level = :info
+              config.action_view.logger = nil
+              # Compress the HTML responses with gzip
+              config.middleware.use Rack::Deflater
+            end
+          end
+        CONFIG
       end
 
       def authorization_handler

@@ -22,15 +22,23 @@ module Decidim
     include Decidim::SanitizeHelper
 
     def show
-      return if clean_body.blank? && clean_announcement.blank?
+      return if blank_content?
 
       render :show
+    end
+
+    def blank_content?
+      @blank_content ||= clean_body.blank? && clean_announcement.blank?
     end
 
     private
 
     def has_title?
       announcement.is_a?(Hash) && announcement.has_key?(:title)
+    end
+
+    def text
+      has_title? ? clean_body : clean_announcement
     end
 
     def callout_class
@@ -49,6 +57,12 @@ module Decidim
       return announcement.presence unless announcement.is_a?(Hash)
 
       announcement[:body].presence
+    end
+
+    def truncate?
+      return false unless options.has_key? :truncate
+
+      options[:truncate]
     end
 
     def clean_body

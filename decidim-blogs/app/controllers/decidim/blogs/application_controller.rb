@@ -9,8 +9,6 @@ module Decidim
     # override its layout and provide all kinds of useful methods.
     class ApplicationController < Decidim::Components::BaseController
       helper Decidim::Blogs::ApplicationHelper
-
-      redesign_participatory_space_layout
     end
   end
 end

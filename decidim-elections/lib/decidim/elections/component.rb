@@ -6,6 +6,7 @@ Decidim.register_component(:elections) do |component|
   component.engine = Decidim::Elections::Engine
   component.admin_engine = Decidim::Elections::AdminEngine
   component.icon = "media/images/decidim_elections.svg"
+  component.icon_key = "check-double-fill"
   component.stylesheet = "decidim/elections/elections"
   component.permissions_class_name = "Decidim::Elections::Permissions"
   component.query_type = "Decidim::Elections::ElectionsType"
@@ -518,7 +519,7 @@ Decidim.register_component(:elections) do |component|
     end
 
     %w(admin@example.org user@example.org user2@example.org).each do |email|
-      trustee = Decidim::Elections::Trustee.create!(
+      trustee = Decidim::Elections::Trustee.find_or_create_by(
         user: Decidim::User.find_by(email:),
         organization: participatory_space.organization
       )

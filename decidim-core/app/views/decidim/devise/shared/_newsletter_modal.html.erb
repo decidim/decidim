@@ -1,25 +1,17 @@
-<div class="reveal" id="sign-up-newsletter-modal" data-reveal>
-  <div class="reveal__header">
-    <h2 class="reveal__title"><%= t(".title") %></h2>
-    <button class="close-button" data-close aria-label="<%= t(".buttons.close_modal") %>"
-      type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-
-  <div class="row">
-    <%= t(".notice").html_safe %>
-  </div>
-
-  <div class="row">
-    <div class="column flex-center">
-      <button type="button" class="check-newsletter clear button secondary expanded" data-check=false>
-        <%= t(".buttons.uncheck") %>
-      </button>
-
-      <button type="button" class="check-newsletter button expanded" data-check=true>
-        <%= t(".buttons.check") %>
-      </button>
+<%= decidim_modal id: "sign-up-newsletter-modal" do %>
+  <div data-dialog-container>
+    <%= icon "newspaper-line" %>
+    <h2 id="dialog-title-sign-up-newsletter-modal" data-dialog-title><%= t(".title") %></h2>
+    <div id="dialog-desc-sign-up-newsletter-modal" class="space-y-4">
+      <%= t(".notice").html_safe %>
     </div>
   </div>
-</div>
+  <div data-dialog-actions>
+    <button class="button button__sm md:button__lg button__transparent-secondary" data-check="false">
+      <%= t(".buttons.uncheck") %>
+    </button>
+    <button class="button button__sm md:button__lg button__secondary" data-check="true">
+      <%= t(".buttons.check") %>
+    </button>
+  </div>
+<% end %>

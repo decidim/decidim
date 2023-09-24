@@ -1,0 +1,58 @@
+.meeting-list {
+  @apply flex items-stretch gap-4 cursor-pointer;
+
+  &__map {
+    /* negative main padding values */
+    @apply md:-ml-16 -mt-6 md:-mt-12 aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
+  }
+
+  &__link {
+    @apply py-6 flex items-center justify-end gap-1 text-secondary;
+  }
+
+  &__modal {
+    @apply pr-16 pb-16;
+
+    &-title {
+      @apply flex items-baseline gap-2;
+    }
+
+    &-text {
+      @apply text-lg text-gray-2;
+    }
+
+    &-input {
+      @apply text-lg text-gray-2 relative;
+
+      input {
+        @apply w-full;
+      }
+
+      button {
+        @apply z-10 absolute top-1/2 right-2 -translate-y-1/2 text-sm;
+      }
+    }
+  }
+
+  &:hover h2 {
+    @apply underline;
+  }
+
+  &__block {
+    &-map {
+      @apply aspect-[2/1] md:aspect-[4/1] rounded overflow-hidden [&>*]:h-full;
+    }
+
+    &-list {
+      @apply flex flex-col md:flex-row justify-start gap-16 last:[&>*]:grow;
+
+      &-aside {
+        @apply flex flex-col gap-4 items-stretch;
+      }
+
+      &-title {
+        @apply text-gray-2 font-semibold uppercase;
+      }
+    }
+  }
+}

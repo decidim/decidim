@@ -9,7 +9,7 @@ module Decidim
     let(:form) do
       Decidim::InviteUserForm.from_params(
         name: "Old man",
-        email: "oldman@email.com",
+        email: "oldman@example.com",
         organization:,
         role: "admin",
         invited_by: admin,

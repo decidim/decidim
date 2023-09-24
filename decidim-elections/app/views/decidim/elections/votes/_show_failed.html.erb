@@ -1,23 +1,26 @@
-<%= render("focus_header", header_title: t("decidim.elections.votes.header.failed")) %>
+<div class="flex justify-center">
+  <h1 class="title-decorator my-12">
+    <%= t("decidim.elections.votes.failed.header") %>
+  </h1>
+</div>
 
-<div class="focus__content evote">
-  <div class="row">
-    <h1 class="heading2">
-      <%= t("decidim.elections.votes.failed.header") %>
-    </h1>
-    <h2 class="h4"><%= t("decidim.elections.votes.failed.lead") %></h2>
+<div class="space-y-4 text-center">
+  <p class="h4"><%= t("decidim.elections.votes.failed.lead") %></p>
 
-    <div class="evote__content">
-      <%= t("decidim.elections.votes.failed.text") %>
-    </div>
+  <p class="election-question__description">
+    <%= t("decidim.elections.votes.failed.text") %>
+  </p>
 
-    <%= link_to new_election_vote_path(election), class: "button" do %>
-      <%= t("decidim.elections.votes.failed.try_again") %>
-    <% end %>
+  <%= link_to new_election_vote_path(election), class: "button button__lg button__secondary" do %>
+    <%= t("decidim.elections.votes.failed.try_again") %>
+  <% end %>
 
-    <div>
-      <%= t("decidim.elections.votes.confirmed.experience") %>
+  <p class="election-question__description">
+    <%= t("decidim.elections.votes.confirmed.experience") %>
+    <% if vote %>
       <%= link_to t("decidim.elections.votes.confirmed.feedback"), election_feedback_path(election, hash: vote.encrypted_vote_hash, token: params[:token]) %>
-    </div>
-  </div>
+    <% else %>
+      <%= link_to t("decidim.elections.votes.confirmed.feedback"), election_feedback_path(election) %>
+    <% end %>
+  </p>
 </div>

@@ -1,0 +1,7 @@
+<div class="profile__avatar-container">
+  <div class="profile__avatar">
+    <%= image_tag avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(presented_profile.name)) %>
+  </div>
+
+  <%= render :badge if show_badge? %>
+</div>

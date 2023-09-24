@@ -37,7 +37,6 @@ module Decidim
         attribute :location, String
         attribute :participatory_processes_ids, Array[Integer]
         attribute :assemblies_ids, Array[Integer]
-        attribute :consultations_ids, Array[Integer]
 
         validates :weight, presence: true, numericality: { greater_than_or_equal_to: 0 }
         validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
@@ -86,18 +85,6 @@ module Decidim
             [
               translated_attribute(assembly.title),
               assembly.id
-            ]
-          end
-        end
-
-        def consultations_for_select
-          return unless Decidim.participatory_space_manifests.map(&:name).include?(:consultations)
-
-          @consultations_for_select ||= Decidim.find_participatory_space_manifest(:consultations)
-                                               .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |consultation|
-            [
-              translated_attribute(consultation.title),
-              consultation.id
             ]
           end
         end

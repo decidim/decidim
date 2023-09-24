@@ -8,7 +8,7 @@ describe("ExternalDomainLink", () => {
       <div class="editor-container">
         <a href="https://example.org/" target="_blank">This is an external link within an editor</a>
       </div>
-      <a href="https://github.com" target="_blank">This is an external link without the last slash</a>
+      <a href="https://github.com/" target="_blank">This is an external link without the last slash</a>
     </div>
   `;
   const config = {
@@ -53,7 +53,7 @@ describe("ExternalDomainLink", () => {
     const $link = $("#links a")[3];
 
     expect($link.outerHTML).toEqual(
-      '<a href="/link?external_url=https%3A%2F%2Fgithub.com" target="_blank" data-remote="true">This is an external link without the last slash</a>'
+      '<a href="/link?external_url=https%3A%2F%2Fgithub.com%2F" target="_blank" data-remote="true">This is an external link without the last slash</a>'
     );
   });
 });

@@ -1,14 +1,16 @@
-<section id="footer_sub_hero" class="footer__subhero extended subhero home-section">
-  <div class="row">
-    <div class="columns small-centered large-10">
-      <h3 class="heading3"><%= t("decidim.pages.home.footer_sub_hero.footer_sub_hero_headline", organization: current_organization.name) %></h3>
-      <h4 class="heading4"><%== t("decidim.pages.home.footer_sub_hero.footer_sub_hero_body") %></h4>
-      <% if current_organization.sign_up_enabled? && !current_user %>
-        <%= link_to decidim.new_user_registration_path, class: "button--sc link subhero-cta", title: t("decidim.pages.home.sub_hero.register_title") do %>
-          <%= t("decidim.pages.home.footer_sub_hero.register") %>
-          <%= icon "chevron-right", aria_hidden: true, role: "img" %>
-        <% end %>
-      <% end %>
-    </div>
+<section id="footer_sub_hero" class="home__section text-center">
+  <div class="flex justify-center mb-12">
+    <h2 class="title-decorator">
+      <%= t("decidim.pages.home.footer_sub_hero.footer_sub_hero_headline", organization: current_organization.name) %>
+    </h2>
   </div>
+  <p class="text-lg text-gray-2">
+    <%== t("decidim.pages.home.footer_sub_hero.footer_sub_hero_body") %>
+  </p>
+  <% if current_organization.sign_up_enabled? && !current_user %>
+    <%= link_to decidim.new_user_registration_path, class: "button button__sm md:button__lg button__secondary mt-4", title: t("decidim.pages.home.sub_hero.register_title") do %>
+      <%= t("decidim.pages.home.footer_sub_hero.register") %>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    <% end %>
+  <% end %>
 </section>

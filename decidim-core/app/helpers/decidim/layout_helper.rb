@@ -4,6 +4,7 @@ module Decidim
   # View helpers related to the layout.
   module LayoutHelper
     include Decidim::ModalHelper
+    include Decidim::TooltipHelper
 
     # Public: Generates a set of meta tags that generate the different favicon
     # versions for an organization.
@@ -45,7 +46,7 @@ module Decidim
     #             :class - The String to add as a CSS class (optional).
     #
     # Returns a String.
-    def redesigned_icon(name, options = {})
+    def icon(name, options = {})
       default_html_properties = {
         "width" => "1em",
         "height" => "1em",
@@ -60,54 +61,6 @@ module Decidim
 
       content_tag :svg, html_properties do
         content_tag :use, nil, "href" => "#{href}#ri-#{name}", tabindex: -1
-      end
-    end
-
-    def legacy_icon(name, options = {})
-      options = options.with_indifferent_access
-      html_properties = {}
-
-      html_properties["width"] = options[:width]
-      html_properties["height"] = options[:height]
-      html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"]
-      html_properties["role"] = options[:role] || "img"
-      html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"]
-
-      html_properties["class"] = (["icon--#{name}"] + _icon_classes(options)).join(" ")
-
-      title = options["title"] || html_properties["aria-label"]
-      if title.blank? && html_properties["role"] == "img"
-        # This will make the accessibility audit tools happy as with the "img"
-        # role, the alternative text (aria-label) and title are required for the
-        # element. This will also force the SVG to be hidden because otherwise
-        # the screen reader would announce the icon name which can be in
-        # different language (English) than the page language which is not
-        # allowed.
-        title = name
-        html_properties["aria-label"] = title
-        html_properties["aria-hidden"] = true
-      end
-
-      href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg")
-
-      content_tag :svg, html_properties do
-        inner = content_tag :title, title
-        inner += content_tag :use, nil, "href" => "#{href}#icon-#{name}"
-
-        inner
-      end
-    end
-
-    def icon(*args)
-      redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
-    end
-
-    # REDESIGN_PENDING: remove this helper
-    def arrow_link(text, url, args = {})
-      content_tag :a, href: url, class: "arrow-link #{args.with_indifferent_access[:class]}" do
-        inner = text
-        inner += redesigned_icon("arrow-right-line", class: "fill-current")
-        inner.html_safe
       end
     end
 
@@ -139,7 +92,10 @@ module Decidim
       # non-nil because otherwise it will be set to the asset host at
       # ActionView::Helpers::AssetUrlHelper#compute_asset_host.
       img_path = asset_pack_path(path, host: "", protocol: :relative)
-      Rails.public_path.join(img_path.sub(%r{^/}, ""))
+      path = Rails.public_path.join(img_path.sub(%r{^/}, ""))
+      return unless File.exist?(path)
+
+      path
     rescue ::Webpacker::Manifest::MissingEntryError
       nil
     end
@@ -178,7 +134,7 @@ module Decidim
     # Example:
     #
     # --primary: #ff0000;
-    # --primary-rgb: 255,0,0
+    # --primary-rgb: 255 0 0
     #
     # Hexadecimal variables can be used as a normal CSS color:
     #
@@ -189,8 +145,18 @@ module Decidim
     #
     # background-color: rgba(var(--primary-rgb), 0.5)
     def organization_colors
-      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex},#{v[3..4].hex},#{v[5..6].hex};" }.join
+      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex} #{v[3..4].hex} #{v[5..6].hex};" }.join
       render partial: "layouts/decidim/organization_colors", locals: { css: }
+    end
+
+    def current_user_unread_data
+      return {} if current_user.blank?
+
+      {}.tap do |d|
+        d.merge!(unread_notifications: true) if current_user.notifications.any?
+        d.merge!(unread_conversations: true) if current_user.unread_conversations.any?
+        d.merge!(unread_items: d.present?)
+      end
     end
 
     private

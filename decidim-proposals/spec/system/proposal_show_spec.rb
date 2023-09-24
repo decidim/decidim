@@ -30,21 +30,23 @@ describe "Show a Proposal", type: :system do
           visit current_path
         end
 
-        context "when I'm an admin user" do
+        context "when I am an admin user" do
           let(:user) { create(:user, :admin, :confirmed, organization:) }
 
           it "has a link to answer to the proposal at the admin" do
-            within ".topbar" do
+            within "header" do
+              expect(page).to have_css("#admin-bar")
               expect(page).to have_link("Answer", href: /.*admin.*proposal-answer.*/)
             end
           end
         end
 
-        context "when I'm a regular user" do
+        context "when I am a regular user" do
           let(:user) { create(:user, :confirmed, organization:) }
 
           it "does not have a link to answer the proposal at the admin" do
-            within ".topbar" do
+            within "header" do
+              expect(page).not_to have_css("#admin-bar")
               expect(page).not_to have_link("Answer")
             end
           end
@@ -61,8 +63,8 @@ describe "Show a Proposal", type: :system do
 
         context "when author does not restrict messaging" do
           it "includes a link to message the proposal author" do
-            within ".author-data" do
-              find_link.hover
+            within "[data-author]" do
+              find("div.author__container").hover
             end
             expect(page).to have_link("Send private message")
           end

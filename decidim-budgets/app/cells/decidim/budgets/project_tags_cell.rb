@@ -7,11 +7,11 @@ module Decidim
       private
 
       def category_path
-        resource_locator([model.budget, model]).index(filter: { category_id: [model.category.id.to_s] })
+        resource_locator([model.budget, model]).index(filter: { with_any_category: [model.category.id.to_s] })
       end
 
       def scope_path
-        resource_locator([model.budget, model]).index(filter: { scope_id: [model.scope.id] })
+        resource_locator([model.budget, model]).index(filter: { with_any_scope: [model.scope.id] })
       end
     end
   end

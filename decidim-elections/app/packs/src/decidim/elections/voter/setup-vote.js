@@ -47,7 +47,3 @@ export default function setupVoteComponent($voteWrapper) {
     voterWrapperAdapter
   });
 }
-
-window.Decidim = window.Decidim || {};
-window.Decidim.setupVoteComponent = setupVoteComponent;
-

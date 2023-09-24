@@ -7,6 +7,8 @@ module Decidim
       class CommitteeRequestsController < Decidim::Initiatives::Admin::ApplicationController
         include InitiativeAdmin
 
+        add_breadcrumb_item_from_menu :admin_initiative_actions_menu
+
         # GET /admin/initiatives/:initiative_id/committee_requests
         def index
           enforce_permission_to :index, :initiative_committee_member
@@ -41,7 +43,7 @@ module Decidim
         private
 
         def membership_request
-          @membership_request ||= InitiativesCommitteeMember.find(params[:id])
+          @membership_request ||= InitiativesCommitteeMember.where(initiative: current_participatory_space).find(params[:id])
         end
       end
     end

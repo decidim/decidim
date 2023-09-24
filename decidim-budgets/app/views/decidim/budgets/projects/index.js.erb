@@ -1,10 +1,11 @@
-var $projects = $('#projects');
+var $projects = $('#projects .budget-list');
+var $order = $('.budget__list--header .collection-sort-controls');
 var $projectsCount = $('#projects-count');
 var $orderFilterInput = $('.order_filter');
 
-$projects.html('<%= j(render partial: "projects").strip.html_safe %>');
+$projects.html('<%= j(render partial: "projects_list").strip.html_safe %>');
+$order.html('<%= j(render partial: "order").strip.html_safe %>');
 $projectsCount.html('<%= j(render partial: "count").strip.html_safe %>');
 $orderFilterInput.val('<%= order %>');
 
-var $dropdownMenu = $('.dropdown.menu', $projects);
-$dropdownMenu.foundation();
+document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $projects[0] }));

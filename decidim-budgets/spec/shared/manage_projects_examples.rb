@@ -4,7 +4,7 @@ shared_examples "manage projects" do
   describe "admin form" do
     before do
       within ".process-content" do
-        page.find(".button--title.new").click
+        click_link("New Project", class: "button")
       end
     end
 
@@ -135,13 +135,15 @@ shared_examples "manage projects" do
 
     it "shows the order count" do
       visit current_path
-      expect(page).to have_content("Finished votes: \n10")
-      expect(page).to have_content("Pending votes: \n5")
+      expect(page).to have_content("Finished votes: 10")
+      expect(page).to have_content("Pending votes: 5")
     end
   end
 
   it "creates a new project", :slow do
-    find(".card-title a.button.new").click
+    within ".bulk-actions-budgets" do
+      click_link "New Project"
+    end
 
     within ".new_project" do
       fill_in_i18n(
@@ -160,7 +162,7 @@ shared_examples "manage projects" do
       )
       fill_in :project_budget_amount, with: 22_000_000
 
-      scope_pick select_data_picker(:project_decidim_scope_id), scope
+      select translated(scope.name), from: :project_decidim_scope_id
       select translated(category.name), from: :project_decidim_category_id
 
       find("*[type=submit]").click
@@ -244,7 +246,9 @@ shared_examples "manage projects" do
     end
 
     it "creates a new project", :slow do
-      find(".card-title a.button.new").click
+      within ".bulk-actions-budgets" do
+        click_link "New Project"
+      end
 
       within ".new_project" do
         fill_in_i18n(
@@ -264,7 +268,7 @@ shared_examples "manage projects" do
         fill_in :project_budget_amount, with: 22_000_000
 
         proposals_pick(select_data_picker(:project_proposals, multiple: true), proposals.first(2))
-        scope_pick(select_data_picker(:project_decidim_scope_id), scope)
+        select translated(scope.name), from: :project_decidim_scope_id
         select translated(category.name), from: :project_decidim_category_id
 
         find("*[type=submit]").click

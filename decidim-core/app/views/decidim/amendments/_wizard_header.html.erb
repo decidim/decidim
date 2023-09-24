@@ -1,0 +1,17 @@
+<div class="flex justify-center">
+  <h1 class="title-decorator my-12">
+    <%= wizard_header_title %>
+    <%= "(#{similar_resources_count})" if local_assigns[:similar_resources_count] %>
+  </h1>
+</div>
+
+<ol id="wizard-steps" class="wizard-steps">
+  <% (1..total_steps).each do |wizard_step| %>
+    <% attributes = @current_step == wizard_step ? { "aria-current": "step" } : {} %>
+    <%= content_tag :li, t(wizard_step, scope: "decidim.amendments.wizard_step_form.steps"), attributes %>
+  <% end %>
+</ol>
+
+<% if translated_attribute_value = translated_attribute(amendable.component.settings.amendments_wizard_help_text) %>
+  <%= cell("decidim/announcement", translated_attribute_value) %>
+<% end %>

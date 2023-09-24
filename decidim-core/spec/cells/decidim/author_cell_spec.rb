@@ -15,7 +15,7 @@ describe Decidim::AuthorCell, type: :cell do
 
   context "when rendering a user" do
     it "renders a User author card" do
-      expect(subject).to have_css(".author-data")
+      expect(subject).to have_css("[data-author]")
     end
   end
 
@@ -23,7 +23,7 @@ describe Decidim::AuthorCell, type: :cell do
     let(:model) { Decidim::UserGroupPresenter.new(user_group) }
 
     it "renders a User_group author card" do
-      expect(subject).to have_css(".author-data")
+      expect(subject).to have_css("[data-author]")
     end
   end
 
@@ -31,7 +31,7 @@ describe Decidim::AuthorCell, type: :cell do
     let(:model) { Decidim::Proposals::OfficialAuthorPresenter.new }
 
     it "renders a Official author card" do
-      expect(subject).to have_css(".author-data")
+      expect(subject).to have_css("[data-author]")
     end
   end
 end

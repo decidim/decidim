@@ -8,7 +8,7 @@ describe "Static pages", type: :system do
   let!(:page2) { create(:static_page, :with_topic, organization:) }
   let!(:page3) { create(:static_page, organization:) }
   let(:user) { nil }
-  let(:pages_selector) { Decidim.redesign_active ? "div.container" : "#content" }
+  let(:pages_selector) { "#content" }
 
   before do
     switch_to_host(organization.host)
@@ -25,12 +25,6 @@ describe "Static pages", type: :system do
 
       within find(pages_selector, text: "Pages") do
         expect(page).to have_content translated(page3.title)
-      end
-    end
-
-    context "when visiting a single page with topic" do
-      it_behaves_like "accessible page" do
-        before { visit decidim.page_path(page1) }
       end
     end
 

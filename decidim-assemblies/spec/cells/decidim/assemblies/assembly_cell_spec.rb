@@ -11,7 +11,7 @@ module Decidim::Assemblies
     let(:model) { create(:assembly, :published) }
 
     it "renders the cell" do
-      expect(subject).to have_css(".card--assembly")
+      expect(subject).to have_css(".card__grid", id: "assembly_#{model.id}")
     end
   end
 end

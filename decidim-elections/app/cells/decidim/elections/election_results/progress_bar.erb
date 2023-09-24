@@ -1,16 +1,15 @@
-<div class="progress__bar">
-  <div class="evote__preview-bar">
-    <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= results_percentage %>%" aria-valuemin="0" aria-valuetext="<%= results_percentage %>% percent" aria-valuemax="100">
-      <div class="progress-meter progress__bar__bar--complete" style="width: <%= results_percentage %>%"></div>
-      <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= results_percentage %>%);"></div>
+<div>
+  <div class="flex items-center justify-between gap-2">
+    <div class="flex justify-between grow bg-gray" role="progressbar" tabindex="0" aria-labelledby="total-answers-<%= id %>" aria-valuenow="<%= results_percentage %>" aria-valuemin="0" aria-valuetext="<%= results_percentage %> %" aria-valuemax="100">
+      <div class="h-2 bg-success" style="width: <%= results_percentage %>%"></div>
     </div>
 
-    <div class="evote__preview-perc">
+    <div class="w-1/6 md:w-1/12 font-bold text-right">
       <%= t("decidim.elections.elections.results.percentage", count: results_percentage) %>
     </div>
   </div>
 
-  <div class="evote__preview-label">
+  <div id="total-answers-<%= id %>" class="text-sm font-semibold">
     <%= t("decidim.elections.elections.results.votes", count: results_total) %>
   </div>
 </div>

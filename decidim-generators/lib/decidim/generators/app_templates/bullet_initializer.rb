@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-if defined?(Bullet)
+if defined?(Bullet) && !Rails.application.config.try(:boost_performance)
   Rails.application.config.after_initialize do
     Bullet.enable = true
     Bullet.bullet_logger = true

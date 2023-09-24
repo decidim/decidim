@@ -1,0 +1,10 @@
+<span class="budget-summary__progressbar-legend budget-summary__progressbar-marks_right" data-total-allocation="<%= current_order.available_allocation %>">
+  <%= t("budget", scope: "decidim.budgets.projects.order_progress") %>
+  <strong class="budget-summary__progressbar-legend-strong">
+    <% if current_order.projects_rule? %>
+      <%= current_order.maximum_projects %>
+    <% else %>
+      <%= budget_to_currency(budget.total_budget) %>
+    <% end %>
+  </strong>
+</span>

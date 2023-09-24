@@ -24,7 +24,7 @@ describe "User group manage members", type: :system do
     end
 
     it "rejects the user that accesses manually" do
-      visit decidim.group_manage_users_path(user_group.nickname)
+      visit decidim.profile_group_members_path(user_group.nickname)
       expect(page).to have_content("You are not authorized to perform this action")
     end
   end
@@ -37,11 +37,12 @@ describe "User group manage members", type: :system do
       login_as creator, scope: :user
       visit decidim.profile_path(user_group.nickname)
 
+      click_button "Manage group"
       click_link "Manage members"
     end
 
     it "allows managing the group members" do
-      expect(page).to have_content("Current members (without admins)")
+      expect(page).to have_content("Manage members")
       expect(page).to have_content(member.name)
     end
 
@@ -59,31 +60,31 @@ describe "User group manage members", type: :system do
 
     context "with pending requests" do
       it "lists the pending requests" do
-        within ".list-request" do
+        within "#list-request" do
           expect(page).to have_content("The following users have applied to join this group")
           expect(page).to have_content(requested_user.name)
         end
       end
 
       it "allows accepting a join request" do
-        within ".list-request" do
+        within "#list-request" do
           expect(page).to have_content(requested_user.name)
           click_link "Accept"
         end
 
-        expect(page).not_to have_css(".list-request")
+        expect(page).not_to have_css("#list-request")
         expect(page).to have_content("Join request successfully accepted")
         expect(page).to have_content(requested_user.name)
-        expect(page).to have_content("Role: Member")
+        expect(page).to have_content("Member")
       end
 
       it "allows rejecting a join request" do
-        within ".list-request" do
+        within "#list-request" do
           expect(page).to have_content(requested_user.name)
           click_link "Reject"
         end
 
-        expect(page).not_to have_css(".list-request")
+        expect(page).not_to have_css("#list-request")
         expect(page).to have_content("Join request successfully rejected")
         expect(page).not_to have_content(requested_user.name)
       end

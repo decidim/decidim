@@ -1,20 +1,15 @@
-<% add_decidim_page_title(t(".meetings")) %>
-
-<div class="wrapper">
-  <div class="row">
-    <h1 class="section-heading" id="meetings-count">
-      <%= render partial: "decidim/meetings/meetings/count" %>
-    </h1>
-
-    <%= cell "decidim/meetings/meetings_map", search.result %>
-
-    <div class="columns mediumlarge-4 large-3">
-      <div class="card card--secondary show-for-mediumlarge">
-          <%= render partial: "filters" %>
-      </div>
-    </div>
-    <div id="meetings" class="columns mediumlarge-8 large-9">
-      <%= render partial: "meetings" %>
-    </div>
-  </div>
-</div>
+<%= render partial: "decidim/meetings/shared/index", locals: {
+      display_map: Decidim::Map.available?(:geocoding, :dynamic),
+      display_announcement: false,
+      component: nil,
+      search_variable: :title_or_description_cont,
+      filter_options: {
+        date: !@forced_past_meetings,
+        type: true,
+        directory_scopes: true,
+        directory_categories: true,
+        origin: true,
+        space_type: true,
+        activity: current_user.present?
+      }
+    } %>

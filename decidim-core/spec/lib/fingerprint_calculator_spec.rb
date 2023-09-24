@@ -9,7 +9,7 @@ module Decidim
       calculator2 = described_class.new(foo: "bar")
       calculator3 = described_class.new(bar: "baz")
 
-      expect(calculator1.value).to be_a_kind_of(String)
+      expect(calculator1.value).to be_a(String)
       expect(calculator2.value).to eq(calculator1.value)
       expect(calculator3.value).not_to eq(calculator1.value)
     end

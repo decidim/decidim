@@ -1,0 +1,19 @@
+<%= link_to resource_path, class: classes[:default], id: resource_id do %>
+  <div class="<%= classes[:img] %>">
+    <% if has_image? %>
+      <%= image_tag resource_image_path, alt: alt_title %>
+    <% else %>
+      <%= icon "placeholder-card-g", class: "w-full h-full fill-primary" %>
+    <% end %>
+  </div>
+  <div class="<%= classes[:text] %>">
+    <%= content_tag title_tag, title, class: title_class %>
+    <%= description if show_description? %>
+
+    <% if metadata_cell.present? %>
+      <div class="<%= classes[:metadata] %>">
+        <%= cell metadata_cell, resource, links: false, **options %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

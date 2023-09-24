@@ -386,5 +386,41 @@ module Decidim
         end
       end
     end
+
+    describe "javascript sanity" do
+      let(:path) { "#{Decidim::Core::Engine.root}/app/packs/src/decidim/map" }
+      let(:files) { Dir.glob("#{path}/**/*.js") }
+      let(:provider_files) { Dir.glob("#{path}/provider/**/*.js") }
+      let(:non_provider_files) { files - provider_files }
+
+      # This is to ensure that this spec is still relevant in case the map files
+      # are moved to some other place.
+      it "files exist" do
+        expect(provider_files.count).to be_positive
+        expect(non_provider_files.count).to be_positive
+      end
+
+      # Leaflet should be only imported as-is, not as an imported variable. This
+      # is because the library registers globals for the window and any
+      # references to Leaflet should happen through the same constant.
+      it "imports leaflet in provider files correctly" do
+        provider_files.each do |file|
+          expect(File.read(file)).not_to match(/^import \* as L from "leaflet";?$/), %(Leaflet should be imported using `import "leaflet"`)
+          expect(File.read(file)).to match(/^import "leaflet";?$/), %(Leaflet should be imported using `import "leaflet"`)
+        end
+      end
+
+      # It is known to cause issues in case the Leaflet library is imported
+      # several times across multiple files due to the way the library registers
+      # the globals available through the `window` object. If Leaflet is loaded
+      # multiple times, it is possible that some of its dependencies, such as
+      # the icon or Here tilelayer stop working.
+      it "does not import Leaflet in non-provider files" do
+        non_provider_files.each do |file|
+          expect(File.read(file)).not_to match(/^import \* as L from "leaflet";?$/), "Leaflet should not be imported in non-provider files"
+          expect(File.read(file)).not_to match(/^import "leaflet";?$/), "Leaflet should not be imported in non-provider files"
+        end
+      end
+    end
   end
 end

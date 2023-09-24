@@ -1,20 +1,9 @@
-<%= render("focus_header", header_title: t("decidim.elections.votes.header.encrypting")) %>
-<div class="focus__content evote">
-  <div class="row">
-    <h1 class="heading2">
-      <%= t("decidim.elections.votes.encrypting.header") %>
-    </h1>
-    <div class="evote__encrypting" aria-hidden="true">
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-      <div class="evote__dot"></div>
-    </div>
-    <p>
-      <%= t("decidim.elections.votes.encrypting.text") %>
-    </p>
-  </div>
+<div class="flex flex-col items-center gap-14 py-14">
+  <h1 class="h1">
+    <%= t("decidim.elections.votes.encrypting.header") %>
+  </h1>
+  <%= icon "fingerprint-line", class: "w-40 h-40 text-tertiary animate-pulse fill-current" %>
+  <p class="text-lg font-semibold text-gray-2">
+    <%= t("decidim.elections.votes.encrypting.text") %>
+  </p>
 </div>

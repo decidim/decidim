@@ -5,6 +5,7 @@ module Decidim
   class ProfilesController < Decidim::ApplicationController
     include UserGroups
     include Flaggable
+    include HasProfileBreadcrumb
 
     helper Decidim::Messaging::ConversationHelper
 
@@ -14,8 +15,6 @@ module Decidim
     before_action :ensure_profile_holder_is_a_group, only: [:members]
     before_action :ensure_profile_holder_is_a_user, only: [:groups, :following]
     before_action :ensure_user_not_blocked
-
-    redesign active: true
 
     def show
       return redirect_to profile_members_path if profile_holder.is_a?(Decidim::UserGroup)
@@ -54,6 +53,30 @@ module Decidim
 
       @content_cell = "decidim/members"
       @title_key = "members"
+      render :show
+    end
+
+    def group_admins
+      enforce_permission_to :manage, :user_group, user_group: profile_holder
+
+      @content_cell = "decidim/group_admins"
+      @title_key = "group_admins"
+      render :show
+    end
+
+    def group_members
+      enforce_permission_to :manage, :user_group, user_group: profile_holder
+
+      @content_cell = "decidim/group_members"
+      @title_key = "group_members"
+      render :show
+    end
+
+    def group_invites
+      enforce_permission_to :manage, :user_group, user_group: profile_holder
+
+      @content_cell = "decidim/group_invites"
+      @title_key = "group_invites"
       render :show
     end
 

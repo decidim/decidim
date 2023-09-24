@@ -8,6 +8,7 @@ describe "Admin reports user", type: :system do
   let(:reportable_path) { decidim.profile_path(reportable.nickname) }
 
   before do
+    allow(Decidim).to receive(:redesign_active).and_return(true)
     switch_to_host(admin.organization.host)
     login_as admin, scope: :user
   end
@@ -16,18 +17,19 @@ describe "Admin reports user", type: :system do
     it "is redirected to admin panel" do
       visit reportable_path
 
-      expect(page).to have_selector(".profile--sidebar")
+      selector = Decidim.redesign_active ? ".profile__actions-secondary" : ".profile--sidebar"
+      expect(page).to have_selector(selector)
 
-      within ".profile--sidebar", match: :first do
-        page.find("button").click
+      within selector, match: :first do
+        click_button
       end
 
       expect(page).to have_css(".flag-modal", visible: :visible)
 
       within ".flag-modal" do
         find(:css, "input[name='report[block]']").set(true)
-        expect(page).to have_css("input[name='report[block]']", visible: :visible)
-        expect(page).to have_css("input[name='report[hide]']", visible: :visible)
+        expect(page).to have_field(name: "report[block]", visible: :visible)
+        expect(page).to have_field(name: "report[hide]", visible: :visible)
         click_button I18n.t("decidim.shared.flag_user_modal.block")
       end
 
@@ -39,10 +41,11 @@ describe "Admin reports user", type: :system do
     it "is redirected to admin panel" do
       visit reportable_path
 
-      expect(page).to have_selector(".profile--sidebar")
+      selector = Decidim.redesign_active ? ".profile__actions-secondary" : ".profile--sidebar"
+      expect(page).to have_selector(selector)
 
-      within ".profile--sidebar", match: :first do
-        page.find("button").click
+      within selector, match: :first do
+        click_button
       end
 
       expect(page).to have_css(".flag-modal", visible: :visible)
@@ -50,8 +53,8 @@ describe "Admin reports user", type: :system do
       within ".flag-modal" do
         find(:css, "input[name='report[block]']").set(true)
         find(:css, "input[name='report[hide]']").set(true)
-        expect(page).to have_css("input[name='report[block]']", visible: :visible)
-        expect(page).to have_css("input[name='report[hide]']", visible: :visible)
+        expect(page).to have_field(name: "report[block]", visible: :visible)
+        expect(page).to have_field(name: "report[hide]", visible: :visible)
         click_button I18n.t("decidim.shared.flag_user_modal.block")
       end
 

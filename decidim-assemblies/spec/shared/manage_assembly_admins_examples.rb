@@ -14,7 +14,9 @@ shared_examples "manage assembly admins examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    click_link "Assembly admins"
+    within_admin_menu do
+      click_link "Assembly admins"
+    end
   end
 
   it "shows assembly admin list" do
@@ -24,7 +26,7 @@ shared_examples "manage assembly admins examples" do
   end
 
   it "creates a new assembly admin" do
-    find(".card-title a.new").click
+    click_link "New Assembly admin"
 
     within ".new_assembly_user_role" do
       fill_in :assembly_user_role_email, with: other_user.email
@@ -47,7 +49,7 @@ shared_examples "manage assembly admins examples" do
       visit current_path
     end
 
-    it "updates a assembly admin" do
+    it "updates an assembly admin" do
       within "#assembly_admins" do
         within find("#assembly_admins tr", text: other_user.email) do
           click_link "Edit"
@@ -67,7 +69,7 @@ shared_examples "manage assembly admins examples" do
       end
     end
 
-    it "deletes a assembly_user_role" do
+    it "deletes an assembly_user_role" do
       within find("#assembly_admins tr", text: other_user.email) do
         accept_confirm { click_link "Delete" }
       end

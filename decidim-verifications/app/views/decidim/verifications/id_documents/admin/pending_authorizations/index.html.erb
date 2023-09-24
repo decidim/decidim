@@ -1,9 +1,10 @@
+<% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t(".title") %>
-        <%= link_to t(".config"), edit_config_path, class: "button tiny button--title" %>
-        <%= link_to t(".offline_verification"), new_offline_confirmation_path, class: "button tiny button--title" if has_offline_method? %>
+        <%= link_to t(".config"), edit_config_path, class: "button button__sm button__secondary" %>
+        <%= link_to t(".offline_verification"), new_offline_confirmation_path, class: "button button__sm button__secondary" if has_offline_method? %>
     </h2>
   </div>
   <div class="card-section">

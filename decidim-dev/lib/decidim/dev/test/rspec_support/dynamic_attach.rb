@@ -12,16 +12,31 @@ module Capybara
 
       yield if block_given?
 
+      front_interface = options.fetch(:front_interface, true)
+
       within ".upload-modal" do
-        find(".remove-upload-item").click if options[:remove_before]
+        click_remove(front_interface) if options[:remove_before]
         input_element = find("input[type='file']", visible: :all)
         input_element.attach_file(file_location)
         within "[data-filename='#{filename}']" do
-          expect(page).to have_css("div.progress-bar.filled", wait: 5)
+          expect(page).to have_css(filled_selector(front_interface), wait: 5)
+          expect(page).to have_content(filename.first(12)) if front_interface
         end
-        all("input.attachment-title").last.set(options[:title]) if options.has_key?(:title)
-        click_button "Save" unless options[:keep_modal_open]
+        all(title_input(front_interface)).last.set(options[:title]) if options.has_key?(:title)
+        click_button(front_interface ? "Next" : "Save") unless options[:keep_modal_open]
       end
+    end
+
+    def filled_selector(front_interface)
+      front_interface ? "li progress[value='100']" : "div.progress-bar.filled"
+    end
+
+    def title_input(front_interface)
+      front_interface ? "input[type='text']" : "input.attachment-title"
+    end
+
+    def click_remove(front_interface)
+      front_interface ? click_button("Remove") : find(".remove-upload-item").click
     end
   end
 end

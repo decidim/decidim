@@ -7,11 +7,10 @@ module Decidim
     include UserGroups
     include FilterResource
     include Flaggable
+    include HasProfileBreadcrumb
 
     helper Decidim::ResourceHelper
     helper_method :activities, :resource_types, :user
-
-    redesign active: true
 
     def index
       raise ActionController::RoutingError, "Missing user: #{params[:nickname]}" unless user
@@ -64,8 +63,7 @@ module Decidim
                    Decidim::Initiative
                    Decidim::Meetings::Meeting
                    Decidim::Blogs::Post
-                   Decidim::Proposals::Proposal
-                   Decidim::Consultations::Question)
+                   Decidim::Proposals::Proposal)
         array << "Decidim::Budgets::Order" if own_activities?
         array
       end

@@ -49,10 +49,10 @@ module Decidim
         it "renders a sanitized body" do
           expect(subject).to eq(
             <<~HTML.strip
-              <div>• First
+              <p>• First
               <br />• Second
               <br />• Third
-              </div>
+              </p>
             HTML
           )
         end
