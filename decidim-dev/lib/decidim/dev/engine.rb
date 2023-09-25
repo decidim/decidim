@@ -7,6 +7,18 @@ module Decidim
       isolate_namespace Decidim::Dev
       engine_name "decidim_dev"
 
+      initializer "decidim_dev.mount_routes" do |_app|
+        Decidim::Core::Engine.routes do
+          namespace :design do
+            get "forms", to: "forms#index"
+            get "cards", to: "cards#index"
+            get "spacing", to: "spacing#index"
+
+            root to: "home#index"
+          end
+        end
+      end
+
       initializer "decidim_dev.tools" do
         # Disable if the boost performance mode is enabled
         next if Rails.application.config.try(:boost_performance)

@@ -197,18 +197,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_dev.mount_routes" do |_app|
-        Decidim::Core::Engine.routes do
-          namespace :design do
-            get "forms", to: "forms#index"
-            get "cards", to: "cards#index"
-            get "spacing", to: "spacing#index"
-
-            root to: "home#index"
-          end
-        end
-      end
-
       initializer "decidim_core.stats" do
         Decidim.stats.register :users_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, start_at, end_at|
           StatsUsersCount.for(organization, start_at, end_at)
