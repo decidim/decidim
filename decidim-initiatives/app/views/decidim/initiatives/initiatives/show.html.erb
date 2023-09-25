@@ -205,9 +205,6 @@ edit_link(
   <% end %>
   <div class="ml-auto">
     <%= cell "decidim/share_button", nil %>
-    <% if current_user %>
-      <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: current_participatory_space, large: true } %>
-    <% end %>
   </div>
 </section>
 
