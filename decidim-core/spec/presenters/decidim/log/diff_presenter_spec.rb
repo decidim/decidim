@@ -3,10 +3,21 @@
 require "spec_helper"
 
 describe Decidim::Log::DiffPresenter, type: :helper do
-  subject { described_class.new(changeset, helper, options).present }
+  subject { described_class.new(changeset, helper, action_log, options).present }
 
   let(:user) { create(:user) }
   let(:type) { nil }
+  let(:action_log) do
+    create(
+      :action_log,
+      user:,
+      action:,
+      resource:,
+      created_at: Date.new(2018, 1, 2).at_midnight
+    )
+  end
+  let(:action) { :create }
+  let(:resource) { create(:dummy_resource) }
   let(:changeset) do
     [
       {
