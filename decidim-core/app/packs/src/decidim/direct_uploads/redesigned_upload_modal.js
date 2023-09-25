@@ -133,6 +133,7 @@ export default class UploadModal {
     this.items.push(file)
     this.uploadItems.appendChild(item);
     this.autoloadImage(item, file)
+    this.updateDropZone();
   }
 
   getOrdinalNumber() {
@@ -215,7 +216,7 @@ export default class UploadModal {
       <li ${attachmentId} data-filename="${file.name}" data-state="${state}">
         <div data-template="${template}">
           ${content.trim()}
-          <button class="upload-modal__dropzone-file-remove">${this.locales.remove}</button>
+          <button>${this.locales.remove}</button>
         </div>
         <progress max="100" value="${opts.value || 0}"></progress>
       </li>`

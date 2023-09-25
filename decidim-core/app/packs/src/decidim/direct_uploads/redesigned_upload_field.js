@@ -113,8 +113,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // whenever the input fields changes, process the files
     modal.input.addEventListener("change", (event) => modal.uploadFiles(event.target.files));
 
-    // update the modal title if there are files uploaded
-    modal.button.addEventListener("click", (event) => event.preventDefault() || updateModalTitle(modal));
+    // update the modal title if there are files uploaded and load files (if previously deleted after clicking cancel)
+    modal.button.addEventListener("click", async function(event) {
+      event.preventDefault();
+      if (modal.items.length === 0) {
+        [...files.children].forEach((child) => modal.preloadFiles(child));
+      }
+      updateModalTitle(modal);
+    });
 
     // avoid browser to open the file
     modal.dropZone.addEventListener("dragover", (event) => event.preventDefault() || highlightDropzone(modal));
@@ -124,11 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // update the DOM with the validated items from the modal
     modal.saveButton.addEventListener("click", (event) => event.preventDefault() || updateActiveUploads(modal));
-    document.addEventListener("click", function (event) {
-      if (event.target.matches("button.upload-modal__dropzone-file-remove")) {
-        event.preventDefault();
-        updateActiveUploads(modal);
-      }
-    }, false);
+    // remove the uploaded files if cancel button is clicked
+    modal.cancelButton.addEventListener("click", (event) => event.preventDefault() || modal.cleanAllFiles());
   })
 })
