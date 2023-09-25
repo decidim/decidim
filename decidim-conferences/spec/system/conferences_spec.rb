@@ -141,6 +141,14 @@ describe "Conferences", type: :system do
       visit decidim_conferences.conference_path(conference)
     end
 
+    describe "follow button" do
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let(:followable) { conference }
+      let(:followable_path) { decidim_conferences.conference_path(conference) }
+
+      include_examples "follows"
+    end
+
     describe "conference venues" do
       before do
         meetings.empty?

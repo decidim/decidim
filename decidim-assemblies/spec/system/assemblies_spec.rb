@@ -166,6 +166,14 @@ describe "Assemblies", type: :system do
         visit decidim_assemblies.assembly_path(assembly)
       end
 
+      describe "follow button" do
+        let!(:user) { create(:user, :confirmed, organization:) }
+        let(:followable) { assembly }
+        let(:followable_path) { decidim_assemblies.assembly_path(assembly) }
+
+        include_examples "follows"
+      end
+
       context "when hero, main_data extra_data, metadata and dates_metadata blocks are enabled" do
         let(:blocks_manifests) { [:hero, :main_data, :extra_data, :metadata, :dates_metadata] }
 
@@ -218,15 +226,6 @@ describe "Assemblies", type: :system do
         it_behaves_like "has attachments content blocks" do
           let(:attached_to) { assembly }
         end
-      end
-
-      context "when last activities block enabled" do
-        let!(:user) { create(:user, :confirmed, organization:) }
-        let(:blocks_manifests) { [:last_activity] }
-        let(:followable) { assembly }
-        let(:followable_path) { decidim_assemblies.assembly_path(assembly) }
-
-        include_examples "follows"
       end
 
       context "when having rich content" do
