@@ -8,6 +8,7 @@ Decidim.register_component(:proposals) do |component|
   component.admin_engine = Decidim::Proposals::AdminEngine
   component.stylesheet = "decidim/proposals/proposals"
   component.icon = "media/images/decidim_proposals.svg"
+  component.icon_key = "chat-new-line"
 
   component.on(:before_destroy) do |instance|
     raise "Cannot destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?

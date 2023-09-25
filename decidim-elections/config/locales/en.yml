@@ -875,6 +875,7 @@ en:
             monitoring_committee_verify_elections: Verify Elections
             polling_officers: Polling Officers
             polling_stations: Polling Stations
+            see_voting: See voting
         models:
           ballot_style:
             fields:
@@ -901,7 +902,6 @@ en:
           voting:
             fields:
               created_at: Created at
-              promoted: Highlighted
               published: Published
               title: Title
         monitoring_committee_election_results:

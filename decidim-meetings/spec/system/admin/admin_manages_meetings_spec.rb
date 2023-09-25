@@ -32,7 +32,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       visit current_path
 
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-        accept_confirm(admin: true) { click_link "Unpublish" }
+        accept_confirm { click_link "Unpublish" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -265,8 +265,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(page).to have_current_path(meeting_path)
   end
 
-  it "creates a new meeting", :serves_geocoding_autocomplete, :slow do
-    find(".card-title a.button").click
+  it "creates a new meeting", :serves_geocoding_autocomplete do
+    click_link "New meeting"
 
     fill_in_i18n(
       :meeting_title,
@@ -308,7 +308,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
     fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
-    scope_pick select_data_picker(:meeting_decidim_scope_id), scope
+    select translated(scope.name), from: :meeting_decidim_scope_id
     select translated(category.name), from: :meeting_decidim_category_id
 
     within ".new_meeting" do
@@ -334,7 +334,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
       before do
         # Prepare the view for submission (other than the address field)
-        find(".card-title a.button").click
+        click_link "New meeting"
 
         fill_in_i18n(
           :meeting_title,
@@ -377,7 +377,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   end
 
   it "lets the user choose the meeting type" do
-    find(".card-title a.button").click
+    click_link "New meeting"
 
     within ".new_meeting" do
       select "In person", from: :meeting_type_of_meeting
@@ -398,7 +398,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   end
 
   it "lets the user choose the registration type" do
-    find(".card-title a.button").click
+    click_link "New meeting"
 
     within ".new_meeting" do
       select "Registration disabled", from: :meeting_registration_type
@@ -421,7 +421,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     it "deletes a meeting" do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting2).title) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -467,7 +467,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
 
     it "does not display error message when opening meeting's create form" do
-      find(".card-title a.button").click
+      click_link "New meeting"
 
       within "label[for='meeting_registration_type']" do
         expect(page).not_to have_content("There is an error in this field.")
@@ -475,7 +475,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
 
     it "creates a new meeting", :slow do
-      find(".card-title a.button").click
+      click_link "New meeting"
 
       fill_in_i18n(
         :meeting_title,
@@ -515,7 +515,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
       fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
-      scope_pick select_data_picker(:meeting_decidim_scope_id), scope
+      select translated(scope.name), from: :meeting_decidim_scope_id
       select translated(category.name), from: :meeting_decidim_category_id
 
       within ".new_meeting" do

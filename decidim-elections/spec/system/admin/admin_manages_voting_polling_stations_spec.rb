@@ -12,7 +12,9 @@ describe "Admin manages polling stations", serves_geocoding_autocomplete: true, 
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    click_link "Polling Stations"
+    within_admin_menu do
+      click_link "Polling Stations"
+    end
   end
 
   include_context "when admin managing a voting"
@@ -146,7 +148,7 @@ describe "Admin manages polling stations", serves_geocoding_autocomplete: true, 
 
     it "can delete a polling station from a voting" do
       within find("tr", text: translated(polling_station.title)) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

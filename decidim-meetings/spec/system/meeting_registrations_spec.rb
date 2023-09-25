@@ -306,7 +306,7 @@ describe "Meeting registrations", type: :system do
         it "shows errors for invalid file" do
           visit questionnaire_public_path
 
-          dynamically_attach_file("questionnaire_responses_0_add_documents", Decidim::Dev.asset("verify_user_groups.csv"), front_interface: true)
+          dynamically_attach_file("questionnaire_responses_0_add_documents", Decidim::Dev.asset("verify_user_groups.csv"))
 
           expect(page).to have_field("public_participation", checked: false)
           find("#questionnaire_tos_agreement").set(true)

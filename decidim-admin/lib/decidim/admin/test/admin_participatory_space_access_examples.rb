@@ -2,7 +2,8 @@
 
 shared_examples "accessing the participatory space" do
   it "shows the page" do
-    expect(page).to have_content("View public page")
+    # Since the button now contains dynamic text, we have to check the href
+    expect(page).to have_css("[href='#{resource_locator(try(:participatory_space) || try(:participatory_process)).path.split("?").first}']", text: "See")
     expect(page).to have_content("My space")
   end
 end

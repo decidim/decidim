@@ -12,7 +12,9 @@ describe "Admin manages polling officers", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    click_link "Polling Officers"
+    within_admin_menu do
+      click_link "Polling Officers"
+    end
   end
 
   context "when listing the polling officers" do
@@ -121,7 +123,7 @@ describe "Admin manages polling officers", type: :system do
   context "when deleting a polling officer" do
     it "deletes the polling officer" do
       within find("#polling_officers tr", text: other_user.email) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

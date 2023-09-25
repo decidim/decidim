@@ -6,7 +6,12 @@ module Decidim
       # Controller that allows managing participatory process groups.
       #
       class ParticipatoryProcessGroupsController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
+        include Decidim::TranslatableAttributes
+
         helper ProcessesForSelectHelper
+
+        before_action :set_controller_breadcrumb
+        add_breadcrumb_item_from_menu :admin_participatory_processes_menu
 
         helper_method :collection, :participatory_process_group
 
@@ -79,6 +84,17 @@ module Decidim
         end
 
         private
+
+        def set_controller_breadcrumb
+          return unless collection.exists?(params[:id])
+
+          controller_breadcrumb_items.append(
+            label: translated_attribute(participatory_process_group.title),
+            url: edit_participatory_process_group_path(participatory_process_group),
+            active: true,
+            resource: participatory_process_group
+          )
+        end
 
         def participatory_process_group
           @participatory_process_group ||= collection.find(params[:id])

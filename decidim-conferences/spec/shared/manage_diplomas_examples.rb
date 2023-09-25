@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 def visit_edit_diplomas_page
-  within ".secondary-nav" do
-    page.click_link "Certificate of Attendance"
-  end
+  click_button(id: "conference-menu-trigger")
+  page.click_link "Certificate of Attendance"
 end
 
 shared_examples "manage diplomas" do
@@ -49,10 +48,8 @@ shared_examples "manage diplomas" do
         end
 
         it "can send the diplomas" do
-          within ".card-title" do
-            expect(page).to have_selector("#send-diplomas")
-            expect(page).to have_content("Send certificates of attendance")
-          end
+          expect(page).to have_selector("#send-diplomas")
+          expect(page).to have_content("Send certificates of attendance")
         end
 
         it "is successfully created" do
@@ -75,10 +72,9 @@ shared_examples "manage diplomas" do
             click_link "Configure"
           end
           visit_edit_diplomas_page
-          within ".card-title" do
-            expect(page).to have_selector("#send-diplomas.disabled")
-            expect(page).to have_content("Send certificates of attendance")
-          end
+
+          expect(page).to have_selector("#send-diplomas.disabled")
+          expect(page).to have_content("Send certificates of attendance")
         end
       end
     end
@@ -91,10 +87,9 @@ shared_examples "manage diplomas" do
           click_link "Configure"
         end
         visit_edit_diplomas_page
-        within ".card-title" do
-          expect(page).not_to have_selector("#send-diplomas")
-          expect(page).to have_content("Certificate of Attendance")
-        end
+
+        expect(page).not_to have_selector("#send-diplomas")
+        expect(page).to have_content("Certificate of Attendance")
       end
     end
   end

@@ -10,6 +10,7 @@ en:
   decidim:
     admin:
       menu:
+        manage: Manage
         templates: Templates
       templates:
         apply:
@@ -63,7 +64,6 @@ en:
             empty: There are no questions yet.
             questionnaire: Questionnaire
           form:
-            save: Save
             template_title: Template information
             title: Questionnaire template %{questionnaire_for}
           index:
