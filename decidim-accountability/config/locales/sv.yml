@@ -75,6 +75,9 @@ sv:
               </li>
               </ol>
             title: Importera resultat från CSV
+        imports:
+          create:
+            success: Importen av filen har påbörjats. Inom några minuter kommer du att få ett e-postmeddelande med importresultatet.
         models:
           result:
             name: Resultat
