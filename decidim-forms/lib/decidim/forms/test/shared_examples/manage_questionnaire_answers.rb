@@ -80,14 +80,14 @@ shared_examples_for "manage questionnaire answers" do
         let!(:answer_option) { create :answer_option, question: first }
         let!(:answer_choice) { create :answer_choice, answer: answer1, answer_option:, body: translated(answer_option.body, locale: I18n.locale) }
 
-        before do
-          find_all("a.action-icon.action-icon--eye").first.click
-        end
-
         it "shows the answers page with custom body" do
-          within "#answers" do
-            expect(page).to have_css("dt", text: translated(first.body))
-            expect(page).to have_css("li", text: translated(answer_option.body))
+          new_window = window_opened_by { find_all("a.action-icon.action-icon--eye").first.click }
+
+          page.within_window(new_window) do
+            within "#answers" do
+              expect(page).to have_css("dt", text: translated(first.body))
+              expect(page).to have_css("li", text: translated(answer_option.body))
+            end
           end
         end
       end

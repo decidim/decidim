@@ -100,8 +100,6 @@ en:
           all: All
           cancelled: Cancelled
           category: Category
-          category_prompt: Select a category
-          search: Search
           state: Status
         linked_sortitions:
           selected_proposals: Selected proposals

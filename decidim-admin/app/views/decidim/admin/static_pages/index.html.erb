@@ -1,8 +1,20 @@
 <% add_decidim_page_title(t("pages", scope: "decidim.admin.titles")) %>
+
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t("pages", scope: "decidim.admin.titles") %>
+
+    <%= link_to t("static_page_topics.new.create", scope: "decidim.admin"), [:new, :static_page_topic], class: "button button__sm button__secondary expanded small new" %>
+    <%= link_to t("static_pages.new.create", scope: "decidim.admin"), [:new, :static_page], class: "button button__sm button__secondary expanded small new" %>
+  </h2>
+</div>
+
 <% @topics.each do |topic| %>
   <%= render partial: "topic", locals: { pages: topic.pages, topic: } %>
 <% end %>
 
 <% if @orphan_pages.any? %>
-  <%= render partial: "topic", locals: { pages: @orphan_pages, topic: nil } %>
+  <div class="mt-4">
+    <%= render partial: "topic", locals: { pages: @orphan_pages, topic: nil } %>
+  </div>
 <% end %>

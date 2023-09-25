@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-divider">
+  <div class="card-divider mb-4">
     <h2 class="card-title">
       <%= link_to "#{t("title", scope: "decidim.admin.moderations.index")} > ", moderations_path %>
       <%= t(".title") %>
@@ -8,7 +8,7 @@
   <div class="card-section moderation-details">
     <div class="callout warning">
       <%= icon "info" %>
-      <span class="callout-text"><%= t(".callout_html", icon: icon("flag")) %></span>
+      <span class="callout-text"><%= t(".callout_html", icon: icon("flag-line")) %></span>
     </div>
     <dl>
       <dt><%= t("models.moderation.fields.reported_content_url", scope: "decidim.moderations") %></dt>
@@ -80,7 +80,7 @@
               <td><%= report.locale.present? ? locale_name(report.locale) : "" %></td>
               <td><%= report.details&.truncate(250) %></td>
               <td class="actions">
-                <%= icon_link_to "fullscreen-enter",
+                <%= icon_link_to "fullscreen-line",
                                   moderation_report_path(moderation_id: moderation, id: report.id),
                                   t("actions.expand", scope: "decidim.moderations"),
                                   class: "action-icon--expand" %>
@@ -90,17 +90,16 @@
         </tbody>
       </table>
     </div>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
+        <%= link_to t("actions.unreport", scope: "decidim.moderations"), unreport_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary" %>
+      <% end %>
+      <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
+        <%= link_to t("actions.hide", scope: "decidim.moderations"), hide_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary alert" %>
+      <% end %>
+      <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
+        <%= link_to t("actions.unhide", scope: "decidim.moderations"), unhide_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary alert" %>
+      <% end %>
+    </div>
   </div>
-</div>
-
-<div class="button--double form-general-submit">
-  <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
-    <%= link_to t("actions.unreport", scope: "decidim.moderations"), unreport_moderation_path(id: moderation), method: :put, class: "button" %>
-  <% end %>
-  <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
-    <%= link_to t("actions.hide", scope: "decidim.moderations"), hide_moderation_path(id: moderation), method: :put, class: "button alert" %>
-  <% end %>
-  <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
-    <%= link_to t("actions.unhide", scope: "decidim.moderations"), unhide_moderation_path(id: moderation), method: :put, class: "button alert" %>
-  <% end %>
 </div>

@@ -84,11 +84,11 @@ module Decidim
       end
 
       initializer "decidim_initiatives_admin.menu" do
-        Decidim.menu :admin_menu do |menu|
+        Decidim.menu :admin_menu_modules do |menu|
           menu.add_item :initiatives,
                         I18n.t("menu.initiatives", scope: "decidim.admin"),
                         decidim_admin_initiatives.initiatives_path,
-                        icon_name: "chat",
+                        icon_name: "lightbulb-flash-line",
                         position: 2.4,
                         active: is_active_link?(decidim_admin_initiatives.initiatives_path) ||
                                 is_active_link?(decidim_admin_initiatives.initiatives_types_path) ||
@@ -123,33 +123,46 @@ module Decidim
           menu.add_item :edit_initiative,
                         I18n.t("menu.information", scope: "decidim.admin"),
                         decidim_admin_initiatives.edit_initiative_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_initiatives.edit_initiative_path(current_participatory_space)),
+                        icon_name: "tools-line",
                         if: allowed_to?(:edit, :initiative, initiative: current_participatory_space)
 
           menu.add_item :initiative_committee_requests,
                         I18n.t("menu.committee_members", scope: "decidim.admin"),
                         decidim_admin_initiatives.initiative_committee_requests_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_initiatives.initiative_committee_requests_path(current_participatory_space)),
+                        icon_name: "group-line",
                         if: current_participatory_space.promoting_committee_enabled? && allowed_to?(:manage_membership, :initiative, initiative: current_participatory_space)
 
           menu.add_item :components,
                         I18n.t("menu.components", scope: "decidim.admin"),
                         decidim_admin_initiatives.components_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_initiatives.components_path(current_participatory_space)),
-                        if: allowed_to?(:read, :component, initiative: current_participatory_space),
-                        submenu: { target_menu: :admin_initiatives_components_menu, options: { container_options: { id: "components-list" } } }
+                        icon_name: "layout-masonry-line",
+                        if: allowed_to?(:read, :component, initiative: current_participatory_space)
 
           menu.add_item :initiative_attachments,
                         I18n.t("menu.attachments", scope: "decidim.admin"),
                         decidim_admin_initiatives.initiative_attachments_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_initiatives.initiative_attachments_path(current_participatory_space)),
+                        icon_name: "attachment-2",
                         if: allowed_to?(:read, :attachment, initiative: current_participatory_space)
 
           menu.add_item :moderations,
                         I18n.t("menu.moderations", scope: "decidim.admin"),
                         decidim_admin_initiatives.moderations_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_initiatives.moderations_path(current_participatory_space)),
+                        icon_name: "flag-line",
                         if: allowed_to?(:read, :moderation)
+        end
+      end
+
+      initializer "decidim_initiatives_admin.initiative_actions_menu" do
+        Decidim.menu :admin_initiative_actions_menu do |menu|
+          menu.add_item :answer_initiative,
+                        I18n.t("actions.answer", scope: "decidim.initiatives"),
+                        decidim_admin_initiatives.edit_initiative_answer_path(current_participatory_space),
+                        if: allowed_to?(:answer, :initiative, initiative: current_participatory_space)
+
+          menu.add_item :initiative_permissions,
+                        I18n.t("actions.permissions", scope: "decidim.admin"),
+                        decidim_admin_initiatives.edit_initiative_permissions_path(current_participatory_space, resource_name: :initiative),
+                        if: current_participatory_space.allow_resource_permissions? && allowed_to?(:update, :initiative, initiative: current_participatory_space)
         end
       end
 

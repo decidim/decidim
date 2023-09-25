@@ -7,6 +7,14 @@ module Decidim
 
       delegate :month, to: :start_date
 
+      def show
+        render if meetings_in_this_month?
+      end
+
+      def meetings_in_this_month?
+        meetings.collect(&:start_time).map { |date| date.strftime("%m").to_i }.any? month
+      end
+
       def month_days
         start_date.to_date.all_month
       end

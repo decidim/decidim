@@ -11,12 +11,14 @@ describe "Admin manages trustees", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit_component_admin
-    click_link "Trustees"
+    within_admin_menu do
+      click_link "Trustees"
+    end
   end
 
   context "without existing trustee" do
     it "creates a new trustee" do
-      find(".card-title a.new").click
+      click_link "New Trustee"
 
       within ".new_trustee" do
         autocomplete_select "#{user.name} (@#{user.nickname})", from: :user_id
@@ -92,7 +94,7 @@ describe "Admin manages trustees", type: :system do
     end
 
     it "removes trustee" do
-      accept_confirm(admin: true) do
+      accept_confirm do
         page.first("a.action-icon--remove").click
       end
 

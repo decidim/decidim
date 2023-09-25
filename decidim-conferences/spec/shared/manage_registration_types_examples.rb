@@ -7,6 +7,7 @@ shared_examples "manage registration types examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
+    click_button(id: "conference-menu-trigger")
     click_link "Registration Types"
   end
 
@@ -48,7 +49,7 @@ shared_examples "manage registration types examples" do
 
     it "deletes the conference registration type" do
       within find("#registration_types tr", text: translated(registration_type.title)) do
-        accept_confirm(admin: true) { find("a.action-icon--remove").click }
+        accept_confirm { find("a.action-icon--remove").click }
       end
 
       expect(page).to have_admin_callout("successfully")

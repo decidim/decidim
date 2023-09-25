@@ -138,7 +138,7 @@ describe "Admin manages answers", type: :system do
   describe "deleting an answer" do
     it "deletes an answer" do
       within find("tr", text: translated(answer.title)) do
-        accept_confirm(admin: true) do
+        accept_confirm do
           page.find(".action-icon--remove").click
         end
       end
@@ -185,7 +185,7 @@ describe "Admin manages answers", type: :system do
       end
 
       within find("tr", text: translated(answer.title)) do
-        first(".icon--check").click
+        click_link "Mark answer as selected"
       end
 
       within find("tr", text: translated(answer.title)) do

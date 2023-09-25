@@ -18,8 +18,6 @@ module Decidim
 
         def publish_command = PublishConference
 
-        def unpublish_command = UnpublishConference
-
         def i18n_scope = "decidim.admin.conference_publications"
 
         def fallback_location = conferences_path

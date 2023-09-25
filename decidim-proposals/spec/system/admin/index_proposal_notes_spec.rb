@@ -27,6 +27,7 @@ describe "Index Proposal Notes", type: :system do
     within find("tr", text: translated(proposal.title)) do
       click_link "Answer proposal"
     end
+    click_button "Private notes"
   end
 
   it "shows proposal notes for the current proposal" do
@@ -47,7 +48,8 @@ describe "Index Proposal Notes", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".comment-thread .card:last-child" do
+      click_button "Private notes"
+      within ".component__show_notes-grid .comment:last-child" do
         expect(page).to have_content("New awesome body")
       end
     end

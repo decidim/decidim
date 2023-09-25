@@ -42,7 +42,9 @@
   }
 
   &__item {
-    @apply gap-x-2 flex items-center text-sm text-secondary;
+    @apply gap-x-2 flex items-center text-secondary;
+
+    font-size: 14px;
 
     > svg {
       @apply w-4 h-4 flex-none text-gray fill-current;

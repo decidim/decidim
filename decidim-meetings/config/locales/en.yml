@@ -21,6 +21,7 @@ en:
         description: Description
         end_time: End time
         id: ID
+        iframe_access_level: Iframe access level
         iframe_embed_type: Iframe embed type
         location: Location
         location_hints: Location hints
@@ -286,7 +287,6 @@ en:
               all: All
               rejected: Rejected
               sent: Sent
-            filter_by: Filter by
             invite_attendee: Invite attendee
             invites: Invites
             registrations_disabled: You cannot invite an attendee because the registrations are disabled.
