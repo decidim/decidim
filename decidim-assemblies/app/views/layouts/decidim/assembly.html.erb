@@ -8,6 +8,10 @@
 <%= append_javascript_pack_tag "decidim_assemblies" %>
 <%= append_stylesheet_pack_tag "decidim_assemblies", media: "all" %>
 
+<%= content_for :participatory_space_actions do %>
+  <%= render partial: "layouts/decidim/header/follow_space_menu_bar_button", locals: { participatory_space: current_participatory_space } %>
+<% end %>
+
 <%= render "layouts/decidim/application" do %>
   <main>
     <%= yield %>
