@@ -20,10 +20,6 @@ module Decidim
 
           invisible_captcha on_spam: :spam_detected
 
-          # rubocop:disable Rails/LexicallyScopedActionFilter
-          after_action :send_confirmation_email, only: :answer
-          # rubocop:enable Rails/LexicallyScopedActionFilter
-
           def show
             @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
             render template: "decidim/forms/questionnaires/show"
@@ -144,17 +140,6 @@ module Decidim
           def tokenize(id, length: 10)
             tokenizer = Decidim::Tokenizer.new(salt: questionnaire.salt || questionnaire.id, length: length)
             tokenizer.int_digest(id).to_s
-          end
-
-          # This method send confirmation email with answers to user when a questionnaire is answered.
-          def send_confirmation_email
-            component = @questionnaire.questionnaire_for.component
-            answers = Decidim::Forms::QuestionnaireUserAnswers.for(@questionnaire)
-            user_answers = answers.select { |a| a.first.session_token == session_token }
-
-            if component.manifest_name == "surveys" && component.settings.send_confirmation_email && answers.present?
-              Decidim::Surveys::ConfirmationDeliveryJob.perform_now(current_user, @questionnaire, component, user_answers)
-            end
           end
         end
       end

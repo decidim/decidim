@@ -17,7 +17,7 @@ module Decidim
       describe "confirmation" do
         let(:serializer) { Decidim::Forms::UserAnswersSerializer }
         let(:export_data) { Decidim::Exporters::FormPDF.new(answers, serializer) }
-        let(:mail) { described_class.confirmation(user, questionnaire, component, [answers]) }
+        let(:mail) { described_class.confirmation(user, questionnaire, [answers]) }
 
         it "sets a subject" do
           expect(mail.subject).to include(I18n.t("decidim.surveys.survey_confirmation_mailer.confirmation.subject", questionnaire_title: translated(questionnaire.title)))

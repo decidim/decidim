@@ -6,11 +6,11 @@ module Decidim
       include TranslatableAttributes
       helper Decidim::SanitizeHelper
 
-      def confirmation(user, questionnaire, component, answers)
+      def confirmation(user, questionnaire, answers)
         @user = user
         @organization = user.organization
         @questionnaire_title = translated_attribute(questionnaire.title)
-        @participatory_space_title = translated_attribute(component.participatory_space.title)
+        @participatory_space_title = translated_attribute(questionnaire.questionnaire_for.component.participatory_space.title)
 
         return if answers.blank?
 
