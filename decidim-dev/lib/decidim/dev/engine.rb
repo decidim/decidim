@@ -10,9 +10,15 @@ module Decidim
       initializer "decidim_dev.mount_routes" do |_app|
         Decidim::Core::Engine.routes do
           namespace :design do
-            get "forms", to: "forms#index"
-            get "cards", to: "cards#index"
-            get "spacing", to: "spacing#index"
+            namespace :components do
+              get "forms", to: "forms#index"
+              get "cards", to: "cards#index"
+              get "spacing", to: "spacing#index"
+            end
+
+            namespace :foundations do; end
+
+            get "home", to: "home#index"
 
             root to: "home#index"
           end
