@@ -31,40 +31,40 @@ const updateActiveUploads = (modal) => {
     let title = truncateFilename(file.name, 19)
 
     let hidden = ""
-    if (file.hiddenField) {
-      // if there is hiddenField, this file is new
+    if (file.attachmentId) {
+      // if the file has attachmentId, this file is not new so we keep the attachmentId
+      // convert all node attributes to string
+      const attributes = Array.from(previousId.find(({ id }) => id === file.attachmentId).attributes).reduce((acc, { name, value }) => `${acc} ${name}="${value}"`, "")
+      hidden = `<input ${attributes} />`
+    } else {
       // eslint-disable-next-line no-ternary
       const fileField = isMultiple
         ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`
         : `${modal.options.resourceName}[${modal.options.addAttribute}]`
 
       hidden = `<input type="hidden" name="${fileField}" value="${file.hiddenField}" />`
-    } else {
-      // otherwise, we keep the attachmentId
-      // eslint-disable-next-line no-ternary
-      const fileField = isMultiple
-        ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][id]`
-        : `${modal.options.resourceName}[${modal.options.addAttribute}]`
-
-      // convert all node attributes to string
-      const attributes = Array.from(previousId.find(({ id }) => id === file.attachmentId).attributes).reduce((acc, { name, value }) => `${acc} ${name}="${value}"`, "")
-      hidden = `<input ${attributes} />`
-      hidden += `<input type="hidden" name="${fileField}" value="${file.attachmentId}" />`
     }
 
     if (modal.options.titled) {
       const titleValue = modal.modal.querySelectorAll('input[type="text"]')[ix].value
       // NOTE - Renaming the attachment is not supported when multiple uploader is disabled
-      const titleField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
-      hidden += `<input type="hidden" name="${titleField}" value="${titleValue}" />`
+      if (!file.attachmentId) {
+        const titleField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
+        hidden += `<input type="hidden" name="${titleField}" value="${titleValue}" />`
+      }
 
-      title = `${titleValue} (${truncateFilename(file.name)})`
+      title = titleValue
     }
 
+    // eslint-disable-next-line no-ternary
+    const attachmentId = file.attachmentId
+      ? `data-attachment-id="${file.attachmentId}"`
+      : ""
+
     const template = `
-      <div data-filename="${file.name}" data-title="${title}">
+      <div ${attachmentId} data-filename="${file.name}" data-title="${title}">
         ${(/image/).test(file.type) && `<div><img src="" alt="${file.name}" /></div>` || ""}
-        <span>${title}</span>
+        <span>${title} (${truncateFilename(file.name)})</span>
         ${hidden}
       </div>
     `
@@ -114,13 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.input.addEventListener("change", (event) => modal.uploadFiles(event.target.files));
 
     // update the modal title if there are files uploaded and load files (if previously deleted after clicking cancel)
-    modal.button.addEventListener("click", async function(event) {
-      event.preventDefault();
-      if (modal.items.length === 0) {
-        [...files.children].forEach((child) => modal.preloadFiles(child));
-      }
-      updateModalTitle(modal);
-    });
+    modal.button.addEventListener("click", (event) => event.preventDefault() || (modal.items.length === 0 && [...files.children].forEach((child) => child.tagName === "DIV" && modal.preloadFiles(child))) || updateModalTitle(modal));
 
     // avoid browser to open the file
     modal.dropZone.addEventListener("dragover", (event) => event.preventDefault() || highlightDropzone(modal));
