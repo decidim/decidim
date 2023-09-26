@@ -16,6 +16,7 @@ module Decidim
     # Evaluates the registered configurations for this menu in a view context
     #
     def build_for(context)
+      raise "Menu #{@name} is not registered" unless registry.present?
       registry.configurations.each do |configuration|
         context.instance_exec(self, &configuration)
       end

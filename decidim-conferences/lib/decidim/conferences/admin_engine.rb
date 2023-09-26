@@ -162,7 +162,8 @@ module Decidim
                         I18n.t("components", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.components_path(current_participatory_space),
                         icon_name: "layout-masonry-line",
-                        if: allowed_to?(:read, :component, conference: current_participatory_space)
+                        if: allowed_to?(:read, :component, conference: current_participatory_space),
+                        submenu: { target_menu: :admin_conferences_components_menu }
 
           menu.add_item :categories,
                         I18n.t("categories", scope: "decidim.admin.menu.conferences_submenu"),
@@ -174,9 +175,7 @@ module Decidim
                         I18n.t("attachments", scope: "decidim.admin.menu.conferences_submenu"),
                         "#",
                         icon_name: "attachment-2",
-                        active:
-                            is_active_link?(decidim_admin_conferences.conference_attachment_collections_path(current_participatory_space)) ||
-                            is_active_link?(decidim_admin_conferences.conference_attachments_path(current_participatory_space)),
+                        active: false,
                         if: allowed_to?(:read, :attachment_collection, conference: current_participatory_space) ||
                             allowed_to?(:read, :attachment, conference: current_participatory_space),
                         submenu: { target_menu: :conferences_admin_attachments_menu }

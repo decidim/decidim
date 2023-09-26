@@ -1,22 +1,39 @@
 .settings-menu {
-  @apply flex-none w-full md:w-fit max-w-full md:max-w-[calc(100%/6)];
+  @apply flex-none w-full md:w-fit max-w-full md:max-w-[10%];
 
   &__item {
     a {
-      @apply gap-x-2 flex items-center text-secondary text-sm;
+      @apply gap-x-2 flex items-center text-secondary text-sm truncate;
 
       > svg {
         @apply w-4 h-4 flex-none text-gray fill-current;
       }
     }
 
-    &.is-active a,
-    &:hover a {
+    &.is-active > a,
+    & > a:hover {
       @apply underline [&>svg]:text-secondary;
     }
 
-    &.is-active a {
+    &.is-active > a {
       @apply font-semibold;
+    }
+
+    ul {
+      @apply ml-6;
+
+      li {
+        @apply mt-2;
+
+        &.is-active a {
+          @apply font-semibold;
+        }
+
+        &.is-active > a,
+        & > a:hover {
+          @apply underline [&>svg]:text-secondary;
+        }
+      }
     }
 
     & + & {
