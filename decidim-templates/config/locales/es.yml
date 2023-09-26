@@ -44,14 +44,14 @@ es:
       admin:
         block_user_templates:
           edit:
-            title: Editar plantilla del bloque de mensaje de la usuaria
+            title: Editar plantilla del mensaje de bloqueo de la cuenta de usuaria
           form:
             save: Guardar
           index:
             confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
             title: Bloquear los mensajes de la usuaria
           new:
-            title: Nueva plantilla para el bloque de mensaje de la usuaria
+            title: Nueva plantilla para el mensaje de bloqueo de la cuenta de usuaria
           template_chooser:
             select_template: Selecciona una plantilla de respuesta
         questionnaire_templates:
