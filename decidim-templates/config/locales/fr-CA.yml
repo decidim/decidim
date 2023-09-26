@@ -44,7 +44,6 @@ fr-CA:
         block_user_templates:
           form:
             save: Enregistrer
-            template_title: Informations sur le modèle
           index:
             confirm_delete: Êtes-vous sûr(e) de vouloir supprimer ce modèle ?
             title: Bloquer les messages de l'utilisateur
@@ -62,8 +61,6 @@ fr-CA:
             empty: Il n'y a pas encore de question.
             questionnaire: Questionnaire
           form:
-            save: Sauvegarder
-            template_title: Informations sur le modèle
             title: Modèle de questionnaire %{questionnaire_for}
           index:
             confirm_delete: Êtes-vous sûr de vouloir supprimer ce modèle?
