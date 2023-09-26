@@ -44,14 +44,14 @@ ca:
       admin:
         block_user_templates:
           edit:
-            title: Editar la plantilla del bloc de missatge de la usuària
+            title: Editar la plantilla del missatge de bloqueig del compte d'usuària
           form:
             save: Desar
           index:
             confirm_delete: Segur que vols eliminar aquesta plantilla?
             title: Bloquejar els missatges de la usuària
           new:
-            title: Nova plantilla pel bloc de missatge de la usuària
+            title: Nova plantilla del missatge de bloqueig del compte d'usuària
           template_chooser:
             select_template: Selecciona una plantilla de resposta
         questionnaire_templates:
