@@ -11,6 +11,7 @@ module Decidim
         nickname: nickname,
         password: password,
         password_confirmation: password_confirmation,
+        password_confirmation_message: password_confirmation_message,
         avatar: avatar,
         remove_avatar: remove_avatar,
         personal_url: personal_url,

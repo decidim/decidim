@@ -28,7 +28,6 @@ en:
         nickname: Nickname
         password: Password
         password_confirmation: Confirm your password
-        password_confirmation_message: '"Confirm your password" does not match Password'
         personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms and conditions of use agreement
@@ -1693,6 +1692,7 @@ en:
       public: Your public information.
   errors:
     messages:
+      password_confirmation_message: '"Confirm your password" does not match Password'
       allowed_file_content_types: 'only files with the following extensions are allowed: %{types}'
       already_confirmed: was already confirmed, please try signing in
       confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
