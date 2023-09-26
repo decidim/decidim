@@ -129,6 +129,7 @@ export default class UploadModal {
     const item = this.createUploadItem(file, [], { ...element.dataset, value: 100 })
 
     file.attachmentId = element.dataset.attachmentId
+    file.hiddenField = element.dataset.hiddenField
 
     this.items.push(file)
     this.uploadItems.appendChild(item);

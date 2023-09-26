@@ -18,7 +18,7 @@ const updateActiveUploads = (modal) => {
   }
 
   const files = document.querySelector(`[data-active-uploads=${modal.modal.id}]`)
-  const previousId = Array.from(files.querySelectorAll("[type=hidden]"))
+  const previousId = Array.from(files.querySelectorAll("[type=hidden][id]"))
   const isMultiple = modal.options.multiple
 
   // fastest way to clean children nodes
@@ -33,9 +33,15 @@ const updateActiveUploads = (modal) => {
     let hidden = ""
     if (file.attachmentId) {
       // if the file has attachmentId, this file is not new so we keep the attachmentId
+      // eslint-disable-next-line no-ternary
+      const fileField = isMultiple
+        ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][id]`
+        : `${modal.options.resourceName}[${modal.options.addAttribute}]`
+
       // convert all node attributes to string
       const attributes = Array.from(previousId.find(({ id }) => id === file.attachmentId).attributes).reduce((acc, { name, value }) => `${acc} ${name}="${value}"`, "")
       hidden = `<input ${attributes} />`
+      hidden += `<input type="hidden" name="${fileField}" value="${file.attachmentId}" />`
     } else {
       // eslint-disable-next-line no-ternary
       const fileField = isMultiple
@@ -48,21 +54,19 @@ const updateActiveUploads = (modal) => {
     if (modal.options.titled) {
       const titleValue = modal.modal.querySelectorAll('input[type="text"]')[ix].value
       // NOTE - Renaming the attachment is not supported when multiple uploader is disabled
-      if (!file.attachmentId) {
-        const titleField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
-        hidden += `<input type="hidden" name="${titleField}" value="${titleValue}" />`
-      }
+      const titleField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
+      hidden += `<input type="hidden" name="${titleField}" value="${titleValue}" />`
 
       title = titleValue
     }
 
     // eslint-disable-next-line no-ternary
-    const attachmentId = file.attachmentId
+    const attachmentIdOrHiddenField = file.attachmentId
       ? `data-attachment-id="${file.attachmentId}"`
-      : ""
+      : `data-hidden-field="${file.hiddenField}"`
 
     const template = `
-      <div ${attachmentId} data-filename="${file.name}" data-title="${title}">
+      <div ${attachmentIdOrHiddenField} data-filename="${file.name}" data-title="${title}">
         ${(/image/).test(file.type) && `<div><img src="" alt="${file.name}" /></div>` || ""}
         <span>${title} (${truncateFilename(file.name)})</span>
         ${hidden}
