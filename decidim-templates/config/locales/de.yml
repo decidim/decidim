@@ -44,7 +44,6 @@ de:
         block_user_templates:
           form:
             save: Speichern
-            template_title: Vorlageninformation
           index:
             confirm_delete: Möchten Sie diese Vorlage wirklich löschen?
             title: Nachrichten blockieren
@@ -62,8 +61,6 @@ de:
             empty: Es gibt noch keine Fragen.
             questionnaire: Fragebogen
           form:
-            save: Speichern
-            template_title: Vorlageninformation
             title: Fragebogenvorlage %{questionnaire_for}
           index:
             confirm_delete: Möchten Sie diese Vorlage wirklich löschen?
