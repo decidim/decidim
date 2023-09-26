@@ -337,7 +337,7 @@ lb:
           request_confirmation_instructions: Instruktiounen fir d'Bestätegung ufroen
           title: Email bestätegen
       show:
-        close_modal: Modal schließen
+        close_modal: Modal zou maachen
     block_user_mailer:
       notify:
         body_1: Däin Kont ass gespaart.
@@ -459,7 +459,6 @@ lb:
           newsletter_title: Erlabnis Kontakt opzehuelen
           nickname_help: Däin Pseudonym an %{organization}. Dierf nëmmen aus Buschtawen, Zuelen, _ an - bestoen.
           password_help: "Muss op mannst aus %{minimun_characters} Zeechen bestoen, keng ze banal Zeechen (z.B. 123456) an et dierf weder däin Pseudonym nach deng Email-Adress enthalen."
-          sign_in: Umelden
           sign_up: Registréieren
           sign_up_as:
             legend: Registréieren als
@@ -480,7 +479,7 @@ lb:
         newsletter_modal:
           buttons:
             check: Iwwerpréiwen an weider maachen
-            close_modal: Modal schließen
+            close_modal: Modal zou maachen
             uncheck: Ouni Kontakt-Erlabnis weidermaachen
           notice: |-
             <p>Hey, bass de sécher, dass de keen Newsletter wëlls?<br>
@@ -508,7 +507,7 @@ lb:
           update_profile: Profil aktualiséieren
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> well däin Kont benotzen"
     endorsable:
-      endorsements: Ennerstëtzungen
+      endorsements: Ënnerstëtzungen
       endorsements_count: Zuel vun den Ënnerstëtzer
     endorsement_buttons_cell:
       already_endorsed: Ënnerstëtzt
@@ -848,7 +847,7 @@ lb:
         body_1: Du kënns elo op en externen Link an mir bieden dech, virsiichteg mam Inhalt vun externen Säiten ëmzegoen.
         body_2: W. e. g. iwwerpréif de Link den s'de besiche wëlls an iwwerpréif ob et eng sécher Säit ass, éier s'de weider méchs.
         cancel: Ofbriechen
-        close_modal: Modal schließen
+        close_modal: Modal zou maachen
         proceed: Weidermaachen
         title: Externen Link op maachen
     log:
@@ -938,7 +937,7 @@ lb:
           ok: OK
         index:
           ago: virun
-          close: Modal schließen
+          close: Modal zou maachen
           from: Vum
           groups: Meng Gruppen
           last_message: Lescht Noriicht
@@ -1092,7 +1091,7 @@ lb:
         refuse:
           modal_body: Wann s'du refuséiers, wàert et dir net méiglech sinn dës Plattform ze benotzen, du kanns <a href="%{data_portability_path}">lDaten eroflueden</a> an / oder <a href="%{delete_path}">Konto läschen</a>.
           modal_btn_exit: Ech iwwerpréiwen dat méi spéit
-          modal_close: Modal schließen
+          modal_close: Modal zou maachen
           modal_title: Bass du wierklech wëlles d'Konditiounen vum Benotzen net unzehuelen?
         required_review:
           alert: Mir hunn eis Konditiounen vum Benotzen aktualiséiert, iwwerpréif se w. e. g.
@@ -1186,7 +1185,7 @@ lb:
           future: Zukunft
           past: Vergaangenes
       filters_small_view:
-        close_modal: Modal schließen
+        close_modal: Modal zou maachen
         filter: Filter
         filter_by: Filtern nach
         unfold: Opklappen
@@ -1258,7 +1257,7 @@ lb:
         label: 'Ergebnisser pro Säit:'
         title: Wiel d'Unzuel vun de Resultater pro Säit
       share_modal:
-        close_window: Fenster schließen
+        close_window: Fënster zou maachen
         copy_share_link: Kopieren
         copy_share_link_clarification: Ëffentlechen Link an d'Tëschenoflag kopéieren
         copy_share_link_copied: Kopéiert!
@@ -1477,8 +1476,6 @@ lb:
       updated: Däin Kont gouf aktualiséiert.
     sessions:
       already_signed_out: Du bass elo ausgeloggt.
-      new:
-        sign_in: Aloggen
       signed_in: Du bass elo ageloggt.
       signed_out: Du bass elo ausgeloggt.
     shared:
@@ -1487,7 +1484,6 @@ lb:
         didn_t_receive_confirmation_instructions: Du hues keng Instruktiounen kritt fir d'Bestätegung?
         didn_t_receive_unlock_instructions: Du hues keng Instruktiounen kritt fir ze entspären?
         forgot_your_password: Passwuert vergiess?
-        sign_in: Umellen
         sign_in_with_provider: Registréier dech iwwer %{provider}
         sign_up: Registréieren
       minimum_password_length:

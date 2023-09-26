@@ -277,7 +277,6 @@ gl:
             select_an_area: Seleccione unha área
             select_an_assembly_type: Seleccione un tipo de conxunto
             select_parent_assembly: Seleccione o conxunto primario
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
             social_handlers: Social
             title: Información xeral
             visbility: Visibilidade
@@ -289,9 +288,6 @@ gl:
         assemblies_types:
           form:
             title: Título
-        assembly_copies:
-          form:
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         assembly_imports:
           form:
             document_legend: Engadir un documento

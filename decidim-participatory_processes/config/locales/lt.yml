@@ -11,15 +11,22 @@ lt:
         decidim_area_id: Aplinka
         description: Aprašymas
         developer_group: Rėmėjų grupė
+        document: Dokumentas
         domain: Domenas
         end_date: Pabaigos data
         hashtag: Grotažymė
         hero_image: Pradžios paveikslėlis
+        import_attachments: Importuoti priedus
+        import_categories: Importuoti kategorijas
+        import_components: Importuoti komponentus
+        import_steps: Importuoti žingsnius
         local_area: Organizacijos aplinka
         meta_scope: Srities metaduomenys
         participatory_process_group_id: Procesų grupė
+        participatory_process_type_id: Proceso tipas
         participatory_scope: Kas nuspręsta
         participatory_structure: Kaip nuspręsta
+        private_space: Privatus procesas
         promoted: Paaukštintas/a
         published_at: Publikuota
         related_process_ids: Susiję procesai
@@ -334,6 +341,7 @@ lt:
         html_3:
           name: Trečias HTML blokas
         metadata:
+          developer_group: Paaukštinta(-s)
           name: Metaduomenys
           participatory_scope: Kas nuspręsta
           participatory_structure: Kaip nuspręsta
@@ -364,9 +372,6 @@ lt:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
         participatory_process_groups:
           form:
             metadata: Metaduomenys
@@ -375,10 +380,8 @@ lt:
         participatory_process_imports:
           form:
             document_legend: Pridėti dokumentą
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Naudokite dalines, ne pilnas, nuorodas. Galima naudoti raides, skaičius, brūkšnius ir pasviruosius brūkšnius, tačiau pradėti būtina raide. Pavyzdys: %{url}'
             cta_text_help: Jei nenustatyta, mygtukas nebus matomas.
         participatory_processes:
           form:
@@ -392,7 +395,6 @@ lt:
             scope_type_max_depth_help: Riboti srities filtro dydį; Filtras parodys nuo bendros iki pasirinktos apimties tipo.
             select_an_area: Pasirinkti aplinką
             select_process_group: Pasirinkti procesų grupę
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkretų procesą. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
             title: Bendroji informacija
             visbility: Matomumas
       content_blocks:
@@ -405,11 +407,13 @@ lt:
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktyvūs procesai
             active_step: Aktyvusis etapas
             more_information: Daugiau informacijos
             participate: Dalyvauti
             participate_in: Dalyvauti procese %{resource_name}
             processes_button_title: Nuoroda į puslapį „Procesai“, kuriame pateikiami visi procesai
+            see_all_processes: Žiūrėti visus procesus
       participatory_process_steps:
         index:
           back_to_process: Grįžti į procesų puslapį
@@ -456,6 +460,7 @@ lt:
         dates: Datos
         developer_group: Rėmėjų grupė
         end_date: Pabaigos data
+        local_area: Organizacijos vietovė
         participatory_scope: Kas nuspręsta
         participatory_structure: Kaip nuspręsta
         private_space: Tai yra uždaras procesas

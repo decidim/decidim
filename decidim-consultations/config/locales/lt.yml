@@ -381,6 +381,10 @@ lt:
         actions:
           comment: Komentuoti
           vote: Balsuoti
+      question:
+        actions:
+          comment: Komentuoti
+          vote: Balsuoti
     statistics:
       consultations_count: Konsultacijos
       votes_count: Balsai

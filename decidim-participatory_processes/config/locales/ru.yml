@@ -269,14 +269,10 @@ ru:
         title: Шаги движения соучастия
     participatory_processes:
       admin:
-        participatory_process_copies:
-          form:
-            slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
         participatory_processes:
           form:
             announcement_help: Текст, который вы введете здесь, будет показан участнику прямо под описанием движения.
             related_processes: Подобные движения
-            slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
             title: Общие сведения
       content_blocks:
         highlighted_processes:
@@ -356,6 +352,6 @@ ru:
           take_part: Принять участие
       process_header_steps:
         step: Шаг %{current} из %{total}
-        view_steps: Просмотреть шаги
+        view_steps: Шаги движения
       process_navigation:
         process_menu_item: Движение

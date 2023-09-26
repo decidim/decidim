@@ -56,6 +56,7 @@ pl:
         conference_meeting_ids: Powiązane spotkania
         full_name: Pełne imię i nazwisko
         position: Pozycja
+        twitter_handle: Nazwa użytkownika na Twitterze
         user_id: Użytkownik
       conference_user_role:
         email: E-mail
@@ -324,9 +325,6 @@ pl:
         title: Prelegenci
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tej konferencji. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         conference_invites:
           create:
             error: Podczas zapraszania użytkownika do udziału w konferencji wystąpił błąd.
@@ -370,7 +368,6 @@ pl:
               few: Było %{count} rejestracji.
               many: Było %{count} rejestracji.
               other: Było %{count} rejestracji.
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tej konferencji. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         diplomas:
           edit:
             save: Zapisz
@@ -500,6 +497,7 @@ pl:
         home:
           highlighted_conferences:
             active_conferences: Aktualne konferencje
+            conferences_button_title: Link do strony Konferencji wyświetlającej wszystkie konferencje
       photo:
         image:
           attributes:

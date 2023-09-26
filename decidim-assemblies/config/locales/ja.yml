@@ -282,7 +282,7 @@ ja:
             select_an_area: エリアを選択
             select_an_assembly_type: 参加スペース種別を選択
             select_parent_assembly: 親参加スペースを選択
-            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             social_handlers: ソーシャル
             title: 一般情報
             visbility: 公開範囲
@@ -296,11 +296,11 @@ ja:
             title: タイトル
         assembly_copies:
           form:
-            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         assembly_imports:
           form:
             document_legend: ドキュメントを追加
-            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         assembly_members:
           form:
             existing_user: 既存の参加者

@@ -393,7 +393,6 @@ zh-CN:
           newsletter: 接收附带相关信息的时事通讯
           newsletter_title: 联系人权限
           password_help: "%{minimun_characters} 个字符，必须不要太常见(例如，123456)，并且必须不同于您的昵称和电子邮件。"
-          sign_in: 登录
           sign_up: 注册
           sign_up_as:
             legend: 注册为
@@ -433,7 +432,6 @@ zh-CN:
           update_profile: 更新您的个人资料
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> 想要使用您的帐户"
     endorsable:
-      endorsements: 授权
       endorsements_count: 批准次数
     endorsement_buttons_cell:
       already_endorsed: 已批准
@@ -1343,8 +1341,6 @@ zh-CN:
       updated: 您的帐户已成功更新。
     sessions:
       already_signed_out: 已成功注销。
-      new:
-        sign_in: 登录
       signed_in: 登录成功。
       signed_out: 已成功注销。
     shared:
@@ -1353,7 +1349,6 @@ zh-CN:
         didn_t_receive_confirmation_instructions: 没有收到确认说明？
         didn_t_receive_unlock_instructions: 没有收到解锁指令？
         forgot_your_password: 忘记密码？
-        sign_in: 登录
         sign_in_with_provider: 使用 %{provider} 登录
         sign_up: 注册
       minimum_password_length:

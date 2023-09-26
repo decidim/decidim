@@ -391,7 +391,7 @@ ar:
           request_confirmation_instructions: طلب تعليمات التأكيد
           title: تأكيد البريد الإلكتروني
       show:
-        close_modal: إغلاق مشروط
+        close_modal: اغلاق النموذج
     block_user_mailer:
       notify:
         body_1: تم حظر الحساب الخاص بك.
@@ -514,9 +514,8 @@ ar:
           already_have_an_account?: هل لديك حساب؟
           newsletter: تلقي رسالة إخبارية من حين لآخر مع المعلومات ذات الصلة
           newsletter_title: الاتصال إذن
-          nickname_help: الاسم المستعار الخاص بك في %{organization}. يمكن أن يحتوي فقط على أحرف وأرقام، و '-' و '_'.
+          nickname_help: الاسم المستعار الخاص بك في %{organization}. يمكن أن يحتوي فقط على أحرف وأرقام '-' و '_'.
           password_help: "%{minimun_characters} أحرف كحد أدنى، يجب أن لا تكون شائعة جدا (مثل 123456) ويجب أن تكون مختلفة عن اسمك المستعار وعن بريدك الإلكتروني."
-          sign_in: تسجيل الدخول
           sign_up: انشئ حسابًا
           sign_up_as:
             legend: الاشتراك باسم
@@ -537,7 +536,7 @@ ar:
         newsletter_modal:
           buttons:
             check: تحقق واستمر
-            close_modal: إغلاق مشروط
+            close_modal: اغلاق النموذج
             uncheck: إبقاءه غير مختار
           notice: |-
             <p>مهلا ، هل أنت متأكد أنك لا تريد تلقي رسالة إخبارية؟<br>
@@ -574,7 +573,7 @@ ar:
         success: تم تحميل الصورة بنجاح
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
     endorsable:
-      endorsements: موافقات
+      endorsements: الدعم والتأييد
       endorsements_count: عد أصوات التأييدات
     endorsements:
       identities:
@@ -921,7 +920,7 @@ ar:
         body_1: أنت على وشك زيارة رابط خارجي ونرجو منك أن تتحلى بالحذر فيما يتعلق بالمحتوى الموجود في الموقع الخارجي.
         body_2: الرجاء التحقق من الرابط الذي توشك على زيارته والتأكد من التعرف عليه كموقع آمن قبل المتابعة.
         cancel: إلغاء
-        close_modal: إغلاق مشروط
+        close_modal: اغلاق النموذج
         proceed: المواصلة
         title: فتح رابط خارجي
     log:
@@ -1011,7 +1010,7 @@ ar:
           ok: حسناً
         index:
           ago: منذ
-          close: إغلاق مشروط
+          close: اغلاق النموذج
           from: من
           groups: فِرَقي
           last_message: آخر رسالة
@@ -1174,7 +1173,7 @@ ar:
         refuse:
           modal_body: إذا رفضت ، فلن تتمكن من استخدام النظام الأساسي ، يمكنك <a href="%{data_portability_path}">تنزيل بياناتك</a> و / أو <a href="%{delete_path}">حذف حسابك</a>.
           modal_btn_exit: سأراجعها لاحقًا
-          modal_close: إغلاق مشروط
+          modal_close: اغلاق النموذج
           modal_title: هل ترفض حقًا الأحكام والشروط المحدثة؟
         required_review:
           alert: لقد قمنا بتحديث شروط الخدمة الخاصة بنا ، يرجى مراجعتها.
@@ -1268,7 +1267,7 @@ ar:
           future: مستقبل
           past: الماضي
       filters_small_view:
-        close_modal: إغلاق مشروط
+        close_modal: اغلاق النموذج
         filter: منقي
         filter_by: مصنف بواسطة
         unfold: كشف
@@ -1564,8 +1563,6 @@ ar:
       updated: تم تحديث حسابك بنجاح.
     sessions:
       already_signed_out: تم الخروج بنجاح
-      new:
-        sign_in: تسجيل الدخول
       signed_in: تم تسجيل الدخول بنجاح
       signed_out: تم الخروج بنجاح
     shared:
@@ -1574,7 +1571,6 @@ ar:
         didn_t_receive_confirmation_instructions: لم تتلق تعليمات التأكيد؟
         didn_t_receive_unlock_instructions: لم تتلق تعليمات فتح؟
         forgot_your_password: نسيت رقمك السري؟
-        sign_in: تسجيل الدخول
         sign_in_with_provider: تسجيل الدخول مع %{provider}
         sign_up: انشئ حسابًا
       minimum_password_length:

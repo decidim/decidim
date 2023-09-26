@@ -300,8 +300,6 @@ bg:
           explanation_html: За да изпълните това действие, първо се идентифицирайте, но преди това потвърдете вашата ел. поща <strong>%{email}</strong>.
           request_confirmation_instructions: Заявка на инструкции за потвърждение
           title: Потвърдете Вашата ел. поща
-      show:
-        close_modal: Затвори прозорчето
     collapsible_list:
       hidden_elements_count:
         one: и още %{count}
@@ -398,7 +396,6 @@ bg:
           newsletter: Получавайте извънреден бюлетин с подходяща информация
           newsletter_title: Разрешение за контакт с Вас
           password_help: "Минимум %{minimun_characters} символа, не трябва да са разпространени (например, 123456) и трябва да са различни от вашите име и ел. поща."
-          sign_in: Вход
           sign_up: Регистрация
           sign_up_as:
             legend: Регистрация като
@@ -417,7 +414,6 @@ bg:
         newsletter_modal:
           buttons:
             check: Маркирай и продължи
-            close_modal: Затвори прозорчето
           notice: |-
             <p>Наистина ли не желаете да получавате писма с новини за дейностите в платформата?<br> Още веднъж преценете, дали да не поставите отметка по-долу.<br> Важно е понякога да получавате актуална информация. Винаги можете да се откажете от страницата с настройки.</p> <p>Когато това поле не е маркирано, може да пропуснете възможности за съвместна работа.<br> Ако все пак не желаете да Ви информираме за общите ни дела, уважаваме Вашето решение.</p> <p>Благодарим Ви, че прочетохте това!</p>
           title: Известия за новости
@@ -438,8 +434,6 @@ bg:
           this_application_will_not_be_able_to: 'Това приложение не може:'
           update_profile: Обновете профила си
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> желае да ползва профила Ви"
-    endorsable:
-      endorsements: Одобрявания
     endorsement_buttons_cell:
       already_endorsed: Одобрен
       endorse: Одобрявам
@@ -751,9 +745,6 @@ bg:
       index:
         last_activity: Последна активност
         resource_type: Тип
-    links:
-      warning:
-        close_modal: Затвори прозорчето
     log:
       base_presenter:
         create: "%{user_name} създаде %{resource_name}"
@@ -827,7 +818,6 @@ bg:
           error: Разговора не започна. Опитайте по-късно
         index:
           ago: преди
-          close: Затвори прозорчето
           from: Oт
           groups: Моите Групи
           last_message: Последно съобщение
@@ -973,7 +963,6 @@ bg:
         refuse:
           modal_body: Ако откажете, не може да използвате платформата, но можете да<a href="%{data_portability_path}">свалите данните си</a> и/или <a href="%{delete_path}">изтриете профила</a>.
           modal_btn_exit: Ще ги прегледам по-късно
-          modal_close: Затвори прозорчето
           modal_title: Наистина ли отказвате обновените Общи условия?
         required_review:
           alert: Обновихме нашите Общи условия, моля прегледайте ги.
@@ -1050,7 +1039,6 @@ bg:
           future: Бъдещи
           past: Минали
       filters_small_view:
-        close_modal: Затвори прозорчето
         filter: Филтър
         filter_by: Филтър по
         unfold: Разгъване
@@ -1287,8 +1275,6 @@ bg:
       updated: Профилът Ви беше обновен успешно.
     sessions:
       already_signed_out: Излязохте успешно.
-      new:
-        sign_in: Вход
       signed_in: Влязохте успешно.
       signed_out: Излязохте успешно.
     shared:
@@ -1297,7 +1283,6 @@ bg:
         didn_t_receive_confirmation_instructions: Не получихте инструкции за потвърждение?
         didn_t_receive_unlock_instructions: Не получихте инструкции за отключване?
         forgot_your_password: Забравили сте паролата си?
-        sign_in: Вход
         sign_in_with_provider: Влез със %{provider}
         sign_up: Регистрация
       minimum_password_length:

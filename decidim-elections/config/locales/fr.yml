@@ -813,8 +813,28 @@ fr:
           highlighted_votings:
             max_results: Nombre maximum d'éléments à afficher
           landing_page:
+            attachments_and_folders:
+              name: Pièces jointes et dossiers du vote
             description:
               name: Description du vote
+            elections:
+              name: Élections
+            header:
+              name: En-tête de vote
+            html_block_1:
+              name: Bloc HTML 1 du Vote
+            html_block_2:
+              name: Bloc HTML 2 du Vote
+            html_block_3:
+              name: Bloc HTML 3 du Vote
+            metrics:
+              name: Métriques de vote
+            polling_stations:
+              name: Bureaux de vote
+            stats:
+              name: Statistiques du vote
+            timeline:
+              name: Calendrier du vote
         index:
           not_published: Non publié
           published: Publié
@@ -1021,7 +1041,7 @@ fr:
             promoted: Mis en avant
             select_a_voting_type: Veuillez sélectionner un type de vote
             slug: Slug
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers ce vote. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             title: Titre
             voting_type:
               hybrid: Hybride
@@ -1147,6 +1167,8 @@ fr:
       pages:
         home:
           highlighted_votings:
+            active_votings: Votations en cours
+            see_all_votings: Voir toutes les votations
             votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
       polling_officer_zone:
         closures:

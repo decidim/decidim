@@ -29,6 +29,7 @@ hu:
         password_confirmation: Jelszó megerősítése
         personal_url: Személyes URL
         remove_avatar: Avatár eltávolítása
+        tos_agreement: Felhasználási feltételek és megállapodások
     models:
       decidim/attachment_created_event: Melléklet
       decidim/component_published_event: Aktív elem
@@ -360,7 +361,7 @@ hu:
           request_confirmation_instructions: Kérjen megerősítési utasítást
           title: Erősítsd meg az e-mail címed
       show:
-        close_modal: Modal bezárása
+        close_modal: Felugró ablak bezárása
     block_user_mailer:
       notify:
         body_1: A fiókod zárolva van.
@@ -481,7 +482,6 @@ hu:
           newsletter_title: Kapcsolatfelvételi engedély
           nickname_help: A beceneved itt %{organization} csak betűket, számokat '-' és '_' jeleket tartalmazhat.
           password_help: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."
-          sign_in: Belépés
           sign_up: Regisztráció
           sign_up_as:
             legend: Regisztrálj mint
@@ -502,7 +502,7 @@ hu:
         newsletter_modal:
           buttons:
             check: Ellenőrzés és folytatás
-            close_modal: Modal bezárása
+            close_modal: Felugró ablak bezárása
             uncheck: Kijelöletlenül hagy
           notice: |-
             <p>Biztos vagy benne, hogy nem szeretnél hírlevelet kapni?<br>
@@ -534,7 +534,6 @@ hu:
         success: Kép sikeresen feltöltve
       drag_and_drop_help: Képek hozzáadása húzással és ejtéssel vagy beillesztéssel.
     endorsable:
-      endorsements: Jóváhagyások
       endorsements_count: Támogatások száma
     endorsement_buttons_cell:
       already_endorsed: Jóváhagyva
@@ -867,7 +866,7 @@ hu:
         body_1: Ön most egy külső linket fog meglátogatni, és szeretnénk, ha óvatos lenne a külső oldal tartalmát illetően.
         body_2: Kérjük, ellenőrizze a meglátogatni kívánt linket, és győződjön meg róla, hogy biztonságos oldalnak ismeri fel, mielőtt továbblépne.
         cancel: Mégsem
-        close_modal: Modal bezárása
+        close_modal: Felugró ablak bezárása
         proceed: Folytatás
         title: Külső link megnyitása
     log:
@@ -959,7 +958,7 @@ hu:
           ok: OK
         index:
           ago: óta
-          close: Modal bezárása
+          close: Felugró ablak bezárása
           from: Feladó
           groups: Csoportjaim
           last_message: Utolsó üzenet
@@ -1121,8 +1120,9 @@ hu:
           legend: Elfogadom a felhasználási feltételeket
         refuse:
           modal_body: Ha elutasítod, akkor nem fogod tudni használi a platformot. <a href="%{data_portability_path}">Töltsd le az adataidat</a> és/vagy <a href="%{delete_path}">töröld a fiókod</a>.
+          modal_btn_continue: Feltételek elfogadása és folytatás
           modal_btn_exit: Később átnézem
-          modal_close: Modal bezárása
+          modal_close: Felugró ablak bezárása
           modal_title: Tényleg elutasítod az ÁSZF frissített szövegét?
         required_review:
           alert: Frissítettük az ÁSZF szövegét. Kérlek, nézd át ezeket.
@@ -1213,10 +1213,10 @@ hu:
           future: Jövő
           past: Múlt
       filters_small_view:
-        close_modal: Modal bezárása
+        close_modal: Felugró ablak bezárása
         filter: Szűrés
         filter_by: 'Szűrés ez alapján:'
-        unfold: Kibont
+        unfold: Kibontás
       results:
         results:
           one: "%{count} találat"
@@ -1500,8 +1500,6 @@ hu:
       updated: Fiókja sikeresen frissült.
     sessions:
       already_signed_out: Kijelentkezett sikeresen.
-      new:
-        sign_in: Belépés
       signed_in: Bejelentkezett sikeresen.
       signed_out: Kijelentkezett sikeresen.
     shared:
@@ -1510,7 +1508,6 @@ hu:
         didn_t_receive_confirmation_instructions: Nem kapott megerősítési utasítást?
         didn_t_receive_unlock_instructions: Nem kapott feloldási utasítást?
         forgot_your_password: Elfelejtette a jelszavát?
-        sign_in: Belépés
         sign_in_with_provider: Jelentkezzen be %{provider}
         sign_up: Regisztrálj
       minimum_password_length:

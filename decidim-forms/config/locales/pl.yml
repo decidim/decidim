@@ -79,6 +79,7 @@ pl:
           form:
             add_question: Dodaj pytanie
             add_separator: Dodaj separator
+            add_title_and_description: Dodaj tytuł i opis
             already_answered_warning: Niektórzy użytkownicy już odpowiedzieli na pytania tego formularza, więc nie można modyfikować jego pytań.
             collapse: Zwiń wszystkie pytania
             expand: Rozwiń wszystkie pytania
@@ -108,6 +109,15 @@ pl:
             remove: Usuń
             separator: Separator
             up: W górę
+          title_and_description:
+            collapse: Zwiń
+            description: Opis
+            down: W dół
+            expand: Rozwiń
+            remove: Usuń
+            title: Tytuł
+            title_and_description: Tytuł i opis
+            up: W górę
           update:
             invalid: Podczas zapisywania formularza wystąpił błąd.
             success: Formularz został zapisany.
@@ -132,6 +142,8 @@ pl:
         single_option: Jedna opcja
         sorting: Sortowanie
         title_and_description: Tytuł i opis
+      questionnaire_answer_presenter:
+        download_attachment: Pobierz załącznik
       questionnaires:
         answer:
           invalid: Podczas wypełniania formularza wystąpiły błędy.

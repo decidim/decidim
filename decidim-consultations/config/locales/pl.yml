@@ -381,6 +381,10 @@ pl:
         actions:
           comment: Skomentuj
           vote: Wspieranie
+      question:
+        actions:
+          comment: Skomentuj
+          vote: Głosuj
     statistics:
       consultations_count: Konsultacje
       votes_count: Głosy

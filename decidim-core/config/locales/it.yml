@@ -337,7 +337,7 @@ it:
           request_confirmation_instructions: Richiedi le istruzioni di conferma
           title: conferma la tua email
       show:
-        close_modal: Chiudi modale
+        close_modal: Chiudi modalità
     block_user_mailer:
       notify:
         body_1: Il tuo account è stato bloccato.
@@ -459,7 +459,6 @@ it:
           newsletter_title: Autorizzazione di contatto
           nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
           password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
-          sign_in: Accedi
           sign_up: Registrati
           sign_up_as:
             legend: Registrati come
@@ -480,7 +479,7 @@ it:
         newsletter_modal:
           buttons:
             check: Controlla e continua
-            close_modal: Chiudi modale
+            close_modal: Chiudi modalità
             uncheck: Mantieni deselezionato
           notice: |-
             <p>Ehi, sei sicuro di non voler ricevere una newsletter?<br>
@@ -513,7 +512,7 @@ it:
         success: Immagine caricata con successo
       drag_and_drop_help: Aggiungi immagini trascinandole o incollandole.
     endorsable:
-      endorsements: Mi piace
+      endorsements: Approvazioni
       endorsements_count: Numero di Appoggi
     endorsement_buttons_cell:
       already_endorsed: Appoggiato
@@ -857,7 +856,7 @@ it:
         body_1: Stai per visitare un collegamento esterno e vorremmo che tu sia cauto riguardo al contenuto del sito esterno.
         body_2: Per favore controlla il link che stai per visitare e assicurati di riconoscerlo come un sito sicuro prima di procedere.
         cancel: Annulla
-        close_modal: Chiudi modale
+        close_modal: Chiudi modalità
         proceed: Procedi
         title: Apri collegamento esterno
     log:
@@ -947,7 +946,7 @@ it:
           ok: Ok
         index:
           ago: fa
-          close: Chiudi modale
+          close: Chiudi modalità
           from: Da
           groups: I miei gruppi
           last_message: Ultimo messaggio
@@ -1105,7 +1104,7 @@ it:
         refuse:
           modal_body: Se rifiuti, non sarai in grado di utilizzare la piattaforma, puoi <a href="%{data_portability_path}">scaricare i tuoi dati</a> e / o <a href="%{delete_path}">cancellare il tuo account</a>.
           modal_btn_exit: Lo esaminerò più tardi
-          modal_close: Chiudi modale
+          modal_close: Chiudi modalità
           modal_title: Rifiutate davvero i Termini e condizioni aggiornati?
         required_review:
           alert: Abbiamo aggiornato i nostri Termini di servizio, per favore controllali.
@@ -1199,7 +1198,7 @@ it:
           future: Futuro
           past: Conclusi
       filters_small_view:
-        close_modal: Chiudi modale
+        close_modal: Chiudi modalità
         filter: Filtro
         filter_by: Filtra per
         unfold: spiegare
@@ -1271,7 +1270,7 @@ it:
         label: 'Risultati per pagina:'
         title: Seleziona il numero di risultati per pagina
       share_modal:
-        close_window: Chiudi questa finestra
+        close_window: Chiudere finestra
         copy_share_link: Copia
         copy_share_link_clarification: Copia il link di condivisione negli appunti
         copy_share_link_copied: Copiato!
@@ -1490,8 +1489,6 @@ it:
       updated: Il tuo account è stato aggiornato correttamente.
     sessions:
       already_signed_out: Logout effettuato.
-      new:
-        sign_in: Accedi
       signed_in: Login effettuato.
       signed_out: Logout effettuato.
     shared:
@@ -1500,7 +1497,6 @@ it:
         didn_t_receive_confirmation_instructions: Non hai ricevuto le istruzioni di conferma?
         didn_t_receive_unlock_instructions: Non hai ricevuto le istruzioni di sblocco?
         forgot_your_password: Hai dimenticato la password?
-        sign_in: Accedi
         sign_in_with_provider: Accedi con %{provider}
         sign_up: Iscriviti
       minimum_password_length:

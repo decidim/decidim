@@ -6,19 +6,37 @@ lt:
         image: Paveikslėlis
         proposals: Susiję pasiūlymai
         title: Pavadinimas
+      ballot_style:
+        code: Kodas
       election:
         description: Aprašymas
         end_time: Balsavimas baigiasi
         start_time: Balsavimas prasideda
         title: Pavadinimas
+      monitoring_committee_member:
+        email: El. paštas
+        name: Pavadinimas
+      polling_officer:
+        email: El. paštas
+        name: Pavadinimas
+      polling_station:
+        address: Adresas
+        location: Vieta
+        location_hints: Vietos užuomina
+        polling_station_managers: Vadybininkai
+        polling_station_president_id: Pirmininkas
+        title: Pavadinimas
       question:
         max_selections: Didžiausias pasirenkimų skaičius
         min_selections: Nei vienas iš pasiūlytų variantų
         title: Pavadinimas
+      trustees_participatory_space:
+        user_id: Dalyvis
       voting:
         end_time: Balsavimas baigiasi
         introductory_image: Įvadinis paveikslėlis
         promoted: Paremta
+        scope_id: Sritis
         show_check_census: Rodyti "patikrinti surašymą" puslapį
         start_time: Balsavimas prasideda
     errors:
@@ -123,6 +141,7 @@ lt:
           label: Patvirtinta
           values:
             'false': Patvirtinta
+            'true': Nepatvirtinta
     components:
       elections:
         actions:
@@ -252,6 +271,8 @@ lt:
           create_election:
             census: Surašymas
             errors:
+              census_codes_generated: Rinkimų kodai surašymui nėra sugeneruoti.
+              census_frozen: Rinkimų kodai surašymui nėra eksportuoti.
               census_uploaded: Šiems rinkimams nėra surašymo.
               component_published: Rinkimų komponentas <strong>nėra publikuotas</strong>.
               max_selections: Klausimai neturi <strong>teisingos vertės atsakymų kiekiui</strong>
@@ -267,6 +288,8 @@ lt:
               'false': neturi <strong>viešo rakto</strong>
               'true': turi <strong>viešą raktą</strong>
             requirements:
+              census_codes_generated: Rinkimų kodai surašymui sugeneruoti.
+              census_frozen: Rinkimų kodai surašymui eksportuoti ir surašymas sustabdytas.
               census_uploaded: Surašymas įkeliamas.
               component_published: Rinkimų komponentas <strong>paskelbtas</strong>.
               max_selections: Visi klausimai turi teisingą kiekį <strong>maksimalių klausimų</strong>.
@@ -810,8 +833,28 @@ lt:
           highlighted_votings:
             max_results: Didžiausias rodomų elementų skaičius
           landing_page:
+            attachments_and_folders:
+              name: Balsavimo prisegimai ir aplankai
             description:
               name: Balsavimo aprašymas
+            elections:
+              name: Balsavimo rinkimai
+            header:
+              name: Balsavimo antraštė
+            html_block_1:
+              name: Balsavimo html blokas 1
+            html_block_2:
+              name: Balsavimo html blokas 2
+            html_block_3:
+              name: Balsavimo html blokas 3
+            metrics:
+              name: Balsavimo rodikliai
+            polling_stations:
+              name: Balsavimo punktai
+            stats:
+              name: Balsavimo statistika
+            timeline:
+              name: Balsavimo laiko juosta
         index:
           not_published: Nebeskelbiama
           published: Paskelbta
@@ -1018,7 +1061,6 @@ lt:
             promoted: Paremta
             select_a_voting_type: Pasirinkite balsavimo tipą
             slug: Nuorodos dalis
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkretų balsavimą. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
             title: Pavadinimas
             voting_type:
               hybrid: Hibridinis
@@ -1126,6 +1168,8 @@ lt:
         highlighted_votings:
           name: Paryškinti balsavimai
         landing_page:
+          description:
+            title: Apie šį balsavimą
           metrics:
             heading: Rodikliai
           polling_stations:
@@ -1142,6 +1186,8 @@ lt:
       pages:
         home:
           highlighted_votings:
+            active_votings: Aktyvūs balsavimai
+            see_all_votings: Žiūrėti visus balsavimus
             votings_button_title: Nuoroda į puslapį „Balsavimai“, kuriame pateikiami visi balsavimai
       polling_officer_zone:
         closures:

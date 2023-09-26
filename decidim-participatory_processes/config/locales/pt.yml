@@ -356,9 +356,6 @@ pt:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para este processo. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         participatory_process_groups:
           form:
             metadata: Meta dados
@@ -367,10 +364,8 @@ pt:
         participatory_process_imports:
           form:
             document_legend: Adicionar um documento
-            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para este processo. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. Se não estiver definido, o botão não será mostrado. Exemplo: %{url}'
             cta_text_help: Se não estiver definido, o botão não será mostrado.
         participatory_processes:
           form:
@@ -384,7 +379,6 @@ pt:
             scope_type_max_depth_help: Restrinja a abrangência do filtro de âmbito; O filtro irá mostrar desde o tipo de âmbito geral até ao tipo de âmbito selecionado.
             select_an_area: Selecione uma Área
             select_process_group: Selecione um grupo do processo
-            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para este processo. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
             title: Informação geral
             visbility: Visibilidade
       content_blocks:
@@ -478,6 +472,6 @@ pt:
           more_info: Mais informações
       process_header_steps:
         step: Fase %{current} de %{total}
-        view_steps: Visualizar fases
+        view_steps: Fases do processo
       process_navigation:
         process_menu_item: O processo

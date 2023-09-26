@@ -325,9 +325,6 @@ zh-TW:
         title: 講者
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL 標識符用於生成指向此會議的 URL。僅接受字母、數字和破折號，並且必須以字母開頭。例如：%{url}'
         conference_invites:
           create:
             error: 邀請參與者加入會議時發生問題。
@@ -368,7 +365,6 @@ zh-TW:
             available_slots_help: 如果您有無限的可用名額，請將其設置為0。
             registrations_count:
               other: 已有 %{count} 個註冊。
-            slug_help: 'URL 標識符用於生成指向此會議的 URL。僅接受字母、數字和破折號，並且必須以字母開頭。例如：%{url}'
         diplomas:
           edit:
             save: 儲存

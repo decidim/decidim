@@ -942,7 +942,7 @@ it:
             destroy: Elimina
             new_voting: Nuovo Spazio Di Votazione
             publish: Pubblica
-            unpublish: Annulla la pubblicazione
+            unpublish: Ritira
           create:
             invalid: Si è verificato un problema durante la creazione di questa votazione
             success: Votazione creata con successo
@@ -952,7 +952,6 @@ it:
             update: Aggiorna
           form:
             select_a_voting_type: Seleziona un tipo di votazione
-            slug_help: 'Gli URL slugs sono usati per generare gli URL che puntano a questo voto. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
             title: Titolo
             voting_type:
               hybrid: Ibrido

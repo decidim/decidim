@@ -18,7 +18,9 @@ lt:
         decidim_scope_id: Apimtis
         decidim_user_group_id: Naudotojų grupė
         description: Aprašymas
+        end_time: Pabaigos laikas
         id: ID
+        iframe_embed_type: Iframe įtraukos tipas
         location: Vieta
         location_hints: Vietos užuomina
         online_meeting_url: Virtualaus susitikimo URL
@@ -28,17 +30,34 @@ lt:
         registration_email_custom_content: Suasmenintas registracijos el. laiško turinys
         registration_form_enabled: Registracijos forma įjungta
         registration_terms: Registracijos sąlygos
+        registration_type: Registracijos tipas
         registration_url: Registracijos URL
         registrations_enabled: Registracijos įjungtos
+        reserved_slots: Šiam susirinkimui rezervuoti intervalai
+        start_time: Pradžios laikas
         title: Pavadinimas
         transparent: Skaidrus
         type_of_meeting: Tipas
+      meeting_agenda:
+        title: Pavadinimas
+        visible: Matomas
+      meeting_agenda_items:
+        description: Aprašymas
+        duration: Trukmė
+        title: Pavadinimas
+      meeting_registration_invite:
+        email: El. paštas
+        name: Pavadinimas
+      validate_registration_code:
+        code: Kodas
     errors:
       models:
         meeting:
           attributes:
             iframe_embed_type:
               not_embeddable: Šio URL negalima įterpti į susitikimo ar tiesioginio įvykio puslapį
+            online_meeting_url:
+              url_format: Turi būti galiojanti nuoroda
         meeting_agenda:
           attributes:
             base:
@@ -474,6 +493,7 @@ lt:
             all: Visi
             citizens: Piliečiai
             official: Oficialus
+            user_groups: Grupės
           scope: Apimtis
           search: Ieškoti
           type: Tipas
@@ -525,8 +545,10 @@ lt:
           close_meeting: Baigti susirinkimą
           contributions: Nuomonių skaičius
           date: Data
+          edit_close_meeting: Redaguoti susitikimo ataskaitą
           edit_meeting: Redaguoti susirinkimą
           going: Jūs užsiregistravote šiame susitikime
+          join: Prisijunkite prie susitikimo
           leave: Atšaukti registraciją
           leave_confirmation: Ar tikrai norite atšaukti savo registraciją į šį susirinkimą?
           link_available_soon: Nuoroda bus prieinama neužilgo
@@ -646,7 +668,7 @@ lt:
         see_all: Žiūrėti visus susirinkimus (%{count})
         upcoming_meetings: Artėjantys susirinkimai
       upcoming_meeting_for_card:
-        upcoming_meeting: Būsimas susirinkimas
+        upcoming_meeting: Būsimas susitikimas
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Susiję rezultatai:'

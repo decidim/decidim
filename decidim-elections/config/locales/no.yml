@@ -572,6 +572,10 @@
         menu:
           votings_submenu:
             monitoring_committee: Kontrollgruppe
+        votings:
+          actions:
+            publish: Publiser
+            unpublish: Avpubliser
       polling_officer_zone:
         closures:
           new:

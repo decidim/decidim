@@ -276,9 +276,6 @@ id:
         title: Pembicara
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Siput URL digunakan untuk menghasilkan URL yang mengarah ke konferensi ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         conference_invites:
           create:
             error: Ada masalah saat mengundang pengguna untuk bergabung dengan konferensi.
@@ -319,7 +316,6 @@ id:
             available_slots_help: Biarkan hingga 0 jika Anda memiliki slot tidak terbatas.
             registrations_count:
               other: Ada %{count} pendaftaran.
-            slug_help: 'Siput URL digunakan untuk menghasilkan URL yang mengarah ke konferensi ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         diplomas:
           edit:
             save: Menyimpan

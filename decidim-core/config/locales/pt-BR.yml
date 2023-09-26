@@ -458,7 +458,6 @@ pt-BR:
           newsletter_title: Permissão de contato
           nickname_help: Seu alias em %{organization}. Só pode conter letras, números, '-' e '_'.
           password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
-          sign_in: Iniciar sessão
           sign_up: Inscreva-se
           sign_up_as:
             legend: Inscreva-se como
@@ -507,7 +506,7 @@ pt-BR:
           update_profile: atualize seu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quer usar sua conta"
     endorsable:
-      endorsements: Avais
+      endorsements: Endossos
       endorsements_count: Contagem de endossos
     endorsement_buttons_cell:
       already_endorsed: Endossado
@@ -1480,8 +1479,6 @@ pt-BR:
       updated: Sua conta foi atualizada com sucesso.
     sessions:
       already_signed_out: Saiu com sucesso.
-      new:
-        sign_in: Entrar
       signed_in: Conectado com sucesso.
       signed_out: Saiu com sucesso.
     shared:
@@ -1490,7 +1487,6 @@ pt-BR:
         didn_t_receive_confirmation_instructions: Não recebeu instruções de confirmação?
         didn_t_receive_unlock_instructions: Não recebeu instruções de desbloqueio?
         forgot_your_password: Esqueceu sua senha?
-        sign_in: Entrar
         sign_in_with_provider: Entrar com %{provider}
         sign_up: inscrever-se
       minimum_password_length:

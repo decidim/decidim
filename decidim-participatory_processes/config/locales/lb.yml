@@ -300,6 +300,5 @@ lb:
           more_info: Méi Informatiounen
       process_header_steps:
         step: Etapp %{current} vun %{total}
-        view_steps: Prozessetappen
       process_navigation:
         process_menu_item: De Prozess

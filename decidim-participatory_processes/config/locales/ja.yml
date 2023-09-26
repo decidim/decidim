@@ -332,6 +332,7 @@ ja:
         html_3:
           name: 3番目の HTML ブロック
         metadata:
+          developer_group: プロモーター
           name: メタデータ
           participatory_scope: 決定されるもの
           participatory_structure: どのように決められますか？
@@ -361,7 +362,7 @@ ja:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         participatory_process_groups:
           form:
             metadata: メタデータ
@@ -370,10 +371,10 @@ ja:
         participatory_process_imports:
           form:
             document_legend: ドキュメントを追加
-            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'ここでは完全な URL ではなく、部分パスを使用してください。文字、数字、ダッシュ、スラッシュを受け入れ、文字で始まる必要があります。 設定されていない場合、ボタンは表示されません。例: %{url}'
+            cta_path_help: 'ここでは完全な URL ではなく、相対パスを使用してください。英字、数字、ハイフン、スラッシュを受け入れ、英字で始まる必要があります。 設定されていない場合、ボタンは表示されません。例: %{url}'
             cta_text_help: 設定されていない場合、ボタンは表示されません。
         participatory_processes:
           form:
@@ -387,7 +388,7 @@ ja:
             scope_type_max_depth_help: スコープフィルターの深さを制限します。フィルターは、一般から選択したスコープタイプに表示されます。
             select_an_area: エリアを選択
             select_process_group: 参加型プロセス グループを選択
-            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             title: 一般情報
             visbility: 公開範囲
       content_blocks:
@@ -400,11 +401,13 @@ ja:
       pages:
         home:
           highlighted_processes:
+            active_processes: アクティブなプロセス
             active_step: アクティブフェーズ
             more_information: 詳細情報
             participate: 参加
             participate_in: 参加型プロセス %{resource_name} に参加する
             processes_button_title: すべてのプロセスを表示するプロセスページへのリンク
+            see_all_processes: すべてのプロセスを見る
       participatory_process_steps:
         index:
           back_to_process: 参加型プロセスのページに戻る
@@ -439,6 +442,7 @@ ja:
         dates: 日付
         developer_group: プロモーターグループ
         end_date: 終了日
+        local_area: 組織エリア
         participatory_scope: 決定されるもの
         participatory_structure: どのように決められますか？
         private_space: これはプライベートな参加型プロセスです
@@ -479,6 +483,6 @@ ja:
           more_info: 詳細情報
       process_header_steps:
         step: 段階 %{current} / %{total}
-        view_steps: プロセスのフェーズ
+        view_steps: 参加型プロセスのフェーズ
       process_navigation:
         process_menu_item: プロセス

@@ -315,16 +315,11 @@ sk:
         content_blocks:
           highlighted_processes:
             max_results: Maximálne množstvo prvkov, ktoré chcete zobraziť
-        participatory_process_copies:
-          form:
-            slug_help: 'Stĺpce adries URL sa používajú na vygenerovanie adries URL, ktoré smerujú k tomuto procesu. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:%{url} '
         participatory_process_imports:
           form:
             document_legend: Pridať dokument
-            slug_help: 'URL slug sa používajú na vygenerovanie adries URL, ktoré odkazujú na toto zhromaždenie. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:%{url} '
         participatory_process_steps:
           form:
-            cta_path_help: 'Použite tu čiastočné cesty, nie úplné adresy URL. Prijme písmená, čísla, pomlčky a lomítka a musí začínať písmenom. Ak nie je nastavené, tlačidlo sa nezobrazí. Príklad:%{url} '
             cta_text_help: Ak nie je nastavené, tlačidlo sa nezobrazí.
         participatory_processes:
           form:
@@ -338,7 +333,6 @@ sk:
             scope_type_max_depth_help: Obmedziť hĺbku filtra rozsahu; filter umožňuje zobraziť všeobecné alebo vybrané druhy rozsahov.
             select_an_area: Vyberte rozsah
             select_process_group: Vyberte skupinu procesov
-            slug_help: 'Stĺpce adries URL sa používajú na vygenerovanie adries URL, ktoré smerujú k tomuto procesu. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:%{url} '
             title: Všeobecná informácia
             visbility: Viditeľnosť
       content_blocks:
@@ -426,6 +420,6 @@ sk:
           more_info: Viac informácií
       process_header_steps:
         step: Krok%{current} z%{total}
-        view_steps: Zobraziť kroky
+        view_steps: Kroky procesu
       process_navigation:
         process_menu_item: Proces

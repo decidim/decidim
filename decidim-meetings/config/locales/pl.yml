@@ -31,8 +31,14 @@ pl:
         title: Tytuł
         transparent: Transparentny
         type_of_meeting: Typ
+      meeting_agenda_items:
+        duration: Czas trwania
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Ten adres URL nie może być osadzony na stronie spotkania lub wydarzenia na żywo
         meeting_agenda:
           attributes:
             base:
@@ -81,9 +87,13 @@ pl:
           origin_eq:
             label: Źródło
             values:
+              citizen: Obywatel
               official: Oficjalny
+              user_group: Grupy użytkowników
           type_eq:
+            label: Rodzaj spotkania
             values:
+              in_person: Osobiste
               online: Online
       meeting_copies:
         create:
@@ -163,6 +173,9 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie spotkania kliknij w przycisk obserwowania.
           email_subject: Spotkanie "%{resource_title}" rozpocznie się za mniej niż 48 godzin.
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> rozpocznie się za mniej niż 48 godzin.
+    forms:
+      meetings:
+        attendees_count_help_text: Nie zapomnij podać całkowitej liczby uczestników spotkania osobistego, online lub hybrydowego.
     gamification:
       badges:
         attended_meetings:
@@ -318,6 +331,9 @@ pl:
         meetings_poll:
           form:
             title: Edytuj kartę do głosowania dla %{questionnaire_for}
+          update:
+            invalid: Wystąpił błąd podczas aktualizacji tej ankiety
+            success: Ankieta spotkania została pomyślnie zaktualizowana
         models:
           meeting:
             name: Spotkanie
@@ -474,6 +490,7 @@ pl:
           contributions: Liczba wsparć
           date: Data
           edit_meeting: Edytuj spotkanie
+          going: Zarejestrowano się na to spotkanie
           leave: Anuluj swoją rejestrację
           meeting_minutes: Protokół ze spotkania
           no_slots_available: Brak dostępnych miejsc
@@ -550,6 +567,9 @@ pl:
         transparent: Transparentne
       versions:
         back_to_resource: Wróć do spotkania
+      withdraw:
+        error: Wystąpił błąd podczas wycofywania spotkania
+        success: Spotkanie zostało pomyślnie wycofane
     metrics:
       meetings:
         description: Liczba utworzonych spotkań

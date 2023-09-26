@@ -18,6 +18,7 @@ hu:
       voting:
         end_time: Szavazás vége
         promoted: Támogatott
+        scope_id: Hatókör
         start_time: Szavazás kezdete
     errors:
       models:
@@ -225,6 +226,8 @@ hu:
         verify:
           form:
             back: Vissza a Decidim -be
+        voting_step:
+          continue: Következő
     events:
       elections:
         election_published:
@@ -238,9 +241,15 @@ hu:
           votings_submenu:
             monitoring_committee: Ellenőrző Bizottság
         votings:
+          actions:
+            publish: Közzétesz
+            unpublish: Közzététel visszavonása
           form:
             census_contact_information_help: Ez a kapcsolatfelvételi információ azoknak a résztvevőknek szól, akik a népszámlálással kapcsolatos problémákat szeretnének jelenteni. Ez lehet e-mail cím, kapcsolatfelvételi űrlap egy másik oldalon, kérdőív a látogatók számára, stb.
       polling_officer_zone:
+        closures:
+          sign:
+            confirm: Ok, folytassuk
         in_person_votes:
           complete_voting:
             questions_title: 'A következő kérdésekben jogosult szavazni:'

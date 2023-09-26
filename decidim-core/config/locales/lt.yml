@@ -29,6 +29,7 @@ lt:
         password_confirmation: Pakartokite slaptažodį
         personal_url: Asmeninis URL
         remove_avatar: Pašalinti avatarą
+        tos_agreement: Naudojimosi sąlygų ir nuostatų sutartis
     models:
       decidim/attachment_created_event: Priedas
       decidim/component_published_event: Aktyvusis komponentas
@@ -103,6 +104,41 @@ lt:
         many: apie %{count} mėnesiai
         other: apie %{count} mėnesiai
       half_a_minute: pusė minutės
+      less_than_x_minutes:
+        one: mažiau nei minutė
+        few: mažiau nei %{count} minutės
+        many: mažiau nei %{count} minutės
+        other: mažiau nei %{count} minutės
+      less_than_x_seconds:
+        one: mažiau nei 1 sekundė
+        few: mažiau nei %{count} sek.
+        many: mažiau nei %{count} sek.
+        other: mažiau nei %{count} sek.
+      x_days:
+        one: 1 diena
+        few: "%{count} dienos"
+        many: "%{count} dienos"
+        other: "%{count} dienos"
+      x_hours:
+        one: 1 valanda
+        few: "%{count} valandos"
+        many: "%{count} valandos"
+        other: "%{count} valandos"
+      x_minutes:
+        one: 1 min.
+        few: "%{count} minutės"
+        many: "%{count} minutės"
+        other: "%{count} minutės"
+      x_months:
+        one: 1 mėnesis
+        few: "%{count} mėnesiai"
+        many: "%{count} mėnesiai"
+        other: "%{count} mėnesiai"
+      x_seconds:
+        one: 1 sekundė
+        few: "%{count} sekundės"
+        many: "%{count} sekundės"
+        other: "%{count} sekundės"
   decidim:
     accessibility:
       external_link: Išorinė nuoroda
@@ -188,7 +224,9 @@ lt:
         unblock: "%{user_name} atblokavo naudotoją %{resource_name}"
         unofficialize: "%{user_name} nuėmė dalyvio %{resource_name} patvirtinimą"
       user_group:
+        block: "%{user_name} užblokavo %{resource_name}"
         reject: "%{user_name} atmetė %{resource_name} grupės patvirtinimą"
+        unblock: "%{user_name} atblokavo naudotojų grupę %{resource_name}"
         verify: "%{user_name} patvirtino %{resource_name} grupę"
         verify_via_csv: "%{user_name} patvirtino %{resource_name} grupę per CSV rinkmeną"
       user_moderation:
@@ -490,9 +528,8 @@ lt:
           already_have_an_account?: Jau turite paskyrą?
           newsletter: Kartais gauti naujienlaiškį su aktualia informacija
           newsletter_title: Leidimas susisiekti
-          nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai, „-“ ir „_“.
+          nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai ir brūkšneliai.
           password_help: "%{minimun_characters} minimalus rašmenų skaičius, rašmenys neturi būti pernelyg įprasti (pvz., 123456) ir turi skirtis nuo jūsų naudotojo vardo ir e. pašto adreso."
-          sign_in: Prisijungti
           sign_up: Užsiregistruoti
           sign_up_as:
             legend: Užsiregistruoti kaip
@@ -544,7 +581,7 @@ lt:
         success: Paveikslėlis įkeltas sėkmingai
       drag_and_drop_help: Pridėkite paveikslėlius juos užvesdami ant lango arba juos įklijuodami.
     endorsable:
-      endorsements: Palaikymai
+      endorsements: Pritarimai
       endorsements_count: Palaikymų skaičius
     endorsement_buttons_cell:
       already_endorsed: Palaikyta
@@ -906,8 +943,10 @@ lt:
         create_with_space: "%{user_name} sukūrė %{resource_name} %{space_name} erdvėje"
         delete: "%{user_name} pašalino %{resource_name}"
         delete_with_space: "%{user_name} pašalino %{resource_name} %{space_name} erdvėje"
+        publish_with_space: "%{user_name} pašalino %{resource_name} %{space_name} erdvėje"
         unknown_action: "%{user_name} atliko tam tikrus veiksmus %{resource_name}"
         unknown_action_with_space: "%{user_name} atliko tam tikrus veiksmus %{resource_name} %{space_name} erdvėje"
+        unpublish_with_space: "%{user_name} depublikavo %{resource_name} %{space_name} erdvėje"
         update: "%{user_name} atnaujino %{resource_name}"
         update_with_space: "%{user_name} atnaujino %{resource_name} %{space_name} erdvėje"
       value_types:
@@ -1029,6 +1068,7 @@ lt:
     newsletter_mailer:
       newsletter:
         note: Šį el. laišką gavote, nes užsiprenumeravote %{organization_name} naujienlaiškius. Galite pakeisti nuostatas savo <a href="%{link}">pranešimų puslapyje</a>.
+        see_on_website: Negalite teisingai matyti šio el. laiško? Peržiūrėkite jį <a href="%{link}" target="_blank">interneto svetainėje</a>.
         unsubscribe: Jei nenorite gauti tokio tipo el. laiško, <a href="%{link}" target="_blank" class="unsubscribe">Atsisakykite prenumeratos</a>.
     newsletter_templates:
       basic_only_text:
@@ -1147,15 +1187,19 @@ lt:
           error: Sutinkant su sąlygomis iškilo problema.
           success: Puiku! Jūs sutikote su sąlygomis.
         form:
+          agreement: Aš sutinku su šiomis sąlygomis
           legend: Sutikti su naudojimosi nuostatomis ir sąlygomis
         refuse:
           modal_body: Jeigu nesutiksite, negalėsite naudotis platforma, <a href="%{data_portability_path}">pasisiųsti savo duomenų</a> ir (arba) <a href="%{delete_path}">pašalinti savo paskyros</a>.
+          modal_btn_continue: Sutikti su sąlygomis ir tęsti
           modal_btn_exit: Peržiūrėsiu vėliau
+          modal_button: Nesutikti su sąlygomis
           modal_close: Uždaryti modalinį langą
           modal_title: Ar iš tikrųjų nesutinkate su atnaujintomis naudojimo sąlygomis?
         required_review:
           alert: Mes atnaujinome naudojimo sąlygas, kviečiame jas peržiūrėti.
           body: Kviečiame peržiūrėti naujimo sąlygu atnaujinimus. Kitu atveju negalėsite naudotis platforma.
+          title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
     participatory_space_private_users:
       not_allowed: Jūs negalite peržiūrėti šio turinio
     profile:
@@ -1342,6 +1386,9 @@ lt:
       help_text: "<strong>Dėmesio:</strong> Turinys gali būti išverstas automatiškai, bet nebus visiškai tikslus."
       show_original: Rodyti teksto originalą
       show_translated: Rodyti automatiškai išverstą tekstą
+    user_activity:
+      index:
+        no_activities_warning: Šis dalyvis dar neturi jokios veiklos.
     user_contact_disabled: Šis dalyvis nepriima tiesioginių žinučių.
     user_conversations:
       create:
@@ -1539,8 +1586,6 @@ lt:
       updated: Jūsų paskyra atnaujinta.
     sessions:
       already_signed_out: Atsijungėte.
-      new:
-        sign_in: Prisijungti
       signed_in: Prisijungta sėkmingai.
       signed_out: Atsijungta sėkmingai.
     shared:
@@ -1549,7 +1594,6 @@ lt:
         didn_t_receive_confirmation_instructions: Negavote patvirtinimo nurodymų?
         didn_t_receive_unlock_instructions: Negavote atrakinimo nurodymų?
         forgot_your_password: Pamiršote savo slaptažodį?
-        sign_in: Prisijungti
         sign_in_with_provider: Prisijunkite su %{provider}
         sign_up: Užsiregistruoti
       minimum_password_length:
@@ -1587,6 +1631,8 @@ lt:
         other: 'Vykdant jūsų prašymus įvyko klaida:'
       too_many_marks: naudojama per daug skyrybos ženklų iš eilės (pvz., ! ir ?)
       too_much_caps: naudojama per daug didžiųjų raidžių (daugiau kaip 25 proc. teksto)
+      too_short: per trumpas (mažiau nei %{count} ženklų)
+      url_format: Nuoroda neteisingo formato
   forms:
     correct_errors: Formoje yra klaidų, ištaisykite jas ir tęskite.
     length_validator:

@@ -142,6 +142,8 @@ lt:
         single_option: Vienas variantas
         sorting: Rūšiavimas
         title_and_description: Pavadinimas ir aprašymas
+      questionnaire_answer_presenter:
+        download_attachment: Parsisiųsti priedą
       questionnaires:
         answer:
           invalid: Atsakant į šią formą iškilo problema.

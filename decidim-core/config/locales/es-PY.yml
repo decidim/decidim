@@ -377,7 +377,7 @@ es-PY:
           request_confirmation_instructions: Solicitar instrucciones de confirmación
           title: Confirma tu email
       show:
-        close_modal: Cerrar modal
+        close_modal: Cerrar el modal
     block_user_mailer:
       notify:
         body_1: Tu cuenta ha sido bloqueda.
@@ -520,7 +520,7 @@ es-PY:
         newsletter_modal:
           buttons:
             check: Verificar y continuar
-            close_modal: Cerrar modal
+            close_modal: Cerrar el modal
             uncheck: Mantener desmarcado
           notice: |-
             <p>Oye, ¿estás seguro de que no quieres recibir un boletín informativo?<br>
@@ -903,7 +903,7 @@ es-PY:
         body_1: Estás a punto de visitar un enlace externo y te recomendamos que seas prudente respecto al contenido de páginas externas.
         body_2: Por favor, antes de seguir, comprueba que el enlace que estás a punto de visitar pertenece a un sitio seguro.
         cancel: Cancelar
-        close_modal: Cerrar modal
+        close_modal: Cerrar el modal
         proceed: Continuar
         title: Abrir enlace externo
     log:
@@ -995,7 +995,7 @@ es-PY:
           ok: De acuerdo
         index:
           ago: anteriores
-          close: Cerrar modal
+          close: Cerrar el modal
           from: 'De:'
           groups: Mis grupos
           last_message: Último mensaje
@@ -1163,7 +1163,7 @@ es-PY:
           modal_btn_continue: Aceptar los términos y condiciones de uso, y continuar
           modal_btn_exit: Lo revisaré más tarde
           modal_button: Rechazar los términos y condiciones de uso
-          modal_close: Cerrar modal
+          modal_close: Cerrar el modal
           modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
         required_review:
           alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
@@ -1258,7 +1258,7 @@ es-PY:
           future: Futuro
           past: Pasado
       filters_small_view:
-        close_modal: Cerrar modal
+        close_modal: Cerrar el modal
         filter: Filtrar
         filter_by: Filtrar por
         unfold: Desplegar
@@ -1554,7 +1554,7 @@ es-PY:
     sessions:
       already_signed_out: Firmado con éxito.
       new:
-        sign_in: Iniciar sesión
+        sign_in: Entra
       signed_in: Firmado con éxito
       signed_out: Firmado con éxito.
     shared:
@@ -1563,7 +1563,7 @@ es-PY:
         didn_t_receive_confirmation_instructions: '¿No recibió las instrucciones de confirmación?'
         didn_t_receive_unlock_instructions: '¿No recibió instrucciones de desbloqueo?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
-        sign_in: Iniciar sesión
+        sign_in: Entra
         sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Regístrate
       minimum_password_length:

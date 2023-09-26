@@ -6,6 +6,7 @@ eu:
       assemblies_type:
         title: Izenburua
       assembly:
+        announcement: Jakinaraztea
         area_id: Arloa
         assembly_type: Batzar mota
         assembly_type_other: Batzar mota beste
@@ -31,6 +32,9 @@ eu:
         github: GitHub
         hashtag: Traola
         hero_image: Orri nagusiko irudia
+        import_attachments: Eranskinak inportatu
+        import_categories: Kategoriak inportatu
+        import_components: Osagaiak inportatu
         included_at: Barruan sartzen da
         instagram: Instagram
         internal_organisation: Barneko antolaketa
@@ -280,7 +284,6 @@ eu:
             select_an_area: Hautatu eremu bat
             select_an_assembly_type: Hautatu muntatze mota bat
             select_parent_assembly: Hautatu gurasoaren muntaia
-            slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
             social_handlers: Gizarte
             title: Informazio orokorra
             visbility: ikusgarritasuna
@@ -292,13 +295,9 @@ eu:
         assemblies_types:
           form:
             title: Batzar mota berria
-        assembly_copies:
-          form:
-            slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
         assembly_imports:
           form:
             document_legend: Gehitu dokumentu bat
-            slug_help: 'URL testu laburrak erabiltzen dira batzar hau aipatzen duten URLak sortzeko. Hizkiak, zenbakiak eta gidoiak onartzen ditu soilik eta hizki batez hasi behar da. Adibidea: %{url}'
         assembly_members:
           form:
             existing_user: Erabiltzaile existentea
@@ -372,6 +371,7 @@ eu:
         developer_group: Sustatzailearen taldea
         duration: Iraupena
         included_at: Barruan sartzen da
+        indefinite_duration: Zehaztu gabe
         internal_organisation: Barneko antolaketa
         is_transparent:
           'false': opakua
