@@ -9,6 +9,7 @@ es:
   decidim:
     admin:
       menu:
+        manage: Gestionar
         templates: Plantillas
       templates:
         apply:
@@ -42,11 +43,15 @@ es:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Editar plantilla del bloque de mensaje de la usuaria
           form:
             save: Guardar
           index:
             confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
             title: Bloquear los mensajes de la usuaria
+          new:
+            title: Nueva plantilla para el bloque de mensaje de la usuaria
           template_chooser:
             select_template: Selecciona una plantilla de respuesta
         questionnaire_templates:
@@ -60,11 +65,14 @@ es:
             edit: Editar
             empty: Aún no hay preguntas.
             questionnaire: Cuestionario
+            title: Editar plantilla del cuestionario
           form:
             title: Plantilla de cuestionario %{questionnaire_for}
           index:
             confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
             title: Plantillas de cuestionario
+          new:
+            title: Nueva plantilla de cuestionario
           preview:
             current_step: Paso %{step}
             of_total_steps: de %{total_steps}
