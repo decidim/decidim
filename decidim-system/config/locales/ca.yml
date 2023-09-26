@@ -54,6 +54,9 @@ ca:
         new:
           create: Crea
           title: Nova administradora
+        show:
+          destroy: Destruir
+          edit: Editar
         update:
           error: S'ha produït un error en actualitzar aquesta administradora.
           success: L'administradora s'ha actualitzat correctament.
@@ -66,6 +69,13 @@ ca:
           summary: Si us plau, afegeix un resum significatiu a la pàgina estàtica %{page} dins el panell d'administració.
           title: Títol predeterminat per %{page}
         terms-of-service: Termes i condicions d'ús
+      devise:
+        passwords:
+          edit:
+            change_your_password: Canvia la teva contrasenya
+            minimum_characters: "(%{minimum} caràcters com a mínim)"
+          new:
+            forgot_your_password: Has oblidat la teva contrasenya?
       menu:
         admins: Administradores
         dashboard: Tauler d'administració
