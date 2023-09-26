@@ -63,7 +63,6 @@ en:
             empty: There are no questions yet.
             questionnaire: Questionnaire
           form:
-            template_title: Template information
             title: Questionnaire template %{questionnaire_for}
           index:
             confirm_delete: Are you sure you want to delete this template?
