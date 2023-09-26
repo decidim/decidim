@@ -44,7 +44,6 @@ ja:
         block_user_templates:
           form:
             save: 保存
-            template_title: テンプレート情報
           index:
             confirm_delete: このテンプレートを削除してもよろしいですか？
             title: ユーザーメッセージをブロック
@@ -62,8 +61,6 @@ ja:
             empty: 質問はまだありません。
             questionnaire: アンケート
           form:
-            save: 保存
-            template_title: テンプレート情報
             title: アンケートテンプレート %{questionnaire_for}
           index:
             confirm_delete: このテンプレートを削除してもよろしいですか？
