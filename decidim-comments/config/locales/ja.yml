@@ -88,8 +88,8 @@ ja:
         single_comment_link_title: リンク取得
       comment_order_selector:
         order:
-          best_rated: 最高評価
-          most_discussed: 最も議論されたもの
+          best_rated: 評価の高い順
+          most_discussed: 議論数の多い順
           older: 古い順
           recent: 最近のもの
         title: '並び順：'
