@@ -1,5 +1,6 @@
 import { Uploader } from "src/decidim/direct_uploads/uploader";
 import { truncateFilename, checkTitles, createHiddenInput } from "src/decidim/direct_uploads/upload_utility";
+import { escapeHtml } from "src/decidim/utilities/text";
 
 // This class handles logic inside upload modal, but since modal is not inside the form
 // logic here moves "upload items" / hidden inputs to form.
@@ -70,7 +71,7 @@ export default class UploadModal {
 
         const attachmentDetails = document.createElement("div");
         attachmentDetails.classList.add("attachment-details");
-        attachmentDetails.dataset.filename = file.name;
+        attachmentDetails.dataset.filename = escapeHtml(file.name);
         const titleAndFileNameSpan = document.createElement("span");
         titleAndFileNameSpan.style.display = "none";
         attachmentDetails.appendChild(titleAndFileNameSpan);
@@ -84,10 +85,10 @@ export default class UploadModal {
 
         if (this.options.titled) {
           const hiddenTitleField = createHiddenInput("hidden-title", `${this.options.resourceName}[${this.options.addAttribute}][${ordinalNumber}][title]`, title);
-          titleAndFileNameSpan.innerHTML = `${title} (${file.name})`;
+          titleAndFileNameSpan.innerHTML = escapeHtml(`${title} (${file.name})`);
           attachmentDetails.appendChild(hiddenTitleField);
         } else {
-          titleAndFileNameSpan.innerHTML = file.name;
+          titleAndFileNameSpan.innerHTML = escapeHtml(file.name);
         }
 
         if (!this.options.multiple) {
@@ -127,7 +128,7 @@ export default class UploadModal {
   createUploadItem(fileName, title, state) {
     const wrapper = document.createElement("div");
     wrapper.classList.add("upload-item");
-    wrapper.setAttribute("data-filename", fileName);
+    wrapper.setAttribute("data-filename", escapeHtml(fileName));
 
     const firstRow = document.createElement("div");
     const secondRow = document.createElement("div");
@@ -144,7 +145,7 @@ export default class UploadModal {
       fileNameSpanClasses.push("small-12");
     }
     fileNameSpan.classList.add(...fileNameSpanClasses);
-    fileNameSpan.innerHTML = truncateFilename(fileName);
+    fileNameSpan.innerHTML = escapeHtml(truncateFilename(fileName));
 
     const progressBar = document.createElement("div");
     progressBar.classList.add("progress-bar");
@@ -179,14 +180,13 @@ export default class UploadModal {
     removeButton.innerHTML = `&times; ${this.locales.remove}`;
     removeButton.addEventListener(("click"), (event) => {
       event.preventDefault();
-      const item = this.uploadItems.querySelector(`[data-filename='${fileName}']`);
-      this.trashCan.append(item);
+      this.trashCan.append(wrapper);
       this.updateDropZone();
     })
 
     const titleAndFileNameSpan = document.createElement("span");
     titleAndFileNameSpan.classList.add("columns", "small-5", "title-and-filename-span");
-    titleAndFileNameSpan.innerHTML = `${title} (${truncateFilename(fileName)})`;
+    titleAndFileNameSpan.innerHTML = escapeHtml(`${title} (${truncateFilename(fileName)})`);
 
     firstRow.appendChild(fileNameSpan);
     secondRow.appendChild(progressBarWrapper);
