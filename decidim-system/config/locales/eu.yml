@@ -136,6 +136,10 @@ eu:
         create:
           error: Errorea izan da antolatzaile berri bat sortzean.
           success: Antolatzailea zuzen sortu da.
+        csp_settings:
+          connect_src_hint: |
+            Connect-src zuzentarauak murriztu egiten ditu < script> elementuen bidez karga daitezkeen URLak.
+            Plataformak 'self' gehituko du, baina gehiago gehitzeko aukera emango dizu.
         edit:
           secondary_hosts_hint: Sartu haietako bakoitza lerro batean
         file_upload_settings:
