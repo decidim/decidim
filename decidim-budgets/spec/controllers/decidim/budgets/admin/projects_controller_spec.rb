@@ -73,18 +73,6 @@ module Decidim
             end
           end
         end
-
-        context "when proposal linking is not enabled" do
-          let(:component) { create(:budgets_component) }
-
-          before do
-            allow(Decidim::Budgets).to receive(:enable_proposal_linking).and_return(false)
-          end
-
-          it "does not load the proposals admin picker concern" do
-            load "#{Decidim::Budgets::Engine.root}/app/controllers/decidim/budgets/admin/projects_controller.rb"
-          end
-        end
       end
     end
   end
