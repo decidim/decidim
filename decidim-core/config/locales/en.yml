@@ -1692,7 +1692,6 @@ en:
       public: Your public information.
   errors:
     messages:
-      password_confirmation_message: '"Confirm your password" does not match Password'
       allowed_file_content_types: 'only files with the following extensions are allowed: %{types}'
       already_confirmed: was already confirmed, please try signing in
       confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
@@ -1709,6 +1708,7 @@ en:
       not_saved:
         one: 'There''s been an error processing your request:'
         other: 'There were multiple errors when processing your request:'
+      password_confirmation_message: '"Confirm your password" does not match Password'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
       too_short: is too short (under %{count} characters)
