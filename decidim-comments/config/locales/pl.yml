@@ -4,6 +4,7 @@ pl:
     models:
       decidim/comments/comment_by_followed_user_event: Komentarz
       decidim/comments/comment_created_event: Komentarz
+      decidim/comments/comment_upvoted_event: Polubiono komentarz
       decidim/comments/reply_created_event: Odpowiedź na komentarz
       decidim/comments/user_group_mentioned_event: Wzmianka
       decidim/comments/user_mentioned_event: Wzmianka
@@ -24,6 +25,8 @@ pl:
       admin:
         shared:
           availability_fields:
+            enabled: Komentarze włączone
+            end_time: Komentarze włączone do
             start_time: Komentowanie możliwe od
       comments:
         create:
@@ -85,6 +88,11 @@ pl:
             offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
             spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
           title: Zgłoś niewłaściwą treść
+        show_replies:
+          one: Pokaż odpowiedź
+          few: Pokaż %{count} odpowiedzi
+          many: Pokaż %{count} odpowiedzi
+          other: Pokaż %{count} odpowiedzi
         single_comment_link_title: Pobierz link
       comment_order_selector:
         order:
@@ -101,6 +109,7 @@ pl:
         blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
         comment_details_title: Szczegóły komentarza
         loading: Ładowanie komentarzy ...
+        single_comment_warning: <a href="%{url}">Zobacz wszystkie komentarze</a>
         single_comment_warning_title: Wyświetlasz teraz pojedynczy komentarz
         title:
           one: "%{count} komentarz"

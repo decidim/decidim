@@ -18,7 +18,7 @@ cs:
         location: Lokalita
         main_logo: Hlavní logo
         objectives: Cíle
-        participatory_processes_ids: Související procesy účasti
+        participatory_processes_ids: Související participativní procesy
         promoted: Propagováno
         published_at: Publikováno v
         registration_terms: Podmínky registrace
@@ -84,7 +84,7 @@ cs:
         other: Konference
       decidim/conference_speaker:
         one: Řečník Konference
-        few: Řečnící Konference
+        few: Řečníci Konference
         many: Řečníci Konference
         other: Řečníci Konference
       decidim/conference_user_role:
@@ -124,7 +124,7 @@ cs:
           title: Aktualizovat řečníka konference.
           update: Aktualizace
         index:
-          conference_speakers_title: Řečnící konference
+          conference_speakers_title: Řečníci konference
         new:
           create: Vytvořit
           title: Nový řečník konference.
@@ -337,7 +337,7 @@ cs:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL slugs se používají k vygenerování adres URL, které odkazují na tuto konferenci. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         conference_invites:
           create:
             error: Při pozvání uživatele do konference došlo k problému.
@@ -381,7 +381,7 @@ cs:
               few: Bylo zde %{count} registrací.
               many: Bylo zde %{count} registrací.
               other: Bylo zde %{count} registrací.
-            slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které odkazují na tuto konferenci. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         diplomas:
           edit:
             save: Uložit
@@ -415,7 +415,7 @@ cs:
           cancel: Zrušit
           confirm: Potvrdit
         show:
-          free: Volný, uvolnit
+          free: Volný
           going: Chystáte se
           no_slots_available: Žádné sloty nejsou k dispozici
           registration: Registrace
@@ -545,7 +545,7 @@ cs:
         objectives: Cíle
         related_assemblies: Související shromáždění
         related_consultations: Související konzultace
-        related_participatory_processes: Související procesy účasti
+        related_participatory_processes: Související participativní procesy
     events:
       conferences:
         conference_registration_confirmed:

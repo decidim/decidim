@@ -7,6 +7,8 @@ lt:
         offline: Offline
         offline_explanation: Tikrinimo fiziškai instrukcija
         online: Virtualus
+      confirmation:
+        verification_code: Patvirtinimo kodas
       id_document_information:
         document_number: Dokumento numeris (su raide)
         document_type: Dokumento tipas
@@ -15,6 +17,8 @@ lt:
         document_type: Jūsų dokumento rūšis
         user: Dalyvis
         verification_attachment: Jūsų dokumento nuskenuota kopija
+      mobile_phone:
+        mobile_phone_number: Mobilaus telefono numeris
       offline_confirmation:
         email: Dalyvio el. pašto adresas
       postal_letter_address:
@@ -24,6 +28,12 @@ lt:
       postal_letter_postage:
         full_address: Pilnas adresas
         verification_code: Patvirtinimo kodas
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Blogai suformuotas importo failas, prašome atidžiai perskaityti instrukcijas ir įsitikinkite, kad failas yra UTF-8 koduotėje.
   decidim:
     admin:
       menu:

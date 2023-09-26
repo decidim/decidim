@@ -491,7 +491,7 @@ fi:
       footer_sub_hero:
         name: Alaosion esialueen banneri
       hero:
-        name: Hero-kuva
+        name: Pääkuva
       hero_settings_form:
         background_image: Taustakuva
         welcome_text: Tervetuloa-teksti
@@ -508,15 +508,15 @@ fi:
         html_content: HTML-sisältö
         name: HTML-lohko
       last_activity:
-        name: Viimeisin tapahtuma
-        title: Viimeisin tapahtuma
+        name: Viimeaikainen toiminta
+        title: Viimeaikainen toiminta
         view_all: Näytä kaikki
       metrics:
         name: Organisaation tilastomittarit
       stats:
         name: Organisaation tilastot
       sub_hero:
-        name: Hero-kuvan alabanneri
+        name: Pääkuvan alabanneri
     core:
       actions:
         login_before_access: Sinun täytyy kirjautua sisään, jotta voit tarkastella tätä sisältöä
@@ -539,7 +539,6 @@ fi:
           newsletter: Vastaanota silloin tällöin ajankohtaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
           nickname_help: Nimimerkkisi palvelussa %{organization}. Voi sisältää ainoastaan kirjaimia, numeroita sekä yhdysmerkkejä "-" ja alaviivoja "_".
-          sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
             legend: Rekisteröidy
@@ -600,7 +599,7 @@ fi:
         success: Kuvan lähettäminen onnistui
       drag_and_drop_help: Lisää kuvia raahaamalla ja pudottamalla tai liittämällä niitä leikepöydältä.
     endorsable:
-      endorsements: Suositukset
+      endorsements: Suositusta
       endorsements_count: Suositusten määrä
     endorsement_buttons_cell:
       already_endorsed: Suositeltu
@@ -740,7 +739,7 @@ fi:
       nickname_event:
         notification_body: Olemme muuttaneet nimimerkkien sääntöjä varmistaaksemme, että alustalla ei ole useampaa tiliä samalla nimimerkillä eri tavalla kirjoitettuna. <br/> Tilisi on luotu toisen samaa nimimerkkiä käyttäneen henkilön jälkeen, joten olemme vaihtaneet nimimerkkiäsi automaattisesti. Halutessasi voit vaihtaa nimimerkkiäsi <a href="%{link_to_account_settings}">tilisi asetuksista</a>.
       notification_event:
-        notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
+        notification_title: Kohteessa <a href="%{resource_path}">%{resource_title}</a> on uutta toimintaa.
       reports:
         resource_hidden:
           email_intro: Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se ilmoitettiin asiattomana syyllä "%{report_reasons}".
@@ -967,9 +966,9 @@ fi:
     last_activities:
       activities:
         no_activities_warning: Ei toimintaa
-      all: Kaikki tapahtumatyypit
+      all: Kaikki toimintatyypit
       index:
-        last_activity: Viimeisin tapahtuma
+        last_activity: Viimeaikainen toiminta
         resource_type: Tyyppi
     links:
       invalid_url: Virheellinen URL-osoite
@@ -1282,7 +1281,7 @@ fi:
       default_officialization_text_for_user_groups: Tämä käyttäjäryhmä on julkisesti vahvistettu ja sen nimi vastaa oikeaa nimeä
       default_officialization_text_for_users: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
-        activity: Aktiviteetti
+        activity: Toiminta
         badges: Kunniamerkit
         conversations: Keskustelut
         followers: Seuraajat
@@ -1660,8 +1659,6 @@ fi:
       updated: Tilisi päivitys onnistui.
     sessions:
       already_signed_out: Uloskirjautuminen onnistui.
-      new:
-        sign_in: Kirjaudu sisään
       signed_in: Sisäänkirjautuminen onnistui.
       signed_out: Uloskirjautuminen onnistui.
     shared:
@@ -1670,7 +1667,6 @@ fi:
         didn_t_receive_confirmation_instructions: Etkö saanut vahvistusohjeita?
         didn_t_receive_unlock_instructions: Etkö saanut ohjeita tilin lukituksen poistoon?
         forgot_your_password: Unohditko salasanasi?
-        sign_in: Kirjaudu sisään
         sign_in_with_provider: Kirjaudu sisään palvelulla %{provider}
         sign_up: Rekisteröidy
       minimum_password_length:

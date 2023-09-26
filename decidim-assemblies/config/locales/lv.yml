@@ -250,7 +250,6 @@ lv:
             select_an_area: Izvēlieties jomu
             select_an_assembly_type: Izvēlieties asamblejas veidu
             select_parent_assembly: Izvēlieties saistīto asambleju
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo asambleju. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
             social_handlers: Sociālie plašsaziņas līdzekļi
             title: Vispārēja informācija
             visbility: Redzamība
@@ -262,9 +261,6 @@ lv:
         assemblies_types:
           form:
             title: Nosaukums
-        assembly_copies:
-          form:
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo asambleju. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
         assembly_members:
           form:
             existing_user: Esošais dalībnieks

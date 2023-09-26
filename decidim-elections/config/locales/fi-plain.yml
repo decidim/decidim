@@ -1047,7 +1047,6 @@ fi-pl:
             select_a_voting_type: Valitse äänestystapa
             show_check_census_help: Määrittää, näytetäänkö "Voinko äänestää?" -linkki julkisten äänestysten sivuilla
             slug: Tunniste
-            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteita, jotka viittaavat tähän äänestykseen. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
             title: Otsikko
             voting_type:
               hybrid: Yhdistetty äänestystapa

@@ -14,7 +14,8 @@ sv:
         decidim_scope_id: Omfång
         description: Beskrivning
         proposal_ids: Relaterade förslag
-        selected: Valda för genomförande
+        proposals: Förslag
+        selected: Valt för genomförande
         title: Titel
       proposals_import:
         scope_id: Omfång

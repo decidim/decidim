@@ -27,10 +27,10 @@ is:
             - Ef þú getur ekki séð upplýsingarnar greinilega eða þú getur ekki staðfest það, geturðu hafnað beiðninni og notandinn mun geta lagað það.
         postal_letter:
           help:
-            - Participants request a verification code to be sent to their address.
+            - 
             - Þú sendir bréfið á heimilisfangið með staðfestingarkóðanum.
             - Þú merkir stafinn sem sendur er.
-            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
+            - 
       direct: Bein
       help: Hjálp
       id_documents:

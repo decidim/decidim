@@ -664,9 +664,6 @@ lb:
           select_scopes: Nur Teilnehmer anzeigen, die einen der gewählten Themenbereiche in Ihren "Meine Interessen" Einstellungen ihres Kontos aktiviert haben.
           select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
           select_users: Wählen Sie aus, welchen Benutzern Sie den Newsletter senden möchten
-          send_to_all_users: An alle Benutzer senden
-          send_to_followers: An Follower senden
-          send_to_participants: An Teilnehmer senden
           title: Empfänger auswählen
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
         send:
@@ -740,7 +737,6 @@ lb:
           colors:
             colors_title: Organisationsfarben
             header_snippets_help: Verwenden Sie dieses Feld, um Dinge zum HTML-Kopf hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieterdiensten, für die zusätzliches JavaScript oder CSS erforderlich ist. Außerdem können Sie damit dem HTML zusätzliche Meta-Tags hinzufügen. Beachten Sie, dass dies nur auf öffentlichen Seiten und nicht im Admin-Bereich erfolgt.
-          cta_button_path_help: 'Sie können überschreiben, wo die Call To Action-Schaltfläche in der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
           cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
@@ -874,7 +870,6 @@ lb:
           update: Aktualisieren
         form:
           none: Keiner
-          slug_help: 'Benutze partielle Pfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         index:
           last_notable_change: Letzte bemerkenswerte Änderung
         new:
@@ -1011,4 +1006,4 @@ lb:
         settings:
           title: die Einstellungen
         users:
-          title: Benutzer
+          title: Teilnehmer

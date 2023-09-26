@@ -15,17 +15,24 @@ lt:
         description: Aprašymas
         file: Rinkmena
         title: Priedo arba paveikslėlio pavadinimas
+        weight: Vieta eilėje
       attachment_collection:
         description: Aprašymas
         name: Pavadinimas
+        weight: Vieta eilėje
       category:
         description: Aprašymas
         name: Pavadinimas
         parent_id: Motininis
+        weight: Vieta eilėje
       component:
         name: Pavadinimas
         published_at: Paskelbta
         weight: Vieta eilėje
+      external_domain:
+        value: Vertė
+      help_section:
+        content: Turinys
       id: ID
       import:
         user_group_id: Sukurti importus kaip
@@ -93,6 +100,9 @@ lt:
         welcome_notification_body: Pasisveikinimo pranešimo tekstas
         welcome_notification_subject: Pasisveikinimo pranešimo antraštė
         youtube_handler: '„YouTube“ tvarkyklė'
+      participatory_space_private_user:
+        email: El. paštas
+        name: Pavadinimas
       scope:
         code: Kodas
         name: Pavadinimas
@@ -114,6 +124,7 @@ lt:
         show_in_footer: Rodyti poraštėje
         slug: URL laukas
         title: Pavadinimas
+        topic_id: Temos
         weight: Vieta eilėje
       static_page_topic:
         description: Aprašymas
@@ -134,6 +145,14 @@ lt:
               allowed_file_content_types: Netinkama vaizdo rinkmena
             official_img_header:
               allowed_file_content_types: Netinkama vaizdo rinkmena
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Blogai suformuotas importo failas, prašome atidžiai perskaityti instrukcijas ir įsitikinkite, kad failas yra UTF-8 koduotėje.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Blogai suformuotas importo failas, prašome atidžiai perskaityti instrukcijas ir įsitikinkite, kad failas yra UTF-8 koduotėje.
       new_import:
         attributes:
           file:
@@ -185,11 +204,14 @@ lt:
           error: Sutinkant su administratoriaus naudojimosi sąlygomis įvyko klaida.
           success: Puiku! Jūs sutikote su administratoriaus naudojimosi sąlygomis.
         actions:
+          accept: Aš sutinku su šiomis sąlygomis
           are_you_sure: Ar tikrai norite nesutikti su administratoriaus naudojimosi sąlygomis?
+          refuse: Nesutikti su sąlygomis
           title: Sutikti su naudojimosi sąlygomis
         required_review:
           alert: 'Reikalavimas: peržiūrėkite mūsų administratoriaus nustatytas naudojimosi sąlygas'
           callout: Kviečiame peržiūrėti administratoriaus nustatytas naudojimosi sąlygas. Priešingu atveju šios platformos administruoti negalėsite.
+          cta: Peržiūrėti jas dabar.
         title: Administratoriaus nustatytos naudojimosi sąlygos
       area_types:
         create:
@@ -640,6 +662,7 @@ lt:
           nickname: Slapyvardis
           reason: Priežastis
           reports: Raportavimų skaičius
+          title: Dalyviai apie kuriuos pranešta
         report:
           reasons:
             does_not_belong: Nepriklauso
@@ -649,6 +672,8 @@ lt:
           blocked: Užblokuota
           unblocked: Neužblokuota
       moderations:
+        index:
+          title: Turinys, apie kurį pranešta
         report:
           reasons:
             does_not_belong: Nepriklauso
@@ -719,9 +744,6 @@ lt:
           select_scopes: Filtruoti naudotojus, kurie savo paskyros „Mano interesai“ nuostatose aktyvino bet kurią pasirinktą sritį.
           select_spaces: Pasirinkite naujienlaiškio segmentacijos vietas
           select_users: Pasirinkite, kuriems naudotojams norite siųsti naujienlaiškį
-          send_to_all_users: Siųsti visiems naudotojams
-          send_to_followers: Siųsti sekėjams
-          send_to_participants: Siųsti dalyviams
           title: Pasirinkti gavėjus, kuriems išsiųsti
           warning: "<strong>Dėmesio:</strong> Šis naujienlaiškis bus išsiųstas tik tiems dalyviams, kurie savo pranešimų nuostatose aktyvino<em> „noriu gauti naujienlaiškius“</em>."
         send:
@@ -796,7 +818,6 @@ lt:
             colors_title: Organizacijos spalvos
             colors_warning_html: Dėmesio! Spalvų pakeitimas gali padaryti puslapį neprieinamu. Norėdami patikrinti spalvų prieinamumą naudokite <a href="%{link}"> WebAIM Contrast Checker </a> arba kitus panašius įrankius.
             header_snippets_help: Naudokite šį laukelį, kad į HTML antraštę (angl. head) įtraukti elementus. Dažniausiai įtraukiamos trečiųjų šalių paslaugos, kurioms reikia kai kurių papildomų „JavaScript“ arba CSS elementų. Be to, galite naudotis laukeliu ir prie HTML pridėti papildomų meta žymeklių. Atkreipkite dėmesį į tai, kad tai atsivaizduos tik viešuose puslapiuose, o ne administratoriaus skyrelyje.
-          cta_button_path_help: 'Galite pakeisti į kur nukreipia pagrindinis numatytojo puslapio mygtukas. Naudokite dalines nuorodas, o ne URL nuoroda. Mygtuko pavyzdys - %{url}'
           cta_button_text_help: Galite pakeisti pagrindinio numatytojo puslapio mygtuko tekstą priklausomai nuo kalbos. Jei ne, bus naudojamas numatytasis mygtuko tekstas.
           homepage_appearance_title: Keisti numatytojo puslapio išvaizdą
           homepage_highlighted_content_banner_title: Paryškinta turinio juosta
@@ -947,7 +968,6 @@ lt:
           update: Atnaujinti
         form:
           none: Nėra
-          slug_help: 'Čia naudokitės daliniais keliais, o ne išsamiais URL. Galima naudoti raides, skaičius, brūkšnius ir pasviruosius brūkšnius, o pradėti būtina raide. Pavyzdys: %{url}'
         index:
           last_notable_change: Paskutinis pastebimas pakeitimas
         new:
@@ -967,9 +987,12 @@ lt:
         areas: Aplinkos
         authorization_workflows: Verifikacijos metodai
         dashboard: Švieslentė
+        edit_external_domains: Išorinių domenų baltasis sąrašas
+        edit_organization_appearance: Keisti pagrindinio puslapio išvaizdą
         impersonatable_users: Dalyviai, kurių duomenis galima tvarkyti
         impersonations: Dalyvių tvarkymas
         metrics: Duomenys
+        pages: Puslapiai
         panel: Administratorius
         participants: Dalyviai
         scope_types: Apimties tipai
@@ -1022,7 +1045,7 @@ lt:
           last_week: Praėjusią savaitę
           no_users_count_statistics_yet: Dar nėra dalyvių skaičiaus statistinių duomenų
           participants: Dalyviai
-      view_public_page: Peržiūrėti viešąjį puslapį
+      view_public_page: Peržiūrėti viešą puslapį
     forms:
       errors:
         impersonate_user:
@@ -1061,6 +1084,7 @@ lt:
         moderation:
           fields:
             created_at: Sukūrimo data
+            deleted_resource: Pašalinti išteklį
             hidden_at: Paslėpta
             participatory_space: Dalyvaujamoji erdvė
             report_count: Kiekis

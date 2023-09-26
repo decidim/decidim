@@ -1362,7 +1362,7 @@ es:
         close_modal: Cerrar el modal
         filter: Filtra
         filter_by: Filtra por
-        unfold: Desplega
+        unfold: Desplegar
       results:
         results:
           one: "%{count} resultado"
@@ -1433,7 +1433,7 @@ es:
         label: 'Resultados por página:'
         title: Seleccionar el número de resultados por página
       share_modal:
-        close_window: Cierra la ventana
+        close_window: Cerrar ventana
         copy_share_link: Copia
         copy_share_link_clarification: Copiar al portapapeles el enlace para compartir
         copy_share_link_copied: '¡Copiado!'
@@ -1658,7 +1658,7 @@ es:
     sessions:
       already_signed_out: Sesión finalizada correctamente.
       new:
-        sign_in: Iniciar sesión
+        sign_in: Entra
       signed_in: Sesión iniciada con éxito.
       signed_out: Sesión finalizada con éxito.
     shared:
@@ -1667,7 +1667,7 @@ es:
         didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
         didn_t_receive_unlock_instructions: '¿No has recibido instrucciones de desbloqueo?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
-        sign_in: Iniciar sesión
+        sign_in: Entra
         sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Regístrate
       minimum_password_length:

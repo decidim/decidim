@@ -374,6 +374,7 @@ fr-CA:
         html_3:
           name: Bloc HTML 3
         metadata:
+          developer_group: Promu par
           name: Métadonnées
           participatory_scope: Objectifs
           participatory_structure: Modalités de décision
@@ -404,7 +405,7 @@ fr-CA:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_process_groups:
           form:
             metadata: Métadonnées
@@ -413,10 +414,10 @@ fr-CA:
         participatory_process_imports:
           form:
             document_legend: Ajouter un document
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple: %{url}'
+            cta_path_help: 'Utilisez ici des chemins partiels, pas des URL complètes. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple : %{url}'
             cta_text_help: Si non défini, le bouton ne sera pas affiché.
         participatory_processes:
           form:
@@ -431,7 +432,7 @@ fr-CA:
             select_an_area: Sélectionnez un secteur
             select_participatory_process_type: Sélectionnez un type de concertation
             select_process_group: Sélectionnez un groupe de concertations
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
             title: Informations générales
             visbility: Visibilité
       content_blocks:
@@ -444,11 +445,13 @@ fr-CA:
       pages:
         home:
           highlighted_processes:
+            active_processes: Concertations actives
             active_step: Étape active
             more_information: Plus d'informations
             participate: Participer
             participate_in: Participer au processus %{resource_name}
             processes_button_title: Lien vers la page Concertation où toutes les concertations sont affichées
+            see_all_processes: Voir toutes les concertations
       participatory_process_steps:
         index:
           back_to_process: Retour à la page du processus
@@ -489,6 +492,7 @@ fr-CA:
         dates: Dates
         developer_group: Organisateur
         end_date: Date de fin
+        local_area: Espace d'organisation
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
         private_space: Ceci est une concertation privée
@@ -529,6 +533,6 @@ fr-CA:
           more_info: Plus d'informations
       process_header_steps:
         step: Étape %{current} sur %{total}
-        view_steps: Voir les étapes
+        view_steps: Étapes de la concertation
       process_navigation:
         process_menu_item: Présentation

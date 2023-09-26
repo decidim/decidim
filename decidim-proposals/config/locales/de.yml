@@ -192,7 +192,7 @@ de:
             amendments_visibility_choices:
               all: Ergänzungen sind für alle sichtbar
               participants: Ergänzungen sind nur für ihre Autoren sichtbar
-            amendments_visibility_help: Wenn die Option „Ergänzungen sind nur für ihre Autoren sichtbar“ ausgewählt ist, müssen Teilnehmer eingeloggt sein, um die vorgenommenen Ergänzungen zu sehen.
+            amendments_visibility_help: Wenn die Option „Ergänzungen sind nur für ihre Autoren sichtbar“ ausgewählt ist, müssen Teilnehmer angemeldet sein, um die vorgenommenen Ergänzungen zu sehen.
             announcement: Ankündigung
             answers_with_costs: Kosten für Vorschlagsantworten aktivieren
             automatic_hashtags: Hashtags wurden allen Vorschlägen hinzugefügt

@@ -336,7 +336,7 @@ lb:
           request_confirmation_instructions: Instruktiounen fir d'Bestätegung ufroen
           title: Email bestätegen
       show:
-        close_modal: Modal schließen
+        close_modal: Modal zou maachen
     block_user_mailer:
       notify:
         body_1: Däin Kont ass gespaart.
@@ -450,7 +450,6 @@ lb:
           newsletter: Heiansdo en Newsletter mat relevanten Informatiounen zougeschéckt kréien
           newsletter_title: Erlabnis Kontakt opzehuelen
           nickname_help: Däin Pseudonym an %{organization}. Dierf nëmmen aus Buschtawen, Zuelen, _ an - bestoen.
-          sign_in: Umelden
           sign_up: Registréieren
           sign_up_as:
             legend: Registréieren als
@@ -471,7 +470,7 @@ lb:
         newsletter_modal:
           buttons:
             check: Iwwerpréiwen an weider maachen
-            close_modal: Modal schließen
+            close_modal: Modal zou maachen
             uncheck: Ouni Kontakt-Erlabnis weidermaachen
           notice: |-
             <p>Hey, bass de sécher, dass de keen Newsletter wëlls?<br>
@@ -506,7 +505,7 @@ lb:
         download_data_description: Eng Datei, déi all Informatiounen enthält, déi mat dengem Konto verknäppt sinn, gëtt an den <strong>%{user_email}</strong> geschéckt. Dës Mail enthält eng .zip-Datei an e Passwuert fir se opzemaachen .<br/><br/>Fir d'Datei auszepaken, brauchs du <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows) oder <a href="https://www.keka.io/">Keka</a> (fir MacOS). Wann s'du mat Linux schaffs, gëtt ass et meeschtens als Standard mat installéiert. Wann net, kanns du <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> benotzen.
         request_data: Daten ufroen
     endorsable:
-      endorsements: Ennerstëtzungen
+      endorsements: Ënnerstëtzungen
       endorsements_count: Zuel vun den Ënnerstëtzer
     endorsement_buttons_cell:
       already_endorsed: Ënnerstëtzt
@@ -842,7 +841,7 @@ lb:
         body_1: Du kënns elo op en externen Link an mir bieden dech, virsiichteg mam Inhalt vun externen Säiten ëmzegoen.
         body_2: W. e. g. iwwerpréif de Link den s'de besiche wëlls an iwwerpréif ob et eng sécher Säit ass, éier s'de weider méchs.
         cancel: Ofbriechen
-        close_modal: Modal schließen
+        close_modal: Modal zou maachen
         proceed: Weidermaachen
         title: Externen Link op maachen
     log:
@@ -932,7 +931,7 @@ lb:
           ok: OK
         index:
           ago: virun
-          close: Modal schließen
+          close: Modal zou maachen
           from: Vum
           groups: Meng Gruppen
           last_message: Lescht Noriicht
@@ -1082,7 +1081,7 @@ lb:
           legend: Akzeptéier d'Konditiounen vum Benotzen
         refuse:
           modal_btn_exit: Ech iwwerpréiwen dat méi spéit
-          modal_close: Modal schließen
+          modal_close: Modal zou maachen
           modal_title: Bass du wierklech wëlles d'Konditiounen vum Benotzen net unzehuelen?
         required_review:
           alert: Mir hunn eis Konditiounen vum Benotzen aktualiséiert, iwwerpréif se w. e. g.
@@ -1176,7 +1175,7 @@ lb:
           future: Zukunft
           past: Vergaangenes
       filters_small_view:
-        close_modal: Modal schließen
+        close_modal: Modal zou maachen
         filter: Filter
         filter_by: Filtern nach
         unfold: Opklappen
@@ -1248,7 +1247,7 @@ lb:
         label: 'Ergebnisser pro Säit:'
         title: Wiel d'Unzuel vun de Resultater pro Säit
       share_modal:
-        close_window: Fenster schließen
+        close_window: Fënster zou maachen
         copy_share_link: Kopieren
         copy_share_link_clarification: Ëffentlechen Link an d'Tëschenoflag kopéieren
         copy_share_link_copied: Kopéiert!
@@ -1465,8 +1464,6 @@ lb:
       updated: Däin Kont gouf aktualiséiert.
     sessions:
       already_signed_out: Du bass elo ausgeloggt.
-      new:
-        sign_in: Aloggen
       signed_in: Du bass elo ageloggt.
       signed_out: Du bass elo ausgeloggt.
     shared:
@@ -1475,7 +1472,6 @@ lb:
         didn_t_receive_confirmation_instructions: Du hues keng Instruktiounen kritt fir d'Bestätegung?
         didn_t_receive_unlock_instructions: Du hues keng Instruktiounen kritt fir ze entspären?
         forgot_your_password: Passwuert vergiess?
-        sign_in: Umellen
         sign_in_with_provider: Registréier dech iwwer %{provider}
         sign_up: Registréieren
       minimum_password_length:

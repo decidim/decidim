@@ -169,9 +169,6 @@ id:
       wizard_step_form:
         steps:
           '1': Buat amandemen Anda
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
     anonymous_user: Anonim
     application:
       collection:
@@ -241,8 +238,6 @@ id:
           explanation_html: Untuk melakukan tindakan ini Anda harus diotorisasi, sebelum melakukan itu Anda perlu mengkonfirmasi email Anda <strong>%{email}</strong>.
           request_confirmation_instructions: Meminta instruksi konfirmasi
           title: Konfirmasikan email Anda
-      show:
-        close_modal: Tutup modal
     collapsible_list:
       hidden_elements_count:
         other: dan %{count} lagi
@@ -308,7 +303,6 @@ id:
           already_have_an_account?: Sudah memiliki akun?
           newsletter: Terima sesekali newsletter dengan informasi yang relevan
           newsletter_title: Izin kontak
-          sign_in: Masuk
           sign_up: Daftar
           sign_up_as:
             legend: Mendaftar sebagai
@@ -327,7 +321,6 @@ id:
         newsletter_modal:
           buttons:
             check: Periksa dan lanjutkan
-            close_modal: Tutup modal
           notice: |-
             <p>Hai, apakah Anda yakin tidak ingin menerima buletin?<br>
             Harap pertimbangkan lagi mencentang kotak nawala di bawah ini.<br>
@@ -363,8 +356,6 @@ id:
       show:
         download_data: Unduh datanya
         request_data: Meminta data
-    endorsable:
-      endorsements: Endorsemen
     errors:
       internal_server_error:
         title: Ada masalah dengan server kami
@@ -648,9 +639,6 @@ id:
       index:
         last_activity: Aktivitas terakhir
         resource_type: Mengetik
-    links:
-      warning:
-        close_modal: Tutup modal
     log:
       base_presenter:
         create: "%{user_name} dibuat %{resource_name}"
@@ -693,7 +681,6 @@ id:
         create:
           error: Percakapan tidak dimulai. Coba lagi nanti
         index:
-          close: Tutup modal
           no_conversations: Anda belum memiliki percakapan
           title: Percakapan
         reply:
@@ -806,7 +793,6 @@ id:
           legend: Setujui persyaratan dan ketentuan penggunaan
         refuse:
           modal_btn_exit: Saya akan memeriksanya nanti
-          modal_close: Tutup modal
           modal_title: Apakah Anda benar-benar menolak Syarat dan Ketentuan yang diperbarui?
         required_review:
           alert: Kami telah memperbarui Persyaratan Layanan, harap tinjau.
@@ -879,7 +865,6 @@ id:
           future: Masa depan
           past: Lalu
       filters_small_view:
-        close_modal: Tutup modal
         filter: Filter
         filter_by: Filter berdasarkan
         unfold: Membuka
@@ -1058,8 +1043,6 @@ id:
       updated: Akun Anda telah berhasil diperbarui.
     sessions:
       already_signed_out: Berhasil keluar.
-      new:
-        sign_in: Masuk
       signed_in: Berhasil masuk.
       signed_out: Berhasil keluar.
     shared:
@@ -1068,7 +1051,6 @@ id:
         didn_t_receive_confirmation_instructions: Tidak menerima instruksi konfirmasi?
         didn_t_receive_unlock_instructions: Tidak menerima instruksi buka kunci?
         forgot_your_password: lupa kata sandi Anda?
-        sign_in: Masuk
         sign_in_with_provider: Masuk dengan %{provider}
         sign_up: Daftar
       minimum_password_length:

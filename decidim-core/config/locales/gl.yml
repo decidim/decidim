@@ -183,9 +183,6 @@ gl:
       wizard_step_form:
         steps:
           '1': Crea a túa emenda
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
     anonymous_user: Anónimo
     application:
       collection:
@@ -261,8 +258,6 @@ gl:
           explanation_html: Para realizar esta acción necesitas estar autorizado, antes de facer isto necesitas confirmar o teu correo <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instrucións de confirmación
           title: Confirma o teu correo electrónico
-      show:
-        close_modal: Pechar modal
     collapsible_list:
       hidden_elements_count:
         one: e %{count} máis
@@ -329,7 +324,6 @@ gl:
           already_have_an_account?: Xa ten unha conta?
           newsletter: Recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          sign_in: Iniciar sesión
           sign_up: Rexistrarse
           sign_up_as:
             legend: Rexístrate como
@@ -348,7 +342,6 @@ gl:
         newsletter_modal:
           buttons:
             check: Comprobar e continuar
-            close_modal: Pechar modal
           notice: |-
             <p>Ola, estás seguro de que non queres recibir un boletín informativo?<br>
             Por favor, considere nuevamente marcar a caixa de verificación seguinte.<br>
@@ -386,7 +379,7 @@ gl:
         success: Imaxe subida con éxito
       drag_and_drop_help: Engade imaxes arrastrándoas ou pegándoas aquí.
     endorsable:
-      endorsements: Aprobacións
+      endorsements: Adhesións
     errors:
       internal_server_error:
         title: Produciuse un problema co noso servidor
@@ -701,7 +694,6 @@ gl:
         body_1: Estás a punto de visitar unha ligazón externa e gustaríanos ser cautelosos canto ao contido deste sitio externo.
         body_2: Por favor, verifica a ligazón a punto de visitar e asegúrate de que é un sitio seguro antes de continuar.
         cancel: Cancelar
-        close_modal: Pechar modal
         proceed: Continuar
         title: Abrir ligazón externa
     log:
@@ -746,7 +738,6 @@ gl:
         create:
           error: Non se iniciou a conversa. Téntao de novo máis tarde
         index:
-          close: Pechar modal
           no_conversations: Aínda non tes conversas
           title: Conversas
           to: Para
@@ -871,7 +862,6 @@ gl:
           legend: Concorda cos termos e condicións de uso
         refuse:
           modal_btn_exit: Vou revisalo máis tarde
-          modal_close: Pechar modal
           modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
         required_review:
           alert: Actualizamos as nosas Condicións de servizo, por favor revíselas.
@@ -944,7 +934,6 @@ gl:
           future: Futuro
           past: Pasado
       filters_small_view:
-        close_modal: Pechar modal
         filter: Filtro
         filter_by: Filtrar por
         unfold: Despregar
@@ -994,7 +983,7 @@ gl:
       results_per_page:
         label: 'Resultados por páxina:'
       share_modal:
-        close_window: Pechar ventá
+        close_window: Pechar xanela
         copy_share_link: Copiar
         copy_share_link_clarification: Copiar ligazón ao portapapeis
         copy_share_link_copied: Copiado!
@@ -1147,8 +1136,6 @@ gl:
       updated: A túa conta foi actualizada correctamente.
     sessions:
       already_signed_out: Saíu con éxito.
-      new:
-        sign_in: Iniciar sesión
       signed_in: Iniciar sesión con éxito.
       signed_out: Saíu con éxito.
     shared:
@@ -1157,7 +1144,6 @@ gl:
         didn_t_receive_confirmation_instructions: Non recibiches instrucións de confirmación?
         didn_t_receive_unlock_instructions: Non recibiches instrucións de desbloqueo?
         forgot_your_password: Esqueceu o contrasinal?
-        sign_in: Iniciar sesión
         sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Rexistrarse
       minimum_password_length:

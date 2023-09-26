@@ -21,6 +21,7 @@ hu:
         description: Leírás
         end_time: Szavazás vége
         promoted: Támogatott
+        scope_id: Hatókör
         start_time: Szavazás kezdete
         title: Cím
     errors:
@@ -193,6 +194,7 @@ hu:
             invalid: Hiba történt a szavazási időszak elindításakor
             title: Készen áll a kezdésre
           tally_started:
+            continue: Folytatás
             invalid: Probléma volt a hiányzó megbízott bejelentésével
             mark_as_missing: Hiányzóként megjelölt
             mark_as_missing_description: Minden megbízottnaik részt kell vennie ebben a folyamatban, de ha egy megbízott nem tud részt venni a folyamatban, akkor jelölheti hiányzónak.
@@ -233,6 +235,8 @@ hu:
         verify:
           form:
             back: Vissza a platformra
+        voting_step:
+          continue: Következő
     events:
       elections:
         election_published:
@@ -246,9 +250,16 @@ hu:
           votings_submenu:
             monitoring_committee: Ellenőrző Bizottság
         votings:
+          actions:
+            publish: Közzétesz
+            unpublish: Közzététel visszavonása
           form:
             census_contact_information_help: Ez a kapcsolatfelvételi információ azoknak a résztvevőknek szól, akik a népszámlálással kapcsolatos problémákat szeretnének jelenteni. Ez lehet e-mail cím, kapcsolatfelvételi űrlap egy másik oldalon, kérdőív a látogatók számára, stb.
+            show_check_census_help: Megjelenítse-e a "Szavazhatok?" linket a nyilvános szavazások menüben
       polling_officer_zone:
+        closures:
+          sign:
+            confirm: Ok, folytassuk
         in_person_votes:
           complete_voting:
             questions_title: 'A következő kérdésekben jogosultak szavazni:'

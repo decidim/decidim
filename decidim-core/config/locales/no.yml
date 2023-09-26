@@ -456,7 +456,6 @@
           newsletter: Motta et sporadisk nyhetsbrev med relevant informasjon
           newsletter_title: Kontakt tillatelse
           nickname_help: Ditt alias i %{organization}, kan bare inneholde bokstaver, tall, '-' og '_'.
-          sign_in: Logg inn
           sign_up: Registrer deg
           sign_up_as:
             legend: Registrer deg som
@@ -1262,7 +1261,7 @@
       follow_button:
         sign_in_before_follow: Logg på før du utfører denne handlingen
       login_modal:
-        close_modal: Lukk dialogboks
+        close_modal: Lukk modal
         please_sign_in: Vennligst logg inn
         sign_up: Registrer deg
       participatory_space_filters:
@@ -1498,8 +1497,6 @@
       updated: Kontoen din er oppdatert.
     sessions:
       already_signed_out: Logget ut.
-      new:
-        sign_in: Logg inn
       signed_in: Logget inn.
       signed_out: Logget ut.
     shared:
@@ -1508,7 +1505,6 @@
         didn_t_receive_confirmation_instructions: Mottok ikke bekreftelse instruksjonen?
         didn_t_receive_unlock_instructions: Mottok ikke instruksjoner om opplåsing?
         forgot_your_password: Glemt ditt passord?
-        sign_in: Logg inn
         sign_in_with_provider: Logg deg på med %{provider}
         sign_up: Registrer deg
       minimum_password_length:

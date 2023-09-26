@@ -289,7 +289,7 @@ fr:
             select_an_area: Sélectionnez un périmètre d'assemblée
             select_an_assembly_type: Sélectionnez un type d'assemblée
             select_parent_assembly: Sélectionnez l'assemblée parente
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             social_handlers: Réseaux sociaux
             title: Informations générales
             visbility: Visibilité
@@ -300,14 +300,14 @@ fr:
             title: Paramètres pour les assemblées
         assemblies_types:
           form:
-            title: Titre
+            title: Modifier le type d'assemblée
         assembly_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
         assembly_imports:
           form:
             document_legend: Ajouter un document
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
         assembly_members:
           form:
             existing_user: Utilisateur existant
@@ -417,7 +417,7 @@ fr:
           notification_title: Vous avez été inscrit en tant que membre de l'assemblée <a href="%{resource_path}">%{resource_name}</a>. Consultez la <a href="%{resource_path}">page de l'assemblée</a> pour contribuer !
       assembly:
         role_assigned:
-          email_intro: Vous avez été assigné le rôle de %{role} de l'assemblée "%{resource_title}".
+          email_intro: Un administrateur vous a assigné le rôle de %{role} de l'assemblée "%{resource_title}".
           email_outro: Vous avez reçu cette notification parce que vous êtes %{role} de l'assemblée "%{resource_title}".
           email_subject: Vous avez été assigné le rôle de %{role} pour l'assemblée "%{resource_title}".
           notification_title: Vous avez été assigné le rôle de %{role} pour l'assemblée <a href="%{resource_url}">%{resource_title}</a>.

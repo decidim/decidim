@@ -113,7 +113,6 @@ ga:
     devise:
       registrations:
         new:
-          sign_in: Logáil isteach
           sign_up: Cláraigh
       shared:
         omniauth_buttons:
@@ -323,13 +322,9 @@ ga:
     registrations:
       new:
         sign_up: Cláraigh
-    sessions:
-      new:
-        sign_in: Logáil isteach
     shared:
       links:
         back: Ar Ais
-        sign_in: Logáil isteach
         sign_up: Cláraigh
   layouts:
     decidim:

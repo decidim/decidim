@@ -575,7 +575,7 @@ ja:
         more_information: ここでは、イニシアチブの作成プロセスについての詳細情報があります。
         progress_report_body_for: '%{title} が必要な署名の %{percentage}%に達しました。'
         progress_report_for: 'イニシアチブの概要: %{title}'
-        promotal_committee_help: 少なくとも %{member_count} 人をプロモーター委員会に招待する必要があります。推進委員会に招待するには、次のリンクを進めてください。
+        promotal_committee_help: 少なくとも %{member_count} 人を推進委員会に招待する必要があります。推進委員会に招待するには、次のリンクを進めてください。
         status_change_body_for: 'イニシアチブ %{title} がステータスを %{state}に変更しました'
         status_change_for: イニシアチブ %{title} のステータスが変更されました
       last_activity:

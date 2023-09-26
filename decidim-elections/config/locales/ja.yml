@@ -197,9 +197,9 @@ ja:
             create: 選挙を作成
             title: 新しい選挙
           publish:
-            success: 選挙は正常に公開されました。
+            success: 選挙を公開しました。
           unpublish:
-            success: 選挙は正常に非公開になりました。
+            success: 選挙を非公開にしました。
           update:
             invalid: 選挙の更新中に問題が発生しました
             success: 選挙が正常に更新されました
@@ -418,7 +418,7 @@ ja:
           chained_hash: このメッセージの連鎖的ハッシュ
           complete: 完了
           creation_description:
-            complete: 選挙は作成され、掲示板に正常に設定されています。
+            complete: 選挙は作成され、掲示板に設定されています。
             not_created: 選挙はまだ作成されていません。
           creation_title: 選挙が作成されました
           description: これは各ステップの状態、例えば選挙が行われた時、集計が完了した時、選曲が終わった時などを確認できる選挙ログです。
@@ -506,7 +506,7 @@ ja:
         answer:
           invalid: フィードバックの送信中に問題が発生しました。
           spam_detected: フォームに回答する際に問題が発生しました。もう一度お試しください。
-          success: フィードバックは正常に送信されました
+          success: フィードバックを送信しました
       models:
         answer:
           fields:
@@ -634,7 +634,7 @@ ja:
             not_supported_browser_title: ブラウザをアップグレードして受託者として行動する
             trustee_role_description: あなたは、このプラットフォームで行われる選挙のいくつかで受託者を務めることになっています。
           update:
-            success: 公開識別キーが正常に保存されました。
+            success: 公開識別キーを保存しました。
       votes:
         ballot_decision:
           audit: "(監査投票)"
@@ -1018,7 +1018,7 @@ ja:
             destroy: 削除
             new_voting: 新しい投票スペース
             publish: 公開
-            unpublish: 非公開にする
+            unpublish: 公開しない
           create:
             invalid: 投票の作成中に問題が発生しました
             success: 投票が正常に作成されました
@@ -1035,7 +1035,7 @@ ja:
             select_a_voting_type: 投票方式を選択してください
             show_check_census_help: 公開投票メニューに「投票できますか?」リンクを表示するかどうか
             slug: スラグ
-            slug_help: 'URLスラグは、この投票を指すURLを生成するために使用されます。 使用できるのはアルファベット、数字、ダッシュのみで、アルファベットから始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この投票を指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             title: タイトル
             voting_type:
               hybrid: ハイブリッド
@@ -1178,7 +1178,7 @@ ja:
             heading: 投票の再集計 - 証明書をアップロード
             info_text: 選挙閉鎖証明の写真をアップロードしてください
             submit: 証明書をアップロードする
-            success: 証明書が正常にアップロードされました。
+            success: 証明書をアップロードしました。
           create:
             error: 閉鎖の作成中にエラーが発生しました。後でもう一度お試しください。
             success: 閉鎖を作成しました。

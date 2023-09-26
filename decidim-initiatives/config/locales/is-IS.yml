@@ -226,6 +226,8 @@ is:
         show_similar_initiatives: Bera saman
       initiative_header:
         initiative_menu_item: Frumkvæði
+      initiative_signature_creation_header:
+        back: Til baka
       initiatives:
         initiative:
           check: Skoðaðu þetta

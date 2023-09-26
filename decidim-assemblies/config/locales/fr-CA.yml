@@ -289,7 +289,7 @@ fr-CA:
             select_an_area: Sélectionnez une zone d'application
             select_an_assembly_type: Sélectionnez un type d'assemblée
             select_parent_assembly: Sélectionnez l'assemblée parente
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             social_handlers: Réseaux sociaux
             title: Informations générales
             visbility: Visibilité
@@ -303,11 +303,11 @@ fr-CA:
             title: Titre
         assembly_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
         assembly_imports:
           form:
             document_legend: Ajouter un document
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
         assembly_members:
           form:
             existing_user: Utilisateur existant

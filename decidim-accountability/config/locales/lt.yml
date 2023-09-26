@@ -52,7 +52,29 @@ lt:
           results: Rezultatai
         import_results:
           new:
+            download_export: Eksportuoti CSV formatu
             import: Importuoti
+            info: |
+              <p>Rekomenduojame laikytis šių žingsnių:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Sukurkite rezultatų statusus</a>, kuriuos norite pridėti</li>
+              <li><a href='%{link_new_result}' target='_blank'>Sukurkite bent vieną rezultatą rankiniu būdu</a> per šią admin panelę prieš naudodami Importuoti, kad geriau suprastumėte formatą ir tai, ką turėsite užpildyti.</li>
+              <li>%{link_export_csv}</li>
+              <li>Atlikite pakeitimus vietoje. Galite keisti tik šiuos CSV stulpelius:
+                <ul>
+                <li><b>category/id:</b> Kategorijos ID</li>
+                <li><b>scope/id:</b> Masto ID</li>
+                <li><b>parent/id:</b> Tėvo ID (susijusiems rezultatams). Pasirinktinai</li>
+                <li><b>title/en:</b> Pavadinimas anglų kalba. Tai priklauso nuo jūsų platformos kalbos konfigūracijos.</li>
+                <li><b>description/en:</b> Aprašymas anglų kalba. Tai priklauso nuo jūsų platformos kalbos konfigūracijos.</li>
+                <li><b>start_date:</b> data, kada prasideda rezultato vykdymas (formatas YYYY-MM-DD)</li>
+                <li><b>end_date:</b> data, kada baigiasi rezultato vykdymas (formatas YYYY-MM-DD)</li>
+                <li><b>status/id:</b> Šio rezultato statuso ID</li>
+                <li><b>progress:</b> Vykdymo procentas (nuo 0 iki 100)</li>
+                <li><b>proposals_ids:</b> susijusių pasiūlymų vidinis ID (atskirtas kableliu). Automatiškai konvertuojamas į <span class='attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
             title: Importuoti rezultatus iš CSV
         imports:
           create:

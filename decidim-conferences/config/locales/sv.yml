@@ -62,6 +62,7 @@ sv:
         full_name: Fullständigt namn
         personal_url: Personlig URL
         position: Plats
+        short_bio: Kort biographi
         twitter_handle: Twitternamn
         user_id: Användare
       conference_user_role:
@@ -325,9 +326,6 @@ sv:
         title: Talare
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL-slugs används till att skapa de URL:er som pekar på konferensen. Tar bara emot bokstäver, siffror och bindestreck, och måste börja med en bokstav. Exempel: %{url}'
         conference_invites:
           create:
             error: Det gick inte att bjuda in deltagaren till konferensen.
@@ -369,7 +367,6 @@ sv:
             registrations_count:
               one: Det har gjorts en registrering.
               other: Det har gjorts %{count} registreringar.
-            slug_help: 'URL-slugs används till att skapa de URL:er som pekar på konferensen. Tar bara emot bokstäver, siffror och bindestreck, och måste börja med en bokstav. Exempel: %{url}'
         diplomas:
           edit:
             save: Spara

@@ -3,8 +3,13 @@ lt:
   activemodel:
     attributes:
       initiative:
+        answer: Atsakyti
+        answer_url: Atsakymo nuoroda
+        area_id: Aplinka
+        decidim_scope_id: Sritis
         decidim_user_group_id: Autorė(-ius)
         description: Aprašymas
+        hashtag: Grotažymė
         offline_votes: Fiziniai parašai
         offline_votes_for_scope: Fiziniai parašai%{scope_name}
         scope_id: Apimtis
@@ -17,8 +22,11 @@ lt:
           online: Internetiniai
         state: Būsena
         title: Pavadinimas
+        type_id: Tipas
       initiatives_committee_member:
         user: Komiteto narys
+      initiatives_settings:
+        initiatives_order: Eiliškumas
       initiatives_type:
         area_enabled: Leisti autoriams pasirinkti savo iniciatyvos erdvę
         attachments_enabled: Leisti priedus
@@ -34,9 +42,13 @@ lt:
         online_signature_enabled: Pasirašymas internetu įjungtas
         only_global_scope_enabled: Leisti tik globalių apimčių iniciatyvų kūrimą
         promoting_committee_enabled: Leisti sklaidos komitetus
+        signature_type: Parašo tipas
         title: Pavadinimas
         undo_online_signatures_enabled: Suteikti dalyviams galimybę panaikinti savo skaitmeninius parašus
         validate_sms_code_on_votes: Į pasirašymo procesą įtraukti SMS kodo patvirtinimo etapą
+      initiatives_type_scope:
+        decidim_scopes_id: Sritys
+        supports_required: Parama aktyvuota
       initiatives_vote:
         date_of_birth: Gimimo data
         document_number: Dokumento numeris
@@ -56,6 +68,11 @@ lt:
               title: Pavadinimo laukas neturėtų būti tuščias
   activerecord:
     models:
+      decidim/initiative:
+        one: Iniciatyva
+        few: Iniciatyvos
+        many: Iniciatyvos
+        other: Iniciatyvos
       decidim/initiative_comittee:
         one: Komitetas
         few: Komitetai
@@ -352,6 +369,7 @@ lt:
         fill_data:
           back: Atgal
           continue: Tęsti
+          decidim_user_group_id_help: Neįmanoma pakeisti iniciatyvos autorystės po jos sukūrimo
           fill_data_help: "<ul> <li>Peržiūrėkite savo iniciatyvos turinį. Ar jūsų pavadinimas lengvai suprantamas? Ar jūsų iniciatyvos tikslas aiškus?</li> <li>Turite pasirinkti parašo rūšį. Asmeniškai, internetu, derinti abu būdus</li> <li>Kokia iniciatyvos geografinė taikymo sritis?</li> </ul>"
           more_information: "(Daugiau informacijos)"
           select_area: Pasirinkti erdvę
@@ -433,6 +451,7 @@ lt:
         delete_attachment: Ištrinti
       index:
         title: Iniciatyvos
+        uninitialized: Iniciatyvos dar nesukonfiguruotos
       initiative_signatures:
         fill_personal_data:
           continue: Tęsti
@@ -585,6 +604,11 @@ lt:
         status_change_for: Iniciatyvos %{title} būsena pasikeitė
       last_activity:
         new_initiative: Nauja iniciatyva
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktyvios iniciatyvos
+            see_all_initiatives: Žiūrėti visas iniciatyvas
       show:
         badge_name:
           accepted: Parašų užtenka

@@ -50,6 +50,7 @@ lt:
         import: Importuoti pasiūlymus į projektus
         new: Naujas %{name}
         preview: Peržiūra
+        send_voting_reminders: Siųsti balsavimo priminimus
         title: Veiksmai
       admin:
         budgets:
@@ -95,8 +96,11 @@ lt:
             cancel: Atšaukti
             change_category: Keisti kategoriją
             change_scope: Keisti sritį
+            change_selected: Keisti pasirinktą būseną
+            deselect_implementation: Nebepasirinkti įgyvendinimui
             finished_orders: Baigti balsavimai
             pending_orders: Balsai laukiantys patvirtinimo
+            select_for_implementation: Pasirinkti įgyvendinimui
             selected: Pasirinkta
             title: Projektai
             update: Atnaujinimas
@@ -118,7 +122,14 @@ lt:
             select_a_scope: Pasirinkite sritį
             success: 'Projektai sėkmingai atnaujinti %{subject_name} srityje: %{projects}.'
           update_selected:
+            invalid:
+              selected: 'Šie projektai jau pasirinkti įgyvendinimui: %{projects}.'
+              unselected: 'Šie projektai jau nebėra pasirinkti įgyvendinimui: %{projects}.'
             select_a_project: Pasirinkite projektą
+            select_a_selection: Prašau pasirinkite įgyvendinimo būseną
+            success:
+              selected: 'Šie projektai jau pasirinkti įgyvendinimui: %{projects}.'
+              unselected: 'Šių projektų įgyvendinimo atsisakyta: %{projects}.'
         proposals_imports:
           create:
             invalid: Importuojant pasiūlymus į projektus kilo problema
@@ -289,6 +300,7 @@ lt:
             few: balsai
             many: balsai
             other: balsai
+          you_voted: Balsavote už
         project_budget_button:
           add: Pridėti prie balsų
           add_descriptive: Pridėti projektą %{resource_name} prie balsų

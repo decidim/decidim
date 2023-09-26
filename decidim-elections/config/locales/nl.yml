@@ -804,8 +804,8 @@ nl:
             confirm_destroy: Ben je zeker?
             destroy: Verwijder
             new_voting: Nieuwe stemruimte
-            publish: Publiceer
-            unpublish: Publicatie ongedaan maken
+            publish: Publiceren
+            unpublish: Depubliceer
           create:
             invalid: Er is een probleem opgetreden bij het aanmaken van deze stemronde
             success: Stemronde succesvol aangemaakt
@@ -815,7 +815,6 @@ nl:
             update: Bijwerken
           form:
             select_a_voting_type: Selecteer een type stemming
-            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             title: Titel
             voting_type:
               hybrid: Hybride

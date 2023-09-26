@@ -43,6 +43,10 @@ lt:
           valuator_role_id: Vertintojo vardas ir pavardė
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Nevalidus turinio tipas. Leidžiamos rinkmenos tik su šiomis galūnėmis: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -313,6 +317,7 @@ lt:
           affected_user:
             email_intro: 'Jūsų pasiūlymas „%{resource_title}“ atmestas. Atsakymą galite perskaityti šiame puslapyje:'
             email_outro: Šį pranešimą gavote dėl to, kad esate „%{resource_title}“ autorius.
+            email_subject: Jūsų pasiūlymas atmestas
             notification_title: Jūsų pasiūlymas <a href="%{resource_path}">%{resource_title}</a> atmestas.
           follower:
             email_intro: 'Pasiūlymas „%{resource_title}“ atmestas. Atsakymą galite perskaityti šiame puslapyje:'
@@ -405,6 +410,23 @@ lt:
           proposal_comments: Komentarai
           proposals: Pasiūlymai
         imports:
+          help:
+            answers: |
+              Importuojamas dokumentas turėtų turėti šiuos stulpelių pavadinimus atveju, jei tai CSV ar Excel failai, arba raktų pavadinimus, jei tai JSON failai:
+
+              <ul>
+              <li><b>id:</b> Pasirinkimo atsakymo ID</li>
+              <li><b>state:</b> Vienas iš "accepted", "evaluating" arba "rejected"</li>
+              <li><b>answer/en:</b> Atsakymas anglų kalba. Tai priklauso nuo jūsų platformos kalbos konfigūracijos.</li>
+              </ul>
+            proposals: |
+              Failas privalo turėti šiuos stulpelių pavadinimus atveju, jei tai CSV ar Excel failai, arba raktų pavadinimus, jei tai JSON failai:
+              <ul>
+              <li><b>title/en:</b> Pavadinimas anglų kalba. Tai priklauso nuo jūsų platformos kalbos konfigūracijos.</li>
+              <li><b>body/en:</b> Tekstas anglų kalba. Tai priklauso nuo jūsų platformos kalbos konfigūracijos.</li>
+              <li><b>scope/id:</b> Masto ID</li>
+              <li><b>category/id:</b> Kategorijos ID</li>
+              </ul>
           label:
             answers: Importuoti atsakymus iš failo
             proposals: Importuoti pasiūlymus iš failo
@@ -645,6 +667,7 @@ lt:
             many: "%{count} bendri projektai"
             other: "%{count} bendri projektai"
         create:
+          error: Kuriant šį bendrąjį juodraštį iškilo problema.
           success: Bendrasis juodraštis sukurtas.
         edit:
           attachment_legend: "(Neprivaloma) Pridėti priedą"
@@ -845,6 +868,8 @@ lt:
           recent: Naujausi
           with_more_authors: Turintys daug autorių
         participatory_texts:
+          index:
+            document_index: Dokumentų rodyklė
           view_index:
             see_index: Žiūrėti rodyklę
         placeholder:

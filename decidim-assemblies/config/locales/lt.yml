@@ -4,7 +4,10 @@ lt:
     attributes:
       assemblies_setting:
         enable_organization_chart: Įgalinti organizacijos modelį
+      assemblies_type:
+        title: Pavadinimas
       assembly:
+        announcement: Pranešimas
         area_id: Aplinka
         assembly_type: Asamblėjos tipas
         assembly_type_other: Kitas asamblėjos tipas
@@ -23,12 +26,16 @@ lt:
         decidim_scope_id: Apimtis
         description: Aprašymas
         developer_group: Rėmėjų grupė
+        document: Dokumentas
         domain: Domenas
         duration: Trukmė
         facebook: Facebook
         github: GitHub
         hashtag: Grotažymė
         hero_image: Pradžios paveikslėlis
+        import_attachments: Importuoti priedus
+        import_categories: Importuoti kategorijas
+        import_components: Importuoti komponentus
         included_at: Įtraukta
         instagram: Instagram
         internal_organisation: Vidinė organizacija
@@ -65,10 +72,17 @@ lt:
         non_user_avatar: Avataras
         position: Pozicija
         user_id: Vartotojas arba grupė
+        weight: Vieta eilėje
       assembly_user_role:
         email: El. paštas
         name: Vardas
         role: Rolė
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Nevalidus turinio tipas. Leidžiamos rinkmenos tik su šiomis galūnėmis: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -281,7 +295,6 @@ lt:
             select_an_area: Pasirinkti aplinką
             select_an_assembly_type: Pasirinkti asamblėjos tipą
             select_parent_assembly: Pasirinkti pagrindinę asamblėją
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
             social_handlers: Socialiniai
             title: Bendroji informacija
             visbility: Matomumas
@@ -293,13 +306,9 @@ lt:
         assemblies_types:
           form:
             title: Pavadinimas
-        assembly_copies:
-          form:
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
         assembly_imports:
           form:
             document_legend: Pridėti dokumentą
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
         assembly_members:
           form:
             existing_user: Egzistuojantis dalyvis
@@ -361,7 +370,9 @@ lt:
       pages:
         home:
           highlighted_assemblies:
+            active_assemblies: Aktyvios asamblėjos
             assemblies_button_title: Nuoroda į puslapį „Asamblėjos“, kuriame pateikiamos visos asamblėjos
+            see_all_assemblies: Žiūrėti visas asamblėjas
         user_profile:
           member_of:
             member_of: Narys
@@ -376,6 +387,7 @@ lt:
         developer_group: Rėmėjų grupė
         duration: Trukmė
         included_at: Įtraukta
+        indefinite_duration: Neribota
         internal_organisation: Vidinė organizacija
         is_transparent:
           'false': neskaidru

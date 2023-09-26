@@ -298,8 +298,6 @@ lv:
           explanation_html: Lai veiktu šo darbību, jums jābūt autorizētam, bet pirms tam jāapstiprina savs e-pasts <strong>%{email}</strong>.
           request_confirmation_instructions: Pieprasīt apstiprināšanas norādījumus
           title: Apstiprināt e-pastu
-      show:
-        close_modal: Aizvērt modal
     collapsible_list:
       hidden_elements_count:
         zero: un %{count} vēl
@@ -387,7 +385,6 @@ lv:
           already_have_an_account?: Jums jau ir konts?
           newsletter: Saņemiet neregulāru informatīvo biļetenu ar būtisko informāciju
           newsletter_title: Atļauja sazināties
-          sign_in: Pieteikties
           sign_up: Reģistrēties
           sign_up_as:
             legend: Reģistrēties kā
@@ -406,7 +403,6 @@ lv:
         newsletter_modal:
           buttons:
             check: Pārbaudīt un turpināt
-            close_modal: Aizvērt modal
           notice: |-
             <p>Hei, vai tiešām nevēlaties saņemt informatīvo biļetenu?<br>
             Lūdzu, vēlreiz apsveriet iespēju atzīmēt turpmāk esošo informatīvā biļetena saņemšanas izvēles rūtiņu<br>
@@ -438,8 +434,6 @@ lv:
       show:
         download_data: Lejupielādēt datus
         request_data: Pieprasīt datus
-    endorsable:
-      endorsements: Atbalsts
     endorsement_buttons_cell:
       already_endorsed: Atbalstīts
       endorse: Atbalstīt
@@ -747,9 +741,6 @@ lv:
       index:
         last_activity: Pēdējā aktivitāte
         resource_type: Veids
-    links:
-      warning:
-        close_modal: Aizvērt modal
     log:
       base_presenter:
         create: "%{user_name} izveidoja %{resource_name}"
@@ -823,7 +814,6 @@ lv:
           error: Saruna nav sākusies. Pamēģiniet vēlreiz vēlāk
         index:
           ago: pirms
-          close: Aizvērt modal
           from: "No"
           groups: Manas grupas
           last_message: Pēdējā ziņa
@@ -964,7 +954,6 @@ lv:
           legend: Piekrist lietošanas noteikumiem
         refuse:
           modal_btn_exit: Es tos pārskatīšu vēlāk
-          modal_close: Aizvērt modal
           modal_title: Vai jūs tiešām atsakāties no atjauninātajiem lietošanas noteikumiem?
         required_review:
           alert: Mēs esam atjauninājuši mūsu pakalpojumu sniegšanas noteikumus, lūdzu, pārskatiet tos.
@@ -1041,7 +1030,6 @@ lv:
           future: Nākotnes
           past: Iepriekšējie
       filters_small_view:
-        close_modal: Aizvērt modal
         filter: Filtrēt
         filter_by: Filtrēt pēc
         unfold: Atritināt
@@ -1274,8 +1262,6 @@ lv:
       updated: Jūsu konts tika veiksmīgi atjaunināts.
     sessions:
       already_signed_out: Veiksmīgi izrakstījāties.
-      new:
-        sign_in: Pieteikties
       signed_in: Veiksmīgi pierakstījāties.
       signed_out: Veiksmīgi izrakstījāties.
     shared:
@@ -1284,7 +1270,6 @@ lv:
         didn_t_receive_confirmation_instructions: Nesaņēmāt apstiprināšanas norādījumus?
         didn_t_receive_unlock_instructions: Nesaņēmāt atbloķēšanas norādījumus?
         forgot_your_password: Aizmirsāt paroli?
-        sign_in: Pieteikties
         sign_in_with_provider: Pierakstīties, izmantojot %{provider}
         sign_up: Reģistrēties
       minimum_password_length:

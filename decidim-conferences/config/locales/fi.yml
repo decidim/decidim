@@ -329,9 +329,6 @@ fi:
         title: Puhujat
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         conference_invites:
           create:
             error: Käyttäjän kutsuminen konferenssiin epäonnistui.
@@ -373,7 +370,6 @@ fi:
             registrations_count:
               one: Ilmoittautumisia on 1 kpl.
               other: Ilmoittautumisia on %{count} kpl.
-            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         diplomas:
           edit:
             save: Tallenna
@@ -423,11 +419,11 @@ fi:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Ilmoittautumisesi konferenssiin <a href="%{url}">%{title}</a> on vahvistettu.
-          details_1: 'Olet ilmoittautunut konferenssiin ilmoittautumistyypillä %{registration_type}. Hinta on %{price} ja voit osallistua seuraaviin tapahtumiin:'
+          details_1: 'Olet ilmoittautunut konferenssiin ilmoittautumistyypillä %{registration_type}. Hinta on %{price} ja voit osallistua seuraaviin tilaisuuksiin:'
           details_2: Konferenssin tiedot löytyvät liitetiedostosta.
         pending_validation:
           confirmation_pending: Saat vahvistuksen pian
-          details: 'Olet ilmoittautunut tyypillä %{registration_type}, jonka hinta on %{price}. Voit osallistua seuraaviin tapahtumiin:'
+          details: 'Olet ilmoittautunut tyypillä %{registration_type}, jonka hinta on %{price}. Voit osallistua seuraaviin tilaisuuksiin:'
           pending_html: Ilmoittautumisesi konferenssiin <a href="%{url}">%{title}</a> odottaa vahvistusta.
       conference_registrations:
         create:
@@ -572,8 +568,8 @@ fi:
     help:
       participatory_spaces:
         conferences:
-          contextual: "<p><strong>Konferenssi</strong> on useiden tapahtumien sarja, mihin kutsutaan puhujia ja jolle määritetään useita tietotyyppejä, jotka ovat tyypillisä suurille kongresseille tai sosiaalisille tapahtumille (ilmoittautumiset, kannatusorganisaatioiden tai rahoittajien listat, jne.).</p><p>Esimerkkejä: Konferenssi voidaan järjestää organisaatiolle ja sen jäsenille tai se voi olla jonkin osallistumisprosessin yksi osa tai kuulemisen jälkeinen tapahtuma.</p>\n"
-          page: "<p><strong>Konferenssi</strong> on useiden tapahtumien sarja, mihin kutsutaan puhujia ja jolle määritetään useita tietotyyppejä, jotka ovat tyypillisä suurille kongresseille tai sosiaalisille tapahtumille (ilmoittautumiset, kannatusorganisaatioiden tai rahoittajien listat, jne.).</p><p>Esimerkkejä: Konferenssi voidaan järjestää organisaatiolle ja sen jäsenille tai se voi olla jonkin osallistumisprosessin yksi osa tai kuulemisen jälkeinen tapahtuma.</p>\n"
+          contextual: "<p><strong>Konferenssi</strong> on useiden tapahtumien sarja, mihin kutsutaan puhujia ja jolle määritetään useita tietotyyppejä, jotka ovat tyypillisiä suurille kongresseille tai sosiaalisille tapahtumille (ilmoittautumiset, kannatusorganisaatioiden tai rahoittajien listat, jne.).</p><p>Esimerkkejä: Konferenssi voidaan järjestää organisaatiolle ja sen jäsenille tai se voi olla jonkin osallistumisprosessin yksi osa tai kuulemisen jälkeinen tapahtuma.</p>\n"
+          page: "<p><strong>Konferenssi</strong> on useiden tapahtumien sarja, mihin kutsutaan puhujia ja jolle määritetään useita tietotyyppejä, jotka ovat tyypillisiä suurille kongresseille tai sosiaalisille tapahtumille (ilmoittautumiset, kannatusorganisaatioiden tai rahoittajien listat, jne.).</p><p>Esimerkkejä: Konferenssi voidaan järjestää organisaatiolle ja sen jäsenille tai se voi olla jonkin osallistumisprosessin yksi osa tai kuulemisen jälkeinen tapahtuma.</p>\n"
           title: Mitä konferenssit ovat?
     log:
       value_types:

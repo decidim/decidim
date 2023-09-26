@@ -3,7 +3,10 @@ lt:
   activemodel:
     attributes:
       post:
+        body: Tekstas
+        decidim_author_id: Autorė(-ius)
         published_at: Paskelbimo laikas
+        title: Pavadinimas
     models:
       decidim/blogs/create_post_event: Naujas tinklaraščio įrašas
   activerecord:
@@ -57,6 +60,7 @@ lt:
             body: Pagrindinė dalis
             created_at: Sukurta
             official_blog_post: Oficiali publikacija
+            title: Pavadinimas
       posts:
         show:
           back: Grįžti į sąrašą
@@ -69,8 +73,10 @@ lt:
     components:
       blogs:
         actions:
+          comment: Komentuoti
           create: Sukurti
           destroy: Ištrinti
+          endorse: Palaikyti
           update: Atnaujinti
         name: Tinklaraštis
         settings:

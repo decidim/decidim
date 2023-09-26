@@ -414,7 +414,7 @@ es:
         participatory_process_imports:
           form:
             document_legend: Añadir un documento
-            slug_help: 'Los slugs de URL se utilizan para generar las URLs que apuntan a este proceso. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Utiliza rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no ese establece ninguna ruta, el botón no se mostrará. Ejemplo: %{url}'
@@ -533,6 +533,6 @@ es:
           more_info: Más información
       process_header_steps:
         step: Fase %{current} de %{total}
-        view_steps: Ver las fases
+        view_steps: Fases del proceso
       process_navigation:
         process_menu_item: El proceso

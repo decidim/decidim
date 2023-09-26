@@ -922,7 +922,6 @@ pt-BR:
           form:
             select_a_voting_type: Por favor, selecione um tipo de votação
             show_check_census_help: Mostrar ou não o link "Posso votar?" no menu de votações públicas
-            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             title: Título
             voting_type:
               hybrid: Híbrido

@@ -363,6 +363,10 @@ tr:
               name: Oylama istatistikleri
             timeline:
               name: Oylama Zaman Çizelgesi
+        votings:
+          actions:
+            publish: Yayınla
+            unpublish: Yayımdan Kaldır
       content_blocks:
         landing_page:
           description:

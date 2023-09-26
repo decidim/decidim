@@ -29,6 +29,7 @@ lt:
         show_statistics: Rodyti statistiką
         sign_date: Pasirašymo data
         signature: Parašas
+        signature_name: Parašo pavadinimas
         slogan: Šūkis
         slug: URL priedas
         start_date: Pradžios data
@@ -37,11 +38,13 @@ lt:
         date: Data
         link: Nuoroda
         title: Pavadinimas
+        weight: Vieta eilėje
       conference_partner:
         link: Nuoroda
         logo: Logotipas
         name: Vardas
         partner_type: Partnerio tipas
+        weight: Vieta eilėje
       conference_registration_invite:
         email: El. paštas
         name: Vardas
@@ -51,6 +54,7 @@ lt:
         description: Aprašymas
         price: Kaina
         title: Pavadinimas
+        weight: Vieta eilėje
       conference_speaker:
         affiliation: Organizacija
         avatar: Avataras
@@ -136,6 +140,8 @@ lt:
         edit:
           title: Atnaujinti konferencijos administratorių.
           update: Atnaujinti
+        index:
+          conference_admins_title: Konferencijos administratoriai
         new:
           create: Sukurti
           title: Naujas konferencijos administratorius.
@@ -313,6 +319,7 @@ lt:
           update: "%{user_name} atnaujino partnerį %{resource_name} %{space_name} konferencijoje"
         registration_type:
           create: "%{user_name} sukūrė %{resource_name} registracijos tipą %{space_name} konferencijoje"
+          delete: "%{user_name} pašalino %{resource_name} registracijos tipą iš %{space_name} konferencijos"
           publish: "%{user_name} sukūrė %{resource_name} registracijos tipą %{space_name} konferencijoje"
           unpublish: "%{user_name} išėmė %{resource_name} registracijos tipą iš %{space_name} konferencijos"
           update: "%{user_name} atnaujino %{resource_name} registracijos tipą %{space_name} konferencijoje"
@@ -328,9 +335,6 @@ lt:
         title: Pranešėjai
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL priedėliai naudojami nuorodų į konferenciją sukūrimui. Juose gali būti raidės, skaičiai ir brukšneliai, tačiau privalo prasidėti nuo raidės. Pavyzdys: %{url}'
         conference_invites:
           create:
             error: Kviečiant dalyvį dalyvauti šioje konferencijoje iškilo problema.
@@ -374,7 +378,6 @@ lt:
               few: Yra %{count} registracijų.
               many: Yra %{count} registracijų.
               other: Yra %{count} registracijų.
-            slug_help: 'URL priedėliai naudojami nuorodų į konferenciją sukūrimui. Juose gali būti raidės, skaičiai ir brukšneliai, tačiau privalo prasidėti nuo raidės. Pavyzdys: %{url}'
         diplomas:
           edit:
             save: Išsaugoti
@@ -383,6 +386,7 @@ lt:
           invite:
             decline: Atmesti kvietimą į „%{conference_title}“
             invited_existing_user_to_join_a_conference: "%{invited_by} jus pakvietė dalyvauti konferencijoje %{application}. Kvietimą galite atmesti arba priimti spustelėję toliau pateikiamas nuorodas."
+            invited_user_to_join_a_conference: "%{invited_by} jus pakvietė dalyvauti konferencijoje %{application}. Kvietimą galite atmesti arba priimti spustelėję toliau pateikiamą nuorodą."
             registration: Registracija į „%{conference_title}“
         partners:
           index:
@@ -433,9 +437,11 @@ lt:
         create:
           invalid: Jungiantis prie šios konferencijos iškilo problema.
           success: Jūs prisijungėte prie konferencijos.
+          unauthorized: Prieš registruodamiesi į konferenciją turite prisijungti.
         decline_invitation:
           invalid: Atmetant kvietimą iškilo problema.
           success: Jūs atmetėte kvietimą.
+          unauthorized: Prieš atmetant kvietimą turite prisijungti.
         destroy:
           invalid: Paliekant šią konferenciją iškilo problema.
           success: Jūs sėkmingai palikote konferenciją.
@@ -505,6 +511,7 @@ lt:
           highlighted_conferences:
             active_conferences: Aktyvios konferencijos
             conferences_button_title: Nuoroda į puslapį „Konferencijos“, kuriame pateikiamos visos konferencijos
+            see_all_conferences: Žiūrėti visas konferencijas
       photo:
         image:
           attributes:

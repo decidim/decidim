@@ -3,6 +3,7 @@ sv:
   activemodel:
     attributes:
       post:
+        body: Innehåll
         decidim_author_id: Författare
         title: Titel
     models:
@@ -64,8 +65,10 @@ sv:
     components:
       blogs:
         actions:
+          comment: Kommentera
           create: Skapa
           destroy: Radera
+          endorse: Instäm
           update: Uppdatera
         name: Blogg
         settings:

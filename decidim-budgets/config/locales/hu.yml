@@ -52,6 +52,12 @@ hu:
         title: Műveletek
       admin:
         budgets:
+          create:
+            invalid: Hiba történt a költségvetés létrehozása során
+            success: A költségvetés létrehozása sikeres
+          destroy:
+            invalid: Hiba történt a költségvetés törlése során
+            success: A költségvetés törlésre került
           edit:
             title: Költségvetés szerkesztése
             update: Költségvetés frissítése
@@ -64,6 +70,8 @@ hu:
           new:
             create: Költségvetés létrehozása
             title: Új költségvetés
+          update:
+            invalid: Hiba történt a költségvetés frissítése során
         exports:
           projects: Projektek
         models:
@@ -107,10 +115,14 @@ hu:
             success: 'A projektek sikeresen frissültek a(z) %{subject_name} kategóriában: %{projects}.'
           update_scope:
             invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} hatásköre: %{projects}.'
+            select_a_project: Kérem, válasszon projektet
+            select_a_scope: Kérlek válassz hatáskört
             success: 'A javaslatok frissítése a(z) %{subject_name} hatáskörben sikeres: %{projects}.'
           update_selected:
             invalid:
               selected: 'Ezeket a projekteket már kiválasztásra kerültek a megvalósításra: %{projektek}.'
+            select_a_project: Kérem, válasszon projektet
+            select_a_selection: Kérjük, válasszon egy végrehajtási állapotot
             success:
               selected: 'Ezeket a projektek sikseresen kiválasztásra kerültek a megvalósításra: %{projektek}.'
         proposals_imports:
@@ -156,6 +168,8 @@ hu:
         progress: Szavazás befejezése
         show: Összes projekt megtekintése
         vote: Szavazás
+      last_activity:
+        new_vote_at_html: "<span>Új költségvetési szavazás itt %{link}</span>"
       limit_announcement:
         limit_reached: 'Aktív szavazásokkal rendelkezik: %{links}. A költségvetésről történő szavazáshoz <a href="%{landing_path}">törölnie kell a szavazatát, és újra kell kezdenie</a>.'
       models:
@@ -264,6 +278,7 @@ hu:
           you_voted: Erre szavazott
         project_budget_button:
           add: Adja hozzá a szavazatához
+          add_descriptive: Adja hozzá a(z) %{resource_name} projektet a szavazatához
           added: Hozzáadva a szavazatához
         projects_for: '%{name} projektek'
         show:

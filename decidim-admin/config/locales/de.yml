@@ -389,7 +389,7 @@ de:
             'false': 'Nein'
             'true': 'Ja'
         last_sign_in_at_present:
-          label: Schon einmal eingeloggt
+          label: Zuletzt angemeldet
           values:
             'false': 'Nein'
             'true': 'Ja'
@@ -726,8 +726,8 @@ de:
         select_recipients_to_deliver:
           all_spaces: Alle
           all_users_help: Sendet Newsletter an alle bestätigten Benutzer.
-          confirm_deliver: Möchten Sie diesen Newsletter wirklich liefern? Diese Aktion kann nicht rückgängig gemacht werden.
-          deliver: Liefern Newsletter
+          confirm_deliver: Möchten Sie diesen Newsletter wirklich versenden? Diese Aktion kann nicht rückgängig gemacht werden.
+          deliver: Newsletter versenden
           followers_help: Sendet den Newsletter an alle bestätigten Benutzer, die den ausgewählten Teilnehmerräumen in der Liste folgen.
           none: Niemand
           participants_help: Sendet den Newsletter an alle bestätigten Benutzer, die an den ausgewählten Teilnehmerräumen der Liste teilgenommen haben.
@@ -736,9 +736,9 @@ de:
           select_scopes: Nur Teilnehmer anzeigen, die einen der gewählten Themenbereiche in Ihren "Meine Interessen" Einstellungen ihres Kontos aktiviert haben.
           select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
           select_users: Wählen Sie aus, welchen Benutzern Sie den Newsletter senden möchten
-          send_to_all_users: An alle Benutzer senden
+          send_to_all_users: An alle Benutzenden senden
           send_to_followers: An Follower senden
-          send_to_participants: An Teilnehmer senden
+          send_to_participants: An Teilnehmende senden
           title: Empfänger auswählen
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
         send:
@@ -813,7 +813,7 @@ de:
             colors_title: Organisationsfarben
             colors_warning_html: Warnung! Das Ändern dieser Farben kann die für Barrierefreiheit notwendigen Kontraste brechen. Sie können den Kontrast Ihrer Wahl mit <a href="%{link}">WebAIM Contrast Checker</a> oder ähnlichen Tools überprüfen.
             header_snippets_help: Verwenden Sie dieses Feld, um Dinge zum HTML-Kopf hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieterdiensten, für die zusätzliches JavaScript oder CSS erforderlich ist. Außerdem können Sie damit dem HTML zusätzliche Meta-Tags hinzufügen. Beachten Sie, dass dies nur auf öffentlichen Seiten und nicht im Admin-Bereich erfolgt.
-          cta_button_path_help: 'Sie können überschreiben, wo die Call To Action-Schaltfläche in der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
+          cta_button_path_help: 'Sie können überschreiben, womit die Call To Action-Schaltfläche auf der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
           cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
@@ -962,7 +962,7 @@ de:
           update: Aktualisieren
         form:
           none: Keiner
-          slug_help: 'Benutze partielle Pfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+          slug_help: 'Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Beispiel: %{url}'
         index:
           last_notable_change: Letzte bemerkenswerte Änderung
         new:
@@ -1106,4 +1106,4 @@ de:
         settings:
           title: die Einstellungen
         users:
-          title: Benutzer
+          title: Teilnehmer

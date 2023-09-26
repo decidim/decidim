@@ -79,6 +79,7 @@ pl:
           index:
             title: Wybór losowy
           new:
+            confirm: Naciśnięcie kolejnego przycisku sprawi, że platforma zapisze datę i godzinę (z dokładnością do sekund) wraz z wynikiem rzutu kostką. Informacje te zostaną wykorzystane do dokonania losowego wyboru. Nie można cofnąć tej operacji; po kliknięciu przycisku wynik losowania zostanie opublikowany wraz z danymi wpisanymi w formularzu i nie będzie można modyfikować jego treści; prosimy o uważne sprawdzenie jego treści
             create: Utwórz
             title: Nowy wybór losowy
           show:

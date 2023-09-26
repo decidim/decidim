@@ -76,10 +76,9 @@ eo:
     shared:
       embed_modal:
         close_window: Fermu la fenestron
+      share_modal:
+        close_window: Fermu la fenestron
   devise:
-    sessions:
-      new:
-        sign_in: Ensaluti
     unlocks:
       send_instructions: Vi ricevos retpoŝton kun instrukcioj pri kiel malŝlosi vian konton en kelkaj minutoj.
   layouts:
