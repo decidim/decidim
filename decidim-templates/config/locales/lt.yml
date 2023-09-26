@@ -44,7 +44,6 @@ lt:
         block_user_templates:
           form:
             save: Išsaugoti
-            template_title: Šablono informacija
           index:
             confirm_delete: Ar tikrai norite ištrinti šį šabloną?
             title: Blokuoti naudotojų žinutes
@@ -62,8 +61,6 @@ lt:
             empty: Dar nėra klausimų.
             questionnaire: Klausimynas
           form:
-            save: Išsaugoti
-            template_title: Šablono informacija
             title: Klausimyno šablonas %{questionnaire_for}
           index:
             confirm_delete: Ar tikrai norite ištrinti šį šabloną?
