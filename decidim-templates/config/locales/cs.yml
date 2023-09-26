@@ -44,7 +44,6 @@ cs:
         block_user_templates:
           form:
             save: Uložit
-            template_title: Informace o šabloně
           index:
             confirm_delete: Opravdu chcete tuto šablonu odstranit?
             title: Blokovat zprávy uživatele
@@ -62,8 +61,6 @@ cs:
             empty: Zatím nejsou žádné otázky.
             questionnaire: Dotazník
           form:
-            save: Uložit
-            template_title: Informace o šabloně
             title: Šablona dotazníku %{questionnaire_for}
           index:
             confirm_delete: Jste si jisti, že chcete odstranit tuto šablonu?
