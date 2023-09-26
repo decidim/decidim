@@ -40,26 +40,6 @@ module Decidim
             expect(subject).to render_template("decidim/accountability/admin/results/index")
           end
         end
-
-        describe "GET the proposals picker" do
-          before do
-            get :proposals_picker, params:
-          end
-
-          it "renders the proposals picker" do
-            expect(response)
-              .to render_template("decidim/accountability/admin/results/proposals_picker")
-          end
-
-          context "when filtering proposals" do
-            let(:params) { { q: "a", id: result.id } }
-
-            it "renders the proposals picker" do
-              expect(response)
-                .to render_template("decidim/accountability/admin/results/proposals_picker")
-            end
-          end
-        end
       end
     end
   end

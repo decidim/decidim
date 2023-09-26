@@ -20,7 +20,7 @@
       <%= render partial: "decidim/admin/shared/gallery", locals: { form: } %>
 
       <div class="row column">
-        <%= proposals_picker(form, :proposals, proposals_picker_election_question_answers_path(election, question)) %>
+        <%= render partial: "decidim/proposals/proposals/proposals_picker.html.erb", locals: { form:, field: :proposals } %>
       </div>
     </div>
   </div>
