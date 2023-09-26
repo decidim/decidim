@@ -1,6 +1,7 @@
 import { Uploader } from "src/decidim/direct_uploads/redesigned_uploader";
 import icon from "src/decidim/redesigned_icon";
 import { truncateFilename } from "src/decidim/direct_uploads/upload_utility";
+import { escapeHtml, escapeQuotes } from "src/decidim/utilities/text";
 
 const STATUS = {
   VALIDATED: "validated",
@@ -168,13 +169,13 @@ export default class UploadModal {
   createUploadItem(file, errors, opts = {}) {
     const okTemplate = `
       <img src="" alt="${file.name}" />
-      <span>${truncateFilename(file.name)}</span>
+      <span>${escapeHtml(truncateFilename(file.name))}</span>
     `
 
     const errorTemplate = `
       <div>${icon("error-warning-line")}</div>
       <div>
-        <span>${truncateFilename(file.name)}</span>
+        <span>${escapeHtml(truncateFilename(file.name))}</span>
         <span>${this.locales.validation_error}</span>
         <ul>${errors.map((error) => `<li>${error}</li>`).join("\n")}</ul>
       </div>
@@ -185,11 +186,11 @@ export default class UploadModal {
       <div>
         <div>
           <label>${this.locales.filename}</label>
-          <span>${truncateFilename(file.name)}</span>
+          <span>${escapeHtml(truncateFilename(file.name))}</span>
         </div>
         <div>
           <label>${this.locales.title}</label>
-          <input class="sm" type="text" value="${opts.title || truncateFilename(file.name)}" />
+          <input class="sm" type="text" value="${escapeQuotes(opts.title || truncateFilename(file.name))}" />
         </div>
       </div>
     `
@@ -214,7 +215,7 @@ export default class UploadModal {
       ? `data-attachment-id="${opts.attachmentId}"`
       : ""
     const fullTemplate = `
-      <li ${attachmentId} data-filename="${file.name}" data-state="${state}">
+      <li ${attachmentId} data-filename="${escapeQuotes(file.name)}" data-state="${state}">
         <div data-template="${template}">
           ${content.trim()}
           <button>${this.locales.remove}</button>
@@ -250,7 +251,7 @@ export default class UploadModal {
   }
 
   setProgressBar(name, value) {
-    this.uploadItems.querySelector(`[data-filename="${name}"] progress`).value = value
+    this.uploadItems.querySelector(`[data-filename="${escapeQuotes(name)}"] progress`).value = value
   }
 
   updateAddAttachmentsButton() {

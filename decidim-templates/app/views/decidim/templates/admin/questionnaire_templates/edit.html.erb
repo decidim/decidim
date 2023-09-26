@@ -1,13 +1,18 @@
 <% add_decidim_page_title(t(".questionnaire")) %>
 <div class="item_show__header">
   <h2 class="item_show__header-title">
-    <%= t(".questionnaire") %>
+    <%= t(".title") %>
   </h2>
 </div>
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: questionnaire_template_path, html: { class: "form form-defaults edit_questionnaire_template" }) do |f| %>
       <%= render partial: "form", object: f %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t("save", scope: "decidim.templates.admin.block_user_templates.form"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
     <% end %>
 
     <div class="card mt-4">
@@ -21,7 +26,9 @@
         <% if template.templatable.questions.any? %>
           <%= render partial: "preview", locals: { questionnaire: template.templatable } %>
         <% else %>
-          <%= t(".empty") %>
+          <div class="row columns pb-4">
+            <%= t(".empty") %>
+          </div>
         <% end %>
       </div>
     </div>
