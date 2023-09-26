@@ -372,6 +372,7 @@ ca:
           goto_moderation: Anar a moderacions globals
           title: Moderacions pendents
         show:
+          dropdown: Desplegable
           view_more_logs: Veure més registres
       domain_whitelist:
         form:
@@ -570,6 +571,7 @@ ca:
         reported_users: Participants reportades
         scope_types: Tipus d'àmbit
         scopes: Àmbits
+        see_site: Veure el lloc web
         settings: Configuració
         static_pages: Pàgines
         user_groups: Grups
