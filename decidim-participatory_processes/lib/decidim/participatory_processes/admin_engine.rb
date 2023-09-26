@@ -160,9 +160,9 @@ module Decidim
                           caption.html_safe,
                           manage_component_path(component),
                           active: is_active_link?(manage_component_path(component)) ||
-                            is_active_link?(decidim_admin_assemblies.edit_component_path(current_participatory_space, component)) ||
-                            is_active_link?(decidim_admin_assemblies.edit_component_permissions_path(current_participatory_space, component)) ||
-                            participatory_space_active_link?(component),
+                                  is_active_link?(decidim_admin_assemblies.edit_component_path(current_participatory_space, component)) ||
+                                  is_active_link?(decidim_admin_assemblies.edit_component_permissions_path(current_participatory_space, component)) ||
+                                  participatory_space_active_link?(component),
                           if: component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name)
           end
         end

@@ -77,8 +77,7 @@ module Decidim
         ::Decidim::Admin::SimpleMenuPresenter.new(target_menu, self, options)
       end
 
-
-      def set_secondary_root_menu(menu)
+      def add_secondary_root_menu(menu)
         @secondary_root_menu = menu
       end
 

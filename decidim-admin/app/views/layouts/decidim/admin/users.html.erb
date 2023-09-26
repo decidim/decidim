@@ -1,4 +1,4 @@
-<% set_secondary_root_menu(:admin_user_menu) %>
+<% add_secondary_root_menu(:admin_user_menu) %>
 <% content_for :breadcrumb_context_menu do %>
   <div class="inline-block relative">
     <%= button_tag id: "user-menu-trigger", data: { component: "dropdown", target: "user-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>

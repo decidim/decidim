@@ -54,10 +54,10 @@ module Decidim
 
     def link_wrapper_classes
       @link_wrapper_classes ||= begin
-                                  classes = [@options.element_class, @menu_item.identifier]
-                                  classes << active_class if is_active_link?(url, active)
-                                  classes
-                                end.compact.join(" ")
+        classes = [@options.element_class, @menu_item.identifier]
+        classes << active_class if is_active_link?(url, active)
+        classes
+      end.compact.join(" ")
     end
 
     def active_class
