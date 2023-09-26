@@ -54,6 +54,9 @@ fr-CA:
         new:
           create: Créer
           title: Nouvel administrateur
+        show:
+          destroy: Détruire
+          edit: Modifier
         update:
           error: Une erreur s'est produite lors de la mise à jour de cet administrateur.
           success: Administrateur mis à jour avec succès.
@@ -66,6 +69,21 @@ fr-CA:
           summary: Veuillez ajouter un contenu significatif à la page statique %{page} du tableau de bord de l’administrateur.
           title: Titre par défaut pour %{page}
         terms-of-service: Conditions d'utilisation
+      devise:
+        passwords:
+          edit:
+            change_your_password: Modifier votre mot de passe
+            minimum_characters: "(%{minimum} caractères minimum)"
+          new:
+            forgot_your_password: Mot de passe oublié
+            send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Vous n’avez pas reçu les instructions de confirmation ?
+            did_not_receive_unlock_instructions?: Vous n’avez pas reçu les instructions de déverrouillage ?
+            forgot_your_password?: Mot de passe oublié ?
+            log_in: Se connecter
+            sign_up: S'inscrire
       menu:
         admins: Administrateurs
         dashboard: Tableau de bord
@@ -180,6 +198,9 @@ fr-CA:
         index:
           title: Organisations
         new:
+          default: Par défaut ?
+          enabled: Activé
+          locale: Langue
           reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources à travers toutes les organisations.
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne.
           title: Nouvelle organisation
@@ -222,3 +243,4 @@ fr-CA:
           our_getting_started_guide: Notre guide de démarrage
       titles:
         dashboard: Tableau de bord
+        decidim: Decidim
