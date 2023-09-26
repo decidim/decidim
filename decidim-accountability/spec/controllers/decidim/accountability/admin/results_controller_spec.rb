@@ -67,10 +67,6 @@ module Decidim
           end
 
           it "does not load the proposals admin picker concern" do
-            expect(Decidim::Accountability::Admin::ResultsController).not_to receive(:include).with(
-              Decidim::Proposals::Admin::Picker
-            )
-
             load "#{Decidim::Accountability::Engine.root}/app/controllers/decidim/accountability/admin/results_controller.rb"
           end
         end

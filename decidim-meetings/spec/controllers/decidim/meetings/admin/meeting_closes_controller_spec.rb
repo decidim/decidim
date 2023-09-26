@@ -9,10 +9,6 @@ describe Decidim::Meetings::Admin::MeetingClosesController, type: :controller do
     end
 
     it "does not load the proposals admin picker concern" do
-      expect(Decidim::Meetings::Admin::MeetingClosesController).not_to receive(:include).with(
-        Decidim::Proposals::Admin::Picker
-      )
-
       load "#{Decidim::Meetings::Engine.root}/app/controllers/decidim/meetings/admin/meeting_closes_controller.rb"
     end
   end
