@@ -3,9 +3,7 @@
 
 <% provide :meta_image_url, current_initiative.type.attached_uploader(:banner_image).path %>
 
-<%= content_for :participatory_space_actions do %>
-  <%= render partial: "layouts/decidim/header/follow_space_menu_bar_button", locals: { participatory_space: current_participatory_space } %>
-<% end %>
+<%= render partial: "layouts/decidim/header/follow_space_menu_bar_button", locals: { participatory_space: current_participatory_space } %>
 
 <%= render "layouts/decidim/application" do %>
   <%= render partial: "decidim/initiatives/initiatives/initiative_hero" %>

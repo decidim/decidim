@@ -1,1 +1,7 @@
-<%= cell("decidim/follow_button", participatory_space, button_classes: "button button__sm button__transparent") %>
+<%= content_for :participatory_space_actions do %>
+  <%= cell("decidim/follow_button", participatory_space, button_classes: "button button__sm button__transparent") %>
+<% end %>
+
+<%= content_for :participatory_space_mobile_actions do %>
+  <%= cell("decidim/follow_button", participatory_space, button_classes: "button button__sm button__transparent", mobile: true) %>
+<% end %>
