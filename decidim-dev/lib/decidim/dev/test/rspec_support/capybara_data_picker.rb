@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# deprecated
 module Capybara
   module DataPicker
     def select_data_picker(id, multiple: nil, global_value: "")
