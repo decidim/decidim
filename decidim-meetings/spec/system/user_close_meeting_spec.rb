@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/proposals/test/capybara_proposals_picker"
 
 describe "User edit meeting", type: :system do
   include_context "with a component"
