@@ -44,7 +44,6 @@ fi:
         block_user_templates:
           form:
             save: Tallenna
-            template_title: Mallipohjan tiedot
           index:
             confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
             title: Käyttäjien eston viestit
@@ -62,8 +61,6 @@ fi:
             empty: Kysymyksiä ei ole vielä.
             questionnaire: Kysely
           form:
-            save: Tallenna
-            template_title: Mallipohjan tiedot
             title: Kyselylomakemalli %{questionnaire_for}
           index:
             confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
