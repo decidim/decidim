@@ -345,6 +345,7 @@ eu:
           goto_moderation: Joan moderazio globaletara
           title: Zain dauden moderazioak
         show:
+          dropdown: Goitibeherako zerrrenda
           view_more_logs: Ikusi gehiago erregistroak
       domain_whitelist:
         form:
@@ -518,6 +519,7 @@ eu:
         participants: Parte-hartzaileak
         scope_types: Esparru motak
         scopes: Esparruak
+        see_site: Ikusi lekua
         settings: Ezarpenak
         static_pages: Orriak
         user_groups: Erabiltzaile-taldeak
