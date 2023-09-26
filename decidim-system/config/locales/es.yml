@@ -76,6 +76,14 @@ es:
             minimum_characters: "(%{minimum} caracteres como mínimo)"
           new:
             forgot_your_password: '¿Has olvidado tu contraseña?'
+            send_me_reset_password_instructions: Envíame las instrucciones para restablecer la contraseña
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: '¿No has recibido las instrucciones de confirmación?'
+            did_not_receive_unlock_instructions?: '¿No has recibido las instrucciones de desbloqueo?'
+            forgot_your_password?: '¿Olvidaste tu contraseña?'
+            log_in: Iniciar sesión
+            sign_up: Regístrate
       menu:
         admins: Administradoras
         dashboard: Panel de administración
@@ -190,6 +198,9 @@ es:
         index:
           title: Organizaciones
         new:
+          default: '¿Por defecto?'
+          enabled: Habilitado
+          locale: Configuración regional
           reference_prefix_hint: El prefijo de referencia se utiliza para identificar de forma única los recursos del conjunto de la organización.
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea.
           title: Nueva organización
@@ -232,3 +243,4 @@ es:
           our_getting_started_guide: nuestra guía de inicio
       titles:
         dashboard: Panel de administración
+        decidim: Decidim
