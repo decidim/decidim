@@ -16,7 +16,7 @@ module Decidim
               get "spacing", to: "spacing#index"
             end
 
-            namespace :foundations do; end
+            # namespace :foundations do; end
 
             get "home", to: "home#index"
 
