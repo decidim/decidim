@@ -31,8 +31,16 @@ const updateActiveUploads = (modal) => {
     let title = truncateFilename(file.name, 19)
 
     let hidden = ""
-    if (file.attachmentId) {
-      // if the file has attachmentId, this file is not new so we keep the attachmentId
+    if (file.hiddenField) {
+      // if there is hiddenField, this file is new
+      // eslint-disable-next-line no-ternary
+      const fileField = isMultiple
+        ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`
+        : `${modal.options.resourceName}[${modal.options.addAttribute}]`
+
+      hidden = `<input type="hidden" name="${fileField}" value="${file.hiddenField}" />`
+    } else {
+      // otherwise, we keep the attachmentId
       // eslint-disable-next-line no-ternary
       const fileField = isMultiple
         ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][id]`
@@ -42,13 +50,6 @@ const updateActiveUploads = (modal) => {
       const attributes = Array.from(previousId.find(({ id }) => id === file.attachmentId).attributes).reduce((acc, { name, value }) => `${acc} ${name}="${value}"`, "")
       hidden = `<input ${attributes} />`
       hidden += `<input type="hidden" name="${fileField}" value="${file.attachmentId}" />`
-    } else {
-      // eslint-disable-next-line no-ternary
-      const fileField = isMultiple
-        ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`
-        : `${modal.options.resourceName}[${modal.options.addAttribute}]`
-
-      hidden = `<input type="hidden" name="${fileField}" value="${file.hiddenField}" />`
     }
 
     if (modal.options.titled) {
