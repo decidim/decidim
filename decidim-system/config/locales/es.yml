@@ -54,6 +54,9 @@ es:
         new:
           create: Crear
           title: Nueva administradora
+        show:
+          destroy: Destruir
+          edit: Editar
         update:
           error: Se ha producido un error al actualizar esta administradora.
           success: Administradora actualizada correctamente.
@@ -66,6 +69,13 @@ es:
           summary: Por favor, agrega un resumen significativo a la página estática %{page} en el panel de administración.
           title: Título predeterminado para %{page}
         terms-of-service: Términos y condiciones de uso
+      devise:
+        passwords:
+          edit:
+            change_your_password: Cambia tu contraseña
+            minimum_characters: "(%{minimum} caracteres como mínimo)"
+          new:
+            forgot_your_password: '¿Has olvidado tu contraseña?'
       menu:
         admins: Administradoras
         dashboard: Panel de administración
