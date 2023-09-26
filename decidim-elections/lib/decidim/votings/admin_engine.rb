@@ -164,6 +164,8 @@ module Decidim
                         I18n.t("attachments", scope: "decidim.votings.admin.menu.votings_submenu"),
                         "#",
                         icon_name: "attachment-2",
+                        active: is_active_link?(decidim_admin_votings.voting_attachment_collections_path(current_participatory_space)) ||
+                          is_active_link?(decidim_admin_votings.voting_attachments_path(current_participatory_space)),
                         if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment),
                         submenu: { target_menu: :decidim_votings_attachments_menu }
 
@@ -183,6 +185,10 @@ module Decidim
                         I18n.t("monitoring_committee", scope: "decidim.votings.admin.menu.votings_submenu"),
                         "#",
                         icon_name: "mail-line",
+                        active: is_active_link?(decidim_admin_votings.voting_monitoring_committee_members_path(current_participatory_space)) ||
+                          is_active_link?(decidim_admin_votings.voting_monitoring_committee_polling_station_closures_path(current_participatory_space)) ||
+                          is_active_link?(decidim_admin_votings.voting_monitoring_committee_verify_elections_path(current_participatory_space)) ||
+                          is_active_link?(decidim_admin_votings.voting_monitoring_committee_election_results_path(current_participatory_space)),
                         if: !current_participatory_space.online_voting? && allowed_to?(:read, :monitoring_committee_menu, voting: current_participatory_space),
                         submenu: { target_menu: :decidim_votings_monitoring_committee_menu }
 

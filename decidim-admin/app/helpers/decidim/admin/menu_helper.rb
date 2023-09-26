@@ -76,6 +76,17 @@ module Decidim
         options = { active_class: "is-active" }.merge(options)
         ::Decidim::Admin::SimpleMenuPresenter.new(target_menu, self, options)
       end
+
+
+      def set_secondary_root_menu(menu)
+        @secondary_root_menu = menu
+      end
+
+      attr_reader :secondary_root_menu
+
+      def has_secondary_root_menu?
+        @secondary_root_menu.present?
+      end
     end
   end
 end

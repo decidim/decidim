@@ -174,6 +174,9 @@ module Decidim
                         I18n.t("attachments", scope: "decidim.admin.menu.conferences_submenu"),
                         "#",
                         icon_name: "attachment-2",
+                        active:
+                            is_active_link?(decidim_admin_conferences.conference_attachment_collections_path(current_participatory_space)) ||
+                            is_active_link?(decidim_admin_conferences.conference_attachments_path(current_participatory_space)),
                         if: allowed_to?(:read, :attachment_collection, conference: current_participatory_space) ||
                             allowed_to?(:read, :attachment, conference: current_participatory_space),
                         submenu: { target_menu: :conferences_admin_attachments_menu }
