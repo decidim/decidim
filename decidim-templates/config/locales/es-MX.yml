@@ -44,7 +44,6 @@ es-MX:
         block_user_templates:
           form:
             save: Guardar
-            template_title: Información de la plantilla
           index:
             confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
             title: Bloquear los mensajes de la usuaria
@@ -62,8 +61,6 @@ es-MX:
             empty: Aún no hay preguntas.
             questionnaire: Cuestionario
           form:
-            save: Guardar
-            template_title: Información de la plantilla
             title: Plantilla de cuestionario %{questionnaire_for}
           index:
             confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
