@@ -3,6 +3,8 @@
 require "spec_helper"
 require "nokogiri"
 
+require "decidim/core/test/shared_examples/form_builder_examples"
+
 module Decidim
   describe FilterFormBuilder do
     let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
@@ -41,6 +43,16 @@ module Decidim
       it "renders the radio buttons inside its labels" do
         expect(parsed.css("label input")).not_to be_empty
       end
+
+      context "when a help text is defined" do
+        let(:field) { "input" }
+        let(:help_text_text) { "This is the help text" }
+        let(:output) do
+          builder.collection_radio_buttons :order_start_time, [%w(asc asc), %w(desc desc)], :first, :last, legend_title: "Date", help_text: help_text_text
+        end
+
+        it_behaves_like "having a help text"
+      end
     end
 
     describe "#collection_check_boxes" do
@@ -54,6 +66,16 @@ module Decidim
       it "renders the check boxes inside its labels" do
         expect(parsed.css("label input")).not_to be_empty
       end
+
+      context "when a help text is defined" do
+        let(:field) { "input" }
+        let(:help_text_text) { "This is the help text" }
+        let(:output) do
+          builder.collection_check_boxes :scope_id, scopes, :id, :name, legend_title: "Date", help_text: help_text_text
+        end
+
+        it_behaves_like "having a help text"
+      end
     end
 
     describe "#categories_select" do
@@ -63,6 +85,16 @@ module Decidim
       let(:parsed) { Nokogiri::HTML(output) }
 
       include_examples "fieldset_wrapper"
+
+      context "when a help text is defined" do
+        let(:field) { "<select" }
+        let(:help_text_text) { "This is the help text" }
+        let(:output) do
+          builder.categories_select :category_id, categories, legend_title: "Date", disable_parents: false, label: false, include_blank: true, help_text: help_text_text
+        end
+
+        it_behaves_like "having a help text"
+      end
     end
   end
 end

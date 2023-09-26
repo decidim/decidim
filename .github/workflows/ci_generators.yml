@@ -17,7 +17,7 @@ on:
 env:
   CI: "true"
   RUBY_VERSION: 3.1.1
-  NODE_VERSION: 16.13.0
+  NODE_VERSION: 18.17.1
   DECIDIM_MODULE: decidim-generators
   PARALLEL_TEST_PROCESSORS: 2
   CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
@@ -42,7 +42,7 @@ jobs:
     timeout-minutes: 60
     services:
       postgres:
-        image: postgres:11
+        image: postgres:14
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready

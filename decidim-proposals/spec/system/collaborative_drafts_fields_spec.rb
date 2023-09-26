@@ -323,7 +323,7 @@ describe "Collaborative drafts", type: :system do
               fill_in :collaborative_draft_body, with: "This is my collaborative draft and I want to upload attachments."
             end
 
-            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"))
 
             within ".new_collaborative_draft" do
               find("*[type=submit]").click
@@ -358,5 +358,9 @@ end
 
 def new_collaborative_draft_path
   visit_component
-  "#{current_path}/collaborative_drafts/new"
+  "#{current_proposal_path}/collaborative_drafts/new"
+end
+
+def current_proposal_path
+  current_path.sub("/proposals", "")
 end

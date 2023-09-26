@@ -445,9 +445,9 @@ To customize export fields, you can subscribe to any serialize event. Every seri
 Defines additional content security policies following the structure keys are the CSP directives and the values are arrays of allowed sources
 
 List of additional content security policies to be appended to the default ones
-This is useful for adding custom CSPs for external services like Here Maps, YouTube, Twitter etc.
+This is useful for adding custom CSPs for external services like Here Maps, YouTube, X (former Twitter) etc.
 
-Below you will find a the recepy of enabling Twitter timelines, based on https://content-security-policy.com/examples/twitter/[Content Security Policy (CSP) Examples Twitter example].
+Below you will find a the recepy of enabling X (former Twitter) timelines, based on https://content-security-policy.com/examples/twitter/[Content Security Policy (CSP) Examples Twitter example].
 The format is a Hash with the following structure:
 [source,ruby]
 ....

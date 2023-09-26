@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     module Admin
-      # Controller that allows managing all the attachment collections for an conference.
+      # Controller that allows managing all the attachment collections for a Conference.
       #
       class ConferenceAttachmentCollectionsController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin

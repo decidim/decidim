@@ -6,11 +6,13 @@ module Decidim
       # This controller allows to create or update a voting.
       class VotingsController < Admin::ApplicationController
         include Decidim::Votings::Admin::Filterable
+        include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
         helper_method :votings, :current_voting, :current_participatory_space
 
         def index
           enforce_permission_to :read, :votings
           @votings = filtered_collection
+          render layout: "decidim/admin/votings"
         end
 
         def new
@@ -54,28 +56,6 @@ module Decidim
             on(:invalid) do
               flash.now[:alert] = I18n.t("votings.update.invalid", scope: "decidim.votings.admin")
               render action: "edit"
-            end
-          end
-        end
-
-        def publish
-          enforce_permission_to :publish, :voting, voting: current_voting
-
-          PublishVoting.call(current_voting, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("votings.publish.success", scope: "decidim.votings.admin")
-              redirect_to edit_voting_path(voting)
-            end
-          end
-        end
-
-        def unpublish
-          enforce_permission_to :unpublish, :voting, voting: current_voting
-
-          UnpublishVoting.call(current_voting, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("votings.unpublish.success", scope: "decidim.votings.admin")
-              redirect_to edit_voting_path(voting)
             end
           end
         end

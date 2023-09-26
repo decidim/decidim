@@ -12,7 +12,7 @@
         :first,
         :last
     ) do |builder|
-      builder.label(class: "filter") { builder.send(builder_type.singularize, class: "reset-defaults") + builder.text }
+      builder.label(class: "filter") { builder.send(builder_type.singularize, class: "reset-defaults") + filter_text_for(builder.text) }
     end %>
   </div>
 </div>

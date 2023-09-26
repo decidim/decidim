@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Conference moderator manages conference moderations", type: :system do
-  include_context "when conference moderator administrating an conference"
+  include_context "when conference moderator administrating a conference"
 
   let(:current_component) { create(:component, participatory_space: conference) }
   let!(:reportables) { create_list(:dummy_resource, 2, component: current_component) }

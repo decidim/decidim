@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     # This cell renders the Grid (:g) conference card
-    # for an given instance of an Assembly
+    # for a given instance of a Conference
     class ConferenceGCell < Decidim::CardGCell
       private
 

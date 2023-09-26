@@ -1,23 +1,21 @@
-<h2>Log in</h2>
+<h2 class="h3"><%= t("log_in", scope: "decidim.system.devise.shared.links") %></h2>
 
 <%= decidim_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="form__wrapper">
     <%= f.email_field :email, autofocus: true %>
-  </div>
 
-  <div class="field">
     <%= f.password_field :password, autocomplete: "off" %>
+
+    <% if devise_mapping.rememberable? -%>
+      <%= f.check_box :remember_me %>
+    <% end -%>
   </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="form__wrapper-block">
+    <%= f.submit t("log_in", scope: "decidim.system.devise.shared.links"), class: "button button__sm md:button__lg md:button__lg button__secondary" %>
   </div>
 <% end %>
 
-<%= render "decidim/system/devise/shared/links" %>
+<div class="flex flex-col [&>a]:text-secondary hover:[&>a]:underline [&>a]:w-fit [&>a]:mt-4">
+  <%= render "decidim/system/devise/shared/links" %>
+</div>

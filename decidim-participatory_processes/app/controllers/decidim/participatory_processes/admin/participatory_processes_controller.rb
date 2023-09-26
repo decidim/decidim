@@ -8,6 +8,9 @@ module Decidim
       class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         include Decidim::Admin::ParticipatorySpaceAdminContext
         include Decidim::ParticipatoryProcesses::Admin::Filterable
+
+        add_breadcrumb_item_from_menu :admin_participatory_process_menu, only: :show
+
         participatory_space_admin_layout only: [:edit]
 
         helper ProcessGroupsForSelectHelper
@@ -47,6 +50,12 @@ module Decidim
         def edit
           enforce_permission_to :update, :process, process: current_participatory_process
           @form = form(ParticipatoryProcessForm).from_model(current_participatory_process)
+          render layout: "decidim/admin/participatory_process"
+        end
+
+        def show
+          raise ActionController::RoutingError, I18n.t("content_doesnt_exist", scope: "decidim.errors.not_found") if current_participatory_process.blank?
+
           render layout: "decidim/admin/participatory_process"
         end
 
@@ -94,6 +103,10 @@ module Decidim
 
         def participatory_process_params
           { id: params[:slug] }.merge(params[:participatory_process].to_unsafe_h)
+        end
+
+        def current_participatory_space_path
+          Decidim::ResourceLocatorPresenter.new(current_participatory_space).show
         end
       end
     end

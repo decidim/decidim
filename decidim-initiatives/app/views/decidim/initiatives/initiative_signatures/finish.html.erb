@@ -1,4 +1,4 @@
-<%= cell("decidim/announcement", t("decidim.initiatives.initiative_votes.create.success_html"), callout_class: "secondary", title: translated_attribute(current_initiative.title)) %>
+<%= cell("decidim/announcement", t("decidim.initiatives.initiative_votes.create.success_html", title: translated_attribute(current_initiative.title)), callout_class: "secondary") %>
 
 <%= link_to initiative_path(current_initiative), class: "button button__sm md:button__lg button__text-secondary" do %>
   <%= icon "arrow-left-line" %>

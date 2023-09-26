@@ -10,7 +10,7 @@
 <% if (@proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal)) || (amendments_enabled? && @proposal.amendable? && current_component.current_settings.amendment_creation_enabled && can_participate_in_private_space?) || amendments_enabled? && can_react_to_emendation?(@proposal) || @proposal.withdrawable_by?(current_user) %>
 <section class="layout-aside__section layout-aside__buttons">
   <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
-    <%= link_to t("edit_proposal", scope: "decidim.proposals.proposals.show"), edit_proposal_path(@proposal), class: "button button__sm button__transparent-secondary" %>
+    <%= link_to t("edit_proposal", scope: "decidim.proposals.proposals.show"), edit_proposal_path(@proposal), class: "button button__sm button__transparent-secondary w-full" %>
   <% else %>
     <%= amend_button_for @proposal %>
   <% end %>

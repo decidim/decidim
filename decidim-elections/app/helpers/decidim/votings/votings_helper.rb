@@ -7,11 +7,11 @@ module Decidim
 
       def date_filter_values
         TreeNode.new(
-          TreePoint.new("", filter_text_for(t("votings.filters.all", scope: "decidim.votings"))),
+          TreePoint.new("", t("votings.filters.all", scope: "decidim.votings")),
           [
-            TreePoint.new("active", filter_text_for(t("votings.filters.active", scope: "decidim.votings"))),
-            TreePoint.new("upcoming", filter_text_for(t("votings.filters.upcoming", scope: "decidim.votings"))),
-            TreePoint.new("finished", filter_text_for(t("votings.filters.finished", scope: "decidim.votings")))
+            TreePoint.new("active", t("votings.filters.active", scope: "decidim.votings")),
+            TreePoint.new("upcoming", t("votings.filters.upcoming", scope: "decidim.votings")),
+            TreePoint.new("finished", t("votings.filters.finished", scope: "decidim.votings"))
           ]
         )
       end
@@ -25,11 +25,6 @@ module Decidim
 
         (
           [
-            {
-              name: t("layouts.decidim.voting_navigation.voting_menu_item"),
-              url: decidim_votings.voting_path(participatory_space),
-              active: is_active_link?(decidim_votings.voting_path(participatory_space), :exclusive)
-            },
             if participatory_space.check_census_enabled?
               {
                 name: t("layouts.decidim.voting_navigation.check_census"),

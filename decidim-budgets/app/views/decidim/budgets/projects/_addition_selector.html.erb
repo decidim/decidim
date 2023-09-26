@@ -10,9 +10,7 @@
         <%= builder.text[:text] %>
       </span>
       <%= render partial: "projects_count", locals: { count: builder.text[:count] } %>
-     <button class="w-0">
-        <%= builder.radio_button(class: "appearance-none") %>
-      </button>
+      <%= builder.radio_button(class: "!hidden") %>
     <% end %>
   <% end %>
 <% end %>

@@ -1,0 +1,81 @@
+.layout-content {
+  .form__wrapper {
+    @apply pt-0;
+
+    input[type="date"],
+    input[type="datetime-local"],
+    input[type="email"],
+    input[type="month"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"],
+    select,
+    textarea {
+      @apply mt-0;
+    }
+
+    & label:not(&-checkbox-label),
+    &-block label:not(&-checkbox-label) {
+      @apply text-sm;
+    }
+
+    .help-text {
+      @apply mt-1;
+    }
+
+    .row .columns,
+    .row.column {
+      @apply mb-4;
+    }
+  }
+
+  .form-defaults {
+    select.chosen-select {
+      @apply bg-none;
+    }
+
+    select#component_step_settings_1_default_sort_order {
+      @apply block my-2;
+    }
+
+    textarea#component_step_settings_1_automatic_hashtags,
+    textarea#component_step_settings_1_suggested_hashtags {
+      @apply block w-full;
+    }
+
+    #choose-template label {
+      @apply block my-2;
+    }
+  }
+
+  #q_with_participatory_space {
+    @apply h-9;
+  }
+}
+
+.questionnaire-question {
+  button[aria-expanded="true"] {
+    .icon-collapse {
+      @apply block;
+    }
+
+    .icon-expand {
+      @apply hidden;
+    }
+  }
+
+  button[aria-expanded="false"] {
+    .icon-collapse {
+      @apply hidden;
+    }
+
+    .icon-expand {
+      @apply block;
+    }
+  }
+}
