@@ -21,7 +21,7 @@ module Decidim
 
       def iframe_container_meetings_css_class
         @iframe_container_meetings_css_class ||= begin
-          css_class = ["iframe_container_meetings"]
+          css_class = ["meeting__iframe_container-"]
 
           case model.online_meeting_url
           when /youtube/
