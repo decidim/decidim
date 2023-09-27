@@ -428,30 +428,22 @@ it:
           show:
             amendments_count: Numero di emendamenti
             assigned_valuators: Valutatori assegnati
-            authors: autori
             body: Corpo
             comments_count: Conteggio dei Commenti
-            comments_negative_count: Contro
-            comments_neutral_count: Neutrale
-            comments_positive_count: A favore
-            created_at: Data di creazione
             documents: Documenti
             endorsements_count: Numero di Appoggi
-            endorsements_ranking: Classifica per appoggi
             endorsers: Sostenitori
             link: Link
             n_more_endorsers:
               one: e 1 altro
               other: e altri %{count}
             photos: Foto
-            proposals: proposte
             ranking: "%{ranking} di %{total}"
             related_meetings: Riunioni correlate
             remove_assignment: Rimuovi assegnazione
             remove_assignment_confirmation: Sei sicuro di voler rimuovere il valutatore da questa proposta?
             valuators: Valutatori
             votes_count: Contare i voti
-            votes_ranking: Ordina per numero di supporti
           update_category:
             invalid: 'Queste proposte avevano già la categoria %{subject_name} %{proposals}.'
             success: 'Proposte aggiornate con successo alla categoria %{subject_name}: %{proposals}.'
@@ -747,8 +739,6 @@ it:
           title: Fasi di creazione delle proposte
       proposals_picker:
         choose_proposals: Scegli proposte
-        close: Chiudi
-        more_proposals: Ci sono altre %{number} proposte. Affina la tua ricerca per localizzarle.
       publish:
         error: Si sono verificati errori durante la pubblicazione della proposta.
         success: Proposta pubblicata con successo.
