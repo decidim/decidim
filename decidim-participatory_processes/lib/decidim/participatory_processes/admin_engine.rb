@@ -160,7 +160,7 @@ module Decidim
             caption += content_tag(
               :span,
               t(component.published_at? ? "published" : "unpublished", scope: "decidim.admin.participatory_processes.index"),
-              class: component.published_at? ? "label success !text-sm" : "label reverse !text-sm"
+              class: component.published_at? ? "label success !text-sm" : "label alert !text-sm"
             )
 
             menu.add_item [component.manifest_name, component.id].join("_"),
