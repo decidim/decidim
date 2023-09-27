@@ -125,9 +125,6 @@ is-IS:
           new:
             create: Búa til
             title: Búðu tillögu
-          show:
-            created_at: Sköpunardegi
-            proposals: Tillögur
         proposals_imports:
           new:
             create: Innflutningur tillögur
