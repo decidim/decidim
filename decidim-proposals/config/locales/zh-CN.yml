@@ -392,29 +392,21 @@ zh-CN:
           show:
             amendments_count: 修改计数
             assigned_valuators: 分配给值者
-            authors: 作者
             body: 正文内容
             comments_count: 评论计数
-            comments_negative_count: 反对的
-            comments_neutral_count: 中性的
-            comments_positive_count: 收藏夹
-            created_at: 创建日期
             documents: www.un.org/webcast
             endorsements_count: 批准次数
-            endorsements_ranking: 经认可排序。
             endorsers: 核可者
             link: 链接
             n_more_endorsers:
               other: 和 %{count} 更多
             photos: 照片
-            proposals: 建议
             ranking: "%{ranking} / %{total}"
             related_meetings: 相关会议
             remove_assignment: 移除作业
             remove_assignment_confirmation: 您确定要从此建议中删除值吗？
             valuators: 估价器
             votes_count: 支持计数
-            votes_ranking: 支持排序方式
           update_category:
             invalid: '这些建议已经有 %{subject_name} 分类: %{proposals}。'
             success: '建议已成功更新到 %{subject_name} 类别： %{proposals}。'
@@ -695,8 +687,6 @@ zh-CN:
           title: 建议创建步骤
       proposals_picker:
         choose_proposals: 选择建议
-        close: 关闭
-        more_proposals: 还有 %{number} 个建议。请仔细搜索以找到它们。
       publish:
         error: 发布建议时出现问题。
         success: 建议发布成功。
