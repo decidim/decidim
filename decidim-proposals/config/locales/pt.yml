@@ -448,30 +448,22 @@ pt:
           show:
             amendments_count: Contagem de modificações
             assigned_valuators: Avaliadores atribuídos
-            authors: Autores
             body: Corpo
             comments_count: Contagem de comentários
-            comments_negative_count: Contra
-            comments_neutral_count: Neutro
-            comments_positive_count: Favor
-            created_at: Data de criação
             documents: Documentos
             endorsements_count: Contagem de endossamentos
-            endorsements_ranking: Classificação por endossamentos
             endorsers: Endossadores
             link: Hiperligação
             n_more_endorsers:
               one: e mais 1
               other: e mais %{count}
             photos: Fotos
-            proposals: Propostas
             ranking: "%{ranking} de %{total}"
             related_meetings: Reuniões relacionadas
             remove_assignment: Remover atribuição
             remove_assignment_confirmation: Tem a certeza de que pretende remover o avaliador desta proposta?
             valuators: Avaliadores
             votes_count: Contagem de votos
-            votes_ranking: Classificação por votos
           update_category:
             invalid: 'Estas propostas já possuíam a categoria %{subject_name}: %{proposals}.'
             success: 'Propostas atualizadas corretamente para a categoria %{subject_name}: %{proposals}.'
@@ -771,8 +763,6 @@ pt:
           title: Passos para criação de proposta
       proposals_picker:
         choose_proposals: Escolher propostas
-        close: Fechar
-        more_proposals: Existem mais %{number} propostas. Refine a pesquisa para localizá-las.
       publish:
         error: Ocorreu um problema ao publicar a proposta.
         success: Proposta publicada corretamente.
