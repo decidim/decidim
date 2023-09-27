@@ -444,27 +444,19 @@
             title: Opprett forslag
           show:
             amendments_count: Endringer teller
-            authors: Forfattere
             body: Body
             comments_count: Kommentarer teller
-            comments_negative_count: Imot
-            comments_neutral_count: Nøytral
-            comments_positive_count: Tjeneste
-            created_at: Opprettelsesdato
             documents: Dokumenter
             endorsements_count: Påtegnelser teller
-            endorsements_ranking: Rankingliste av påtegninger
             endorsers: Påtegnelser
             link: Lenke
             n_more_endorsers:
               one: og 1 til
               other: og %{count} til
             photos: Bilder
-            proposals: Forslag
             ranking: "%{ranking} av %{total}"
             related_meetings: Relaterte møter
             votes_count: Støtter antall
-            votes_ranking: Rangering etter støttere
         proposals_imports:
           new:
             create: Importer forslag
@@ -742,8 +734,6 @@
           title: Trinn for opprettelse av forslag
       proposals_picker:
         choose_proposals: Velg forslag
-        close: Lukk
-        more_proposals: Det er %{number} flere forslag. Begrens søket for å finne dem.
       publish:
         error: Det oppstod et problem med å publisere forslaget.
         success: Forslag publisert.
