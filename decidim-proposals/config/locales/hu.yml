@@ -463,30 +463,22 @@ hu:
           show:
             amendments_count: Módosítás száma (%{count}
             assigned_valuators: Hozzárendelt értékelők
-            authors: Szerzők
             body: Szöveg
             comments_count: Hozzászólások száma
-            comments_negative_count: Ellene
-            comments_neutral_count: Semleges
-            comments_positive_count: Kedvenc
-            created_at: Létrehozás dátuma
             documents: Dokumentumok
             endorsements_count: Jóváhagyások száma
-            endorsements_ranking: Jóváhagyások szerinti besorolás
             endorsers: Támogatók
             link: Link
             n_more_endorsers:
               one: és még egy
               other: és még %{count}
             photos: Fotók
-            proposals: Javaslatok
             ranking: "%{total} -ból %{ranking}"
             related_meetings: Kapcsolódó találkozók
             remove_assignment: Hozzárendelés eltávolítsa
             remove_assignment_confirmation: Biztosan eltávolítja az értékelőt ebből a javaslatból?
             valuators: Értékelők
             votes_count: Támogatók száma
-            votes_ranking: Támogatások szerinti rangsorolás
           update_category:
             invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} kategóriája: %{proposals}.'
             select_a_proposal: Kérjük, válasszon egy javaslatot.
@@ -776,7 +768,6 @@ hu:
           title: A javaslat létrehozásának lépései
       proposals_picker:
         choose_proposals: Javaslatok kiválasztása
-        close: Bezár
       publish:
         error: Hiba történt a javaslat közzététele során.
         success: Javaslat közzététele sikeres.
