@@ -128,7 +128,7 @@ de:
           authorize: Senden
           authorize_with: Bestätigen Sie mit %{authorizer}
         renew_modal:
-          cancel: Stornieren
+          cancel: Abbrechen
           continue: Weiter
           info_renew: Wenn Sie die Daten aktualisieren möchten, fahren Sie mit der Erneuerung fort.
           title: Verifizierung erneuern
@@ -196,7 +196,7 @@ de:
               error: Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder teilen Sie dem Teilnehmer mit, sie angepasst werden muss.
               success: Benutzer erfolgreich überprüft.
             new:
-              cancel: Stornieren
+              cancel: Abbrechen
               introduce_user_data: Geben Sie die Benutzer-E-Mail und die Dokumentdaten ein
               verify: Überprüfen
           pending_authorizations:
