@@ -522,16 +522,10 @@ ar:
           show:
             amendments_count: تعداد التعديلات
             assigned_valuators: المقيِّمون الذين تم تعيينهم
-            authors: المؤلفون
             body: الجسم
             comments_count: تعداد التعليقات
-            comments_negative_count: ضد
-            comments_neutral_count: محايد
-            comments_positive_count: مع
-            created_at: تاريخ الإنشاء
             documents: المستندات
             endorsements_count: عد أصوات التأييدات
-            endorsements_ranking: الترتيب حسب التأييدات
             endorsers: المؤيدون
             link: الرابط
             n_more_endorsers:
@@ -542,14 +536,12 @@ ar:
               many: و%{count} آخرين
               other: و%{count} آخرين
             photos: الصور
-            proposals: اقتراحات
             ranking: "%{ranking} مِن %{total}"
             related_meetings: ملتقيات ذات صلة
             remove_assignment: إزالة التعيين
             remove_assignment_confirmation: هل أنت متأكد من أنك تريد إزالة المُقيِّم من هذا الاقتراح؟
             valuators: المُقيِّمون
             votes_count: يدعم العد
-            votes_ranking: ترتيب حسب الدّعم المتلقّى
           update_category:
             invalid: 'هذه الاقتراحات تحتوي بالفعل على فئة %{subject_name}: %{proposals}.'
             success: 'تم تحديث الاقتراحات بنجاح إلى فئة %{subject_name}: %{proposals}.'
@@ -883,8 +875,6 @@ ar:
           title: خطوات إنشاء الاقتراحات
       proposals_picker:
         choose_proposals: اختيار الاقتراحات
-        close: إغلاق
-        more_proposals: هناك %{number} اقتراحات إضافية. يرجى تنقيح بحثك أكثر من أجل إيجاد المطلوب.
       publish:
         error: كانت هناك مشكلة في نشر الاقتراح.
         success: تم نشر الاقتراح بنجاح.
