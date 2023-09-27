@@ -16,7 +16,13 @@ module Decidim
               get "spacing", to: "spacing#index"
             end
 
-            # namespace :foundations do; end
+            namespace :foundations do
+              get "accessibility", to: "accessibility#index"
+              get "color", to: "color#index"
+              get "iconography", to: "iconography#index"
+              get "layout", to: "layout#index"
+              get "typography", to: "typography#index"
+            end
 
             get "home", to: "home#index"
 
