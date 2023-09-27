@@ -77,6 +77,7 @@ ca:
             title: Importar resultats via CSV
         imports:
           create:
+            invalid: Hi ha hagut un problema important els resultats.
             success: S'està important el fitxer. Rebràs un correu electrònic en els pròxims minuts amb el resultat de la importació.
         models:
           result:
