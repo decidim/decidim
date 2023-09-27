@@ -372,6 +372,7 @@ es-PY:
           goto_moderation: Ir a moderaciones globales
           title: Moderaciones pendientes
         show:
+          dropdown: Desplegable
           view_more_logs: Ver más registros
       domain_whitelist:
         form:
@@ -570,6 +571,7 @@ es-PY:
         reported_users: Participantes reportadas
         scope_types: Tipos de ámbito
         scopes: Ámbitos
+        see_site: Ver el sitio web
         settings: Configuración
         static_pages: Páginas
         user_groups: Grupos de usuarios
