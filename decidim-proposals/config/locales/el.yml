@@ -530,30 +530,22 @@ el:
           show:
             amendments_count: Πλήθος τροποποιήσεων
             assigned_valuators: Εκχωρημένοι εκτιμητές
-            authors: Συντάκτες
             body: Σώμα
             comments_count: Πλήθος σχολίων
-            comments_negative_count: Κατά
-            comments_neutral_count: Ούτε ικανοποιημένος/η ούτε δυσαρεστημένος/η
-            comments_positive_count: Προτίμηση
-            created_at: Ημερομηνία δημιουργίας
             documents: Έγγραφα
             endorsements_count: Πλήθος επιδοκιμασιών
-            endorsements_ranking: Κατάταξη βάσει επιδοκιμασιών
             endorsers: Υποστηρικτές
             link: Σύνδεσμος
             n_more_endorsers:
               one: και 1 ακόμα
               other: και %{count} ακόμη
             photos: Φωτογραφίες
-            proposals: Προτάσεις
             ranking: "%{ranking} από %{total}"
             related_meetings: Σχετικές συσκέψεις
             remove_assignment: Κατάργηση εκχώρησης
             remove_assignment_confirmation: Είστε βέβαιοι ότι θέλετε να καταργήσετε τον εκτιμητή από αυτήν την πρόταση;
             valuators: Εκτιμητές
             votes_count: Πλήθος υποστηρίξεων
-            votes_ranking: Κατάταξη βάσει υποστηρίξεων
           update_category:
             invalid: 'Αυτές οι προτάσεις είχαν ήδη την κατηγορία %{subject_name}: %{proposals}.'
             select_a_category: Παρακαλώ επιλέξτε μια κατηγορία.
@@ -891,8 +883,6 @@ el:
           title: Βήματα δημιουργίας πρότασης
       proposals_picker:
         choose_proposals: Επιλέξτε προτάσεις
-        close: Κλείσιμο
-        more_proposals: Υπάρχουν %{number} ακόμη προτάσεις. Περιορίστε την αναζήτησή σας για να τις εντοπίσετε.
         no_proposals: Καμία πρόταση δεν ταιριάζει με τα κριτήρια αναζήτησής σας ή δεν υπάρχει καμία πρόταση.
       publish:
         error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση της πρότασης.
