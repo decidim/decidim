@@ -520,29 +520,21 @@ zh-TW:
           show:
             amendments_count: 修改案數量
             assigned_valuators: 已分配給評估人員
-            authors: 作者
             body: 正文
             comments_count: 評論次數
-            comments_negative_count: 反對
-            comments_neutral_count: 中性
-            comments_positive_count: 喜好
-            created_at: 創建日期
             documents: 文件
             endorsements_count: 連署人數
-            endorsements_ranking: 按連署人數排序
             endorsers: 贊助人
             link: 連結
             n_more_endorsers:
               other: 還有 %{count} 位
             photos: 圖片
-            proposals: 提案
             ranking: "%{total} 的%{ranking}"
             related_meetings: 相關會議
             remove_assignment: 移除指派
             remove_assignment_confirmation: 您確定要將評估者從此提案中移除嗎？
             valuators: 評估者
             votes_count: 支持數量
-            votes_ranking: 依據支持排名
           update_category:
             invalid: '這些提案已經擁有 %{subject_name} 類別: %{proposals}。'
             select_a_category: 請選擇一個類別。
@@ -874,8 +866,6 @@ zh-TW:
           title: 提案創建步驟
       proposals_picker:
         choose_proposals: 選擇提案
-        close: 關閉
-        more_proposals: 還有 %{number} 個提案。請優化您的搜尋條件以查找它們。
         no_proposals: 沒有符合您的搜尋條件的提案，或者目前沒有任何提案。
       publish:
         error: 發佈提案時出現問題。
