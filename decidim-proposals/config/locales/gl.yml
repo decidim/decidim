@@ -413,24 +413,18 @@ gl:
             create: Crear
             title: Crear proposta
           show:
-            authors: Autores
             body: Corpo
-            comments_neutral_count: Neutral
-            comments_positive_count: A favor
-            created_at: Data de creación
             documents: Documentos
             link: Ligazón
             n_more_endorsers:
               one: e 1 máis
               other: e %{count} máis
             photos: Fotos
-            proposals: Propostas
             ranking: "%{ranking} de %{total}"
             related_meetings: Xuntanzas relacionadas
             remove_assignment_confirmation: Estás seguro de que desexas eliminar este avaliador/a da proposta?
             valuators: Avaliadores/as
             votes_count: Reconto de votos
-            votes_ranking: Clasificación por apoios
         proposals_imports:
           new:
             create: Propostas de importación
