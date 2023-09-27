@@ -321,10 +321,7 @@ id:
             create: Membuat
             title: Buat proposal
           show:
-            authors: Penulis
             body: Tubuh
-            created_at: Tanggal pembuatan
-            proposals: Proposal
             votes_count: Suara menghitung
         proposals_imports:
           new:
