@@ -372,6 +372,7 @@ de:
           goto_moderation: Gehe zur globalen Moderation
           title: Offene Moderationen
         show:
+          dropdown: Dropdown
           view_more_logs: Weitere Protokolle anzeigen
       domain_whitelist:
         form:
@@ -570,6 +571,7 @@ de:
         reported_users: Gemeldete Teilnehmende
         scope_types: Bereichstypen
         scopes: Bereiche
+        see_site: Seite ansehen
         settings: die Einstellungen
         static_pages: Seiten
         user_groups: Benutzergruppen
