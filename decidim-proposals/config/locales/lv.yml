@@ -378,16 +378,10 @@ lv:
           show:
             amendments_count: Grozījumu skaits
             assigned_valuators: Piešķirtie vērtētāji
-            authors: Autori
             body: Pamatteksts
             comments_count: Komentāru skaits
-            comments_negative_count: Pret
-            comments_neutral_count: Neitrāls
-            comments_positive_count: Par
-            created_at: Izveides datums
             documents: Dokumenti
             endorsements_count: Atbalstu skaits
-            endorsements_ranking: Sarindot pēc atbalsta
             endorsers: Atbalstītāji
             link: Saite
             n_more_endorsers:
@@ -395,14 +389,12 @@ lv:
               one: un vēl viens
               other: un %{count} vēl
             photos: Fotogrāfijas
-            proposals: Priekšlikumi
             ranking: "%{ranking} no %{total}"
             related_meetings: 'Saistītās sanāksmes:'
             remove_assignment: Noņemt uzdevumu
             remove_assignment_confirmation: Vai tiešām vēlaties noņemt vērtētāju šim priekšlikumam?
             valuators: Vērtētāji
             votes_count: Atbalstu skaits
-            votes_ranking: Sarindot pēc atbalstiem
           update_category:
             invalid: 'Šiem priekšlikumiem jau bija %{subject_name} kategorija: %{proposals}.'
             success: 'Priekšlikumi ir veiksmīgi atjaunināti kategorijā %{subject_name} kategorija: %{proposals}.'
@@ -678,8 +670,6 @@ lv:
           step_4: Publicējiet savu priekšlikumu
       proposals_picker:
         choose_proposals: Izvēlieties priekšlikumus
-        close: Aizvērt
-        more_proposals: Ir vēl %{number} priekšlikumi. Precizējiet savus meklēšanas kritērijus, lai tos atrastu.
       publish:
         error: Priekšlikuma publicēšanas laikā radās problēma.
         success: Priekšlikums ir veiksmīgi publicēts.
