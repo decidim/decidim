@@ -544,16 +544,10 @@ lt:
           show:
             amendments_count: Pakeitimų skaičius
             assigned_valuators: Paskirti vertintojai
-            authors: Autoriai
             body: Pagrindinė dalis
             comments_count: Komentarų skaičius
-            comments_negative_count: Prieš
-            comments_neutral_count: Neutralūs
-            comments_positive_count: Už
-            created_at: Sukūrimo data
             documents: Dokumentai
             endorsements_count: Palaikymų skaičius
-            endorsements_ranking: Reitingavimas pagal pritarimus
             endorsers: Pritariantieji
             link: Nuoroda
             n_more_endorsers:
@@ -562,14 +556,12 @@ lt:
               many: ir dar %{count} daugiau
               other: ir dar %{count} daugiau
             photos: Nuotraukos
-            proposals: Pasiūlymai
             ranking: "%{ranking} iš %{total}"
             related_meetings: Susiję susitikimai
             remove_assignment: Pašalinti užduotį
             remove_assignment_confirmation: Ar tikrai norite nušalinti vertintoją nuo šio pasiūlymo?
             valuators: Vertintojai
             votes_count: Balsų skaičius
-            votes_ranking: Reitingavimas pagal balsų skaičių
           update_category:
             invalid: 'Šie pasiūlymai jau priskirti kategorijai %{subject_name}: %{proposals}.'
             select_a_category: Pasirinkite kategoriją.
@@ -928,8 +920,6 @@ lt:
           title: Pasiūlymo sukūrimo etapai
       proposals_picker:
         choose_proposals: Pasirinkti pasiūlymus
-        close: Uždaryti
-        more_proposals: Yra dar %{number} pasiūlymai (-ų). Kad nustatytumėte jų vietą, patikslinkite savo paiešką.
         no_proposals: Jūsų paieškos kriterijus atitinkančių pasiūlymų nerasta arba pasiūlymų nėra.
       publish:
         error: Skelbiant šį pasiūlymą iškilo problema.
