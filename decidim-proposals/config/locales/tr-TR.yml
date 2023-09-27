@@ -408,30 +408,22 @@ tr:
           show:
             amendments_count: Değişikliklerin sayısı
             assigned_valuators: Atanan bilirkişiler
-            authors: Yazarlar
             body: Gövde
             comments_count: Yorum sayısı
-            comments_negative_count: Karşısında
-            comments_neutral_count: Tarafsız
-            comments_positive_count: Favori
-            created_at: Oluşturulma tarihi
             documents: Dokümanlar
             endorsements_count: Onay sayısı
-            endorsements_ranking: Onaylara göre sıralama
             endorsers: Onaycılar
             link: Bağlantı
             n_more_endorsers:
               one: ve 1 tane daha
               other: ve %{count} tane daha
             photos: Resimler
-            proposals: Teklifler
             ranking: "%{ranking} / %{total}"
             related_meetings: İlgili toplantılar
             remove_assignment: Atamayı kaldır
             remove_assignment_confirmation: Bilirkişiyi, bu tekliften çıkarmak istediğinizden emin misiniz?
             valuators: Bilirkişiler
             votes_count: Oy sayısı
-            votes_ranking: Desteklere göre sıralama
           update_category:
             invalid: 'Bu teklifler zaten %{subject_name} kategorisine sahipti: %{proposals}.'
             success: 'Teklifler, %{subject_name} kategorisine başarıyla güncellendi: %{proposals}.'
@@ -721,8 +713,6 @@ tr:
           title: Teklif oluşturma adımları
       proposals_picker:
         choose_proposals: Teklifleri seçin
-        close: Kapat
-        more_proposals: '%{number} tane daha teklif var. Onları bulmak için aramanızı daraltın.'
       publish:
         error: Teklif yayınlanırken hatalar oluştu.
         success: Teklif başarıyla yayınlandı.
