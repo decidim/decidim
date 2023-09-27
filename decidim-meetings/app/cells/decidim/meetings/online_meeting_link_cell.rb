@@ -32,10 +32,10 @@ module Decidim
             css_class << "jitsi"
           when /vimeo/
             css_class << "vimeo"
-            default
-            ""
+          else
+            "default"
           end
-          css_class.join(" ")
+          css_class.join("")
         end
       end
     end
