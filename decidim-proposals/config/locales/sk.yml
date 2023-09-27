@@ -383,16 +383,10 @@ sk:
           show:
             amendments_count: Počet zmien
             assigned_valuators: Priradení hodnotitelia
-            authors: Autori
             body: Telo
             comments_count: Počet komentárov
-            comments_negative_count: Proti
-            comments_neutral_count: Neutrálne
-            comments_positive_count: Za
-            created_at: Dátum vzniku
             documents: Dokumenty
             endorsements_count: Počet podporení
-            endorsements_ranking: Umiestnenie podľa množstva podpory
             endorsers: Podporovatelia
             link: Odkaz
             n_more_endorsers:
@@ -401,14 +395,12 @@ sk:
               many: + %{count} ďalších
               other: + %{count} ďalších
             photos: Fotografie
-            proposals: Návrhy
             ranking: "%{ranking} z celkového %{total}"
             related_meetings: Podobné stretnutia
             remove_assignment: Zrušiť priradenie
             remove_assignment_confirmation: Ste si istý, že chcete odstrániť hodnotiteľa z návrhu?
             valuators: Hodnotiteľ
             votes_count: Počet hlasov
-            votes_ranking: Umiestnenie podľa hlasov
           update_category:
             invalid: 'Tieto návrhy už majú kategóriu %{subject_name}: %{proposals}.'
             success: 'Návrhy úspešne pridané do kategórie %{subject_name}: %{proposals}.'
@@ -696,8 +688,6 @@ sk:
           step_4: Publikujte svoj návrh
       proposals_picker:
         choose_proposals: Zvoliť návrhy
-        close: Zavrieť
-        more_proposals: Celkovo je tu o %{number} návrhov viac. Hľadajte s podrobnejšími nastaveniami.
       publish:
         error: Pri publikovaní návrhu došlo k chybám.
         success: Návrh bol úspešne publikovaný.
