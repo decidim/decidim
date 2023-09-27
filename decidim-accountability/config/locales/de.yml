@@ -77,6 +77,7 @@ de:
             title: Ergebnisse von CSV importieren
         imports:
           create:
+            invalid: Beim Importieren der Ergebnisse ist ein Fehler aufgetreten.
             success: Die Datei wird importiert. Innerhalb von ein paar Minuten erhalten Sie eine E-Mail mit dem Importergebnis.
         models:
           result:
