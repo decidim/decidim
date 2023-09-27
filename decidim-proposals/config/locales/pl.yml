@@ -440,16 +440,10 @@ pl:
           show:
             amendments_count: Liczba poprawek
             assigned_valuators: Przypisani weryfikatorzy
-            authors: Autorzy
             body: Treść
             comments_count: Liczba komentarzy
-            comments_negative_count: Negatywny
-            comments_neutral_count: Neutralny
-            comments_positive_count: Za
-            created_at: Data utworzenia
             documents: Dokumenty
             endorsements_count: Liczba rekomendacji
-            endorsements_ranking: Ranking wg rekomendacji
             endorsers: Rekomendujący
             link: Link
             n_more_endorsers:
@@ -458,14 +452,12 @@ pl:
               many: i jeszcze %{count}
               other: i jeszcze %{count}
             photos: Zdjęcia
-            proposals: Propozycje
             ranking: "%{ranking} z %{total}"
             related_meetings: Powiązane spotkania
             remove_assignment: Usuń zadanie
             remove_assignment_confirmation: Czy na pewno chcesz usunąć przypisanie weryfikatora z tej propozycji?
             valuators: Weryfikatorzy
             votes_count: Liczba wsparć
-            votes_ranking: Ranking wg wsparć
           update_category:
             invalid: 'Następujące propozycje miały już kategorię %{subject_name}: %{proposals}.'
             success: 'Zaktualizowano kategorię nad %{subject_name} dla następujących propozycji: %{proposals}.'
@@ -769,8 +761,6 @@ pl:
           title: Kroki tworzenia propozycji
       proposals_picker:
         choose_proposals: Wybierz propozycje
-        close: Zamknij
-        more_proposals: 'Liczba pozostałych propozycji: %{number}. Zawęź wyszukiwanie, aby je zlokalizować.'
       publish:
         error: Podczas publikowania propozycji wystąpił błąd.
         success: Propozycja została opublikowana.
