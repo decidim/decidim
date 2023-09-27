@@ -8,7 +8,7 @@
   <div class="item__edit-form">
     <%= form_for(@form, url: import_results_path, html: { class: "form form-defaults import_projects" }) do |form| %>
       <div class="card py-4">
-        <div class="card-section space-y-4">
+        <div class="card-section space-y-4 prose max-w-full">
           <div class="row column">
             <p><%= t(".info",
                      link_new_status: new_status_path,
