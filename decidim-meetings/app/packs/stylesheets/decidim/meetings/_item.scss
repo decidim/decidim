@@ -83,6 +83,17 @@
     @apply bg-background flex flex-col place-items-center p-8 space-y-4 text-gray-2 text-center text-lg;
   }
 
+  &__iframe_container-default,
+  &__iframe_container-twitch,
+  &__iframe_container-vimeo,
+  &__iframe_container-youtube {
+    @apply h-[30vh] w-full overflow-y-scroll;
+  }
+
+  &__iframe_container-jitsi {
+    @apply h-[45vh] w-full overflow-y-scroll;
+  }
+
   &__agenda {
     &-title {
       @apply flex gap-1 items-center;
@@ -172,16 +183,6 @@
   &__cancelation-modal {
     &__description {
       @apply mt-8 mb-16 text-lg text-gray-2;
-    }
-  }
-}
-
-.iframe {
-  &_container_meetings {
-    @apply h-[60vh] w-full overflow-y-scroll;
-
-    &.jitsi {
-      @apply h-[75vh] overflow-y-scroll;
     }
   }
 }
