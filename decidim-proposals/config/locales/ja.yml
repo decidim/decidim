@@ -525,29 +525,21 @@ ja:
           show:
             amendments_count: 修正数
             assigned_valuators: 割り当てられた評価者
-            authors: 著者
             body: 本文
             comments_count: コメント数
-            comments_negative_count: 反対
-            comments_neutral_count: 中立
-            comments_positive_count: お気に入り
-            created_at: 作成日
             documents: ドキュメント
             endorsements_count: オススメ数
-            endorsements_ranking: オススメランキング
             endorsers: オススメしている人
             link: リンク
             n_more_endorsers:
               other: 他 %{count} 名
             photos: 写真
-            proposals: 提案
             ranking: "%{ranking} / %{total}"
             related_meetings: 関連するミーティング
             remove_assignment: 課題を削除
             remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
             valuators: 評価者
             votes_count: サポート数
-            votes_ranking: サポートによるランキング
           update_category:
             invalid: 'これらの提案は既に %{subject_name} カテゴリ: %{proposals} を持っています。'
             select_a_category: カテゴリを選択してください。
@@ -888,8 +880,6 @@ ja:
           title: 提案の作成手順
       proposals_picker:
         choose_proposals: 提案を選択
-        close: 閉じる
-        more_proposals: あと %{number} 件の提案があります。検索を絞り込んで見つけましょう。
         no_proposals: 検索条件に一致する提案がないか、提案がありません。
       publish:
         error: 提案を発表する際に問題が発生しました。
