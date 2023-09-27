@@ -531,30 +531,22 @@ fr-CA:
           show:
             amendments_count: Nombre d'amendements
             assigned_valuators: Évaluateurs assignés
-            authors: Auteurs
             body: Corps
             comments_count: Nombre de commentaires
-            comments_negative_count: Contre
-            comments_neutral_count: Neutre
-            comments_positive_count: En faveur
-            created_at: Date de création
             documents: Documents
             endorsements_count: Nombre de soutiens
-            endorsements_ranking: Classement par soutiens
             endorsers: Soutiens
             link: Lien
             n_more_endorsers:
               one: et 1 de plus
               other: et %{count} autres
             photos: Photos
-            proposals: Propositions
             ranking: "%{ranking} sur %{total}"
             related_meetings: Réunions associées
             remove_assignment: Supprimer l'affectation
             remove_assignment_confirmation: Êtes-vous sûr de vouloir supprimer l'évaluateur de cette proposition ?
             valuators: Évaluateurs
             votes_count: Nombre de votes
-            votes_ranking: Classement par supports
           update_category:
             invalid: 'Ces propositions avaient déjà la catégorie %{subject_name} : %{proposals}.'
             select_a_category: Veuillez sélectionner une catégorie.
@@ -901,8 +893,6 @@ fr-CA:
           title: Étapes de création de proposition
       proposals_picker:
         choose_proposals: Choisir les propositions
-        close: Fermer
-        more_proposals: Il y a %{number} propositions supplémentaires. Affinez votre recherche pour les localiser.
         no_proposals: Aucune proposition ne correspond à vos critères de recherche ou il n'y a aucune proposition.
       publish:
         error: Il y a eu des erreurs lors de la publication de la proposition.
