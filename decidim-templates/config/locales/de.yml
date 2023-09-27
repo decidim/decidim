@@ -9,6 +9,7 @@ de:
   decidim:
     admin:
       menu:
+        manage: Verwalten
         templates: Vorlagen
       templates:
         apply:
@@ -42,11 +43,15 @@ de:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Vorlage für Nachricht an zu blockierende Nutzende bearbeiten
           form:
             save: Speichern
           index:
             confirm_delete: Möchten Sie diese Vorlage wirklich löschen?
             title: Nachrichten blockieren
+          new:
+            title: Neue Vorlage für Nachricht an zu blockierende Nutzende
           template_chooser:
             select_template: Wählen Sie eine Antwortvorlage aus
         questionnaire_templates:
@@ -60,11 +65,14 @@ de:
             edit: Bearbeiten
             empty: Es gibt noch keine Fragen.
             questionnaire: Fragebogen
+            title: Formular-Vorlage bearbeiten
           form:
             title: Fragebogenvorlage %{questionnaire_for}
           index:
             confirm_delete: Möchten Sie diese Vorlage wirklich löschen?
             title: Fragebogenvorlagen
+          new:
+            title: Neue Formular-Vorlage
           preview:
             current_step: Schritt %{step}
             of_total_steps: von %{total_steps}
