@@ -1,6 +1,5 @@
 <div class="form__wrapper">
-  <div class="card">
-    <div class="card-divider"></div>
+  <div class="card pt-4">
 
     <div class="card-section">
       <div class="row column">
@@ -51,11 +50,11 @@
         </div>
       </div>
 
-      <% if Decidim::Accountability.enable_proposal_linking %>
-        <div class="row column">
-          <%= proposals_picker(form, :proposals, proposals_picker_results_path) %>
-        </div>
-      <% end %>
+    <% if Decidim::Accountability.enable_proposal_linking %>
+      <div class="row column">
+        <%= render partial: "decidim/proposals/proposals/proposals_picker.html.erb", locals: { form:, field: :proposals } %>
+      </div>
+    <% end %>
 
       <div class="row column">
         <% if @form.projects %>
