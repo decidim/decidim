@@ -530,30 +530,22 @@ fi:
           show:
             amendments_count: Muutosten lukumäärä
             assigned_valuators: Arvioijat
-            authors: Tekijät
             body: Ehdotuksen kuvaus
             comments_count: Kommenttien lukumäärä
-            comments_negative_count: Vastaan
-            comments_neutral_count: Neutraali
-            comments_positive_count: Puolesta
-            created_at: Luonnin ajankohta
             documents: Asiakirjat
             endorsements_count: Suositusten lukumäärä
-            endorsements_ranking: Luokittelu suositusten mukaan
             endorsers: Suosittelijat
             link: Linkki
             n_more_endorsers:
               one: ja 1 muu
               other: ja %{count} muuta
             photos: Kuvat
-            proposals: Ehdotukset
             ranking: "%{ranking} / %{total}"
             related_meetings: Liittyvät tapaamiset
             remove_assignment: Poista tehtävä arvioijalta
             remove_assignment_confirmation: Haluatko varmasti poistaa arvioijan tältä ehdotukselta?
             valuators: Arvioijat
             votes_count: Kannatusten määrä
-            votes_ranking: Luokittelu kannatusten mukaan
           update_category:
             invalid: 'Näillä ehdotuksilla oli jo aihepiiri %{subject_name}: %{proposals}.'
             select_a_category: Valitse aihepiiri.
@@ -900,8 +892,6 @@ fi:
           title: Ehdotuksen luonnin vaiheet
       proposals_picker:
         choose_proposals: Valitse ehdotukset
-        close: Sulje
-        more_proposals: Ehdotuksia on vielä %{number} kpl lisää. Muuta hakuehtoja löytääksesi ne.
         no_proposals: Hakuehtosi eivät vastaa yhtään ehdotusta tai yhtään ehdotusta ei vielä ole olemassa.
       publish:
         error: Ehdotuksen julkaisu epäonnistui.
