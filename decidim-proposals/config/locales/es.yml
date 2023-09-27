@@ -531,30 +531,22 @@ es:
           show:
             amendments_count: Número de enmiendas
             assigned_valuators: Evaluadoras asignadas
-            authors: Autoras
             body: Cuerpo
             comments_count: Número de comentarios
-            comments_negative_count: En contra
-            comments_neutral_count: Neutral
-            comments_positive_count: A favor
-            created_at: Fecha de creación
             documents: Documentos
             endorsements_count: Número de adhesiones
-            endorsements_ranking: Clasificación por adhesiones
             endorsers: Se han adherido
             link: Enlace
             n_more_endorsers:
               one: y 1 más
               other: y %{count} más
             photos: Fotos
-            proposals: Propuestas
             ranking: "%{ranking} de %{total}"
             related_meetings: Encuentros relacionados
             remove_assignment: Deshacer asignación
             remove_assignment_confirmation: '¿Seguro que quieres desasignar a la evaluadora de esta propuesta?'
             valuators: Evaluadoras
             votes_count: Número de apoyos
-            votes_ranking: Clasificación por apoyos
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{proposals}.'
             select_a_category: Por favor, selecciona una categoría.
@@ -901,8 +893,6 @@ es:
           title: Pasos de creación de una propuesta
       proposals_picker:
         choose_proposals: Elegir propuestas
-        close: Cerrar
-        more_proposals: Hay %{number} propuestas más. Refina tu búsqueda para localizarlas.
         no_proposals: No hay propuestas que coincidan con tu criterio de búsqueda o no hay ninguna propuesta.
       publish:
         error: Se ha producido un error al publicar la propuesta.
