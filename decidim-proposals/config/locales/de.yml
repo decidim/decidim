@@ -531,30 +531,22 @@ de:
           show:
             amendments_count: Anzahl der Ergänzungen
             assigned_valuators: Zugewiesene Schätzer
-            authors: Autoren
             body: Haupttext
             comments_count: Anzahl der Kommentare
-            comments_negative_count: Dagegen
-            comments_neutral_count: Neutral
-            comments_positive_count: Dafür
-            created_at: Erstellungsdatum
             documents: Unterlagen
             endorsements_count: Anzahl der Befürwortungen
-            endorsements_ranking: Nach Befürwortungen sortieren
             endorsers: Befürworter
             link: Verknüpfung
             n_more_endorsers:
               one: und 1 mehr
               other: und %{count} mehr
             photos: Fotos
-            proposals: Vorschläge
             ranking: "%{ranking} von %{total}"
             related_meetings: Ähnliche Besprechungen
             remove_assignment: Zuweisung entfernen
             remove_assignment_confirmation: Sind Sie sicher, diesen Schätzer von diesem Vorschlag zurückzuziehen?
             valuators: Schätzer
             votes_count: Anzahl der Unterstützungen
-            votes_ranking: Nach Unterstützungen sortieren
           update_category:
             invalid: 'Diese Vorschläge gehörten bereits zur Kategorie %{subject_name}: %{proposals}.'
             select_a_category: Bitte wählen Sie eine Kategorie aus.
@@ -901,8 +893,6 @@ de:
           title: Schritten zur Erstellung von Vorschlägen
       proposals_picker:
         choose_proposals: Vorschläge auswählen
-        close: Schließen
-        more_proposals: Es gibt %{number} weitere Vorschläge. Spezifizieren Sie Ihre Suche, um sie zu finden.
         no_proposals: Kein Vorschlag entspricht Ihren Suchkriterien oder es ist keine Vorschlag geplant.
       publish:
         error: Beim Veröffentlichen des Vorschlags ist ein Fehler aufgetreten.
