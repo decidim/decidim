@@ -1,5 +1,30 @@
+<% content_for :heading do %>
+  Color
+<% end %>
+
+<% content_for :description do %>
+  <p>We provide a Base palette with few colors so simple customizations are easy. You can modify the Base palette either in the Administration area or in the Tailwind configuration file if you need more advanced customization.</p>
+  <p>When customizing your colors, have in mind the <u>WCAG 2.1 AA compliant contrast ratios</u>.</p>
+<% end %>
+
+<% content_for :toc do %>
+  <a href="#base">Base</a>
+  <a href="#state">State</a>
+  <a href="#state">Main</a>
+<% end %>
+
 <%= render layout: "decidim/design/layout" do %>
 
-  color
+  <section id="base">
+    <h2 class="text-3xl">Base</h2>
+  </section>
+
+  <section id="state">
+    <h2 class="text-3xl">State</h2>
+  </section>
+
+  <section id="main">
+    <h2 class="text-3xl">Main</h2>
+  </section>
 
 <% end %>

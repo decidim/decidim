@@ -53,7 +53,21 @@
     </ul>
   </aside>
 
-  <main class="bg-white col-span-8 py-12 px-16 space-y-16 [&>*]:pt-12 first:[&>*]:pt-0 last:[&>*]:pb-32">
+  <main class="bg-white col-span-8 py-12 px-16">
+    <% if content_for?(:heading) %>
+      <section class="pb-10 mb-10 border-b border-background">
+        <h1 class="text-5xl font-bold text-black">
+          <%= yield :heading %>
+        </h1>
+
+        <% if content_for?(:description) %>
+          <div class="mt-10 text-gray-2 text-md font-normal [&>*+*]:mt-4">
+            <%= yield :description %>
+          </div>
+        <% end %>
+      </section>
+    <% end %>
+
     <%= yield %>
   </main>
 
