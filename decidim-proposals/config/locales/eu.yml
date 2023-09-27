@@ -502,30 +502,22 @@ eu:
           show:
             amendments_count: Zuzenketa kopurua
             assigned_valuators: Ebaluatzaileak esleituta
-            authors: Egileak
             body: Testua
             comments_count: Iruzkin kopurua
-            comments_negative_count: Aurka
-            comments_neutral_count: Neutrala
-            comments_positive_count: Alde
-            created_at: Sortze data
             documents: Dokumentuak
             endorsements_count: Atxikimendu kopurua
-            endorsements_ranking: Sailkapena atxikimenduen arabera
             endorsers: Atxiki dira
             link: Esteka
             n_more_endorsers:
               one: eta 1 gehiago
               other: eta %{count} gehiago
             photos: Argazkiak
-            proposals: Proposamenak
             ranking: "%{total} tik %{ranking}"
             related_meetings: Erlazionatutako topaketak
             remove_assignment: Desegin esleipena
             remove_assignment_confirmation: Ziur zaude proposamen honen ebaluatzailea desesleitu nahi duzula?
             valuators: Ebaluatzaileak
             votes_count: Botoen zenbaketa
-            votes_ranking: Sailkapena aldekoen arabera
           update_category:
             invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} kategoria.'
             success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} kategoriara.'
@@ -835,8 +827,6 @@ eu:
           title: Proposamen bat sortzeko urratsak
       proposals_picker:
         choose_proposals: Hautatu proposamenak
-        close: Itxi
-        more_proposals: '%{number} proposamen gehiago daude. Zehaztu berriro zure bilaketa aurkitzeko.'
       publish:
         error: Arazoak izan dira proposamena argitaratzean.
         success: Proposamena ondo argitaratua.
