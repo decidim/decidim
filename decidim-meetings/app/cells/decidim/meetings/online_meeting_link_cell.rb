@@ -35,7 +35,7 @@ module Decidim
           else
             "default"
           end
-          css_class.join("")
+          css_class.join
         end
       end
     end
