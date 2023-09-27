@@ -122,16 +122,11 @@ ga:
           new:
             create: Cruthaigh
           show:
-            authors: Údair
             body: Corp
-            comments_negative_count: In Aghaidh
-            comments_neutral_count: Neodrach
-            comments_positive_count: I Bhfabhar
             endorsements_count: Líon formhuinithe
             endorsers: Formhuinitheoirí
             link: Nasc
             photos: Grianghraif
-            proposals: Moltaí
       answers:
         accepted: Glactha
         rejected: Diúltaithe
@@ -239,8 +234,6 @@ ga:
         wizard_steps:
           step_2: Cuir i gcomparáid
           step_3: Críochnaithe
-      proposals_picker:
-        close: Dún
       versions:
         index:
           title: Leaganacha
