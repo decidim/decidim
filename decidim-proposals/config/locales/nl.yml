@@ -445,30 +445,22 @@ nl:
           show:
             amendments_count: Aantal amendementen
             assigned_valuators: Toegewezen beoordelaars
-            authors: auteurs
             body: Tekstgedeelte
             comments_count: Aantal reacties
-            comments_negative_count: Tegen
-            comments_neutral_count: Neutraal
-            comments_positive_count: Favoriet
-            created_at: Aangemaakt op
             documents: Documenten
             endorsements_count: Aantal suggesties
-            endorsements_ranking: Rangschikking op aantekeningen
             endorsers: Aanbevelers
             link: Koppeling
             n_more_endorsers:
               one: en nog 1
               other: en %{count} meer
             photos: Foto's
-            proposals: Voorstellen
             ranking: "%{ranking} van %{total}"
             related_meetings: Gerelateerde vergaderingen
             remove_assignment: Opdracht verwijderen
             remove_assignment_confirmation: Weet u zeker dat u de beoordelaar uit dit voorstel wilt verwijderen?
             valuators: Beoordelaars
             votes_count: Aantal stemmen
-            votes_ranking: Rangschikking door ondersteuning
           update_category:
             invalid: 'Deze voorstellen hadden al de %{subject_name} categorie: %{proposals}.'
             success: 'Voorstellen zijn succesvol bijgewerkt naar de %{subject_name} categorie: %{proposals}.'
@@ -766,8 +758,6 @@ nl:
           title: Voorstel creatie stappen
       proposals_picker:
         choose_proposals: Kies voorstellen
-        close: Afsluiten
-        more_proposals: Er zijn nog %{number} voorstellen. Verfijn je zoekopdracht om ze te vinden.
       publish:
         error: Er is een fout opgetreden bij het publiceren van het voorstel.
         success: Voorstel succesvol gepubliceerd.
