@@ -38,7 +38,7 @@ describe "Admin manages answers", type: :system do
 
       click_button "Import proposals to answers"
 
-      expect(page).to have_content("3 proposals successfully imported")
+      expect(page).to have_admin_callout("3 proposals successfully imported")
     end
   end
 
@@ -72,9 +72,7 @@ describe "Admin manages answers", type: :system do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("Answer successfully created.")
 
     within "table" do
       expect(page).to have_content("My answer")
@@ -115,9 +113,7 @@ describe "Admin manages answers", type: :system do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Answer successfully updated.")
 
       within "table" do
         expect(page).to have_content("My new answer")
@@ -143,9 +139,8 @@ describe "Admin manages answers", type: :system do
         end
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      # As there is more than one alert, we need to use have_content
+      expect(page).to have_content("Answer successfully deleted.")
 
       within "table" do
         expect(page).not_to have_content(translated(answer.title))
@@ -192,9 +187,7 @@ describe "Admin manages answers", type: :system do
         expect(page).to have_content("Selected")
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("Answer successfully selected")
-      end
+      expect(page).to have_admin_callout("Answer successfully selected")
     end
   end
 end

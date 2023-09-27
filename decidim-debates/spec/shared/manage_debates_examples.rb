@@ -42,9 +42,7 @@ RSpec.shared_examples "manage debates" do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout "Debate successfully updated"
 
       within "table" do
         expect(page).to have_content("My new title")
@@ -114,9 +112,7 @@ RSpec.shared_examples "manage debates" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout "Debate successfully created"
 
     within "table" do
       expect(page).to have_content("My debate")
@@ -161,9 +157,7 @@ RSpec.shared_examples "manage debates" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout "Debate successfully created"
 
     within "table" do
       expect(page).to have_content("My debate")
@@ -184,9 +178,7 @@ RSpec.shared_examples "manage debates" do
         end
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout "Debate successfully deleted"
 
       within "table" do
         expect(page).not_to have_content(translated(debate2.title))
@@ -222,9 +214,7 @@ RSpec.shared_examples "manage debates" do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout "Debate successfully updated"
 
       within "table" do
         within find("tr", text: translated(debate.title)) do
