@@ -5,11 +5,13 @@
   <div class="row">
     <div class="column medium-4">
       <% meetings.each do |meeting_block| %>
+        <% next if meeting_block.first.empty? %>
+
         <% meeting_block.last.each_with_index do |meeting, index| %>
           <% next if index != 0 %>
           <%== cell("decidim/conferences/conference_address", meeting) %>
+          <% end %>
         <% end %>
-      <% end %>
 
       </div>
     <div class="column medium-8">
