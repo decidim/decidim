@@ -469,16 +469,10 @@ ro:
           show:
             amendments_count: Număr de amendamente
             assigned_valuators: Evaluatori atribuiți
-            authors: Autori
             body: Conținut
             comments_count: Număr de comentarii
-            comments_negative_count: Împotriva
-            comments_neutral_count: Neutru
-            comments_positive_count: În favoarea
-            created_at: Data creării
             documents: Documente
             endorsements_count: Număr de susțineri
-            endorsements_ranking: Clasament după susțineri
             endorsers: Susţinători
             link: Link
             n_more_endorsers:
@@ -486,14 +480,12 @@ ro:
               few: și încă %{count}
               other: și încă %{count}
             photos: Imagini
-            proposals: Propuneri
             ranking: "%{ranking} din %{total}"
             related_meetings: Întâlniri similare
             remove_assignment: Elimină atribuirea
             remove_assignment_confirmation: Sigur dorești să elimini evaluatorul din această propunere?
             valuators: Evaluatori
             votes_count: Număr de voturi
-            votes_ranking: Clasament după voturi
           update_category:
             invalid: 'Aceste propuneri aveau deja categoria %{subject_name} : %{proposals}.'
             success: 'Propuneri actualizate cu succes la categoria %{subject_name} : %{proposals}.'
@@ -800,8 +792,6 @@ ro:
           title: Etapele creării propunerii
       proposals_picker:
         choose_proposals: Alege propuneri
-        close: Închide
-        more_proposals: Mai sunt %{number} propuneri. Rafinează căutarea pentru a le localiza.
       publish:
         error: A apărut o problemă la publicarea propunerii.
         success: Propunerea a fost publicată cu succes.
