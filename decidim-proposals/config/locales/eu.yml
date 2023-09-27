@@ -545,7 +545,7 @@ eu:
               one: eta 1 gehiago
               other: eta %{count} gehiago
             photos: Argazkiak
-            proposals: Proposamenak
+            proposals: proposamenak
             ranking: "%{total} tik %{ranking}"
             related_meetings: Erlazionatutako topaketak
             remove_assignment: Desegin esleipena
