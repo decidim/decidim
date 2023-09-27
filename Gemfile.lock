@@ -33,7 +33,7 @@ PATH
       devise_invitable (~> 2.0)
     decidim-api (0.28.0.dev)
       commonmarker (~> 0.23.0, >= 0.23.9)
-      graphql (~> 2.0)
+      graphql (~> 2.0.0)
       graphql-docs (~> 3.0.1)
       rack-cors (~> 1.0)
     decidim-assemblies (0.28.0.dev)
