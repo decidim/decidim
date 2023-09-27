@@ -174,8 +174,6 @@ uk:
             create: Внести
             title: Створити пропозицію
           show:
-            created_at: Дата створення
-            proposals: Пропозиції
             votes_count: Кількість голосів
         proposals_imports:
           new:
