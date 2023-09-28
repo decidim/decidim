@@ -18,5 +18,6 @@ jobs:
         with:
           disallowed_prefixes: "feat/,feature/,fix/,chore/,build/,ci/,refactor/,docs/,wip/,fix:"
           prefix_case_sensitive: false
+          regex: "^[A-Z].+"
           min_length: 5
           max_length: 100

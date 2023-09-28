@@ -166,8 +166,16 @@ describe "Assemblies", type: :system do
         visit decidim_assemblies.assembly_path(assembly)
       end
 
-      context "when hero, main_data and type and duration blocks are enabled" do
-        let(:blocks_manifests) { [:hero, :main_data, :extra_data, :metadata] }
+      describe "follow button" do
+        let!(:user) { create(:user, :confirmed, organization:) }
+        let(:followable) { assembly }
+        let(:followable_path) { decidim_assemblies.assembly_path(assembly) }
+
+        include_examples "follows"
+      end
+
+      context "when hero, main_data extra_data, metadata and dates_metadata blocks are enabled" do
+        let(:blocks_manifests) { [:hero, :main_data, :extra_data, :metadata, :dates_metadata] }
 
         before do
           visit decidim_assemblies.assembly_path(assembly)
@@ -175,11 +183,39 @@ describe "Assemblies", type: :system do
 
         it "shows the details of the given assembly" do
           within "[data-content]" do
+            expect(page).to have_content("About this assembly")
             expect(page).to have_content(translated(assembly.title, locale: :en))
+            expect(page).to have_content(translated(assembly.description, locale: :en))
             expect(page).to have_content(translated(assembly.subtitle, locale: :en))
             expect(page).to have_content(translated(assembly.short_description, locale: :en))
             expect(page).to have_content(translated(assembly.meta_scope, locale: :en))
             expect(page).to have_content(assembly.hashtag)
+            expect(page).to have_content(translated(assembly.developer_group, locale: :en))
+            expect(page).to have_content(translated(assembly.local_area, locale: :en))
+            expect(page).to have_content(translated(assembly.target, locale: :en))
+            expect(page).to have_content(translated(assembly.participatory_scope, locale: :en))
+            expect(page).to have_content(translated(assembly.participatory_structure, locale: :en))
+            expect(page).to have_content("DURATION")
+            expect(page).to have_content("CLOSING DATE")
+            expect(page).to have_content(I18n.l(assembly.duration, format: :decidim_short))
+            expect(page).to have_content(I18n.l(assembly.closing_date, format: :decidim_short))
+          end
+        end
+
+        context "when duration and closing_date are not set" do
+          let(:duration) { nil }
+          let(:closing_date) { nil }
+
+          before do
+            assembly.update(duration:, closing_date:)
+            visit decidim_assemblies.assembly_path(assembly)
+          end
+
+          it "shows indefinite duration without closing date" do
+            within "[data-content]" do
+              expect(page).to have_content("DURATION\nIndefinite")
+              expect(page).not_to have_content("CLOSING DATE")
+            end
           end
         end
       end
@@ -187,7 +223,7 @@ describe "Assemblies", type: :system do
       context "when attachments blocks enabled" do
         let(:blocks_manifests) { [:related_documents, :related_images] }
 
-        it_behaves_like "has attachments" do
+        it_behaves_like "has attachments content blocks" do
           let(:attached_to) { assembly }
         end
       end

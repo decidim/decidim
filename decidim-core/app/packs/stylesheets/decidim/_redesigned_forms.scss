@@ -25,7 +25,7 @@
         @apply pr-1 pl-6 py-0.5 text-sm;
       }
 
-      &.is-invalid-input {
+      &.is-invalid-input:not(:focus) {
         @apply outline-2 outline-alert;
       }
     }
@@ -67,14 +67,14 @@
 }
 
 .help-text {
-  @apply block text-md text-gray-2 font-normal prose-a:text-secondary prose-a:underline;
+  @apply block text-sm text-gray-2 font-normal prose-a:text-secondary prose-a:underline;
 }
 
 .form__wrapper {
   @apply flex flex-col py-10 gap-10 last:pb-0;
 
   &-block {
-    @apply py-10 last:pb-0 border-t-2 border-background flex flex-col gap-4 only:[&_button]:ml-auto [&_p]:text-gray-2;
+    @apply py-10 last:pb-0 border-t-2 border-background flex flex-col gap-4 only:[&_*]:ml-auto [&_p]:text-gray-2;
   }
 
   &-checkbox-label {
@@ -138,11 +138,11 @@
   }
 
   &__container {
-    @apply absolute top-0 right-0 -translate-y-full;
+    @apply -translate-y-full;
   }
 
   &__text {
-    @apply font-normal inline-block text-xs text-gray-2;
+    @apply font-normal inline-block text-xs text-gray-2 float-right mt-1;
   }
 }
 

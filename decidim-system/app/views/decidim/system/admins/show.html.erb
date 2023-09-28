@@ -1,9 +1,6 @@
 <% provide :title do %>
-  <h2><%= link_to @admin.email, @admin %></h2>
+  <h1 class="h1"><%= link_to @admin.email, @admin %></h1>
 <% end %>
 
-<div class="actions">
-  <hr>
-  <%= link_to "Edit", ["edit", @admin] %>
-  <%= link_to "Destroy", @admin, method: :delete, class: "alert button", data: { confirm: "Are you sure you want to do this?" } %>
-</div>
+<%= link_to t(".edit"), [:edit, @admin], class: "button button__sm md:button__lg button__primary" %>
+<%= link_to t(".destroy"), @admin, method: :delete, class: "button button__sm md:button__lg button__transparent-primary", data: { confirm: "Are you sure you want to do this?" } %>

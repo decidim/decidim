@@ -1,4 +1,4 @@
-<div class="card share_tokens">
+<div class="share_tokens">
   <div class="card-divider">
     <legend><%= t ".title" %></legend>
   </div>
@@ -30,20 +30,8 @@
                 <td><%= l share_token.created_at, format: :short %></td>
                 <td><%= l share_token.expires_at, format: :short if share_token.expires_at.present? %></td>
                 <td class="table-list__actions">
-                  <%= icon_link_to "share",
-                                  share_token.url,
-                                  t("actions.share", scope: "decidim.admin.share_tokens"),
-                                  class: "action-icon--share",
-                                  target: "_blank" %>
-                  <%= icon_link_to "circle-x",
-                                  decidim_admin.share_token_path(
-                                    share_token,
-                                    url: request.fullpath
-                                  ),
-                                  t("actions.destroy", scope: "decidim.admin.share_tokens"),
-                                  class: "action-icon--remove",
-                                  method: :delete,
-                                  data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin.share_tokens") } %>
+                  <%= icon_link_to "share-line", share_token.url, t("actions.share", scope: "decidim.admin.share_tokens"), class: "action-icon--share", target: :blank %>
+                  <%= icon_link_to "delete-bin-line", decidim_admin.share_token_path(share_token, url: request.fullpath), t("actions.destroy", scope: "decidim.admin.share_tokens"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin.share_tokens") } %>
                 </td>
               </tr>
             <% end %>

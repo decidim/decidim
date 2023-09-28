@@ -91,10 +91,16 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_dropdown
-        return h.content_tag(:div, "", class: "logs__log__actions") unless has_diff?
+        return h.content_tag(:div, "", class: "logs__log__actions") if present_diff.blank?
 
         h.content_tag(:div, class: "logs__log__actions") do
-          h.content_tag(:a, "", class: "logs__log__actions-dropdown", data: { toggle: h.dom_id(action_log) })
+          h.content_tag(
+            :a,
+            "",
+            class: "logs__log__actions-dropdown",
+            data: { controls: "panel-#{h.dom_id(action_log)}" },
+            aria: { label: I18n.t("decidim.admin.dashboard.show.dropdown") }
+          )
         end
       end
 
@@ -118,7 +124,7 @@ module Decidim
       # Returns an HTML-safe String.
       def present_content
         h.content_tag(:div, class: "logs__log__content") do
-          present_log_date + present_explanation + present_dropdown
+          present_dropdown + present_log_date + present_explanation
         end
       end
 
@@ -130,6 +136,7 @@ module Decidim
         @diff_presenter ||= Decidim::Log::DiffPresenter.new(
           changeset,
           view_helpers,
+          action_log,
           show_previous_value?: show_previous_value_in_diff?
         )
       end
@@ -150,7 +157,7 @@ module Decidim
       # Returns an HTML-safe String.
       def present_action_log
         classes = ["logs__log"] + action_log_extra_classes.to_a
-        h.content_tag(:li, id: h.dom_id(action_log), class: classes.join(" "), data: { toggler: ".logs__log--expanded" }) do
+        h.content_tag(:div, id: "accordion-#{h.dom_id(action_log)}", class: classes.join(" "), data: { component: "accordion" }) do
           h.concat(present_content)
           h.concat(present_diff)
         end

@@ -2,7 +2,7 @@
   <table>
     <thead>
       <tr>
-        <th></th>
+        <td></td>
         <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
           <th><%= translated_attribute(answer_option.body) %></th>
         <% end %>
@@ -20,6 +20,7 @@
                 <%= radio_button_tag "questionnaire[responses][#{answer_idx}][choices][#{row_idx}][body]",
                                       translated_attribute(answer_option.body),
                                       answer_option.id == choice.try(:answer_option_id),
+                                      "aria-label": translated_attribute(answer_option.body),
                                       id: "#{choice_id}_body", disabled: %>
                 <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{row_idx}][answer_option_id]",
                                       answer_option.id,

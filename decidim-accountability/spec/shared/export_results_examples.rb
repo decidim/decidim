@@ -6,7 +6,7 @@ shared_examples "export results" do
   let!(:results) { create_list(:result, 3, component: current_component) }
 
   it "exports a CSV" do
-    find(".exports.dropdown").click
+    find(".exports").click
     perform_enqueued_jobs { click_link "Results as CSV" }
 
     within ".callout.success" do
@@ -19,7 +19,7 @@ shared_examples "export results" do
   end
 
   it "exports a JSON" do
-    find(".exports.dropdown").click
+    find(".exports").click
     perform_enqueued_jobs { click_link "Results as JSON" }
 
     within ".callout.success" do

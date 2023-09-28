@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/dev/test/rspec_support/tom_select"
+
 shared_examples "manage results" do
   include_context "when managing an accountability component as an admin"
 
@@ -9,7 +11,7 @@ shared_examples "manage results" do
     it_behaves_like "having a rich text editor", "new_result", "full"
 
     it "displays the proposals picker" do
-      expect(page).to have_content("Choose proposals")
+      expect(page).to have_content("Proposals")
     end
 
     context "when proposal linking is disabled" do
@@ -44,7 +46,7 @@ shared_examples "manage results" do
           ca: "El meu nou títol"
         )
 
-        proposals_pick(select_data_picker(:result_proposals, multiple: true), proposals.last(2))
+        tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
 
         find("*[type=submit]").click
       end
@@ -75,8 +77,9 @@ shared_examples "manage results" do
           ca: "Descripció més llarga"
         )
 
-        proposals_pick(select_data_picker(:result_proposals, multiple: true), proposals.first(2))
-        scope_pick(select_data_picker(:result_decidim_scope_id), scope)
+        tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
+
+        select translated(scope.name), from: :result_decidim_scope_id
         select translated(category.name), from: :result_decidim_category_id
 
         find("*[type=submit]").click
@@ -112,7 +115,7 @@ shared_examples "manage results" do
 
     it "deletes a result" do
       within find("tr", text: translated(result2.title)) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

@@ -31,8 +31,8 @@ module Decidim
             end
           end
           resources :agenda, except: [:index, :destroy]
-          resources :attachment_collections
-          resources :attachments
+          resources :attachment_collections, except: [:show]
+          resources :attachments, except: [:show]
           resources :copies, controller: "meeting_copies", only: [:new, :create]
           resource :poll, only: [:edit, :update], controller: "meetings_poll"
         end

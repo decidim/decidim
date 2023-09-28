@@ -1,5 +1,5 @@
 <%= decidim_modal id: "editCommentModal#{model.id}" do %>
-  <%= form_for(form_object, url: decidim_comments.comment_path(comment), method: :put, remote: true, html: { id: form_id }) do |form| %>
+  <%= form_for(form_object, url: decidim_comments.comment_path(comment), method: :put, remote: true, html: { id: nil }) do |form| %>
     <div data-dialog-container>
       <%= icon "edit-line" %>
       <h2 class="h2" id="dialog-title-budget-confirm" data-dialog-title>

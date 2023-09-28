@@ -20,22 +20,21 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   smtp_label = ENV.fetch("SMTP_FROM_LABEL", Faker::Twitter.unique.screen_name)
   smtp_email = ENV.fetch("SMTP_FROM_EMAIL", Faker::Internet.email)
 
-  primary_color, secondary_color = [
-    ["#4CAF50", "#A0309E"],
-    ["#E91E63", "#1EE9A5"],
-    ["#009688", "#D12C26"],
-    ["#FF9800", "#00BCD4"]
+  primary_color, secondary_color, tertiary_color = [
+    ["#e02d2d", "#155abf", "#ebc34b"],
+    ["#4caf50", "#a0309e", "#a8753e"],
+    ["#e91e63", "#1ee9a5", "#e9b61e"],
+    ["#009688", "#d12c26", "#b4a110"],
+    ["#ff9800", "#00bcd4", "#ea0094"]
   ].sample
 
   colors = {
-    alert: "#ec5840",
-    highlight: "#be6400",
-    "highlight-alternative": "#ff5731",
+    alert: "#e7131a",
     primary: primary_color,
     secondary: secondary_color,
-    success: "#57d685",
-    theme: "#ef604d",
-    warning: "#ffae00"
+    tertiary: tertiary_color,
+    success: "#28a745",
+    warning: "#ffb703"
   }
 
   organization = Decidim::Organization.first || Decidim::Organization.create!(
@@ -55,6 +54,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
       port: ENV.fetch("SMTP_PORT", nil) || ENV.fetch("DECIDIM_SMTP_PORT", "25")
     },
     host: ENV.fetch("DECIDIM_HOST", "localhost"),
+    secondary_hosts: ENV.fetch("DECIDIM_HOST", "localhost") == "localhost" ? ["0.0.0.0", "127.0.0.1"] : nil,
     external_domain_whitelist: ["decidim.org", "github.com"],
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
       Decidim::Faker::Localized.sentence(word_count: 15)
@@ -149,7 +149,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     password_updated_at: Time.current,
     admin_terms_accepted_at: Time.current
   }
-  admin_hash.merge!(password: "decidim123456789", password_confirmation: "decidim123456789") if admin.encrypted_password.blank?
+  admin_hash.merge!(password: "decidim123456789") if admin.encrypted_password.blank?
   admin.update!(admin_hash)
 
   ["user@example.org", "user2@example.org"].each do |email|
@@ -157,7 +157,6 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
       name: Faker::Name.name,
       nickname: Faker::Twitter.unique.screen_name,
       password: "decidim123456789",
-      password_confirmation: "decidim123456789",
       confirmed_at: Time.current,
       locale: I18n.default_locale,
       organization:,
@@ -177,7 +176,6 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     name: Faker::Name.name,
     nickname: Faker::Twitter.unique.screen_name,
     password: "decidim123456789",
-    password_confirmation: "decidim123456789",
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     organization:,

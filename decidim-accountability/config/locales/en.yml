@@ -78,6 +78,7 @@ en:
             title: Import results from CSV
         imports:
           create:
+            invalid: There was a problem importing the results.
             success: The file has begun importing. You will receive an email in the next few minutes with the result of the import.
         models:
           result:
@@ -233,6 +234,7 @@ en:
           global_status: Global execution status
         nav_breadcrumb:
           global: Global execution
+        no_results: There are no projects
         search:
           search: Search for actions
         show:

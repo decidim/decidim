@@ -133,11 +133,9 @@ describe "ProfileConversations", type: :system do
       end
 
       it "shows profile's conversation list" do
-        within "div.conversation__container" do
-          expect(page).to have_selector(".conversation__item", text: /#{interlocutor.name}/i)
-          expect(page).to have_selector(".conversation__item", text: "who wants apples?")
-          expect(page).to have_selector(".conversation__item", text: "less than a minute")
-        end
+        expect(page).to have_selector(".conversation__item", text: /#{interlocutor.name}/i)
+        expect(page).to have_selector(".conversation__item", text: "who wants apples?")
+        expect(page).to have_selector(".conversation__item", text: "less than a minute")
       end
 
       it "allows entering a conversation" do

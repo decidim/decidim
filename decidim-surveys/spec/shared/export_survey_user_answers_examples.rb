@@ -12,7 +12,7 @@ shared_examples "export survey user answers" do
   it "exports a CSV" do
     visit_component_admin
 
-    find(".exports.dropdown").click
+    find(".exports").click
     perform_enqueued_jobs { click_link "CSV" }
 
     within ".callout.success" do
@@ -27,7 +27,7 @@ shared_examples "export survey user answers" do
   it "exports a JSON" do
     visit_component_admin
 
-    find(".exports.dropdown").click
+    find(".exports").click
     perform_enqueued_jobs { click_link "JSON" }
 
     within ".callout.success" do
@@ -42,7 +42,7 @@ shared_examples "export survey user answers" do
   it "exports a PDF" do
     visit_component_admin
 
-    find(".exports.dropdown").click
+    find(".exports").click
     perform_enqueued_jobs { click_link "PDF" }
 
     within ".callout.success" do

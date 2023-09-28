@@ -27,10 +27,6 @@ module Decidim
       [15, 50, 100]
     end
 
-    config_accessor :enable_templates do
-      Decidim.const_defined?("Templates")
-    end
-
     Kaminari.configure do |config|
       config.default_per_page = Decidim::Admin.per_page_range.first
       config.max_per_page = Decidim::Admin.per_page_range.last

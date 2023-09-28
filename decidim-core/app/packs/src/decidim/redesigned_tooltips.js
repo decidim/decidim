@@ -96,8 +96,10 @@ export default function(node) {
 
     // when the node is placed at the left side of the screen
     // we translate the tooltip's arrow in order to fit inside the viewport
-    if (positionX < Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) * 0.5) {
+    if ((tooltip.classList.contains("top") || tooltip.classList.contains("bottom")) && positionX < Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) * 0.5) {
       tooltip.style.setProperty("--arrow-offset", "80%")
+    } else {
+      tooltip.style.removeProperty("--arrow-offset")
     }
 
     tooltip.style.top = `${positionY}px`

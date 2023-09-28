@@ -66,8 +66,10 @@ en:
             published_at: Publish time
             title: Title
       posts:
-        show:
-          view: View
+        index:
+          count:
+            one: "%{count} post"
+            other: "%{count} posts"
     components:
       blogs:
         actions:

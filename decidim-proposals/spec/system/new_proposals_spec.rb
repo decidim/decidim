@@ -28,7 +28,7 @@ describe "Proposals", type: :system do
 
       it "redirects to edit draft" do
         click_link "New proposal"
-        path = "#{main_component_path(component)}proposals/#{draft.id}/edit_draft?component_id=#{component.id}&question_slug=#{component.participatory_space.slug}"
+        path = "#{main_component_path(component)}/#{draft.id}/edit_draft?component_id=#{component.id}&question_slug=#{component.participatory_space.slug}"
         expect(page).to have_current_path(path)
       end
     end

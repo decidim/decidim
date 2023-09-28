@@ -186,11 +186,6 @@
       @apply text-gray-2 lowercase;
     }
 
-    &-role {
-      /* stylelint-disable-next-line number-leading-zero */
-      @apply inline-block ml-1 px-2 py-0.5 font-normal rounded text-xs text-primary bg-primary/25;
-    }
-
     &:hover &-avatar {
       @apply border-tertiary;
     }

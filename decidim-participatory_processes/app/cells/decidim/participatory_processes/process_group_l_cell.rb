@@ -2,8 +2,8 @@
 
 module Decidim
   module ParticipatoryProcesses
-    # This cell renders the List (:l) process card
-    # for an given instance of a Process Group
+    # This cell renders the List (:l) process group card
+    # for a given instance of a ParticipatoryProcessGroup
     class ProcessGroupLCell < Decidim::CardLCell
       private
 

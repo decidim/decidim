@@ -4,58 +4,58 @@
       <h2 class="card-title">
         <% if topic %>
           <%= translated_attribute(topic.title) %>
-          <%= link_to t(".destroy"), [topic], class: "button tiny button--title destroy", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-          <%= link_to t(".edit"), [:edit, topic], class: "button tiny button--title new" %>
+          <div class="ml-auto gap-4 flex items-center">
+            <%= link_to t("static_pages.topic.destroy", scope: "decidim.admin"), [topic], class: "button button__sm button__secondary destroy", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+            <%= link_to t("static_pages.topic.edit", scope: "decidim.admin"), [:edit, topic], class: "button button__sm button__secondary new" %>
+          </div>
         <% else %>
           <%= t(".without_topic") %>
         <% end %>
       </h2>
     <% end %>
   </div>
-  <div class="card-section">
-    <div class="table-scroll">
-      <% if pages.any? %>
-        <table class="table-list">
-          <thead>
+  <div class="table-scroll">
+    <% if pages.any? %>
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.static_page.fields.title", scope: "decidim.admin") %></th>
+            <th><%= t("models.static_page.fields.created_at", scope: "decidim.admin") %></th>
+            <th><%= t("last_notable_change", scope: "decidim.admin.static_pages.index") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% pages.each do |page| %>
             <tr>
-              <th><%= t("models.static_page.fields.title", scope: "decidim.admin") %></th>
-              <th><%= t("models.static_page.fields.created_at", scope: "decidim.admin") %></th>
-              <th><%= t("last_notable_change", scope: "decidim.admin.static_pages.index") %></th>
-              <th></th>
+              <td>
+                <%= link_to translated_attribute(page.title), [:edit, page] %><br>
+              </td>
+              <td>
+                <%= l page.created_at, format: :short %>
+              </td>
+              <td>
+                <% if allowed_to? :update_notable_changes, :static_page, static_page: page %>
+                  <%= @tos_version_formatted %>
+                <% end %>
+              </td>
+              <td class="table-list__actions">
+                <% if allowed_to? :update, :static_page, static_page: page %>
+                  <%= icon_link_to "pencil-line", [:edit, page], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                <% end %>
+
+                <%= icon_link_to "eye-line", decidim.page_path(page), t("actions.view", scope: "decidim.admin.static_pages"), class: "action-icon--preview", target: "_blank", data: { "external-link": false } %>
+
+                <% if allowed_to? :destroy, :static_page, static_page: page %>
+                  <%= icon_link_to "delete-bin-line", page, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                <% end %>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            <% pages.each do |page| %>
-              <tr>
-                <td>
-                  <%= link_to translated_attribute(page.title), [:edit, page] %><br>
-                </td>
-                <td>
-                  <%= l page.created_at, format: :short %>
-                </td>
-                <td>
-                  <% if allowed_to? :update_notable_changes, :static_page, static_page: page %>
-                    <%= @tos_version_formatted %>
-                  <% end %>
-                </td>
-                <td class="table-list__actions">
-                  <% if allowed_to? :update, :static_page, static_page: page %>
-                    <%= icon_link_to "pencil", [:edit, page], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
-                  <% end %>
-
-                  <%= icon_link_to "eye", decidim.page_path(page), t("actions.view", scope: "decidim.admin.static_pages"), class: "action-icon--preview" %>
-
-                  <% if allowed_to? :destroy, :static_page, static_page: page %>
-                    <%= icon_link_to "circle-x", page, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      <% else %>
-        <p><em><%= t(".empty") %></em></p>
-      <% end %>
-    </div>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p><em><%= t(".empty") %></em></p>
+    <% end %>
   </div>
 </div>
