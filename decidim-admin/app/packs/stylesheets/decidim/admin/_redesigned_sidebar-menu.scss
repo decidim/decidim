@@ -2,7 +2,6 @@
   @apply flex-none w-full md:w-fit max-w-full md:max-w-[10%];
 
   &__item {
-
     a {
       @apply gap-x-2 p-2 flex items-center text-secondary text-sm truncate border border-gray-5 rounded;
 
@@ -24,7 +23,6 @@
       @apply ml-6;
 
       li {
-
         a {
           @apply px-2 py-1;
 
@@ -39,7 +37,7 @@
 
         &.is-active > a,
         & > a:hover {
-          @apply underline [&>svg]:text-secondary bg-white ;
+          @apply underline [&>svg]:text-secondary bg-white;
         }
       }
     }
