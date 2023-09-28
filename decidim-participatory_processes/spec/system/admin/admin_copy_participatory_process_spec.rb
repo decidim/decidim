@@ -68,9 +68,7 @@ describe "Admin copies participatory process", type: :system do
         click_link "Copy participatory process"
       end
 
-      click_link "About this process"
-
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Phases"
       end
 
@@ -91,9 +89,7 @@ describe "Admin copies participatory process", type: :system do
         click_link "Copy participatory process"
       end
 
-      click_link "About this process"
-
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Categories"
       end
 
@@ -114,9 +110,7 @@ describe "Admin copies participatory process", type: :system do
         click_link "Copy participatory process"
       end
 
-      click_link "About this process"
-
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Components"
       end
 
