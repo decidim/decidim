@@ -451,7 +451,6 @@ ja:
               md: Markdown
               odt: ODT
             bottom_hint: "(ドキュメントセクションのプレビューとソートが可能になります)"
-            document_legend: '2MB未満のドキュメントを追加してください。セクションの深さが3レベルになるまで、各セクションは提案にパースされます。提案書式は次のとおりです: %{valid_mime_types}'
             title: ドキュメントを追加
             upload_document: ドキュメントをアップロード
           publish:
