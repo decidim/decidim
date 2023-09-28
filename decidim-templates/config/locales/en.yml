@@ -13,6 +13,8 @@ en:
         manage: Manage
         templates: Templates
       templates:
+        actions:
+          new: New template
         apply:
           error: There was a problem applying this template.
           success: Template applied successfully.

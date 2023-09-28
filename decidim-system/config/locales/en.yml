@@ -39,6 +39,9 @@ en:
         destroy: Delete
         edit: Edit
         new: New
+        new_admin: New admin
+        new_oauth_application: New OAUTH application
+        new_organization: New organization
         save: Save
         title: Actions
       admins:

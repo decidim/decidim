@@ -42,7 +42,9 @@ en:
         edit: Edit
         import: Import projects to results
         import_csv: Import CSV
-        new: New %{name}
+        new_result: New result
+        new_status: New status
+        new_timeline_entry: New timeline entry
         preview: Preview
         timeline_entries: Project evolution
         title: Actions

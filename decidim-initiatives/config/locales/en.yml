@@ -82,6 +82,7 @@ en:
       actions:
         manage: Manage
         new_initiative_type: New initiative type
+        new_initiative_type_scope: New initiative type scope
       filters:
         initiatives:
           decidim_area_id_eq:

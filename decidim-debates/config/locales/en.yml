@@ -52,7 +52,7 @@ en:
         confirm_destroy: Are you sure?
         destroy: Delete
         edit: Edit
-        new: New %{name}
+        new: New debate
         title: Actions
       admin:
         debate_closes:
