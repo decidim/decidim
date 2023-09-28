@@ -446,7 +446,6 @@ zh-TW:
               md: Markdown
               odt: ODT
             bottom_hint: "(您可以預覽和排序文件章節)"
-            document_legend: '新增一份小於2MB的文件，每個部分最多支援三個層級轉換為提案。支援的格式為：%{valid_mime_types}'
             title: 新增文件
             upload_document: 上傳文件
           publish:
