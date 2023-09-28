@@ -213,7 +213,7 @@ eu:
             suggested_hashtags: Traolek erabiltzaileei proposamen berriak proposatu dizkie
             votes_blocked: Botoak blokeatuta
             votes_enabled: Botoak gaituta
-            votes_hidden: Botoiak ezkutatuta (bozkak gaituta badadaude, hau egiaztatuz bozka kopurua ezkutatuko da)
+            votes_hidden: Botoak ezkutatuta (bozkak gaituta badadaude, hau egiaztatuz bozka kopurua ezkutatuko da)
     events:
       proposals:
         admin:
@@ -337,7 +337,7 @@ eu:
           description: Bereizgarri hori beste pertsona batzuen proposamenak boskatzen dituzunean ematen da.
           description_another: Erabiltzaile honek %{score} proposamen onartzen ditu.
           description_own: '%{score} proposamenei man diezu zure babesa.'
-          name: Proposamenak onartzen ditu
+          name: Proposamenaren aldeko botoak
           next_level_in: Eman babesa % {score} proposamen gehiagori hurrengo mailara iristeko!
           unearned_own: Oraindik ez duzu proposamenik egin.
         proposals:
@@ -802,7 +802,7 @@ eu:
             other: Babesak
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Proposamen bakoitza %{limit} euskarri baino gehiagotan pilatu daiteke
+            description: Proposamen bakoitzak %{limit} babes baino gehiagotan jaso dezake
           minimum_votes_per_user:
             description: Gutxienez %{votes} bozka eman behar dituzu proposamen desberdinen artean.
             supports_remaining: '%{remaining_votes} boto gehiago proposatu behar dituzu zure botoak kontuan hartzeko.'
