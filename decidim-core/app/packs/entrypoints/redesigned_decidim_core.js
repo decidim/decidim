@@ -5,7 +5,7 @@ import "src/decidim/redesigned_index"
 import "src/decidim/decidim_application"
 
 // CSS
-import "entrypoints/redesigned_decidim_core.scss"
+import "entrypoints/decidim_core.scss"
 
 // Images
 require.context("../images", true)

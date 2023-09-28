@@ -1,4 +1,4 @@
-@import "stylesheets/decidim/modules/input-tags";
+@import "tom-select/dist/scss/tom-select";
 
 :root {
   --primary: #e02d2d;
@@ -87,4 +87,12 @@ dl {
   dd + dt {
     @apply mt-4;
   }
+}
+
+.ts-control {
+  margin-bottom: 0.5rem;
+}
+
+.ts-dropdown {
+  margin: 0;
 }

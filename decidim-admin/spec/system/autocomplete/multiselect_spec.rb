@@ -52,7 +52,7 @@ describe "Autocomplete multiselect", type: :system do
           <html lang="en">
           <head>
             <title>Autocomplete multiselect Test</title>
-            #{stylesheet_pack_tag "redesigned_decidim_core"}
+            #{stylesheet_pack_tag "decidim_core"}
             #{javascript_pack_tag "redesigned_decidim_core", "decidim_admin", defer: false}
             #{head_extra}
           </head>
