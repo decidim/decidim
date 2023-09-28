@@ -390,7 +390,6 @@ hu:
             accepted_mime_types:
               md: Árleszállítás
             bottom_hint: "(Megtekintheted és rendezheted a dokumentumokat)"
-            document_legend: 'Adjon hozzá 2 Mb-nál kisebb dokumentumot mindegyik szakaszhoz addig, amíg 3 szintnyi mélység nem kerül elemzés formájában a javaslatokba. Támogatott formátumok: %{valid_mime_types}'
             title: DOKUMENTUM hozzáadása
             upload_document: Dokumentum feltöltése
           publish:
