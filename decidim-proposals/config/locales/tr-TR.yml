@@ -349,7 +349,6 @@ tr:
               md: Markdown
               odt: ODT
             bottom_hint: "(Belge bölümlerini önizleyebilir ve sıralayabilirsiniz)"
-            document_legend: '2 Mb''tan küçük bir belge ekleyin, 3 düzey derinliğe kadar her bölüm tekliflere ayrıştırılacaktır. Desteklenen biçimler şunlardır: %{valid_mime_types}'
             title: BELGE EKLE
             upload_document: Belge yükle
           sections:
