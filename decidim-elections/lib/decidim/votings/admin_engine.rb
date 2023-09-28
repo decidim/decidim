@@ -157,6 +157,7 @@ module Decidim
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.components_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_votings.components_path(current_participatory_space), ["decidim/votings/admin/components", %w[index new edit]]),
                         icon_name: "layout-masonry-line",
                         if: allowed_to?(:read, :components, voting: current_participatory_space),
                         submenu: { target_menu: :admin_votings_components_menu }

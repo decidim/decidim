@@ -211,7 +211,7 @@ module Decidim
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.components_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_participatory_processes.components_path(current_participatory_space)),
+                        active: is_active_link?(decidim_admin_participatory_processes.components_path(current_participatory_space), ["decidim/participatory_processes/admin/components", %w[index new edit]]),
                         icon_name: "layout-masonry-line",
                         if: allowed_to?(:read, :component),
                         submenu: { target_menu: :admin_participatory_process_components_menu }

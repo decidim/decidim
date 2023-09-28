@@ -136,6 +136,7 @@ module Decidim
                         I18n.t("menu.components", scope: "decidim.admin"),
                         decidim_admin_initiatives.components_path(current_participatory_space),
                         icon_name: "layout-masonry-line",
+                        active: is_active_link?(decidim_admin_initiatives.components_path(current_participatory_space), ["decidim/initiatives/admin/components", %w[index new edit]]),
                         if: allowed_to?(:read, :component, initiative: current_participatory_space),
                         submenu: { target_menu: :admin_initiatives_components_menu }
           menu.add_item :initiative_attachments,

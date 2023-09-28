@@ -1,9 +1,10 @@
-.settings-menu {
+.sidebar-menu {
   @apply flex-none w-full md:w-fit max-w-full md:max-w-[10%];
 
   &__item {
+
     a {
-      @apply gap-x-2 flex items-center text-secondary text-sm truncate;
+      @apply gap-x-2 p-2 flex items-center text-secondary text-sm truncate border border-gray-5 rounded;
 
       > svg {
         @apply w-4 h-4 flex-none text-gray fill-current;
@@ -12,7 +13,7 @@
 
     &.is-active > a,
     & > a:hover {
-      @apply underline [&>svg]:text-secondary;
+      @apply underline [&>svg]:text-secondary bg-white border;
     }
 
     &.is-active > a {
@@ -23,7 +24,14 @@
       @apply ml-6;
 
       li {
-        @apply mt-2;
+
+        a {
+          @apply px-2 py-1;
+
+          .component-counter {
+            @apply ml-auto;
+          }
+        }
 
         &.is-active a {
           @apply font-semibold;
@@ -31,13 +39,9 @@
 
         &.is-active > a,
         & > a:hover {
-          @apply underline [&>svg]:text-secondary;
+          @apply underline [&>svg]:text-secondary bg-white ;
         }
       }
-    }
-
-    & + & {
-      @apply mt-6;
     }
   }
 
