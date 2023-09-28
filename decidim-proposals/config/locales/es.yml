@@ -457,6 +457,7 @@ es:
               md: Markdown
               odt: ODT
             bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
+            document_legend: 'Añade un documento menor de 2 MB, cada sección hasta 3 niveles de profundidad serán analizados en propuestas. Los formatos soportados son: %{valid_mime_types}'
             title: Añadir documento
             upload_document: Subir documento
           publish:
