@@ -4,8 +4,11 @@
     <div class="conference__map">
       <div>
         <% meetings.each do |meeting_block| %>
+          <% next if meeting_block.first.empty? %>
+
           <% meeting_block.last.each_with_index do |meeting, index| %>
             <% next if index != 0 %>
+
             <div class="conference__map-address">
               <%== cell("decidim/address", meeting) %>
             </div>

@@ -1,6 +1,8 @@
 <%= append_javascript_pack_tag "decidim_votings" %>
 <%= append_stylesheet_pack_tag "decidim_votings" %>
 
+<%= render partial: "layouts/decidim/header/follow_space_menu_bar_button", locals: { participatory_space: current_participatory_space } %>
+
 <%= render "layouts/decidim/application" do %>
   <%= cell "decidim/translation_bar", current_organization %>
 
