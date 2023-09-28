@@ -409,7 +409,6 @@ ro:
               md: Markdown
               odt: ODT
             bottom_hint: "(Vei putea previzualiza şi sorta secţiuni din document)"
-            document_legend: 'Adaugă un document mai mic de 2MB. Fiecare secțiune din document, până la al treilea nivel de subtitluri, va fi convertită în propunere. Formatele acceptate sunt: %{valid_mime_types}'
             title: Adaugă document
             upload_document: Încărcă document
           sections:
