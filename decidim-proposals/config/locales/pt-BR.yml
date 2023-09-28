@@ -356,7 +356,6 @@ pt-BR:
               md: Markdown
               odt: ODT
             bottom_hint: "(Você será capaz de visualizar e classificar as seções do documento)"
-            document_legend: 'Adicione um documento menor que 2MB, cada seção até que 3 níveis de profundidade sejam analisados em propostas. Formatos suportados são: %{valid_mime_types}'
             title: ADICIONAR DOCUMENTO
             upload_document: Carregar documento
           sections:
