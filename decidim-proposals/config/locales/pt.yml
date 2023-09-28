@@ -388,7 +388,6 @@ pt:
               md: Anotação
               odt: ODT
             bottom_hint: "(Será capaz de pré-visualizar e classificar as secções do documento)"
-            document_legend: 'Adicionar um documento com menos de 2MB, cada secção até 3 níveis de profundidade será introduzida nas propostas. Os formatos suportados são: %{valid_mime_types}'
             title: ADICIONAR DOCUMENTO
             upload_document: Enviar documento
           sections:
