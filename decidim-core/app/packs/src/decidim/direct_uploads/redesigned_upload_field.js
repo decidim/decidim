@@ -18,7 +18,7 @@ const updateActiveUploads = (modal) => {
   }
 
   const files = document.querySelector(`[data-active-uploads=${modal.modal.id}]`)
-  const previousId = Array.from(files.querySelectorAll("[type=hidden]"))
+  const previousId = Array.from(files.querySelectorAll("[type=hidden][id]"))
   const isMultiple = modal.options.multiple
 
   // fastest way to clean children nodes
@@ -58,13 +58,18 @@ const updateActiveUploads = (modal) => {
       const titleField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
       hidden += `<input type="hidden" name="${titleField}" value="${titleValue}" />`
 
-      title = `${titleValue} (${truncateFilename(file.name)})`
+      title = titleValue
     }
 
+    // eslint-disable-next-line no-ternary
+    const attachmentIdOrHiddenField = file.attachmentId
+      ? `data-attachment-id="${file.attachmentId}"`
+      : `data-hidden-field="${file.hiddenField}"`
+
     const template = `
-      <div data-filename="${file.name}" data-title="${title}">
+      <div ${attachmentIdOrHiddenField} data-filename="${file.name}" data-title="${title}">
         ${(/image/).test(file.type) && `<div><img src="" alt="${file.name}" /></div>` || ""}
-        <span>${title}</span>
+        <span>${title} (${truncateFilename(file.name)})</span>
         ${hidden}
       </div>
     `
@@ -113,8 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // whenever the input fields changes, process the files
     modal.input.addEventListener("change", (event) => modal.uploadFiles(event.target.files));
 
-    // update the modal title if there are files uploaded
-    modal.button.addEventListener("click", (event) => event.preventDefault() || updateModalTitle(modal));
+    // update the modal title if there are files uploaded and load files (if previously deleted after clicking cancel)
+    modal.button.addEventListener("click", (event) => event.preventDefault() || (modal.items.length === 0 && [...files.children].forEach((child) => child.tagName === "DIV" && modal.preloadFiles(child))) || updateModalTitle(modal));
 
     // avoid browser to open the file
     modal.dropZone.addEventListener("dragover", (event) => event.preventDefault() || highlightDropzone(modal));
