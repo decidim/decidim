@@ -79,6 +79,7 @@ cs:
             title: Importovat výsledky z CSV
         imports:
           create:
+            invalid: Při importu výsledků došlo k chybě.
             success: Soubor se začal importovat. Během několika následujících minut obdržíte e-mail s výsledkem importu.
         models:
           result:
