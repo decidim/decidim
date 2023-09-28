@@ -326,7 +326,7 @@ header {
       }
 
       [data-target*="dropdown"] {
-        @apply md:block lg:hidden w-auto last-of-type:[&>svg]:block;
+        @apply md:block lg:hidden w-auto last-of-type:[&>svg]:block ml-auto;
 
         > svg {
           @apply text-white;
@@ -336,6 +336,10 @@ header {
 
     &__actions {
       @apply hidden lg:flex justify-between items-center gap-6;
+
+      &-mobile {
+        @apply [&_svg]:w-4 [&_svg]:h-4 [&_span]:sr-only;
+      }
     }
 
     &__main-dropdown {
