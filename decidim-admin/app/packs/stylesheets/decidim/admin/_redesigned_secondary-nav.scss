@@ -104,7 +104,7 @@
 
 .dropdown {
   &__item {
-    &.components ul {
+    a[href*="components"] + ul {
       @apply hidden;
     }
   }
