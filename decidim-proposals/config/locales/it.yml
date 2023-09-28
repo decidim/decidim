@@ -368,7 +368,6 @@ it:
               md: .md
               odt: ODT
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
-            document_legend: 'Aggiungi un documento di dimensione inferiore a 2MB. Ciascuna sezione contenente fino a 3 livelli di profondità sarà suddivisa in proposte. I formati accettati sono i seguenti: %{valid_mime_types}'
             title: AGGIUNGI DOCUMENTO
             upload_document: Carica il documento
           sections:
