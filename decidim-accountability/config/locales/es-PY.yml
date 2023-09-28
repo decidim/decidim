@@ -77,6 +77,7 @@ es-PY:
             title: Importa resultados vía CSV
         imports:
           create:
+            invalid: Ha habido un problema importando los resultados.
             success: Se está importando el fichero. Recibirás un correo electrónico en los próximos minutos con el resultado de la importación.
         models:
           result:
