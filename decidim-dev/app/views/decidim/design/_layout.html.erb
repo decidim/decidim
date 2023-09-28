@@ -17,7 +17,7 @@
   }]
 %>
 
-<div class="grid md:grid-cols-12 container before:content-[''] before:absolute before:inset-0 before:-z-10 before:w-1/2 before:bg-background">
+<div class="grid md:grid-cols-12 container min-h-screen before:content-[''] before:absolute before:inset-0 before:-z-10 before:w-1/2 before:bg-background">
   <aside class="col-span-2 py-12 pr-16">
     <ul class="sticky top-12 space-y-4">
       <% sections.each do |section| %>
@@ -53,9 +53,9 @@
     </ul>
   </aside>
 
-  <main class="bg-white col-span-8 py-12 px-16">
+  <main class="bg-white col-span-8 py-12 px-16 [&_section+section]:mt-10">
     <% if content_for?(:heading) %>
-      <section class="pb-10 mb-10 border-b border-background">
+      <section class="pb-10 border-b border-background">
         <h1 class="text-5xl font-bold text-black">
           <%= yield :heading %>
         </h1>
