@@ -87,11 +87,11 @@
   &__iframe_container-twitch,
   &__iframe_container-vimeo,
   &__iframe_container-youtube {
-    @apply h-[30rem] w-full overflow-y-scroll;
+    @apply h-[30rem] w-full;
   }
 
   &__iframe_container-jitsi {
-    @apply h-[35rem] w-full overflow-y-scroll;
+    @apply h-[35rem] w-full;
   }
 
   &__agenda {
