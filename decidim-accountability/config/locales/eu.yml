@@ -56,7 +56,7 @@ eu:
             title: Inportatu emaitzak CSVtik
         imports:
           create:
-            invalid: Arazoren bat izan da emaitzak inportatzean.
+            invalid: Arazoren bat sortu da emaitzak inportatzean.
             success: Espedientea inportatzen hasi da. Datozen minutuetan posta elektroniko bat jasoko duzu inportazioaren emaitzarekin.
         models:
           result:
