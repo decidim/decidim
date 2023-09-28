@@ -403,7 +403,7 @@ de:
           success: Konferenz-Teilnahmebestätigung korrekt gesendet
       conference:
         registration_confirm:
-          cancel: Stornieren
+          cancel: Abbrechen
           confirm: Bestätigen
         show:
           free: Kostenlos
