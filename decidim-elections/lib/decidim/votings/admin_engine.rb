@@ -94,9 +94,9 @@ module Decidim
                           caption.html_safe,
                           manage_component_path(component),
                           active: is_active_link?(manage_component_path(component)) ||
-                            is_active_link?(decidim_admin_votings.edit_component_path(current_participatory_space, component)) ||
-                            is_active_link?(decidim_admin_votings.edit_component_permissions_path(current_participatory_space, component)) ||
-                            participatory_space_active_link?(component),
+                                  is_active_link?(decidim_admin_votings.edit_component_path(current_participatory_space, component)) ||
+                                  is_active_link?(decidim_admin_votings.edit_component_permissions_path(current_participatory_space, component)) ||
+                                  participatory_space_active_link?(component),
                           if: component.manifest.admin_engine # && user_role_config.component_is_accessible?(component.manifest_name)
           end
         end
@@ -160,7 +160,7 @@ module Decidim
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.components_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_votings.components_path(current_participatory_space), ["decidim/votings/admin/components", %w[index new edit]]),
+                        active: is_active_link?(decidim_admin_votings.components_path(current_participatory_space), ["decidim/votings/admin/components", %w(index new edit)]),
                         icon_name: "layout-masonry-line",
                         if: allowed_to?(:read, :components, voting: current_participatory_space),
                         submenu: { target_menu: :admin_votings_components_menu }

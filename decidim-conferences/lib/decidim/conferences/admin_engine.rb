@@ -163,7 +163,8 @@ module Decidim
                         decidim_admin_conferences.components_path(current_participatory_space),
                         icon_name: "layout-masonry-line",
                         if: allowed_to?(:read, :component, conference: current_participatory_space),
-                        active: is_active_link?(decidim_admin_conferences.components_path(current_participatory_space), ["decidim/conferences/admin/components", %w[index new edit]]),
+                        active: is_active_link?(decidim_admin_conferences.components_path(current_participatory_space),
+                                                ["decidim/conferences/admin/components", %w(index new edit)]),
                         submenu: { target_menu: :admin_conferences_components_menu }
 
           menu.add_item :categories,
