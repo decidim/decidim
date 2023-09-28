@@ -87,7 +87,7 @@
   &__iframe_container-twitch,
   &__iframe_container-vimeo,
   &__iframe_container-youtube {
-    @apply h-[30vh] w-full overflow-y-scroll;
+    @apply h-[30rem] w-full overflow-y-scroll;
   }
 
   &__iframe_container-jitsi {
