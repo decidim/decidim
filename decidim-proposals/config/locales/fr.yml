@@ -457,7 +457,6 @@ fr:
               md: Markdown
               odt: ODT
             bottom_hint: "(Vous pourrez prévisualiser et trier les sections de document)"
-            document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux de titre sera convertie en propositions. Les formats supportés sont : %{valid_mime_types}'
             title: Ajouter un document
             upload_document: Télécharger le document
           publish:
