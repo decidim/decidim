@@ -39,7 +39,8 @@ describe "Admin manages projects", type: :system do
       click_button "Change category"
       select translated(category.name), from: "category_id"
       click_button "Update"
-      expect(page).to have_css(".callout.success")
+
+      expect(page).to have_admin_callout "Projects successfully updated to the category"
       within "tr[data-id='#{project.id}']" do
         expect(page).to have_content(translated(category.name))
       end
@@ -53,7 +54,8 @@ describe "Admin manages projects", type: :system do
       click_button "Change scope"
       scope_pick select_data_picker(:scope_id), scope
       click_button "Update"
-      expect(page).to have_css(".callout.success")
+
+      expect(page).to have_admin_callout "Projects successfully updated to the scope"
       within "tr[data-id='#{project.id}']" do
         expect(page).to have_content(translated(scope.name))
       end
@@ -67,7 +69,8 @@ describe "Admin manages projects", type: :system do
       click_button "Change selected"
       select "Select", from: "selected_value"
       click_button "Update"
-      expect(page).to have_css(".callout.success")
+
+      expect(page).to have_admin_callout "These projects were successfully selected for implementation"
       within "tr[data-id='#{project.id}']" do
         expect(page).to have_content("Selected")
       end
