@@ -4,8 +4,8 @@
     <h2 class="item_show__header-title">
       <%= t(".title") %>
       <div class="button--title">
-        <%= link_to t("actions.new", scope: "decidim.meetings"), new_meeting_path, class: "button button__sm button__secondary" if allowed_to? :create, :meeting %>
         <%= export_dropdown %>
+        <%= link_to t("actions.new", scope: "decidim.meetings"), new_meeting_path, class: "button button__sm button__secondary" if allowed_to? :create, :meeting %>
       </div>
     </h2>
   </div>
