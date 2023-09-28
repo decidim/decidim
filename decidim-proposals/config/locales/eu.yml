@@ -441,7 +441,6 @@ eu:
               md: Markdown
               odt: ODT
             bottom_hint: "(Podrá previsualizar y ordenar las secciones del documento)"
-            document_legend: 'Gehitu 2MB baino gutxiagoko dokumentu bat. Atal bakoitza 3 sakontasun-mailaraino, proposamenetan aztertuko da.. Formatu suportatuak hauek dira: %{valid_mime_types}'
             title: ADD DOCUMENT
             upload_document: Kargatu dokumentua
           sections:
