@@ -470,7 +470,6 @@ lt:
               md: Markdown
               odt: ODT
             bottom_hint: "(Dokumentų skirsnius galėsite peržiūrėti ir rūšiuoti)"
-            document_legend: 'Pridėkite mažesnį nei 2MB dokumentą, kiekvienas ne didesnio kaip 3 lygių gylio skirsnis bus išanalizuotas ir įkeltas į „Pasiūlymus“. Priimtini formatai: %{valid_mime_types}'
             title: Pridėti dokumentą
             upload_document: Įkelti dokumentą
           publish:
