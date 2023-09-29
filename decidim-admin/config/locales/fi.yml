@@ -342,7 +342,7 @@ fi:
           success: Komponentin julkaisu onnistui.
         title: Komponentit
         unpublish:
-          success: Komponentin julkaisun peruminen onnistui.
+          success: Komponentin julkaisun lopettaminen onnistui.
         update:
           error: Komponentin päivitys epäonnistui.
           success: Komponentin päivitys onnistui.
@@ -925,7 +925,7 @@ fi:
           success: Tunnisteen poistaminen onnistui.
         share_tokens:
           empty: Aktiivisia tunnisteita ei ole tällä hetkellä
-          help: Näitä tunnisteita käytetään jaettaessa tätä kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakoikonia vieraillaksesi jaettavassa URL-osoitteessa.
+          help: Näitä tunnisteita käytetään jaettaessa tätä julkaisematonta kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakoikonia vieraillaksesi jaettavassa URL-osoitteessa.
           title: Jakotunnisteet
       shared:
         gallery:
