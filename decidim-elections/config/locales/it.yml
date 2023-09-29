@@ -628,7 +628,6 @@ it:
             ballot_styles: Stili di voto
             census: Censimento
             components: Componenti
-            info: Info
             landing_page: Pagina iniziale
             monitoring_committee: Comitato di Sorveglianza
             monitoring_committee_election_results: Convalida Risultati
@@ -663,7 +662,6 @@ it:
           voting:
             fields:
               created_at: Creato il
-              promoted: Evidenziato
               published: Pubblicato
               title: Titolo
         monitoring_committee_election_results:
