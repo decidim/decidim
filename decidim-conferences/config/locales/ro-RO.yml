@@ -195,7 +195,6 @@ ro:
           conference_invites: Invitații
           conference_speakers: Vorbitori
           diploma: Certificat de participare
-          info: Info
           media_links: Link-uri media
           moderations: Moderatii
           partners: Parteneri
@@ -206,7 +205,6 @@ ro:
         conference:
           fields:
             created_at: Creat la
-            promoted: Evident
             published: Publicat
             title: Titlu
         conference_speaker:
@@ -346,7 +344,6 @@ ro:
               all: Toate
               rejected: Respins
               sent: Trimis
-            filter_by: Filtrare după
             invite_attendee: Invite participant
             invites: Invitații
             search: Caută
