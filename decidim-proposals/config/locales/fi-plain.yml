@@ -456,6 +456,7 @@ fi-pl:
               md: Markdown
               odt: ODT
             bottom_hint: "(Voit esikatsella ja lajitella aineiston osioita)"
+            document_legend: 'Lisää alle 2 Mt:n kokoinen tiedosto, josta jokainen osio kolmannelle tasolle saakka lisätään uusiksi ehdotuksiksi. Tuetut tiedostomuodot ovat: %{valid_mime_types}'
             title: LISÄÄ AINEISTO
             upload_document: Lataa aineisto
           publish:
