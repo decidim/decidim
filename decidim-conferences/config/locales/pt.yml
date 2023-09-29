@@ -177,7 +177,6 @@ pt:
           conference_invites: Convites
           conference_speakers: Oradores
           diploma: Certificado de Participação
-          info: Info
           media_links: Hiperligações de Multimédia
           moderations: Moderações
           partners: Parceiros
@@ -188,7 +187,6 @@ pt:
         conference:
           fields:
             created_at: Criado em
-            promoted: Realçado
             published: Publicado
             title: Título
         conference_speaker:
@@ -327,7 +325,6 @@ pt:
               all: Todos
               rejected: Rejeitado
               sent: Enviei
-            filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
             search: Pesquisar
