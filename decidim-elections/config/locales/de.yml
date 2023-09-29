@@ -863,7 +863,6 @@ de:
             ballot_styles: Wahlkategorien
             census: Erhebung
             components: Komponenten
-            info: Information
             landing_page: Landing-Page
             monitoring_committee: Überwachungskomitee
             monitoring_committee_election_results: Ergebnisse überprüfen
@@ -898,7 +897,6 @@ de:
           voting:
             fields:
               created_at: Erstellt am
-              promoted: Hervorgehoben
               published: Veröffentlicht
               title: Titel
         monitoring_committee_election_results:
