@@ -203,7 +203,6 @@ hu:
           attachments: Mellékletek
           categories: Kategóriák
           components: Elemek
-          info: Info
           landing_page: Landing oldal
           moderations: Moderálás
           private_users: Privát felhasználók
@@ -299,9 +298,6 @@ hu:
         assemblies_types:
           form:
             title: Cím
-        assembly_imports:
-          form:
-            document_legend: Dokumentum hozzáadása
         assembly_members:
           form:
             existing_user: Meglévő résztvevő
@@ -317,7 +313,6 @@ hu:
               all: Összes
               ceased: Megszűnt
               not_ceased: Nem szűnt meg
-            filter_by: 'Szűrés ez alapján:'
             search: Keresés
         content_blocks:
           highlighted_assemblies:
