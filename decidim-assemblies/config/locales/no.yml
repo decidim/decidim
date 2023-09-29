@@ -189,7 +189,6 @@
           attachments: Vedlegg
           categories: Kategorier
           components: Komponenter
-          info: Info
           moderations: Moderering
           private_users: Private brukere
         assemblies_types: Forsamlingstyper
@@ -280,9 +279,6 @@
         assemblies_types:
           form:
             title: Tittel
-        assembly_imports:
-          form:
-            document_legend: Legg til et dokument
         assembly_members:
           form:
             existing_user: Eksisterende deltaker
@@ -298,7 +294,6 @@
               all: Alle
               ceased: Opphørt
               not_ceased: Ikke opphørt
-            filter_by: Filtrer etter
             search: Søk
         content_blocks:
           highlighted_assemblies:
