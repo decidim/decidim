@@ -148,7 +148,6 @@ sl:
           attachments: Priponke
           categories: Kategorije
           components: Komponente
-          info: Informacije
         assemblies_types: Vrste združb
       models:
         assemblies_types:
@@ -180,9 +179,6 @@ sl:
         assemblies_types:
           form:
             title: Naziv
-        assembly_imports:
-          form:
-            document_legend: Dodaj dokument
         assembly_members:
           index:
             filter:
