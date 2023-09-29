@@ -1,0 +1,8 @@
+<div class="mt-5 columns-3 space-y-4">
+  <% icons.each do |elem| %>
+    <div class="flex items-center gap-2 p-2.5 whitespace-nowrap">
+      <%= icon elem[:icon], class: "w-4 h-4 text-gray fill-current flex-none" %>
+      <span class="text-sm text-gray-2"><%= elem[:text] %></span>
+    </div>
+  <% end %>
+</div>
