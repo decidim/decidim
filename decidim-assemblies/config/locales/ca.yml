@@ -204,7 +204,6 @@ ca:
           attachments: Adjunts
           categories: Categories
           components: Components
-          info: Informació
           landing_page: Pàgina d'inici
           moderations: Moderacions
           private_users: Participants privades
@@ -306,7 +305,6 @@ ca:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_imports:
           form:
-            document_legend: Afegir un document
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_members:
           form:
@@ -323,7 +321,6 @@ ca:
               all: Totes
               ceased: Cessada
               not_ceased: No cessada
-            filter_by: Filtra per
             search: Cerca
         content_blocks:
           highlighted_assemblies:
