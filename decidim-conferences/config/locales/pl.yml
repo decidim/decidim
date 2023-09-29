@@ -183,7 +183,6 @@ pl:
           conference_invites: Zaprasza
           conference_speakers: Prelegenci
           diploma: Certyfikat uczestnictwa
-          info: Informacje
           media_links: Linki do multimediów
           moderations: Moderacje
           partners: Partnerzy
@@ -194,7 +193,6 @@ pl:
         conference:
           fields:
             created_at: Utworzono
-            promoted: Wyróżniona
             published: Opublikowana
             title: Tytuł
         conference_speaker:
@@ -333,7 +331,6 @@ pl:
               all: Wszystko
               rejected: Odrzucono
               sent: Wysłano
-            filter_by: Filtruj według
             invite_attendee: Zaproś użytkownika
             invites: Zaproszeni
             search: Szukaj
