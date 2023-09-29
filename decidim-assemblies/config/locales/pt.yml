@@ -189,7 +189,6 @@ pt:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          info: Info
           moderations: Moderação
           private_users: Utilizadores privados
         assemblies_types: Tipos de reuniões
@@ -280,9 +279,6 @@ pt:
         assemblies_types:
           form:
             title: Título
-        assembly_imports:
-          form:
-            document_legend: Adicionar um documento
         assembly_members:
           form:
             existing_user: Participante existente
@@ -298,7 +294,6 @@ pt:
               all: Todos
               ceased: Cessado
               not_ceased: Não cessado
-            filter_by: Filtrar por
             search: Pesquisar
         content_blocks:
           highlighted_assemblies:
