@@ -193,7 +193,6 @@ ca:
           conference_invites: Convida
           conference_speakers: Ponents
           diploma: Certificat d'assistència
-          info: Informació
           media_links: Enllaços multimedia
           moderations: Moderacions
           partners: Col·laboradores
@@ -204,7 +203,6 @@ ca:
         conference:
           fields:
             created_at: Creat a
-            promoted: Destacada
             published: Publicada
             title: Títol
         conference_speaker:
@@ -347,7 +345,6 @@ ca:
               all: Totes
               rejected: Rebutjada
               sent: Enviada
-            filter_by: Filtrar per
             invite_attendee: Convidar participant
             invites: Convida
             search: Cercar
