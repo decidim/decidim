@@ -190,7 +190,6 @@ ja:
           conference_invites: 招待
           conference_speakers: スピーカー
           diploma: 出席証明書
-          info: 情報
           media_links: メディアリンク
           moderations: モデレーション
           partners: パートナー
@@ -201,7 +200,6 @@ ja:
         conference:
           fields:
             created_at: 作成日時
-            promoted: 強調表示
             published: 公開済み
             title: タイトル
         conference_speaker:
@@ -344,7 +342,6 @@ ja:
               all: すべて
               rejected: 拒否
               sent: 送信済み
-            filter_by: フィルター
             invite_attendee: 参加者の招待
             invites: 招待
             search: 検索
