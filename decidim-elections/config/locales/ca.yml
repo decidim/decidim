@@ -863,7 +863,6 @@ ca:
             ballot_styles: Estils de papereta
             census: Cens
             components: Components
-            info: Informació
             landing_page: Pàgina d'inici
             monitoring_committee: Comitè de seguiment
             monitoring_committee_election_results: Valida els resultats
@@ -898,7 +897,6 @@ ca:
           voting:
             fields:
               created_at: Creada el
-              promoted: Destacada
               published: Publicada
               title: Títol
         monitoring_committee_election_results:
