@@ -469,6 +469,7 @@ cs:
               md: Markdown
               odt: ODT
             bottom_hint: "(Budete mít možnost zobrazit a třídit sekce dokumentů)"
+            document_legend: 'Přidejte dokument menší než 2 Mb, každá sekce bude hluboká až do 3 úrovní. Podporované formáty jsou: %{valid_mime_types}'
             title: Přidat dokument
             upload_document: Nahrát dokument
           publish:
