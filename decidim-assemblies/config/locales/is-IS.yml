@@ -119,7 +119,6 @@ is-IS:
           attachments: Viðhengi
           categories: Flokkar
           components: Hluti
-          info: Upplýsingar
           moderations: Moderations
       models:
         assemblies_types:
@@ -190,7 +189,6 @@ is-IS:
               all: Allt
               ceased: Hætt
               not_ceased: Ekki hætt
-            filter_by: Sía eftir
             search: Leita
       assembly_members:
         index:
