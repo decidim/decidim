@@ -863,7 +863,6 @@ fi:
             ballot_styles: Äänestystyylit
             census: Henkilötietorekisteri
             components: Komponentit
-            info: Tiedot
             landing_page: Laskeutumissivu
             monitoring_committee: Tarkkailukomitea
             monitoring_committee_election_results: Vahvista tulokset
@@ -898,7 +897,6 @@ fi:
           voting:
             fields:
               created_at: Luonnin ajankohta
-              promoted: Korostettu
               published: Julkaistu
               title: Otsikko
         monitoring_committee_election_results:
