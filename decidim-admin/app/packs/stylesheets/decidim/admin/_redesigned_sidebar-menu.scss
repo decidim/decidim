@@ -1,5 +1,5 @@
 .sidebar-menu {
-  @apply flex-none w-full md:w-fit max-w-full md:max-w-[10%];
+  @apply flex-none w-full md:w-fit max-w-full md:max-w-xs;
 
   &__item {
     a {
@@ -27,7 +27,7 @@
           @apply px-2 py-1;
 
           .component-counter {
-            @apply ml-auto inline-flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full bg-secondary text-white;
+            @apply ml-auto inline-flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full bg-background-4 border-secondary;
           }
         }
 
