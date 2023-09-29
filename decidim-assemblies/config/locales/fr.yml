@@ -204,7 +204,6 @@ fr:
           attachments: Documents liés
           categories: Catégories
           components: Composants
-          info: Information
           landing_page: Page d'accueil
           moderations: Modérations
           private_users: Utilisateurs privés
@@ -306,7 +305,6 @@ fr:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_imports:
           form:
-            document_legend: Ajouter un document
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
@@ -323,7 +321,6 @@ fr:
               all: Tout
               ceased: Validité terminée
               not_ceased: Validité en cours
-            filter_by: Filtrer par
             search: Rechercher
         content_blocks:
           highlighted_assemblies:
