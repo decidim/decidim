@@ -177,7 +177,6 @@ it:
           conference_invites: Inviti
           conference_speakers: Relatori
           diploma: Certificato di partecipazione
-          info: Informazioni
           media_links: Link multimediali
           moderations: Moderazioni
           partners: Partners
@@ -188,7 +187,6 @@ it:
         conference:
           fields:
             created_at: Creato il
-            promoted: Evidenziato
             published: Pubblicato
             title: Titolo
         conference_speaker:
@@ -327,7 +325,6 @@ it:
               all: Tutti
               rejected: Respinto
               sent: Inviato
-            filter_by: Filtra per
             invite_attendee: Invita il partecipante
             invites: Inviti
             search: Ricerca
