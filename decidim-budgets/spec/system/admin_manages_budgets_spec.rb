@@ -45,9 +45,7 @@ describe "Admin manages budgets", type: :system do
 
     click_button "Create budget"
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("Budget successfully created.")
 
     within "table" do
       expect(page).to have_content("My Budget")
@@ -72,9 +70,7 @@ describe "Admin manages budgets", type: :system do
 
       click_button "Update budget"
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Budget successfully updated.")
 
       within "table" do
         expect(page).to have_content("My new title")
@@ -97,9 +93,7 @@ describe "Admin manages budgets", type: :system do
         end
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Budget successfully deleted.")
 
       within "table" do
         expect(page).not_to have_content(translated(budget.title))
