@@ -190,7 +190,6 @@ eu:
           conference_invites: Gonbidapenak
           conference_speakers: Hizlariak
           diploma: Asistentzia ziurtagiria
-          info: info
           media_links: Media Links
           moderations: moderazioa
           partners: Bazkideak
@@ -201,7 +200,6 @@ eu:
         conference:
           fields:
             created_at: Sortutako at
-            promoted: sustatuta
             published: Argitaratutako
             title: Izenburua
         conference_speaker:
@@ -340,7 +338,6 @@ eu:
               all: guztiak
               rejected: Baztertuta
               sent: bidalia
-            filter_by: Iragazi arabera
             invite_attendee: Gonbidatu parte-hartzailea
             invites: Gonbidapenak
             search: Bilatu
