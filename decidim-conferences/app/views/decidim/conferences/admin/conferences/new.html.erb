@@ -5,14 +5,7 @@
   </h2>
 </div>
 
-<div class="item__edit">
-  <div class="item__edit-menu">
-    <div class="item__edit-menu-sticky">
-      <p class="item__edit-menu-title"><%= t("conferences.form.sections", scope: "decidim.admin") %></p>
-      <%= link_to t("conferences.form.title", scope: "decidim.admin"), new_conference_path, anchor: "title", class: "item__edit-menu-anchor" %>
-    </div>
-  </div>
-
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, html: { class: "form form-defaults  new_conference conference_form_admin" }) do |f| %>
       <%= render partial: "form", object: f %>
