@@ -499,6 +499,7 @@ fi-pl:
           newsletter_title: Yhteydenottolupa
           nickname_help: Nimimerkkisi palvelussa %{organization}. Voi sisältää ainoastaan kirjaimia, numeroita sekä yhdysmerkkejä "-" ja alaviivoja "_".
           password_help: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
+          sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
             legend: Rekisteröidy
@@ -1551,6 +1552,8 @@ fi-pl:
       updated: Tilisi on päivitetty onnistuneesti.
     sessions:
       already_signed_out: Kirjaudut ulos onnistuneesti.
+      new:
+        sign_in: Kirjaudu sisään
       signed_in: Kirjauduit sisään onnistuneesti.
       signed_out: Kirjauduit ulos onnistuneesti.
     shared:
@@ -1559,6 +1562,7 @@ fi-pl:
         didn_t_receive_confirmation_instructions: Etkö saanut vahvistusohjeita?
         didn_t_receive_unlock_instructions: Etkö saanut ohjeita tilin lukituksen poistoon?
         forgot_your_password: Unohditko salasanasi?
+        sign_in: Kirjaudu sisään
         sign_in_with_provider: Kirjaudu sisään palvelulla %{provider}
         sign_up: Rekisteröidy
       minimum_password_length:
