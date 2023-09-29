@@ -209,7 +209,6 @@ ar:
           attachments: المرفقات
           categories: الفئات
           components: المكونات
-          info: معلومات
           moderations: الإعتدال
           private_users: المستخدمون الخاصون
         assemblies_types: نوع التجمّعات
@@ -304,9 +303,6 @@ ar:
         assemblies_types:
           form:
             title: العنوان
-        assembly_imports:
-          form:
-            document_legend: إضافة وثيقة
         assembly_members:
           form:
             existing_user: المشارك الحالي
@@ -322,7 +318,6 @@ ar:
               all: الكل
               ceased: توقف
               not_ceased: لم تتوقف
-            filter_by: مصنف بواسطة
             search: البحث
         content_blocks:
           highlighted_assemblies:
