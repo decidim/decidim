@@ -1,3 +1,10 @@
+/*
+  NOTE: Bad practice. These dependencies should not ve loaded in this way (as static files),
+  but leaflet makes use of image files, which are being wrong resolved by webpack,
+  as currently is missing the "file-loader" in the webpack.config.js
+
+  See https://github.com/Leaflet/Leaflet/issues/4849 for further info
+*/
 @import "stylesheets/decidim/legacy/leaflet";
 @import "stylesheets/decidim/legacy/MarkerCluster";
 @import "stylesheets/decidim/legacy/MarkerCluster.Default";
