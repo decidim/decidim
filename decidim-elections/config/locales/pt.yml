@@ -632,7 +632,6 @@ pt:
             ballot_styles: Estilos de boletim de voto
             census: Recenseamento
             components: Componentes
-            info: Informação
             landing_page: Página de entrada
             monitoring_committee: Comissão de controlo
             monitoring_committee_election_results: Valide Resultados
@@ -667,7 +666,6 @@ pt:
           voting:
             fields:
               created_at: Criado em
-              promoted: Realçado
               published: Publicado
               title: Título
         monitoring_committee_election_results:
