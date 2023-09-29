@@ -154,7 +154,6 @@ id:
           attachments: Lampiran
           categories: Kategori
           components: Komponen
-          info: Info
           moderations: Moderasi
           private_users: Pengguna pribadi
       models:
@@ -240,7 +239,6 @@ id:
               all: Semua
               ceased: Hentikan
               not_ceased: Tidak berhenti
-            filter_by: Filter berdasarkan
             search: Pencarian
         content_blocks:
           highlighted_assemblies:
