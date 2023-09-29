@@ -56,6 +56,14 @@ describe "Initiative", type: :system do
         end
       end
 
+      describe "follow button" do
+        let!(:user) { create(:user, :confirmed, organization:) }
+        let(:followable) { initiative }
+        let(:followable_path) { decidim_initiatives.initiative_path(initiative) }
+
+        include_examples "follows"
+      end
+
       context "when signature interval is defined" do
         let(:base_initiative) do
           create(:initiative,

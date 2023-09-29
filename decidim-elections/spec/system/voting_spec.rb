@@ -25,6 +25,13 @@ describe "Voting", type: :system do
       expect(page).to have_i18n_content(voting.description)
     end
 
+    describe "follow button" do
+      let(:followable) { voting }
+      let(:followable_path) { decidim_votings.voting_path(voting) }
+
+      include_examples "follows"
+    end
+
     it_behaves_like "has embedded video in description", :description do
       before do
         voting.update!(description:)
