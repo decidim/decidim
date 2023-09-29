@@ -85,6 +85,7 @@ cs:
   decidim:
     admin:
       actions:
+        manage: Spravovat
         new_initiative_type: Nový typ iniciativy
       filters:
         initiatives:
@@ -112,8 +113,11 @@ cs:
         committee_members: Členové výboru
         components: Komponenty
         information: Informace
+        initiative_type_scopes: Typy oblasti působnosti iniciativy
         initiatives: Iniciativy
         initiatives_settings: Nastavení
+        initiatives_submenu:
+          info: O této iniciativě
         initiatives_types: Typy iniciativ
         moderations: Moderování
       models:
