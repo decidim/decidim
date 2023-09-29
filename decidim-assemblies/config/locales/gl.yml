@@ -189,7 +189,6 @@ gl:
           attachments: Anexos
           categories: Categorías
           components: Compoñentes
-          info: Información
           moderations: Moderacións
           private_users: Usuarios privados
         assemblies_types: Tipos de xuntanzas
@@ -281,9 +280,6 @@ gl:
         assemblies_types:
           form:
             title: Título
-        assembly_imports:
-          form:
-            document_legend: Engadir un documento
         assembly_members:
           form:
             existing_user: Usuario existente
@@ -299,7 +295,6 @@ gl:
               all: Todo
               ceased: Cesado
               not_ceased: Non cesou
-            filter_by: Filtrar por
             search: Busca
         content_blocks:
           highlighted_assemblies:
