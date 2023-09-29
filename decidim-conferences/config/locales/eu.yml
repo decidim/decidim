@@ -202,7 +202,7 @@ eu:
         conference:
           fields:
             created_at: Sortutako at
-            promoted: sustatuta
+            promoted: Nabarmendua
             published: Argitaratutako
             title: Izenburua
         conference_speaker:
