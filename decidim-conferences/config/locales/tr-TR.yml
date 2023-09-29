@@ -144,7 +144,6 @@ tr:
           conference_invites: Davetler
           conference_speakers: Konuşmacılar
           diploma: Katılım sertifikası
-          info: Bilgi
           media_links: Medya Bağlantıları
           moderations: Moderasyonlar
           partners: Ortaklar
@@ -155,7 +154,6 @@ tr:
         conference:
           fields:
             created_at: Düzenlendi
-            promoted: Vurgulanan
             published: Yayınlanan
             title: Başlık
         conference_speaker:
@@ -289,7 +287,6 @@ tr:
               all: Herşey
               rejected: Reddedilen
               sent: Gönderilen
-            filter_by: Tarafından filtre
             invite_attendee: Katılımcı Davet Et
             invites: Davetler
             search: Arama
