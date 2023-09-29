@@ -613,7 +613,6 @@ pt-BR:
             ballot_styles: Estilo da cédula
             census: Censo
             components: Componentes
-            info: Informação
             landing_page: Página inicial
             monitoring_committee: Comitê de Monitoramento
             monitoring_committee_election_results: Validar resultados
@@ -648,7 +647,6 @@ pt-BR:
           voting:
             fields:
               created_at: Criado em
-              promoted: Destaque
               published: Publicado
               title: Título
         monitoring_committee_election_results:
