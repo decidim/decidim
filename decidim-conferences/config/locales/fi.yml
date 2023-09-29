@@ -193,7 +193,6 @@ fi:
           conference_invites: Kutsut
           conference_speakers: Puhujat
           diploma: Läsnäolotodistus
-          info: Tiedot
           media_links: Medialinkit
           moderations: Moderoinnit
           partners: Yhteistyökumppanit
@@ -204,7 +203,6 @@ fi:
         conference:
           fields:
             created_at: Luonnin ajankohta
-            promoted: Korostettu
             published: Julkaistu
             title: Otsikko
         conference_speaker:
@@ -347,7 +345,6 @@ fi:
               all: Kaikki
               rejected: Hylätyt
               sent: Lähetetyt
-            filter_by: Suodata
             invite_attendee: Kutsu käyttäjä
             invites: Kutsut
             search: Hae
