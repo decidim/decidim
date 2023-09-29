@@ -178,7 +178,6 @@ zh-CN:
           attachments: 附件
           categories: 类别管理
           components: 组件
-          info: 信息
           moderations: 版面
           private_users: 私人用户
         assemblies_types: 程序集类型
@@ -267,9 +266,6 @@ zh-CN:
         assemblies_types:
           form:
             title: 标题
-        assembly_imports:
-          form:
-            document_legend: 添加文档
         assembly_members:
           form:
             existing_user: 现有参与者
@@ -282,7 +278,6 @@ zh-CN:
               all: 所有的
               ceased: 缓存器
               not_ceased: 未停止
-            filter_by: 筛选方式
             search: 搜索
         content_blocks:
           highlighted_assemblies:
