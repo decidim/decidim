@@ -863,7 +863,6 @@ fr:
             ballot_styles: Styles de bulletin
             census: Recensement
             components: Fonctionnalités
-            info: Information
             landing_page: Page d’accueil
             monitoring_committee: Comité de suivi
             monitoring_committee_election_results: Valider les résultats
@@ -898,7 +897,6 @@ fr:
           voting:
             fields:
               created_at: Créée le
-              promoted: Mis en avant
               published: Publié
               title: Titre
         monitoring_committee_election_results:
