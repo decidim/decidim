@@ -190,7 +190,6 @@ ar:
           conference_invites: تدعو
           conference_speakers: مكبرات الصوت
           diploma: شهادة حضور
-          info: معلومات
           media_links: روابط الوسائط
           moderations: الإعتدال
           partners: شركاء
@@ -201,7 +200,6 @@ ar:
         conference:
           fields:
             created_at: أنشئت في
-            promoted: سلط الضوء
             published: نشرت
             title: عنوان
         conference_speaker:
@@ -340,7 +338,6 @@ ar:
               all: الكل
               rejected: مرفوض
               sent: أرسلت
-            filter_by: مصنف بواسطة
             invite_attendee: دعوة مشارك
             invites: تدعو
             search: بحث
