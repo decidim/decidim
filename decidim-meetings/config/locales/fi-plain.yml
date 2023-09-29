@@ -20,6 +20,7 @@ fi-pl:
         description: Kuvaus
         end_time: Päättymisaika
         id: ID
+        iframe_access_level: Iframe-käyttöoikeustaso
         iframe_embed_type: Iframe-upotuksen tyyppi
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
