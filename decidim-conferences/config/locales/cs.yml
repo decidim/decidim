@@ -156,6 +156,7 @@ cs:
         exports:
           registrations: Registrace
         form:
+          sections: Sekce
           title: Obecná informace
         index:
           not_published: Není zveřejněno
@@ -199,11 +200,13 @@ cs:
           conference_invites: Pozvánky
           conference_speakers: Řečníci
           diploma: Potvrzení o účasti
+          info: O této konferenci
           media_links: Odkazy na média
           moderations: Moderování
           partners: Partneři
           registration_types: Typy registrace
           registrations: Registrace
+          see_conference: Zobrazit konferenci
           user_registrations: Registrace uživatelů
       models:
         conference:
