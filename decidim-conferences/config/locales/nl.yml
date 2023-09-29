@@ -177,7 +177,6 @@ nl:
           conference_invites: Uitnodigingen
           conference_speakers: Sprekers
           diploma: Certificaat van Deelname
-          info: Info
           media_links: Mediakoppelingen
           moderations: Moderaties
           partners: Partners
@@ -188,7 +187,6 @@ nl:
         conference:
           fields:
             created_at: Aangemaakt op
-            promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
         conference_speaker:
@@ -327,7 +325,6 @@ nl:
               all: Alle
               rejected: Verworpen
               sent: Verzonden
-            filter_by: Filteren op
             invite_attendee: Nodig deelnemer uit
             invites: Uitnodigingen
             search: Zoeken
