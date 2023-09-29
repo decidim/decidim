@@ -54,7 +54,9 @@ module Decidim
     end
 
     def have_admin_callout(text)
-      have_selector(".callout--full", text:)
+      within_flash_messages do
+        have_content text
+      end
     end
 
     def stub_get_request_with_format(rq_url, rs_format)
