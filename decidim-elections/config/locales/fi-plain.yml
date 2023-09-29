@@ -133,6 +133,13 @@ fi-pl:
           values:
             'false': Vahvistamaton
             'true': Vahvistettu
+      voting_publications:
+        create:
+          error: Äänestyksen julkaisu epäonnistui.
+          success: Äänestyksen julkaisu onnistui.
+        destroy:
+          error: Äänestyksen julkaisun lopettaminen epäonnistui.
+          success: Äänestyksen julkaisun lopettaminen onnistui.
     components:
       elections:
         actions:
@@ -856,7 +863,6 @@ fi-pl:
             ballot_styles: Äänestystyylit
             census: Henkilötietorekisteri
             components: Komponentit
-            info: Tiedot
             landing_page: Laskeutumissivu
             monitoring_committee: Tarkkailukomitea
             monitoring_committee_election_results: Vahvista tulokset
@@ -891,7 +897,6 @@ fi-pl:
           voting:
             fields:
               created_at: Luonnin ajankohta
-              promoted: Korostettu
               published: Julkaistu
               title: Otsikko
         monitoring_committee_election_results:
@@ -1042,6 +1047,7 @@ fi-pl:
             select_a_voting_type: Valitse äänestystapa
             show_check_census_help: Määrittää, näytetäänkö "Voinko äänestää?" -linkki julkisten äänestysten sivuilla.
             slug: Tunniste
+            slug_help_html: 'URL-tunnisteita käytetään luomaan URL-osoitteita, jotka viittaavat tähän äänestykseen. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
             title: Otsikko
             voting_type:
               hybrid: Yhdistetty äänestystapa
