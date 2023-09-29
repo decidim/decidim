@@ -204,7 +204,6 @@ es:
           attachments: Adjuntos
           categories: Categorías
           components: Componentes
-          info: Información
           landing_page: Página de inicio
           moderations: Moderaciones
           private_users: Participantes privadas
@@ -306,7 +305,6 @@ es:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_imports:
           form:
-            document_legend: Añadir un documento
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_members:
           form:
@@ -323,7 +321,6 @@ es:
               all: Todas
               ceased: Cesada
               not_ceased: No cesada
-            filter_by: Filtra por
             search: Buscar
         content_blocks:
           highlighted_assemblies:
