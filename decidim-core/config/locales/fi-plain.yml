@@ -591,6 +591,7 @@ fi-pl:
       registrations:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
+          log_in: Kirjaudu sisään
           newsletter: Vastaanota silloin tällöin olennaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
           sign_up: Rekisteröidy
@@ -605,6 +606,8 @@ fi-pl:
           register: Rekisteröidy
           sign_in_disabled: Voit käyttää ulkoista tiliä.
           sign_up_disabled: Rekisteröityminen on poistettu käytöstä, mutta voit kirjautua olemassaolevalla käyttäjätilillä.
+        user:
+          timed_out: Palvelua ei ole käytetty hetkeen, minkä takia sinut on kirjattu palvelusta ulos automaattisesti. Jos haluat jatkaa palvelun käyttöä, kirjaudu uudestaan sisään.
       shared:
         newsletter_modal:
           buttons:
@@ -620,12 +623,19 @@ fi-pl:
           title: Uutiskirjeitä koskeva ilmoitus
         omniauth_buttons:
           or: Tai
+        password_fields:
+          hidden_password: Salasanasi on piilotettu
+          hide_password: Piilota salasana
+          show_password: Näytä salasana
+          shown_password: Salasanasi näytetään
+        placeholder_email: hei@esimerkki.org
     doorkeeper:
       authorizations:
         new:
           authorize: Hyväksyn tietojeni käytön
           by_organization_link_html: '<small class="heading-small">palveluntarjoaja: %{link}</small>'
           cancel: Peruuta
+          connect_your_account_html: Yhdistä tilisi kirjautumalla sisään palveluun %{organization}.
           publish_content: Julkaista sisältöä puolestasi
           see_email: Nähdä sähköpostiosoitteesi
           see_name: Nähdä nimesi
@@ -639,6 +649,8 @@ fi-pl:
         ready: Valmis
       show:
         download_data: Lataa tiedot
+        download_data_description_html: |-
+          Tiedosto sisältää kaikki tiliisi liitetyt tiedot ja se lähetetään osoitteeseen <strong>%{user_email}</strong>. Kyseinen sähköposti sisältää .zip-tiedoston ja salasanan, jolla kyseisen tiedoston voi avata.<br/><br/>Purkaaksesi tiedoston, tarvitset <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille) tai <a href="https://www.keka.io/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille). Jos käytät Linux-käyttöjärjestelmää, useimmiten paketin avaamiseen tarvittava ohjelmisto on valmiiksi asennettuna järjestelmääsi. Jos näin ei kuitenkaan ole, voit käyttää <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller -ohjelmistoa</a> tai <a href="https://peazip.github.io">PeaZip-ohjelmistoa</a> paketin avaamiseen.
         request_data: Pyydä tietoja
     editor_images:
       create:
@@ -1082,29 +1094,35 @@ fi-pl:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
           greeting: Hei %{recipient}!
           intro: "%{manager} on aloittanut uuden keskustelun ryhmän %{group} nimellä. Napsauta tätä linkkiä nähdäksesi keskustelun:"
+          outro: Nauti palvelun käyttämisestä!
           subject: "%{manager} on aloittanut uuden keskutelun ryhmänä %{group}"
         comanagers_new_message:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
           greeting: Hei %{recipient}!
           intro: "%{manager} on lähettänyt uusia viestejä keskustelussa ryhmän %{group} nimellä. Napsauta tätä linkkiä nähdäksesi ne:"
+          outro: Nauti palvelun käyttämisestä!
           subject: "%{manager} on lähettänyt uusia viestejä ryhmänä %{group}"
         new_conversation:
           greeting: Hei, %{recipient}!
           intro: "%{sender} on aloittanut uuden keskustelun kanssasi. Napsauta tätä linkkiä nähdäksesi keskustelun:"
+          outro: Nauti palvelun käyttämisestä!
           subject: "%{sender} on aloittanut keskustelun kanssasi"
         new_group_conversation:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
           greeting: Hei %{recipient}!
           intro: "%{sender} on aloittanut uuden keskustelun ryhmänä %{group}. Napsauta tätä linkkiä nähdäksesi keskustelun:"
+          outro: Nauti palvelun käyttämisestä!
           subject: "%{sender} on aloittanut keskustelun ryhmän %{group} kanssa"
         new_group_message:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
           greeting: Hei %{recipient}!
           intro: "%{sender} on lähettänyt uusia viestejä keskustelussa ryhmän %{group} kesken. Napsauta tätä linkkiä nähdäksesi ne:"
+          outro: Nauti palvelun käyttämisestä!
           subject: "Ryhmällä %{group} on uusia viestejä lähettäjältä %{sender}"
         new_message:
           greeting: Hei, %{recipient}!
           intro: "%{sender} on lähettänyt uusia viestejä keskusteluusi. Klikkaa tästä linkistä nähdäksesi ne:"
+          outro: Nauti palvelun käyttämisestä!
           subject: Sinulla on uusia viestejä lähettäjältä %{sender}
       conversations:
         add_conversation_users:
@@ -1464,7 +1482,10 @@ fi-pl:
         title: Ilmoita asiaton käyttäjä
       floating_help:
         help: Ohjeet
+      follow_button:
+        log_in_before_follow: Kirjaudu sisään ennen tämän toiminnon suorittamista
       login_modal:
+        please_log_in: Kirjaudu sisään
         sign_up: Rekisteröidy
       mentions_modal:
         remove_recipient: Poista vastaanottaja %{name}
@@ -1582,6 +1603,8 @@ fi-pl:
       last_attempt: Sinulla on vielä yksi yritys ennen kuin tunnuksesi lukitaan.
       locked: Tunnuksesi on lukittu.
       not_found_in_database: Virheellinen %{authentication_keys} tai salasana.
+      timeout: Istuntosi on vanhentunut, ole hyvä ja kirjaudu sisään jatkaaksesi.
+      unauthenticated: Sinun pitää kirjautua sisään tai rekisteröityä ennen kuin voit jatkaa.
     invitations:
       edit:
         header: Viimeistele tilisi
@@ -1644,6 +1667,7 @@ fi-pl:
         action: Avaa tilini
         greeting: Hei %{recipient}!
         instruction: 'Napsauttamalla seuraavaa linkkiä voit avata tilisi:'
+        message: Tilisi on lukittu liian monen epäonnistuneen kirjautumisyrityksen vuoksi.
         subject: Avaa ohjeet
     omniauth_callbacks:
       failure: Sisäänkirjautuminen epäonnistui palvelulla %{kind} koska "%{reason}".
@@ -1674,12 +1698,20 @@ fi-pl:
       signed_up_but_unconfirmed: Sähköpostiosoitteeseesi on lähetetty vahvistuslinkin sisältävä viesti. Aktivoi tilisi käyttämällä kyseistä linkkiä.
       update_needs_confirmation: Tilisi on päivitetty onnistuneesti, mutta meidän on vahvistettava uusi sähköpostiosoitteesi. Tarkista sähköpostisi ja vahvista sähköpostiosoitteesi käyttämällä sähköpostissa näkyvää linkkiä.
       updated: Tilisi on päivitetty onnistuneesti.
+    sessions:
+      already_signed_out: Uloskirjautuminen onnistui.
+      new:
+        log_in: Kirjaudu sisään
+      signed_in: Sisäänkirjautuminen onnistui.
+      signed_out: Uloskirjautuminen onnistui.
     shared:
       links:
         back: Takaisin
         didn_t_receive_confirmation_instructions: Etkö saanut vahvistusohjeita?
         didn_t_receive_unlock_instructions: Etkö saanut ohjeita tilin lukituksen poistoon?
         forgot_your_password: Unohditko salasanasi?
+        log_in: Kirjaudu sisään
+        log_in_with_provider: Kirjaudu sisään %{provider}-palvelulla
         sign_up: Rekisteröidy
       minimum_password_length:
         one: "(vähintään %{count} merkki)"
@@ -1689,6 +1721,7 @@ fi-pl:
         resend_unlock_instructions: Lähetä uudelleen ohjeet tilin lukituksen poistoon
       send_instructions: Saat muutaman minuutin kuluessa sähköpostiviestin, jossa on ohjeet tilin lukituksen poistoon.
       send_paranoid_instructions: Jos tilisi on olemassa, saat muutaman minuutin kuluessa sähköpostiisi ohjeet tilin lukituksen poistoon.
+      unlocked: Tilisi lukitus on poistettu. Jatka kirjautumalla sisään.
   doorkeeper:
     scopes:
       public: Julkiset tietosi.
@@ -1777,6 +1810,7 @@ fi-pl:
   errors:
     messages:
       allowed_file_content_types: 'ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
+      already_confirmed: on jo vahvistettu, yritä kirjautua sisään uudelleen
       blank: ei voi olla tyhjä
       cannot_be_blank: ei voi olla tyhjä
       confirmation: ei täsmää kentän %{attribute} kanssa
@@ -1813,6 +1847,7 @@ fi-pl:
   layouts:
     decidim:
       announcements:
+        view_less: Näytä vähemmän
         view_more: Lisätietoa
       data_consent:
         details:
@@ -1871,11 +1906,13 @@ fi-pl:
         decidim_logo: Decidim-logo
         decidim_title: Decidim
         download_open_data: Lataa avoimet datatiedostot
+        log_in: Kirjaudu sisään
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
         resources: Resurssit
         sign_up: Rekisteröidy
         terms_and_conditions: Käyttöehdot
       header:
+        log_in: Kirjaudu sisään
         main_menu: Päävalikko
         user_menu: Käyttäjän valikko
       impersonation_warning:
@@ -1889,14 +1926,20 @@ fi-pl:
         mark_as_read: Merkitse luetuiksi
       offline_banner:
         cache_version_page: Hups! Verkkoyhteytesi on kytketty pois päältä. Tämä on aiemmin välimuistissa oleva versio vierailemasi sivusta, jonka sisältö ei välttämättä ole ajan tasalla.
+      shared:
+        layout_item:
+          next: Seuraava kohde
+          prev: Edellinen kohde
       social_media_links:
         facebook: "%{organization} Facebookissa"
         github: "%{organization} GitHubissa"
         instagram: "%{organization} Instagramissa"
+        x: "%{organization} X-palvelussa"
         youtube: "%{organization} YouTubessa"
       timeout_modal:
         body: Et ole käyttänyt palvelua %{minutes} minuuttiin. Jos et jatka palvelun käyttöä, sinut kirjataan automaattisesti ulos oman turvallisuutesi takia.
         continue_session: Jatka palvelun käyttöä
+        log_out: Kirjaudu ulos
         title: Haluatko jatkaa palvelun käyttöä?
       upload_modal:
         close_modal: Sulje ikkuna
@@ -1905,6 +1948,7 @@ fi-pl:
         admin_dashboard: Hallintapaneeli
         configuration: Asetukset
         conversations: Keskustelut
+        log_out: Kirjaudu ulos
         notifications: Ilmoitukset
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
@@ -1963,6 +2007,7 @@ fi-pl:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
