@@ -72,7 +72,6 @@ ga:
           attachment_files: Comhaid
           attachments: Ceangaltáin
           categories: Catagóirí
-          info: Eolas
       models:
         assemblies_types:
           fields:
