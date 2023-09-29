@@ -185,7 +185,6 @@ lb:
           attachment_files: Dateien
           categories: Kategorien
           components: Komponenten
-          info: Info
           moderations: Moderationen
           private_users: Private Benutzer
         assemblies_types: Versammlungstypen
@@ -223,9 +222,6 @@ lb:
         assemblies_types:
           form:
             title: Titel
-        assembly_imports:
-          form:
-            document_legend: Dokument hinzufügen
         assembly_members:
           form:
             existing_user: Existierender Benutzer
@@ -238,7 +234,6 @@ lb:
               all: Alle
               ceased: Aufgegeben
               not_ceased: Nicht aufgehört
-            filter_by: Filtern nach
             search: Suche
         content_blocks:
           highlighted_assemblies:
