@@ -887,6 +887,7 @@ cs:
             ballot_styles: Styly hlasování
             census: Seznam obyvatel
             components: Komponenty
+            info: O tomto hlasování
             landing_page: Vstupní stránka
             monitoring_committee: Monitorovací výbor
             monitoring_committee_election_results: Ověřit výsledky
@@ -895,6 +896,7 @@ cs:
             monitoring_committee_verify_elections: Ověřit volby
             polling_officers: Volební komisaři
             polling_stations: Volební místnost
+            see_voting: Zobrazit hlasování
         models:
           ballot_style:
             fields:
