@@ -192,7 +192,6 @@ el:
           conference_invites: Προσκλήσεις
           conference_speakers: Ομιλητές
           diploma: Πιστοποιητικό παρακολούθησης
-          info: Πληροφορίες
           media_links: Σύνδεσμοι πολυμέσων
           moderations: Εποπτεύσεις
           partners: Συνεργάτες
@@ -203,7 +202,6 @@ el:
         conference:
           fields:
             created_at: Δημιουργήθηκε στις
-            promoted: Επισημάνθηκε
             published: Δημοσιεύτηκε
             title: Τίτλος
         conference_speaker:
@@ -343,7 +341,6 @@ el:
               all: Όλα
               rejected: Απορρίφθηκε
               sent: Στάλθηκε
-            filter_by: Φιλτράρισμα κατά
             invite_attendee: Πρόσκληση συμμετέχοντα
             invites: Προσκλήσεις
             search: Αναζήτηση
