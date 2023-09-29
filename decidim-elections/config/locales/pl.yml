@@ -646,7 +646,6 @@ pl:
             ballot_styles: Rodzaje kart wyborczych
             census: Lista wyborców
             components: Komponenty
-            info: Informacje
             landing_page: Strona Startowa
             monitoring_committee: Komisja monitorująca
             monitoring_committee_election_results: Zweryfikuj wyniki
@@ -681,7 +680,6 @@ pl:
           voting:
             fields:
               created_at: Utworzono
-              promoted: Wyróżniony
               published: Opublikowano
               title: Tytuł
         monitoring_committee_election_results:
