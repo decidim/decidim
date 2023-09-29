@@ -201,7 +201,6 @@ ja:
           attachments: 添付ファイル
           categories: カテゴリ
           components: コンポーネント
-          info: 情報
           landing_page: ランディングページ
           moderations: モデレーション
           private_users: プライベートユーザー
@@ -303,7 +302,6 @@ ja:
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         assembly_imports:
           form:
-            document_legend: ドキュメントを追加
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         assembly_members:
           form:
@@ -320,7 +318,6 @@ ja:
               all: すべて
               ceased: 終了済み
               not_ceased: 終了していません
-            filter_by: フィルター
             search: 検索
         content_blocks:
           highlighted_assemblies:
