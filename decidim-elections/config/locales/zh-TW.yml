@@ -814,7 +814,6 @@ zh-TW:
             ballot_styles: 選票樣式
             census: 選民名單
             components: 组件
-            info: 資訊
             landing_page: 登陸頁面
             monitoring_committee: 監管委員會
             monitoring_committee_election_results: 驗證結果
@@ -849,7 +848,6 @@ zh-TW:
           voting:
             fields:
               created_at: 建立於
-              promoted: 重點顯示
               published: 已發佈
               title: 標題
         monitoring_committee_election_results:
