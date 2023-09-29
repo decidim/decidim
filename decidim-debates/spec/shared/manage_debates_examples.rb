@@ -214,7 +214,7 @@ RSpec.shared_examples "manage debates" do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_admin_callout "Debate successfully updated"
+      expect(page).to have_admin_callout "Debate successfully closed"
 
       within "table" do
         within find("tr", text: translated(debate.title)) do
