@@ -206,7 +206,6 @@ ro:
           attachments: Atașamente
           categories: Categorii
           components: Componente
-          info: Informații
           landing_page: Pagina principală
           moderations: Moderări
           private_users: Utilizatori privați
@@ -302,9 +301,6 @@ ro:
         assemblies_types:
           form:
             title: Titlu
-        assembly_imports:
-          form:
-            document_legend: Adaugă un document
         assembly_members:
           form:
             existing_user: Participant existent
@@ -320,7 +316,6 @@ ro:
               all: Toți
               ceased: Sistat
               not_ceased: Nesistat
-            filter_by: Filtrează după
             search: Caută
         content_blocks:
           highlighted_assemblies:
