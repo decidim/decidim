@@ -193,7 +193,6 @@ fr-CA:
           conference_invites: Invitations
           conference_speakers: Conférenciers
           diploma: Certificat de participation
-          info: Info
           media_links: Liens médias
           moderations: Modération
           partners: Partenaires
@@ -204,7 +203,6 @@ fr-CA:
         conference:
           fields:
             created_at: Créé à
-            promoted: Mise en avant
             published: Publié
             title: Titre
         conference_speaker:
@@ -347,7 +345,6 @@ fr-CA:
               all: Tout
               rejected: Rejeté
               sent: Envoyé
-            filter_by: Filtrer par
             invite_attendee: Inviter un participant
             invites: Invite
             search: Chercher
