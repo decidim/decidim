@@ -811,7 +811,6 @@ el:
             ballot_styles: Στυλ ψηφοδελτίων
             census: Απογραφή
             components: Στοιχεία
-            info: Πληροφορίες
             landing_page: Σελίδα άφιξης
             monitoring_committee: Επιτροπή Παρακολούθησης
             monitoring_committee_election_results: Επικύρωση Αποτελεσμάτων
@@ -846,7 +845,6 @@ el:
           voting:
             fields:
               created_at: Δημιουργήθηκε στις
-              promoted: Επισημάνθηκε
               published: Δημοσιεύθηκε
               title: Τίτλος
         monitoring_committee_election_results:
