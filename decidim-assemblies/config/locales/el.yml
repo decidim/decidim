@@ -203,7 +203,6 @@ el:
           attachments: Συνημμένα
           categories: Κατηγορίες
           components: Στοιχεία
-          info: Πληροφορίες
           moderations: Εποπτεύσεις
           private_users: Ιδιωτικοί χρήστες
         assemblies_types: Τύποι συνέλευσης
@@ -298,9 +297,6 @@ el:
         assemblies_types:
           form:
             title: Τίτλος
-        assembly_imports:
-          form:
-            document_legend: Προσθήκη εγγράφου
         assembly_members:
           form:
             existing_user: Υπάρχων συμμετέχων
@@ -316,7 +312,6 @@ el:
               all: Όλα
               ceased: Τέθηκε σε παύση
               not_ceased: Δεν τέθηκε σε παύση
-            filter_by: Φιλτράρισμα κατά
             search: Αναζήτηση
         content_blocks:
           highlighted_assemblies:
