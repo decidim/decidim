@@ -191,7 +191,6 @@ hu:
           conference_invites: Meghívottak
           conference_speakers: Előadók
           diploma: Tanúsítvány a jelenlétről
-          info: Info
           media_links: Média linkek
           moderations: moderálások
           partners: Partnerek
@@ -202,7 +201,6 @@ hu:
         conference:
           fields:
             created_at: 'Létrehozva:'
-            promoted: promotált
             published: Közzétett
             title: Cím
         conference_speaker:
@@ -342,7 +340,6 @@ hu:
               all: Minden
               rejected: Elutasítva
               sent: Küldött
-            filter_by: Szűrés vlami alapján
             invite_attendee: Hívja meg a résztvevőt
             invites: Meghívottak
             search: Keresés
