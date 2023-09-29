@@ -199,7 +199,6 @@ cs:
           conference_invites: Pozvánky
           conference_speakers: Řečníci
           diploma: Potvrzení o účasti
-          info: Info
           media_links: Odkazy na média
           moderations: Moderování
           partners: Partneři
@@ -210,7 +209,6 @@ cs:
         conference:
           fields:
             created_at: Vytvořeno v
-            promoted: Propagováno
             published: Publikováno
             title: Název
         conference_speaker:
@@ -353,7 +351,6 @@ cs:
               all: Vše
               rejected: Odmítnuto
               sent: Odesláno
-            filter_by: Filtrovat podle
             invite_attendee: Pozvat účastníka
             invites: Pozvánky
             search: Vyhledávání
