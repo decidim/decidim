@@ -189,7 +189,6 @@ zh-TW:
           conference_invites: 邀請
           conference_speakers: 講者
           diploma: 出席證明書
-          info: 資訊
           media_links: 媒體連結
           moderations: 版主
           partners: 夥伴
@@ -200,7 +199,6 @@ zh-TW:
         conference:
           fields:
             created_at: 建立於
-            promoted: 重點顯示
             published: 已發佈
             title: 標題
         conference_speaker:
@@ -340,7 +338,6 @@ zh-TW:
               all: 全部
               rejected: 已拒絕
               sent: 傳送
-            filter_by: 篩選條件
             invite_attendee: 邀請參與者
             invites: 邀請
             search: 搜尋
