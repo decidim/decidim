@@ -151,7 +151,6 @@ en:
         exports:
           registrations: Registrations
         form:
-          sections: Sections
           title: General Information
         index:
           not_published: Not published
