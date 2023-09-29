@@ -200,7 +200,6 @@ zh-TW:
           attachments: 附件
           categories: 類別
           components: 元件
-          info: 資訊
           moderations: 版主
           private_users: 私人使用者
         assemblies_types: 大會類型
@@ -295,9 +294,6 @@ zh-TW:
         assemblies_types:
           form:
             title: 標題
-        assembly_imports:
-          form:
-            document_legend: 添加文檔
         assembly_members:
           form:
             existing_user: 現有參與者
@@ -313,7 +309,6 @@ zh-TW:
               all: 全部
               ceased: 已停止
               not_ceased: 沒有停止
-            filter_by: 篩選條件
             search: 搜尋
         content_blocks:
           highlighted_assemblies:
