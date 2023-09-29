@@ -863,7 +863,6 @@ es-PY:
             ballot_styles: Estilos de papeleta
             census: Censo
             components: Componentes
-            info: Información
             landing_page: Página de inicio
             monitoring_committee: Comité de seguimiento
             monitoring_committee_election_results: Validar resultados
@@ -898,7 +897,6 @@ es-PY:
           voting:
             fields:
               created_at: Creado el
-              promoted: Destacada
               published: Publicada
               title: Título
         monitoring_committee_election_results:
