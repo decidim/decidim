@@ -527,11 +527,13 @@ fi:
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei kerännyt tarpeeksi allekirjoituksia.
         show:
           area: Alue
+          before_send_to_technical_validation_announcement: 'Ennen kuin lähetät aloitteesi tekniseen validointiin, sinun täytyy lisätä %{count} uutta jäsentä kannatuskomiteaan.<br/><br/>Jaa tämä niiden ihmisten kanssa, joiden haluat liittyvän kannatuskomiteaan: %{href}'
           confirm: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
           edit: Muokkaa
           initiative_data: Aloitteen tiedot
           scope: Teema
           send_to_technical_validation: Lähetä tekniseen validointiin
+          send_to_technical_validation_announcement: Jos kaikki näyttää hyvältä, paina "Lähetä tekniseen validointiin" -painiketta, jotta hallinnointikäyttäjä voi tarkistaa ja julkaista aloitteesi
           signature_collection: Allekirjoituksen keräämistapa
           state: Tila
           type: Tyyppi
