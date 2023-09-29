@@ -20,6 +20,7 @@ fi:
         description: Kuvaus
         end_time: Päättymisaika
         id: ID
+        iframe_access_level: Iframe-käyttöoikeustaso
         iframe_embed_type: Iframe-upotuksen tyyppi
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
@@ -340,8 +341,8 @@ fi:
             add_service: Lisää palvelu
             services: Palvelut
           unpublish:
-            invalid: Tapaamisen julkaisemisen peruminen epäonnistui.
-            success: Tapaamisen julkaisemisen peruminen onnistui.
+            invalid: Tapaamisen julkaisun lopettaminen epäonnistui.
+            success: Tapaamisen julkaisun lopettaminen onnistui.
           update:
             invalid: Tapaamisen päivitys epäonnistui.
             success: Tapaamisen päivitys onnistui.
