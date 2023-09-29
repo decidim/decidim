@@ -851,7 +851,6 @@ ja:
             ballot_styles: 投票スタイル
             census: センサス
             components: コンポーネント
-            info: インフォメーション
             landing_page: ランディングページ
             monitoring_committee: 監視委員会
             monitoring_committee_election_results: 結果を検証する
@@ -886,7 +885,6 @@ ja:
           voting:
             fields:
               created_at: 作成日時
-              promoted: ハイライト
               published: 公開済み
               title: タイトル
         monitoring_committee_election_results:
