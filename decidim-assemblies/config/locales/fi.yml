@@ -171,8 +171,8 @@ fi:
           error: Ryhmän julkaiseminen epäonnistui.
           success: Ryhmän julkaisu onnistui.
         destroy:
-          error: Ryhmän julkaisun peruminen epäonnistui.
-          success: Ryhmän julkaisun peruminen onnistui.
+          error: Ryhmän julkaisun lopettaminen epäonnistui.
+          success: Ryhmän julkaisun lopettaminen onnistui.
       assembly_user_roles:
         create:
           error: Hallintakäyttäjän lisäys ryhmään epäonnistui.
