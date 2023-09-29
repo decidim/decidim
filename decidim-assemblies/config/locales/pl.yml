@@ -196,7 +196,6 @@ pl:
           attachments: Załączniki
           categories: Kategorie
           components: Komponenty
-          info: Informacje
           moderations: Moderacje
           private_users: Prywatni użytkownicy
         assemblies_types: Typy zespołów
@@ -290,9 +289,6 @@ pl:
         assemblies_types:
           form:
             title: Tytuł
-        assembly_imports:
-          form:
-            document_legend: Dodaj dokument
         assembly_members:
           form:
             existing_user: Istniejący użytkownik
@@ -306,7 +302,6 @@ pl:
               all: Wszystko
               ceased: Byli
               not_ceased: Aktualni
-            filter_by: Filtruj według
             search: Szukaj
         content_blocks:
           highlighted_assemblies:
