@@ -880,7 +880,6 @@ lt:
             ballot_styles: Biuletenio tipai
             census: Surašymas
             components: Komponentai
-            info: Informacija
             landing_page: Pagrindinis puslapis
             monitoring_committee: Priežiūros komitetas
             monitoring_committee_election_results: Patvirtinti rezultatus
@@ -915,7 +914,6 @@ lt:
           voting:
             fields:
               created_at: Sukurta
-              promoted: Paryškinta
               published: Paskelbta
               title: Pavadinimas
         monitoring_committee_election_results:
