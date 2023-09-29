@@ -546,7 +546,6 @@ nl:
             ballot_styles: Stembriefstijlen
             census: Kiezerslijst
             components: Onderdelen
-            info: Informatie
             landing_page: Landingspagina
             monitoring_committee: Controlecomité
             monitoring_committee_election_results: Resultaten valideren
@@ -577,7 +576,6 @@ nl:
           voting:
             fields:
               created_at: Aangemaakt op
-              promoted: In de kijker
               published: Gepubliceerd
               title: Titel
         monitoring_committee_election_results:
