@@ -184,7 +184,6 @@ sv:
           conference_invites: Inbjudningar
           conference_speakers: Talare
           diploma: Närvarointyg
-          info: Info
           media_links: Medialänkar
           moderations: Moderering
           partners: Partners
@@ -195,7 +194,6 @@ sv:
         conference:
           fields:
             created_at: Skapad
-            promoted: Annonserad
             published: Publicerad
             title: Titel
         conference_speaker:
@@ -334,7 +332,6 @@ sv:
               all: Alla
               rejected: Avvisad
               sent: Skickade
-            filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningar
             search: Sök
