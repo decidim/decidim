@@ -59,9 +59,7 @@ describe "Admin manages elections", type: :system do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Election successfully created")
 
       within "table" do
         expect(page).to have_content("My election")
@@ -103,9 +101,7 @@ describe "Admin manages elections", type: :system do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Election successfully updated")
 
       within "table" do
         expect(page).to have_content("My new title")
@@ -142,9 +138,7 @@ describe "Admin manages elections", type: :system do
           page.find(".action-icon--publish").click
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_admin_callout("The election has been successfully published")
 
         within find("tr", text: translated(election.title)) do
           expect(page).not_to have_selector(".action-icon--publish")
@@ -161,9 +155,7 @@ describe "Admin manages elections", type: :system do
         page.find(".action-icon--unpublish").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("The election has been successfully unpublished")
 
       within find("tr", text: translated(election.title)) do
         expect(page).not_to have_selector(".action-icon--unpublish")
@@ -201,9 +193,7 @@ describe "Admin manages elections", type: :system do
         end
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Election successfully deleted")
 
       within "table" do
         expect(page).not_to have_content(translated(election.title))
