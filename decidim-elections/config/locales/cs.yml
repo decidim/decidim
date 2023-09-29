@@ -887,7 +887,6 @@ cs:
             ballot_styles: Styly hlasování
             census: Seznam obyvatel
             components: Komponenty
-            info: Informace
             landing_page: Vstupní stránka
             monitoring_committee: Monitorovací výbor
             monitoring_committee_election_results: Ověřit výsledky
@@ -922,7 +921,6 @@ cs:
           voting:
             fields:
               created_at: Vytvořeno v
-              promoted: Zvýrazněno
               published: Publikováno
               title: Název
         monitoring_committee_election_results:
