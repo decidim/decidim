@@ -147,7 +147,6 @@ lv:
           conference_invites: Ielūgumi
           conference_speakers: Runātāji
           diploma: Apmeklējuma sertifikāts
-          info: Informācija
           media_links: Mediju saites
           moderations: Moderācijas
           partners: Partneri
@@ -158,7 +157,6 @@ lv:
         conference:
           fields:
             created_at: Izveidots plkst.
-            promoted: Izcelts
             published: Publicēts
             title: Nosaukums
         conference_speaker:
@@ -292,7 +290,6 @@ lv:
               all: Visi
               rejected: Noraidīts
               sent: Nosūtīts
-            filter_by: Filtrēt pēc
             invite_attendee: Uzaicināt dalībnieku
             invites: Ielūgumi
             search: Meklēt
