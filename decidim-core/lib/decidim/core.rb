@@ -116,8 +116,6 @@ module Decidim
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
-  autoload :RedesignLayout, "decidim/redesign_layout"
-  autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
   autoload :BlockRegistry, "decidim/block_registry"
   autoload :DependencyResolver, "decidim/dependency_resolver"
   autoload :Upgrade, "decidim/upgrade"
