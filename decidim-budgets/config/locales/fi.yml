@@ -166,6 +166,9 @@ fi:
         cancel_order:
           more_than_one: poistaa äänesi budjetista %{name} ja aloittaa alusta
           only_one: poistaa äänesi ja aloittaa alusta.
+        count:
+          one: "%{count} budjetti"
+          other: "%{count} budjettia"
         finished_message: Olet äänestänyt. Kiitos osallistumisestasi!
         highlighted_cta: Äänestä budjetista %{name}
         if_change_opinion: Jos olet muuttanut mieltäsi, voit
