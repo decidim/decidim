@@ -150,7 +150,6 @@ sk:
           conference_invites: Pozvánky
           conference_speakers: Rečníci
           diploma: Certifikát účasti
-          info: Informácie
           media_links: Mediálne odkazy
           moderations: Moderácia
           partners: Partneri
@@ -161,7 +160,6 @@ sk:
         conference:
           fields:
             created_at: Vytvorené
-            promoted: Zvýraznené
             published: Zverejnené
             title: Názov
         conference_speaker:
@@ -295,7 +293,6 @@ sk:
               all: Všetko
               rejected: Odmietnuté
               sent: Odoslané
-            filter_by: Filtrovať podľa
             invite_attendee: Pozvať účastníka
             invites: Pozvánky
             search: Hľadať
