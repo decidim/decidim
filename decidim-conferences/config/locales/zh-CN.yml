@@ -141,7 +141,6 @@ zh-CN:
           conference_invites: 邀请
           conference_speakers: 发言者：
           diploma: 出席证书
-          info: 信息
           media_links: 媒体链接
           moderations: 版面
           partners: 合作伙伴
@@ -152,7 +151,6 @@ zh-CN:
         conference:
           fields:
             created_at: 创建于
-            promoted: 高亮
             published: 已发布
             title: 标题
         conference_speaker:
@@ -286,7 +284,6 @@ zh-CN:
               all: 所有的
               rejected: 已拒绝
               sent: 已发送
-            filter_by: 筛选方式
             invite_attendee: Invite participant
             invites: 邀请
             search: 搜索
