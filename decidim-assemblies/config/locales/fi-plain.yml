@@ -58,6 +58,7 @@ fi-pl:
         subtitle: Alaotsikko
         target: Kuka osallistuu
         title: Otsikko
+        twitter: X
         weight: Järjestysnumero
         youtube: YouTube
       assembly_member:
@@ -203,7 +204,6 @@ fi-pl:
           attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
-          info: Tiedot
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
@@ -288,6 +288,7 @@ fi-pl:
             select_an_area: Valitse alue
             select_an_assembly_type: Valitse ryhmän tyyppi
             select_parent_assembly: Valitse pääryhmä
+            slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: Sosiaalinen media
             title: Yleiset tiedot
             visbility: näkyvyys
@@ -299,9 +300,12 @@ fi-pl:
         assemblies_types:
           form:
             title: Otsikko
+        assembly_copies:
+          form:
+            slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_imports:
           form:
-            document_legend: Lisää dokumentti
+            slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_members:
           form:
             existing_user: Olemassa oleva käyttäjä
@@ -317,7 +321,6 @@ fi-pl:
               all: Kaikki
               ceased: Lakkautettu
               not_ceased: Ei lakkautettu
-            filter_by: Suodata
             search: Hae
         content_blocks:
           highlighted_assemblies:
