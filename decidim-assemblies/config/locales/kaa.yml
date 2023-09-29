@@ -37,7 +37,6 @@ kaa:
           attachment_collections: Papkalar
           attachment_files: Fayllar
           categories: Kategoriyalar
-          info: Maǵlıwmat
       models:
         assembly_user_role:
           fields:
