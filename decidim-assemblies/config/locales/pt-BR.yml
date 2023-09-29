@@ -197,7 +197,6 @@ pt-BR:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          info: Informações
           landing_page: Página principal
           moderations: Moderação
           private_users: Usuários particulares
@@ -289,9 +288,6 @@ pt-BR:
         assemblies_types:
           form:
             title: Título
-        assembly_imports:
-          form:
-            document_legend: Adicionar um documento
         assembly_members:
           form:
             existing_user: Usuário existente
@@ -304,7 +300,6 @@ pt-BR:
               all: Todos
               ceased: Cessou
               not_ceased: Não cessou
-            filter_by: Filtrar por
             search: Procurar
         content_blocks:
           highlighted_assemblies:
