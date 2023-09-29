@@ -210,7 +210,6 @@ cs:
           attachments: Přílohy
           categories: Kategorie
           components: Komponenty
-          info: Info
           landing_page: Úvodní stránka
           moderations: Moderování
           private_users: Soukromí uživatelé
@@ -312,7 +311,6 @@ cs:
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_imports:
           form:
-            document_legend: Přidat dokument
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_members:
           form:
@@ -329,7 +327,6 @@ cs:
               all: Vše
               ceased: Ukončit
               not_ceased: Nekončí
-            filter_by: Filtrovat podle
             search: Vyhledávání
         content_blocks:
           highlighted_assemblies:
