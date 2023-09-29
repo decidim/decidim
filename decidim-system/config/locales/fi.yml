@@ -54,6 +54,9 @@ fi:
         new:
           create: Luo
           title: Uusi hallinnoija
+        show:
+          destroy: Poista
+          edit: Muokkaa
         update:
           error: Hallintakäyttäjän päivitys epäonnistui.
           success: Hallintakäyttäjän päivitys onnistui.
@@ -66,6 +69,21 @@ fi:
           summary: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
           title: Oletusotsikko sivulle %{page}
         terms-of-service: Käyttöehdot
+      devise:
+        passwords:
+          edit:
+            change_your_password: Vaihda salasanasi
+            minimum_characters: "(vähintään %{minimum} merkkiä)"
+          new:
+            forgot_your_password: Unohditko salasanasi
+            send_me_reset_password_instructions: Lähetä minulle ohjeet salasanan vaihtamiseen
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Etkö saanut vahvistusohjeita?
+            did_not_receive_unlock_instructions?: Etkö saanut ohjeita tilin lukituksen poistoon?
+            forgot_your_password?: Unohditko salasanasi?
+            log_in: Kirjaudu sisään
+            sign_up: Rekisteröidy
       menu:
         admins: Hallinnoijat
         dashboard: Hallintapaneeli
@@ -126,13 +144,37 @@ fi:
           success: Organisaation luonti onnistui.
         csp_settings:
           connect_src: Yhteysosoitteet (connect-src)
+          connect_src_hint: |
+            Yhteysosoitteet (connect-src) rajaavat ne URL-osoitteet, joita voidaan ladata <script>-elementteihin.
+            Palvelu lisää automaattisesti arvon 'self', mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
           default_src: Oletusosoitteet (default-src)
+          default_src_hint: |
+            Oletusosoitteet (default-src) on oletuskäytäntö kaikelle ulkopuoliselle sisällölle, kuten JavaScriptille, kuville, CSS:lle, fonteille, asynkronisille kutsuille, kehyksille ja HTML5-mediatiedostoille.
+            Palvelu lisää automaattisesti arvon "'self' 'unsafe-inline'", mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
           font_src: Fonttiosoitteet (font-src)
+          font_src_hint: |
+            Fonttiosoitteet (font-src) rajaavat ne URL-osoitteet, joista voidaan ladata fontteja @font-face -määrityksille.
+            Palvelu lisää automaattisesti arvon 'self', mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
           frame_src: Kehysosoitteet (frame-src)
+          frame_src_hint: |
+            Kehysosoitteet (frame-src) rajaavat ne URL-osoitteet, joita voidaan ladata <frame>-, <iframe>- ja <object>-elementteihin.
+            Palvelu lisää automaattisesti arvon 'self', mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
           img_src: Kuvaosoitteet (img-src)
+          img_src_hint: |
+            Kuvaosoitteet (img-src) rajaavat ne URL-osoitteet, joita voidaan ladata <img>-, <image>-, <picture>- ja <svg>-elementteihin.
+            Palvelu lisää automaattisesti arvon 'self', mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
           media_src: Mediaosoitteet (media-src)
+          media_src_hint: |
+            Mediaosoitteet (media-src) rajaavat ne URL-osoitteet, joita voidaan ladata <video>-, <audio>- ja <source>-elementteihin.
+            Palvelu lisää automaattisesti arvon 'self', mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
           script_src: Skriptiosoitteet (script-src)
+          script_src_hint: |
+            Skriptiosoitteet (script-src) rajaavat ne URL-osoitteet, joita voidaan ladata <script>-elementteihin.
+            Palvelu lisää automaattisesti arvon "'self' 'unsafe-inline' 'unsafe-eval'", mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
           style_src: Tyyliosoitteet (style-src)
+          style_src_hint: |
+            Tyyliosoitteet (style-src) rajaavat ne URL-osoitteet, joita voidaan ladata <style>-elementteihin.
+            Palvelu lisää automaattisesti arvon "'self' 'unsafe-inline'", mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
         edit:
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
         file_upload_settings:
@@ -156,6 +198,9 @@ fi:
         index:
           title: Organisaatiot
         new:
+          default: Oletus?
+          enabled: Käytössä
+          locale: Kieli
           reference_prefix_hint: Viitetunnisteen avulla tunnistetaan yksilöllisesti resursseja eri organisaatioiden välillä.
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen.
           title: Uusi organisaatio
@@ -198,3 +243,4 @@ fi:
           our_getting_started_guide: aloitusoppaamme
       titles:
         dashboard: Hallintapaneeli
+        decidim: Decidim
