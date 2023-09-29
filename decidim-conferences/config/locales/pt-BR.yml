@@ -177,7 +177,6 @@ pt-BR:
           conference_invites: Convites
           conference_speakers: caixas de som
           diploma: Certificado de participação
-          info: Informações
           media_links: Links de Mídia
           moderations: Moderações
           partners: Parceiros
@@ -188,7 +187,6 @@ pt-BR:
         conference:
           fields:
             created_at: Criado em
-            promoted: Promovido
             published: Publicados
             title: Título
         conference_speaker:
@@ -327,7 +325,6 @@ pt-BR:
               all: Todos
               rejected: Rejeitado
               sent: Enviei
-            filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
             search: Pesquisa
