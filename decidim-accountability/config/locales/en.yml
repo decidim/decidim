@@ -87,8 +87,6 @@ en:
             name: Result
           status:
             name: Status
-          timeline_entry:
-            name: Timeline entry
         projects_import:
           create:
             invalid: There was a problem importing the projects into results, please follow the instructions carefully and make sure you have selected projects for implementation.

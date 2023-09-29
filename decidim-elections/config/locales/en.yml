@@ -237,12 +237,6 @@ en:
         models:
           answer:
             name: Answer
-          election:
-            name: Election
-          question:
-            name: Question
-          trustee:
-            name: Trustee
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals into answers.
@@ -883,25 +877,21 @@ en:
           ballot_style:
             fields:
               code: Code
-            name: Ballot Style
           monitoring_committee_member:
             fields:
               email: Email
               name: Name
-            name: Monitoring Committee Member
           polling_officer:
             fields:
               email: Email
               name: Name
               polling_station: Polling station (role)
-            name: Polling Officer
           polling_station:
             fields:
               address: Address
               polling_station_managers: Managers
               polling_station_president: President
               title: Title
-            name: Polling Station
           voting:
             fields:
               created_at: Created at

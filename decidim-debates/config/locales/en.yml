@@ -82,9 +82,6 @@ en:
             success: Debate successfully updated.
         exports:
           comments: Comments
-        models:
-          debate:
-            name: Debate
       admin_log:
         debate:
           close: "%{user_name} closed the %{resource_name} debate on the %{space_name} space"
