@@ -12,7 +12,7 @@ shared_examples "manage media links examples" do
 
   describe "creating media link" do
     before do
-      click_link "New Media Link"
+      click_link "New media link"
     end
 
     it "creates a new media link" do

@@ -99,7 +99,7 @@ describe "Admin manages polling stations", serves_geocoding_autocomplete: true, 
     end
 
     it "can add a polling station to a process", :serves_geocoding_autocomplete do
-      click_link("New")
+      click_link("New polling station")
 
       within ".new_polling_station" do
         fill_in_i18n(
@@ -209,7 +209,7 @@ describe "Admin manages polling stations", serves_geocoding_autocomplete: true, 
 
       before do
         # Prepare the view for submission (other than the address field)
-        click_link("New")
+        click_link("New polling station")
 
         fill_in_i18n(
           :polling_station_title,
