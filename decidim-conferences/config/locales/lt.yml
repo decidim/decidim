@@ -198,7 +198,6 @@ lt:
           conference_invites: Pakvietimai
           conference_speakers: Pranešėjai
           diploma: Dalyvavimo konferencijoje pažymėjimas
-          info: Informacija
           media_links: Multimedijos Nuorodos
           moderations: Moderavimai
           partners: Partneriai
@@ -209,7 +208,6 @@ lt:
         conference:
           fields:
             created_at: Sukurta
-            promoted: Paryškinta
             published: Publikuota
             title: Pavadinimas
         conference_speaker:
@@ -349,7 +347,6 @@ lt:
               all: Visi
               rejected: Atmestas
               sent: Išsiųstas
-            filter_by: Filtruoti pagal
             invite_attendee: Kviesti dalyvį
             invites: Pakvietimai
             search: Ieškoti
