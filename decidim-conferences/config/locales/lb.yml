@@ -124,6 +124,7 @@ lb:
         conference:
           fields:
             created_at: Hergestellt in
+            promoted: Gefördert
         conference_speaker:
           fields:
             position: Positioun
