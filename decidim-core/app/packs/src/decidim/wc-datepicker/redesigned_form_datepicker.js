@@ -5,9 +5,12 @@ import generateTimePicker from "./redesigned_generate_timepicker";
 import { formatInputDate, formatInputTime } from "./redesigned_datepicker_functions";
 
 export default function redesignedFormDatePicker() {
-  customElements.define("wc-datepicker", WcDatepicker);
-  const format = 12;
-  const inputs = document.querySelectorAll('input[type="datetime-local"], input[type="datetime"], input[type="date"]');
+  if (!customElements.get("wc-datepicker")) {
+    customElements.define("wc-datepicker", WcDatepicker);
+  };
+
+  const format = 24;
+  const inputs = document.querySelectorAll('input[type="datetime-local"], input[type="date"]');
 
   inputs.forEach((input) => {
     input.style.display = "none";
@@ -42,15 +45,17 @@ export default function redesignedFormDatePicker() {
     };
   });
 
-  document.querySelector("button[name=\"commit\"]").addEventListener("click", () => {
-    inputs.forEach((input) => {
-      if (input.classList.contains("is-invalid-input")) {
-        document.getElementById(`${input.id}_date`).classList.add("is-invalid-input");
-        document.getElementById(`${input.id}_time`).classList.add("is-invalid-input");
-        document.getElementById(`${input.id}_datepicker_row`).after(document.getElementById(input.getAttribute("aria-describedby")));
-        document.getElementById(`${input.id}_date`).setAttribute("aria-describedby", input.getAttribute("aria-describedby"));
-        document.getElementById(`${input.id}_time`).setAttribute("aria-describedby", input.getAttribute("aria-describedby"));
-      };
+  if (inputs.length > 0) {
+    document.querySelector("button[name=\"commit\"]").addEventListener("click", () => {
+      inputs.forEach((input) => {
+        if (input.classList.contains("is-invalid-input")) {
+          document.getElementById(`${input.id}_date`).classList.add("is-invalid-input");
+          document.getElementById(`${input.id}_time`).classList.add("is-invalid-input");
+          document.getElementById(`${input.id}_datepicker_row`).after(document.getElementById(input.getAttribute("aria-describedby")));
+          document.getElementById(`${input.id}_date`).setAttribute("aria-describedby", input.getAttribute("aria-describedby"));
+          document.getElementById(`${input.id}_time`).setAttribute("aria-describedby", input.getAttribute("aria-describedby"));
+        };
+      });
     });
-  });
+  };
 };

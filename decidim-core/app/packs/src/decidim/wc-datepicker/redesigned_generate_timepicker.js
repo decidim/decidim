@@ -191,7 +191,7 @@ export default function generateTimePicker(input, row, format) {
       hours.value = hourDisplay(hour);
       minutes.value = minuteDisplay(minute);
       time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
-      input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.id)}`;
+      input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value, format)}T${formatTime(time.value, format, input.id)}`;
     }
   });
 
@@ -210,7 +210,7 @@ export default function generateTimePicker(input, row, format) {
 
         hours.value = hourDisplay(hour);
         minutes.value = minuteDisplay(minute);
-        input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.id)}`;
+        input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value, format)}T${formatTime(time.value, format, input.id)}`;
       };
     } else if (time.value.length === 0) {
       hours.value = "";
@@ -250,7 +250,7 @@ export default function generateTimePicker(input, row, format) {
     hour = changeHourDisplay("increase", hour, format);
     hours.value = hourDisplay(hour);
     time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
-    input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.id)}`;
+    input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value, format)}T${formatTime(time.value, format, input.id)}`;
   });
 
   hourDown.addEventListener("click", (event) => {
@@ -258,7 +258,7 @@ export default function generateTimePicker(input, row, format) {
     hour = changeHourDisplay("decrease", hour, format);
     hours.value = hourDisplay(hour);
     time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
-    input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.id)}`;
+    input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value, format)}T${formatTime(time.value, format, input.id)}`;
   });
 
   minuteUp.addEventListener("click", (event) => {
@@ -266,7 +266,7 @@ export default function generateTimePicker(input, row, format) {
     minute = changeMinuteDisplay("increase", minute);
     minutes.value = minuteDisplay(minute);
     time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
-    input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.id)}`;
+    input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value, format)}T${formatTime(time.value, format, input.id)}`;
   });
 
   minuteDown.addEventListener("click", (event) => {
@@ -274,6 +274,6 @@ export default function generateTimePicker(input, row, format) {
     minute = changeMinuteDisplay("decrease", minute);
     minutes.value = minuteDisplay(minute);
     time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
-    input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value)}T${formatTime(time.value, format, input.id)}`;
+    input.value = `${parseDate(document.querySelector(`#${input.id}_date`).value, format)}T${formatTime(time.value, format, input.id)}`;
   });
 };

@@ -116,8 +116,16 @@ export const changeMinuteDisplay = (change, minute) => {
   return value;
 };
 
-export const parseDate = (value) => {
-  const date = new Date(value)
+export const parseDate = (value, format) => {
+  let newValue = value;
+
+  if (format === 24) {
+    const splitValue = value.split("/");
+
+    newValue = `${splitValue[1]}/${splitValue[0]}/${splitValue[2]}`;
+  };
+
+  const date = new Date(newValue)
 
   let day = date.getDate();
   let month = date.getMonth() + 1;

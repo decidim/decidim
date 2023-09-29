@@ -15,8 +15,10 @@ export const timeKeyDownListener = (time) => {
       break;
     case "Tab":
       break;
+    case ":":
+      break;
     default:
-      if ((/[0-9:]/).test(event.key)) {
+      if ((/[0-9]/).test(event.key)) {
         break;
       } else if (event.ctrlKey === true || event.altKey === true) {
         break;

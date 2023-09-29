@@ -54,16 +54,28 @@ export default function generateDatePicker(input, row, format) {
   date.addEventListener("paste", (event) => {
     event.preventDefault();
     const value = event.clipboardData.getData("text/plain");
-
-    if ((/^([0-9]|[0-2][0-9]|3[0-1])(-|.|\/)([0-9]|[0-2][0-9]|3[0-1])(-|.|\/)([0-9]{4})$/).test(value)) {
-      if ((/(^[0-9])(-|\/)([0-9])(-|.|\/)([0-9]{4})$/).test(value)) {
-        date.value = `0${value[0]}/0${value[2]}/${value.substring(value.length - 4)}`
-      } else {
-        date.value = value.replace(/[-.]/g, "/");
+    if ((/^([1-9]|[0-2][0-9]|3[0-1])(-|.|\/)([1-9]|[0-2][0-9]|3[0-1])(-|.|\/)([0-9]{4})$/).test(value)) {
+      let separator = ".";
+      if (format === 12) {
+        separator = "/";
       };
-    };
 
-    input.value = `${formatDate(date.value, "input", format)}T${formatTime(document.querySelector(`#${input.id}_time`).value)}`;
+      if ((/(^[1-9])(-|.|\/)([1-9])(-|.|\/)([0-9]{4})$/).test(value)) {
+        date.value = `0${value[0]}${separator}0${value[2]}${separator}${value.substring(value.length - 4)}`;
+      } else if ((/(^[1-9])(-|.|\/)([0-2][0-9]|3[0-1])(-|.|\/)([0-9]{4})$/).test(value)) {
+        date.value = `0${value[0]}${separator}${value[2]}${value[3]}${separator}${value.substring(value.length - 4)}`;
+      } else if ((/([0-2][0-9]|3[0-1])(-|.|\/)([1-9])(-|.|\/)([0-9]{4})$/).test(value)) {
+        date.value = `${value[0]}${value[1]}${separator}0${value[3]}${separator}${value.substring(value.length - 4)}`;
+      } else {
+        date.value = value.replace(/[-/]/g, ".")
+
+        if (format === 12) {
+          date.value = value.replace(/[-.]/g, "/");
+        };
+      };
+
+      input.value = `${formatDate(date.value, "input", format)}T${formatTime(document.querySelector(`#${input.id}_time`).value)}`;
+    };
   });
 
   date.addEventListener("focus", () => {
