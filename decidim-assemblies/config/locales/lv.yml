@@ -171,7 +171,6 @@ lv:
           attachments: Pielikumi
           categories: Kategorijas
           components: Komponenti
-          info: Informācija
           moderations: Moderācijas
           private_users: Privāti lietotāji
         assemblies_types: Asambleju veidi
@@ -272,7 +271,6 @@ lv:
               all: Visi
               ceased: Beidzis darbu
               not_ceased: Nav beidzis darbu
-            filter_by: Filtrēt pēc
             search: Meklēt
         content_blocks:
           highlighted_assemblies:
