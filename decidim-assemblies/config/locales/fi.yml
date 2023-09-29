@@ -204,7 +204,6 @@ fi:
           attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
-          info: Tiedot
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
@@ -306,7 +305,6 @@ fi:
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_imports:
           form:
-            document_legend: Lisää dokumentti
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_members:
           form:
@@ -323,7 +321,6 @@ fi:
               all: Kaikki
               ceased: Lakkautettu
               not_ceased: Ei lakkautettu
-            filter_by: Suodata
             search: Hae
         content_blocks:
           highlighted_assemblies:
