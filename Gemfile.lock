@@ -11,6 +11,7 @@ PATH
       decidim-comments (= 0.28.0.dev)
       decidim-core (= 0.28.0.dev)
       decidim-debates (= 0.28.0.dev)
+      decidim-design (= 0.28.0.dev)
       decidim-forms (= 0.28.0.dev)
       decidim-generators (= 0.28.0.dev)
       decidim-meetings (= 0.28.0.dev)
@@ -107,6 +108,8 @@ PATH
       wisper (~> 2.0)
     decidim-debates (0.28.0.dev)
       decidim-comments (= 0.28.0.dev)
+      decidim-core (= 0.28.0.dev)
+    decidim-design (0.28.0.dev)
       decidim-core (= 0.28.0.dev)
     decidim-dev (0.28.0.dev)
       bullet (~> 7.0)
@@ -819,6 +822,7 @@ DEPENDENCIES
   byebug (~> 11.0)
   decidim!
   decidim-conferences!
+  decidim-design!
   decidim-dev!
   decidim-elections!
   decidim-initiatives!

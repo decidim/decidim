@@ -115,6 +115,7 @@ module Decidim
       decidim-comments
       decidim-core
       decidim-debates
+      decidim-design
       decidim-forms
       decidim-generators
       decidim-meetings
@@ -124,7 +125,6 @@ module Decidim
       decidim-sortitions
       decidim-surveys
       decidim-system
-      decidim-templates
       decidim-verifications
       decidim-conferences
       decidim-elections
