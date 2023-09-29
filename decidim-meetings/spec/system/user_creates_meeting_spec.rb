@@ -63,8 +63,6 @@ describe "User creates meeting", type: :system do
         let(:meeting_registration_terms) { "These are the registration terms for this meeting" }
         let(:online_meeting_url) { "http://decidim.org" }
         let!(:meeting_scope) { create(:scope, organization:) }
-        # let(:datetime_format) { I18n.t("time.formats.decidim_short") }
-        # let(:time_format) { I18n.t("time.formats.time_of_day") }
 
         before do
           component.update!(settings: { scopes_enabled: true, scope_id: participatory_process.scope&.id, creation_enabled_for_participants: true })
@@ -241,7 +239,6 @@ describe "User creates meeting", type: :system do
           end
 
           it "shows a modal dialog" do
-            # TÄMÄ TÄMÄ TÄMÄ
             visit_component
             click_link "New meeting"
             expect(page).to have_selector("#authorizationModal")
