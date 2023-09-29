@@ -112,7 +112,6 @@ lb:
           conference_invites: Lädt ein
           conference_speakers: Lautsprecher
           diploma: Teilnahmebestätigung
-          info: Info
           media_links: Medienlinks
           moderations: Moderationen
           partners: Partner
@@ -257,7 +256,6 @@ lb:
               all: Alle
               rejected: Abgelehnt
               sent: Geschickt
-            filter_by: Filtern nach
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             search: Suche
