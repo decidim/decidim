@@ -37,6 +37,9 @@ fi-pl:
         user_group_id: Tuo käyttäjänä
       newsletter:
         body: Runko
+        send_to_all_users: Lähetä kaikille käyttäjille
+        send_to_followers: Lähetä seuraajille
+        send_to_participants: Lähetä osallistujille
         subject: Otsikko
       organization:
         admin_terms_of_service_body: Hallintakäyttäjien käyttöehtojen sisältöteksti
@@ -93,6 +96,7 @@ fi-pl:
         tertiary_color: Kolmiasteinen värimääritys
         time_zone: Aikavyöhyke
         tos_version: Käyttöehtojen versio
+        twitter_handler: X käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
         users_registration_mode: Käyttäjien rekisteröintitila
         warning_color: Varoitus
@@ -368,6 +372,7 @@ fi-pl:
           goto_moderation: Siirry yleisiin moderointeihin
           title: Odottavat moderoinnit
         show:
+          dropdown: Alasvetovalikko
           view_more_logs: Näytä lisää lokitietoja
       domain_whitelist:
         form:
@@ -566,6 +571,7 @@ fi-pl:
         reported_users: Ilmoitetut osallistujat
         scope_types: Teematyypit
         scopes: Teemat
+        see_site: Näytä sivusto
         settings: Asetukset
         static_pages: Sivut
         user_groups: Käyttäjäryhmät
@@ -635,6 +641,7 @@ fi-pl:
           fields:
             created_at: Luontipäivämäärä
             email: Sähköposti
+            last_sign_in_at: Viimeinen sisäänkirjautumispäivä
             name: Nimi
             role: Rooli
             roles:
@@ -807,6 +814,7 @@ fi-pl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Joissain tekstikentissä osallistujat voivat syöttää tiettyjä HTML-elementtejä rikkaan tekstieditorin kautta.
           social_handlers: Sosiaalinen media
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -826,6 +834,7 @@ fi-pl:
             saturation: Värikylläisyys
             title: Värin valinta
             update_suggested_colors: Päivitä ehdotetut värit
+          cta_button_path_help_html: 'Voit määrittää, mihin kotisivun toimintopainike (Call To Action) linkkaa. Käytä tässä osoitepolkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja kauttaviivat. Arvon on alettava kirjaimella. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä. Esimerkki: %{url}'
           cta_button_text_help: Voit korvata toimintopainikkeen (Call to Action) tekstin kotisivulla jokaiselle organisaatiosi kielelle. Mikäli tätä ei ole asetettu, oletusarvoa käytetään. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä.
           homepage_appearance_title: Muokkaa kotisivun ulkoasua
           homepage_highlighted_content_banner_title: Tärkeä sisältöbanneri
@@ -1001,6 +1010,7 @@ fi-pl:
           update: Päivitä
         form:
           none: Ei mitään
+          slug_help_html: 'Käytä tässä osoitepolkuja, ei koko URL-osoitteita. Hyväksyy kirjaimia, numeroita, viivoja ja kauttaviivoja. Arvo on aloitettava kirjaimella. Esimerkki: %{url}'
         index:
           last_notable_change: Viimeinen huomattava muutos
         new:
