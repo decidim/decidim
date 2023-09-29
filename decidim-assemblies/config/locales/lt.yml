@@ -209,7 +209,6 @@ lt:
           attachments: Priedai
           categories: Kategorijos
           components: Komponentai
-          info: Informacija
           landing_page: Pagrindinis puslapis
           moderations: Moderavimai
           private_users: Privatūs naudotojai
@@ -305,9 +304,6 @@ lt:
         assemblies_types:
           form:
             title: Pavadinimas
-        assembly_imports:
-          form:
-            document_legend: Pridėti dokumentą
         assembly_members:
           form:
             existing_user: Egzistuojantis dalyvis
@@ -323,7 +319,6 @@ lt:
               all: Visi
               ceased: Nutraukta
               not_ceased: Nenutraukta
-            filter_by: Filtruoti pagal
             search: Ieškoti
         content_blocks:
           highlighted_assemblies:
