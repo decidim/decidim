@@ -62,6 +62,7 @@ fi-pl:
         personal_url: Henkilökohtainen URL-osoite
         position: Asema
         short_bio: Lyhyt henkilökuvaus
+        twitter_handle: X käsittelijä
         user_id: Käyttäjä
       conference_user_role:
         email: Sähköposti
@@ -192,7 +193,6 @@ fi-pl:
           conference_invites: Kutsut
           conference_speakers: Puhujat
           diploma: Läsnäolotodistus
-          info: Tiedot
           media_links: Medialinkit
           moderations: Moderoinnit
           partners: Yhteistyökumppanit
@@ -203,7 +203,6 @@ fi-pl:
         conference:
           fields:
             created_at: Luonnin ajankohta
-            promoted: Korostettu
             published: Julkaistu
             title: Otsikko
         conference_speaker:
@@ -327,6 +326,9 @@ fi-pl:
         title: Puhujat
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help_html: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         conference_invites:
           create:
             error: Käyttäjän kutsumisessa konferenssiin esiintyi ongelma.
@@ -343,7 +345,6 @@ fi-pl:
               all: Kaikki
               rejected: Hylätyt
               sent: Lähetetyt
-            filter_by: Suodata
             invite_attendee: Kutsu osallistuja
             invites: Kutsut
             search: Hae
@@ -368,6 +369,7 @@ fi-pl:
             registrations_count:
               one: Ilmoittautumisia on 1 kpl.
               other: Ilmoittautumisia on %{count} kpl.
+            slug_help_html: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         diplomas:
           edit:
             save: Tallenna
@@ -420,13 +422,16 @@ fi-pl:
         create:
           invalid: Konferenssiin ilmoittautumisessa tapahtui virhe.
           success: Olet ilmoittautunut konferenssiin onnistuneesti.
+          unauthorized: Sinun täytyy kirjautua sisään hyväksyäksesi konferenssikutsun.
         decline_invitation:
           invalid: Kutsun hyläämisessä esiintyi ongelma.
           success: Olet hylännyt kutsun onnistuneesti.
+          unauthorized: Sinun täytyy kirjautua sisään hylätäksesi konferenssikutsun.
         destroy:
           invalid: Konferenssista poistumisessa on tapahtunut virhe.
           success: Olet poistunut konferenssista onnistuneeksi.
       conference_speaker:
+        go_to_twitter: Siirry X-palveluun
         more_info: lisätietoja
         personal_website: Henkilökohtainen verkkosivusto
         show:
