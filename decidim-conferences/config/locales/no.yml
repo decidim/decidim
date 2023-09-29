@@ -177,7 +177,6 @@
           conference_invites: Invitasjoner
           conference_speakers: Talere
           diploma: Sertifikat for Oppmøte
-          info: Info
           media_links: Media Lenker
           moderations: Moderering
           partners: Partnere
@@ -188,7 +187,6 @@
         conference:
           fields:
             created_at: Opprettet på
-            promoted: Fremhevet
             published: Publisert
             title: Tittel
         conference_speaker:
@@ -327,7 +325,6 @@
               all: Alle
               rejected: Avvist
               sent: Sendt
-            filter_by: Filtrer etter
             invite_attendee: Inviter deltaker
             invites: Invitasjoner
             search: Søk
