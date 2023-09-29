@@ -195,7 +195,6 @@ sv:
           attachments: Bilagor
           categories: Kategorier
           components: Komponenter
-          info: Info
           moderations: Moderering
           private_users: Privata användare
         assemblies_types: Typer av grupper
@@ -287,9 +286,6 @@ sv:
         assemblies_types:
           form:
             title: Titel
-        assembly_imports:
-          form:
-            document_legend: Lägg till ett dokument
         assembly_members:
           form:
             existing_user: Befintlig deltagare
@@ -305,7 +301,6 @@ sv:
               all: Allt
               ceased: Upphört
               not_ceased: Inte upphört
-            filter_by: Filtrera efter
             search: Sök
         content_blocks:
           highlighted_assemblies:
