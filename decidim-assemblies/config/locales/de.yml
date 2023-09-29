@@ -204,7 +204,6 @@ de:
           attachments: Anhänge
           categories: Kategorien
           components: Komponenten
-          info: Info
           landing_page: Startseite
           moderations: Moderationen
           private_users: Private Benutzer
@@ -306,7 +305,6 @@ de:
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_imports:
           form:
-            document_legend: Dokument hinzufügen
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_members:
           form:
@@ -323,7 +321,6 @@ de:
               all: Alle
               ceased: Aufgegeben
               not_ceased: Nicht aufgehört
-            filter_by: Filtern nach
             search: Suche
         content_blocks:
           highlighted_assemblies:
