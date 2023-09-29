@@ -204,7 +204,7 @@ hu:
         conference:
           fields:
             created_at: 'Létrehozva:'
-            promoted: promotált
+            promoted: Kiemelt
             published: Közzétett
             title: Cím
         conference_speaker:
