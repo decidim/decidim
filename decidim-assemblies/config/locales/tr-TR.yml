@@ -197,7 +197,6 @@ tr:
           attachments: Ekler
           categories: Kategoriler
           components: Bileşenler
-          info: Bilgi
           moderations: Yönetim
           private_users: Özel kullanıcılar
         assemblies_types: Kurul türü
@@ -288,9 +287,6 @@ tr:
         assemblies_types:
           form:
             title: Başlık
-        assembly_imports:
-          form:
-            document_legend: Bir belge ekle
         assembly_members:
           form:
             existing_user: Mevcut katılımcı
@@ -303,7 +299,6 @@ tr:
               all: Tümü
               ceased: Durduruldu
               not_ceased: Durdurulmadı
-            filter_by: Şuna göre filtrele
             search: Arama
         content_blocks:
           highlighted_assemblies:
