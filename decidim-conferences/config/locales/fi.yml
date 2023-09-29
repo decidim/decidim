@@ -62,6 +62,7 @@ fi:
         personal_url: Henkilökohtainen URL-osoite
         position: Asema
         short_bio: Lyhyt henkilökuvaus
+        twitter_handle: X käsittelijä
         user_id: Käyttäjä
       conference_user_role:
         email: Sähköposti
@@ -101,7 +102,7 @@ fi:
           success: Konferenssin julkaisu onnistui.
         destroy:
           error: Konferenssin julkaisun lopettaminen epäonnistui.
-          success: Konferenssin julkaisun peruminen onnistui.
+          success: Konferenssin julkaisun lopettaminen onnistui.
       conference_registration:
         confirm:
           error: Konferenssin ilmoittautumisen vahvistaminen epäonnistui.
@@ -268,7 +269,7 @@ fi:
           success: Ilmoittautumistyypin julkaisu onnistui.
         destroy:
           error: Ilmoittautumistyypin julkaisun lopettaminen epäonnistui.
-          success: Ilmoittamistyypin julkaisun peruminen onnistui.
+          success: Ilmoittamistyypin julkaisun lopettaminen onnistui.
       registration_types:
         create:
           error: Ilmoittautumistyyppin lisääminen tälle konferenssille epäonnistui.
@@ -327,6 +328,9 @@ fi:
         title: Puhujat
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help_html: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         conference_invites:
           create:
             error: Käyttäjän kutsuminen konferenssiin epäonnistui.
@@ -368,6 +372,7 @@ fi:
             registrations_count:
               one: Ilmoittautumisia on 1 kpl.
               other: Ilmoittautumisia on %{count} kpl.
+            slug_help_html: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         diplomas:
           edit:
             save: Tallenna
@@ -420,13 +425,16 @@ fi:
         create:
           invalid: Konferenssiin ilmoittautuminen epäonnistui.
           success: Ilmoittautuminen konferenssiin onnistui.
+          unauthorized: Sinun täytyy kirjautua sisään hyväksyäksesi konferenssikutsun.
         decline_invitation:
           invalid: Kutsun hylkääminen epäonnistui.
           success: Kutsun hylkääminen onnistui.
+          unauthorized: Sinun täytyy kirjautua sisään hylätäksesi konferenssikutsun.
         destroy:
           invalid: Konferenssista poistuminen epäonnistui.
           success: Konferenssista poistuminen onnistui.
       conference_speaker:
+        go_to_twitter: Siirry X-palveluun
         more_info: lisätietoja
         personal_website: Henkilökohtainen verkkosivusto
         show:
