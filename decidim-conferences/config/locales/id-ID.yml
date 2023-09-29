@@ -141,7 +141,6 @@ id:
           conference_invites: Undangan
           conference_speakers: Pembicara
           diploma: Sertifikat kehadiran
-          info: Info
           media_links: Tautan Media
           moderations: Moderasi
           partners: Mitra
@@ -152,7 +151,6 @@ id:
         conference:
           fields:
             created_at: Dibuat di
-            promoted: Dipromosikan
             published: Diterbitkan
             title: Judul
         conference_speaker:
@@ -285,7 +283,6 @@ id:
               all: Semua
               rejected: Ditolak
               sent: Terkirim
-            filter_by: Filter berdasarkan
             invite_attendee: Undang Peserta
             invites: Undangan
             search: Pencarian
