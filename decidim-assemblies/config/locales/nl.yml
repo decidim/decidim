@@ -189,7 +189,6 @@ nl:
           attachments: Bijlagen
           categories: Categorieën
           components: Onderdelen
-          info: Info
           moderations: Moderaties
           private_users: Particuliere gebruikers
         assemblies_types: Soorten groepen
@@ -284,9 +283,6 @@ nl:
         assemblies_types:
           form:
             title: Titel
-        assembly_imports:
-          form:
-            document_legend: Document toevoegen
         assembly_members:
           form:
             existing_user: Bestaande deelnemer
@@ -302,7 +298,6 @@ nl:
               all: Alle
               ceased: Gestopt
               not_ceased: Niet gestopt
-            filter_by: Filteren op
             search: Zoeken
         content_blocks:
           highlighted_assemblies:
