@@ -196,7 +196,6 @@ eu:
           attachments: Eranskinak
           categories: Kategoriak
           components: Osagaiak
-          info: Informazioa
           landing_page: Hasierako orria
           moderations: Moderazioak
           private_users: Erabiltzaile pribatuak
@@ -288,9 +287,6 @@ eu:
         assemblies_types:
           form:
             title: Batzar mota berria
-        assembly_imports:
-          form:
-            document_legend: Gehitu dokumentu bat
         assembly_members:
           form:
             existing_user: Erabiltzaile existentea
@@ -306,7 +302,6 @@ eu:
               all: guztiak
               ceased: utzi zion
               not_ceased: Ez da gelditu
-            filter_by: Iragazi arabera
             search: Bilatu
         content_blocks:
           highlighted_assemblies:
