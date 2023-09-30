@@ -4,21 +4,6 @@ module Decidim
   module Initiatives
     # Helper functions for initiatives views
     module InitiativesHelper
-      def initiatives_filter_form_for(filter)
-        content_tag :div, class: "filters" do
-          form_for filter,
-                   namespace: filter_form_namespace,
-                   builder: Decidim::Initiatives::InitiativesFilterFormBuilder,
-                   url: url_for,
-                   as: :filter,
-                   method: :get,
-                   remote: true,
-                   html: { id: nil } do |form|
-            yield form
-          end
-        end
-      end
-
       # Items to display in the navigation of an initiative
       def initiative_nav_items(participatory_space)
         components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
