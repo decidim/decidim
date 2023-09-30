@@ -16,7 +16,6 @@ module Decidim
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
-  autoload :RedesignedFilterFormBuilder, "decidim/redesigned_filter_form_builder"
   autoload :ComponentManifest, "decidim/component_manifest"
   autoload :NotificationSettingManifest, "decidim/notification_setting_manifest"
   autoload :ParticipatorySpaceManifest, "decidim/participatory_space_manifest"

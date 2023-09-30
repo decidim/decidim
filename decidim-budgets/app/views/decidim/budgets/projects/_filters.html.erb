@@ -1,4 +1,4 @@
-<%= redesigned_filter_form_for filter, url_for, class: "meeting__filter-container", data: { filters: "", component: "accordion" } do |form| %>
+<%= filter_form_for filter, url_for, class: "meeting__filter-container", data: { filters: "", component: "accordion" } do |form| %>
 
   <%= link_to budgets_path, class: "mb-8 button button__sm button__text-secondary" do %>
     <%= icon "arrow-left-line" %>
