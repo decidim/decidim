@@ -32,8 +32,6 @@ $(() => {
     }
   })
 
-  formDatePicker();
-
   $("form.new_filter").each(function () {
     const formFilter = new FormFilterComponent($(this));
 
