@@ -79,6 +79,7 @@ fr:
   decidim:
     admin:
       actions:
+        manage: Gérer
         new_initiative_type: Nouveau type de pétition
       filters:
         initiatives:
