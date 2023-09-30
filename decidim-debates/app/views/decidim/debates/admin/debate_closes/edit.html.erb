@@ -4,11 +4,11 @@
     <%= t(".title") %>
   </h2>
 </div>
-<div class="item__edit item__edit-1col">
+<div>
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: debate_debate_close_path(debate, @form), html: { class: "form form-defaults edit_close_debate" }) do |f| %>
       <div class="form__wrapper">
-        <div class="card">
+        <div class="card pt-4 pb-4">
 
           <div class="card-section">
             <div class="row column">
