@@ -204,9 +204,11 @@ fr:
           attachments: Documents liés
           categories: Catégories
           components: Composants
+          info: À propos de cette assemblée
           landing_page: Page d'accueil
           moderations: Modérations
           private_users: Utilisateurs privés
+          see_assembly: Voir l'assemblée
         assemblies_types: Types d'assemblée
       models:
         assemblies_types:
@@ -215,6 +217,7 @@ fr:
             title: Titre
         assembly:
           fields:
+            actions: Actions
             created_at: Créée le
             private: Privée
             promoted: Mise en avant
@@ -284,6 +287,7 @@ fr:
             included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à la plateforme. Elle ne doit pas nécessairement être identique à la date de création.
             metadata: Métadonnées
             other: Autre
+            sections: Sections
             select_a_created_by: Sélectionnez un créateur
             select_an_area: Sélectionnez un périmètre d'assemblée
             select_an_assembly_type: Sélectionnez un type d'assemblée
