@@ -6,9 +6,8 @@
   </h2>
 </div>
 
-<div class="item__edit item__edit-1col">
+<div>
   <div class="item__edit-form">
-
     <%= decidim_form_for @form,
                          url: initiatives_type_initiatives_type_scope_path(params[:initiatives_type_id], current_initiative_type_scope),
                          html: { class: "form form-defaults edit_initiative_type_scope" } do |f| %>
