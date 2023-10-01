@@ -2,7 +2,6 @@
 
 namespace :decidim do
   namespace :robots do
-
     desc "Overrides robots.txt with a custom one."
     task :replace, [] => :environment do
       actions :append_file, "public/robots.txt", <<~SQUISH
@@ -11,7 +10,6 @@ namespace :decidim do
         Disallow: /profiles/
         Disallow: /search
       SQUISH
-
     end
   end
 end
