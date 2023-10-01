@@ -267,6 +267,14 @@ Please read more in the docs:
 
 You can check more about the implementation in the [\#10700](https://github.com/decidim/decidim/pull/10700) pull request.
 
+### 3.11 Patch robots.txt
+In order to append default Decidim robots.txt to the application's robots.txt, we have added a new task that helps you to do that.
+```bash
+bundle exec rails decidim:robots:replace
+```
+
+You can see more details about this change on PR [\#11693](https://github.com/decidim/decidim/pull/11693)
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
