@@ -100,6 +100,8 @@ module Decidim
 
         # Run Decidim custom procfile installation
         rails "decidim:procfile:install"
+        # replace robots.txt
+        rails "decidim:robots:replace"
       end
 
       def build_api_docs
