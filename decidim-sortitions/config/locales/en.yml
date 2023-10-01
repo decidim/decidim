@@ -73,7 +73,6 @@ en:
           form:
             all_categories: All categories
             select_proposal_component: Select the proposals set
-            title: New sortition for proposals
           index:
             title: Sortitions
           new:
