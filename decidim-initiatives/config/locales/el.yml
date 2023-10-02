@@ -203,8 +203,6 @@ el:
         initiatives_types:
           edit:
             update: Ενημέρωση
-          form:
-            title: Γενικές πληροφορίες
           initiative_type_scopes:
             title: Πεδία εφαρμογής για τον τύπο πρωτοβουλίας
           new:
