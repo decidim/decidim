@@ -46,7 +46,6 @@ zh-CN:
         confirm_destroy: 您确定吗？
         destroy: 删除
         edit: 编辑
-        new: 新建 %{name}
         title: 行动
       admin:
         debate_closes:
@@ -70,9 +69,6 @@ zh-CN:
           update:
             invalid: 在更新这次辩论时遇到了问题。
             success: 辩论已成功更新。
-        models:
-          debate:
-            name: B. 辩论
       admin_log:
         debate:
           close: "%{user_name} 关闭了 %{resource_name} 场内的 %{space_name} 个辩论"
