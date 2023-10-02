@@ -70,7 +70,6 @@ pl:
           form:
             all_categories: Wszystkie kategorie
             select_proposal_component: Wybierz zestaw propozycji
-            title: Nowy wybór losowy propozycji
           index:
             title: Wybór losowy
           new:
