@@ -12,6 +12,8 @@ cs:
         manage: Spravovat
         templates: Šablony
       templates:
+        actions:
+          new_template: Nová šablona
         apply:
           error: Při použití této šablony došlo k chybě.
           success: Šablona byla úspěšně použita.
