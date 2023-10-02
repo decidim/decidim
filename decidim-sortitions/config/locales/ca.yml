@@ -38,7 +38,6 @@ ca:
         actions:
           destroy: Cancel·la el sorteig
           edit: Edita
-          new: Nou sorteig
           show: Detalls del sorteig
         models:
           sortition:
@@ -52,9 +51,6 @@ ca:
               seed: Llavor
               target_items: Elements a seleccionar
               title: Títol
-            name:
-              one: Sorteig
-              other: Sortejos
         sortitions:
           confirm_destroy:
             confirm_destroy: Segur que vols cancel·lar aquest sorteig?
