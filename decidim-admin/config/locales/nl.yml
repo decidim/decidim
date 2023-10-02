@@ -153,7 +153,6 @@ nl:
         export: Alles exporteren
         export-selection: Selectie exporteren
         import: Importeren
-        new: Nieuwe %{name}
         newsletter:
           new: Nieuwe nieuwsbrief
         participatory_space_private_user:
