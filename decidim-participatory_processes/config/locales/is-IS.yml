@@ -58,14 +58,12 @@ is-IS:
           attachments: Viðhengi
           categories: Flokkar
           components: Hluti
-          info: Upplýsingar
           moderations: Moderations
       models:
         participatory_process:
           fields:
             created_at: Búið til á
             private: Einkamál
-            promoted: Hápunktur
             published: Published
             title: Titill
           name: Þátttökuferli
@@ -116,7 +114,6 @@ is-IS:
         edit:
           update: Uppfæra
         index:
-          not_published: Ekki birt
           private: Einkamál
           public: Opinber
           published: Published
