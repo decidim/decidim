@@ -90,7 +90,7 @@ tr:
             name: Adı
             omniauth_settings: Omniauth ayarları
             smtp_settings: SMTP ayarları
-          name: organizasyon
+          name: Kuruluş
       oauth_applications:
         create:
           error: Bu uygulama oluşturulurken bir hata oluştu.
