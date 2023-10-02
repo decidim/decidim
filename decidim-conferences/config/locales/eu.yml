@@ -147,7 +147,6 @@ eu:
         exports:
           registrations: Izen-emateak
         form:
-          sections: Atalak
           title: Informazio orokorra
         index:
           not_published: Ez da argitaratu
