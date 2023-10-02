@@ -37,6 +37,9 @@ cs:
         confirm_destroy: Opravdu to chcete smazat?
         destroy: Smazat
         edit: Upravit
+        new_admin: Nový administrátor
+        new_oauth_application: Nová aplikace OAuth
+        new_organization: Nová organizace
         save: Uložit
         title: Akce
       admins:
