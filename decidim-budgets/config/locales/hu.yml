@@ -45,7 +45,6 @@ hu:
         edit: Szerkesztés
         edit_projects: Projektek kezelése
         import: Javaslatok importálása projektekhez
-        new: Új %{name}
         preview: Előnézet
         send_voting_reminders: Szavazási emlékeztetők kiküldése
         title: Műveletek
