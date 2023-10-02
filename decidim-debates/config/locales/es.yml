@@ -51,7 +51,6 @@ es:
         confirm_destroy: '¿Estás segura?'
         destroy: Elimina
         edit: Editar
-        new: Nuevo %{name}
         title: Acciones
       admin:
         debate_closes:
@@ -81,9 +80,6 @@ es:
             success: Debate actualizado correctamente.
         exports:
           comments: Comentarios
-        models:
-          debate:
-            name: Debate
       admin_log:
         debate:
           close: "La participante %{user_name} ha creado el debate %{resource_name} en el espacio %{space_name}"
