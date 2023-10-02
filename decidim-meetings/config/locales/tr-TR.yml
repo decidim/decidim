@@ -56,7 +56,6 @@ tr:
           success: Toplantı başarıyla kopyalandı.
         new:
           copy: Kopyala
-          select: Çoğaltmak istediğiniz verileri seçin
           title: Yinelenen toplantı
     components:
       meetings:
@@ -149,7 +148,6 @@ tr:
           proposals_count:
             one: 'Toplantı, kendisiyle ilişkilendirilmiş %{count} teklif içerdiğinden yok edilemez:'
             other: 'Toplantı, kendisiyle ilişkilendirilmiş %{count} teklif içerdiğinden yok edilemez:'
-        new: Yeni toplantı
         preview: Ön izleme
         registrations: Kayıtlar
         title: Eylemler
@@ -204,7 +202,6 @@ tr:
               all: Tümü
               rejected: Reddedildi
               sent: Gönderildi
-            filter_by: Tarafından filtre
             invite_attendee: Katılımcı davet et
             invites: Davetler
             search: Arama
@@ -241,9 +238,6 @@ tr:
           services:
             add_service: Servis ekle
             services: Servisler
-        models:
-          meeting:
-            name: Toplantı
         registrations:
           edit:
             save: Kaydet
