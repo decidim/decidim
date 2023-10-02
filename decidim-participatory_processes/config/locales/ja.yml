@@ -97,7 +97,6 @@ ja:
         edit: 編集
         filter:
           all_processes: すべての参加型プロセスを表示
-          process_groups: 参加型プロセス グループ
         import_process: インポート
         moderate: モデレート
         new_process: 新規参加型プロセス
@@ -122,7 +121,6 @@ ja:
           attachments: 添付ファイル
           categories: カテゴリ
           components: コンポーネント
-          info: 情報
           landing_page: ランディングページ
           moderations: モデレーション
           private_users: プライベート参加者
@@ -133,7 +131,6 @@ ja:
           fields:
             created_at: 作成日時
             private: プライベート
-            promoted: 強調表示
             published: 公開済み
             title: タイトル
           name: 参加型プロセス
@@ -284,7 +281,6 @@ ja:
         edit:
           update: 更新
         index:
-          not_published: 未公開
           private: プライベート
           public: 公開
           published: 公開済み
@@ -418,7 +414,6 @@ ja:
         participatory_process_groups:
           form:
             metadata: メタデータ
-            title: 一般情報
             visibility: 公開範囲
         participatory_process_imports:
           form:
