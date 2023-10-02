@@ -50,7 +50,6 @@ ja:
         confirm_destroy: よろしいですか？
         destroy: 削除
         edit: 編集
-        new: 新しい %{name}
         title: アクション
       admin:
         debate_closes:
@@ -80,9 +79,6 @@ ja:
             success: ディベートが正常に更新されました。
         exports:
           comments: コメント
-        models:
-          debate:
-            name: ディベート
       admin_log:
         debate:
           close: "%{user_name} は、 %{resource_name} スペースの %{space_name} ディベートを終了しました"
