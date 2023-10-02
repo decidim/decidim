@@ -46,7 +46,6 @@ id:
           success: Pertemuan duplikat berhasil.
         new:
           copy: Salinan
-          select: Pilih data mana yang ingin Anda gandakan
           title: Pertemuan duplikat
     components:
       meetings:
@@ -127,7 +126,6 @@ id:
         confirm_destroy: Anda yakin ingin menghapus rapat ini?
         destroy: Menghapus
         edit: Edit
-        new: Pertemuan baru
         preview: Preview
         registrations: Pendaftaran
         title: Tindakan
@@ -181,7 +179,6 @@ id:
               all: Semua
               rejected: Ditolak
               sent: Terkirim
-            filter_by: Filter berdasarkan
             invite_attendee: Undang hadirin
             invites: Undangan
             search: Pencarian
@@ -209,9 +206,6 @@ id:
           services:
             add_service: Tambahkan layanan
             services: Jasa
-        models:
-          meeting:
-            name: Pertemuan
         registrations:
           edit:
             save: Menyimpan
