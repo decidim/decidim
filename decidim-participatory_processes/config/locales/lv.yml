@@ -78,7 +78,6 @@ lv:
         edit: Labot
         filter:
           all_processes: Rādīt visus procesus
-          process_groups: Procesa grupas
         import_process: Importēt
         new_process: Jauns process
         new_process_group: Jauna procesa grupa
@@ -97,7 +96,6 @@ lv:
           attachments: Pielikumi
           categories: Kategorijas
           components: Komponenti
-          info: Informācija
           moderations: Moderācijas
           private_users: Privātie dalībnieki
           process_admins: Procesa administratori
@@ -107,7 +105,6 @@ lv:
           fields:
             created_at: Izveidots plkst.
             private: Privāts
-            promoted: Izcelts
             published: Publicēts
             title: Nosaukums
           name: Līdzdalības process
@@ -215,7 +212,6 @@ lv:
         edit:
           update: Atjaunināt
         index:
-          not_published: Nav publicēts
           private: Privāts
           public: Publisks
           published: Publicēts
