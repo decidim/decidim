@@ -189,7 +189,6 @@ fi-pl:
         export: Vie kaikki
         export-selection: Vie valitut
         import: Tuo
-        new: Uusi %{name}
         newsletter:
           new: Uusi uutiskirje
         participatory_space_private_user:
