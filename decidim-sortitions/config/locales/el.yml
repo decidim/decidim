@@ -38,7 +38,6 @@ el:
         actions:
           destroy: Ακύρωση της κλήρωσης
           edit: Επεξεργασία
-          new: Νέα κλήρωση
           show: Λεπτομέρειες κλήρωσης
         models:
           sortition:
@@ -52,9 +51,6 @@ el:
               seed: Κατάταξη
               target_items: Στοιχεία προς επιλογή
               title: Τίτλος
-            name:
-              one: Κλήρωση
-              other: Κληρώσεις
         sortitions:
           confirm_destroy:
             confirm_destroy: Είστε βέβαιοι ότι θέλετε να ακυρώσετε αυτήν την κλήρωση;
