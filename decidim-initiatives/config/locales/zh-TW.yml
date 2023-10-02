@@ -273,13 +273,9 @@ zh-TW:
           destroy:
             success: 範圍已成功刪除.
           edit:
-            back: 返回
-            confirm_destroy: 您確定嗎？
-            destroy: 刪除
             title: 編輯倡議類型範圍
             update: 更新
           new:
-            back: 返回
             create: 建立
             title: 建立倡議類型範圍
           update:
@@ -292,8 +288,6 @@ zh-TW:
           destroy:
             success: 該倡議類型已成功刪除.
           edit:
-            confirm_destroy: 您確定嗎？
-            destroy: 刪除
             update: 更新
           form:
             authorizations: 權限設置
