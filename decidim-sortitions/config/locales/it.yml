@@ -38,7 +38,6 @@ it:
         actions:
           destroy: Annulla la sortizione
           edit: Modifica
-          new: Nuova sortizione
           show: Dettagli di ordinamento
         models:
           sortition:
@@ -52,9 +51,6 @@ it:
               seed: seme
               target_items: Articoli da selezionare
               title: Titolo
-            name:
-              one: Sorteggio
-              other: Sorteggi
         sortitions:
           confirm_destroy:
             confirm_destroy: Sei sicuro di voler cancellare questa selezione?
