@@ -127,7 +127,6 @@ lt:
           success: Susitikimas dubliuotas.
         new:
           copy: Kopijuoti
-          select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti
           title: Dubliuoti susirinkimą
     components:
       meetings:
@@ -231,7 +230,6 @@ lt:
             many: 'Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai:'
             other: 'Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai:'
         manage_poll: Tvarkyti apklausą
-        new: Naujas susirinkimas
         preview: Peržiūra
         registrations: Registracijos
         title: Veiksmai
@@ -293,7 +291,6 @@ lt:
               all: Visi
               rejected: Atmestas
               sent: Išsiųstas
-            filter_by: Filtruoti pagal
             invite_attendee: Kviesti dalyvį
             invites: Pakvietimai
             registrations_disabled: Negalite kviesti dalyvio, nes registracija išjungta.
@@ -361,9 +358,6 @@ lt:
           update:
             invalid: Atnaujinat šio susirinkimo klausimyną iškilo problema.
             success: Susirinkimo klausimynas sėkmingai atnaujintas.
-        models:
-          meeting:
-            name: Susirinkimas
         registrations:
           edit:
             save: Išsaugoti
