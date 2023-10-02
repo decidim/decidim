@@ -276,13 +276,9 @@ de:
           destroy:
             success: Das Thema wurde erfolgreich entfernt.
           edit:
-            back: Zurück
-            confirm_destroy: Bist du sicher?
-            destroy: Löschen
             title: Initiativentyp bearbeiten
             update: Aktualisieren
           new:
-            back: Zurück
             create: Erstellen
             title: Initiativentypbereich erstellen
           update:
@@ -295,8 +291,6 @@ de:
           destroy:
             success: Der Initiativentyp wurde erfolgreich entfernt.
           edit:
-            confirm_destroy: Bist du sicher?
-            destroy: Löschen
             update: Aktualisieren
           form:
             authorizations: Autorisierungseinstellungen
