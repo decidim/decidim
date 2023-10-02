@@ -5,7 +5,6 @@ hu:
         confirm_destroy: Biztosan törölni szeretnéd ezt?
         destroy: Törlés
         edit: Szerkesztés
-        new: Új
         save: Mentés
         title: Műveletek
       admins:
@@ -52,7 +51,6 @@ hu:
           fields:
             created_at: 'Létrehozva:'
             email: Email
-          name: Admin
           validations:
             email_uniqueness: egy másik admin már használja ezt az email címet
         organization:
@@ -63,7 +61,6 @@ hu:
             name: Név
             omniauth_settings: Omniauth beállítások
             smtp_settings: SMTP beállítások
-          name: Szervezet
       organizations:
         create:
           error: Hiba történt az új szervezet létrehozása során.
