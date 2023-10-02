@@ -104,7 +104,9 @@ cs:
       actions:
         import_assembly: Importovat
         new_assembly: Nové shromáždění
+        new_assembly_member: Nový člen shromáždění
         new_assembly_type: Nový typ shromáždění
+        new_assembly_user_role: Nový administrátor shromáždění
       assemblies:
         create:
           error: Při vytváření nového shromáždění došlo k chybě.
