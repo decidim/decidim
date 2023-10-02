@@ -287,7 +287,6 @@ fr:
             included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à la plateforme. Elle ne doit pas nécessairement être identique à la date de création.
             metadata: Métadonnées
             other: Autre
-            sections: Sections
             select_a_created_by: Sélectionnez un créateur
             select_an_area: Sélectionnez un périmètre d'assemblée
             select_an_assembly_type: Sélectionnez un type d'assemblée
