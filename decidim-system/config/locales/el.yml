@@ -37,7 +37,6 @@ el:
         confirm_destroy: Είστε βέβαιοι ότι θέλετε να την διαγράψετε;
         destroy: Διαγραφή
         edit: Επεξεργασία
-        new: Νέα
         save: Αποθήκευση
         title: Ενέργειες
       admins:
@@ -76,7 +75,6 @@ el:
           fields:
             created_at: Δημιουργήθηκε στις
             email: Email
-          name: Διαχειριστής
           validations:
             email_uniqueness: υπάρχει ήδη άλλος διαχειριστής με την ίδια διεύθυνση email
         oauth_application:
@@ -84,7 +82,6 @@ el:
             created_at: Δημιουργήθηκε στις
             name: Όνομα εφαρμογής OAuth
             organization_name: Οργανισμός
-          name: Εφαρμογή OAuth
         organization:
           actions:
             save_and_invite: Δημιουργία οργανισμού και πρόσκληση διαχειριστή
@@ -94,7 +91,6 @@ el:
             name: Όνομα
             omniauth_settings: Ρυθμίσεις Omniauth
             smtp_settings: Ρυθμίσεις SMTP
-          name: Οργανισμός
       oauth_applications:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της εφαρμογής.
