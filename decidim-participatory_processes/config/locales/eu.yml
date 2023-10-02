@@ -98,6 +98,7 @@ eu:
         edit: Editatu
         filter:
           all_processes: Erakutsi prozesu guztiak
+          process_groups: Iragazki prozesuak taldeetan
         import_process: Inportatu
         new_process: Prozesu berria
         new_process_group: Prozesu talde berria
@@ -106,6 +107,7 @@ eu:
         preview: Aurreikusi
         publish: Argitaratu
         resend_invitation: Birbidali gonbita
+        see_process: Ikusi prozesuak
         unpublish: Desargitaratu
       menu:
         participatory_process_groups: Prozesu-multzoak
@@ -119,6 +121,7 @@ eu:
           attachments: Eranskinak
           categories: Kategoriak
           components: Osagaiak
+          info: Prozesu honi buruz
           landing_page: Hasierako orria
           moderations: Moderazioak
           private_users: Erabiltzaile pribatuak
@@ -127,6 +130,7 @@ eu:
       models:
         participatory_process:
           fields:
+            actions: Ekintzak
             created_at: Sortze-data
             private: Pribatua
             published: Argitaratua
@@ -248,6 +252,7 @@ eu:
           private: Pribatua
           public: Publiko
           published: Argitaratua
+          unpublished: Argitaratu gabea
         new:
           create: Sortu
           title: Prozesu partizipatibo berria
@@ -361,6 +366,7 @@ eu:
         participatory_process_groups:
           form:
             metadata: Metadatuak
+            title: Prozesu honi buruz
             visibility: Ikusgarritasuna
         participatory_process_imports:
           form:
