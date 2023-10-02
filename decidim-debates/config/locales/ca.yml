@@ -51,7 +51,6 @@ ca:
         confirm_destroy: Segur?
         destroy: Suprimeix
         edit: Edita
-        new: Nou %{name}
         title: Accions
       admin:
         debate_closes:
@@ -81,9 +80,6 @@ ca:
             success: Debate actualizado correctament.
         exports:
           comments: Comentaris
-        models:
-          debate:
-            name: Debat
       admin_log:
         debate:
           close: "La participant %{user_name} ha tancat el debat %{resource_name} a l'espai %{space_name}"
