@@ -19,9 +19,6 @@ pl:
         new: Nowy wpis
         title: Działania
       admin:
-        models:
-          post:
-            name: Wpis
         posts:
           edit:
             save: Aktualizuj
