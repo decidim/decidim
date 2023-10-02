@@ -189,7 +189,6 @@ de:
         export: Alles exportieren
         export-selection: Auswahl exportieren
         import: Importieren
-        new: Neu %{name}
         newsletter:
           new: Neuer Newsletter
         participatory_space_private_user:
