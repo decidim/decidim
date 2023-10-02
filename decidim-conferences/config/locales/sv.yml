@@ -82,7 +82,6 @@ sv:
     admin:
       actions:
         confirm: Bekräfta
-        new_conference: Ny konferens
         send_diplomas: Skicka deltagarbevis
       conference_copies:
         new:
