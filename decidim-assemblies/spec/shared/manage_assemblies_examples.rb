@@ -52,7 +52,7 @@ shared_examples "manage assemblies" do
 
     it "update an assembly without images does not delete them" do
       within_admin_menu do
-        click_link "Info"
+        click_link "About this assembly"
       end
       click_button "Update"
 
