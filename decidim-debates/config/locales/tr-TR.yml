@@ -47,6 +47,7 @@ tr:
         confirm_destroy: Emin misiniz?
         destroy: Sil
         edit: Düzenle
+        new: Yeni Tartışma
         title: Eylemler
       admin:
         debate_closes:
