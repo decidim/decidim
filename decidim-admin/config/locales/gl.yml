@@ -152,7 +152,6 @@ gl:
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
-        new: Novo %{name}
         newsletter:
           new: Novo boletín
         participatory_space_private_user:
