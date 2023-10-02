@@ -27,10 +27,8 @@
       </div>
     <% end %>
 
-    <div class="flash">
-      <span class="flash__message">
-        <%= t("recommendation_message", scope: "decidim.meetings.admin.registrations.form") %>
-      </span>
+    <div class="callout alert">
+      <%= t("recommendation_message", scope: "decidim.meetings.admin.registrations.form") %>
     </div>
 
     <%= decidim_form_for(@form, url: meeting_registrations_path, html: { class: "form-defaults form edit_meeting_registrations mt-4" })  do |f| %>
