@@ -38,7 +38,6 @@ de:
         actions:
           destroy: Brechen Sie die Sortierung ab
           edit: Bearbeiten
-          new: Neue Sortierung
           show: Sortierdetails
         models:
           sortition:
@@ -52,9 +51,6 @@ de:
               seed: Samen
               target_items: Zu wählende Elemente
               title: Titel
-            name:
-              one: Sortierung
-              other: Sortierungen
         sortitions:
           confirm_destroy:
             confirm_destroy: Möchten Sie diese Sortierung wirklich abbrechen?
