@@ -17,9 +17,6 @@ gl:
         new: Nova publicación
         title: Accións
       admin:
-        models:
-          post:
-            name: Publicación
         posts:
           edit:
             save: Actualizar
