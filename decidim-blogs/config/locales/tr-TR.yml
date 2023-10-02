@@ -22,9 +22,6 @@ tr:
         new: Yeni posta
         title: Eylemler
       admin:
-        models:
-          post:
-            name: posta
         posts:
           edit:
             save: Güncelleştirme
