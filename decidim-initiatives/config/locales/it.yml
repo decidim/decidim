@@ -231,19 +231,13 @@ it:
             photos: Foto
         initiatives_type_scopes:
           edit:
-            back: Indietro
-            confirm_destroy: Sei sicuro?
-            destroy: Elimina
             title: Modifica l'ambito del tipo di iniziativa
             update: Aggiornare
           new:
-            back: Indietro
             create: Creare
             title: Crea lo scope del tipo di iniziativa
         initiatives_types:
           edit:
-            confirm_destroy: Sei sicuro?
-            destroy: Elimina
             update: Aggiornare
           form:
             authorizations: Impostazioni di autorizzazione
