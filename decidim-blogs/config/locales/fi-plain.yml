@@ -23,9 +23,6 @@ fi-pl:
         new: Uusi artikkeli
         title: Toiminnot
       admin:
-        models:
-          post:
-            name: Artikkeli
         posts:
           create:
             invalid: Artikkelin luonti epäonnistui.
