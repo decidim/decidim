@@ -36,7 +36,6 @@ lv:
         actions:
           destroy: Atcelt izlozi
           edit: Labot
-          new: Jauna izloze
           show: Izlozes detaļas
         models:
           sortition:
@@ -50,10 +49,6 @@ lv:
               seed: Sēkla
               target_items: Elementi, ko izvēlēties
               title: Nosaukums
-            name:
-              zero: Izlozes
-              one: Izloze
-              other: Izlozes
         sortitions:
           confirm_destroy:
             confirm_destroy: Vai tiešām vēlaties atcelt šo izlozi?
