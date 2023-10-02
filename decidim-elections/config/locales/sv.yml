@@ -120,7 +120,6 @@ sv:
         manage_answers: Hantera svar
         manage_questions: Hantera frågor
         manage_steps: Hanterade steg
-        new: Ny %{name}
         preview: Förhandsgranska
         publish: Publicera
         title: Åtgärder
@@ -159,12 +158,6 @@ sv:
         models:
           answer:
             name: Svar
-          election:
-            name: Val
-          question:
-            name: Fråga
-          trustee:
-            name: Förvaltare
         proposals_imports:
           new:
             create: Importera förslag till svar
@@ -457,7 +450,6 @@ sv:
               confirm_destroy: Är du säker?
               destroy: Radera
               edit: Redigera
-              new: Ny
               title: Åtgärder
             title: Valtyper
           new:
@@ -494,7 +486,6 @@ sv:
           ballot_style:
             fields:
               code: Kod
-            name: Valtyp
           monitoring_committee_member:
             fields:
               email: E-post
@@ -503,14 +494,12 @@ sv:
             fields:
               email: E-post
               name: Namn
-            name: Röstmottagare
           polling_station:
             fields:
               address: Adress
               polling_station_managers: Koordinatorer
               polling_station_president: Ordförande
               title: Titel
-            name: Röststation
           voting:
             fields:
               created_at: Skapad den
@@ -671,7 +660,6 @@ sv:
         actions:
           confirm_destroy: Är du säker?
           destroy: Radera
-          new: Ny
           title: Åtgärder
         roles:
           manager: Koordinator
@@ -685,7 +673,6 @@ sv:
           confirm_destroy: Är du säker?
           destroy: Radera
           edit: Redigera
-          new: Ny
           title: Åtgärder
       votings:
         access_code_modal:
