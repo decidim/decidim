@@ -258,8 +258,6 @@ lt:
         edit:
           title: Redaguoti proceso tipą
           update: Atnaujinti
-        form:
-          title: Pavadinimas
         new:
           create: Sukurti
           title: Naujas proceso tipas
