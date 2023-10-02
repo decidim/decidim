@@ -37,7 +37,6 @@ ru:
         actions:
           destroy: Отменить жеребьевку
           edit: Редактировать
-          new: Добавить жеребьевку
           show: Подробности жеребьевки
         models:
           sortition:
@@ -51,11 +50,6 @@ ru:
               seed: Начальное число
               target_items: Элементы для выбора
               title: Название
-            name:
-              one: Жеребьевка
-              few: Жеребьевки
-              many: Жеребьевок
-              other: Жеребьевок
         sortitions:
           confirm_destroy:
             confirm_destroy: Вы действительно хотите отменить эту жеребьевку?
