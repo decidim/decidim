@@ -14,8 +14,9 @@ import { TrusteeWrapperAdapter as ElectionGuardTrusteeWrapperAdapter } from "@de
 $(() => {
   // UI Elements
   const $tally = $("#trustee-step");
+  const trusteeStep = $tally.data("currentStep")
 
-  if ($tally.length) {
+  if ($tally.length && trusteeStep === "tally_started") {
     const $startButton = $tally.find("#start");
     const $backButton = $tally.find("#back");
 
