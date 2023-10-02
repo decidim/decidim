@@ -69,7 +69,6 @@ uk:
           form:
             all_categories: Усі категорії
             select_proposal_component: Оберіть набір пропозицій
-            title: Додати нове жеребкування пропозицій
           index:
             title: Жеребкування
           new:
