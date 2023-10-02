@@ -152,7 +152,6 @@ el:
         manage_answers: Διαχείριση απαντήσεων
         manage_questions: Διαχείριση ερωτήσεων
         manage_steps: Διαχείριση βημάτων
-        new: Νέο όνομα %{name}
         preview: Προεπισκόπηση
         publish: Δημοσίευση
         title: Ενέργειες
@@ -225,12 +224,6 @@ el:
         models:
           answer:
             name: Απάντηση
-          election:
-            name: Εκλογή
-          question:
-            name: Ερώτηση
-          trustee:
-            name: Επίτροπος
         proposals_imports:
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά την εισαγωγή των προτάσεων σε απαντήσεις.
@@ -769,7 +762,6 @@ el:
               confirm_destroy: Είστε σίγουροι;
               destroy: Διαγραφή
               edit: Επεξεργασία
-              new: Νέο
               title: Ενέργειες
             associated_census_data: Συσχετιζόμενες καταχωρήσεις απογραφής
             explanation_callout: Το στυλ της ψηφοδελτίου καθορίζει τις ερωτήσεις που θα παρουσιαστούν σε ένα ψηφοφόρος στο παραβάν. Σε ένα στυλ ψηφοδελτίου, μπορείτε να επιλέξετε ποιες ερωτήσεις από τα εκλογικά στοιχεία αυτής της ψηφοφορίας ανήκουν σε ένα ψηφοδέλτιο. Ο κωδικός στυλ ψηφοδελτίου χρησιμοποιείται για να ταιριάζει έναν ψηφοφόρο από την απογραφή με το ψηφοδέλτιο που θα παρουσιαστεί στο παραβάν. Μην δημιουργείτε κανένα στυλ ψηφοφορίας αν θέλετε να παρουσιάσετε πάντα όλες τις ερωτήσεις.
@@ -823,25 +815,21 @@ el:
           ballot_style:
             fields:
               code: Κωδικός
-            name: Στυλ ψηφοδελτίων
           monitoring_committee_member:
             fields:
               email: Email
               name: Όνομα
-            name: Μέλος της Επιτροπής Παρακολούθησης
           polling_officer:
             fields:
               email: Email
               name: Όνομα
               polling_station: Εκλογικό κέντρο (ρόλος)
-            name: Αξιωματούχος εκλογών
           polling_station:
             fields:
               address: Διεύθυνση
               polling_station_managers: Διαχειριστές
               polling_station_president: Πρόεδρος
               title: Τίτλος
-            name: Εκλογικό κέντρο
           voting:
             fields:
               created_at: Δημιουργήθηκε στις
@@ -1233,7 +1221,6 @@ el:
         actions:
           confirm_destroy: Είστε σίγουροι;
           destroy: Διαγραφή
-          new: Νέο
           title: Ενέργειες
         roles:
           manager: Διαχειριστής
@@ -1254,7 +1241,6 @@ el:
           confirm_destroy: Είστε σίγουροι;
           destroy: Διαγραφή
           edit: Επεξεργασία
-          new: Νέο
           title: Ενέργειες
       votings:
         access_code_modal:
