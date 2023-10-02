@@ -55,7 +55,6 @@ sk:
           success: Duplicitné schôdzka úspešne.
         new:
           copy: kopírovať
-          select: Vyberte, ktoré dáta chcete duplikovať
           title: Duplicitné schôdzka
     components:
       meetings:
@@ -136,7 +135,6 @@ sk:
         confirm_destroy: Naozaj chcete túto schôdzku vymazať?
         destroy: Odstrániť
         edit: Upraviť
-        new: Nové stretnutie
         preview: Náhľad
         registrations: Registrácia
         title: Akcia
@@ -190,7 +188,6 @@ sk:
               all: Všetko
               rejected: Odmietnuté
               sent: Odoslaná
-            filter_by: Filtrovať podľa
             invite_attendee: Pozvať účastníka
             invites: Pozvánky
             search: Vyhľadávanie
@@ -221,9 +218,6 @@ sk:
           services:
             add_service: Pridať službu
             services: Služby
-        models:
-          meeting:
-            name: Stretnutie
         registrations:
           edit:
             save: Uložiť
