@@ -42,7 +42,6 @@ pl:
         edit: Edytuj
         import: Importuj projekty do wyników
         import_csv: Importuj CSV
-        new: Nowa %{name}
         preview: Podgląd
         timeline_entries: Rozwój projektu
         title: Działania
@@ -60,8 +59,6 @@ pl:
             name: Wynik
           status:
             name: Status
-          timeline_entry:
-            name: Wpis na osi czasu
         projects_import:
           create:
             invalid: Wystąpił problem z importem projektów do wyników, proszę postępować ostrożnie zgodnie z instrukcjami i upewnić się, że wybrałeś projekty do realizacji.
