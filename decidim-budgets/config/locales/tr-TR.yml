@@ -29,7 +29,6 @@ tr:
         edit: Düzenle
         edit_projects: Projeleri Yönet
         import: Teklifleri projelere aktarın
-        new: Yeni %{name}
         preview: Önizleme
         title: Eylemler
       admin:
