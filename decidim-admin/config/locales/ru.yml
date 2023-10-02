@@ -118,7 +118,6 @@ ru:
       actions:
         add: Добавить
         browse: Просмотреть
-        new: Добавить %{name}
         permissions: Права
         reject: Отклонить
         verify: Подтвердить личность
