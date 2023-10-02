@@ -22,9 +22,6 @@ sv:
         new: Nytt inlägg
         title: Åtgärder
       admin:
-        models:
-          post:
-            name: Publicera
         posts:
           edit:
             save: Uppdatera
