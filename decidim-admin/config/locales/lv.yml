@@ -118,7 +118,6 @@ lv:
       actions:
         add: Pievienot
         browse: Pārlūkot
-        new: Jauns %{name}
         per_page: Lapā
         permissions: Atļaujas
         reject: Noraidīt
