@@ -101,7 +101,6 @@ pt-BR:
         manage_answers: Gerenciar respostas
         manage_questions: Gerenciar perguntas
         manage_steps: Gerenciar etapas
-        new: Novo %{name}
         preview: Pré-visualização
         publish: Publicar
         title: Ações
@@ -143,12 +142,6 @@ pt-BR:
         models:
           answer:
             name: Resposta
-          election:
-            name: Eleição
-          question:
-            name: Questão
-          trustee:
-            name: Curador
         proposals_imports:
           new:
             create: Importar propostas para respostas
@@ -584,7 +577,6 @@ pt-BR:
               confirm_destroy: Você tem certeza?
               destroy: Excluir
               edit: Editar
-              new: Novo
               title: Ações
             associated_census_data: Entradas associadas de censo
             title: Estilo de cédula
@@ -625,25 +617,21 @@ pt-BR:
           ballot_style:
             fields:
               code: Código
-            name: Estilo de Cédula
           monitoring_committee_member:
             fields:
               email: E-mail
               name: Nome
-            name: Monitoramento de Membros de Comitê
           polling_officer:
             fields:
               email: E-mail
               name: Nome
               polling_station: Estação de votação (regra)
-            name: Oficial de Enquete
           polling_station:
             fields:
               address: Endereço
               polling_station_managers: Gerentes
               polling_station_president: Presidente
               title: Título
-            name: Estação de enquete
           voting:
             fields:
               created_at: Criado em
@@ -944,7 +932,6 @@ pt-BR:
         actions:
           confirm_destroy: Você tem certeza?
           destroy: Excluir
-          new: Novo
           title: Ações
         roles:
           manager: Gerente
@@ -965,7 +952,6 @@ pt-BR:
           confirm_destroy: Você tem certeza?
           destroy: Excluir
           edit: Editar
-          new: Novo
           title: Ações
       votings:
         access_code_modal:
