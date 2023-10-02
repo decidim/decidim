@@ -273,13 +273,9 @@ hu:
           destroy:
             success: A hatáskör eltávolítása sikeres volt.
           edit:
-            back: Vissza
-            confirm_destroy: Biztos vagy benne?
-            destroy: Törlés
             title: Kezdeményezés típusának szerkesztése
             update: Frissítés
           new:
-            back: Vissza
             create: Létrehozás
             title: Kezdeményezési típus hatáskörének létrehozása
           update:
@@ -292,8 +288,6 @@ hu:
           destroy:
             success: A kezdeményezéstípus eltávolítása sikeres.
           edit:
-            confirm_destroy: Biztos vagy benne?
-            destroy: Törlés
             update: Frissítés
           form:
             authorizations: Hitelesítési beállítások
