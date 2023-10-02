@@ -44,7 +44,6 @@ ja:
         edit: 編集
         edit_projects: プロジェクトの管理...
         import: プロジェクトへの提案をインポート
-        new: 新しい %{name}
         preview: プレビュー
         send_voting_reminders: 投票リマインダーを送信
         title: アクション
