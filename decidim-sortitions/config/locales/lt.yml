@@ -40,7 +40,6 @@ lt:
         actions:
           destroy: Atšaukti sprendimą burtų keliu
           edit: Redaguoti
-          new: Nauja galimybė spręsti burtų keliu
           show: Išsami informacija apie sprendimą burtų keliu
         models:
           sortition:
@@ -54,11 +53,6 @@ lt:
               seed: Generavimo raktas
               target_items: Pasirinktini elementai
               title: Pavadinimas
-            name:
-              one: Sprendimas burtų keliu
-              few: Sprendimai burtų keliu
-              many: Sprendimai burtų keliu
-              other: Sprendimai burtų keliu
         sortitions:
           confirm_destroy:
             confirm_destroy: Ar tikrai norite atšauti šį sprendimą burtų keliu?
