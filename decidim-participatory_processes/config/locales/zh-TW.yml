@@ -97,7 +97,6 @@ zh-TW:
         edit: 編輯
         filter:
           all_processes: 顯示所有流程
-          process_groups: 程序群組
         import_process: 匯入
         moderate: 管理
         new_process: 新的程序
@@ -122,7 +121,6 @@ zh-TW:
           attachments: 附件
           categories: 類別
           components: 组件
-          info: 資訊
           moderations: 版主
           private_users: 私人參與者
           process_admins: 程序管理員
@@ -132,7 +130,6 @@ zh-TW:
           fields:
             created_at: 建立於
             private: 隱私模式
-            promoted: 重點顯示
             published: 已發佈
             title: 標題
           name: 參與程序
@@ -283,7 +280,6 @@ zh-TW:
         edit:
           update: 更新
         index:
-          not_published: 未發佈
           private: 隱私模式
           public: 公開
           published: 已發佈
@@ -400,7 +396,6 @@ zh-TW:
         participatory_process_groups:
           form:
             metadata: 元數據
-            title: 基本資訊
             visibility: 可見度
         participatory_process_imports:
           form:
