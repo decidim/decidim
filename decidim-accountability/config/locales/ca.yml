@@ -41,7 +41,6 @@ ca:
         edit: Editar
         import: Importar projectes a resultats
         import_csv: Importar CSV
-        new: Nou/va %{name}
         preview: Previsualitzar
         timeline_entries: Evolució del projecte
         title: Accions
@@ -84,8 +83,6 @@ ca:
             name: Resultat
           status:
             name: Estat
-          timeline_entry:
-            name: Entrada de la cronologia
         projects_import:
           create:
             invalid: Hi ha hagut un problema important els projectes com a resultats, si us plau, segueix les instruccions amb cura i assegura't de marcar els projectes seleccionats per a la seva implementació.
