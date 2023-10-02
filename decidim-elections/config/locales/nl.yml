@@ -90,7 +90,6 @@ nl:
         manage_answers: Antwoorden beheren
         manage_questions: Vragen beheren
         manage_steps: Stappen beheren
-        new: Nieuwe %{name}
         preview: Voorvertoning
         publish: Publiceren
         title: acties
@@ -127,12 +126,6 @@ nl:
         models:
           answer:
             name: Beantwoorden
-          election:
-            name: Verkiezing
-          question:
-            name: Vraag
-          trustee:
-            name: Trustee
         proposals_imports:
           new:
             create: Importeer voorstellen naar antwoorden
@@ -517,7 +510,6 @@ nl:
               confirm_destroy: Weet je het zeker?
               destroy: Verwijderen
               edit: Bewerken
-              new: Nieuw
               title: Acties
             associated_census_data: Gekoppelde kiezerslijst gegevens
             title: Stembriefstijlen
@@ -557,12 +549,10 @@ nl:
           ballot_style:
             fields:
               code: Code
-            name: Stembriefstijl
           monitoring_committee_member:
             fields:
               email: E-mail
               name: Naam
-            name: Lid van het controlecomité
           polling_officer:
             fields:
               polling_station: Stembureau (rol)
@@ -572,7 +562,6 @@ nl:
               polling_station_managers: Managers
               polling_station_president: Voorzitter
               title: Titel
-            name: Stembureau
           voting:
             fields:
               created_at: Aangemaakt op
@@ -897,7 +886,6 @@ nl:
           confirm_destroy: Ben je zeker?
           destroy: Verwijderen
           edit: Bewerken
-          new: Nieuw
           title: Acties
       votings:
         access_code_modal:
