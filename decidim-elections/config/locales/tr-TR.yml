@@ -64,6 +64,10 @@ tr:
         import: Teklifleri yanıtlara aktarın
         manage_answers: Cevapları yönet
         manage_questions: Soruları yönet
+        new_answer: Yeni Yanıt
+        new_election: Yeni seçim
+        new_question: Yeni soru
+        new_trustee: Yeni Vekil
         preview: Önizleme
         publish: Yayınla
         title: Eylemler
@@ -282,6 +286,10 @@ tr:
         see_all: Tüm seçimleri görünüz
     votings:
       admin:
+        ballot_styles:
+          index:
+            actions:
+              new: Yeni oylama Yöntemi
         content_blocks:
           attachments_and_folders:
             name: Oylama ekleri ve klasörleri
@@ -310,6 +318,12 @@ tr:
           highlighted_votings:
             active_spaces: Aktif oylamalar
             see_all_spaces: Tüm Oylamaları Görün
+      polling_officers:
+        actions:
+          new: Yeni Oylama Memuru
+      polling_stations:
+        actions:
+          new: Oy verme yeri
       votings:
         show:
           title: Bu Oylama Hakkında
