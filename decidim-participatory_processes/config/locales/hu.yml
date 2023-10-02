@@ -251,8 +251,6 @@ hu:
         edit:
           title: Folyamat típus szerkesztése
           update: Frissítés
-        form:
-          title: Cím
         new:
           create: Létrehozás
           title: Új folyamat típus
