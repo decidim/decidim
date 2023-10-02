@@ -282,13 +282,9 @@ lt:
           destroy:
             success: Sritis sėkmingai pašalinta.
           edit:
-            back: Atgal
-            confirm_destroy: Ar esate tikri?
-            destroy: Ištrinti
             title: Redaguoti iniciatyvos tipo sritį
             update: Atnaujinti
           new:
-            back: Atgal
             create: Sukurti
             title: Sukurti iniciatyvos tipo sritį
           update:
@@ -301,8 +297,6 @@ lt:
           destroy:
             success: Iniciatyvos tipas sėkmingai pašalintas.
           edit:
-            confirm_destroy: Ar esate tikri?
-            destroy: Ištrinti
             update: Atnaujinti
           form:
             authorizations: Autorizacijos nustatymai
