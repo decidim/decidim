@@ -100,7 +100,6 @@ de:
         edit: Bearbeiten
         filter:
           all_processes: Alle Beteiligungsprozesse anzeigen
-          process_groups: Prozessgruppen
         import_process: Importieren
         moderate: Moderieren
         new_process: Neuer Beteiligungsprozess
@@ -125,7 +124,6 @@ de:
           attachments: Anlagen
           categories: Kategorien
           components: Komponenten
-          info: Info
           landing_page: Startseite
           moderations: Moderationen
           private_users: Private Benutzer
@@ -136,7 +134,6 @@ de:
           fields:
             created_at: Hergestellt in
             private: Privat
-            promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
           name: Beteiligungsprozess
@@ -287,7 +284,6 @@ de:
         edit:
           update: Aktualisieren
         index:
-          not_published: Nicht veröffentlicht
           private: Privat
           public: Öffentlich
           published: Veröffentlicht
@@ -422,7 +418,6 @@ de:
         participatory_process_groups:
           form:
             metadata: Metadaten
-            title: Allgemeine Informationen
             visibility: Sichtbarkeit
         participatory_process_imports:
           form:
