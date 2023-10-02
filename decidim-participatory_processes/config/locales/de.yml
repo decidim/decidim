@@ -252,8 +252,6 @@ de:
         edit:
           title: Prozesstyp bearbeiten
           update: Aktualisieren
-        form:
-          title: Titel
         new:
           create: Erstellen
           title: Neuer Prozesstyp
