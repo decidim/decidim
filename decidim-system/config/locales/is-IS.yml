@@ -39,7 +39,6 @@ is:
           fields:
             created_at: Búið til á
             name: Nafn
-          name: Skipulag
       organizations:
         edit:
           secondary_hosts_hint: Sláðu inn hvert þeirra í nýjum línu
