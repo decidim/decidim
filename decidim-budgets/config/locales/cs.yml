@@ -47,6 +47,8 @@ cs:
         edit: Upravit
         edit_projects: Spravovat projekty
         import: Importovat návrhy do projektů
+        new_budget: Nový rozpočet
+        new_project: Nový projekt
         preview: Náhled
         send_voting_reminders: Odeslat připomenutí hlasování
         title: Akce
