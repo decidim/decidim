@@ -100,7 +100,7 @@ edit_link(
             </div>
           </div>
         <% else %>
-          <%= render partial: "decidim/devise/shared/login_boxes" %>
+          <%= render partial: "decidim/devise/shared/login_boxes", locals: { scope: "decidim.conferences.conferences.show" } %>
         <% end %>
       </section>
     <% end %>
