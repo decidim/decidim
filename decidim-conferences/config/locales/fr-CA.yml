@@ -150,6 +150,7 @@ fr-CA:
         exports:
           registrations: Inscriptions
         form:
+          sections: Sections
           title: Informations générales
         index:
           not_published: Non publié
@@ -193,11 +194,13 @@ fr-CA:
           conference_invites: Invitations
           conference_speakers: Conférenciers
           diploma: Certificat de participation
+          info: À propos de cette conférence
           media_links: Liens médias
           moderations: Modération
           partners: Partenaires
           registration_types: Types d'inscription
           registrations: Inscriptions
+          see_conference: Voir la conférence
           user_registrations: Utilisateurs inscrits
       models:
         conference:
