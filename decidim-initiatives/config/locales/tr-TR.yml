@@ -221,19 +221,13 @@ tr:
             photos: Resimler
         initiatives_type_scopes:
           edit:
-            back: Geri
-            confirm_destroy: Emin misin?
-            destroy: Sil
             title: Girişim türü kapsamını düzenle
             update: Güncelle
           new:
-            back: Geri
             create: Oluştur
             title: Girişim tipi kapsamı oluştur
         initiatives_types:
           edit:
-            confirm_destroy: Emin misin?
-            destroy: Sil
             update: Güncelle
           form:
             authorizations: Yetkilendirme ayarları
