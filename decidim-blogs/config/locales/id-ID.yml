@@ -15,9 +15,6 @@ id:
         new: Berita Baru
         title: Tindakan
       admin:
-        models:
-          post:
-            name: Pos
         posts:
           edit:
             save: Memperbarui
