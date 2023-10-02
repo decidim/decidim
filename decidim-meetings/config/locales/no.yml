@@ -81,7 +81,6 @@
           success: Møtet ble duplisert.
         new:
           copy: Kopier
-          select: Velg hvilke data du vil duplisere
           title: Duplisert møte
     components:
       meetings:
@@ -178,7 +177,6 @@
             one: 'Dette møtet kan ikke slettes, da det har %{count} forslag tilknyttet:'
             other: 'Dette møtet kan ikke slettes, da det har %{count} forslag tilknyttet:'
         manage_poll: Administrere menignsmåling
-        new: Nytt møte
         preview: Forhåndsvis
         registrations: Registreringer
         title: Handlinger
@@ -234,7 +232,6 @@
               all: Alle
               rejected: Avvist
               sent: Sendt
-            filter_by: Filtrer etter
             invite_attendee: Inviter deltaker
             invites: Invitasjoner
             search: Søk
@@ -277,9 +274,6 @@
         meetings_poll:
           form:
             title: Rediger meningsmåling for %{questionnaire_for}
-        models:
-          meeting:
-            name: Møte
         registrations:
           edit:
             save: Lagre
