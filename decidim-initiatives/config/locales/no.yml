@@ -242,19 +242,13 @@
             title: Innstillinger for initiativer
         initiatives_type_scopes:
           edit:
-            back: Tilbake
-            confirm_destroy: Er du sikker?
-            destroy: Slett
             title: Rediger initiativtypens omgang
             update: Oppdater
           new:
-            back: Tilbake
             create: Opprett
             title: Opprett tema for initiativtype
         initiatives_types:
           edit:
-            confirm_destroy: Er du sikker?
-            destroy: Slett
             update: Oppdater
           form:
             authorizations: Innstillinger for autorisasjon
