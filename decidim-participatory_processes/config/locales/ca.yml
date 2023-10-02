@@ -100,7 +100,6 @@ ca:
         edit: Editar
         filter:
           all_processes: Mostra tots els processos
-          process_groups: Grups de processos
         import_process: Importar
         moderate: Moderar
         new_process: Nou procés
@@ -125,7 +124,6 @@ ca:
           attachments: Adjunts
           categories: Categories
           components: Components
-          info: Informació
           landing_page: Pàgina d'inici
           moderations: Moderacions
           private_users: Participants privades
@@ -136,7 +134,6 @@ ca:
           fields:
             created_at: Data de creació
             private: Privat
-            promoted: Destacat
             published: Publicat
             title: Títol
           name: Procés participatiu
@@ -287,7 +284,6 @@ ca:
         edit:
           update: Actualitza
         index:
-          not_published: No publicada
           private: Privat
           public: Públic
           published: Publicat
@@ -422,7 +418,6 @@ ca:
         participatory_process_groups:
           form:
             metadata: Metadades
-            title: Informació general
             visibility: Visibilitat
         participatory_process_imports:
           form:
