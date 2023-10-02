@@ -273,13 +273,9 @@ ja:
           destroy:
             success: スコープを削除しました。
           edit:
-            back: 戻る
-            confirm_destroy: よろしいですか？
-            destroy: 削除
             title: イニシアチブ種別のスコープを編集
             update: 更新
           new:
-            back: 戻る
             create: 作成
             title: イニシアチブ種別のスコープを作成
           update:
@@ -292,8 +288,6 @@ ja:
           destroy:
             success: イニシアチブタイプを削除しました。
           edit:
-            confirm_destroy: よろしいですか？
-            destroy: 削除
             update: 更新
           form:
             authorizations: 認証設定
