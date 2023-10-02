@@ -258,8 +258,6 @@ cs:
         edit:
           title: Upravit typ procesu
           update: Aktualizovat
-        form:
-          title: Název
         new:
           create: Vytvořit
           title: Nový typ procesu
