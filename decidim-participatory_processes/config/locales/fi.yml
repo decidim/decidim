@@ -370,7 +370,7 @@ fi:
         participatory_process_groups:
           form:
             metadata: Metatiedot
-            title: Yleiset tiedot
+            title: Yleistä tietoa
             visibility: Näkyvyys
         participatory_process_imports:
           form:
