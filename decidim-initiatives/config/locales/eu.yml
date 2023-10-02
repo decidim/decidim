@@ -223,7 +223,6 @@ eu:
             send_to_technical_validation: Bidali baliozkotzeko teknikora
             update: eguneratzearen
           form:
-            attachments: Erantsitako artxiboak
             settings: Ezarpenak
             title: Informazio orokorra
           index:
@@ -248,7 +247,6 @@ eu:
           form:
             authorizations: Baimen-doikuntzak
             options: Aukerak
-            title: Informazio orokorra
           initiative_type_scopes:
             title: Ekimen motako esparruak
           new:
