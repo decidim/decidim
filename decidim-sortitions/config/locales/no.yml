@@ -38,7 +38,6 @@
         actions:
           destroy: Avbryt sorteringen
           edit: Editar
-          new: Ny sortering
           show: Sorterings detaljer
         models:
           sortition:
@@ -52,9 +51,6 @@
               seed: Seed
               target_items: Gjenstander å velge
               title: Tittel
-            name:
-              one: Sortering
-              other: Sorteringer
         sortitions:
           confirm_destroy:
             confirm_destroy: Er du sikker på at du vil avbryte denne sorteringen?
