@@ -89,7 +89,6 @@ fi-pl:
     admin:
       actions:
         confirm: Vahvista
-        new_conference: Uusi konferenssi
         send_diplomas: Lähetä läsnäolotodistukset
       conference_copies:
         new:
