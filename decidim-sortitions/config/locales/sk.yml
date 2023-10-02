@@ -69,7 +69,6 @@ sk:
           form:
             all_categories: Všetky kategórie
             select_proposal_component: Vyberte sadu návrhov
-            title: Nové návrhy na návrhy
           index:
             title: Voľby losovaním
           new:
