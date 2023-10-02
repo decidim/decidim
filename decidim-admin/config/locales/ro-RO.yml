@@ -184,7 +184,6 @@ ro:
         export: Exportă tot
         export-selection: Exportă selecția
         import: Importă
-        new: '%{name} nou'
         newsletter:
           new: Buletin informativ nou
         participatory_space_private_user:
