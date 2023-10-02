@@ -100,6 +100,7 @@ fr-CA:
         edit: Modifier
         filter:
           all_processes: Afficher tous les processus
+          process_groups: Filtrer les concertations par groupe
         import_process: Importer
         moderate: Modérer
         new_process: Nouvelle concertation
@@ -110,6 +111,7 @@ fr-CA:
         preview: Aperçu
         publish: Publier
         resend_invitation: Renvoyer l'invitation
+        see_process: Voir la concertation
         unpublish: Dépublier
       menu:
         participatory_process_groups: Groupes de concertations
@@ -124,6 +126,7 @@ fr-CA:
           attachments: Documents liés
           categories: Catégories
           components: Fonctionnalités
+          info: A propos de cette concertation
           landing_page: Page d'accueil
           moderations: Modérations
           private_users: Utilisateurs privés
@@ -132,6 +135,7 @@ fr-CA:
       models:
         participatory_process:
           fields:
+            actions: Actions
             created_at: Créée le
             private: Privée
             published: Publiée
@@ -252,8 +256,6 @@ fr-CA:
         edit:
           title: Modifier le type de concertation
           update: Mettre à jour
-        form:
-          title: Titre
         new:
           create: Créer
           title: Nouveau type de concertation
@@ -287,6 +289,7 @@ fr-CA:
           private: Privée
           public: Publique
           published: Publiée
+          unpublished: Non publié
         new:
           create: Créer
           title: Nouvelle concertation
@@ -418,6 +421,7 @@ fr-CA:
         participatory_process_groups:
           form:
             metadata: Métadonnées
+            title: A propos de cette concertation
             visibility: Visibilité
         participatory_process_imports:
           form:
