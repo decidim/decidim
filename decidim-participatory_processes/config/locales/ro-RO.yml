@@ -254,8 +254,6 @@ ro:
         edit:
           title: Editează tipul de proces
           update: Actualizează
-        form:
-          title: Titlu
         new:
           create: Creează
           title: Tip nou de proces
