@@ -76,7 +76,6 @@ cs:
           form:
             all_categories: Všechny kategorie
             select_proposal_component: Vyberte sadu návrhů
-            title: Nové losování pro návrhy
           index:
             title: Losování
           new:
