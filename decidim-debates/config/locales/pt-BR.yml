@@ -47,7 +47,6 @@ pt-BR:
         confirm_destroy: Você tem certeza?
         destroy: Excluir
         edit: Editar
-        new: Novo %{name}
         title: Ações
       admin:
         debate_closes:
@@ -77,9 +76,6 @@ pt-BR:
             success: Debate atualizado com sucesso.
         exports:
           comments: Comentários
-        models:
-          debate:
-            name: Debate
       admin_log:
         debate:
           close: "%{user_name} fechou o debate %{resource_name} no espaço %{space_name}"
