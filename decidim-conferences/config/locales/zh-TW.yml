@@ -85,7 +85,6 @@ zh-TW:
     admin:
       actions:
         confirm: 確認
-        new_conference: 新的會議
         send_diplomas: 發送出席證明書
       conference_copies:
         new:
