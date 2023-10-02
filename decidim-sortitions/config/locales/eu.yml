@@ -38,7 +38,6 @@ eu:
         actions:
           destroy: Zozketa bertan behera utzi
           edit: Editatu
-          new: Zozketa berria
           show: Zozketaren xehetasunak
         models:
           sortition:
@@ -52,9 +51,6 @@ eu:
               seed: Hazia
               target_items: Aukeratutako elementuak
               title: Izenburua
-            name:
-              one: Zozketa
-              other: Zozketak
         sortitions:
           confirm_destroy:
             confirm_destroy: Ziur al zaude zozketa hau bertan behera utzi nahi duzula?
