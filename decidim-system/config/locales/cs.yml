@@ -37,7 +37,6 @@ cs:
         confirm_destroy: Opravdu to chcete smazat?
         destroy: Smazat
         edit: Upravit
-        new: Nový
         save: Uložit
         title: Akce
       admins:
@@ -94,7 +93,6 @@ cs:
           fields:
             created_at: Vytvořeno v
             email: E-mail
-          name: Správce
           validations:
             email_uniqueness: jiný admin se stejnou e-mailovou adresou již existuje
         oauth_application:
@@ -102,7 +100,6 @@ cs:
             created_at: Vytvořeno v
             name: Jméno žádosti OAuth
             organization_name: Organizace
-          name: Žádost OAuth
         organization:
           actions:
             save_and_invite: Vytvořit organizaci a pozvat administrátora
@@ -113,7 +110,6 @@ cs:
             name: Název
             omniauth_settings: Nastavení Omniauth
             smtp_settings: SMTP nastavení
-          name: Organizace
       oauth_applications:
         create:
           error: Při vytváření této žádosti došlo k chybě.
