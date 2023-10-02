@@ -105,7 +105,6 @@ eu:
           success: Bildutako topaketa bikoiztua behar bezala egin da.
         new:
           copy: Kopiatu
-          select: Aukeratu zein datu bikoiztu nahi dituzun
           title: Topaketa bikoiztua
     components:
       meetings:
@@ -202,7 +201,6 @@ eu:
             one: 'Topaketa ezin da ezabatu lotutako proposamen bat dituelako:'
             other: 'Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako:'
         manage_poll: Konfiguratu inkesta
-        new: Topaketa berria
         preview: Aurreikusi
         registrations: Izen-emateak
         title: Ekintzak
@@ -258,7 +256,6 @@ eu:
               all: Guztiak
               rejected: Baztertuta
               sent: Bidalita
-            filter_by: Iragazi arabera
             invite_attendee: Gonbidatu
             invites: Gonbidapenak
             search: Bilatu
@@ -302,9 +299,6 @@ eu:
         meetings_poll:
           form:
             title: Editatu %{questionnaire_for} inkestaren galdetekgia
-        models:
-          meeting:
-            name: Topaketa
         registrations:
           edit:
             save: Gorde
