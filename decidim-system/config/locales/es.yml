@@ -37,7 +37,6 @@ es:
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
         destroy: Borrar
         edit: Editar
-        new: Nuevo
         save: Guardar
         title: Acciones
       admins:
@@ -94,7 +93,6 @@ es:
           fields:
             created_at: Fecha de creación
             email: Correo electrónico
-          name: Administradora
           validations:
             email_uniqueness: ya existe otra administradora con este correo electrónico
         oauth_application:
@@ -102,7 +100,6 @@ es:
             created_at: Creado el
             name: Nombre de la aplicación OAuth
             organization_name: Organización
-          name: Aplicación OAuth
         organization:
           actions:
             save_and_invite: Crear organización e invitar a la administradora
@@ -113,7 +110,6 @@ es:
             name: Nombre
             omniauth_settings: Ajustes de Omniauth
             smtp_settings: Configuración de SMTP
-          name: Organización
       oauth_applications:
         create:
           error: Se ha producido un error al crear esta aplicación.
