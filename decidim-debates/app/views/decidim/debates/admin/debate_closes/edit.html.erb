@@ -4,7 +4,7 @@
     <%= t(".title") %>
   </h2>
 </div>
-<div>
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: debate_debate_close_path(debate, @form), html: { class: "form form-defaults edit_close_debate" }) do |f| %>
       <div class="form__wrapper">
