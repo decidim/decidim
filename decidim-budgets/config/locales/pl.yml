@@ -32,7 +32,6 @@ pl:
         edit: Edytuj
         edit_projects: Zarządzaj budżetem
         import: Importuj propozycje do projektów
-        new: Nowy %{name}
         preview: Podgląd
         title: Działania
       admin:
