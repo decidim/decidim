@@ -38,7 +38,6 @@ fi:
         actions:
           destroy: Peruuta satunnaistaminen
           edit: Muokkaa
-          new: Uusi satunnaistaminen
           show: Satunnaistamisen yksityiskohdat
         models:
           sortition:
@@ -52,9 +51,6 @@ fi:
               seed: Jako
               target_items: Valittavat kohteet
               title: Otsikko
-            name:
-              one: Satunnaistaminen
-              other: Satunnaistamiset
         sortitions:
           confirm_destroy:
             confirm_destroy: Haluatko varmasti peruuttaa tämän satunnaistamisen?
