@@ -41,7 +41,6 @@ eu:
         edit: Editatu
         import: Inportatu proiektuak emaitzetara
         import_csv: Inportatu CSV fichategia
-        new: '%{name} berria'
         preview: Aurreikusi
         timeline_entries: Proiektuaren bilakaera
         title: Ekintzak
@@ -63,8 +62,6 @@ eu:
             name: Emaitza
           status:
             name: Egoera
-          timeline_entry:
-            name: Sarrera kronologian
         projects_import:
           create:
             invalid: Arazo bat gertatu da proiektuak emaitzetara inportatzean, mesedez, jarraitu arretaz argibideak eta ziurtatu proiektuak inplementatzeko aukeratu dituzula.
