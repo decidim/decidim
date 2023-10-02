@@ -89,7 +89,6 @@ de:
     admin:
       actions:
         confirm: Bestätigen
-        new_conference: Neue Konferenz
         send_diplomas: Senden Sie eine Teilnahmebestätigung
       conference_copies:
         new:
