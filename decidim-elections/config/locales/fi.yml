@@ -160,7 +160,6 @@ fi:
         manage_answers: Hallitse vastauksia
         manage_questions: Hallinnoi kysymyksiä
         manage_steps: Hallinnoi vaiheita
-        new: Uusi %{name}
         preview: Esikatsele
         publish: Julkaise
         title: Toiminnot
@@ -233,12 +232,6 @@ fi:
         models:
           answer:
             name: Vastaus
-          election:
-            name: Vaali
-          question:
-            name: Kysymys
-          trustee:
-            name: Luottamushenkilö
         proposals_imports:
           create:
             invalid: Ehdotusten tuonti vastauksiksi epäonnistui.
@@ -799,7 +792,6 @@ fi:
               confirm_destroy: Oletko varma?
               destroy: Poista
               edit: Muokkaa
-              new: Uusi
               title: Toiminnot
             associated_census_data: Liitetyt henkilötietorekisterin tiedot
             explanation_callout: Äänestystyyli määrittelee, mitä kysymyksiä äänestäjälle esitetään äänestyskopissa. Voit valita äänestystyylille kysymykset äänestyslappuun tämän äänestyksen vaalikomponenteista. Äänestystyylin koodeja käytetään henkilötietorekisterissä olevien henkilöiden yhdistämiseksi äänestyslappuihin. Älä luo äänestystyylejä, jos haluat esittää kaikki kysymykset kaikille äänestäjille.
@@ -875,25 +867,21 @@ fi:
           ballot_style:
             fields:
               code: Koodi
-            name: Äänestystyyli
           monitoring_committee_member:
             fields:
               email: Sähköposti
               name: Nimi
-            name: Tarkkailukomitean jäsen
           polling_officer:
             fields:
               email: Sähköposti
               name: Nimi
               polling_station: Äänestyspaikka (rooli)
-            name: Äänestysvirkailija
           polling_station:
             fields:
               address: Osoite
               polling_station_managers: Virkailijat
               polling_station_president: Esimies
               title: Otsikko
-            name: Äänestyspaikka
           voting:
             fields:
               created_at: Luonnin ajankohta
@@ -1291,7 +1279,6 @@ fi:
         actions:
           confirm_destroy: Oletko varma?
           destroy: Poista
-          new: Uusi
           title: Toiminnot
         roles:
           manager: Virkailija
@@ -1312,7 +1299,6 @@ fi:
           confirm_destroy: Oletko varma?
           destroy: Poista
           edit: Muokkaa
-          new: Uusi
           title: Toiminnot
       votings:
         access_code_modal:
