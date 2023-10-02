@@ -88,7 +88,6 @@ el:
     admin:
       actions:
         confirm: Επιβεβαίωση
-        new_conference: Νέα διάσκεψη
         send_diplomas: Αποστολή πιστοποιητικών παρακολούθησης
       conference_copies:
         new:
