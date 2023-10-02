@@ -100,7 +100,6 @@ el:
         edit: Επεξεργασία
         filter:
           all_processes: Εμφάνιση όλων των διαδικασιών
-          process_groups: Ομάδες διαδικασιών
         import_process: Εισαγωγή
         moderate: Συντονισμός
         new_process: Νέα διαδικασία
@@ -125,7 +124,6 @@ el:
           attachments: Συνημμένα
           categories: Κατηγορίες
           components: Στοιχεία
-          info: Πληροφορίες
           moderations: Εποπτεύσεις
           private_users: Ιδιωτικοί συμμετέχοντες
           process_admins: Διαχειριστές διαδικασιών
@@ -135,7 +133,6 @@ el:
           fields:
             created_at: Δημιουργήθηκε στις
             private: Ιδιωτικό
-            promoted: Επισημάνθηκε
             published: Δημοσιεύτηκε
             title: Τίτλος
           name: Διαδικασία συμμετοχής
@@ -286,7 +283,6 @@ el:
         edit:
           update: Ενημέρωση
         index:
-          not_published: Δεν έχει δημοσιευτεί
           private: Ιδιωτικό
           public: Δημόσιο
           published: Δημοσιεύτηκε
@@ -404,7 +400,6 @@ el:
         participatory_process_groups:
           form:
             metadata: Μεταδεδομένα
-            title: Γενικές πληροφορίες
             visibility: Ορατότητα
         participatory_process_imports:
           form:
