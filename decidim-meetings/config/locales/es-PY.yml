@@ -122,7 +122,6 @@ es-PY:
           success: El encuentro se ha duplicado con éxito.
         new:
           copy: Copiar
-          select: Selecciona qué datos quieres duplicar
           title: Duplicar encuentro
     components:
       meetings:
@@ -224,7 +223,6 @@ es-PY:
             one: 'El encuentro no se puede eliminar porque tiene %{count} propuesta asociada:'
             other: 'El encuentro no se puede eliminar porque tiene %{count} propuestas asociadas:'
         manage_poll: Configurar encuesta
-        new: Nuevo encuentro
         preview: Previsualizar
         registrations: Inscripciones
         title: Acciones
@@ -286,7 +284,6 @@ es-PY:
               all: Todas
               rejected: Rechazada
               sent: Enviadas
-            filter_by: Filtrar por
             invite_attendee: Invitar asistente
             invites: Invitaciones
             registrations_disabled: No puedes invitar a nadie porque las inscripciones están deshabilitadas.
@@ -352,9 +349,6 @@ es-PY:
           update:
             invalid: Se ha producido un error al actualizar esta encuesta.
             success: Encuesta actualizada correctamente.
-        models:
-          meeting:
-            name: Encuentro
         registrations:
           edit:
             save: Guardar
