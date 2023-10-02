@@ -37,7 +37,9 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cela ?
         destroy: Supprimer
         edit: Modifier
-        new: Nouvelle
+        new_admin: Nouvel administrateur
+        new_oauth_application: Nouvelle application Oauth
+        new_organization: Nouvelle organisation
         save: Sauvegarder
         title: Actions
       admins:
@@ -94,7 +96,6 @@ fr:
           fields:
             created_at: Créé le
             email: Courriel
-          name: Administrateur
           validations:
             email_uniqueness: un autre administrateur avec la même adresse email existe déjà
         oauth_application:
@@ -102,7 +103,6 @@ fr:
             created_at: Créée le
             name: Nom de l'application OAuth
             organization_name: Organisation
-          name: Application OAuth
         organization:
           actions:
             save_and_invite: Créer une organisation et inviter un administrateur
@@ -113,7 +113,6 @@ fr:
             name: Nom
             omniauth_settings: Paramètres Omniauth
             smtp_settings: Paramètres SMTP
-          name: Organisation
       oauth_applications:
         create:
           error: Un problème est survenu lors de la création de cette application.
