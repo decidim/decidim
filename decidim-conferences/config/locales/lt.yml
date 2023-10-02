@@ -94,7 +94,6 @@ lt:
     admin:
       actions:
         confirm: Patvirtinti
-        new_conference: Nauja Konferencija
         send_diplomas: Siųsti dalyvavimo konferencijoje pažymėjimus
       conference_copies:
         new:
