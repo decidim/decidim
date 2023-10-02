@@ -185,7 +185,6 @@ pt-BR:
         export: Exportar tudo
         export-selection: Exportar selecionado
         import: Importar
-        new: Nova %{name}
         newsletter:
           new: Novo Boletim Informativo
         participatory_space_private_user:
