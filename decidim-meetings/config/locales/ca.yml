@@ -122,7 +122,6 @@ ca:
           success: Trobada duplicada correctament.
         new:
           copy: Copia
-          select: Selecciona quines dades vols duplicar
           title: Duplicar trobada
     components:
       meetings:
@@ -224,7 +223,6 @@ ca:
             one: 'No es pot destruir la trobada perquè té %{count} proposta associades:'
             other: 'No es pot destruir la trobada perquè té %{count} propostes associades:'
         manage_poll: Configurar enquesta
-        new: Nova trobada
         preview: Previsualitzar
         registrations: Inscripcions
         title: Accions
@@ -286,7 +284,6 @@ ca:
               all: Totes
               rejected: Rebutjades
               sent: Enviades
-            filter_by: Filtra per
             invite_attendee: Convidar assistent
             invites: Invitacions
             registrations_disabled: No pots convidar a cap persona perquè les inscripcions estan inhabilitades.
@@ -352,9 +349,6 @@ ca:
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta enquesta.
             success: Enquesta actualitzada correctament.
-        models:
-          meeting:
-            name: Trobada
         registrations:
           edit:
             save: Desa
