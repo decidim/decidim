@@ -51,7 +51,6 @@ eu:
         confirm_destroy: Ziur zaude?
         destroy: Ezabatu
         edit: Editatu
-        new: '%{name} berria'
         title: Ekintzak
       admin:
         debate_closes:
@@ -81,9 +80,6 @@ eu:
             success: Debate arrakastaz eguneratu da.
         exports:
           comments: Iruzkinak
-        models:
-          debate:
-            name: Debate
       admin_log:
         debate:
           close: "%{user_name} erabiltzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
