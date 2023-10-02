@@ -45,7 +45,6 @@ lv:
     admin:
       actions:
         confirm: Apstiprināt
-        new_conference: Jauna konference
         send_diplomas: Nosūtīt apmeklējuma sertifikātus
       conference_copies:
         new:
