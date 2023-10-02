@@ -26,6 +26,11 @@ module Decidim
         "filters_#{SecureRandom.uuid}"
       end
 
+      # i18n-tasks-use t('decidim.initiatives.initiatives.filters.state')
+      # i18n-tasks-use t('decidim.initiatives.initiatives.filters.scope')
+      # i18n-tasks-use t('decidim.initiatives.initiatives.filters.type')
+      # i18n-tasks-use t('decidim.initiatives.initiatives.filters.area')
+      # i18n-tasks-use t('decidim.initiatives.initiatives.filters.author')
       def filter_sections
         sections = [
           { method: :with_any_state, collection: filter_states_values, label_scope: "decidim.initiatives.initiatives.filters", id: "state" },

@@ -485,7 +485,6 @@ en:
           author: Author
           myself: My initiatives
           scope: Scope
-          search: Search
           state: Status
           type: Type
         index_header:

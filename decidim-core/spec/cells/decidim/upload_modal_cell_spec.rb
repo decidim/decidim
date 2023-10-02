@@ -59,7 +59,6 @@ describe Decidim::UploadModalCell, type: :cell do
   context "when file is required" do
     let(:required) { true }
 
-
     it "renders hidden checkbox" do
       expect(subject).to have_css("input[name='dummy[#{attribute}_validation]']", visible: :hidden)
     end

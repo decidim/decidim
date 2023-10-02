@@ -1403,8 +1403,6 @@ en:
           online: Online
   layouts:
     decidim:
-      election_votes_header:
-        exit: Exit
       voting_navigation:
         check_census: Can I vote?
         election_log: Election log

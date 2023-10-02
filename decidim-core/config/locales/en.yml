@@ -912,14 +912,12 @@ en:
           add_attachment: Add attachment
           add_file: Add file
           add_image: Add image
-          cancel: Cancel
           edit_image: Edit image
           error: Error!
           file_size_too_large: 'File size is too large! Maximun file size: %{megabytes}MB'
           filename: Filename
           remove: Remove
           replace: Replace
-          save: Save
           title: Title
           title_required: Title is required!
           uploaded: Uploaded
@@ -1949,8 +1947,6 @@ en:
         continue_session: Continue session
         log_out: Log out
         title: Would you like to continue your session?
-      upload_modal:
-        close_modal: Close modal
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard
