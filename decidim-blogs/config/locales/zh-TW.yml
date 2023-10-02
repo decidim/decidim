@@ -22,9 +22,6 @@ zh-TW:
         new: 新貼文
         title: 操作
       admin:
-        models:
-          post:
-            name: 文章
         posts:
           create:
             invalid: 建立此文章時出現問題
