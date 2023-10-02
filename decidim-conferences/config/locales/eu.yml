@@ -88,7 +88,6 @@ eu:
     admin:
       actions:
         confirm: Berretsi
-        new_conference: Jardunaldi berria
         send_diplomas: Bertaratze-ziurtagiriak bidali
       conference_copies:
         new:
