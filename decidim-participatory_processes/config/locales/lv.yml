@@ -98,7 +98,6 @@ lv:
           attachments: Pielikumi
           categories: Kategorijas
           components: Komponenti
-          info: Informācija
           moderations: Moderācijas
           private_users: Privātie dalībnieki
           process_admins: Procesa administratori
@@ -315,6 +314,9 @@ lv:
         content_blocks:
           highlighted_processes:
             max_results: Maksimālais parādāmo elementu daudzums
+        participatory_process_groups:
+          form:
+            title: Vispārēja informācija
         participatory_process_imports:
           form:
             document_legend: Pievienot dokumentu
