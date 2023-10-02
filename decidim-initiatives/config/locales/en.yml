@@ -281,13 +281,9 @@ en:
           destroy:
             success: The scope has been successfully removed.
           edit:
-            back: Back
-            confirm_destroy: Are you sure?
-            destroy: Delete
             title: Edit initiative type scope
             update: Update
           new:
-            back: Back
             create: Create
             title: Create initiative type scope
           update:
@@ -300,8 +296,6 @@ en:
           destroy:
             success: The initiative type has been successfully removed.
           edit:
-            confirm_destroy: Are you sure?
-            destroy: Delete
             update: Update
           form:
             authorizations: Authorization settings
