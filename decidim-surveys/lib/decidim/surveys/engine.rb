@@ -59,7 +59,7 @@ module Decidim
               component = data[:resource].questionnaire_for.component
 
               answers = Decidim::Forms::QuestionnaireUserAnswers.for(data[:resource])
-              user_answers = answers.select { |a| a.first.session_token == extra_data[:session_token] }
+              user_answers = answers.select { |a| a.first.session_token == extra_data[:session_token] }.flatten
 
               if component.manifest_name == "surveys" && user_answers.present?
                 Decidim::Surveys::SurveyConfirmationMailer.confirmation(extra_data[:event_author], extra_data[:questionnaire], user_answers).deliver_later
