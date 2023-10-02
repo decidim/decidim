@@ -68,7 +68,6 @@ nl:
           form:
             all_categories: Alle categorieën
             select_proposal_component: Selecteer de voorgestelde set
-            title: Nieuwe loting van de voorstellen
           index:
             title: Lotingen
           new:
