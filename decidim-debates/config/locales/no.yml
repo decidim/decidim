@@ -50,7 +50,6 @@
         confirm_destroy: Er du sikker?
         destroy: Slett
         edit: Rediger
-        new: Ny %{name}
         title: Handling
       admin:
         debate_closes:
@@ -80,9 +79,6 @@
             success: Innspillstråden ble oppdatert.
         exports:
           comments: Kommentarer
-        models:
-          debate:
-            name: Innspillstråd
       admin_log:
         debate:
           close: "%{user_name} lukket tråden %{resource_name} under området %{space_name}"
