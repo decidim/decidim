@@ -100,7 +100,6 @@ es:
         edit: Editar
         filter:
           all_processes: Mostrar todos los procesos
-          process_groups: Grupos de procesos
         import_process: Importar
         moderate: Moderar
         new_process: Nuevo proceso
@@ -125,7 +124,6 @@ es:
           attachments: Adjuntos
           categories: Categorías
           components: Componentes
-          info: Información
           landing_page: Página de inicio
           moderations: Moderaciones
           private_users: Participantes privadas
@@ -136,7 +134,6 @@ es:
           fields:
             created_at: Fecha de creación
             private: Privado
-            promoted: Destacado
             published: Publicada
             title: Título
           name: Proceso participativo
@@ -287,7 +284,6 @@ es:
         edit:
           update: Actualizar
         index:
-          not_published: No publicado
           private: Privado
           public: Público
           published: Publicada
@@ -422,7 +418,6 @@ es:
         participatory_process_groups:
           form:
             metadata: Metadatos
-            title: Información general
             visibility: Visibilidad
         participatory_process_imports:
           form:
