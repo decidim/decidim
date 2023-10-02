@@ -27,9 +27,6 @@ ar:
         new: منشور جديد
         title: أفعال
       admin:
-        models:
-          post:
-            name: بريد
         posts:
           edit:
             save: تحديث
