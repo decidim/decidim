@@ -37,7 +37,6 @@ eu:
         confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
         destroy: Ezabatu
         edit: Editatu
-        new: Berria
         save: Gorde
         title: Ekintzak
       admins:
@@ -89,7 +88,6 @@ eu:
           fields:
             created_at: Sortze-data
             email: Helbide elektronikoa
-          name: Administratzailea
           validations:
             email_uniqueness: beste administratzaile bat dago, helbide elektroniko hauxe bera duena
         oauth_application:
@@ -97,7 +95,6 @@ eu:
             created_at: Sortze-data
             name: OAuth Aplikazioaren izena
             organization_name: Antolatzailea
-          name: OAuth Aplikazioa
         organization:
           actions:
             save_and_invite: Sortu erakundea eta gonbit egin administratzaileari
@@ -107,7 +104,6 @@ eu:
             name: Izena
             omniauth_settings: Omniauth doikuntzak
             smtp_settings: SMTP konfigurazioa
-          name: Erakundea
       oauth_applications:
         create:
           error: Errore bat gertatu da aplikazio hau sortzean.
