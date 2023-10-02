@@ -128,7 +128,6 @@ cs:
           success: Duplicitní schůzka úspěšně.
         new:
           copy: Kopírovat
-          select: Vyberte, která data chcete duplikovat
           title: Duplicitní schůzka
     components:
       meetings:
@@ -232,7 +231,6 @@ cs:
             many: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
             other: 'Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů:'
         manage_poll: Spravovat anketu
-        new: Nové setkání
         preview: Náhled
         registrations: Registrace
         title: Akce
@@ -294,7 +292,6 @@ cs:
               all: Vše
               rejected: Odmítnuto
               sent: Odeslaná
-            filter_by: Filtrovat podle
             invite_attendee: Pozvat účastníka
             invites: Pozvánky
             registrations_disabled: Nemůžete pozvat účastníka, protože registrace jsou blokovány.
@@ -362,9 +359,6 @@ cs:
           update:
             invalid: Při aktualizaci této schůze došlo k chybě.
             success: Anketa ke schůzi byla úspěšně aktualizována.
-        models:
-          meeting:
-            name: Setkání
         registrations:
           edit:
             save: Uložit
