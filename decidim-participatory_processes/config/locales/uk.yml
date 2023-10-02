@@ -177,6 +177,9 @@ uk:
         update:
           error: При спробі оновити цей крок руху співучасті сталася помилка.
           success: Крок руху співучасті успішно оновлено.
+      participatory_process_types:
+        form:
+          title: Назва
       participatory_process_user_roles:
         create:
           error: При спробі додати учасника в цей рух співучасті сталася помилка.
