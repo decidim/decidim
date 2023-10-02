@@ -12,6 +12,8 @@ fr:
         manage: Gérer
         templates: Modèles de questionnaire
       templates:
+        actions:
+          new_template: Nouveau modèle
         apply:
           error: Une erreur est survenue lors de l'application de ce modèle.
           success: Modèle appliqué avec succès.
