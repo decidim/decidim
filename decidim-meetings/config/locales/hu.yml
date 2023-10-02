@@ -87,7 +87,6 @@ hu:
           success: Találkozó duplikálása sikeres.
         new:
           copy: Másolás
-          select: Válaszd ki, mely adatokat szeretnéd duplikálni
           title: Találkozó duplikálása
     components:
       meetings:
@@ -184,7 +183,6 @@ hu:
             one: 'A találkozót nem lehet megsemmisíteni, mert %{count} javaslat van társítva hozzá:'
             other: 'A találkozót nem lehet megsemmisíteni, mert %{count} javaslat van társítva hozzá:'
         manage_poll: Szavazás menedzselése
-        new: Új találkozó
         preview: Előnézet
         registrations: Regisztrációk
         title: Műveletek
@@ -240,7 +238,6 @@ hu:
               all: Összes
               rejected: Elutasítva
               sent: Elküldve
-            filter_by: 'Szűrés ez alapján:'
             invite_attendee: Résztvevő meghívása
             invites: Meghívottak
             search: Keresés
@@ -288,9 +285,6 @@ hu:
         meetings_poll:
           form:
             title: A szavazáshoz kapcsolódó kérdőív szerkesztése %{questionnaire_for}
-        models:
-          meeting:
-            name: Találkozó
         registrations:
           edit:
             save: Mentés
