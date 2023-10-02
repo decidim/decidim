@@ -70,7 +70,6 @@ ja:
           form:
             all_categories: すべてのカテゴリ
             select_proposal_component: 提案セットを選択
-            title: 提案のための新しい並べ替え
           index:
             title: 並べ替え
           new:
