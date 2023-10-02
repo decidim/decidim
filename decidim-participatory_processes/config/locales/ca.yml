@@ -252,8 +252,6 @@ ca:
         edit:
           title: Editar el tipus de procés
           update: Actualitzar
-        form:
-          title: Títol
         new:
           create: Crear
           title: Nou tipus de procés
