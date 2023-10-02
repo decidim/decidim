@@ -91,6 +91,7 @@ tr:
       actions:
         import_assembly: İçeri aktar
         new_assembly: Yeni kurul
+        new_assembly_member: Yeni Meclis Üyesi
         new_assembly_type: Yeni kurul türü
       assemblies:
         create:
