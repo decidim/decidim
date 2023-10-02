@@ -45,7 +45,6 @@ fi-pl:
         edit: Muokkaa
         edit_projects: Hallinnoi projekteja
         import: Tuo ehdotuksia suunnitelmiin
-        new: Uusi %{name}
         preview: Esikatsele
         send_voting_reminders: Lähetä äänestysmuistutukset
         title: Toiminnot
