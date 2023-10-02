@@ -276,13 +276,9 @@ ca:
           destroy:
             success: L'àmbit s'ha eliminat correctament.
           edit:
-            back: Torna
-            confirm_destroy: Segur?
-            destroy: Suprimeix
             title: Edita l'àmbit del tipus d'iniciativa
             update: Actualitza
           new:
-            back: Torna
             create: Crear
             title: Crea l'àmbit del tipus d'iniciativa
           update:
@@ -295,8 +291,6 @@ ca:
           destroy:
             success: S'ha eliminat correctament el tipus d'iniciativa.
           edit:
-            confirm_destroy: Segur?
-            destroy: Suprimeix
             update: Actualitza
           form:
             authorizations: Configuració de l'autorització
