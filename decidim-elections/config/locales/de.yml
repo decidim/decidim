@@ -160,7 +160,6 @@ de:
         manage_answers: Antworten verwalten
         manage_questions: Fragen verwalten
         manage_steps: Schritte verwalten
-        new: Neue(r/s) %{name}
         preview: Vorschau
         publish: Veröffentlichen
         title: Aktionen
@@ -233,12 +232,6 @@ de:
         models:
           answer:
             name: Antwort
-          election:
-            name: Wahl
-          question:
-            name: Frage
-          trustee:
-            name: Wahlhelfer
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge in Antworten ist ein Problem aufgetreten.
@@ -799,7 +792,6 @@ de:
               confirm_destroy: Sind Sie sicher?
               destroy: Löschen
               edit: Bearbeiten
-              new: Neu
               title: Aktionen
             associated_census_data: Zugehörige Erhebungseinträge
             explanation_callout: Eine Wahlkategorie legt fest, welche Fragen einem Wähler bei der Abstimmung gestellt werden. In einer Wahlkategorie können Sie auswählen, welche Fragen aus den Wahlkomponenten dieser Wahl zu einer Wahlurne gehören. Anhand dem Wahlkategorie-Code aus den Erhebungsdaten des Wählers wird die Wahlkategorie ausgewählt, die einem Wähler angezeigt wird. Wenn Sie immer alle Fragen anzeigen wollen, erstellen Sie keine Wahlkategorien.
@@ -875,25 +867,21 @@ de:
           ballot_style:
             fields:
               code: Code
-            name: Wahlkategorie
           monitoring_committee_member:
             fields:
               email: E-Mail
               name: Name
-            name: Mitglied des Überwachungskomitees
           polling_officer:
             fields:
               email: E-Mail
               name: Name
               polling_station: Wahllokal (Rolle)
-            name: Wahllokal-Mitarbeitender
           polling_station:
             fields:
               address: Adresse
               polling_station_managers: Manager
               polling_station_president: Präsident
               title: Titel
-            name: Wahllokal
           voting:
             fields:
               created_at: Erstellt am
@@ -1291,7 +1279,6 @@ de:
         actions:
           confirm_destroy: Sind Sie sicher?
           destroy: Entfernen
-          new: Neu
           title: Aktionen
         roles:
           manager: Manager
@@ -1312,7 +1299,6 @@ de:
           confirm_destroy: Sind Sie sicher?
           destroy: Löschen
           edit: Bearbeiten
-          new: Neu
           title: Aktionen
       votings:
         access_code_modal:
