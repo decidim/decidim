@@ -87,7 +87,6 @@ hu:
     admin:
       actions:
         confirm: Megerősít
-        new_conference: Új konferencia
         send_diplomas: Küldési igazolások küldése
       conference_copies:
         new:
