@@ -40,7 +40,6 @@ cs:
         actions:
           destroy: Zrušit losování
           edit: Upravit
-          new: Nové losování
           show: Detaily losování
         models:
           sortition:
@@ -54,11 +53,6 @@ cs:
               seed: Založení
               target_items: Položky k výběru
               title: Název
-            name:
-              one: Losování
-              few: Losování
-              many: Losování
-              other: Losování
         sortitions:
           confirm_destroy:
             confirm_destroy: Opravdu chcete zrušit toto losování?
