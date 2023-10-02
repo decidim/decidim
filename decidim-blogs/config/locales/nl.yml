@@ -17,9 +17,6 @@ nl:
         new: Nieuwe blogpost
         title: acties
       admin:
-        models:
-          post:
-            name: Post
         posts:
           edit:
             save: Bijwerken
