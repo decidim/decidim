@@ -45,7 +45,6 @@ fi:
         edit: Muokkaa
         edit_projects: Hallinnoi hankkeita
         import: Tuo ehdotuksia hankkeiksi
-        new: Uusi %{name}
         preview: Esikatsele
         send_voting_reminders: Lähetä äänestysmuistutukset
         title: Toiminnot
