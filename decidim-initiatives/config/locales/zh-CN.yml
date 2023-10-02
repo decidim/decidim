@@ -199,7 +199,6 @@ zh-CN:
             send_to_technical_validation: 发送到技术验证
             update: 更新
           form:
-            attachments: 附件
             settings: 设置
             title: 通告周知
           index:
@@ -224,7 +223,6 @@ zh-CN:
           form:
             authorizations: 授权设置
             options: 备选方案
-            title: 通告周知
           initiative_type_scopes:
             title: 倡议类型的范围
           new:
