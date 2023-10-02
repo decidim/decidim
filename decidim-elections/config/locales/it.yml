@@ -100,7 +100,6 @@ it:
         manage_answers: Gestisci le risposte
         manage_questions: Gestisci i quesiti
         manage_steps: Gestisci passaggi
-        new: Nuovo %{name}
         preview: Anteprima
         publish: Pubblica
         title: Azioni
@@ -142,12 +141,6 @@ it:
         models:
           answer:
             name: Risposta
-          election:
-            name: Elezione
-          question:
-            name: Quesito
-          trustee:
-            name: Fiduciari
         proposals_imports:
           new:
             create: Importa proposte a cui rispondere
@@ -599,7 +592,6 @@ it:
               confirm_destroy: Sei sicura?
               destroy: Elimina
               edit: Modifica
-              new: Nuovo
               title: Azioni
             associated_census_data: Voci di voto associate
             title: Stile di voto
@@ -640,25 +632,21 @@ it:
           ballot_style:
             fields:
               code: Codice
-            name: Modalità di voto
           monitoring_committee_member:
             fields:
               email: Email
               name: Nome
-            name: Membro del Comitato di Sorveglianza
           polling_officer:
             fields:
               email: Email
               name: Nome
               polling_station: Seggio elettorale (ruolo)
-            name: Scrutatrice/tore
           polling_station:
             fields:
               address: Indirizzo
               polling_station_managers: Gestori
               polling_station_president: Presidentessa/Presidente
               title: Titolo
-            name: Seggio elettorale
           voting:
             fields:
               created_at: Creato il
@@ -977,7 +965,6 @@ it:
         actions:
           confirm_destroy: Sei sicuro?
           destroy: Cancella
-          new: Nuovo
           title: Azioni
         roles:
           manager: Gestore
@@ -998,7 +985,6 @@ it:
           confirm_destroy: Sei sicuro?
           destroy: Cancella
           edit: Modifica
-          new: Nuovo
           title: Azioni
       votings:
         access_code_modal:
