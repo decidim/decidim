@@ -91,7 +91,6 @@ ro:
     admin:
       actions:
         confirm: Confirmare
-        new_conference: Conferință nouă
         send_diplomas: Trimite certificate de prezență
       conference_copies:
         new:
