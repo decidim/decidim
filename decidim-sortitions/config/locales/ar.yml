@@ -39,7 +39,6 @@ ar:
         actions:
           destroy: إلغاء الفرز
           edit: تعديل
-          new: فرز جديد
           show: تفاصيل الفرز
         models:
           sortition:
@@ -53,13 +52,6 @@ ar:
               seed: بذرة
               target_items: عناصر للاختيار
               title: عنوان
-            name:
-              zero: Sortitions
-              one: Sortition
-              two: Sortitions
-              few: Sortitions
-              many: Sortitions
-              other: Sortitions
         sortitions:
           confirm_destroy:
             confirm_destroy: هل أنت متأكد أنك تريد إلغاء هذا التصنيف؟
