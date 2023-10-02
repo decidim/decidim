@@ -119,7 +119,6 @@ eu:
         manage_answers: Kudeatu erantzunak
         manage_questions: Kudeatu galderak
         manage_steps: Kudeatu urratsak
-        new: '%{name} berria'
         preview: Aurrebistaratu
         publish: Argitaratu
         title: Ekintzak
@@ -161,12 +160,6 @@ eu:
         models:
           answer:
             name: Erantzuna
-          election:
-            name: Bozketa
-          question:
-            name: Galdera
-          trustee:
-            name: Bermatzailea
         proposals_imports:
           new:
             create: Inportatu proposamenak erantzun gisa
@@ -611,7 +604,6 @@ eu:
               confirm_destroy: Ziur zaude?
               destroy: Ezabatu
               edit: Editatu
-              new: Berria
               title: Ekintzak
             associated_census_data: Erroldarekin erlazionatutako sarrerak
             title: Boto-paper motak
@@ -654,25 +646,21 @@ eu:
           ballot_style:
             fields:
               code: Kodea
-            name: Boto-paper mota
           monitoring_committee_member:
             fields:
               email: E-maila
               name: Izena
-            name: Jarraipen-batzordeko kidea
           polling_officer:
             fields:
               email: E-maila
               name: Izena
               polling_station: Bozketa-gunea (rola)
-            name: Mahaiko kudeatzailea
           polling_station:
             fields:
               address: Helbidea
               polling_station_managers: Administratzaileak
               polling_station_president: Presidentea
               title: Izenburua
-            name: Bozketa-gunea
           voting:
             fields:
               created_at: Sortze-data
@@ -991,7 +979,6 @@ eu:
         actions:
           confirm_destroy: Ziur zaude?
           destroy: Ezabatu
-          new: Berria
           title: Ekintzak
         roles:
           manager: Administratzailea
@@ -1012,7 +999,6 @@ eu:
           confirm_destroy: Ziur zaude?
           destroy: Ezabatu
           edit: Editatu
-          new: Berria
           title: Ekintzak
       votings:
         access_code_modal:
