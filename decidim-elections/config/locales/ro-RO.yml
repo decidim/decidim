@@ -103,7 +103,6 @@ ro:
         manage_answers: Gestionare răspunsuri
         manage_questions: Gestionează întrebările
         manage_steps: Gestionați pașii
-        new: '%{name} nou'
         preview: Previzualizare
         publish: Publică
         title: Acțiuni
@@ -145,12 +144,6 @@ ro:
         models:
           answer:
             name: Răspuns
-          election:
-            name: Alegeri
-          question:
-            name: Întrebare
-          trustee:
-            name: Împuternicit
         proposals_imports:
           new:
             create: Importă propunerile pentru răspunsuri
