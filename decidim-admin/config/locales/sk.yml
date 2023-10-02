@@ -120,7 +120,6 @@ sk:
       actions:
         add: Pridať
         browse: Prechádzať
-        new: Nový %{name}
         per_page: Na stranu
         permissions: Práva
         reject: Odmietnuť
