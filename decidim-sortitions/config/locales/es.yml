@@ -38,7 +38,6 @@ es:
         actions:
           destroy: Cancela el sorteo
           edit: Editar
-          new: Nuevo sorteo
           show: Detalles del sorteo
         models:
           sortition:
@@ -52,9 +51,6 @@ es:
               seed: Semilla
               target_items: Elementos a seleccionar
               title: Título
-            name:
-              one: Sorteo
-              other: Sorteos
         sortitions:
           confirm_destroy:
             confirm_destroy: '¿Segura que quieres cancelar este sorteo?'
