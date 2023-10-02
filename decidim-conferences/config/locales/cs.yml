@@ -95,6 +95,12 @@ cs:
     admin:
       actions:
         confirm: Potvrdit
+        new_conference: Nová konference
+        new_conference_user_role: Nový administrátor konference
+        new_media_link: Nový odkaz na média
+        new_partner: Nový partner
+        new_registration_type: Nový typ registrace
+        new_speaker: Nový mluvčí
         send_diplomas: Odeslání certifikátů o účasti
       conference_copies:
         new:
@@ -461,10 +467,14 @@ cs:
           collaborators: Partneři
           main_promotors: Organizátoři
         show:
+          already_have_an_account?: Již máte účet?
+          are_you_new?: Nový účastník?
           login_as: Jste přihlášeni jako %{name} <%{email}>
           make_conference_registration: Registrovat na konferenci
           manage_registration: Správa registrace
           register: Registrovat
+          sign_in_description: Přihlaste se pro registraci do konference
+          sign_up_description: Vytvořte si účet pro registraci do konference
       content_blocks:
         highlighted_conferences:
           name: Zvýrazněné konference
