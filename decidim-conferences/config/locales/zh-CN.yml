@@ -39,7 +39,6 @@ zh-CN:
     admin:
       actions:
         confirm: 确认
-        new_conference: 新会议
         send_diplomas: 发送出勤证书
       conference_copies:
         new:
