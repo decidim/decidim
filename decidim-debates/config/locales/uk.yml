@@ -39,7 +39,6 @@ uk:
         confirm_destroy: Ви впевнені?
         destroy: Видалити
         edit: Редагувати
-        new: Додати %{name}
         title: Дії
       admin:
         debates:
@@ -59,9 +58,6 @@ uk:
           update:
             invalid: При спробі оновити обговорення сталася помилка.
             success: Обговорення успішно оновлено.
-        models:
-          debate:
-            name: Обговорення
       admin_log:
         debate:
           create: "%{user_name} започаткував обговорення %{resource_name} у просторі %{space_name}"
