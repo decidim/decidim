@@ -217,7 +217,6 @@ it:
             send_to_technical_validation: Invia a convalida tecnica
             update: Aggiornare
           form:
-            attachments: Allegati
             settings: Impostazioni
             title: Informazione generale
           index:
@@ -242,7 +241,6 @@ it:
           form:
             authorizations: Impostazioni di autorizzazione
             options: Opzioni
-            title: Informazione generale
           initiative_type_scopes:
             title: Ambiti per il tipo di iniziativa
           new:
