@@ -72,7 +72,6 @@ zh-CN:
         edit: 编辑
         filter:
           all_processes: 显示所有进程
-          process_groups: 流程组
         import_process: 导入
         new_process: 新建进程
         new_process_group: 新建流程组
@@ -91,7 +90,6 @@ zh-CN:
           attachments: 附件
           categories: 类别管理
           components: 组件
-          info: 信息
           moderations: 版面
           private_users: 私人参与者
           process_admins: 进程管理员
@@ -101,7 +99,6 @@ zh-CN:
           fields:
             created_at: 创建于
             private: 非公开的
-            promoted: 高亮
             published: 已发布
             title: 标题
           name: 参与性进程
@@ -209,7 +206,6 @@ zh-CN:
         edit:
           update: 更新
         index:
-          not_published: 未发布
           private: 非公开的
           public: 公开的
           published: 已发布
