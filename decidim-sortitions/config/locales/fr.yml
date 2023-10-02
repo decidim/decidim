@@ -72,7 +72,6 @@ fr:
           form:
             all_categories: Toutes les catégories
             select_proposal_component: Sélectionnez un ensemble de propositions
-            title: Nouveau tirage au sort de propositions
           index:
             title: Tirages au sort
           new:
