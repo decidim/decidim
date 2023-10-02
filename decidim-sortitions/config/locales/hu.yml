@@ -35,7 +35,6 @@ hu:
         actions:
           destroy: Sorsolás törlése
           edit: Szerkesztés
-          new: Új sorsolás
           show: Sorsolás részletei
         models:
           sortition:
@@ -49,9 +48,6 @@ hu:
               seed: Kezdőérték
               target_items: Kijelölni kívánt elemek
               title: Cím
-            name:
-              one: Sorsolás
-              other: Sorsolások
         sortitions:
           confirm_destroy:
             confirm_destroy: Biztosan törölni szeretnéd ezt a sorsolást?
