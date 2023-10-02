@@ -213,19 +213,13 @@ zh-CN:
             photos: 照片
         initiatives_type_scopes:
           edit:
-            back: 后退
-            confirm_destroy: 您确定吗？
-            destroy: 删除
             title: 编辑倡议类型范围
             update: 更新
           new:
-            back: 后退
             create: 创建
             title: 创建倡议类型范围
         initiatives_types:
           edit:
-            confirm_destroy: 您确定吗？
-            destroy: 删除
             update: 更新
           form:
             authorizations: 授权设置
