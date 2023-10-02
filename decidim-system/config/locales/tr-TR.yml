@@ -37,6 +37,9 @@ tr:
         confirm_destroy: Bunu silmek istediğinizden emin misiniz?
         destroy: Sil
         edit: Düzenle
+        new_admin: Yeni Yönetici
+        new_oauth_application: Yetkilendirilmiş Uygulama
+        new_organization: Yeni organizasyon
         save: Kaydet
         title: Eylemler
       admins:
