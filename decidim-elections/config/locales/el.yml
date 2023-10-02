@@ -199,7 +199,7 @@ el:
           answer:
             name: Απάντηση
           election:
-            name: Εκλογή
+            name: Εκλογές
           question:
             name: Ερώτηση
           trustee:
