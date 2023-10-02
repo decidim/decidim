@@ -67,7 +67,6 @@ lv:
           form:
             all_categories: Visas kategorijas
             select_proposal_component: Atlasiet piedāvājumu kopu
-            title: Jaunu priekšlikumu izloze
           index:
             title: Izlozes
           new:
