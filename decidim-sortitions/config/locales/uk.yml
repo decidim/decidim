@@ -37,7 +37,6 @@ uk:
         actions:
           destroy: Скасувати жеребкування
           edit: Редагувати
-          new: Додати жеребкування
           show: Подробиці жеребкування
         models:
           sortition:
@@ -51,11 +50,6 @@ uk:
               seed: Початкове число
               target_items: Наймення до вибору
               title: Назва
-            name:
-              one: Жеребкування
-              few: Жеребкування
-              many: Жеребкувань
-              other: Жеребкувань
         sortitions:
           confirm_destroy:
             confirm_destroy: Ви дійсно бажаєте скасувати це жеребкування?
