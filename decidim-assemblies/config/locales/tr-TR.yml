@@ -93,6 +93,7 @@ tr:
         new_assembly: Yeni kurul
         new_assembly_member: Yeni Meclis Üyesi
         new_assembly_type: Yeni kurul türü
+        new_assembly_user_role: Yeni Meclis Yöneticisi
       assemblies:
         create:
           error: Yeni bir kurul oluştururken bir hata oluştu.
