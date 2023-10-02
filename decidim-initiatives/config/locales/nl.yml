@@ -207,19 +207,13 @@ nl:
             photos: Foto's
         initiatives_type_scopes:
           edit:
-            back: Terug
-            confirm_destroy: Weet je het zeker?
-            destroy: Verwijder
             title: Bewerk het initiatieftype bereik
             update: Bijwerken
           new:
-            back: Terug
             create: creëren
             title: Creër initiatiefstype bereik
         initiatives_types:
           edit:
-            confirm_destroy: Weet je het zeker?
-            destroy: Verwijder
             update: Bijwerken
           form:
             title: Algemene informatie
