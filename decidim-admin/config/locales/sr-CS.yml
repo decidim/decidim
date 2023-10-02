@@ -120,7 +120,6 @@ sr:
       actions:
         add: Dodaj
         browse: Prеglеdaj
-        new: Novo %{name}
         per_page: Po stranici
         permissions: Dozvole
         reject: Odbaci
