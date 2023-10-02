@@ -195,19 +195,13 @@ lv:
             photos: Fotogrāfijas
         initiatives_type_scopes:
           edit:
-            back: Atpakaļ
-            confirm_destroy: Vai esat pārliecināts?
-            destroy: Dzēst
             title: Labot iniciatīvas veida darbības tvērumu
             update: Atjaunināt
           new:
-            back: Atpakaļ
             create: Izveidot
             title: Izveidot iniciatīvas darbības veida tvērumu
         initiatives_types:
           edit:
-            confirm_destroy: Vai esat pārliecināts?
-            destroy: Dzēst
             update: Atjaunināt
           form:
             title: Vispārēja informācija
