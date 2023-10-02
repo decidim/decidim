@@ -90,7 +90,12 @@ en:
     admin:
       actions:
         confirm: Confirm
-        new_conference: New Conference
+        new_conference: New conference
+        new_conference_user_role: New conference admin
+        new_media_link: New media link
+        new_partner: New partner
+        new_registration_type: New registration type
+        new_speaker: New speaker
         send_diplomas: Send certificates of attendance
       conference_copies:
         new:
@@ -151,7 +156,6 @@ en:
         exports:
           registrations: Registrations
         form:
-          sections: Sections
           title: General Information
         index:
           not_published: Not published

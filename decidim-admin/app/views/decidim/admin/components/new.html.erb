@@ -5,26 +5,7 @@
   </h2>
 </div>
 
-<div class="item__edit">
-  <div class="item__edit-menu">
-    <div class="item__edit-menu-sticky">
-      <%= decidim_form_for([current_participatory_space, @form], url: components_path(type: params[:type]), method: "post", html: { class: "form form-defaults new_component" }) do |form| %>
-        <p class="item__edit-menu-title">
-          <%= t("sections", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-        </p>
-        <%= link_to t(".title", name: t("#{manifest.name}.name", scope: "decidim.components")), new_component_path(type: manifest.name, anchor: "title", name: t("#{manifest.name}.name", scope: "decidim.components")), class: "item__edit-menu-anchor" %>
-        <% if form.object.settings? %>
-          <%= link_to t("global_settings", scope: "decidim.admin.components.form"), new_component_path(type: manifest.name, anchor: "global_settings"), class: "item__edit-menu-anchor" %>
-        <% end %>
-        <% if current_participatory_space.has_steps? %>
-          <%= link_to t("step_settings", scope: "decidim.admin.components.form"), new_component_path(type: manifest.name, anchor: "step_settings"), class: "item__edit-menu-anchor" %>
-        <% elsif form.object.default_step_settings? %>
-          <%= link_to t("default_step_settings", scope: "decidim.admin.components.form"), new_component_path(type: manifest.name, anchor: "default_step_settings"), class: "item__edit-menu-anchor" %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for([current_participatory_space, @form], url: components_path(type: params[:type]), method: "post", html: { class: "form form-defaults new_component" }) do |form| %>
       <%= render partial: "form", object: form, locals: { component: @component, title: t(".title", name: t("#{manifest.name}.name", scope: "decidim.components")) } %>
