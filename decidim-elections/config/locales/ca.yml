@@ -160,7 +160,6 @@ ca:
         manage_answers: Gestionar les respostes
         manage_questions: Administrar preguntes
         manage_steps: Administrar les fases
-        new: Nova %{name}
         preview: Previsualitzar
         publish: Publicar
         title: Accions
@@ -233,12 +232,6 @@ ca:
         models:
           answer:
             name: Resposta
-          election:
-            name: Votació
-          question:
-            name: Pregunta
-          trustee:
-            name: Garant
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes a respostes.
@@ -799,7 +792,6 @@ ca:
               confirm_destroy: N'estàs segura?
               destroy: Esborrar
               edit: Editar
-              new: Nou
               title: Accions
             associated_census_data: Entrades del cens associades
             explanation_callout: Un estil de papereta especifica quines són les preguntes que veuran les votants a la cabina. Així, en aquesta elecció pots escollir-ne quines formaran part de la papereta. El codi d'estil de papereta normalment es fa servir per fer coincidir a una votant del cens amb la papereta que se li ha de mostrar a la cabina. No creïs cap estil de papereta si vols que sempre es mostrin totes les preguntes.
@@ -875,25 +867,21 @@ ca:
           ballot_style:
             fields:
               code: Codi
-            name: Estil de papereta
           monitoring_committee_member:
             fields:
               email: Correu electrònic
               name: Nom
-            name: Membre del comitè de seguiment
           polling_officer:
             fields:
               email: Correu electrònic
               name: Nom
               polling_station: Punt de votació (rol)
-            name: Gestor de mesa
           polling_station:
             fields:
               address: Adreça
               polling_station_managers: Administradors
               polling_station_president: President
               title: Títol
-            name: Punt de votació
           voting:
             fields:
               created_at: Creada el
@@ -1290,7 +1278,6 @@ ca:
         actions:
           confirm_destroy: N'estàs segura?
           destroy: Esborrar
-          new: Nou
           title: Accions
         roles:
           manager: Administrador
@@ -1311,7 +1298,6 @@ ca:
           confirm_destroy: N'estàs segura?
           destroy: Esborrar
           edit: Editar
-          new: Nou
           title: Accions
       votings:
         access_code_modal:
