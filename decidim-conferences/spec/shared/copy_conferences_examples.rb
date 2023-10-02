@@ -63,7 +63,7 @@ shared_examples "copy conferences" do
       within find("tr", text: "Copy conference") do
         click_link "Configure"
       end
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Categories"
       end
 
@@ -83,8 +83,9 @@ shared_examples "copy conferences" do
       within find("tr", text: "Copy conference") do
         click_link "Configure"
       end
-      click_button(id: "conference-menu-trigger")
-      click_link "Components"
+      within_admin_sidebar_menu do
+        click_link "Components"
+      end
 
       within ".table-list" do
         conference.components.each do |component|

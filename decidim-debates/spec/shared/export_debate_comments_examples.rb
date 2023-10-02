@@ -7,10 +7,7 @@ shared_examples "export debates comments" do
     find(".exports").click
     perform_enqueued_jobs { click_link "Comments as CSV" }
 
-    within ".callout.success" do
-      expect(page).to have_content("in progress")
-    end
-
+    expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to include("comments", "csv")
     expect(last_email.attachments.length).to be_positive
     expect(last_email.attachments.first.filename).to match(/^comments.*\.zip$/)
@@ -20,10 +17,7 @@ shared_examples "export debates comments" do
     find(".exports").click
     perform_enqueued_jobs { click_link "Comments as JSON" }
 
-    within ".callout.success" do
-      expect(page).to have_content("in progress")
-    end
-
+    expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to include("comments", "json")
     expect(last_email.attachments.length).to be_positive
     expect(last_email.attachments.first.filename).to match(/^comments.*\.zip$/)

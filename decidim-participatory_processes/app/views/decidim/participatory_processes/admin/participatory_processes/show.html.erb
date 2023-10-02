@@ -1,3 +1,6 @@
+<% add_decidim_page_title(t("info", scope: "decidim.admin.menu.participatory_processes_submenu")) %>
+<% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
+
 <div class="item_show__header">
   <% if current_participatory_space.private_space? %>
     <%= icon "lock-line" %>
@@ -63,6 +66,6 @@
     <h2 class="item_show__content-title">
       <%= t("components.title", scope: "decidim.admin") %>
     </h2>
-    <%= aside_menu(:admin_participatory_process_components_menu).render %>
+    <%= aside_menu(:admin_participatory_process_components_right_menu).render %>
   </div>
 </div>
