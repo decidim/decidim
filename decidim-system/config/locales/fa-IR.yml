@@ -3,3 +3,8 @@ fa:
     attributes:
       oauth_application:
         organization_name: حساب
+  decidim:
+    system:
+      models:
+        organization:
+          name: حساب
