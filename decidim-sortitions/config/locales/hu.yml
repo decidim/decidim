@@ -65,7 +65,6 @@ hu:
           form:
             all_categories: Összes kategória
             select_proposal_component: Válassz beállított javaslatokat
-            title: Új sorsolás javaslatokhoz
           index:
             title: Sorsolások
           new:
