@@ -276,13 +276,9 @@ es:
           destroy:
             success: El ámbito ha sido eliminado con éxito.
           edit:
-            back: Volver
-            confirm_destroy: '¿Estás seguro?'
-            destroy: Borrar
             title: Editar ámbito del tipo de iniciativa
             update: Actualizar
           new:
-            back: Volver
             create: Crear
             title: Crear ámbito del tipo de iniciativa
           update:
@@ -295,8 +291,6 @@ es:
           destroy:
             success: El tipo de iniciativa se ha eliminado correctamente.
           edit:
-            confirm_destroy: '¿Estás seguro?'
-            destroy: Borrar
             update: Actualizar
           form:
             authorizations: Ajustes de autorización
