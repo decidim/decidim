@@ -98,7 +98,9 @@ fr:
       actions:
         import_assembly: Importer
         new_assembly: Nouvelle assemblée
+        new_assembly_member: Nouveau membre de l'assemblée
         new_assembly_type: Nouveau type d'assemblée
+        new_assembly_user_role: Nouvel administrateur de l'assemblée
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
