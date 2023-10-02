@@ -151,7 +151,6 @@ ja:
         manage_answers: 回答の管理
         manage_questions: 質問の管理
         manage_steps: ステップの管理
-        new: 新しい %{name}
         preview: プレビュー
         publish: 公開
         title: アクション
@@ -224,12 +223,6 @@ ja:
         models:
           answer:
             name: 回答
-          election:
-            name: 選挙
-          question:
-            name: 質問
-          trustee:
-            name: 受託者
         proposals_imports:
           create:
             invalid: 提案を回答にインポートする際に問題が発生しました。
@@ -787,7 +780,6 @@ ja:
               confirm_destroy: 本当に削除してよろしいですか？
               destroy: 削除
               edit: 編集
-              new: 新規作成
               title: アクション
             associated_census_data: 関連センサス項目
             explanation_callout: 投票者にどのような質問がブースで提示されるかは、投票スタイルで指定します。 投票スタイルでは、投票の構成要素からどの質問が投票に属するかを選択できます。 投票コードは、センサスの投票者とブースで提示される投票用紙を一致させるために使用されます。 すべての質問を常に提示する場合は、投票スタイルを作成しないでください。
@@ -865,25 +857,21 @@ ja:
           ballot_style:
             fields:
               code: コード
-            name: 投票スタイル
           monitoring_committee_member:
             fields:
               email: Eメールアドレス
               name: 名前
-            name: 監視委員会のメンバー
           polling_officer:
             fields:
               email: Eメールアドレス
               name: 名前
               polling_station: 投票所 (role)
-            name: 投票委員
           polling_station:
             fields:
               address: 住所
               polling_station_managers: マネージャー
               polling_station_president: 投票責任者
               title: タイトル
-            name: 投票所
           voting:
             fields:
               created_at: 作成日時
@@ -1280,7 +1268,6 @@ ja:
         actions:
           confirm_destroy: 本当に削除してよろしいですか？
           destroy: 削除
-          new: 新規作成
           title: アクション
         roles:
           manager: マネージャー
@@ -1301,7 +1288,6 @@ ja:
           confirm_destroy: 本当に削除してよろしいですか？
           destroy: 削除
           edit: 編集
-          new: 新規作成
           title: アクション
       votings:
         access_code_modal:
