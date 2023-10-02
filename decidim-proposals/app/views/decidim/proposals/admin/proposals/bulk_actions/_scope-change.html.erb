@@ -6,12 +6,7 @@
       <% end %>
     </div>
 
-    <%# REDESIGN_PENDING: scopes_select_field requires a form object %>
-    <%= scopes_select_field(
-          :scope_id,
-          try(:current_participatory_space)&.scope,
-          root: nil
-        ) %>
+    <%= scopes_select_tag(:scope_id, root: nil) %>
 
     <%= submit_tag(
           t("decidim.proposals.admin.proposals.index.update_scope_button"),

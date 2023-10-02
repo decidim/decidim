@@ -1,17 +1,13 @@
 <div id="js-scope-change-projects-actions" class="hide js-bulk-action-form">
   <%= form_tag(update_scope_budget_projects_path, method: :post, remote: true, id: "js-form-scope-change-projects", class: "form form-defaults flex items-center gap-x-2") do %>
+
     <div class="checkboxes hide">
       <% projects.each do |project| %>
         <%= check_box_tag "project_ids[]", project.id, false, class: "js-check-all-resources js-resource-id-#{project.id}" %>
       <% end %>
     </div>
 
-    <%# REDESIGN_PENDING: scopes_select_field requires a form object %>
-    <%= scopes_select_field(
-          :scope_id,
-          try(:current_participatory_space)&.scope,
-          root: nil
-        ) %>
+    <%= scopes_select_tag(:scope_id, root: nil) %>
 
     <%= submit_tag(
           t("decidim.budgets.admin.projects.index.update_scope_button"),
