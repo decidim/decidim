@@ -107,6 +107,9 @@ is:
           update: Uppfæra
         new:
           create: Búa til
+      participatory_process_types:
+        form:
+          title: Titill
       participatory_process_user_roles:
         edit:
           update: Uppfæra
