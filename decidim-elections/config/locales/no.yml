@@ -99,7 +99,6 @@
         manage_answers: Behandle svar
         manage_questions: Behandle spørsmål
         manage_steps: Behandle trinn
-        new: Ny %{name}
         preview: Forhåndsvis
         publish: Publiser
         title: Handlinger
@@ -141,12 +140,6 @@
         models:
           answer:
             name: Svar
-          election:
-            name: Valg
-          question:
-            name: Spørsmål
-          trustee:
-            name: Tillitsmann
         proposals_imports:
           new:
             create: Importer forslag til svar
