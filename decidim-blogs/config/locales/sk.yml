@@ -18,9 +18,6 @@ sk:
         new: Nový príspevok
         title: Akcie
       admin:
-        models:
-          post:
-            name: Príspevok
         posts:
           edit:
             save: Aktualizovať
