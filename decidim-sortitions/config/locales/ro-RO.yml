@@ -39,7 +39,6 @@ ro:
         actions:
           destroy: Anulează tragerea la sorți
           edit: Editează
-          new: Tragere la sorți nouă
           show: Detalii privind tragerea la sorți
         models:
           sortition:
@@ -53,10 +52,6 @@ ro:
               seed: Valoare aleatorie
               target_items: Articole de selectat
               title: Titlu
-            name:
-              one: Tragere la sorți
-              few: Trageri la sorți
-              other: Trageri la sorți
         sortitions:
           confirm_destroy:
             confirm_destroy: Sigur dorești să anulezi această tragere la sorți?
