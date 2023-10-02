@@ -17,9 +17,6 @@ pt:
         new: Nova publicação
         title: Ações
       admin:
-        models:
-          post:
-            name: Publicação
         posts:
           edit:
             save: Actualizar
