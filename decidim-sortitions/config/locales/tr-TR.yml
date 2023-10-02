@@ -36,6 +36,7 @@ tr:
         actions:
           destroy: Sıralamayı iptal et
           edit: Düzenle
+          new_sortition: Yeni Sıralama
           show: Sıralama detayları
         models:
           sortition:
