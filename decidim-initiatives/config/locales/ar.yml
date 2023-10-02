@@ -182,8 +182,6 @@ ar:
         initiatives_types:
           edit:
             update: تحديث
-          form:
-            title: معلومات عامة
           initiative_type_scopes:
             title: نطاقات لنوع المبادرة
           new:
