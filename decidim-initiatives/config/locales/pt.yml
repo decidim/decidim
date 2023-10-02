@@ -217,7 +217,6 @@ pt:
             send_to_technical_validation: Enviar para validação técnica
             update: Atualizar
           form:
-            attachments: Anexos
             settings: Definições
             title: Informação geral
           index:
@@ -242,7 +241,6 @@ pt:
           form:
             authorizations: Definições de autorização
             options: Opções
-            title: Informação geral
           initiative_type_scopes:
             title: Âmbitos para o tipo de iniciativa
           new:
