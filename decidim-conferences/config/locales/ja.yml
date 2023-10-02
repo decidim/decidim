@@ -86,7 +86,6 @@ ja:
     admin:
       actions:
         confirm: 確認する
-        new_conference: 新しいカンファレンス
         send_diplomas: 出席証明書を送信
       conference_copies:
         new:
