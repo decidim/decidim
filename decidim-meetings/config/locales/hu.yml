@@ -205,7 +205,6 @@ hu:
             one: 'A találkozót nem lehet megsemmisíteni, mert %{count} javaslat van társítva hozzá:'
             other: 'A találkozót nem lehet megsemmisíteni, mert %{count} javaslat van társítva hozzá:'
         manage_poll: Szavazás menedzselése
-        new: Új találkozó
         preview: Előnézet
         registrations: Regisztrációk
         title: Műveletek
