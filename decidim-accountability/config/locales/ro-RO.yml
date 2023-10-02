@@ -41,7 +41,6 @@ ro:
         destroy: Ștergere
         edit: Editare
         import_csv: Importă CSV
-        new: '%{name} nou'
         preview: Previzualizare
         timeline_entries: Evoluția proiectului
         title: Acțiuni
@@ -59,8 +58,6 @@ ro:
             name: Rezultat
           status:
             name: Stadiu
-          timeline_entry:
-            name: Intrare cronologie
         projects_import:
           new:
             create: Importă
