@@ -160,7 +160,6 @@ es-PY:
         manage_answers: Gestionar las respuestas
         manage_questions: Gestionar las preguntas
         manage_steps: Gestionar las fases
-        new: Nueva %{name}
         preview: Previsualizar
         publish: Publicar
         title: Acciones
@@ -233,12 +232,6 @@ es-PY:
         models:
           answer:
             name: Respuesta
-          election:
-            name: Votación
-          question:
-            name: Pregunta
-          trustee:
-            name: Garante
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas como respuestas.
@@ -799,7 +792,6 @@ es-PY:
               confirm_destroy: '¿Estás segura?'
               destroy: Eliminar
               edit: Editar
-              new: Nueva
               title: Acciones
             associated_census_data: Entradas asociadas al censo
             explanation_callout: Un estilo de papeleta especifica qué preguntas se presentarán a las votantes en la cabina. En un estilo de papeleta, puedes elegir qué preguntas del componente de elecciones pertenecen a esa papeleta. El código de estilo de la papeleta se utiliza para hacer coincidir a una votante del censo con la papeleta que se le debe mostrar en la cabina. No crees ningún estilo de papeleta si quieres que simpre se muesten todas las preguntas.
@@ -875,25 +867,21 @@ es-PY:
           ballot_style:
             fields:
               code: Código
-            name: Estilo de papeleta
           monitoring_committee_member:
             fields:
               email: Correo electrónico
               name: Nombre
-            name: Miembro del comité de seguimiento
           polling_officer:
             fields:
               email: Correo electrónico
               name: Nombre
               polling_station: Punto de votación (rol)
-            name: Gestor de mesa
           polling_station:
             fields:
               address: Dirección
               polling_station_managers: Administradores
               polling_station_president: Presidente
               title: Título
-            name: Punto de votación
           voting:
             fields:
               created_at: Creado el
@@ -1290,7 +1278,6 @@ es-PY:
         actions:
           confirm_destroy: '¿Estás segura?'
           destroy: Borrar
-          new: Nuevo
           title: Acciones
         roles:
           manager: Administrador
@@ -1311,7 +1298,6 @@ es-PY:
           confirm_destroy: '¿Estás segura?'
           destroy: Borrar
           edit: Editar
-          new: Nuevo
           title: Acciones
       votings:
         access_code_modal:
