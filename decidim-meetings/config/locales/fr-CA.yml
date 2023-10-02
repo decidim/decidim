@@ -122,7 +122,6 @@ fr-CA:
           success: Cette rencontre a été dupliquée avec succès.
         new:
           copy: Copier
-          select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer une rencontre
     components:
       meetings:
@@ -224,7 +223,7 @@ fr-CA:
             one: 'La rencontre ne peut être supprimée car %{count} proposition y est rattachée:'
             other: 'La rencontre ne peut être supprimée car %{count} propositions y sont rattachées:'
         manage_poll: Gérer le sondage
-        new: Nouvelle réunion
+        new_meeting: Nouvelle rencontre
         preview: Aperçu
         registrations: Inscriptions
         title: Actions
@@ -286,7 +285,6 @@ fr-CA:
               all: Tout
               rejected: Rejeté
               sent: Envoyé
-            filter_by: Filtrer par
             invite_attendee: Inviter un participant
             invites: Invitations
             registrations_disabled: Vous ne pouvez pas inviter un participant car les inscriptions sont désactivées.
@@ -352,9 +350,6 @@ fr-CA:
           update:
             invalid: Une erreur s'est produite lors de la mise à jour du sondage de la rencontre.
             success: Sondage de rencontre mis à jour avec succès.
-        models:
-          meeting:
-            name: Rencontre
         registrations:
           edit:
             save: Sauvegarder
