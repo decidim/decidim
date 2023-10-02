@@ -87,7 +87,6 @@
         edit: Rediger
         filter:
           all_processes: Vis alle medvirkningsprosesser
-          process_groups: Prosessgrupper
         import_process: Importer
         new_process: Ny prosess
         new_process_group: Ny prosessgruppe
@@ -111,7 +110,6 @@
           attachments: Vedlegg
           categories: Kategorier
           components: Komponenter
-          info: Info
           moderations: Moderering
           private_users: Private brukere
           process_admins: Prosessadministratorer
@@ -121,7 +119,6 @@
           fields:
             created_at: Opprettet på
             private: Privat
-            promoted: Fremhevet
             published: Publisert
             title: Tittel
           name: Deltakende prosess
@@ -247,7 +244,6 @@
         edit:
           update: Oppdater
         index:
-          not_published: Ikke publisert
           private: Privat
           public: Offentlig
           published: Publisert
@@ -353,7 +349,6 @@
         participatory_process_groups:
           form:
             metadata: Metadata
-            title: Generell Informasjon
             visibility: Synlighet
         participatory_process_imports:
           form:
