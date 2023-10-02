@@ -1,8 +1,6 @@
 <%= append_javascript_pack_tag "decidim_assemblies_admin" %>
 <div class="form__wrapper">
-  <div class="card" id="assemblies">
-    <div class="card-divider"></div>
-
+  <div class="card pt-4" id="assemblies">
     <div class="card-section">
       <div class="row column">
         <div class="column xlarge-8">
@@ -13,7 +11,7 @@
         </div>
         <div class="card">
           <div class="card-divider">
-            <legend><%= select %></legend>
+            <legend><%= t("assembly_copies.new.select", scope: "decidim.admin") %></legend>
           </div>
           <div class="card-section">
             <div class="row">
