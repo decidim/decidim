@@ -69,7 +69,6 @@ ru:
           form:
             all_categories: Все категории
             select_proposal_component: Выберите набор предложений
-            title: Добавить новую жеребьевку предложений
           index:
             title: Жеребьевки
           new:
