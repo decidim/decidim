@@ -100,7 +100,6 @@ sv:
           success: Mötet har duplicerats.
         new:
           copy: Kopiera
-          select: Välj vilken data du vill duplicera
           title: Duplicera möte
     components:
       meetings:
@@ -197,7 +196,6 @@ sv:
             one: 'Mötet kan inte raderas eftersom det finns %{count} relaterat förslag:'
             other: 'Mötet kan inte raderas eftersom det finns %{count} relaterade förslag:'
         manage_poll: Hantera enkäter
-        new: Nytt möte
         preview: Förhandsvisa
         registrations: Registreringar
         title: Handlingar
@@ -253,7 +251,6 @@ sv:
               all: Allt
               rejected: Avvisad
               sent: Skickat
-            filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningar
             search: Sök
@@ -296,9 +293,6 @@ sv:
         meetings_poll:
           form:
             title: Redigera undersökningen för %{questionnaire_for}
-        models:
-          meeting:
-            name: Möte
         registrations:
           edit:
             save: Spara
