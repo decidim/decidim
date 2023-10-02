@@ -41,7 +41,6 @@ es-MX:
         edit: Editar
         import: Importar proyectos a resultados
         import_csv: Importar CSV
-        new: Nuevo/a %{name}
         preview: Previsualizar
         timeline_entries: Evolución del proyecto
         title: Acciones
@@ -84,8 +83,6 @@ es-MX:
             name: Resultado
           status:
             name: Estado
-          timeline_entry:
-            name: Evolución del proyecto
         projects_import:
           create:
             invalid: Hubo un problema al importar los proyectos como resultados, por favor, sigue las instrucciones cuidadosamente y asegúrate que has marcado los proyectos seleccionados para su implementación.
