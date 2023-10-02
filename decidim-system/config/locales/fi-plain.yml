@@ -37,7 +37,6 @@ fi-pl:
         confirm_destroy: Haluatko varmasti poistaa tämän?
         destroy: Poista
         edit: Muokkaa
-        new: Uusi
         save: Tallenna
         title: Toiminnot
       admins:
@@ -94,7 +93,6 @@ fi-pl:
           fields:
             created_at: Luotu
             email: Sähköposti
-          name: Hallinnoija
           validations:
             email_uniqueness: toinen hallinnointikäyttäjä on jo olemassa samalla sähköpostilla
         oauth_application:
@@ -102,7 +100,6 @@ fi-pl:
             created_at: Luontiaika
             name: OAuth-sovelluksen nimi
             organization_name: Organisaatio
-          name: OAuth-sovellus
         organization:
           actions:
             save_and_invite: Luo organisaatioita ja kutsu hallinnointikäyttäjiä
@@ -113,7 +110,6 @@ fi-pl:
             name: Nimi
             omniauth_settings: Omniauth-asetukset
             smtp_settings: SMTP-asetukset
-          name: Organisaatio
       oauth_applications:
         create:
           error: Sovelluksen luonti epäonnistui.
