@@ -29,6 +29,8 @@ tr:
         edit: Düzenle
         edit_projects: Projeleri Yönet
         import: Teklifleri projelere aktarın
+        new_budget: Yeni Bütçe
+        new_project: Yeni proje
         preview: Önizleme
         title: Eylemler
       admin:
