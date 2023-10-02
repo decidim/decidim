@@ -197,6 +197,9 @@ sk:
         update:
           error: Pri aktualizácii tohto kroku procesu participácie došlo k chybe.
           success: Úspešný krok procesu bol úspešne aktualizovaný.
+      participatory_process_types:
+        form:
+          title: Titul
       participatory_process_user_roles:
         create:
           error: Pri pridávaní používateľa pre tento participačné proces došlo k chybe.
