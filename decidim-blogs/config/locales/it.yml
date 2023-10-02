@@ -17,9 +17,6 @@ it:
         new: Nuovo post
         title: Azioni
       admin:
-        models:
-          post:
-            name: Inviare
         posts:
           edit:
             save: Aggiornare
