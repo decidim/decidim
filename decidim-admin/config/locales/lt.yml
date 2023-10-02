@@ -185,7 +185,6 @@ lt:
         export: Eksportuoti viską
         export-selection: Eksportuoti pasirinktą
         import: Importuoti
-        new: Naujas %{name}
         newsletter:
           new: Naujas naujienlaiškis
         participatory_space_private_user:
