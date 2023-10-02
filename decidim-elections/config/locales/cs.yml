@@ -178,7 +178,6 @@ cs:
         manage_answers: Spravovat odpovědi
         manage_questions: Spravovat otázky
         manage_steps: Spravovat kroky
-        new: Nový %{name}
         preview: Náhled
         publish: Publikovat
         title: Akce
@@ -251,12 +250,6 @@ cs:
         models:
           answer:
             name: Odpověď
-          election:
-            name: Volby
-          question:
-            name: Otázka
-          trustee:
-            name: Důvěrník
         proposals_imports:
           create:
             invalid: Při importu návrhů do odpovědí došlo k potížím.
@@ -823,7 +816,6 @@ cs:
               confirm_destroy: Jste si jist?
               destroy: Smazat
               edit: Upravit
-              new: Nový
               title: Akce
             associated_census_data: Související záznamy ze seznamu obyvatel
             explanation_callout: Styl hlasování specifikuje, jaké otázky budou předloženy u přítomného voliče za plentou. Ve stylu hlasování si můžete vybrat, jaké otázky z volebních složek tohoto hlasování patří k volbám. Kód stylu hlasování se používá k tomu, aby volič ze seznamu členů odpovídal na hlasování, které bude prezentováno za plentou. Pokud chcete vždy prezentovat všechny otázky, nevytvářejte žádný styl hlasování.
@@ -901,25 +893,21 @@ cs:
           ballot_style:
             fields:
               code: Kód
-            name: Styly hlasování
           monitoring_committee_member:
             fields:
               email: E-mail
               name: Název
-            name: Člen monitorovacího výboru
           polling_officer:
             fields:
               email: E-mail
               name: Jméno
               polling_station: Volební místnost (role)
-            name: Volební komisař
           polling_station:
             fields:
               address: Adresa
               polling_station_managers: Manažeři
               polling_station_president: Předseda
               title: Název
-            name: Volební místnost
           voting:
             fields:
               created_at: Vytvořeno v
@@ -1317,7 +1305,6 @@ cs:
         actions:
           confirm_destroy: Jste si jisti?
           destroy: Smazat
-          new: Nový
           title: Akce
         roles:
           manager: Manažer
@@ -1338,7 +1325,6 @@ cs:
           confirm_destroy: Jste si jist?
           destroy: Smazat
           edit: Upravit
-          new: Nový
           title: Akce
       votings:
         access_code_modal:
