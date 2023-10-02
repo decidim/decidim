@@ -156,7 +156,6 @@ cs:
         exports:
           registrations: Registrace
         form:
-          sections: Sekce
           title: Obecná informace
         index:
           not_published: Není zveřejněno
