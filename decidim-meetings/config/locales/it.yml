@@ -82,7 +82,6 @@ it:
           success: Riunione duplicata con successo.
         new:
           copy: copia
-          select: Seleziona i dati che desideri duplicare
           title: Riunione duplicata
     components:
       meetings:
@@ -179,7 +178,6 @@ it:
             one: 'La riunione non può essere annullata perché ha %{count} proposta ad essa associata:'
             other: 'La riunione non può essere annullata perché ha %{count} proposte associate:'
         manage_poll: Gestisci sondaggio
-        new: Nuovo incontro
         preview: Anteprima
         registrations: Iscrizioni
         title: Azioni
@@ -235,7 +233,6 @@ it:
               all: Tutti
               rejected: Respinto
               sent: Inviato
-            filter_by: Filtra per
             invite_attendee: Invita il partecipante
             invites: Inviti
             search: Ricerca
@@ -277,9 +274,6 @@ it:
         meetings_poll:
           form:
             title: Modifica questionario per %{questionnaire_for}
-        models:
-          meeting:
-            name: Reunione
         registrations:
           edit:
             save: Salva
