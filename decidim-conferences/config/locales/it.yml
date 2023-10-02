@@ -75,7 +75,6 @@ it:
     admin:
       actions:
         confirm: Confermare
-        new_conference: Nuova Conferenza
         send_diplomas: Invia certificati di frequenza
       conference_copies:
         new:
