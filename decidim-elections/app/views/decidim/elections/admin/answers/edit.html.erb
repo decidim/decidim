@@ -1,3 +1,5 @@
+<% add_decidim_page_title(t(".title")) %>
+
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for([election, question, @form], html: { class: "form form-defaults edit_answer" }) do |f| %>

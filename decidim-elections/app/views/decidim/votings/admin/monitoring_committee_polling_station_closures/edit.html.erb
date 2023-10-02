@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t(".title", polling_station_title: translated_attribute(closure.polling_station.title), election_title: translated_attribute(closure.election.title))) %>
 <%= link_to voting_monitoring_committee_polling_station_closures_path(current_voting, election_id: closure.election.id) do %>
   <%= icon "caret-left", class: "icon--small", role: "img" %> <%= t(".change_polling_station") %>
 <% end %>
