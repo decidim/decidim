@@ -76,6 +76,7 @@ ja:
   decidim:
     admin:
       actions:
+        manage: 管理
         new_initiative_type: 新しいイニシアチブ種別
       filters:
         initiatives:
@@ -103,8 +104,11 @@ ja:
         committee_members: 委員会メンバー
         components: コンポーネント
         information: 情報
+        initiative_type_scopes: イニシアチブ種別のスコープ
         initiatives: イニシアチブ
         initiatives_settings: 設定
+        initiatives_submenu:
+          info: このイニシアチブについて
         initiatives_types: イニシアチブ種別
         moderations: モデレーション
       models:
@@ -241,7 +245,6 @@ ja:
             success: イニシアチブは技術的な検証に送信されました。
             update: 更新
           form:
-            attachments: 添付ファイル
             settings: 設定
             title: 一般情報
           index:
@@ -294,7 +297,6 @@ ja:
             child_scope_threshold_enabled_help: 'この設定フラグはオフライン投票をサポートしておらず、サブスコープを有効にし、スコープをユーザに関連付ける認証ハンドラで動作します。 認証の設定が間違っていないことを確認してください。正しく動作させるためには、スコープを 親1つにつき子N個が対応する階層構造で構成する必要があります。 この設定の仕組みについての詳細は、<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">イニシアチブの管理者ドキュメント</a> を参照してください。'
             only_global_scope_enabled_help: '「下層スコープ署名」を有効にし、グローバルスコープを親スコープとして設定する場合、このフラグをチェックします。これを有効にすると、イニシアチブ作成ウィザードでイニシアチブ種別の選択がスキップされます。この設定の仕組みについての詳細は、<a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">このリンク</a> を参照してください。'
             options: オプション
-            title: 一般情報
           initiative_type_scopes:
             title: イニシアチブ種別のスコープ
           new:
