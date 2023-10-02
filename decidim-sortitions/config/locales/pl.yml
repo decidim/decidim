@@ -38,7 +38,6 @@ pl:
         actions:
           destroy: Anuluj wybór losowy
           edit: Edytuj
-          new: Nowy wybór losowy
           show: Szczegóły dotyczące wyboru losowego
         models:
           sortition:
@@ -52,11 +51,6 @@ pl:
               seed: Ziarno
               target_items: Elementy wyboru
               title: Tytuł
-            name:
-              one: Wybór losowy
-              few: Wyborów losowych
-              many: Wybory losowe
-              other: Wybory losowe
         sortitions:
           confirm_destroy:
             confirm_destroy: Czy na pewno chcesz anulować ten wybór losowy?
