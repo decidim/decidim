@@ -117,7 +117,6 @@ pl:
         manage_answers: Zarządzaj odpowiedziami
         manage_questions: Zarządzaj pytaniami
         manage_steps: Zarządzaj krokami
-        new: Nowy %{name}
         preview: Podgląd
         publish: Opublikuj
         title: Działania
@@ -159,12 +158,6 @@ pl:
         models:
           answer:
             name: Odpowiedź
-          election:
-            name: Wybory
-          question:
-            name: Pytanie
-          trustee:
-            name: Mąż (osoba) zaufania
         proposals_imports:
           new:
             create: Importuj propozycje do odpowiedzi
@@ -617,7 +610,6 @@ pl:
               confirm_destroy: Czy na pewno?
               destroy: Usuń
               edit: Edytuj
-              new: Nowy
               title: Działania
             associated_census_data: Powiązane wpisy z listy wyborców
             title: Rodzaje kart wyborczych
@@ -658,25 +650,21 @@ pl:
           ballot_style:
             fields:
               code: Kod
-            name: Rodzaj kart wyborczych
           monitoring_committee_member:
             fields:
               email: Adres e-mail
               name: Imię
-            name: Członek Komisji Wyborczej
           polling_officer:
             fields:
               email: Adres e-mail
               name: Imię
               polling_station: Lokal wyborczy (role)
-            name: Oficer wyborczy
           polling_station:
             fields:
               address: Adres
               polling_station_managers: Kierownicy
               polling_station_president: Przewodniczący
               title: Tytuł
-            name: Lokal wyborczy
           voting:
             fields:
               created_at: Utworzono
@@ -978,7 +966,6 @@ pl:
         actions:
           confirm_destroy: Jesteś pewny?
           destroy: Usuń
-          new: Nowy
           title: Działania
         roles:
           manager: Kierownik
@@ -999,7 +986,6 @@ pl:
           confirm_destroy: Jesteś pewny?
           destroy: Usuń
           edit: Edytuj
-          new: Nowy
           title: Działania
       votings:
         access_code_modal:
