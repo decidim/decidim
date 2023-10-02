@@ -43,6 +43,9 @@ cs:
         edit: Upravit
         import: Importovat projekty do výsledků
         import_csv: Importovat CSV
+        new_result: Nový výsledek
+        new_status: Nový status
+        new_timeline_entry: Nový záznam v časové ose
         preview: Náhled
         timeline_entries: Vývoj projektu
         title: Akce
