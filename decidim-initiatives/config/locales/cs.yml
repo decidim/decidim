@@ -286,13 +286,9 @@ cs:
           destroy:
             success: Oblast působnosti byla úspěšně odstraněna.
           edit:
-            back: Zpět
-            confirm_destroy: Jste si jisti?
-            destroy: Odstranit
             title: Upravit oblast působnosti typu iniciativy
             update: Aktualizovat
           new:
-            back: Zpět
             create: Vytvořit
             title: Vytvořit rozsah typů iniciativy
           update:
@@ -305,8 +301,6 @@ cs:
           destroy:
             success: Druh iniciativy byl úspěšně odstraněn.
           edit:
-            confirm_destroy: Jste si jisti?
-            destroy: Odstranit
             update: Aktualizovat
           form:
             authorizations: Nastavení autorizace
