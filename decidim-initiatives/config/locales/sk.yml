@@ -162,8 +162,6 @@ sk:
         initiatives_types:
           edit:
             update: Aktualizovať
-          form:
-            title: Všeobecná informácia
           initiative_type_scopes:
             title: Zameriava sa na typ iniciatívy
           new:
