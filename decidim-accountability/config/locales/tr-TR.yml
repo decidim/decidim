@@ -41,6 +41,9 @@ tr:
         edit: Düzenle
         import: Projeleri sonuçlara aktar 
         import_csv: CSV'yi içe aktar
+        new_result: Yeni sonuç
+        new_status: Yeni Durum
+        new_timeline_entry: Yeni Zaman çizelgesi Kaydı
         preview: Ön izleme
         timeline_entries: Proje evrimi
         title: Eylemler
