@@ -117,7 +117,6 @@ ro:
           success: Întâlnire duplicată cu succes.
         new:
           copy: Copiază
-          select: Selectați datele pe care le dorești duplicate
           title: Duplicarea reuniunii
     components:
       meetings:
@@ -215,7 +214,6 @@ ro:
             few: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propuneri asociate:'
             other: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propuneri asociate acestuia:'
         manage_poll: Gestionare sondaj
-        new: Noua întâlnire
         preview: Previzualizare
         registrations: Înregistrări
         title: Acțiuni
@@ -271,7 +269,6 @@ ro:
               all: Toate
               rejected: Respins
               sent: Trimis
-            filter_by: Filtrare după
             invite_attendee: Invită participantul
             invites: Invitații
             search: Caută
@@ -320,9 +317,6 @@ ro:
         meetings_poll:
           form:
             title: Editează chestionarul sondajului pentru %{questionnaire_for}
-        models:
-          meeting:
-            name: Întâlnire
         registrations:
           edit:
             save: Salvează
