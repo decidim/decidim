@@ -26,7 +26,6 @@ en:
             ends_at_help: Leave blank for no specific date
             scope_id: Scope
             scopes_enabled: Scopes enabled
-            send_confirmation_email: Send email with the answers when the survey is answered
             starts_at: Answers accepted from
             starts_at_help: Leave blank for no specific date
           step:
