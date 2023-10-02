@@ -115,8 +115,6 @@ ru:
         initiatives_types:
           edit:
             update: Обновить
-          form:
-            title: Общие сведения
           initiative_type_scopes:
             title: Охваты для вида почина
           new:
