@@ -64,7 +64,6 @@ zh-CN:
           form:
             all_categories: 所有类别
             select_proposal_component: 选择提案集
-            title: 对建议书的新排序方式
           index:
             title: 联谊会
           new:
