@@ -34,9 +34,6 @@ ga:
             title: Díospóireachtaí
         exports:
           comments: Tráchtanna
-        models:
-          debate:
-            name: Díospóireacht
       debates:
         closed: Dúnta
         edit:
