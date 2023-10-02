@@ -238,7 +238,7 @@ es-PY:
             success: La iniciativa ha sido enviada a validación técnica
             update: Actualizar
           form:
-            attachments: Archivos adjuntos
+            attachments: Adjuntos
             settings: Ajustes
             title: Información general
           index:
