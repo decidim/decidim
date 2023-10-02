@@ -44,7 +44,6 @@ zh-TW:
         edit: 編輯
         edit_projects: 管理專案
         import: 將提案匯入專案
-        new: 新增 %{name}
         preview: 預覽
         send_voting_reminders: 發送投票提醒
         title: 操作
