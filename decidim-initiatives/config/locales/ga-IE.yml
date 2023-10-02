@@ -68,7 +68,6 @@ ga:
           edit:
             update: Nuashonraigh
           form:
-            attachments: Ceangaltáin
             settings: Socruithe
           index:
             actions_title: Gníomh
