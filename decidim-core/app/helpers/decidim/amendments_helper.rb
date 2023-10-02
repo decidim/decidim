@@ -27,14 +27,6 @@ module Decidim
       content_tag :div, content.html_safe, class: "section"
     end
 
-    # Renders the amenders list of an amendable resource
-    # REDESIGN_PENDING: deprecated
-    def amenders_list_for(amendable)
-      return unless amendable.amendable?
-
-      cell("decidim/amendable/amenders_list", amendable)
-    end
-
     # Renders the state of an emendation
     #
     # Returns Html callout.
