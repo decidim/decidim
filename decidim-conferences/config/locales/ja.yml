@@ -73,7 +73,7 @@ ja:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: このメールアドレスは既に招待されています。
+              already_invited: このメールアドレスはすでに招待されています。
   activerecord:
     models:
       decidim/conference:
@@ -190,11 +190,13 @@ ja:
           conference_invites: 招待
           conference_speakers: スピーカー
           diploma: 出席証明書
+          info: このカンファレンスについて
           media_links: メディアリンク
           moderations: モデレーション
           partners: パートナー
           registration_types: 登録種別
           registrations: 登録
+          see_conference: カンファレンスを見る
           user_registrations: ユーザー登録
       models:
         conference:
@@ -445,10 +447,14 @@ ja:
           collaborators: パートナー
           main_promotors: オーガナイザー
         show:
+          already_have_an_account?: すでにアカウントをお持ちですか？
+          are_you_new?: 新しい参加者ですか？
           login_as: '%{name} <%{email} >としてログインしています'
           make_conference_registration: カンファレンスに登録する
           manage_registration: 登録の管理
           register: 登録
+          sign_in_description: ログインしてカンファレンスに登録する
+          sign_up_description: カンファレンスに登録するアカウントを作成する
       content_blocks:
         highlighted_conferences:
           name: ハイライトされたカンファレンス
