@@ -189,7 +189,6 @@ es-MX:
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
-        new: Nuevo %{name}
         newsletter:
           new: Nuevo boletín
         participatory_space_private_user:
