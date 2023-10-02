@@ -100,7 +100,6 @@ fr:
         edit: Modifier
         filter:
           all_processes: Afficher tous les processus
-          process_groups: Groupes de processus
         import_process: Importer
         moderate: Modérer
         new_process: Nouvelle concertation
@@ -125,7 +124,6 @@ fr:
           attachments: Documents liés
           categories: Catégories
           components: Fonctionnalités
-          info: Information
           landing_page: Page d'accueil
           moderations: Modérations
           private_users: Utilisateurs privés
@@ -136,7 +134,6 @@ fr:
           fields:
             created_at: Créée le
             private: Privée
-            promoted: Mettre en avant
             published: Publiée
             title: Titre
           name: Concertation
@@ -287,7 +284,6 @@ fr:
         edit:
           update: Mettre à jour
         index:
-          not_published: Non publiée
           private: Privée
           public: Publique
           published: Publiée
@@ -422,7 +418,6 @@ fr:
         participatory_process_groups:
           form:
             metadata: Métadonnées
-            title: Informations générales
             visibility: Visibilité
         participatory_process_imports:
           form:
