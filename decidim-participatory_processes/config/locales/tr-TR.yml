@@ -84,7 +84,6 @@ tr:
         edit: Düzenle
         filter:
           all_processes: Tüm işlemleri göster
-          process_groups: İşlem Grupları
         import_process: İçe aktar
         new_process: Yeni süreç
         new_process_group: Yeni işlem grubu
@@ -106,7 +105,6 @@ tr:
           attachments: Ekler
           categories: Kategoriler
           components: Bileşenler
-          info: Bilgi
           moderations: Denetimler
           private_users: Özel Kullanıcılar
           process_admins: İşlemi gerçekleştiren kullanıcılar
@@ -116,7 +114,6 @@ tr:
           fields:
             created_at: Düzenlendi
             private: Özel
-            promoted: Vurgulanan
             published: Yayınlanan
             title: Başlık
           name: Katılımcı süreç
@@ -236,7 +233,6 @@ tr:
         edit:
           update: Güncelleştirme
         index:
-          not_published: Yayınlanmadı
           private: Özel
           public: halka açık
           published: Yayınlanan
@@ -342,7 +338,6 @@ tr:
         participatory_process_groups:
           form:
             metadata: Meta veri
-            title: Genel bilgi
             visibility: Görünürlük
         participatory_process_imports:
           form:
