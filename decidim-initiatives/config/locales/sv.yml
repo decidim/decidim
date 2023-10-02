@@ -241,19 +241,13 @@ sv:
             random: Slumpmässigt
         initiatives_type_scopes:
           edit:
-            back: Tillbaka
-            confirm_destroy: Är du säker?
-            destroy: Radera
             title: Redigera initiativtypens omfång
             update: Uppdatera
           new:
-            back: Tillbaka
             create: Skapa
             title: Skapa omfång till initiativtyp
         initiatives_types:
           edit:
-            confirm_destroy: Är du säker?
-            destroy: Radera
             update: Uppdatera
           form:
             authorizations: Inställningar för autentisering
