@@ -435,9 +435,12 @@ eu:
           collaborators: Bazkideak
           main_promotors: Antolatzaileak
         show:
+          already_have_an_account?: Ba al duzu kontu bat?
           login_as: '%{name} <%{email}> gisa erregistratuta zaude'
           manage_registration: Erregistroa kudeatu
           register: Eman izena
+          sign_in_description: Hasi saioa jardunaldian erregistratzeko
+          sign_up_description: Sortu kontu bat konferentzian erregistratzeko
       content_blocks:
         highlighted_conferences:
           name: Nabarmendutako konferentziak
