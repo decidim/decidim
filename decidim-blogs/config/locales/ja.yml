@@ -22,9 +22,6 @@ ja:
         new: 新規投稿
         title: アクション
       admin:
-        models:
-          post:
-            name: 投稿
         posts:
           create:
             invalid: 投稿の作成中に問題が発生しました。
