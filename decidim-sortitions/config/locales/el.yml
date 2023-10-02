@@ -72,7 +72,6 @@ el:
           form:
             all_categories: Όλες οι κατηγορίες
             select_proposal_component: Επιλέξτε το σύνολο προτάσεων
-            title: Νέα κλήρωση για προτάσεις
           index:
             title: Κληρώσεις
           new:
