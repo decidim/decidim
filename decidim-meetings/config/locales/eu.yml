@@ -351,7 +351,7 @@ eu:
             success: Inkesta zuzen eguneratua
         models:
           meeting:
-            name: Topaketa
+            name: Bilera
         registrations:
           edit:
             save: Gorde
