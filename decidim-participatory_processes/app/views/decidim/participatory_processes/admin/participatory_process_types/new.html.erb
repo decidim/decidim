@@ -4,16 +4,7 @@
     <%= t("participatory_process_types.new.title", scope: "decidim.admin") %>
   </h2>
 </div>
-<div class="item__edit">
-  <div class="item__edit-menu">
-    <div class="item__edit-menu-sticky">
-      <p class="item__edit-menu-title">
-        <%= t("sections", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-      </p>
-
-    </div>
-  </div>
-
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, html: { class: "form-defaults form new_participatory_process_type" }) do |f| %>
       <%= render partial: "form", object: f %>
