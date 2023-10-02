@@ -47,10 +47,6 @@ ga:
         models:
           answer:
             name: Freagra
-          question:
-            name: Ceist
-          trustee:
-            name: Iontaobhaí
         questions:
           index:
             title: Ceisteanna
@@ -172,7 +168,6 @@ ga:
             actions:
               destroy: Scrios
               edit: Eagar
-              new: Nua
               title: Gníomhartha
           new:
             create: Cruthaigh
@@ -289,7 +284,6 @@ ga:
       polling_officers:
         actions:
           destroy: Scrios
-          new: Nua
           title: Gníomhartha
         roles:
           manager: Bainisteoir
@@ -299,7 +293,6 @@ ga:
         actions:
           destroy: Scrios
           edit: Eagar
-          new: Nua
           title: Gníomhartha
       votings:
         check_fields:
