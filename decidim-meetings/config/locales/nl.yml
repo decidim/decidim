@@ -87,7 +87,6 @@ nl:
           success: Vergadering succesvol gedupliceerd.
         new:
           copy: Kopiëren
-          select: Selecteer welke gegevens je wilt dupliceren
           title: Event dupliceren
     components:
       meetings:
@@ -184,7 +183,6 @@ nl:
             one: 'De vergadering kan niet worden verwijderd omdat er %{count} voorstel aan verbonden is:'
             other: 'De vergadering kan niet worden verwijderd omdat er %{count} voorstellen aan verbonden zijn:'
         manage_poll: Beheer poll
-        new: Nieuwe vergadering
         preview: Voorbeeld
         registrations: registraties
         title: Acties
@@ -240,7 +238,6 @@ nl:
               all: Alle
               rejected: Afgewezen
               sent: Verzonden
-            filter_by: Filteren op
             invite_attendee: Nodig een deelnemer uit
             invites: Uitnodigingen
             search: Zoeken
@@ -284,9 +281,6 @@ nl:
         meetings_poll:
           form:
             title: Bewerk poll vragenlijst voor %{questionnaire_for}
-        models:
-          meeting:
-            name: Vergadering
         registrations:
           edit:
             save: Opslaan
