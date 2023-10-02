@@ -82,7 +82,6 @@ pl:
           success: Zduplikowano spotkanie.
         new:
           copy: Kopiuj
-          select: Wybierz dane, które chcesz zduplikować
           title: Duplikat spotkania
     components:
       meetings:
@@ -180,7 +179,6 @@ pl:
             many: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
             other: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
         manage_poll: Zarządzaj głosowaniem
-        new: Nowe spotkanie
         preview: Podgląd
         registrations: Rejestracje
         title: Działania
@@ -235,7 +233,6 @@ pl:
               all: Wszystko
               rejected: Odrzucono
               sent: Wysłane
-            filter_by: Filtruj według
             invite_attendee: Zaproś uczestnika
             invites: Zaproszeni
             search: Szukaj
@@ -277,9 +274,6 @@ pl:
         meetings_poll:
           form:
             title: Edytuj kartę do głosowania dla %{questionnaire_for}
-        models:
-          meeting:
-            name: Spotkanie
         registrations:
           edit:
             save: Zapisz
