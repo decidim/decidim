@@ -41,7 +41,6 @@ fi:
         edit: Muokkaa
         import: Tuo hankkeita tuloksiin
         import_csv: Tuo CSV
-        new: Uusi %{name}
         preview: Esikatsele
         timeline_entries: Hankkeen edistyminen
         title: Toiminnot
@@ -84,8 +83,6 @@ fi:
             name: Tulos
           status:
             name: Tila
-          timeline_entry:
-            name: Aikajanan merkintä
         projects_import:
           create:
             invalid: Hankkeiden tuominen tuloksiin epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut hankkeita toteutukseen.
