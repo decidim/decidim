@@ -66,7 +66,6 @@ tr:
           form:
             all_categories: Tüm Kategoriler
             select_proposal_component: Teklif kümesini seçin
-            title: Teklifler için yeni sıralama
           index:
             title: Sıralama
           new:
