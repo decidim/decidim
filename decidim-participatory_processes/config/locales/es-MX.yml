@@ -252,8 +252,6 @@ es-MX:
         edit:
           title: Editar el tipo de proceso
           update: Actualizar
-        form:
-          title: Título
         new:
           create: Crear
           title: Nuevo tipo de proceso
