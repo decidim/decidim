@@ -80,7 +80,6 @@ lb:
           success: Dupliziertes Meeting erfolgreich
         new:
           copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
           title: Doppelte Besprechung
     components:
       meetings:
@@ -179,7 +178,6 @@ lb:
               all: Alle
               rejected: Abgelehnt
               sent: Geschickt
-            filter_by: Filtern nach
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             search: Suche
@@ -218,9 +216,6 @@ lb:
           services:
             add_service: Service dobäisetzen
             services: Dienstleistungen
-        models:
-          meeting:
-            name: Versammlung
         registrations:
           edit:
             save: Späicheren
