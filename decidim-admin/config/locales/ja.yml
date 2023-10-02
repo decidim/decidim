@@ -189,7 +189,6 @@ ja:
         export: 全てエクスポート
         export-selection: 選択したものをエクスポート
         import: インポート
-        new: 新しい %{name}
         newsletter:
           new: 新しいニュースレター
         participatory_space_private_user:
