@@ -42,7 +42,6 @@ tr:
     admin:
       actions:
         confirm: Onayla
-        new_conference: Yeni konferans
         send_diplomas: Katılım sertifikaları gönder
       conference_copies:
         new:
