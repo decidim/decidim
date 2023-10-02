@@ -37,7 +37,6 @@ ja:
         confirm_destroy: 削除してもよろしいですか？
         destroy: 削除
         edit: 編集
-        new: 新規作成
         save: 保存
         title: アクション
       admins:
@@ -94,7 +93,6 @@ ja:
           fields:
             created_at: 作成日時
             email: Eメールアドレス
-          name: 管理者
           validations:
             email_uniqueness: 同じメールアドレスを持つ別の管理者が既に存在します
         oauth_application:
@@ -102,7 +100,6 @@ ja:
             created_at: 作成日時
             name: OAuthアプリケーション名
             organization_name: 組織
-          name: OAuthアプリケーション
         organization:
           actions:
             save_and_invite: 組織を作成して管理者を招待する
@@ -113,7 +110,6 @@ ja:
             name: 名前
             omniauth_settings: Omniauth 設定
             smtp_settings: SMTP設定
-          name: 組織
       oauth_applications:
         create:
           error: このアプリケーションの作成中に問題が発生しました。
