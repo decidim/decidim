@@ -23,9 +23,6 @@ ca:
         new: Nova publicació
         title: Accions
       admin:
-        models:
-          post:
-            name: Publicar
         posts:
           create:
             invalid: S'ha produït un error en crear aquesta publicació.
