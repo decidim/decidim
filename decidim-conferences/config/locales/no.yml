@@ -75,7 +75,6 @@
     admin:
       actions:
         confirm: Bekreft
-        new_conference: Ny Konferanse
         send_diplomas: Send deltakerbevis
       conference_copies:
         new:
