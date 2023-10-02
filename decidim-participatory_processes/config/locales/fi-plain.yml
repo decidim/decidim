@@ -252,8 +252,6 @@ fi-pl:
         edit:
           title: Muokkaa prosessityyppiä
           update: Päivitä
-        form:
-          title: Otsikko
         new:
           create: Luo
           title: Uusi prosessityyppi
