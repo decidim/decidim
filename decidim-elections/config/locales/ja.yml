@@ -851,6 +851,7 @@ ja:
             ballot_styles: 投票スタイル
             census: センサス
             components: コンポーネント
+            info: この投票について
             landing_page: ランディングページ
             monitoring_committee: 監視委員会
             monitoring_committee_election_results: 結果を検証する
@@ -859,6 +860,7 @@ ja:
             monitoring_committee_verify_elections: 選挙の検証
             polling_officers: 投票委員
             polling_stations: 投票所
+            see_voting: 投票を見る
         models:
           ballot_style:
             fields:
