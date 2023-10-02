@@ -4,6 +4,7 @@
     <% else %>
         <%= t("actions.export", scope: "decidim.admin") %>
     <% end %>
+  <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
 </span>
 <div class="dropdown-pane"
      id="<%= dropdown_id(collection_ids) %>"
