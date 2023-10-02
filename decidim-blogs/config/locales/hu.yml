@@ -23,9 +23,6 @@ hu:
         new: Új bejegyzés
         title: Műveletek
       admin:
-        models:
-          post:
-            name: Bejegyzés
         posts:
           create:
             invalid: Probléma történt a bejegyzés létrehozásakor.
