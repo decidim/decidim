@@ -19,6 +19,5 @@ describe "Gemfile sanity" do
     end
   end
 
-  it_behaves_like "a folder with a secondary gemfile", "decidim_app-design"
   it_behaves_like "a folder with a secondary gemfile", "decidim-generators"
 end

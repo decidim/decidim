@@ -8,7 +8,7 @@ namespace :decidim do
       destination_path = path.sub(%r{.*\K/}, "/redesigned_")
       module_name = path.split("/").first
       extension = path.split(".").last
-      raise "Invalid module. Path starts with #{module_name} which is not a valid module or design app" unless module_name.start_with?("decidim-", "decidim_app-design")
+      raise "Invalid module. Path starts with #{module_name} which is not a valid module or design app" unless module_name.start_with?("decidim-")
 
       FileUtils.cp(path, destination_path)
 
