@@ -37,7 +37,6 @@ lt:
         confirm_destroy: Ar tikrai norite tai ištrinti?
         destroy: Ištrinti
         edit: Redaguoti
-        new: Naujas
         save: Išsaugoti
         title: Veiksmai
       admins:
@@ -76,7 +75,6 @@ lt:
           fields:
             created_at: Sukurta
             email: El. paštas
-          name: Administratorius
           validations:
             email_uniqueness: jau yra kitas administratorius su tokiu pačiu el. pašto adresu
         oauth_application:
@@ -84,7 +82,6 @@ lt:
             created_at: Sukurta
             name: '„OAuth“ programos pavadinimas'
             organization_name: Organizacija
-          name: OAuth aplikacija
         organization:
           actions:
             save_and_invite: Sukurti organizaciją ir pakviesti administratorių
@@ -95,7 +92,6 @@ lt:
             name: Vardas
             omniauth_settings: '„Omniauth“ nuostatos'
             smtp_settings: SMTP nustatymai
-          name: Organizacija
       oauth_applications:
         create:
           error: Kuriant šią aplikaciją iškilo problema.
