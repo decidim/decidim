@@ -31,7 +31,6 @@ lv:
         confirm_destroy: Vai esat pārliecināts?
         destroy: Dzēst
         edit: Labot
-        new: Jauns %{name}
         title: Darbības
       admin:
         debates:
@@ -49,9 +48,6 @@ lv:
           update:
             invalid: Šo debašu atjaunināšanas laikā radās problēma.
             success: Debates ir veiksmīgi atjauninātas
-        models:
-          debate:
-            name: Debates
       admin_log:
         debate:
           create: "%{user_name} izveidoja %{resource_name} debates telpā %{space_name}"
