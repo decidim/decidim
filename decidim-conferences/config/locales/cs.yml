@@ -95,7 +95,6 @@ cs:
     admin:
       actions:
         confirm: Potvrdit
-        new_conference: Nová konference
         send_diplomas: Odeslání certifikátů o účasti
       conference_copies:
         new:
