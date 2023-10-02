@@ -36,7 +36,6 @@ pt-BR:
         actions:
           destroy: Cancelar a classificação
           edit: Editar
-          new: Nova classificação
           show: Detalhes da classificação
         models:
           sortition:
@@ -50,9 +49,6 @@ pt-BR:
               seed: Semente
               target_items: Itens para selecionar
               title: Título
-            name:
-              one: Sorteio
-              other: Sorteios
         sortitions:
           confirm_destroy:
             confirm_destroy: Deseja mesmo cancelar este sorteio?
