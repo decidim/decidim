@@ -75,7 +75,6 @@ pt:
     admin:
       actions:
         confirm: Confirmar
-        new_conference: Nova conferência
         send_diplomas: Enviar certificados de participação
       conference_copies:
         new:
