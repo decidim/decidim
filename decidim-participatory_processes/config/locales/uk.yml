@@ -90,7 +90,6 @@ uk:
           attachments: Вкладені файли
           categories: Категорії
           components: Складові
-          info: Відомості
           moderations: Дії з модерації
           private_users: Приватні учасники
           process_admins: Учасники руху
@@ -100,7 +99,6 @@ uk:
           fields:
             created_at: 'Додано:'
             private: Приватний
-            promoted: Висвітлено
             published: Оприлюднено
             title: Назва
           name: Рух співучасті
@@ -196,7 +194,6 @@ uk:
         edit:
           update: Оновити
         index:
-          not_published: Не оприлюднено
           private: Приватний
           public: Оприлюдені
           published: Оприлюднено
