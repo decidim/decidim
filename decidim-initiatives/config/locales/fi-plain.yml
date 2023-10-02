@@ -276,13 +276,9 @@ fi-pl:
           destroy:
             success: Teeman poisto onnistui.
           edit:
-            back: Takaisin
-            confirm_destroy: Oletko varma?
-            destroy: Poista
             title: Muokkaa aloitetyypin teemaa
             update: Päivitä
           new:
-            back: Takaisin
             create: Luo
             title: Luo aloitetyypin teema
           update:
@@ -295,8 +291,6 @@ fi-pl:
           destroy:
             success: Aloitetyypin poisto onnistui.
           edit:
-            confirm_destroy: Oletko varma?
-            destroy: Poista
             update: Päivitä
           form:
             authorizations: Varmennuksen asetukset
