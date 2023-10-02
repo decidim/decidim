@@ -178,6 +178,10 @@ cs:
         manage_answers: Spravovat odpovědi
         manage_questions: Spravovat otázky
         manage_steps: Spravovat kroky
+        new_answer: Nová odpověď
+        new_election: Nové volby
+        new_question: Nová otázka
+        new_trustee: Nový důvěrník
         preview: Náhled
         publish: Publikovat
         title: Akce
@@ -816,6 +820,7 @@ cs:
               confirm_destroy: Jste si jist?
               destroy: Smazat
               edit: Upravit
+              new: Nový styl hlasování
               title: Akce
             associated_census_data: Související záznamy ze seznamu obyvatel
             explanation_callout: Styl hlasování specifikuje, jaké otázky budou předloženy u přítomného voliče za plentou. Ve stylu hlasování si můžete vybrat, jaké otázky z volebních složek tohoto hlasování patří k volbám. Kód stylu hlasování se používá k tomu, aby volič ze seznamu členů odpovídal na hlasování, které bude prezentováno za plentou. Pokud chcete vždy prezentovat všechny otázky, nevytvářejte žádný styl hlasování.
@@ -1305,6 +1310,7 @@ cs:
         actions:
           confirm_destroy: Jste si jisti?
           destroy: Smazat
+          new: Nový volební komisař
           title: Akce
         roles:
           manager: Manažer
@@ -1325,6 +1331,7 @@ cs:
           confirm_destroy: Jste si jist?
           destroy: Smazat
           edit: Upravit
+          new: Nová volební místnost
           title: Akce
       votings:
         access_code_modal:
