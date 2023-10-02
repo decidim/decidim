@@ -200,6 +200,9 @@ lb:
             confirm_revoke: Bist du sicher?
             invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
             no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
+        initiatives:
+          form:
+            attachments: Anhänge
         initiatives_type_scopes:
           edit:
             back: Zurück
@@ -211,7 +214,6 @@ lb:
             confirm_destroy: Bist du sicher?
           form:
             options: Optionen
-            title: Allgemeine Information
           initiative_type_scopes:
             title: Bereiche für den Typ der Initiative
           new:
