@@ -203,8 +203,6 @@ lv:
         initiatives_types:
           edit:
             update: Atjaunināt
-          form:
-            title: Vispārēja informācija
           initiative_type_scopes:
             title: Iniciatīvas veida darbības tvērumi
           new:
