@@ -38,7 +38,6 @@ gl:
         actions:
           destroy: Cancelar o sorteo
           edit: Editar
-          new: Nova xeración
           show: Detalles de clasificación
         models:
           sortition:
@@ -52,9 +51,6 @@ gl:
               seed: Semente
               target_items: Elementos a seleccionar
               title: Título
-            name:
-              one: Sortición
-              other: Edicións
         sortitions:
           confirm_destroy:
             confirm_destroy: Estás seguro de que queres cancelar este sortition?
