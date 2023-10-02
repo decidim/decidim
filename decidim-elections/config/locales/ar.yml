@@ -19,8 +19,6 @@ ar:
         models:
           answer:
             name: الإجابة
-          question:
-            name: سؤال
         steps:
           tally_started:
             invalid: كانت هناك مشكلة في الإبلاغ عن الأمين المفقود
