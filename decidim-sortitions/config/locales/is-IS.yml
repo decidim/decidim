@@ -54,7 +54,6 @@ is-IS:
           form:
             all_categories: Allir flokkar
             select_proposal_component: Veldu tillögur settar
-            title: Ný flokkun fyrir tillögur
           index:
             title: Flokkanir
           new:
