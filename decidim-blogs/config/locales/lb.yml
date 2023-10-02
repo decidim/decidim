@@ -17,9 +17,6 @@ lb:
         new: Neuer Beitrag
         title: Aktionen
       admin:
-        models:
-          post:
-            name: Post
         posts:
           edit:
             save: Aktualisieren
