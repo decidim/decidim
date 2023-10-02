@@ -64,6 +64,7 @@ eu:
   decidim:
     admin:
       actions:
+        manage: Kudeatu
         new_initiative_type: Ekimen mota berria
       filters:
         initiatives:
@@ -87,7 +88,10 @@ eu:
         committee_members: Batzorde-kideak
         components: Osagaiak
         information: informazioa
+        initiative_type_scopes: Ekimen motaren irismena
         initiatives: Ekimenak
+        initiatives_submenu:
+          info: Ekimen honi buruz
         initiatives_types: Ekimen motak
         moderations: Moderazioak
       models:
