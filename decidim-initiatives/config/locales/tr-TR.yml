@@ -207,7 +207,6 @@ tr:
             send_to_technical_validation: Teknik doğrulamaya gönder
             update: Güncelle
           form:
-            attachments: Ekli Dosyalar
             settings: Ayarlar
             title: Genel bilgi
           index:
@@ -232,7 +231,6 @@ tr:
           form:
             authorizations: Yetkilendirme ayarları
             options: Seçenekler
-            title: Genel bilgi
           initiative_type_scopes:
             title: Girişim türü için kapsamlar
           new:
