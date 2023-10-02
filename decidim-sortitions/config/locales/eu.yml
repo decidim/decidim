@@ -72,7 +72,6 @@ eu:
           form:
             all_categories: Kategoria guztiak
             select_proposal_component: Aukeratu proposamenen multzoa
-            title: Proposamenen zozketa berria
           index:
             title: Zozketak
           new:
