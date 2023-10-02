@@ -35,7 +35,6 @@ zh-CN:
         actions:
           destroy: 取消排序方式
           edit: 编辑
-          new: 新的排序方式
           show: 排序详情
         models:
           sortition:
@@ -49,8 +48,6 @@ zh-CN:
               seed: 种子
               target_items: 要选择的项目
               title: 标题
-            name:
-              other: 联谊会
         sortitions:
           confirm_destroy:
             confirm_destroy: 您确定要取消这个分类吗？
