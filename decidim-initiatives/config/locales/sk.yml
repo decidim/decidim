@@ -154,19 +154,13 @@ sk:
             print: Tlač
         initiatives_type_scopes:
           edit:
-            back: Späť
-            confirm_destroy: Si si istý?
-            destroy: Odstrániť
             title: Upraviť rozsah typu iniciatívy
             update: Aktualizovať
           new:
-            back: Späť
             create: Vytvoriť
             title: Vytvoriť rozsah typov iniciatívy
         initiatives_types:
           edit:
-            confirm_destroy: Ste si istý?
-            destroy: Odstrániť
             update: Aktualizovať
           form:
             title: Všeobecná informácia
