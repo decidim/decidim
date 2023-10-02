@@ -222,6 +222,8 @@ pl:
           error: Podczas aktualizowania etapu procesu partycypacyjnego wystąpił błąd.
           success: Etap procesu partycypacyjnego został zaktualizowany.
       participatory_process_types:
+        form:
+          title: Tytuł
         new:
           create: Utwórz
           title: Nowy typ procesu
