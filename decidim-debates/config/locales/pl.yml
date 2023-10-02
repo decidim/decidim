@@ -53,7 +53,6 @@ pl:
         confirm_destroy: Jesteś pewny?
         destroy: Usuń
         edit: Edytuj
-        new: Nowa %{name}
         title: Działania
       admin:
         debate_closes:
@@ -83,9 +82,6 @@ pl:
             success: Debata została zaktualizowana pomyślnie.
         exports:
           comments: Komentarze
-        models:
-          debate:
-            name: Debata
       admin_log:
         debate:
           close: "%{user_name} zamknął/zamknęła debatę %{resource_name} w przestrzeni %{space_name}"
