@@ -68,7 +68,6 @@ sv:
           form:
             all_categories: Alla kategorier
             select_proposal_component: Välj förslagen som ska behandlas
-            title: Ny tilldelning av förslag
           index:
             title: Tilldelningar
           new:
