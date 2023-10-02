@@ -231,19 +231,13 @@ pt-BR:
             photos: Fotos
         initiatives_type_scopes:
           edit:
-            back: Costas
-            confirm_destroy: Você tem certeza?
-            destroy: Excluir
             title: Editar o âmbito do tipo de iniciativa
             update: Atualizar
           new:
-            back: Costas
             create: Criar
             title: Criar âmbito de tipo de iniciativa
         initiatives_types:
           edit:
-            confirm_destroy: Você tem certeza?
-            destroy: Excluir
             update: Atualizar
           form:
             authorizations: Opções de autorização
