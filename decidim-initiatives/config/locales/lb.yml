@@ -197,7 +197,6 @@ lb:
         initiatives_types:
           form:
             options: Optionen
-            title: Allgemeine Information
           initiative_type_scopes:
             title: Bereiche für den Typ der Initiative
           new:
