@@ -90,7 +90,6 @@ sv:
         edit: Redigera
         filter:
           all_processes: Visa alla dialoger
-          process_groups: Dialoggrupper
         import_process: Importera
         moderate: Moderera
         new_process: Ny dialog
@@ -114,7 +113,6 @@ sv:
           attachments: Bilagor
           categories: Kategorier
           components: Komponenter
-          info: Info
           landing_page: Landningssida
           moderations: Moderering
           private_users: Privata deltagare
@@ -125,7 +123,6 @@ sv:
           fields:
             created_at: Skapad
             private: Privat
-            promoted: Annonserad
             published: Publicerad
             title: Titel
           name: Dialog
@@ -256,7 +253,6 @@ sv:
         edit:
           update: Uppdatera
         index:
-          not_published: Ej publicerad
           private: Privat
           public: Offentlig
           published: Publicerad
@@ -368,7 +364,6 @@ sv:
         participatory_process_groups:
           form:
             metadata: Metadata
-            title: Allmän information
             visibility: Synlighet
         participatory_process_imports:
           form:
