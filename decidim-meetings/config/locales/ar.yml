@@ -116,7 +116,6 @@ ar:
           success: تم تكرار الاجتماع بنجاح.
         new:
           copy: نسخ
-          select: حدد البيانات التي ترغب في تكرارها
           title: اجتماع مكرر
     components:
       meetings:
@@ -217,7 +216,6 @@ ar:
             many: 'لا يمكن حذف هذا الاجتماع لأنه يحتوي على %{count} اقتراحات مرتبطة به:'
             other: 'لا يمكن حذف هذا الاجتماع لأنه يحتوي على %{count} اقتراحات مرتبطة به:'
         manage_poll: إدارة الاستطلاع
-        new: اجتماع جديد
         preview: معاينة
         registrations: التسجيلات
         title: أفعال
@@ -273,7 +271,6 @@ ar:
               all: الكل
               rejected: مرفوض
               sent: أرسلت
-            filter_by: مصنف بواسطة
             invite_attendee: دعوة الحضور
             invites: تدعو
             search: بحث
@@ -317,9 +314,6 @@ ar:
         meetings_poll:
           form:
             title: تعديل استبيان الاستطلاع لـ %{questionnaire_for}
-        models:
-          meeting:
-            name: لقاء
         registrations:
           edit:
             save: حفظ
