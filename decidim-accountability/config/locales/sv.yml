@@ -41,7 +41,6 @@ sv:
         edit: Redigera
         import: Importera projekt till resultat
         import_csv: Importera CSV
-        new: Ny %{name}
         preview: Förhandsvisa
         timeline_entries: Projektutveckling
         title: Åtgärder
@@ -83,8 +82,6 @@ sv:
             name: Resultat
           status:
             name: Status
-          timeline_entry:
-            name: Post i tidslinje
         projects_import:
           create:
             invalid: Det gick inte att importera projekten till resultat, följ instruktionerna noga och se till att du har valt projekt för genomförande.
