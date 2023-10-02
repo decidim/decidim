@@ -153,7 +153,6 @@ pl:
         export: Eksportuj wszystko
         export-selection: Eksportuj wybrane
         import: Importuj
-        new: 'Nowy: %{name}'
         newsletter:
           new: Nowy newsletter
         participatory_space_private_user:
