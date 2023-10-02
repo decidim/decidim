@@ -47,7 +47,6 @@ nl:
         confirm_destroy: Ben je zeker?
         destroy: Verwijder
         edit: Bewerk
-        new: Nieuw %{name}
         title: acties
       admin:
         debates:
@@ -73,9 +72,6 @@ nl:
             success: Debat succesvol bijgewerkt.
         exports:
           comments: Reacties
-        models:
-          debate:
-            name: Debat
       admin_log:
         debate:
           create: "%{user_name} heeft het %{resource_name} debat gemaakt in de %{space_name} ruimte"
