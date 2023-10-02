@@ -150,7 +150,6 @@ fr-CA:
         exports:
           registrations: Inscriptions
         form:
-          sections: Sections
           title: Informations générales
         index:
           not_published: Non publié
@@ -453,10 +452,14 @@ fr-CA:
           collaborators: Partenaires
           main_promotors: Organisateurs
         show:
+          already_have_an_account?: Vous avez déjà un compte?
+          are_you_new?: Nouveau participant ?
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
           make_conference_registration: S'inscrire à la conférence
           manage_registration: Gérer l'inscription
           register: S'inscrire
+          sign_in_description: Connectez-vous pour vous inscrire à la conférence
+          sign_up_description: Créez un compte pour vous inscrire à la conférence
       content_blocks:
         highlighted_conferences:
           name: Conférences mises en avant
