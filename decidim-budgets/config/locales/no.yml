@@ -42,7 +42,6 @@
         edit: Editar
         edit_projects: Administrer prosjekter
         import: Importer forslag til prosjekter
-        new: Ny %{name}
         preview: Forhåndsvis
         title: Handlinger
       admin:
