@@ -148,6 +148,26 @@ module Decidim
         end
       end
 
+      initializer "decidim_participatory_processes_admin.process_components_menu" do
+        Decidim.menu :admin_participatory_process_components_menu do |menu|
+          current_participatory_space.components.each do |component|
+            caption = translated_attribute(component.name)
+            if component.primary_stat.present?
+              caption += content_tag(:span, component.primary_stat, class: component.primary_stat.zero? ? "component-counter component-counter--off" : "component-counter")
+            end
+
+            menu.add_item [component.manifest_name, component.id].join("_"),
+                          caption.html_safe,
+                          manage_component_path(component),
+                          active: is_active_link?(manage_component_path(component)) ||
+                                  is_active_link?(decidim_admin_participatory_processes.edit_component_path(current_participatory_space, component)) ||
+                                  is_active_link?(decidim_admin_participatory_processes.edit_component_permissions_path(current_participatory_space, component)) ||
+                                  participatory_space_active_link?(component),
+                          if: component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name)
+          end
+        end
+      end
+
       initializer "decidim_participatory_processes_admin.process_components_right_menu" do
         Decidim.menu :admin_participatory_process_components_right_menu do |menu|
           menu.add_item :edit_participatory_process,
