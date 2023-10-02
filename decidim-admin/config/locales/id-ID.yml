@@ -114,7 +114,6 @@ id:
       actions:
         add: Menambahkan
         browse: Jelajahi
-        new: Baru %{name}
         permissions: Izin
         reject: Menolak
         verify: Memeriksa
