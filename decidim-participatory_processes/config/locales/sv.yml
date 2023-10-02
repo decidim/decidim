@@ -225,8 +225,6 @@ sv:
         edit:
           title: Redigera dialogtyp
           update: Uppdatera
-        form:
-          title: Titel
         new:
           create: Skapa
       participatory_process_user_roles:
