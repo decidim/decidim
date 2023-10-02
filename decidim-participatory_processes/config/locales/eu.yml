@@ -98,7 +98,6 @@ eu:
         edit: Editatu
         filter:
           all_processes: Erakutsi prozesu guztiak
-          process_groups: Prozesu taldeak
         import_process: Inportatu
         new_process: Prozesu berria
         new_process_group: Prozesu talde berria
@@ -120,7 +119,6 @@ eu:
           attachments: Eranskinak
           categories: Kategoriak
           components: Osagaiak
-          info: Informazioa
           landing_page: Hasierako orria
           moderations: Moderazioak
           private_users: Erabiltzaile pribatuak
@@ -131,7 +129,6 @@ eu:
           fields:
             created_at: Sortze-data
             private: Pribatua
-            promoted: Nabarmendua
             published: Argitaratua
             title: Titulua
           name: Prozesu partizipatiboa
@@ -248,7 +245,6 @@ eu:
         edit:
           update: Eguneratu
         index:
-          not_published: Argitaratu gabe
           private: Pribatua
           public: Publiko
           published: Argitaratua
@@ -365,7 +361,6 @@ eu:
         participatory_process_groups:
           form:
             metadata: Metadatuak
-            title: Informazio Orokorra
             visibility: Ikusgarritasuna
         participatory_process_imports:
           form:
