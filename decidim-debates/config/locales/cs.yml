@@ -53,6 +53,7 @@ cs:
         confirm_destroy: Jste si jisti?
         destroy: Odstranit
         edit: Upravit
+        new: Nová debata
         title: Akce
       admin:
         debate_closes:
