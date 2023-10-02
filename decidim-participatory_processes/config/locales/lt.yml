@@ -106,7 +106,6 @@ lt:
         edit: Redaguoti
         filter:
           all_processes: Rodyti visus procesus
-          process_groups: Procesų grupės
         import_process: Importuoti
         moderate: Moderuoti
         new_process: Naujas procesas
@@ -131,7 +130,6 @@ lt:
           attachments: Priedai
           categories: Kategorijos
           components: Komponentai
-          info: Informacija
           landing_page: Pagrindinis puslapis
           moderations: Moderavimai
           private_users: Privatūs dalyviai
@@ -142,7 +140,6 @@ lt:
           fields:
             created_at: Sukurta
             private: Privatu
-            promoted: Paryškinta
             published: Paskelbta
             title: Pavadinimas
           name: Dalyvaujamasis procesas
@@ -293,7 +290,6 @@ lt:
         edit:
           update: Atnaujinti
         index:
-          not_published: Nepaskelbta
           private: Privatu
           public: Vieša
           published: Paskelbta
@@ -427,7 +423,6 @@ lt:
         participatory_process_groups:
           form:
             metadata: Metaduomenys
-            title: Bendroji informacija
             visibility: Matomumas
         participatory_process_imports:
           form:
