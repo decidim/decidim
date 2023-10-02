@@ -204,9 +204,11 @@ fr-CA:
           attachments: Documents liés
           categories: Catégories
           components: Composants
+          info: À propos de cette assemblée
           landing_page: Page d'accueil
           moderations: Modérations
           private_users: Utilisateurs privés
+          see_assembly: Voir l'assemblée
         assemblies_types: Types d'assemblée
       models:
         assemblies_types:
@@ -215,6 +217,7 @@ fr-CA:
             title: Titre
         assembly:
           fields:
+            actions: Actions
             created_at: Créée le
             private: Privée
             promoted: Mise en avant
