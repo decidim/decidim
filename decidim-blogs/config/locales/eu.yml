@@ -23,9 +23,6 @@ eu:
         new: Post berria
         title: Ekintzak
       admin:
-        models:
-          post:
-            name: Argitalpena
         posts:
           create:
             invalid: Arazo bat sortu da post hau sortzean.
