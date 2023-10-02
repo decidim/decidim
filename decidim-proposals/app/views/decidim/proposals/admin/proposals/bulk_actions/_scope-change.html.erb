@@ -6,10 +6,11 @@
       <% end %>
     </div>
 
-    <%= scopes_picker_tag(
+    <%# REDESIGN_PENDING: scopes_select_field requires a form object %>
+    <%= scopes_select_field(
           :scope_id,
           try(:current_participatory_space)&.scope,
-          field: t("models.proposal.fields.scope", scope: "decidim.proposals")
+          root: nil
         ) %>
 
     <%= submit_tag(
