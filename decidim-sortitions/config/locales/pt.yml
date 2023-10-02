@@ -68,7 +68,6 @@ pt:
           form:
             all_categories: Todas as categorias
             select_proposal_component: Selecionar o conjunto de propostas
-            title: Novo sorteio para propostas
           index:
             title: Sorteios
           new:
