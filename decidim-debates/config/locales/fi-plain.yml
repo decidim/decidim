@@ -51,7 +51,6 @@ fi-pl:
         confirm_destroy: Oletko varma?
         destroy: Poista
         edit: Muokkaa
-        new: Uusi %{name}
         title: Toiminnot
       admin:
         debate_closes:
@@ -81,9 +80,6 @@ fi-pl:
             success: Keskustelu päivitetty onnistuneesti.
         exports:
           comments: Kommentit
-        models:
-          debate:
-            name: Keskustelu
       admin_log:
         debate:
           close: "%{user_name} sulki keskustelun %{resource_name} osallistumistilassa %{space_name}"
