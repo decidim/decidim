@@ -68,17 +68,13 @@ is-IS:
             print: Prenta
         initiatives_type_scopes:
           edit:
-            back: Til baka
-            confirm_destroy: Ertu viss?
             title: Breyta frumgerð gerð umfang
             update: Uppfæra
           new:
-            back: Til baka
             create: Búa til
             title: Búðu til frumkvæði gerðarsviðs
         initiatives_types:
           edit:
-            confirm_destroy: Ertu viss?
             update: Uppfæra
           form:
             title: Almennar upplýsingar
