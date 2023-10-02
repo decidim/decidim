@@ -68,7 +68,6 @@ gl:
           form:
             all_categories: Todas as categorías
             select_proposal_component: Selecciona as propostas definidas
-            title: Nova xeración de propostas
           index:
             title: Edicións
           new:
