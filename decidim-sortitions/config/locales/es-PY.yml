@@ -72,7 +72,6 @@ es-PY:
           form:
             all_categories: Todas las categorias
             select_proposal_component: Seleccione el conjunto de propuestas
-            title: Nueva clasificación para propuestas
           index:
             title: Sorteos
           new:
