@@ -39,7 +39,6 @@ sk:
         confirm_destroy: Ste si istí?
         destroy: Odstrániť
         edit: Upraviť
-        new: Nová %{name}
         title: Akcie
       admin:
         debates:
@@ -59,9 +58,6 @@ sk:
           update:
             invalid: Pri aktualizácii debaty došlo k problému.
             success: Debata úspešne aktualizovaná
-        models:
-          debate:
-            name: Debata
       admin_log:
         debate:
           create: "%{user_name} vytvoril/a debatu%{resource_name} v priestore %{space_name}"
