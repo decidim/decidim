@@ -82,7 +82,6 @@ lb:
         edit: Editéieren
         filter:
           all_processes: Alle Beteiligungsprozesse anzeigen
-          process_groups: Prozessgruppen
         import_process: Import
         new_process: Neuer Beteiligungsprozess
         new_process_group: Neue Prozessgruppe
@@ -104,7 +103,6 @@ lb:
           attachments: Unhäng
           categories: Kategorien
           components: Komponenten
-          info: Informatioun
           moderations: Moderationen
           private_users: Private Benutzer
           process_admins: Benutzer verarbeiten
@@ -114,7 +112,6 @@ lb:
           fields:
             created_at: Erstallt den
             private: Privat
-            promoted: Highlighted
             published: Verëffentlecht
             title: Titel
           name: Bedeelegungsprozess
