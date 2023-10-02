@@ -88,7 +88,6 @@ ar:
     admin:
       actions:
         confirm: تؤكد
-        new_conference: مؤتمر جديد
         send_diplomas: إرسال شهادات الحضور
       conference_copies:
         new:
