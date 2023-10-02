@@ -39,7 +39,6 @@ ru:
         confirm_destroy: Вы уверены?
         destroy: Удалить
         edit: Редактировать
-        new: Добавить %{name}
         title: Действия
       admin:
         debates:
@@ -59,9 +58,6 @@ ru:
           update:
             invalid: При попытке обновить это обсуждение произошла ошибка.
             success: Обсуждение успешно обновлено.
-        models:
-          debate:
-            name: Обсуждение
       admin_log:
         debate:
           create: "%{user_name} создал обсуждение %{resource_name} в пространстве %{space_name}"
