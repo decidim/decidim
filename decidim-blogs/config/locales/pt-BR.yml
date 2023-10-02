@@ -23,9 +23,6 @@ pt-BR:
         new: Nova postagem
         title: Ações
       admin:
-        models:
-          post:
-            name: Postar
         posts:
           create:
             invalid: Houve um problema ao criar esta postagem.
