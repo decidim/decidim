@@ -68,7 +68,6 @@
           form:
             all_categories: Alle kategorier
             select_proposal_component: Velg forslagets set
-            title: Ny sortering for forslag
           index:
             title: Sorteringer
           new:
