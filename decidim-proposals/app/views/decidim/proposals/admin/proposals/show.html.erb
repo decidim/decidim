@@ -16,11 +16,11 @@
           <% coauthor_presenters_for(proposal).each do |presented_author| %>
             <li class="component__show_nav-author-title">
               <%= link_to_if(
-                presented_author.profile_path.present?,
-                presented_author.name,
-                presented_author.profile_path,
-                target: :blank
-              ) %>
+                    presented_author.profile_path.present?,
+                    presented_author.name,
+                    presented_author.profile_path,
+                    target: :blank
+                  ) %>
               <% if presented_author.can_be_contacted? && presented_author.nickname != present(current_user).nickname %>
                 <%= link_to_current_or_new_conversation_with(presented_author) %>
               <% end %>
@@ -52,41 +52,41 @@
         <div class="card-section">
           <div class="row column">
             <span class="component__show-title"><%= t ".endorsers" %></span>
-              <ul id="proposal-endorsers-list">
-                <% presented_endorsers = endorsers_presenters_for(proposal).to_a %>
-                <% presented_endorsers.first(5).each do |presented_endorser| %>
-                  <li>
-                    <%= link_to_if(
-                      presented_endorser.profile_path.present?,
-                      presented_endorser.name,
-                      presented_endorser.profile_path,
-                      target: :blank
-                    ) %>
-                  </li>
-                <% end %>
-                <% if presented_endorsers.count > 5 %>
-                  <li>
-                    <%= link_to(
+            <ul id="proposal-endorsers-list">
+              <% presented_endorsers = endorsers_presenters_for(proposal).to_a %>
+              <% presented_endorsers.first(5).each do |presented_endorser| %>
+                <li>
+                  <%= link_to_if(
+                        presented_endorser.profile_path.present?,
+                        presented_endorser.name,
+                        presented_endorser.profile_path,
+                        target: :blank
+                      ) %>
+                </li>
+              <% end %>
+              <% if presented_endorsers.count > 5 %>
+                <li>
+                  <%= link_to(
                         t(".n_more_endorsers", count: presented_endorsers.count - 5),
                         resource_locator(proposal).path
-                    ) %>
-                  </li>
-                <% end %>
-              </ul>
+                      ) %>
+                </li>
+              <% end %>
+            </ul>
           </div>
         </div>
         <% if proposal.documents.any? %>
           <div class="card-section">
             <div class="row column">
               <strong><%= t ".documents" %>:</strong>
-                <ul id="documents">
-                  <% proposal.documents.each do |document| %>
-                    <li>
-                      <%= link_to translated_attribute(document.title), document.url %>
-                      <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
-                    </li>
-                  <% end %>
-                </ul>
+              <ul id="documents">
+                <% proposal.documents.each do |document| %>
+                  <li>
+                    <%= link_to translated_attribute(document.title), document.url %>
+                    <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
+                  </li>
+                <% end %>
+              </ul>
             </div>
           </div>
         <% end %>
@@ -97,7 +97,8 @@
               <div id="photos" class="gallery row" data-gallery>
                 <% proposal.photos.each do |photo| %>
                   <%= link_to photo.big_url, target: "_blank", rel: "noopener" do %>
-                    <%= image_tag photo.thumbnail_url, class:"thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>
+                    <%= image_tag photo.thumbnail_url,
+                                  class: "thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>
                   <% end %>
                 <% end %>
               </div>
@@ -107,14 +108,14 @@
         <div class="card-section">
           <div class="row column">
             <span class="component__show-title"><%= t ".related_meetings" %></span>
-              <ul id="related-meetings">
-                <% proposal.linked_resources(:meetings, "proposals_from_meeting").each do |meeting| %>
-                  <% presented_meeting = present(meeting) %>
-                  <li>
-                    <%= link_to presented_meeting.title(html_escape: true), presented_meeting.profile_path %>
-                  </li>
-                <% end %>
-              </ul>
+            <ul id="related-meetings">
+              <% proposal.linked_resources(:meetings, "proposals_from_meeting").each do |meeting| %>
+                <% presented_meeting = present(meeting) %>
+                <li>
+                  <%= link_to presented_meeting.title(html_escape: true), presented_meeting.profile_path %>
+                </li>
+              <% end %>
+            </ul>
           </div>
         </div>
         <% if allowed_to?(:create, :proposal_note, proposal: proposal) %>
@@ -255,24 +256,24 @@
           <ul id="valuators">
             <% proposal.valuation_assignments.each do |assignment| %>
               <% presented_valuator = present(assignment.valuator) %>
-                <li>
-                  <%= link_to(
-                    presented_valuator.name,
-                    presented_valuator.profile_path,
-                    target: :blank
-                  ) %>
-
-                  <% if allowed_to? :unassign_from_valuator, :proposals, valuator: assignment.valuator %>
-                    <%= icon_link_to(
-                      "delete-bin-line",
-                      proposal_valuation_assignment_path(proposal, assignment.valuator_role),
-                      t(".remove_assignment"),
-                      method: :delete,
-                      data: { confirm: t(".remove_assignment_confirmation") },
-                      class: "red-icon"
+              <li>
+                <%= link_to(
+                      presented_valuator.name,
+                      presented_valuator.profile_path,
+                      target: :blank
                     ) %>
-                  <% end %>
-                </li>
+
+                <% if allowed_to? :unassign_from_valuator, :proposals, valuator: assignment.valuator %>
+                  <%= icon_link_to(
+                        "delete-bin-line",
+                        proposal_valuation_assignment_path(proposal, assignment.valuator_role),
+                        t(".remove_assignment"),
+                        method: :delete,
+                        data: { confirm: t(".remove_assignment_confirmation") },
+                        class: "red-icon"
+                      ) %>
+                <% end %>
+              </li>
             <% end %>
           </ul>
         </div>
