@@ -148,6 +148,7 @@ tr:
           proposals_count:
             one: 'Toplantı, kendisiyle ilişkilendirilmiş %{count} teklif içerdiğinden yok edilemez:'
             other: 'Toplantı, kendisiyle ilişkilendirilmiş %{count} teklif içerdiğinden yok edilemez:'
+        new_meeting: Yeni toplantı
         preview: Ön izleme
         registrations: Kayıtlar
         title: Eylemler
