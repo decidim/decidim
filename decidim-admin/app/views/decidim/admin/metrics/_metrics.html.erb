@@ -5,14 +5,9 @@
     </h2>
   </div>
 
-  <div class="grid-y grid-padding-y">
-    <div class="cell grid-x grid-padding-x">
-      <%= metrics_presenter.highlighted %>
-    </div>
-
-    <div class="cell grid-x grid-padding-x">
-      <%= metrics_presenter.not_highlighted %>
-    </div>
+  <div class="metric__container">
+    <%= metrics_presenter.highlighted %>
+    <%= metrics_presenter.not_highlighted %>
   </div>
 </div>
 
