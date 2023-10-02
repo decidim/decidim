@@ -153,7 +153,6 @@ lb:
         export: Alles exportéieren
         export-selection: Export Auswiel
         import: Importieren
-        new: Neu %{name}
         newsletter:
           new: Neuer Newsletter
         participatory_space_private_user:
