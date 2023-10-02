@@ -51,7 +51,6 @@ gl:
         manage_answers: Xestionar respostas
         manage_questions: Xestionar preguntas
         manage_steps: Xestionar pasos
-        new: Nova %{name}
         publish: Publicar
         title: Accións
       admin:
@@ -79,12 +78,6 @@ gl:
         models:
           answer:
             name: Resposta
-          election:
-            name: Elección
-          question:
-            name: Pregunta
-          trustee:
-            name: Comisario
         questions:
           edit:
             title: Editar pregunta
@@ -288,7 +281,6 @@ gl:
               confirm_destroy: Estás certo/a?
               destroy: Eliminar
               edit: Editar
-              new: Novo
               title: Accións
             title: Estilos de papeletas
           new:
@@ -308,7 +300,6 @@ gl:
           ballot_style:
             fields:
               code: Código
-            name: Estilo de papeleta
         monitoring_committee_election_results:
           actions:
             title: Accións
