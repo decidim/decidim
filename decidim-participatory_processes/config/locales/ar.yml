@@ -196,6 +196,9 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذه المرحلة من العملية التشاركية.
           success: تم تحديث المرحلة التشاركية بنجاح.
+      participatory_process_types:
+        form:
+          title: عنوان
       participatory_process_user_roles:
         create:
           error: حدثت مشكلة أثناء إضافة مشارك لهذه العملية التشاركية.
