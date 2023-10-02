@@ -17,9 +17,6 @@ lv:
         new: Jauna ziņa
         title: Darbības
       admin:
-        models:
-          post:
-            name: Ziņa
         posts:
           edit:
             save: Atjaunināt
