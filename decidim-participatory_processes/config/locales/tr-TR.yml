@@ -84,6 +84,7 @@ tr:
         edit: Düzenle
         filter:
           all_processes: Tüm işlemleri göster
+          process_groups: İşlem Gruplarını Filtreleme
         import_process: İçe aktar
         new_process: Yeni süreç
         new_process_group: Yeni işlem grubu
@@ -92,6 +93,7 @@ tr:
         preview: Ön izleme
         publish: Yayınla
         resend_invitation: Yeniden gönderme daveti
+        see_process: Süreci gör
         unpublish: Yayından Kaldır
       menu:
         participatory_process_groups: Süreç grupları
@@ -105,6 +107,7 @@ tr:
           attachments: Ekler
           categories: Kategoriler
           components: Bileşenler
+          info: Süreç Hakkında
           moderations: Denetimler
           private_users: Özel Kullanıcılar
           process_admins: İşlemi gerçekleştiren kullanıcılar
@@ -112,6 +115,7 @@ tr:
       models:
         participatory_process:
           fields:
+            actions: Eylemler
             created_at: Düzenlendi
             private: Özel
             published: Yayınlanan
@@ -236,6 +240,7 @@ tr:
           private: Özel
           public: halka açık
           published: Yayınlanan
+          unpublished: Yayınlanmamış
         new:
           create: yaratmak
           title: Yeni katılımcı süreç
@@ -338,6 +343,7 @@ tr:
         participatory_process_groups:
           form:
             metadata: Meta veri
+            title: Süreç Hakkında
             visibility: Görünürlük
         participatory_process_imports:
           form:
