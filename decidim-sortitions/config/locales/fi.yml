@@ -72,7 +72,6 @@ fi:
           form:
             all_categories: Kaikki luokat
             select_proposal_component: Valitse asetetut ehdotukset
-            title: Uusi satunnaisvalinta ehdotuksille
           index:
             title: Satunnaisvalinnat
           new:
