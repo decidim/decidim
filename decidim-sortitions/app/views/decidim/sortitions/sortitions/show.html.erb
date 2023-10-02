@@ -70,9 +70,7 @@ edit_link(
           </span>
         <% end %>
       </div>
-      <div class="callout alert">
-        <%= decidim_sanitize_editor translated_attribute sortition.cancel_reason %>
-      </div>
+      <%= cell("decidim/announcement", decidim_sanitize_editor(translated_attribute(sortition.cancel_reason)), callout_class: "alert") %>
     </section>
   <% end %>
 
