@@ -90,6 +90,11 @@ fr-CA:
       actions:
         confirm: Confirmer
         new_conference: Nouvelle conférence
+        new_conference_user_role: Nouvel administrateur de conférence
+        new_media_link: Nouveau lien média
+        new_partner: Nouveau partenaire
+        new_registration_type: Nouveau type d'inscription
+        new_speaker: Nouveau conférencier
         send_diplomas: Envoyer des certificats de présence
       conference_copies:
         new:
@@ -452,7 +457,7 @@ fr-CA:
           collaborators: Partenaires
           main_promotors: Organisateurs
         show:
-          already_have_an_account?: Vous avez déjà un compte?
+          already_have_an_account?: Vous avez déjà un compte ?
           are_you_new?: Nouveau participant ?
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
           make_conference_registration: S'inscrire à la conférence
