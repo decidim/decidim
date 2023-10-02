@@ -194,6 +194,9 @@ lv:
         update:
           error: Šīs līdzdalības procesa fāzes atjaunināšanas laikā radās problēma.
           success: Līdzdalības procesa fāze ir veiksmīgi atjaunināta.
+      participatory_process_types:
+        form:
+          title: Nosaukums
       participatory_process_user_roles:
         create:
           error: Pievienojot dalībnieku šim līdzdalības procesam, radās problēma.
