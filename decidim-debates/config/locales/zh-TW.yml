@@ -50,7 +50,6 @@ zh-TW:
         confirm_destroy: 您確定嗎？
         destroy: 刪除
         edit: 編輯
-        new: 新增 %{name}
         title: 操作
       admin:
         debate_closes:
@@ -80,9 +79,6 @@ zh-TW:
             success: 辯論已成功更新
         exports:
           comments: 評論
-        models:
-          debate:
-            name: 辯論
       admin_log:
         debate:
           close: "%{user_name} 在 %{space_name} 空間關閉了 %{resource_name} 辯論。"
