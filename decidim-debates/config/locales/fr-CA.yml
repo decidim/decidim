@@ -51,7 +51,7 @@ fr-CA:
         confirm_destroy: Êtes-vous certain ?
         destroy: Supprimer
         edit: Modifier
-        new: Nouveau %{name}
+        new: Nouveau débat
         title: Actions
       admin:
         debate_closes:
@@ -81,9 +81,6 @@ fr-CA:
             success: Débat mis à jour avec succès.
         exports:
           comments: Commentaires
-        models:
-          debate:
-            name: Débat
       admin_log:
         debate:
           close: "%{user_name} a clos le débat %{resource_name} dans l'espace %{space_name}"
