@@ -106,7 +106,6 @@ cs:
         edit: Upravit
         filter:
           all_processes: Zobrazit všechny procesy
-          process_groups: Skupiny procesů
         import_process: Importovat
         moderate: Moderovat
         new_process: Nový proces
@@ -131,7 +130,6 @@ cs:
           attachments: Přílohy
           categories: Kategorie
           components: Komponenty
-          info: Info
           landing_page: Úvodní stránka
           moderations: Moderování
           private_users: Soukromí uživatelé
@@ -142,7 +140,6 @@ cs:
           fields:
             created_at: Vytvořeno v
             private: Soukromé
-            promoted: Zvýrazněno
             published: Publikováno
             title: Titul
           name: Participační proces
@@ -293,7 +290,6 @@ cs:
         edit:
           update: Aktualizace
         index:
-          not_published: Není zveřejněno
           private: Soukromé
           public: Veřejné
           published: Publikováno
@@ -430,7 +426,6 @@ cs:
         participatory_process_groups:
           form:
             metadata: Metadata
-            title: Obecné informace
             visibility: Viditelnost
         participatory_process_imports:
           form:
