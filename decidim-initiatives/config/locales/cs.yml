@@ -87,6 +87,7 @@ cs:
       actions:
         manage: Spravovat
         new_initiative_type: Nový typ iniciativy
+        new_initiative_type_scope: Nový typ rozsahu iniciativy
       filters:
         initiatives:
           decidim_area_id_eq:
