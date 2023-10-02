@@ -79,6 +79,7 @@ fr-CA:
   decidim:
     admin:
       actions:
+        manage: Gérer
         new_initiative_type: Nouveau type d'initiative
       filters:
         initiatives:
@@ -276,13 +277,9 @@ fr-CA:
           destroy:
             success: Le secteur a été supprimé avec succès.
           edit:
-            back: Retour
-            confirm_destroy: Êtes-vous certain ?
-            destroy: Supprimer
             title: Modifier le secteur de ce type d'initiative
             update: Mettre à jour
           new:
-            back: Retour
             create: Créer
             title: Créer un type de secteur pour les initiatives
           update:
@@ -295,8 +292,6 @@ fr-CA:
           destroy:
             success: Le type de pétition a été supprimé avec succès.
           edit:
-            confirm_destroy: Êtes-vous certain ?
-            destroy: Supprimer
             update: Mettre à jour
           form:
             authorizations: Paramètres d'autorisation
