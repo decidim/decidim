@@ -107,19 +107,13 @@ uk:
             print: Друк
         initiatives_type_scopes:
           edit:
-            back: Повернутись
-            confirm_destroy: Ви впевнені?
-            destroy: Видалити
             title: Редагувати обсяг різновиду почину
             update: Оновити
           new:
-            back: Повернутись
             create: Створити
             title: Створити обсяг різновиду почину
         initiatives_types:
           edit:
-            confirm_destroy: Ви впевнені?
-            destroy: Видалити
             update: Оновити
           form:
             title: Загальні відомості
