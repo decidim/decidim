@@ -45,7 +45,6 @@ eu:
         edit: Editatu
         edit_projects: Kudeatu proiektuak
         import: Inportatu proposamenak proiektuetarako
-        new: '%{name} berria'
         preview: Aurreikusi
         send_voting_reminders: Botoa gogorarazi
         title: Ekintzak
