@@ -73,7 +73,6 @@ ar:
           form:
             all_categories: جميع الفئات
             select_proposal_component: حدد مجموعة المقترحات
-            title: ترتيب جديد للمقترحات
           index:
             title: Sortitions
           new:
