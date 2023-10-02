@@ -23,9 +23,6 @@ es-PY:
         new: Nueva publicación
         title: Comportamiento
       admin:
-        models:
-          post:
-            name: Enviar
         posts:
           create:
             invalid: Se ha producido un error al crear esta publicación.
