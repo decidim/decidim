@@ -17,11 +17,14 @@ describe "Admin manages global moderations", type: :system do
   let(:participatory_space_path) do
     decidim_admin.moderations_path
   end
+  let(:resource_controller) { Decidim::Admin::GlobalModerationsController }
 
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
   end
+
+  include_context "with filterable context"
 
   context "when displaying the counter" do
     let!(:reportables) { create_list(:dummy_resource, 4, component: current_component) }
@@ -110,12 +113,8 @@ describe "Admin manages global moderations", type: :system do
       visit decidim_admin.moderations_path(hidden: true)
     end
 
-    it "can be filtering by id" do
-      search = hidden_moderation.reportable.id
-      within ".filters__section" do
-        fill_in("Search Moderation by reportable id or content.", with: search)
-        find(:xpath, "//button[@type='submit']").click
-      end
+    it "can be filtered by id" do
+      search_by_text(hidden_moderation.reportable.id)
       expect(page).to have_selector("tbody tr", count: 1)
     end
   end
