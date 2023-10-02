@@ -122,7 +122,6 @@ de:
           success: Dupliziertes Meeting erfolgreich
         new:
           copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
           title: Doppelte Besprechung
     components:
       meetings:
@@ -224,7 +223,6 @@ de:
             one: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist:'
             other: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind:'
         manage_poll: Umfrage verwalten
-        new: Neue Sitzung
         preview: Vorschau
         registrations: Anmeldungen
         title: Aktionen
@@ -286,7 +284,6 @@ de:
               all: Alle
               rejected: Abgelehnt
               sent: Geschickt
-            filter_by: Filtern nach
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             registrations_disabled: Sie können keine Teilnehmende einladen, weil Registrierungen deaktiviert sind.
@@ -352,9 +349,6 @@ de:
           update:
             invalid: Beim Aktualisieren der Veranstaltungsumfrage ist ein Problem aufgetreten.
             success: Veranstaltungsumfrage erfolgreich aktualisiert.
-        models:
-          meeting:
-            name: Treffen
         registrations:
           edit:
             save: Speichern
