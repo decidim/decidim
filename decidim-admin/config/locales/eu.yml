@@ -181,7 +181,6 @@ eu:
         export: Esportatu dena
         export-selection: Esportatu hautatua
         import: Inportatu
-        new: '%{name}berria'
         newsletter:
           new: Beste buletin bat
         participatory_space_private_user:
