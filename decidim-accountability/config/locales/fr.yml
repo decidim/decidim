@@ -41,7 +41,9 @@ fr:
         edit: Modifier
         import: Importer des projets
         import_csv: Importer un fichier CSV
-        new: Nouvelle %{name}
+        new_result: Nouvelle réalisation
+        new_status: Nouveau statut
+        new_timeline_entry: Nouvel élément de chronologie
         preview: Aperçu
         timeline_entries: Évolution de la réalisation
         title: Actions
@@ -84,8 +86,6 @@ fr:
             name: Réalisation
           status:
             name: Progression
-          timeline_entry:
-            name: Élément de chronologie
         projects_import:
           create:
             invalid: Il y a eu un problème lors de l'importation des projets, veuillez suivre attentivement les instructions et assurez-vous que vous avez bien sélectionné les projets à mettre en œuvre.
