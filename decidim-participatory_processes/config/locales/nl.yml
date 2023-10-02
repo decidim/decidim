@@ -85,7 +85,6 @@ nl:
         edit: Bewerken
         filter:
           all_processes: Toon alle processen
-          process_groups: Procesgroepen
         import_process: Importeren
         new_process: Nieuw proces
         new_process_group: Nieuwe procesgroep
@@ -107,7 +106,6 @@ nl:
           attachments: Bijlagen
           categories: Categorieën
           components: Onderdelen
-          info: Info
           moderations: Moderaties
           private_users: Privégebruikers
           process_admins: Admins van het proces
@@ -117,7 +115,6 @@ nl:
           fields:
             created_at: Aangemaakt op
             private: Privé
-            promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
           name: Inspraakproces
@@ -234,7 +231,6 @@ nl:
         edit:
           update: Bijwerken
         index:
-          not_published: Niet gepubliceerd
           private: Privé
           public: Openbaar
           published: Gepubliceerd
@@ -338,7 +334,6 @@ nl:
         participatory_process_groups:
           form:
             metadata: Metadata
-            title: Algemene informatie
             visibility: Zichtbaarheid
         participatory_process_imports:
           form:
