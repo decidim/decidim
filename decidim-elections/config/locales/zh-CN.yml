@@ -50,7 +50,6 @@ zh-CN:
         destroy: 破坏的
         edit: 编辑
         import: 导入建议以答案
-        new: 新建 %{name}
         preview: 预览
         publish: 发布
         title: 行动
@@ -82,10 +81,6 @@ zh-CN:
         models:
           answer:
             name: 答案
-          election:
-            name: 选举
-          question:
-            name: 问
         proposals_imports:
           new:
             create: 导入建议以答案
