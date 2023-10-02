@@ -253,8 +253,6 @@ ja:
         edit:
           title: プロセス種別の編集
           update: 更新
-        form:
-          title: タイトル
         new:
           create: 作成
           title: 新しいプロセス種別
