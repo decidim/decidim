@@ -41,7 +41,6 @@ de:
         edit: Bearbeiten
         import: Projekte zu Ergebnissen importieren
         import_csv: CSV importieren
-        new: Neu %{name}
         preview: Vorschau
         timeline_entries: Projektentwicklung
         title: Aktionen
@@ -84,8 +83,6 @@ de:
             name: Ergebnis
           status:
             name: Status
-          timeline_entry:
-            name: Zeitachseneintrag
         projects_import:
           create:
             invalid: Es gab ein Problem beim Importieren der Projekte in Ergebnisse, bitte befolgen Sie die Anweisungen sorgfältig und stellen Sie sicher, dass Sie Projekte für die Umsetzung ausgewählt haben.
