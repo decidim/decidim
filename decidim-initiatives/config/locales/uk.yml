@@ -115,8 +115,6 @@ uk:
         initiatives_types:
           edit:
             update: Оновити
-          form:
-            title: Загальні відомості
           initiative_type_scopes:
             title: Обсяги для цього різновиду почину
           new:
