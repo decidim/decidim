@@ -43,7 +43,6 @@ lt:
         edit: Redaguoti
         import: Importuoti projektus į rezultatus
         import_csv: Importuoti CSV
-        new: Naujas %{name}
         preview: Peržiūra
         timeline_entries: Projekto raida
         title: Veiksmai
@@ -85,8 +84,6 @@ lt:
             name: Rezultatas
           status:
             name: Statusas
-          timeline_entry:
-            name: Laiko juostos įrašas
         projects_import:
           create:
             invalid: Importuojant projektus į rezultatus iškilo problema. Atidžiai vykdykite instrukcijas ir įsitikinkite, kad pasirinkote įgyvendinimui skirtus projektus.
