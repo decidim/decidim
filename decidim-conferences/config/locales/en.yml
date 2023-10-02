@@ -454,10 +454,14 @@ en:
           collaborators: Partners
           main_promotors: Organizers
         show:
+          already_have_an_account?: Already have an account?
+          are_you_new?: New participant?
           login_as: You are logged in as %{name} <%{email}>
           make_conference_registration: Register for the conference
           manage_registration: Manage registration
           register: Register
+          sign_in_description: Log in to register to the conference
+          sign_up_description: Create an account to register to the conference
       content_blocks:
         highlighted_conferences:
           name: Highlighted conferences

@@ -21,7 +21,7 @@ edit_link(
       <span class="sr-only"><%= t("registration_types.index.register", scope: "decidim.conferences") %> (<%= translated_attribute current_participatory_space.title %>)</span>
     </h1>
 
-    <%= render partial: "decidim/devise/shared/login_boxes" unless current_user %>
+    <%= render partial: "decidim/devise/shared/login_boxes", locals: { scope: "decidim.conferences.conferences.show" } unless current_user %>
 
     <% if collection.any? %>
       <p class="conference__registration-container-title"><%= t(".choose_an_option") %></p>
