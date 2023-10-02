@@ -171,8 +171,6 @@ id:
         initiatives_types:
           edit:
             update: Memperbarui
-          form:
-            title: Informasi Umum
           initiative_type_scopes:
             title: Cakupan untuk jenis inisiatif
           new:
