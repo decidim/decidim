@@ -225,7 +225,7 @@ en:
             one: 'The meeting cannot be destroyed because it has %{count} proposal associated to it:'
             other: 'The meeting cannot be destroyed because it has %{count} proposals associated to it:'
         manage_poll: Manage poll
-        new: New meeting
+        new_meeting: New meeting
         preview: Preview
         registrations: Registrations
         title: Actions
