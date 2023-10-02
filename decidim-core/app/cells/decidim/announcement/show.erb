@@ -1,4 +1,4 @@
-<%= content_tag :div, id: options[:id], class: "callout #{callout_class}", data: { announcement: "", component: ("accordion" if truncate?) }.compact, hidden: options[:hidden] do %>
+<%= content_tag :div, id: options[:id], class: "flash #{callout_class}", data: { announcement: "", component: ("accordion" if truncate?) }.compact, hidden: options[:hidden] do %>
   <% if has_title? %>
     <div class="h4">
       <%= clean_title %>
@@ -22,6 +22,8 @@
       <%= icon "arrow-up-s-line" %>
     </button>
   <% else %>
-    <%= text %>
+    <span class="flash__message">
+      <%= text %>
+    </span>
   <% end %>
 <% end %>
