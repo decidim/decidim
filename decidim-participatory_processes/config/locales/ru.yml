@@ -90,7 +90,6 @@ ru:
           attachments: Прикрепленные файлы
           categories: Категории
           components: Составляющие
-          info: Сведения
           moderations: Действия по модерации
           private_users: Частные участники
           process_admins: Участники движения
@@ -100,7 +99,6 @@ ru:
           fields:
             created_at: 'Создано:'
             private: Частное
-            promoted: Рекомендуемые
             published: Обнародовано
             title: Название
           name: Движение соучастия
@@ -196,7 +194,6 @@ ru:
         edit:
           update: Обновить
         index:
-          not_published: Не обнародовано
           private: Частное
           public: Обнародованные
           published: Обнародовано
