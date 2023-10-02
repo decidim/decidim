@@ -40,6 +40,7 @@ cs:
         actions:
           destroy: Zrušit losování
           edit: Upravit
+          new_sortition: Nové losování
           show: Detaily losování
         models:
           sortition:
