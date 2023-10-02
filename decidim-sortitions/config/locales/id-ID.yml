@@ -34,7 +34,6 @@ id:
         actions:
           destroy: Batalkan penyortiran
           edit: Edit
-          new: Pemilahan baru
           show: Detail penyortiran
         models:
           sortition:
@@ -48,8 +47,6 @@ id:
               seed: Benih
               target_items: Item untuk dipilih
               title: Judul
-            name:
-              other: Sortasi
         sortitions:
           confirm_destroy:
             confirm_destroy: Apakah Anda yakin ingin membatalkan penyortiran ini?
