@@ -147,6 +147,7 @@ eu:
         exports:
           registrations: Izen-emateak
         form:
+          sections: Atalak
           title: Informazio orokorra
         index:
           not_published: Ez da argitaratu
@@ -190,11 +191,13 @@ eu:
           conference_invites: Gonbidapenak
           conference_speakers: Hizlariak
           diploma: Asistentzia ziurtagiria
+          info: Hitzaldi honi buruz
           media_links: Media Links
           moderations: moderazioa
           partners: Bazkideak
           registration_types: Izen-emate motak
           registrations: Izen-emateak
+          see_conference: Ikusi hitzaldia
           user_registrations: Erabiltzaileen erregistroak
       models:
         conference:
