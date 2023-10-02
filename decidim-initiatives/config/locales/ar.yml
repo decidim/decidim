@@ -174,19 +174,13 @@ ar:
             print: طباعة
         initiatives_type_scopes:
           edit:
-            back: الى الخلف
-            confirm_destroy: هل أنت واثق؟
-            destroy: حذف
             title: تحرير نطاق نوع المبادرة
             update: تحديث
           new:
-            back: الى الخلف
             create: إنشاء
             title: إنشاء نطاق نوع المبادرة
         initiatives_types:
           edit:
-            confirm_destroy: هل أنت واثق؟
-            destroy: حذف
             update: تحديث
           form:
             title: معلومات عامة
