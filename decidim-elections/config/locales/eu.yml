@@ -640,6 +640,7 @@ eu:
             ballot_styles: Boto-paper motak
             census: Errolda
             components: Osagaiak
+            info: Bozketa honi buruz
             landing_page: Hasierako orrialdea
             monitoring_committee: Jarraipen-batzordea
             monitoring_committee_election_results: Balioztatu emaitzak
@@ -648,6 +649,7 @@ eu:
             monitoring_committee_verify_elections: Egiaztatu aukerak
             polling_officers: Mahaiko kudeatzaileak
             polling_stations: Bozketa-guneak
+            see_voting: Ikusi bozketa
         models:
           ballot_style:
             fields:
