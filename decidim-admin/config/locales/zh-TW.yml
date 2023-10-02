@@ -184,7 +184,6 @@ zh-TW:
         export: 全部匯出
         export-selection: 匯出選擇
         import: 匯入
-        new: 新增 %{name}
         newsletter:
           new: 新電子報
         participatory_space_private_user:
