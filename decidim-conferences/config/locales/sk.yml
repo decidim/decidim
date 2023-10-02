@@ -48,7 +48,6 @@ sk:
     admin:
       actions:
         confirm: Potvrdiť
-        new_conference: Nová konferencia
         send_diplomas: Zaslať certifikáty o účasti
       conference_copies:
         new:
