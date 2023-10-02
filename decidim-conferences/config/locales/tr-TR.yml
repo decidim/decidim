@@ -42,6 +42,12 @@ tr:
     admin:
       actions:
         confirm: Onayla
+        new_conference: Yeni Konferans
+        new_conference_user_role: Yeni konferans yöneticisi
+        new_media_link: Yeni Medya Bağlantısı
+        new_partner: Yeni Ortak
+        new_registration_type: Yeni kayıt türü
+        new_speaker: Yeni Konuşmacı
         send_diplomas: Katılım sertifikaları gönder
       conference_copies:
         new:
