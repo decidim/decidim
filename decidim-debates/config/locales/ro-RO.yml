@@ -52,7 +52,6 @@ ro:
         confirm_destroy: Sigur dorești asta?
         destroy: Ștergere
         edit: Editare
-        new: '%{name} nou'
         title: Acțiuni
       admin:
         debate_closes:
@@ -82,9 +81,6 @@ ro:
             success: Dezbatere actualizata cu succes.
         exports:
           comments: Comentarii
-        models:
-          debate:
-            name: Dezbatere
       admin_log:
         debate:
           close: "%{user_name} a închis dezbaterea %{resource_name} cu privire la spațiul %{space_name}"
