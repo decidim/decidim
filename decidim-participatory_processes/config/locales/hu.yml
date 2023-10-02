@@ -100,7 +100,6 @@ hu:
         edit: Szerkesztés
         filter:
           all_processes: Az összes folyamat megjelenítése
-          process_groups: Folyamatcsoportok
         import_process: Importál
         moderate: Mérsékelt
         new_process: Új folyamat
@@ -125,7 +124,6 @@ hu:
           attachments: Mellékletek
           categories: Kategóriák
           components: Elemek
-          info: Info
           moderations: Moderálások
           private_users: Privát felhasználók
           process_admins: Folyamat adminisztrátorok
@@ -135,7 +133,6 @@ hu:
           fields:
             created_at: Létrehozva
             private: Privát
-            promoted: Kiemelt
             published: Közzétéve
             title: Cím
           name: Részvételi folyamat
@@ -286,7 +283,6 @@ hu:
         edit:
           update: Frissítés
         index:
-          not_published: Nincs közzétéve
           private: Privát
           public: Nyilvános
           published: Közzétéve
@@ -404,7 +400,6 @@ hu:
         participatory_process_groups:
           form:
             metadata: Metaadat
-            title: Általános információ
             visibility: Láthatóság
         participatory_process_imports:
           form:
