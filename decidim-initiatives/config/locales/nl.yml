@@ -193,7 +193,6 @@ nl:
             send_to_technical_validation: Stuur naar technische validatie
             update: Bijwerken
           form:
-            attachments: Bijlagen
             settings: Instellingen
             title: Algemene informatie
           index:
@@ -215,8 +214,6 @@ nl:
         initiatives_types:
           edit:
             update: Bijwerken
-          form:
-            title: Algemene informatie
           initiative_type_scopes:
             title: Scopes voor het initiatieftype
           new:
