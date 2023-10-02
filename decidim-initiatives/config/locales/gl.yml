@@ -176,8 +176,6 @@ gl:
         initiatives_types:
           edit:
             update: Actualización
-          form:
-            title: Información xeral
           initiative_type_scopes:
             title: Alcances para o tipo de iniciativa
           new:
