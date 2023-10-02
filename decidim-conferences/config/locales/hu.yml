@@ -441,9 +441,13 @@ hu:
           collaborators: Partnerek
           main_promotors: Szervezők
         show:
+          already_have_an_account?: Van már fiókja?
+          are_you_new?: Új résztvevő?
           login_as: '%{name} <%{email}> -ként jelentkeztél be'
           make_conference_registration: Regisztráció a konferenciára
           register: Regisztráció
+          sign_in_description: Jelentkezzen be a konferenciára történő regisztrációhoz
+          sign_up_description: Hozzon létre egy fiókot a konferenciára való jelentkezéshez
       content_blocks:
         highlighted_conferences:
           name: Kiemelt konferenciák
