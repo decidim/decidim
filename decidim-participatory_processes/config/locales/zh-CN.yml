@@ -188,6 +188,9 @@ zh-CN:
         update:
           error: 在更新这一阶段的参与进程时遇到了问题。
           success: 参与阶段更新成功。
+      participatory_process_types:
+        form:
+          title: 标题
       participatory_process_user_roles:
         create:
           error: 在这个参与进程中增加参与者时遇到了问题。
