@@ -3,7 +3,6 @@
 window.$ = $;
 
 import CheckBoxesTree from "./check_boxes_tree"
-import DataPicker from "./data_picker"
 
 const FormFilterComponent = require("./form_filter.component_for_testing.js");
 
@@ -89,7 +88,6 @@ describe("FormFilterComponent", () => {
 
     window.Decidim = window.Decidim || {};
 
-    window.theDataPicker = new DataPicker($(".data-picker"));
     window.theCheckBoxesTree = new CheckBoxesTree();
     window.Rails = {
       fire: (htmlElement, event) => {
