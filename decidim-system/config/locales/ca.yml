@@ -37,7 +37,6 @@ ca:
         confirm_destroy: Segur que ho vols eliminar això?
         destroy: Suprimeix
         edit: Edita
-        new: Nou
         save: Desa
         title: Accions
       admins:
@@ -94,7 +93,6 @@ ca:
           fields:
             created_at: Data de creació
             email: Correu electrònic
-          name: Administradora
           validations:
             email_uniqueness: ja existeix una altra administradora amb aquest correu electrònic
         oauth_application:
@@ -102,7 +100,6 @@ ca:
             created_at: Creat el
             name: Nom de l'aplicació OAuth
             organization_name: Organització
-          name: Aplicació OAuth
         organization:
           actions:
             save_and_invite: Crear organització i convidar l'administradora
@@ -113,7 +110,6 @@ ca:
             name: Nom
             omniauth_settings: Configuració de l'Omniauth
             smtp_settings: Configuració d'SMTP
-          name: Organització
       oauth_applications:
         create:
           error: S'ha produït un error en crear aquesta aplicació.
