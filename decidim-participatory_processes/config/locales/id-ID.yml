@@ -70,7 +70,6 @@ id:
         edit: Edit
         filter:
           all_processes: Tampilkan semua proses
-          process_groups: Kelompok Proses
         new_process: Proses baru
         new_process_group: Grup proses baru
         new_process_step: Langkah baru
@@ -88,7 +87,6 @@ id:
           attachments: Lampiran
           categories: Kategori
           components: Komponen
-          info: Info
           moderations: Moderasi
           private_users: Pengguna Pribadi
           process_admins: Memproses pengguna
@@ -98,7 +96,6 @@ id:
           fields:
             created_at: Dibuat di
             private: Pribadi
-            promoted: Disorot
             published: Diterbitkan
             title: Judul
           name: Proses partisipatif
@@ -194,7 +191,6 @@ id:
         edit:
           update: Memperbarui
         index:
-          not_published: Tidak diterbitkan
           private: Pribadi
           public: Publik
           published: Diterbitkan
