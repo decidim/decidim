@@ -92,7 +92,6 @@ uk:
       actions:
         add: Додати
         browse: Переглянути
-        new: Додати %{name}
         permissions: Права
         reject: Відхилити
         verify: Підтвердити
