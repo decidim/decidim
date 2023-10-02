@@ -231,19 +231,13 @@ pt:
             photos: Fotos
         initiatives_type_scopes:
           edit:
-            back: Retroceder
-            confirm_destroy: Tem a certeza?
-            destroy: Eliminar
             title: Editar âmbito do tipo de iniciativa
             update: Atualizar
           new:
-            back: Retroceder
             create: Criar
             title: Criar âmbito do tipo de iniciativa
         initiatives_types:
           edit:
-            confirm_destroy: Tem a certeza?
-            destroy: Eliminar
             update: Atualizar
           form:
             authorizations: Definições de autorização
