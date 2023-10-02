@@ -47,7 +47,6 @@ lt:
         edit: Redaguoti
         edit_projects: Valdyti projektus
         import: Importuoti pasiūlymus į projektus
-        new: Naujas %{name}
         preview: Peržiūra
         send_voting_reminders: Siųsti balsavimo priminimus
         title: Veiksmai
