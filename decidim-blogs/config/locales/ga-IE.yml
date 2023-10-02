@@ -15,9 +15,6 @@ ga:
         new: Postáil nua
         title: Gníomhartha
       admin:
-        models:
-          post:
-            name: Postáil
         posts:
           edit:
             save: Nuashonraigh
