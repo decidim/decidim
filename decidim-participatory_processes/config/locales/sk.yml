@@ -81,7 +81,6 @@ sk:
         edit: Upraviť
         filter:
           all_processes: Zobraziť všetky procesy
-          process_groups: Skupiny procesov
         import_process: Importovať
         new_process: Nový proces
         new_process_group: Nová skupina procesov
@@ -100,7 +99,6 @@ sk:
           attachments: Prílohy
           categories: Kategória
           components: Komponenty
-          info: Info
           moderations: Moderovanie
           private_users: Súkromní užívatelia
           process_admins: Spracovať užívateľa
@@ -110,7 +108,6 @@ sk:
           fields:
             created_at: Vytvorené u
             private: Súkromné
-            promoted: Zvýraznený
             published: Publikované
             title: Titul
           name: Participatívne proces
@@ -218,7 +215,6 @@ sk:
         edit:
           update: Aktualizácia
         index:
-          not_published: Nie je zverejnené
           private: Súkromné
           public: Verejnosť
           published: Publikované
