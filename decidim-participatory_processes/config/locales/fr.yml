@@ -132,6 +132,7 @@ fr:
       models:
         participatory_process:
           fields:
+            actions: Actions
             created_at: Créée le
             private: Privée
             published: Publiée
@@ -287,6 +288,7 @@ fr:
           private: Privée
           public: Publique
           published: Publiée
+          unpublished: Non publié
         new:
           create: Créer
           title: Nouvelle concertation
