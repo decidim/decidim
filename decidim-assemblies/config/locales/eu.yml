@@ -196,9 +196,11 @@ eu:
           attachments: Eranskinak
           categories: Kategoriak
           components: Osagaiak
+          info: Batzar honi buruz
           landing_page: Hasierako orria
           moderations: Moderazioak
           private_users: Erabiltzaile pribatuak
+          see_assembly: Ikusi batzarra
         assemblies_types: Batzar motak
       models:
         assemblies_types:
@@ -207,6 +209,7 @@ eu:
             title: Prozesu partizipatiboen multzoak
         assembly:
           fields:
+            actions: Ekintzak
             created_at: Sortze-data
             private: Pribatua
             promoted: Nabarmendua
@@ -272,6 +275,7 @@ eu:
             images: Irudiak
             metadata: Metadata
             other: Beste
+            sections: Atalak
             select_a_created_by: Aukeratu egilea by egilea
             select_an_area: Hautatu eremu bat
             select_an_assembly_type: Hautatu muntatze mota bat
