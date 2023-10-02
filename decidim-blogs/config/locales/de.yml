@@ -23,9 +23,6 @@ de:
         new: Neuer Beitrag
         title: Aktionen
       admin:
-        models:
-          post:
-            name: Post
         posts:
           create:
             invalid: Beim Erstellen dieses Beitrags ist ein Problem aufgetreten.
