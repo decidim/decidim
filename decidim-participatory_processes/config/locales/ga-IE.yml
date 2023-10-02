@@ -101,6 +101,9 @@ ga:
           steps_title: Céimeanna
         new:
           create: Cruthaigh
+      participatory_process_types:
+        form:
+          title: Teideal
       participatory_process_user_roles:
         edit:
           update: Nuashonraigh
