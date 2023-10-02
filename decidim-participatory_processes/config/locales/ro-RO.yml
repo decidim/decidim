@@ -103,7 +103,6 @@ ro:
         edit: Editează
         filter:
           all_processes: Afișează toate procesele
-          process_groups: Grupuri ale procesului
         import_process: Importă
         moderate: Moderează
         new_process: Proces nou
@@ -128,7 +127,6 @@ ro:
           attachments: Atașamente
           categories: Categorii
           components: Componente
-          info: Informații
           moderations: Moderări
           private_users: Participanți privați
           process_admins: Administratori de proces
@@ -138,7 +136,6 @@ ro:
           fields:
             created_at: Creat la
             private: Privat
-            promoted: Evidenţiat
             published: Publicat
             title: Titlu
           name: Proces participativ
@@ -289,7 +286,6 @@ ro:
         edit:
           update: Actualizează
         index:
-          not_published: Nepublicate
           private: Private
           public: Publice
           published: Publicate
@@ -408,7 +404,6 @@ ro:
         participatory_process_groups:
           form:
             metadata: Metadate
-            title: Informaţii generale
             visibility: Vizibilitate
         participatory_process_imports:
           form:
