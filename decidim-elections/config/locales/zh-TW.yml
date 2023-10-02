@@ -144,7 +144,6 @@ zh-TW:
         manage_answers: 管理答案
         manage_questions: 管理問題
         manage_steps: 管理步驟
-        new: 新增 %{name}
         preview: 預覽
         publish: 發布
         title: 操作
@@ -215,12 +214,6 @@ zh-TW:
         models:
           answer:
             name: 回答
-          election:
-            name: 選舉
-          question:
-            name: 問題
-          trustee:
-            name: 受託人
         proposals_imports:
           create:
             invalid: 匯入提案至答案時發生問題.
@@ -772,7 +765,6 @@ zh-TW:
               confirm_destroy: 您確定嗎？
               destroy: 刪除
               edit: 編輯
-              new: 新的
               title: 操作
             associated_census_data: 相關的戶籍項目
             explanation_callout: 選票樣式指定了選民在投票站將會被提出的問題。在選票樣式中，您可以從此次投票的選舉組件中選擇哪些問題屬於該選票。選票樣式代碼用於將選民從選民名單中與他們將在投票站中展示的選票進行匹配。如果您始終要顯示所有問題，請勿創建任何選票樣式。
@@ -826,25 +818,21 @@ zh-TW:
           ballot_style:
             fields:
               code: 代碼
-            name: 選票樣式
           monitoring_committee_member:
             fields:
               email: 電子郵件
               name: 名稱
-            name: 監察委員會成員
           polling_officer:
             fields:
               email: 電子郵件
               name: 名稱
               polling_station: 投票站（角色）
-            name: 投票事務官
           polling_station:
             fields:
               address: 地址
               polling_station_managers: 管理員
               polling_station_president: 主席
               title: 標題
-            name: 投票站
           voting:
             fields:
               created_at: 建立於
@@ -1234,7 +1222,6 @@ zh-TW:
         actions:
           confirm_destroy: 您確定嗎？
           destroy: 刪除
-          new: 新的
           title: 操作
         roles:
           manager: 管理員
@@ -1255,7 +1242,6 @@ zh-TW:
           confirm_destroy: 您確定嗎？
           destroy: 刪除
           edit: 編輯
-          new: 新的
           title: 操作
       votings:
         access_code_modal:
