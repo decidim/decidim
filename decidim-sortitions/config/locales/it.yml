@@ -68,7 +68,6 @@ it:
           form:
             all_categories: Tutte le categorie
             select_proposal_component: Seleziona il set di proposte
-            title: Nuova raccolta di proposte
           index:
             title: Sorteggi
           new:
