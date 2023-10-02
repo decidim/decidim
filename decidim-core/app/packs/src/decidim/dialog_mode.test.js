@@ -24,7 +24,6 @@ import $ from "jquery"; // eslint-disable-line id-length
 import "foundation-sites";
 
 import FocusGuard from "./focus_guard.js";
-import dialogMode from "./dialog_mode.js";
 
 describe("dialogMode", () => {
   const content = `
@@ -75,10 +74,6 @@ describe("dialogMode", () => {
     // Make sure all reveals are hidden by default so that their visibility is
     // correctly reported always.
     $(".reveal").css("display", "none");
-
-    $(document).on("open.zf.reveal", (ev) => {
-      dialogMode($(ev.target));
-    });
   });
 
   it("focuses the title", () => {
