@@ -37,7 +37,6 @@ sk:
         actions:
           destroy: Zrušiť voľbu losovaním
           edit: Upraviť
-          new: Nová voľba losovaním
           show: Podrobnosti o voľbe losovaním
         models:
           sortition:
@@ -51,11 +50,6 @@ sk:
               seed: Semienko
               target_items: Položky, ktoré chcete vybrať
               title: Titul
-            name:
-              one: Voľba losovaním
-              few: Voľby losovaním
-              many: Voľby losovaním
-              other: Voľby losovaním
         sortitions:
           confirm_destroy:
             confirm_destroy: Naozaj chcete túto voľbu zrušiť?
