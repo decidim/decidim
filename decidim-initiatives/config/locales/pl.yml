@@ -226,7 +226,6 @@ pl:
             send_to_technical_validation: Wyślij do weryfikacji technicznej
             update: Aktualizuj
           form:
-            attachments: Załączniki
             settings: Ustawienia
             title: Informacje ogólne
           index:
@@ -251,7 +250,6 @@ pl:
           form:
             authorizations: Ustawienia autoryzacji
             options: Ustawienia
-            title: Informacje ogólne
           initiative_type_scopes:
             title: Zakresy dla rodzaju inicjatywy
           new:
