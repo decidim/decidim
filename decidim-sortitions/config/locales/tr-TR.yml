@@ -36,7 +36,6 @@ tr:
         actions:
           destroy: Sıralamayı iptal et
           edit: Düzenle
-          new: Yeni sıralama
           show: Sıralama detayları
         models:
           sortition:
@@ -50,9 +49,6 @@ tr:
               seed: Çekirdek
               target_items: Seçilecek öğeler
               title: Başlık
-            name:
-              one: Sıralama
-              other: Sıralama
         sortitions:
           confirm_destroy:
             confirm_destroy: Bu sıralamayı iptal etmek istediğinize emin misiniz?
