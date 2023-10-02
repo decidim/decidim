@@ -64,7 +64,6 @@ tr:
         import: Teklifleri yanıtlara aktarın
         manage_answers: Cevapları yönet
         manage_questions: Soruları yönet
-        new: Yeni %{name}
         preview: Önizleme
         publish: Yayınla
         title: Eylemler
@@ -102,12 +101,6 @@ tr:
         models:
           answer:
             name: Cevap
-          election:
-            name: Seçim
-          question:
-            name: Soru
-          trustee:
-            name: Vekil
         proposals_imports:
           new:
             create: Teklifleri yanıtlara aktarın
