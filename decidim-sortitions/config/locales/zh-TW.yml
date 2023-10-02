@@ -37,7 +37,6 @@ zh-TW:
         actions:
           destroy: 取消選民隨機抽籤
           edit: 編輯
-          new: 新的抽籤
           show: 抽籤詳細資料
         models:
           sortition:
@@ -51,8 +50,6 @@ zh-TW:
               seed: 種子碼
               target_items: 選擇項目
               title: 標題
-            name:
-              other: 抽籤
         sortitions:
           confirm_destroy:
             confirm_destroy: 您確定要取消此選項嗎？
