@@ -231,7 +231,6 @@ ro:
             send_to_technical_validation: Trimite la validarea tehnică
             update: Actualizare
           form:
-            attachments: Atașamente
             settings: Setări
             title: Informaţii generale
           index:
@@ -276,7 +275,6 @@ ro:
           form:
             authorizations: Setări de autorizare
             options: Opţiuni
-            title: Informaţii generale
           initiative_type_scopes:
             title: Domeniul de interes al tipului de inițiativă
           new:
