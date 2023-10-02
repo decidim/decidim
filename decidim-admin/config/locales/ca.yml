@@ -189,7 +189,6 @@ ca:
         export: Exportar tot
         export-selection: Exportar selecció
         import: Importar
-        new: Nou %{name}
         newsletter:
           new: Nou butlletí
         participatory_space_private_user:
