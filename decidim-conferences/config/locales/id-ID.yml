@@ -39,7 +39,6 @@ id:
     admin:
       actions:
         confirm: Memastikan
-        new_conference: Konferensi Baru
         send_diplomas: Kirim sertifikat kehadiran
       conference_copies:
         new:
