@@ -227,6 +227,8 @@
         create:
           error: Det oppstod et problem med å lage en ny prosesstype.
           success: Prosesstypen ble opprettet.
+        form:
+          title: Tittel
       participatory_process_user_roles:
         create:
           error: Det oppstod et problem med å legge til en deltaker for denne prosessen.
