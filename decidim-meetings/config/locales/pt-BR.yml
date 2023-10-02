@@ -58,7 +58,6 @@ pt-BR:
           success: Reunião duplicada com sucesso.
         new:
           copy: cópia de
-          select: Selecione os dados que você gostaria de duplicar
           title: Reunião duplicada
     components:
       meetings:
@@ -154,7 +153,6 @@ pt-BR:
             one: 'A reunião não pode ser destruída porque tem %{count} proposta associada a ela:'
             other: 'A reunião não pode ser destruída porque tem %{count} propostas associadas a ela:'
         manage_poll: Gerenciar enquete
-        new: Nova reunião
         preview: Visualização
         registrations: Inscrições
         title: Ações
@@ -210,7 +208,6 @@ pt-BR:
               all: Tudo
               rejected: Rejeitados
               sent: Enviado
-            filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
             search: Pesquisar
@@ -252,9 +249,6 @@ pt-BR:
         meetings_poll:
           form:
             title: Editar questionário da enquete para %{questionnaire_for}
-        models:
-          meeting:
-            name: encontro
         registrations:
           edit:
             save: Salvar
