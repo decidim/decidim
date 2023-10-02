@@ -43,7 +43,6 @@ cs:
         edit: Upravit
         import: Importovat projekty do výsledků
         import_csv: Importovat CSV
-        new: Nový %{name}
         preview: Náhled
         timeline_entries: Vývoj projektu
         title: Akce
@@ -86,8 +85,6 @@ cs:
             name: Výsledek
           status:
             name: Stav
-          timeline_entry:
-            name: Záznam v harmonogramu
         projects_import:
           create:
             invalid: Došlo k potížím při importu projektů do výsledků, postupujte prosím pečlivě podle pokynů a ujistěte se, že jste vybrali projekty pro realizaci.
