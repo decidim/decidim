@@ -237,19 +237,13 @@ eu:
             photos: Argazkiak
         initiatives_type_scopes:
           edit:
-            back: Back
-            confirm_destroy: Ziur zaude?
-            destroy: ezabatu
             title: Editatu ekimen motako esparrua
             update: eguneratzearen
           new:
-            back: Back
             create: Sortu
             title: Sortu ekimena mota alorra
         initiatives_types:
           edit:
-            confirm_destroy: Ziur zaude?
-            destroy: ezabatu
             update: eguneratzearen
           form:
             authorizations: Baimen-doikuntzak
