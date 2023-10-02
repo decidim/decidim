@@ -53,7 +53,6 @@ cs:
         confirm_destroy: Jste si jisti?
         destroy: Odstranit
         edit: Upravit
-        new: Nové %{name}
         title: Akce
       admin:
         debate_closes:
@@ -83,9 +82,6 @@ cs:
             success: Debata byla úspěšně aktualizována.
         exports:
           comments: Komentáře
-        models:
-          debate:
-            name: Debata
       admin_log:
         debate:
           close: "%{user_name} ukončil debatu %{resource_name} ve skupině %{space_name}"
