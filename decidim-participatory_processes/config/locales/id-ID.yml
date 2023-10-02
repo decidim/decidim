@@ -175,6 +175,9 @@ id:
         update:
           error: Ada kesalahan saat memperbarui langkah proses partisipatif ini.
           success: Langkah proses partisipatif berhasil diperbarui.
+      participatory_process_types:
+        form:
+          title: Judul
       participatory_process_user_roles:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna untuk proses partisipatif ini.
