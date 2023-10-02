@@ -45,7 +45,6 @@ nl:
         edit: Bewerk
         edit_projects: Beheer projecten
         import: Voorstellen importeren in projecten
-        new: Nieuwe %{name}
         preview: Voorbeeld
         title: Acties
       admin:
