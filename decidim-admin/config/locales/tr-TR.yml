@@ -133,7 +133,6 @@ tr:
       actions:
         add: Eklemek
         browse: Araştır
-        new: Yeni %{name}
         per_page: Sayfa başına
         permissions: İzinler
         reject: reddetmek
