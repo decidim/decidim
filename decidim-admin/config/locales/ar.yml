@@ -152,7 +152,6 @@ ar:
           new: فئة جديدة
         export: تصدير الكل
         import: استيراد
-        new: جديد %{name}
         newsletter:
           new: رسالة إخبارية جديدة
         per_page: في كل صفحة
