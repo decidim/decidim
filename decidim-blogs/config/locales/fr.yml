@@ -23,9 +23,6 @@ fr:
         new: Nouvel article
         title: Actions
       admin:
-        models:
-          post:
-            name: Publier
         posts:
           create:
             invalid: Un problème est survenu lors de la création de cet article.
