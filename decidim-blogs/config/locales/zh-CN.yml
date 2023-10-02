@@ -15,9 +15,6 @@ zh-CN:
         new: 新建帖子
         title: 行动
       admin:
-        models:
-          post:
-            name: 帖子
         posts:
           edit:
             save: 更新
