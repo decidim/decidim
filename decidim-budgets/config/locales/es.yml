@@ -45,7 +45,6 @@ es:
         edit: Editar
         edit_projects: Gestionar proyectos
         import: Importar propuestas a proyectos
-        new: Nuevo %{name}
         preview: Previsualizar
         send_voting_reminders: Enviar recordatorios de votación
         title: Acciones
