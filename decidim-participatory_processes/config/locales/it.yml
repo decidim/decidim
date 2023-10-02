@@ -214,6 +214,9 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa fase del processo partecipativo.
           success: Questa fase del processo partecipativo è stata aggiornata.
+      participatory_process_types:
+        form:
+          title: Titolo
       participatory_process_user_roles:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente per questo processo partecipativo.
