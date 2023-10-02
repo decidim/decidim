@@ -168,30 +168,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes_admin.process_components_right_menu" do
-        Decidim.menu :admin_participatory_process_components_right_menu do |menu|
-          menu.add_item :edit_participatory_process,
-                        I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space),
-                        icon_name: "tools-line",
-                        if: allowed_to?(:update, :process, process: current_participatory_space)
-          current_participatory_space.components.each do |component|
-            caption = translated_attribute(component.name)
-            caption += content_tag(
-              :span,
-              t(component.published_at? ? "published" : "unpublished", scope: "decidim.admin.participatory_processes.index"),
-              class: component.published_at? ? "label success !text-sm" : "label alert !text-sm"
-            )
-
-            menu.add_item [component.manifest_name, component.id].join("_"),
-                          caption.html_safe,
-                          manage_component_path(component),
-                          icon_name: component.manifest.icon_key || "pages-line",
-                          if: component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name)
-          end
-        end
-      end
-
       initializer "decidim_participatory_processes_admin.process_menu" do
         Decidim.menu :admin_participatory_process_menu do |menu|
           menu.add_item :edit_participatory_process,
