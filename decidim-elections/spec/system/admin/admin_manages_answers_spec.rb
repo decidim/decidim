@@ -29,6 +29,7 @@ describe "Admin manages answers", type: :system do
 
   describe "importing proposals" do
     it "imports proposals" do
+      page.find(".imports").click
       click_on "Import proposals to answers"
 
       within ".import_proposals" do
@@ -43,13 +44,13 @@ describe "Admin manages answers", type: :system do
   end
 
   describe "admin form" do
-    before { click_on "New Answer" }
+    before { click_link "New answer" }
 
     it_behaves_like "having a rich text editor", "new_answer", "full"
   end
 
   it "creates a new answer" do
-    click_on "New Answer"
+    click_link "New answer"
 
     within ".new_answer" do
       fill_in_i18n(
@@ -83,7 +84,7 @@ describe "Admin manages answers", type: :system do
     let(:election) { create(:election, :created, component: current_component) }
 
     it "cannot add a new answer" do
-      expect(page).not_to have_content("New Answer")
+      expect(page).not_to have_content("New answer")
     end
   end
 

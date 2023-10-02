@@ -99,7 +99,9 @@ en:
       actions:
         import_assembly: Import
         new_assembly: New assembly
+        new_assembly_member: New assembly member
         new_assembly_type: New assembly type
+        new_assembly_user_role: New assembly admin
       assemblies:
         create:
           error: There was a problem creating a new assembly.

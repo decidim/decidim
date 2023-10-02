@@ -5,7 +5,7 @@
         <%= link_to "#{translated_attribute(result.title)} > ", edit_result_path(result) %>
         <%= t(".title") %>
       </div>
-      <%= link_to t("actions.new", scope: "decidim.accountability", name: t("models.timeline_entry.name", scope: "decidim.accountability.admin")), new_result_timeline_entry_path(result), class: "button button__sm button__secondary button--title" if allowed_to? :create, :timeline_entry %>
+      <%= link_to t("actions.new_timeline_entry", scope: "decidim.accountability"), new_result_timeline_entry_path(result), class: "button button__sm button__secondary button--title" if allowed_to? :create, :timeline_entry %>
     </h2>
   </div>
   <div class="table-scroll">

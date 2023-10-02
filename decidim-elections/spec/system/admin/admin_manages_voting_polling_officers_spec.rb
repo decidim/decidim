@@ -84,7 +84,7 @@ describe "Admin manages polling officers", type: :system do
     let(:existing_user) { create(:user, organization: voting.organization) }
 
     before do
-      click_link("New")
+      click_link("New polling officer")
     end
 
     it "creates a new user" do
