@@ -18,9 +18,6 @@ uk:
         new: Створити новий допис
         title: Дії
       admin:
-        models:
-          post:
-            name: Допис
         posts:
           edit:
             save: Оновити
