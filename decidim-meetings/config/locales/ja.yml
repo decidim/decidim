@@ -119,7 +119,6 @@ ja:
           success: ミーティングを複製しました。
         new:
           copy: コピー
-          select: 複製したいデータを選択してください
           title: ミーティングを複製
     components:
       meetings:
@@ -220,7 +219,6 @@ ja:
           proposals_count:
             other: '%{count} 件の提案が関連付けられているため、ミーティングを削除できません:'
         manage_poll: アンケートの管理
-        new: 新しいミーティング
         preview: プレビュー
         registrations: 登録
         title: アクション
@@ -282,7 +280,6 @@ ja:
               all: すべて
               rejected: 拒否
               sent: 送信済み
-            filter_by: フィルター
             invite_attendee: 参加者を招待
             invites: 招待
             registrations_disabled: 登録が無効になっているため、参加者を招待することはできません。
@@ -347,9 +344,6 @@ ja:
           update:
             invalid: このミーティングの投票の更新に問題がありました．
             success: ミーティングの投票を更新しました。
-        models:
-          meeting:
-            name: ミーティング
         registrations:
           edit:
             save: 保存
