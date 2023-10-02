@@ -70,7 +70,6 @@ zh-TW:
           form:
             all_categories: 所有類別
             select_proposal_component: 選擇提案集
-            title: 提案新抽籤
           index:
             title: 抽籤
           new:
