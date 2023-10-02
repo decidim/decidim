@@ -37,7 +37,6 @@ ja:
         actions:
           destroy: 並べ替えをキャンセル
           edit: 編集
-          new: 新しいソート順
           show: 並べ替えの詳細
         models:
           sortition:
@@ -51,8 +50,6 @@ ja:
               seed: Seed
               target_items: 選択するアイテム
               title: タイトル
-            name:
-              other: 並べ替え
         sortitions:
           confirm_destroy:
             confirm_destroy: この並べ替えをキャンセルしてもよろしいですか？
