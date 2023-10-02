@@ -38,7 +38,6 @@ sv:
         actions:
           destroy: Avbryt tilldelningen
           edit: Redigera
-          new: Ny tilldelning
           show: Detaljer om tilldelningen
         models:
           sortition:
@@ -52,9 +51,6 @@ sv:
               seed: Frö
               target_items: Objekt att välja
               title: Titel
-            name:
-              one: Tilldelning
-              other: Tilldelningar
         sortitions:
           confirm_destroy:
             confirm_destroy: Vill du avbryta tilldelningen?
