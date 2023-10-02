@@ -90,7 +90,12 @@ en:
     admin:
       actions:
         confirm: Confirm
-        new_conference: New Conference
+        new_conference: New conference
+        new_conference_user_role: New conference admin
+        new_media_link: New media link
+        new_partner: New partner
+        new_registration_type: New registration type
+        new_speaker: New speaker
         send_diplomas: Send certificates of attendance
       conference_copies:
         new:
@@ -151,7 +156,6 @@ en:
         exports:
           registrations: Registrations
         form:
-          sections: Sections
           title: General Information
         index:
           not_published: Not published
@@ -454,10 +458,14 @@ en:
           collaborators: Partners
           main_promotors: Organizers
         show:
+          already_have_an_account?: Already have an account?
+          are_you_new?: New participant?
           login_as: You are logged in as %{name} <%{email}>
           make_conference_registration: Register for the conference
           manage_registration: Manage registration
           register: Register
+          sign_in_description: Log in to register to the conference
+          sign_up_description: Create an account to register to the conference
       content_blocks:
         highlighted_conferences:
           name: Highlighted conferences

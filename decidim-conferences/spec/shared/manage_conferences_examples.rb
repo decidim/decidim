@@ -9,7 +9,7 @@ shared_examples "manage conferences" do
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
 
     before do
-      click_link "New Conference"
+      click_link "New conference"
     end
 
     %w(description short_description objectives).each do |field|

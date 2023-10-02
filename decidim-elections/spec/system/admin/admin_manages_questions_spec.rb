@@ -21,7 +21,7 @@ describe "Admin manages questions", type: :system do
   end
 
   it "creates a new question" do
-    click_on "New Question"
+    click_on "New question"
 
     within ".new_question" do
       fill_in_i18n(

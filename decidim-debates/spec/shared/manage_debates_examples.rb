@@ -19,7 +19,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   describe "admin form" do
-    before { click_on "New Debate" }
+    before { click_on "New debate" }
 
     it_behaves_like "having a rich text editor", "new_debate", "full"
   end
@@ -75,7 +75,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   it "creates a new finite debate" do
-    click_link "New Debate"
+    click_link "New debate"
 
     within ".new_debate" do
       fill_in_i18n(
@@ -120,7 +120,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   it "creates a new open debate" do
-    click_link "New Debate"
+    click_link "New debate"
 
     within ".new_debate" do
       fill_in_i18n(

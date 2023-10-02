@@ -4,16 +4,8 @@
     <%= t("votings.new.title", scope: "decidim.votings.admin") %>
   </h2>
 </div>
-<div class="item__edit">
-  <div class="item__edit-menu">
-    <div class="item__edit-menu-sticky">
-      <p class="item__edit-menu-title">
-        <%= t("sections", scope: "decidim.assemblies.admin.assemblies.form") %>
-      </p>
-      <%= link_to t("title", scope: "decidim.votings.admin.votings.form"), decidim_admin_votings.new_voting_path(current_participatory_space, anchor: "title"), class: "item__edit-menu-anchor" %>
-    </div>
-  </div>
 
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, html: { class: "form new_voting form-defaults" }) do |f| %>
       <%= render partial: "form", object: f %>

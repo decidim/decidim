@@ -23,14 +23,14 @@ describe "Admin manages elections", type: :system do
   end
 
   describe "admin form" do
-    before { click_on "New Election" }
+    before { click_on "New election" }
 
     it_behaves_like "having a rich text editor", "new_election", "full"
   end
 
   describe "creating an election" do
     it "creates a new election" do
-      click_link "New Election"
+      click_link "New election"
 
       within ".new_election" do
         fill_in_i18n(
@@ -70,7 +70,7 @@ describe "Admin manages elections", type: :system do
       let(:organization) { create(:organization, time_zone: "Madrid") }
 
       it "shows the correct time zone" do
-        click_link "New Election"
+        click_link "New election"
 
         expect(page).to have_content("Check that the organization time zone is correct")
         expect(page).to have_content("The current configuration is Madrid")

@@ -225,7 +225,7 @@ en:
             one: 'The meeting cannot be destroyed because it has %{count} proposal associated to it:'
             other: 'The meeting cannot be destroyed because it has %{count} proposals associated to it:'
         manage_poll: Manage poll
-        new: New meeting
+        new_meeting: New meeting
         preview: Preview
         registrations: Registrations
         title: Actions
@@ -352,9 +352,6 @@ en:
           update:
             invalid: There was a problem updating this meeting poll.
             success: Meeting poll successfully updated.
-        models:
-          meeting:
-            name: Meeting
         registrations:
           edit:
             save: Save
