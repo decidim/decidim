@@ -163,19 +163,13 @@ id:
             print: Mencetak
         initiatives_type_scopes:
           edit:
-            back: Kembali
-            confirm_destroy: Apakah kamu yakin?
-            destroy: Menghapus
             title: Edit ruang lingkup jenis inisiatif
             update: Memperbarui
           new:
-            back: Kembali
             create: Membuat
             title: Buat ruang lingkup jenis inisiatif
         initiatives_types:
           edit:
-            confirm_destroy: Apakah kamu yakin?
-            destroy: Menghapus
             update: Memperbarui
           form:
             title: Informasi Umum
