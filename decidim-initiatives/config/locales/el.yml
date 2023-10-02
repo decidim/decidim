@@ -195,19 +195,13 @@ el:
             photos: Φωτογραφίες
         initiatives_type_scopes:
           edit:
-            back: Πίσω
-            confirm_destroy: Είστε βέβαιοι;
-            destroy: Διαγραφή
             title: Επεξεργασία πεδίου εφαρμογής τύπου πρωτοβουλίας
             update: Ενημέρωση
           new:
-            back: Πίσω
             create: Δημιουργία
             title: Δημιουργία πεδίου εφαρμογής τύπου πρωτοβουλίας
         initiatives_types:
           edit:
-            confirm_destroy: Είστε βέβαιοι;
-            destroy: Διαγραφή
             update: Ενημέρωση
           form:
             title: Γενικές πληροφορίες
