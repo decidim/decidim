@@ -49,7 +49,6 @@ sv:
         confirm_destroy: Är du säker?
         destroy: Radera
         edit: Redigera
-        new: Ny %{name}
         title: Åtgärder
       admin:
         debate_closes:
@@ -79,9 +78,6 @@ sv:
             success: Debatten uppdaterades.
         exports:
           comments: Kommentarer
-        models:
-          debate:
-            name: Debatt
       admin_log:
         debate:
           close: "%{user_name} stängde debatten %{resource_name} i utrymmet %{space_name}"
