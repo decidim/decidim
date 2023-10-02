@@ -116,7 +116,6 @@ zh-TW:
           success: 成功複製會議。
         new:
           copy: 複製
-          select: 請選擇您想要複製的資料
           title: 複製會議
     components:
       meetings:
@@ -217,7 +216,6 @@ zh-TW:
           proposals_count:
             other: '該會議因有 %{count} 個相關提案而無法刪除:'
         manage_poll: 管理投票
-        new: 新會議
         preview: 預覽
         registrations: 註冊
         title: 操作
@@ -279,7 +277,6 @@ zh-TW:
               all: 全部
               rejected: 已拒絕
               sent: 傳送
-            filter_by: 篩選條件
             invite_attendee: 邀請的與會者
             invites: 邀請
             registrations_disabled: 你無法邀請參加者，因為註冊已被禁用。
@@ -344,9 +341,6 @@ zh-TW:
           update:
             invalid: 更新會議投票時出現問題.
             success: 會議投票已成功更新"
-        models:
-          meeting:
-            name: 會議
         registrations:
           edit:
             save: 儲存
