@@ -3,7 +3,7 @@
     <%= t("meeting_copies.new.title", scope: "decidim.admin") %>
   </h2>
 </div>
-<div>
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: meeting_copies_path(meeting), method: :post, html: { class: "form form-defaults copy_meetings " }) do |f| %>
       <%= render partial: "decidim/meetings/admin/meetings/form", object: f %>
