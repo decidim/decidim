@@ -45,7 +45,6 @@ sv:
         edit: Redigera
         edit_projects: Hantera projekt
         import: Importera förslag till projekt
-        new: Ny %{name}
         preview: Förhandsvisa
         title: Åtgärder
       admin:
