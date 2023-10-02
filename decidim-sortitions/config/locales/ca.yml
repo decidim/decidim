@@ -72,7 +72,6 @@ ca:
           form:
             all_categories: Totes les categories
             select_proposal_component: Selecciona el grup de propostes
-            title: Nou sorteig per propostes
           index:
             title: Sortejos
           new:
