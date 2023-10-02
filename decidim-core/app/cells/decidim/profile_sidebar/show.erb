@@ -114,7 +114,7 @@
         </div>
       <% end %>
     <% elsif logged_in? %>
-      <%= cell "decidim/follow_button", profile_holder, inline: false %>
+      <%= cell "decidim/follow_button", profile_holder %>
     <% end %>
 
     <% if user_groups_enabled? %>
