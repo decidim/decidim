@@ -248,8 +248,6 @@ zh-TW:
         edit:
           title: 編輯程序類型
           update: 更新
-        form:
-          title: 標題
         new:
           create: 建立
           title: 新的處理類型
