@@ -40,40 +40,6 @@ module Decidim
             expect(subject).to render_template("decidim/accountability/admin/results/index")
           end
         end
-
-        describe "GET the proposals picker" do
-          before do
-            get :proposals_picker, params:
-          end
-
-          it "renders the proposals picker" do
-            expect(response)
-              .to render_template("decidim/accountability/admin/results/proposals_picker")
-          end
-
-          context "when filtering proposals" do
-            let(:params) { { q: "a", id: result.id } }
-
-            it "renders the proposals picker" do
-              expect(response)
-                .to render_template("decidim/accountability/admin/results/proposals_picker")
-            end
-          end
-        end
-
-        context "when proposal linking is not enabled" do
-          before do
-            allow(Decidim::Accountability).to receive(:enable_proposal_linking).and_return(false)
-          end
-
-          it "does not load the proposals admin picker concern" do
-            expect(Decidim::Accountability::Admin::ResultsController).not_to receive(:include).with(
-              Decidim::Proposals::Admin::Picker
-            )
-
-            load "#{Decidim::Accountability::Engine.root}/app/controllers/decidim/accountability/admin/results_controller.rb"
-          end
-        end
       end
     end
   end

@@ -6,7 +6,7 @@
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="flex justify-center">
-    <h1 class="h3 md:h1 decorator my-12"><%= t("decidim.devise.registrations.new.sign_up") %></h1>
+    <h1 class="title-decorator my-12"><%= t("decidim.devise.registrations.new.sign_up") %></h1>
   </div>
 
   <div class="login__info">
@@ -23,11 +23,11 @@
     <%= form_required_explanation %>
   </div>
 
-  <div class="login__omniauth-container">
-    <% cache current_organization do %>
-      <%= render "decidim/devise/shared/omniauth_buttons" %>
-    <% end %>
-  </div>
+  <span class="login__info-separator"></span>
+
+  <% cache current_organization do %>
+    <%= render "decidim/devise/shared/omniauth_buttons" %>
+  <% end %>
 
   <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: registration_path(resource_name), html: { id: "register-form" }) do |f| %>
     <%= invisible_captcha %>

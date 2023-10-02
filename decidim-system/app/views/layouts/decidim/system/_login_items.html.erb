@@ -1,4 +1,4 @@
 <div class="flex items-center justify-between border-t border-black p-4">
   <span><%= current_admin.email %></span>
-  <%= link_to("Logout", destroy_admin_session_path, method: :delete, class: "button button__sm md:button__lg button__text-primary") %>
+  <%= link_to((".logout"), destroy_admin_session_path, method: :delete, class: "button button__sm md:button__lg button__text-primary") %>
 </div>

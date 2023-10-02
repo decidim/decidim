@@ -1,6 +1,6 @@
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= link_to "#{t("title", scope: "decidim.admin.moderations.index")} > ", moderations_path %>
       <%= link_to "#{t("title", scope: "decidim.admin.moderations.reports.index")} > ", moderation_reports_path %>
       <%= t(".title") %>
@@ -46,17 +46,16 @@
       <dd><%= @report.details %>
       </div>
     </dl>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
+        <%= link_to t("actions.unreport", scope: "decidim.moderations"), unreport_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary" %>
+      <% end %>
+      <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
+        <%= link_to t("actions.hide", scope: "decidim.moderations"), hide_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary alert" %>
+      <% end %>
+      <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
+        <%= link_to t("actions.unhide", scope: "decidim.moderations"), unhide_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary alert" %>
+      <% end %>
+    </div>
   </div>
-</div>
-
-<div class="button--double form-general-submit">
-  <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
-    <%= link_to t("actions.unreport", scope: "decidim.moderations"), unreport_moderation_path(id: moderation), method: :put, class: "button" %>
-  <% end %>
-  <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
-    <%= link_to t("actions.hide", scope: "decidim.moderations"), hide_moderation_path(id: moderation), method: :put, class: "button alert" %>
-  <% end %>
-  <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
-    <%= link_to t("actions.unhide", scope: "decidim.moderations"), unhide_moderation_path(id: moderation), method: :put, class: "button alert" %>
-  <% end %>
 </div>

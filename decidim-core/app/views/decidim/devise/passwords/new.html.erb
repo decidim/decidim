@@ -3,7 +3,7 @@
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
   <div class="flex justify-center">
-    <h1 class="h3 md:h1 decorator my-12"><%= t("devise.passwords.new.forgot_your_password") %></h1>
+    <h1 class="title-decorator my-12"><%= t("devise.passwords.new.forgot_your_password") %></h1>
   </div>
 
   <%= decidim_form_for(resource, namespace: "password", as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>

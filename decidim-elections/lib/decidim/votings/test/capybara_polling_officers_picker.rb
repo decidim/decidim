@@ -32,7 +32,7 @@ module Capybara
       data_picker = polling_officers_picker.data_picker
 
       expect(data_picker).to have_selector(".picker-prompt")
-      data_picker.find(".picker-prompt").click
+      data_picker.find(".picker-prompt").click_link
 
       polling_officers.each do |polling_officer|
         data_picker_choose_value(polling_officer.id)

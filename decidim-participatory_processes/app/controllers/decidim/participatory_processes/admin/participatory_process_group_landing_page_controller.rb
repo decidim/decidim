@@ -7,6 +7,10 @@ module Decidim
       # page
       class ParticipatoryProcessGroupLandingPageController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         include Decidim::Admin::ContentBlocks::LandingPage
+        include Decidim::TranslatableAttributes
+
+        before_action :set_context_breadcrumb
+        add_breadcrumb_item_from_menu :admin_participatory_process_group_menu
 
         layout "decidim/admin/participatory_process_group"
 
@@ -63,6 +67,22 @@ module Decidim
 
         def collection
           @collection ||= OrganizationParticipatoryProcessGroups.new(current_user.organization).query
+        end
+
+        def set_context_breadcrumb
+          @context_breadcrumb_items ||= [
+            {
+              label: I18n.t("menu.participatory_process_groups", scope: "decidim.admin"),
+              url: decidim_admin_participatory_processes.participatory_process_groups_path,
+              active: false
+            },
+            {
+              label: translated_attribute(scoped_resource.title),
+              url: edit_participatory_process_group_path(scoped_resource),
+              active: false,
+              resource: scoped_resource
+            }
+          ]
         end
       end
     end

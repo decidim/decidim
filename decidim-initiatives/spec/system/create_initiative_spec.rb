@@ -13,7 +13,7 @@ describe "Initiative", type: :system do
   let(:signature_type) { "any" }
   let(:initiative_type_promoting_committee_enabled) { true }
   let(:initiative_type) do
-    create(:initiatives_type,
+    create(:initiatives_type, :attachments_enabled,
            organization:,
            minimum_committee_members: initiative_type_minimum_committee_members,
            promoting_committee_enabled: initiative_type_promoting_committee_enabled,
@@ -21,9 +21,9 @@ describe "Initiative", type: :system do
   end
   let!(:initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
   let!(:initiative_type_scope2) { create(:initiatives_type_scope, type: initiative_type) }
-  let!(:other_initiative_type) { create(:initiatives_type, organization:) }
+  let!(:other_initiative_type) { create(:initiatives_type, :attachments_enabled, organization:) }
   let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: other_initiative_type) }
-  let(:third_initiative_type) { create(:initiatives_type, organization:) }
+  let(:third_initiative_type) { create(:initiatives_type, :attachments_enabled, organization:) }
 
   shared_examples "initiatives path redirection" do
     it "redirects to initiatives path" do
@@ -746,8 +746,14 @@ describe "Initiative", type: :system do
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
           select("Online", from: "Signature collection type")
           select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
-          dynamically_attach_file(:initiative_add_documents, Decidim::Dev.asset("Exampledocument.pdf"), front_interface: true)
+          dynamically_attach_file(:initiative_documents, Decidim::Dev.asset("Exampledocument.pdf"))
+          dynamically_attach_file(:initiative_photos, Decidim::Dev.asset("avatar.jpg"))
           find_button("Continue").click
+        end
+
+        it "saves the attachments" do
+          expect(Decidim::Initiative.last.documents.count).to eq(1)
+          expect(Decidim::Initiative.last.photos.count).to eq(1)
         end
 
         it "shows the page component" do

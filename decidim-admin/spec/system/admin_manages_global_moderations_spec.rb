@@ -42,11 +42,10 @@ describe "Admin manages global moderations", type: :system do
     it "displays the right count" do
       visit decidim_admin.moderations_path
 
-      within ".secondary-nav" do
-        within ".is-active" do
-          expect(page).to have_css("span.component-counter", visible: :visible)
-          expect(page).to have_css("span", text: (reportables.size - hidden_moderations.size))
-        end
+      within ".process-title" do
+        find("#global-moderations-menu-trigger").click
+        expect(page).to have_css("span.component-counter", visible: :visible)
+        expect(page).to have_css("span", text: (reportables.size - hidden_moderations.size))
       end
     end
   end
@@ -60,18 +59,18 @@ describe "Admin manages global moderations", type: :system do
       it "cannot see user menu counter for resources" do
         visit decidim_admin.moderations_path
 
-        within ".secondary-nav" do
-          within ".is-active" do
-            expect(page).to have_css("span.component-counter--off", visible: :visible)
-            expect(page).to have_css("span", text: "0")
-          end
+        within ".process-title" do
+          find("#global-moderations-menu-trigger").click
+          expect(page).to have_css("span.component-counter--off", visible: :visible)
+          expect(page).to have_css("span", text: "0")
         end
       end
 
       it "can see user menu counter" do
         visit decidim_admin.moderations_path
 
-        within ".secondary-nav" do
+        within ".process-title" do
+          find("#global-moderations-menu-trigger").click
           expect(page).to have_css("span.component-counter", visible: :visible, count: 2)
           expect(page).to have_css("span", text: "1")
         end
@@ -82,20 +81,21 @@ describe "Admin manages global moderations", type: :system do
   it "can see menu counter" do
     visit decidim_admin.moderations_path
 
-    within ".secondary-nav" do
-      within ".is-active" do
-        expect(page).to have_css("span.component-counter", visible: :visible)
-      end
+    within ".process-title" do
+      find("#global-moderations-menu-trigger").click
+      expect(page).to have_css("span.component-counter", visible: :visible)
     end
   end
 
   it_behaves_like "manage moderations" do
     let(:moderations_link_text) { "Global moderations" }
+    let(:moderations_link_in_admin_menu) { false }
   end
 
   it_behaves_like "sorted moderations" do
     let!(:reportables) { create_list(:dummy_resource, 17, component: current_component) }
     let(:moderations_link_text) { "Global moderations" }
+    let(:moderations_link_in_admin_menu) { false }
   end
 
   context "when on hidden moderations path" do

@@ -52,7 +52,7 @@ describe "Edit proposals", type: :system do
 
       it "shows validation error when format is not accepted" do
         click_link "Edit proposal"
-        dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("participatory_text.md"), front_interface: true, keep_modal_open: true) do
+        dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("participatory_text.md"), keep_modal_open: true) do
           expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
         end
         expect(page).to have_content("only files with the following extensions are allowed: jpeg, jpg, pdf, png, rtf, txt")
@@ -110,6 +110,50 @@ describe "Edit proposals", type: :system do
             expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "application/pdf").title)).to eq(attachment_file_title)
           end
         end
+
+        context "with problematic file titles" do
+          let!(:photo) { create(:attachment, :with_image, weight: 0, attached_to: proposal) }
+          let!(:document) { create(:attachment, :with_pdf, weight: 1, attached_to: proposal) }
+
+          before do
+            document.update!(title: { en: "<svg onload=alert('ALERT')>.pdf" })
+            photo.update!(title: { en: "<svg onload=alert('ALERT')>.jpg" })
+          end
+
+          it "displays them correctly on the edit form" do
+            # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
+            click_link "Edit proposal"
+            expect(page).to have_content("Required fields are marked with an asterisk")
+            click_button("Edit documents")
+            within "[data-dialog]" do
+              click_button("Next")
+            end
+            click_button("Send")
+            expect(page).to have_content("Proposal successfully updated.")
+          end
+        end
+
+        context "with problematic file names" do
+          let!(:photo) { create(:attachment, :with_image, weight: 0, attached_to: proposal) }
+          let!(:document) { create(:attachment, :with_pdf, weight: 1, attached_to: proposal) }
+
+          before do
+            document.file.blob.update!(filename: "<svg onload=alert('ALERT')>.pdf")
+            photo.file.blob.update!(filename: "<svg onload=alert('ALERT')>.jpg")
+          end
+
+          it "displays them correctly on the edit form" do
+            # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
+            click_link "Edit proposal"
+            expect(page).to have_content("Required fields are marked with an asterisk")
+            click_button("Edit documents")
+            within "[data-dialog]" do
+              click_button("Next")
+            end
+            click_button("Send")
+            expect(page).to have_content("Proposal successfully updated.")
+          end
+        end
       end
 
       context "with multiple images", :slow do
@@ -117,18 +161,18 @@ describe "Edit proposals", type: :system do
           skip "REDESIGN_PENDING - Flaky test: upload modal fails on GitHub with multiple fileshttps://github.com/decidim/decidim/issues/10961"
 
           click_link "Edit proposal"
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"), front_interface: true)
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"), front_interface: true)
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"))
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"))
           click_button "Send"
           click_link "Edit proposal"
           expect(page).to have_content("city.jpeg")
           expect(page).to have_content("icon.png")
           expect(page).to have_content("avatar.jpg")
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"), front_interface: true)
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
           expect(page).to have_content("city2.jpeg")
           expect(page).not_to have_content("city3.jpeg")
-          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"), front_interface: true)
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
           expect(page).to have_content("city2.jpeg")
           expect(page).to have_content("city3.jpeg")
           click_button "Send"

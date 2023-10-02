@@ -20,6 +20,8 @@ module Decidim
           included do
             include Decidim::Admin::ParticipatorySpaceAdminContext
             helper_method :current_participatory_process
+            add_breadcrumb_item_from_menu :admin_participatory_process_menu
+
             participatory_space_admin_layout
 
             def organization_processes
@@ -29,6 +31,10 @@ module Decidim
             def current_participatory_space
               request.env["current_participatory_space"] ||
                 organization_processes.find_by!(slug: params[:participatory_process_slug] || params[:slug])
+            end
+
+            def current_participatory_space_path
+              Decidim::ResourceLocatorPresenter.new(current_participatory_space).show
             end
 
             def permissions_context

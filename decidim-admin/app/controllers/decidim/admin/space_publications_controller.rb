@@ -39,13 +39,13 @@ module Decidim
 
       private
 
+      def publish_command = Decidim::Admin::ParticipatorySpace::Publish
+
+      def unpublish_command = Decidim::Admin::ParticipatorySpace::Unpublish
+
       def current_participatory_space = raise "Not implemented"
 
       def enforce_permission_to_publish = raise "Not implemented"
-
-      def publish_command = raise "Not implemented"
-
-      def unpublish_command = raise "Not implemented"
 
       def i18n_scope = raise "Not implemented"
     end

@@ -1,14 +1,3 @@
-<% content_for :secondary_nav do %>
-  <div class="secondary-nav">
-    <div class="secondary-nav__title">
-      <%= t ".title" %>
-    </div>
-    <div class="secondary-nav__actions">
-      <%= link_to t("actions.newsletter.new", scope: "decidim.admin"), [:newsletter_templates], class: "button expanded small new" %>
-    </div>
-  </div>
-<% end %>
-
 <%= render "layouts/decidim/admin/application" do %>
   <%= yield %>
 <% end %>

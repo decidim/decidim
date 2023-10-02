@@ -161,7 +161,10 @@ en:
         manage_answers: Manage answers
         manage_questions: Manage questions
         manage_steps: Manage steps
-        new: New %{name}
+        new_answer: New answer
+        new_election: New election
+        new_question: New question
+        new_trustee: New trustee
         preview: Preview
         publish: Publish
         title: Actions
@@ -234,12 +237,6 @@ en:
         models:
           answer:
             name: Answer
-          election:
-            name: Election
-          question:
-            name: Question
-          trustee:
-            name: Trustee
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals into answers.
@@ -802,7 +799,7 @@ en:
               confirm_destroy: Are you sure?
               destroy: Delete
               edit: Edit
-              new: New
+              new: New ballot style
               title: Actions
             associated_census_data: Associated census entries
             explanation_callout: A ballot style specifies what questions a voter will be presented in the booth. In a ballot style, you can choose what questions from this voting's election components belong to a ballot. The ballot style code is used to match a voter from the census with the ballot they will be presented in the booth. Do not create any ballot style if you always want to present all the questions.
@@ -866,7 +863,7 @@ en:
             ballot_styles: Ballot Styles
             census: Census
             components: Components
-            info: Information
+            info: About this voting
             landing_page: Landing Page
             monitoring_committee: Monitoring Committee
             monitoring_committee_election_results: Validate Results
@@ -875,33 +872,29 @@ en:
             monitoring_committee_verify_elections: Verify Elections
             polling_officers: Polling Officers
             polling_stations: Polling Stations
+            see_voting: See voting
         models:
           ballot_style:
             fields:
               code: Code
-            name: Ballot Style
           monitoring_committee_member:
             fields:
               email: Email
               name: Name
-            name: Monitoring Committee Member
           polling_officer:
             fields:
               email: Email
               name: Name
               polling_station: Polling station (role)
-            name: Polling Officer
           polling_station:
             fields:
               address: Address
               polling_station_managers: Managers
               polling_station_president: President
               title: Title
-            name: Polling Station
           voting:
             fields:
               created_at: Created at
-              promoted: Highlighted
               published: Published
               title: Title
         monitoring_committee_election_results:
@@ -1052,7 +1045,7 @@ en:
             select_a_voting_type: Please select a voting type
             show_check_census_help: Whether to show the "Can I vote?" link at the public votings menu.
             slug: Slug
-            slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
             voting_type:
               hybrid: Hybrid
@@ -1296,7 +1289,7 @@ en:
         actions:
           confirm_destroy: Are you sure?
           destroy: Delete
-          new: New
+          new: New polling officer
           title: Actions
         roles:
           manager: Manager
@@ -1317,7 +1310,7 @@ en:
           confirm_destroy: Are you sure?
           destroy: Delete
           edit: Edit
-          new: New
+          new: New polling station
           title: Actions
       votings:
         access_code_modal:

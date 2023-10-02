@@ -16,10 +16,6 @@ module Decidim
 
         def enforce_permission_to_publish = enforce_permission_to(:publish, :voting, voting: current_voting)
 
-        def publish_command = PublishVoting
-
-        def unpublish_command = UnpublishVoting
-
         def i18n_scope = "decidim.admin.voting_publications"
 
         def fallback_location = votings_path
