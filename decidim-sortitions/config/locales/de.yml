@@ -72,7 +72,6 @@ de:
           form:
             all_categories: Alle Kategorien
             select_proposal_component: Wählen Sie die Vorschläge aus
-            title: Neue Sortierung für Vorschläge
           index:
             title: Sortierungen
           new:
