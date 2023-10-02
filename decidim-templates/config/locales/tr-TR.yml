@@ -4,6 +4,8 @@ tr:
       menu:
         templates: Şablonlar
       templates:
+        actions:
+          new_template: Yeni şablon
         apply:
           error: Bu şablonu uygularken bir sorun oluştu.
         copy:
