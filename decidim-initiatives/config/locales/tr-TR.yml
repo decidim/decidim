@@ -63,6 +63,7 @@ tr:
     admin:
       actions:
         new_initiative_type: Yeni girişim türü
+        new_initiative_type_scope: Yeni Girişimcilik Türü
       filters:
         initiatives:
           decidim_area_id_eq:
