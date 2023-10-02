@@ -160,7 +160,10 @@ fr-CA:
         manage_answers: Gérer les réponses
         manage_questions: Gérer les questions
         manage_steps: Gérer les étapes
-        new: Nouveau %{name}
+        new_answer: Nouvelle réponse
+        new_election: Nouvelle élection
+        new_question: Nouvelle question
+        new_trustee: Nouveau garant
         preview: Aperçu
         publish: Publier
         title: Actions
@@ -233,12 +236,6 @@ fr-CA:
         models:
           answer:
             name: Réponse
-          election:
-            name: Élection
-          question:
-            name: Question
-          trustee:
-            name: Garant
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'import des propositions en réponses.
@@ -799,7 +796,7 @@ fr-CA:
               confirm_destroy: Êtes-vous sûr·e ?
               destroy: Supprimer
               edit: Modifier
-              new: Nouveau
+              new: Nouveau style de bulletin
               title: Actions
             associated_census_data: Entrées de recensement associées
             explanation_callout: Un style de bulletin spécifie quelles questions seront présentées aux électeurs dans l'isoloir. Dans un style de bulletin, vous pouvez choisir quelles questions de la fonctionnalité Élection de ce vote appartiennent à un bulletin de vote. Le code de style de bulletin est utilisé pour faire correspondre un électeur du recensement avec le bulletin de vote qui lui sera présenté dans l'isoloir. Ne créez pas de style de vote si vous voulez présenter toutes les questions systématiquement.
@@ -863,6 +860,7 @@ fr-CA:
             ballot_styles: Styles de bulletin
             census: Recensement
             components: Fonctionnalités
+            info: À propos de ce vote
             landing_page: Page d’accueil
             monitoring_committee: Comité de suivi
             monitoring_committee_election_results: Valider les résultats
@@ -871,29 +869,26 @@ fr-CA:
             monitoring_committee_verify_elections: Vérifier les élections
             polling_officers: Responsables du scrutin
             polling_stations: Bureaux de vote
+            see_voting: Voir le vote
         models:
           ballot_style:
             fields:
               code: Code
-            name: Style de bulletin
           monitoring_committee_member:
             fields:
               email: Email
               name: Nom
-            name: Membre du comité de suivi
           polling_officer:
             fields:
               email: Email
               name: Nom
               polling_station: Bureau de vote (rôle)
-            name: Responsable du scrutin
           polling_station:
             fields:
               address: Adresse
               polling_station_managers: Directeurs
               polling_station_president: Président
               title: Titre
-            name: Bureau de vote
           voting:
             fields:
               created_at: Créée le
@@ -1291,7 +1286,7 @@ fr-CA:
         actions:
           confirm_destroy: Êtes-vous sûr?
           destroy: Supprimer
-          new: Nouveau
+          new: Nouvel accesseur
           title: Actions
         roles:
           manager: Directeur
@@ -1312,7 +1307,7 @@ fr-CA:
           confirm_destroy: Êtes-vous sûr(e) ?
           destroy: Supprimer
           edit: Modifier
-          new: Nouveau
+          new: Nouveau bureau de vote
           title: Actions
       votings:
         access_code_modal:
