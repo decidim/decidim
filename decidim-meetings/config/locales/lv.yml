@@ -52,7 +52,6 @@ lv:
           success: Sanāksme veiksmīgi dublēta.
         new:
           copy: Kopēt
-          select: Atlasiet, kurus datus vēlaties dublēt
           title: Dublēt sanāksmi
     components:
       meetings:
@@ -133,7 +132,6 @@ lv:
         confirm_destroy: Vai tiešām vēlaties dzēst šo sanāksmi?
         destroy: Dzēst
         edit: Labot
-        new: Jauna sanāksme
         preview: Priekšskatīt
         registrations: Reģistrācija
         title: Darbības
@@ -187,7 +185,6 @@ lv:
               all: Visi
               rejected: Noraidīts
               sent: Nosūtīts
-            filter_by: Filtrēt pēc
             invite_attendee: Uzaicināt apmeklētāju
             invites: Ielūgumi
             search: Meklēt
@@ -218,9 +215,6 @@ lv:
           services:
             add_service: Pievienot pakalpojumu
             services: Pakalpojumi
-        models:
-          meeting:
-            name: Sanāksme
         registrations:
           edit:
             save: Saglabāt
