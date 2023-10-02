@@ -76,7 +76,6 @@ lt:
           form:
             all_categories: Visos kategorijos
             select_proposal_component: Pasirinkti pasiūlymų rinkinį
-            title: Nauja galimybė dėl pasiūlymų spręsti burtų keliu
           index:
             title: Sprendimai burtų keliu
           new:
