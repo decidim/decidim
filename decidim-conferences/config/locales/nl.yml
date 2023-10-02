@@ -75,7 +75,6 @@ nl:
     admin:
       actions:
         confirm: Bevestigen
-        new_conference: Nieuwe conferentie
         send_diplomas: Stuur certificaten van deelname
       conference_copies:
         new:
