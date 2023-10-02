@@ -168,19 +168,13 @@ gl:
             print: Imprimir
         initiatives_type_scopes:
           edit:
-            back: De volta
-            confirm_destroy: Estás seguro?
-            destroy: Eliminar
             title: Editar o alcance do tipo de iniciativa
             update: Actualización
           new:
-            back: De volta
             create: Crear
             title: Crea o alcance do tipo de iniciativa
         initiatives_types:
           edit:
-            confirm_destroy: Estás seguro?
-            destroy: Eliminar
             update: Actualización
           form:
             title: Información xeral
