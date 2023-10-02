@@ -171,7 +171,6 @@ lt:
         manage_answers: Tvarkyti atsakymus
         manage_questions: Tvarkyti klausimus
         manage_steps: Tvarkyti žingsnius
-        new: Naujas %{name}
         preview: Peržiūra
         publish: Publikuoti
         title: Veiksmai
@@ -244,12 +243,6 @@ lt:
         models:
           answer:
             name: Atsakymas
-          election:
-            name: Rinkimai
-          question:
-            name: Klausimas
-          trustee:
-            name: Patikėtinis
         proposals_imports:
           create:
             invalid: Importuojant pasiūlymus į atsakymus iškilo problema.
@@ -816,7 +809,6 @@ lt:
               confirm_destroy: Ar esate tikri?
               destroy: Ištrinti
               edit: Redaguoti
-              new: Naujas
               title: Veiksmai
             associated_census_data: Susiję surašymo duomenys
             explanation_callout: Biuletenio tipas numato kokie klausimai bus užduoti balsuotojui. Biuletenio tipe, galite pasirinkti kokie klausimai iš balsavimo komponento priklauso biuletenio tipui. Biuletenio tipo kodas naudojamas sujungti balsuotoją iš surašymo su biuleteniu, kuris jiems pateikiamas balsavimo kabinoje. Nekurkite biuletenio tipų jei norite, kad visi gautų visus klausimus.
@@ -892,25 +884,21 @@ lt:
           ballot_style:
             fields:
               code: Kodas
-            name: Balsavimo biuletenio tipas
           monitoring_committee_member:
             fields:
               email: El. paštas
               name: Pavadinimas
-            name: Priežiūros komitetas
           polling_officer:
             fields:
               email: El. paštas
               name: Pavadinimas
               polling_station: Balsavimo punktas (rolė)
-            name: Balsavimo prižiūrėtojas
           polling_station:
             fields:
               address: Adresas
               polling_station_managers: Vadybininkai
               polling_station_president: Prezidentas
               title: Pavadinimas
-            name: Balsavimo punktas
           voting:
             fields:
               created_at: Sukurta
@@ -1305,7 +1293,6 @@ lt:
         actions:
           confirm_destroy: Ar esate tikri?
           destroy: Ištrinti
-          new: Naujas
           title: Veiksmai
         roles:
           manager: Vadybininkas
@@ -1326,7 +1313,6 @@ lt:
           confirm_destroy: Ar esate tikri?
           destroy: Ištrinti
           edit: Redaguoti
-          new: Naujas
           title: Veiksmai
       votings:
         access_code_modal:
