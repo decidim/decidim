@@ -213,7 +213,6 @@ tr:
             success: Girişim teknik doğrulamaya gönderildi
             update: Güncelle
           form:
-            attachments: Ekli Dosyalar
             settings: Ayarlar
             title: Genel bilgi
           index:
