@@ -43,7 +43,6 @@ sl:
             created_at: Ustvarjen ob
             name: Ime
             smtp_settings: SMTP nastavitve
-          name: Organizacija
       organizations:
         create:
           error: Pojavila se je težava pri kreiranju organizacije.
