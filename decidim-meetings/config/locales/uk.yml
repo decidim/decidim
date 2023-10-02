@@ -54,7 +54,6 @@ uk:
           success: Успішно створено копію зустрічі.
         new:
           copy: Скопіювати
-          select: Оберіть відомості, копію яких ви хотіли б створити
           title: Створити копію зустрічі
     components:
       meetings:
@@ -117,7 +116,6 @@ uk:
         confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
         destroy: Видалити
         edit: Редагувати
-        new: Додати зустріч
         preview: Попередній перегляд
         registrations: Реєстрації
         title: Дії
@@ -170,7 +168,6 @@ uk:
               all: Усі
               rejected: Відхилені
               sent: Надіслані
-            filter_by: 'Відібрати за ознакою:'
             invite_attendee: Запросити учасника
             invites: Запрошення
             search: Шукати
@@ -198,9 +195,6 @@ uk:
           services:
             add_service: Додати послугу
             services: Послуги
-        models:
-          meeting:
-            name: Зустріч
         registrations:
           edit:
             save: Зберегти
