@@ -25,9 +25,6 @@ cs:
         new: Nový příspěvek
         title: Akce
       admin:
-        models:
-          post:
-            name: Příspěvek
         posts:
           create:
             invalid: Při vytváření tohoto příspěvku nastal problém.
