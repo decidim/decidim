@@ -189,7 +189,6 @@ fr-CA:
         export: Tout exporter
         export-selection: Exporter la sélection
         import: Importer
-        new: Nouvelle %{name}
         newsletter:
           new: Nouvelle newsletter
         participatory_space_private_user:
