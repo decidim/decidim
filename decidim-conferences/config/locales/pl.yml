@@ -81,7 +81,6 @@ pl:
     admin:
       actions:
         confirm: Potwierdź
-        new_conference: Nowa konferencja
         send_diplomas: Wyślij certyfikaty uczestnictwa
       conference_copies:
         new:
