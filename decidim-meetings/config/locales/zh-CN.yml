@@ -48,7 +48,6 @@ zh-CN:
           success: 会议成功重复。
         new:
           copy: 复制
-          select: 选择要重复的数据
           title: 复制会议
     components:
       meetings:
@@ -138,7 +137,6 @@ zh-CN:
         invalid_destroy:
           proposals_count:
             other: '会议不能被破坏，因为它有 %{count} 个建议与此相关联：'
-        new: 新会议
         preview: 预览
         registrations: 注册
         title: 行动
@@ -192,7 +190,6 @@ zh-CN:
               all: 所有的
               rejected: 已拒绝
               sent: 已发送
-            filter_by: 筛选方式
             invite_attendee: 邀请参与者
             invites: 邀请
             search: 搜索
@@ -223,9 +220,6 @@ zh-CN:
           services:
             add_service: 添加服务
             services: 服务
-        models:
-          meeting:
-            name: 会议
         registrations:
           edit:
             save: 保存
