@@ -185,7 +185,6 @@ el:
         export: Εξαγωγή όλων
         export-selection: Εξαγωγή επιλογής
         import: Εισαγωγή
-        new: Νέο όνομα %{name}
         newsletter:
           new: Νέο ενημερωτικό δελτίο
         participatory_space_private_user:
