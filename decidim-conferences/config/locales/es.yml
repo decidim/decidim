@@ -89,7 +89,6 @@ es:
     admin:
       actions:
         confirm: Confirmar
-        new_conference: Nueva jornada
         send_diplomas: Enviar certificados de asistencia
       conference_copies:
         new:
