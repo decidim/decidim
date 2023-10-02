@@ -80,15 +80,11 @@ ga:
             photos: Grianghraif
         initiatives_type_scopes:
           edit:
-            back: Ar Ais
-            destroy: Scrios
             update: Nuashonraigh
           new:
-            back: Ar Ais
             create: Cruthaigh
         initiatives_types:
           edit:
-            destroy: Scrios
             update: Nuashonraigh
           form:
             options: Roghanna
