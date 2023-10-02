@@ -146,10 +146,6 @@ hu:
         models:
           answer:
             name: Válasz
-          election:
-            name: Választás
-          question:
-            name: Kérdés
           trustee:
             name: Felügyelő
         proposals_imports:
