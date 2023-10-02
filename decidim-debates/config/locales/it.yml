@@ -50,7 +50,6 @@ it:
         confirm_destroy: Sei sicuro?
         destroy: Elimina
         edit: Modifica
-        new: Nuovo %{name}
         title: Azioni
       admin:
         debate_closes:
@@ -80,9 +79,6 @@ it:
             success: Dibattito aggiornato con successo.
         exports:
           comments: Commenti
-        models:
-          debate:
-            name: Dibattito
       admin_log:
         debate:
           close: "%{user_name} ha chiuso il dibattito %{resource_name} sullo spazio %{space_name}"
