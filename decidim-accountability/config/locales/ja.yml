@@ -76,6 +76,7 @@ ja:
             title: CSVから結果をインポート
         imports:
           create:
+            invalid: 結果のインポート中に問題が発生しました。
             success: ファイルのインポートが開始されました。インポートの結果は、数分後にメールで届きます。
         models:
           result:
