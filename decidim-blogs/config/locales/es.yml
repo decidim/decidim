@@ -23,9 +23,6 @@ es:
         new: Nueva publicación
         title: Acciones
       admin:
-        models:
-          post:
-            name: Publicar
         posts:
           create:
             invalid: Se ha producido un error al crear esta publicación.
