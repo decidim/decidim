@@ -122,7 +122,6 @@ fi-pl:
           success: Tapahtuman monistaminen onnistui.
         new:
           copy: Kopioi
-          select: Valitse, mitkä tiedot haluat monistaa
           title: Monista tapahtuma
     components:
       meetings:
@@ -224,7 +223,6 @@ fi-pl:
             one: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotus:'
             other: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta:'
         manage_poll: Hallitse mielipidetiedustelua
-        new: Uusi kokous
         preview: Esikatsele
         registrations: Ilmoittautumiset
         title: Toiminnot
@@ -286,7 +284,6 @@ fi-pl:
               all: Kaikki
               rejected: Hylätyt
               sent: Lähetetyt
-            filter_by: Rajaa hakua
             invite_attendee: Kutsu osallistuja
             invites: Kutsut
             registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
@@ -352,9 +349,6 @@ fi-pl:
           update:
             invalid: Tapaamisen mielipidetiedustelun päivittäminen epäonnistui.
             success: Tapaamisen mielipidetiedustelun päivittäminen onnistui.
-        models:
-          meeting:
-            name: Tapahtuma
         registrations:
           edit:
             save: Tallenna
