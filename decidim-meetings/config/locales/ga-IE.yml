@@ -104,9 +104,6 @@ ga:
             up: Thuas
           services:
             services: Seirbhísí
-        models:
-          meeting:
-            name: Cruinniú
         registrations:
           edit:
             save: Sábháil
