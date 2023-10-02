@@ -405,7 +405,7 @@ hu:
         participatory_process_groups:
           form:
             metadata: Metaadat
-            title: Általános információ
+            title: Általános információk
             visibility: Láthatóság
         participatory_process_imports:
           form:
