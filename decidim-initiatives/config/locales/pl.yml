@@ -240,19 +240,13 @@ pl:
             photos: Zdjęcia
         initiatives_type_scopes:
           edit:
-            back: Wróć
-            confirm_destroy: Jesteś pewny?
-            destroy: Usuń
             title: Edytuj zakres typu inicjatywy
             update: Aktualizuj
           new:
-            back: Wróć
             create: Utwórz
             title: Utwórz zakres typu inicjatywy
         initiatives_types:
           edit:
-            confirm_destroy: Jesteś pewny?
-            destroy: Usuń
             update: Aktualizuj
           form:
             authorizations: Ustawienia autoryzacji
