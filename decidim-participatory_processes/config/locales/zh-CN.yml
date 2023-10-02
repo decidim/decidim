@@ -97,7 +97,6 @@ zh-CN:
           attachments: 附件
           categories: 类别管理
           components: 组件
-          info: 信息
           moderations: 版面
           private_users: 私人参与者
           process_admins: 进程管理员
@@ -314,6 +313,9 @@ zh-CN:
         content_blocks:
           highlighted_processes:
             max_results: 显示元素的最大数量
+        participatory_process_groups:
+          form:
+            title: 一般信息
         participatory_process_imports:
           form:
             document_legend: 添加文档
