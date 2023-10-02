@@ -231,7 +231,7 @@ lt:
             many: 'Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai:'
             other: 'Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai:'
         manage_poll: Tvarkyti apklausą
-        new: Naujas susirinkimas
+        new: Naujas susitikimas
         preview: Peržiūra
         registrations: Registracijos
         title: Veiksmai
@@ -365,7 +365,7 @@ lt:
             success: Susirinkimo klausimynas sėkmingai atnaujintas
         models:
           meeting:
-            name: Susirinkimas
+            name: Susitikimas
         registrations:
           edit:
             save: Išsaugoti
