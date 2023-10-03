@@ -108,7 +108,6 @@ tr:
         form:
           title: Genel bilgi
         index:
-          not_published: Yayınlanmadı
           published: Yayınlandı
         new:
           create: Oluştur
