@@ -102,7 +102,6 @@ zh-TW:
         edit:
           update: 更新
         index:
-          not_published: 未發佈
           private: 不公開
           public: 公開
           published: 已發佈
