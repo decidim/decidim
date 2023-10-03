@@ -1,12 +1,13 @@
 <label for="polling_officers_filter">
   <%= t("polling_officers_picker.choose_polling_officers", scope: "decidim.votings.admin.polling_officers") %>
 
+  <span class="help-text"><%= t("polling_station_managers_help", scope: "decidim.votings.admin.polling_stations.form") %></span>
   <select id="polling_officers_filter"
           placeholder="<%= t("decidim.admin.filters.search_placeholder.id_string_or_title_cont", collection: polling_officers_collection_name) %>"
           data-tm-name="<%= form_name %>"
           data-tm-items="<%= selected_ids.to_json %>"
           data-tm-no-results="<%= t("polling_officers_picker.no_polling_officers", scope: "decidim.votings.admin.polling_officers") %>"
-          class="mt-4" multiple>
+          multiple>
     <% decorated_polling_officers.each do |polling_officer| %>
       <option value="<%= polling_officer.id %>"> <%= polling_officer.name %> (@<%= polling_officer.nickname %>)</option>
     <% end %>
