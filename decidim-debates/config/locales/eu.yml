@@ -51,6 +51,7 @@ eu:
         confirm_destroy: Ziur zaude?
         destroy: Ezabatu
         edit: Editatu
+        new: Beste eztabaida bat
         title: Ekintzak
       admin:
         debate_closes:
