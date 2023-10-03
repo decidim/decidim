@@ -114,7 +114,6 @@ cs:
         edit:
           update: Aktualizace
         index:
-          not_published: Není zveřejněno
           private: Soukromé
           public: Veřejné
           published: Publikováno
