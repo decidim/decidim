@@ -603,7 +603,7 @@ fi:
       sessions:
         new:
           are_you_new?: Uusi käyttäjä?
-          register: Rekisteröidy
+          register: Luo tili
           sign_in_disabled: Voit käyttää ulkoista tiliä.
           sign_up_disabled: Rekisteröityminen on poistettu käytöstä, mutta voit kirjautua olemassaolevalla käyttäjätilillä.
         user:
