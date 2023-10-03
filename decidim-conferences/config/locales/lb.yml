@@ -385,6 +385,10 @@ lb:
             states:
               confirmed: Bestätigt
               pending: steht aus
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Aktive Konferenzen
       registration_types:
         index:
           choose_an_option: 'Wählen Sie Ihre Registrierungsoption:'
