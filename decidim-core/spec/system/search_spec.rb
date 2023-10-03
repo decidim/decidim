@@ -23,6 +23,10 @@ describe "Search", type: :system do
       end
     end
 
+    it "is not indexable by crawlers" do
+      expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
+    end
+
     it "displays the results page" do
       expect(page).to have_current_path decidim.search_path, ignore_query: true
       expect(page).to have_content(/results for the search: "#{term}"/i)

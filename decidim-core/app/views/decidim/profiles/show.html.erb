@@ -1,4 +1,5 @@
-<%# add_decidim_page_title(t(@title_key, scope: "decidim.profiles.show")) %>
+<% add_decidim_page_title(t(@title_key, scope: "decidim.profiles.show")) %>
+<% add_decidim_page_title(profile_holder.name) %>
 
 <% content_for :header_snippets do %>
   <meta name="robots" content="noindex">
