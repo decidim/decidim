@@ -78,7 +78,6 @@ is-IS:
         edit:
           update: Uppfæra
         index:
-          not_published: Ekki birt
           private: Einkamál
           public: Opinber
           published: Published
