@@ -446,7 +446,6 @@ fr-CA:
           key_ceremony_title: Cérémonie de génération des clés
           not_available: Pas encore disponible
           not_created: N'est pas créée
-          not_published: Non publié
           not_ready: Pas encore prêt
           not_started: Non démarré
           published: Publié
@@ -833,7 +832,6 @@ fr-CA:
           timeline:
             name: Calendrier du vote
         index:
-          not_published: Non publié
           published: Publié
         landing_page:
           content_blocks:
