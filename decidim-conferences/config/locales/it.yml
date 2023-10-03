@@ -135,7 +135,6 @@ it:
         form:
           title: Informazioni Generali
         index:
-          not_published: Non pubblicata
           published: Pubblicata
         new:
           create: Crea
