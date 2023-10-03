@@ -8,16 +8,16 @@
   </div>
   <div class="card-section">
     <% if @drafts.any? %>
-      <p><%= t(".info_1") %></p>
-      <ul id="participatory-text" class="accordion js-sortable mb-m"
+      <p class="mt-3"><%= t(".info_1") %></p>
+      <ul id="participatory-text" class="accordion js-sortable mb-m mt-2.5 ml-2.5 mr-2.5"
         data-accordion
         data-multi-expand="true"
         data-allow-all-closed="true">
         <%= form.fields_for(:proposals) do |prop_form| %>
         <% proposal = @drafts[prop_form.index] %>
           <li class="accordion-item <%= proposal.article? ? "is-active" : nil %>" data-accordion-item>
-            <a href="#" class="accordion-title flex--sbc"><%= preview_participatory_text_section_title(proposal) %><span class="mr-m"><%= icon "menu", class: "icon--small", role: "img", "aria-hidden": true %></span></a>
-            <div class="accordion-content" data-tab-content>
+            <a href="#" class="accordion-title flex--sbc font-bold mt-5"><%= preview_participatory_text_section_title(proposal) %><span class="mr-m"><%= icon "menu", class: "icon--small", role: "img", "aria-hidden": true %></span></a>
+            <div class="accordion-content py-3 px-3" data-tab-content>
               <%= render "article-preview", { form: prop_form, proposal: } %>
             </div>
           </li>
