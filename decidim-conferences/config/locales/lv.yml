@@ -418,6 +418,10 @@ lv:
             states:
               confirmed: Apstiprināts
               pending: Nepabeigts
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Aktīvās konferences
       registration_types:
         index:
           choose_an_option: 'Izvēlieties savu reģistrācijas iespēju:'
