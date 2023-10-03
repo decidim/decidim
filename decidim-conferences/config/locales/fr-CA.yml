@@ -157,7 +157,6 @@ fr-CA:
         form:
           title: Informations générales
         index:
-          not_published: Non publié
           published: Publié
         new:
           create: Créer
