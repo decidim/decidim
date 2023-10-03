@@ -89,7 +89,6 @@ ru:
         edit:
           update: Обновить
         index:
-          not_published: Не обнародовано
           private: Частное
           public: Обнародованные
           published: Обнародовано
