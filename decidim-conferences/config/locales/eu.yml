@@ -88,6 +88,12 @@ eu:
     admin:
       actions:
         confirm: Berretsi
+        new_conference: Beste hitzaldi bat
+        new_conference_user_role: Hitzaldiaren beste administratzaile bat
+        new_media_link: Hedabideen beste lotura bat
+        new_partner: Beste bazkide bat
+        new_registration_type: Beste erregistro mota bat
+        new_speaker: Beste hizlari bat
         send_diplomas: Bertaratze-ziurtagiriak bidali
       conference_copies:
         new:
