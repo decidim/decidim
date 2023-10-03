@@ -151,7 +151,6 @@ ca:
         form:
           title: Informació general
         index:
-          not_published: No publicat
           published: Publicat
         new:
           create: Crear
