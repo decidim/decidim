@@ -135,7 +135,6 @@ pt:
         form:
           title: Informação geral
         index:
-          not_published: Não publicado
           published: Publicado
         new:
           create: Criar
