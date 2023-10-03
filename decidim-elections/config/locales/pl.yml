@@ -306,7 +306,6 @@ pl:
           key_ceremony_title: '"Ceremonia kluczy"'
           not_available: Jeszcze nie jest dostępny
           not_created: Nie został utworzony
-          not_published: Nie został ogłoszony
           not_ready: Nie jest gotowy
           not_started: Nie rozpoczął się
           published: Ogłoszony
@@ -620,7 +619,6 @@ pl:
           highlighted_votings:
             max_results: Maksymalna ilość elementów do wyświetlenia
         index:
-          not_published: Nie opublikowano
           published: Opublikowano
         landing_page:
           content_blocks:
