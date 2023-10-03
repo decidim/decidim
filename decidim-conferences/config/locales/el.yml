@@ -150,7 +150,6 @@ el:
         form:
           title: Γενικές πληροφορίες
         index:
-          not_published: Δεν έχει δημοσιευτεί
           published: Δημοσιεύτηκε
         new:
           create: Δημιουργία
