@@ -91,7 +91,6 @@ gl:
         edit:
           update: Actualización
         index:
-          not_published: Non publicado
           private: Privado
           public: Público
           published: Publicado
