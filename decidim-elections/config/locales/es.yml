@@ -841,7 +841,6 @@ es:
             timeline:
               name: Calendario de la votación
         index:
-          not_published: Despublicada
           published: Publicada
         landing_page:
           content_blocks:
