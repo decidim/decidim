@@ -286,11 +286,9 @@ en:
       amendable:
         button: Amend %{model_name}
         error: There has been an error amending this resource.
-        help_text: Improve this %{model_name} by modifying its %{amendable_fields}.
         promote_button: Promote to %{model_name}
         promote_confirm_text: Are you sure you want to promote this emendation?
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}.
-        section_heading: Amendments (%{count})
       amendments:
         title:
           one: "%{count} amendment"
@@ -458,7 +456,6 @@ en:
         one: and %{count} more
         other: and %{count} more
       see_less: "(see less)"
-      see_more: "(see more)"
     components:
       component_order_selector:
         no_content: We could not find any content with this criteria.
