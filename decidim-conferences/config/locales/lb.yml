@@ -71,7 +71,6 @@ lb:
         form:
           title: Allgemeine Information
         index:
-          not_published: Nicht veröffentlicht
           published: Veröffentlicht
         new:
           create: Erstellen
