@@ -809,7 +809,6 @@ zh-TW:
             description:
               name: 投票說明
         index:
-          not_published: 尚未發布
           published: 已發佈
         landing_page:
           content_blocks:
