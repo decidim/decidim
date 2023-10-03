@@ -305,7 +305,6 @@ eu:
           key_ceremony_title: Gakoen zeremonia
           not_available: Oraindik ez dago erabilgarri
           not_created: Sortu gabe
-          not_published: Argaitaratu gabe
           not_ready: Ez dago prest
           not_started: Hasi gabe
           published: Argitaratuta
@@ -619,7 +618,6 @@ eu:
           highlighted_votings:
             max_results: Erakusteko gehieneko elementu kopurua
         index:
-          not_published: Desargitaratua
           published: Argitaratua
         landing_page:
           content_blocks:
