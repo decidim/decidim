@@ -148,7 +148,6 @@ ar:
         form:
           title: معلومات عامة
         index:
-          not_published: غير منشور
           published: نشرت
         new:
           create: إنشاء
