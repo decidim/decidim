@@ -106,7 +106,6 @@ es-PY:
         edit:
           update: Actualizar
         index:
-          not_published: No publicado
           private: Privado
           public: Público
           published: Publicado
