@@ -1,3 +1,23 @@
 @import "stylesheets/decidim/votings/admin/votings/ballot-styles";
 @import "stylesheets/decidim/votings/admin/votings/monitoring-committee-polling-station-closures";
 @import "stylesheets/decidim/votings/admin/votings/results";
+@import "tom-select/dist/scss/tom-select";
+
+/* overwrite tom-select defaults */
+.ts {
+  &-control {
+    @apply border-gray text-md min-h-[40px];
+
+    input {
+      @apply font-normal text-black text-md;
+    }
+  }
+
+  &-dropdown {
+    @apply text-md text-gray-2 font-normal;
+
+    .active {
+      @apply text-white bg-secondary;
+    }
+  }
+}
