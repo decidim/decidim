@@ -135,7 +135,6 @@ pt-BR:
         form:
           title: Informação geral
         index:
-          not_published: Não publicado
           published: Publicados
         new:
           create: Crio
