@@ -122,6 +122,7 @@ eu:
         new_answer: Beste erantzun bat
         new_election: Beste aukera bat
         new_question: Beste galdera bat
+        new_trustee: Beste administratzaile bat
         preview: Aurrebistaratu
         publish: Argitaratu
         title: Ekintzak
@@ -607,6 +608,7 @@ eu:
               confirm_destroy: Ziur zaude?
               destroy: Ezabatu
               edit: Editatu
+              new: Beste boto-paper mota bat
               title: Ekintzak
             associated_census_data: Erroldarekin erlazionatutako sarrerak
             title: Boto-paper motak
@@ -982,6 +984,7 @@ eu:
         actions:
           confirm_destroy: Ziur zaude?
           destroy: Ezabatu
+          new: Beste bozketa-kudeatzaile bat
           title: Ekintzak
         roles:
           manager: Administratzailea
@@ -1002,6 +1005,7 @@ eu:
           confirm_destroy: Ziur zaude?
           destroy: Ezabatu
           edit: Editatu
+          new: Beste bozketa-gune bat
           title: Ekintzak
       votings:
         access_code_modal:
