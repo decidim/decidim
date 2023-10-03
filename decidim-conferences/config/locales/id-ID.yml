@@ -409,6 +409,10 @@ id:
             states:
               confirmed: Dikonfirmasi
               pending: Menunggu keputusan
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Konferensi aktif
       registration_types:
         index:
           choose_an_option: 'Pilih opsi pendaftaran Anda:'
