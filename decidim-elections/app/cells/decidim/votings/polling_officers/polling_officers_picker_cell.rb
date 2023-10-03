@@ -19,6 +19,10 @@ module Decidim
           options[:field]
         end
 
+        def form_name
+          "#{form.object_name}[#{method_name}]"
+        end
+
         def method_name
           field.to_s.sub(/s$/, "_ids")
         end

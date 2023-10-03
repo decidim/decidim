@@ -3,7 +3,7 @@
 
   <select id="polling_officers_filter"
           placeholder="<%= t("decidim.admin.filters.search_placeholder.id_string_or_title_cont", collection: polling_officers_collection_name) %>"
-          data-tm-name="polling_officers-filter"
+          data-tm-name="<%= form_name %>"
           data-tm-items="<%= selected_ids.to_json %>"
           data-tm-no-results="<%= t("polling_officers_picker.no_polling_officers", scope: "decidim.votings.admin.polling_officers") %>"
           class="mt-4" multiple>
