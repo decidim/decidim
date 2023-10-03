@@ -449,6 +449,10 @@ gl:
             states:
               confirmed: Confirmado
               pending: Pendente
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Conferencias activas
       registration_types:
         index:
           choose_an_option: 'Elixe a túa opción de rexistro:'
