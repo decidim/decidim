@@ -295,7 +295,6 @@ pt:
           key_ceremony_title: Cerimónia principal
           not_available: Ainda não disponível
           not_created: Não criado
-          not_published: Não publicado
           not_ready: Não está pronto
           not_started: Não iniciado
           published: Publicado
@@ -606,7 +605,6 @@ pt:
           highlighted_votings:
             max_results: Montante máximo dos projectos a mostrar
         index:
-          not_published: Publicação removida
           published: Publicado
         landing_page:
           content_blocks:
