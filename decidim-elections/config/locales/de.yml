@@ -442,7 +442,6 @@ de:
           key_ceremony_title: Schlüsselzeremonie
           not_available: Noch nicht verfügbar
           not_created: Nicht erstellt
-          not_published: Nicht veröffentlicht
           not_ready: Nicht bereit
           not_started: Nicht begonnen
           published: Veröffentlicht
@@ -828,7 +827,6 @@ de:
           timeline:
             name: Abstimmungszeitfolge
         index:
-          not_published: Unveröffentlicht
           published: Veröffentlicht
         landing_page:
           content_blocks:
