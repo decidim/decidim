@@ -428,7 +428,7 @@ tr:
       pages:
         home:
           highlighted_conferences:
-            active_spaces: Konferanslar
+            active_spaces: Aktif konferanslar
             see_all_spaces: Tüm Konferanslar
       registration_types:
         index:
