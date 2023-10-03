@@ -487,6 +487,10 @@ ro:
             states:
               confirmed: Confirmare
               pending: In asteptare
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Conferințe active
       registration_types:
         index:
           choose_an_option: 'Alegeți opțiunea de înregistrare:'
