@@ -453,6 +453,10 @@ nl:
             states:
               confirmed: Bevestigd
               pending: In afwachting
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Actieve conferenties
       registration_types:
         index:
           choose_an_option: 'Kies je registratieoptie:'
