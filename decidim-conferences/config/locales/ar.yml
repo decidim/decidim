@@ -470,6 +470,10 @@ ar:
             states:
               confirmed: تم تأكيد
               pending: قيد الانتظار
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: المؤتمرات النشطة
       registration_types:
         index:
           choose_an_option: 'اختر خيار التسجيل الخاص بك:'
