@@ -91,7 +91,6 @@ nl:
         edit:
           update: Bijwerken
         index:
-          not_published: Niet gepubliceerd
           private: Privé
           public: Openbaar
           published: Gepubliceerd
