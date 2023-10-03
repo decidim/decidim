@@ -201,6 +201,7 @@ eu:
             one: 'Topaketa ezin da ezabatu lotutako proposamen bat dituelako:'
             other: 'Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako:'
         manage_poll: Konfiguratu inkesta
+        new_meeting: Beste topaketa bat
         preview: Aurreikusi
         registrations: Izen-emateak
         title: Ekintzak
