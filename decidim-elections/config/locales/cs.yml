@@ -468,7 +468,6 @@ cs:
           key_ceremony_title: Úvodní ceremoniál
           not_available: Ještě není k dispozici
           not_created: Nevytvořeno
-          not_published: Nezveřejněno
           not_ready: Není připraveno
           not_started: Nezahájeno
           published: Publikováno
@@ -857,7 +856,6 @@ cs:
           timeline:
             name: Časová osa hlasování
         index:
-          not_published: Nezveřejněno
           published: Zveřejněno
         landing_page:
           content_blocks:
