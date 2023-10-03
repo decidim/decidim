@@ -89,7 +89,6 @@ uk:
         edit:
           update: Оновити
         index:
-          not_published: Не оприлюднено
           private: Приватні
           public: Оприлюдені
           published: Оприлюднено
