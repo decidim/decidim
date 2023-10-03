@@ -106,7 +106,6 @@ es:
         edit:
           update: Actualizar
         index:
-          not_published: No publicada
           private: Privado
           public: Público
           published: Publicado
