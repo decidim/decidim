@@ -516,7 +516,7 @@ cs:
       pages:
         home:
           highlighted_conferences:
-            active_spaces: Konference
+            active_spaces: Aktivní konference
             see_all_spaces: Zobrazit všechny konference
       registration_types:
         index:
