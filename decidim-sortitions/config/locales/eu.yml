@@ -38,6 +38,7 @@ eu:
         actions:
           destroy: Zozketa bertan behera utzi
           edit: Editatu
+          new_sortition: Beste zozketa bat
           show: Zozketaren xehetasunak
         models:
           sortition:
