@@ -291,7 +291,6 @@ it:
           key_ceremony_title: Cerimonia della Chiave
           not_available: Non ancora disponibili
           not_created: Non creato
-          not_published: Non pubblicate
           not_ready: Non pronte
           not_started: Non iniziate
           published: Pubblicate
@@ -602,7 +601,6 @@ it:
           highlighted_votings:
             max_results: Quantità massima di elementi da mostrare
         index:
-          not_published: Non Pubblicato
           published: Pubblicato
         landing_page:
           content_blocks:
