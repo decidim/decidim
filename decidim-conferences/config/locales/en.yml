@@ -507,7 +507,7 @@ en:
       pages:
         home:
           highlighted_conferences:
-            active_spaces: Conferences
+            active_spaces: Active conferences
             see_all_spaces: See all conferences
       registration_types:
         index:
