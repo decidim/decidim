@@ -84,7 +84,6 @@ lv:
         edit:
           update: Atjaunināt
         index:
-          not_published: Nav publicēts
           private: Privāts
           public: Publisks
           published: Publicēts
