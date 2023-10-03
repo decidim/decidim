@@ -83,7 +83,6 @@ zh-CN:
         edit:
           update: 更新
         index:
-          not_published: 未发布
           private: 非公开的
           public: 公开的
           published: 已发布
