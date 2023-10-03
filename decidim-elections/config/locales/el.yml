@@ -713,7 +713,6 @@ el:
             description:
               name: Περιγραφή ψηφοφορίας
         index:
-          not_published: Αδημοσίευτο
           published: Δημοσιεύθηκε
         landing_page:
           content_blocks:
