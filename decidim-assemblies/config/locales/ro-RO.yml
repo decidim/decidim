@@ -108,7 +108,6 @@ ro:
         edit:
           update: Actualizează
         index:
-          not_published: Nu este publicat
           private: Privat
           public: Public
           published: Publicat
