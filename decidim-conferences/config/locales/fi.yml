@@ -494,7 +494,7 @@ fi:
       pages:
         home:
           highlighted_conferences:
-            active_spaces: Konferenssit
+            active_spaces: Aktiiviset konferenssit
             see_all_spaces: Näytä kaikki konferenssit
       registration_types:
         index:
