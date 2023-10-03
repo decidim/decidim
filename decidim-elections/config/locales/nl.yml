@@ -243,7 +243,6 @@ nl:
           key_ceremony_title: Sleutelceremonie
           not_available: Nog niet beschikbaar
           not_created: Niet aangemaakt
-          not_published: Niet gepubliceerd
           not_ready: Niet gereed
           not_started: Niet begonnen
           published: Gepubliceerd
@@ -520,7 +519,6 @@ nl:
           highlighted_votings:
             max_results: Maximum aantal elementen dat kan worden weergegeven
         index:
-          not_published: Niet-gepubliceerd
           published: Gepubliceerd
         landing_page:
           content_blocks:
