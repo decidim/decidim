@@ -42,7 +42,10 @@ module Decidim
     end
 
     def css_class
-      has_title? ? options[:callout_class] + " flex-col" : options[:callout_class]
+      return unless options[:callout_class]
+
+      callout_class = options[:callout_class]
+      has_title? ? + "#{callout_class} flex-col" : callout_class
     end
 
     def announcement
