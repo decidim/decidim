@@ -91,7 +91,6 @@
         edit:
           update: Oppdater
         index:
-          not_published: Ikke publisert
           private: Privat
           public: Offentlig
           published: Publisert
