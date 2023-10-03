@@ -105,7 +105,6 @@ hu:
         edit:
           update: Frissítés
         index:
-          not_published: Nincs közzétéve
           private: Privát
           public: Nyilvános
           published: Közzétéve
