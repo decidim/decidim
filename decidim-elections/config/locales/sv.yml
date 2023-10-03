@@ -259,7 +259,6 @@ sv:
           key_ceremony_title: Nyckelceremoni
           not_available: Ännu inte publicerade
           not_created: Inte skapat
-          not_published: Ej publicerat
           not_ready: Inte klart
           not_started: Inte påbörjad
           published: Publicerat
@@ -460,7 +459,6 @@ sv:
           metrics:
             name: Omröstningsmetrik
         index:
-          not_published: Ej publicerade
           published: Publicerad
         landing_page:
           content_blocks:
