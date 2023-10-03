@@ -147,7 +147,6 @@ zh-TW:
         form:
           title: 基本資訊
         index:
-          not_published: 未發佈
           published: 已發佈
         new:
           create: 建立
