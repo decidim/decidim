@@ -105,7 +105,6 @@ el:
         edit:
           update: Ενημέρωση
         index:
-          not_published: Δεν έχει δημοσιευτεί
           private: Ιδιωτικό
           public: Δημόσιο
           published: Δημοσιεύτηκε
