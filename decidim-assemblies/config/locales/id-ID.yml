@@ -81,7 +81,6 @@ id:
         edit:
           update: Memperbarui
         index:
-          not_published: Tidak diterbitkan
           private: Pribadi
           public: Publik
           published: Diterbitkan
