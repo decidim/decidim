@@ -142,7 +142,6 @@ sv:
         form:
           title: Allmän information
         index:
-          not_published: Ej publicerad
           published: Publicerad
         new:
           create: Skapa
