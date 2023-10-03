@@ -25,6 +25,10 @@ body {
 .layout-content {
   @apply flex-grow max-w-full min-h-max bg-gray-5;
 
+  table svg {
+    @apply fill-current inline-block;
+  }
+
   &__container {
     @apply p-8 pb-24 m-0 min-h-max;
   }
