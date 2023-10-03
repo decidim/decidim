@@ -119,6 +119,9 @@ eu:
         manage_answers: Kudeatu erantzunak
         manage_questions: Kudeatu galderak
         manage_steps: Kudeatu urratsak
+        new_answer: Beste erantzun bat
+        new_election: Beste aukera bat
+        new_question: Beste galdera bat
         preview: Aurrebistaratu
         publish: Argitaratu
         title: Ekintzak
