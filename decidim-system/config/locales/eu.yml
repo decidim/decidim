@@ -37,6 +37,9 @@ eu:
         confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
         destroy: Ezabatu
         edit: Editatu
+        new_admin: Beste administratzaile bat
+        new_oauth_application: Beste OAUTH aplikazio bat
+        new_organization: Beste erakunde bat
         save: Gorde
         title: Ekintzak
       admins:
