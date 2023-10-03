@@ -241,8 +241,6 @@ en:
             all: All
             not_selected: Not selected
             selected: Selected
-        index:
-          back_to_budgets: back to budgets
         order_progress:
           assigned: Assigned
           budget: Budget
