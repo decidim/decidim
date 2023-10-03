@@ -101,7 +101,6 @@ tr:
         edit:
           update: Güncelle
         index:
-          not_published: Yayınlanmadı
           private: Kişisel
           public: Ortak
           published: Yayınlanan
