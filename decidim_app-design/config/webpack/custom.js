@@ -1,5 +1,5 @@
 /* eslint-disable */
-const { config } = require("@rails/webpacker");
+const { config } = require("shakapacker");
 const { InjectManifest } = require("workbox-webpack-plugin");
 
 module.exports = {
