@@ -442,7 +442,6 @@ ca:
           key_ceremony_title: Cerimònia de claus
           not_available: Encara no està disponible
           not_created: No s'ha creat
-          not_published: No publicat
           not_ready: No preparat
           not_started: No s'ha iniciat
           published: Publicat
@@ -828,7 +827,6 @@ ca:
           timeline:
             name: Calendari de la votació
         index:
-          not_published: Despublicada
           published: Publicada
         landing_page:
           content_blocks:
