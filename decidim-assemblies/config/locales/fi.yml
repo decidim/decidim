@@ -106,7 +106,6 @@ fi:
         edit:
           update: Päivitä
         index:
-          not_published: Ei julkaistu
           private: Yksityinen
           public: Julkinen
           published: Julkaistu
