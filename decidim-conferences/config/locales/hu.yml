@@ -485,6 +485,10 @@ hu:
             states:
               confirmed: Megerősített
               pending: Függőben levő
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Aktív konferenciák
       registration_types:
         index:
           choose_an_option: 'Válassza ki a regisztrációs lehetőséget:'
