@@ -460,6 +460,7 @@ fr:
             started: Le dépouillement a commencé.
           tally_title: Dépouillement
           title: Journal de l'élection
+          unpublished: Non publié
           verifiable_results:
             checksum: 'Fichier de somme de contrôle SHA256:'
             description:
@@ -833,6 +834,7 @@ fr:
             name: Calendrier du vote
         index:
           published: Publié
+          unpublished: Non publié
         landing_page:
           content_blocks:
             create:
