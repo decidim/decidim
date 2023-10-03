@@ -98,7 +98,6 @@ pl:
         edit:
           update: Aktualizuj
         index:
-          not_published: Nieopublikowane
           private: Prywatny
           public: Publiczny
           published: Opublikowany
