@@ -494,7 +494,7 @@ de:
       pages:
         home:
           highlighted_conferences:
-            active_spaces: Konferenzen
+            active_spaces: Aktive Konferenzen
             see_all_spaces: Alle Konferenzen anzeigen
       registration_types:
         index:
