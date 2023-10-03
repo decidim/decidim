@@ -153,7 +153,6 @@ ro:
         form:
           title: Informaţii generale
         index:
-          not_published: Nu este publicat
           published: Publicat
         new:
           create: Creează
