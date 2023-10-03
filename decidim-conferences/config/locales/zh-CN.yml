@@ -410,6 +410,10 @@ zh-CN:
             states:
               confirmed: 已确认
               pending: 待定
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: 活跃的会议
       registration_types:
         index:
           choose_an_option: '选择您的注册选项：'
