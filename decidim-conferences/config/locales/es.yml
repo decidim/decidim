@@ -494,7 +494,7 @@ es:
       pages:
         home:
           highlighted_conferences:
-            active_spaces: Jornadas
+            active_spaces: Jornadas activas
             see_all_spaces: Ver todas las jornadas
       registration_types:
         index:
