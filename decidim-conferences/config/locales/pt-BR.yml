@@ -453,6 +453,10 @@ pt-BR:
             states:
               confirmed: Confirmado
               pending: Pendente
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Conferências ativas
       registration_types:
         index:
           choose_an_option: 'Escolha sua opção de registro:'
