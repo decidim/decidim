@@ -495,7 +495,7 @@ ja:
       pages:
         home:
           highlighted_conferences:
-            active_spaces: カンファレンス
+            active_spaces: アクティブなカンファレンス
             see_all_spaces: すべてのカンファレンスを見る
       registration_types:
         index:
