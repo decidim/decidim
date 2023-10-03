@@ -163,7 +163,6 @@ cs:
         form:
           title: Obecná informace
         index:
-          not_published: Není zveřejněno
           published: Publikováno
         new:
           create: Vytvořit
