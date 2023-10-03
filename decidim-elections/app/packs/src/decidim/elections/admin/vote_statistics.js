@@ -6,7 +6,7 @@ $(() => {
   const WAIT_TIME_MS = 3000; // 3s
   const url = $("#vote-stats").data("refreshUrl");
 
-  if (!url) {
+  if (url) {
     setInterval(function() {
       $("#vote-stats").load(url);
     }, WAIT_TIME_MS);
