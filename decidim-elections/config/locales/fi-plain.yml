@@ -836,7 +836,6 @@ fi-pl:
             timeline:
               name: Äänestyksen aikajana
         index:
-          not_published: Julkaisematon
           published: Julkaistu
         landing_page:
           content_blocks:
