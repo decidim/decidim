@@ -135,7 +135,6 @@ gl:
         form:
           title: Información xeral
         index:
-          not_published: Non publicado
           published: Publicado
         new:
           create: Crear
