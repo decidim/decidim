@@ -1,40 +1,44 @@
-<%= decidim_form_for(@preview_form, url: participatory_texts_path, class: "form grid-container") do |form| %>
-<div class="card">
-  <div class="item_show__header">
-    <h2 class="item_show__header-title">
-      <%= t(".title") %>
-      <%= render partial: "bulk-actions" %>
-    </h2>
-  </div>
-  <div class="card-section">
-    <% if @drafts.any? %>
-      <p class="mt-3"><%= t(".info_1") %></p>
-      <ul id="participatory-text" class="accordion js-sortable mb-m mt-2.5 ml-2.5 mr-2.5"
-        data-accordion
-        data-multi-expand="true"
-        data-allow-all-closed="true">
-        <%= form.fields_for(:proposals) do |prop_form| %>
-        <% proposal = @drafts[prop_form.index] %>
-          <li class="accordion-item <%= proposal.article? ? "is-active" : nil %>" data-accordion-item>
-            <a href="#" class="accordion-title flex--sbc font-bold mt-5"><%= preview_participatory_text_section_title(proposal) %><span class="mr-m"><%= icon "menu", class: "icon--small", role: "img", "aria-hidden": true %></span></a>
-            <div class="accordion-content py-3 px-3" data-tab-content>
-              <%= render "article-preview", { form: prop_form, proposal: } %>
-            </div>
-          </li>
-        <% end %>
-      </ul>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t(".title") %>
+    <%= render partial: "bulk-actions" %>
+  </h2>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@preview_form, url: participatory_texts_path, class: "form grid-container") do |form| %>
+      <div class="form__wrapper">
+        <div class="card">
+            <% if @drafts.any? %>
+              <p class="mt-3"><%= t(".info_1") %></p>
+              <ul id="participatory-text" class="accordion js-sortable mb-m mt-2.5 ml-2.5 mr-2.5"
+                data-accordion
+                data-multi-expand="true"
+                data-allow-all-closed="true">
+                <%= form.fields_for(:proposals) do |prop_form| %>
+                <% proposal = @drafts[prop_form.index] %>
+                  <li class="accordion-item <%= proposal.article? ? "is-active" : nil %>" data-accordion-item>
+                    <a href="#" class="accordion-title flex--sbc font-bold mt-5"><%= preview_participatory_text_section_title(proposal) %><span class="mr-m"><%= icon "menu", class: "icon--small", role: "img", "aria-hidden": true %></span></a>
+                    <div class="accordion-content py-3 px-3" data-tab-content>
+                      <%= render "article-preview", { form: prop_form, proposal: } %>
+                    </div>
+                </li>
+                <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+      <% if @drafts.any? %>
+        <div class="item__edit-sticky">
+          <div class="item__edit-sticky-container">
+            <%= form.submit t(".save_draft"), name: :save_draft, class: "button button__sm button__secondary" %>
+            <%= form.submit t(".publish_document"), class: "button button__sm button__secondary" %>
+          </div>
+        </div>
+      <% end %>
     <% end -%>
   </div>
 </div>
-<% if @drafts.any? %>
-  <div class="item__edit-sticky">
-    <div class="item__edit-sticky-container">
-      <%= form.submit t(".save_draft"), name: :save_draft, class: "button button__sm button__secondary" %>
-      <%= form.submit t(".publish_document"), class: "button button__sm button__secondary" %>
-    </div>
-  </div>
-<% end %>
-<% end -%>
 <script>
 $(window).on("load", function() {
   // Not all browsers submit the buttons as form data.
