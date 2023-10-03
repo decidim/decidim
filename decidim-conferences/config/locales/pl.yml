@@ -141,7 +141,6 @@ pl:
         form:
           title: Informacje ogólne
         index:
-          not_published: Nieopublikowane
           published: Opublikowane
         new:
           create: Utwórz
