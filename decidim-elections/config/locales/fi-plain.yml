@@ -442,7 +442,6 @@ fi-pl:
           key_ceremony_title: Avainseremonia
           not_available: Ei vielä saatavilla
           not_created: Ei luotu
-          not_published: Ei julkaistu
           not_ready: Ei valmis
           not_started: Ei aloitettu
           published: Julkaistu
@@ -828,7 +827,6 @@ fi-pl:
           timeline:
             name: Äänestyksen aikajana
         index:
-          not_published: Julkaisematon
           published: Julkaistu
         landing_page:
           content_blocks:
