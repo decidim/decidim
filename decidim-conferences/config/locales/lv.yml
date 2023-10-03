@@ -105,7 +105,6 @@ lv:
         form:
           title: Vispārēja informācija
         index:
-          not_published: Nav publicēts
           published: Publicēts
         new:
           create: Izveidot
