@@ -108,7 +108,6 @@ fr:
         edit:
           update: Mettre à jour
         index:
-          not_published: Non publié
           private: Privée
           public: Publique
           published: Publiée
