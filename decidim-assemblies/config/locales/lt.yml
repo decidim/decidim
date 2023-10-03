@@ -111,7 +111,6 @@ lt:
         edit:
           update: Atnaujinti
         index:
-          not_published: Nepublikuota
           private: Privati
           public: Vieša
           published: Publikuota
