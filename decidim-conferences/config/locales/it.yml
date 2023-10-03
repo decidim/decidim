@@ -136,6 +136,7 @@ it:
           title: Informazioni Generali
         index:
           published: Pubblicata
+          unpublished: Non pubblicato
         new:
           create: Crea
           title: Conferenza
