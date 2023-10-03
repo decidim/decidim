@@ -7,7 +7,7 @@ services:
     volumes:
       - pg-data:/var/lib/postgresql/data
   app:
-    image: decidim/decidim-bulletin-board:0.24.1
+    image: decidim/decidim-bulletin-board:0.24.2
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db/decidim_bulletin_board_test
       - RAILS_ENV=test
