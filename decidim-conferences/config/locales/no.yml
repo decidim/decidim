@@ -453,6 +453,10 @@
             states:
               confirmed: Bekreftet
               pending: Venter
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Aktive konferanser
       registration_types:
         index:
           choose_an_option: 'Velg ditt registrerings alternativ:'
