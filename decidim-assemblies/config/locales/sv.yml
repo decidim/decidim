@@ -97,7 +97,6 @@ sv:
         edit:
           update: Uppdatera
         index:
-          not_published: Ej publicerad
           private: Privat
           public: Öppen
           published: Publicerad
