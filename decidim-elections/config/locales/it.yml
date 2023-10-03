@@ -305,6 +305,7 @@ it:
             started: Il processo di conteggio è cominciato.
           tally_title: Conteggio
           title: Registro delle elezioni
+          unpublished: Non pubblicato
           verifiable_results:
             checksum: 'Somma di controllo del file SHA256:'
             description:
@@ -602,6 +603,7 @@ it:
             max_results: Quantità massima di elementi da mostrare
         index:
           published: Pubblicato
+          unpublished: Non pubblicato
         landing_page:
           content_blocks:
             edit:
