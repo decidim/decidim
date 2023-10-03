@@ -1367,4 +1367,20 @@ describe "Editor", type: :system do
       end
     end
   end
+
+  def expect_value(html)
+    expect(input.value).to eq(html.strip.gsub(/\n\s*/, ""))
+  end
+
+  def click_toggle(type)
+    within toolbar do
+      find("button[data-editor-type='#{type}']").click
+    end
+  end
+
+  def select_control(type, value)
+    within toolbar do
+      find("select[data-editor-type='#{type}']").find("option[value='#{value}']").select_option
+    end
+  end
 end
