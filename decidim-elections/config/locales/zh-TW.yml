@@ -422,7 +422,6 @@ zh-TW:
           key_ceremony_title: 金鑰儀式
           not_available: 尚未可用
           not_created: 未創建
-          not_published: 未發佈
           not_ready: 未準備好
           not_started: 尚未啟動
           published: 已發佈
@@ -779,7 +778,6 @@ zh-TW:
           highlighted_votings:
             max_results: 顯示的最大元素數量
         index:
-          not_published: 尚未發布
           published: 已發佈
         landing_page:
           content_blocks:
