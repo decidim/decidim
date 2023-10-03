@@ -158,6 +158,7 @@ fr-CA:
           title: Informations générales
         index:
           published: Publié
+          unpublished: Non publié
         new:
           create: Créer
           title: Conférence
