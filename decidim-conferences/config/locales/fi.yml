@@ -151,7 +151,6 @@ fi:
         form:
           title: Yleistä tietoa
         index:
-          not_published: Ei julkaistu
           published: Julkaistu
         new:
           create: Luo
@@ -452,7 +451,7 @@ fi:
           login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
           make_conference_registration: Ilmoittaudu konferenssiin
           manage_registration: Hallinnoi ilmoittautumistasi
-          register: Rekisteröidy
+          register: Ilmoittaudu
       content_blocks:
         highlighted_conferences:
           name: Tärkeimmät konferenssit
