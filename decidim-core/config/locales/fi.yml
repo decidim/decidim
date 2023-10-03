@@ -511,7 +511,7 @@ fi:
       sessions:
         new:
           are_you_new?: Uusi käyttäjä?
-          register: Rekisteröidy
+          register: Luo tili
           sign_in_disabled: Voit kirjautua ulkoisella tilillä
           sign_up_disabled: Rekisteröityminen on poistettu käytöstä, voit kirjautua olemassaolevalla käyttäjätilillä
         user:
