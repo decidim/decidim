@@ -494,7 +494,7 @@ ca:
       pages:
         home:
           highlighted_conferences:
-            active_spaces: Jornades
+            active_spaces: Jornades actives
             see_all_spaces: Veure totes les jornades
       registration_types:
         index:
