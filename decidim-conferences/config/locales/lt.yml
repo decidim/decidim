@@ -495,7 +495,7 @@ lt:
       pages:
         home:
           highlighted_conferences:
-            active_spaces: Konferencijos
+            active_spaces: Aktyvios konferencijos
             see_all_spaces: Žiūrėti visas konferencijas
       registration_types:
         index:
