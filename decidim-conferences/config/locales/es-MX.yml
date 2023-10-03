@@ -151,7 +151,6 @@ es-MX:
         form:
           title: Información general
         index:
-          not_published: No publicado
           published: Publicado
         new:
           create: Crear
