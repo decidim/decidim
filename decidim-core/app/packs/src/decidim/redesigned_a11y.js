@@ -52,7 +52,6 @@ const createDropdown = (component) => {
   const scrollToMenu = component.dataset.scrollToMenu === "true";
   if (scrollToMenu) {
     // Auto scroll to show the menu on the viewport
-    // @see: https://github.com/decidim/decidim/issues/11307
     component.addEventListener("click", (event) => event.target.getAttribute("aria-expanded") !== "true" && window.scrollTo({ top: component.getBoundingClientRect().top + window.scrollY + document.documentElement.clientTop, behavior: "smooth" }));
   }
 
