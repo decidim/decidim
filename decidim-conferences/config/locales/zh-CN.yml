@@ -99,7 +99,6 @@ zh-CN:
         form:
           title: 一般信息
         index:
-          not_published: 未发布
           published: 已发布
         new:
           create: 创建
