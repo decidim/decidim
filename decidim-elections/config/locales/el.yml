@@ -431,7 +431,6 @@ el:
           key_ceremony_title: Διαδικασία κλειδιού
           not_available: Μη διαθέσιμο ακόμα
           not_created: Δεν δημιουργήθηκε
-          not_published: Δεν έχει δημοσιευτεί
           not_ready: Δεν είναι έτοιμο
           not_started: Δεν ξεκίνησε
           published: Δημοσιεύτηκε
@@ -776,7 +775,6 @@ el:
           highlighted_votings:
             max_results: Μέγιστος αριθμός στοιχείων προς εμφάνιση
         index:
-          not_published: Αδημοσίευτο
           published: Δημοσιεύθηκε
         landing_page:
           content_blocks:
