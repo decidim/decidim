@@ -135,7 +135,6 @@ nl:
         form:
           title: Algemene informatie
         index:
-          not_published: Niet gepubliceerd
           published: Gepubliceerd
         new:
           create: Creëren
