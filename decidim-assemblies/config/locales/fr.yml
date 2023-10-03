@@ -111,6 +111,7 @@ fr:
           private: Privée
           public: Publique
           published: Publiée
+          unpublished: Non publié
         new:
           create: Créer
           title: Nouvelle assemblée
