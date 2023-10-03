@@ -442,7 +442,6 @@ es-PY:
           key_ceremony_title: Ceremonia de claves
           not_available: No disponible todavía
           not_created: No creado
-          not_published: No publicado
           not_ready: No está listo
           not_started: No iniciado
           published: Publicado
@@ -828,7 +827,6 @@ es-PY:
           timeline:
             name: Calendario de la votación
         index:
-          not_published: Despublicada
           published: Publicada
         landing_page:
           content_blocks:
