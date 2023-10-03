@@ -506,7 +506,7 @@ fr:
       pages:
         home:
           highlighted_conferences:
-            active_spaces: Conférences
+            active_spaces: Conférences actives
             see_all_spaces: Voir toutes les conférences
       registration_types:
         index:
