@@ -177,11 +177,11 @@ export default function generateTimePicker(input, row, format) {
     event.preventDefault();
     const value = event.clipboardData.getData("text/plain");
 
-    if ((/^([0-9]|0[0-9]|1[0-9]|2[0-3])(.|:)[0-5][0-9]$/).test(value)) {
-      if ((/(^[0-9])(.|:)[0-5][0-9]$/).test(value)) {
+    if ((/^([0-9]|0[0-9]|1[0-9]|2[0-3])(.|:)[0-5][0-9]/).test(value)) {
+      if ((/(^[0-9])(.|:)[0-5][0-9]/).test(value)) {
         hour = Number(value[0]);
         minute = Number(`${value[2]}${value[3]}`);
-      } else if ((/(^0[0-9])(.|:)[0-5][0-9]$/).test(value)) {
+      } else if ((/(^0[0-9])(.|:)[0-5][0-9]/).test(value)) {
         hour = Number(value[1]);
         minute = Number(`${value[3]}${value[4]}`);
       } else {
