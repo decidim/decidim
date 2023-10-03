@@ -154,7 +154,6 @@ eu:
         form:
           title: Informazio orokorra
         index:
-          not_published: Ez da argitaratu
           published: Argitaratutako
         new:
           create: Sortu
