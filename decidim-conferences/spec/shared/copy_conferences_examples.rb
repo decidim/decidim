@@ -34,7 +34,7 @@ shared_examples "copy conferences" do
 
       expect(page).to have_content("successfully")
       expect(page).to have_content("Copy conference")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
     end
   end
 
