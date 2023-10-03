@@ -151,7 +151,6 @@ fi-pl:
         form:
           title: Yleistä tietoa
         index:
-          not_published: Ei julkaistu
           published: Julkaistu
         new:
           create: Luo
