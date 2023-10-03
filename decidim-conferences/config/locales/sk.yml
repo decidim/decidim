@@ -422,6 +422,10 @@ sk:
             states:
               confirmed: Potvrdené
               pending: Čakajúce
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Aktívne konferencie
       registration_types:
         index:
           choose_an_option: 'Zvoľte si možnosti registrácie:'
