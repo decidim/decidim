@@ -41,8 +41,8 @@ module Decidim
       has_title? ? clean_body : clean_announcement
     end
 
-    def callout_class
-      options[:callout_class]
+    def css_class
+      has_title? ? options[:callout_class] + " flex-col" : options[:callout_class]
     end
 
     def announcement
