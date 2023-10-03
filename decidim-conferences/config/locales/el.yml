@@ -482,6 +482,10 @@ el:
             states:
               confirmed: Επιβεβαιώθηκε
               pending: Σε εκκρεμότητα
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Ενεργές διασκέψεις
       registration_types:
         index:
           choose_an_option: 'Ορίστε την επιλογή εγγραφής σας:'
