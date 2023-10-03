@@ -91,7 +91,6 @@ pt:
         edit:
           update: Atualizar
         index:
-          not_published: Não publicado
           private: Privado
           public: Público
           published: Publicado
