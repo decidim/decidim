@@ -17,6 +17,22 @@ module Decidim
 
         alias component model
 
+        def form
+          options[:form]
+        end
+
+        def field
+          options[:field]
+        end
+
+        def method_name
+          field.to_s.sub(/s$/, "_ids")
+        end
+
+        def selected_ids
+          form.object.send(method_name)
+        end
+
         def filtered?
           !search_text.nil?
         end
