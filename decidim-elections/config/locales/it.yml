@@ -754,7 +754,7 @@ it:
             description:
               name: Descrizione del voto
         index:
-          not_published: Non Pubblicato
+          not_published: Non pubblicato
           published: Pubblicato
         landing_page:
           content_blocks:
