@@ -773,7 +773,6 @@ pl:
             description:
               name: Opis głosowania
         index:
-          not_published: Nie opublikowano
           published: Opublikowano
         landing_page:
           content_blocks:
