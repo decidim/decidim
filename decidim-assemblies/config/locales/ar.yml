@@ -111,7 +111,6 @@ ar:
         edit:
           update: تحديث
         index:
-          not_published: غير منشور
           private: خاص
           public: عامة
           published: نشرت
