@@ -9,21 +9,21 @@
     <%= decidim_form_for(@preview_form, url: participatory_texts_path, class: "form grid-container") do |form| %>
       <div class="form__wrapper">
         <div class="card">
-            <% if @drafts.any? %>
-              <p class="mt-3"><%= t(".info_1") %></p>
-              <ul id="participatory-text" class="accordion js-sortable mb-m mt-2.5 ml-2.5 mr-2.5"
+          <% if @drafts.any? %>
+            <p class="mt-3"><%= t(".info_1") %></p>
+            <ul id="participatory-text" class="accordion js-sortable mb-m mt-2.5 ml-2.5 mr-2.5"
                 data-accordion
                 data-multi-expand="true"
                 data-allow-all-closed="true">
-                <%= form.fields_for(:proposals) do |prop_form| %>
+              <%= form.fields_for(:proposals) do |prop_form| %>
                 <% proposal = @drafts[prop_form.index] %>
-                  <li class="accordion-item <%= proposal.article? ? "is-active" : nil %>" data-accordion-item>
-                    <a href="#" class="accordion-title flex--sbc font-bold mt-5"><%= preview_participatory_text_section_title(proposal) %><span class="mr-m"><%= icon "menu", class: "icon--small", role: "img", "aria-hidden": true %></span></a>
-                    <div class="accordion-content py-3 px-3" data-tab-content>
-                      <%= render "article-preview", { form: prop_form, proposal: } %>
-                    </div>
+                <li class="accordion-item <%= proposal.article? ? "is-active" : nil %>" data-accordion-item>
+                  <a href="#" class="accordion-title flex--sbc font-bold mt-5"><%= preview_participatory_text_section_title(proposal) %><span class="mr-m"><%= icon "menu", class: "icon--small", role: "img", "aria-hidden": true %></span></a>
+                  <div class="accordion-content py-3 px-3" data-tab-content>
+                    <%= render "article-preview", { form: prop_form, proposal: } %>
+                  </div>
                 </li>
-                <% end %>
+              <% end %>
             </ul>
           <% end %>
         </div>
@@ -40,21 +40,21 @@
   </div>
 </div>
 <script>
-$(window).on("load", function() {
-  // Not all browsers submit the buttons as form data.
-  $('button[name="save_draft"]').on("click", function(ev) {
-    ev.preventDefault();
+  $(window).on("load", function() {
+    // Not all browsers submit the buttons as form data.
+    $('button[name="save_draft"]').on("click", function(ev) {
+      ev.preventDefault();
 
-    var $form = $(this).parents("form");
-    $form.append('<input type="hidden" name="save_draft" value="true" />');
-    $form.submit();
-  });
-  $( "#participatory-text" ).on( "sortupdate",
-    function( event, ui ) {
-      $('#participatory-text li').each(function(idx, li) {
-        input= $(li).find("input.position").val(idx+1)
-      })
-    }
-  )
-})
+      var $form = $(this).parents("form");
+      $form.append('<input type="hidden" name="save_draft" value="true" />');
+      $form.submit();
+    });
+    $( "#participatory-text" ).on( "sortupdate",
+      function( event, ui ) {
+        $('#participatory-text li').each(function(idx, li) {
+          input= $(li).find("input.position").val(idx+1)
+        })
+      }
+    )
+  })
 </script>
