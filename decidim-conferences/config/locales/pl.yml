@@ -461,6 +461,10 @@ pl:
             states:
               confirmed: Potwierdzono
               pending: Oczekuje
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Aktualne konferencje
       registration_types:
         index:
           choose_an_option: 'Wybierz opcję rejestracji:'
