@@ -156,7 +156,6 @@ lt:
         form:
           title: Bendroji informacija
         index:
-          not_published: Nepublikuota
           published: Publikuota
         new:
           create: Sukurti
