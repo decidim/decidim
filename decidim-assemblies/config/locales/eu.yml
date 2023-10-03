@@ -100,7 +100,6 @@ eu:
         edit:
           update: Eguneratu
         index:
-          not_published: Argitaratu gabe
           private: Pribatua
           public: Publiko
           published: Argitaratua
