@@ -9,7 +9,7 @@ shared_examples "manage conferences" do
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
 
     before do
-      click_link "New Conference"
+      click_link "New conference"
     end
 
     %w(description short_description objectives).each do |field|
@@ -119,7 +119,7 @@ shared_examples "manage conferences" do
 
     it "update an conference without images does not delete them" do
       within_admin_menu do
-        click_link "Info"
+        click_link "About this conference"
       end
       click_button "Update"
 

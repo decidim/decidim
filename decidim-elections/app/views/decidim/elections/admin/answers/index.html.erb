@@ -1,13 +1,21 @@
 <div class="card">
   <div class="item_show__header">
     <h2 class="item_show__header-title">
-      <%= link_to translated_attribute(election.title), elections_path %> &gt;
-      <%= link_to translated_attribute(question.title), election_questions_path(election) %> &gt;
-      <%= t(".title") %>
+      <div>
+        <%= link_to translated_attribute(election.title), elections_path %> &gt;
+        <%= link_to translated_attribute(question.title), election_questions_path(election) %> &gt;
+        <%= t(".title") %>
+      </div>
 
       <div class="ml-auto">
-        <%= link_to t("actions.new", scope: "decidim.elections", name: t("models.answer.name", scope: "decidim.elections.admin")), new_election_question_answer_path(election, question), class: "button button__sm button__secondary" if allowed_to? :create, :answer, election: election, question: question %>
-        <%= link_to t("actions.import", scope: "decidim.elections", name: t("models.answer.name", scope: "decidim.elections.admin")), new_election_question_proposals_import_path(election, question), class: "button button__sm button__secondary" if allowed_to? :import_proposals, :answer, election: election, question: question %>
+        <% if allowed_to? :import_proposals, :answer, election: election, question: question %>
+          <%= import_dropdown do %>
+            <li class="imports--component">
+              <%= link_to t("actions.import", scope: "decidim.elections", name: t("models.answer.name", scope: "decidim.elections.admin")), new_election_question_proposals_import_path(election, question) %>
+            </li>
+          <% end %>
+        <% end %>
+        <%= link_to t("actions.new_answer", scope: "decidim.elections"), new_election_question_answer_path(election, question), class: "button button__sm button__secondary" if allowed_to? :create, :answer, election: election, question: question %>
       </div>
     </h2>
   </div>

@@ -1,19 +1,13 @@
-<% add_decidim_page_title(t("votings.edit.update", scope: "decidim.votings.admin")) %>
+<% add_decidim_page_title(t("info", scope: "decidim.votings.admin.menu.votings_submenu")) %>
+<% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
+
 <div class="item_show__header">
     <h2 class="item_show__header-title">
-    <%= t("info", scope: "decidim.admin.menu.participatory_processes_submenu") %>
+    <%= t("info", scope: "decidim.votings.admin.menu.votings_submenu") %>
   </h2>
 </div>
-<div class="item__edit">
-  <div class="item__edit-menu">
-    <div class="item__edit-menu-sticky">
-      <p class="item__edit-menu-title">
-        <%= t("sections", scope: "decidim.assemblies.admin.assemblies.form") %>
-      </p>
-      <%= link_to t("title", scope: "decidim.votings.admin.votings.form"), decidim_admin_votings.edit_voting_path(current_participatory_space, anchor: "title"), class: "item__edit-menu-anchor" %>
-    </div>
-  </div>
 
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for @form,
                          method: :patch,

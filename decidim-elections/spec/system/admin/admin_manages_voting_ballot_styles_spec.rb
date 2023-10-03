@@ -38,7 +38,7 @@ describe "Admin manages ballot styles", type: :system do
     end
 
     it "can add a ballot style" do
-      click_link("New")
+      click_link("New ballot style")
 
       within ".new_ballot_style" do
         fill_in :ballot_style_code, with: "new code"

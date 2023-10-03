@@ -297,13 +297,13 @@ describe "Admin manages votings", type: :system do
     end
 
     within_admin_menu do
-      expect(page).to have_content("Information")
+      expect(page).to have_content("About this voting")
       expect(page).to have_content("Landing Page")
       expect(page).to have_content("Components")
       expect(page).to have_content("Attachments")
       expect(page).to have_content("Polling Stations")
       expect(page).to have_content("Polling Officers")
-      expect(page).to have_css(".is-active", text: "Information")
+      expect(page).to have_css(".is-active", text: "About this voting")
     end
   end
 end

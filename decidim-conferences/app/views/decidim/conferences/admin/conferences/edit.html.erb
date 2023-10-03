@@ -1,21 +1,13 @@
-<% add_decidim_page_title(translated_attribute(current_conference.title)) %>
+<% add_decidim_page_title(t("info", scope: "decidim.admin.menu.conferences_submenu")) %>
+<% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
+
 <div class="item_show__header">
   <h2 class="item_show__header-title">
-    <%= t("info", scope: "decidim.admin.menu.participatory_processes_submenu") %>
+    <%= t("info", scope: "decidim.admin.menu.conferences_submenu") %>
   </h2>
 </div>
 
-<div class="item__edit">
-  <div class="item__edit-menu">
-    <div class="item__edit-menu-sticky">
-      <p class="text-black font-semibold mb-3">
-        <%= t("sections", scope: "decidim.admin.conferences.form") %>
-      </p>
-
-      <%= link_to t("conferences.form.title", scope: "decidim.admin"), decidim_admin_conferences.edit_conference_path(current_participatory_space, anchor: "title"), class: "item__edit-menu-anchor" %>
-    </div>
-  </div>
-
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, html: { class: "form form-defaults edit_conference conference_form_admin" }) do |f| %>
       <%= render partial: "form", object: f %>
