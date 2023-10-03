@@ -462,7 +462,7 @@ fi:
         show:
           login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
           make_conference_registration: 'Ilmoittaudu konferenssiin:'
-          register: Rekisteröidy
+          register: Ilmoittaudu
       content_blocks:
         highlighted_conferences:
           name: Tärkeimmät konferenssit
