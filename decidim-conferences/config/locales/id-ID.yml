@@ -99,7 +99,6 @@ id:
         form:
           title: Informasi Umum
         index:
-          not_published: Tidak diterbitkan
           published: Diterbitkan
         new:
           create: Membuat
