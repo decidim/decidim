@@ -123,7 +123,6 @@ en:
           success: Meeting successfully duplicated.
         new:
           copy: Copy
-          select: Select which data you would like to duplicate
           title: Duplicate meeting
     components:
       meetings:

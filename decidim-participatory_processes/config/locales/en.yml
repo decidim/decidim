@@ -257,8 +257,6 @@ en:
         edit:
           title: Edit process type
           update: Update
-        form:
-          title: Title
         new:
           create: Create
           title: New process type
