@@ -135,7 +135,6 @@
         form:
           title: Generell Informasjon
         index:
-          not_published: Ikke publisert
           published: Publisert
         new:
           create: Opprett
