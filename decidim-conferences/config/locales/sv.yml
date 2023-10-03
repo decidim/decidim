@@ -468,7 +468,7 @@ sv:
       pages:
         home:
           highlighted_conferences:
-            active_spaces: Konferenser
+            active_spaces: Pågående konferenser
             see_all_spaces: Se alla konferenser
       registration_types:
         index:
