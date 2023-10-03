@@ -12,6 +12,8 @@ eu:
         manage: Kudeatu
         templates: Txantiloiak
       templates:
+        actions:
+          new_template: Beste txantiloi bat
         apply:
           error: Arazo bat izan da txantiloi hau aplikatzean.
         copy:
