@@ -94,6 +94,7 @@ it:
           private: Privato
           public: Pubblico
           published: Pubblicato
+          unpublished: Non pubblicato
         new:
           create: Crea
           title: Nuova assemblea
