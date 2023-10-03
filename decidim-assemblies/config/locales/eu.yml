@@ -90,7 +90,9 @@ eu:
       actions:
         import_assembly: Inportatu
         new_assembly: Batzar berria
+        new_assembly_member: Beste batzarkide bat
         new_assembly_type: Batzar mota berria
+        new_assembly_user_role: Bileraren beste administratzaile bat
       assemblies:
         create:
           error: Errorea gertatu da batzar berri bat sortzean.
