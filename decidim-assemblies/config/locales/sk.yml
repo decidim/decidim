@@ -91,7 +91,6 @@ sk:
         edit:
           update: Aktualizovať
         index:
-          not_published: Nepublikované
           private: Súkromné
           public: Verejné
           published: Zverejnené
