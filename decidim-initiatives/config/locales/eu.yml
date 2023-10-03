@@ -66,6 +66,7 @@ eu:
       actions:
         manage: Kudeatu
         new_initiative_type: Ekimen mota berria
+        new_initiative_type_scope: Ekimen motaren beste irismen bat
       filters:
         initiatives:
           decidim_area_id_eq:
