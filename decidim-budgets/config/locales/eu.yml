@@ -45,6 +45,8 @@ eu:
         edit: Editatu
         edit_projects: Kudeatu proiektuak
         import: Inportatu proposamenak proiektuetarako
+        new_budget: Beste aurrekontu bat
+        new_project: Beste proiektu bat
         preview: Aurreikusi
         send_voting_reminders: Botoa gogorarazi
         title: Ekintzak
