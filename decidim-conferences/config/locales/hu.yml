@@ -149,7 +149,6 @@ hu:
         form:
           title: Általános információ
         index:
-          not_published: Nem publikált
           published: Közzétett
         new:
           create: Teremt
