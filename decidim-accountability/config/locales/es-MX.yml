@@ -41,6 +41,9 @@ es-MX:
         edit: Editar
         import: Importar proyectos a resultados
         import_csv: Importar CSV
+        new_result: Añadir resultado
+        new_status: Añadir estado
+        new_timeline_entry: Añadir entrada de la cronología
         preview: Previsualizar
         timeline_entries: Evolución del proyecto
         title: Acciones
