@@ -833,8 +833,6 @@ gl:
           update: Actualización
         form:
           none: Nada
-        index:
-          last_notable_change: Último cambio notable
         new:
           create: Crear páxina
           title: Nova páxina
