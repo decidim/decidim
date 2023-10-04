@@ -3,6 +3,11 @@ import Dropdowns from "a11y-dropdown-component";
 import Dialogs from "a11y-dialog-component";
 import { screens } from "tailwindcss/defaultTheme"
 
+
+const isScreenSize = (key) => {
+  return window.matchMedia(`(min-width: ${screens[key]})`).matches;
+}
+
 const createAccordion = (component) => {
   const accordionOptions = {};
   accordionOptions.isMultiSelectable = component.dataset.multiselectable !== "false";
@@ -13,10 +18,9 @@ const createAccordion = (component) => {
   // Ex:
   // data-open="false" data-open-md="true"
   Object.keys(screens).forEach((key) => {
-    const isScreenSize = window.matchMedia(`(min-width: ${screens[key]})`).matches;
     const elementsToOpen = component.querySelectorAll(`[data-controls][data-open-${key}]`);
 
-    (isScreenSize) && elementsToOpen.forEach((elem) => {
+    (isScreenSize(key)) && elementsToOpen.forEach((elem) => {
       (elem.dataset.open = elem.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())])
     })
   })
@@ -41,9 +45,7 @@ const createDropdown = (component) => {
   // Ex:
   // data-disabled-md="true"
   const isDisabled = Object.keys(screens).some((key) => {
-    const isScreenSize = window.matchMedia(`(min-width: ${screens[key]})`).matches;
-
-    (isScreenSize) && Boolean(component.dataset[`disabled-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())]);
+    (isScreenSize(key)) && Boolean(component.dataset[`disabled-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())]);
   })
 
   if (isDisabled) {
