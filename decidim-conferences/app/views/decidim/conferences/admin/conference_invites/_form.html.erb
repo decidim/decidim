@@ -1,5 +1,5 @@
 <div class="form__wrapper">
-  <div class="attendee-fields">
+  <div class="card attendee-fields pt-4">
     <div class="row column">
       <fieldset class="check-radio-collection">
         <legend><%= t(".attendee_type") %></legend>
@@ -32,7 +32,5 @@
                       { multiple: false, class: "chosen-select" } %>
     </div>
   </div>
-
-  <%= append_javascript_pack_tag "decidim_conferences_admin" %>
-
 </div>
+<%= append_javascript_pack_tag "decidim_conferences_admin" %>
