@@ -641,8 +641,6 @@ zh-CN:
           update: 更新
         form:
           none: 无
-        index:
-          last_notable_change: 上一次值得注意的变化
         new:
           create: 创建页面
           title: 新页面
