@@ -836,6 +836,7 @@ ca:
             timeline:
               name: Calendari de la votació
         index:
+          not_published: Despublicada
           published: Publicada
         landing_page:
           content_blocks:
