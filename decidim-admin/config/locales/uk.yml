@@ -481,8 +481,6 @@ uk:
         edit:
           title: Редагувати сторінку
           update: Оновити
-        index:
-          last_notable_change: Остання помітна зміна
         new:
           title: Створити сторінку
         update:
