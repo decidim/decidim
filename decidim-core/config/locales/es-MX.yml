@@ -1353,6 +1353,8 @@ es-MX:
         conversations: Conversaciones
         followers: Seguidores
         following: Sigue
+        group_admins: Gestionar administradoras
+        group_members: Gestionar miembros
         groups: Grupos
         members: Miembros
         officialized: Participante oficial
