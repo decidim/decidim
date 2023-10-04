@@ -79,7 +79,9 @@ es-MX:
   decidim:
     admin:
       actions:
+        manage: Gestionar
         new_initiative_type: Nuevo tipo de iniciativa
+        new_initiative_type_scope: Añadir ámbito del tipo de iniciativa
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -106,8 +108,11 @@ es-MX:
         committee_members: Miembros de la comisión
         components: Componentes
         information: Información
+        initiative_type_scopes: Ámbitos del tipo de iniciativa
         initiatives: Iniciativas
         initiatives_settings: Configuración
+        initiatives_submenu:
+          info: Acerca de esta iniciativa
         initiatives_types: Tipos de Iniciativa
         moderations: Moderaciones
       models:
