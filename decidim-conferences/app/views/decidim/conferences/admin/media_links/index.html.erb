@@ -4,7 +4,7 @@
     <h2 class="item_show__header-title">
       <%= t("media_links.index.media_links_title", scope: "decidim.admin") %>
       <% if allowed_to? :create, :media_link %>
-         <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.media_link.name", scope: "decidim.admin")), new_conference_media_link_path(current_conference), class: "button button__sm button__secondary new" %>
+         <%= link_to t("actions.new_media_link", scope: "decidim.admin"), new_conference_media_link_path(current_conference), class: "button button__sm button__secondary new" %>
       <% end %>
     </h2>
   </div>

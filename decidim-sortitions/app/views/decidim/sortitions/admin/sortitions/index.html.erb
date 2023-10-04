@@ -5,7 +5,7 @@
       <%= t(".title") %>
       <div class="button--title">
         <% if allowed_to? :create, :sortition %>
-          <%= link_to t("actions.new", scope: "decidim.sortitions.admin", name: t("models.sortition.name", scope: "decidim.sortitions.admin")), new_sortition_path, class: "button button__sm button__secondary" %>
+          <%= link_to t("actions.new_sortition", scope: "decidim.sortitions.admin"), new_sortition_path, class: "button button__sm button__secondary" %>
         <% end %>
       </div>
     </h2>

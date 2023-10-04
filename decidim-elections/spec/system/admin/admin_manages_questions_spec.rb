@@ -21,7 +21,7 @@ describe "Admin manages questions", type: :system do
   end
 
   it "creates a new question" do
-    click_on "New Question"
+    click_on "New question"
 
     within ".new_question" do
       fill_in_i18n(
@@ -37,9 +37,7 @@ describe "Admin manages questions", type: :system do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("Question successfully created.")
 
     within "table" do
       expect(page).to have_content("My question")
@@ -52,9 +50,7 @@ describe "Admin manages questions", type: :system do
     it "does not create a new question" do
       visit Decidim::EngineRouter.admin_proxy(component).new_election_question_path(election)
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("You are not authorized to perform this action")
-      end
+      expect(page).to have_admin_callout("You are not authorized to perform this action")
     end
 
     it "cannot add a new question" do
@@ -80,9 +76,7 @@ describe "Admin manages questions", type: :system do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Question successfully updated.")
 
       within "table" do
         expect(page).to have_content("My new question")
@@ -108,9 +102,7 @@ describe "Admin manages questions", type: :system do
         end
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Question successfully deleted.")
 
       within "table" do
         expect(page).not_to have_content(translated(question.title))

@@ -49,6 +49,12 @@ const createDropdown = (component) => {
     component.addEventListener("click", () => setTimeout(() => document.getElementById(autofocus).focus(), 0));
   }
 
+  const scrollToMenu = component.dataset.scrollToMenu === "true";
+  if (scrollToMenu) {
+    // Auto scroll to show the menu on the viewport
+    component.addEventListener("click", (event) => event.target.getAttribute("aria-expanded") !== "true" && window.scrollTo({ top: component.getBoundingClientRect().top + window.scrollY + document.documentElement.clientTop, behavior: "smooth" }));
+  }
+
   Dropdowns.render(component.id, dropdownOptions);
 }
 

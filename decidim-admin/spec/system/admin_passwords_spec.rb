@@ -49,7 +49,8 @@ describe "Admin passwords", type: :system do
         expect(page).to have_content("Password change")
         fill_in :password_user_password, with: new_password
         click_button "Change my password"
-        expect(page).to have_css(".callout.success")
+
+        expect(page).to have_admin_callout("Password successfully updated")
         expect(page).to have_current_path(decidim_admin.root_path)
       end
     end

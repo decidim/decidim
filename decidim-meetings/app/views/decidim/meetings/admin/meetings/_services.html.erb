@@ -1,9 +1,13 @@
-<div class="card">
-  <div class="item_show__header">
-    <h2 class="item_show__header-title"><%= t(".services") %></h2>
+<div class="card" data-component="accordion" id="accordion-services">
+  <div class="card-divider">
+    <button class="card-divider-button" data-open="true" data-controls="panel-services" type="button">
+      <%= icon "arrow-right-s-line" %>
+      <h2 class="card-title" id="services"><%= t(".services") %>
+      </h2>
+    </button>
   </div>
 
-  <div class="card-section">
+  <div id="panel-services" class="card-section">
     <div class="meeting-services row column">
       <script type="text/template" class="decidim-template">
         <%= fields_for "meeting[services][#{blank_service.to_param}]", blank_service do |service_form| %>
