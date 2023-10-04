@@ -805,8 +805,6 @@ it:
           update: Aggiorna
         form:
           none: Nessuna
-        index:
-          last_notable_change: Ultimo cambiamento significativo
         new:
           create: Crea pagina
           title: Nuova pagina
