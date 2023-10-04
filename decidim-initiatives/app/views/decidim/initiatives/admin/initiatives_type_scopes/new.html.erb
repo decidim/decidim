@@ -1,22 +1,23 @@
 <% add_decidim_page_title(t(".title")) %>
-<div class="card">
-  <div class="item_show__header">
-    <h2 class="item_show__header-title"><%= t ".title" %></h2>
-  </div>
 
-  <div class="card-section">
-    <div class="row column">
-      <%= decidim_form_for @form,
-                           url: initiatives_type_initiatives_type_scopes_path(params[:initiatives_type_id]),
-                           html: { class: "form new_initiatives_type_scopes" } do |f| %>
-        <%= render partial: "form", object: f %>
-        <div class="item__edit-sticky">
-          <div class="item__edit-sticky-container">
-            <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
-            <%= link_to t(".back"), edit_initiatives_type_path(params[:initiatives_type_id]), class: "button button__sm button__secondary" %>
-          </div>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t ".title" %>
+  </h2>
+</div>
+
+<div>
+  <div class="item__edit-form">
+    <%= decidim_form_for @form,
+                         url: initiatives_type_initiatives_type_scopes_path(params[:initiatives_type_id]),
+                         html: { class: "form form-defaults new_initiatives_type_scopes" } do |f| %>
+
+      <%= render partial: "form", object: f %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>

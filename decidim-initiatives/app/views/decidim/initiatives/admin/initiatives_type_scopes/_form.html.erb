@@ -1,7 +1,12 @@
-<div class="row column">
-  <%= scopes_select_field form, :decidim_scopes_id, root: nil %>
-</div>
-
-<div class="row column">
-  <%= form.number_field :supports_required, min: 1, step: 1 %>
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
+      <div class="row column">
+        <%= scopes_select_field form, :decidim_scopes_id, root: nil %>
+      </div>
+      <div class="row column">
+        <%= form.number_field :supports_required, min: 1, step: 1 %>
+      </div>
+    </div>
+  </div>
 </div>

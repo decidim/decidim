@@ -52,7 +52,7 @@ describe "Admin imports assembly", type: :system do
     it "imports the json document" do
       expect(page).to have_content("successfully")
       expect(page).to have_content("Import assembly")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
 
       within find("tr", text: "Import assembly") do
         click_link "Configure"

@@ -26,7 +26,7 @@ shared_examples "manage conference admins examples" do
   end
 
   it "creates a new conference admin" do
-    click_link "New Conference Admin"
+    click_link "New conference admin"
 
     within ".new_conference_user_role" do
       fill_in :conference_user_role_email, with: other_user.email
