@@ -89,6 +89,12 @@ es-MX:
     admin:
       actions:
         confirm: Confirmar
+        new_conference: Añadir jornada
+        new_conference_user_role: Añadir administradora
+        new_media_link: Añadir enlace multimedia
+        new_partner: Añadir colaboradora
+        new_registration_type: Añadir tipo de registro
+        new_speaker: Añadir ponente
         send_diplomas: Enviar certificados de asistencia.
       conference_copies:
         new:
@@ -152,6 +158,7 @@ es-MX:
           title: Información general
         index:
           published: Publicado
+          unpublished: Despublicada
         new:
           create: Crear
           title: Conferencia
@@ -191,11 +198,13 @@ es-MX:
           conference_invites: Invita
           conference_speakers: Ponentes
           diploma: Certificado de asistencia
+          info: Acerca de esta jornada
           media_links: Enlaces multimedia
           moderations: Moderaciones
           partners: Colaboradores
           registration_types: Tipos de inscripción
           registrations: Inscripciones
+          see_conference: Ver la jornada
           user_registrations: Inscripciones de usuario
       models:
         conference:
@@ -448,10 +457,14 @@ es-MX:
           collaborators: Colaboradores
           main_promotors: Organizadores
         show:
+          already_have_an_account?: '¿Ya tienes una cuenta?'
+          are_you_new?: '¿Aún no eres participante?'
           login_as: Has iniciado sesión como %{name} <%{email}>
           make_conference_registration: Inscríbete en la jornada
           manage_registration: Gestionar inscripciones
           register: Inscripciones
+          sign_in_description: Inicia sesión para inscribirte en la conferencia
+          sign_up_description: Crea una cuenta de participante para inscribirte en la jornada
       content_blocks:
         highlighted_conferences:
           name: Conferencias destacadas
