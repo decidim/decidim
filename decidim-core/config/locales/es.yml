@@ -1350,6 +1350,8 @@ es:
         conversations: Conversaciones
         followers: Seguidoras
         following: Siguiendo
+        group_admins: Gestionar administradoras
+        group_members: Gestionar miembros
         groups: Grupos
         members: Miembros
         officialized: Participante oficial
