@@ -36,7 +36,6 @@ import "./append_elements"
 import "./user_registrations"
 import "./account_form"
 // import "./dropdowns_menus" -- deprecated
-import "./dropdown_scrollable"
 import "./append_redirect_url_to_modals"
 import "./form_attachments"
 import "./form_remote"
