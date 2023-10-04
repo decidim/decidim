@@ -14,9 +14,7 @@ shared_examples "manage assembly members examples" do
     let!(:assembly_member) { create(:assembly_member, assembly:) }
 
     it "creates a new assembly member" do
-      within ".process-title-content" do
-        click_link "New assembly member"
-      end
+      click_link "New assembly member"
 
       fill_in :assembly_member_designation_date, with: Time.current
 
@@ -50,9 +48,7 @@ shared_examples "manage assembly members examples" do
     let!(:member_user) { create(:user, organization: assembly.organization) }
 
     it "creates a new assembly member" do
-      within ".process-title-content" do
-        click_link "New assembly member"
-      end
+      click_link "New assembly member"
 
       fill_in :assembly_member_designation_date, with: Time.current
 
@@ -78,9 +74,7 @@ shared_examples "manage assembly members examples" do
     let!(:member_organization) { create(:user_group, :verified, organization: assembly.organization) }
 
     it "creates a new assembly member" do
-      within ".process-title-content" do
-        click_link "New assembly member"
-      end
+      click_link "New assembly member"
 
       fill_in :assembly_member_designation_date, with: Time.current
 
