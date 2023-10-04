@@ -38,6 +38,7 @@ es:
         actions:
           destroy: Cancela el sorteo
           edit: Editar
+          new_sortition: Añadir sorteo
           show: Detalles del sorteo
         models:
           sortition:
