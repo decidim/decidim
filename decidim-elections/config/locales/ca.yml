@@ -160,6 +160,10 @@ ca:
         manage_answers: Gestionar les respostes
         manage_questions: Administrar preguntes
         manage_steps: Administrar les fases
+        new_answer: Afegir resposta
+        new_election: Afegir elecció
+        new_question: Afegir pregunta
+        new_trustee: Afegir garant
         preview: Previsualitzar
         publish: Publicar
         title: Accions
@@ -456,6 +460,7 @@ ca:
             started: El procés de recompte ha començat.
           tally_title: Procés de recompte
           title: Registre de l'elecció
+          unpublished: Despublicada
           verifiable_results:
             checksum: 'Suma de comprovació SHA256 de l''arxiu:'
             description:
@@ -791,6 +796,7 @@ ca:
               confirm_destroy: N'estàs segura?
               destroy: Esborrar
               edit: Editar
+              new: Afegir estil de papereta
               title: Accions
             associated_census_data: Entrades del cens associades
             explanation_callout: Un estil de papereta especifica quines són les preguntes que veuran les votants a la cabina. Així, en aquesta elecció pots escollir-ne quines formaran part de la papereta. El codi d'estil de papereta normalment es fa servir per fer coincidir a una votant del cens amb la papereta que se li ha de mostrar a la cabina. No creïs cap estil de papereta si vols que sempre es mostrin totes les preguntes.
@@ -828,6 +834,7 @@ ca:
             name: Calendari de la votació
         index:
           published: Publicada
+          unpublished: Despublicada
         landing_page:
           content_blocks:
             create:
@@ -853,6 +860,7 @@ ca:
             ballot_styles: Estils de papereta
             census: Cens
             components: Components
+            info: Sobre aquesta votació
             landing_page: Pàgina d'inici
             monitoring_committee: Comitè de seguiment
             monitoring_committee_election_results: Valida els resultats
@@ -861,6 +869,7 @@ ca:
             monitoring_committee_verify_elections: Verificar eleccions
             polling_officers: Gestors de mesa
             polling_stations: Punts de votació
+            see_voting: Veure la votació
         models:
           ballot_style:
             fields:
@@ -1276,6 +1285,7 @@ ca:
         actions:
           confirm_destroy: N'estàs segura?
           destroy: Esborrar
+          new: Afegir gestora de mesa
           title: Accions
         roles:
           manager: Administrador
@@ -1296,6 +1306,7 @@ ca:
           confirm_destroy: N'estàs segura?
           destroy: Esborrar
           edit: Editar
+          new: Afegir punt de votació
           title: Accions
       votings:
         access_code_modal:
