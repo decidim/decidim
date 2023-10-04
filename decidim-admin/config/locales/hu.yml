@@ -1000,8 +1000,6 @@ hu:
           update: Frissítés
         form:
           none: Egyik sem
-        index:
-          last_notable_change: Utolsó jelentős változás
         new:
           create: Oldal létrehozása
           title: Új oldal
