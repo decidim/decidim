@@ -15,9 +15,8 @@
             </div>
 
             <% if @form.hide %>
-              <div class="row column">
-                <%= t(".already_reported_html", link: new_user_block_path(user_id: user.id)) %>
-              </div>
+              <% announcement_message = t(".already_reported_html", link: new_user_block_path(user_id: user.id)) %>
+              <%= cell("decidim/announcement", announcement_message, callout_class: "alert" ) %>
             <% end %>
 
             <% if defined?(Decidim::Templates) %>
