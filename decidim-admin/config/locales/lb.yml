@@ -797,8 +797,6 @@ lb:
           update: Aktualisieren
         form:
           none: Keiner
-        index:
-          last_notable_change: Letzte bemerkenswerte Änderung
         new:
           create: Seite erstellen
           title: Neue Seite
