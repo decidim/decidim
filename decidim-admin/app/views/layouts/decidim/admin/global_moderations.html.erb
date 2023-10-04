@@ -1,4 +1,5 @@
 <% add_decidim_page_title(t(".title" )) %>
+<% add_secondary_root_menu(:admin_global_moderation_menu) %>
 <% content_for :breadcrumb_context_menu do %>
   <div class="process-title-content-breadcrumb-container-right">
     <div class="inline-block relative">
@@ -9,7 +10,7 @@
         <%= icon "arrow-down-s-line" %>
       <% end %>
       <div id="global-moderations-dropdown-menu-settings" class="process-title-content-dropdown">
-        <%= sidebar_menu(:admin_global_moderation_menu).render %>
+        <%= dropdown_menu(:admin_global_moderation_menu).render %>
       </div>
     </div>
   </div>

@@ -99,7 +99,9 @@ en:
       actions:
         import_assembly: Import
         new_assembly: New assembly
+        new_assembly_member: New assembly member
         new_assembly_type: New assembly type
+        new_assembly_user_role: New assembly admin
       assemblies:
         create:
           error: There was a problem creating a new assembly.
@@ -107,10 +109,10 @@ en:
         edit:
           update: Update
         index:
-          not_published: Not published
           private: Private
           public: Public
           published: Published
+          unpublished: Unpublished
         new:
           create: Create
           title: New assembly
@@ -205,7 +207,7 @@ en:
           attachments: Attachments
           categories: Categories
           components: Components
-          info: Info
+          info: About this assembly
           landing_page: Landing page
           moderations: Moderations
           private_users: Private users
@@ -288,7 +290,6 @@ en:
             included_at_help: Select the date when this assembly was added to the platform. It does not necessarily have to be the same as the creation date.
             metadata: Metadata
             other: Other
-            sections: Sections
             select_a_created_by: Select a created by
             select_an_area: Select an Area
             select_an_assembly_type: Select an assembly type

@@ -101,3 +101,11 @@
 .voting-title-content {
   @apply text-xs font-bold w-full text-white;
 }
+
+.dropdown {
+  &__item {
+    a[href*="components"] + ul {
+      @apply hidden;
+    }
+  }
+}

@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# i18n-tasks-use t('decidim.conferences.conferences.show.already_have_an_account?')
+# i18n-tasks-use t('decidim.conferences.conferences.show.are_you_new?')
+# i18n-tasks-use t('decidim.conferences.conferences.show.sign_in_description')
+# i18n-tasks-use t('decidim.conferences.conferences.show.sign_up_description')
 module Decidim
   module Conferences
     # A controller that holds the logic to show Conferences in a

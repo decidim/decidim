@@ -1,3 +1,4 @@
+<% add_secondary_root_menu(:admin_template_types_menu) %>
 <% content_for :breadcrumb_context_menu do %>
   <div class="process-title-content-breadcrumb-container-right">
     <div class="inline-block relative">
@@ -8,7 +9,7 @@
         <%= icon "arrow-down-s-line" %>
       <% end %>
       <div id="template-dropdown-menu-settings" class="process-title-content-dropdown">
-        <%= sidebar_menu(:admin_template_types_menu).render %>
+        <%= dropdown_menu(:admin_template_types_menu).render %>
       </div>
     </div>
   </div>
