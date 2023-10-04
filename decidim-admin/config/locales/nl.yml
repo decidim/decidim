@@ -860,8 +860,6 @@ nl:
           update: Bijwerken
         form:
           none: Geen
-        index:
-          last_notable_change: Laatste opvallende verandering
         new:
           create: Creëer pagina
           title: Nieuwe pagina
