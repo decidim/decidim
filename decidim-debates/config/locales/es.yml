@@ -51,6 +51,7 @@ es:
         confirm_destroy: '¿Estás segura?'
         destroy: Elimina
         edit: Editar
+        new: Añadir debate
         title: Acciones
       admin:
         debate_closes:
