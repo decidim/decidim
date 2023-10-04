@@ -1350,6 +1350,8 @@ ca:
         conversations: Converses
         followers: Seguidores
         following: Seguint
+        group_admins: Gestionar administradores
+        group_members: Gestionar membres
         groups: Grups
         members: Membres
         officialized: Participant oficial
