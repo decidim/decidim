@@ -27,6 +27,9 @@ const initializeAccountForm = () => {
     return;
   }
 
+  const newPassword = $("#panel-password"),
+      oldPassword = $("#panel-old-password")
+
   // Foundation uses jQuery so these have to be bound using jQuery and the
   // attribute value needs to be set through jQuery.
   const togglePasswordFieldValidators = (field) => {
@@ -38,40 +41,28 @@ const initializeAccountForm = () => {
     }
   }
 
-  const unHideElement = (el) => {
-    if ($(el).hasClass("hidden")) {
-      $(el).removeClass("hidden")
+  const toggleElements = () => {
+    if ($(emailField).data("origin") === emailField.value) {
+      return [newPassword, oldPassword]
     }
+    return [newPassword]
   }
-
-  const hideElement = (el) => {
-    if ($(el).hasClass("hidden")) {
-      return;
-    }
-    $(el).addClass("hidden")
-  }
-
-  const toggleHiddenElement = (el) => {
-    if ($(el).hasClass("hidden")) {
-      unHideElement($(el))
-    } else {
-      hideElement($(el))
-    }
-  }
-
 
   $(passwordChange).on("click", "span", () => {
-    [$("#panel-old-password"), $("#panel-password")].forEach((field) => toggleHiddenElement(field));
-    passwordFields.forEach((field) => {
-      togglePasswordFieldValidators(field);
+    const elementsToToggle = toggleElements();
+    elementsToToggle.forEach((field) => {
+      field.toggleClass("hidden", () => {
+        togglePasswordFieldValidators(field)
+      })
     })
-  });
+  })
 
   emailField.addEventListener("input", () => {
-    const oldPassword = $("#panel-old-password")
     if ($(emailField).data("origin") !== emailField.value) {
-      console.log("TRIGGERED")
-      unHideElement(oldPassword)
+      if (oldPassword.is(":hidden")) {
+        oldPassword.toggleClass("hidden")
+        togglePasswordFieldValidators(oldPassword)
+      }
     }
   })
 };
