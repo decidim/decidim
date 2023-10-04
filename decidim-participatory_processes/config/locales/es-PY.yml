@@ -100,6 +100,7 @@ es-PY:
         edit: Editar
         filter:
           all_processes: Mostrar todos los procesos
+          process_groups: Grupos de procesos
         import_process: Importar
         moderate: Moderar
         new_process: Nuevo proceso
@@ -110,6 +111,7 @@ es-PY:
         preview: Previsualizar
         publish: Publicar
         resend_invitation: Reenviar invitación
+        see_process: Ver el proceso
         unpublish: Despublicar
       menu:
         participatory_process_groups: Grupos de procesos
@@ -124,6 +126,7 @@ es-PY:
           attachments: Archivos adjuntos
           categories: Categorías
           components: Componentes
+          info: Acerca de este proceso
           landing_page: Página de inicio
           moderations: Moderaciones
           private_users: Usuarios privados
@@ -132,6 +135,7 @@ es-PY:
       models:
         participatory_process:
           fields:
+            actions: Acciones
             created_at: Fecha de creación
             private: Privado
             published: Publicada
@@ -285,6 +289,7 @@ es-PY:
           private: Privado
           public: Público
           published: Publicada
+          unpublished: Despublicado
         new:
           create: Crear
           title: Nuevo proceso participativo
@@ -416,6 +421,7 @@ es-PY:
         participatory_process_groups:
           form:
             metadata: Metadatos
+            title: Acerca de este proceso
             visibility: Visibilidad
         participatory_process_imports:
           form:
