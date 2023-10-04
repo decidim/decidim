@@ -852,8 +852,6 @@
           update: Oppdater
         form:
           none: Ingen
-        index:
-          last_notable_change: Siste merkbare endring
         new:
           create: Opprett side
           title: Ny side
