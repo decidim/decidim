@@ -12,6 +12,7 @@ module Decidim
     attribute :name
     attribute :nickname
     attribute :email
+    attribute :old_password
     attribute :password
     attribute :avatar, Decidim::Attributes::Blob
     attribute :remove_avatar, Boolean, default: false
@@ -24,6 +25,7 @@ module Decidim
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
     validates :password, password: { name: :name, email: :email, username: :nickname }, if: -> { password.present? }
+    validate :validate_old_password, if: -> { password.present? }
     validates :avatar, passthru: { to: Decidim::User }
 
     validate :unique_email
@@ -50,6 +52,12 @@ module Decidim
 
       errors.add :email, :taken
       false
+    end
+
+    def validate_old_password
+      return true if password == old_password
+
+      errors.add :old_password, :invalid
     end
 
     def unique_nickname

@@ -33,6 +33,18 @@ module Decidim
       }
     end
 
+    def old_password_options
+      help_text = t("devise.passwords.edit.old_password_help")
+
+      {
+        autocomplete: "old-password",
+        required: true,
+        label: false,
+        help_text:,
+        placeholder: "••••••"
+      }
+    end
+
     def needs_admin_password?(user)
       return false unless user&.admin?
       return false unless Decidim.config.admin_password_strong
