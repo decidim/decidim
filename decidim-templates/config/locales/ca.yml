@@ -12,6 +12,8 @@ ca:
         manage: Gestionar
         templates: Plantilles
       templates:
+        actions:
+          new_template: Afegir plantilla
         apply:
           error: S'ha produït un error en actualitzar aquesta plantilla.
           success: La plantilla s'ha aplicat correctament.
