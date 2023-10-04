@@ -860,8 +860,6 @@ pl:
           update: Aktualizuj
         form:
           none: Bez tematu
-        index:
-          last_notable_change: Ostatnia istotna zmiana
         new:
           create: Utwórz stronę
           title: Nowa strona
