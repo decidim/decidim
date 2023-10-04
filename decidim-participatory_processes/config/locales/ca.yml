@@ -100,6 +100,7 @@ ca:
         edit: Editar
         filter:
           all_processes: Mostra tots els processos
+          process_groups: Grups de processos
         import_process: Importar
         moderate: Moderar
         new_process: Nou procés
@@ -110,6 +111,7 @@ ca:
         preview: Previsualitzar
         publish: Publicar
         resend_invitation: Reenviar la invitació
+        see_process: Veure el procés
         unpublish: Despublicar
       menu:
         participatory_process_groups: Grups de processos
@@ -124,6 +126,7 @@ ca:
           attachments: Adjunts
           categories: Categories
           components: Components
+          info: Quant a aquest procés
           landing_page: Pàgina d'inici
           moderations: Moderacions
           private_users: Participants privades
@@ -132,6 +135,7 @@ ca:
       models:
         participatory_process:
           fields:
+            actions: Accions
             created_at: Data de creació
             private: Privat
             published: Publicat
@@ -285,6 +289,7 @@ ca:
           private: Privat
           public: Públic
           published: Publicat
+          unpublished: Despublicat
         new:
           create: Crea
           title: Nou procés participatiu
@@ -416,6 +421,7 @@ ca:
         participatory_process_groups:
           form:
             metadata: Metadades
+            title: Quant a aquest procés
             visibility: Visibilitat
         participatory_process_imports:
           form:
