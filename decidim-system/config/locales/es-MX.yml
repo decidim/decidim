@@ -37,6 +37,9 @@ es-MX:
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
         destroy: Borrar
         edit: Editar
+        new_admin: Añadir administradora
+        new_oauth_application: Añadir aplicación OAUTH
+        new_organization: Añadir organización
         save: Guardar
         title: Acciones
       admins:
