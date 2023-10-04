@@ -51,6 +51,7 @@ ca:
         confirm_destroy: Segur?
         destroy: Suprimeix
         edit: Edita
+        new: Afegir debat
         title: Accions
       admin:
         debate_closes:
