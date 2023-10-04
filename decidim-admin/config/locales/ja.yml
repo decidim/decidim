@@ -1004,8 +1004,6 @@ ja:
         form:
           none: なし
           slug_help_html: 'ここでは完全な URL ではなく、相対パスを使用してください。英字、数字、ハイフン、スラッシュを受け入れ、英字で始まる必要があります。例: %{url}'
-        index:
-          last_notable_change: 前回の注目すべき変更
         new:
           create: ページを作成
           title: 新しいページ
