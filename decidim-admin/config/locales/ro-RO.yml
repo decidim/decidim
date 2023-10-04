@@ -993,8 +993,6 @@ ro:
           update: Actualizează
         form:
           none: Niciunul
-        index:
-          last_notable_change: Ultima modificare importantă
         new:
           create: Creează o pagină
           title: Pagină nouă
