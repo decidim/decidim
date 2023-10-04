@@ -1022,6 +1022,8 @@ cs:
         form:
           none: Žádný
           slug_help_html: 'Použijte v tomto případě částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Příklad: %{url}'
+        index:
+          last_notable_change: 'Poslední významná změna: %{tos_version_formatted}'
         new:
           create: Vytvořit stránku
           title: Nová stránka
