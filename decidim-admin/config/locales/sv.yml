@@ -898,8 +898,6 @@ sv:
           update: Uppdatera
         form:
           none: Ingen
-        index:
-          last_notable_change: Senast märkbara förändring
         new:
           create: Skapa sida
           title: Ny sida
