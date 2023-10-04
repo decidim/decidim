@@ -1359,6 +1359,7 @@ en:
         followers: Followers
         following: Follows
         group_admins: Group admins
+        group_members: Group members
         groups: Groups
         members: Members
         officialized: Official participant
