@@ -782,8 +782,6 @@ ar:
           update: تحديث
         form:
           none: لا شيء
-        index:
-          last_notable_change: آخر تغيير ملحوظ
         new:
           create: إنشاء صفحة
           title: صفحة جديدة
