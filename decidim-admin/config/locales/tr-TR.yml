@@ -716,8 +716,6 @@ tr:
           update: Güncelleştirme
         form:
           none: Yok
-        index:
-          last_notable_change: Son önemli değişiklik
         new:
           create: Sayfa oluştur
           title: Yeni sayfa
