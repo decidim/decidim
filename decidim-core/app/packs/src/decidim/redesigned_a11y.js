@@ -12,7 +12,14 @@ const createAccordion = (component) => {
   // Just include the breakpoint where the different value will be applied from.
   // Ex:
   // data-open="false" data-open-md="true"
-  Object.keys(screens).forEach((key) => (window.matchMedia(`(min-width: ${screens[key]})`).matches) && component.querySelectorAll(`[data-controls][data-open-${key}]`).forEach((elem) => (elem.dataset.open = elem.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())])))
+  Object.keys(screens).forEach((key) => {
+    const isScreenSize = window.matchMedia(`(min-width: ${screens[key]})`).matches;
+    const elementsToOpen = component.querySelectorAll(`[data-controls][data-open-${key}]`);
+
+    (isScreenSize) && elementsToOpen.forEach((elem) => {
+      (elem.dataset.open = elem.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())])
+    })
+  })
 
   if (!component.id) {
     // when component has no id, we enforce to have it one
@@ -33,7 +40,12 @@ const createDropdown = (component) => {
   // Just include the breakpoint where the different value will be applied from.
   // Ex:
   // data-disabled-md="true"
-  const isDisabled = Object.keys(screens).some((key) => (window.matchMedia(`(min-width: ${screens[key]})`).matches) && Boolean(component.dataset[`disabled-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())]));
+  const isDisabled = Object.keys(screens).some((key) => {
+    const isScreenSize = window.matchMedia(`(min-width: ${screens[key]})`).matches;
+
+    (isScreenSize) && Boolean(component.dataset[`disabled-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())]);
+  })
+
   if (isDisabled) {
     return
   }
@@ -52,7 +64,12 @@ const createDropdown = (component) => {
   const scrollToMenu = component.dataset.scrollToMenu === "true";
   if (scrollToMenu) {
     // Auto scroll to show the menu on the viewport
-    component.addEventListener("click", (event) => event.target.getAttribute("aria-expanded") !== "true" && window.scrollTo({ top: component.getBoundingClientRect().top + window.scrollY + document.documentElement.clientTop, behavior: "smooth" }));
+    component.addEventListener("click", (event) => {
+      const heightToScroll = component.getBoundingClientRect().top + window.scrollY + document.documentElement.clientTop;
+      const isCollapsed = event.target.getAttribute("aria-expanded") !== "true";
+
+      isCollapsed && window.scrollTo({ top: heightToScroll, behavior: "smooth" })
+    });
   }
 
   Dropdowns.render(component.id, dropdownOptions);
