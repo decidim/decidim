@@ -1354,6 +1354,8 @@ fr-CA:
         conversations: Conversations
         followers: Abonnés
         following: Est abonné à
+        group_admins: Gérer les administrateurs
+        group_members: Gérer les membres
         groups: Groupes
         members: Membres
         officialized: Participant officiel
