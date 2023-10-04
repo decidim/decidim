@@ -98,7 +98,9 @@ es:
       actions:
         import_assembly: Importar
         new_assembly: Nueva asamblea
+        new_assembly_member: Añadir miembro
         new_assembly_type: Nuevo tipo de asamblea
+        new_assembly_user_role: Añadir administradora
       assemblies:
         create:
           error: Se ha producido un error al crear una nueva asamblea.
@@ -109,6 +111,7 @@ es:
           private: Privado
           public: Público
           published: Publicado
+          unpublished: Despublicada
         new:
           create: Crear
           title: Nueva asamblea
@@ -203,9 +206,11 @@ es:
           attachments: Adjuntos
           categories: Categorías
           components: Componentes
+          info: Acerca de esta asamblea
           landing_page: Página de inicio
           moderations: Moderaciones
           private_users: Participantes privadas
+          see_assembly: Ver la asamblea
         assemblies_types: Tipos de asamblea
       models:
         assemblies_types:
@@ -214,6 +219,7 @@ es:
             title: Título
         assembly:
           fields:
+            actions: Acciones
             created_at: Fecha de creación
             private: Privada
             promoted: Destacada
