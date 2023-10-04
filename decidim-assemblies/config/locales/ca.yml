@@ -98,7 +98,9 @@ ca:
       actions:
         import_assembly: Importar
         new_assembly: Nova assemblea
+        new_assembly_member: Afegir membre
         new_assembly_type: Nou tipus d'assemblea
+        new_assembly_user_role: Afegir administradora
       assemblies:
         create:
           error: S'ha produït un error en crear una nova assemblea.
@@ -109,6 +111,7 @@ ca:
           private: Privat
           public: Públic
           published: Publicat
+          unpublished: Despublicada
         new:
           create: Crea
           title: Nova assemblea
@@ -203,9 +206,11 @@ ca:
           attachments: Adjunts
           categories: Categories
           components: Components
+          info: Sobre aquesta assemblea
           landing_page: Pàgina d'inici
           moderations: Moderacions
           private_users: Participants privades
+          see_assembly: Veure l'assemblea
         assemblies_types: Tipus d'assemblees
       models:
         assemblies_types:
@@ -214,6 +219,7 @@ ca:
             title: Títol
         assembly:
           fields:
+            actions: Accions
             created_at: Data de creació
             private: Privada
             promoted: Destacada
