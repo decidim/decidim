@@ -4,10 +4,22 @@ import Dialogs from "a11y-dialog-component";
 import { screens } from "tailwindcss/defaultTheme"
 
 
+/**
+ * Checks if a key is in the current viewport
+ *
+ * @param {('sm'|'md'|'lg'|'xl'|'2xl')} key - The key to check the screen size.
+ * @returns {boolean} - Returns true if the screen size corresponds with the key
+ */
 const isScreenSize = (key) => {
   return window.matchMedia(`(min-width: ${screens[key]})`).matches;
 }
 
+/**
+ * Create accordion from a component
+ *
+ * @param {HTMLElement} component - The component to be created
+ * @return {void}
+ */
 const createAccordion = (component) => {
   const accordionOptions = {};
   accordionOptions.isMultiSelectable = component.dataset.multiselectable !== "false";
@@ -33,6 +45,12 @@ const createAccordion = (component) => {
   Accordions.render(component.id, accordionOptions);
 }
 
+/**
+ * Create dropdown from a component
+ *
+ * @param {HTMLElement} component - The component to be created
+ * @return {void}
+ */
 const createDropdown = (component) => {
   const dropdownOptions = {};
   dropdownOptions.dropdown = component.dataset.target;
@@ -77,6 +95,12 @@ const createDropdown = (component) => {
   Dropdowns.render(component.id, dropdownOptions);
 }
 
+/**
+ * Create dialog from a component
+ *
+ * @param {HTMLElement} component - The component to be created
+ * @return {void}
+ */
 const createDialog = (component) => {
   const {
     dataset: { dialog, ...attrs }
