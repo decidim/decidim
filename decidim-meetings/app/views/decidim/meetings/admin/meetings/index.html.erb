@@ -69,7 +69,7 @@
             </td>
             <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
               <td>
-                <%= static_map_link(meeting) %>
+                <%= static_map_link(meeting) unless meeting.online? %>
               </td>
             <% end %>
             <%= td_resource_scope_for(meeting.scope) %>
