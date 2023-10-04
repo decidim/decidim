@@ -26,7 +26,7 @@ en:
         locale: Locale
         name: Your name
         nickname: Nickname
-        old_password: Old password
+        old_password: Current password
         password: Password
         password_confirmation: Confirm your password
         personal_url: Personal URL
@@ -1686,7 +1686,7 @@ en:
         change_my_password: Change my password
         confirm_new_password: Confirm new password
         new_password: New password
-        old_password_help: You need to provide your old password if you want to change your email or password
+        old_password_help: You need to provide your current password if you want to change your email or password
         password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
         password_help_admin: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and must be different from your old passwords."
         title: Password change

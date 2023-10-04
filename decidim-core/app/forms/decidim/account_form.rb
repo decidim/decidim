@@ -55,7 +55,8 @@ module Decidim
     end
 
     def validate_old_password
-      return true if password == old_password
+      user = context.current_user
+      return true if user.valid_password?(old_password)
 
       errors.add :old_password, :invalid
     end
