@@ -41,6 +41,9 @@ ca:
         edit: Editar
         import: Importar projectes a resultats
         import_csv: Importar CSV
+        new_result: Afegir resultat
+        new_status: Afegir estat
+        new_timeline_entry: Afegir entrada de la cronologia
         preview: Previsualitzar
         timeline_entries: Evolució del projecte
         title: Accions
