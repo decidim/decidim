@@ -595,8 +595,6 @@ lv:
           update: Atjaunināt
         form:
           none: Nav
-        index:
-          last_notable_change: Pēdējās nozīmīgās izmaiņas
         new:
           create: Izveidot lapu
           title: Jauna lapa
