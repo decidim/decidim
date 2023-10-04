@@ -981,8 +981,6 @@ zh-TW:
           update: 更新
         form:
           none: 無
-        index:
-          last_notable_change: 最後重要更改
         new:
           create: 建立頁面
           title: 新頁面
