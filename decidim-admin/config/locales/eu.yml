@@ -904,8 +904,6 @@ eu:
           update: Eguneratu
         form:
           none: Bat ere ez
-        index:
-          last_notable_change: Azken aldaketa nabaria
         new:
           create: Sortu orrialdea
           title: Orri berria
