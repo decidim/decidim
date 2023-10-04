@@ -12,6 +12,8 @@ es:
         manage: Gestionar
         templates: Plantillas
       templates:
+        actions:
+          new_template: Añadir plantilla
         apply:
           error: Se ha producido un error al aplicar esta plantilla.
           success: Plantilla aplicada correctamente.
