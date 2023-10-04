@@ -223,6 +223,7 @@ es:
             one: 'El encuentro no se puede eliminar porque tiene %{count} propuesta asociada:'
             other: 'El encuentro no se puede eliminar porque tiene %{count} propuestas asociadas:'
         manage_poll: Configurar encuesta
+        new_meeting: Añadir encuentro
         preview: Previsualizar
         registrations: Inscripciones
         title: Acciones
