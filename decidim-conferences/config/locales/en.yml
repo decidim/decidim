@@ -158,8 +158,8 @@ en:
         form:
           title: General Information
         index:
-          not_published: Not published
           published: Published
+          unpublished: Unpublished
         new:
           create: Create
           title: Conference
