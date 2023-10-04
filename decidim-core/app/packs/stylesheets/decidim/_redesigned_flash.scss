@@ -6,7 +6,11 @@
   }
 
   &__message {
-    @apply flex flex-col gap-2 text-black font-bold text-lg;
+    @apply gap-2 text-black font-semibold text-lg;
+
+    a {
+      @apply underline;
+    }
 
     &-body {
       @apply text-gray-2 text-sm font-normal prose-a:text-secondary prose-a:underline;
@@ -15,6 +19,10 @@
 
   .close-button {
     @apply ml-auto self-start;
+
+    svg {
+      @apply w-5 h-5 fill-current;
+    }
   }
 
   &.success {

@@ -35,7 +35,10 @@ module Decidim
           end
           resources :versions, only: [:show]
         end
-        root to: "proposals#index"
+        scope "/proposals" do
+          root to: "proposals#index"
+        end
+        get "/", to: redirect("proposals", status: 301)
       end
 
       initializer "decidim_proposals.content_processors" do |_app|

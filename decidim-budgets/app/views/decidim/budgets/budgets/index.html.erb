@@ -2,11 +2,17 @@
 <%= append_stylesheet_pack_tag "decidim_budgets", media: "all" %>
 
 <% content_for :aside do %>
-  <h1 class="h1 decorator"><%= component_name %></h1>
+  <h1 class="title-decorator"><%= component_name %></h1>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <%= cell("decidim/announcement", announcement_body, truncate: true, callout_class: "editor-content") %>
-  <%= cell("decidim/budgets/budgets_header", current_workflow) %>
-  <%= cell("decidim/budgets/budgets_list", current_workflow) %>
+  <%= render partial: "decidim/shared/component_announcement" %>
+
+  <section class="layout-main__section">
+    <%= cell("decidim/budgets/budgets_header", current_workflow) %>
+  </section>
+
+  <section class="layout-main__section layout-main__heading">
+    <%= cell("decidim/budgets/budgets_list", current_workflow) %>
+  </section>
 <% end %>

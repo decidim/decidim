@@ -39,7 +39,7 @@ RSpec.shared_examples "manage child results" do
   end
 
   it "creates a new child result" do
-    click_link "New Result", match: :first
+    click_link "New result", match: :first
 
     within ".new_result" do
       fill_in_i18n(
@@ -75,13 +75,13 @@ RSpec.shared_examples "manage child results" do
     before do
       visit current_path
       within ".table-list__actions" do
-        click_link "New Result"
+        click_link "New result"
       end
     end
 
     it "deletes a result" do
       within find("tr", text: translated(child_result.title)) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

@@ -290,7 +290,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Evaluating")
 
-        within ".callout.warning[data-announcement]" do
+        within ".flash.warning[data-announcement]" do
           expect(page).to have_content("This proposal is being evaluated")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -310,7 +310,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Rejected")
 
-        within ".callout.alert[data-announcement]" do
+        within ".flash.alert[data-announcement]" do
           expect(page).to have_content("This proposal has been rejected")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -326,7 +326,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Accepted")
 
-        within ".callout.success[data-announcement]" do
+        within ".flash.success[data-announcement]" do
           expect(page).to have_content("This proposal has been accepted")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -398,9 +398,9 @@ describe "Proposals", type: :system do
         visit_component
 
         expect(page).to have_selector("a", text: "Random")
-        expect(page).to have_selector(".proposal-list-item", count: 2)
-        expect(page).to have_selector(".proposal-list-item", text: lucky_proposal_title)
-        expect(page).to have_selector(".proposal-list-item", text: unlucky_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']", count: 2)
+        expect(page).to have_selector("[id^='proposals__proposal']", text: lucky_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']", text: unlucky_proposal_title)
         expect(page).to have_author(lucky_proposal.creator_author.name)
       end
     end
@@ -417,7 +417,7 @@ describe "Proposals", type: :system do
       create_list(:proposal, 3, component:)
 
       visit_component
-      expect(page).to have_css(".proposal-list-item", count: 3)
+      expect(page).to have_css("[id^='proposals__proposal']", count: 3)
     end
 
     describe "editable content" do
@@ -469,8 +469,8 @@ describe "Proposals", type: :system do
 
       it "lists the proposals ordered by votes by default" do
         expect(page).to have_selector("a", text: "Most supported")
-        expect(page).to have_selector("#proposals .proposal-list__container .proposal-list-item:first-child", text: most_voted_proposal_title)
-        expect(page).to have_selector("#proposals .proposal-list__container .proposal-list-item:last-child", text: less_voted_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: most_voted_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']:last-child", text: less_voted_proposal_title)
       end
     end
 
@@ -491,7 +491,7 @@ describe "Proposals", type: :system do
 
         visit_component
 
-        expect(page).to have_css(".proposal-list-item", count: 2)
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
       end
     end
 
@@ -503,13 +503,13 @@ describe "Proposals", type: :system do
       it "paginates them" do
         visit_component
 
-        expect(page).to have_css(".proposal-list-item", count: Decidim::Paginable::OPTIONS.first)
+        expect(page).to have_css("[id^='proposals__proposal']", count: Decidim::Paginable::OPTIONS.first)
 
         click_link "Next"
 
         expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
 
-        expect(page).to have_css(".proposal-list-item", count: 5)
+        expect(page).to have_css("[id^='proposals__proposal']", count: 5)
       end
     end
 
@@ -526,8 +526,8 @@ describe "Proposals", type: :system do
       end
 
       it "lists the proposals ordered by selected option" do
-        expect(page).to have_selector("#proposals .proposal-list__container .proposal-list-item:first-child", text: first_proposal_title)
-        expect(page).to have_selector("#proposals .proposal-list__container .proposal-list-item:last-child", text: last_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: first_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']:last-child", text: last_proposal_title)
       end
     end
 
@@ -631,7 +631,7 @@ describe "Proposals", type: :system do
 
     context "when paginating" do
       let!(:collection) { create_list(:proposal, collection_size, component:) }
-      let!(:resource_selector) { ".proposal-list-item" }
+      let!(:resource_selector) { "[id^='proposals__proposal']" }
 
       it_behaves_like "a paginated resource"
     end

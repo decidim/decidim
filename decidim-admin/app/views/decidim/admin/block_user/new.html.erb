@@ -10,9 +10,8 @@
       </div>
       <br>
       <% if @form.hide %>
-        <div class="callout alert">
-          <%= t(".already_reported_html", link: new_user_block_path(user_id: user.id)) %>
-        </div>
+        <% announcement_message = t(".already_reported_html", link: new_user_block_path(user_id: user.id)) %>
+        <%= cell("decidim/announcement", announcement_message, callout_class: "alert" ) %>
       <% end %>
 
       <% if defined?(Decidim::Templates) %>
@@ -27,7 +26,7 @@
     </div>
   </div>
 
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".action") %>
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= f.submit t(".action"), class: "button button__sm button__secondary" %>
   </div>
 <% end %>

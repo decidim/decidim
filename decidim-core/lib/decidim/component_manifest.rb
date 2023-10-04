@@ -44,6 +44,9 @@ module Decidim
     # engine's assets path.
     attribute :icon, String
 
+    # A String with the component's icon key.
+    attribute :icon_key, String
+
     # Actions are used to validate permissions of a component against particular
     # authorizations or potentially other authorization rules.
     #

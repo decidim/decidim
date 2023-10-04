@@ -23,16 +23,14 @@ describe "Admin manages elections", type: :system do
   end
 
   describe "admin form" do
-    before { click_on "New Election" }
+    before { click_on "New election" }
 
     it_behaves_like "having a rich text editor", "new_election", "full"
   end
 
   describe "creating an election" do
     it "creates a new election" do
-      within ".card-title" do
-        page.find(".button.button--title").click
-      end
+      click_link "New election"
 
       within ".new_election" do
         fill_in_i18n(
@@ -61,9 +59,7 @@ describe "Admin manages elections", type: :system do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Election successfully created")
 
       within "table" do
         expect(page).to have_content("My election")
@@ -74,9 +70,7 @@ describe "Admin manages elections", type: :system do
       let(:organization) { create(:organization, time_zone: "Madrid") }
 
       it "shows the correct time zone" do
-        within ".card-title" do
-          page.find(".button.button--title").click
-        end
+        click_link "New election"
 
         expect(page).to have_content("Check that the organization time zone is correct")
         expect(page).to have_content("The current configuration is Madrid")
@@ -107,9 +101,7 @@ describe "Admin manages elections", type: :system do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Election successfully updated")
 
       within "table" do
         expect(page).to have_content("My new title")
@@ -146,9 +138,7 @@ describe "Admin manages elections", type: :system do
           page.find(".action-icon--publish").click
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_admin_callout("The election has been successfully published")
 
         within find("tr", text: translated(election.title)) do
           expect(page).not_to have_selector(".action-icon--publish")
@@ -165,9 +155,7 @@ describe "Admin manages elections", type: :system do
         page.find(".action-icon--unpublish").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("The election has been successfully unpublished")
 
       within find("tr", text: translated(election.title)) do
         expect(page).not_to have_selector(".action-icon--unpublish")
@@ -200,14 +188,12 @@ describe "Admin manages elections", type: :system do
 
     it "deletes an election" do
       within find("tr", text: translated(election.title)) do
-        accept_confirm(admin: true) do
+        accept_confirm do
           page.find(".action-icon--remove").click
         end
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Election successfully deleted")
 
       within "table" do
         expect(page).not_to have_content(translated(election.title))

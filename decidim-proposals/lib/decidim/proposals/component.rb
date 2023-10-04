@@ -8,6 +8,7 @@ Decidim.register_component(:proposals) do |component|
   component.admin_engine = Decidim::Proposals::AdminEngine
   component.stylesheet = "decidim/proposals/proposals"
   component.icon = "media/images/decidim_proposals.svg"
+  component.icon_key = "chat-new-line"
 
   component.on(:before_destroy) do |instance|
     raise "Cannot destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
@@ -294,7 +295,6 @@ Decidim.register_component(:proposals) do |component|
         author = Decidim::User.find_or_initialize_by(email:)
         author.update!(
           password: "decidim123456789",
-          password_confirmation: "decidim123456789",
           name:,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
@@ -360,7 +360,6 @@ Decidim.register_component(:proposals) do |component|
         author = Decidim::User.find_or_initialize_by(email:)
         author.update!(
           password: "decidim123456789",
-          password_confirmation: "decidim123456789",
           name:,
           nickname: Faker::Twitter.unique.screen_name,
           organization: component.organization,
@@ -382,7 +381,6 @@ Decidim.register_component(:proposals) do |component|
           author = Decidim::User.find_or_initialize_by(email:)
           author.update!(
             password: "decidim123456789",
-            password_confirmation: "decidim123456789",
             name:,
             nickname: Faker::Twitter.unique.screen_name,
             organization: component.organization,

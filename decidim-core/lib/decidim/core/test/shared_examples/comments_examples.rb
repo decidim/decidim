@@ -774,6 +774,20 @@ shared_examples "comments" do
             end
           end
         end
+
+        context "when the comment has a thread" do
+          let!(:comment_on_comment) { create(:comment, :comment_on_comment, commentable: comments[0], root_commentable: comments[0].commentable) }
+
+          it "does not increase the votes for the children of the upvoting comment" do
+            skip "Commentable comments has no votes" unless commentable.comments_have_votes?
+
+            visit current_path
+            expect(page).to have_selector("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+            page.find("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up").click
+            expect(page).to have_selector("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/)
+            expect(page).to have_selector("#comment_#{comment_on_comment.id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+          end
+        end
       end
 
       context "when downvoting a comment" do
@@ -900,6 +914,30 @@ shared_examples "comments" do
       it "replaces the hashtag with a link to the hashtag search" do
         expect(page).to have_comment_from(user, "A comment with a hashtag #decidim", wait: 20)
         expect(page).to have_link "#decidim", href: "/search?term=%23decidim"
+      end
+    end
+
+    describe "export_serializer" do
+      let(:comment) { comments.first }
+
+      it "returns the serializer for the comment" do
+        expect(comment.class.export_serializer).to eq(Decidim::Comments::CommentSerializer)
+      end
+
+      context "with instance" do
+        subject { comment.class.export_serializer.new(comment).serialize }
+
+        it { is_expected.to have_key(:id) }
+        it { is_expected.to have_key(:created_at) }
+        it { is_expected.to have_key(:body) }
+        it { is_expected.to have_key(:locale) }
+        it { is_expected.to have_key(:author) }
+        it { is_expected.to have_key(:alignment) }
+        it { is_expected.to have_key(:depth) }
+        it { is_expected.to have_key(:user_group) }
+        it { is_expected.to have_key(:commentable_id) }
+        it { is_expected.to have_key(:commentable_type) }
+        it { is_expected.to have_key(:root_commentable_url) }
       end
     end
   end
