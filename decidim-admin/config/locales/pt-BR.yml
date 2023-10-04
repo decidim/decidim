@@ -991,8 +991,6 @@ pt-BR:
           update: Atualizar
         form:
           none: Nenhum
-        index:
-          last_notable_change: Última alteração notável
         new:
           create: Criar página
           title: Nova página
