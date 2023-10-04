@@ -1010,8 +1010,6 @@ fi:
         form:
           none: Ei mitään
           slug_help_html: 'Käytä tässä osoitepolkuja, ei koko URL-osoitteita. Hyväksyy kirjaimia, numeroita, viivoja ja kauttaviivoja. Arvo on aloitettava kirjaimella. Esimerkki: %{url}'
-        index:
-          last_notable_change: Viimeinen huomattava muutos
         new:
           create: Luo sivu
           title: Uusi sivu
