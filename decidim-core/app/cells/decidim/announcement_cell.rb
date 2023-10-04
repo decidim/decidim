@@ -62,12 +62,6 @@ module Decidim
       announcement[:body].presence
     end
 
-    def truncate?
-      return false unless options.has_key? :truncate
-
-      options[:truncate]
-    end
-
     def clean_body
       return unless body
 
