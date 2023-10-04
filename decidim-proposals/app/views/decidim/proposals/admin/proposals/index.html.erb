@@ -6,8 +6,8 @@
         <%= t(".title") %>
         <span id="js-selected-proposals-count" class="component-counter component-counter--inline" title="<%= t("decidim.proposals.admin.proposals.index.selected") %>"></span>
       </div>
+      <%= render partial: "bulk-actions" %>
     </h2>
-    <%= render partial: "bulk-actions" %>
   </div>
   <%= admin_filter_selector(:proposals) %>
   <div class="table-scroll mt-16">
