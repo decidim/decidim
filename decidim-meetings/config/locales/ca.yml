@@ -223,6 +223,7 @@ ca:
             one: 'No es pot destruir la trobada perquè té %{count} proposta associades:'
             other: 'No es pot destruir la trobada perquè té %{count} propostes associades:'
         manage_poll: Configurar enquesta
+        new_meeting: Afegir trobada
         preview: Previsualitzar
         registrations: Inscripcions
         title: Accions
