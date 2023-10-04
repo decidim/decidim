@@ -164,6 +164,7 @@ cs:
           title: Obecná informace
         index:
           published: Publikováno
+          unpublished: Nezveřejněno
         new:
           create: Vytvořit
           title: Konference
