@@ -1010,8 +1010,6 @@ ca:
         form:
           none: Cap
           slug_help_html: 'Utilitza rutes parcials, no URL completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. Exemple: %{url}'
-        index:
-          last_notable_change: Últims canvis notables
         new:
           create: Crea una pàgina
           title: Nova pàgina
