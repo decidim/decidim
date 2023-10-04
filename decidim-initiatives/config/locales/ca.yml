@@ -79,7 +79,9 @@ ca:
   decidim:
     admin:
       actions:
+        manage: Gestionar
         new_initiative_type: Nou tipus d'iniciativa
+        new_initiative_type_scope: Afegir àmbit del tipus d'iniciativa
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -106,8 +108,11 @@ ca:
         committee_members: Membres de la comissió
         components: Components
         information: Informació
+        initiative_type_scopes: Àmbits del tipus d'iniciativa
         initiatives: Iniciatives
         initiatives_settings: Configuració
+        initiatives_submenu:
+          info: Sobre aquesta iniciativa
         initiatives_types: Tipus d'iniciatives
         moderations: Moderacions
       models:
