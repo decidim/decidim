@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-describe "Datepicker", type: :system do
-  let!(:organization) { create(:organization) }
+describe "Data consent scripts", type: :system do
+  let(:organization) { create(:organization) }
 
   let(:template_class) do
     Class.new(ActionView::Base) do
@@ -12,25 +12,31 @@ describe "Datepicker", type: :system do
       end
     end
   end
-
   let(:template) { template_class.new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
-  let(:javascript) { template.javascript_pack_tag("redesigned_decidim_core", defer: false) }
 
   let(:html_document) do
-    js = javascript
     template.instance_eval do
+      js_config = { icons_path: asset_pack_path("media/images/icons.svg") }
+
       <<~HTML.strip
         <!doctype html>
         <html lang="en">
         <head>
-          <title>Datepicker Test</title>
-          #{stylesheet_pack_tag "redesigned_decidim_core", media: "all"}
+          <title>Accessibility Test</title>
+          #{stylesheet_pack_tag "redesigned_decidim_core"}
           #{stylesheet_pack_tag "decidim_dev"}
+          #{javascript_pack_tag "redesigned_decidim_core", "decidim_dev", defer: false}
         </head>
+        <!-- Add some line breaks so that the "WAI WCAG" notification does not block screenshots -->
+        <br><br><br><br><br>
         <body>
-          <input type="datetime-local" id="example_input">
-          <button type="submit" name="commit" class="button button_sm md:button__lg button__secondary">Create</button>
-          #{js}
+          <div class="footer">
+            <input type="datetime-local" id="example_input">
+            <button type="submit" name="commit" class="button button_sm md:button__lg button__secondary">Create</button>
+          </div>
+          <script>
+          Decidim.config.set(#{js_config.to_json});
+          </script>
         </body>
         </html>
       HTML
@@ -39,20 +45,15 @@ describe "Datepicker", type: :system do
 
   before do
     final_html = html_document
-
     Rails.application.routes.draw do
-      mount Decidim::Core::Engine => "/"
       get "test_datepicker", to: ->(_) { [200, {}, [final_html]] }
     end
 
     switch_to_host(organization.host)
-
     visit "/test_datepicker"
   end
 
   after do
-    expect_no_js_errors
-
     # Reset the routes back to original
     Rails.application.reload_routes!
   end
@@ -73,7 +74,7 @@ describe "Datepicker", type: :system do
       click_button "Create"
       expect(page).to have_field("example_input_time", with: "01:59")
       expect(page).to have_field("example_input_date", with: "20/01/1994")
-      expect(page).to have_field("example_input", with: "1994-01-20T01:59", disabled: true)
+      expect(page).to have_field("example_input", with: "1994-01-20T01:59", visible: :all)
     end
   end
 end

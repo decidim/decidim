@@ -1,7 +1,5 @@
 /* eslint-disable require-jsdoc */
 import { WcDatepicker } from "wc-datepicker/dist/components/wc-datepicker";
-import "wc-datepicker/dist/themes/light.css";
-
 import generateDatePicker from "./redesigned_generate_datepicker";
 import generateTimePicker from "./redesigned_generate_timepicker";
 import { formatInputDate, formatInputTime } from "./redesigned_datepicker_functions";
