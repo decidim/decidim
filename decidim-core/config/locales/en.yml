@@ -1358,6 +1358,8 @@ en:
         conversations: Conversations
         followers: Followers
         following: Follows
+        group_admins: Manage admins
+        group_members: Manage members
         groups: Groups
         members: Members
         officialized: Official participant
