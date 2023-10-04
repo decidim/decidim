@@ -37,6 +37,9 @@ ca:
         confirm_destroy: Segur que ho vols eliminar això?
         destroy: Suprimeix
         edit: Edita
+        new_admin: Afegir administradora
+        new_oauth_application: Afegir aplicació OAUTH
+        new_organization: Afegir organització
         save: Desa
         title: Accions
       admins:
