@@ -160,6 +160,10 @@ es-MX:
         manage_answers: Gestionar las respuestas
         manage_questions: Gestionar las preguntas
         manage_steps: Gestionar las fases
+        new_answer: Añadir respuesta
+        new_election: Añadir elección
+        new_question: Añadir pregunta
+        new_trustee: Añadir garante
         preview: Vista previa
         publish: Publicar
         title: Acciones
@@ -456,6 +460,7 @@ es-MX:
             started: El proceso de recuento ha comenzado.
           tally_title: Proceso de recuento
           title: Registro de la elección
+          unpublished: Despublicada
           verifiable_results:
             checksum: 'Suma de comprobación SHA256 del archivo:'
             description:
@@ -791,6 +796,7 @@ es-MX:
               confirm_destroy: '¿Estás segura?'
               destroy: Eliminar
               edit: Editar
+              new: Añadir estilo de papeleta
               title: Acciones
             associated_census_data: Entradas asociadas al censo
             explanation_callout: Un estilo de papeleta especifica qué preguntas se presentarán a las votantes en la cabina. En un estilo de papeleta, puedes elegir qué preguntas del componente de elecciones pertenecen a esa papeleta. El código de estilo de la papeleta se utiliza para hacer coincidir a una votante del censo con la papeleta que se le debe mostrar en la cabina. No crees ningún estilo de papeleta si quieres que simpre se muesten todas las preguntas.
@@ -828,6 +834,7 @@ es-MX:
             name: Calendario de la votación
         index:
           published: Publicada
+          unpublished: Despublicada
         landing_page:
           content_blocks:
             create:
@@ -853,6 +860,7 @@ es-MX:
             ballot_styles: Estilos de papeleta
             census: Censo
             components: Componentes
+            info: Acerca de esta votación
             landing_page: Página de inicio
             monitoring_committee: Comité de seguimiento
             monitoring_committee_election_results: Validar resultados
@@ -861,6 +869,7 @@ es-MX:
             monitoring_committee_verify_elections: Verificar elecciones
             polling_officers: Gestores de mesa
             polling_stations: Puntos de votación
+            see_voting: Ver la votación
         models:
           ballot_style:
             fields:
@@ -1276,6 +1285,7 @@ es-MX:
         actions:
           confirm_destroy: '¿Estás segura?'
           destroy: Borrar
+          new: Añadir gestora de mesa
           title: Acciones
         roles:
           manager: Administrador
@@ -1296,6 +1306,7 @@ es-MX:
           confirm_destroy: '¿Estás segura?'
           destroy: Borrar
           edit: Editar
+          new: Añadir punto de votación
           title: Acciones
       votings:
         access_code_modal:
