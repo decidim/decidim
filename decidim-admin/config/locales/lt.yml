@@ -1012,8 +1012,6 @@ lt:
           update: Atnaujinti
         form:
           none: Nėra
-        index:
-          last_notable_change: Paskutinis pastebimas pakeitimas
         new:
           create: Sukurti puslapį
           title: Naujas puslapis
