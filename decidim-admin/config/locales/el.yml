@@ -978,8 +978,6 @@ el:
           update: Ενημέρωση
         form:
           none: Κανένας
-        index:
-          last_notable_change: Τελευταία σημαντική αλλαγή
         new:
           create: Δημιουργία σελίδας
           title: Νέα σελίδα
