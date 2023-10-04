@@ -1393,6 +1393,8 @@ cs:
         conversations: Konverzace
         followers: Sledující
         following: Sleduje
+        group_admins: Spravovat správce
+        group_members: Spravovat členy
         groups: Skupiny
         members: Členové
         officialized: Oficiální účastník
