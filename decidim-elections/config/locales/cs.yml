@@ -482,6 +482,7 @@ cs:
             started: Proces byl zahájen.
           tally_title: Proces volebního přepočítání
           title: Volební protokol
+          unpublished: Nezveřejněno
           verifiable_results:
             checksum: 'Kontrolní součet SHA256 souboru:'
             description:
@@ -857,6 +858,7 @@ cs:
             name: Časová osa hlasování
         index:
           published: Zveřejněno
+          unpublished: Nezveřejněno
         landing_page:
           content_blocks:
             create:
