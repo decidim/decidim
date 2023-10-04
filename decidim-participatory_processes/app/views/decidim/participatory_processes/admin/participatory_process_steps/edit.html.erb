@@ -1,19 +1,12 @@
+<% add_decidim_page_title(t("participatory_process_steps.edit.title", scope: "decidim.admin")) %>
+
 <div class="item_show__header">
   <h2 class="item_show__header-title">
     <%= t("participatory_process_steps.edit.title", scope: "decidim.admin") %>
   </h2>
 </div>
 
-<div class="item__edit">
-  <div class="item__edit-menu">
-    <div class="item__edit-menu-sticky">
-      <p class="item__edit-menu-title">
-        <%= t("sections", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-      </p>
-      <%= link_to t("title", scope: "decidim.admin.participatory_process_steps.edit"), edit_participatory_process_step_path(current_participatory_process, anchor: "title"), class: "item__edit-menu-anchor" %>
-    </div>
-  </div>
-
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: participatory_process_step_path(@participatory_process_step.participatory_process, @participatory_process_step), html: { class: "form form-defaults edit_participatory_process_step" }) do |f| %>
       <%= render partial: "form", object: f, locals: { title: t("participatory_process_steps.edit.title", scope: "decidim.admin") } %>

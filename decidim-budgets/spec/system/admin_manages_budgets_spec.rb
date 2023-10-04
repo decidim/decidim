@@ -15,13 +15,13 @@ describe "Admin manages budgets", type: :system do
   end
 
   describe "admin form" do
-    before { click_on "New Budget" }
+    before { click_on "New budget" }
 
     it_behaves_like "having a rich text editor", "new_budget", "content"
   end
 
   it "creates a new budget" do
-    click_link "New Budget"
+    click_link "New budget"
 
     within ".new_budget" do
       fill_in_i18n(

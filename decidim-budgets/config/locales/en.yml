@@ -46,7 +46,8 @@ en:
         edit: Edit
         edit_projects: Manage projects
         import: Import proposals to projects
-        new: New %{name}
+        new_budget: New budget
+        new_project: New project
         preview: Preview
         send_voting_reminders: Send voting reminders
         title: Actions

@@ -15,7 +15,7 @@ shared_examples "manage assembly members examples" do
 
     it "creates a new assembly member" do
       within ".process-title-content" do
-        click_link "New Member"
+        click_link "New assembly member"
       end
 
       fill_in :assembly_member_designation_date, with: Time.current
@@ -51,7 +51,7 @@ shared_examples "manage assembly members examples" do
 
     it "creates a new assembly member" do
       within ".process-title-content" do
-        click_link "New Member"
+        click_link "New assembly member"
       end
 
       fill_in :assembly_member_designation_date, with: Time.current
@@ -79,7 +79,7 @@ shared_examples "manage assembly members examples" do
 
     it "creates a new assembly member" do
       within ".process-title-content" do
-        click_link "New Member"
+        click_link "New assembly member"
       end
 
       fill_in :assembly_member_designation_date, with: Time.current

@@ -52,7 +52,7 @@ en:
         confirm_destroy: Are you sure?
         destroy: Delete
         edit: Edit
-        new: New %{name}
+        new: New debate
         title: Actions
       admin:
         debate_closes:
@@ -82,9 +82,6 @@ en:
             success: Debate successfully updated.
         exports:
           comments: Comments
-        models:
-          debate:
-            name: Debate
       admin_log:
         debate:
           close: "%{user_name} closed the %{resource_name} debate on the %{space_name} space"
