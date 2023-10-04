@@ -523,8 +523,6 @@ ru:
         edit:
           title: Отредактировать страницу
           update: Обновить
-        index:
-          last_notable_change: Последнее заметное изменение
         new:
           title: Создать страницу
         update:
