@@ -230,7 +230,7 @@ describe "Amendment Wizard", type: :system do
         end
 
         it "publishes the amendment" do
-          expect(page).to have_css(".callout.warning[data-announcement]", text: "This amendment for the proposal #{translated(proposal.title)} is being evaluated.")
+          expect(page).to have_css(".flash.warning[data-announcement]", text: "This amendment for the proposal #{translated(proposal.title)} is being evaluated.")
 
           within "[data-alert-box].success" do
             expect(page).to have_content("Amendment successfully published.")

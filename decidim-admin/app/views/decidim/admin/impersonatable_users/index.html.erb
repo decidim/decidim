@@ -1,9 +1,7 @@
 <% add_decidim_page_title(t("impersonatable_users", scope: "decidim.admin.titles")) %>
 <% if current_organization.available_authorizations.empty? %>
   <div class="section">
-    <div class="callout warning">
-      <p><%= t(".needs_authorization_warning") %></p>
-    </div>
+    <%= cell("decidim/announcement", t(".needs_authorization_warning"), callout_class: "warning" ) %>
   </div>
 <% end %>
 
