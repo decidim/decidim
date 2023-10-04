@@ -117,6 +117,7 @@ cs:
           private: Soukromé
           public: Veřejné
           published: Publikováno
+          unpublished: Nezveřejněno
         new:
           create: Vytvořit
           title: Nové shromáždění
