@@ -38,6 +38,7 @@ es-PY:
         actions:
           destroy: Cancelar el sorteo
           edit: Editar
+          new_sortition: Añadir sorteo
           show: Detalles de la clasificación
         models:
           sortition:
