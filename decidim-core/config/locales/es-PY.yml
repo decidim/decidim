@@ -1353,6 +1353,8 @@ es-PY:
         conversations: Conversaciones
         followers: Seguidores
         following: Sigue
+        group_admins: Gestionar administradoras
+        group_members: Gestionar miembros
         groups: Los grupos
         members: Miembros
         officialized: Participante oficial
