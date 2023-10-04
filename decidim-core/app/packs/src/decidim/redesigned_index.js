@@ -59,7 +59,7 @@ import "./data_consent"
 import "./sw"
 
 // local deps that require initialization
-import redesignedFormDatePicker from "./wc-datepicker/redesigned_form_datepicker"
+import redesignedFormDatePicker from "./datepicker/redesigned_form_datepicker"
 // import fixDropdownMenus from "./dropdowns_menus" -- deprecated
 import Configuration from "./configuration"
 import ExternalLink from "./redesigned_external_link"

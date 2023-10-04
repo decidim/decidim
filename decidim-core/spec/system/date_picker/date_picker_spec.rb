@@ -24,7 +24,6 @@ describe "Datepicker", type: :system do
         <html lang="en">
         <head>
           <title>Datepicker Test</title>
-          <meta name="csrf-token" content="abcdef0123456789">
           #{stylesheet_pack_tag "redesigned_decidim_core", media: "all"}
           #{stylesheet_pack_tag "decidim_dev"}
         </head>
