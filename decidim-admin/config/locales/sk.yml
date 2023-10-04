@@ -601,8 +601,6 @@ sk:
           update: Aktualizovať
         form:
           none: Žiadne
-        index:
-          last_notable_change: Posledná výrazná úprava
         new:
           create: Vytvoriť stránku
           title: Nová stránka
