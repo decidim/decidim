@@ -1010,8 +1010,6 @@ es-MX:
         form:
           none: Ninguna
           slug_help_html: 'Usa rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
-        index:
-          last_notable_change: Último cambio notable
         new:
           create: Crear página
           title: Nueva página
