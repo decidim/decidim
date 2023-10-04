@@ -529,8 +529,6 @@ id:
           update: Memperbarui
         form:
           none: Tidak ada
-        index:
-          last_notable_change: Perubahan penting terakhir
         new:
           create: Membuat halaman
           title: Halaman baru
