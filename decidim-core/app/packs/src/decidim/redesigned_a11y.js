@@ -30,9 +30,13 @@ const createAccordion = (component) => {
   // Ex:
   // data-open="false" data-open-md="true"
   Object.keys(screens).forEach((key) => {
+    if (!isScreenSize(key)) {
+      return;
+    }
+
     const elementsToOpen = component.querySelectorAll(`[data-controls][data-open-${key}]`);
 
-    (isScreenSize(key)) && elementsToOpen.forEach((elem) => {
+    elementsToOpen.forEach((elem) => {
       (elem.dataset.open = elem.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())])
     })
   })
@@ -63,7 +67,11 @@ const createDropdown = (component) => {
   // Ex:
   // data-disabled-md="true"
   const isDisabled = Object.keys(screens).some((key) => {
-    (isScreenSize(key)) && Boolean(component.dataset[`disabled-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())]);
+    if (!isScreenSize(key)) {
+      return false;
+    }
+
+    return Boolean(component.dataset[`disabled-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())]);
   })
 
   if (isDisabled) {
@@ -86,9 +94,13 @@ const createDropdown = (component) => {
     // Auto scroll to show the menu on the viewport
     component.addEventListener("click", (event) => {
       const heightToScroll = component.getBoundingClientRect().top + window.scrollY + document.documentElement.clientTop;
-      const isCollapsed = event.target.getAttribute("aria-expanded") !== "true";
+      const isCollapsed = event.target.getAttribute("aria-expanded") === "false";
 
-      isCollapsed && window.scrollTo({ top: heightToScroll, behavior: "smooth" })
+      if (isCollapsed) {
+        return;
+      }
+
+      window.scrollTo({ top: heightToScroll, behavior: "smooth" });
     });
   }
 
