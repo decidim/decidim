@@ -1010,8 +1010,6 @@ de:
         form:
           none: Keiner
           slug_help_html: 'Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Beispiel: %{url}'
-        index:
-          last_notable_change: Letzte bemerkenswerte Änderung
         new:
           create: Seite erstellen
           title: Neue Seite
