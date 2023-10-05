@@ -68,7 +68,7 @@ describe "Explore meetings", :slow, type: :system do
 
         it "shows an empty page with a message" do
           expect(page).to have_content("No meetings match your search criteria or there is not any meeting scheduled.")
-          within ".callout.info", match: :first do
+          within ".flash.info", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end
         end
@@ -84,7 +84,7 @@ describe "Explore meetings", :slow, type: :system do
 
         it "shows all the withdrawn meetings" do
           expect(page).to have_css("span", text: "Withdrawn", count: 3)
-          within ".callout.info", match: :first do
+          within ".flash.info", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end
         end
@@ -363,7 +363,7 @@ describe "Explore meetings", :slow, type: :system do
 
       it "shows the correct warning" do
         visit_component
-        within ".callout" do
+        within ".flash" do
           expect(page).to have_content("no scheduled meetings")
         end
       end
@@ -374,7 +374,7 @@ describe "Explore meetings", :slow, type: :system do
 
       it "shows the correct warning" do
         visit_component
-        within ".callout" do
+        within ".flash" do
           expect(page).to have_content("any meeting scheduled")
         end
       end

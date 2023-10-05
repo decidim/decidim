@@ -3,9 +3,7 @@
 </h2>
 
 <div class="section">
-  <div class="callout warning">
-    <p><%= t(".explanation") %></p>
-  </div>
+  <%= cell("decidim/announcement", t(".explanation"), callout_class: "warning" ) %>
 </div>
 
 <%= decidim_form_for(@form, url: impersonatable_user_promotions_path, html: { class: "form new_managed_user_promotion" }) do |f| %>

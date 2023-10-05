@@ -173,6 +173,8 @@ describe "Admin manages polling stations", serves_geocoding_autocomplete: true, 
         )
         fill_in :polling_station_address, with: address
 
+        find("#autoComplete_list_1 > li").click
+
         autocomplete_select "#{polling_officers.last.name} (@#{polling_officers.last.nickname})", from: :polling_station_president_id
 
         tom_select("#polling_officers_filter", option_id: polling_officers.first(2).map(&:id))
