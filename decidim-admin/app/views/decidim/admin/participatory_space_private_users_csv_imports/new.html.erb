@@ -34,8 +34,10 @@
         <%= form.upload :file, button_class: "button button__sm button__transparent-secondary" %>
       </div>
 
-      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= form.submit t(".upload"), class: "button button__sm button__secondary" %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= form.submit t(".upload"), class: "button button__sm button__secondary" %>
+        </div>
       </div>
     <% end %>
   </div>

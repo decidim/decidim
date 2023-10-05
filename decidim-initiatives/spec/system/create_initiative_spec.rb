@@ -13,7 +13,7 @@ describe "Initiative", type: :system do
   let(:signature_type) { "any" }
   let(:initiative_type_promoting_committee_enabled) { true }
   let(:initiative_type) do
-    create(:initiatives_type,
+    create(:initiatives_type, :attachments_enabled,
            organization:,
            minimum_committee_members: initiative_type_minimum_committee_members,
            promoting_committee_enabled: initiative_type_promoting_committee_enabled,
@@ -21,9 +21,9 @@ describe "Initiative", type: :system do
   end
   let!(:initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
   let!(:initiative_type_scope2) { create(:initiatives_type_scope, type: initiative_type) }
-  let!(:other_initiative_type) { create(:initiatives_type, organization:) }
+  let!(:other_initiative_type) { create(:initiatives_type, :attachments_enabled, organization:) }
   let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: other_initiative_type) }
-  let(:third_initiative_type) { create(:initiatives_type, organization:) }
+  let(:third_initiative_type) { create(:initiatives_type, :attachments_enabled, organization:) }
 
   shared_examples "initiatives path redirection" do
     it "redirects to initiatives path" do
@@ -445,7 +445,7 @@ describe "Initiative", type: :system do
 
       context "and select initiative type" do
         it "offers contextual help" do
-          within ".callout.secondary" do
+          within ".flash.secondary" do
             expect(page).to have_content("Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?")
           end
         end
@@ -485,7 +485,7 @@ describe "Initiative", type: :system do
         end
 
         it "offers contextual help" do
-          within ".callout.secondary" do
+          within ".flash.secondary" do
             expect(page).to have_content("Review the content of your initiative.")
           end
         end
@@ -520,7 +520,7 @@ describe "Initiative", type: :system do
         end
 
         it "offers contextual help" do
-          within ".callout.secondary" do
+          within ".flash.secondary" do
             expect(page).to have_content("Review the content of your initiative.")
           end
         end
@@ -575,7 +575,7 @@ describe "Initiative", type: :system do
           end
 
           it "offers contextual help" do
-            within ".callout.secondary" do
+            within ".flash.secondary" do
               expect(page).to have_content("Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?")
               expect(page).to have_content("You have to choose the type of signature. In-person, online or a combination of both")
               expect(page).to have_content("Which is the geographic scope of the initiative?")
@@ -679,7 +679,7 @@ describe "Initiative", type: :system do
         end
 
         it "offers contextual help" do
-          within ".callout.secondary" do
+          within ".flash.secondary" do
             expect(page).to have_content("This kind of initiative requires a Promoting Commission consisting of at least #{initiative_type_minimum_committee_members} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.")
           end
         end
@@ -746,8 +746,14 @@ describe "Initiative", type: :system do
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
           select("Online", from: "Signature collection type")
           select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
-          dynamically_attach_file(:initiative_add_documents, Decidim::Dev.asset("Exampledocument.pdf"))
+          dynamically_attach_file(:initiative_documents, Decidim::Dev.asset("Exampledocument.pdf"))
+          dynamically_attach_file(:initiative_photos, Decidim::Dev.asset("avatar.jpg"))
           find_button("Continue").click
+        end
+
+        it "saves the attachments" do
+          expect(Decidim::Initiative.last.documents.count).to eq(1)
+          expect(Decidim::Initiative.last.photos.count).to eq(1)
         end
 
         it "shows the page component" do
@@ -772,7 +778,7 @@ describe "Initiative", type: :system do
           end
 
           it "Offers contextual help" do
-            within ".callout.secondary" do
+            within ".flash.secondary" do
               expect(page).to have_content("Congratulations! Your initiative has been successfully created.")
             end
           end

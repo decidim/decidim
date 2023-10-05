@@ -56,10 +56,7 @@ describe "Admin manages initiative components", type: :system do
     end
 
     it "is successfully created" do
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
-
+      expect(page).to have_admin_callout("Component created successfully.")
       expect(page).to have_content("My component")
     end
 
@@ -83,9 +80,7 @@ describe "Admin manages initiative components", type: :system do
       it "successfully edits it" do
         click_button "Update"
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_admin_callout("The component was updated successfully.")
       end
     end
   end
@@ -132,10 +127,7 @@ describe "Admin manages initiative components", type: :system do
         click_button "Update"
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
-
+      expect(page).to have_admin_callout("The component was updated successfully.")
       expect(page).to have_content("My updated component")
 
       within find("tr", text: "My updated component") do

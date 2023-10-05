@@ -93,7 +93,10 @@ module Decidim
             menu.add_item [component.manifest_name, component.id].join("_"),
                           caption.html_safe,
                           manage_component_path(component),
-                          active: is_active_link?(manage_component_path(component)),
+                          active: is_active_link?(manage_component_path(component)) ||
+                                  is_active_link?(decidim_admin_votings.edit_component_path(current_participatory_space, component)) ||
+                                  is_active_link?(decidim_admin_votings.edit_component_permissions_path(current_participatory_space, component)) ||
+                                  participatory_space_active_link?(component),
                           if: component.manifest.admin_engine # && user_role_config.component_is_accessible?(component.manifest_name)
           end
         end
@@ -157,13 +160,16 @@ module Decidim
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.components_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_votings.components_path(current_participatory_space), ["decidim/votings/admin/components", %w(index new edit)]),
                         icon_name: "layout-masonry-line",
-                        if: allowed_to?(:read, :components, voting: current_participatory_space)
+                        if: allowed_to?(:read, :components, voting: current_participatory_space),
+                        submenu: { target_menu: :admin_votings_components_menu }
 
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.votings.admin.menu.votings_submenu"),
                         "#",
                         icon_name: "attachment-2",
+                        active: false,
                         if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment),
                         submenu: { target_menu: :decidim_votings_attachments_menu }
 
@@ -183,6 +189,7 @@ module Decidim
                         I18n.t("monitoring_committee", scope: "decidim.votings.admin.menu.votings_submenu"),
                         "#",
                         icon_name: "mail-line",
+                        active: false,
                         if: !current_participatory_space.online_voting? && allowed_to?(:read, :monitoring_committee_menu, voting: current_participatory_space),
                         submenu: { target_menu: :decidim_votings_monitoring_committee_menu }
 

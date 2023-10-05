@@ -1,8 +1,7 @@
 <%= append_javascript_pack_tag "decidim_assemblies_admin" %>
 
 <div class="form__wrapper">
-  <div class="card" id="assemblies">
-    <div class="card-divider"></div>
+  <div class="card pt-4" id="assemblies">
     <div class="card-section">
       <div class="row column">
         <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
@@ -16,7 +15,7 @@
       <div class="row column">
         <div class="card">
           <div class="card-divider">
-            <legend><%= select %></legend>
+            <legend><%= t("assembly_imports.new.select", scope: "decidim.admin") %></legend>
           </div>
           <div class="card-section">
             <div class="row">
