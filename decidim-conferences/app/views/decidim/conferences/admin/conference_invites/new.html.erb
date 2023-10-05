@@ -1,8 +1,6 @@
 <% add_decidim_page_title(t(".new_invite")) %>
 
-<div class="callout warning">
-  <p><%= t(".explanation") %></p>
-</div>
+<%= cell("decidim/announcement", t(".explanation"), callout_class: "warning") %>
 
 <div class="item_show__header">
   <h2 class="item_show__header-title">

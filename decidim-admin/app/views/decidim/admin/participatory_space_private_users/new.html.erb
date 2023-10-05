@@ -7,7 +7,7 @@
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: participatory_space_private_users_path(current_participatory_space), html: { class: "form-defaults form new_participatory_space_private_user" }) do |f| %>
-      <%= render partial: "decidim/admin/participatory_space_private_users/form", object: f, locals: { title: t(".title") } %>
+      <%= render partial: "decidim/admin/participatory_space_private_users/form", object: f %>
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
           <%= f.submit t(".create"), class: "button button__sm button__secondary" %>

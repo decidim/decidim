@@ -1,18 +1,12 @@
 <%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
   <% add_decidim_page_title(t("delete_my_account", scope: "layouts.decidim.user_profile")) %>
   <% content_for(:subtitle) { t("delete_my_account", scope: "layouts.decidim.user_profile") } %>
-  <div class="callout alert">
-    <p>
-      <%= t("alert", scope:"decidim.account.delete") %>
-    </p>
-    <% if has_authorizations? %>
-      <p>
-        <strong>
-          <%= t("leaving_authorizations_behind", scope:"decidim.account.delete") %>
-        </strong>
-      </p>
-    <% end %>
-  </div>
+
+  <%= cell("decidim/announcement", t("alert", scope:"decidim.account.delete"), callout_class: "alert") %>
+  <% if has_authorizations? %>
+    <%= cell("decidim/announcement", t("leaving_authorizations_behind", scope:"decidim.account.delete"), callout_class: "alert") %>
+  <% end %>
+
   <p class="help-text">
     <%= t("explanation", scope:"decidim.account.delete") %>
   </p>
