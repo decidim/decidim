@@ -32,39 +32,59 @@ const initializeAccountForm = () => {
 
   // Foundation uses jQuery so these have to be bound using jQuery and the
   // attribute value needs to be set through jQuery.
-  const togglePasswordFieldValidators = (field) => {
-    if ($(field).attr("required")) {
-      $(field).removeAttr("required");
+  const togglePasswordFieldValidators = ({ thisField = null, hidden = true } = {}) => {
+    let fields = [];
+    if (thisField === null) {
+      fields = [newPassword, oldPassword]
     } else {
-      $(field).attr("required", true)
-      $(field).attr("value", "")
+      fields = [thisField]
     }
+
+    const hasError = (field) => {
+      return $(field).find("[data-error]").length > 0
+    }
+    fields.forEach((field) => {
+      const inputElement = $(field).find(("input[type='password']"))
+      if (inputElement.attr("required")) {
+        inputElement.removeAttr("required");
+      } else {
+        inputElement.attr("required", true)
+        inputElement.attr("value", "")
+      }
+      if (hidden || hasError(field)) {
+        $(field).toggleClass("hidden")
+      }
+    })
+
+  }
+  const emailChanged = () => {
+    if ($(emailField).data("origin") !== emailField.value) {
+      return true
+    }
+    return false
   }
 
-  const toggleElements = () => {
-    if ($(emailField).data("origin") === emailField.value) {
-      return [newPassword, oldPassword]
-    }
-    return [newPassword]
+  const isHidden = (item) => {
+    return $(item).hasClass("hidden")
   }
 
   $(passwordChange).on("click", "span", () => {
-    const elementsToToggle = toggleElements();
-    elementsToToggle.forEach((field) => {
-      field.toggleClass("hidden", () => {
-        togglePasswordFieldValidators(field)
-      })
-    })
+    if (emailChanged()) {
+      togglePasswordFieldValidators({thisField: newPassword})
+    } else {
+      togglePasswordFieldValidators()
+    }
   })
 
   emailField.addEventListener("input", () => {
-    if ($(emailField).data("origin") !== emailField.value) {
-      if (oldPassword.is(":hidden")) {
-        oldPassword.toggleClass("hidden")
-        togglePasswordFieldValidators(oldPassword)
-      }
+    if (emailChanged() && isHidden(oldPassword)) {
+      togglePasswordFieldValidators({thisField: oldPassword})
+    } else if (!emailChanged() && !isHidden(oldPassword) && isHidden(newPassword)) {
+      togglePasswordFieldValidators({thisField: oldPassword})
     }
   })
+
+  togglePasswordFieldValidators({hidden: false})
 };
 
 /**
