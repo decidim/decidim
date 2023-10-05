@@ -40,9 +40,6 @@ const initializeAccountForm = () => {
       fields = [thisField]
     }
 
-    const hasError = (field) => {
-      return $(field).find("[data-error]").length > 0
-    }
     fields.forEach((field) => {
       const inputElement = $(field).find(("input[type='password']"))
       if (inputElement.attr("required")) {
@@ -51,7 +48,7 @@ const initializeAccountForm = () => {
         inputElement.attr("required", true)
         inputElement.attr("value", "")
       }
-      if (hidden || hasError(field)) {
+      if (hidden) {
         $(field).toggleClass("hidden")
       }
     })
@@ -84,7 +81,17 @@ const initializeAccountForm = () => {
     }
   })
 
-  togglePasswordFieldValidators({hidden: false})
+  const hasError = (field) => {
+    return $(field).find(".form-error.is-visible").length > 0
+  }
+
+  [oldPassword, newPassword].forEach((item) => {
+    if (hasError(item)) {
+      $(item).toggleClass("hidden")
+    } else {
+      togglePasswordFieldValidators({thisField: item, hidden: false})
+    }
+  })
 };
 
 /**

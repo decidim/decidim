@@ -25,7 +25,7 @@ module Decidim
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
     validates :password, password: { name: :name, email: :email, username: :nickname }, if: -> { password.present? }
-    validate :validate_old_password, if: -> { password.present? }
+    validate :validate_old_password
     validates :avatar, passthru: { to: Decidim::User }
 
     validate :unique_email
@@ -56,9 +56,12 @@ module Decidim
 
     def validate_old_password
       user = context.current_user
-      return true if user.valid_password?(old_password)
+      if user.email != email || password.present?
+        return true if user.valid_password?(old_password)
 
-      errors.add :old_password, :invalid
+        errors.add :old_password, :invalid
+        false
+      end
     end
 
     def unique_nickname
