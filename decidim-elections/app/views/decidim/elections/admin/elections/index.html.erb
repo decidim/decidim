@@ -49,7 +49,7 @@
               <%= icon_link_to "list-check", election_questions_path(election), t("actions.manage_questions", scope: "decidim.elections"), class: "action-icon--manage-questions" %>
 
               <% if allowed_to? :read, :steps, election: election %>
-                <%= icon_link_to "folder-line", election_steps_path(election), t("actions.manage_steps", scope: "decidim.elections"), class: "action-icon--manage-steps" %>
+                <%= icon_link_to "guide-line", election_steps_path(election), t("actions.manage_steps", scope: "decidim.elections"), class: "action-icon--manage-steps" %>
               <% end %>
 
               <% if allowed_to? :update, :questionnaire, questionnaire: election.questionnaire %>
