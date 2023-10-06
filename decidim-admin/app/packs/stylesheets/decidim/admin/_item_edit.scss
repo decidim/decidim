@@ -108,12 +108,12 @@
       }
     }
   }
+
+  .label--tabs {
+    @apply mb-2;
+  }
 }
 
 .item__edit-1col {
   @apply grid grid-cols-[80%_20%];
-}
-
-.process-content .label--tabs {
-  @apply mb-2;
 }
