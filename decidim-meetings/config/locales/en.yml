@@ -417,7 +417,6 @@ en:
       directory:
         meetings:
           index:
-            go_to_list: See the event list
             meetings: Meetings
             space_type: Participatory space
       iframe_access_level:
