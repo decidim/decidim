@@ -1,19 +1,4 @@
 <% add_secondary_root_menu(:admin_template_types_menu) %>
-<% content_for :breadcrumb_context_menu do %>
-  <div class="process-title-content-breadcrumb-container-right">
-    <div class="inline-block relative">
-      <%= button_tag id: "template-menu-trigger", data: { component: "dropdown", target: "template-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
-        <span>
-          <%= t("menu.manage", scope: "decidim.admin") %>
-        </span>
-        <%= icon "arrow-down-s-line" %>
-      <% end %>
-      <div id="template-dropdown-menu-settings" class="process-title-content-dropdown">
-        <%= dropdown_menu(:admin_template_types_menu).render %>
-      </div>
-    </div>
-  </div>
-<% end %>
 
 <%= render "layouts/decidim/admin/application" do %>
   <%= yield %>

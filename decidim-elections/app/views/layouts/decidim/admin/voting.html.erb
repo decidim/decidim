@@ -8,17 +8,6 @@
         <%= t("see_voting", scope: "decidim.votings.admin.menu.votings_submenu") %>
       </span>
     <% end %>
-    <div class="inline-block relative">
-      <%= button_tag id: "voting-menu-trigger", data: { component: "dropdown", target: "voting-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
-        <span>
-          <%= t("menu.manage", scope: "decidim.admin") %>
-        </span>
-        <%= icon "arrow-down-s-line" %>
-      <% end %>
-      <div id="voting-dropdown-menu-settings" class="process-title-content-dropdown">
-        <%= dropdown_menu(:admin_voting_menu).render %>
-      </div>
-    </div>
   </div>
 <% end %>
 <%= render "layouts/decidim/admin/application" do %>

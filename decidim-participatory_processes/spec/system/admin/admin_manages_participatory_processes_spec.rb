@@ -101,7 +101,7 @@ describe "Admin manages participatory processes", type: :system, versioning: tru
         click_link translated(participatory_process3.title)
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "About this process"
       end
 

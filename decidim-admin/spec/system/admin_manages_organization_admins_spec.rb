@@ -17,7 +17,7 @@ describe "Organization admins", type: :system do
       login_as admin, scope: :user
       visit decidim_admin.root_path
       click_link "Participants"
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Admins"
       end
     end

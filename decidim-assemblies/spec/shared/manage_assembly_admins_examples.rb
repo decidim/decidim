@@ -14,7 +14,7 @@ shared_examples "manage assembly admins examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Assembly admins"
     end
   end

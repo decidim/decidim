@@ -9,17 +9,6 @@
         <%= t("see_assembly", scope: "decidim.admin.menu.assemblies_submenu") %>
       </span>
     <% end %>
-    <div class="inline-block relative">
-      <%= button_tag id: "assembly-menu-trigger", data: { component: "dropdown", target: "assembly-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
-        <span>
-          <%= t("menu.manage", scope: "decidim.admin") %>
-        </span>
-        <%= icon "arrow-down-s-line" %>
-      <% end %>
-      <div id="assembly-dropdown-menu-settings" class="process-title-content-dropdown">
-        <%= dropdown_menu(:admin_assembly_menu).render %>
-      </div>
-    </div>
   </div>
 <% end %>
 

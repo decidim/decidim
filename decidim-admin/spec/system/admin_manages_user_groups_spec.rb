@@ -16,7 +16,7 @@ describe "Admin manages user groups", type: :system do
     login_as user, scope: :user
     visit decidim_admin.root_path
     click_link "Participants"
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Groups"
     end
   end

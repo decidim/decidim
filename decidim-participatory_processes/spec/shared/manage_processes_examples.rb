@@ -98,7 +98,7 @@ shared_examples "manage processes examples" do
         click_link translated(participatory_process.title)
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "About this process"
       end
     end
@@ -136,7 +136,7 @@ shared_examples "manage processes examples" do
         click_link translated(participatory_process.title)
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "About this process"
       end
     end
@@ -160,7 +160,7 @@ shared_examples "manage processes examples" do
         click_link translated(participatory_process.title)
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "About this process"
       end
     end
@@ -202,7 +202,7 @@ shared_examples "manage processes examples" do
         click_link translated(participatory_process.title)
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "About this process"
       end
 

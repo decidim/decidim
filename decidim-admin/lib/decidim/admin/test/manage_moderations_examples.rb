@@ -15,7 +15,7 @@ shared_examples "sorted moderations" do
   before do
     visit participatory_space_path
     if moderations_link_in_admin_menu
-      within_admin_menu { click_link(moderations_link_text) }
+      within_admin_sidebar_menu { click_link(moderations_link_text) }
     else
       within("div.layout-nav") { click_link(moderations_link_text) }
     end
@@ -54,7 +54,7 @@ shared_examples "manage moderations" do
   before do
     visit participatory_space_path
     if moderations_link_in_admin_menu
-      within_admin_menu { click_link(moderations_link_text) }
+      within_admin_sidebar_menu { click_link(moderations_link_text) }
     else
       within("div.layout-nav") { click_link(moderations_link_text) }
     end
