@@ -9,8 +9,7 @@
     <%= decidim_form_for(@form, url: proposals_import_path, html: { class: "form form-defaults import_proposals" }) do |f| %>
       <% if @form.origin_components.any? %>
         <div class="form__wrapper">
-          <div class="card">
-            <div class="card-divider"></div>
+          <div class="card pt-4">
             <div class="card-section">
               <div class="row column">
                 <%= f.select :origin_component_id, @form.origin_components_collection, prompt: t(".select_component") %>
