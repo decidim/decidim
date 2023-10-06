@@ -177,6 +177,13 @@ module Decidim
                         icon_name: "information-line",
                         if: allowed_to?(:update, :process, process: current_participatory_space)
 
+          menu.add_item :edit_participatory_process_landing_page,
+                        I18n.t("landing_page", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.edit_participatory_process_landing_page_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_landing_page_path(current_participatory_space)),
+                        icon_name: "layout-masonry-line",
+                        if: allowed_to?(:update, :process, process: current_participatory_space)
+
           menu.add_item :participatory_process_steps,
                         I18n.t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space),
@@ -228,13 +235,6 @@ module Decidim
                         active: is_active_link?(decidim_admin_participatory_processes.moderations_path(current_participatory_space)),
                         icon_name: "flag-line",
                         if: allowed_to?(:read, :moderation)
-
-          menu.add_item :edit_participatory_process_landing_page,
-                        I18n.t("landing_page", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        decidim_admin_participatory_processes.edit_participatory_process_landing_page_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_landing_page_path(current_participatory_space)),
-                        icon_name: "layout-masonry-line",
-                        if: allowed_to?(:update, :process, process: current_participatory_space)
         end
       end
 
