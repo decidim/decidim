@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/votings/test/capybara_polling_officers_picker"
 
 describe "Admin manages polling stations", serves_geocoding_autocomplete: true, type: :system do
   let(:address) { "Somewhere over the rainbow" }
