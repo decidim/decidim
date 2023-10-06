@@ -33,7 +33,6 @@
   }
 }
 
-/* REDESIGN_PENDING: this .dropdown class will be very likely deprecated */
 .dropdown {
   @apply absolute bg-white border-2 border-gray-3 rounded min-w-max p-4 drop-shadow-md text-left z-10;
 

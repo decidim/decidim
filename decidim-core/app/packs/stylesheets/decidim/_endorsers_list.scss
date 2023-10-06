@@ -1,5 +1,4 @@
 .endorsers-list {
-  /* REDESIGN_PENDING: Move transition classes to default dropdown file, when available */
   @apply space-y-3 opacity-0 -translate-y-full invisible transition-all;
 
   &__text {
@@ -40,7 +39,6 @@
     }
   }
 
-  /* REDESIGN_PENDING: Move transition classes to default dropdown file, when available */
   &[id*="dropdown-menu"][aria-hidden="false"] {
     @apply opacity-100 visible translate-y-0 transition-all;
   }
