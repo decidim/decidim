@@ -46,15 +46,17 @@
             <%= render partial: "layouts/decidim/admin/breadcrumb" %>
             <%= render partial: "layouts/decidim/admin/callouts_full" %>
 
-            <div class="layout-content__container" data-content>
-              <% if has_secondary_root_menu? %>
-                <%= render "layouts/decidim/admin/sidebar_menu" do %>
-                  <%= yield %>
-                <% end %>
+            <% if has_secondary_root_menu? %>
+                <div class="layout-content__container-sidebar" data-content>
+                  <%= render "layouts/decidim/admin/sidebar_menu" do %>
+                    <%= yield %>
+                  <% end %>
+                </div>
               <% else %>
-                <%= yield %>
+                <div class="layout-content__container" data-content>
+                  <%= yield %>
+                </div>
               <% end %>
-            </div>
           </div>
         </div>
       </div>
