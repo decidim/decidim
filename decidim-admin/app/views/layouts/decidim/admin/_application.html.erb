@@ -21,7 +21,7 @@
         </div>
         <div class="relative md:flex grow min-h-max w-full">
           <div class="layout-nav">
-            <%= link_to decidim_admin.root_path, class: "logo hidden md:block", data: { "external-link": false }, aria: { label: t("decidim.accessibility.logo") } do %>
+            <%= link_to decidim_admin.root_path, class: "logo hidden md:block", data: { "external-link": false }, aria: { label: t("decidim.accessibility.logo", organization: current_organization.name) } do %>
                 <% if current_organization.logo.present? %>
                   <%= image_tag current_organization.attached_uploader(:logo).path, alt: current_organization.name %>
                 <% else %>
