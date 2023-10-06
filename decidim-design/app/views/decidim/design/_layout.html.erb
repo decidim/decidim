@@ -1,6 +1,6 @@
 <%
   sections = [{
-    url: design_home_path,
+    url: decidim_design.root_path,
     path: false,
     icon: "home-7-line",
     text: "Home"
@@ -37,12 +37,13 @@
           <% end %>
         <% end %>
 
-        <% @files = Dir.glob("../decidim-dev/app/views/decidim/design/#{section[:path]}/*").select { |fn| File.directory?(fn) } %>
+        <% gem_path = Bundler.load.specs.find { |spec| spec.name == "decidim-design" }.full_gem_path %>
+        <% @files = Dir.glob("#{gem_path}/app/views/decidim/design/#{section[:path]}/*").select { |fn| File.directory?(fn) } %>
         <% if @files.any? %>
           <ul class="pl-5 pt-4 space-y-4">
             <% @files.each do |file| %>
               <li class="text-sm text-black cursor-pointer flex items-center gap-1">
-                <%= link_to File.basename(file), send("design_#{section[:path]}_#{File.basename(file)}_path"), class: "hover:underline first-letter:capitalize" %>
+                <%= link_to File.basename(file), send("#{section[:path]}_#{File.basename(file)}_path"), class: "hover:underline first-letter:capitalize" %>
                 <%= icon "arrow-right-line", class: "w-3 h-3 fill-current" %>
               </li>
             <% end %>

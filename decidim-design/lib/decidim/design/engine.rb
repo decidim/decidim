@@ -14,25 +14,7 @@ module Decidim
 
       initializer "decidim_design.mount_routes" do |_app|
         Decidim::Core::Engine.routes do
-          namespace :design do
-            namespace :components do
-              get "forms", to: "forms#index"
-              get "cards", to: "cards#index"
-              get "spacing", to: "spacing#index"
-            end
-
-            namespace :foundations do
-              get "accessibility", to: "accessibility#index"
-              get "color", to: "color#index"
-              get "iconography", to: "iconography#index"
-              get "layout", to: "layout#index"
-              get "typography", to: "typography#index"
-            end
-
-            get "home", to: "home#index"
-
-            root to: "home#index"
-          end
+          mount Decidim::Design::Engine => "/design"
         end
       end
 
