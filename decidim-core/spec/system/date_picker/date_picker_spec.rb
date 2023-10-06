@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Datepicker", type: :system do
-  let!(:organization) { create(:organization) }
+  let(:organization) { create(:organization) }
 
   let(:template_class) do
     Class.new(ActionView::Base) do
@@ -12,11 +12,13 @@ describe "Datepicker", type: :system do
       end
     end
   end
+
   let(:template) { template_class.new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
 
   let(:html_document) do
     template.instance_eval do
       js_config = { icons_path: asset_pack_path("media/images/icons.svg") }
+
       <<~HTML.strip
         <!doctype html>
         <html lang="en">
@@ -26,8 +28,6 @@ describe "Datepicker", type: :system do
           #{stylesheet_pack_tag "decidim_dev"}
           #{javascript_pack_tag "redesigned_decidim_core", "decidim_dev", defer: false}
         </head>
-        <!-- Add some line breaks so that the "WAI WCAG" notification does not block screenshots -->
-        <br><br><br><br><br>
         <body>
           <div>
             <input type="datetime-local" id="example_input">
@@ -116,13 +116,78 @@ describe "Datepicker", type: :system do
     end
   end
 
-  context "when using date input" do
-    context "when typing" do
-      it "only accepts numbers, slash and period" do
-        fill_in_datepicker :example_input_date, with: "sad221"
-        input = find("#example_input_date")
-        expect(input).not_to have_content("abktp")
-        expect(input).to have_content("1/2/4")
+  context "when using timepicker" do
+    context "when opening timepicker for the first time" do
+      it "starts from zero" do
+        find(".clock_button").click
+        hour = find("input.hourpicker]")
+        minute = find("input.minutepicker")
+        expect(hour.value).to be("00")
+        expect(minute.value).to be("00")
+      end
+    end
+
+    context "when decreasing hour from zero" do
+      it "turns to 23" do
+        find(".clock_button").click
+        find(".hourdown").click
+        hour = find("input.hourpicker")
+        expect(hour.value).to be("23")
+      end
+    end
+
+    context "when decreasing minute from zero" do
+      it "turns to 59" do
+        find(".clock_button").click
+        find(".minutedown").click
+        minute = find("input.minutepicker")
+        expect(minute.value).to be("59")
+      end
+    end
+
+    context "when increasing hour from 23" do
+      it "turns to zero" do
+        find(".clock_button").click
+        find(".hourdown").click
+        find(".hourup").click
+        hour = find("input.hourpicker")
+        expect(hour.value).to be("00")
+      end
+    end
+
+    context "when increasing minute from 59" do
+      it "turns to zero" do
+        find(".clock_button").click
+        find(".minutedown").click
+        find(".minuteup").click
+        minute = find("input.minutepicker")
+        expect(minute.value).to be("00")
+      end
+    end
+
+    context "when resetting timepicker" do
+      it "sets picker to zero and resets time input" do
+        find(".clock_button").click
+        find(".hourdown").click
+        find(".minuteup").click
+        click_button "Reset"
+        hour = find("input.hourpicker")
+        minute = find("input.minutepicker")
+        time = find("input.timepicker")
+        expect(hour).to be("00")
+        expect(minute).to be("00")
+        expect(time).to be("")
+      end
+    end
+
+    context "when typing a time on timepicker" do
+      it "sets picker to that time" do
+        fill_in_timepicker :example_input_time, with: "21:15"
+        find(".clock_button")
+        hour = find("input.hourpicker")
+        minute = find("input.minutepicker")
+        expect(hour.value).to be("21")
+        expect(minute.value).to be("15")
       end
     end
   end
