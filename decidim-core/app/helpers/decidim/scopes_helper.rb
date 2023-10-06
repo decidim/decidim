@@ -69,21 +69,6 @@ module Decidim
       )
     end
 
-    # Renders a scopes picker field in a form, not linked to a specific model.
-    # name - name for the input
-    # value - value for the input
-    #
-    # Returns nothing.
-    def scopes_picker_tag(name, value, options = {})
-      root = try(:current_participatory_space)&.scope
-      field = options[:field] || name
-
-      scopes_picker_field_tag name, value, id: options[:id] do |scope|
-        { url: decidim.scopes_picker_path(root:, current: scope&.id, field:),
-          text: scope_name_for_picker(scope, I18n.t("decidim.scopes.global")) }
-      end
-    end
-
     # Renders a scopes picker field in a filter form.
     # form - FilterFormBuilder object
     # name - attribute name
