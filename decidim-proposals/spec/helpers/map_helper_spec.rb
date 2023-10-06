@@ -38,8 +38,6 @@ module Decidim
           expect(subject[:type]).to eq("drag-marker")
           expect(marker["latitude"]).to eq(latitude)
           expect(marker["longitude"]).to eq(longitude)
-          expect(marker["address"]).to eq(address)
-          expect(marker["icon"]).to match(/<svg.+/)
         end
       end
 

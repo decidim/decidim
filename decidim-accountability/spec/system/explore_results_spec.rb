@@ -245,7 +245,6 @@ describe "Explore results", type: :system, versioning: true do
       end
 
       it "shows tags for scope" do
-        byebug
         expect(page).to have_selector("[data-tags]")
         within "[data-tags]" do
           expect(page).to have_content(translated(result.scope.name))
