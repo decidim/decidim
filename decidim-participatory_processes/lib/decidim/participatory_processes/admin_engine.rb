@@ -174,14 +174,14 @@ module Decidim
                         I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space)),
-                        icon_name: "tools-line",
+                        icon_name: "information-line",
                         if: allowed_to?(:update, :process, process: current_participatory_space)
 
           menu.add_item :participatory_process_steps,
                         I18n.t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space)),
-                        icon_name: "layout-masonry-line",
+                        icon_name: "direction-line",
                         if: allowed_to?(:read, :process_step)
 
           menu.add_item :components,
@@ -189,7 +189,7 @@ module Decidim
                         decidim_admin_participatory_processes.components_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.components_path(current_participatory_space),
                                                 ["decidim/participatory_processes/admin/components", %w(index new edit)]),
-                        icon_name: "layout-masonry-line",
+                        icon_name: "tools-line",
                         if: allowed_to?(:read, :component),
                         submenu: { target_menu: :admin_participatory_process_components_menu }
 
@@ -233,7 +233,7 @@ module Decidim
                         I18n.t("landing_page", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.edit_participatory_process_landing_page_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_landing_page_path(current_participatory_space)),
-                        icon_name: "tools-line",
+                        icon_name: "layout-masonry-line",
                         if: allowed_to?(:update, :process, process: current_participatory_space)
         end
       end

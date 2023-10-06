@@ -155,13 +155,13 @@ module Decidim
                         I18n.t("info", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.edit_conference_path(current_participatory_space),
                         position: 1,
-                        icon_name: "tools-line",
+                        icon_name: "information-line",
                         if: allowed_to?(:update, :conference, conference: current_participatory_space)
 
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.components_path(current_participatory_space),
-                        icon_name: "layout-masonry-line",
+                        icon_name: "tools-line",
                         if: allowed_to?(:read, :component, conference: current_participatory_space),
                         active: is_active_link?(decidim_admin_conferences.components_path(current_participatory_space),
                                                 ["decidim/conferences/admin/components", %w(index new edit)]),

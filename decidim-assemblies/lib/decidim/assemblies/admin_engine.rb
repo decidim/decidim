@@ -154,13 +154,13 @@ module Decidim
                         I18n.t("info", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.edit_assembly_path(current_participatory_space),
                         position: 1,
-                        icon_name: "tools-line",
+                        icon_name: "information-line",
                         if: allowed_to?(:update, :assembly, assembly: current_participatory_space)
 
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.components_path(current_participatory_space),
-                        icon_name: "layout-masonry-line",
+                        icon_name: "tools-line",
                         active: is_active_link?(decidim_admin_assemblies.components_path(current_participatory_space), ["decidim/assemblies/admin/components", %w(index new edit)]),
                         if: allowed_to?(:read, :component, assembly: current_participatory_space),
                         submenu: { target_menu: :admin_assemblies_components_menu }
@@ -207,7 +207,7 @@ module Decidim
           menu.add_item :edit_assembly_landing_page,
                         I18n.t("landing_page", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.edit_assembly_landing_page_path(current_participatory_space),
-                        icon_name: "tools-line",
+                        icon_name: "layout-masonry-line",
                         if: allowed_to?(:update, :assembly, assembly: current_participatory_space)
         end
       end
