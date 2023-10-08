@@ -16,7 +16,7 @@ module Decidim
       it { expect(subject.output_policy).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval';") }
       it { expect(subject.output_policy).to include("style-src 'self' 'unsafe-inline';") }
       it { expect(subject.output_policy).to include("img-src 'self' *.hereapi.com data:;") }
-      it { expect(subject.output_policy).to include("connect-src 'self' *.hereapi.com *.jsdelivr.net;") }
+      it { expect(subject.output_policy).to include("connect-src 'self' *.hereapi.com *.jsdelivr.net data:;") }
       it { expect(subject.output_policy).to include("font-src 'self';") }
       it { expect(subject.output_policy).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com;") }
       it { expect(subject.output_policy).to include("media-src 'self'") }

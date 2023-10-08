@@ -264,6 +264,31 @@ module Decidim
       end
     end
 
+    describe "#missing_committee_members" do
+      subject { initiative.missing_committee_members }
+
+      let(:initiatives_type_minimum_committee_members) { 2 }
+      let(:initiative) { create(:initiative, organization:, scoped_type:) }
+
+      before { initiative.committee_members.destroy_all }
+
+      context "when all missing members" do
+        it { is_expected.to be 2 }
+      end
+
+      context "when one missing member" do
+        before { create(:initiatives_committee_member, initiative:) }
+
+        it { is_expected.to be 1 }
+      end
+
+      context "when no missing members" do
+        before { create_list(:initiatives_committee_member, initiatives_type_minimum_committee_members, initiative:) }
+
+        it { is_expected.to be 0 }
+      end
+    end
+
     describe "sorting" do
       subject(:sorter) { described_class.ransack("s" => "supports_count desc") }
 

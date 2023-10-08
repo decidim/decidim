@@ -41,9 +41,7 @@ describe "Admin manages initiatives types", type: :system do
 
       click_button "Create"
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("A new initiative type has been successfully created")
-      end
+      expect(page).to have_admin_callout("A new initiative type has been successfully created")
     end
   end
 
@@ -68,23 +66,19 @@ describe "Admin manages initiatives types", type: :system do
 
       click_button "Update"
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("The initiative type has been successfully updated")
-      end
+      expect(page).to have_admin_callout("The initiative type has been successfully updated")
     end
   end
 
   context "when deleting an initiative type" do
     it "deletes the initiative type" do
       within find("tr", text: translated(initiatives_type.title)) do
-        accept_confirm(admin: true) do
+        accept_confirm do
           page.find(".action-icon--remove").click
         end
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("The initiative type has been successfully removed")
-      end
+      expect(page).to have_admin_callout("The initiative type has been successfully removed")
     end
   end
 end

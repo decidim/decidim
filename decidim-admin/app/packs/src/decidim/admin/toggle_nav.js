@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 const showHideNav = (evt) => {
-  const navMenu = document.querySelector(".layout-nav");
+  const navMenu = document.querySelector(".layout-wrapper");
 
   evt.preventDefault();
   navMenu.classList.toggle("is-nav-open");

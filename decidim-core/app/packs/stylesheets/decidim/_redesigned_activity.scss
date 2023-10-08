@@ -17,7 +17,7 @@
         @apply text-gray-2 text-sm;
 
         svg {
-          @apply fill-current;
+          @apply text-gray fill-current;
         }
       }
 
@@ -30,7 +30,7 @@
       }
     }
 
-    > span:last-child {
+    > span:last-child:not(:only-child) {
       @apply flex items-center gap-1 text-gray-2 text-sm;
 
       svg {
@@ -38,7 +38,7 @@
       }
 
       a {
-        @apply hover:underline;
+        @apply underline;
       }
     }
   }

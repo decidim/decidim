@@ -31,6 +31,8 @@ module Decidim
           enforce_permission_to :read, :component, component: current_component
         end
 
+        before_action :set_component_breadcrumb_item
+
         def permissions_context
           super.merge(
             current_participatory_space:,
@@ -64,6 +66,19 @@ module Decidim
 
         def skip_manage_component_permission
           false
+        end
+
+        def set_component_breadcrumb_item
+          context_breadcrumb_items << {
+            label: t("components", scope: "decidim.admin.menu"),
+            url: parent_path,
+            active: false
+          }
+          context_breadcrumb_items << {
+            label: translated_attribute(current_component.name),
+            url: ::Decidim::EngineRouter.admin_proxy(current_component).root_path,
+            active: true
+          }
         end
       end
     end

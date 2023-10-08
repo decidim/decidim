@@ -1,3 +1,16 @@
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <% if allowed_to? :create, :process_group %>
+      <%= link_to [:new, :participatory_process_group], class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link" do %>
+        <%= icon "add-line" %>
+        <span>
+          <%= t("actions.new_process_group", scope: "decidim.admin") %>
+        </span>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
 <%= render "layouts/decidim/admin/application" do %>
   <%= yield %>
 <% end %>

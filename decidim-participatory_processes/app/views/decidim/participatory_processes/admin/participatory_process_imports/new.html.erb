@@ -1,7 +1,20 @@
-<%= decidim_form_for(@form, url: imports_path, method: :post, html: { class: "form import_participatory_process" }) do |f| %>
-  <%= render partial: "form", object: f, locals: { title: t("participatory_process_imports.new.title", scope: "decidim.admin"), select: t("participatory_process_imports.new.select", scope: "decidim.admin") } %>
+<% add_decidim_page_title(t("participatory_process_imports.new.title", scope: "decidim.admin")) %>
 
-  <div class="button--double form-general-submit">
-    <%= f.submit t("participatory_process_imports.new.import", scope: "decidim.admin") %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t("participatory_process_imports.new.title", scope: "decidim.admin") %>
+  </h2>
+</div>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: imports_path, method: :post, html: { class: "form-defaults form import_participatory_process" }) do |f| %>
+      <%= render partial: "form", object: f %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t("participatory_process_imports.new.import", scope: "decidim.admin"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

@@ -8,6 +8,7 @@ module Decidim
         def scope_type_depth_select_options
           {
             include_blank: true,
+            help_text: t("scope_type_max_depth_help", scope: "decidim.participatory_processes.admin.participatory_processes.form"),
             selected: current_participatory_process.try(:decidim_scope_type_id)
           }
         end

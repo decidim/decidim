@@ -15,8 +15,8 @@
     <%= append_javascript_pack_tag "decidim_elections_admin" %>
     <span class='loading-spinner'></span> <%= t(".publishing") %></div>
   <% else %>
-    <div class="button--double form-general-submit">
-      <%= f.submit t(".publish_results") %>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= f.submit t(".publish_results"), class: "button button__sm button__secondary" %>
     </div>
   <% end %>
 <% end %>

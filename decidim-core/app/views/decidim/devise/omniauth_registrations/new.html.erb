@@ -1,6 +1,6 @@
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="flex justify-center">
-    <h1 class="h3 md:h1 decorator my-12"><%= t("decidim.devise.omniauth_registrations.new.sign_up") %></h1>
+    <h1 class="title-decorator my-12"><%= t("decidim.devise.omniauth_registrations.new.sign_up") %></h1>
   </div>
 
   <div class="text-lg text-gray-2">
@@ -20,7 +20,7 @@
 
       <%= f.text_field :nickname, help_text: t("decidim.devise.omniauth_registrations.new.nickname_help", organization: current_organization.name), autocomplete: "nickname", placeholder: "johndoe" %>
 
-      <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
+      <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
 
       <%= f.hidden_field :uid %>
       <%= f.hidden_field :provider %>

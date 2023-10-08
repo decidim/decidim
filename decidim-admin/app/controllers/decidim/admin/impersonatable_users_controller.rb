@@ -6,6 +6,8 @@ module Decidim
     # them
     #
     class ImpersonatableUsersController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Officializations::Filterable
+
       layout "decidim/admin/users"
 
       helper_method :new_managed_user

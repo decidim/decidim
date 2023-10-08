@@ -1,23 +1,28 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title"><%= title %></h2>
-  </div>
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
+      <div class="row column">
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
+      </div>
 
-  <div class="card-section">
-    <div class="row column">
-      <%= form.translated :text_field, :title, autofocus: true %>
+      <div class="row column">
+        <%= form.number_field :weight %>
+      </div>
 
-      <%= form.number_field :weight %>
+      <div class="row column">
+        <%= form.translated :editor, :description, toolbar: :content, aria: { label: :description } %>
+      </div>
 
-      <%= form.translated :editor, :description, toolbar: :content %>
-
-      <%= form.number_field :total_budget %>
+      <div class="row column">
+        <%= form.number_field :total_budget %>
+      </div>
 
       <% if current_component.has_subscopes? %>
         <div class="row column">
-          <%= scopes_picker_field form, :decidim_scope_id, root: current_component.scope %>
+          <%= scopes_select_field form, :decidim_scope_id, root: current_component.scope %>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
 </div>

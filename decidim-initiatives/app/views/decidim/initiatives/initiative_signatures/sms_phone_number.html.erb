@@ -1,5 +1,5 @@
 <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_phone_number.help"), callout_class: "secondary") %>
-<%= decidim_form_for(@form, url: next_wizard_path, method: :put) do |f| %>
+<%= decidim_form_for(@form, url: sms_phone_number_initiative_signatures_path, method: :put) do |f| %>
   <div class="form__wrapper">
     <%= f.text_field :mobile_phone_number %>
   </div>

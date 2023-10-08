@@ -1,33 +1,42 @@
-<h2 class="process-title-summary">
-  <%= t(".title", name: user.name) %>
-</h2>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t(".title", name: user.name) %>
+  </h2>
+</div>
 
-<%= decidim_form_for(@form, html: { class: "form new_user_block" }, url: user_block_path(user_id: user.id), method: :post) do |f| %>
-  <div class="card">
-    <div class="card-section">
-      <div class="row column">
-        <%= t(".description") %>
-      </div>
-      <br>
-      <% if @form.hide %>
-        <div class="callout alert">
-          <%= t(".already_reported_html", link: new_user_block_path(user_id: user.id)) %>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: user_block_path(user_id: user.id), method: :post, html: { class: "form-defaults form import_participatory_process" }) do |f| %>
+      <div class="form__wrapper">
+        <div class="card pt-4">
+          <div class="card-section">
+            <div class="row column">
+              <%= t(".description") %>
+            </div>
+
+            <% if @form.hide %>
+              <% announcement_message = t(".already_reported_html", link: new_user_block_path(user_id: user.id)) %>
+              <%= cell("decidim/announcement", announcement_message, callout_class: "alert" ) %>
+            <% end %>
+
+            <% if defined?(Decidim::Templates) %>
+              <%= render "decidim/templates/admin/block_user_templates/template_chooser", form: f %>
+            <% end %>
+
+            <div class="row column">
+              <%= f.hidden_field :user_id %>
+              <%= f.hidden_field :hide %>
+              <%= f.text_area :justification, required: true, label: t(".justification") %>
+            </div>
+          </div>
         </div>
-      <% end %>
-
-      <% if defined?(Decidim::Templates) %>
-        <%= render "decidim/templates/admin/block_user_templates/template_chooser", form: f %>
-      <% end %>
-
-      <div class="row column">
-        <%= f.hidden_field :user_id %>
-        <%= f.hidden_field :hide %>
-        <%= f.text_area :justification, required: true, label: t(".justification") %>
       </div>
-    </div>
-  </div>
 
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".action") %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t(".action"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

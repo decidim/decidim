@@ -24,7 +24,7 @@ shared_examples "manage attachment collections examples" do
   end
 
   it "can add attachment collections to a process" do
-    find(".card-title a.new").click
+    click_link "New attachment folder"
 
     within ".new_attachment_collection" do
       fill_in_i18n(
@@ -89,7 +89,7 @@ shared_examples "manage attachment collections examples" do
 
       it "can delete the attachment collection" do
         within find("tr", text: translated(attachment_collection2.name)) do
-          accept_confirm(admin: true) { click_link "Delete" }
+          accept_confirm { click_link "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
