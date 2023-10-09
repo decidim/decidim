@@ -68,7 +68,7 @@ module Decidim
       end
 
       def original_configuration_file_path
-        @original_configuration_file_path = File.join(app_path, "config/webpacker.yml")
+        @original_configuration_file_path = File.join(app_path, "config/shakapacker.yml")
       end
 
       def load_asset_configurations

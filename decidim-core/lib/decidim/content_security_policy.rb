@@ -67,8 +67,8 @@ module Decidim
     def append_development_directives
       return unless Rails.env.development?
 
-      host = ::Webpacker.config.dev_server[:host]
-      port = ::Webpacker.config.dev_server[:port]
+      host = ::Shakapacker.config.dev_server[:host]
+      port = ::Shakapacker.config.dev_server[:port]
 
       append_csp_directive("connect-src", "wss://#{host}:#{port}")
       append_csp_directive("connect-src", "ws://#{host}:#{port}")

@@ -3,7 +3,7 @@
 # This file overrides the webpacker/runner require in order to customize the
 # runner when it is started.
 
-require "#{Gem.loaded_specs["shakapacker"].full_gem_path}/lib/webpacker/runner"
+require "#{Gem.loaded_specs["shakapacker"].full_gem_path}/lib/shakapacker/runner"
 require "decidim/webpacker"
 
-Webpacker::Runner.include(Decidim::Webpacker::Runner)
+Shakapacker::Runner.include(Decidim::Webpacker::Runner)

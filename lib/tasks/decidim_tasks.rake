@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 def ensure_log_goes_to_stdout
-  old_logger = Webpacker.logger
-  Webpacker.logger = ActiveSupport::Logger.new($stdout)
+  old_logger = Shakapacker.logger
+  Shakapacker.logger = ActiveSupport::Logger.new($stdout)
   yield
 ensure
-  Webpacker.logger = old_logger
+  Shakapacker.logger = old_logger
 end
 
 namespace :decidim do
@@ -19,7 +19,7 @@ namespace :decidim do
 
     desc "Compile JavaScript packs using webpack for production with digests"
     task compile: [:npm_install, :environment] do
-      Webpacker.with_node_env("production") do
+      Shakapacker.with_node_env("production") do
         ensure_log_goes_to_stdout do
           if Decidim.webpacker.commands.compile
             # Successful compilation!
