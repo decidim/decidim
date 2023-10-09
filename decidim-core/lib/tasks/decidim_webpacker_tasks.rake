@@ -17,7 +17,7 @@ namespace :decidim do
       # PostCSS configuration
       copy_file_to_application "decidim-core/lib/decidim/webpacker/postcss.config.js", "postcss.config.js"
       # Webpacker configuration
-      copy_file_to_application "decidim-core/lib/decidim/webpacker/webpacker.yml", "config/webpacker.yml"
+      copy_file_to_application "decidim-core/lib/decidim/webpacker/webpacker.yml", "config/shakapacker.yml"
       # Webpack JS config files
       copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
 
@@ -48,8 +48,8 @@ namespace :decidim do
       system! "npm uninstall #{webpacker_packages.join(" ")}"
 
       # Modify the webpack binstubs
-      add_binstub_load_path "bin/webpacker"
-      add_binstub_load_path "bin/webpacker-dev-server"
+      add_binstub_load_path "bin/shakapacker"
+      add_binstub_load_path "bin/shakapacker-dev-server"
 
       # Add the Browserslist configuration to the project
       add_decidim_browserslist_configuration
@@ -63,7 +63,7 @@ namespace :decidim do
       remove_file_from_application "bin/webpack"
       remove_file_from_application "bin/webpack-dev-server"
 
-      Rake::Task["webpacker:binstubs"].invoke unless File.exist?(rails_app_path.join("bin/webpacker"))
+      Rake::Task["shakapacker:binstubs"].invoke unless File.exist?(rails_app_path.join("bin/shakapacker"))
 
       # Update JS dependencies
       install_decidim_npm
@@ -199,13 +199,13 @@ end
 # being run. Otherwise webpacker might not recognize if the assets need to be
 # compiled again (i.e. if the asset hash has been changed).
 if (config_path = Decidim::Webpacker.configuration.configuration_file)
-  Webpacker.instance = Webpacker::Instance.new(
+  Shakapacker.instance = Shakapacker::Instance.new(
     config_path: Pathname.new(config_path)
   )
 end
 
 # Remove the yarn install prerequisity from assets:precompile
-Rake::Task["assets:precompile"].prerequisites.delete("webpacker:yarn_install")
+Rake::Task["assets:precompile"].prerequisites.delete("shakapacker:yarn_install")
 
 # Add gem overrides path to the beginning in order to override rake tasks
 # Needed because of a bug in Rails 6.0 (see the overridden task for details)
