@@ -37,6 +37,12 @@ module Decidim
       }
     end
 
+    context "with correct data" do
+      it "is valid" do
+        expect(subject).to be_valid
+      end
+    end
+
     context "when everything is OK" do
       it { is_expected.to be_valid }
     end
@@ -158,7 +164,7 @@ module Decidim
     context "when the password confirmaiton does not match" do
       let(:password_confirmation) { "aaaabbbbcccc" }
 
-      it { is_expected.to be_invalid }
+      it { is_expected.not_to be_valid }
 
       it "adds the correct error" do
         subject.valid?

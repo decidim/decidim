@@ -155,11 +155,11 @@ module Decidim
       end
     end
 
-    describe "password_confirmation" do
+    describe "password_confirmation_message" do
       context "when the password confirmaiton does not match" do
         let(:password_confirmation) { "aaaabbbbcccc" }
 
-        it { is_expected.to be_invalid }
+        it { is_expected.not_to be_valid }
 
         it "adds the correct error" do
           subject.valid?

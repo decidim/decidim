@@ -48,7 +48,7 @@ describe "Locales", type: :system do
     end
 
     it "displays devise messages with the right locale when authentication fails" do
-      click_link "Log In"
+      click_link "Sign In"
 
       within_language_menu do
         click_link "Català"
