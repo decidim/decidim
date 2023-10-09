@@ -27,6 +27,7 @@ module Decidim
         required: true,
         label: false,
         help_text:,
+        value: @account.password.presence,
         minlength: min_length,
         maxlength: ::PasswordValidator::MAX_LENGTH,
         placeholder: "••••••"
@@ -34,10 +35,10 @@ module Decidim
     end
 
     def old_password_options
-      help_text = t("devise.passwords.edit.old_password_help")
+      help_text = t("devise.passwords.edit.old_password_help").html_safe
 
       {
-        autocomplete: "old-password",
+        autocomplete: "current-password",
         required: true,
         label: false,
         help_text:,

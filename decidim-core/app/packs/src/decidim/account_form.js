@@ -1,97 +1,55 @@
 import PasswordToggler from "./password_toggler";
 
-/**
- * Initializes the edit account form to control the password field elements
- * which should only be required when they are visible.
- *
- * @returns {void}
- */
 const initializeAccountForm = () => {
-  const editUserForm = document.querySelector("form.edit_user");
-  if (!editUserForm) {
+  const newPasswordPanel = document.getElementById("panel-password");
+  const oldPasswordPanel = document.getElementById("panel-old-password");
+  const emailField = document.querySelector("input[type='email']");
+  if (!newPasswordPanel || !oldPasswordPanel || !emailField) {
     return;
   }
 
-  const emailField = document.querySelector("#email-input")
-  if (emailField.length < 1) {
-    return;
-  }
+  const originalEmail = emailField.dataset.origin;
+  let emailChanged = originalEmail !== emailField.value;
+  let newPwVisible = false;
 
-  const passwordChange = editUserForm.querySelector("#accordion-trigger-password");
-  if (!passwordChange) {
-    return;
-  }
-
-  const passwordFields = passwordChange.querySelectorAll("input[type='password']");
-  if (passwordFields.length < 1) {
-    return;
-  }
-
-  const newPassword = $("#panel-password"),
-      oldPassword = $("#panel-old-password")
-
-  // Foundation uses jQuery so these have to be bound using jQuery and the
-  // attribute value needs to be set through jQuery.
-  const togglePasswordFieldValidators = ({ thisField = null, hidden = true } = {}) => {
-    let fields = [];
-    if (thisField === null) {
-      fields = [newPassword, oldPassword]
+  const toggleNewPassword = () => {
+    const input = newPasswordPanel.querySelector("input")
+    if (newPwVisible) {
+      input.required = true;
     } else {
-      fields = [thisField]
+      input.required = false;
+      input.value = "";
     }
-
-    fields.forEach((field) => {
-      const inputElement = $(field).find(("input[type='password']"))
-      if (inputElement.attr("required")) {
-        inputElement.removeAttr("required");
-      } else {
-        inputElement.attr("required", true)
-        inputElement.attr("value", "")
-      }
-      if (hidden) {
-        $(field).toggleClass("hidden")
-      }
-    })
-
-  }
-  const emailChanged = () => {
-    if ($(emailField).data("origin") !== emailField.value) {
-      return true
-    }
-    return false
-  }
-
-  const isHidden = (item) => {
-    return $(item).hasClass("hidden")
-  }
-
-  $(passwordChange).on("click", "span", () => {
-    if (emailChanged()) {
-      togglePasswordFieldValidators({thisField: newPassword})
+  };
+  const toggleOldPassword = () => {
+    const input = oldPasswordPanel.querySelector("input");
+    if (emailChanged || newPwVisible) {
+      oldPasswordPanel.classList.remove("hidden");
+      input.required = true;
     } else {
-      togglePasswordFieldValidators()
+      oldPasswordPanel.classList.add("hidden");
+      input.required = false;
     }
-  })
-
-  emailField.addEventListener("input", () => {
-    if (emailChanged() && isHidden(oldPassword)) {
-      togglePasswordFieldValidators({thisField: oldPassword})
-    } else if (!emailChanged() && !isHidden(oldPassword) && isHidden(newPassword)) {
-      togglePasswordFieldValidators({thisField: oldPassword})
-    }
-  })
-
-  const hasError = (field) => {
-    return $(field).find(".form-error.is-visible").length > 0
   }
 
-  [oldPassword, newPassword].forEach((item) => {
-    if (hasError(item)) {
-      $(item).toggleClass("hidden")
-    } else {
-      togglePasswordFieldValidators({thisField: item, hidden: false})
+  const observer = new MutationObserver(() => {
+    newPwVisible = newPasswordPanel.ariaHidden === "false";
+
+    toggleNewPassword();
+    toggleOldPassword();
+  });
+  observer.observe(newPasswordPanel, { attributes: true });
+
+  emailField.addEventListener("change", () => {
+    emailChanged = emailField.value !== originalEmail;
+    toggleOldPassword();
+  });
+
+  setTimeout(() => {
+    if (newPasswordPanel.querySelector("input") !== null) {
+      newPasswordPanel.ariaHidden = "false";
     }
-  })
+  }, 0)
 };
 
 /**

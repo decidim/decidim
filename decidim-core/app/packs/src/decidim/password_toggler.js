@@ -25,7 +25,7 @@ export default class PasswordToggler {
   init() {
     this.createControls();
     this.button.addEventListener("click", (evt) => {
-      this.toggleVisibiliy(evt);
+      this.toggleVisibility(evt);
     });
     // to prevent browsers trying to use autocomplete, turn the type back to password before submitting
     this.form.addEventListener("submit", () => {
@@ -92,7 +92,7 @@ export default class PasswordToggler {
     }
   }
 
-  toggleVisibiliy(evt) {
+  toggleVisibility(evt) {
     evt.preventDefault();
     if (this.isText()) {
       this.hidePassword();

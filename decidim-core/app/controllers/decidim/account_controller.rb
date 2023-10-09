@@ -15,7 +15,6 @@ module Decidim
     def update
       enforce_permission_to(:update, :user, current_user:)
       @account = form(AccountForm).from_params(account_params)
-
       UpdateAccount.call(current_user, @account) do
         on(:ok) do |email_is_unconfirmed|
           flash[:notice] = if email_is_unconfirmed
