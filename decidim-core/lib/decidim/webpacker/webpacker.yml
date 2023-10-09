@@ -31,7 +31,7 @@ default: &default
   compiler_strategy: digest
 
   # Select whether the compiler will always use a content hash and not just in production
-  # Don't use contentHash except for production for performance
+  # Do not use contentHash except for production for performance
   # https://webpack.js.org/guides/build-performance/#avoid-production-specific-tooling
   useContentHash: false
 
