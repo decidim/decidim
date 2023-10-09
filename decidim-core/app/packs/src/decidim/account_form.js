@@ -34,7 +34,9 @@ const initializeAccountForm = () => {
 
   const observer = new MutationObserver(() => {
     newPwVisible = newPasswordPanel.ariaHidden === "false";
-
+    if (newPasswordPanel.querySelector("input").value !== "") {
+      document.querySelector("button#accordion-trigger-panel-password").click();
+    }
     toggleNewPassword();
     toggleOldPassword();
   });
@@ -44,12 +46,6 @@ const initializeAccountForm = () => {
     emailChanged = emailField.value !== originalEmail;
     toggleOldPassword();
   });
-
-  setTimeout(() => {
-    if (newPasswordPanel.querySelector("input") !== null) {
-      newPasswordPanel.ariaHidden = "false";
-    }
-  }, 0)
 };
 
 /**
