@@ -11,7 +11,10 @@ export default function generateDatePicker(input, row, format) {
   date.setAttribute("id", `${input.id}_date`);
   date.setAttribute("class", "datepicker");
   date.setAttribute("type", "text");
-  date.setAttribute("placeholder", "dd/mm/yyyy");
+
+  const placeholder = format
+
+  date.setAttribute("placeholder", placeholder);
 
   const calendar = document.createElement("button");
   calendar.innerHTML = icon("calendar-2-fill", {class: "w-6 h-6"})
@@ -56,7 +59,7 @@ export default function generateDatePicker(input, row, format) {
     const value = event.clipboardData.getData("text/plain");
     if ((/^([1-9]|[0-2][0-9]|3[0-1])(-|.|\/)([1-9]|[0-2][0-9]|3[0-1])(-|.|\/)([0-9]{4})$/).test(value)) {
       let separator = ".";
-      if (format === 12) {
+      if (format === "%m/%d/%Y") {
         separator = "/";
       };
 
@@ -69,7 +72,7 @@ export default function generateDatePicker(input, row, format) {
       } else {
         date.value = value.replace(/[-/]/g, ".")
 
-        if (format === 12) {
+        if (format === "%m/%d/%Y") {
           date.value = value.replace(/[-.]/g, "/");
         };
       };

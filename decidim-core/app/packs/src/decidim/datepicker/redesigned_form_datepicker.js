@@ -3,13 +3,16 @@ import { WcDatepicker } from "wc-datepicker/dist/components/wc-datepicker";
 import generateDatePicker from "./redesigned_generate_datepicker";
 import generateTimePicker from "./redesigned_generate_timepicker";
 import { formatInputDate, formatInputTime } from "./redesigned_datepicker_functions";
+import { getDictionary } from "../i18n";
 
 export default function redesignedFormDatePicker() {
+  const i18n = getDictionary("date.formats");
+  const i10n = getDictionary("time");
+
   if (!customElements.get("wc-datepicker")) {
     customElements.define("wc-datepicker", WcDatepicker);
   };
 
-  const format = 24;
   const inputs = document.querySelectorAll('input[type="datetime-local"], input[type="date"]');
 
   inputs.forEach((input) => {
@@ -20,8 +23,8 @@ export default function redesignedFormDatePicker() {
     row.setAttribute("id", `${input.id}_datepicker_row`)
     row.setAttribute("class", "datepicker_row");
 
-    generateDatePicker(input, row, format);
-    generateTimePicker(input, row, format);
+    generateDatePicker(input, row, i18n.decidim_short);
+    generateTimePicker(input, row, i10n.clock_format || 24);
 
     if (label) {
       label.after(row);
@@ -29,7 +32,7 @@ export default function redesignedFormDatePicker() {
       input.after(row);
     };
 
-    if (format === 12) {
+    if (i18n.decidim_short === "%m/%d/%Y") {
       document.getElementById(`period_am_${input.id}`).checked = true;
     };
 
@@ -40,8 +43,8 @@ export default function redesignedFormDatePicker() {
       const date = dateTimeValue[0];
       const time = dateTimeValue[1];
 
-      document.getElementById(`${input.id}_date`).value = formatInputDate(date, format, input);
-      document.getElementById(`${input.id}_time`).value = formatInputTime(time, format, input);
+      document.getElementById(`${input.id}_date`).value = formatInputDate(date, i18n.decidim_short, input);
+      document.getElementById(`${input.id}_time`).value = formatInputTime(time, i18n.decidim_short, input);
     };
   });
 
