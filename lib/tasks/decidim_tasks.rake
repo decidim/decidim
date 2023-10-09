@@ -16,25 +16,6 @@ namespace :decidim do
         system "npm install"
       end
     end
-
-    desc "Compile JavaScript packs using webpack for production with digests"
-    task compile: [:npm_install, :environment] do
-      Shakapacker.with_node_env("production") do
-        ensure_log_goes_to_stdout do
-          if Decidim.webpacker.commands.compile
-            # Successful compilation!
-            puts "SUCCESS"
-            Dir.chdir(File.join(__dir__, "../..")) do
-              system "cp -r public/* #{Rails.public_path}"
-            end
-          else
-            # Failed compilation
-            puts "FAIL"
-            exit!
-          end
-        end
-      end
-    end
   end
 end
 
@@ -47,18 +28,6 @@ end
 
 # Compile packs after we have compiled all other assets during precompilation
 skip_webpacker_precompile = %w(no false n f).include?(ENV.fetch("WEBPACKER_PRECOMPILE", nil))
-
-unless skip_webpacker_precompile
-  # npm:install was added in Rails 5.1
-  deps = npm_install_available? ? [] : ["decidim:webpacker:npm_install"]
-  if Rake::Task.task_defined?("assets:precompile")
-    Rake::Task["assets:precompile"].enhance(deps) do
-      Rake::Task["decidim:webpacker:compile"].invoke
-    end
-  else
-    Rake::Task.define_task("assets:precompile" => "decidim:webpacker:compile")
-  end
-end
 
 namespace :decidim do
   namespace :assets do
