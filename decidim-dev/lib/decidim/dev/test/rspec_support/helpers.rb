@@ -44,7 +44,7 @@ module Decidim
     end
 
     def within_flash_messages
-      within ".flash" do
+      within ".flash", match: :first do
         yield
       end
     end

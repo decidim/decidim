@@ -448,7 +448,6 @@ en:
           key_ceremony_title: Key Ceremony
           not_available: Not yet available
           not_created: Not created
-          not_published: Not published
           not_ready: Not ready
           not_started: Not started
           published: Published
@@ -463,6 +462,7 @@ en:
             started: The tally process has started.
           tally_title: Tally process
           title: Election Log
+          unpublished: Unpublished
           verifiable_results:
             checksum: 'File SHA256 checksum:'
             description:
@@ -836,8 +836,8 @@ en:
           timeline:
             name: Voting timeline
         index:
-          not_published: Unpublished
           published: Published
+          unpublished: Unpublished
         landing_page:
           content_blocks:
             create:

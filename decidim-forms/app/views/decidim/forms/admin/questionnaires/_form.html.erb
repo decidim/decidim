@@ -22,9 +22,7 @@
 
   <% if questionnaire.questions_editable? %>
     <% if questionnaire.answers.any? && !questionnaire.published? %>
-      <div class="callout warning">
-        <%= t(".unpublished_warning") %>
-      </div>
+      <%= cell("decidim/announcement", t(".unpublished_warning"), callout_class: "warning" ) %>
     <% end %>
 
     <%= fields_for "questionnaire[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
@@ -54,9 +52,7 @@
       <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "matrix-row-template-dummy" %>
     <% end %>
   <% else %>
-    <div class="callout warning">
-      <%= t(".already_answered_warning") %>
-    </div>
+    <%= cell("decidim/announcement", t(".already_answered_warning"), callout_class: "warning" ) %>
   <% end %>
 
   <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">

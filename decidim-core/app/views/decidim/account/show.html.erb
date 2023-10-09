@@ -7,20 +7,23 @@
   <% end %>
 
   <% if current_user.unconfirmed_email.present? %>
-    <div id="email-change-pending" class="callout secondary">
-      <p>
-        <strong><%= t("decidim.account.email_change.title") %></strong>
-      </p>
-      <p>
-        <%= t("decidim.account.email_change.body1", unconfirmed_email: current_user.unconfirmed_email) %>
-      </p>
-      <p>
-        <%== t(
-          "decidim.account.email_change.body2",
-          resend_link: link_to(t("decidim.account.email_change.send_again"), resend_confirmation_instructions_account_path, role: :button, method: :post, remote: true),
-          cancel_link: link_to(t("decidim.account.email_change.cancel"), cancel_email_change_account_path, role: :button, method: :post, remote: true)) %>
-      </p>
-    </div>
+    <%# NOTE: announcement cell clean_body method will purge the button %>
+    <div id="email-change-pending" class="flash secondary" data-announcement>
+      <span class="flash__message flex-none block leading-relaxed">
+        <p>
+          <strong><%= t("decidim.account.email_change.title") %></strong>
+        </p>
+        <p>
+          <%= t("decidim.account.email_change.body1", unconfirmed_email: current_user.unconfirmed_email) %>
+        </p>
+        <p>
+          <%== t(
+            "decidim.account.email_change.body2",
+            resend_link: link_to(t("decidim.account.email_change.send_again"), resend_confirmation_instructions_account_path, role: :button, method: :post, remote: true),
+            cancel_link: link_to(t("decidim.account.email_change.cancel"), cancel_email_change_account_path, role: :button, method: :post, remote: true)) %>
+        </p>
+      </div>
+    </span>
   <% end %>
 
   <%= decidim_form_for(@account, url: account_path, method: :put, html: { autocomplete: "on", class: "form-defaults edit_user" }) do |f| %>
