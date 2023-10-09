@@ -101,7 +101,7 @@ PATH
       rubyXL (~> 3.4)
       rubyzip (~> 2.0)
       seven_zip_ruby (~> 1.3)
-      shakapacker (~> 7.0)
+      shakapacker (~> 7.1.0)
       valid_email2 (~> 4.0)
       web-push (~> 3.0)
       wisper (~> 2.0)
