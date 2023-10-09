@@ -45,20 +45,16 @@ def npm_install_available?
   rails_major > 5 || (rails_major == 5 && rails_minor >= 1)
 end
 
-def enhance_assets_precompile
-  # npm:install was added in Rails 5.1
-  deps = npm_install_available? ? [] : ["decidim:webpacker:npm_install"]
-  Rake::Task["assets:precompile"].enhance(deps) do
-    Rake::Task["decidim:webpacker:compile"].invoke
-  end
-end
-
 # Compile packs after we have compiled all other assets during precompilation
 skip_webpacker_precompile = %w(no false n f).include?(ENV.fetch("WEBPACKER_PRECOMPILE", nil))
 
 unless skip_webpacker_precompile
+  # npm:install was added in Rails 5.1
+  deps = npm_install_available? ? [] : ["decidim:webpacker:npm_install"]
   if Rake::Task.task_defined?("assets:precompile")
-    enhance_assets_precompile
+    Rake::Task["assets:precompile"].enhance(deps) do
+      Rake::Task["decidim:webpacker:compile"].invoke
+    end
   else
     Rake::Task.define_task("assets:precompile" => "decidim:webpacker:compile")
   end
@@ -76,16 +72,12 @@ namespace :decidim do
   end
 end
 
-def enhance_assets_clean
-  # npm:install was added in Rails 5.1
-  Rake::Task["assets:clean"].enhance([]) do
-    Rake::Task["decidim:assets:rm_node_modules"].invoke
-  end
-end
-
 unless skip_webpacker_precompile
   if Rake::Task.task_defined?("assets:clean")
-    enhance_assets_clean
+    # npm:install was added in Rails 5.1
+    Rake::Task["assets:clean"].enhance([]) do
+      Rake::Task["decidim:assets:rm_node_modules"].invoke
+    end
   else
     Rake::Task.define_task("assets:clean" => "decidim:assets:rm_node_modules")
   end
