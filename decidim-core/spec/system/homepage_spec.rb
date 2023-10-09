@@ -420,7 +420,7 @@ describe "Homepage", type: :system do
         let(:webpacker_helper) do
           Class.new do
             include ActionView::Helpers::AssetUrlHelper
-            include Webpacker::Helper
+            include Shakapacker::Helper
           end.new
         end
 

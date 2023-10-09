@@ -3,7 +3,7 @@
 module Decidim
   # A presenter to render menu items of breadcrumb root menu
   class BreadcrumbRootMenuItemPresenter < MenuItemPresenter
-    include ::Webpacker::Helper
+    include ::Shakapacker::Helper
     include ::ActionView::Helpers::AssetUrlHelper
     include Decidim::LayoutHelper
 
