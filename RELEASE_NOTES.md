@@ -172,14 +172,18 @@ Then run the below command, and replace all the configuration with the one that 
 bundle exec rake decidim:webpacker:install
 ```
 
-This will make the necessary changes in the `config/webpacker.yml`, but also in the `config/webpack/` folder.
+This will make the necessary changes in the `config/shakapacker.yml`, but also in the `config/webpack/` folder.
+
+As of [\#11728](https://github.com/decidim/decidim/pull/11728), Shakapacker has been upgraded to version 7.1.0, which will stop using `config/webpacker/test.js`, `config/webpacker/development.js`, `config/webpacker/production.js`.
+
+The project no longer needs to use `config/webpacker.yml`, in favor of `config/shakapacker.yml`. It is recommended to remove the `config/webpacker.yml` to avoid further confusion.
 
 #### Note for development
 
 If you are using the `Procfile.dev` file, you will need to make sure that you have the following line in your configuration. If you have not altered the `Procfile.dev` file, you will not need to do anything, as we covered that part:
 
 ```console
-webpacker: ./bin/webpacker-dev-server
+shakapacker: ./bin/shakapacker-dev-server
 ```
 
 In order to run your development server, you will need to run the following command:
@@ -188,7 +192,10 @@ In order to run your development server, you will need to run the following comm
 ./bin/dev
 ```
 
-You can read more about this change on PR [\#10389](https://github.com/decidim/decidim/pull/10389).
+You can read more about this change on PR
+
+- [\#10389](https://github.com/decidim/decidim/pull/10389)
+- [\#11728](https://github.com/decidim/decidim/pull/11728)
 
 ### 3.6. Initialize content blocks on spaces or resources with landing page
 
