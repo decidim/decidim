@@ -83,7 +83,7 @@ module Decidim
 
     def render_downloader(metric_name)
       link_to "#", class: "metric-downloader", data: { metric: metric_name } do
-        content_tag :small, class: "text-small" do
+        content_tag :small do
           content_tag :span, I18n.t("decidim.metrics.download.csv")
         end
       end
