@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+$LOAD_PATH.unshift "#{Gem.loaded_specs["decidim-core"].full_gem_path}/lib/gem_overrides"
 
 require "decidim/generators/version"
 
