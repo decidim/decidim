@@ -22,7 +22,7 @@ module Decidim
     #           is radio_buttons.
     #   * The rest of options are passed to the partial used to generate the
     #     section.
-    # @return [ActionView::OutputBuffer] - the HTML of the generated collection filter      
+    # @return [ActionView::OutputBuffer] - the HTML of the generated collection filter
     def collection_filter(method:, collection:, label_scope:, id:, **options)
       type = options.delete(:type) || default_form_type_for_collection(collection)
 
