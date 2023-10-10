@@ -101,29 +101,5 @@ module Decidim
         )
       end
     end
-
-    private
-
-    def repo_root
-      File.expand_path(File.join("..", "..", ".."), __dir__)
-    end
-
-    def json_secrets_for(path, env)
-      JSON.parse cmd_capture(path, "bin/rails runner 'puts Rails.application.secrets.to_json'", env:)
-    end
-
-    def initializer_config_for(path, env, mod = "Decidim")
-      JSON.parse cmd_capture(path, "bin/rails runner 'puts #{mod}.config.to_json'", env:)
-    end
-
-    def rails_value(value, path, env)
-      JSON.parse cmd_capture(path, "bin/rails runner 'puts #{value}.to_json'", env:)
-    end
-
-    def cmd_capture(path, cmd, env: {})
-      Bundler.with_unbundled_env do
-        Decidim::GemManager.new(path).capture(cmd, env:, with_stderr: false)[0]
-      end
-    end
   end
 end
