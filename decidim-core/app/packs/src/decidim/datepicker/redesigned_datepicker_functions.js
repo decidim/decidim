@@ -33,7 +33,7 @@ export const formatInputDate = (date, format) => {
     return `${month}/${day}/${year}`;
   };
 
-  return `${day}/${month}/${year}`;
+  return `${day}.${month}.${year}`;
 };
 
 export const formatInputTime = (time, format, input) => {
@@ -116,11 +116,11 @@ export const changeMinuteDisplay = (change, minute) => {
   return value;
 };
 
-export const parseDate = (value, format) => {
+export const formatDate = (value, format) => {
   let newValue = value;
 
   if (format === "%d/%m/%Y") {
-    const splitValue = value.split("/");
+    const splitValue = value.split(/[/.]/);
 
     newValue = `${splitValue[1]}/${splitValue[0]}/${splitValue[2]}`;
   };
@@ -142,18 +142,14 @@ export const parseDate = (value, format) => {
   return `${year}-${month}-${day}`
 };
 
-export const formatDate = (value, type, format) => {
-  const formatArray = value.split("/");
-
+export const dateToPicker = (value, format) => {
+  let formatArray = value.split(/[/.]/);
   let formatValue = null;
-  if (type === "datepicker" && format === "%d/%m/%Y") {
+
+  if (format === "%d/%m/%Y") {
     formatValue = `${formatArray[1]}/${formatArray[0]}/${formatArray[2]}`;
-  } else if (type === "datepicker" && format === "%m/%d/%Y") {
+  } else if (format === "%m/%d/%Y") {
     formatValue = value;
-  } else if (type === "input" && format === "%d/%m/%Y") {
-    formatValue = `${formatArray[2]}-${formatArray[1]}-${formatArray[0]}`
-  } else if (type === "input" && format === "%m/%d/%Y") {
-    formatValue = `${formatArray[2]}-${formatArray[0]}-${formatArray[1]}`
   };
 
   return formatValue;
@@ -201,7 +197,7 @@ export const displayDate = (value, format) => {
     return `${month}/${day}/${year}`
   }
 
-  return `${day}/${month}/${year}`;
+  return `${day}.${month}.${year}`;
 };
 
 let displayMinute = null;

@@ -91,6 +91,8 @@ en:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: "Format: dd.mm.yy"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -2034,6 +2036,8 @@ en:
       long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      help:
+        time_format: "Format: hh:mm"
   versions:
     directions:
       left: Deletions

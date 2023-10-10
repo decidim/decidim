@@ -164,6 +164,18 @@
   @apply flex-1 relative pl-1.5;
 }
 
+.help_text_container {
+  @apply w-full h-10 relative;
+}
+
+.help_date {
+  @apply w-1/2 relative inline-block;
+}
+
+.help_time {
+  @apply w-1/2 relative inline-block left-2;
+}
+
 input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;

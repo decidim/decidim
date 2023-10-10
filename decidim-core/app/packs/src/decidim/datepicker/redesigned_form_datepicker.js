@@ -7,7 +7,11 @@ import { getDictionary } from "../i18n";
 
 export default function redesignedFormDatePicker() {
   const i18n = getDictionary("date.formats");
+  const i18nHelp = getDictionary("date.formats.help");
   const i10n = getDictionary("time");
+  const i10nHelp = getDictionary("time.formats.help");
+
+  const formats = { date: i18n.decidim_short, time: i10n.time_format || 24 }
 
   if (!customElements.get("wc-datepicker")) {
     customElements.define("wc-datepicker", WcDatepicker);
@@ -23,8 +27,19 @@ export default function redesignedFormDatePicker() {
     row.setAttribute("id", `${input.id}_datepicker_row`)
     row.setAttribute("class", "datepicker_row");
 
-    generateDatePicker(input, row, i18n.decidim_short);
-    generateTimePicker(input, row, i10n.clock_format || 24);
+    const helpTextContainer = document.createElement("div");
+    helpTextContainer.setAttribute("class", "help_text_container")
+
+    const helpTextDate = document.createElement("span");
+    helpTextDate.setAttribute("class", "help-text help_date");
+    helpTextDate.innerText = i18nHelp.date_format;
+
+    const helpTextTime = document.createElement("span");
+    helpTextTime.setAttribute("class", "help-text help_time");
+    helpTextTime.innerText = i10nHelp.time_format;
+
+    helpTextContainer.appendChild(helpTextDate);
+    helpTextContainer.appendChild(helpTextTime)
 
     if (label) {
       label.after(row);
@@ -32,7 +47,12 @@ export default function redesignedFormDatePicker() {
       input.after(row);
     };
 
-    if (i18n.decidim_short === "%m/%d/%Y") {
+    generateDatePicker(input, row, formats);
+    generateTimePicker(input, row, formats);
+
+    row.before(helpTextContainer);
+
+    if (formats.time === 12) {
       document.getElementById(`period_am_${input.id}`).checked = true;
     };
 
@@ -43,22 +63,20 @@ export default function redesignedFormDatePicker() {
       const date = dateTimeValue[0];
       const time = dateTimeValue[1];
 
-      document.getElementById(`${input.id}_date`).value = formatInputDate(date, i18n.decidim_short, input);
-      document.getElementById(`${input.id}_time`).value = formatInputTime(time, i18n.decidim_short, input);
+      document.getElementById(`${input.id}_date`).value = formatInputDate(date, formats.date, input);
+      document.getElementById(`${input.id}_time`).value = formatInputTime(time, formats.time, input);
     };
   });
 
   if (inputs.length > 0) {
-    document.querySelector("button[name=\"commit\"]").addEventListener("click", () => {
-      inputs.forEach((input) => {
-        if (input.classList.contains("is-invalid-input")) {
-          document.getElementById(`${input.id}_date`).classList.add("is-invalid-input");
-          document.getElementById(`${input.id}_time`).classList.add("is-invalid-input");
-          document.getElementById(`${input.id}_datepicker_row`).after(document.getElementById(input.getAttribute("aria-describedby")));
-          document.getElementById(`${input.id}_date`).setAttribute("aria-describedby", input.getAttribute("aria-describedby"));
-          document.getElementById(`${input.id}_time`).setAttribute("aria-describedby", input.getAttribute("aria-describedby"));
-        };
-      });
+    inputs.forEach((input) => {
+      if (input.classList.contains("is-invalid-input")) {
+        document.getElementById(`${input.id}_date`).classList.add("is-invalid-input");
+        document.getElementById(`${input.id}_time`).classList.add("is-invalid-input");
+        input.parentElement.querySelectorAll(".form-error").forEach((error) => {
+          document.getElementById(`${input.id}_datepicker_row`).before(error);
+        });
+      };
     });
   };
 };
