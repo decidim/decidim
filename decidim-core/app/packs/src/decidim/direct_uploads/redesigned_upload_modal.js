@@ -120,10 +120,12 @@ export default class UploadModal {
     let type = "";
 
     if (src) {
-      buffer = await fetch(src).then((res) => res.arrayBuffer())
-      // since we cannot know the exact mime-type of the file,
-      // we assume as "image" if it has the src attribute in order to load the preview
-      type = "image"
+      const res = await fetch(src);
+      buffer = await res.arrayBuffer();
+      // In case the server does not know the exact mime-type of the file,
+      // we fallback it to "image" if it has the src attribute in order to load
+      // the preview
+      type = res.headers.get("Content-Type") || "image";
     }
 
     const file = new File([buffer], element.dataset.filename, { type })
@@ -159,10 +161,8 @@ export default class UploadModal {
     this.input.disabled = !continueUpload
     if (continueUpload) {
       this.emptyItems.classList.remove("is-disabled");
-      this.emptyItems.querySelector("label").removeAttribute("disabled");
     } else {
       this.emptyItems.classList.add("is-disabled");
-      this.emptyItems.querySelector("label").setAttribute("disabled", true);
     }
   }
 
