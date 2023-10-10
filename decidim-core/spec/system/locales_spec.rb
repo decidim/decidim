@@ -57,7 +57,7 @@ describe "Locales", type: :system do
       fill_in "session_user_email", with: "toto@example.org"
       fill_in "session_user_password", with: "toto"
 
-      click_button "Iniciar sessió"
+      click_button "Entra"
 
       expect(page).to have_content("Email o la contrasenya no són vàlids.")
     end
