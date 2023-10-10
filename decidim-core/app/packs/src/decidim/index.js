@@ -140,13 +140,10 @@ const initializer = (element = document) => {
 
   scrollToLastChild(element)
 
-  // https://github.com/jonathanlevaillant/a11y-accordion-component
   element.querySelectorAll('[data-component="accordion"]').forEach((component) => createAccordion(component))
 
-  // https://github.com/jonathanlevaillant/a11y-dropdown-component
   element.querySelectorAll('[data-component="dropdown"]').forEach((component) => createDropdown(component))
 
-  // https://github.com/jonathanlevaillant/a11y-dialog-component
   element.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component))
 
   // Initialize available remote modals (ajax-fetched contents)
