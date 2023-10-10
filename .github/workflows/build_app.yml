@@ -62,3 +62,5 @@ jobs:
         name: Precompile assets
         working-directory: ./spec/decidim_dummy_app/
         shell: "bash"
+        env:
+          NODE_ENV: "test"

@@ -19,6 +19,7 @@ on:
 env:
   CI: "true"
   NODE_VERSION: 18.17.1
+  NODE_ENV: "test"
   SHAKAPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:
