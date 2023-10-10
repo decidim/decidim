@@ -38,7 +38,7 @@ require "mime-types"
 require "diffy"
 require "ransack"
 require "wisper"
-require "webpacker"
+require "shakapacker"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
 require "decidim/webpacker"
