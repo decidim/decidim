@@ -6,23 +6,23 @@ module Decidim
   # This custom FormBuilder is used to create resource filter forms
   class FilterFormBuilder < FormBuilder
     # This method is used to generate a section of options in a filter block
-    # Arguments:
-    # * method: The method associated to the filter object of the form builder.
-    # * collection: The collection used to display the options. It can be an
-    #               array of options where each options if represented by an
-    #               array containing a value and a name or a check_boxes_tree
-    #               struct as defined in Decidim::CheckBoxesTreeHelper for more
-    #               complex situations which require nested options.
-    # * label_scope: The scope used to translate the title of the section.
-    # * id: The id of the section. It is also used to get the translation of the
-    #       section title.
-    # * options: Additional options:
+    # @param method [Symbol] - The method associated to the filter object of the form builder.
+    # @param collection [Array] - The collection used to display the options. It can be an
+    #                                                   array of options where each options if represented by an
+    #                                                   array containing a value and a name or a check_boxes_tree
+    #                                                   struct as defined in Decidim::CheckBoxesTreeHelper for more
+    #                                                   complex situations which require nested options.
+    # @param label_scope [String] - The scope used to translate the title of the section.
+    # @param id [String] - The id of the section. It is also used to get the translation of the
+    #                                      section title.
+    # @param options [Hash] - Additional options:
     #   * type: The type of selector to use with the collection it can be
     #           check_boxes, radio_buttons or check_boxes_tree (used by default
     #           when a tree struct is passed. The default selector for arrays
     #           is radio_buttons.
     #   * The rest of options are passed to the partial used to generate the
     #     section.
+    # @return [ActionView::OutputBuffer] - the HTML of the generated collection filter      
     def collection_filter(method:, collection:, label_scope:, id:, **options)
       type = options.delete(:type) || default_form_type_for_collection(collection)
 
