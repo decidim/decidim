@@ -17,7 +17,7 @@ namespace :decidim do
       # PostCSS configuration
       copy_file_to_application "decidim-core/lib/decidim/webpacker/postcss.config.js", "postcss.config.js"
       # Webpacker configuration
-      copy_file_to_application "decidim-core/lib/decidim/webpacker/webpacker.yml", "config/shakapacker.yml"
+      copy_file_to_application "decidim-core/lib/decidim/webpacker/shakapacker.yml", "config/shakapacker.yml"
       # Webpack JS config files
       copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
 
