@@ -1667,7 +1667,7 @@ ca:
         didn_t_receive_confirmation_instructions: No has rebut instruccions de confirmació?
         didn_t_receive_unlock_instructions: No has rebut instruccions de desbloqueig?
         forgot_your_password: Has oblidat la teva contrasenya?
-        sign_in: Entra
+        sign_in: Iniciar sessió
         sign_in_with_provider: Inicia sessió amb %{provider}
         sign_up: Registra't
       minimum_password_length:
