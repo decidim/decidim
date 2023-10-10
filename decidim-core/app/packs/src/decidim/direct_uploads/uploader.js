@@ -56,7 +56,7 @@ export class Uploader {
   }
 
   // The following method come from @rails/activestorage
-  // further info: https://edgeguides.rubyonrails.org/active_storage_overview.html#direct-upload-javascript-events
+  // {@link https://edgeguides.rubyonrails.org/active_storage_overview.html#direct-upload-javascript-events Active Storage Rails guide}
   directUploadWillStoreFileWithXHR(request) {
     request.upload.addEventListener("progress", ({ loaded, total }) => this.modal.setProgressBar(this.options.attachmentName, Math.floor(loaded / total * 100)));
   }
