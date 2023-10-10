@@ -65,7 +65,7 @@ describe "Account", type: :system do
           fill_in :user_name, with: "Nikola Tesla"
           fill_in :user_personal_url, with: "https://example.org"
           fill_in :user_about, with: "A Serbian-American inventor, electrical engineer, mechanical engineer, physicist, and futurist."
-          find("*[type=submit]").click
+          all("*[type=submit]").last.click
         end
 
         within_flash_messages do
@@ -93,6 +93,7 @@ describe "Account", type: :system do
         before do
           within "form.edit_user" do
             fill_in "Your email", with: pending_email
+            find("*[type=submit]").click
           end
         end
 
@@ -105,7 +106,8 @@ describe "Account", type: :system do
 
         it "renders the old password with error" do
           within "form.edit_user" do
-            fill_in "Current password", with: "wrong password"
+            find("*[type=submit]").click
+            fill_in :user_old_password, with: "wrong password"
             find("*[type=submit]").click
           end
           within ".flash.alert" do
@@ -121,7 +123,8 @@ describe "Account", type: :system do
         before do
           within "form.edit_user" do
             fill_in "Your email", with: pending_email
-            fill_in "Current password", with: password
+            find("*[type=submit]").click
+            fill_in :user_old_password, with: password
 
             perform_enqueued_jobs { find("*[type=submit]").click }
           end

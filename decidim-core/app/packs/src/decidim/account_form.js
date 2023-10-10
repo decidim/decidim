@@ -4,15 +4,16 @@ const initializeAccountForm = () => {
   const newPasswordPanel = document.getElementById("panel-password");
   const oldPasswordPanel = document.getElementById("panel-old-password");
   const emailField = document.querySelector("input[type='email']");
-  if (!newPasswordPanel || !oldPasswordPanel || !emailField) {
+  if (!newPasswordPanel || !emailField) {
     return;
   }
 
-  const originalEmail = emailField.dataset.origin;
+  const originalEmail = emailField.dataset.original;
   let emailChanged = originalEmail !== emailField.value;
   let newPwVisible = false;
 
   const toggleNewPassword = () => {
+    console.log("being called")
     const input = newPasswordPanel.querySelector("input")
     if (newPwVisible) {
       input.required = true;
@@ -22,6 +23,10 @@ const initializeAccountForm = () => {
     }
   };
   const toggleOldPassword = () => {
+    if (!oldPasswordPanel) {
+      return;
+    }
+
     const input = oldPasswordPanel.querySelector("input");
     if (emailChanged || newPwVisible) {
       oldPasswordPanel.classList.remove("hidden");
@@ -34,9 +39,6 @@ const initializeAccountForm = () => {
 
   const observer = new MutationObserver(() => {
     newPwVisible = newPasswordPanel.ariaHidden === "false";
-    if (newPasswordPanel.querySelector("input").value !== "") {
-      document.querySelector("button#accordion-trigger-panel-password").click();
-    }
     toggleNewPassword();
     toggleOldPassword();
   });
