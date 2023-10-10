@@ -5,7 +5,7 @@ require "decidim/form_builder"
 module Decidim
   # This custom FormBuilder is used to create resource filter forms
   class FilterFormBuilder < FormBuilder
-    # This function is used to generate a section of options in a filter block
+    # This method is used to generate a section of options in a filter block
     # Arguments:
     # * method: The method associated to the filter object of the form builder.
     # * collection: The collection used to display the options. It can be an
