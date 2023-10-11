@@ -10,6 +10,7 @@ module Decidim
         email:,
         nickname:,
         password:,
+        old_password:,
         avatar:,
         remove_avatar:,
         personal_url:,
@@ -21,8 +22,10 @@ module Decidim
       )
     end
 
-    let(:user) { create(:user) }
+    let(:user) { create(:user, password: user_password) }
     let(:organization) { user.organization }
+    let(:user_password) { "decidim1234567890" }
+    let(:old_password) { user_password }
 
     let(:name) { "Lord of the Foo" }
     let(:email) { "depths@ofthe.bar" }
@@ -150,6 +153,41 @@ module Decidim
         let(:password) { "aaaabbbbcccc" }
 
         it { is_expected.to be_invalid }
+      end
+    end
+
+    describe "validate_old_password" do
+      context "when email changed" do
+        let(:password) { "" }
+        let(:email) { "foo@example.org" }
+
+        context "with correct old_password" do
+          it "is valid" do
+            expect(subject).to be_valid
+          end
+        end
+
+        context "with incorrect old_password" do
+          let(:old_password) { "foobar1234567890" }
+
+          it { is_expected.to be_invalid }
+        end
+      end
+
+      context "when password present" do
+        let(:email) { user.email }
+
+        context "with correct old_password" do
+          it "is valid" do
+            expect(subject).to be_valid
+          end
+        end
+
+        context "with incorrect old_password" do
+          let(:old_password) { "foobar1234567890" }
+
+          it { is_expected.to be_invalid }
+        end
       end
     end
 
