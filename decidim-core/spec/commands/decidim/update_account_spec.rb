@@ -162,6 +162,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
         end
+
         context "with empty old password" do
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)

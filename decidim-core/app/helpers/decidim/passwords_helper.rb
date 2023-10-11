@@ -27,7 +27,7 @@ module Decidim
         required: true,
         label: false,
         help_text:,
-        value: @account.password.presence,
+        value: @account&.password,
         minlength: min_length,
         maxlength: ::PasswordValidator::MAX_LENGTH,
         placeholder: "••••••"
