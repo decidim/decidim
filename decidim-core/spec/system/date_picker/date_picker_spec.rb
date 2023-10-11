@@ -43,6 +43,8 @@ describe "Datepicker", type: :system do
   end
 
   before do
+    # allow(template).to receive(:i18n).and_return("%d/%m/%Y")
+
     final_html = html_document
     Rails.application.routes.draw do
       mount Decidim::Core::Engine => "/"
@@ -60,27 +62,27 @@ describe "Datepicker", type: :system do
     Rails.application.reload_routes!
   end
 
-  context "when date format dd/mm/yy"
-    context "when filling form datetime input with datepicker" do
-      it "fills the field correctly" do
-        find(".calendar_button").click
-        find('span > input[name="year"]').set("1994")
-        select("January", from: "month").select_option
-        find("td > span", text: "20", match: :first).click
-        find(".pick_calendar").click
+  context "when filling form datetime input with datepicker" do
+    it "fills the field correctly" do
+      find(".calendar_button").click
+      find('span > input[name="year"]').set("1994")
+      select("January", from: "month").select_option
+      find("td > span", text: "20", match: :first).click
+      find(".pick_calendar").click
 
-        find(".clock_button").click
-        find(".hourup").click
-        find(".minutedown").click
-        find(".close_clock").click
+      find(".clock_button").click
+      find(".hourup").click
+      find(".minutedown").click
+      find(".close_clock").click
 
-        click_button "Create"
-        expect(page).to have_field("example_input_time", with: "01:59")
-        expect(page).to have_field("example_input_date", with: "20/01/1994")
-        expect(page).to have_field("example_input", with: "1994-01-20T01:59", visible: :all)
-      end
+      click_button "Create"
+      expect(page).to have_field("example_input_time", with: "01:59")
+      expect(page).to have_field("example_input_date", with: "20/01/1994")
+      expect(page).to have_field("example_input", with: "1994-01-20T01:59", visible: :all)
     end
+  end
 
+  context "when format dd/mm/yyyy" do
     context "when choosing date" do
       context "when using picker" do
         context "when opening datepicker" do
@@ -265,5 +267,6 @@ describe "Datepicker", type: :system do
           end
         end
       end
+    end
   end
 end

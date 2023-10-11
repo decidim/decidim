@@ -11,7 +11,7 @@ export default function redesignedFormDatePicker() {
   const i10n = getDictionary("time");
   const i10nHelp = getDictionary("time.formats.help");
 
-  const formats = { date: i18n.decidim_short, time: i10n.time_format || 24 }
+  const formats = { date: "%d/%m/%Y", time: 24 }
 
   if (!customElements.get("wc-datepicker")) {
     customElements.define("wc-datepicker", WcDatepicker);
@@ -24,22 +24,22 @@ export default function redesignedFormDatePicker() {
     const label = input.closest("label");
 
     const row = document.createElement("div");
-    row.setAttribute("id", `${input.id}_datepicker_row`)
+    row.setAttribute("id", `${input.id}_datepicker_row`);
     row.setAttribute("class", "datepicker_row");
 
     const helpTextContainer = document.createElement("div");
-    helpTextContainer.setAttribute("class", "help_text_container")
+    helpTextContainer.setAttribute("class", "help_text_container");
 
     const helpTextDate = document.createElement("span");
     helpTextDate.setAttribute("class", "help-text help_date");
-    helpTextDate.innerText = i18nHelp.date_format;
+    helpTextDate.innerText = "testi";
 
     const helpTextTime = document.createElement("span");
     helpTextTime.setAttribute("class", "help-text help_time");
-    helpTextTime.innerText = i10nHelp.time_format;
+    helpTextTime.innerText = "testi";
 
     helpTextContainer.appendChild(helpTextDate);
-    helpTextContainer.appendChild(helpTextTime)
+    helpTextContainer.appendChild(helpTextTime);
 
     if (label) {
       label.after(row);
