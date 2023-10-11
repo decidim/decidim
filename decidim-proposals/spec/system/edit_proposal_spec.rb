@@ -125,8 +125,8 @@ describe "Edit proposals", type: :system do
             click_link "Edit proposal"
             expect(page).to have_content("Required fields are marked with an asterisk")
             click_button("Edit documents")
-            within "[data-dialog]" do
-              click_button("Next")
+            within "[data-reveal]" do
+              click_button("Save")
             end
             click_button("Send")
             expect(page).to have_content("Proposal successfully updated.")
@@ -147,8 +147,8 @@ describe "Edit proposals", type: :system do
             click_link "Edit proposal"
             expect(page).to have_content("Required fields are marked with an asterisk")
             click_button("Edit documents")
-            within "[data-dialog]" do
-              click_button("Next")
+            within "[data-reveal]" do
+              click_button("Save")
             end
             click_button("Send")
             expect(page).to have_content("Proposal successfully updated.")
