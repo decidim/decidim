@@ -151,8 +151,8 @@ describe "Explore Collaborative Drafts", type: :system, versioning: true do
 
       context "with a category" do
         it "shows tags for category" do
-          expect(page).to have_selector("ul.tags")
-          within "ul.tags" do
+          expect(page).to have_selector("ul.tag-container")
+          within "ul.tag-container" do
             expect(page).to have_content(translated(collaborative_draft.category.name))
           end
         end
@@ -160,8 +160,8 @@ describe "Explore Collaborative Drafts", type: :system, versioning: true do
 
       context "with a scope" do
         it "shows tags for scope" do
-          expect(page).to have_selector("ul.tags")
-          within "ul.tags" do
+          expect(page).to have_selector("ul.tag-container")
+          within "ul.tag-container" do
             expect(page).to have_content(translated(collaborative_draft.scope.name))
           end
         end

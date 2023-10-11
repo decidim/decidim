@@ -35,7 +35,7 @@ module Decidim
 
     # Returns the list with all the steps, in HTML.
     def wizard_stepper
-      content_tag :ol, class: "wizard__steps" do
+      content_tag :ol do
         (1..total_steps).map { |step| wizard_stepper_step(step) }.join
       end
     end
@@ -97,7 +97,7 @@ module Decidim
 
     # Returns the header see steps information, only visible for small screens.
     def wizard_header_see_steps
-      content_tag(:span, class: "text-small") do
+      content_tag(:span) do
         i18n_wizard_header_step_of + " (#{wizard_header_see_steps_link})"
       end
     end

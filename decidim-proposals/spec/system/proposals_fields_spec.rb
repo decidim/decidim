@@ -28,8 +28,6 @@ describe "Proposals", type: :system do
   end
 
   context "when creating a new proposal" do
-    let(:scope_picker) { select_data_picker(:proposal_scope_id) }
-
     context "when the user is logged in" do
       before do
         login_as user, scope: :user
@@ -305,7 +303,7 @@ describe "Proposals", type: :system do
               fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
             end
 
-            dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+            dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))
 
             within ".edit_proposal" do
               find("*[type=submit]").click
@@ -334,12 +332,12 @@ describe "Proposals", type: :system do
               skip "REDESIGN_PENDING - Flaky test: upload modal fails on GitHub with multiple fileshttps://github.com/decidim/decidim/issues/10961"
 
               # Attach one card image and two document images and go to preview
-              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))
               expect(page).to have_content("city.jpeg")
-              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"), front_interface: true)
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
               expect(page).to have_content("city.jpeg")
               expect(page).to have_content("city2.jpeg")
-              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"), front_interface: true)
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
               expect(page).to have_content("city.jpeg")
               expect(page).to have_content("city2.jpeg")
               expect(page).to have_content("city3.jpeg")

@@ -1,8 +1,22 @@
 <% add_decidim_page_title(t("diplomas.edit.title", scope: "decidim.conferences.admin")) %>
-<%= decidim_form_for(@form, url: conference_diploma_path, html: { class: "form edit_conference_diploma" })  do |f| %>
-  <%= render partial: "form", object: f, locals: { title: t("diplomas.edit.title", scope: "decidim.conferences.admin") } %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t("diplomas.edit.title", scope: "decidim.conferences.admin") %>
 
-   <div class="button--double form-general-submit">
-    <%= f.submit t(".save") %>
+    <% if allowed_to?(:send_diplomas, :conference, conference: current_participatory_space ) && current_participatory_space.sign_date.present? && current_participatory_space.conference_registrations.confirmed.any? %>
+      <%= link_to t("actions.send_diplomas", scope: "decidim.admin"), send_conference_diploma_path(current_conference), method: :post, id: "send-diplomas", class: "button button__sm button__secondary new #{"disabled" if current_participatory_space.diploma_sent?}" %>
+    <% end %>
+  </h2>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: conference_diploma_path, html: { class: "form-defaults form edit_conference_diploma" })  do |f| %>
+      <%= render partial: "form", object: f %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t(".save"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

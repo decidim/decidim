@@ -4,7 +4,7 @@
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
   <div class="text-center py-10">
-    <h1 class="h3 md:h1 decorator inline-block text-left mb-12">
+    <h1 class="title-decorator inline-block text-left mb-12">
       <%= t("decidim.elections.elections.election_log.title") %>
     </h1>
 
@@ -117,7 +117,7 @@
 
       <h2 class="h4 text-secondary">
         <%= t("decidim.elections.elections.election_log.results_title") %>
-        <span data-results-not-published><span class="label"><%= t("decidim.elections.elections.election_log.not_published") %></span></span>
+        <span data-results-not-published><span class="label"><%= t("decidim.elections.elections.election_log.unpublished") %></span></span>
         <span data-results-published hidden><span class="label success"><%= t("decidim.elections.elections.election_log.published") %></span></span>
       </h2>
 

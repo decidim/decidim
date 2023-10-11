@@ -63,7 +63,7 @@ en:
         personal_url: Personal URL
         position: Position
         short_bio: Short bio
-        twitter_handle: Twitter handle
+        twitter_handle: X handle
         user_id: User
       conference_user_role:
         email: Email
@@ -90,7 +90,12 @@ en:
     admin:
       actions:
         confirm: Confirm
-        new_conference: New Conference
+        new_conference: New conference
+        new_conference_user_role: New conference admin
+        new_media_link: New media link
+        new_partner: New partner
+        new_registration_type: New registration type
+        new_speaker: New speaker
         send_diplomas: Send certificates of attendance
       conference_copies:
         new:
@@ -153,8 +158,8 @@ en:
         form:
           title: General Information
         index:
-          not_published: Not published
           published: Published
+          unpublished: Unpublished
         new:
           create: Create
           title: Conference
@@ -194,18 +199,18 @@ en:
           conference_invites: Invites
           conference_speakers: Speakers
           diploma: Certificate of Attendance
-          info: Info
+          info: About this conference
           media_links: Media Links
           moderations: Moderations
           partners: Partners
           registration_types: Registration Types
           registrations: Registrations
+          see_conference: See conference
           user_registrations: User Registrations
       models:
         conference:
           fields:
             created_at: Created at
-            promoted: Highlighted
             published: Published
             title: Title
         conference_speaker:
@@ -331,7 +336,7 @@ en:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         conference_invites:
           create:
             error: There was a problem inviting the participant to join the conference.
@@ -348,7 +353,6 @@ en:
               all: All
               rejected: Rejected
               sent: Sent
-            filter_by: Filter by
             invite_attendee: Invite participant
             invites: Invites
             search: Search
@@ -373,7 +377,7 @@ en:
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
-            slug_help: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         diplomas:
           edit:
             save: Save
@@ -426,16 +430,16 @@ en:
         create:
           invalid: There was a problem joining this conference.
           success: You have successfully joined the conference.
-          unauthorized: You need to sign in before registering to the conference.
+          unauthorized: You need to log in before registering to the conference.
         decline_invitation:
           invalid: There was a problem declining the invitation.
           success: You have successfully declined the invitation.
-          unauthorized: You need to sign in before declining the invitation.
+          unauthorized: You need to log in before declining the invitation.
         destroy:
           invalid: There was a problem leaving this conference.
           success: You have successfully left the conference.
       conference_speaker:
-        go_to_twitter: Go to Twitter
+        go_to_twitter: Go to X
         more_info: more info
         personal_website: Personal website
         show:
@@ -454,10 +458,14 @@ en:
           collaborators: Partners
           main_promotors: Organizers
         show:
+          already_have_an_account?: Already have an account?
+          are_you_new?: New participant?
           login_as: You are logged in as %{name} <%{email}>
           make_conference_registration: Register for the conference
           manage_registration: Manage registration
           register: Register
+          sign_in_description: Log in to register to the conference
+          sign_up_description: Create an account to register to the conference
       content_blocks:
         highlighted_conferences:
           name: Highlighted conferences
@@ -499,7 +507,7 @@ en:
       pages:
         home:
           highlighted_conferences:
-            active_spaces: Conferences
+            active_spaces: Active conferences
             see_all_spaces: See all conferences
       registration_types:
         index:

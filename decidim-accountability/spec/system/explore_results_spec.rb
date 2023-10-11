@@ -212,7 +212,7 @@ describe "Explore results", type: :system, versioning: true do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).not_to have_selector("ul.tags.tag-container")
+        expect(page).not_to have_selector("[data-tags]")
       end
     end
 
@@ -225,8 +225,8 @@ describe "Explore results", type: :system, versioning: true do
       end
 
       it "shows tags for category" do
-        expect(page).to have_selector("ul.tags.tag-container")
-        within "ul.tags.tag-container" do
+        expect(page).to have_selector("[data-tags]")
+        within "[data-tags]" do
           expect(page).to have_content(translated(result.category.name))
         end
       end
@@ -245,8 +245,8 @@ describe "Explore results", type: :system, versioning: true do
       end
 
       it "shows tags for scope" do
-        expect(page).to have_selector("ul.tags.tag-container")
-        within "ul.tags.tag-container" do
+        expect(page).to have_selector("[data-tags]")
+        within "[data-tags]" do
           expect(page).to have_content(translated(result.scope.name))
         end
       end

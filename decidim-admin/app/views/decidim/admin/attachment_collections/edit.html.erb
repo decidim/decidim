@@ -1,8 +1,20 @@
 <% add_decidim_page_title(t("attachment_collections.edit.title", scope: "decidim.admin")) %>
-<%= decidim_form_for(@form, url: url_for([@attachment_collection.collection_for, @attachment_collection]), html: { class: "form edit_attachment_collection" }) do |f| %>
-  <%= render partial: "decidim/admin/attachment_collections/form", object: f, locals: { title: t("attachment_collections.edit.title", scope: "decidim.admin") } %>
 
-  <div class="button--double form-general-submit">
-    <%= f.submit t("attachment_collections.edit.update", scope: "decidim.admin") %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t("attachment_collections.edit.title", scope: "decidim.admin") %>
+  </h2>
+</div>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: url_for([@attachment_collection.collection_for, @attachment_collection]), html: { class: "form form-defaults edit_attachment_collection" }) do |f| %>
+      <%= render partial: "decidim/admin/attachment_collections/form", object: f %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t("attachment_collections.edit.update", scope: "decidim.admin"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

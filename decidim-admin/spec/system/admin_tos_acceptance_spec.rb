@@ -25,10 +25,9 @@ describe "AdminTosAcceptance", type: :system do
         expect(page).to have_content(review_message)
       end
 
-      it "has only the Dashboard menu item in the main navigation" do
-        within ".main-nav" do
-          expect(page).to have_content("Dashboard")
-          expect(page).to have_selector("li a", count: 1)
+      it "has the main navigation empty" do
+        within ".layout-nav" do
+          expect(page).not_to have_selector("li a")
         end
       end
     end
@@ -55,7 +54,9 @@ describe "AdminTosAcceptance", type: :system do
       it "allows accepting and redirects to the previous page" do
         click_button "I agree with the terms"
         expect(page).to have_content("New process")
-        expect(page).to have_content("Process types")
+        within_admin_menu do
+          expect(page).to have_content("Process types")
+        end
         expect(page).to have_content("Process groups")
       end
 
@@ -81,7 +82,9 @@ describe "AdminTosAcceptance", type: :system do
           expect(page).to have_content(review_message)
           click_button "I agree with the terms"
           expect(page).to have_content("New process")
-          expect(page).to have_content("Process types")
+          within_admin_menu do
+            expect(page).to have_content("Process types")
+          end
           expect(page).to have_content("Process groups")
         end
       end
@@ -101,8 +104,7 @@ describe "AdminTosAcceptance", type: :system do
         expect(page).to have_content("Activity")
         expect(page).to have_content("Metrics")
 
-        within ".main-nav" do
-          expect(page).to have_content("Dashboard")
+        within ".layout-nav" do
           expect(page).to have_content("Newsletters")
           expect(page).to have_content("Participants")
           expect(page).to have_content("Settings")

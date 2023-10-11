@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t("notifications", scope: "layouts.decidim.user_menu")) %>
 
 <% content_for :aside do %>
-  <h1 class="h3 md:h1 decorator"><%= t("notifications", scope: "layouts.decidim.user_menu") %></h1>
+  <h1 class="title-decorator"><%= t("notifications", scope: "layouts.decidim.user_menu") %></h1>
 
   <% if current_user.notifications.exists? %>
     <%= link_to read_all_notifications_path, class: "button button__sm md:button__lg button__secondary w-full md:w-fit", method: :delete, data: { disable: true, "notification-read-all": "" }, remote: true do %>

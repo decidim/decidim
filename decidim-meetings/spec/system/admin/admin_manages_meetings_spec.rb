@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/proposals/test/capybara_proposals_picker"
+require "decidim/dev/test/rspec_support/tom_select"
 
 describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_map: true, type: :system do
   let(:manifest_name) { "meetings" }
@@ -32,7 +32,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       visit current_path
 
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-        accept_confirm(admin: true) { click_link "Unpublish" }
+        accept_confirm { click_link "Unpublish" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -78,9 +78,9 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full"
 
     it "shows help text" do
-      expect(help_text_for("label[for*='meeting_address']")).to be_present
-      expect(help_text_for("div[data-tabs-content*='meeting-location']")).to be_present
-      expect(help_text_for("div[data-tabs-content*='meeting-location_hints']")).to be_present
+      expect(page).to have_content("used by Geocoder to find the location")
+      expect(page).to have_content("message directed to the users implying the spot to meet at")
+      expect(page).to have_content("the floor of the building if it is an in-person meeting")
     end
 
     context "when there are multiple locales" do
@@ -265,8 +265,8 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(page).to have_current_path(meeting_path)
   end
 
-  it "creates a new meeting", :serves_geocoding_autocomplete, :slow do
-    find(".card-title a.button").click
+  it "creates a new meeting", :serves_geocoding_autocomplete do
+    click_link "New meeting"
 
     fill_in_i18n(
       :meeting_title,
@@ -308,7 +308,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
     fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
-    scope_pick select_data_picker(:meeting_decidim_scope_id), scope
+    select translated(scope.name), from: :meeting_decidim_scope_id
     select translated(category.name), from: :meeting_decidim_category_id
 
     within ".new_meeting" do
@@ -334,7 +334,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
       before do
         # Prepare the view for submission (other than the address field)
-        find(".card-title a.button").click
+        click_link "New meeting"
 
         fill_in_i18n(
           :meeting_title,
@@ -377,7 +377,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   end
 
   it "lets the user choose the meeting type" do
-    find(".card-title a.button").click
+    click_link "New meeting"
 
     within ".new_meeting" do
       select "In person", from: :meeting_type_of_meeting
@@ -398,7 +398,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   end
 
   it "lets the user choose the registration type" do
-    find(".card-title a.button").click
+    click_link "New meeting"
 
     within ".new_meeting" do
       select "Registration disabled", from: :meeting_registration_type
@@ -421,7 +421,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     it "deletes a meeting" do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting2).title) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -467,7 +467,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
 
     it "does not display error message when opening meeting's create form" do
-      find(".card-title a.button").click
+      click_link "New meeting"
 
       within "label[for='meeting_registration_type']" do
         expect(page).not_to have_content("There is an error in this field.")
@@ -475,7 +475,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
 
     it "creates a new meeting", :slow do
-      find(".card-title a.button").click
+      click_link "New meeting"
 
       fill_in_i18n(
         :meeting_title,
@@ -515,7 +515,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
       fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
-      scope_pick select_data_picker(:meeting_decidim_scope_id), scope
+      select translated(scope.name), from: :meeting_decidim_scope_id
       select translated(category.name), from: :meeting_decidim_category_id
 
       within ".new_meeting" do
@@ -542,7 +542,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       end
 
       within ".edit_close_meeting" do
-        expect(page).to have_content "Choose proposals"
+        expect(page).to have_content "Proposals"
 
         fill_in_i18n_editor(
           :close_meeting_closing_report,
@@ -554,7 +554,9 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
         fill_in :close_meeting_attendees_count, with: 12
         fill_in :close_meeting_contributions_count, with: 44
         fill_in :close_meeting_attending_organizations, with: "Neighbours Association, Group of People Complaining About Something and Other People"
-        proposals_pick(select_data_picker(:close_meeting_proposals, multiple: true), proposals.first(2))
+
+        tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
+
         click_button "Close"
       end
 
@@ -595,7 +597,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
         expect(page).to have_content "Close meeting"
 
         within "form.edit_close_meeting" do
-          expect(page).not_to have_content "Choose proposals"
+          expect(page).not_to have_content "Proposals"
         end
       end
     end
@@ -611,9 +613,5 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
         fill_in current_scope.find("[id$=title_en]", visible: :visible)["id"], with: service_titles[index]
       end
     end
-  end
-
-  def help_text_for(css)
-    page.find_all(css).first.sibling(".help-text")
   end
 end

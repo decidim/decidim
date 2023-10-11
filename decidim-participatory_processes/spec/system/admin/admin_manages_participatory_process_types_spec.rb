@@ -78,9 +78,7 @@ describe "Admin manages participatory process types", type: :system do
 
         expect(page).to have_admin_callout("successfully")
 
-        within ".card-section" do
-          expect(page).not_to have_content(translated(participatory_process_type.title))
-        end
+        expect(page).not_to have_content(translated(participatory_process_type.title))
       end
     end
   end
@@ -89,7 +87,7 @@ describe "Admin manages participatory process types", type: :system do
 
   def click_delete_participatory_process_type
     within find("tr", text: translated(participatory_process_type.title)) do
-      accept_confirm(admin: true) { click_link "Delete" }
+      accept_confirm { click_link "Delete" }
     end
   end
 end

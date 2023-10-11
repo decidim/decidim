@@ -1,14 +1,30 @@
-<%= decidim_form_for(@form, html: { class: "form edit_assembly assembly_form_admin" }) do |f| %>
-  <%= render partial: "form", object: f %>
-  <div class="button--double form-general-submit">
-    <%= f.submit t("assemblies.edit.update", scope: "decidim.admin"), class: "button" %>
+<% add_decidim_page_title(t("info", scope: "decidim.admin.menu.assemblies_submenu")) %>
+<% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
 
-    <% if allowed_to? :publish, :assembly, assembly: current_assembly %>
-      <% if current_assembly.published? %>
-        <%= link_to t("actions.unpublish", scope: "decidim.admin"), assembly_publish_path(current_assembly), method: :delete, class: "button muted" %>
-      <% else %>
-        <%= link_to t("actions.publish", scope: "decidim.admin"), assembly_publish_path(current_assembly), method: :post, class: "button hollow" %>
-      <% end %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t("info", scope: "decidim.admin.menu.assemblies_submenu") %>
+  </h2>
+</div>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, html: { class: "form form-defaults edit_assembly assembly_form_admin" }) do |f| %>
+      <%= render partial: "form", object: f %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t("assemblies.edit.update", scope: "decidim.admin"), class: "button button__sm button__secondary" %>
+
+          <% if allowed_to? :publish, :assembly, assembly: current_assembly %>
+            <% if current_assembly.published? %>
+              <%= link_to t("actions.unpublish", scope: "decidim.admin"), assembly_publish_path(current_assembly), method: :delete, class: "button button__sm button__secondary" %>
+            <% else %>
+              <%= link_to t("actions.publish", scope: "decidim.admin"), assembly_publish_path(current_assembly), method: :post, class: "button button__sm button__secondary" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
+
   </div>
-<% end %>
+</div>

@@ -11,7 +11,7 @@
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="text-center py-10">
-    <h2 class="h3 md:h1 decorator inline-block text-left"><%= translated_attribute(current_initiative.title) %></h2>
+    <h2 class="title-decorator inline-block text-left"><%= translated_attribute(current_initiative.title) %></h2>
   </div>
 
   <%= cell "decidim/coauthorships", OpenStruct.new(identities: current_initiative.committee_members.excluding_author.approved.map(&:user).reject(&:deleted?).prepend(current_initiative.author) ) %>

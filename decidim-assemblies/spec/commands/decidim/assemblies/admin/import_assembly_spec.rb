@@ -134,7 +134,7 @@ module Decidim::Assemblies::Admin
       let(:import_attachments) { true }
 
       context "when attachment collections exists" do
-        it "imports a assembly and the collections" do
+        it "imports an assembly and the collections" do
           stub_calls_to_external_files
 
           expect { subject.call }.to change(Decidim::AttachmentCollection, :count).by(1)

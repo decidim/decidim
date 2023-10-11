@@ -14,13 +14,11 @@ shared_examples "manage landing page examples" do
   end
 
   context "when editing a participatory process group landing page" do
-    it "has sub nav with Landing page active" do
+    it "has breadcrumb with landing page" do
       visit edit_landing_page_path
-      within "div.secondary-nav" do
-        expect(page).to have_content("Info")
-        expect(page).to have_content("Landing page")
-        active_secondary_nav = find(:xpath, ".//li[@class='is-active']")
-        expect(active_secondary_nav.text).to eq("Landing page")
+
+      within("div.process-title-content-breadcrumb-container-left") do
+        expect(page).to have_css("span", text: "Landing page")
       end
     end
   end

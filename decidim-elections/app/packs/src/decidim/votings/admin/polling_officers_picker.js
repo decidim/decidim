@@ -1,35 +1,20 @@
-$(() => {
-  const $content = $(".picker-content"),
-      pickerMore = $content.data("picker-more"),
-      pickerPath = $content.data("picker-path"),
-      toggleNoPollingOfficers = () => {
-        const showNoPollingOfficers = $("#polling_officers_list li:visible").length === 0
-        $("#no_polling_officers").toggle(showNoPollingOfficers)
+import TomSelect from "tom-select/dist/cjs/tom-select.popular";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const tagContainers = document.querySelectorAll("#polling_officers_filter");
+  tagContainers.forEach((container) => {
+    const { tmName, tmItems, tmNoResults } = container.dataset
+    const config = {
+      plugins: ["remove_button", "dropdown_input"],
+      allowEmptyOption: true,
+      items: JSON.parse(tmItems),
+      render: {
+        item: (data, escape) => `<div>${escape(data.text)}<input type="hidden" name="${tmName}[]" value="${data.value}" /></div>`,
+        // eslint-disable-next-line camelcase
+        ...(tmNoResults && { no_results: () => `<div class="no-results">${tmNoResults}</div>` })
       }
+    };
 
-  let jqxhr = null
-
-  toggleNoPollingOfficers()
-
-  $(".data_picker-modal-content").on("change keyup", "#polling_officers_filter", (event) => {
-    const filter = event.target.value.toLowerCase()
-
-    if (pickerMore) {
-      if (jqxhr !== null) {
-        jqxhr.abort()
-      }
-
-      $content.html("<div class='loading-spinner'></div>")
-      jqxhr = $.get(`${pickerPath}?q=${filter}`, (data) => {
-        $content.html(data)
-        jqxhr = null
-        toggleNoPollingOfficers()
-      })
-    } else {
-      $("#polling_officers_list li").each((index, li) => {
-        $(li).toggle(li.textContent.toLowerCase().includes(filter))
-      })
-      toggleNoPollingOfficers()
-    }
+    return new TomSelect(container, config)
   })
-})
+});

@@ -19,7 +19,7 @@ module Decidim
 
       subject { described_class.new(manifest) }
 
-      context "when the params contain an conference id" do
+      context "when the params contain a conference id" do
         before do
           params["conference_slug"] = current_conference.id.to_s
         end
@@ -53,7 +53,7 @@ module Decidim
         end
       end
 
-      context "when the params do not contain an conference id" do
+      context "when the params do not contain a conference id" do
         it "does not match" do
           expect { subject.matches?(request) }.to raise_error(ActiveRecord::RecordNotFound)
         end

@@ -1,28 +1,19 @@
 <%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
   <% add_decidim_page_title(t("delete_my_account", scope: "layouts.decidim.user_profile")) %>
   <% content_for(:subtitle) { t("delete_my_account", scope: "layouts.decidim.user_profile") } %>
-  <div class="callout alert">
-    <p>
-      <%= t("alert", scope:"decidim.account.delete") %>
-    </p>
-    <% if has_authorizations? %>
-      <p>
-        <strong>
-          <%= t("leaving_authorizations_behind", scope:"decidim.account.delete") %>
-        </strong>
-      </p>
-    <% end %>
-  </div>
+
+  <%= cell("decidim/announcement", t("alert", scope:"decidim.account.delete"), callout_class: "alert") %>
+  <% if has_authorizations? %>
+    <%= cell("decidim/announcement", t("leaving_authorizations_behind", scope:"decidim.account.delete"), callout_class: "alert") %>
+  <% end %>
+
   <p class="help-text">
     <%= t("explanation", scope:"decidim.account.delete") %>
   </p>
   <%= decidim_form_for(@form, url: account_path, method: :delete, namespace: "delete_user", html: { class: "form-defaults delete-account" }) do |f| %>
     <div class="form__wrapper">
       <label>
-        <span class="help-text">
-          <%= t("activemodel.attributes.account.delete_reason") %>
-        </span>
-        <%= f.text_area :delete_reason, rows: 2, label: false %>
+        <%= f.text_area :delete_reason, rows: 2, label: false, help_text: t("activemodel.attributes.account.delete_reason") %>
       </label>
     </div>
     <div class="form__wrapper-block">

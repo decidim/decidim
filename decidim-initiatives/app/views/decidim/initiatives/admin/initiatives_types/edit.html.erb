@@ -1,16 +1,20 @@
 <% add_decidim_page_title(translated_attribute(current_initiative_type.title)) %>
-<%= decidim_form_for(@form, html: { class: "form edit_initiative_type" }) do |f| %>
-  <%= render partial: "form", object: f %>
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".update"), class: "button" %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t "decidim.admin.titles.initiatives_types" %>
+  </h2>
+</div>
 
-    <% if allowed_to? :destroy, :initiative_type, initiative_type: current_initiative_type %>
-      <%= link_to t(".destroy"), current_initiative_type,
-                  method: :delete,
-                  class: "alert button",
-                  data: { confirm: t(".confirm_destroy") } %>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, html: { class: "form-defaults form edit_initiative_type" }) do |f| %>
+      <%= render partial: "form", object: f %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+      <%= render partial: "initiative_type_scopes", locals: { initiative_type: current_initiative_type } %>
     <% end %>
   </div>
-  <br>
-  <%= render partial: "initiative_type_scopes", locals: { initiative_type: current_initiative_type } %>
-<% end %>
+</div>

@@ -1,5 +1,5 @@
 /**
- * The topbar__notifications element has changes after redesign
+ * This file handles the interactions of the notifications site via javascript
  * @param {HTMLElement} node target node
  * @returns {void}
  */
@@ -26,6 +26,9 @@ export default function(node = document) {
       emptyNotifications()
     }
   }
+  const hideReadAllButton = () => {
+    handleFadeOut(node.querySelector("[data-notification-read-all]"))
+  }
 
   const notifications = node.querySelectorAll("[data-notification]")
 
@@ -37,6 +40,7 @@ export default function(node = document) {
         "click", () => {
           notifications.forEach((notification) => handleFadeOut(notification))
           emptyNotifications()
+          hideReadAllButton()
         }
       )
   }
