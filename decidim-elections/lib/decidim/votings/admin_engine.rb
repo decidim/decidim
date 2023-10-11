@@ -14,7 +14,6 @@ module Decidim
           resource :publish, controller: "voting_publications", only: [:create, :destroy]
           member do
             get :available_polling_officers
-            get :polling_officers_picker
           end
 
           resource :landing_page, only: [:edit, :update], controller: "votings_landing_page" do

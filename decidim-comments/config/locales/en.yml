@@ -31,7 +31,6 @@ en:
           error: The comment could not be deleted.
         update:
           error: There was a problem updating the comment.
-      comments_count: Comments count
       comments_title: Comment
       last_activity:
         new_comment: 'New comment:'

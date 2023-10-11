@@ -88,8 +88,6 @@ module Decidim
     end
 
     def emendation_item
-      # REDESIGN_DETAILS - Maybe this item should be moved to another part of
-      # the card instead of the metadata list
       return unless resource.try(:emendation?)
 
       {

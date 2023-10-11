@@ -10,7 +10,7 @@
           <h3><%= t("decidim.conferences.admin.send_conference_diploma_mailer.diploma_user.certificate_of_attendance") %></h3>
           <p><%= t("decidim.conferences.admin.send_conference_diploma_mailer.diploma_user.certificate_of_attendance_description", user: @user.name, title: translated_attribute(@conference.title), location: @conference.location, start: l(@conference.start_date, format: :decidim_short), end: l(@conference.end_date, format: :decidim_short) ).html_safe %></p>
         </div>
-        <hr class="reset mt-m mb-m">
+        <hr class="mt-m mb-m">
         <div class="diploma__attendance">
           <strong><%= t("decidim.conferences.admin.send_conference_diploma_mailer.diploma_user.attendance_verified_by") %></strong>
           <div>

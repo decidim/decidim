@@ -7,7 +7,7 @@
   <p class="help-text mb-4">
     <%= t("select_your_interests", scope: "decidim.user_interests.show") %>
   </p>
-  <%= form_for(@user_interests, url: user_interests_path, method: :put, class: "user-form") do |f| %>
+  <%= form_for(@user_interests, url: user_interests_path, method: :put) do |f| %>
     <% if @user_interests.scopes.any? %>
       <%= render partial: "scopes", locals: { scopes: @user_interests.scopes, f: } %>
       <div class="form__wrapper-block">
