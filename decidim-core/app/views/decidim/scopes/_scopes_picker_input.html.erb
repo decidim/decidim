@@ -4,7 +4,7 @@
 
 <%- @scope_picker_values = capture do %>
   <div class="picker-values"><%- scopes.each do |scope, params| %>
-    <div><a href="<%= params[:url] %>" data-picker-value="<%= scope.id %>"><%= params[:text] %></a></div>
+    <div><a class="<%= values_options[:class] %>" href="<%= params[:url] %>" data-picker-value="<%= scope.id %>"><%= "× " if values_options[:delete_button] %><%= params[:text] %></a></div>
   <% end %></div>
 <% end %>
 

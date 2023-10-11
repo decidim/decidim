@@ -18,7 +18,7 @@ module Decidim
           .url_helpers
           .assemblies_path(
             filter: {
-              with_scope: filter.with_scope,
+              with_any_scope: filter.with_any_scope,
               with_area: filter.with_area,
               type_id_eq: type_id
             }
