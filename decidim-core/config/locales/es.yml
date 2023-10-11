@@ -1667,8 +1667,8 @@ es:
         change_my_password: Cambiar mi contraseña
         confirm_new_password: Confirmar la nueva contraseña
         new_password: Nueva contraseña
-        password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
-        password_help_admin: "%{minimun_characters} caracteres como mínimo, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias, correo electrónico y antiguas contraseñas."
+        password_help: "%{minimum_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
+        password_help_admin: "%{minimum_characters} caracteres como mínimo, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias, correo electrónico y antiguas contraseñas."
         title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
