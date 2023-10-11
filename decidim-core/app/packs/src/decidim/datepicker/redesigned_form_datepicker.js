@@ -11,7 +11,7 @@ export default function redesignedFormDatePicker() {
   const i10n = getDictionary("time");
   const i10nHelp = getDictionary("time.formats.help");
 
-  const formats = { date: "%d/%m/%Y", time: 24 }
+  const formats = { date: i18n.date_format, time: i10n.clock_format || 24 }
 
   if (!customElements.get("wc-datepicker")) {
     customElements.define("wc-datepicker", WcDatepicker);
@@ -32,11 +32,11 @@ export default function redesignedFormDatePicker() {
 
     const helpTextDate = document.createElement("span");
     helpTextDate.setAttribute("class", "help-text help_date");
-    helpTextDate.innerText = "testi";
+    helpTextDate.innerText = i18nHelp.date_format;
 
     const helpTextTime = document.createElement("span");
     helpTextTime.setAttribute("class", "help-text help_time");
-    helpTextTime.innerText = "testi";
+    helpTextTime.innerText = i10nHelp.time_format;
 
     helpTextContainer.appendChild(helpTextDate);
     helpTextContainer.appendChild(helpTextTime);
