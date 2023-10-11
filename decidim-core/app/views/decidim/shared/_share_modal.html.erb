@@ -19,7 +19,7 @@
         url: decidim_meta_url,
         image: decidim_meta_image_url,
         desc: h(decidim_meta_description),
-        via: decidim_meta_twitter_handler) %>
+        via: decidim_meta_twitter_handler).sub(%(data-site="x"), %(data-site="twitter")).html_safe %>
     <a href="#" class="button" data-open="urlShare">
       <%= icon "link-intact", role: "img", "aria-hidden": true %>
       <%= t(".share_link") %>
