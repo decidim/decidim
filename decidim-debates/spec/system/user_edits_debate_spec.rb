@@ -27,7 +27,6 @@ describe "User edits a debate", type: :system do
     let(:author) { user }
     let!(:scope) { create(:scope, organization:) }
     let!(:category) { create(:category, participatory_space:) }
-    let(:scope_picker) { select_data_picker(:debate_scope_id) }
 
     it "allows editing my debate", :slow do
       visit_component

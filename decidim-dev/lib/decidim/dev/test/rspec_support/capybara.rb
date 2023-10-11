@@ -62,6 +62,9 @@ end
 Capybara.register_driver :pwa_chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new
   options.args << "--explicitly-allowed-ports=#{Capybara.server_port}"
+  # If we have a headless browser things like the offline navigation feature stop working,
+  # so we need to have have a headful/recapitated (aka not headless) browser for these specs
+  # options.args << "--headless"
   options.args << "--no-sandbox"
   # Do not limit browser resources
   options.args << "--disable-dev-shm-usage"
