@@ -7,14 +7,14 @@
 
     <div>
       <%= content_tag :p,
-          t("info_text", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error"),
-          id: "dialog-desc-modal-closure-results-count-error" %>
+                      t("info_text", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error"),
+                      id: "dialog-desc-modal-closure-results-count-error" %>
     </div>
   </div>
   <div data-dialog-actions>
     <%= content_tag :button,
-        t("close_modal", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error"),
-        data: { "dialog-close": "modal-closure-results-count-error" },
-        class: "button button__sm md:button__lg button__transparent-secondary" %>
+                    t("close_modal", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error"),
+                    data: { "dialog-close": "modal-closure-results-count-error" },
+                    class: "button button__sm md:button__lg button__transparent-secondary" %>
   </div>
 <% end %>

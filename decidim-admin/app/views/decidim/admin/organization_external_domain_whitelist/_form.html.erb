@@ -12,8 +12,8 @@
         <%= fields_for "external_domains[#{blank_external_domain.to_param}]", blank_external_domain do |external_domain_form| %>
           <script type="text/template" class="decidim-template">
             <%= render "external_domain",
-            form: external_domain_form,
-            id: blank_external_domain.to_param %>
+                       form: external_domain_form,
+                       id: blank_external_domain.to_param %>
           </script>
         <% end %>
 
@@ -21,8 +21,8 @@
           <% @form.external_domains.each do |external_domain| %>
             <%= fields_for "external_domains[]", external_domain do |external_domain_form| %>
               <%= render "external_domain",
-              form: external_domain_form,
-              id: external_domain.to_param %>
+                         form: external_domain_form,
+                         id: external_domain.to_param %>
             <% end %>
           <% end %>
         </div>

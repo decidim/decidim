@@ -1,4 +1,8 @@
 ---
+glob: "decidim-*/app/{cells,views}/**/*.erb"
+exclude:
+  - '**/vendor/**/*'
+  - '**/node_modules/**/*'
 
 linters:
   ExtraNewline:
@@ -28,6 +32,36 @@ linters:
 
       AllCops:
         DisabledByDefault: true
+
+      Layout/InitialIndentation:
+        Enabled: false
+
+      Lint/SymbolConversion:
+        Enabled: false
+
+      Layout/SpaceInsideParens:
+        Enabled: false
+
+      Layout/SpaceAfterColon:
+        Enabled: false
+
+      Lint/UselessAssignment:
+        Enabled: false
+
+      Layout/ArgumentAlignment:
+        Enabled: true
+
+      Layout/SpaceAfterComma:
+        Enabled: false
+
+      Layout/TrailingWhitespace:
+        Enabled: false
+
+      Layout/LeadingEmptyLines:
+        Enabled: false
+
+      Layout/SpaceBeforeComma:
+        Enabled: false
 
       Style/Copyright:
         Enabled: false

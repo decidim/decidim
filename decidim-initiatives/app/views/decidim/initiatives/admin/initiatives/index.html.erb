@@ -57,11 +57,11 @@
 
             <% if allowed_to? :read, :initiative, initiative: initiative %>
               <%= icon_link_to "printer-line",
-                                decidim_initiatives.print_initiative_path(initiative),
-                                t(".print"),
-                                class: "action-icon--print",
-                                target: "_blank",
-                                data: { "external-link": false } %>
+                               decidim_initiatives.print_initiative_path(initiative),
+                               t(".print"),
+                               class: "action-icon--print",
+                               target: "_blank",
+                               data: { "external-link": false } %>
             <% else %>
               <span class="action-space icon"></span>
             <% end %>

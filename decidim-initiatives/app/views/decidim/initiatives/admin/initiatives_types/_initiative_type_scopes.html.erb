@@ -31,9 +31,9 @@
             <td class="text-right"><%= s.supports_required %></td>
             <td class="table-list__actions">
               <%= icon_link_to "pencil-line",
-                                decidim_admin_initiatives.edit_initiatives_type_initiatives_type_scope_path(initiative_type, s),
-                                t("actions.configure", scope: "decidim.admin"),
-                                class: "action-icon--new" if allowed_to? :edit, :initiative_type_scope, initiative_type_scope: s %>
+                               decidim_admin_initiatives.edit_initiatives_type_initiatives_type_scope_path(initiative_type, s),
+                               t("actions.configure", scope: "decidim.admin"),
+                               class: "action-icon--new" if allowed_to? :edit, :initiative_type_scope, initiative_type_scope: s %>
             </td>
           </tr>
         <% end %>

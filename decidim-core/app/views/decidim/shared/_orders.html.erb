@@ -6,8 +6,8 @@
 <div id="dropdown-menu-order" class="order-by">
   <% orders.each do |order_name| %>
     <%= order_link order_name,
-                          i18n_scope:,
-                          title: t("#{i18n_scope}.label"),
-                          class: "button button__sm button__text-secondary #{order_name == order ? "underline font-bold" : "font-normal"}" %>
+                   i18n_scope:,
+                   title: t("#{i18n_scope}.label"),
+                   class: "button button__sm button__text-secondary #{order_name == order ? "underline font-bold" : "font-normal"}" %>
   <% end %>
 </div>

@@ -10,28 +10,28 @@
           <% if allowed_to?(:index, :initiative) %>
               <%= icon "lightbulb-flash-line" %>
               <%= link_to t("menu.initiatives", scope: "decidim.admin"),
-                         decidim_admin_initiatives.initiatives_path,
-                         class: "text-secondary" %>
+                          decidim_admin_initiatives.initiatives_path,
+                          class: "text-secondary" %>
            <% end %>
         </li>
         <li class="dropdown__item">
           <% if allowed_to?(:manage, :initiative_type) %>
             <%= icon "layout-masonry-line" %>
             <%= link_to t("menu.initiatives_types", scope: "decidim.admin"),
-                       decidim_admin_initiatives.initiatives_types_path,
-                       class: "text-secondary" %>
+                        decidim_admin_initiatives.initiatives_types_path,
+                        class: "text-secondary" %>
           <% end %>
         </li>
         <li class="dropdown__item">
           <% if allowed_to?(:update, :initiatives_settings) %>
             <%= icon "tools-line" %>
             <%= link_to t("menu.initiatives_settings", scope: "decidim.admin"),
-                       decidim_admin_initiatives.edit_initiatives_setting_path(
-                                                 Decidim::InitiativesSettings.find_or_create_by!(
-                                                   organization: current_organization
-                                                 )
-                                               ),
-                       class: "text-secondary" %>
+                        decidim_admin_initiatives.edit_initiatives_setting_path(
+                                                  Decidim::InitiativesSettings.find_or_create_by!(
+                                                    organization: current_organization
+                                                  )
+                                                ),
+                        class: "text-secondary" %>
           <% end %>
         </li>
       </ul>

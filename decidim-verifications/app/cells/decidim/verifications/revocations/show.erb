@@ -8,10 +8,10 @@
     <div class="revoke_all_box">
       <p><%= t("decidim.admin.menu.authorization_revocation.info", count: model.count ) %></p>
       <%= link_to t("decidim.admin.menu.authorization_revocation.button"),
-        decidim_verifications.admin_verifications_destroy_all_path,
-        method: :delete,
-        class: "button button__sm md:button__lg button__secondary",
-        data: { confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm_all") } %>
+                  decidim_verifications.admin_verifications_destroy_all_path,
+                  method: :delete,
+                  class: "button button__sm md:button__lg button__secondary",
+                  data: { confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm_all") } %>
     </div>
     <br>
     <div class="revoke_before_date_box">
