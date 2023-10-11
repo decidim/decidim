@@ -43,8 +43,6 @@ describe "Datepicker", type: :system do
   end
 
   before do
-    # allow(template).to receive(:i18n).and_return("%d/%m/%Y")
-
     final_html = html_document
     Rails.application.routes.draw do
       mount Decidim::Core::Engine => "/"
