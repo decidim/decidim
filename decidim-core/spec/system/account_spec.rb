@@ -86,6 +86,50 @@ describe "Account", type: :system do
       end
     end
 
+    describe "when update password" do
+      let!(:encrypted_password) { user.encrypted_password }
+      let(:new_password) { "decidim1234567890" }
+
+      before do
+        click_button "Change password"
+      end
+
+      it "toggles old and new password fields" do
+        within "form.edit_user" do
+          expect(page).to have_content("must not be too common (e.g. 123456) and must be different from your nickname and your email.")
+          expect(page).to have_field("user[password]", with: "", type: "password")
+          expect(page).to have_field("user[old_password]", with: "", type: "password")
+          click_button "Change password"
+          expect(page).not_to have_field("user[password]", with: "", type: "password")
+          expect(page).not_to have_field("user[old_password]", with: "", type: "password")
+        end
+      end
+
+      it "shows fields if password is wrong" do
+        within "form.edit_user" do
+          fill_in "Password", with: new_password
+          fill_in "Current password", with: "wrong password12345"
+          find("*[type=submit]").click
+        end
+        expect(page).to have_field("user[password]", with: "decidim1234567890", type: "password")
+        expect(page).to have_content("is invalid")
+      end
+
+      it "changes the password with correct password" do
+        within "form.edit_user" do
+          fill_in "Password", with: new_password
+          fill_in "Current password", with: password
+          find("*[type=submit]").click
+        end
+        within_flash_messages do
+          expect(page).to have_content("successfully")
+        end
+        expect(user.reload.encrypted_password).not_to eq(encrypted_password)
+        expect(page).not_to have_field("user[password]", with: "", type: "password")
+        expect(page).not_to have_field("user[old_password]", with: "", type: "password")
+      end
+    end
+
     context "when update email" do
       let(:pending_email) { "foo@bar.com" }
 
