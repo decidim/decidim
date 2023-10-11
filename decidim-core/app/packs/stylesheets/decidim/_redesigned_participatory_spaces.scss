@@ -148,7 +148,6 @@
           @apply text-white bg-secondary;
         }
 
-        &:hover &-title,
         &[aria-expanded="true"] &-title {
           @apply font-semibold;
         }
@@ -162,7 +161,7 @@
 
   &__block {
     &-grid {
-      @apply grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-16;
+      @apply grid grid-cols-1 md:grid-cols-3 auto-rows-max gap-6 md:gap-16;
     }
 
     &-reference {

@@ -19,7 +19,7 @@ describe "Admin manages scope types", type: :system do
       find(".new").click
     end
 
-    within ".new_scope_type" do
+    within ".item__edit-form" do
       fill_in_i18n(
         :scope_type_name,
         "#scope_type-name-tabs",
@@ -64,7 +64,7 @@ describe "Admin manages scope types", type: :system do
         click_link "Edit"
       end
 
-      within ".edit_scope_type" do
+      within ".item__edit-form" do
         fill_in_i18n(
           :scope_type_name,
           "#scope_type-name-tabs",
@@ -88,7 +88,7 @@ describe "Admin manages scope types", type: :system do
 
     it "can delete them" do
       within find("tr", text: translated(scope_type.name)) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

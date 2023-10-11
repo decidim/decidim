@@ -1,40 +1,58 @@
-<div class="row column">
-  <%= form.text_field :reason, label: t(".reason") %>
-
-  <% if creating_managed_user? %>
-    <%= form.text_field :name, label: t(".name") %>
-  <% end %>
-
-  <%= form.fields_for :authorization, form.object.authorization, builder: Decidim::AuthorizationFormBuilder do |f| %>
-    <% if other_available_authorizations.any? %>
-      <%= f.collection_select :handler_name,
-                              available_authorization_handlers,
-                              :name,
-                              :fullname,
-                              { label: t(".authorization_method") } %>
-    <% else %>
-      <%= f.hidden_field :handler_name %>
-    <% end %>
-
-    <div id="authorization-handler-<%= f.object.handler_name %>"
-           class="authorization-handler">
-      <%= render "handler_form", handler_form: f %>
-    </div>
-  <% end %>
-
-  <% other_available_authorizations.each do |authorization| %>
-    <%= form.fields_for :authorization, authorization, builder: Decidim::AuthorizationFormBuilder do |f| %>
-      <div id="authorization-handler-<%= authorization.handler_name %>"
-           class="authorization-handler"
-           style="display:none">
-        <%= render "handler_form", handler_form: f %>
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
+      <div class="row column">
+        <%= form.text_field :reason, label: t(".reason") %>
       </div>
-    <% end %>
-  <% end %>
-</div>
 
-<% if other_available_authorizations.any? %>
-  <script>
-    window.Decidim.managedUsersForm()
-  </script>
-<% end %>
+      <% if creating_managed_user? %>
+        <div class="row column">
+          <%= form.text_field :name, label: t(".name") %>
+        </div>
+      <% end %>
+
+      <%= form.fields_for :authorization, form.object.authorization, builder: Decidim::AuthorizationFormBuilder do |f| %>
+        <% if other_available_authorizations.any? %>
+          <div class="row column">
+            <%= f.collection_select :handler_name,
+                                    available_authorization_handlers,
+                                    :name,
+                                    :fullname,
+                                    { label: t(".authorization_method") } %>
+          </div>
+        <% else %>
+          <div class="row column">
+            <%= f.hidden_field :handler_name %>
+          </div>
+        <% end %>
+        <div class="row column">
+          <div id="authorization-handler-<%= f.object.handler_name %>"
+                 class="authorization-handler">
+            <%= render "handler_form", handler_form: f %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="row column">
+        <% other_available_authorizations.each do |authorization| %>
+          <%= form.fields_for :authorization, authorization, builder: Decidim::AuthorizationFormBuilder do |f| %>
+            <div class="row column">
+              <div id="authorization-handler-<%= authorization.handler_name %>"
+                   class="authorization-handler"
+                   style="display:none">
+                <%= render "handler_form", handler_form: f %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <% if other_available_authorizations.any? %>
+        <script>
+          window.Decidim.managedUsersForm()
+        </script>
+      <% end %>
+
+    </div>
+  </div>
+</div>

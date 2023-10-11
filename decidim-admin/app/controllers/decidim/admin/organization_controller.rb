@@ -7,6 +7,8 @@ module Decidim
     class OrganizationController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
 
+      add_breadcrumb_item_from_menu :admin_settings_menu
+
       def edit
         enforce_permission_to :update, :organization, organization: current_organization
         @form = form(OrganizationForm).from_model(current_organization)

@@ -54,6 +54,7 @@ export default class DataPicker {
 
   enabled(picker, value) {
     $(picker).toggleClass("disabled", !value);
+    $(picker).attr("disabled", !value);
     $("input", picker).attr("disabled", !value);
   }
 

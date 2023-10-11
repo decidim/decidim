@@ -1,5 +1,5 @@
 .button {
-  @apply inline-flex items-center justify-center font-semibold text-center border border-transparent rounded transition cursor-pointer [&>svg]:flex-none [&>svg]:fill-current [&>span]:text-center [&>span]:break-words;
+  @apply inline-flex items-center justify-center font-semibold text-center border border-transparent rounded transition cursor-pointer [&>svg]:flex-none [&>svg]:fill-current [&>span]:text-center [&>span]:break-words focus:outline focus:outline-2 focus:outline-offset-2;
 
   &__xs {
     @apply text-sm [&:not([class*="button\\_\\_text"])]:px-3 [&:not([class*="button\\_\\_text"])]:py-1 gap-1;
@@ -18,30 +18,30 @@
   }
 
   &__primary {
-    @apply bg-primary text-white;
+    @apply bg-primary text-white focus:outline-primary;
   }
 
   &__secondary {
-    @apply bg-secondary text-white;
+    @apply bg-secondary text-white focus:outline-secondary;
   }
 
   &__tertiary {
-    @apply bg-tertiary text-white;
+    @apply bg-tertiary text-white focus:outline-tertiary;
   }
 
   &__transparent {
     @apply bg-transparent text-white border border-white;
 
     &-primary {
-      @apply border bg-white border-primary text-primary;
+      @apply border bg-white border-primary text-primary focus:outline-primary;
     }
 
     &-secondary {
-      @apply border bg-white border-secondary text-secondary;
+      @apply border bg-white border-secondary text-secondary focus:outline-secondary;
     }
 
     &-tertiary {
-      @apply border bg-white border-tertiary text-tertiary;
+      @apply border bg-white border-tertiary text-tertiary focus:outline-tertiary;
     }
   }
 
@@ -63,7 +63,7 @@
 
   &[disabled],
   &.disabled {
-    @apply text-gray-2 bg-background-3 border border-gray-2;
+    @apply text-gray-2 bg-background-3 border border-gray-2 cursor-not-allowed;
   }
 
   &.is-hover,

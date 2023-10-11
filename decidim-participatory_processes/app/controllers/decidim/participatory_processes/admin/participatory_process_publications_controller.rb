@@ -5,40 +5,20 @@ module Decidim
     module Admin
       # Controller that allows managing participatory process publications.
       #
-      class ParticipatoryProcessPublicationsController < Decidim::Admin::ApplicationController
+      # i18n-tasks-use t('decidim.admin.participatory_process_publications.create.error')
+      # i18n-tasks-use t('decidim.admin.participatory_process_publications.create.success')
+      # i18n-tasks-use t('decidim.admin.participatory_process_publications.destroy.error')
+      # i18n-tasks-use t('decidim.admin.participatory_process_publications.destroy.success')
+      class ParticipatoryProcessPublicationsController < Decidim::Admin::SpacePublicationsController
         include Concerns::ParticipatoryProcessAdmin
 
-        def create
-          enforce_permission_to :publish, :process, process: current_participatory_process
+        private
 
-          PublishParticipatoryProcess.call(current_participatory_process, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("participatory_process_publications.create.success", scope: "decidim.admin")
-            end
+        def enforce_permission_to_publish = enforce_permission_to(:publish, :process, process: current_participatory_process)
 
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_process_publications.create.error", scope: "decidim.admin")
-            end
+        def i18n_scope = "decidim.admin.participatory_process_publications"
 
-            redirect_back(fallback_location: participatory_processes_path)
-          end
-        end
-
-        def destroy
-          enforce_permission_to :publish, :process, process: current_participatory_process
-
-          UnpublishParticipatoryProcess.call(current_participatory_process, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("participatory_process_publications.destroy.success", scope: "decidim.admin")
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_process_publications.destroy.error", scope: "decidim.admin")
-            end
-
-            redirect_back(fallback_location: participatory_processes_path)
-          end
-        end
+        def fallback_location = participatory_processes_path
       end
     end
   end

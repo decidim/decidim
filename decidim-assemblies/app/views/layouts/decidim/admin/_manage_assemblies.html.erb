@@ -1,0 +1,44 @@
+<div class="inline-block relative">
+  <%= button_tag id: "assemblies-menu-trigger", data: { component: "dropdown", target: "assemblies-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
+    <span>
+      <%= t("menu.manage", scope: "decidim.admin") %>
+    </span>
+    <%= icon "arrow-down-s-line" %>
+  <% end %>
+  <div id="assemblies-dropdown-menu-settings">
+    <ul class="dropdown dropdown__bottom">
+      <% if allowed_to? :import, :assembly %>
+        <li class="dropdown__item">
+          <%= icon "price-tag-3-line", class: "fill-gray-2" %>
+          <%= link_to t("actions.import_assembly", scope: "decidim.admin"),
+                      new_import_path,
+                      class: "text-secondary" %>
+        </li>
+      <% end %>
+      <% if allowed_to?(:read, :assembly_list) %>
+        <li class="dropdown__item">
+          <%= icon "government-line" %>
+          <%= link_to t("menu.assemblies", scope: "decidim.admin"),
+                      decidim_admin_assemblies.assemblies_path,
+                      class: "text-secondary" %>
+        </li>
+      <% end %>
+      <% if  allowed_to?(:manage, :assemblies_type) %>
+        <li class="dropdown__item">
+          <%= icon "government-line" %>
+          <%= link_to t("menu.assemblies_types", scope: "decidim.admin"),
+                      decidim_admin_assemblies.assemblies_types_path,
+                      class: "text-secondary" %>
+        </li>
+      <% end %>
+      <% if allowed_to? :read, :assemblies_setting %>
+        <li class="dropdown__item">
+          <%= icon "tools-line" %>
+          <%= link_to t("menu.assemblies_settings", scope: "decidim.admin"),
+                      decidim_admin_assemblies.edit_assemblies_settings_path,
+                      class: "text-secondary" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

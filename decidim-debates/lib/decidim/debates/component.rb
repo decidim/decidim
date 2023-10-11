@@ -6,6 +6,7 @@ Decidim.register_component(:debates) do |component|
   component.engine = Decidim::Debates::Engine
   component.admin_engine = Decidim::Debates::AdminEngine
   component.icon = "media/images/decidim_debates.svg"
+  component.icon_key = "discuss-line"
   component.permissions_class_name = "Decidim::Debates::Permissions"
 
   component.query_type = "Decidim::Debates::DebatesType"

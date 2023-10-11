@@ -41,8 +41,11 @@ module Decidim
       has_title? ? clean_body : clean_announcement
     end
 
-    def callout_class
-      options[:callout_class]
+    def css_class
+      return unless options[:callout_class]
+
+      callout_class = options[:callout_class]
+      has_title? ? + "#{callout_class} flex-col" : callout_class
     end
 
     def announcement
@@ -57,12 +60,6 @@ module Decidim
       return announcement.presence unless announcement.is_a?(Hash)
 
       announcement[:body].presence
-    end
-
-    def truncate?
-      return false unless options.has_key? :truncate
-
-      options[:truncate]
     end
 
     def clean_body

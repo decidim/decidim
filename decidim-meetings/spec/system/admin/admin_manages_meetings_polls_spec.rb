@@ -274,7 +274,7 @@ describe "Admin manages meetings polls", type: :system do
   end
 
   def expand_all_questions
-    find(".button.expand-all").click
+    click_button "Expand all questions"
   end
 
   def visit_questionnaire_edit_path_and_expand_all

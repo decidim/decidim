@@ -326,7 +326,7 @@ header {
       }
 
       [data-target*="dropdown"] {
-        @apply md:block lg:hidden w-auto last-of-type:[&>svg]:block;
+        @apply md:block lg:hidden w-auto last-of-type:[&>svg]:block ml-auto;
 
         > svg {
           @apply text-white;
@@ -336,6 +336,10 @@ header {
 
     &__actions {
       @apply hidden lg:flex justify-between items-center gap-6;
+
+      &-mobile {
+        @apply [&_svg]:w-4 [&_svg]:h-4 [&_span]:sr-only;
+      }
     }
 
     &__main-dropdown {
@@ -364,11 +368,11 @@ header {
       }
 
       &__title {
-        @apply h4 md:h3;
+        @apply hidden h4 md:flex md:h3;
       }
 
       &__subtitle {
-        @apply text-md md:text-lg text-gray-2 mt-5;
+        @apply hidden text-md md:flex md:text-lg text-gray-2 mt-5;
       }
 
       &__menu {
