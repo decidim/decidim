@@ -36,6 +36,31 @@
           </div>
         </div>
       <% end %>
+<%= decidim_form_for(@preview_form, url: participatory_texts_path, class: "form grid-container") do |form| %>
+<div class="card">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
+      <%= t(".title") %>
+      <%= render partial: "bulk-actions" %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <% if @drafts.any? %>
+      <p><%= t(".info_1") %></p>
+      <ul id="participatory-text" class="accordion js-sortable mb-m"
+        data-accordion
+        data-multi-expand="true"
+        data-allow-all-closed="true">
+        <%= form.fields_for(:proposals) do |prop_form| %>
+        <% proposal = @drafts[prop_form.index] %>
+          <li class="accordion-item <%= proposal.article? ? "is-active" : nil %>" data-accordion-item>
+            <a href="#" class="accordion-title"><%= preview_participatory_text_section_title(proposal) %><span class="mr-m"><%= icon "menu", class: "icon--small", role: "img", "aria-hidden": true %></span></a>
+            <div class="accordion-content" data-tab-content>
+              <%= render "article-preview", { form: prop_form, proposal: } %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
     <% end -%>
   </div>
 </div>

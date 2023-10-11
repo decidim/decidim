@@ -17,9 +17,7 @@
       <% end %>
     </div>
     <% if question.answered_by?(current_user) %>
-      <div class="callout success mt-1">
-        <%= t(".question_replied") %>
-      </div>
+      <%= cell("decidim/announcement", t(".question_replied"), callout_class: "success" ) %>
     <% else %>
       <div class="text-right">
         <button class="ml-auto button button button__sm button__secondary"><%= t(".reply_question") %></button>

@@ -1,87 +1,114 @@
-/* eslint-disable no-invalid-this */
+/* eslint-disable max-lines */
 
+/**
+ * External dependencies
+ */
+
+// external deps with no initialization
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+import "jquery"
+
+// external deps that require initialization
+import Rails from "@rails/ujs"
 import svg4everybody from "svg4everybody"
-import formDatePicker from "src/decidim/form_datepicker"
-import fixDropdownMenus from "src/decidim/dropdowns_menus"
+import morphdom from "morphdom"
+
+// vendor customizated scripts (bad practice: these ones should be removed eventually)
+import "./vendor/modernizr"
+
+/**
+ * Local dependencies
+ */
+
+// local deps with no initialization
+import "src/decidim/input_tags"
+import "src/decidim/input_hashtags"
+import "src/decidim/input_mentions"
+import "src/decidim/input_multiple_mentions"
+import "src/decidim/input_autojump"
+import "src/decidim/history"
+import "src/decidim/callout"
+import "src/decidim/clipboard"
+import "src/decidim/append_elements"
+import "src/decidim/user_registrations"
+import "src/decidim/account_form"
+import "src/decidim/append_redirect_url_to_modals"
+import "src/decidim/form_attachments"
+import "src/decidim/form_remote"
+import "src/decidim/delayed"
+import "src/decidim/vizzs"
+import "src/decidim/responsive_horizontal_tabs"
+import "src/decidim/security/selfxss_warning"
+import "src/decidim/session_timeouter"
+import "src/decidim/confirm"
+import "src/decidim/results_listing"
+import "src/decidim/impersonation"
+import "src/decidim/gallery"
+import "src/decidim/direct_uploads/upload_field"
+import "src/decidim/data_consent"
+import "src/decidim/sw"
+
+// local deps that require initialization
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
 import scrollToLastChild from "src/decidim/scroll_to_last_child"
 import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input_character_counter"
 import FormValidator from "src/decidim/form_validator"
-import DataPicker from "src/decidim/data_picker"
 import FormFilterComponent from "src/decidim/form_filter"
 import addInputEmoji, { EmojiButton } from "src/decidim/input_emoji"
-import dialogMode from "src/decidim/dialog_mode"
 import FocusGuard from "src/decidim/focus_guard"
 import backToListLink from "src/decidim/back_to_list"
 import markAsReadNotifications from "src/decidim/notifications"
+import RemoteModal from "src/decidim/remote_modal"
+import selectActiveIdentity from "src/decidim/identity_selector_dialog"
+import createTooltip from "src/decidim/tooltips"
+import createToggle from "src/decidim/toggle"
+import {
+  createAccordion,
+  createDialog,
+  createDropdown,
+  Dialogs
+} from "src/decidim/a11y"
 import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
 
-// NOTE: new libraries required to give functionality to redesigned views
-import Accordions from "a11y-accordion-component";
-import Dropdowns from "a11y-dropdown-component";
-import Dialogs from "a11y-dialog-component";
-import RemoteModal from "src/decidim/ajax_modals"
-// end new libraries
+// bad practice: window namespace should avoid be populated as much as possible
+// rails-translations could be referrenced through a single Decidim.I18n object
+window.Decidim = window.Decidim || {
+  config: new Configuration(),
+  ExternalLink,
+  InputCharacterCounter,
+  FormValidator,
+  addInputEmoji,
+  EmojiButton,
+  Dialogs
+};
 
-window.Decidim = window.Decidim || {};
-window.Decidim.config = new Configuration()
-window.Decidim.ExternalLink = ExternalLink;
-window.Decidim.InputCharacterCounter = InputCharacterCounter;
-window.Decidim.FormValidator = FormValidator;
-window.Decidim.DataPicker = DataPicker;
-window.Decidim.addInputEmoji = addInputEmoji;
-window.Decidim.EmojiButton = EmojiButton;
+window.morphdom = morphdom
 
-window.Decidim.Accordions = Accordions;
-window.Decidim.Dropdowns = Dropdowns;
+Rails.start()
 
 /**
  * Initializer event for those script who require to be triggered
  * when the page is loaded
+ *
+ * @param {HTMLElement} element target node
+ * @returns {void}
  */
-// If no jQuery is used the Tribute feature used in comments to autocomplete
-// mentions stops working
-// document.addEventListener("DOMContentLoaded", () => {
-$(() => {
+const initializer = (element = document) => {
+  // focus guard must be initialized only once
+  window.focusGuard = window.focusGuard || new FocusGuard(document.body);
 
-  window.theDataPicker = new DataPicker($(".data-picker"));
-  window.focusGuard = new FocusGuard(document.querySelector("body"));
-
-  $(document).foundation();
-  $(document).on("open.zf.reveal", (ev) => {
-    dialogMode($(ev.target));
-  });
-
-  // Trap the focus within the mobile menu if the user enters it. This is an
-  // accessibility feature forcing the focus within the offcanvas container
-  // which holds the mobile menu.
-  $("#offCanvas").on("openedEnd.zf.offCanvas", (ev) => {
-    ev.target.querySelector(".main-nav a").focus();
-    window.focusGuard.trap(ev.target);
-  }).on("closed.zf.offCanvas", () => {
-    window.focusGuard.disable();
-  });
-
-  fixDropdownMenus();
+  // REDESIGN_PENDING: deprecated
+  $(element).foundation();
 
   svg4everybody();
 
-  // Prevent data-open buttons e.g. from submitting the underlying form in
-  // authorized action buttons.
-  $("[data-open]").on("click", (event) => {
-    event.preventDefault();
-  });
-
-  formDatePicker();
-
-  document.querySelectorAll(".editor-container").forEach((container) => {
-    window.createEditor(container);
-  });
+  element.querySelectorAll(".editor-container").forEach((container) => window.createEditor(container));
 
   // initialize character counter
-  $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
+  $("input[type='text'], textarea, .editor>input[type='hidden']", element).each((_i, elem) => {
     const $input = $(elem);
 
     if (!$input.is("[minlength]") && !$input.is("[maxlength]")) {
@@ -91,45 +118,67 @@ $(() => {
     createCharacterCounter($input);
   });
 
-  $("form.new_filter").each(function () {
+  $("form.new_filter", element).each(function () {
+    // eslint-disable-next-line no-invalid-this
     const formFilter = new FormFilterComponent($(this));
 
     formFilter.mountComponent();
   })
-  document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
 
-  document.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
+  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
     // both functions (updateExternalDomainLinks and ExternalLink) are related, so if we disable one, the other also
     updateExternalDomainLinks(elem)
 
-    return new ExternalLink($(elem))
+    return new ExternalLink(elem)
   })
 
-  addInputEmoji()
+  addInputEmoji(element)
 
-  backToListLink(document.querySelectorAll(".js-back-to-list"));
+  backToListLink(element.querySelectorAll(".js-back-to-list"));
 
-  markAsReadNotifications()
+  markAsReadNotifications(element)
 
-  scrollToLastChild()
+  scrollToLastChild(element)
 
-  // NOTE: new libraries required to give functionality to redesigned views
-  const screens = {md: "768px"};
-  Object.keys(screens).forEach((key) => (window.matchMedia(`(min-width: ${screens[key]})`).matches) && document.querySelectorAll(`[data-controls][data-open-${key}]`).forEach((elem) => (elem.dataset.open = elem.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())])))
-  Accordions.init();
-  Dropdowns.init();
-  document.querySelectorAll("[data-dialog]").forEach(
-    (elem) => {
-      const { dataset: { dialog } } = elem
-      return new Dialogs(`[data-dialog="${dialog}"]`, {
-        openingSelector: `[data-dialog-open="${dialog}"]`,
-        closingSelector: `[data-dialog-close="${dialog}"]`,
-        // optional parameters (whenever exists the id, it will add the tagging)
-        ...(Boolean(elem.querySelector(`#dialog-title-${dialog}`)) && { labelledby: `dialog-title-${dialog}` }),
-        ...(Boolean(elem.querySelector(`#dialog-desc-${dialog}`)) && { describedby: `dialog-desc-${dialog}` })
-      })
-    }
-  );
-  document.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
-  // end new libraries
+  element.querySelectorAll('[data-component="accordion"]').forEach((component) => createAccordion(component))
+
+  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => createDropdown(component))
+
+  element.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component))
+
+  // Initialize available remote modals (ajax-fetched contents)
+  element.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
+
+  // Add event listeners to identity modal
+  element.querySelectorAll("[data-user-identity]").forEach((elem) => selectActiveIdentity(elem))
+
+  // Initialize data-tooltips
+  element.querySelectorAll("[data-tooltip]").forEach((elem) => createTooltip(elem))
+
+  // Initialize data-toggles
+  element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
+
+  element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
+}
+
+// If no jQuery is used the Tribute feature used in comments to autocomplete
+// mentions stops working
+// document.addEventListener("DOMContentLoaded", () => {
+$(() => initializer());
+
+// Run initializer action over the new DOM elements
+document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
+document.addEventListener("ajax:loaded", ({ detail }) => initializer(detail));
+
+// Run initializer action over the new DOM elements (for example after comments polling)
+document.addEventListener("comments:loaded", (event) => {
+  const commentsIds = event.detail.commentsIds;
+  if (commentsIds) {
+    commentsIds.forEach((commentId) => {
+      const commentsContainer = document.getElementById(`comment_${commentId}`);
+      if (commentsContainer) {
+        initializer(commentsContainer)
+      }
+    });
+  }
 });

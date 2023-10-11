@@ -1,8 +1,6 @@
 <% add_decidim_page_title(t(".title")) %>
-<div class="callout warning">
-  <%= icon "info" %>
-  <span class="callout-text"><%= t("explanation_callout", scope: "decidim.votings.admin.ballot_styles.index") %></span>
-</div>
+
+<%= cell("decidim/announcement", t("explanation_callout", scope: "decidim.votings.admin.ballot_styles.index"), callout_class: "warning" ) %>
 <div class="card" id="ballot_styles">
   <div class="item_show__header">
     <h2 class="item_show__header-title">

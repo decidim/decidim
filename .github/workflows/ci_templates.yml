@@ -34,7 +34,7 @@ jobs:
     secrets: inherit
     with:
       working-directory: "decidim-templates"
-      test_command: REDESIGN_ENABLED="false" bundle exec parallel_test --type rspec --pattern spec/
+      test_command: bundle exec parallel_test --type rspec --pattern spec/
       bullet_enabled: false
       bullet_counter_cache: false
       bullet_n_plus_one: false

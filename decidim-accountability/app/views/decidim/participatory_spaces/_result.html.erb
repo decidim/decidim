@@ -2,11 +2,11 @@
   <%= icon "actions", class: "card--list__icon", role: "img", "aria-hidden": true, remove_icon_class: true %>
 
   <%= link_to resource_locator(result).path, class: "card--list__text card__link card__link--block" do %>
-      <h4 class="card--list__heading heading6">
+      <h4 class="card--list__heading">
         <%= translated_attribute(result.title) %>
       </h4>
 
-      <div class="text-small card--meta">
+      <div class="card--meta">
         <% if result.start_date %>
             <strong><%= t("models.result.fields.start_date", scope: "decidim.accountability") %></strong>
             <span><%= l result.start_date, format: :short %></span>

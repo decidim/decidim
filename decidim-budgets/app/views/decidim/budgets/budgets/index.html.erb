@@ -6,7 +6,7 @@
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <%= render partial: "decidim/shared/component_announcement", locals: { truncate: true } %>
+  <%= render partial: "decidim/shared/component_announcement" %>
 
   <section class="layout-main__section">
     <%= cell("decidim/budgets/budgets_header", current_workflow) %>

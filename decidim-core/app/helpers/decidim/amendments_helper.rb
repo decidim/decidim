@@ -7,34 +7,6 @@ module Decidim
 
     TOTAL_STEPS = 4
 
-    # Renders the emendations of an amendable resource
-    #
-    # Returns Html grid of CardM.
-    def amendments_for(amendable)
-      return unless amendable.amendable?
-      return unless (emendations = amendable.visible_emendations_for(current_user)).any?
-
-      content = content_tag(:h2, class: "section-heading", id: "amendments") do
-        t("section_heading", scope: "decidim.amendments.amendable", count: emendations.count)
-      end
-
-      content << cell("decidim/collapsible_list",
-                      emendations,
-                      cell_options: { context: { current_user: } },
-                      list_class: "row small-up-1 medium-up-2 card-grid amendment-list",
-                      size: 4).to_s
-
-      content_tag :div, content.html_safe, class: "section"
-    end
-
-    # Renders the amenders list of an amendable resource
-    # REDESIGN_PENDING: deprecated
-    def amenders_list_for(amendable)
-      return unless amendable.amendable?
-
-      cell("decidim/amendable/amenders_list", amendable)
-    end
-
     # Renders the state of an emendation
     #
     # Returns Html callout.

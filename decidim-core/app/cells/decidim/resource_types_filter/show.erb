@@ -8,7 +8,7 @@
     <%= icon "arrow-down-s-line" %>
     <%= icon "arrow-up-s-line" %>
   </button>
-  <%= redesigned_filter_form_for filter, form_path, class: "new_filter", id: "dropdown-menu-resource" do |form| %>
+  <%= filter_form_for filter, form_path, class: "new_filter", id: "dropdown-menu-resource" do |form| %>
     <%= form.collection_radio_buttons(
           filter_param_key,
           resource_types,
