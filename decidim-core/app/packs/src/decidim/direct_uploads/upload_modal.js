@@ -71,6 +71,7 @@ export default class UploadModal {
 
         const attachmentDetails = document.createElement("div");
         attachmentDetails.classList.add("attachment-details");
+        attachmentDetails.dataset.fileid = uploadItem.dataset.fileid;
         attachmentDetails.dataset.filename = escapeHtml(file.name);
         const titleAndFileNameSpan = document.createElement("span");
         titleAndFileNameSpan.style.display = "none";
@@ -128,6 +129,7 @@ export default class UploadModal {
   createUploadItem(fileName, title, state) {
     const wrapper = document.createElement("div");
     wrapper.classList.add("upload-item");
+    wrapper.setAttribute("data-fileid", Math.random().toString(36).substring(7));
     wrapper.setAttribute("data-filename", escapeHtml(fileName));
 
     const firstRow = document.createElement("div");
@@ -252,8 +254,8 @@ export default class UploadModal {
 
   cleanTrashCan() {
     Array.from(this.trashCan.children).forEach((item) => {
-      const fileName = item.dataset.filename;
-      const activeAttachment = this.activeAttachments.querySelector(`div[data-filename='${fileName}']`);
+      const fileId = item.dataset.fileid;
+      const activeAttachment = this.activeAttachments.querySelector(`div[data-fileid='${fileId}']`);
       if (activeAttachment) {
         activeAttachment.remove();
       }
