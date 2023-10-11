@@ -1,5 +1,6 @@
 import "src/decidim/geocoding"
 import formatAddress from "src/decidim/geocoding/format_address"
+
 /**
  * For the available address format keys, refer to:
  * https://developer.here.com/documentation/geocoder-autocomplete/dev_guide/topics/resource-type-response-suggest.html
@@ -34,13 +35,14 @@ $(() => {
         return;
       }
       // Changes to the autocomplete api call based on:
-      //https://developer.here.com/documentation/geocoding-search-api/migration_guide/migration-geocoder/topics-api/autocomplete.html
+      // https://developer.here.com/documentation/geocoding-search-api/migration_guide/migration-geocoder/topics-api/autocomplete.html
       currentSuggestionQuery = setTimeout(() => {
         $.ajax({
           method: "GET",
           url: "https://autocomplete.search.hereapi.com/v1/autocomplete",
           data: {
             apiKey: config.apiKey,
+            // eslint-disable-next-line
             q: query,
             lang: language
           },
