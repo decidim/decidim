@@ -1,0 +1,37 @@
+:root {
+  --primary: #e02d2d;
+  --primary-rgb: 224 45 45;
+  --secondary: #155abf;
+  --secondary-rgb: 21 90 191;
+  --tertiary: #ebc34b;
+  --tertiary-rgb: 235 195 75;
+  --success: #28a745;
+  --success-rgb: 40 167 69;
+  --warning: #ffb703;
+  --warning-rgb: 255 183 3;
+  --alert: #e7131a;
+  --alert-rgb: 231 19 26;
+}
+
+@import "stylesheets/decidim/admin/_forms.scss";
+@import "stylesheets/decidim/admin/_color_picker.scss";
+@import "stylesheets/decidim/admin/_main-nav.scss";
+@import "stylesheets/decidim/admin/_layout.scss";
+@import "stylesheets/decidim/admin/_secondary-nav.scss";
+@import "stylesheets/decidim/admin/_title-bar.scss";
+@import "stylesheets/decidim/admin/_user-login.scss";
+@import "stylesheets/decidim/admin/_cards.scss";
+@import "stylesheets/decidim/admin/_logs.scss";
+@import "stylesheets/decidim/admin/_filters.scss";
+@import "stylesheets/decidim/admin/_table-list.scss";
+@import "stylesheets/decidim/admin/_dropdown.scss";
+@import "stylesheets/decidim/admin/_item_show.scss";
+@import "stylesheets/decidim/admin/_item_edit.scss";
+@import "stylesheets/decidim/admin/_tabs.scss";
+@import "stylesheets/decidim/admin/_component-show.scss";
+@import "stylesheets/decidim/admin/_moderations.scss";
+@import "stylesheets/decidim/admin/_show_email.scss";
+@import "stylesheets/decidim/admin/_bulk_actions.scss";
+@import "stylesheets/decidim/admin/_data_picker.scss";
+@import "stylesheets/decidim/admin/_legacy_foundation.scss";
+@import "stylesheets/decidim/admin/_sidebar-menu.scss";
