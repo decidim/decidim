@@ -142,7 +142,7 @@ describe "Account", type: :system do
         end
 
         it "toggles the current password" do
-          expect(page).to have_content("You need to provide your current password if you want to change your email or password")
+          expect(page).to have_content("In order to confirm the changes to your account, please provide your current password.")
           expect(find("#user_old_password")).to be_visible
           expect(page).to have_content "Current password"
           expect(page).not_to have_content "Password"
