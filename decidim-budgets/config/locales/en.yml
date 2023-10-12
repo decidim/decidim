@@ -156,8 +156,6 @@ en:
           create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
-      budget:
-        view: View all budget projects
       budget_information_modal:
         back_to: Back to %{component_name}
         close_modal: Close modal
@@ -195,7 +193,6 @@ en:
           fields:
             category: Category
             id: ID
-            scope: Scope
             title: Title
       order_summary_mailer:
         order_summary:
@@ -244,8 +241,6 @@ en:
             all: All
             not_selected: Not selected
             selected: Selected
-        index:
-          back_to_budgets: back to budgets
         order_progress:
           assigned: Assigned
           budget: Budget
@@ -273,7 +268,6 @@ en:
           add: Add project %{resource_name} to your vote.
           remove: Remove project %{resource_name} from your vote.
           selected: Selected
-          view: View
           votes:
             one: vote
             other: votes

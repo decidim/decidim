@@ -537,7 +537,7 @@ en:
             documents: Documents
             endorsements_count: Endorsements count
             endorsers: Endorsers
-            link: Link
+            link: See proposal
             n_more_endorsers:
               one: and 1 more
               other: and %{count} more

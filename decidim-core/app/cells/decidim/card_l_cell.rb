@@ -108,8 +108,6 @@ module Decidim
     end
 
     def title_tag
-      # REDESIGN_PENDING: May this tag should be a header below :h2 calculated
-      # dynamically?
       options[:title_tag] || :div
     end
 
