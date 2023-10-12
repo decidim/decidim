@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
-import icon from "src/decidim/redesigned_icon"
-import { dateToPicker, formatDate, displayDate, formatTime } from "./redesigned_datepicker_functions"
-import { dateKeyDownListener, dateBeforeInputListener } from "./redesigned_datepicker_listeners"
+import icon from "src/decidim/icon"
+import { dateToPicker, formatDate, displayDate, formatTime } from "./datepicker_functions"
+import { dateKeyDownListener, dateBeforeInputListener } from "./datepicker_listeners"
 
 export default function generateDatePicker(input, row, formats) {
   const dateColumn = document.createElement("div");
@@ -13,7 +13,7 @@ export default function generateDatePicker(input, row, formats) {
   date.setAttribute("type", "text");
 
   const calendar = document.createElement("button");
-  calendar.innerHTML = icon("calendar-2-fill", {class: "text-secondary fill-current w-6 h-6"})
+  calendar.innerHTML = icon("calendar-2-fill", {class: "!text-secondary !fill-current !w-6 !h-6"})
   calendar.setAttribute("class", "calendar_button");
 
   dateColumn.appendChild(date);

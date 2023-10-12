@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
-import icon from "src/decidim/redesigned_icon"
-import { changeHourDisplay, changeMinuteDisplay, formatDate, hourDisplay, minuteDisplay, formatTime, setHour, setMinute } from "./redesigned_datepicker_functions"
-import { timeKeyDownListener, timeBeforeInputListener } from "./redesigned_datepicker_listeners";
+import icon from "src/decidim/icon"
+import { changeHourDisplay, changeMinuteDisplay, formatDate, hourDisplay, minuteDisplay, formatTime, setHour, setMinute } from "./datepicker_functions"
+import { timeKeyDownListener, timeBeforeInputListener } from "./datepicker_listeners";
 
 export default function generateTimePicker(input, row, formats) {
   const timeColumn = document.createElement("div");

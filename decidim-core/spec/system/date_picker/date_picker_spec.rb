@@ -4,6 +4,9 @@ require "spec_helper"
 
 describe "Datepicker", type: :system do
   let(:organization) { create(:organization) }
+  let(:datepicker_content) { "" }
+  let(:record) { OpenStruct.new(body: datepicker_content) }
+  let(:form) { Decidim::FormBuilder.new(:example, record, template, {}) }
 
   let(:template_class) do
     Class.new(ActionView::Base) do
@@ -16,23 +19,46 @@ describe "Datepicker", type: :system do
   let(:template) { template_class.new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
 
   let(:html_document) do
-    template.instance_eval do
-      js_config = { icons_path: asset_pack_path("media/images/icons.svg") }
+    datepicker_wrapper = form.datetime_field(:input)
+    content_wrapper = <<~HTML
+      <div data-content>
+        <main class="layout-1col">
+          <div class="cols-6">
+            <div class="text-center py-12">
+              <h1 class="h1 decorator inline-block text-left">Datepicker test</h1>
+            </div>
+            <div class="page__container">
+              <form action="/form_action" method="post">
+                #{datepicker_wrapper}
+              </form>
+            </div>
+            <button type="submit" name="commit" class="button button_sm md:button__lg button__secondary">Create</button>
+          </div>
+        </main>
+      </div>
+    HTML
 
+    template.instance_eval do
+      js_config = {
+        icons_path: asset_pack_path("media/images/icons.svg"),
+        messages: {
+          editor: I18n.t("editor"),
+          selfxssWarning: I18n.t("decidim.security.selfxss_warning"),
+          date: I18n.t("date"),
+          time: I18n.t("time")
+        }
+      }
       <<~HTML.strip
         <!doctype html>
         <html lang="en">
         <head>
           <title>Datepicker Test</title>
-          #{stylesheet_pack_tag "redesigned_decidim_core"}
+          #{stylesheet_pack_tag "decidim_core"}
           #{stylesheet_pack_tag "decidim_dev"}
-          #{javascript_pack_tag "redesigned_decidim_core", "decidim_dev", defer: false}
+          #{javascript_pack_tag "decidim_core", "decidim_dev", defer: false}
         </head>
         <body>
-          <div>
-            <input type="datetime-local" id="example_input">
-            <button type="submit" name="commit" class="button button_sm md:button__lg button__secondary">Create</button>
-          </div>
+          #{content_wrapper}
           <script>
             Decidim.config.set(#{js_config.to_json});
           </script>
@@ -43,8 +69,6 @@ describe "Datepicker", type: :system do
   end
 
   before do
-    allow(I18n).to receive(:locale).and_return(:en)
-
     final_html = html_document
     Rails.application.routes.draw do
       mount Decidim::Core::Engine => "/"
@@ -65,6 +89,7 @@ describe "Datepicker", type: :system do
   context "when format dd.mm.yyyy" do
     context "when filling form datetime input with datepicker" do
       it "fills the field correctly" do
+        expect(page).to have_content("Format")
         find(".calendar_button").click
         find('span > input[name="year"]').set("1994")
         select("January", from: "month").select_option
