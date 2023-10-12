@@ -1342,7 +1342,7 @@ sv:
         change_my_password: Ändra mitt lösenord
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
-        password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
+        password_help: "Minst %{minimum_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
       new:
         forgot_your_password: Glömt ditt lösenord?
         send_me_reset_password_instructions: Skicka mig anvisningar om återställning av lösenord

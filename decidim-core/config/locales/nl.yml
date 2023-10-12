@@ -1238,7 +1238,7 @@ nl:
         change_my_password: Verander mijn wachtwoord
         confirm_new_password: Bevestig nieuw wachtwoord
         new_password: Nieuw wachtwoord
-        password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
+        password_help: "gebruik minimaal %{minimum_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
       new:
         forgot_your_password: Je wachtwoord vergeten?
         send_me_reset_password_instructions: Stuur mij opnieuw wachtwoordinstructies

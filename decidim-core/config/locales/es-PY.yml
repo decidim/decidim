@@ -1672,8 +1672,8 @@ es-PY:
         change_my_password: Cambiar mi contraseña
         confirm_new_password: Confirmar nueva contraseña
         new_password: Contraseña
-        password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
-        password_help_admin: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo, de tu correo electrónico y de tus antiguas contraseñas."
+        password_help: "%{minimum_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
+        password_help_admin: "%{minimum_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo, de tu correo electrónico y de tus antiguas contraseñas."
         title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'

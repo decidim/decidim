@@ -1672,8 +1672,8 @@ fi-pl:
         change_my_password: Vaihda salasanani
         confirm_new_password: Vahvista uusi salasana
         new_password: Uusi salasana
-        password_help: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
-        password_help_admin: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi. On myös oltava eri salasana kuin edelliset salasanasi."
+        password_help: "Tulee sisältää vähintään %{minimum_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
+        password_help_admin: "Tulee sisältää vähintään %{minimum_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi. On myös oltava eri salasana kuin edelliset salasanasi."
         title: Salasanan vaihto
       new:
         forgot_your_password: Unohditko salasanasi?

@@ -1133,7 +1133,7 @@ zh-CN:
         change_my_password: 更改我的密码
         confirm_new_password: 确认新密码
         new_password: 新密码
-        password_help: "%{minimun_characters} 个字符，必须不要太常见(例如，123456)，并且必须不同于您的昵称和电子邮件。"
+        password_help: "%{minimum_characters} 个字符，必须不要太常见(例如，123456)，并且必须不同于您的昵称和电子邮件。"
       new:
         forgot_your_password: 忘记密码？
         send_me_reset_password_instructions: 给我发送重置密码说明

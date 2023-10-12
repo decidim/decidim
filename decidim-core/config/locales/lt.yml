@@ -1440,8 +1440,8 @@ lt:
         change_my_password: Keisti slaptažodį
         confirm_new_password: Patvirtinkite naują slaptažodį
         new_password: Naujas slaptažodis
-        password_help: "%{minimun_characters} minimalus rašmenų skaičius, rašmenys neturi būti pernelyg įprasti (pvz., 123456) ir turi skirtis nuo jūsų naudotojo vardo ir e. pašto adreso."
-        password_help_admin: "%{minimun_characters} minimalus rašmenų skaičius, rašmenys neturi būti pernelyg įprasti (pvz., 123456) ir turi skirtis nuo jūsų naudotojo vardo ir el. pašto adreso bei turi skirtis nuo senųjų slaptažodžių."
+        password_help: "%{minimum_characters} minimalus rašmenų skaičius, rašmenys neturi būti pernelyg įprasti (pvz., 123456) ir turi skirtis nuo jūsų naudotojo vardo ir e. pašto adreso."
+        password_help_admin: "%{minimum_characters} minimalus rašmenų skaičius, rašmenys neturi būti pernelyg įprasti (pvz., 123456) ir turi skirtis nuo jūsų naudotojo vardo ir el. pašto adreso bei turi skirtis nuo senųjų slaptažodžių."
         title: Slaptažodžio keitimas
       new:
         forgot_your_password: Pamiršote savo slaptažodį?

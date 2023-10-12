@@ -1077,7 +1077,7 @@ bg:
         change_my_password: Промяна на паролата ми
         confirm_new_password: Потвърди нова парола
         new_password: Нова парола
-        password_help: "Минимум %{minimun_characters} символа, не трябва да са разпространени (например, 123456) и трябва да са различни от вашите име и ел. поща."
+        password_help: "Минимум %{minimum_characters} символа, не трябва да са разпространени (например, 123456) и трябва да са различни от вашите име и ел. поща."
       new:
         forgot_your_password: Забравили сте паролата си?
         send_me_reset_password_instructions: Изпрати ми инструкции за възстановяване на паролата

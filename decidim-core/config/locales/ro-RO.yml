@@ -1416,7 +1416,7 @@ ro:
         change_my_password: Schimbă-mi parola
         confirm_new_password: Confirmare parolă nouă
         new_password: Parola nouă
-        password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de porecla și adresa dvs. de e-mail."
+        password_help: "minim %{minimum_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de porecla și adresa dvs. de e-mail."
       new:
         forgot_your_password: Ți-ai uitat parola?
         send_me_reset_password_instructions: Trimite-mi instrucțiunile de resetare a parolei

@@ -1252,7 +1252,7 @@ lb:
         change_my_password: Mäin Passwuert änneren
         confirm_new_password: Neit Passwuert bestätegen
         new_password: Neit Passwuert
-        password_help: "Muss op mannst aus %{minimun_characters} Zeechen bestoen, keng ze banal Zeechen (z.B. 123456) an et dierf weder däin Pseudonym nach deng Email-Adress enthalen."
+        password_help: "Muss op mannst aus %{minimum_characters} Zeechen bestoen, keng ze banal Zeechen (z.B. 123456) an et dierf weder däin Pseudonym nach deng Email-Adress enthalen."
       new:
         forgot_your_password: Passwuert vergiess?
         send_me_reset_password_instructions: Schéckt mir d'Instruktiounen fir d'Passwuert ze ersetzen

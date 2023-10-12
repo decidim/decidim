@@ -409,7 +409,7 @@ sk:
           newsletter: Dostávajte príležitostný spravodajca s relevantnými informáciami
           newsletter_title: Povolenie kontaktu
           nickname_help: Vaša prezývka v %{organization}
-          password_help: "%{minimun_characters} minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
+          password_help: "%{minimum_characters} minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
           sign_in: Prihlásiť sa
           sign_up: Zaregistrovať sa
           sign_up_as:
@@ -1225,7 +1225,7 @@ sk:
         change_your_password: Zmeňte si svoje heslo
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
-        password_help: "%{minimun_characters} je minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
+        password_help: "%{minimum_characters} je minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
       new:
         forgot_your_password: Zabudli ste heslo?
         send_me_reset_password_instructions: Pošlite mi pokyny na resetovanie hesla
@@ -1408,7 +1408,7 @@ sk:
     dropdown:
       choose_diff_view_html: 'Mód zobrazenia HTML:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
-      option_escaped: Nepoužívané 
+      option_escaped: Nepoužívané
       option_split: Vedle sebe (Sbs)
       option_unescaped: Používané
       option_unified: Sjednocené

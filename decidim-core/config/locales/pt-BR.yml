@@ -1256,7 +1256,7 @@ pt-BR:
         change_my_password: Mudar minha senha
         confirm_new_password: Confirme a nova senha
         new_password: Nova senha
-        password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
+        password_help: "O mínimo de %{minimum_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
       new:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha

@@ -1220,7 +1220,7 @@ tr:
         change_my_password: Şifremi Değiştir
         confirm_new_password: Yeni şifreyi onayla
         new_password: Yeni Şifre
-        password_help: "Asgari %{minimun_characters} karakter, çok yaygın olmamalı (örnek: 123456) ve takma adınızdan ve eposta adresinizden farklı olmalıdır."
+        password_help: "Asgari %{minimum_characters} karakter, çok yaygın olmamalı (örnek: 123456) ve takma adınızdan ve eposta adresinizden farklı olmalıdır."
       new:
         forgot_your_password: Parolanızı mı unuttunuz?
         send_me_reset_password_instructions: Bana şifre sıfırlama talimatlarını gönder

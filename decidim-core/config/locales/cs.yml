@@ -1715,8 +1715,8 @@ cs:
         change_my_password: Změňte heslo
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
-        password_help: "%{minimun_characters} je minimum znaků, nesmí být příliš běžné (např. 123456) a musí být jiné než vaše přezdívka a váš e-mail."
-        password_help_admin: "minimálně %{minimun_characters} znaků, nesmí být příliš časté (např. 123456), musí se lišit od vaší přezdívky a e-mailu a musí se lišit od vašich starých hesel."
+        password_help: "%{minimum_characters} je minimum znaků, nesmí být příliš běžné (např. 123456) a musí být jiné než vaše přezdívka a váš e-mail."
+        password_help_admin: "minimálně %{minimum_characters} znaků, nesmí být příliš časté (např. 123456), musí se lišit od vaší přezdívky a e-mailu a musí se lišit od vašich starých hesel."
         title: Změna hesla
       new:
         forgot_your_password: Zapomněli jste heslo?

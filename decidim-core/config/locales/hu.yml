@@ -1490,8 +1490,8 @@ hu:
         change_my_password: A jelszó megváltoztatása
         confirm_new_password: Erősítse meg az új jelszót
         new_password: Új jelszó
-        password_help: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."
-        password_help_admin: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől és a régi jelszavaitól."
+        password_help: "%{minimum_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."
+        password_help_admin: "%{minimum_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől és a régi jelszavaitól."
         title: Jelszó módosítása
       new:
         forgot_your_password: Elfelejtette a jelszavát?

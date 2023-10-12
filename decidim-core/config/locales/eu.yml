@@ -1369,8 +1369,8 @@ eu:
         change_my_password: Aldatu nire pasahitza
         confirm_new_password: Berretsi pasahitz berria
         new_password: Pasahitz berria
-        password_help: "%{minimun_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456) eta zure ezizena eta posta elektronikoa desberdinak izan behar dira."
-        password_help_admin: "%{minimun_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456), zure ezizena eta posta elektronikoa desberdinak izan behar dira eta zure pasahitz zaharrak ez bezalakoak izan behar dute."
+        password_help: "%{minimum_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456) eta zure ezizena eta posta elektronikoa desberdinak izan behar dira."
+        password_help_admin: "%{minimum_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456), zure ezizena eta posta elektronikoa desberdinak izan behar dira eta zure pasahitz zaharrak ez bezalakoak izan behar dute."
         title: Pasahitza aldatu da
       new:
         forgot_your_password: Zure pasahitza ahaztu duzu?

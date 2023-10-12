@@ -1328,7 +1328,7 @@ pl:
         change_my_password: Zmień moje hasło
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
-        password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
+        password_help: "Minimalna liczba znaków: %{minimum_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
       new:
         forgot_your_password: Zapomniałeś hasła?
         send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła

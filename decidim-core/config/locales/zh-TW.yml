@@ -1650,8 +1650,8 @@ zh-TW:
         change_my_password: 變更我的密碼
         confirm_new_password: 確認新密碼
         new_password: 新密碼
-        password_help: "最少 %{minimun_characters} 個字符，不能太常見（例如 123456），且必須與您的暱稱和電子郵件不同。"
-        password_help_admin: "最少 %{minimun_characters} 個字符，不能太常見（例如 123456），必須與您的暱稱和電子郵件不同，並且必須與您的舊密碼不同。"
+        password_help: "最少 %{minimum_characters} 個字符，不能太常見（例如 123456），且必須與您的暱稱和電子郵件不同。"
+        password_help_admin: "最少 %{minimum_characters} 個字符，不能太常見（例如 123456），必須與您的暱稱和電子郵件不同，並且必須與您的舊密碼不同。"
         title: 密碼變更
       new:
         forgot_your_password: 忘記密碼了嗎？

@@ -1014,7 +1014,7 @@ sk:
         change_my_password: Zmeňte heslo
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
-        password_help: "%{minimun_characters} je minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
+        password_help: "%{minimum_characters} je minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
       new:
         forgot_your_password: Zabudli ste heslo?
         send_me_reset_password_instructions: Pošlite mi pokyny na resetovanie hesla
@@ -1179,7 +1179,7 @@ sk:
     dropdown:
       choose_diff_view_html: 'Mód zobrazenia HTML:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
-      option_escaped: Nepoužívané 
+      option_escaped: Nepoužívané
       option_split: Vedle sebe (Sbs)
       option_unescaped: Používané
       option_unified: Sjednocené

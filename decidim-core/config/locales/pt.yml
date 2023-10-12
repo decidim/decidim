@@ -1255,7 +1255,7 @@ pt:
         change_my_password: Modificar a minha palavra-passe
         confirm_new_password: Confirme a nova palavra-passe
         new_password: Nova palavra-passe
-        password_help: "%{minimun_characters} de caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
+        password_help: "%{minimum_characters} de caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
       new:
         forgot_your_password: Esqueceu a sua palavra-passe?
         send_me_reset_password_instructions: Envie-me as instruções de reposição da palavra-passe

@@ -1675,8 +1675,8 @@ fr-CA:
         change_my_password: Changer mon mot de passe
         confirm_new_password: Confirmer le nouveau mot de passe
         new_password: Nouveau mot de passe
-        password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
-        password_help_admin: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email, ainsi que de vos précédents mots de passe."
+        password_help: "%{minimum_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
+        password_help_admin: "%{minimum_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email, ainsi que de vos précédents mots de passe."
         title: Changement de mot de passe
       new:
         forgot_your_password: Mot de passe oublié?

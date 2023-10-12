@@ -1070,7 +1070,7 @@ lv:
         change_my_password: Nomainīt manu paroli
         confirm_new_password: Apstiprināt jauno paroli
         new_password: Jaunā parole
-        password_help: "Vismaz %{minimun_characters} rakstzīmes, nedrīkst būt pārlieku izplatītas (piem., 123456), un tām jāatšķiras no jūsu segvārda un e-pasta adreses."
+        password_help: "Vismaz %{minimum_characters} rakstzīmes, nedrīkst būt pārlieku izplatītas (piem., 123456), un tām jāatšķiras no jūsu segvārda un e-pasta adreses."
       new:
         forgot_your_password: Aizmirsāt paroli?
         send_me_reset_password_instructions: Nosūtīt man paroles atiestatīšanas norādījumus
