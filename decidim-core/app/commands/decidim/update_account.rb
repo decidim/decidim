@@ -20,9 +20,10 @@ module Decidim
       update_password
 
       if @user.valid?
+        changes = @user.changed
         @user.save!
         notify_followers
-        broadcast(:ok, @user.unconfirmed_email.present?)
+        broadcast(:ok, @user.unconfirmed_email.present?) unless send_update_summary!(changes)
       else
         [:avatar, :password].each do |key|
           @form.errors.add key, @user.errors[key] if @user.errors.has_key? key
@@ -66,6 +67,13 @@ module Decidim
         resource: @user,
         followers: @user.followers
       )
+    end
+
+    def send_update_summary!(changes)
+      return if changes.empty?
+
+      updates = changes.map { |attr| I18n.t("activemodel.attributes.user.#{attr}") }
+      SendUpdateummaryJob.perform_later(@user, updates)
     end
   end
 end
