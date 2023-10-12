@@ -13,7 +13,7 @@ export default function generateDatePicker(input, row, formats) {
   date.setAttribute("type", "text");
 
   const calendar = document.createElement("button");
-  calendar.innerHTML = icon("calendar-2-fill", {class: "w-6 h-6"})
+  calendar.innerHTML = icon("calendar-2-fill", {class: "text-secondary fill-current w-6 h-6"})
   calendar.setAttribute("class", "calendar_button");
 
   dateColumn.appendChild(date);

@@ -13,7 +13,7 @@ export default function generateTimePicker(input, row, formats) {
   time.setAttribute("type", "text");
 
   const clock = document.createElement("button");
-  clock.innerHTML = icon("time-line", {class: "w-6 h-6"})
+  clock.innerHTML = icon("time-line", {class: "text-secondary fill-current w-6 h-6"})
   clock.setAttribute("class", "clock_button");
 
   timeColumn.appendChild(time);

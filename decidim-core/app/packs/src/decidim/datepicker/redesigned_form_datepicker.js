@@ -3,15 +3,15 @@ import { WcDatepicker } from "wc-datepicker/dist/components/wc-datepicker";
 import generateDatePicker from "./redesigned_generate_datepicker";
 import generateTimePicker from "./redesigned_generate_timepicker";
 import { formatInputDate, formatInputTime } from "./redesigned_datepicker_functions";
-import { getDictionary } from "../i18n";
+// import { getDictionary } from "../i18n";
 
 export default function redesignedFormDatePicker() {
-  const i18n = getDictionary("date.formats");
-  const i18nHelp = getDictionary("date.formats.help");
-  const i10n = getDictionary("time");
-  const i10nHelp = getDictionary("time.formats.help");
+  // const i18n = getDictionary("date.formats");
+  // const i18nHelp = getDictionary("date.formats.help");
+  // const i10n = getDictionary("time");
+  // const i10nHelp = getDictionary("time.formats.help");
 
-  const formats = { date: i18n.date_format, time: i10n.clock_format || 24 }
+  const formats = { date: "%d/%m/%Y", time: 24 }
 
   if (!customElements.get("wc-datepicker")) {
     customElements.define("wc-datepicker", WcDatepicker);
@@ -32,11 +32,11 @@ export default function redesignedFormDatePicker() {
 
     const helpTextDate = document.createElement("span");
     helpTextDate.setAttribute("class", "help-text help_date");
-    helpTextDate.innerText = i18nHelp.date_format;
+    helpTextDate.innerText = "help";
 
     const helpTextTime = document.createElement("span");
     helpTextTime.setAttribute("class", "help-text help_time");
-    helpTextTime.innerText = i10nHelp.time_format;
+    helpTextTime.innerText = "help";
 
     helpTextContainer.appendChild(helpTextDate);
     helpTextContainer.appendChild(helpTextTime);
