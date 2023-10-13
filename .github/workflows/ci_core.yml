@@ -1,4 +1,4 @@
-name: "[CI] Core (lib specs)"
+name: "[CI] Core"
 on:
   push:
     branches:
