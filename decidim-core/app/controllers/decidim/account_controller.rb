@@ -10,6 +10,7 @@ module Decidim
     def show
       enforce_permission_to(:show, :user, current_user:)
       @account = form(AccountForm).from_model(current_user)
+      @account.password = nil
     end
 
     def update
