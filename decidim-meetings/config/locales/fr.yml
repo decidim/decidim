@@ -20,6 +20,7 @@ fr:
         description: Description
         end_time: Heure de fin
         id: ID
+        iframe_access_level: Niveau d'accès Iframe
         iframe_embed_type: Type d'Iframe encapsulée
         location: Lieu
         location_hints: Indicateurs d’emplacement
@@ -121,7 +122,6 @@ fr:
           success: Cette rencontre a été dupliquée avec succès.
         new:
           copy: Copier
-          select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer une rencontre
     components:
       meetings:
@@ -223,7 +223,7 @@ fr:
             one: 'La rencontre ne peut être supprimée car %{count} proposition y est rattachée:'
             other: 'La rencontre ne peut être supprimée car %{count} propositions y sont rattachées:'
         manage_poll: Gérer le sondage
-        new: Nouvelle rencontre
+        new_meeting: Nouvelle rencontre
         preview: Aperçu
         registrations: Inscriptions
         title: Actions
@@ -285,7 +285,6 @@ fr:
               all: Tout
               rejected: Rejeté
               sent: Envoyé
-            filter_by: Filtrer par
             invite_attendee: Inviter un participant
             invites: Invitations
             registrations_disabled: Vous ne pouvez pas inviter un participant car les inscriptions sont désactivées.
@@ -351,9 +350,6 @@ fr:
           update:
             invalid: Une erreur s'est produite lors de la mise à jour du sondage de la rencontre.
             success: Sondage de rencontre mis à jour avec succès.
-        models:
-          meeting:
-            name: Rencontre
         registrations:
           edit:
             save: Sauvegarder
@@ -398,11 +394,8 @@ fr:
           all: Tout
         filter_meeting_space_values:
           all: Tout
-        filter_scope_values:
-          all: Tout
       calendar_modal:
         calendar_url: URL du calendrier
-        close_window: Fermer la fenêtre
         copy_calendar_url: Copier
         copy_calendar_url_clarification: Copier l'URL du calendrier dans le presse-papiers
         copy_calendar_url_copied: Copié !
@@ -420,11 +413,10 @@ fr:
       content_blocks:
         upcoming_meetings:
           name: Rencontres à venir
-          upcoming_meetings: Rencontres à venir
-          view_all_meetings: Voir tout
       directory:
         meetings:
           index:
+            go_to_list: Voir la liste des événements
             meetings: Rencontres
             space_type: Espace participatif
       iframe_access_level:
@@ -462,7 +454,6 @@ fr:
         calendar_modal:
           add_to_calendar: Ajouter au calendrier
           apple: Ajouter au calendrier Apple
-          close_window: Fermer la fenêtre
           full_details_html: Pour plus de détails, cliquez sur %{link}
           google: Ajouter au calendrier Google
           outlook: Ajouter au calendrier Outlook
@@ -492,8 +483,7 @@ fr:
             all: Toutes
             official: Officiel
             participants: Participants
-            user_groups: Groupes
-          scope: Secteur
+            user_group: Groupes
           search: Rechercher
           type: Type
           type_values:
@@ -501,11 +491,6 @@ fr:
             hybrid: Hybride
             in_person: En présentiel
             online: En ligne
-        filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtrer
-          filter_by: Filtrer par
-          unfold: Voir la suite
         form:
           address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [rue] [code postal] [ville]'
           available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité
@@ -526,8 +511,11 @@ fr:
           see_all: Voir toutes les rencontres
           see_all_withdrawn: Voir toutes les rencontres annulées
           text_banner: Vous consultez la liste des rencontres annulées par leurs auteurs. %{go_back_link}.
-        meeting_minutes:
-          related_information: Informations liées
+        meeting:
+          close_meeting: Clore la rencontre
+          edit_close_meeting: Modifier le compte-rendu de la rencontre
+          edit_meeting: Modifier la rencontre
+          join_meeting: Participer à la rencontre
         meetings:
           no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'a été créée.
           upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontres planifiées. Ici vous trouverez une liste de toutes les rencontres passées.
@@ -540,13 +528,8 @@ fr:
           confirm: Confirmer
         show:
           attendees: Nombre de participants
-          back: Retour à la liste
-          close_meeting: Clore la rencontre
           contributions: Décompte des contributions
           date: Date
-          edit_close_meeting: Modifier le compte-rendu de la rencontre
-          edit_meeting: Modifier la rencontre
-          going: Vous vous êtes inscrit à cette rencontre
           join: Participer à la rencontre
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
@@ -572,8 +555,6 @@ fr:
         update:
           invalid: Une erreur s'est produite lors de la mise à jour de la rencontre.
           success: La rencontre a été mise à jour avec succès.
-      meetings_map:
-        view_meeting: Voir la réunion
       models:
         invite:
           fields:
@@ -615,7 +596,8 @@ fr:
             question_replied: Réponse envoyée
             reply_question: Répondre
       public_participants_list:
-        attending_participants: Participants présents
+        attending_organizations: Organisations
+        attending_participants: Participants
         hidden_participants_count:
           one: et %{count} personne de plus
           other: et %{count} personnes de plus
@@ -647,8 +629,6 @@ fr:
         private_meeting: Rencontre privée
         transparent: Visible par les non-membres
         withdraw: Retirée
-      versions:
-        back_to_resource: Revenir à la rencontre
       withdraw:
         error: Une erreur s'est produite lors de l'annulation de la rencontre.
         success: La rencontre a été annulée avec succès.
@@ -660,10 +640,8 @@ fr:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Rencontres passées
-        see_all: Tout voir (%{count})
+        see_all: Voir toutes les rencontres
         upcoming_meetings: Rencontres à venir
-      upcoming_meeting_for_card:
-        upcoming_meeting: Prochaine rencontre
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Résultats associés :'

@@ -37,7 +37,6 @@ sv:
         confirm_destroy: Vill du radera detta?
         destroy: Radera
         edit: Redigera
-        new: Ny
         save: Spara
         title: Åtgärder
       admins:
@@ -70,7 +69,6 @@ sv:
           fields:
             created_at: Skapad
             email: E-post
-          name: Administratör
           validations:
             email_uniqueness: det finns redan en administratör med samma e-postadress
         oauth_application:
@@ -78,7 +76,6 @@ sv:
             created_at: Skapad den
             name: OAuth app namn
             organization_name: Organisation
-          name: OAuth app
         organization:
           actions:
             save_and_invite: Skapa organisation och bjud in administratör
@@ -88,7 +85,6 @@ sv:
             name: Namn
             omniauth_settings: Omniauth-inställningar
             smtp_settings: SMTP-inställningar
-          name: Organisation
       oauth_applications:
         create:
           error: Det gick inte att skapa appen.

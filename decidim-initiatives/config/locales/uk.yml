@@ -107,22 +107,14 @@ uk:
             print: Друк
         initiatives_type_scopes:
           edit:
-            back: Повернутись
-            confirm_destroy: Ви впевнені?
-            destroy: Видалити
             title: Редагувати обсяг різновиду почину
             update: Оновити
           new:
-            back: Повернутись
             create: Створити
             title: Створити обсяг різновиду почину
         initiatives_types:
           edit:
-            confirm_destroy: Ви впевнені?
-            destroy: Видалити
             update: Оновити
-          form:
-            title: Загальні відомості
           initiative_type_scopes:
             title: Обсяги для цього різновиду почину
           new:
@@ -165,22 +157,13 @@ uk:
         previous_form:
           back: Повернутись
           continue: Продовжити
-          help: В чому полягає цей почин? Викладіть назву та опис. Ми радимо небагатослівний, стислий заголовок та опис, зосереджений на запропонованому рішенні.
-          more_information: "(Додаткові відомості)"
         promotal_committee:
-          back: Повернутись
           more_information: "(Додаткові відомості)"
         select_initiative_type:
           back: Повернутись
-          more_information: "(Додаткові відомості)"
+          more_information: (Додаткові відомості)
         share_committee_link:
-          continue: Продовжити
           invite_to_committee_help: Посилання для запрошення людей, які увійдуть в робочий гурт з просування
-        show_similar_initiatives:
-          back: Повернутись
-          compare_help: Якщо будь-який з наведених нижче починів подібний до вашого, ми закликаємо вас підтримати його. Ваша пропозиція матиме більше можливостей для втілення.
-          continue: Мій почин інший
-          more_information: "(Додаткові відомості)"
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, за яким ви стежите, зробив новий почин. Прочитайте його та зробіть свій внесок:"
@@ -192,14 +175,10 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: '%{author_nickname} підтримав почин'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> підтримав почин <a href="%{resource_path}">%{resource_title}</a>.
-      index:
-        title: Почини
       initiative_votes:
         create:
           error: При підписанні цього почину сталися помилки.
       initiatives:
-        author:
-          deleted: Видалено
         author_list:
           hidden_authors_count:
             one: і ще 1 особа
@@ -219,11 +198,6 @@ uk:
           search: Шукати
           state: Стан
           type: Різновид
-        filters_small_view:
-          close_modal: Закрити вікно
-          filter: Відібрати
-          filter_by: 'Відібрати за ознакою:'
-          unfold: Розгорнути
         index_header:
           new_initiative: Започаткувати почин
         orders:
@@ -263,11 +237,6 @@ uk:
         promotal_committee_help: Пам'ятайте, що ви повинні запросити щонайменше %{member_count} людей до робочого гурту з просування. Перешліть їм наступне посилання, щоб запросити їх до робочого гурту з просування
         status_change_body_for: 'Стан почину %{title} змінився на: %{state}'
         status_change_for: Стан почину %{title} змінився
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Діючі почини
-            see_all_initiatives: Переглянути всі почини
       states:
         accepted: Прийняті
         expired: Строк дії яких закінчився
@@ -278,12 +247,8 @@ uk:
       initiative_creation_header:
         fill_data: Внести
         finish: Завершити
-        previous_form: Почати
         promotal_committee: Робочий гурт з просування
         select_initiative_type: Обрати
-        show_similar_initiatives: Порівняти
-      initiative_header:
-        initiative_menu_item: Почин
       initiatives:
         initiative:
           check: Перевірте ще раз

@@ -31,8 +31,7 @@ describe Decidim::UploadModalCell, type: :cell do
       resource_name:,
       attachments:,
       required:,
-      titled:,
-      redesigned:
+      titled:
     }
   end
   let(:attribute) { "dummy_attribute" }
@@ -40,62 +39,21 @@ describe Decidim::UploadModalCell, type: :cell do
   let(:attachments) { [] }
   let(:required) { false }
   let(:titled) { false }
-  let(:redesigned) { false }
-
-  shared_examples "a not redesigned cell" do
-    it "renders the open button" do
-      expect(subject).to have_css(".add-file[type='button']")
-    end
-
-    it "renders modal" do
-      expect(subject).to have_css(".upload-modal")
-    end
-
-    it "renders dropzone" do
-      expect(subject).to have_css(".dropzone")
-    end
-  end
-
-  shared_examples "a redesigned cell" do
-    it "renders the open button" do
-      expect(subject).to have_css("[data-upload][type='button']")
-    end
-
-    it "renders modal" do
-      expect(subject).to have_css(".upload-modal")
-    end
-
-    it "renders dropzone" do
-      expect(subject).to have_css("[data-dropzone]")
-    end
-  end
 
   before do
     allow(Decidim::FileValidatorHumanizer).to receive(:new).and_return(file_validation_humanizer)
   end
 
-  context "without redesigned option" do
-    let(:options) do
-      {
-        attribute:,
-        resource_name:,
-        attachments:,
-        required:,
-        titled:
-      }
-    end
-
-    it_behaves_like "a not redesigned cell"
+  it "renders the open button" do
+    expect(subject).to have_css("[data-upload][type='button']")
   end
 
-  context "with redesigned option disabled" do
-    it_behaves_like "a not redesigned cell"
+  it "renders modal" do
+    expect(subject).to have_css(".upload-modal")
   end
 
-  context "with redesigned option enabled" do
-    let(:redesigned) { true }
-
-    it_behaves_like "a redesigned cell"
+  it "renders dropzone" do
+    expect(subject).to have_css("[data-dropzone]")
   end
 
   context "when file is required" do

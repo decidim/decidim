@@ -165,7 +165,6 @@ lb:
         error: Beim Akzeptéieren vun der Ännerung ass e Feeler opgetrueden.
         success: D'Ännerung gouf ugeholl.
       amendable:
-        amended_by: Geännert duerch
         button: '%{model_name} änneren'
         error: Beim Änneren vun dëser Ressource ass e Feeler opgetrueden.
         promote_button: Zu engem %{model_name} befërderen
@@ -183,7 +182,6 @@ lb:
         success: D'Virbereedung fir d'Ännerung gouf geläscht.
       edit_draft:
         discard: Virschlag fir Ännerung verwerfen
-        discard_confirmation: Bass du sécher, dass du dësen Ännerungs-Virschlag läsche wëlls?
         send: Virausbléck
         title: Ännerungs-Virschlag beaarbechten
       emendation:
@@ -233,13 +231,10 @@ lb:
         download: Datei erof lueden
       documents:
         related_documents: Dokumenter déi dobäi gehéieren
-      geocoding:
-        geocoded_address: Adress
       photos:
         related_photos: Biller déi dobäi gehéieren
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar für méi Benotzer
       comments:
         one: Kommentar
         other: Kommentare
@@ -390,8 +385,6 @@ lb:
         name: Organisations-Statistiken
       sub_hero:
         name: Sub hero Banner
-    datepicker:
-      help_text: 'Format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
@@ -405,11 +398,7 @@ lb:
           already_have_an_account?: Hues du schonn en Kont?
           newsletter: Heiansdo en Newsletter mat relevanten Informatiounen zougeschéckt kréien
           newsletter_title: Erlabnis Kontakt opzehuelen
-          nickname_help: Däin Pseudonym an %{organization}. Dierf nëmmen aus Buschtawen, Zuelen, _ an - bestoen.
-          sign_in: Umelden
           sign_up: Registréieren
-          sign_up_as:
-            legend: Registréieren als
           subtitle: Registréier dech fir bei Diskussiounen mat ze maachen an Virschléi ze ënnerstëtzen.
           tos_agreement: Mat der Umeldung erkläers du dech mat %{link} averstane.
           tos_title: Konditiounen vum Service
@@ -418,13 +407,10 @@ lb:
         new:
           are_you_new?: Nei op dëser Plattform?
           register: Kont uleeën
-        user:
-          timed_out: Sie waren zu lange inaktiv und wurden automatisch abgemeldet. Wenn Sie den Dienst weiterhin nutzen möchten, melden Sie sich bitte erneut an.
       shared:
         newsletter_modal:
           buttons:
             check: Iwwerpréiwen an weider maachen
-            close_modal: Modal zou maachen
             uncheck: Ouni Kontakt-Erlabnis weidermaachen
           title: Newsletter Matdeelungen
         omniauth_buttons:
@@ -448,11 +434,7 @@ lb:
         ready: Fäerdeg
       show:
         download_data: Daten eroflueden
-        download_data_description: Eng Datei, déi all Informatiounen enthält, déi mat dengem Konto verknäppt sinn, gëtt an den <strong>%{user_email}</strong> geschéckt. Dës Mail enthält eng .zip-Datei an e Passwuert fir se opzemaachen .<br/><br/>Fir d'Datei auszepaken, brauchs du <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows) oder <a href="https://www.keka.io/">Keka</a> (fir MacOS). Wann s'du mat Linux schaffs, gëtt ass et meeschtens als Standard mat installéiert. Wann net, kanns du <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> benotzen.
         request_data: Daten ufroen
-    endorsable:
-      endorsements: Ennerstëtzungen
-      endorsements_count: Zuel vun den Ënnerstëtzer
     endorsements:
       identities:
         done: Erleedegt
@@ -718,12 +700,9 @@ lb:
           title: Wat kann ech an der %{organization} maachen?
         title: Allgemeng Hëllef
     last_activities:
-      activities:
-        no_activities_warning: Keng Aktivitéit
       all: All Zorten vun Aktivitéit
       index:
         last_activity: Lescht Aktivitéit
-        resource_type: Zort
     links:
       invalid_url: Ongülteg URL
       warning:
@@ -883,11 +862,6 @@ lb:
         success: Deng Astellungen fir Noriichten goufen aktualiséiert.
     open_data:
       not_available_yet: Open Data-Dateien sinn nach net verfügbar. Probéier w. e. g. an e puer Minutten op en Néits.
-    own_user_groups:
-      index:
-        pending: Ausstoend
-        rejected: Verworf
-        verified: Iwwerpréift
     pad_iframe:
       disclaimer: Den Inhalt vun dësem Pad, gouf vun registréierten Benotzer verfaasst an gëtten Auteuren hir Meenung erëm. D'%{organization} kann net fir den Inhalt verantwortlech gemaach ginn.
       pad: Pad
@@ -909,8 +883,6 @@ lb:
         hero:
           participate: Matmaachen
           welcome: Wëllkomm %{organization}!
-        metrics:
-          headline: Statistiken
         statistics:
           headline: Aktuellen Stand vun %{organization}
         sub_hero:
@@ -927,7 +899,7 @@ lb:
     participatory_space_private_users:
       not_allowed: Dir ass et net erlaabt dësen Inhalt ze gesinn
     profile:
-      view: Uweisen
+      deleted: Teilnehmer geläscht
     profiles:
       show:
         activity: Aktivitéit
@@ -939,7 +911,6 @@ lb:
         members: Memberen
         officialized: Offiziellen Teilnehmer
         send_private_message: Privat Noriicht schécken
-        view_full_profile: Kuck den vollstännegen Profil
       sidebar:
         badges:
           info: Ofzeechen kann een sech verdéngen, andeems een bestëmmten Aktivitéiten op der Plattform duerchféiert.
@@ -998,7 +969,6 @@ lb:
       term_input_placeholder: Sich
     searches:
       filters:
-        back: Zréck zu den Resultater
         jump_to: 'Weidergoen op:'
         state:
           active: Aktiv
@@ -1006,14 +976,9 @@ lb:
           future: Zukunft
           past: Vergaangenes
       filters_small_view:
-        close_modal: Modal schließen
         filter: Filter
         filter_by: Filtern nach
-        unfold: Opklappen
       results:
-        results:
-          one: "%{count} Resultat"
-          other: "%{count} Resultater"
         view_all: Alles uweisen (%{count})
     security:
       selfxss_warning:
@@ -1025,10 +990,6 @@ lb:
         close_modal: Modal zou maachen
         ok: Ok
         title: Bestätegen
-      embed_modal:
-        close_window: Fënster zou maachen
-        embed: Dëse Code w. e. g. an deng Säit asetzen
-        embed_link: Abannen
       extended_navigation_bar:
         more: Méi
         unfold: Opklappen
@@ -1053,13 +1014,8 @@ lb:
         spam: Enthält Klickbait, Reklamm, Bedruch oder Script-Bots.
         title: Notzer mellen den net zoulässeg ass
       floating_help:
-        close: Den Hëllefs-Tab zoumaachen
         help: Hëllef
-      follow_button:
-        sign_in_before_follow: Mell dech w. e. g. un, éier s'du dës Aktioun ausféiers
       login_modal:
-        close_modal: Modal zou maachen
-        please_sign_in: W. e. g. umellen
         sign_up: Registréieren
       participatory_space_filters:
         filters:
@@ -1076,7 +1032,6 @@ lb:
         label: 'Ergebnisser pro Säit:'
         title: Wiel d'Unzuel vun de Resultater pro Säit
       share_modal:
-        close_window: Fenster schließen
         copy_share_link: Kopieren
         copy_share_link_clarification: Ëffentlechen Link an d'Tëschenoflag kopéieren
         copy_share_link_copied: Kopéiert!
@@ -1105,28 +1060,12 @@ lb:
         existing_error: Dës Noriicht konnt net erstallt ginn. D'Konversatioun besteet schon, probéier elo nach eng Kéier.
         success: Konversatioun gestart!
       index:
-        add_max_users: 'Setz denger Konversatioun nei Teilnehmer bäi: max. 9 Teilnehmer'
-        add_users_placeholder: Sich...
-        close: Zoumaachen
         conversations_info: Konversatiounen sinn privat, keen aneren kann se gesinn. Eng Konversatioun kann vun all registréierten Benotzer op der Plattform oder all Grupp ugefaange ginn.
-        from: Vum
-        last_message: Lescht Noriicht
-        modal_title: Nei Konversatioun
-        new_conversation: Nei Konversatioun
-        next: Weider
         no_conversations_warning: Et gëtt nach keng Konversatiounen.
-        no_results: Keng Resultater
         time_ago: "Virun %{time}"
-      new:
-        title: Eng Konversatioun ufänken
       reply:
         placeholder: Deng Äntwert...
         send: Senden
-        title_reply: Äntweren
-      show:
-        back: All d'Konversatiounen uweisen
-        not_allowed: Dësen Benotzer akzeptéiert keng direkt Noriichten méi.
-        title: Konversatioun mat %{usernames}
       update:
         error: Noriicht gouf net geschéckt. Probéier méi spéit nach eng Kéier
     user_interests:
@@ -1148,27 +1087,13 @@ lb:
         back_to_resource: Zréck goen
         changes_at_title: Ännerungen beim %{title}
         number_of_versions: Versiounen
-        show_all_versions: All Versiounen uweisen
-        version_author: Auteur vun der Versioun
         version_created_at: Versioun gouf erstallt
-        version_number: Versioun Nummer
-        version_number_out_of_total: "%{current_version} vun %{total_count}"
-    version_author:
-      show:
-        deleted: Teilnehmer geläscht
     versions:
       resource_version:
         of_versions: "(vun %{number})"
         see_other_versions: aner Versiounen kucken
         version: Versioun Nummer %{number}
-    versions_list:
-      show:
-        back_to_resource: Zréck goen
-        changes_at_title: Ännerungen beim %{title}
-        number_of_versions: Versiounen
-        title: Versiounen
     versions_list_item:
-      back: All Versiounen uweisen
       show:
         version_index: Versioun %{index}
     welcome_notification:
@@ -1194,8 +1119,6 @@ lb:
       last_attempt: Du hues nach een Essai, éier däin Kont gespaart gëtt.
       locked: Däin Kont ass gespaart.
       not_found_in_database: Ongülteg %{authentication_keys} oder Passwuert.
-      timeout: Deng Sëtzung ass ofgelaf. Mell dech w. e. g. op en Neits un, fir weider ze maachen.
-      unauthenticated: Du muss dech umellen oder registréieren, éier s'de weider kanns maachen.
     invitations:
       edit:
         header: D'Erstellen vun dengem Kont ass fäerdeg
@@ -1242,7 +1165,6 @@ lb:
         action: Entspäert mäin Kont
         greeting: Moien %{recipient}!
         instruction: 'Klickt op de Link hei ënnen fir Äre Kont z''entspären:'
-        message: Däin Kont gouf gespaart wéinst enger exzessiver Zuel vun net erfollegräichen Versich dech unzemellen.
         subject: Instruktiounen fir ze entspären
     omniauth_callbacks:
       failure: 'Du konnts net mam %{kind}-Account ugemellt ginn. Grond: "%{reason}".'
@@ -1270,18 +1192,10 @@ lb:
       signed_up_but_unconfirmed: Du krus eng Noriicht op den Email-Adress geschéckt. Klick do op de Link, fir däin Kont ze aktivéieren.
       update_needs_confirmation: Du hues däin Kont aktivéiert, mir kontrolléieren deng Email-Adress. W. e. g. iwwerpréif deng Email-Agäng an klick do op de Link fir deng nei Adress ze bestätegen.
       updated: Däin Kont gouf aktualiséiert.
-    sessions:
-      already_signed_out: Du bass elo ausgeloggt.
-      new:
-        sign_in: Aloggen
-      signed_in: Du bass elo ageloggt.
-      signed_out: Du bass elo ausgeloggt.
     shared:
       links:
         back: Zréck
         forgot_your_password: Passwuert vergiess?
-        sign_in: Umellen
-        sign_in_with_provider: Registréier dech iwwer %{provider}
         sign_up: Registréieren
       minimum_password_length:
         one: "(%{count} Minimum Zeechen)"
@@ -1291,13 +1205,11 @@ lb:
         resend_unlock_instructions: Instruktiounen fir ze entspären nach eng Kéier schécken
       send_instructions: Du kriss bannent e puer Minutten en Email mat den Instruktiounen fir ze entspären.
       send_paranoid_instructions: Mat engem valabelen Benotzer-Kont kriss du bannent Minutten en Email mat Instruktiounen fir ze entspären.
-      unlocked: Däin Kont ass entspärt ginn. Mell dech w. e. g. un fir weider ze fueren.
   doorkeeper:
     scopes:
       public: Deng ëffentlech Informatiounen.
   errors:
     messages:
-      already_confirmed: Gouf bestätegt, w.e.g. probéier dech ze registréieren
       confirmation_period_expired: muss bannent %{period} bestätegt ginn, fro w. e. g. en neit un
       content_type_allowlist_error: dësen Typ Datei ass net gülteg
       expired: ass ofgelaf, w. e. g. eng nei Ufro maachen
@@ -1325,6 +1237,10 @@ lb:
     timestamp_error_message: Pardon dat wo ze séier! W. e. g. op en Neits areechen.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Zort
       edit_link:
         edit: Editéieren
       footer:
@@ -1332,12 +1248,9 @@ lb:
         decidim_logo: Decidim-Logo
         download_open_data: Open Data Dateien eroflueden
         made_with_open_source: Website mat <a target="_blank" href="https://github.com/decidim/decidim">fräi Software erstallt</a>.
-      header:
-        close_menu: Menü zoumaachen
-        main_menu: Hauptmenü
-        navigation: Navigation
-        sign_in: Umellen
         sign_up: Registréieren
+      header:
+        main_menu: Hauptmenü
         user_menu: Benotzer-Menü
       impersonation_warning:
         close_session: Sëtzung zoumaachen
@@ -1352,12 +1265,10 @@ lb:
         facebook: "%{organization} op Facebook"
         github: "%{organization} op GitHub"
         instagram: "%{organization} op Instagram"
-        twitter: "%{organization} opTwitter"
         youtube: "%{organization} op YouTube"
       timeout_modal:
         body: Du wos säit %{minutes} Minutten inaktiv. Wann s'du weider inaktiv bleifs, gëss de aus Sécherheetsgrënn ofgemellt.
         continue_session: Sëtzung fortsetzen
-        sign_out: Ofmellen
         title: Wëlls du deng Sëtzung weiderféieren?
       user_menu:
         account: 'Benotzer-Kont: %{name}'
@@ -1366,7 +1277,6 @@ lb:
         notifications: Noriichten
         profile: Mäin Kont
         public_profile: Mäin ëffentlechen Profil
-        sign_out: Ofmellen
         title: Profil-Links
       user_profile:
         account: Kont
@@ -1377,8 +1287,6 @@ lb:
         notifications_settings: Astellung fir Noriichten
         title: Astellung fir Benotzer
         user_groups: Gruppen
-      widget:
-        see_more: Méi uweisen
   locale:
     name: Lëtzebuergesch
     name_with_error: Lëtzebuergesch (Fehler!)

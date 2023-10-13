@@ -86,7 +86,6 @@ ar:
         edit: تعديل
         filter:
           all_processes: عرض جميع العمليات
-          process_groups: مجموعات العملية
         import_process: استيراد
         new_process: عملية جديدة
         new_process_group: مجموعة عملية جديدة
@@ -105,7 +104,6 @@ ar:
           attachments: مرفقات
           categories: الاقسام
           components: المكونات
-          info: معلومات
           moderations: الإعتدال
           private_users: المشاركون من القطاع الخاص
           process_admins: مدراء العملية
@@ -115,7 +113,6 @@ ar:
           fields:
             created_at: أنشئت في
             private: نشر
-            promoted: سلط الضوء
             published: نشرت
             title: عنوان
           name: عملية المشاركة
@@ -215,7 +212,6 @@ ar:
         edit:
           update: تحديث
         index:
-          not_published: غير منشور
           private: نشر
           public: عامة
           published: نشرت
@@ -282,8 +278,6 @@ ar:
         title: العمليات التشاركية
     participatory_process_groups:
       content_blocks:
-        metadata:
-          name: البيانات الوصفية
         stats:
           name: نشاط
       show:
@@ -291,21 +285,16 @@ ar:
     participatory_process_steps:
       index:
         process_steps: مراحل العملية
-        title: مراحل العملية التشاركية
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
             max_results: أقصى قدر من العناصر لإظهارها
-        participatory_process_copies:
-          form:
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
         participatory_process_imports:
           form:
             document_legend: إضافة وثيقة
         participatory_process_steps:
           form:
-            cta_path_help: 'استخدم المسارات الجزئية ، وليس عناوين URL الكاملة هنا. يقبل الحروف والأرقام والشرطات والمائلة ، ويجب أن يبدأ بحرف. إذا لم يتم تعيينه ، فلن يظهر الزر. مثال: %{url}'
             cta_text_help: إذا لم يتم تعيينه ، فلن يظهر الزر.
         participatory_processes:
           form:
@@ -318,7 +307,6 @@ ar:
             related_processes: العمليات ذات الصلة
             select_an_area: اختر منطقة
             select_process_group: حدد مجموعة عملية
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
             title: معلومات عامة
             visbility: رؤية
       content_blocks:
@@ -328,14 +316,6 @@ ar:
         title: العمليات التشاركية
       last_activity:
         new_participatory_process: عملية تشاركية جديدة
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: عمليات نشطة
-            active_step: المرحلة النشطة
-            more_information: معلومات اكثر
-            participate: مشاركة
-            see_all_processes: رؤية جميع العمليات
       participatory_processes:
         filters:
           counters:
@@ -375,31 +355,15 @@ ar:
             past: الماضي
             upcoming: القادمة
           see: نرى
-        index:
-          loading: جارٍ تحميل النتائج ...
       show:
-        area: منطقة
-        developer_group: مجموعة المروجين
-        end_date: تاريخ الانتهاء
-        local_area: منطقة التنظيم
-        participatory_scope: ما الذي تقرر
-        participatory_structure: كيف تقرر ذلك
         private_space: هذه عملية خاصة
         related_processes: العمليات ذات الصلة
-        scope: نطاق
-        start_date: تاريخ البدء
-        target: من يشارك
-        unspecified: غير محدد
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: تصفح
           processes_count: 'العمليات:'
-      participatory_process_widgets:
-        show:
-          active_step: المرحلة النشطة
-          take_part: خذ جزء
       participatory_processes:
         index:
           promoted_processes: عمليات مميزة
@@ -407,12 +371,3 @@ ar:
           active_step: 'المرحلة الحالية:'
           more_info: مزيد من المعلومات
           take_part: خذ جزء
-        promoted_process:
-          active_step: 'المرحلة الحالية:'
-          more_info: مزيد من المعلومات
-          take_part: خذ جزء
-      process_header_steps:
-        step: المرحلة %{current} من %{total}
-        view_steps: عرض المراحل
-      process_navigation:
-        process_menu_item: المسار

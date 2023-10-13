@@ -197,7 +197,6 @@ lb:
         initiatives_types:
           form:
             options: Optionen
-            title: Allgemeine Information
           initiative_type_scopes:
             title: Bereiche für den Typ der Initiative
           new:
@@ -217,10 +216,6 @@ lb:
         rejected: Ungenügend Unterschriften
         validating: Technische Validierung
       application_helper:
-        filter_area_values:
-          all: Alle
-        filter_scope_values:
-          all: Alle
         filter_state_values:
           accepted: Ausreichend Unterschriften
           all: Alle
@@ -260,31 +255,21 @@ lb:
           more_information: "(Weitere Informationen)"
           send_my_initiative: Meine Initiative zur technischen Validierung senden
         finish_help:
-          access_reminder: Sie können auf Ihre Initiativen über den Filter %{link} auf der Seite Initiativen zugreifen.
           publish_helper_text: Denken Sie daran, dass Sie für die Veröffentlichung Ihrer Initiative die erforderlichen Informationen ausfüllen müssen und <strong>diese an die technische Validierung</strong> senden müssen, damit ein Administrator sie prüfen kann.
         previous_form:
           back: Zréck
           continue: Weider
-          help: Woraus besteht die Initiative? Schreiben Sie den Titel und die Beschreibung auf. Wir empfehlen einen kurzen und prägnanten Titel und eine Beschreibung der vorgeschlagenen Lösung.
-          more_information: "(Weitere Informationen)"
         promotal_committee:
-          back: Zréck
           individual_help_text: Diese Art der Bürgerinitiative erfordert einen Ausschuss der Initiatoren, der aus mindestens %{committee_size} Personen (Zeugen) besteht. Sie müssen den folgenden Link mit den anderen Personen teilen, die an dieser Initiative beteiligt sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
           more_information: "(Weitere Informationen)"
         select_initiative_type:
           back: Zréck
           choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
-          more_information: "(Weitere Informationen)"
+          more_information: (Weitere Informationen)
           select: Ich möchte diese Initiative fördern
           select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürger eingreifen können, damit die Organisation Maßnahmen zur Verteidigung des Allgemeininteresses ergreifen kann, die in den Zuständigkeitsbereich der Stadtverwaltung fallen. Welche Initiative möchten Sie starten?
         share_committee_link:
-          continue: Weider
           invite_to_committee_help: Link, um Leute einzuladen, die Teil des Promoter-Komitees sein werden
-        show_similar_initiatives:
-          back: Zréck
-          compare_help: Wenn eine der folgenden Initiativen Ihrer ähnelt, empfehlen wir Ihnen, sie zu unterstützen. Ihr Vorschlag wird mehr Möglichkeiten haben, erledigt zu werden.
-          continue: Meine Initiative ist anders
-          more_information: "(Weitere Informationen)"
       edit:
         accept: Initiative akzeptieren
         back: Zréck
@@ -321,18 +306,9 @@ lb:
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title} sind'
           email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
-      form:
-        add_attachments: Dokumente
-        delete_attachment: Löschen
-      index:
-        title: Initiativen
       initiative_signatures:
         fill_personal_data:
           continue: Fortsetzen
-          date_select:
-            day: Tag
-            month: Monat
-            year: Jahr
         finish:
           back_to_initiative: Zurück zur Initiative
         sms_code:
@@ -348,8 +324,6 @@ lb:
         sms_phone:
           invalid: Die Telefonnummer ist ungültig oder muss noch autorisiert werden. Bitte überprüfen Sie Ihre Berechtigungen.
       initiatives:
-        author:
-          deleted: Gelöscht
         author_list:
           hidden_authors_count:
             one: und 1 weitere Person
@@ -357,7 +331,6 @@ lb:
         committee_members:
           approve: Genehmigen
           confirm_revoke: Bist du dir sicher?
-          revoke: Widerrufen
           title: Ausschussmitglieder
         count:
           title:
@@ -372,11 +345,6 @@ lb:
           search: Suche
           state: Zustand
           type: Art
-        filters_small_view:
-          close_modal: Fenster schließen
-          filter: Filter
-          filter_by: Filtern nach
-          unfold: Entfalten
         index_header:
           new_initiative: Neue Initiative
         initiatives:
@@ -394,14 +362,8 @@ lb:
       modal:
         not_authorized:
           authorizations_page: Autorisierungen anzeigen
-          close: Schließen
           explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
           title: Autorisierung erforderlich
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktive Initiativen
-            see_all_initiatives: Sehen Sie alle Initiativen
       show:
         badge_name:
           accepted: Ausreichend Unterschriften
@@ -414,9 +376,6 @@ lb:
         accepted: Akzeptiert
         expired: Abgelaufen
       unavailable_scope: Nicht verfügbarer Umfang
-      versions:
-        shared:
-          back_to_resource: Zurück zur Initiative
     menu:
       initiatives: Initiativen
     resources:
@@ -430,26 +389,15 @@ lb:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Zurück
         fill_data: Erstellen
         finish: Fertig
-        previous_form: Anfang
         promotal_committee: Promoter-Komitee
         select_initiative_type: Wählen
-        show_similar_initiatives: Vergleichen
-        title: Neue Initiative schaffen
-      initiative_header:
-        initiative_menu_item: Initiative
       initiative_signature_creation_header:
-        back: Zurück
         fill_personal_data: Ergänzen Sie Ihre Daten
         finish: Fertig
-        finished: Initiativsignatur erstellt
-        see_steps: siehe Schritte
-        select_identity: Identität auswählen
         sms_code: SMS-Code-Bestätigung
         sms_phone_number: Handynummer
-        step: Schritt %{current} von %{total}
         title: Zeichen %{initiative_title}
       initiatives:
         initiative:

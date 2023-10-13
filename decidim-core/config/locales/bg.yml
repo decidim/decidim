@@ -143,7 +143,6 @@ bg:
         error: Възникна грешка при одобряване на поправката.
         success: Поправката е одобрена успешно.
       amendable:
-        amended_by: Поправка от
         button: Променя %{model_name}
         error: Възникна грешка при промяната на ресурса.
         promote_button: Обяви като %{model_name}
@@ -161,7 +160,6 @@ bg:
         success: Черновата на поправката е успешно изтрита.
       edit_draft:
         discard: Отхвърляне на черновата
-        discard_confirmation: Сигурни ли сте, че искате да отхвърлите тази чернова на поправка?
         send: Преглед
         title: Редактирай чернова на поправка
       emendation:
@@ -336,8 +334,6 @@ bg:
         name: Статистики за организацията
       sub_hero:
         name: Банер на под-героя
-    datepicker:
-      help_text: 'Очакван формат: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
@@ -350,10 +346,7 @@ bg:
           already_have_an_account?: Вече имате профил?
           newsletter: Получавайте извънреден бюлетин с подходяща информация
           newsletter_title: Разрешение за контакт с Вас
-          sign_in: Вход
           sign_up: Регистрация
-          sign_up_as:
-            legend: Регистрация като
           subtitle: Регистрирайте се за да участвате в обсъждания и поддържате предложения.
           tos_agreement: Регистрирайки се, приемате %{link}.
           tos_title: Общи условия
@@ -366,7 +359,6 @@ bg:
         newsletter_modal:
           buttons:
             check: Маркирай и продължи
-            close_modal: Затвори прозорчето
           title: Известия за новости
         omniauth_buttons:
           or: Или
@@ -390,8 +382,6 @@ bg:
       show:
         download_data: Изтегляне на данни
         request_data: Заяви данни
-    endorsable:
-      endorsements: Одобрявания
     endorsements:
       identities:
         done: Готово
@@ -637,12 +627,9 @@ bg:
           title: Какво мога да правя в %{organization}?
         title: Обща помощ
     last_activities:
-      activities:
-        no_activities_warning: Няма дейност
       all: Всички видове активност
       index:
         last_activity: Последна активност
-        resource_type: Тип
     log:
       base_presenter:
         create: "%{user_name} създаде %{resource_name}"
@@ -777,11 +764,6 @@ bg:
         success: Настройките Ви за известия са обновени успешно.
     open_data:
       not_available_yet: Файловете с отворени данни все още не са налице. Опитайте отново след няколко минути.
-    own_user_groups:
-      index:
-        pending: Предстоящ
-        rejected: Отхвърлен
-        verified: Проверен
     pad_iframe:
       disclaimer: Съдържанието в тази платформа, написано от участниците в нея изразява тяхното мнение. %{organization} не носи отговорност за това съдържание.
       pad: Платформа
@@ -803,8 +785,6 @@ bg:
         hero:
           participate: Участвайте
           welcome: Добре дошли в %{organization}!
-        metrics:
-          headline: Индикатори
         statistics:
           headline: Текущо състояние на %{organization}
         sub_hero:
@@ -821,7 +801,7 @@ bg:
     participatory_space_private_users:
       not_allowed: Нямате права да преглеждате това съдържание
     profile:
-      view: Изглед
+      deleted: Изтрит участник
     profiles:
       show:
         activity: Дейност
@@ -831,7 +811,6 @@ bg:
         following: Следванния
         groups: Групи
         members: Членове
-        view_full_profile: Виж пълния профил
       sidebar:
         badges:
           info: Значките се заслужват чрез извършване на конкретна дейност в платформата.
@@ -876,7 +855,6 @@ bg:
       term_input_placeholder: Търсене
     searches:
       filters:
-        back: Върни се към резултатати
         jump_to: 'Отиди на:'
         state:
           active: Активни
@@ -884,20 +862,11 @@ bg:
           future: Бъдещи
           past: Минали
       filters_small_view:
-        close_modal: Затвори прозорчето
         filter: Филтър
         filter_by: Филтър по
-        unfold: Разгъване
       results:
-        results:
-          one: "%{count} резултат"
-          other: "%{count} резултата"
         view_all: Виж всички (%{count})
     shared:
-      embed_modal:
-        close_window: Затвори прозореца
-        embed: Моля, поставете този код във вашата страница
-        embed_link: Вграждане
       extended_navigation_bar:
         more: Повече
         unfold: Разгъване
@@ -911,10 +880,7 @@ bg:
         title: Съобщи за проблем
       floating_help:
         help: Помощ
-      follow_button:
-        sign_in_before_follow: Моля влезте, преди да извършите това действие
       login_modal:
-        please_sign_in: Моля, влезте
         sign_up: Регистрация
       participatory_space_filters:
         filters:
@@ -929,7 +895,6 @@ bg:
         label: 'Резултати на страница:'
         title: Изберете брой резултати на страница
       share_modal:
-        close_window: Затвори прозореца
         share: Сподели
         share_link: Сподели връзка
     statistics:
@@ -940,27 +905,12 @@ bg:
         existing_error: Съобщението не можа да бъде създадено. Разговорът вече съществува, моля опитайте отново сега.
         success: Разговорът започна успешно!
       index:
-        add_max_users: 'Добави участник в разговора: максимално 9'
-        add_users_placeholder: Търсене...
-        close: Затвори
         conversations_info: Разговорите са частни. никой друг не може да ги види. Разговор може да започне с всеки участник или група, регистрирана в платформата.
-        from: Oт
-        last_message: Последно съобщение
-        modal_title: Нов разговор
-        new_conversation: Нов разговор
-        next: Напред
         no_conversations_warning: Тук все още няма разговори.
-        no_results: Няма резултати
         time_ago: "преди %{time}"
-      new:
-        title: Започни разговор
       reply:
         placeholder: Вашият отговор...
         send: Изпрати
-        title_reply: Отговори
-      show:
-        not_allowed: Този участник не приема вече директни съобщения.
-        title: Разговор с %{usernames}
       update:
         error: Съобщението не е изпратено. Опитайте по-късно
     user_interests:
@@ -975,24 +925,11 @@ bg:
         back_to_resource: Назад
         changes_at_title: Промени в "%{title}"
         number_of_versions: Версии
-        show_all_versions: Покажи всички версии
-        version_author: Автор на версията
         version_created_at: Версията създадена на
-        version_number: Версия номер
-        version_number_out_of_total: "%{current_version} от общо %{total_count}"
-    version_author:
-      show:
-        deleted: Изтрит участник
     versions:
       resource_version:
         of_versions: "(от %{number})"
         version: Версия %{number}
-    versions_list:
-      show:
-        back_to_resource: Назад
-        changes_at_title: Промени в "%{title}"
-        number_of_versions: Версии
-        title: Версии
     versions_list_item:
       show:
         version_index: Версия %{index}
@@ -1019,8 +956,6 @@ bg:
       last_attempt: Имате още един опит, преди профилът ви да бъде заключен.
       locked: Профилът Ви е заключен.
       not_found_in_database: Неправилни %{authentication_keys} или парола.
-      timeout: Вашата сесия изтече. Влезте отново за да продължите.
-      unauthenticated: Трябва да влезете или да се регистрирате, преди да продължите.
     invitations:
       edit:
         header: Завършете създаването на профила си
@@ -1067,7 +1002,6 @@ bg:
         action: Отключи моя профил
         greeting: Здравейте %{recipient}!
         instruction: 'Натиснете връзката по-долу, за да отключите Вашия профил:'
-        message: Вашият акаунт е заключен поради множество неуспешни опити за влизане.
         subject: Инструкции за отключване
     omniauth_callbacks:
       failure: Не бяхте удостоверени от %{kind}, защото %{reason}.
@@ -1095,18 +1029,10 @@ bg:
       signed_up_but_unconfirmed: На Вашата ел. поща е изпратено писмо с връзка за потвърждение. Следвайте връзката, за да активирате профила си.
       update_needs_confirmation: Обновихте успешно профила си, но трябва да потвърдим Вашия нов адрес за ел. поща. Моля, проверете пощата си и следвайте връзката за потвърждение, за да потвърдите новия си адрес.
       updated: Профилът Ви беше обновен успешно.
-    sessions:
-      already_signed_out: Излязохте успешно.
-      new:
-        sign_in: Вход
-      signed_in: Влязохте успешно.
-      signed_out: Излязохте успешно.
     shared:
       links:
         back: Назад
         forgot_your_password: Забравили сте паролата си?
-        sign_in: Вход
-        sign_in_with_provider: Влез със %{provider}
         sign_up: Регистрация
       minimum_password_length:
         one: "(%{count} символ минимум)"
@@ -1116,13 +1042,11 @@ bg:
         resend_unlock_instructions: Повторно изпращане на инструкции за отключване
       send_instructions: След няколко минути ще получите ел. писмо с инструкции, как да отключите профила си.
       send_paranoid_instructions: Ако профилът ви съществува, след няколко минути ще получите ел. писмо с инструкции как да го отключите.
-      unlocked: Вашият профил е успешно отключен. Моля, влезте за да продължите.
   doorkeeper:
     scopes:
       public: Вашата публична информация.
   errors:
     messages:
-      already_confirmed: вече сте потвърдени, опитайте да влезете
       confirmation_period_expired: трябва Ви потвърдят в рамките на %{period}, моля заявете отново
       content_type_allowlist_error: типа файл не е валиден
       expired: е изтекла, моля поискайте нова
@@ -1144,15 +1068,15 @@ bg:
     timestamp_error_message: Извинете, това беше твърде бързо! Моля, изпратете отново.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Тип
       edit_link:
         edit: Редактирай
       footer:
         download_open_data: Изтеглете файлове с отворени данни
         made_with_open_source: Уебсайта работи със <a target="_blank" href="https://github.com/decidim/decidim">свободен софтуер</a>.
-      header:
-        close_menu: Затвори менюто
-        navigation: Навигация
-        sign_in: Влизане
         sign_up: Регистрация
       impersonation_warning:
         close_session: Затвори сесия
@@ -1166,7 +1090,6 @@ bg:
         notifications: Известия
         profile: Моят профил
         public_profile: Моя публичен профил
-        sign_out: Изход
       user_profile:
         account: Профил
         authorizations: Идентификация
@@ -1176,8 +1099,6 @@ bg:
         notifications_settings: Настройки на известията
         title: Настройки за участника
         user_groups: Групи
-      widget:
-        see_more: Виж още
   locale:
     name: български език
   password_validator:

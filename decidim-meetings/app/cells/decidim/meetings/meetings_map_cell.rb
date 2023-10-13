@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    class MeetingsMapCell < MeetingMCell
+    class MeetingsMapCell < MeetingLCell
       include Decidim::MapHelper
       include Decidim::Meetings::MapHelper
 

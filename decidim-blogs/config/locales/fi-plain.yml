@@ -23,9 +23,6 @@ fi-pl:
         new: Uusi artikkeli
         title: Toiminnot
       admin:
-        models:
-          post:
-            name: Artikkeli
         posts:
           create:
             invalid: Artikkelin luonti epäonnistui.
@@ -49,6 +46,11 @@ fi-pl:
           create: "%{user_name} loi blogikirjoituksen %{resource_name} tilassa %{space_name}"
           delete: "%{user_name} poisti blogikirjoituksen %{resource_name} tilasta %{space_name}"
           update: "%{user_name} päivitti blogikirjoitusta %{resource_name} tilassa %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Viimeksi julkaistu
+          name: Artikkelit
+          see_all: Näytä kaikki kirjoitukset
       last_activity:
         new_post: 'Uusi artikkeli:'
       models:
@@ -60,8 +62,10 @@ fi-pl:
             published_at: Julkaisuaika
             title: Otsikko
       posts:
-        show:
-          view: Näytä
+        index:
+          count:
+            one: "%{count} artikkeli"
+            other: "%{count} artikkelia"
     components:
       blogs:
         actions:

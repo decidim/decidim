@@ -9,8 +9,11 @@ fr-CA:
   decidim:
     admin:
       menu:
+        manage: Gérer
         templates: Modèles 
       templates:
+        actions:
+          new_template: Nouveau modèle
         apply:
           error: Une erreur est survenue lors de l'application de ce modèle.
           success: Modèle appliqué avec succès.
@@ -42,12 +45,15 @@ fr-CA:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Modifier le modèle de message de blocage utilisateur
           form:
             save: Enregistrer
-            template_title: Informations sur le modèle
           index:
             confirm_delete: Êtes-vous sûr(e) de vouloir supprimer ce modèle ?
             title: Bloquer les messages de l'utilisateur
+          new:
+            title: Nouveau modèle de message de blocage utilisateur
           template_chooser:
             select_template: Sélectionnez un modèle de réponse
         questionnaire_templates:
@@ -61,13 +67,14 @@ fr-CA:
             edit: Modifier
             empty: Il n'y a pas encore de question.
             questionnaire: Questionnaire
+            title: Modifier le modèle de questionnaire
           form:
-            save: Sauvegarder
-            template_title: Informations sur le modèle
             title: Modèle de questionnaire %{questionnaire_for}
           index:
             confirm_delete: Êtes-vous sûr de vouloir supprimer ce modèle?
             title: Modèles de questionnaire
+          new:
+            title: Nouveau modèle de questionnaire
           preview:
             current_step: Étape %{step}
             of_total_steps: de %{total_steps}

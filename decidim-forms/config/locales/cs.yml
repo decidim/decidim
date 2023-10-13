@@ -156,7 +156,6 @@ cs:
         show:
           answer_questionnaire:
             already_have_an_account?: Již máte účet?
-            anonymous_user_message: <a href="%{sign_in_link}">Přihlaste se svým účtem</a> nebo <a href="%{sign_up_link}">zaregistrujte</a> abyste odpověděli na dotazník.
             are_you_new?: Nový uživatel?
             sign_in_description: Přihlaste se k provedení průzkumu
             sign_up_description: Vytvořit uživatelský účet k provedení průzkumu
@@ -178,7 +177,6 @@ cs:
           questionnaire_not_published:
             body: Tento formulář zatím není zveřejněn.
           tos_agreement: Účastí přijímáte jeho smluvní podmínky
-          upload_file: Nahrát soubor
       step_navigation:
         show:
           are_you_sure: Tuto akci nelze vrátit zpět a nebudete moci upravit své odpovědi. Jste si jisti?

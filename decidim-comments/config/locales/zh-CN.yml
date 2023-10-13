@@ -15,20 +15,15 @@ zh-CN:
   decidim:
     comments:
       comments_count: 评论计数
-      last_activity:
-        new_comment_at_html: "<span>在 %{link}的新评论</span>"
-      view: 查看
       votes:
         create:
           error: 在表决该评论时出现问题。
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">使用您的帐户</a> 或 <a href="%{sign_up_url}">注册</a> 来添加您的评论。
         form:
           body:
             label: 评论
             placeholder: 你对此有什么看法？
-          submit: 发送
           user_group_id:
             label: 评论为
         opinion:
@@ -60,8 +55,6 @@ zh-CN:
           older: 更旧的
           recent: 最近的
         title: '排序方式：'
-      comment_thread:
-        title: 与 %{authorName} 的对话
       comments:
         blocked_comments_for_user_warning: 您此时无法评论，但您可以阅读前面的评论。
         blocked_comments_warning: 评论此时被禁用，但您可以阅读前面的评论。

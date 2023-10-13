@@ -90,9 +90,9 @@ hu:
         secondary_hosts: Másodlagos kiszolgáló
         send_welcome_notification: Üdvözlő értesítés küldése
         success_color: Siker
+        tertiary_color: Harmadlagos
         time_zone: Időzóna
         tos_version: Használati feltételek
-        twitter_handler: Twitter kezelő
         user_groups_enabled: Csoportok engedélyezése
         users_registration_mode: Felhasználói regisztrációs mód
         warning_color: Figyelmeztetés
@@ -100,6 +100,7 @@ hu:
         welcome_notification_subject: Üdvözlő üzenet tárgya
         youtube_handler: YouTube kezelő
       participatory_space_private_user:
+        email: Email
         name: Név
       scope:
         code: Kód
@@ -184,8 +185,6 @@ hu:
         export: Összes exportálása
         export-selection: Kiválasztottak exportálása
         import: Import
-        manage: Kezelés
-        new: Új %{name}
         newsletter:
           new: Új hírlevél
         participatory_space_private_user:
@@ -193,6 +192,7 @@ hu:
         per_page: Oldalanként
         permissions: Engedélyek
         reject: Elutasít
+        send_me_a_test_email: Teszt e-mail küldése
         share: Megosztás
         user:
           new: Új adminisztrátor
@@ -253,7 +253,6 @@ hu:
           title: Mappa szerkesztése
           update: Frissítés
         index:
-          attachment_collection_used: A mappát nem lehet eltávolítani, mert használatban van.
           attachment_collections_title: Melléklet mappák
         new:
           create: Létrehozás
@@ -302,7 +301,6 @@ hu:
           update: Frissítés
         index:
           categories_title: Kategóriák
-          category_used: Kategória nem távolítható el, mert használatban van.
         new:
           create: Kategória létrehozása
           title: Új kategória
@@ -368,8 +366,8 @@ hu:
           goto_moderation: Menj a globális moderációkhoz
           title: Függő moderációk
         show:
+          dropdown: Legördülő lista
           view_more_logs: További naplók megtekintése
-          welcome: Üdvözölünk az Admin Panelben.
       domain_whitelist:
         form:
           domain_too_short: Túl rövid domain
@@ -468,7 +466,6 @@ hu:
             all: Összes
             managed: Felügyelt
             not_managed: Nem felügyelt
-          filter_by: Szűrés ez alapján
           impersonate: Megszemélyesítés
           impersonate_new_managed_user: Új résztvevő kezelése
           managed: Felügyelt
@@ -558,7 +555,6 @@ hu:
         areas: Területek
         configuration: Beállítások
         content: Jelentett tartalom
-        dashboard: Vezérlőpult
         external_domain_whitelist: Engedélyezett külső domainek
         help_sections: Súgó szakaszok
         homepage: Homepage
@@ -569,6 +565,7 @@ hu:
         reported_users: Jelentett résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
+        see_site: Oldal megtekintése
         settings: Beállítások
         static_pages: Oldalak
         user_groups: Felhasználói csoportok
@@ -638,7 +635,6 @@ hu:
           fields:
             created_at: Létrehozás dátuma
             email: Email
-            last_sign_in_at: Utolsó bejelentkezés dátuma
             name: Név
             role: Szerepkör
             roles:
@@ -749,16 +745,16 @@ hu:
           select_scopes: Kiszűri azokat a felhasználókat, akik a fiók "Saját érdeklődési kör" beállításainál aktiválták a kiválasztott hatókört.
           select_spaces: A hírlevél szegmentálására szolgáló terek kiválasztása
           select_users: Válassza ki, hogy mely felhasználók számára szeretné elküldeni a hírlevelet
-          send_to_all_users: Küldés mindenkinek
-          send_to_followers: Küldés a követőknek
-          send_to_participants: Küldés a résztvevőknek
           title: Címzettek kiválasztása
           warning: "<strong>Figyelem:</strong> Ez a hírlevél csak azoknak a felhasználóknak kerül elküldésre, akik bejelölték a <em>Hírleveleket szeretnék kapni</em> opciót az értesítési beállításokban."
         send:
           no_recipients: Nincsenek címzettek ehhez a kiválasztáshoz.
+        send_to_user:
+          sent_successfully: A hírlevél sikeresen kiküldésre került ide %{email}
         show:
           preview: Előnézet
           select_recipients_to_deliver: Címzettek kiválasztása
+          send_me_a_test_email: Teszt e-mail küldése
           subject: Tárgy
         update:
           error: Hiba történt a hírlevél frissítése során.
@@ -792,7 +788,6 @@ hu:
           officialize: Hivatalossá tétel
           title: '"%{name}" hivatalossá tétele'
         show_email_modal:
-          close_modal: Ablak bezárás
           description: Ha közvetlenül kapcsolatba kell lépnie egy résztvevővel, akkor kattintson a Megjelenítés gombra az e-mail cím megtekintéséhez. Ez a művelet naplózásra kerül.
           email_address: E-mail cím
           full_name: Teljes név
@@ -812,7 +807,6 @@ hu:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Néhány szövegmezőbe, a résztvevők HTML tag-eket tudnak majd beilleszteni a szövegszerkesztő segítségével.
           social_handlers: Social
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
@@ -823,10 +817,14 @@ hu:
           update: Frissítés
         form:
           colors:
+            choose_color: Elsődleges szín kiválasztása
             colors_title: Szervezet színei
             colors_warning_html: Óvatosan! A színek megváltoztatása megtörik az akadálymentes kontrasztokat. Ellenőrizheti a kontrasztot a <a href="%{link}">WebAIM Contrast Checker</a> vagy más, hasonló eszköz segítségével.
-            header_snippets_help: Ebben a mezőben a HTML fejlécet szerkesztheted. Ennek akkor van jelentősége, ha olyan külső szolgáltatásokat szeretnél intergálni, amelyekhez JavaScript vagy CSS szükséges. Sőt, metacímkéket is hozzáadhatsz. Ez az adminban nem, csak a nyilvános oldalakon jelenik majd meg.
-          cta_button_path_help: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
+            explanation: Ez az eszköz segít kiválasztani egy színsémát, amely a színkör körül egyenlően elosztott árnyalatokból áll, és amelyet a szervezet weboldalán használnak.
+            legend_html: Az alkalmazás fő színei a <a href="https://www.color-meanings.com/triadic-colors/">Triadic algoritmus</a>. A <i>szekunder</i> szín automatikusan kiszámításra kerül az elsődleges színből és a kiválasztott telítettségből.
+            saturation: Telítettség
+            title: Színválasztó
+            update_suggested_colors: A javasolt színekre frissítés
           cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
           homepage_appearance_title: Honlap megjelenésének szerkesztése
           homepage_highlighted_content_banner_title: Kiemelt banner
@@ -887,6 +885,9 @@ hu:
             title: Privát felhasználók törlése
           example_file: 'Példa fájl:'
           explanation: 'Töltse fel a CSV-fájlt. Két oszlopnak kell lennie, a fájl első oszlopában az e-mail címmel, a fájl utolsó oszlopában pedig a nevével azoknak a felhasználóknak, akiket hozzá szeretne adni a részvételi térhez, fejlécek nélkül. Kerülje az olyan érvénytelen karakterek használatát, mint a `<>?%&^*#@()[]=+:;"{}\|` a felhasználói névben.'
+          explanation_example: |
+            ohn.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Töltse fel a CSV fájlod
           upload: Feltölt
       reminders:
@@ -999,9 +1000,6 @@ hu:
           update: Frissítés
         form:
           none: Egyik sem
-          slug_help: 'Használjon részleges útvonalakat, nem teljes URL-eket itt. Betűk, számok, vonalak és per-jelek fogadhatók el, és betűvel kell kezdődniük. Példa: %{url}'
-        index:
-          last_notable_change: Utolsó jelentős változás
         new:
           create: Oldal létrehozása
           title: Új oldal
@@ -1026,7 +1024,6 @@ hu:
         participants: Résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
-        static_pages: Oldalak
         statistics: Tevékenység
         user_groups: Csoportok
         users: Adminisztrátorok
@@ -1051,6 +1048,9 @@ hu:
         new:
           example_file: 'Példa fájl:'
           explanation: Töltse fel a CSV fájlját. A fájl első oszlopában, a fejlécek nélkül, rendelkeznie kell a szervezet felhasználói csoportjainak hivatalos e-mailjeivel. Csak azok a felhasználói csoportok lesznek érvényesítve, amelyek megerősítették az e-mailjüket, és e-mailjük szerepel a CSV-fájlban.
+          explanation_example: |
+            naez@azemailcim.hu
+            pelda.janos@peldaul.hu
           title: Töltse fel a CSV fájlját
           upload: Feltöltés
       users:
@@ -1075,7 +1075,6 @@ hu:
           last_week: Előző hét
           no_users_count_statistics_yet: Még nincsenek felhasználói statisztikák.
           participants: Résztvevők
-      view_public_page: Nyilvános oldal megtekintése
     forms:
       errors:
         impersonate_user:
@@ -1136,9 +1135,3 @@ hu:
       admin:
         global_moderations:
           title: Globális moderációk
-        newsletters:
-          title: Hírlevelek
-        settings:
-          title: Beállítások
-        users:
-          title: Résztvevők

@@ -70,7 +70,6 @@ id:
         edit: Edit
         filter:
           all_processes: Tampilkan semua proses
-          process_groups: Kelompok Proses
         new_process: Proses baru
         new_process_group: Grup proses baru
         new_process_step: Langkah baru
@@ -88,7 +87,6 @@ id:
           attachments: Lampiran
           categories: Kategori
           components: Komponen
-          info: Info
           moderations: Moderasi
           private_users: Pengguna Pribadi
           process_admins: Memproses pengguna
@@ -98,7 +96,6 @@ id:
           fields:
             created_at: Dibuat di
             private: Pribadi
-            promoted: Disorot
             published: Diterbitkan
             title: Judul
           name: Proses partisipatif
@@ -194,7 +191,6 @@ id:
         edit:
           update: Memperbarui
         index:
-          not_published: Tidak diterbitkan
           private: Pribadi
           public: Publik
           published: Diterbitkan
@@ -268,18 +264,13 @@ id:
     participatory_process_steps:
       index:
         process_steps: Langkah-langkah proses
-        title: Langkah-langkah proses partisipatif
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
             max_results: Jumlah maksimum elemen untuk ditampilkan
-        participatory_process_copies:
-          form:
-            slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke proses ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Gunakan jalur parsial, bukan URL lengkap di sini. Menerima surat, angka, tanda pisah dan garis miring, dan harus dimulai dengan huruf. Jika tidak disetel, tombol tidak akan ditampilkan. Contoh: %{url}'
             cta_text_help: Jika tidak disetel, tombol tidak akan ditampilkan.
         participatory_processes:
           form:
@@ -292,7 +283,6 @@ id:
             related_processes: Proses terkait
             select_an_area: Pilih suatu Area
             select_process_group: Pilih grup proses
-            slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke proses ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
             title: Informasi Umum
             visbility: Visibilitas
       content_blocks:
@@ -302,14 +292,6 @@ id:
         title: Proses partisipatif
       last_activity:
         new_participatory_process: Proses partisipatif baru
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Proses aktif
-            active_step: Langkah aktif
-            more_information: Informasi lebih lanjut
-            participate: Ikut
-            see_all_processes: Lihat semua proses
       participatory_processes:
         filters:
           counters:
@@ -329,31 +311,15 @@ id:
             past: Lalu
             upcoming: Mendatang
           see: Lihat
-        index:
-          loading: Memuat hasil ...
       show:
-        area: Daerah
-        developer_group: Grup promotor
-        end_date: Tanggal akhir
-        local_area: Wilayah Organisasi
-        participatory_scope: Apa yang diputuskan
-        participatory_structure: Bagaimana cara memutuskannya
         private_space: Ini adalah proses pribadi
         related_processes: Proses terkait
-        scope: Cakupan
-        start_date: Mulai tanggal
-        target: Yang berpartisipasi
-        unspecified: Tidak ditentukan
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: Jelajahi
           processes_count: 'Proses:'
-      participatory_process_widgets:
-        show:
-          active_step: Langkah aktif
-          take_part: Ambil bagian
       participatory_processes:
         index:
           promoted_processes: Proses yang disorot
@@ -361,12 +327,3 @@ id:
           active_step: 'Langkah saat ini:'
           more_info: Info lebih lanjut
           take_part: Ambil bagian
-        promoted_process:
-          active_step: 'Langkah saat ini:'
-          more_info: Info lebih lanjut
-          take_part: Ambil bagian
-      process_header_steps:
-        step: Langkah %{current} dari %{total}
-        view_steps: Lihat langkah
-      process_navigation:
-        process_menu_item: Proses
