@@ -100,7 +100,6 @@ fi-pl:
         edit: Muokkaa
         filter:
           all_processes: Näytä kaikki prosessit
-          process_groups: Prosessiryhmät
         import_process: Tuo
         moderate: Moderoi
         new_process: Uusi prosessi
@@ -125,7 +124,7 @@ fi-pl:
           attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
-          info: Tiedot
+          landing_page: Laskeutumissivu
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
           process_admins: Prosessin käyttäjät
@@ -135,7 +134,6 @@ fi-pl:
           fields:
             created_at: Luonnin ajankohta
             private: Yksityinen
-            promoted: Tärkeää
             published: Julkaistu
             title: Otsikko
           name: Osallisuusprosessi
@@ -254,8 +252,6 @@ fi-pl:
         edit:
           title: Muokkaa prosessityyppiä
           update: Päivitä
-        form:
-          title: Otsikko
         new:
           create: Luo
           title: Uusi prosessityyppi
@@ -286,7 +282,6 @@ fi-pl:
         edit:
           update: Päivitä
         index:
-          not_published: Ei julkaistu
           private: Yksityinen
           public: Julkinen
           published: Julkaistu
@@ -371,30 +366,31 @@ fi-pl:
         description: Osallisuusprosessien määrä tässä organisaatiossa
         object: osallisuusprosessit
         title: Osallisuusprosessit
-    participatory_process:
-      show:
-        related_assemblies: Liittyvät ryhmät
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Edistäjäryhmä
+          name: Metatiedot
+          participatory_scope: Mitä päätetään
+          participatory_structure: Miten päätetään
+          target: Kuka osallistuu
+        html:
+          name: HTML-lohko
         html_1:
           name: Ensimmäinen HTML-osio
         html_2:
           name: Toinen HTML-osio
         html_3:
           name: Kolmas HTML-osio
-        metadata:
-          developer_group: Edistäjäryhmä
-          name: Metatiedot
-          participatory_scope: Mitä päätetään
-          participatory_structure: Miten päätetään
-          target: Kuka osallistuu
+        main_data:
+          name: Otsikko ja kuvaus
         participatory_processes:
+          active: Aktiiviset osallistumisprosessit
           name: Osallistumisprosessit
         stats:
           name: Tilastot
         title:
           meta_scope: Teema
-          name: Otsikko, kuvaus ja aihetunniste (hashtag)
           participatory_processes:
             one: 1 prosessi
             other: "%{count} prosessia"
@@ -403,30 +399,31 @@ fi-pl:
     participatory_process_steps:
       index:
         process_steps: Prosessin vaiheet
-        title: Osallisuusprosessin vaiheet
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Aktiiviset
+            all: Kaikki
             max_results: Näytettävien elementtien enimmäismäärä
+            selection_criteria: Valintakriteerit
         new_import:
           accepted_types:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+            slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
         participatory_process_groups:
           form:
             metadata: Metatiedot
-            title: Yleiset tiedot
             visibility: Näkyvyys
         participatory_process_imports:
           form:
             document_legend: Lisää asiakirja
-            slug_help: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+            slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Käytä osittaisia ​​polkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, väliviivat ja kauttaviivat. Arvon täytyy alkaa kirjaimella. Jos asetusta ei ole asetettu, painiketta ei näytetä. Esimerkki: %{url}'
+            cta_path_help_html: 'Käytä osittaisia ​​polkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, väliviivat ja kauttaviivat. Arvon täytyy alkaa kirjaimella. Jos asetusta ei ole asetettu, painiketta ei näytetä. Esimerkki: %{url}'
             cta_text_help: Jos asetusta ei ole asetettu, painiketta ei näytetä.
         participatory_processes:
           form:
@@ -441,12 +438,18 @@ fi-pl:
             select_an_area: Valitse alue
             select_participatory_process_type: Valitse prosessityyppi
             select_process_group: Valitse prosessiryhmä
-            slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+            slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
             title: Yleistä tietoa
             visbility: näkyvyys
       content_blocks:
+        extra_data:
+          name: Vaihe ja kesto
+        hero:
+          name: Pääkuva ja CTA-painike (call to action)
         highlighted_processes:
           name: Tärkeimmät prosessit
+        related_processes:
+          name: Liittyvät prosessit
       index:
         title: Osallisuusprosessit
       last_activity:
@@ -454,17 +457,22 @@ fi-pl:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktiiviset prosessit
-            active_step: Aktiivinen vaihe
-            more_information: Lisätietoja
-            participate: Osallistu
-            participate_in: Osallistu prosessiin %{resource_name}
-            processes_button_title: Linkki Prosessit-sivulle, jossa näkyvät kaikki prosessit
-            see_all_processes: Näytä kaikki prosessit
+            active_spaces: Aktiiviset prosessit
+            see_all_spaces: Näytä kaikki prosessit
       participatory_process_steps:
         index:
           back_to_process: Takaisin prosessin sivulle
       participatory_processes:
+        description:
+          area_name: Alue
+          data: Prosessin tiedot
+          developer_group: Edistäjäryhmä
+          local_area: Organisaatioalue
+          meta_scope: Teema
+          participatory_scope: Mitä päätetään
+          participatory_structure: Miten päätetään
+          target: Kuka osallistuu
+          title: Tietoa tästä prosessista
         filters:
           all_types: Kaikki tyypit
           counters:
@@ -480,6 +488,7 @@ fi-pl:
             upcoming:
               one: 1 tuleva prosessi
               other: "%{count} tulevaa prosessia"
+          date: Päivämäärä
           explanations:
             no_active: Ei aktiivisia prosesseja.
             no_active_nor_upcoming: Ei aktiivisia tai tulevia prosesseja.
@@ -491,25 +500,13 @@ fi-pl:
             past: Menneet
             upcoming: Tulevat
           see: Katso
-        index:
-          loading: Ladataan tulokset...
+          type: Tyyppi
         show:
           title: Tietoa tästä prosessista
       show:
-        area: Alue
         belongs_to_group: Tämä prosessi kuuluu ryhmään
-        dates: Päivämäärät
-        developer_group: Kehittäjäryhmä
-        end_date: Päättymispäivä
-        local_area: Organisaatioalue
-        participatory_scope: Mitä päätetään
-        participatory_structure: Miten päätetään
         private_space: Tämä on yksityinen prosessi
         related_processes: Liittyvät prosessit
-        scope: Teema
-        start_date: Alkamispäivä
-        target: Kuka osallistuu
-        unspecified: Ei määritelty
     statistics:
       processes_count: Prosessia
   layouts:
@@ -519,10 +516,6 @@ fi-pl:
           browse: Selaa
           browse_resource: Selaa prosessiryhmää %{resource_name}
           processes_count: 'Prosessit:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktiivinen vaihe
-          take_part: Osallistu
       participatory_processes:
         index:
           promoted_processes: Tärkeät prosessit
@@ -532,16 +525,3 @@ fi-pl:
           more_info_about: Lisätietoja prosessista %{resource_name}
           take_part: Osallistu
           take_part_in: Osallistu prosessiin %{resource_name}
-        promoted_process:
-          active_step: 'Aktiivinen vaihe:'
-          more_info: Lisätietoja
-          more_info_about: Lisätietoja prosessista %{resource_name}
-          take_part: Osallistu
-          take_part_in: Osallistu prosessiin %{resource_name}
-        promoted_process_group:
-          more_info: Lisätietoja
-      process_header_steps:
-        step: Vaihe %{current} / %{total}
-        view_steps: Näytä vaiheet
-      process_navigation:
-        process_menu_item: Prosessi

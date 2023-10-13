@@ -386,6 +386,7 @@ fi-pl:
         title: Äänet
     participatory_spaces:
       highlighted_proposals:
+        last: Viimeisimmät ehdotukset
         see_all: Näytä kaikki (%{count})
     proposals:
       actions:
@@ -529,30 +530,22 @@ fi-pl:
           show:
             amendments_count: Muutosten lukumäärä
             assigned_valuators: Arvioijat
-            authors: Tekijät
             body: Ehdotuksen kuvaus
             comments_count: Kommenttien lukumäärä
-            comments_negative_count: Vastaan
-            comments_neutral_count: Neutraali
-            comments_positive_count: Puolesta
-            created_at: Luonnin ajankohta
             documents: Asiakirjat
             endorsements_count: Suositusten lukumäärä
-            endorsements_ranking: Luokittelu suositusten mukaan
             endorsers: Suosittelijat
             link: Linkki
             n_more_endorsers:
               one: ja 1 muu
               other: ja %{count} muuta
             photos: Kuvat
-            proposals: Ehdotukset
             ranking: "%{ranking} / %{total}"
             related_meetings: Liittyvät tapahtumat
             remove_assignment: Poista tehtävä arvioijalta
             remove_assignment_confirmation: Haluatko varmasti poistaa arvioijan tältä ehdotukselta?
             valuators: Arvioijat
             votes_count: Äänten määrä
-            votes_ranking: Luokittelu suositusten mukaan
           update_category:
             invalid: 'Näillä ehdotuksilla oli jo aihepiiri %{subject_name}: %{proposals}.'
             select_a_category: Valitse aihepiiri.
@@ -606,16 +599,12 @@ fi-pl:
         rejected: Hylätty
         withdrawn: Peruutettu
       application_helper:
-        filter_category_values:
-          all: Kaikki
         filter_origin_values:
           all: Kaikki
           meetings: Tapaamiset
           official: Virallinen
           participants: Osallistujat
           user_groups: Käyttäjäryhmät
-        filter_scope_values:
-          all: Kaikki
         filter_state_values:
           accepted: Hyväksytyt
           all: Kaikki
@@ -636,7 +625,6 @@ fi-pl:
               ok: Julkaise ehdotuksena
               title: Seuraavat toimenpiteet ovat peruuttamattomia
             success: Yhteistyöluonnos julkaistiin onnistuneesti ehdotuksena.
-          view_collaborative_draft: Katso yhteistyöluonnosta
           withdraw:
             error: Yhteistyöluonnoksen sulkemisessa on tapahtunut virheitä.
             irreversible_action_modal:
@@ -645,10 +633,6 @@ fi-pl:
               ok: Peru yhteistyöluonnos
               title: Seuraavat toimenpiteet ovat peruuttamattomia
             success: Yhteistyöluonnos peruutettiin onnistuneesti.
-        count:
-          drafts_count:
-            one: "%{count} yhteistyöluonnos"
-            other: "%{count} yhteistyöluonnosta"
         create:
           error: Yhteistyöluonnoksen luominen epäonnistui.
           success: Yhteistyöluonnos luotu onnistuneesti.
@@ -658,6 +642,8 @@ fi-pl:
           select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Muokkaa yhteistyöluonnosta
+        empty: Yhteistyöluonnoksia ei ole vielä
+        empty_filters: Haluehdoilla ei löytynyt yhtään yhteistyöluonnosta
         filters:
           all: Kaikki
           amendment: Muutokset
@@ -674,6 +660,11 @@ fi-pl:
           filter: Rajaa
           filter_by: Rajaa hakua
           unfold: Avaa
+        index:
+          count:
+            one: "%{count} yhteistyöluonnos"
+            other: "%{count} yhteistyöluonnosta"
+        name: Yhteistyöluonnokset
         new:
           add_file: Lisää tiedosto
           edit_file: Muokkaa tiedostoa
@@ -700,7 +691,6 @@ fi-pl:
             error: Ei voitu hylätä osallistujaa, yritä myöhemmin uudelleen.
             success: "Käyttäjän @%{user} osallistumispyynnön hylkäys onnistui."
         show:
-          back: Takaisin
           edit: Muokkaa yhteistyöluonnosta
           final_proposal: lopullinen ehdotus
           final_proposal_help_text: Tämä luonnos on valmis. Voi katsoa lopullista ehdotusta
@@ -713,7 +703,6 @@ fi-pl:
           published_proposal: julkaistu ehdotus
           request_access: Pyydä käyttöoikeutta
           requested_access: Käyttöoikeutta pyydetty
-          version_history: katso tämän ehdotuksen versiohistoria
           withdraw: peruuttaa luonnos
         states:
           open: Avaa
@@ -724,12 +713,11 @@ fi-pl:
           success: Yhteistyöluonnos on päivitetty onnistuneesti.
         wizard_aside:
           back_from_collaborative_draft: Takaisin yhteistyöluonnoksiin
-          info: Olet luomassa <strong>yhteistyöluonnosta</strong>.
         wizard_header:
           title: Luo yhteistyöluonnoksesi
       content_blocks:
         highlighted_proposals:
-          proposals: Ehdotukset
+          name: Ehdotukset
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
         success: Ehdotus luotiin tallennettu luonnoksena.
@@ -740,11 +728,6 @@ fi-pl:
         new_proposal: 'Uusi ehdotus:'
         proposal_updated: 'Ehdotusta on päivitetty:'
       models:
-        collaborative_draft:
-          fields:
-            authors: Tekijät
-            comments: Kommentit
-            contributions: Avustukset
         proposal:
           fields:
             category: Aihepiiri
@@ -767,7 +750,6 @@ fi-pl:
         buttons:
           amend: Muuta
           comment: Kommentti
-          comments: Kommentit
       proposal_votes:
         create:
           error: Äänestettäessä ehdotusta tapahtui virhe.
@@ -779,21 +761,14 @@ fi-pl:
         complete:
           send: Lähetä
           title: Viimeistele ehdotuksesi
-        count:
-          proposals_count:
-            one: "%{count} ehdotus"
-            other: "%{count} ehdotusta"
         dynamic_map_instructions:
           description: Koordinaatit päivitetään, kun painat Esikatsele-painiketta. Osoitetekstiä ei muuteta.
           instructions: Voit siirtää pistettä kartalla.
         edit:
           add_documents: Lisää asiakirjoja
-          add_image: Lisää kuva
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
           edit_documents: Muokkaa asiakirjoja
-          edit_image: Muokkaa kuvaa
-          gallery_legend: "(Valinnainen) Lisää kuva ehdotuskorttiin"
           select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Muokkaa ehdotusta
@@ -815,23 +790,16 @@ fi-pl:
           state: Tila
           type: Tyyppi
           voted: Äänestetty
-        filters_small_view:
-          close_modal: Sulje ikkuna
-          filter: Suodata
-          filter_by: Suodata
-          unfold: Avaa
         index:
           click_here: Näytä kaikki ehdotukset
           collaborative_drafts_list: Mene yhteistyöluonnoksiin
+          count:
+            one: "%{count} ehdotus"
+            other: "%{count} ehdotusta"
           new_proposal: Uusi ehdotus
           see_all: Näytä kaikki ehdotukset
           see_all_withdrawn: Näytä kaikki peruutetut ehdotukset
           text_banner: Katselet peruutettuja ehdotuksia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
-          view_proposal: Näytä ehdotus
-        linked_proposals:
-          proposal_votes:
-            one: ääni
-            other: ääntä
         new:
           send: Jatka
           title: Luo ehdotuksesi
@@ -845,10 +813,8 @@ fi-pl:
           recent: Viimeisimmät
           with_more_authors: Eniten laatijoita
         participatory_texts:
-          index:
-            document_index: Asiakirjan hakemisto
           view_index:
-            see_index: Näytä hakemisto
+            document_index: Asiakirjan sisällys
         placeholder:
           address: Mannerheimintie 1 A, 00100 Helsinki
         preview:
@@ -860,18 +826,12 @@ fi-pl:
             other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutin aikana ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
           publish: Julkaise
           title: Julkaise ehdotuksesi
-        proposal:
-          creation_date: 'Luontiaika: %{date}'
-          view_proposal: Näytä ehdotus
         proposals:
           empty: Ehdotuksia ei ole vielä tehty.
           empty_filters: Ehdotuksia ei löytynyt annetuilla hakuehdoilla.
         show:
           answer: Vastaus
-          back_to: Takaisin
-          back_to_list: Takaisin listaan
           changes_at_title: Muokkaus kohteelle "%{title}"
-          comments: Kommentit
           edit_proposal: Muokkaa ehdotusta
           estimated_cost: Arvioitu kustannus
           hidden_endorsers_count:
@@ -886,14 +846,9 @@ fi-pl:
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
-          read_less: Vähennä tekstiä
-          read_more: Lue lisää
-          report: Ilmoita
           withdraw_btn_hint: Jos muutat mieltäsi, voit perua ehdotuksesi, mikäli se ei ole saanut kannatusta. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän ehdotuksen?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
           withdraw_proposal: Peruuta ehdotus
-        tags:
-          changed_from: "(muutettu nimestä <u>%{previous_name}</u> hallintakäyttäjän toimesta)"
         update:
           title: Muokkaa ehdotusta
         vote_button:
@@ -907,8 +862,6 @@ fi-pl:
           count:
             one: ÄÄNI
             other: ÄÄNTÄ
-          most_popular_proposal: Suosituin ehdotus
-          need_more_votes: Tarvitsee enemmän ääniä
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} kannatusta
@@ -923,7 +876,6 @@ fi-pl:
           title: 'Äänestykseen sovelletaan seuraavia sääntöjä:'
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
-            left: Jäljellä
             votes: Ääntä
         wizard_aside:
           back: Takaisin
@@ -931,20 +883,15 @@ fi-pl:
           back_from_step_2: Takaisin ehdotuksiin
           back_from_step_3: Takaisin ehdotusten vertailuun
           back_from_step_4: Takaisin luonnoksen muokkaukseen
-          info: Olet luomassa <strong>ehdotusta</strong>.
         wizard_steps:
           current_step: Tämänhetkinen vaihe
-          see_steps: katso vaiheet
           step_1: Luo ehdotuksesi
           step_2: Vertaile
           step_3: Viimeistele
           step_4: Julkaise ehdotuksesi
-          step_of: Vaihe %{current_step_num} / %{total_steps}
           title: Ehdotuksen luonnin vaiheet
       proposals_picker:
         choose_proposals: Valitse ehdotukset
-        close: Sulje
-        more_proposals: Ehdotuksia on vielä %{number} kpl lisää. Muuta hakuehtoja löytääksesi ne.
         no_proposals: Hakuehtosi eivät vastaa yhtään ehdotusta tai yhtään ehdotusta ei vielä ole olemassa.
       publish:
         error: Ehdotuksen julkaisemisessa on tapahtunut virheitä.
@@ -958,12 +905,8 @@ fi-pl:
         error: Ehdotusluonnoksen tallentamisessa tapahtui virheitä.
         success: Ehdotusluonnos päivitetty onnistuneesti.
       versions:
-        collaborative_drafts:
-          back_to_resource: Palaa yhteistyöluonnokseen
         index:
           title: Versiot
-        proposals:
-          back_to_resource: Palaa ehdotukseen
       withdraw:
         errors:
           has_supports: Tätä ehdotusta ei voi peruuttaa, koska sitä on jo tuettu.

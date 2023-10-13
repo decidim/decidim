@@ -91,7 +91,6 @@ pl:
         edit: Edytuj
         filter:
           all_processes: Pokaż wszystkie procesy
-          process_groups: Grupy procesu
         import_process: Importuj
         new_process: Nowy proces
         new_process_group: Nowa grupa procesu
@@ -114,7 +113,6 @@ pl:
           attachments: Załączniki
           categories: Kategorie
           components: Komponenty
-          info: Informacje
           moderations: Moderacje
           private_users: Użytkownicy prywatni
           process_admins: Użytkownicy procesu
@@ -124,7 +122,6 @@ pl:
           fields:
             created_at: Utworzono
             private: Prywatny
-            promoted: Wyróżniony
             published: Opublikowany
             title: Tytuł
           name: Proces partycypacyjny
@@ -245,7 +242,6 @@ pl:
         edit:
           update: Aktualizuj
         index:
-          not_published: Nieopublikowany
           private: Prywatny
           public: Publiczny
           published: Opublikowany
@@ -318,9 +314,6 @@ pl:
         description: Liczba procesów partycypacyjnych w tej organizacji
         object: procesy partycypacyjne
         title: Procesy partycypacyjne
-    participatory_process:
-      show:
-        related_assemblies: Powiązane zespoły
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -329,19 +322,12 @@ pl:
           name: Drugi blok HTML
         html_3:
           name: Trzeci blok HTML
-        metadata:
-          developer_group: Promowany przez
-          name: Metadane
-          participatory_scope: Zaproponowano
-          participatory_structure: Jak decydowano
-          target: Kto uczestniczy
         participatory_processes:
           name: Procesy partycypacyjne
         stats:
           name: Statystyki
         title:
           meta_scope: Zakres
-          name: Tytuł, opis i hashtag
           participatory_processes:
             one: 1 proces
             few: "%{count} procesy"
@@ -352,7 +338,6 @@ pl:
     participatory_process_steps:
       index:
         process_steps: Etapy procesu
-        title: Etapy procesu partycypacyjnego
     participatory_processes:
       admin:
         content_blocks:
@@ -361,21 +346,15 @@ pl:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadane
-            title: Informacje ogólne
             visibility: Widoczność
         participatory_process_imports:
           form:
             document_legend: Dodaj dokument
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Wpisz tutaj tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełny adres URL. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany. Przykład: %{url}'
             cta_text_help: Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany.
         participatory_processes:
           form:
@@ -390,7 +369,6 @@ pl:
             select_an_area: Wybierz kategorię
             select_participatory_process_type: Wybierz typ procesu
             select_process_group: Wybierz grupę procesów
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Informacje ogólne
             visbility: Widoczność
       content_blocks:
@@ -400,15 +378,6 @@ pl:
         title: Procesy partycypacyjne
       last_activity:
         new_participatory_process: Nowy proces partycypacyjny
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Aktualne procesy
-            active_step: Aktualny etap
-            more_information: Więcej informacji
-            participate: Dołącz
-            participate_in: Dołącz do procesu %{resource_name}
-            see_all_processes: Zobacz wszystkie procesy
       participatory_process_steps:
         index:
           back_to_process: Powrót do strony procesu
@@ -443,23 +412,10 @@ pl:
             past: Przeszłe
             upcoming: Nadchodzące
           see: Zobacz
-        index:
-          loading: Ładowanie wyników...
       show:
-        area: Obszar
         belongs_to_group: Ten proces należy do
-        dates: Daty
-        developer_group: Grupa inicjatorów
-        end_date: Data zakończenia
-        local_area: Obszar Organizacji
-        participatory_scope: Zaproponowano
-        participatory_structure: Jak decydowano
         private_space: To jest prywatny proces
         related_processes: Powiązane procesy
-        scope: Zakres
-        start_date: Data rozpoczęcia
-        target: Kto uczestniczy
-        unspecified: Nieokreślony
     statistics:
       processes_count: Procesy
   layouts:
@@ -469,10 +425,6 @@ pl:
           browse: Przeglądaj
           browse_resource: Przeglądaj grupę procesów %{resource_name}
           processes_count: 'Procesy:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktualny etap
-          take_part: Weź udział
       participatory_processes:
         index:
           promoted_processes: Wyróżnione procesy
@@ -482,16 +434,3 @@ pl:
           more_info_about: Więcej informacji o procesie %{resource_name}
           take_part: Weź udział
           take_part_in: Dołącz do procesu %{resource_name}
-        promoted_process:
-          active_step: 'Aktualny etap:'
-          more_info: Więcej informacji
-          more_info_about: Więcej informacji o procesie %{resource_name}
-          take_part: Weź udział
-          take_part_in: Dołącz do procesu %{resource_name}
-        promoted_process_group:
-          more_info: Więcej informacji
-      process_header_steps:
-        step: Etap %{current} z %{total}
-        view_steps: Pokaż etapy
-      process_navigation:
-        process_menu_item: Proces

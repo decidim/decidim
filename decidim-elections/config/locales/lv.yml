@@ -49,7 +49,6 @@ lv:
         destroy: Dzēst
         edit: Labot
         import: Importēt priekšlikumus atbildēm
-        new: Jauns %{name}
         preview: Priekšskatīt
         title: Darbības
       admin:
@@ -74,10 +73,6 @@ lv:
         models:
           answer:
             name: Atbilde
-          election:
-            name: Vēlēšanas
-          question:
-            name: Jautājums
         proposals_imports:
           new:
             create: Importēt priekšlikumus atbildēm

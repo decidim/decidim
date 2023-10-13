@@ -413,24 +413,18 @@ gl:
             create: Crear
             title: Crear proposta
           show:
-            authors: Autores
             body: Corpo
-            comments_neutral_count: Neutral
-            comments_positive_count: A favor
-            created_at: Data de creación
             documents: Documentos
             link: Ligazón
             n_more_endorsers:
               one: e 1 máis
               other: e %{count} máis
             photos: Fotos
-            proposals: Propostas
             ranking: "%{ranking} de %{total}"
             related_meetings: Xuntanzas relacionadas
             remove_assignment_confirmation: Estás seguro de que desexas eliminar este avaliador/a da proposta?
             valuators: Avaliadores/as
             votes_count: Reconto de votos
-            votes_ranking: Clasificación por apoios
         proposals_imports:
           new:
             create: Propostas de importación
@@ -460,16 +454,12 @@ gl:
         rejected: Rexeitado
         withdrawn: Retirada
       application_helper:
-        filter_category_values:
-          all: Todo
         filter_origin_values:
           all: Todo
           meetings: Reunións
           official: Oficial
           participants: Participantes
           user_groups: Grupos de usuarios
-        filter_scope_values:
-          all: Todo
         filter_state_values:
           accepted: Aceptada
           all: Todo
@@ -489,7 +479,6 @@ gl:
               ok: Publicar como proposta
               title: A seguinte acción é irreversible
             success: Proxecto colaborativo publicado con éxito como proposta.
-          view_collaborative_draft: Ver borrador colaborativo
           withdraw:
             error: Houbo erros ao pechar o borrador colaborativo.
             irreversible_action_modal:
@@ -497,10 +486,6 @@ gl:
               ok: Retire o borrador colaborativo
               title: A seguinte acción é irreversible
             success: Proxecto colaborativo retirado con éxito.
-        count:
-          drafts_count:
-            one: "%{count} borrador colaborativo"
-            other: "%{count} borrador colaborativo"
         create:
           success: Creouse un borrador colaborativo.
         edit:
@@ -525,6 +510,10 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
+        index:
+          count:
+            one: "%{count} borrador colaborativo"
+            other: "%{count} borrador colaborativo"
         new:
           add_file: Engadir ficheiro
           edit_file: Editar ficheiro
@@ -548,7 +537,6 @@ gl:
           rejected_request:
             error: Non se puido rexeitar como colaborador, téntao de novo máis tarde.
         show:
-          back: De volta
           edit: Editar borrador colaborativo
           final_proposal: proposta final
           final_proposal_help_text: Este borrador está rematado. Podes ver a proposta final rematada
@@ -560,7 +548,6 @@ gl:
           published_proposal: proposta publicada
           request_access: Solicitar acceso
           requested_access: Acceso solicitado
-          version_history: Consulte o historial de versións para esta proposta
           withdraw: retirar o borrador
         states:
           open: Aberto
@@ -569,13 +556,8 @@ gl:
         update:
           error: Produciuse un erro ao gardar o borrador colaborativo.
           success: Proxecto colaborativo actualizado correctamente.
-        wizard_aside:
-          info: Está creando un <strong>proxecto de colaboración</strong>.
         wizard_header:
           title: Crea o teu borrador colaborativo
-      content_blocks:
-        highlighted_proposals:
-          proposals: Propostas
       create:
         error: Produciuse un erro ao gardar a proposta.
         success: Proposta creada con éxito. Gardado como borrador.
@@ -583,11 +565,6 @@ gl:
         error: Produciuse un erro ao eliminar o borrador da proposta.
         success: O borrador da proposta eliminouse con éxito.
       models:
-        collaborative_draft:
-          fields:
-            authors: Autores
-            comments: Comentarios
-            contributions: Contribucións
         proposal:
           fields:
             category: Categoría
@@ -608,7 +585,6 @@ gl:
         buttons:
           amend: Modificar
           comment: Comentario
-          comments: Comentarios
       proposal_votes:
         create:
           error: Houbo erros ao votar a proposta.
@@ -620,20 +596,13 @@ gl:
         complete:
           send: Enviar
           title: Completa a túa proposta
-        count:
-          proposals_count:
-            one: "%{count} proposta"
-            other: "%{count} propostas"
         dynamic_map_instructions:
           instructions: Podes mover o punto no mapa.
         edit:
           add_documents: Engadir documentos
-          add_image: Engadir imaxe
           attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
           edit_documents: Editar documentos
-          edit_image: Editar imaxe
-          gallery_legend: "(Opcional) Engadir unha imaxe ao cartón de proposta"
           select_a_category: Selecciona unha categoría
           send: Enviar
           title: Editar proposta
@@ -655,23 +624,16 @@ gl:
           state: Estado
           type: Tipo
           voted: Votado
-        filters_small_view:
-          close_modal: Pechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Despregar
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Acceda a borradores colaborativos
+          count:
+            one: "%{count} proposta"
+            other: "%{count} propostas"
           new_proposal: Nova proposta
           see_all: Ver todas as propostas
           see_all_withdrawn: Ver todas as propostas retiradas
           text_banner: Estás a ver todas as propostas anuladas polos seus autores. %{go_back_link}.
-          view_proposal: Ver proposta
-        linked_proposals:
-          proposal_votes:
-            one: votar
-            other: votos
         new:
           send: Continuar
         orders:
@@ -683,11 +645,6 @@ gl:
           random: Aleatorio
           recent: Recentes
           with_more_authors: Con máis autores
-        participatory_texts:
-          index:
-            document_index: Índice do documento
-          view_index:
-            see_index: Ver índice
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -699,14 +656,8 @@ gl:
             other: Poderás editar esta proposta durante o primeiro %{count} minutos despois da publicación da proposta. Unha vez que pase esta xanela de tempo, non poderás editar a proposta.
           publish: Publicar
           title: Publica a túa proposta
-        proposal:
-          creation_date: 'Creación: %{date}'
-          view_proposal: Ver proposta
         show:
           answer: Resposta
-          back_to: Voltar
-          back_to_list: Volver á listaxe
-          comments: Comentarios
           edit_proposal: Editar proposta
           hidden_endorsers_count:
             one: e %{count} persoas máis
@@ -716,7 +667,6 @@ gl:
           proposal_accepted_reason: 'Esta proposta foi aceptada porque:'
           proposal_in_evaluation_reason: Esta proposta está a ser avaliada
           proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'
-          report: Informe
           withdraw_btn_hint: Pode retirar a súa proposta se cambia de opinión, sempre que non teña recibido ningún apoio. A proposta non se elimina, aparecerá na lista de propostas retiradas.
           withdraw_proposal: Retire a proposta
         vote_button:
@@ -730,8 +680,6 @@ gl:
           count:
             one: VOTAR
             other: VOTOS
-          most_popular_proposal: A proposta máis popular
-          need_more_votes: Necesita máis votos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pode acumular máis de %{limit} apoios
@@ -743,18 +691,14 @@ gl:
           title: 'A votación está suxeita ás seguintes regras:'
           vote_limit:
             description: Podes votar ata %{limit} propostas.
-            left: Permanecendo
             votes: Votos
         wizard_aside:
           back: De volta
-          info: Estás creando unha <strong>proposta</strong>.
         wizard_steps:
-          see_steps: ver pasos
           step_1: Crea a túa proposta
           step_2: Compare
           step_3: Completa
           step_4: Publica a túa proposta
-          step_of: Paso %{current_step_num} de %{total_steps}
       publish:
         error: Houbo erros ao publicar a proposta.
         success: Proposta publicada correctamente.
@@ -765,12 +709,8 @@ gl:
         error: Produciuse un erro ao gardar o borrador da proposta.
         success: O proxecto de proposta actualizouse con éxito.
       versions:
-        collaborative_drafts:
-          back_to_resource: Volve ao borrador colaborativo
         index:
           title: Versións
-        proposals:
-          back_to_resource: Volver á proposta
     resource_links:
       copied_from_component:
         proposal_proposal: Propostas relacionadas

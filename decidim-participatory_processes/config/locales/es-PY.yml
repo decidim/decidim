@@ -100,7 +100,7 @@ es-PY:
         edit: Editar
         filter:
           all_processes: Mostrar todos los procesos
-          process_groups: Grupos de proceso
+          process_groups: Grupos de procesos
         import_process: Importar
         moderate: Moderar
         new_process: Nuevo proceso
@@ -111,6 +111,7 @@ es-PY:
         preview: Previsualizar
         publish: Publicar
         resend_invitation: Reenviar invitación
+        see_process: Ver el proceso
         unpublish: Despublicar
       menu:
         participatory_process_groups: Grupos de procesos
@@ -125,7 +126,8 @@ es-PY:
           attachments: Archivos adjuntos
           categories: Categorías
           components: Componentes
-          info: Información
+          info: Acerca de este proceso
+          landing_page: Página de inicio
           moderations: Moderaciones
           private_users: Usuarios privados
           process_admins: Usuarios del proceso
@@ -133,9 +135,9 @@ es-PY:
       models:
         participatory_process:
           fields:
+            actions: Acciones
             created_at: Fecha de creación
             private: Privado
-            promoted: Destacado
             published: Publicada
             title: Título
           name: Proceso participativo
@@ -254,8 +256,6 @@ es-PY:
         edit:
           title: Editar el tipo de proceso
           update: Actualizar
-        form:
-          title: Título
         new:
           create: Crear
           title: Nuevo tipo de proceso
@@ -286,10 +286,10 @@ es-PY:
         edit:
           update: Actualizar
         index:
-          not_published: No publicado
           private: Privado
           public: Público
           published: Publicada
+          unpublished: Despublicado
         new:
           create: Crear
           title: Nuevo proceso participativo
@@ -371,30 +371,31 @@ es-PY:
         description: Número de procesos participativos en esta organización.
         object: procesos participativos
         title: Procesos participativos
-    participatory_process:
-      show:
-        related_assemblies: Asambleas relacionadas
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Promovido por
+          name: Metadatos
+          participatory_scope: Qué se decide
+          participatory_structure: Cómo se decide
+          target: Quién participa
+        html:
+          name: Bloque HTML
         html_1:
           name: Primer bloque HTML
         html_2:
           name: Segundo bloque HTML
         html_3:
           name: Tercer bloque HTML
-        metadata:
-          developer_group: Promovido por
-          name: Metadatos
-          participatory_scope: Qué se decide
-          participatory_structure: Cómo se decide
-          target: Quién participa
+        main_data:
+          name: Titulo y descripción
         participatory_processes:
+          active: Procesos participativos activos
           name: Procesos participativos
         stats:
           name: Actividad
         title:
           meta_scope: Ámbito
-          name: Título, descripción y hashtag
           participatory_processes:
             one: 1 proceso
             other: "%{count} procesos"
@@ -403,30 +404,32 @@ es-PY:
     participatory_process_steps:
       index:
         process_steps: Las fases de proceso
-        title: Fases del proceso participativo
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Activos
+            all: Todos
             max_results: Cantidad máxima de elementos para mostrar
+            selection_criteria: Criterios de selección
         new_import:
           accepted_types:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatos
-            title: Información general
+            title: Acerca de este proceso
             visibility: Visibilidad
         participatory_process_imports:
           form:
             document_legend: Añadir un documento
-            slug_help: 'Los slugs de URL se utilizan para generar las URLs que apuntan a este proceso. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Use rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no está configurado, el botón no se mostrará. Ejemplo: %{url}'
+            cta_path_help_html: 'Utiliza rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no ese establece ninguna ruta, el botón no se mostrará. Ejemplo: %{url}'
             cta_text_help: Si no está configurado, el botón no se mostrará.
         participatory_processes:
           form:
@@ -441,12 +444,18 @@ es-PY:
             select_an_area: Seleccione una área
             select_participatory_process_type: Selecciona un tipo de proceso
             select_process_group: Seleccione un grupo de proceso
-            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'Los nombres cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Información general
             visbility: Visibilidad
       content_blocks:
+        extra_data:
+          name: Fase y duración
+        hero:
+          name: Imagen principal y botón de acción
         highlighted_processes:
           name: Procesos destacados
+        related_processes:
+          name: Procesos relacionados
       index:
         title: Procesos participativos
       last_activity:
@@ -454,17 +463,22 @@ es-PY:
       pages:
         home:
           highlighted_processes:
-            active_processes: Procesos activos
-            active_step: Paso activo
-            more_information: Más información
-            participate: Participar
-            participate_in: Participa en el proceso %{resource_name}
-            processes_button_title: Enlace a la página de Procesos que muestra todos los procesos
-            see_all_processes: Ver todos los procesos
+            active_spaces: Procesos activos
+            see_all_spaces: Ver todos los procesos
       participatory_process_steps:
         index:
           back_to_process: Volver a la página del proceso
       participatory_processes:
+        description:
+          area_name: Área
+          data: Datos del proceso
+          developer_group: Grupo promotor
+          local_area: Área de organización
+          meta_scope: Ámbito
+          participatory_scope: Qué se decide
+          participatory_structure: Cómo se decide
+          target: Quién participa
+          title: Acerca de este proceso
         filters:
           all_types: Todos los tipos
           counters:
@@ -480,6 +494,7 @@ es-PY:
             upcoming:
               one: 1 proceso futuro
               other: "%{count} próximos procesos"
+          date: Fecha
           explanations:
             no_active: Sin procesos activos.
             no_active_nor_upcoming: No hay procesos activos ni futuros.
@@ -491,25 +506,13 @@ es-PY:
             past: Pasadas
             upcoming: Próximas
           see: Ver
-        index:
-          loading: Cargando resultados...
+          type: Tipo
         show:
           title: Acerca de este proceso
       show:
-        area: Área
         belongs_to_group: Este proceso pertenece a
-        dates: Fechas
-        developer_group: Grupo promotor
-        end_date: Fecha de finalización
-        local_area: Área de organización
-        participatory_scope: Qué se decide
-        participatory_structure: Cómo se decide
         private_space: Este es un proceso privado
         related_processes: Procesos relacionados
-        scope: Ámbito
-        start_date: Fecha de inicio
-        target: Quién participa
-        unspecified: No especificado
     statistics:
       processes_count: Procesos
   layouts:
@@ -519,10 +522,6 @@ es-PY:
           browse: Explorar
           browse_resource: Explorar el grupo de procesos %{resource_name}
           processes_count: 'Procesos:'
-      participatory_process_widgets:
-        show:
-          active_step: Fase activa
-          take_part: Participa
       participatory_processes:
         index:
           promoted_processes: Procesos destacados
@@ -532,16 +531,3 @@ es-PY:
           more_info_about: Más información sobre el proceso %{resource_name}
           take_part: Participa
           take_part_in: Participa en el proceso %{resource_name}
-        promoted_process:
-          active_step: 'Fase actual:'
-          more_info: Más información
-          more_info_about: Más información sobre el proceso %{resource_name}
-          take_part: Participa
-          take_part_in: Participa en el proceso %{resource_name}
-        promoted_process_group:
-          more_info: Más información
-      process_header_steps:
-        step: Fase %{current} de %{total}
-        view_steps: Ver las fases
-      process_navigation:
-        process_menu_item: El proceso

@@ -46,7 +46,6 @@ id:
           success: Pertemuan duplikat berhasil.
         new:
           copy: Salinan
-          select: Pilih data mana yang ingin Anda gandakan
           title: Pertemuan duplikat
     components:
       meetings:
@@ -127,7 +126,6 @@ id:
         confirm_destroy: Anda yakin ingin menghapus rapat ini?
         destroy: Menghapus
         edit: Edit
-        new: Pertemuan baru
         preview: Preview
         registrations: Pendaftaran
         title: Tindakan
@@ -181,7 +179,6 @@ id:
               all: Semua
               rejected: Ditolak
               sent: Terkirim
-            filter_by: Filter berdasarkan
             invite_attendee: Undang hadirin
             invites: Undangan
             search: Pencarian
@@ -209,9 +206,6 @@ id:
           services:
             add_service: Tambahkan layanan
             services: Jasa
-        models:
-          meeting:
-            name: Pertemuan
         registrations:
           edit:
             save: Menyimpan
@@ -246,12 +240,8 @@ id:
               not_found: 'Organiser tidak ditemukan di database (ID: %{id})'
       calendar_modal:
         calendar_url: URL Kalender
-        close_window: Tutup jendela
         export_calendar: Ekspor kalender
       conference_venues: Tempat Konferensi
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: Lihat semua
       directory:
         meetings:
           index:
@@ -269,13 +259,6 @@ id:
           category: Kategori
           date: Tanggal
           search: Pencarian
-        filters_small_view:
-          close_modal: Tutup modal
-          filter: Filter
-          filter_by: Filter berdasarkan
-          unfold: Membuka
-        meeting_minutes:
-          related_information: Informasi Terkait
         meetings:
           upcoming_meetings_warning: Saat ini, tidak ada pertemuan yang dijadwalkan, tetapi di sini Anda dapat menemukan semua pertemuan sebelumnya yang terdaftar.
         registration_confirm:
@@ -295,8 +278,6 @@ id:
           remaining_slots:
             other: "%{count} slot tersisa"
           view: Melihat
-      meetings_map:
-        view_meeting: Lihat rapat
       models:
         invite:
           fields:
@@ -343,8 +324,6 @@ id:
         past_meetings: Pertemuan sebelumnya
         see_all: Lihat semua (%{count})
         upcoming_meetings: Pertemuan yang akan datang
-      upcoming_meeting_for_card:
-        upcoming_meeting: Pertemuan yang akan datang
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Hasil terkait:'

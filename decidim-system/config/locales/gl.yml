@@ -37,7 +37,6 @@ gl:
         confirm_destroy: Estás certo/a de querer eliminar isto?
         destroy: Eliminar
         edit: Editar
-        new: Novo
         save: Gardar
         title: Accións
       admins:
@@ -70,7 +69,6 @@ gl:
           fields:
             created_at: Creado en
             email: Correo electrónico
-          name: Administrador
           validations:
             email_uniqueness: xa existe outro administrador co mesmo correo electrónico
         oauth_application:
@@ -78,7 +76,6 @@ gl:
             created_at: Creado o
             name: Nome da aplicación OAuth
             organization_name: Organización
-          name: Aplicacións OAuth
         organization:
           actions:
             save_and_invite: Crear organización e invitar administrador
@@ -88,7 +85,6 @@ gl:
             name: Nome
             omniauth_settings: Axustes do Omniauth
             smtp_settings: Axustes SMTP
-          name: Organización
       oauth_applications:
         create:
           error: Produciuse un problema ao crear esta aplicación.

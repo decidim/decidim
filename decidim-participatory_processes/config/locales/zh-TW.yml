@@ -97,7 +97,6 @@ zh-TW:
         edit: 編輯
         filter:
           all_processes: 顯示所有流程
-          process_groups: 程序群組
         import_process: 匯入
         moderate: 管理
         new_process: 新的程序
@@ -122,7 +121,6 @@ zh-TW:
           attachments: 附件
           categories: 類別
           components: 组件
-          info: 資訊
           moderations: 版主
           private_users: 私人參與者
           process_admins: 程序管理員
@@ -132,7 +130,6 @@ zh-TW:
           fields:
             created_at: 建立於
             private: 隱私模式
-            promoted: 重點顯示
             published: 已發佈
             title: 標題
           name: 參與程序
@@ -251,8 +248,6 @@ zh-TW:
         edit:
           title: 編輯程序類型
           update: 更新
-        form:
-          title: 標題
         new:
           create: 建立
           title: 新的處理類型
@@ -283,7 +278,6 @@ zh-TW:
         edit:
           update: 更新
         index:
-          not_published: 未發佈
           private: 隱私模式
           public: 公開
           published: 已發佈
@@ -368,9 +362,6 @@ zh-TW:
         description: 此組織中的參與式過程數量
         object: 參與程序
         title: 參與程序
-    participatory_process:
-      show:
-        related_assemblies: 相關大會
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -379,19 +370,12 @@ zh-TW:
           name: 第二個 HTML 區塊
         html_3:
           name: 第三個 HTML 區塊
-        metadata:
-          developer_group: 推廣者：
-          name: Metadata
-          participatory_scope: 決定了什麼
-          participatory_structure: 如何決定
-          target: 誰參加
         participatory_processes:
           name: 參與程序
         stats:
           name: 統計資料
         title:
           meta_scope: 範圍
-          name: 標題、描述和標籤
           participatory_processes:
             other: "One\n1 個程序\n\nOther\n%{count} 個程序"
       show:
@@ -399,7 +383,6 @@ zh-TW:
     participatory_process_steps:
       index:
         process_steps: 程序階段
-        title: 參與式過程階段
     participatory_processes:
       admin:
         content_blocks:
@@ -408,21 +391,15 @@ zh-TW:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL slugs用於生成指向此程序的URL。僅接受字母、數字和破折號，必須以字母開頭。例如：%{url}'
         participatory_process_groups:
           form:
             metadata: 元數據
-            title: 基本資訊
             visibility: 可見度
         participatory_process_imports:
           form:
             document_legend: 添加文檔
-            slug_help: 'URL slugs用於生成指向此程序的URL。僅接受字母、數字和破折號，必須以字母開頭。例如：%{url}'
         participatory_process_steps:
           form:
-            cta_path_help: '在這裡使用部分路徑，而不是完整的 URL。只接受字母、數字、破折號和斜線，並且必須以字母開頭。如果未設置，按鈕將不會顯示。例如：%{url}'
             cta_text_help: 如果未設置，按鈕將不會顯示。
         participatory_processes:
           form:
@@ -437,7 +414,6 @@ zh-TW:
             select_an_area: 選擇一個地區
             select_participatory_process_type: 選擇一個程序類型
             select_process_group: 選擇一個程序群組
-            slug_help: 'URL slugs用於生成指向此程序的URL。僅接受字母、數字和破折號，必須以字母開頭。例如：%{url}'
             title: 基本資訊
             visbility: 可見度
       content_blocks:
@@ -447,16 +423,6 @@ zh-TW:
         title: 參與程序
       last_activity:
         new_participatory_process: 新的參與程序
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: 運行中的程序
-            active_step: 進行中的階段
-            more_information: 更多資訊
-            participate: 參與
-            participate_in: 參與程序 %{resource_name}
-            processes_button_title: 鏈接到顯示所有程序的程序頁面
-            see_all_processes: 檢視所有程序
       participatory_process_steps:
         index:
           back_to_process: 返回程序頁
@@ -483,25 +449,12 @@ zh-TW:
             past: 過去
             upcoming: 即將舉行
           see: 查看
-        index:
-          loading: 正在載入結果
         show:
           title: 關於此流程
       show:
-        area: 區域
         belongs_to_group: 此程序屬於
-        dates: 日期
-        developer_group: 促銷團隊
-        end_date: 結束日期
-        local_area: 組織區域
-        participatory_scope: 決定了什麼
-        participatory_structure: 如何決定
         private_space: 這是不公開程序。
         related_processes: 相關程序
-        scope: 範圍
-        start_date: 開始日期
-        target: 誰參加
-        unspecified: 未指定
     statistics:
       processes_count: 程序
   layouts:
@@ -511,29 +464,12 @@ zh-TW:
           browse: 瀏覽
           browse_resource: 瀏覽程序群組 %{resource_name}
           processes_count: '程序:'
-      participatory_process_widgets:
-        show:
-          active_step: 進行中的階段
-          take_part: 參與
       participatory_processes:
         index:
           promoted_processes: 精選程序
         participatory_process:
-          active_step: '當前階段'
+          active_step: 當前階段
           more_info: 更多資訊
           more_info_about: 關於程序 %{resource_name} 的更多資訊
           take_part: 參與
           take_part_in: 參與程序 %{resource_name}
-        promoted_process:
-          active_step: '當前階段'
-          more_info: 更多資訊
-          more_info_about: 關於程序 %{resource_name} 的更多資訊
-          take_part: 參與
-          take_part_in: 參與程序 %{resource_name}
-        promoted_process_group:
-          more_info: 更多資訊
-      process_header_steps:
-        step: 第 %{current} 階段 / 共 %{total} 階段
-        view_steps: 程序階段
-      process_navigation:
-        process_menu_item: 該程序

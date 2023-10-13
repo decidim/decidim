@@ -91,7 +91,6 @@ sv:
         success_color: Färdigt
         time_zone: Tidszon
         tos_version: Version på användarvillkor
-        twitter_handler: Twitter-hanterare
         user_groups_enabled: Aktivera grupper
         users_registration_mode: Registreringsmode
         warning_color: Varning
@@ -173,8 +172,6 @@ sv:
         export: Exportera alla
         export-selection: Exportera markering
         import: Importera
-        manage: Hantera
-        new: Ny %{name}
         newsletter:
           new: Nytt nyhetsbrev
         participatory_space_private_user:
@@ -223,7 +220,6 @@ sv:
           title: Redigera mapp
           update: Uppdatera
         index:
-          attachment_collection_used: Den här mappen kan inte tas bort eftersom den används.
           attachment_collections_title: Mappar för bilagor
         new:
           create: Skapa
@@ -270,7 +266,6 @@ sv:
           update: Uppdatera
         index:
           categories_title: Kategorier
-          category_used: Kategorin kan inte tas bort eftersom den används.
         new:
           create: Skapa kategori
           title: Ny kategori
@@ -331,7 +326,6 @@ sv:
       dashboard:
         show:
           view_more_logs: Visa fler loggar
-          welcome: Välkommen till Adminpanelen.
       domain_whitelist:
         form:
           domain_too_short: Domänen är för kort
@@ -424,7 +418,6 @@ sv:
             all: Alla
             managed: Hanterad
             not_managed: Inte hanterad
-          filter_by: Filtrera efter
           impersonate: Uppträd som
           impersonate_new_managed_user: Hantera ny deltagare
           managed: Hanterad
@@ -510,7 +503,6 @@ sv:
         area_types: Typer av område
         areas: Områden
         configuration: Konfiguration
-        dashboard: Adminpanel
         external_domain_whitelist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
         homepage: Hemsida
@@ -589,7 +581,6 @@ sv:
           fields:
             created_at: Skapandedatum
             email: E-post
-            last_sign_in_at: Senast inloggningsdatum
             name: Namn
             role: Roll
             roles:
@@ -602,6 +593,7 @@ sv:
             created_at: Skapad
             document_number: Dokumentnummer
             name: Namn
+            nickname: Smeknamn
             phone: Telefon
             state: Status
             users_count: Antal användare
@@ -695,9 +687,6 @@ sv:
           select_scopes: Filtrera för användare som har aktiverat något av de markerade omfången under Mina intressen i sina konton.
           select_spaces: Segmentera nyhetsbrevet genom att markera utrymmen
           select_users: Välj vilka användare som ska få nyhetsbrevet
-          send_to_all_users: Skicka till alla användare
-          send_to_followers: Skicka till följare
-          send_to_participants: Skicka till deltagare
           title: Välj mottagare att skicka till
           warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
         show:
@@ -729,7 +718,6 @@ sv:
           officialize: Gör officiell
           title: Gör deltagaren "%{name}" officiell
         show_email_modal:
-          close_modal: Stäng modal
           description: Om du behöver kontakta en deltagare direkt kan du klicka på Visa för att se deras e-postadress. Denna åtgärd kommer att loggas.
           email_address: E-postadress
           full_name: Fullständigt namn
@@ -746,7 +734,6 @@ sv:
           instagram: Instagram
           rich_text_editor_in_public_views_help: I vissa textfält kan deltagare använda vissa HTML-taggar med hjälp av den rika textredigeraren.
           social_handlers: Sociala
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
@@ -759,8 +746,7 @@ sv:
           colors:
             colors_title: Organisationsfärger
             colors_warning_html: Varning! Att ändra dessa färger kan bryta minska kontrasterna och tillgängligheten. Du kan kontrollera kontrasten i ditt val med <a href="%{link}">WebAIM Contrast Checker</a> eller andra liknande verktyg.
-            header_snippets_help: Lägg till saker i HTML-huvudet med detta fält. Den vanligaste användningen är att integrera tjänster från tredje part som kräver särskild JavaScript eller CSS. Du kan också lägga till extra meta-taggar i HTML-koden. Märk att detta endast kommer att läggas in på offentliga sidor, inte i administratörsdelen.
-          cta_button_path_help: 'Du kan ändra vad uppmaningsknappen på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga URL:er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
+            title: Färgväljare
           cta_button_text_help: Du kan ha separata texter på uppmaningsknappen på hemsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen.
           homepage_appearance_title: Redigera startsidans utseende
           homepage_highlighted_content_banner_title: Banner för uppmärksammat innehåll
@@ -780,9 +766,13 @@ sv:
           add: Lägg till i vitlistan
           title: Vitlista för externa domäner
       organization_homepage:
+        content_blocks:
+          edit:
+            update: Uppdatera
         edit:
           active_content_blocks: Block med aktivt innehåll
           inactive_content_blocks: Block med inaktivt innehåll
+          title: Sidans innehåll
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat deltagare i deltagarutrymmet.
@@ -894,6 +884,8 @@ sv:
           view: Visa offentlig sida
         content_blocks:
           active_content_blocks: Aktiva innehållsblock
+          edit:
+            update: Uppdatera
           inactive_content_blocks: Inactiva innehållsblock
           title: Sidans innehåll
         create:
@@ -906,9 +898,6 @@ sv:
           update: Uppdatera
         form:
           none: Ingen
-          slug_help: 'Använd relativa sökvägar, inte fullständiga URL: er här. Tar emot bokstäver, siffror, streck och snedstreck, och måste börja med en bokstav. Exempel: %{url}'
-        index:
-          last_notable_change: Senast märkbara förändring
         new:
           create: Skapa sida
           title: Ny sida
@@ -924,14 +913,15 @@ sv:
         areas: Områden
         authorization_workflows: Verifieringsmetoder
         dashboard: Adminpanel
+        edit_landing_page: Sidans innehåll
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
         metrics: Metrik
+        pages: Sidor
         panel: Administratör
         participants: Deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
-        static_pages: Sidor
         statistics: Aktivitet
         user_groups: Grupper
         users: Administratörer
@@ -979,7 +969,6 @@ sv:
           last_month: Förra månaden
           last_week: Förra veckan
           participants: Deltagare
-      view_public_page: Visa offentlig sida
     metrics:
       blocked_users:
         object: blockerade användare
@@ -1013,12 +1002,15 @@ sv:
       models:
         moderation:
           fields:
+            created_at: Rapporterat den
             deleted_resource: Borttagen resurs
             hidden_at: Dold
             participatory_space: Deltagarutrymme
+            report_count: Antal anmälningar
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: Rapporterad innehållsadress
+            reports: Anledning
             visit_url: Besök URL
         report:
           fields:
@@ -1028,12 +1020,3 @@ sv:
   errors:
     messages:
       invalid_json: Ogiltig JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Nyhetsbrev
-        settings:
-          title: Inställningar
-        users:
-          title: Deltagare

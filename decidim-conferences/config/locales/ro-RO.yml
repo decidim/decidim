@@ -5,7 +5,6 @@ ro:
         assemblies_ids: Grupuri de lucru asociate
         available_slots: Locuri disponibile
         banner_image: Imagine pentru banner
-        consultations_ids: Consultări asociate
         copy_categories: Copiază categoriile
         copy_components: Copiază componentele
         copy_features: Copiază funcționalitățile
@@ -63,7 +62,6 @@ ro:
         personal_url: URL personal
         position: Poziție
         short_bio: Biografie scurtă
-        twitter_handle: Responsabil Twitter
         user_id: Utilizator
       conference_user_role:
         email: E-mail
@@ -93,7 +91,6 @@ ro:
     admin:
       actions:
         confirm: Confirmare
-        new_conference: Conferință nouă
         send_diplomas: Trimite certificate de prezență
       conference_copies:
         new:
@@ -156,7 +153,6 @@ ro:
         form:
           title: Informaţii generale
         index:
-          not_published: Nu este publicat
           published: Publicat
         new:
           create: Creează
@@ -197,7 +193,6 @@ ro:
           conference_invites: Invitații
           conference_speakers: Vorbitori
           diploma: Certificat de participare
-          info: Info
           media_links: Link-uri media
           moderations: Moderatii
           partners: Parteneri
@@ -208,7 +203,6 @@ ro:
         conference:
           fields:
             created_at: Creat la
-            promoted: Evident
             published: Publicat
             title: Titlu
         conference_speaker:
@@ -332,9 +326,6 @@ ro:
         title: Vorbitori
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această conferință. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         conference_invites:
           create:
             error: A apărut o problemă la invitarea participantului să participe la conferinţă.
@@ -351,7 +342,6 @@ ro:
               all: Toate
               rejected: Respins
               sent: Trimis
-            filter_by: Filtrare după
             invite_attendee: Invite participant
             invites: Invitații
             search: Caută
@@ -377,7 +367,6 @@ ro:
               one: A existat o înregistrare.
               few: Au fost %{count} înregistrări.
               other: Au fost %{count} înregistrări.
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această conferință. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         diplomas:
           edit:
             save: Salvează
@@ -430,16 +419,13 @@ ro:
         create:
           invalid: A apărut o problemă la această conferință.
           success: V-aţi alăturat cu succes conferinţei.
-          unauthorized: Trebuie să te autentifici înainte de a te înregistra la conferință.
         decline_invitation:
           invalid: A existat o problemă la refuzarea invitaţiei.
           success: Ați refuzat cu succes invitația.
-          unauthorized: Trebuie să te autentifici înainte de a refuza invitația.
         destroy:
           invalid: A apărut o problemă la ieşirea din această conferinţă.
           success: Aţi părăsit cu succes conferinţa.
       conference_speaker:
-        go_to_twitter: Mergi la Twitter
         more_info: mai multe informații
         personal_website: Website personal
         show:
@@ -503,9 +489,7 @@ ro:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Conferințe active
-            conferences_button_title: Link către pagina de conferințe care afișează toate conferințele
-            see_all_conferences: Vezi toate conferințele
+            active_spaces: Conferințe active
       registration_types:
         index:
           choose_an_option: 'Alegeți opțiunea de înregistrare:'
@@ -517,7 +501,6 @@ ro:
         introduction: Introducere
         objectives: Obiective
         related_assemblies: Grupuri de lucru asociate
-        related_consultations: Consultări asociate
         related_participatory_processes: Procese participative asociate
     events:
       conferences:
@@ -576,9 +559,6 @@ ro:
     decidim:
       conference_hero:
         register: Inregistrare
-      conference_widgets:
-        show:
-          take_part: Participă
       conferences:
         conference:
           more_info: Mai multe informații
@@ -590,11 +570,7 @@ ro:
             one: "%{count} conferință"
             few: "%{count} conferințe"
             other: "%{count} conferințe"
-        promoted_conference:
-          more_info: Mai multe informații
-          take_part: Participă
       conferences_nav:
-        conference_menu_item: Informare
         conference_partners_menu_item: Parteneri
         conference_speaker_menu_item: Vorbitori
         media: Media

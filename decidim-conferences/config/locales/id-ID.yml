@@ -4,7 +4,6 @@ id:
       conference:
         assemblies_ids: Rakitan Terkait
         banner_image: Gambar spanduk
-        consultations_ids: Konsultasi Terkait
         copy_categories: Salin kategori
         copy_components: Salin komponen
         copy_features: Salin fitur
@@ -40,7 +39,6 @@ id:
     admin:
       actions:
         confirm: Memastikan
-        new_conference: Konferensi Baru
         send_diplomas: Kirim sertifikat kehadiran
       conference_copies:
         new:
@@ -101,7 +99,6 @@ id:
         form:
           title: Informasi Umum
         index:
-          not_published: Tidak diterbitkan
           published: Diterbitkan
         new:
           create: Membuat
@@ -142,7 +139,6 @@ id:
           conference_invites: Undangan
           conference_speakers: Pembicara
           diploma: Sertifikat kehadiran
-          info: Info
           media_links: Tautan Media
           moderations: Moderasi
           partners: Mitra
@@ -153,7 +149,6 @@ id:
         conference:
           fields:
             created_at: Dibuat di
-            promoted: Dipromosikan
             published: Diterbitkan
             title: Judul
         conference_speaker:
@@ -270,9 +265,6 @@ id:
         title: Pembicara
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Siput URL digunakan untuk menghasilkan URL yang mengarah ke konferensi ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         conference_invites:
           create:
             error: Ada masalah saat mengundang pengguna untuk bergabung dengan konferensi.
@@ -289,7 +281,6 @@ id:
               all: Semua
               rejected: Ditolak
               sent: Terkirim
-            filter_by: Filter berdasarkan
             invite_attendee: Undang Peserta
             invites: Undangan
             search: Pencarian
@@ -312,7 +303,6 @@ id:
             available_slots_help: Biarkan hingga 0 jika Anda memiliki slot tidak terbatas.
             registrations_count:
               other: Ada %{count} pendaftaran.
-            slug_help: 'Siput URL digunakan untuk menghasilkan URL yang mengarah ke konferensi ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         diplomas:
           edit:
             save: Menyimpan
@@ -371,7 +361,6 @@ id:
           invalid: Ada masalah saat meninggalkan konferensi ini.
           success: Anda telah meninggalkan konferensi dengan sukses.
       conference_speaker:
-        go_to_twitter: Pergi ke Twitter
         more_info: Info lebih lanjut
         personal_website: Situs web pribadi
         show:
@@ -422,8 +411,7 @@ id:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Konferensi aktif
-            see_all_conferences: Lihat semua konferensi
+            active_spaces: Konferensi aktif
       registration_types:
         index:
           choose_an_option: 'Pilih opsi pendaftaran Anda:'
@@ -434,7 +422,6 @@ id:
         introduction: pengantar
         objectives: Tujuan
         related_assemblies: Rakitan Terkait
-        related_consultations: Konsultasi Terkait
         related_participatory_processes: Proses Partisipatif Terkait
     events:
       conferences:
@@ -476,9 +463,6 @@ id:
     decidim:
       conference_hero:
         register: Daftar
-      conference_widgets:
-        show:
-          take_part: Ambil bagian
       conferences:
         conference:
           more_info: Info lebih lanjut
@@ -488,11 +472,7 @@ id:
         order_by_conferences:
           conferences:
             other: "%{count} konferensi"
-        promoted_conference:
-          more_info: Info lebih lanjut
-          take_part: Ambil bagian
       conferences_nav:
-        conference_menu_item: Informasi
         conference_partners_menu_item: Mitra
         conference_speaker_menu_item: Pembicara
         media: Media

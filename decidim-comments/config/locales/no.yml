@@ -28,20 +28,15 @@
         update:
           error: Et problem oppstod med å oppdatere kommentaren.
       comments_count: Antall kommentarer
-      last_activity:
-        new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
-      view: Vis
       votes:
         create:
           error: Det oppstod et problem med å stemme kommentaren.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Logg på med kontoen din</a> eller <a href="%{sign_up_url}">opprett en</a> for å legge til kommentaren din.
         form:
           body:
             label: Kommentar
             placeholder: Hva mener du om dette?
-          submit: Send
           user_group_id:
             label: Kommenter som
         opinion:
@@ -85,8 +80,6 @@
           older: Eldre
           recent: Nylig
         title: 'Sorter etter:'
-      comment_thread:
-        title: Samtale med %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Du må verifiseres for å kommentere, men du kan lese de forrige.
         blocked_comments_for_user_warning: Du kan ikke kommentere for øyeblikket, men du kan lese de forrige.

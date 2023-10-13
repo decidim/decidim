@@ -37,7 +37,9 @@ fr-CA:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cela ?
         destroy: Supprimer
         edit: Modifier
-        new: Nouvelle
+        new_admin: Nouvel administrateur
+        new_oauth_application: Nouvelle application Oauth
+        new_organization: Nouvelle organisation
         save: Sauvegarder
         title: Actions
       admins:
@@ -54,6 +56,9 @@ fr-CA:
         new:
           create: Créer
           title: Nouvel administrateur
+        show:
+          destroy: Détruire
+          edit: Modifier
         update:
           error: Une erreur s'est produite lors de la mise à jour de cet administrateur.
           success: Administrateur mis à jour avec succès.
@@ -66,6 +71,21 @@ fr-CA:
           summary: Veuillez ajouter un contenu significatif à la page statique %{page} du tableau de bord de l’administrateur.
           title: Titre par défaut pour %{page}
         terms-of-service: Conditions d'utilisation
+      devise:
+        passwords:
+          edit:
+            change_your_password: Modifier votre mot de passe
+            minimum_characters: "(%{minimum} caractères minimum)"
+          new:
+            forgot_your_password: Mot de passe oublié
+            send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Vous n’avez pas reçu les instructions de confirmation ?
+            did_not_receive_unlock_instructions?: Vous n’avez pas reçu les instructions de déverrouillage ?
+            forgot_your_password?: Mot de passe oublié ?
+            log_in: Se connecter
+            sign_up: S'inscrire
       menu:
         admins: Administrateurs
         dashboard: Tableau de bord
@@ -76,7 +96,6 @@ fr-CA:
           fields:
             created_at: Créé le
             email: Courriel
-          name: Administrateur
           validations:
             email_uniqueness: un autre administrateur avec la même adresse email existe déjà
         oauth_application:
@@ -84,17 +103,16 @@ fr-CA:
             created_at: Créée le
             name: Nom de l'application OAuth
             organization_name: Organisation
-          name: Application OAuth
         organization:
           actions:
             save_and_invite: Créer une organisation et inviter un administrateur
           fields:
+            content_security_policy: Content Security Policy
             created_at: Créé le
             file_upload_settings: Paramètres de téléchargement de fichier
             name: Nom
             omniauth_settings: Paramètres Omniauth
             smtp_settings: Paramètres SMTP
-          name: Organisation
       oauth_applications:
         create:
           error: Un problème est survenu lors de la création de cette application.
@@ -123,6 +141,39 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
           success: Organisation créée avec succès.
+        csp_settings:
+          connect_src: Connecter src
+          connect_src_hint: |
+            La directive connect-src limite les URLs qui peuvent être chargées en utilisant les éléments <script> .
+            La plateforme va ajouter 'self', mais vous permet d'en ajouter plus. Laissez vide si vous n'êtes pas sûr.
+          default_src: src par défaut
+          default_src_hint: |
+            La directive default-src est la politique par défaut pour charger des contenus tels que JavaScript, Images, CSS, Polices, requêtes AJAX, Frames, HTML5 Media.
+            La plateforme ajoutera « self» « unsafe-inline» mais vous permet d'en ajouter plus. Laissez vide si vous n'êtes pas sûr.
+          font_src: Police src
+          font_src_hint: |
+            La directive font-src limite les URL qui peuvent être chargées en utilisant @font-face.
+            La plateforme ajoutera 'self', mais vous permet d'en ajouter plus. Laissez ce champ vide si vous n'êtes pas sûr.
+          frame_src: Frame src
+          frame_src_hint: |
+            La directive frame-src limite les URL qui peuvent être chargées en utilisant les éléments <frame>, <iframe> et <object> .
+            La plateforme ajoutera 'self', mais vous permet d'en ajouter plus. Laissez ce champ vide si vous n'êtes pas sûr.
+          img_src: Img src
+          img_src_hint: |
+            La directive img-src restreint les URL qui peuvent être chargées en utilisant les éléments <img>, <image>, <picture> et <svg> .
+            La plateforme ajoutera 'self', mais vous permet d'en ajouter davantage. Laissez vide si vous n'êtes pas sûr.
+          media_src: Media src
+          media_src_hint: |
+            La directive media-src limite les URL qui peuvent être chargées en utilisant les éléments <video>, <audio> et <source> .
+            La plateforme ajoutera 'self', mais vous permet d'en ajouter plus. Laissez ce champ vide si vous n'êtes pas sûr.
+          script_src: Script src
+          script_src_hint: |
+            La directive script-src limite les URL qui peuvent être chargées en utilisant les éléments <script> .
+            La plateforme ajoutera « self» « unsafe-inline» « unsafe-eval», mais vous permet d’en ajouter davantage. Laissez vide si vous n’êtes pas sûr.
+          style_src: Style src
+          style_src_hint: |
+            La directive style-src limite les URL qui peuvent être chargées en utilisant les éléments <style> .
+            La plateforme ajoutera « self» « unsafe-inline», mais vous permet d’en ajouter plus. Laissez vide si vous n’êtes pas sûr.
         edit:
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
         file_upload_settings:
@@ -146,6 +197,9 @@ fr-CA:
         index:
           title: Organisations
         new:
+          default: Par défaut ?
+          enabled: Activé
+          locale: Langue
           reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources à travers toutes les organisations.
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne.
           title: Nouvelle organisation
@@ -188,3 +242,4 @@ fr-CA:
           our_getting_started_guide: Notre guide de démarrage
       titles:
         dashboard: Tableau de bord
+        decidim: Decidim

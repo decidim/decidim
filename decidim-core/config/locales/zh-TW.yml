@@ -252,7 +252,6 @@ zh-TW:
         error: 接受修正案時發生錯誤。
         success: 修正案已成功接受。
       amendable:
-        amended_by: 修改人
         button: 修正 %{model_name}
         error: 在修改此資源時發生錯誤。
         help_text: 透過修改 %{amendable_fields}，來改善這個 %{model_name}.
@@ -272,7 +271,6 @@ zh-TW:
         success: 修正案草稿已成功刪除。
       edit_draft:
         discard: 放棄此草案
-        discard_confirmation: 您確定要丟棄此修正案草稿嗎？
         send: 預覽
         title: 編輯修正案草稿
       emendation:
@@ -309,7 +307,6 @@ zh-TW:
       review:
         back: 返回
         heading: 審查修正案
-        help_text: 你正在審查對 %{model_name} 的修正案。
         send: 接受修正案
       update_draft:
         error: 更新修正案草稿時遇到問題。
@@ -329,8 +326,6 @@ zh-TW:
         download: 下載檔案
       documents:
         related_documents: 相關的檔案
-      geocoding:
-        geocoded_address: 地址
       photo:
         alt: 媒體圖片
         title: 圖片
@@ -338,7 +333,6 @@ zh-TW:
         related_photos: 相關影像
     author:
       avatar: '頭像： %{name}'
-      avatar_multiuser: 多個使用者的頭像
       comments:
         other: 評論
       endorsements:
@@ -378,7 +372,6 @@ zh-TW:
       started_at: 開始時間為 %{timestamp}
     authorization_modals:
       content:
-        close_modal: 關閉視窗
         expired:
           authorize: 重新授權使用 "%{authorization}"
           explanation: 您的授權已過期。為了執行此操作，您需要重新授權使用 "%{authorization}"。
@@ -515,8 +508,6 @@ zh-TW:
       actions:
         login_before_access: 請先登入您的帳戶再進行訪問.
         unauthorized: 您無權限執行此操作.
-    datepicker:
-      help_text: '預期格式：%{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
@@ -532,11 +523,7 @@ zh-TW:
           already_have_an_account?: 已經有帳號了嗎？
           newsletter: 偶爾收到包含相關信息的時事通訊。
           newsletter_title: 聯絡人權限
-          nickname_help: 在 %{organization} 中的別名。只能包含字母、數字、'-' 和 '_'。
-          sign_in: 登入
           sign_up: 註冊登記
-          sign_up_as:
-            legend: 註冊登記為
           subtitle: 註冊以參與討論並支持提案。
           terms: 此服務條款
           tos_agreement: 通過註冊，您同意遵守 %{link}。
@@ -548,13 +535,10 @@ zh-TW:
           register: 建立一個帳號
           sign_in_disabled: 你可以使用外部帳戶登入。
           sign_up_disabled: 註冊已停用，您可以使用現有帳戶來登入。
-        user:
-          timed_out: 您已經有一段時間未活動，因此已自動從服務中登出。如果您希望繼續使用服務，請重新登錄。
       shared:
         newsletter_modal:
           buttons:
             check: 檢查並繼續
-            close_modal: 關閉視窗
             uncheck: 保持未勾選
           notice: |-
             <p>嗨，您確定不想收到電子報嗎？<br>
@@ -573,7 +557,6 @@ zh-TW:
           authorize: 授權應用程式
           by_organization_link_html: <small class="heading-small">由 %{link} 提供</small>
           cancel: 取消
-          connect_your_account_html: 透過登入<strong>%{organization}</strong>連接您的帳戶.
           publish_content: 代表您發佈內容
           see_email: 查看您的電子郵件
           see_name: 查看你的名稱
@@ -587,16 +570,12 @@ zh-TW:
         ready: 準備就緒
       show:
         download_data: 下載資料
-        download_data_description: 一個包含所有與您的帳戶相關的資訊的檔案將會寄到 <strong>%{user_email}</strong>。此電子郵件將包含一個 .zip 檔案和一個解壓縮密碼。<br/><br/>若要解壓縮此檔案，您需要使用 <a href="https://www.7-zip.org/">7-Zip</a> (Windows) 或 <a href="https://www.keka.io/">Keka</a> (MacOS)。如果您使用 Linux，大多數情況下您已經預設安裝了解壓縮軟體。如果還沒有，您可以使用 <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> 或 <a href="https://peazip.github.io">PeaZip</a>。
         request_data: 請求數據
     editor_images:
       create:
         error: 上傳圖片時發生錯誤.
         success: 圖片上傳成功.
       drag_and_drop_help: 通過拖放或粘貼方式添加圖片。
-    endorsable:
-      endorsements: 連署
-      endorsements_count: 連署人數
     endorsement_buttons_cell:
       already_endorsed: 不喜歡
       endorse: 喜歡！
@@ -973,12 +952,9 @@ zh-TW:
         description: 閱讀更多有關 %{organization} 的資訊.
         title: 一般幫助
     last_activities:
-      activities:
-        no_activities_warning: 沒有活動
       all: 所有活動類型
       index:
         last_activity: 最後活動
-        resource_type: 類別
     links:
       invalid_url: 無效網址 URL
       warning:
@@ -1029,35 +1005,29 @@ zh-TW:
           admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
           greeting: 嗨, %{recipient}!
           intro: "%{manager} 以%{group} 的名義開始了一個新對話。點擊這裡查看："
-          outro: 享受Decidim!
           subject: "%{manager} 以%{group} 的身份開始了一個新對話。"
         comanagers_new_message:
           admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
           greeting: 嗨, %{recipient}!
           intro: "%{manager} 以%{group} 的名義在一個對話中發佈了新訊息。點擊這裡查看它們："
-          outro: 享受Decidim!
           subject: "%{manager} 以%{group} 的身份發送了新的訊息。點擊這裡查看它們："
         new_conversation:
           greeting: 嗨, %{recipient}!
           intro: "%{sender} 與您開始了一個新的對話。點擊這裡查看它："
-          outro: 享受Decidim!
           subject: "%{sender} 已與您開始對話"
         new_group_conversation:
           admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
           greeting: 嗨, %{recipient}!
           intro: "%{sender} 已與群組%{group} 開始了一個新的對話。點擊這裡查看："
-          outro: 享受Decidim!
           subject: "%{sender} 已與%{group} 開始了一個對話"
         new_group_message:
           admin_in_group: 您收到此通知是因為您是 %{group} 的管理員。
           greeting: 嗨, %{recipient}!
           intro: "%{sender} 在與 %{group} 的對話中發表了新訊息。點擊這裡查看："
-          outro: 享受Decidim!
           subject: "%{group} 收到了 %{sender} 的新訊息。"
         new_message:
           greeting: 嗨, %{recipient}!
           intro: "%{sender} 在您的對話中發布了新訊息。點擊這裡查看："
-          outro: 享受Decidim!
           subject: 您有來自 %{sender} 的新訊息。
       conversations:
         add_conversation_users:
@@ -1206,11 +1176,6 @@ zh-TW:
         retry: 重試
     open_data:
       not_available_yet: 開放數據檔案尚未可用，請稍後再試。
-    own_user_groups:
-      index:
-        pending: 等待中
-        rejected: 已拒絕
-        verified: 已驗證
     pad_iframe:
       disclaimer: 此筆記內容由註冊用戶撰寫並表達其意見。%{organization} 對其內容不承擔責任。"
       explanation: 使用此區塊共同協作撰寫會議紀錄，以便之後更輕鬆地撰寫會議記錄。
@@ -1233,8 +1198,6 @@ zh-TW:
         hero:
           participate: 參與
           welcome: 歡迎來到 %{organization}！
-        metrics:
-          headline: 指標
         statistics:
           headline: '%{organization} 的目前狀態'
         sub_hero:
@@ -1260,7 +1223,6 @@ zh-TW:
           modal_btn_continue: 接受條款並繼續
           modal_btn_exit: 我稍後會再查看。
           modal_button: 拒絕條款
-          modal_close: 關閉視窗
           modal_title: 您真的拒絕接受更新的服務條款嗎？
         required_review:
           alert: 我們已更新我們的服務條款，請您查閱。
@@ -1275,7 +1237,6 @@ zh-TW:
     profile:
       deleted: 已刪除的參與者
       inaccessible_message: 由於違反服務條款，此個人資料無法存取！
-      view: 檢視
     profiles:
       default_officialization_text_for_user_groups: 這個社群已公開驗證，其名稱已經被證實符合其真實名稱。
       default_officialization_text_for_users: 這個參與者已經公開驗證，其名稱或角色已被證實與其真實名稱或角色相符。
@@ -1289,7 +1250,6 @@ zh-TW:
         members: 成員
         officialized: 正式認證參與者
         send_private_message: 發送私人訊息
-        view_full_profile: 查看完整個人資料
       sidebar:
         badges:
           info: 徽章是通過在平台上執行特定活動而獲得的。
@@ -1359,7 +1319,6 @@ zh-TW:
       term_input_placeholder: 搜尋
     searches:
       filters:
-        back: 返回至結果
         jump_to: '跳到：'
         state:
           active: 啟動
@@ -1367,13 +1326,9 @@ zh-TW:
           future: 未來
           past: 過去
       filters_small_view:
-        close_modal: 關閉視窗
         filter: 篩選器
         filter_by: 篩選條件
-        unfold: 展開
       results:
-        results:
-          other: "One\n%{count} 個結果\n\nOther\n%{count} 個結果"
         view_all: 查看全部(%{count})
     security:
       selfxss_warning:
@@ -1385,10 +1340,6 @@ zh-TW:
         close_modal: 關閉視窗
         ok: 好的
         title: 確認
-      embed_modal:
-        close_window: 關閉視窗
-        embed: 請將此代碼粘貼到您的頁面中。
-        embed_link: 嵌入
       extended_navigation_bar:
         more: 更多
         unfold: 展開
@@ -1407,7 +1358,6 @@ zh-TW:
         report: 報告
         spam: 包含點閱率誘導、廣告、詐騙或自動腳本。
         title: 檢舉不當內容
-        visit_profile: 如果您也想封鎖該參與者及其其餘內容，請前往 %{user_link} 的個人檔案頁面。
       flag_user_modal:
         already_reported: 此內容已被舉報，將由管理員進行審查。
         block: 封鎖此參與者
@@ -1420,13 +1370,8 @@ zh-TW:
         spam: 包含點閱率誘導、廣告、詐騙或自動腳本。
         title: 舉報不適當的使用者
       floating_help:
-        close: 關閉幫助
         help: 幫助
-      follow_button:
-        sign_in_before_follow: 請在執行此操作之前登入。
       login_modal:
-        close_modal: 關閉視窗
-        please_sign_in: 請先登入
         sign_up: 註冊登記
       mentions_modal:
         remove_recipient: 移除收件人 %{name}。
@@ -1436,9 +1381,6 @@ zh-TW:
           select_an_area: 選擇一個地區
       public_participation:
         public_participation: 公開展示我的出席情況。
-      redesigned_login_modal:
-        please_sign_in: 請先登入
-        sign_up: 註冊登記
       reference:
         reference: '參考資料: %{reference}'
       represent_user_group:
@@ -1448,7 +1390,6 @@ zh-TW:
         label: '每頁顯示的結果：'
         title: 選擇每頁的結果數量
       share_modal:
-        close_window: 關閉視窗
         copy_share_link: 複製
         copy_share_link_clarification: 複製分享連結到剪貼簿。
         copy_share_link_copied: 已複製！
@@ -1482,30 +1423,12 @@ zh-TW:
         existing_error: 無法建立訊息。該對話已存在，請現在重試。
         success: 對話成功開始！
       index:
-        add_max_users: '將使用者加入對話：最多可加入 9 名使用者。'
-        add_users_placeholder: 搜尋...
-        close: 關閉
         conversations_info: 對話是私密的，沒有其他人可以看到。可以與平台上註冊的任何參與者或群組開始對話。
-        from: 來自
-        last_message: 最後訊息
-        modal_title: 新對話
-        new_conversation: 新對話
-        next: 下一個
         no_conversations_warning: 目前還沒有任何對話。
-        no_results: 無結果
-        participant_with_disabled_message_reception: 此參與者已停用訊息接收功能.
         time_ago: "%{time} 之前"
-      new:
-        title: 開始對話
       reply:
         placeholder: 您的回覆...
         send: 發送
-        title_reply: 回覆
-      show:
-        back: 顯示所有對話
-        deleted_accounts: 你不能與已刪除的帳戶進行對話。
-        not_allowed: 此使用者不再接受私訊。
-        title: 與 %{usernames} 的對話
       update:
         error: 訊息未送出，請稍後再試。
     user_interests:
@@ -1530,27 +1453,13 @@ zh-TW:
         back_to_resource: 返回
         changes_at_title: '"%{title}" 的更改'
         number_of_versions: 版本
-        show_all_versions: 顯示所有版本
-        version_author: 版本作者
         version_created_at: 版本建立於
-        version_number: 版本號碼
-        version_number_out_of_total: "第 %{current_version} 版(共 %{total_count} 版)"
-    version_author:
-      show:
-        deleted: 已刪除的參與者
     versions:
       resource_version:
         of_versions: "(的%{number})"
         see_other_versions: 查看其他版本
         version: 版本號碼 %{number}
-    versions_list:
-      show:
-        back_to_resource: 返回
-        changes_at_title: '"%{title}" 的更改'
-        number_of_versions: 版本
-        title: 版本
     versions_list_item:
-      back: 顯示所有版本
       show:
         version_index: 版本 %{index}
     welcome_notification:
@@ -1577,8 +1486,6 @@ zh-TW:
       last_attempt: 您還有最後一次嘗試機會，再次失敗您的帳號將會被鎖定。
       locked: 您的帳號已被鎖定。
       not_found_in_database: 無效的 %{authentication_keys} 或密碼。
-      timeout: 登入階段逾時。請重新登入以繼續。
-      unauthenticated: 您需要先登入或註冊後才能繼續。
     invitations:
       edit:
         header: 完成您的帳戶設置
@@ -1640,7 +1547,6 @@ zh-TW:
         action: 解鎖我的帳戶
         greeting: 哈囉 %{recipient}!
         instruction: '請按一下下面的網址來解鎖您的帳戶：'
-        message: 您的帳戶已鎖定由於過量的不成功登錄嘗試。
         subject: 解鎖說明
     omniauth_callbacks:
       failure: 無法驗證您的 %{kind} 因為"%{reason}"。
@@ -1671,20 +1577,12 @@ zh-TW:
       signed_up_but_unconfirmed: 確認信件已送至您的 Email 信箱，請點擊信件內連結以啓動您的帳號。
       update_needs_confirmation: 您已經成功的更新帳號資訊，但我們仍需確認您的電子信箱，請至新信箱收信並點擊連結以確認您的新電子郵件帳號。
       updated: 您的帳號已成功升級。
-    sessions:
-      already_signed_out: 已成功登出。
-      new:
-        sign_in: 登入
-      signed_in: 已成功登入。
-      signed_out: 已成功登出。
     shared:
       links:
         back: 返回
         didn_t_receive_confirmation_instructions: 沒有收到確認的說明嗎？
         didn_t_receive_unlock_instructions: 沒有收到解鎖說明？
         forgot_your_password: 忘記密碼了嗎？
-        sign_in: 登入
-        sign_in_with_provider: 用%{provider} 登錄
         sign_up: 註冊登記
       minimum_password_length:
         other: "One\n(最少%{count} 個字符)\n\nOther\n(最少%{count} 個字符)"
@@ -1693,7 +1591,6 @@ zh-TW:
         resend_unlock_instructions: 重新發送解鎖說明
       send_instructions: 您將在幾分鐘後收到一封電子郵件，內有將帳號解除鎖定的步驟說明。
       send_paranoid_instructions: 如果你的賬戶存在，你將會在幾分鐘內收到一封電郵，內有解鎖賬戶的方法。
-      unlocked: 您的帳戶已成功解鎖。請登錄以繼續。
   doorkeeper:
     scopes:
       public: 您的公開資訊。
@@ -1725,7 +1622,6 @@ zh-TW:
   errors:
     messages:
       allowed_file_content_types: '只允許使用以下擴展名的檔案： %{types}'
-      already_confirmed: 已經確認，請嘗試登入
       blank: 不能為空白
       cannot_be_blank: 不能為空白
       confirmation: 不符合 %{attribute}
@@ -1815,12 +1711,9 @@ zh-TW:
         decidim_logo: Decidim 商標
         download_open_data: 下載開放數據檔案
         made_with_open_source: 使用<a target="_blank" href="https://github.com/decidim/decidim">自由軟體</a>建立的網站。
-      header:
-        close_menu: 關閉選單
-        main_menu: 主選單
-        navigation: 導航
-        sign_in: 登入
         sign_up: 註冊
+      header:
+        main_menu: 主選單
         user_menu: 使用者選單
       impersonation_warning:
         close_session: 關閉階段
@@ -1837,12 +1730,10 @@ zh-TW:
         facebook: "%{organization} 在 Facebook"
         github: "%{organization} 在 GitHub"
         instagram: "%{organization} 在 Instagram"
-        twitter: "%{organization} 在 Twitter"
         youtube: "%{organization} 在 YouTube"
       timeout_modal:
         body: 您已經閒置了 %{minutes} 分鐘。如果您繼續閒置，為了您的安全，您將被自動登出。
         continue_session: 繼續會話
-        sign_out: 登出
         title: 您是否想要繼續進行本次對話？
       upload_modal:
         close_modal: 關閉視窗
@@ -1853,7 +1744,6 @@ zh-TW:
         notifications: 通知訊息
         profile: 我的帳號
         public_profile: 我的公開個人資料
-        sign_out: 登出
         title: 個人資料連結
       user_profile:
         account: 帳號
@@ -1864,8 +1754,6 @@ zh-TW:
         notifications_settings: 通知設定
         title: 參與者設定
         user_groups: 群組
-      widget:
-        see_more: 查看更多
   locale:
     name: 英文
     name_with_error: 英文 (錯誤！)
@@ -1938,7 +1826,6 @@ zh-TW:
     dropdown:
       choose_diff_view_html: 'HTML 檢視模式:'
       choose_diff_view_mode: '比較檢視模式'
-      choose_diff_view_mode_menu: 選擇比較模式
       option_escaped: 已轉義
       option_split: 並排顯示
       option_unescaped: 未轉義

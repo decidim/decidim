@@ -160,7 +160,6 @@ tr:
         error: Değişikliği kabul ederken bir hata oluştu.
         success: Değişiklik başarıyla kabul edildi.
       amendable:
-        amended_by: Tarafından değiştirildi
         button: '%{model_name} üzerinde değişiklik yapın'
         error: Bu kaynağı değiştiren bir hata oluştu.
         promote_button: '%{model_name} olarak yükselt'
@@ -178,7 +177,6 @@ tr:
         success: Değişiklik taslağı başarıyla silindi.
       edit_draft:
         discard: Bu taslağı sil
-        discard_confirmation: Bu değişiklik taslağını iptal etmek istediğinizden emin misiniz?
         send: Önizleme
         title: Değişiklik Taslağını Düzenle
       emendation:
@@ -386,8 +384,6 @@ tr:
         name: Organizasyon istatistikleri
       sub_hero:
         name: Alt ana afişi
-    datepicker:
-      help_text: 'Beklenen format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
@@ -399,13 +395,10 @@ tr:
       registrations:
         new:
           already_have_an_account?: Zaten hesabınız var mı?
+          log_in: "Giriş \nGiriş Yapın "
           newsletter: Ara sıra ilgili bilgileri içeren bir haber bülteni alın
           newsletter_title: İletişim izni
-          nickname_help: Takma adınız %{organization}. Yalnızca harf, rakam, "-" ve "_" içerebilir.
-          sign_in: Oturum aç
           sign_up: kaydol
-          sign_up_as:
-            legend: Olarak kaydol
           subtitle: Tartışmalara katılmak ve teklifleri desteklemek için kaydolun.
           tos_agreement: Kaydolarak %{link}kabul ediyorsunuz.
           tos_title: Kullanım Şartları
@@ -414,21 +407,28 @@ tr:
         new:
           are_you_new?: Platformda yeni misiniz?
           register: Hesap oluştur
+        user:
+          timed_out: Çok uzun süre işlem yapmadınız /hareketsiz kaldınız ve oturumunuz otomatik olarak kapatıldı. Hizmeti kullanmaya devam etmek istiyorsanız lütfen tekrar giriş yapın.
       shared:
         newsletter_modal:
           buttons:
             check: Kontrol et ve devam et
-            close_modal: Yakın kalıcı
             uncheck: İşaretlemeyin
           title: Bülten bildirimleri
         omniauth_buttons:
           or: Veya
+        password_fields:
+          hidden_password: Şifreniz Gizlidir
+          hide_password: Şifrenizi Gizleyin
+          show_password: Şifreyi Göster
+          shown_password: Şifreniz Gösteriliyor
     doorkeeper:
       authorizations:
         new:
           authorize: Uygulamayı yetkilendir
           by_organization_link_html: <small class="heading-small">x %{link}</small>
           cancel: İptal etmek
+          connect_your_account_html: '%{organization}''da oturum açarak hesabınızı bağlayın.'
           publish_content: İçeriği sizin için yayınlayın
           see_email: E-postanızı görün
           see_name: İsmini gör
@@ -443,9 +443,6 @@ tr:
       show:
         download_data: Verileri indir
         request_data: Veri talep et
-    endorsable:
-      endorsements: Cirolar
-      endorsements_count: Onay sayısı
     endorsements:
       identities:
         done: Bitti
@@ -713,12 +710,10 @@ tr:
           title: '%{organization} ne yapabilirim?'
         title: Genel Yardım
     last_activities:
-      activities:
-        no_activities_warning: Aktivite yok
       all: Tüm aktivite türleri
       index:
         last_activity: Son Aktivite
-        resource_type: Türü
+      no_activities_warning: Bu aktivite türü için gösterilecek giriş/kayıt yok.
     log:
       base_presenter:
         create: "%{user_name}, %{resource_name} oluşturdu"
@@ -868,11 +863,6 @@ tr:
         success: Bildirim ayarlarınız başarıyla güncellendi.
     open_data:
       not_available_yet: Açık Veri dosyaları henüz mevcut değil, lütfen birkaç dakika içinde tekrar deneyin.
-    own_user_groups:
-      index:
-        pending: Bekliyor
-        rejected: Reddedildi
-        verified: Doğrulanmış
     pad_iframe:
       disclaimer: B içerikler kayıtlı kullanıcılar tarafından yazılır ve görüşlerini ifade eder. %{organization}, içeriğinden sorumlu tutulamaz.
       pad: Tablet
@@ -894,8 +884,6 @@ tr:
         hero:
           participate: Katıl
           welcome: '%{organization} hoşgeldin!'
-        metrics:
-          headline: Metrikler
         statistics:
           headline: Mevcut durum %{organization}
         sub_hero:
@@ -912,7 +900,7 @@ tr:
     participatory_space_private_users:
       not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
     profile:
-      view: Görünüm
+      deleted: Silinmiş kullanıcı
     profiles:
       show:
         activity: Aktivite
@@ -923,7 +911,6 @@ tr:
         groups: Gruplar
         members: Üyeler
         officialized: Resmi katılımcı
-        view_full_profile: Tam Profili Gör
       sidebar:
         badges:
           info: Rozetler, platformda belirli etkinlikler gerçekleştirilerek kazanılır.
@@ -982,7 +969,6 @@ tr:
       term_input_placeholder: Arama
     searches:
       filters:
-        back: Sonuçlara dön
         jump_to: 'Atlamak:'
         state:
           active: Aktif
@@ -990,14 +976,9 @@ tr:
           future: gelecek
           past: geçmiş
       filters_small_view:
-        close_modal: Yakın kalıcı
         filter: filtre
         filter_by: Tarafından filtre
-        unfold: açılmak
       results:
-        results:
-          one: "%{count} sonuç"
-          other: "%{count} sonuç"
         view_all: Tümünü görüntüle (%{count})
     security:
       selfxss_warning:
@@ -1009,10 +990,6 @@ tr:
         close_modal: Pencereyi kapat
         ok: TAMAM
         title: Onayla
-      embed_modal:
-        close_window: Pencereyi kapat
-        embed: Lütfen bu kodu sayfanıza yapıştırın
-        embed_link: Göm
       extended_navigation_bar:
         more: Daha
         unfold: açılmak
@@ -1036,13 +1013,11 @@ tr:
         spam: Tıklama tuzağı, reklam, dolandırıcılık veya komut dosyası botları içerir.
         title: Uygunsuz Kullanıcıyı bildirin
       floating_help:
-        close: Yardımı Kapat
         help: yardım et
       follow_button:
-        sign_in_before_follow: Bu eylemi gerçekleştirmeden önce lütfen giriş yapın
+        log_in_before_follow: Bu İşlemi gerçekleştirmeden önce lütfen giriş yapın
       login_modal:
-        close_modal: Pencereyi kapat
-        please_sign_in: Lütfen giriş yapın
+        please_log_in: Lütfen Giriş Yapın
         sign_up: kaydol
       participatory_space_filters:
         filters:
@@ -1057,7 +1032,6 @@ tr:
         label: 'Sayfa başına sonuç:'
         title: Sayfa başına sonuç sayısını seçin
       share_modal:
-        close_window: Pencereyi kapat
         share: Pay
         share_link: Linki paylaş
     statistics:
@@ -1075,27 +1049,12 @@ tr:
         existing_error: Mesaj oluşturulamadı. Konuşma zaten mevcut, lütfen şimdi tekrar deneyin.
         success: Görüşme başarıyla başladı!
       index:
-        add_max_users: 'Kullanıcıları görüşmeye ekleyin: En fazla 9 kullanıcı'
-        add_users_placeholder: Arama...
-        close: Kapat
         conversations_info: Görüşmeler özeldir, onları başka kimse göremez. Platforma kayıtlı herhangi bir katılımcı veya grup ile görüşme başlatılabilir.
-        from: Gönderen
-        last_message: Son mesaj
-        modal_title: Yeni görüşme
-        new_conversation: Yeni görüşme
-        next: Sonraki
         no_conversations_warning: Henüz bir görüşme yok.
-        no_results: Sonuç bulunamadı
         time_ago: "%{time} önce"
-      new:
-        title: Bir görüşme başlatın
       reply:
         placeholder: Cevabınız...
         send: Gönder
-        title_reply: Cevapla
-      show:
-        not_allowed: Bu kullanıcı artık doğrudan mesaj kabul etmiyor.
-        title: '%{usernames} ile görüşme'
       update:
         error: Mesaj gönderilmedi. Daha sonra tekrar deneyin
     user_interests:
@@ -1117,25 +1076,12 @@ tr:
         back_to_resource: Geri git
         changes_at_title: '"%{title}" üzerindeki değişiklikler'
         number_of_versions: Sürümler
-        show_all_versions: Tüm sürümleri göster
-        version_author: Sürüm yazarı
         version_created_at: Sürüm oluşturuldu
-        version_number: Sürüm numarası
-        version_number_out_of_total: "%{total_count} üzerinden %{current_version}"
-    version_author:
-      show:
-        deleted: Silinmiş kullanıcı
     versions:
       resource_version:
         of_versions: "(%{number})"
         see_other_versions: diğer sürümlere bak
         version: Sürüm numarası %{number}
-    versions_list:
-      show:
-        back_to_resource: Geri git
-        changes_at_title: '"%{title}" üzerindeki değişiklikler'
-        number_of_versions: Sürümler
-        title: Sürümler
     versions_list_item:
       show:
         version_index: Sürüm %{index}
@@ -1162,8 +1108,8 @@ tr:
       last_attempt: Hesabınız kilitlenmeden önce bir kez daha denemeniz var.
       locked: Hesabınız kilitli.
       not_found_in_database: '%{authentication_keys} veya şifre geçersiz.'
-      timeout: Oturumunuzun süresi doldu. Devam etmek için lütfen tekrar oturum açın.
-      unauthenticated: Devam etmeden önce giriş yapmalı veya kaydolmalısınız.
+      timeout: Oturumunuzun süresi doldu. Devam etmek için lütfen tekrar giriş yapın.
+      unauthenticated: Devam etmeden önce giriş yapmanız veya kaydolmanız gerekmektedir.
     invitations:
       edit:
         header: Hesabınızı oluşturmayı bitirin
@@ -1210,7 +1156,7 @@ tr:
         action: Hesabımın kilidini aç
         greeting: Merhaba %{recipient}!
         instruction: 'Hesabınızın kilidini açmak için aşağıdaki bağlantıyı tıklayın:'
-        message: Hesabınız, fazla sayıda başarısız giriş denemesi nedeniyle kilitlendi.
+        message: Çok sayıda başarısız giriş denemesi nedeniyle hesabınız kilitlendi.
         subject: Talimat kilidini
     omniauth_callbacks:
       failure: '"%{reason}" olduğu için %{kind} kimliğinizi doğrulayamadı.'
@@ -1239,17 +1185,16 @@ tr:
       update_needs_confirmation: Hesabınızı başarıyla güncellediniz, ancak yeni e-posta adresinizi doğrulamamız gerekiyor. Lütfen yeni e-posta adresinizi onaylamak için e-postanızı kontrol edin ve onaylama bağlantısını takip edin.
       updated: Hesabınız başarıyla güncellendi.
     sessions:
-      already_signed_out: Başarıyla imzalandı.
+      already_signed_out: Başarıyla Çıkış Yapıldı
       new:
-        sign_in: Oturum aç
-      signed_in: Başarıyla imzalandı.
-      signed_out: Başarıyla imzalandı.
+        log_in: Giriş Yapın
+      signed_out:
     shared:
       links:
         back: Geri
         forgot_your_password: Parolanızı mı unuttunuz?
-        sign_in: Oturum aç
-        sign_in_with_provider: '%{provider}ile giriş yap'
+        log_in: Giriş Yapın
+        log_in_with_provider: '%{provider} ile giriş yapın'
         sign_up: kaydol
       minimum_password_length:
         one: "(En az%{count} karakter)"
@@ -1259,13 +1204,13 @@ tr:
         resend_unlock_instructions: Kilit açma talimatlarını tekrar gönder
       send_instructions: Hesabınızın birkaç dakika içinde nasıl açılacağıyla ilgili talimatları içeren bir e-posta alacaksınız.
       send_paranoid_instructions: Hesabınız varsa, birkaç dakika içinde kilidini açmak için talimatları içeren bir e-posta alacaksınız.
-      unlocked: Hesabınız başarıyla açıldı. Devam etmek için giriş yapın.
+      unlocked: Hesabınızın kilidi başarıyla açıldı. Devam etmek için lütfen giriş yapınız.
   doorkeeper:
     scopes:
       public: Genel bilgileriniz.
   errors:
     messages:
-      already_confirmed: zaten onaylandı, lütfen giriş yapmayı deneyin
+      already_confirmed: Onaylanmıştır. lütfen giriş yapmayı deneyin
       confirmation_period_expired: '%{period}içinde onaylanması gerekiyor, lütfen yeni bir tane isteyin'
       content_type_allowlist_error: dosya türü geçerli değil
       expired: süresi doldu, lütfen yeni bir tane isteyin
@@ -1289,18 +1234,21 @@ tr:
     timestamp_error_message: Üzgünüm, bu çok hızlıydı! Lütfen yeniden gönderin.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Türü
       edit_link:
         edit: Düzenle
       footer:
         cc_by_license: Kar Amaçsız Lisanslama (Creative Commons License)
         decidim_logo: Decidim Logo
         download_open_data: Açık Veri dosyalarını indir
+        log_in: Giriş Yapın
         made_with_open_source: Web sitesi <a target="_blank" href="https://github.com/decidim/decidim">ücretsiz yazılımla yapılmıştır</a>.
-      header:
-        close_menu: Menüyü kapat
-        navigation: navigasyon
-        sign_in: Oturum aç
         sign_up: Kaydol
+      header:
+        log_in: Giriş Yapın
       impersonation_warning:
         close_session: Oturumu kapat
         description_html: Kullanıcının kimliğine bürünüyorsunuz <b>%{user_name}</b>.
@@ -1314,16 +1262,18 @@ tr:
         facebook: "Facebook'ta %{organization}"
         github: "GitHub'da %{organization}"
         instagram: "Instagram'da %{organization}"
-        twitter: "Twitter'da %{organization}"
+        x: "X 'de % organizasyon "
         youtube: "YouTube'da %{organization}"
+      timeout_modal:
+        log_out: Çıkış
       user_menu:
         account: 'Kullanıcı hesabı: %{name}'
         admin_dashboard: Yönetici kontrol paneli
         conversations: Konuşmalar
+        log_out: Oturumdan Çıkış
         notifications: Bildirimler
         profile: Hesabım
         public_profile: Genel profilim
-        sign_out: oturumu Kapat
       user_profile:
         account: hesap
         authorizations: Yetkileri
@@ -1333,8 +1283,6 @@ tr:
         notifications_settings: Bildirimler ayarları
         title: Kullanıcı ayarları
         user_groups: Gruplar
-      widget:
-        see_more: Daha fazla gör
   locale:
     name: Türkçe
     name_with_error: Türkçe (hata!)
@@ -1370,6 +1318,7 @@ tr:
     weibo: Sina Weibo
     whatsapp_app: Whatsapp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
