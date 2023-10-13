@@ -200,10 +200,7 @@ uk:
           already_have_an_account?: Вже маєте обліковий запис?
           newsletter: Отримувати іноді розсилання зі свіжими новинами
           newsletter_title: Дозвіл на зв'язок
-          sign_in: Увійти
           sign_up: Зареєструватися
-          sign_up_as:
-            legend: Зареєструватися як
           subtitle: Зареєструйтесь, щоб брати участь у обговореннях та підтримувати пропозиції.
           tos_agreement: Реєструючись, ви приймаєте %{link}.
           tos_title: Умови участі
@@ -216,7 +213,6 @@ uk:
         newsletter_modal:
           buttons:
             check: Поставити галочку та продовжити
-            close_modal: Закрити віконце
           title: Сповіщення про новини
         omniauth_buttons:
           or: Або
@@ -240,8 +236,6 @@ uk:
       show:
         download_data: Завантажити дані
         request_data: Подати запит на дані
-    endorsable:
-      endorsements: Проявів підтримки
     errors:
       internal_server_error:
         title: При з'єднанні з нашим сервером сталася помилка
@@ -366,11 +360,6 @@ uk:
       update:
         error: При спробі оновити налаштування сповіщень сталася помилка.
         success: Ваші налаштування сповіщень успішно оновлено.
-    own_user_groups:
-      index:
-        pending: Очікує на розгляд
-        rejected: Відхилено
-        verified: Перевірено
     pages:
       home:
         extended:
@@ -396,7 +385,7 @@ uk:
     participatory_space_private_users:
       not_allowed: У вас нема прав на перегляд цього вмісту
     profile:
-      view: Переглянути
+      deleted: Видалений учасник
     profiles:
       show:
         followers: Ті, хто стежить
@@ -430,15 +419,9 @@ uk:
       term_input_placeholder: Шукати
     searches:
       filters_small_view:
-        close_modal: Закрити віконце
         filter: Відібрати
         filter_by: 'Відібрати за ознакою:'
-        unfold: Розгорнути
     shared:
-      embed_modal:
-        close_window: Закрити вікно
-        embed: Будь ласка, вставте цей код на свою сторінку
-        embed_link: Вбудувати
       flag_modal:
         already_reported: Про цей вміст вже передано скаргу, і її перегляне адміністратор.
         close: Закрити
@@ -447,17 +430,13 @@ uk:
         report: Поскаржитись
         spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або лохотрони.
         title: Поскаржитись на ускладнення
-      follow_button:
-        sign_in_before_follow: Будь ласка, увійдіть, перш ніж виконувати цю дію
       login_modal:
-        please_sign_in: Будь ласка, увійдіть
         sign_up: Зареєструватися
       reference:
         reference: 'Посилання на джерело: %{reference}'
       results_per_page:
         label: 'Результатів на сторінку:'
       share_modal:
-        close_window: Закрити вікно
         share: Поділитися
         share_link: Поділитись посиланням
     statistics:
@@ -465,9 +444,6 @@ uk:
     user_conversations:
       update:
         error: Повідомлення не надіслано. Спробуйте ще раз пізніше
-    version_author:
-      show:
-        deleted: Видалений учасник
   devise:
     invitations:
       edit:
@@ -509,10 +485,6 @@ uk:
         edit: Редагувати
       footer:
         made_with_open_source: Цей веб-сайт створено за допомогою <a target="_blank" href="https://github.com/decidim/decidim">безкоштовного програмного забезпечення</a>.
-      header:
-        close_menu: Закрити меню
-        navigation: Навігація
-        sign_in: Увійти
         sign_up: Зареєструватися
       impersonation_warning:
         close_session: Завершити сеанс
@@ -526,7 +498,6 @@ uk:
         notifications: Сповіщення
         profile: Мій обліковий запис
         public_profile: Мій загальнодоступний профіль
-        sign_out: Вийти
       user_profile:
         account: Обліковий запис
         authorizations: Підтвердження особи
@@ -534,8 +505,6 @@ uk:
         my_data: Мої дані
         notifications_settings: Налаштування сповіщень
         title: Налаштування учасника
-      widget:
-        see_more: Читати далі
   locale:
     name: Українська
     name_with_error: Українська (помилка!)

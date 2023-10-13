@@ -44,7 +44,6 @@ zh-TW:
         edit: 編輯
         edit_projects: 管理專案
         import: 將提案匯入專案
-        new: 新增 %{name}
         preview: 預覽
         send_voting_reminders: 發送投票提醒
         title: 操作
@@ -159,9 +158,6 @@ zh-TW:
         close_modal: 關閉視窗
         continue: 繼續
         more_information: 更多資訊
-      budget_list_item:
-        voting_finished: 您已在此預算中投票。
-        voting_started: 你已經開始在這個預算中投票了
       budgets_list:
         cancel_order:
           more_than_one: 刪除您對於 %{name} 的投票並重新開始
@@ -169,7 +165,6 @@ zh-TW:
         finished_message: 您已完成投票流程。感謝您的參與！
         highlighted_cta: 在 %{name} 上投票
         if_change_opinion: 如果您改變了主意，您可以
-        my_budgets: 我的預算
         progress: 完成投票
         show: 檢視專案
         vote: 投票
@@ -208,7 +203,6 @@ zh-TW:
           budget_excess:
             description: 這個專案超出了預算上限，無法被加入。如果您願意，您可以刪除您已經選擇的一個專案，以便能夠根據您的偏好再次進行投票。
             title: 已超過最高預算
-          close: 關閉
           description: 這個專案超出了預算上限，無法被加入。如果您願意，您可以刪除您已經選擇的一個專案，以便能夠根據您的偏好再次進行投票。
           ok: 好的
           projects_excess:
@@ -216,34 +210,15 @@ zh-TW:
             title: 超過最大專案數量
         budget_summary:
           are_you_sure: 您確定要取消您的投票嗎?
-          assigned: '已指派:'
           cancel_order: 刪除你的投票並重新開始
           checked_out:
             description: 你已經對預算表決投票了。如果你改變了主意，你可以%{cancel_link}。
             title: 預算投票完成
-          minimum_projects_rule:
-            description: 您認為我們應該撥款給哪些專案？請選擇至少 %{minimum_number} 個您想要的專案，並根據您的偏好進行投票，以定義預算。
-            instruction: "<li>請選擇至少 %{minimum_number} 個您認為應該分配預算的項目，並根據您的喜好進行投票以定義預算。</li>"
-          projects_rule:
-            description: 你認為我們應該為哪些專案分配預算？請至少選擇 %{minimum_number} 個專案，最多可選擇 %{maximum_number} 個項目，並根據你的喜好投票以定義預算。
-            instruction: "<li>請至少選擇 %{minimum_number} 個至多 %{maximum_number} 個您想要的項專案，並根據您的喜好進行投票以定義預算。</li>"
-          projects_rule_maximum_only:
-            description: 你認為我們應該為哪些專案分配預算？請選擇最多 %{maximum_number} 個專案，根據你的喜好進行投票，來定義預算。
-            instruction: "\"<li>選擇最多 %{maximum_number} 個您想為其分配預算的專案，並根據您的喜好進行投票，以定義預算。</li>"
-          rules:
-            title: 預算規則
-          title: 你決定預算
-          total_budget: 總預算
-          total_projects: 總票數
-          vote_threshold_percent_rule:
-            description: 您覺得我們應該為哪些專案分配預算？為您想要的專案分配至少 %{minimum_budget} 的預算，並按照您的喜好進行投票以定義預算。
-            instruction: "\"<li>指派至少 %{minimum_budget} 的預算給您想支持的專案，然後根據您的喜好進行投票以制定預算。</li>"
         count:
           projects_count:
             other: "%{count} 專案"
         exit_modal:
           cancel: 返回投票
-          close_modal: 關閉視窗
           exit: 退出投票
           message: 您的投票尚未被註冊，因為您尚未完成投票程序。您確定要退出投票嗎?
           title: 您尚未投票
@@ -256,20 +231,6 @@ zh-TW:
             all: 全部
             not_selected: 未選擇
             selected: 已選取
-        filters_small_view:
-          close_modal: 關閉視窗
-          filter: 篩選
-          filter_by: 篩選條件
-          unfold: 展開
-        index:
-          view_project: 檢視專案
-        order_progress:
-          vote: 投票
-        order_selected_projects:
-          remove: 移除
-          selected_projects:
-            other: 已選擇的專案
-          view: 檢視
         orders:
           highest_cost: 最高成本
           label: 專案排序方式
@@ -293,7 +254,6 @@ zh-TW:
         projects_for: 專案 %{name}
         show:
           budget: 預算
-          view_all_projects: 檢視所有專案
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: '您有尚未完成投票的領域:'
@@ -361,7 +321,6 @@ zh-TW:
     orders:
       checkout:
         error: 處理您的投票時出現問題。
-        success: 您的投票已成功接受。
       destroy:
         error: 取消您的投票時出現問題
         success: 您的投票已成功取消。

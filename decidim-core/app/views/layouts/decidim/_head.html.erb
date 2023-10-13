@@ -26,8 +26,8 @@
 <%= apple_favicon %>
 <link rel="manifest" href="/manifest.webmanifest">
 
-<%= prepend_javascript_pack_tag "redesigned_decidim_core", defer: false %>
-<%= stylesheet_pack_tag "redesigned_decidim_core", media: "all" %>
+<%= prepend_javascript_pack_tag "decidim_core", defer: false %>
+<%= stylesheet_pack_tag "decidim_core", media: "all" %>
 <%= yield :css_content %>
 
 <%= invisible_captcha_styles %>

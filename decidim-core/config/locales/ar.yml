@@ -255,7 +255,6 @@ ar:
         error: حدث خطأ أثناء قبول التعديل.
         success: تم قبول التعديل بنجاح.
       amendable:
-        amended_by: عدلت من قبل
         button: تعديل %{model_name}
         error: طرأ خطأ خلال تصليح هذا المورد.
         promote_button: ترقية إلى صفة %{model_name}
@@ -273,7 +272,6 @@ ar:
         success: تم حذف مسودة التعديل بنجاح.
       edit_draft:
         discard: تجاهل هذه المسودة
-        discard_confirmation: هل ترغب حقًا في تجاهل مسودة التعديل هذه؟
         send: معاينة
         title: تحرير مسودة التعديل
       emendation:
@@ -323,8 +321,6 @@ ar:
         download: نزّل الملف
       documents:
         related_documents: الوثائق ذات الصلة
-      geocoding:
-        geocoded_address: العنوان
       photo:
         alt: صورة الوسائط
         title: الصورة
@@ -332,7 +328,6 @@ ar:
         related_photos: الصور ذات الصلة
     author:
       avatar: 'الصورة الرمزية: %{name}'
-      avatar_multiuser: الصورة الرمزية الافاتار لمستخدمين عدة
       comments:
         zero: تعليقات
         one: تعليق
@@ -380,7 +375,6 @@ ar:
       started_at: بدأت في %{timestamp}
     authorization_modals:
       content:
-        close_modal: اغلاق النموذج
         expired:
           authorize: إعادة التفويض مع "%{authorization}"
           explanation: انتهت صلاحية الإذن الخاص بك. من أجل تنفيذ هذا الإجراء، تحتاج إلى إعادة الحصول على الإذن الإذن مع "%{authorization}".
@@ -508,8 +502,6 @@ ar:
         name: احصائيات المنظمة
       sub_hero:
         name: البطل الفرعي راية
-    datepicker:
-      help_text: 'التنسيق المتوقع: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
@@ -523,11 +515,7 @@ ar:
           already_have_an_account?: هل لديك حساب؟
           newsletter: تلقي رسالة إخبارية من حين لآخر مع المعلومات ذات الصلة
           newsletter_title: الاتصال إذن
-          nickname_help: الاسم المستعار الخاص بك في %{organization}. يمكن أن يحتوي فقط على أحرف وأرقام، و '-' و '_'.
-          sign_in: تسجيل الدخول
           sign_up: انشئ حسابًا
-          sign_up_as:
-            legend: الاشتراك باسم
           subtitle: اشترك للمشاركة في المناقشات ودعم المقترحات.
           tos_agreement: بالتسجيل فإنك توافق على %{link}.
           tos_title: شروط الخدمة
@@ -536,13 +524,10 @@ ar:
         new:
           are_you_new?: جديد على المنصة؟
           register: انشئ حساب
-        user:
-          timed_out: لقد كنت غير نشطاً لفترة طويلة للغاية وتم تسجيل خروجك تلقائياً من الخدمة. في حال تود مواصلة استخدام الخدمة يجب عليك إعادة تسجيل الدخول.
       shared:
         newsletter_modal:
           buttons:
             check: تحقق واستمر
-            close_modal: إغلاق مشروط
             uncheck: إبقاءه غير مختار
           title: الإخطارات الإخبارية
         omniauth_buttons:
@@ -566,13 +551,9 @@ ar:
         ready: جاهز
       show:
         download_data: قم بتنزيل البيانات
-        download_data_description: سيتم إرسال ملف يحتوي على جميع المعلومات المرتبطة بحسابك إلى <strong>%{user_email}</strong>. سوف يحتوي هذا البريد الإلكتروني على ملف .zip وكلمة مرور لفتحه.<br/><br/>لفك الملف ، ستحتاج إلى <a href="https://www.7-zip.org/">7-Zip</a> (للويندوز) أو <a href="https://www.keka.io/">Keka</a> (لماكوس). إذا كنت تستخدم لينوكس، في معظم الأحيان سيتم تثبيته بشكل افتراضي. إذا لم يكن الأمر كذلك، يمكنك استخدام <a href="https://gitlab.gnome.org/GNOME/file-roller">ملف Roller</a> أو <a href="https://peazip.github.io">PeaZip</a>).
         request_data: طلب البيانات
     editor_images:
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
-    endorsable:
-      endorsements: موافقات
-      endorsements_count: عد أصوات التأييدات
     endorsement_buttons_cell:
       already_endorsed: لا يعجبني
       endorse: يعجبني
@@ -906,12 +887,9 @@ ar:
           title: ماذا يمكنني أن أفعل في %{organization}؟
         title: المساعدة العامة
     last_activities:
-      activities:
-        no_activities_warning: لا يوجد نشاط
       all: جميع أنواع النشاط
       index:
         last_activity: النشاط الاخير
-        resource_type: نوع
     links:
       invalid_url: URL غير صالح
       warning:
@@ -1111,11 +1089,6 @@ ar:
         retry: إعادة المحاولة
     open_data:
       not_available_yet: ملفات Open Data ليست متاحة بعد ، يرجى المحاولة مرة أخرى بعد بضع دقائق.
-    own_user_groups:
-      index:
-        pending: قيد الانتظار
-        rejected: مرفوض
-        verified: التحقق
     pad_iframe:
       disclaimer: تتم كتابة محتويات هذه اللوحة من قبل المستخدمين المسجلين والتعبير عن آرائهم. لا يمكن تحميل %{organization} مسؤولية محتوياته.
       pad: ضمادة
@@ -1137,8 +1110,6 @@ ar:
         hero:
           participate: مشاركة
           welcome: مرحبًا بكم على %{organization}!
-        metrics:
-          headline: المشاركة في الأرقام
         statistics:
           headline: الحالة الحالية لـ %{organization}
         sub_hero:
@@ -1155,7 +1126,7 @@ ar:
     participatory_space_private_users:
       not_allowed: غير مسموح لك بمشاهدة هذا المحتوى
     profile:
-      view: رأي
+      deleted: مشارك محذوف
     profiles:
       show:
         activity: نشاط
@@ -1167,7 +1138,6 @@ ar:
         members: أفراد
         officialized: مشارك رسمي
         send_private_message: ارسال رسالة خاصة
-        view_full_profile: عرض الملف الشخصي الكامل
       sidebar:
         badges:
           info: يتم الحصول على الشارات من خلال أداء نشاط معين في النظام الأساسي.
@@ -1235,7 +1205,6 @@ ar:
       term_input_placeholder: بحث
     searches:
       filters:
-        back: العودة إلى النتائج
         jump_to: 'اقفز إلى:'
         state:
           active: نشيط
@@ -1243,18 +1212,9 @@ ar:
           future: مستقبل
           past: الماضي
       filters_small_view:
-        close_modal: إغلاق مشروط
         filter: منقي
         filter_by: مصنف بواسطة
-        unfold: كشف
       results:
-        results:
-          zero: "%{count} النتائج"
-          one: "%{count} النتيجة"
-          two: "%{count} النتائج"
-          few: "%{count} النتائج"
-          many: "%{count} النتائج"
-          other: "%{count} النتائج"
         view_all: عرض الكل (%{count})
     security:
       selfxss_warning:
@@ -1266,10 +1226,6 @@ ar:
         close_modal: اغلاق النموذج
         ok: حسناً
         title: تأكيد
-      embed_modal:
-        close_window: أغلق النافذة
-        embed: يرجى لصق هذا الرمز في صفحتك
-        embed_link: تضمين
       extended_navigation_bar:
         more: أكثر من
         unfold: كشف
@@ -1287,7 +1243,6 @@ ar:
         report: أبلغ عن
         spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.
         title: الإبلاغ عن مشكلة
-        visit_profile: إذا كنت ترغب أيضا في حظر المشارك وبقية محتوياته، انتقل إلى صفحة الملف الشخصي %{user_link}.
       flag_user_modal:
         already_reported: تم الإبلاغ عن هذا المحتوى وسيتم مراجعته من قبل مدير.
         close: إغلاق
@@ -1297,13 +1252,8 @@ ar:
         spam: يحتوي على طعم النقر(clickbaiting) أو إعلان، أو احتيال، أو روبوتات سكريبتة.
         title: الإبلاغ عن مستخدم مخل
       floating_help:
-        close: إغلاق المساعدة
         help: المساعدة
-      follow_button:
-        sign_in_before_follow: يرجى تسجيل الدخول قبل تنفيذ هذا الإجراء
       login_modal:
-        close_modal: اغلاق النموذج
-        please_sign_in: الرجاء تسجيل الدخول
         sign_up: انشئ حسابًا
       mentions_modal:
         remove_recipient: إزالة المستلم %{name}
@@ -1313,9 +1263,6 @@ ar:
           select_an_area: اختر المنطقة
       public_participation:
         public_participation: إبراز حضوري علنا
-      redesigned_login_modal:
-        please_sign_in: يرجى تسجيل الدخول
-        sign_up: إنشاء حساب
       reference:
         reference: 'المرجع: %{reference}'
       represent_user_group:
@@ -1325,7 +1272,6 @@ ar:
         label: 'نتائج لكل صفحة:'
         title: حدد عدد النتائج لكل صفحة
       share_modal:
-        close_window: أغلق النافذة
         copy_share_link: انسخ
         copy_share_link_clarification: نسخ رابط المشاركة إلى الحافظة
         copy_share_link_copied: تم النسخ!
@@ -1355,28 +1301,12 @@ ar:
         existing_error: تعذر إنشاء الرسالة. المحادثة موجودة بالفعل، الرجاء المحاولة مرة أخرى الآن.
         success: تم بدء المحادثة بنجاح!
       index:
-        add_max_users: 'يمكن إضافة مستخدمين إلى المحادثة: 9 مستخدمين كحد أقصى'
-        add_users_placeholder: البحث…
-        close: غلق
         conversations_info: المحادثات خاصة. لا يمكن لأحد آخر أن يراها. يمكن بدء محادثة مع أي مشارك أو مجموعة مسجلة على المنصة.
-        from: من
-        last_message: آخر رسالة
-        modal_title: محادثة جديدة
-        new_conversation: محادثة جديدة
-        next: التالي
         no_conversations_warning: لا توجد نقاشات بعد.
-        no_results: لا توجد نتائج
         time_ago: "منذ %{time}"
-      new:
-        title: بدء محادثة
       reply:
         placeholder: ردك...
         send: إرسال
-        title_reply: رد
-      show:
-        back: عرض كافة المحادثات
-        not_allowed: هذا المستخدم لم يعد يستقبل المزيد من الرسائل المباشرة.
-        title: محادثة مع %{usernames}
       update:
         error: لم يتم إرسال الرسالة. حاول مرة أخرى في وقت لاحق
     user_interests:
@@ -1399,27 +1329,13 @@ ar:
         back_to_resource: العودة
         changes_at_title: تغييرات في "%{title}"
         number_of_versions: الإصدارات
-        show_all_versions: عرض جميع الإصدارات
-        version_author: مؤلف الإصدار
         version_created_at: تم إنشاء الإصدار في
-        version_number: رقم الإصدار
-        version_number_out_of_total: "%{current_version} من أصل %{total_count}"
-    version_author:
-      show:
-        deleted: مشارك محذوف
     versions:
       resource_version:
         of_versions: "(من%{number})"
         see_other_versions: عرض اصدارات أخرى
         version: رقم الإصدار %{number}
-    versions_list:
-      show:
-        back_to_resource: العودة
-        changes_at_title: تغييرات في "%{title}"
-        number_of_versions: الإصدارات
-        title: الإصدارات
     versions_list_item:
-      back: عرض جميع الإصدارات
       show:
         version_index: الإصدار %{index}
     welcome_notification:
@@ -1445,8 +1361,6 @@ ar:
       last_attempt: لديك محاولة أخرى قبل قفل حسابك.
       locked: حسابك مغلق.
       not_found_in_database: غير صالح %{authentication_keys} أو كلمة المرور.
-      timeout: انتهت جلستك. يرجى تسجيل الدخول مرة أخرى للمتابعة.
-      unauthenticated: تحتاج إلى تسجيل الدخول أو التسجيل قبل المتابعة.
     invitations:
       edit:
         header: الانتهاء من إنشاء حسابك
@@ -1494,7 +1408,6 @@ ar:
         action: فتح حسابي
         greeting: مرحبا %{recipient}!
         instruction: 'انقر على الرابط أدناه لفتح حسابك:'
-        message: تم قفل حسابك بسبب كثرة محاولات تسجيل الدخول غير الناجحة.
         subject: فتح التعليمات
     omniauth_callbacks:
       failure: تعذرت مصادقتك من %{kind} لأن "%{reason}".
@@ -1524,18 +1437,10 @@ ar:
       signed_up_but_unconfirmed: تم إرسال رسالة مع رابط التأكيد إلى عنوان بريدك الإلكتروني. يرجى اتباع الرابط لتفعيل حسابك.
       update_needs_confirmation: لقد قمت بتحديث حسابك بنجاح ، لكننا بحاجة إلى التحقق من عنوان بريدك الإلكتروني الجديد. يرجى التحقق من بريدك الإلكتروني واتبع رابط التأكيد لتأكيد عنوان بريدك الإلكتروني الجديد.
       updated: تم تحديث حسابك بنجاح.
-    sessions:
-      already_signed_out: تم الخروج بنجاح
-      new:
-        sign_in: تسجيل الدخول
-      signed_in: تم تسجيل الدخول بنجاح
-      signed_out: تم الخروج بنجاح
     shared:
       links:
         back: الى الخلف
         forgot_your_password: نسيت رقمك السري؟
-        sign_in: تسجيل الدخول
-        sign_in_with_provider: تسجيل الدخول مع %{provider}
         sign_up: انشئ حسابًا
       minimum_password_length:
         zero: "(%{count} حرف كحد أدنى)"
@@ -1549,7 +1454,6 @@ ar:
         resend_unlock_instructions: إعادة إرسال تعليمات فتح
       send_instructions: ستتلقى رسالة بريد إلكتروني تحتوي على إرشادات حول كيفية فتح حسابك في بضع دقائق.
       send_paranoid_instructions: إذا كان حسابك موجودًا ، فستتلقى رسالة بريد إلكتروني تحتوي على إرشادات حول كيفية فتحه في غضون بضع دقائق.
-      unlocked: تم فتح حسابك بنجاح. من فضلك سجل دخولك للمتابعة.
   doorkeeper:
     scopes:
       public: معلوماتك العامة.
@@ -1580,7 +1484,6 @@ ar:
   errors:
     messages:
       allowed_file_content_types: 'يسمح فقط بالملفات ذات الإضافات التالية: %{types}'
-      already_confirmed: تم التأكيد بالفعل ، يرجى محاولة تسجيل الدخول
       confirmation_period_expired: يحتاج إلى تأكيد خلال %{period}، يرجى طلب واحدة جديدة
       content_type_allowlist_error: نوع الملف غير صالح
       expired: انتهت صلاحيتها ، يرجى طلب واحدة جديدة
@@ -1674,12 +1577,9 @@ ar:
         decidim_logo: شعار Decidim
         download_open_data: تحميل ملفات البيانات المفتوحة
         made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
-      header:
-        close_menu: إغلاق القائمة
-        main_menu: القائمة الرئيسية
-        navigation: التنقل
-        sign_in: تسجيل الدخول
         sign_up: انشئ حسابًا
+      header:
+        main_menu: القائمة الرئيسية
         user_menu: قائمة المستخدم
       impersonation_warning:
         close_session: اغلق الموسم
@@ -1694,12 +1594,10 @@ ar:
         facebook: "%{organization} على الفيسبوك"
         github: "%{organization} في GitHub"
         instagram: "%{organization} في إنستاجرام"
-        twitter: "%{organization} في تويتر"
         youtube: "%{organization} على اليوتيوب"
       timeout_modal:
         body: لقد كنت غير نشط لمدة %{minutes} دقائق. إذا استمريت في كونك غير نشط، سيتم تسجيل خروجك تلقائيًا من أجل الأمان الخاص بك.
         continue_session: متابعة الجلسة
-        sign_out: تسجيل الخروج
         title: هل ترغب في متابعة جلستك؟
       upload_modal:
         close_modal: اغلاق النموذج
@@ -1710,7 +1608,6 @@ ar:
         notifications: إخطارات
         profile: حسابي
         public_profile: ملفي الشخصي العام
-        sign_out: خروج
         title: روابط الملف الشخصي
       user_profile:
         account: الحساب
@@ -1721,8 +1618,6 @@ ar:
         notifications_settings: إعدادات الإخطارات
         title: إعدادات المشارك
         user_groups: المجموعات
-      widget:
-        see_more: شاهد المزيد
   locale:
     name: العربية
     name_with_error: الإنجليزية (خطأ!)
@@ -1794,7 +1689,6 @@ ar:
     dropdown:
       choose_diff_view_html: 'عرض HTML:'
       choose_diff_view_mode: 'مقارنة وضع العرض:'
-      choose_diff_view_mode_menu: اختر وضع المقارنة
       option_escaped: فالتة
       option_split: جنبًا ﺇﻟﻰ ﺟﻨﺐ
       option_unescaped: غير فالتة

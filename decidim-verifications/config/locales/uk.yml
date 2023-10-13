@@ -24,7 +24,7 @@ uk:
             - Учасники вводять свої особисті відомості та завантажують світлину свого документа.
             - Введіть відомості з завантаженої вами світлини.
             - Відомості повинні відповідати тим, які надав учасник.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
             - Учасники подають запит на надсилання перевірочного коду на їх адресу.

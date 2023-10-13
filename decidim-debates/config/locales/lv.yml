@@ -31,7 +31,6 @@ lv:
         confirm_destroy: Vai esat pārliecināts?
         destroy: Dzēst
         edit: Labot
-        new: Jauns %{name}
         title: Darbības
       admin:
         debates:
@@ -49,9 +48,6 @@ lv:
           update:
             invalid: Šo debašu atjaunināšanas laikā radās problēma.
             success: Debates ir veiksmīgi atjauninātas
-        models:
-          debate:
-            name: Debates
       admin_log:
         debate:
           create: "%{user_name} izveidoja %{resource_name} debates telpā %{space_name}"
@@ -69,19 +65,12 @@ lv:
           official: Oficiālā
           origin: Izcelsme
           search: Meklēt
-        filters_small_view:
-          close_modal: Aizvērt modal
-          filter: Filtrēt
-          filter_by: Filtrēt pēc
-          unfold: Atritināt
         index:
           new_debate: Jaunas debates
         new:
           back: Atpakaļ
           create: Izveidot
           title: Jaunas debates
-        show:
-          back: Atpakaļ uz sarakstu
       models:
         debate:
           fields:

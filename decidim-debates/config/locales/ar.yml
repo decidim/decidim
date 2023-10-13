@@ -42,7 +42,6 @@ ar:
         confirm_destroy: هل أنت واثق؟
         destroy: حذف
         edit: تعديل
-        new: جديد %{name}
         title: أفعال
       admin:
         debates:
@@ -62,9 +61,6 @@ ar:
           update:
             invalid: كانت هناك مشكلة في تحديث هذا النقاش.
             success: تم تحديث المناقشة بنجاح.
-        models:
-          debate:
-            name: النقاش
       admin_log:
         debate:
           create: "%{user_name} خلق النقاش %{resource_name} على الفضاء %{space_name}"
@@ -92,12 +88,6 @@ ar:
           origin: الأصل
           participants: المشاركون
           search: بحث
-          user_groups: الفِرَق
-        filters_small_view:
-          close_modal: إغلاق مشروط
-          filter: منقي
-          filter_by: مصنف بواسطة
-          unfold: كشف
         form:
           select_a_category: الرجاء تحديد الفئة
         index:

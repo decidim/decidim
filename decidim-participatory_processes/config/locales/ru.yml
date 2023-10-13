@@ -90,7 +90,6 @@ ru:
           attachments: Прикрепленные файлы
           categories: Категории
           components: Составляющие
-          info: Сведения
           moderations: Действия по модерации
           private_users: Частные участники
           process_admins: Участники движения
@@ -100,7 +99,6 @@ ru:
           fields:
             created_at: 'Создано:'
             private: Частное
-            promoted: Рекомендуемые
             published: Обнародовано
             title: Название
           name: Движение соучастия
@@ -196,7 +194,6 @@ ru:
         edit:
           update: Обновить
         index:
-          not_published: Не обнародовано
           private: Частное
           public: Обнародованные
           published: Обнародовано
@@ -259,31 +256,18 @@ ru:
     participatory_process_steps:
       index:
         process_steps: Шаги движения
-        title: Шаги движения соучастия
     participatory_processes:
       admin:
-        participatory_process_copies:
-          form:
-            slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
         participatory_processes:
           form:
             announcement_help: Текст, который вы введете здесь, будет показан участнику прямо под описанием движения.
             related_processes: Подобные движения
-            slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
             title: Общие сведения
       content_blocks:
         highlighted_processes:
           name: Рекомендуемые движения
       index:
         title: Движения соучастия
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Действующие движения
-            active_step: Действующий шаг
-            more_information: Дополнительные сведения
-            participate: Принять участие
-            see_all_processes: Просмотреть все движения
       participatory_processes:
         filters:
           counters:
@@ -315,42 +299,18 @@ ru:
             past: Прошедшие
             upcoming: Грядущие
           see: Посмотреть
-        index:
-          loading: Загрузка результатов...
       show:
-        developer_group: Рабочая группа по продвижению
-        end_date: Дата окончания
-        local_area: Участок организации
-        participatory_scope: Что решается
-        participatory_structure: Как это решается
         private_space: Это частное движение
         related_processes: Подобные движения
-        scope: Охват
-        start_date: Дата начала
-        target: Кто участвует
-        unspecified: Не указано
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: Просмотреть
           processes_count: 'Движений:'
-      participatory_process_widgets:
-        show:
-          active_step: Действующий шаг
-          take_part: Принять участие
       participatory_processes:
         index:
           promoted_processes: Рекомендуемые движения
         participatory_process:
           active_step: 'Текущий шаг:'
           take_part: Принять участие
-        promoted_process:
-          active_step: 'Текущий шаг:'
-          more_info: Дополнительные сведения
-          take_part: Принять участие
-      process_header_steps:
-        step: Шаг %{current} из %{total}
-        view_steps: Просмотреть шаги
-      process_navigation:
-        process_menu_item: Движение

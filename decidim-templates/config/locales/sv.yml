@@ -19,6 +19,9 @@ sv:
         name: Mall
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Spara
         questionnaire_templates:
           choose:
             label: Välj mall
@@ -27,8 +30,6 @@ sv:
           edit:
             edit: Redigera
             questionnaire: Enkät
-          form:
-            save: Spara
           preview:
             current_step: Steg %{step} av
             of_total_steps: av %{total_steps}

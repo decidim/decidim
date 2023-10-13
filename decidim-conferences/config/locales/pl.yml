@@ -5,7 +5,6 @@ pl:
         assemblies_ids: Powiązane zespoły
         available_slots: Dostępne terminy
         banner_image: Baner
-        consultations_ids: Powiązane konsultacje
         copy_categories: Skopiuj kategorie
         copy_components: Skopiuj komponenty
         copy_features: Skopiuj funkcje
@@ -82,7 +81,6 @@ pl:
     admin:
       actions:
         confirm: Potwierdź
-        new_conference: Nowa konferencja
         send_diplomas: Wyślij certyfikaty uczestnictwa
       conference_copies:
         new:
@@ -143,7 +141,6 @@ pl:
         form:
           title: Informacje ogólne
         index:
-          not_published: Nieopublikowane
           published: Opublikowane
         new:
           create: Utwórz
@@ -184,7 +181,6 @@ pl:
           conference_invites: Zaprasza
           conference_speakers: Prelegenci
           diploma: Certyfikat uczestnictwa
-          info: Informacje
           media_links: Linki do multimediów
           moderations: Moderacje
           partners: Partnerzy
@@ -195,7 +191,6 @@ pl:
         conference:
           fields:
             created_at: Utworzono
-            promoted: Wyróżniona
             published: Opublikowana
             title: Tytuł
         conference_speaker:
@@ -318,9 +313,6 @@ pl:
         title: Prelegenci
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tej konferencji. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         conference_invites:
           create:
             error: Podczas zapraszania użytkownika do udziału w konferencji wystąpił błąd.
@@ -337,7 +329,6 @@ pl:
               all: Wszystko
               rejected: Odrzucono
               sent: Wysłano
-            filter_by: Filtruj według
             invite_attendee: Zaproś użytkownika
             invites: Zaproszeni
             search: Szukaj
@@ -363,7 +354,6 @@ pl:
               few: Było %{count} rejestracji.
               many: Było %{count} rejestracji.
               other: Było %{count} rejestracji.
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tej konferencji. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         diplomas:
           edit:
             save: Zapisz
@@ -422,7 +412,6 @@ pl:
           invalid: Podczas opuszczania tej konferencji wystąpił błąd.
           success: Opuszczono konferencję.
       conference_speaker:
-        go_to_twitter: Idź do Twittera
         more_info: więcej informacji
         personal_website: Osobista strona internetowa
         show:
@@ -474,8 +463,7 @@ pl:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktualne konferencje
-            see_all_conferences: Zobacz wszystkie konferencje
+            active_spaces: Aktualne konferencje
       registration_types:
         index:
           choose_an_option: 'Wybierz opcję rejestracji:'
@@ -487,7 +475,6 @@ pl:
         introduction: Wprowadzenie
         objectives: Cele
         related_assemblies: Powiązane zespoły
-        related_consultations: Powiązane konsultacje
         related_participatory_processes: Powiązane procesy partycypacyjne
     events:
       conferences:
@@ -542,9 +529,6 @@ pl:
     decidim:
       conference_hero:
         register: Zarejestruj się
-      conference_widgets:
-        show:
-          take_part: Weź udział
       conferences:
         conference:
           more_info: Więcej informacji
@@ -557,11 +541,7 @@ pl:
             few: "%{count} konferencji"
             many: "%{count} konferencji"
             other: "%{count} konferencji"
-        promoted_conference:
-          more_info: Więcej informacji
-          take_part: Weź udział
       conferences_nav:
-        conference_menu_item: Informacja
         conference_partners_menu_item: Partnerzy
         conference_speaker_menu_item: Prelegenci
         media: Głoska bezdźwięczna

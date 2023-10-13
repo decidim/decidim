@@ -35,7 +35,6 @@ ar:
         edit: تعديل
         edit_projects: إدارة المشاريع
         import: استيراد مقترحات للمشاريع
-        new: '%{name} جديد'
         preview: معاينة
         title: أفعال
       admin:
@@ -78,8 +77,6 @@ ar:
       budget_information_modal:
         continue: مواصلة
         more_information: المزيد من المعلومات
-      budgets_list:
-        my_budgets: ميزانياتي
       models:
         budget:
           fields:
@@ -97,15 +94,12 @@ ar:
         budget_excess:
           budget_excess:
             title: تم تجاوز الحد الأقصى للميزانية
-          close: قريب
           ok: حسنا
         budget_summary:
           are_you_sure: هل أنت متأكد أنك تريد إلغاء تصويتك؟
-          assigned: 'تعيين:'
           cancel_order: احذف صوتك وابدأ من جديد
           checked_out:
             title: اكتمال التصويت في الميزانية
-          title: عليك أن تقرر الميزانية
         count:
           projects_count:
             zero: "%{count} مشاريع"
@@ -118,28 +112,10 @@ ar:
           category: الفئة
           scope: نطاق
           search: بحث
-        filters_small_view:
-          close_modal: إغلاق مشروط
-          filter: منقي
-          filter_by: مصنف بواسطة
-          unfold: كشف
-        order_progress:
-          vote: تصويت
-        order_selected_projects:
-          remove: إزالة
-          selected_projects:
-            zero: المشاريع المختارة
-            one: المشروع المحدد
-            two: المشاريع المختارة
-            few: المشاريع المختارة
-            many: المشاريع المختارة
-            other: المشاريع المختارة
-          view: رأي
         project:
           view: رأي
         show:
           budget: ميزانية
-          view_all_projects: عرض جميع المشاريع
       vote_reminder_mailer:
         vote_reminder:
           email_link: الذهاب لمتابعة التصويت

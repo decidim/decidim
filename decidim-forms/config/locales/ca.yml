@@ -156,7 +156,6 @@ ca:
         show:
           answer_questionnaire:
             already_have_an_account?: Ja tens un compte?
-            anonymous_user_message: <a href="%{sign_in_link}">Inicia sessió amb el teu compte</a> o <a href="%{sign_up_link}">registra't</a> per respondre el formulari.
             are_you_new?: Ets una nova usuària?
             sign_in_description: Inicia la teva sessió per respondre l'enquesta
             sign_up_description: Crea un compte de participant per a respondre l'enquesta
@@ -178,7 +177,6 @@ ca:
           questionnaire_not_published:
             body: Aquest formulari no s'ha publicat encara.
           tos_agreement: En participar acceptes els Termes i condicions d'ús
-          upload_file: Puja un arxiu
       step_navigation:
         show:
           are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Segur?

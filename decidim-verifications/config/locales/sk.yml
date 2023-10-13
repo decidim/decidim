@@ -38,7 +38,7 @@ sk:
             - Užívatelia vyplní informácie o svojej identite a nahrajú kópiu dokumentu.
             - Vyplníte informácie obsiahnuté v nahranom obrázku.
             - Informácie by mali zodpovedať používateľovi, ktorý vyplnil.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
             - Užívatelia požadujú, aby ich adresa bola odoslaná certifikačnému kódu.

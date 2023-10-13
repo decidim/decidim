@@ -378,16 +378,10 @@ lv:
           show:
             amendments_count: Grozījumu skaits
             assigned_valuators: Piešķirtie vērtētāji
-            authors: Autori
             body: Pamatteksts
             comments_count: Komentāru skaits
-            comments_negative_count: Pret
-            comments_neutral_count: Neitrāls
-            comments_positive_count: Par
-            created_at: Izveides datums
             documents: Dokumenti
             endorsements_count: Atbalstu skaits
-            endorsements_ranking: Sarindot pēc atbalsta
             endorsers: Atbalstītāji
             link: Saite
             n_more_endorsers:
@@ -395,14 +389,12 @@ lv:
               one: un vēl viens
               other: un %{count} vēl
             photos: Fotogrāfijas
-            proposals: Priekšlikumi
             ranking: "%{ranking} no %{total}"
             related_meetings: 'Saistītās sanāksmes:'
             remove_assignment: Noņemt uzdevumu
             remove_assignment_confirmation: Vai tiešām vēlaties noņemt vērtētāju šim priekšlikumam?
             valuators: Vērtētāji
             votes_count: Atbalstu skaits
-            votes_ranking: Sarindot pēc atbalstiem
           update_category:
             invalid: 'Šiem priekšlikumiem jau bija %{subject_name} kategorija: %{proposals}.'
             success: 'Priekšlikumi ir veiksmīgi atjaunināti kategorijā %{subject_name} kategorija: %{proposals}.'
@@ -439,15 +431,11 @@ lv:
         rejected: Noraidīts
         withdrawn: Atsaukts
       application_helper:
-        filter_category_values:
-          all: Visi
         filter_origin_values:
           all: Visi
           meetings: Sanāksmes
           official: Oficiālā
           user_groups: Grupas
-        filter_scope_values:
-          all: Visi
         filter_state_values:
           accepted: Pieņemts
           all: Visi
@@ -467,7 +455,6 @@ lv:
               ok: Publicēt kā priekšlikumu
               title: Šī darbība ir neatgriezeniska
             success: Sadarbības projekts ir veiksmīgi publicēts kā priekšlikums.
-          view_collaborative_draft: Aplūkot sadarbības projektu
           withdraw:
             error: Sadarbības projekta aizvēršanas laikā radās problēma.
             irreversible_action_modal:
@@ -475,11 +462,6 @@ lv:
               ok: Atsaukt sadarbības projektu
               title: Šī darbība ir neatgriezeniska
             success: Sadarbības projekts ir veiksmīgi atsaukts.
-        count:
-          drafts_count:
-            zero: "%{count} sadarbības projekti"
-            one: "%{count} sadarbības projekts"
-            other: "%{count} sadarbības projekti"
         create:
           success: Sadarbības projekts ir veiksmīgi izveidots.
         edit:
@@ -504,6 +486,11 @@ lv:
           filter: Filtrēt
           filter_by: Filtrēt pēc
           unfold: Atritināt
+        index:
+          count:
+            zero: "%{count} sadarbības projekti"
+            one: "%{count} sadarbības projekts"
+            other: "%{count} sadarbības projekti"
         new:
           send: Turpināt
         new_collaborative_draft_button:
@@ -525,7 +512,6 @@ lv:
           rejected_request:
             error: Nevarēja noraidīt sadarbības pieprasījumu, lūdzu, vēlāk mēģiniet vēlreiz.
         show:
-          back: Atpakaļ
           edit: Rediģēt sadarbības projektu
           final_proposal: galīgais priekšlikums
           final_proposal_help_text: Šis projekts ir pabeigts. Iepazīstieties ar galīgo priekšlikumu
@@ -538,7 +524,6 @@ lv:
           published_proposal: publicētais priekšlikums
           request_access: Pieprasīt piekļuvi
           requested_access: Piekļuve pieprasīta
-          version_history: skatīt šī priekšlikuma versiju vēsturi
           withdraw: atsaukt projektu
         states:
           open: Atvērts
@@ -547,8 +532,6 @@ lv:
         update:
           error: Sadarbības projekta saglabāšanas laikā radās problēma.
           success: Sadarbības projekts ir veiksmīgi saglabāts
-        wizard_aside:
-          info: Jūs veidojat <strong>sadarbības projektu</strong>.
         wizard_header:
           title: Izveidot jūsu sadarbības projektu
       create:
@@ -558,11 +541,6 @@ lv:
         error: Sadarbības projekta dzēšanas laikā radās problēma.
         success: Grozījuma projekts tika veiksmīgi izdzēsts.
       models:
-        collaborative_draft:
-          fields:
-            authors: Autori
-            comments: Komentāri
-            contributions: Papildinājumi
         proposal:
           fields:
             category: Kategorija
@@ -582,7 +560,6 @@ lv:
         buttons:
           amend: Grozīt
           comment: Komentēt
-          comments: Komentāri
       proposal_votes:
         create:
           error: Atbalstot priekšlikumu, radās problēma
@@ -594,11 +571,6 @@ lv:
         complete:
           send: Sūtīt
           title: Pabeidziet savu priekšlikumu
-        count:
-          proposals_count:
-            zero: "%{count} priekšlikumi"
-            one: "%{count} priekšlikums"
-            other: "%{count} priekšlikumi"
         edit:
           attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
           back: Atpakaļ
@@ -623,21 +595,14 @@ lv:
           state: Statuss
           type: Veids
           voted: Atbalstīts
-        filters_small_view:
-          close_modal: Aizvērt modal
-          filter: Filtrēt
-          filter_by: Filtrēt pēc
-          unfold: Atritināt
         index:
           collaborative_drafts_list: Piekļūt sadarbības projektam
+          count:
+            zero: "%{count} priekšlikumi"
+            one: "%{count} priekšlikums"
+            other: "%{count} priekšlikumi"
           new_proposal: Jauns priekšlikums
           see_all_withdrawn: Skatīt visus atsauktos priekšlikumus
-          view_proposal: Skatīt priekšlikumu
-        linked_proposals:
-          proposal_votes:
-            zero: atbalsta
-            one: atbalsts
-            other: atbalsta
         new:
           send: Turpināt
         orders:
@@ -649,11 +614,6 @@ lv:
           random: Nejauši
           recent: Nesenie
           with_more_authors: Ar vairākiem autoriem
-        participatory_texts:
-          index:
-            document_index: Dokumentu indekss
-          view_index:
-            see_index: Skatīt indeksu
         preview:
           modify: Mainīt priekšlikumu
           proposal_edit_before_minutes:
@@ -662,15 +622,9 @@ lv:
             other: Jūs varēsiet rediģēt šo priekšlikumu pirmajās %{count} minūtēs pēc priekšlikuma publicēšanas. Kad šis laika logs būs pagājis, jūs nevarēsiet rediģēt priekšlikumu.
           publish: Publicēt
           title: Publicējiet savu priekšlikumu
-        proposal:
-          creation_date: 'Izveidots: %{date}'
-          view_proposal: Skatīt priekšlikumu
         show:
           answer: Atbilde
-          back_to: Atpakaļ uz
-          back_to_list: Atpakaļ uz sarakstu
           changes_at_title: Grozīts "%{title}"
-          comments: Komentāri
           edit_proposal: Rediģēt priekšlikumu
           estimated_cost: Paredzamās izmaksas
           hidden_endorsers_count:
@@ -686,13 +640,8 @@ lv:
           proposal_accepted_reason: 'Šis priekšlikums ir pieņemts, jo:'
           proposal_in_evaluation_reason: Šis priekšlikums tiek vērtēts
           proposal_rejected_reason: 'Šis priekšlikums netika pieņemts, jo'
-          read_less: Lasīt mazāk
-          read_more: Lasīt vairāk
-          report: Ziņot
           withdraw_btn_hint: Ja pārdomājat, jūs varat atsaukt savu priekšlikumu, ja vien neesat saņēmis atbalstu. Priekšlikums netiks izdzēsts, bet tas parādīsies atsaukto priekšlikumu sarakstā.
           withdraw_proposal: Atsaukt priekšlikumu
-        tags:
-          changed_from: "(administrators mainījis no <u>%{previous_name}</u>)"
         vote_button:
           already_voted: Jau atbalstīts
           already_voted_hover: Atsaukt atbalstu
@@ -700,9 +649,6 @@ lv:
           no_votes_remaining: Nav atlikuši atbalsti
           vote: Atbalsts
           votes_blocked: Atbalsts nav iespējots
-        votes_count:
-          most_popular_proposal: Populārākais priekšlikums
-          need_more_votes: Nepieciešams lielāks atbalsts
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Katrs priekšlikums var uzkrāt vairāk nekā %{limit} atbalstu
@@ -714,22 +660,16 @@ lv:
           title: 'Atbalstam tiek piemēroti šādi noteikumi:'
           vote_limit:
             description: Jūs varat atbalstīt līdz %{limit} priekšlikumiem.
-            left: Atlikušas
             votes: Atbalsta
         wizard_aside:
           back: Atpakaļ
-          info: Jūs veidojat <strong>priekšlikumu</strong>.
         wizard_steps:
-          see_steps: skatīt soļus
           step_1: Izveidojiet savu priekšlikumu
           step_2: Salīdzināt
           step_3: Pabeigt
           step_4: Publicējiet savu priekšlikumu
-          step_of: Solis %{current_step_num} no %{total_steps}
       proposals_picker:
         choose_proposals: Izvēlieties priekšlikumus
-        close: Aizvērt
-        more_proposals: Ir vēl %{number} priekšlikumi. Precizējiet savus meklēšanas kritērijus, lai tos atrastu.
       publish:
         error: Priekšlikuma publicēšanas laikā radās problēma.
         success: Priekšlikums ir veiksmīgi publicēts.
@@ -742,12 +682,8 @@ lv:
         error: Sadarbības projekta saglabāšanas laikā radās problēma.
         success: Priekšlikuma projekts ir veiksmīgi atjaunināts.
       versions:
-        collaborative_drafts:
-          back_to_resource: Skatīt sadarbības projektu
         index:
           title: Versijas
-        proposals:
-          back_to_resource: Doties atpakaļ pie priekšlikuma
     resource_links:
       copied_from_component:
         proposal_proposal: Saistītie priekšlikumi

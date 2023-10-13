@@ -97,7 +97,6 @@ en:
           cancel: Cancel
           description: What is the summary or conclusion of this debate?
           send: Close debate
-        closed: Closed
         count:
           debates_count:
             one: "%{count} debate"
@@ -105,8 +104,6 @@ en:
         create:
           invalid: There was a problem creating the debate.
           success: Debate successfully created.
-        debate:
-          participate: Participate
         edit:
           back: Back
           save: Save changes
@@ -143,7 +140,6 @@ en:
           updated: Recently updated
         show:
           close_debate: Close debate
-          date: Date
           debate_closed: Closed
           debate_conclusions_are: 'The debate was closed on %{date} with these conclusions:'
           edit_conclusions: Edit conclusions

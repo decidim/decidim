@@ -3,18 +3,27 @@ el:
     attributes:
       answer:
         body: Απάντηση
+        choices: Επιλογές
+        selected_choices: Επιλεγμένες επιλογές
       question:
         max_choices: Μέγιστος αριθμός επιλογών
         question_type: Τύπος
       questionnaire_question:
         mandatory: Υποχρεωτικό
+        max_characters: Όριο χαρακτήρων (αφήστε στο 0 αν δεν υπάρχει όριο)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
+            body:
+              too_long: είναι πολύ μεγάλο
             choices:
               missing: δεν έχουν ολοκληρωθεί
               too_many: είναι πάρα πολλά
+        questionnaire:
+          request_invalid: Παρουσιάστηκε σφάλμα κατά τον χειρισμό του αιτήματος. Παρακαλώ δοκιμάστε ξανά.
   decidim:
     forms:
       admin:
@@ -23,26 +32,70 @@ el:
             description: Περιγραφή
             tos: Όροι χρήσης υπηρεσίας
         questionnaires:
+          actions:
+            back: Επιστροφή στις ερωτήσεις
+            show: Εμφάνιση απαντήσεων
           answer_option:
             answer_option: Επιλογή απάντησης
             free_text: Ελεύθερο κείμενο
             remove: Κατάργηση
             statement: Δήλωση
+          answers:
+            actions:
+              back: Επιστροφή στις απαντήσεις
+              export: Εξαγωγή
+              next: Επόμενη &rsaquo;
+              previous: "&lsaquo; Προηγούμενη"
+              show: Εμφάνιση απαντήσεων
+            empty: Δεν υπάρχουν απαντήσεις ακόμη
+            export:
+              answer:
+                title: 'Απάντηση #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
+            index:
+              title: "%{total} συνολικές απαντήσεις"
+            show:
+              title: 'Απάντηση #%{number}'
+          display_condition:
+            answer_option: Επιλογή απάντησης
+            condition_question: Ερώτηση
+            condition_type: Συνθήκη
+            condition_types:
+              answered: Απαντήθηκε
+              equal: Ίσο
+              match: Περιλαμβάνει κείμενο
+              not_answered: Δεν απαντήθηκε
+              not_equal: Όχι ίσο
+            condition_value: Περιλαμβανόμενο κείμενο
+            display_condition: Συνθήκη εμφάνισης
+            mandatory: Αυτή η συνθήκη πρέπει να ικανοποιείται πάντα ανεξάρτητα από την κατάσταση άλλων συνθηκών
+            remove: Αφαίρεση
+            save_warning: Θυμηθείτε να αποθηκεύσετε τη φόρμα πριν διαμορφώσετε τις συνθήκες εμφάνισης
+            select_answer_option: Επιλέξτε επιλογή απάντησης
+            select_condition_question: Επιλέξτε μια ερώτηση
+            select_condition_type: Επιλέξτε έναν τύπο συνθήκης
           edit:
             save: Αποθήκευση
             title: Επεξεργασία ερωτηματολογίου
           form:
             add_question: Προσθήκη ερώτησης
             add_separator: Προσθήκη διαχωριστικού
+            add_title_and_description: Προσθήκη τίτλου και περιγραφής
             already_answered_warning: Η φόρμα έχει ήδη απαντηθεί από ορισμένους χρήστες, επομένως δεν μπορείτε να τροποποιήσετε τις ερωτήσεις της.
             collapse: Σύμπτυξη όλων των ερωτήσεων
             expand: Ανάπτυξη όλων των ερωτήσεων
+            preview: Προεπισκόπηση
+            title: Επεξεργασία φόρμας για %{questionnaire_for}
+            unpublished_warning: Η φόρμα δεν έχει δημοσιευτεί. Μπορείτε να τροποποιήσετε τις ερωτήσεις της, αλλά με αυτόν τον τρόπο θα διαγράψετε τις τρέχουσες απαντήσεις.
           matrix_row:
             matrix_row: Γραμμή
             remove: Κατάργηση
             statement: Δήλωση
           question:
             add_answer_option: Προσθήκη επιλογής απάντησης
+            add_display_condition: Προσθήκη συνθήκης εμφάνισης
+            add_display_condition_info: Αποθηκεύστε τη φόρμα για να ρυθμίσετε τις συνθήκες εμφάνισης
             add_matrix_row: Προσθήκη γραμμής
             any: Οποιαδήποτε
             collapse: Σύμπτυξη
@@ -58,11 +111,31 @@ el:
             remove: Κατάργηση
             separator: Διαχωριστικό
             up: Επάνω
+          title_and_description:
+            collapse: Σύμπτυξη
+            description: Περιγραφή
+            down: Κάτω
+            expand: Ανάπτυξη
+            remove: Αφαίρεση
+            title: Τίτλος
+            title_and_description: Τίτλος και περιγραφή
+            up: Πάνω
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της φόρμας.
+            success: Η φόρμα αποθηκεύτηκε επιτυχώς.
+      admin_log:
+        questionnaire:
+          update: "Ο/Η %{user_name} ενημέρωσε το %{resource_name} ερωτηματολόγιο"
+      errors:
+        answer:
+          body: Το σώμα δεν μπορεί να είναι κενό
       images:
         dimensions: "Π %{width} x Υ %{height} px"
+        processors:
+          resize_and_pad: Αυτή η εικόνα θα αλλάξει μέγεθος σε %{dimensions}.
+          resize_to_fit: Αυτή η εικόνα θα αλλάξει μέγεθος για να χωρέσει σε %{dimensions}.
       question_types:
+        files: Αρχεία
         long_answer: Μεγάλη απάντηση
         matrix_multiple: Πίνακας (πολλαπλή επιλογή)
         matrix_single: Πίνακας (μία επιλογή)
@@ -70,6 +143,9 @@ el:
         short_answer: Σύντομη απάντηση
         single_option: Μία επιλογή
         sorting: Ταξινόμηση
+        title_and_description: Τίτλος και περιγραφή
+      questionnaire_answer_presenter:
+        download_attachment: Λήψη συνημμένου
       questionnaires:
         answer:
           invalid: Υπήρξε ένα πρόβλημα κατά την απάντηση της φόρμας.
@@ -79,7 +155,10 @@ el:
           max_choices: 'Μέγιστες επιλογές: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Είσοδος με τον λογαριασμό σας</a> ή <a href="%{sign_up_link}">εγγραφή</a> για να απαντήσετε στη φόρμα.
+            already_have_an_account?: Έχετε ήδη λογαριασμό;
+            are_you_new?: Νέος χρήστης;
+            sign_in_description: Συνδεθείτε για να πραγματοποιήσετε την έρευνα
+            sign_up_description: Δημιουργήστε ένα λογαριασμό συμμετέχοντα για να κάνετε την έρευνα
             title: Απαντήστε στη φόρμα
           current_step: Βήμα %{step}
           of_total_steps: από %{total_steps}
@@ -92,6 +171,11 @@ el:
           questionnaire_for_private_users:
             body: Η φόρμα είναι διαθέσιμη μόνο για ιδιωτικούς χρήστες
             title: Η φόρμα έκλεισε
+          questionnaire_js_disabled:
+            body: Ορισμένες από τις δυνατότητες αυτής της φόρμας θα απενεργοποιηθούν. Για να βελτιώσετε την εμπειρία σας, ενεργοποιήστε την JavaScript στο πρόγραμμα περιήγησης.
+            title: Η JavaScript είναι απενεργοποιημένη
+          questionnaire_not_published:
+            body: Αυτή η φόρμα δεν έχει δημοσιευτεί ακόμη.
           tos_agreement: Με τη συμμετοχή σας, αποδέχεστε τους Όρους παροχής υπηρεσίας
       step_navigation:
         show:
@@ -100,8 +184,13 @@ el:
           continue: Συνέχεια
           submit: Υποβολή
       user_answers_serializer:
+        body: Απάντηση
+        completion: Ολοκλήρωση
         created_at: Απαντήθηκε στις
         id: Αναγνωριστικό απάντησης
+        ip_hash: IP Hash
+        question: Ερώτηση
         registered: Έχει εγγραφεί
+        session_token: Αναγνωριστικό χρήστη
         unregistered: Δεν έχει εγγραφεί
         user_status: Κατάσταση χρήστη
