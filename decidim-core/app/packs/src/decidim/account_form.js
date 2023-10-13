@@ -13,7 +13,6 @@ const initializeAccountForm = () => {
   let newPwVisible = false;
 
   const toggleNewPassword = () => {
-    console.log("being called")
     const input = newPasswordPanel.querySelector("input")
     if (newPwVisible) {
       input.required = true;
