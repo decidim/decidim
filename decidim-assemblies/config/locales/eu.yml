@@ -3,7 +3,10 @@ eu:
     attributes:
       assemblies_setting:
         enable_organization_chart: Gaitu organigrama
+      assemblies_type:
+        title: Izenburua
       assembly:
+        announcement: Jakinaraztea
         area_id: Arloa
         assembly_type: Batzar mota
         assembly_type_other: Batzar mota beste
@@ -29,6 +32,9 @@ eu:
         github: GitHub
         hashtag: Traola
         hero_image: Orri nagusiko irudia
+        import_attachments: Eranskinak inportatu
+        import_categories: Kategoriak inportatu
+        import_components: Osagaiak inportatu
         included_at: Barruan sartzen da
         instagram: Instagram
         internal_organisation: Barneko antolaketa
@@ -52,7 +58,6 @@ eu:
         subtitle: Azpititulua
         target: Nor parte hartzen du
         title: Prozesu partizipatiboen multzoak
-        twitter: Twitter
         weight: Kokapenaren hurrenkera
         youtube: YouTube
       assembly_member:
@@ -85,7 +90,9 @@ eu:
       actions:
         import_assembly: Inportatu
         new_assembly: Batzar berria
+        new_assembly_member: Beste batzarkide bat
         new_assembly_type: Batzar mota berria
+        new_assembly_user_role: Bileraren beste administratzaile bat
       assemblies:
         create:
           error: Errorea gertatu da batzar berri bat sortzean.
@@ -93,7 +100,6 @@ eu:
         edit:
           update: Eguneratu
         index:
-          not_published: Argitaratu gabe
           private: Pribatua
           public: Publiko
           published: Argitaratua
@@ -191,9 +197,11 @@ eu:
           attachments: Eranskinak
           categories: Kategoriak
           components: Osagaiak
-          info: Informazioa
+          info: Batzar honi buruz
+          landing_page: Hasierako orria
           moderations: Moderazioak
           private_users: Erabiltzaile pribatuak
+          see_assembly: Ikusi batzarra
         assemblies_types: Batzar motak
       models:
         assemblies_types:
@@ -202,6 +210,7 @@ eu:
             title: Prozesu partizipatiboen multzoak
         assembly:
           fields:
+            actions: Ekintzak
             created_at: Sortze-data
             private: Pribatua
             promoted: Nabarmendua
@@ -271,7 +280,6 @@ eu:
             select_an_area: Hautatu eremu bat
             select_an_assembly_type: Hautatu muntatze mota bat
             select_parent_assembly: Hautatu gurasoaren muntaia
-            slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
             social_handlers: Gizarte
             title: Informazio orokorra
             visbility: ikusgarritasuna
@@ -282,14 +290,7 @@ eu:
             title: Batzarren konfigurazioa
         assemblies_types:
           form:
-            title: Prozesu partizipatiboen multzoak
-        assembly_copies:
-          form:
-            slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
-        assembly_imports:
-          form:
-            document_legend: Gehitu dokumentu bat
-            slug_help: 'URL testu laburrak erabiltzen dira batzar hau aipatzen duten URLak sortzeko. Hizkiak, zenbakiak eta gidoiak onartzen ditu soilik eta hizki batez hasi behar da. Adibidea: %{url}'
+            title: Batzar mota berria
         assembly_members:
           form:
             existing_user: Erabiltzaile existentea
@@ -305,7 +306,6 @@ eu:
               all: guztiak
               ceased: utzi zion
               not_ceased: Ez da gelditu
-            filter_by: Iragazi arabera
             search: Bilatu
         content_blocks:
           highlighted_assemblies:
@@ -313,6 +313,14 @@ eu:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        description:
+          duration: Iraupena
+          indefinite_duration: Zehaztu gabe
+        filters:
+          names:
+            all: Guztiak
+          type: Mota
       assembly_members:
         index:
           members: Kideak
@@ -344,41 +352,17 @@ eu:
       index:
         title: Biltzarrak
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Batzar aktiboak
-            assemblies_button_title: Lotura batzar guztiak erakusten dituen Batzarren orrialdera
-            see_all_assemblies: Ikusi biltzar guztiak
         user_profile:
           member_of:
             member_of: Kidea
       show:
-        area: Area
         assembly_type: Muntatze-mota
-        children: Batzar
-        closing_date: Amaiera data
-        composition: Konposizio
-        created_by: Sortuta
-        creation_date: Data sortu da
-        developer_group: Sustatzailearen taldea
         duration: Iraupena
-        included_at: Barruan sartzen da
-        indefinite_duration: mugagabeak
-        internal_organisation: Barneko antolaketa
         is_transparent:
           'false': opakua
           'true': gardena
-        local_area: Antolakuntza eremua
-        participatory_scope: Zer erabaki
-        participatory_structure: Nola erabakitzen da?
         private_space: Hau muntaia pribatua da
-        purpose_of_action: Ekintza xedea
-        read_less: Irakurri gutxiago
-        read_more: Irakurri gehiago
         related_participatory_processes: Partaidetza prozesu erlazionatuak
-        scope: Esparrua
-        social_networks: Sare sozialak
-        target: Nor parte hartzen du
     assembly_members:
       assembly_member:
         designated_on: Izendatuta
@@ -427,20 +411,10 @@ eu:
           more_info: Informazio gehiago
           take_part: Parte hartu
         index:
-          children: 'Batzarrak: '
-          organizational_chart: Organigrama
           promoted_assemblies: Batzar nabarmenduak
-          reset_chart: Berrezarri
         order_by_assemblies:
           assemblies:
             one: "%{count} batzarra"
             other: "%{count} batzarrak"
-        promoted_assembly:
-          more_info: Informazio gehiago
-          take_part: Parte hartu
       assembly_navigation:
         assembly_member_menu_item: Kideak
-        assembly_menu_item: Biltzarra
-      assembly_widgets:
-        show:
-          take_part: Parte hartu

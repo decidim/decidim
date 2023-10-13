@@ -5,7 +5,6 @@ pt:
         assemblies_ids: Reuniões Relacionadas
         available_slots: Espaços disponíveis
         banner_image: Imagem da faixa
-        consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorias
         copy_components: Copiar componentes
         copy_features: Copiar características
@@ -56,7 +55,6 @@ pt:
         conference_meeting_ids: Reuniões relacionadas
         full_name: Nome completo
         position: Posição
-        twitter_handle: Identificador do Twitter
         user_id: Utilizador
       conference_user_role:
         email: E-mail
@@ -77,7 +75,6 @@ pt:
     admin:
       actions:
         confirm: Confirmar
-        new_conference: Nova conferência
         send_diplomas: Enviar certificados de participação
       conference_copies:
         new:
@@ -138,7 +135,6 @@ pt:
         form:
           title: Informação geral
         index:
-          not_published: Não publicado
           published: Publicado
         new:
           create: Criar
@@ -179,7 +175,6 @@ pt:
           conference_invites: Convites
           conference_speakers: Oradores
           diploma: Certificado de Participação
-          info: Info
           media_links: Hiperligações de Multimédia
           moderations: Moderações
           partners: Parceiros
@@ -190,7 +185,6 @@ pt:
         conference:
           fields:
             created_at: Criado em
-            promoted: Realçado
             published: Publicado
             title: Título
         conference_speaker:
@@ -313,9 +307,6 @@ pt:
         title: Oradores
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para esta conferência. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         conference_invites:
           create:
             error: Ocorreu um problema ao convidar o participante para se juntar à conferência.
@@ -332,7 +323,6 @@ pt:
               all: Todos
               rejected: Rejeitado
               sent: Enviei
-            filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
             search: Pesquisar
@@ -356,7 +346,6 @@ pt:
             registrations_count:
               one: Ocorreu 1 registo.
               other: Ocorreram %{count} registos.
-            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para esta conferência. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         diplomas:
           edit:
             save: Guardar
@@ -415,7 +404,6 @@ pt:
           invalid: Ocorreu um problema ao sair desta conferência.
           success: Saiu da conferência corretamente.
       conference_speaker:
-        go_to_twitter: Vá para o Twitter
         more_info: mais informações
         personal_website: Sítio pessoal
         show:
@@ -467,9 +455,7 @@ pt:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Conferências ativas
-            conferences_button_title: Ligação para a página de Conferências que mostra todas as conferências
-            see_all_conferences: Ver todas as conferências
+            active_spaces: Conferências ativas
       registration_types:
         index:
           choose_an_option: 'Escolha a sua opção de registo:'
@@ -481,7 +467,6 @@ pt:
         introduction: Introdução
         objectives: Objetivos
         related_assemblies: Reuniões relacionadas
-        related_consultations: Consultas Relacionadas
         related_participatory_processes: Processos participativos relacionados
     events:
       conferences:
@@ -536,9 +521,6 @@ pt:
     decidim:
       conference_hero:
         register: Registar
-      conference_widgets:
-        show:
-          take_part: Fazer parte
       conferences:
         conference:
           more_info: Mais informações
@@ -549,11 +531,7 @@ pt:
           conferences:
             one: "%{count} conferência"
             other: "%{count} conferências"
-        promoted_conference:
-          more_info: Mais informações
-          take_part: Fazer parte
       conferences_nav:
-        conference_menu_item: Informação
         conference_partners_menu_item: Parceiros
         conference_speaker_menu_item: Oradores
         media: Multimédia

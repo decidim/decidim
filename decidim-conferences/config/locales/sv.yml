@@ -5,7 +5,6 @@ sv:
         assemblies_ids: Relaterade grupper
         available_slots: Tillgängliga platser
         banner_image: Bannerbild
-        consultations_ids: Relaterade samråd
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         copy_features: Kopiera funktioner
@@ -33,6 +32,7 @@ sv:
         slug: URL-slug
         start_date: Startdatum
         title: Titel
+        weight: Position i listan
       conference_media_link:
         date: Datum
         link: Länk
@@ -61,7 +61,7 @@ sv:
         full_name: Fullständigt namn
         personal_url: Personlig URL
         position: Plats
-        twitter_handle: Twitternamn
+        short_bio: Kort biographi
         user_id: Användare
       conference_user_role:
         email: E-post
@@ -82,7 +82,6 @@ sv:
     admin:
       actions:
         confirm: Bekräfta
-        new_conference: Ny konferens
         send_diplomas: Skicka deltagarbevis
       conference_copies:
         new:
@@ -143,7 +142,6 @@ sv:
         form:
           title: Allmän information
         index:
-          not_published: Ej publicerad
           published: Publicerad
         new:
           create: Skapa
@@ -184,7 +182,6 @@ sv:
           conference_invites: Inbjudningar
           conference_speakers: Talare
           diploma: Närvarointyg
-          info: Info
           media_links: Medialänkar
           moderations: Moderering
           partners: Partners
@@ -195,7 +192,6 @@ sv:
         conference:
           fields:
             created_at: Skapad
-            promoted: Annonserad
             published: Publicerad
             title: Titel
         conference_speaker:
@@ -318,9 +314,6 @@ sv:
         title: Talare
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL-slugs används till att skapa de URL:er som pekar på konferensen. Tar bara emot bokstäver, siffror och bindestreck, och måste börja med en bokstav. Exempel: %{url}'
         conference_invites:
           create:
             error: Det gick inte att bjuda in deltagaren till konferensen.
@@ -337,7 +330,6 @@ sv:
               all: Alla
               rejected: Avvisad
               sent: Skickade
-            filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningar
             search: Sök
@@ -361,7 +353,6 @@ sv:
             registrations_count:
               one: Det har gjorts en registrering.
               other: Det har gjorts %{count} registreringar.
-            slug_help: 'URL-slugs används till att skapa de URL:er som pekar på konferensen. Tar bara emot bokstäver, siffror och bindestreck, och måste börja med en bokstav. Exempel: %{url}'
         diplomas:
           edit:
             save: Spara
@@ -420,7 +411,6 @@ sv:
           invalid: Det gick inte att lämna konferensen.
           success: Du har lämnat konferensen.
       conference_speaker:
-        go_to_twitter: Gå till Twitter
         more_info: mer information
         personal_website: Personlig hemsida
         show:
@@ -429,6 +419,11 @@ sv:
       conference_speaker_cell:
         personal_url:
           personal_website: Personlig hemsida
+      conference_speakers:
+        index:
+          speakers:
+            one: Talare
+            other: Talare
       conferences:
         partners:
           collaborators: Partners
@@ -472,9 +467,8 @@ sv:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Pågående konferenser
-            conferences_button_title: Länk till sidan över konferenser som visar alla konferenser
-            see_all_conferences: Visa alla konferenser
+            active_spaces: Pågående konferenser
+            see_all_spaces: Se alla konferenser
       registration_types:
         index:
           choose_an_option: 'Välj registreringsalternativ:'
@@ -486,7 +480,6 @@ sv:
         introduction: Introduktion
         objectives: Mål
         related_assemblies: Relaterade grupper
-        related_consultations: Relaterade samråd
         related_participatory_processes: Relaterade dialoger
     events:
       conferences:
@@ -541,9 +534,6 @@ sv:
     decidim:
       conference_hero:
         register: Registrera
-      conference_widgets:
-        show:
-          take_part: Medverka
       conferences:
         conference:
           more_info: Mer information
@@ -554,11 +544,7 @@ sv:
           conferences:
             one: "%{count} konferens"
             other: "%{count} konferenser"
-        promoted_conference:
-          more_info: Mer information
-          take_part: Medverka
       conferences_nav:
-        conference_menu_item: Information
         conference_partners_menu_item: Partners
         conference_speaker_menu_item: Talare
         media: Media

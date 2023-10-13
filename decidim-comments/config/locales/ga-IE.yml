@@ -14,14 +14,11 @@ ga:
         many: Vótaí
         other: Vótaí
   decidim:
-    comments:
-      view: Amharc
     components:
       add_comment_form:
         form:
           body:
             label: Trácht
-          submit: Seol
         opinion:
           neutral: Neodrach
       comment:

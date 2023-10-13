@@ -38,7 +38,7 @@ zh-CN:
             - 用户填写其身份资料并上载其文件副本。
             - 您填写上传图片中的信息。
             - 信息应匹配用户填写的任何信息。
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
             - 参与者要求将验证码发送到他们的地址。

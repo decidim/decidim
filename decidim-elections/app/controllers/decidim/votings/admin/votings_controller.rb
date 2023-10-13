@@ -80,10 +80,6 @@ module Decidim
           end
         end
 
-        def polling_officers_picker
-          render :polling_officers_picker, layout: false
-        end
-
         private
 
         def votings

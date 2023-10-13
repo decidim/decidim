@@ -60,7 +60,6 @@ id:
         secondary_color: Sekunder
         success_color: Keberhasilan
         tos_version: Versi persyaratan layanan
-        twitter_handler: Penangan Twitter
         user_groups_enabled: Aktifkan grup pengguna
         warning_color: Peringatan
         youtube_handler: Penangan YouTube
@@ -115,8 +114,6 @@ id:
       actions:
         add: Menambahkan
         browse: Jelajahi
-        manage: Mengelola
-        new: Baru %{name}
         permissions: Izin
         reject: Menolak
         verify: Memeriksa
@@ -155,7 +152,6 @@ id:
           title: Edit folder
           update: Memperbarui
         index:
-          attachment_collection_used: Folder ini tidak dapat dihapus karena sedang digunakan.
           attachment_collections_title: Folder lampiran
         new:
           create: Membuat
@@ -194,7 +190,6 @@ id:
           update: Memperbarui
         index:
           categories_title: Kategori
-          category_used: Kategori ini tidak dapat dihapus karena sedang digunakan.
         new:
           create: Buat kategori
           title: Kategori baru
@@ -258,7 +253,6 @@ id:
             all: Semua
             managed: Dikelola
             not_managed: Tidak dikelola
-          filter_by: Filter berdasarkan
           impersonate: Menirukan
           impersonate_new_managed_user: Meniru pengguna yang dikelola baru
           managed: Dikelola
@@ -301,7 +295,6 @@ id:
         area_types: Tipe area
         areas: Area
         configuration: Konfigurasi
-        dashboard: Dasbor
         help_sections: Bagian bantuan
         homepage: Homepage
         impersonations: Peniruan identitas
@@ -366,7 +359,6 @@ id:
           fields:
             created_at: Tanggal pembuatan
             email: E-mail
-            last_sign_in_at: Tanggal masuk terakhir
             name: Nama
             role: Peran
             roles:
@@ -444,7 +436,6 @@ id:
           github: GitHub
           instagram: Instagram
           social_handlers: Sosial
-          twitter: Kericau
           youtube: Youtube
         update:
           error: Terjadi kesalahan saat memperbarui organisasi ini.
@@ -455,8 +446,6 @@ id:
         form:
           colors:
             colors_title: Warna organisasi
-            header_snippets_help: Gunakan bidang ini untuk menambahkan sesuatu ke kepala HTML. Penggunaan yang paling umum adalah mengintegrasikan layanan pihak ketiga yang memerlukan beberapa JavaScript atau CSS tambahan. Juga, Anda dapat menggunakannya untuk menambahkan meta tag ekstra ke HTML. Perhatikan bahwa ini hanya akan ditampilkan di halaman publik, bukan di bagian admin.
-          cta_button_path_help: 'Anda dapat menimpa tempat tombol Ajakan Bertindak di tautan beranda ke. Gunakan jalur parsial, bukan URL lengkap di sini. Menerima surat, angka, tanda pisah dan garis miring, dan harus dimulai dengan huruf. Tombol Ajakan Bertindak ditampilkan di homepage antara teks selamat datang dan deskripsi. Contoh: %{url}'
           cta_button_text_help: Anda dapat menimpa teks tombol Ajakan Bertindak di beranda untuk setiap bahasa yang tersedia di organisasi Anda. Jika tidak disetel, nilai default akan digunakan. Tombol Ajakan Bertindak ditampilkan di homepage antara teks selamat datang dan deskripsi.
           homepage_appearance_title: Edit tampilan homepage
           homepage_highlighted_content_banner_title: Spanduk konten berkecepatan tinggi
@@ -540,8 +529,6 @@ id:
           update: Memperbarui
         form:
           none: Tidak ada
-        index:
-          last_notable_change: Perubahan penting terakhir
         new:
           create: Membuat halaman
           title: Halaman baru
@@ -562,7 +549,6 @@ id:
         participants: Pengguna
         scope_types: Tipe lingkup
         scopes: Scopes
-        static_pages: Halaman
         user_groups: Grup Pengguna
       user_group:
         csv_verify:
@@ -600,7 +586,6 @@ id:
         users_count:
           admins: Admin
           participants: Peserta
-      view_public_page: Lihat halaman publik
     moderations:
       actions:
         hidden: Tersembunyi
@@ -629,12 +614,3 @@ id:
   errors:
     messages:
       invalid_json: JSON tidak valid
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Nawala
-        settings:
-          title: Pengaturan
-        users:
-          title: Pengguna

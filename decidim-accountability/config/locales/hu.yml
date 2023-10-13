@@ -41,7 +41,6 @@ hu:
         edit: Szerkesztés
         import: Projektek importálása az eredményekhez
         import_csv: CSV importálása
-        new: Új %{name}
         preview: Előnézet
         timeline_entries: Projekt alakulása
         title: Műveletek
@@ -83,8 +82,6 @@ hu:
             name: Eredmény
           status:
             name: Állapot
-          timeline_entry:
-            name: Idővonal bejegyzés
         projects_import:
           create:
             invalid: Probléma merült fel a projektek importálásával az eredményekbe, kérjük, gondosan kövesse az utasításokat, és győződjön meg róla, hogy a projekteket a végrehajtáshoz kiválasztotta.

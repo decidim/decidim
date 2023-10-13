@@ -1,6 +1,6 @@
 <div id="process-type-filter" class="inline-filters">
   <div id="inline-filter-sort" class="dropdown-pane" data-position="bottom" data-alignment="right" data-dropdown data-auto-focus="true">
-    <ul class="list-reset">
+    <ul>
       <% participatory_process_types_for_select.each do |title, id| %>
         <li>
           <%= link_to filter_link(current_filter, id), remote: true do %>

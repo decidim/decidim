@@ -5,7 +5,6 @@ id:
         confirm_destroy: apa kamu yakin ingin menghapus ini?
         destroy: Menghapus
         edit: Edit
-        new: Baru
         save: Menyimpan
         title: Tindakan
       admins:
@@ -34,7 +33,6 @@ id:
           fields:
             created_at: Dibuat di
             email: E-mail
-          name: Admin
           validations:
             email_uniqueness: admin lain dengan email yang sama sudah ada
         organization:
@@ -43,7 +41,6 @@ id:
           fields:
             created_at: Dibuat di
             name: Nama
-          name: Organisasi
       organizations:
         create:
           error: Terjadi masalah saat membuat organisasi baru.

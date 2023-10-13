@@ -49,7 +49,6 @@ id:
         subtitle: Subtitle
         target: Yang berpartisipasi
         title: Judul
-        twitter: Kericau
         youtube: Youtube
       assembly_member:
         birthday: Ulang tahun
@@ -82,7 +81,6 @@ id:
         edit:
           update: Memperbarui
         index:
-          not_published: Tidak diterbitkan
           private: Pribadi
           public: Publik
           published: Diterbitkan
@@ -155,7 +153,6 @@ id:
           attachments: Lampiran
           categories: Kategori
           components: Komponen
-          info: Info
           moderations: Moderasi
           private_users: Pengguna pribadi
       models:
@@ -223,16 +220,12 @@ id:
             select_an_area: Pilih Area
             select_an_assembly_type: Pilih jenis perakitan
             select_parent_assembly: Pilih perakitan induk
-            slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke rakitan ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
             social_handlers: Sosial
             title: Informasi Umum
             visbility: Visibilitas
         assemblies_types:
           form:
             title: Judul
-        assembly_copies:
-          form:
-            slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke rakitan ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         assembly_members:
           form:
             existing_user: Pengguna yang sudah ada
@@ -245,7 +238,6 @@ id:
               all: Semua
               ceased: Hentikan
               not_ceased: Tidak berhenti
-            filter_by: Filter berdasarkan
             search: Pencarian
         content_blocks:
           highlighted_assemblies:
@@ -280,40 +272,17 @@ id:
       index:
         title: Assemblies
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Majelis aktif
-            see_all_assemblies: Lihat semua majelis
         user_profile:
           member_of:
             member_of: Anggota dari
       show:
-        area: Daerah
         assembly_type: Tipe perakitan
-        children: Assemblies
-        closing_date: Tanggal Penutupan
-        composition: Komposisi
-        created_by: Dibuat oleh
-        creation_date: Tanggal Diciptakan
-        developer_group: Grup promotor
         duration: Lamanya
-        included_at: Termasuk di
-        indefinite_duration: Tak terbatas
-        internal_organisation: Organisasi internal
         is_transparent:
           'false': buram
           'true': transparan
-        local_area: Area organisasi
-        participatory_scope: Apa yang diputuskan
-        participatory_structure: Bagaimana cara memutuskannya
         private_space: Ini adalah pertemuan pribadi
-        purpose_of_action: Tujuan tindakan
-        read_less: Baca lebih sedikit
-        read_more: Baca lebih lajut
         related_participatory_processes: Proses partisipatif terkait
-        scope: Cakupan
-        social_networks: Jaringan sosial
-        target: Yang berpartisipasi
     assembly_members:
       assembly_member:
         designated_on: Ditunjuk pada
@@ -343,18 +312,9 @@ id:
           more_info: Info lebih lanjut
           take_part: Ambil bagian
         index:
-          organizational_chart: Struktur organisasi
           promoted_assemblies: Majelis yang disorot
-          reset_chart: Setel ulang
         order_by_assemblies:
           assemblies:
             other: "%{count} rakitan"
-        promoted_assembly:
-          more_info: Info lebih lanjut
-          take_part: Ambil bagian
       assembly_navigation:
         assembly_member_menu_item: Anggota
-        assembly_menu_item: Perakitan
-      assembly_widgets:
-        show:
-          take_part: Ambil bagian

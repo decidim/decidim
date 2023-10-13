@@ -2,7 +2,7 @@ eu:
   activemodel:
     models:
       decidim/surveys/closed_survey_event: Inkesta amaitu da
-      decidim/surveys/opened_survey_event: Inkesta hasi zen
+      decidim/surveys/opened_survey_event: Inkesta hasi da
   activerecord:
     models:
       decidim/surveys/survey:
@@ -19,7 +19,7 @@ eu:
         name: Inkesta
         settings:
           global:
-            announcement: Anuntzio
+            announcement: Oharra
             clean_after_publish: Ezabatu erantzuna galdetegia argitaratzean
             ends_at: Erantzunak noiz arte onartuko
             ends_at_help: Utzi zuriz data zehatzik ez badago
@@ -30,30 +30,31 @@ eu:
           step:
             allow_answers: Baimendu erantzunak
             allow_unregistered: Baimendu erregistratu gabe dauden erabiltzaileei galdetegia erantzutea
-            announcement: Anuntzio
+            allow_unregistered_help: Aktibatuta badago ez da beharrezkoa saioa hastea inkesta erantzuteko. Honen ondorioz datu eskas edo fidagarritasun gutxikoak bildu litezke. Kontuz erabili! Izan ere, parte-hartzaile berak hainbat aldiz erantzun litzake nabigatzaile desberdinetatik edo nabigazio pribatuaren aukera erabiliz.
+            announcement: Oharra
     events:
       surveys:
         survey_closed:
           email_intro: '%{resource_title} inkesta %{participatory_space_title} itxi egin da.'
-          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: Inkestaren arabera %{participatory_space_title} amaitu da
-          notification_title: Inkesta <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> amaitu da.
+          email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan sartuz jakinarazpenak jasotzeari utzi ahal diozu.
+          email_subject: Inkesta bat itxi da %{participatory_space_title} espazioan
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> inkesta <a href="%{participatory_space_url}">%{participatory_space_title}</a> espazioan amaitu da.
         survey_opened:
-          email_intro: '%{resource_title} inkestaren %{participatory_space_title} zenbakian dago orain. Orri honetan parte har dezakezu:'
-          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_intro: '%{resource_title} inkesta ireki da %{participatory_space_title} espazioan. Orri honetan parte har dezakezu:'
+          email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan sartuz jakinarazpenak jasotzeari utzi ahal diozu.
           email_subject: Inkesta berri bat %{participatory_space_title} izeneko espazioan
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> inkesta orain irekita dago.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> inkesta <a href="%{participatory_space_url}">%{participatory_space_title}</a> espazioan irekita dago.
     metrics:
       survey_answers:
-        description: Erabiltzaileek emandako inkesta kopurua
-        object: inkestak erantzunak
-        title: Inkesten erantzunak
+        description: Parte-hartzaileek erantzundako inkesta kopurua
+        object: inkestei erantzunak
+        title: Inkestei erantzunak
     statistics:
       answers_count: Erantzunak
     surveys:
       admin:
         exports:
-          survey_user_answers: Inkesta erabiltzaile erantzunak
+          survey_user_answers: Inkestako parte-hartzaileen erantzunak
         surveys:
           update:
             invalid: Inkesta gordetzean erroreak gertatu dira.
@@ -62,6 +63,6 @@ eu:
         new_survey: 'Inkesta berria:'
       surveys:
         answer:
-          invalid: Inkesta erantzutean erroreak gertatu dira.
+          invalid: Inkesta erantzutean errorea gertatu da.
           spam_detected: Arazo bat izan da galdetegia erantzutean. Agian azkarregi joan zara, berriro egin dezakezu?
           success: Inkesta ondo bete da.

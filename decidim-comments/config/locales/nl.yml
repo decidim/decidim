@@ -29,20 +29,15 @@ nl:
         update:
           error: Er is een probleem opgetreden bij het bijwerken van de reactie.
       comments_count: Aantal reacties
-      last_activity:
-        new_comment_at_html: "<span>Nieuwe opmerking op %{link}</span>"
-      view: Bekijk
       votes:
         create:
           error: Er is een probleem opgetreden bij het stemmen op de opmerking.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Meld u aan met uw account</a> of <a href="%{sign_up_url}">schrijf u in</a> om uw reactie toe te voegen.
         form:
           body:
             label: Reactie
             placeholder: Wat wil je hierover zeggen?
-          submit: Verzenden
           user_group_id:
             label: Reageer als
         opinion:
@@ -87,8 +82,6 @@ nl:
           older: Ouder
           recent: Meest recent
         title: 'Sorteer op:'
-      comment_thread:
-        title: Gesprek met %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Je kan op dit moment geen opmerkingen toevoegen, maar je kunt de eerdere opmerkingen wel lezen.
         blocked_comments_for_user_warning: Je kunt op dit moment geen opmerkingen toevoegen, maar je kunt eerdere reacties wel lezen.

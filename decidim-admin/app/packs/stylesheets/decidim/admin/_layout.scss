@@ -1,0 +1,75 @@
+html {
+  @apply h-full;
+}
+
+body {
+  @apply flex flex-col min-h-screen;
+}
+
+.main {
+  @apply grow flex flex-col;
+
+  & > .row {
+    @apply w-full md:flex grow;
+  }
+}
+
+.layout-wrapper {
+  @apply grow flex flex-col;
+}
+
+.layout-nav {
+  @apply max-w-[340px] bg-gray-2;
+}
+
+.layout-content {
+  @apply flex-grow max-w-full min-h-max bg-gray-5;
+
+  table svg {
+    @apply fill-current inline-block;
+  }
+
+  &__container {
+    @apply p-8 pb-24 m-0 min-h-max;
+  }
+
+  .hide {
+    @apply hidden;
+  }
+
+  .grid-x.grid-margin-x {
+    @apply mb-4;
+
+    .card-section {
+      @apply p-4;
+    }
+  }
+
+  .callout {
+    @apply mb-4;
+  }
+}
+
+.container {
+  @apply p-2 md:p-8 m-0;
+}
+
+.main {
+  .large-12,
+  .medium-12,
+  .small-12 {
+    @apply w-full;
+  }
+
+  .large-6,
+  .medium-6,
+  .small-6 {
+    @apply w-3/4;
+  }
+
+  .large-3,
+  .medium-3,
+  .small-3 {
+    @apply w-1/4;
+  }
+}

@@ -33,6 +33,9 @@ gl:
         name: Padrón
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Gardar
         questionnaire_templates:
           choose:
             create_from_template: Crear a partir dun padrón
@@ -44,8 +47,6 @@ gl:
             edit: Editar
             questionnaire: Cuestionario
           form:
-            save: Gardar
-            template_title: Información do padrón
             title: Padrón de cuestionario %{questionnaire_for}
           index:
             confirm_delete: Tes a certeza de querer eliminar este padrón?

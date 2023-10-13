@@ -15,9 +15,6 @@ ga:
         new: Postáil nua
         title: Gníomhartha
       admin:
-        models:
-          post:
-            name: Postáil
         posts:
           edit:
             save: Nuashonraigh
@@ -32,9 +29,6 @@ ga:
           fields:
             author: Údar
             body: Corp
-      posts:
-        show:
-          view: Amharc
     components:
       blogs:
         name: Blag

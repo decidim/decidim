@@ -14,7 +14,7 @@ ja:
         scope_id: スコープ
         signature_end_date: 署名の収集期間の終了
         signature_start_date: 署名の収集期間の開始
-        signature_type: 署名のコレクションタイプ
+        signature_type: 署名の収集種別
         signature_type_values:
           any: ハイブリッド
           offline: 対面
@@ -76,6 +76,7 @@ ja:
   decidim:
     admin:
       actions:
+        manage: 管理
         new_initiative_type: 新しいイニシアチブ種別
       filters:
         initiatives:
@@ -103,8 +104,11 @@ ja:
         committee_members: 委員会メンバー
         components: コンポーネント
         information: 情報
+        initiative_type_scopes: イニシアチブ種別のスコープ
         initiatives: イニシアチブ
         initiatives_settings: 設定
+        initiatives_submenu:
+          info: このイニシアチブについて
         initiatives_types: イニシアチブ種別
         moderations: モデレーション
       models:
@@ -215,8 +219,8 @@ ja:
           index:
             approve: 承認
             confirm_revoke: よろしいですか？
-            invite_to_committee_help: 他の参加者をプロモーター委員会に招待するために、このリンクを共有してください。
-            no_members_yet: プロモーター委員会にはメンバーがいません。
+            invite_to_committee_help: 他の参加者を推進委員会に招待するために、このリンクを共有してください。
+            no_members_yet: 推進委員会にはメンバーがいません。
             revoke: 取り消し
             title: 委員会メンバー
         content_blocks:
@@ -241,7 +245,6 @@ ja:
             success: イニシアチブは技術的な検証に送信されました。
             update: 更新
           form:
-            attachments: 添付ファイル
             settings: 設定
             title: 一般情報
           index:
@@ -273,13 +276,9 @@ ja:
           destroy:
             success: スコープを削除しました。
           edit:
-            back: 戻る
-            confirm_destroy: よろしいですか？
-            destroy: 削除
             title: イニシアチブ種別のスコープを編集
             update: 更新
           new:
-            back: 戻る
             create: 作成
             title: イニシアチブ種別のスコープを作成
           update:
@@ -292,15 +291,12 @@ ja:
           destroy:
             success: イニシアチブタイプを削除しました。
           edit:
-            confirm_destroy: よろしいですか？
-            destroy: 削除
             update: 更新
           form:
             authorizations: 認証設定
             child_scope_threshold_enabled_help: 'この設定フラグはオフライン投票をサポートしておらず、サブスコープを有効にし、スコープをユーザに関連付ける認証ハンドラで動作します。 認証の設定が間違っていないことを確認してください。正しく動作させるためには、スコープを 親1つにつき子N個が対応する階層構造で構成する必要があります。 この設定の仕組みについての詳細は、<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">イニシアチブの管理者ドキュメント</a> を参照してください。'
             only_global_scope_enabled_help: '「下層スコープ署名」を有効にし、グローバルスコープを親スコープとして設定する場合、このフラグをチェックします。これを有効にすると、イニシアチブ作成ウィザードでイニシアチブ種別の選択がスキップされます。この設定の仕組みについての詳細は、<a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">このリンク</a> を参照してください。'
             options: オプション
-            title: 一般情報
           initiative_type_scopes:
             title: イニシアチブ種別のスコープ
           new:
@@ -329,10 +325,6 @@ ja:
         rejected: 十分な署名がありません
         validating: 技術的検証
       application_helper:
-        filter_area_values:
-          all: すべて
-        filter_scope_values:
-          all: すべて
         filter_state_values:
           accepted: 十分な署名
           all: すべて
@@ -359,8 +351,8 @@ ja:
         fill_data:
           back: 戻る
           continue: 続ける
-          decidim_user_group_id_help: 作成後にイニシアチブの作成者を変更することはできません。
           fill_data_help: "<ul> <li>イニシアチブの内容を確認しましょう。タイトルはわかりやすいでしょうか? イニシアチブの目的は明確でしょうか? </li> <li>署名の種別を選択する必要があります。対面署名、オンライン署名、または両方の組み合わせのいずれかです。</li> <li>イニシアチブの地理的範囲はどうなりますか?</li></ul>"
+          initiative_type: イニシアチブ種別
           more_information: "(詳細)"
           select_area: エリアを選択
           select_scope: スコープを選択
@@ -374,32 +366,23 @@ ja:
           more_information: "(詳細)"
           send_my_initiative: 自分のイニシアチブを技術検証に提出
         finish_help:
-          access_reminder: イニシアチブには、「イニシアチブ」ページの「%{link}」フィルターからアクセスできます。
           publish_helper_text: イニシアチブを公開するためには、必要な情報を記入し、<strong>技術検証に提出</strong>して管理者に確認してもらう必要があることを覚えておいてください。
         previous_form:
           back: 戻る
           continue: 続ける
-          help: イニシアチブは何から成りますか? タイトルと説明を書き留めてください。 提案されたソリューションに焦点を当てた短く簡潔なタイトルと説明をお勧めします。
-          more_information: "(詳細)"
         promotal_committee:
-          back: 戻る
           individual_help_text: この種類のイニシアチブでは、少なくとも%{committee_size} のメンバー(証人) で構成される推進委員会が必要です。以下のリンクを、このイニシアチブに参加している他の人々と共有する必要があります。あなたの連絡先がこのリンクを受け取ったら、指示された手順に従う必要があります。
           more_information: "(詳細)"
         select_initiative_type:
           back: 戻る
           choose_html: <strong>%{title}</strong> を作成したい
-          more_information: "(詳細)"
+          more_information: (詳細)
+          new: 新しいイニシアチブを作成
           select: 私はこのイニシアチブを推進したいです
           select_initiative_type_help: イニシアチブとは、一般的な利益を守るために組織が行動を起こすよう、参加者が介入するための手段です。 どのようなイニシアチブを立ち上げたいですか？
           verification_required: このイニシアチブを推進するためにあなたのアカウントを確認してください
         share_committee_link:
-          continue: 続ける
           invite_to_committee_help: 推進委員会に参加する人を招待するためのリンク
-        show_similar_initiatives:
-          back: 戻る
-          compare_help: 以下のイニシアチブのいずれかがあなたのものと似ている場合は、署名することをお勧めします。あなたの提案には、より多くの可能性があります。
-          continue: 私のイニシアチブは異なる
-          more_information: "(詳細)"
       edit:
         accept: イニシアチブを承認する
         back: 戻る
@@ -437,19 +420,17 @@ ja:
           email_subject: "%{applicant_nickname} があなたのイニシアチブに参加しようとしています"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> があなたのイニシアチブの推進委員会に申請しました <a href="%{resource_url}">%{resource_title}</a>. 受け入れるか拒否するには <a href="%{resource_url}/edit">ここ</a>をクリックしてください。
       form:
-        add_attachments: ドキュメント
+        add_documents: ドキュメントを追加
+        add_image: 画像を追加
         attachment_legend: "(オプション) 添付ファイルを追加"
-        delete_attachment: 削除
+        edit_documents: ドキュメントを編集
+        edit_image: 画像を編集
+        image_legend: "(オプション) 画像を追加"
       index:
-        title: イニシアチブ
         uninitialized: イニシアチブは管理者によってまだ設定されていません。
       initiative_signatures:
         fill_personal_data:
           continue: 続ける
-          date_select:
-            day: 日
-            month: 月
-            year: 年
           help: イニシアチブに署名するために、以下のフォームに個人情報を入力してください。
         finish:
           back_to_initiative: イニシアチブに戻る
@@ -471,8 +452,6 @@ ja:
         sms_phone:
           invalid: 電話番号が無効または承認待ちです。認証を確認してください。
       initiatives:
-        author:
-          deleted: 削除しました
         author_list:
           hidden_authors_count:
             other: '%{count} 人以上'
@@ -480,8 +459,8 @@ ja:
           approve: 承認
           confirm_revoke: 本当によろしいですか？
           invite_to_committee_help: 他の参加者を推進委員会に招待するために、このリンクを共有してください。
+          link: リンク
           no_members_yet: 推進委員会にはメンバーがいません。
-          revoke: 取り消し
           title: 委員会メンバー
         count:
           title:
@@ -495,11 +474,6 @@ ja:
           search: 検索
           state: ステータス
           type: タイプ
-        filters_small_view:
-          close_modal: ウィンドウを閉じる
-          filter: フィルター
-          filter_by: フィルター
-          unfold: 展開する
         index_header:
           new_initiative: 新たなイニシアチブを作成
         initiatives:
@@ -542,13 +516,17 @@ ja:
           answer_title: このイニシアチブに回答がありました。
           initiative_rejected_reason: このイニシアチブは、署名がないために拒否されました。
         show:
-          any_vote_method: このイニシアチブは、オンラインと対面の署名の両方を収集します。
+          area: エリア
+          before_send_to_technical_validation_announcement: 'イニシアチブを技術検証に送信する前に、 %{count} 名のメンバーを推進委員会に追加する必要があります。 <br/><br/>あなたが委員会に参加させたい人とこのリンクを共有します: %{href}'
           confirm: イニシアチブを提出し、管理者がレビューして公開することになります。一度公開すると編集できなくなりますが、よろしいですか？
           edit: 編集
-          follow_description: このイニシアチブでニュースがある場合に通知を受け取る
-          offline_method: このイニシアチブは、 In-personal 署名のみを収集します。
-          print: イニシアチブを印刷
+          initiative_data: イニシアチブデータ
+          scope: スコープ
           send_to_technical_validation: 技術検証に提出する
+          send_to_technical_validation_announcement: 問題は何もないと思われる場合、「技術検証に送信する」をクリックして管理者があなたのイニシアチブを確認し公開できるようにします
+          signature_collection: 署名の収集
+          state: 状態
+          type: 種別
         signatures_count:
           other: " 署名"
         vote_cabin:
@@ -560,8 +538,6 @@ ja:
         votes_count:
           count:
             other: 署名
-          most_popular_initiative: 最も人気のあるイニシアチブです
-          need_more_votes: もっと署名が必要です
       initiatives_mailer:
         creation_subject: あなたのイニシアチブ「%{title}」が作成されました
         initiative_link:
@@ -570,7 +546,7 @@ ja:
         more_information: ここでは、イニシアチブの作成プロセスについての詳細情報があります。
         progress_report_body_for: '%{title} が必要な署名の %{percentage}%に達しました。'
         progress_report_for: 'イニシアチブの概要: %{title}'
-        promotal_committee_help: 少なくとも %{member_count} 人をプロモーター委員会に招待する必要があります。推進委員会に招待するには、次のリンクを進めてください。
+        promotal_committee_help: 少なくとも %{member_count} 人を推進委員会に招待する必要があります。推進委員会に招待するには、次のリンクを進めてください。
         status_change_body_for: 'イニシアチブ %{title} がステータスを %{state}に変更しました'
         status_change_for: イニシアチブ %{title} のステータスが変更されました
       last_activity:
@@ -578,14 +554,13 @@ ja:
       modal:
         not_authorized:
           authorizations_page: 権限を表示
-          close: 閉じる
           explanation: 新しいイニシアチブを作成するには、認証が必要です。
           title: 認証が必要です
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: 積極的なイニシアチブ
-            see_all_initiatives: すべてのイニシアチブを見る
+            active_spaces: 活動中のイニシアチブ
+            see_all_spaces: すべてのイニシアチブを表示
       show:
         badge_name:
           accepted: 十分な署名
@@ -594,8 +569,6 @@ ja:
           published: 公開済み
           rejected: 十分な署名がありません
           validating: 技術的検証
-      signature_interval:
-        title: 署名の収集期間
       states:
         accepted: 承認済み
         expired: 期限切れ
@@ -603,9 +576,6 @@ ja:
       update:
         error: エラーが発生しました。
         success: イニシアチブを更新しました。
-      versions:
-        shared:
-          back_to_resource: イニシアチブに戻る
     menu:
       initiatives: イニシアチブ
     resources:
@@ -620,26 +590,15 @@ ja:
   layouts:
     decidim:
       initiative_creation_header:
-        back: 戻る
         fill_data: 作成
         finish: 完了
-        previous_form: 開始
         promotal_committee: 推進委員会
         select_initiative_type: 選択
-        show_similar_initiatives: 比較
-        title: 新しいイニシアチブを作成
-      initiative_header:
-        initiative_menu_item: イニシアチブ
       initiative_signature_creation_header:
-        back: 戻る
         fill_personal_data: データを完成させましょう
         finish: 完了
-        finished: イニシアチブの署名が作成されました
-        see_steps: 手順を見る
-        select_identity: IDを選択
         sms_code: SMSコードの検証
         sms_phone_number: 携帯電話番号
-        step: '%{current} / %{total}'
         title: '%{initiative_title} に署名'
       initiatives:
         initiative:

@@ -58,7 +58,6 @@ pt-BR:
           success: Reunião duplicada com sucesso.
         new:
           copy: cópia de
-          select: Selecione os dados que você gostaria de duplicar
           title: Reunião duplicada
     components:
       meetings:
@@ -154,7 +153,6 @@ pt-BR:
             one: 'A reunião não pode ser destruída porque tem %{count} proposta associada a ela:'
             other: 'A reunião não pode ser destruída porque tem %{count} propostas associadas a ela:'
         manage_poll: Gerenciar enquete
-        new: Nova reunião
         preview: Visualização
         registrations: Inscrições
         title: Ações
@@ -210,7 +208,6 @@ pt-BR:
               all: Tudo
               rejected: Rejeitados
               sent: Enviado
-            filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
             search: Pesquisar
@@ -252,9 +249,6 @@ pt-BR:
         meetings_poll:
           form:
             title: Editar questionário da enquete para %{questionnaire_for}
-        models:
-          meeting:
-            name: encontro
         registrations:
           edit:
             save: Salvar
@@ -293,12 +287,8 @@ pt-BR:
               not_found: 'O organizador não foi encontrado no banco de dados (ID: %{id})'
       calendar_modal:
         calendar_url: URL do calendário
-        close_window: Janela fechada
         export_calendar: Calendário de exportação
       conference_venues: Locais de conferência
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: Ver tudo
       directory:
         meetings:
           index:
@@ -325,7 +315,6 @@ pt-BR:
         calendar_modal:
           add_to_calendar: Adicionar à agenda
           apple: Adicionar ao calendário da Apple
-          close_window: Fechar janela
           full_details_html: Para todos os detalhes, visite %{link}
           google: Adicionar à agenda do Google
           outlook: Adicionar à agenda do Outlook
@@ -354,19 +343,12 @@ pt-BR:
           origin_values:
             all: Tudo
             official: Oficial
-            user_groups: Grupos
-          scope: Escopo
           search: Pesquisa
           type: Tipo
           type_values:
             all: Tudo
             in_person: Pessoalmente
             online: On-line
-        filters_small_view:
-          close_modal: Fechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Desdobrar
         form:
           address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
           available_slots_help: Deixe-o em 0 se você tiver slots ilimitados disponíveis
@@ -380,8 +362,6 @@ pt-BR:
           select_a_registration_type: Por favor, selecione um tipo de registro
         index:
           new_meeting: Nova reunião
-        meeting_minutes:
-          related_information: Informação relacionada
         meetings:
           upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui você pode encontrar todas as reuniões anteriores listadas.
         new:
@@ -393,12 +373,8 @@ pt-BR:
           confirm: confirme
         show:
           attendees: Contagem de participantes
-          back: Voltar para a lista
-          close_meeting: Reunião próxima
           contributions: Contagem de Contribuições
           date: Encontro
-          edit_meeting: Editar Reunião
-          going: Você se inscreveu para esta reunião
           join: Participe da reunião
           leave: Cancelar registro
           leave_confirmation: Tem certeza de que deseja cancelar seu cadastro para esta reunião?
@@ -417,8 +393,6 @@ pt-BR:
         update:
           invalid: Houve um problema ao atualizar a reunião.
           success: Você atualizou a reunião com sucesso.
-      meetings_map:
-        view_meeting: Ver reunião
       models:
         invite:
           fields:
@@ -487,8 +461,6 @@ pt-BR:
       types:
         private_meeting: Reunião privada
         transparent: Transparente
-      versions:
-        back_to_resource: Voltar à reunião
     metrics:
       meetings:
         description: Número de reuniões criadas
@@ -499,8 +471,6 @@ pt-BR:
         past_meetings: Reuniões anteriores
         see_all: Ver todos (%{count})
         upcoming_meetings: Próximas reuniões
-      upcoming_meeting_for_card:
-        upcoming_meeting: Próxima reunião
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'
