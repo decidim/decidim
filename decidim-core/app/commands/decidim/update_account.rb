@@ -23,7 +23,8 @@ module Decidim
         changes = @user.changed
         @user.save!
         notify_followers
-        broadcast(:ok, @user.unconfirmed_email.present?) unless send_update_summary!(changes)
+        send_update_summary!(changes)
+        broadcast(:ok, @user.unconfirmed_email.present?)
       else
         [:avatar, :password].each do |key|
           @form.errors.add key, @user.errors[key] if @user.errors.has_key? key
