@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require "json"
-require "fileutils"
-require "decidim/gem_manager"
-
 shared_context "when generating a new application" do
   let(:env) do |example|
     #
@@ -26,7 +22,7 @@ shared_context "when generating a new application" do
   end
 
   let(:result) do
-    Bundler.with_original_env { GemManager.capture(command, env:) }
+    Bundler.with_original_env { Decidim::GemManager.capture(command, env:) }
   end
 
   # rubocop:disable RSpec/BeforeAfterAll
