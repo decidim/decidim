@@ -231,7 +231,7 @@ cs:
             many: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
             other: 'Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů:'
         manage_poll: Spravovat anketu
-        new: Nové setkání
+        new: Nová schůzka
         preview: Náhled
         registrations: Registrace
         title: Akce

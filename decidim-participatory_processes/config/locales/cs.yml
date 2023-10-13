@@ -378,7 +378,7 @@ cs:
         participatory_process_groups:
           form:
             metadata: Metadata
-            title: Obecné informace
+            title: Obecná informace
             visibility: Viditelnost
         participatory_process_imports:
           form:

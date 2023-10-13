@@ -13,6 +13,9 @@ sl:
         meetings:
           index:
             title: Sestanki
+        models:
+          meeting:
+            name: Sestanek
       directory:
         meetings:
           index:

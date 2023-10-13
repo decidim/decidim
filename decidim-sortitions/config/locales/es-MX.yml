@@ -38,7 +38,7 @@ es-MX:
         actions:
           destroy: Cancelar el sorteo
           edit: Editar
-          new: Nuevo sorteo.
+          new: Nuevo sorteo
           show: Detalles de la clasificación
         models:
           sortition:

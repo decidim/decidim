@@ -223,7 +223,7 @@ de:
             one: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist:'
             other: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind:'
         manage_poll: Umfrage verwalten
-        new: Neue Sitzung
+        new: Neue Besprechung
         preview: Vorschau
         registrations: Anmeldungen
         title: Aktionen
@@ -355,7 +355,7 @@ de:
             success: Veranstaltungsumfrage erfolgreich aktualisiert
         models:
           meeting:
-            name: Treffen
+            name: Sitzung
         registrations:
           edit:
             save: Speichern

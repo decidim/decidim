@@ -81,8 +81,6 @@ gl:
         models:
           answer:
             name: Resposta
-          election:
-            name: Elección
           question:
             name: Pregunta
           trustee:

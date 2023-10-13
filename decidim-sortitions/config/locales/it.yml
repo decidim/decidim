@@ -53,7 +53,7 @@ it:
               target_items: Articoli da selezionare
               title: Titolo
             name:
-              one: Sorteggio
+              one: sortition
               other: Sorteggi
         sortitions:
           confirm_destroy:

@@ -8,7 +8,7 @@ ja:
       conversation:
         body: 本文
       group:
-        about: About
+        about: グループについて
         avatar: アバター
         document_number: ドキュメント番号
         email: Eメールアドレス
@@ -20,7 +20,7 @@ ja:
       report:
         details: 追加コメント
       user:
-        about: About
+        about: 私について
         email: あなたのメールアドレス
         locale: 地域
         name: 表示名
@@ -582,12 +582,12 @@ ja:
             email_intro: '%{amendable_title} の修正が却下されました。新しい %{amendable_type}として公開されました。このページから見ることができます:'
             email_outro: あなたは %{amendable_title} の作成者であるため、この通知を受け取りました。
             email_subject: '%{emendation_author_nickname} からの修正が新しい %{amendable_type} として公開されました'
-            notification_title: A <a href="%{emendation_path}">rejected amentment</a> for <a href="%{amendable_path}">%{amendable_title}</a> has been published as a new %{amendable_type} by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: <a href="%{amendable_path}">%{amendable_title}</a>についての<a href="%{emendation_path}">却下された修正</a> が新しい %{amendable_type} として <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>によって公開されました.
           follower:
             email_intro: '%{amendable_title} の修正が却下されました。新しい %{amendable_type}として公開されました。このページから見ることができます:'
             email_outro: '%{amendable_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
             email_subject: '%{emendation_author_nickname} からの修正が新しい %{amendable_type} として公開されました'
-            notification_title: A <a href="%{emendation_path}">rejected amentment</a> for <a href="%{amendable_path}">%{amendable_title}</a> has been published as a new %{amendable_type} by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: <a href="%{amendable_path}">%{amendable_title}</a>についての<a href="%{emendation_path}">却下された修正</a>が新しい%{amendable_type} として <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>によって公開されました.
         amendment_rejected:
           affected_user:
             email_intro: '%{amendable_title}の修正が拒否されました。このページから確認できます:'
@@ -927,35 +927,35 @@ ja:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: こんにちは、%{recipient}。
+          greeting: '%{recipient} さん、こんにちは。'
           intro: "%{manager} が %{group}という名前で新しい会話を開始しました。こちらをクリックしてください:"
           outro: ' '
           subject: "%{manager} が %{group} として新しい会話を開始しました"
         comanagers_new_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: こんにちは、%{recipient}。
+          greeting: '%{recipient} さん、こんにちは。'
           intro: "%{manager} は、 %{group}という名前の新しいメッセージを会話に投稿しました。それらを表示するにはここをクリックしてください："
           outro: ' '
           subject: "%{manager} は %{group} として新しいメッセージを送信しました"
         new_conversation:
-          greeting: こんにちは、%{recipient}。
+          greeting: '%{recipient} さん、こんにちは。'
           intro: "%{sender} があなたと新しい会話を開始しました。こちらをクリックしてください:"
           outro: ' '
           subject: "%{sender} があなたと会話を開始しました"
         new_group_conversation:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: こんにちは、%{recipient}。
+          greeting: '%{recipient} さん、こんにちは。'
           intro: "%{sender} がグループ %{group}との新しい会話を開始しました。こちらをクリックしてください:"
           outro: ' '
           subject: "%{sender} が %{group} と会話を開始しました"
         new_group_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: こんにちは、%{recipient}。
+          greeting: '%{recipient} さん、こんにちは。'
           intro: "%{sender} がグループ %{group}との会話に新しいメッセージを投稿しました。こちらをクリックしてください:"
           outro: ' '
           subject: "%{group} に %{sender} からの新しいメッセージがあります"
         new_message:
-          greeting: こんにちは、%{recipient}。
+          greeting: '%{recipient} さん、こんにちは。'
           intro: "%{sender} さんがあなたの会話に新しいメッセージを投稿しました。こちらをクリックしてください："
           outro: ' '
           subject: '%{sender} からの新しいメッセージがあります'

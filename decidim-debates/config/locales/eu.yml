@@ -83,7 +83,7 @@ eu:
           comments: Iruzkinak
         models:
           debate:
-            name: Debate
+            name: Eztabaida
       admin_log:
         debate:
           close: "%{user_name} erabiltzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"

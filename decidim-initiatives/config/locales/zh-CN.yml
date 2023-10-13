@@ -205,7 +205,6 @@ zh-CN:
             success: 该倡议已经发送给技术验证
             update: 更新
           form:
-            attachments: 附件
             settings: 设置
             title: 通告周知
           index:

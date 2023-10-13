@@ -58,7 +58,6 @@ is-IS:
           attachments: Viðhengi
           categories: Flokkar
           components: Hluti
-          info: Upplýsingar
           moderations: Moderations
       models:
         participatory_process:
@@ -150,6 +149,9 @@ is-IS:
         title: Þátttaka ferli hópa
     participatory_processes:
       admin:
+        participatory_process_groups:
+          form:
+            title: Almennar upplýsingar
         participatory_processes:
           form:
             announcement_help: Textinn sem þú slærð inn hér verður sýndur fyrir notandann rétt fyrir neðan ferlið.

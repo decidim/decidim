@@ -117,9 +117,6 @@ is-IS:
             services: Þjónusta
           update:
             success: Fundur tókst að uppfæra
-        models:
-          meeting:
-            name: Fundur
         registrations:
           edit:
             save: Vista

@@ -92,7 +92,7 @@ eu:
             name: Izena
             omniauth_settings: Omniauth doikuntzak
             smtp_settings: SMTP konfigurazioa
-          name: Erakundea
+          name: Antolatzailea
       oauth_applications:
         create:
           error: Errore bat gertatu da aplikazio hau sortzean.

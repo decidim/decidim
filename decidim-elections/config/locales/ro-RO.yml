@@ -616,7 +616,6 @@ ro:
             create: Creează
             title: Creează stil de vot
         index:
-          not_published: Anulează publicarea
           published: Publicate
         landing_page:
           edit:

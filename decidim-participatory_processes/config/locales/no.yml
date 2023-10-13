@@ -113,7 +113,7 @@
           attachments: Vedlegg
           categories: Kategorier
           components: Komponenter
-          info: Info
+          info: Informasjon
           moderations: Moderering
           private_users: Private brukere
           process_admins: Prosessadministratorer
@@ -359,7 +359,7 @@
         participatory_process_groups:
           form:
             metadata: Metadata
-            title: Generell Informasjon
+            title: Generell informasjon
             visibility: Synlighet
         participatory_process_imports:
           form:

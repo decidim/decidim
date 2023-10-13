@@ -48,7 +48,6 @@ ru:
             created_at: 'Добавлено:'
             name: Имя
             smtp_settings: Настройки SMTP
-          name: Организация
       organizations:
         create:
           error: При попытке добавить новую организацию произошла ошибка.

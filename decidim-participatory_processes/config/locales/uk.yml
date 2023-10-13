@@ -90,7 +90,6 @@ uk:
           attachments: Вкладені файли
           categories: Категорії
           components: Складові
-          info: Відомості
           moderations: Дії з модерації
           private_users: Приватні учасники
           process_admins: Учасники руху
@@ -269,6 +268,9 @@ uk:
         title: Кроки руху співучасті
     participatory_processes:
       admin:
+        participatory_process_groups:
+          form:
+            title: Загальні відомості
         participatory_processes:
           form:
             announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.

@@ -79,7 +79,7 @@ tr:
           comments: Yorumlar
         models:
           debate:
-            name: Tartışma
+            name: tartışma
       admin_log:
         debate:
           close: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını kapattı"

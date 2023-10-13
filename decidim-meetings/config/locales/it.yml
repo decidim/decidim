@@ -196,7 +196,7 @@ it:
             one: 'La riunione non può essere annullata perché ha %{count} proposta ad essa associata:'
             other: 'La riunione non può essere annullata perché ha %{count} proposte associate:'
         manage_poll: Gestisci sondaggio
-        new: Nuovo incontro
+        new: Nuova riunione
         preview: Anteprima
         registrations: Iscrizioni
         title: Azioni
@@ -326,7 +326,7 @@ it:
             success: Riunione sondaggio aggiornata con successo
         models:
           meeting:
-            name: Reunione
+            name: Evento
         registrations:
           edit:
             save: Salva

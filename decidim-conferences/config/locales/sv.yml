@@ -202,7 +202,7 @@ sv:
         conference:
           fields:
             created_at: Skapad
-            promoted: Annonserad
+            promoted: Uppmärksammad
             published: Publicerad
             title: Titel
         conference_speaker:

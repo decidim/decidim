@@ -47,6 +47,9 @@ lb:
         debates:
           index:
             title: Debatten
+        models:
+          debate:
+            name: Debatte
       debates:
         filters:
           scope: Bereich

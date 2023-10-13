@@ -101,10 +101,6 @@ zh-CN:
         models:
           answer:
             name: 答案
-          election:
-            name: 选举
-          question:
-            name: 问
         proposals_imports:
           create:
             invalid: 将建议导入答案时遇到问题

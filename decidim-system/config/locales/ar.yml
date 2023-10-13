@@ -92,7 +92,7 @@ ar:
             name: اسم
             omniauth_settings: إعدادات Omniauth
             smtp_settings: إعدادات الـ SMTP
-          name: منظمة
+          name: المنظمة
       oauth_applications:
         create:
           error: كانت هناك مشكلة في إنشاء هذا التطبيق.

@@ -145,7 +145,7 @@ de:
         success_with_email_confirmation: Ihr Konto wurde erfolgreich aktualisiert. Sie erhalten eine E-Mail zur Bestätigung Ihrer neuen E-Mail-Adresse.
     admin:
       actions:
-        cancel: Stornieren
+        cancel: Abbrechen
     admin_log:
       area:
         create: "%{user_name} hat den Bereich %{resource_name} erstellt"
@@ -351,7 +351,7 @@ de:
           explanation: Ihre Autorisierung ist abgelaufen. Um diese Aktion auszuführen, müssen Sie mit "%{authorization}" erneut autorisiert werden.
           title: Die Autorisierung ist abgelaufen
         incomplete:
-          cancel: Stornieren
+          cancel: Abbrechen
           explanation: 'Obwohl Sie derzeit mit "%{authorization}" autorisiert sind, müssen Sie erneut autorisieren, da uns folgende Daten fehlen:'
           invalid_field: "%{field}"
           reauthorize: Erneut autorisieren
@@ -1235,7 +1235,7 @@ de:
     scopes:
       global: Globaler Umfang
       picker:
-        cancel: Stornieren
+        cancel: Abbrechen
         change: Ausgewählten Bereich ändern
         choose: Wählen
         currently_selected: Aktuell ausgewählter Bereich

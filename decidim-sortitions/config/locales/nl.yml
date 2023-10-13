@@ -53,8 +53,8 @@ nl:
               target_items: Te selecteren items
               title: Titel
             name:
-              one: Loting
-              other: Lotingen
+              one: toss
+              other: Sortitions
         sortitions:
           confirm_destroy:
             confirm_destroy: Weet je zeker dat je deze loting wilt annuleren?

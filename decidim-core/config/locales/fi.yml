@@ -155,7 +155,7 @@ fi:
         create: "%{user_name} lisäsi komponentin %{resource_name} osallistumistilaan %{space_name}"
         delete: "%{user_name} poisti %{resource_name} -komponentin %{space_name} -tilasta"
         publish: "%{user_name} julkaisi komponentin %{resource_name} osallistumistilassa %{space_name}"
-        unpublish: "%{user_name} lopetti komponentin %{resource_name} julkaisemisen osallistumistilassa %{space_name}"
+        unpublish: "%{user_name} lopetti komponentin %{resource_name} julkaisun osallistumistilassa %{space_name}"
       impersonation_log:
         manage: "%{user_name} hallinnoi käyttäjää %{resource_name}, koska %{reason}"
       moderation:
@@ -499,6 +499,7 @@ fi:
           newsletter_title: Yhteydenottolupa
           nickname_help: Nimimerkkisi palvelussa %{organization}. Voi sisältää ainoastaan kirjaimia, numeroita sekä yhdysmerkkejä "-" ja alaviivoja "_".
           password_help: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
+          sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
             legend: Rekisteröidy
@@ -510,7 +511,7 @@ fi:
       sessions:
         new:
           are_you_new?: Uusi käyttäjä?
-          register: Rekisteröidy
+          register: Luo tili
           sign_in_disabled: Voit kirjautua ulkoisella tilillä
           sign_up_disabled: Rekisteröityminen on poistettu käytöstä, voit kirjautua olemassaolevalla käyttäjätilillä
         user:
@@ -753,7 +754,7 @@ fi:
         participatory_space: Seuraat kohdetta <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Lopeta seuranta
-        error: Tämän kohteen seuraamisen lopetus epäonnistui.
+        error: Tämän kohteen seuraamisen lopettaminen epäonnistui.
     forms:
       current_file: Nykyinen tiedosto
       current_image: Nykyinen kuva
@@ -1551,6 +1552,8 @@ fi:
       updated: Tilisi päivitys onnistui.
     sessions:
       already_signed_out: Uloskirjautuminen onnistui.
+      new:
+        sign_in: Kirjaudu sisään
       signed_in: Sisäänkirjautuminen onnistui.
       signed_out: Uloskirjautuminen onnistui.
     shared:
@@ -1559,6 +1562,7 @@ fi:
         didn_t_receive_confirmation_instructions: Etkö saanut vahvistusohjeita?
         didn_t_receive_unlock_instructions: Etkö saanut ohjeita tilin lukituksen poistoon?
         forgot_your_password: Unohditko salasanasi?
+        sign_in: Kirjaudu sisään
         sign_in_with_provider: Kirjaudu sisään palvelulla %{provider}
         sign_up: Rekisteröidy
       minimum_password_length:
