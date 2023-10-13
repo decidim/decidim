@@ -10,7 +10,6 @@ module Decidim
     def show
       enforce_permission_to(:show, :user, current_user:)
       @account = form(AccountForm).from_model(current_user)
-      @account.password = params[:user_password]
     end
 
     def update
@@ -28,7 +27,8 @@ module Decidim
           redirect_to account_path(locale: current_user.reload.locale)
         end
 
-        on(:invalid) do
+        on(:invalid) do |password|
+          update_account_password(password)
           flash[:alert] = t("account.update.error", scope: "decidim")
           render action: :show
         end
@@ -105,6 +105,10 @@ module Decidim
 
     def account_params
       params[:user].to_unsafe_h
+    end
+
+    def update_account_password(password)
+      @account.password = password
     end
   end
 end

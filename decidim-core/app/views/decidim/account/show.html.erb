@@ -41,14 +41,16 @@
             ->(locale) { locale_name(locale) },
             help_text: t("available_locales_helper", scope:"decidim.account.show")
           ) %>
-
-      <% if current_organization.sign_in_enabled? %>
+      <% if @account.password.present? %>
+        <%= render partial: "password_fields", locals: { form: f, user: current_user } %>
+        <%= render partial: "old_password_field", locals: { form: f, show_help_text: true } %>
+      <% elsif current_organization.sign_in_enabled? %>
         <div data-component="accordion" id="accordion-password">
           <%= button_tag(
             class: "text-lg font-semibold text-secondary underline block cursor-pointer",
             id: "accordion-trigger-panel-password",
             type: "button",
-            data: { controls: "panel-password", open: @account.errors[:password].present? || @account.password.present? }
+            data: { controls: "panel-password" }
           ) do %>
             <%= t("change_password", scope:"decidim.account.show") %>
           <% end %>
