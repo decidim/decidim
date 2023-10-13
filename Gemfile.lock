@@ -495,7 +495,7 @@ GEM
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.21.4)
+    loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     mail (2.8.1)
@@ -596,7 +596,7 @@ GEM
       rack (>= 2.0.0)
     rack-protection (3.0.6)
       rack
-    rack-proxy (0.7.7)
+    rack-proxy (0.7.6)
       rack
     rack-test (2.1.0)
       rack (>= 1.3)
