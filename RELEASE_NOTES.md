@@ -174,7 +174,7 @@ bundle exec rake decidim:webpacker:install
 
 This will make the necessary changes in the `config/shakapacker.yml`, but also in the `config/webpack/` folder.
 
-As of [\#11728](https://github.com/decidim/decidim/pull/11728), Shakapacker has been upgraded to version 7.1.0, which will stop using `config/webpacker/test.js`, `config/webpacker/development.js`, `config/webpacker/production.js`.
+Shakapacker has been upgraded to version 7.1.0, which will stop using `config/webpacker/test.js`, `config/webpacker/development.js`, `config/webpacker/production.js`.
 
 The project no longer needs to use `config/webpacker.yml`, in favor of `config/shakapacker.yml`. It is recommended to remove the `config/webpacker.yml` to avoid further confusion.
 
