@@ -72,8 +72,16 @@ module Decidim
     def send_update_summary!(changes)
       return if changes.empty?
 
-      updates = changes.map { |attr| I18n.t("activemodel.attributes.user.#{attr}") }
-      SendUpdateummaryJob.perform_later(@user, updates)
+      updates = changes.map do |attr|
+        next unless attr_set.include?(attr)
+
+        I18n.t("activemodel.attributes.user.#{attr}")
+      end
+      SendUpdateSummaryJob.perform_later(@user, updates)
+    end
+
+    def attr_set
+      @attr_set ||= %w(name nickname email about personal_url encrypted_password locale)
     end
   end
 end

@@ -23,6 +23,7 @@ en:
       user:
         about: About
         email: Your email
+        encrypted_password: Password
         locale: Locale
         name: Your name
         nickname: Nickname
@@ -1570,6 +1571,14 @@ en:
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello %{admin},
         subject: A new user has been reported in %{organization_name}
+    user_update_mailer:
+      subject: Your account was updated
+      notify:
+        hello: Hello %{user}
+        body_1: We are sending you this message to inform you about an update to your account.
+        main_body: "The following details have been changed: %{updates}."
+        body_3: In case you have not performed such update yourself, please log in to your account to change your password. In case you cannot log in, please contact the platform support.
+        greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
     version:
       show:
         back_to_resource: Go back
