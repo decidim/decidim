@@ -16,9 +16,7 @@
       <%= render "decidim/meetings/admin/poll/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-dummy" %>
     <% end %>
   <% else %>
-    <div class="callout warning">
-      <%= t("already_answered_warning", scope: "decidim.forms.admin.questionnaires.form") %>
-    </div>
+    <%= cell("decidim/announcement", t("already_answered_warning", scope: "decidim.forms.admin.questionnaires.form"), callout_class: "warning" ) %>
   <% end %>
 
   <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">

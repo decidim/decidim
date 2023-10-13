@@ -4,10 +4,11 @@
     <%= t(".title") %>
   </h2>
 </div>
+
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: url_for([@attachment.attached_to, @attachment]), html: { class: "form form-defaults edit_attachment" }) do |f| %>
-      <%= render partial: "decidim/admin/attachments/form", object: f, locals: { title: t(".title") } %>
+      <%= render partial: "decidim/admin/attachments/form", object: f %>
 
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">

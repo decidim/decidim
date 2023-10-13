@@ -1,4 +1,4 @@
-import icon from "src/decidim/redesigned_icon"
+import icon from "src/decidim/icon"
 
 export default class PasswordToggler {
   constructor(password) {
