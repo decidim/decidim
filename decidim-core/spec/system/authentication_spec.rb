@@ -29,7 +29,7 @@ describe "Authentication", type: :system do
       end
     end
 
-    context "when using another langage" do
+    context "when using another language" do
       before do
         within_language_menu do
           click_link "Castellano"
@@ -37,7 +37,7 @@ describe "Authentication", type: :system do
       end
 
       it "keeps the locale settings" do
-        click_link("Sign Up")
+        click_link("Regístrate")
 
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"

@@ -145,7 +145,6 @@ zh-CN:
         error: 接受修改时发生错误。
         success: 修正已被成功接受。
       amendable:
-        amended_by: 修改者
         button: 修改 %{model_name}
         error: 修改此资源时出错。
         promote_button: 提升至 %{model_name}
@@ -163,7 +162,6 @@ zh-CN:
         success: 修正草案已成功删除。
       edit_draft:
         discard: 丢弃这个草稿
-        discard_confirmation: 您确定要放弃这个修正草案吗？
         send: 预览
         title: 编辑修正草案
       emendation:
@@ -333,8 +331,6 @@ zh-CN:
         name: 组织统计
       sub_hero:
         name: 子英雄广告
-    datepicker:
-      help_text: '预期格式: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
@@ -347,10 +343,7 @@ zh-CN:
           already_have_an_account?: 已经有一个帐户？
           newsletter: 接收附带相关信息的时事通讯
           newsletter_title: 联系人权限
-          sign_in: 登录
           sign_up: 注册
-          sign_up_as:
-            legend: 注册为
           subtitle: 注册参加讨论和支持建议。
           tos_agreement: 通过注册您同意 %{link}。
           tos_title: 服务条款
@@ -363,7 +356,6 @@ zh-CN:
         newsletter_modal:
           buttons:
             check: 检查并继续
-            close_modal: 关闭模式
             uncheck: 保持未选中的
           title: 通讯通知
         omniauth_buttons:
@@ -388,9 +380,6 @@ zh-CN:
       show:
         download_data: 下载数据
         request_data: 请求数据
-    endorsable:
-      endorsements: 授权
-      endorsements_count: 批准次数
     endorsements:
       identities:
         done: 完成
@@ -647,12 +636,9 @@ zh-CN:
           title: 我可以在 %{organization} 中做什么？
         title: 常规帮助
     last_activities:
-      activities:
-        no_activities_warning: 没有活动
       all: 所有活动类型
       index:
         last_activity: 上次活动
-        resource_type: 类型
     log:
       base_presenter:
         create: "%{user_name} 创建了 %{resource_name}"
@@ -800,11 +786,6 @@ zh-CN:
         success: 您的通知设置已成功更新。
     open_data:
       not_available_yet: 打开数据文件尚不可用，请几分钟后再试。
-    own_user_groups:
-      index:
-        pending: 待定
-        rejected: 已拒绝
-        verified: 已验证
     pad_iframe:
       disclaimer: 这个板块的内容由注册用户撰写并表达他们的意见。 %{organization} 不能对其内容负责。
       pad: 平板
@@ -826,8 +807,6 @@ zh-CN:
         hero:
           participate: 参与
           welcome: 欢迎使用 %{organization}！
-        metrics:
-          headline: 指标
         statistics:
           headline: 当前状态 %{organization}
         sub_hero:
@@ -844,7 +823,7 @@ zh-CN:
     participatory_space_private_users:
       not_allowed: 您无权查看此内容
     profile:
-      view: 查看
+      deleted: 删除参与者
     profiles:
       show:
         activity: 活动
@@ -855,7 +834,6 @@ zh-CN:
         groups: 群組
         members: 成员
         officialized: 官方参与者
-        view_full_profile: 查看完整资料
       sidebar:
         badges:
           info: 徽章是通过在平台上执行特定活动赚取的。
@@ -911,7 +889,6 @@ zh-CN:
       term_input_placeholder: 搜索
     searches:
       filters:
-        back: 返回结果
         jump_to: '跳转到：'
         state:
           active: 已启用
@@ -919,13 +896,9 @@ zh-CN:
           future: 未来
           past: 过去的
       filters_small_view:
-        close_modal: 关闭模式
         filter: 筛选器
         filter_by: 筛选方式
-        unfold: 展开...
       results:
-        results:
-          other: "%{count} 个结果"
         view_all: 查看所有 (%{count})
     security:
       selfxss_warning:
@@ -937,10 +910,6 @@ zh-CN:
         close_modal: 关闭模式
         ok: 好的
         title: 确认
-      embed_modal:
-        close_window: 关闭窗口
-        embed: 请将此代码粘贴到您的页面
-        embed_link: 嵌入
       extended_navigation_bar:
         more: 更多
         unfold: 展开...
@@ -956,13 +925,8 @@ zh-CN:
         spam: 包含点击、广告、骗子或脚本机器人。
         title: 报告不恰当的内容
       floating_help:
-        close: 关闭帮助
         help: 帮助
-      follow_button:
-        sign_in_before_follow: 请先登录才能执行此操作
       login_modal:
-        close_modal: 关闭模式
-        please_sign_in: 请登录
         sign_up: 注册
       participatory_space_filters:
         filters:
@@ -977,7 +941,6 @@ zh-CN:
         label: '每页结果：'
         title: 选择每页结果数
       share_modal:
-        close_window: 关闭窗口
         share: 分享
         share_link: 分享链接
     statistics:
@@ -995,27 +958,12 @@ zh-CN:
         existing_error: 无法创建消息。对话已经存在，请现在重试。
         success: 对话已成功启动！
       index:
-        add_max_users: '将用户添加到对话中：最大9个用户'
-        add_users_placeholder: 搜索...
-        close: 关闭
         conversations_info: 对话是私密的。没有其他人可以看到他们。对话可以与在平台上注册的任何参与者或群组开始。
-        from: 来自
-        last_message: 最后一条消息
-        modal_title: 新建对话
-        new_conversation: 新建对话
-        next: 下一个
         no_conversations_warning: 还没有对话。
-        no_results: 没有结果
         time_ago: "%{time} 前"
-      new:
-        title: 开始对话
       reply:
         placeholder: 您的回复...
         send: 发送
-        title_reply: 答复
-      show:
-        not_allowed: 此用户不接受任何更多的直接消息。
-        title: 与 %{usernames} 的对话
       update:
         error: 消息发送失败，请稍后再试
     user_interests:
@@ -1030,25 +978,12 @@ zh-CN:
         back_to_resource: 后退
         changes_at_title: 更改于 "%{title}"
         number_of_versions: 版本
-        show_all_versions: 显示所有版本
-        version_author: 版本作者
         version_created_at: 版本创建于
-        version_number: 版本号
-        version_number_out_of_total: "%{current_version} 中的 %{total_count}"
-    version_author:
-      show:
-        deleted: 删除参与者
     versions:
       resource_version:
         of_versions: "( %{number})"
         see_other_versions: 查看其他版本
         version: 版本号 %{number}
-    versions_list:
-      show:
-        back_to_resource: 后退
-        changes_at_title: 更改于 "%{title}"
-        number_of_versions: 版本
-        title: 版本
     versions_list_item:
       show:
         version_index: 版本 %{index}
@@ -1075,8 +1010,6 @@ zh-CN:
       last_attempt: 您还有一次尝试在您的帐户被锁定之前。
       locked: 您的帐户已被锁定。
       not_found_in_database: 无效的 %{authentication_keys} 或密码。
-      timeout: 您的会话已过期。请重新登录以继续。
-      unauthenticated: 您需要登录或注册才能继续。
     invitations:
       edit:
         header: 完成创建您的帐户
@@ -1123,7 +1056,6 @@ zh-CN:
         action: 解锁我的帐户
         greeting: 你好 %{recipient}！
         instruction: '点击下面的链接解锁您的帐户：'
-        message: 由于登录失败次数过多，您的帐户已被锁定。
         subject: 解锁指令
     omniauth_callbacks:
       failure: 无法认证您来自 %{kind} 的身份，因为“%{reason}”。
@@ -1151,18 +1083,10 @@ zh-CN:
       signed_up_but_unconfirmed: 一封带有确认链接的邮件已发送到您的电子邮件地址。请点击链接激活您的帐户。
       update_needs_confirmation: 您已成功更新您的帐户，但我们需要验证您的新电子邮件地址。 请检查您的电子邮件并点击确认链接以确认您的新电子邮件地址。
       updated: 您的帐户已成功更新。
-    sessions:
-      already_signed_out: 已成功注销。
-      new:
-        sign_in: 登录
-      signed_in: 登录成功。
-      signed_out: 已成功注销。
     shared:
       links:
         back: 后退
         forgot_your_password: 忘记密码？
-        sign_in: 登录
-        sign_in_with_provider: 使用 %{provider} 登录
         sign_up: 注册
       minimum_password_length:
         other: "(%{count} 个字符最小)"
@@ -1171,13 +1095,11 @@ zh-CN:
         resend_unlock_instructions: 重新发送解锁说明
       send_instructions: 几分钟后您将收到一封电子邮件，说明如何解锁您的帐户。
       send_paranoid_instructions: 如果您的帐户存在，您将收到一封电子邮件，说明如何在几分钟内解锁它。
-      unlocked: 您的帐户已成功解锁。请登录以继续。
   doorkeeper:
     scopes:
       public: 您的公共信息。
   errors:
     messages:
-      already_confirmed: 已经确认，请尝试登录
       confirmation_period_expired: 需要在 %{period}内确认, 请申请一个新的
       content_type_allowlist_error: 文件类型无效
       expired: 已过期，请申请一个新的
@@ -1200,6 +1122,10 @@ zh-CN:
     timestamp_error_message: 对不起，这太快了！请重新提交。
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: 类型
       edit_link:
         edit: 编辑
       footer:
@@ -1207,10 +1133,6 @@ zh-CN:
         decidim_logo: 解码徽标
         download_open_data: 下载打开的数据文件
         made_with_open_source: 使用 <a target="_blank" href="https://github.com/decidim/decidim">免费软件</a> 创建的网站。
-      header:
-        close_menu: 关闭菜单
-        navigation: Navigation
-        sign_in: 登录
         sign_up: 注册
       impersonation_warning:
         close_session: 关闭会话
@@ -1225,7 +1147,6 @@ zh-CN:
         facebook: "%{organization} 在 Facebook"
         github: "%{organization} 在 GitHub"
         instagram: "%{organization} 在 Instagram"
-        twitter: "%{organization} 在 Twitter"
         youtube: "%{organization} 在 YouTube"
       user_menu:
         account: '用户帐户: %{name}'
@@ -1234,7 +1155,6 @@ zh-CN:
         notifications: 通知
         profile: 我的帐户
         public_profile: 我的公开资料
-        sign_out: 登出
       user_profile:
         account: 账户
         authorizations: 授权
@@ -1244,8 +1164,6 @@ zh-CN:
         notifications_settings: 通知设置
         title: 参与者设置
         user_groups: 群組
-      widget:
-        see_more: 查看更多
   locale:
     name: 中文
     name_with_error: 中文(错误!)

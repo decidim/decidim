@@ -100,7 +100,6 @@ de:
         edit: Bearbeiten
         filter:
           all_processes: Alle Beteiligungsprozesse anzeigen
-          process_groups: Prozessgruppen
         import_process: Importieren
         moderate: Moderieren
         new_process: Neuer Beteiligungsprozess
@@ -125,7 +124,7 @@ de:
           attachments: Anlagen
           categories: Kategorien
           components: Komponenten
-          info: Info
+          landing_page: Startseite
           moderations: Moderationen
           private_users: Private Benutzer
           process_admins: Benutzer verarbeiten
@@ -135,7 +134,6 @@ de:
           fields:
             created_at: Hergestellt in
             private: Privat
-            promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
           name: Beteiligungsprozess
@@ -254,8 +252,6 @@ de:
         edit:
           title: Prozesstyp bearbeiten
           update: Aktualisieren
-        form:
-          title: Titel
         new:
           create: Erstellen
           title: Neuer Prozesstyp
@@ -286,7 +282,6 @@ de:
         edit:
           update: Aktualisieren
         index:
-          not_published: Nicht veröffentlicht
           private: Privat
           public: Öffentlich
           published: Veröffentlicht
@@ -371,30 +366,31 @@ de:
         description: Anzahl der Beteiligungsprozesse in dieser Organisation
         object: Beteiligungsprozesse
         title: Beteiligungsprozesse
-    participatory_process:
-      show:
-        related_assemblies: Ähnliche Versammlungen
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Unterstützt von
+          name: Metadaten
+          participatory_scope: Was wird entschieden?
+          participatory_structure: Wie wird es entschieden?
+          target: Wer nimmt teil?
+        html:
+          name: HTML-Block
         html_1:
           name: Erster HTML-Block
         html_2:
           name: Zweiter HTML-Block
         html_3:
           name: Dritter HTML-Block
-        metadata:
-          developer_group: Unterstützt von
-          name: Metadaten
-          participatory_scope: Was wird entschieden
-          participatory_structure: Wie wird es entschieden
-          target: Wer nimmt teil
+        main_data:
+          name: Titel und Beschreibung
         participatory_processes:
+          active: Aktive Beteiligungsprozesse
           name: Beteiligungsprozesse
         stats:
           name: Statistiken
         title:
           meta_scope: Umfang
-          name: Titel, Beschreibung und Hashtag
           participatory_processes:
             one: 1 Prozess
             other: "%{count} Prozesse"
@@ -403,30 +399,31 @@ de:
     participatory_process_steps:
       index:
         process_steps: Prozessschritte
-        title: Partizipative Prozessschritte
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Aktiv
+            all: Alle
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
+            selection_criteria: Auswahlkriterien
         new_import:
           accepted_types:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadaten
-            title: Allgemeine Informationen
             visibility: Sichtbarkeit
         participatory_process_imports:
           form:
             document_legend: Dokument hinzufügen
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt. Beispiel: %{url}'
+            cta_path_help_html: 'Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt. Beispiel: %{url}'
             cta_text_help: Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt.
         participatory_processes:
           form:
@@ -441,12 +438,18 @@ de:
             select_an_area: Wählen Sie einen Bereich aus
             select_participatory_process_type: Wählen Sie einen Prozesstyp aus
             select_process_group: Wählen Sie eine Prozessgruppe aus
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             title: Allgemeine Information
             visbility: Sichtweite
       content_blocks:
+        extra_data:
+          name: Phase & Dauer
+        hero:
+          name: Banner-Bild und Aufruf
         highlighted_processes:
           name: Hervorgehobene Beteiligungsprozesse
+        related_processes:
+          name: Ähnliche Prozesse
       index:
         title: Beteiligungsprozesse
       last_activity:
@@ -454,17 +457,22 @@ de:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktive Beteiligungsprozesse
-            active_step: Aktiver Schritt
-            more_information: Mehr Informationen
-            participate: Sich beteiligen
-            participate_in: Am Prozess %{resource_name} teilnehmen
-            processes_button_title: Link zur Prozess-Seite die alle Prozesse anzeigt
-            see_all_processes: Alle Beteiligungsprozesses anzeigen
+            active_spaces: Aktive Prozesse
+            see_all_spaces: Alle Prozesse anzeigen
       participatory_process_steps:
         index:
           back_to_process: Zurück zur Prozessseite
       participatory_processes:
+        description:
+          area_name: Gebiet
+          data: Prozessdaten
+          developer_group: Gruppe der Unterstützenden
+          local_area: Gebiet der Organisation
+          meta_scope: Thema
+          participatory_scope: Was wird entschieden?
+          participatory_structure: Wie wird es entschieden?
+          target: Wer nimmt teil?
+          title: Über diesen Prozess
         filters:
           all_types: Alle Typen
           counters:
@@ -480,6 +488,7 @@ de:
             upcoming:
               one: 1 bevorstehender Beteiligungsprozess
               other: "%{count} bevorstehende Beteiligungsprozesse"
+          date: Datum
           explanations:
             no_active: Keine laufenden Prozesse.
             no_active_nor_upcoming: Keine laufende oder bevorstehende Prozesse.
@@ -491,25 +500,13 @@ de:
             past: Vergangenheit
             upcoming: Bevorstehende
           see: Sehen
-        index:
-          loading: Ergebnisse werden geladen ...
+          type: Typ
         show:
           title: Über diesen Prozess
       show:
-        area: Bereich
         belongs_to_group: Dieser Prozess gehört zu
-        dates: Daten
-        developer_group: Promoter-Gruppe
-        end_date: Enddatum
-        local_area: Organisationsbereich
-        participatory_scope: Was wird entschieden?
-        participatory_structure: Wie wird es entschieden
         private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
-        scope: Umfang
-        start_date: Startdatum
-        target: Wer nimmt teil?
-        unspecified: Keine Angabe
     statistics:
       processes_count: Beteiligungsprozesse
   layouts:
@@ -519,10 +516,6 @@ de:
           browse: Durchsuche
           browse_resource: Prozessgruppe %{resource_name} durchsuchen
           processes_count: 'Beteiligungsprozesse:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktiver Schritt
-          take_part: Teilnehmen
       participatory_processes:
         index:
           promoted_processes: Hervorgehobene Beteiligungsprozesse
@@ -532,16 +525,3 @@ de:
           more_info_about: Weitere Informationen zum Prozess %{resource_name}
           take_part: Teilnehmen
           take_part_in: Beteiligen Sie sich am Prozess %{resource_name}
-        promoted_process:
-          active_step: 'Aktueller Schritt:'
-          more_info: Mehr Informationen
-          more_info_about: Weitere Informationen zum Prozess %{resource_name}
-          take_part: Teilnehmen
-          take_part_in: Beteiligen Sie sich am Prozess %{resource_name}
-        promoted_process_group:
-          more_info: Mehr Info
-      process_header_steps:
-        step: Schritt %{current} von %{total}
-        view_steps: Schritte anzeigen
-      process_navigation:
-        process_menu_item: Der Prozess

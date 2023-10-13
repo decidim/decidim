@@ -41,7 +41,6 @@ fi:
         edit: Muokkaa
         import: Tuo hankkeita tuloksiin
         import_csv: Tuo CSV
-        new: Uusi %{name}
         preview: Esikatsele
         timeline_entries: Hankkeen edistyminen
         title: Toiminnot
@@ -77,14 +76,13 @@ fi:
             title: Tuo tulokset CSV-tiedostosta
         imports:
           create:
+            invalid: Tulosten tuonti epäonnistui.
             success: Tiedoston tuominen on aloitettu. Saat muutaman minuutin kuluttua sähköpostin, jossa ilmoitetaan tuonnin lopputulos.
         models:
           result:
             name: Tulos
           status:
             name: Tila
-          timeline_entry:
-            name: Aikajanan merkintä
         projects_import:
           create:
             invalid: Hankkeiden tuominen tuloksiin epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut hankkeita toteutukseen.
@@ -231,6 +229,7 @@ fi:
           global_status: Yleisen toteutuksen tila
         nav_breadcrumb:
           global: Yleinen toteutus
+        no_results: Hankkeita ei ole saatavilla
         search:
           search: Hae toimintoja
         show:
@@ -293,7 +292,7 @@ fi:
         title: Tulokset
     participatory_spaces:
       highlighted_results:
-        see_all: Näytä kaikki (%{count} kpl)
+        see_all: Näytä kaikki tulokset
     resource_links:
       included_projects:
         result_project: Tähän tulokseen liittyvät hankkeet

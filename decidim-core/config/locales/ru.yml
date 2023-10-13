@@ -128,7 +128,6 @@ ru:
         error: Произошла ошибка при принятии поправки.
         success: Поправка была успешно принята.
       amendable:
-        amended_by: Исправлено
         button: Изменить %{model_name}
         promote_button: Повысить до %{model_name}
       compare_draft:
@@ -251,8 +250,6 @@ ru:
         name: Статистика организации
       sub_hero:
         name: Под-богатырский баннер
-    datepicker:
-      help_text: 'Ожидаемый формат: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
@@ -265,10 +262,7 @@ ru:
           already_have_an_account?: У вас уже есть учетная запись?
           newsletter: Получать время от времени рассылку со свежими новостями
           newsletter_title: Разрешение на связь с вами
-          sign_in: Войти
           sign_up: Зарегистрироваться
-          sign_up_as:
-            legend: Зарегистрироваться как
           subtitle: Зарегистрируйтесь, чтобы участвовать в обсуждениях и поддерживать предложения.
           tos_agreement: Регистрируясь, вы принимаете %{link}.
           tos_title: Условия участия
@@ -281,7 +275,6 @@ ru:
         newsletter_modal:
           buttons:
             check: Поставить галочку и продолжить
-            close_modal: Закрыть окошко
           title: Уведомления о новостях
         omniauth_buttons:
           or: Или
@@ -305,8 +298,6 @@ ru:
       show:
         download_data: Загрузить данные
         request_data: Запросить данные
-    endorsable:
-      endorsements: Выражений поддержки
     errors:
       internal_server_error:
         title: При попытке связи с нашим сервером произошла ошибка
@@ -479,11 +470,6 @@ ru:
       update:
         error: При попытке обновить настройки уведомлений произошла ошибка.
         success: Ваши настройки уведомлений были успешно обновлены.
-    own_user_groups:
-      index:
-        pending: В ожидании
-        rejected: Отклонено
-        verified: Проверено
     pages:
       home:
         extended:
@@ -509,7 +495,7 @@ ru:
     participatory_space_private_users:
       not_allowed: У вас нет прав на просмотр этого содержимого
     profile:
-      view: Посмотреть
+      deleted: Удаленный участник
     profiles:
       show:
         followers: Читают
@@ -550,15 +536,9 @@ ru:
       term_input_placeholder: Поиск
     searches:
       filters_small_view:
-        close_modal: Закрыть окошко
         filter: Отобрать
         filter_by: 'Отобрать по признаку:'
-        unfold: Развернуть
     shared:
-      embed_modal:
-        close_window: Закрыть окно
-        embed: Пожалуйста, вставьте этот код в свою страницу
-        embed_link: Встроить
       flag_modal:
         already_reported: На это содержимое уже пожаловались, и жалобу рассмотрит администратор.
         close: Закрыть
@@ -569,17 +549,13 @@ ru:
         title: Пожаловаться на проблему
       floating_help:
         help: Справка
-      follow_button:
-        sign_in_before_follow: Пожалуйста, войдите в учетную запись, прежде чем выполнять это действие
       login_modal:
-        please_sign_in: Пожалуйста войдите
         sign_up: Зарегистрироваться
       reference:
         reference: 'Ссылка: %{reference}'
       results_per_page:
         label: 'Результатов на странице:'
       share_modal:
-        close_window: Закрыть окно
         share: Поделиться
         share_link: Поделиться ссылкой
     statistics:
@@ -587,9 +563,6 @@ ru:
     user_conversations:
       update:
         error: Сообщение не отправлено. Попробуйте позже
-    version_author:
-      show:
-        deleted: Удаленный участник
     wizard_step_form:
       wizard_aside:
         back: Назад
@@ -611,8 +584,6 @@ ru:
       last_attempt: У вас есть еще одна попытка, прежде чем ваша учетная запись будет заблокирована.
       locked: Ваша учетная запись заблокирована.
       not_found_in_database: Неверный %{authentication_keys} или пароль.
-      timeout: Ваша сессия истекла. Пожалуйста, войдите снова, чтобы продолжить.
-      unauthenticated: Вам нужно войти или зарегистрироваться, чтобы продолжить.
     invitations:
       edit:
         header: Завершите создание своей учетной записи
@@ -659,30 +630,21 @@ ru:
       signed_up: Добро пожаловать! Вы успешно зарегистрировались.
       signed_up_but_inactive: Вы успешно зарегистрировались. Однако вы не можете войти в систему, потому что учетная запись еще не активирована.
       signed_up_but_locked: Вы успешно зарегистрировались. Однако вы не можете войти в систему, потому что ваша учетная запись заблокирована.
-    sessions:
-      new:
-        sign_in: Войти
-      signed_in: Вход выполнен успешно.
-      signed_out: Вы вышли.
     shared:
       links:
         back: Назад
         forgot_your_password: Забыли пароль?
-        sign_in: Войти
-        sign_in_with_provider: Войти с помощью %{provider}
         sign_up: Зарегистрироваться
     unlocks:
       new:
         resend_unlock_instructions: Повторно отправить инструкции по разблокировке
       send_instructions: Вы получите письмо с инструкциями по разблокированию учетной записи в течение нескольких минут.
       send_paranoid_instructions: Если ваша учетная запись существует, вы получите письмо с инструкциями о том, как ее разблокировать в течение нескольких минут.
-      unlocked: Ваша учетная запись успешно разблокирована. Пожалуйста, войдите, чтобы продолжить.
   doorkeeper:
     scopes:
       public: Обнародованные сведения о вас.
   errors:
     messages:
-      already_confirmed: уже был подтвержден, попробуйте войти
       content_type_allowlist_error: этот тип файла недопустим
       file_size_is_less_than_or_equal_to: размер файла должен быть меньше или равен %{count}
   forms:
@@ -696,10 +658,6 @@ ru:
         edit: Редактировать
       footer:
         made_with_open_source: Сайт создан с помощью <a target="_blank" href="https://github.com/decidim/decidim"> бесплатного программного обеспечения</a>.
-      header:
-        close_menu: Закрыть меню
-        navigation: Навигация
-        sign_in: Войти в систему
         sign_up: Зарегистрироваться
       impersonation_warning:
         close_session: Закрыть сеанс
@@ -713,7 +671,6 @@ ru:
         notifications: Уведомления
         profile: Моя учетная запись
         public_profile: Мой общедоступный профиль
-        sign_out: Выйти
       user_profile:
         account: Учетная запись
         authorizations: Подтверждения личности
@@ -721,8 +678,6 @@ ru:
         my_data: Мои данные
         notifications_settings: Настройки уведомлений
         title: Настройки участника
-      widget:
-        see_more: Читать подробнее
   locale:
     name: Русский
     name_with_error: Русский (ошибка!)

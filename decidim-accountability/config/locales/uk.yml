@@ -36,7 +36,6 @@ uk:
         confirm_destroy: Ви впевнені, що хочете видалити %{name}?
         destroy: Видалити
         edit: Редагувати
-        new: Додати %{name}
         preview: Попередній перегляд
         timeline_entries: Розвиток проекту
         title: Дії
@@ -48,8 +47,6 @@ uk:
             name: Підсумки
           status:
             name: Стан
-          timeline_entry:
-            name: Запис на лінії часу
         results:
           edit:
             title: Редагувати підсумки

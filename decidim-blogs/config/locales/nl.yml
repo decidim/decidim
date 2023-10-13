@@ -17,9 +17,6 @@ nl:
         new: Nieuwe blogpost
         title: acties
       admin:
-        models:
-          post:
-            name: Post
         posts:
           edit:
             save: Bijwerken
@@ -42,9 +39,6 @@ nl:
             author: Auteur
             body: Tekstgedeelte
             official_blog_post: Officiële blogpost
-      posts:
-        show:
-          view: Bekijk
     components:
       blogs:
         actions:

@@ -30,7 +30,6 @@ zh-CN:
         confirm_destroy: 您确定要删除这个吗？
         destroy: 删除
         edit: 编辑
-        new: 新的
         save: 保存
         title: 行动
       admins:
@@ -60,7 +59,6 @@ zh-CN:
           fields:
             created_at: 创建于
             email: 电子邮件地址
-          name: 管理员
           validations:
             email_uniqueness: 已存在具有相同电子邮件的其他管理员
         oauth_application:
@@ -68,7 +66,6 @@ zh-CN:
             created_at: 创建于
             name: OAuth 应用程序名称
             organization_name: 组织
-          name: OAuth 应用程序
         organization:
           actions:
             save_and_invite: 创建机构并邀请管理员
@@ -78,7 +75,6 @@ zh-CN:
             name: 名称
             omniauth_settings: Omniauth 设置
             smtp_settings: SMTP 设置
-          name: 组织
       oauth_applications:
         create:
           error: 创建此应用程序时出现问题。

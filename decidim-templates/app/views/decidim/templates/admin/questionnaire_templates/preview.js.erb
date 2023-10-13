@@ -8,4 +8,7 @@
   $templateDescription.html("<%= translated_attribute @template.description %>");
 
   $preview.html("<%= j(render partial: "preview", locals: { questionnaire: @questionnaire }) %>");
+
+  var $container = $(".questionnaire-template-preview");
+  $container.removeClass("hide");
 }());

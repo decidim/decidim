@@ -19,9 +19,6 @@ pl:
         new: Nowy wpis
         title: Działania
       admin:
-        models:
-          post:
-            name: Wpis
         posts:
           edit:
             save: Aktualizuj
@@ -38,9 +35,6 @@ pl:
           fields:
             author: Autor
             body: Treść
-      posts:
-        show:
-          view: Zobacz
     components:
       blogs:
         name: Blog

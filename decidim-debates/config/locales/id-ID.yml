@@ -36,7 +36,6 @@ id:
         confirm_destroy: Apakah kamu yakin
         destroy: Menghapus
         edit: Edit
-        new: Baru %{name}
         title: Tindakan
       admin:
         debates:
@@ -56,9 +55,6 @@ id:
           update:
             invalid: Ada masalah saat memperbarui debat ini.
             success: Debat berhasil diperbarui.
-        models:
-          debate:
-            name: Perdebatan
       admin_log:
         debate:
           create: "%{user_name} menciptakan debat %{resource_name} pada %{space_name} ruang"
@@ -79,11 +75,6 @@ id:
           official: Resmi
           origin: Asal
           search: Pencarian
-        filters_small_view:
-          close_modal: Tutup modal
-          filter: Filter
-          filter_by: Saring menurut
-          unfold: Membuka
         form:
           select_a_category: Silakan pilih kategori
         index:
