@@ -5,7 +5,6 @@ cs:
         assemblies_ids: Související shromáždění
         available_slots: Dostupné sloty
         banner_image: Obrázek banneru
-        consultations_ids: Související konzultace
         copy_categories: Kopírovat kategorie
         copy_components: Kopírování komponent
         copy_features: Funkce kopírování
@@ -17,7 +16,7 @@ cs:
         location: Lokalita
         main_logo: Hlavní logo
         objectives: Cíle
-        participatory_processes_ids: Související procesy účasti
+        participatory_processes_ids: Související participativní procesy
         promoted: Propagováno
         published_at: Publikováno v
         registration_terms: Podmínky registrace
@@ -63,7 +62,7 @@ cs:
         personal_url: Osobní URL
         position: Pozice
         short_bio: Krátký životopis
-        twitter_handle: Twitter účet
+        twitter_handle: X handle
         user_id: Uživatel
       conference_user_role:
         email: E-mail
@@ -84,7 +83,7 @@ cs:
         other: Konference
       decidim/conference_speaker:
         one: Řečník Konference
-        few: Řečnící Konference
+        few: Řečníci Konference
         many: Řečníci Konference
         other: Řečníci Konference
       decidim/conference_user_role:
@@ -97,6 +96,11 @@ cs:
       actions:
         confirm: Potvrdit
         new_conference: Nová konference
+        new_conference_user_role: Nový administrátor konference
+        new_media_link: Nový odkaz na média
+        new_partner: Nový partner
+        new_registration_type: Nový typ registrace
+        new_speaker: Nový mluvčí
         send_diplomas: Odeslání certifikátů o účasti
       conference_copies:
         new:
@@ -124,7 +128,7 @@ cs:
           title: Aktualizovat řečníka konference.
           update: Aktualizace
         index:
-          conference_speakers_title: Řečnící konference
+          conference_speakers_title: Řečníci konference
         new:
           create: Vytvořit
           title: Nový řečník konference.
@@ -159,8 +163,8 @@ cs:
         form:
           title: Obecná informace
         index:
-          not_published: Není zveřejněno
           published: Publikováno
+          unpublished: Nezveřejněno
         new:
           create: Vytvořit
           title: Konference
@@ -200,18 +204,18 @@ cs:
           conference_invites: Pozvánky
           conference_speakers: Řečníci
           diploma: Potvrzení o účasti
-          info: Info
+          info: O této konferenci
           media_links: Odkazy na média
           moderations: Moderování
           partners: Partneři
           registration_types: Typy registrace
           registrations: Registrace
+          see_conference: Zobrazit konferenci
           user_registrations: Registrace uživatelů
       models:
         conference:
           fields:
             created_at: Vytvořeno v
-            promoted: Propagováno
             published: Publikováno
             title: Název
         conference_speaker:
@@ -337,7 +341,7 @@ cs:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL slugs se používají k vygenerování adres URL, které odkazují na tuto konferenci. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         conference_invites:
           create:
             error: Při pozvání uživatele do konference došlo k problému.
@@ -354,7 +358,6 @@ cs:
               all: Vše
               rejected: Odmítnuto
               sent: Odesláno
-            filter_by: Filtrovat podle
             invite_attendee: Pozvat účastníka
             invites: Pozvánky
             search: Vyhledávání
@@ -381,7 +384,7 @@ cs:
               few: Bylo zde %{count} registrací.
               many: Bylo zde %{count} registrací.
               other: Bylo zde %{count} registrací.
-            slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které odkazují na tuto konferenci. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         diplomas:
           edit:
             save: Uložit
@@ -438,12 +441,12 @@ cs:
         decline_invitation:
           invalid: Došlo k potížím s odmítnutím pozvánky.
           success: Odmítli jste pozvánku úspěšně.
-          unauthorized: Před odmítnutím pozvání se musíte přihlásit.
+          unauthorized: Před odmítnutím pozvánky se musíte přihlásit.
         destroy:
           invalid: Při této konferenci došlo k problému.
           success: Konference jste úspěšně opustili.
       conference_speaker:
-        go_to_twitter: Přejděte na Twitter
+        go_to_twitter: Přejít na X
         more_info: více informací
         personal_website: Osobní web
         show:
@@ -464,9 +467,14 @@ cs:
           collaborators: Partneři
           main_promotors: Organizátoři
         show:
+          already_have_an_account?: Již máte účet?
+          are_you_new?: Nový účastník?
           login_as: Jste přihlášeni jako %{name} <%{email}>
           make_conference_registration: Registrovat na konferenci
+          manage_registration: Správa registrace
           register: Registrovat
+          sign_in_description: Přihlaste se pro registraci do konference
+          sign_up_description: Vytvořte si účet pro registraci do konference
       content_blocks:
         highlighted_conferences:
           name: Zvýrazněné konference
@@ -508,9 +516,8 @@ cs:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktivní konference
-            conferences_button_title: Odkaz na stránku Konference zobrazující všechny konference
-            see_all_conferences: Podívejte se na všechny konference
+            active_spaces: Aktivní konference
+            see_all_spaces: Zobrazit všechny konference
       registration_types:
         index:
           choose_an_option: 'Vyberte možnost registrace:'
@@ -522,8 +529,7 @@ cs:
         introduction: Úvod
         objectives: Cíle
         related_assemblies: Související shromáždění
-        related_consultations: Související konzultace
-        related_participatory_processes: Související procesy účasti
+        related_participatory_processes: Související participativní procesy
     events:
       conferences:
         conference_registration_confirmed:
@@ -580,10 +586,8 @@ cs:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Správa registrace
         register: Registrovat
-      conference_widgets:
-        show:
-          take_part: Zúčastnit se
       conferences:
         conference:
           more_info: Více informací
@@ -596,11 +600,7 @@ cs:
             few: "%{count} konferencí"
             many: "%{count} konferencí"
             other: "%{count} konferencí"
-        promoted_conference:
-          more_info: Více informací
-          take_part: Zúčastnit se
       conferences_nav:
-        conference_menu_item: Informace
         conference_partners_menu_item: Partneři
         conference_speaker_menu_item: Řečníci
         media: Média

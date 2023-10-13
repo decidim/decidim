@@ -7,7 +7,7 @@
 
   <div class="card-section">
     <div class="row column">
-      <ul class="no-bullet-indented">
+      <ul>
         <% form.messages.each do |key, value| %>
           <% if form.errors.include?(key) %>
             <li><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
@@ -19,7 +19,7 @@
 
       <% if form.needs_census? %>
         <h4><%= t(".census") %></h4>
-        <ul class="no-bullet-indented">
+        <ul>
           <% form.census_messages.each do |key, value| %>
             <% if form.errors.include?(key) %>
               <li><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
@@ -31,7 +31,7 @@
       <% end %>
 
       <h4><%= t(".trustees") %></h4>
-      <ul class="no-bullet-indented">
+      <ul>
         <% if form.participatory_space_trustees.none? %>
           <li><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= t(".no_trustees") %></li>
         <% end %>

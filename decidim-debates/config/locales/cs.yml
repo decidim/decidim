@@ -53,7 +53,7 @@ cs:
         confirm_destroy: Jste si jisti?
         destroy: Odstranit
         edit: Upravit
-        new: Nové %{name}
+        new: Nová debata
         title: Akce
       admin:
         debate_closes:
@@ -83,9 +83,6 @@ cs:
             success: Debata byla úspěšně aktualizována.
         exports:
           comments: Komentáře
-        models:
-          debate:
-            name: Debata
       admin_log:
         debate:
           close: "%{user_name} ukončil debatu %{resource_name} ve skupině %{space_name}"
@@ -98,7 +95,7 @@ cs:
           invalid: Při uzavírání debaty došlo k chybě.
           success: Debata byla úspěšně uzavřena.
         close_debate_modal:
-          close: Zavřít
+          cancel: Zrušit
           description: Jaké je shrnutí nebo závěr této debaty?
           send: Ukončit debatu
         closed: Uzavřeno
@@ -127,18 +124,12 @@ cs:
           official: Oficiální
           origin: Původ
           participants: Účastníci
-          scope: Oblast působnosti
           search: Hledat
           state: Stav
           state_values:
             closed: Uzavřeno
             open: Otevřeno
-          user_groups: Skupiny
-        filters_small_view:
-          close_modal: Zavřít okno
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozbalit
+          user_group: Skupiny
         form:
           select_a_category: Vyberte kategorii
         index:
@@ -154,7 +145,6 @@ cs:
           recent: Nejnovější
           updated: Naposledy aktualizované
         show:
-          back: Zpět na seznam
           close_debate: Ukončit debatu
           date: Datum
           debate_closed: Uzavřeno
@@ -162,28 +152,21 @@ cs:
           edit_conclusions: Upravit závěry
           edit_debate: Upravit debatu
           groups_count: Skupiny
-          last_comment_by: Poslední komentář od
-          no_comments_yet: Zatím žádné komentáře
           open: Otevřená diskuse
           participants_count: Účastníci
         update:
           invalid: Při aktualizaci rozpravy došlo k chybě.
           success: Debata byla úspěšně aktualizována.
-        versions:
-          debates:
-            back_to_resource: Přejít zpět k debatě
-          index:
-            title: Verze
-        versions_list:
-          back_to_resource: Přejít zpět k debatě
       last_activity:
         debate_updated: 'Debata aktualizována:'
         new_debate: 'Nová debata:'
       models:
         debate:
           fields:
+            end: Konec
             end_time: Datum ukončení
             official_debate: Oficiální debata
+            start: Začátek
             start_time: Datum zahájení
             title: Titul
     events:

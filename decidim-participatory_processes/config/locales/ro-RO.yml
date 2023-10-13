@@ -103,7 +103,6 @@ ro:
         edit: Editează
         filter:
           all_processes: Afișează toate procesele
-          process_groups: Grupuri ale procesului
         import_process: Importă
         moderate: Moderează
         new_process: Proces nou
@@ -128,7 +127,6 @@ ro:
           attachments: Atașamente
           categories: Categorii
           components: Componente
-          info: Informații
           moderations: Moderări
           private_users: Participanți privați
           process_admins: Administratori de proces
@@ -138,7 +136,6 @@ ro:
           fields:
             created_at: Creat la
             private: Privat
-            promoted: Evidenţiat
             published: Publicat
             title: Titlu
           name: Proces participativ
@@ -257,8 +254,6 @@ ro:
         edit:
           title: Editează tipul de proces
           update: Actualizează
-        form:
-          title: Titlu
         new:
           create: Creează
           title: Tip nou de proces
@@ -289,7 +284,6 @@ ro:
         edit:
           update: Actualizează
         index:
-          not_published: Nepublicate
           private: Private
           public: Publice
           published: Publicate
@@ -374,9 +368,6 @@ ro:
         description: Numărul de procese participative ale acestei organizații
         object: procese participative
         title: Procese participative
-    participatory_process:
-      show:
-        related_assemblies: Grupuri de lucru asociate
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -385,19 +376,12 @@ ro:
           name: Al doilea bloc HTML
         html_3:
           name: Al treilea bloc HTML
-        metadata:
-          developer_group: Promovat de
-          name: Metadate
-          participatory_scope: Ce se decide
-          participatory_structure: Cum se decide
-          target: Cine participă
         participatory_processes:
           name: Procese participative
         stats:
           name: Statistici
         title:
           meta_scope: Domeniu de interes
-          name: Titlu, descriere și hashtag
           participatory_processes:
             one: 1 proces
             few: "%{count} procese"
@@ -407,7 +391,6 @@ ro:
     participatory_process_steps:
       index:
         process_steps: Etape ale procesului
-        title: Etape ale procesului participativ
     participatory_processes:
       admin:
         content_blocks:
@@ -416,21 +399,15 @@ ro:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadate
-            title: Informaţii generale
             visibility: Vizibilitate
         participatory_process_imports:
           form:
             document_legend: Adaugă un document
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Utilizează căi parţiale, nu adrese URL complete. Acestea acceptă litere, numere, cratime şi bare oblice, şi trebuie să înceapă cu o literă. Dacă nu este setat, butonul nu va fi afișat. Exemplu: %{url}'
             cta_text_help: Dacă nu este setat, butonul nu va fi afișat.
         participatory_processes:
           form:
@@ -445,7 +422,6 @@ ro:
             select_an_area: Selectează o zonă
             select_participatory_process_type: Selectați un tip de proces
             select_process_group: Selectează un grup de proces
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
             title: Informaţii generale
             visbility: Vizibilitate
       content_blocks:
@@ -455,16 +431,6 @@ ro:
         title: Procese participative
       last_activity:
         new_participatory_process: Proces participativ nou
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Procese active
-            active_step: Etapă activă
-            more_information: Mai multe informații
-            participate: Participă
-            participate_in: Participă la procesul %{resource_name}
-            processes_button_title: Link către pagina unde sunt afișate toate procesele participative
-            see_all_processes: Afișează toate procesele
       participatory_process_steps:
         index:
           back_to_process: Înapoi la pagina de proces
@@ -499,25 +465,12 @@ ro:
             past: Anterioare
             upcoming: Viitoare
           see: Vezi
-        index:
-          loading: Se încarcă rezultatele...
         show:
           title: Despre acest proces
       show:
-        area: Zonă
         belongs_to_group: Acest proces aparține de
-        dates: Date
-        developer_group: Grup promotor
-        end_date: Data de încheiere
-        local_area: Zona organizației
-        participatory_scope: Ce se decide
-        participatory_structure: Cum se decide
         private_space: Acesta este un proces privat
         related_processes: Procese asociate
-        scope: Domeniu de interes
-        start_date: Data de început
-        target: Cine participă
-        unspecified: Nespecificat
     statistics:
       processes_count: Procese
   layouts:
@@ -527,10 +480,6 @@ ro:
           browse: Caută
           browse_resource: Caută grupul de proces %{resource_name}
           processes_count: 'Procese:'
-      participatory_process_widgets:
-        show:
-          active_step: Etapă activă
-          take_part: Participă
       participatory_processes:
         index:
           promoted_processes: Procese evidențiate
@@ -540,16 +489,3 @@ ro:
           more_info_about: Mai multe informații despre procesul %{resource_name}
           take_part: Participă
           take_part_in: Participă la procesul %{resource_name}
-        promoted_process:
-          active_step: 'Etapa curentă:'
-          more_info: Mai multe informații
-          more_info_about: Mai multe informații despre procesul %{resource_name}
-          take_part: Participă
-          take_part_in: Participă la procesul %{resource_name}
-        promoted_process_group:
-          more_info: Mai multe informații
-      process_header_steps:
-        step: Etapa %{current} din %{total}
-        view_steps: Etape ale procesului
-      process_navigation:
-        process_menu_item: Procesul

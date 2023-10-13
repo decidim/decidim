@@ -4,7 +4,6 @@ is-IS:
       actions:
         confirm_destroy: Ertu viss um að þú viljir eyða þessu?
         edit: Breyta
-        new: Nýtt
         save: Vista
         title: Aðgerðir
       admins:
@@ -29,7 +28,6 @@ is-IS:
           fields:
             created_at: Búið til á
             email: Email
-          name: Admin
           validations:
             email_uniqueness: annar admin með sama netfangi er þegar til
         organization:
@@ -38,7 +36,6 @@ is-IS:
           fields:
             created_at: Búið til á
             name: Nafn
-          name: Skipulag
       organizations:
         edit:
           secondary_hosts_hint: Sláðu inn hvert þeirra í nýjum línu

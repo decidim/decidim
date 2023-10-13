@@ -193,7 +193,6 @@ nl:
             send_to_technical_validation: Stuur naar technische validatie
             update: Bijwerken
           form:
-            attachments: Bijlagen
             settings: Instellingen
             title: Algemene informatie
           index:
@@ -207,22 +206,14 @@ nl:
             photos: Foto's
         initiatives_type_scopes:
           edit:
-            back: Terug
-            confirm_destroy: Weet je het zeker?
-            destroy: Verwijder
             title: Bewerk het initiatieftype bereik
             update: Bijwerken
           new:
-            back: Terug
             create: creëren
             title: Creër initiatiefstype bereik
         initiatives_types:
           edit:
-            confirm_destroy: Weet je het zeker?
-            destroy: Verwijder
             update: Bijwerken
-          form:
-            title: Algemene informatie
           initiative_type_scopes:
             title: Scopes voor het initiatieftype
           new:
@@ -242,10 +233,6 @@ nl:
         rejected: Niet genoeg handtekeningen
         validating: Technische validatie
       application_helper:
-        filter_area_values:
-          all: Allemaal
-        filter_scope_values:
-          all: Allemaal
         filter_state_values:
           accepted: Genoeg handtekeningen
           all: Allemaal
@@ -285,24 +272,15 @@ nl:
         previous_form:
           back: Terug
           continue: Doorgaan met
-          help: Waaruit bestaat het initiatief? Noteer de titel en beschrijving. We adviseren een korte en bondige titel en een beschrijving gericht op de voorgestelde oplossing.
-          more_information: "(Meer informatie)"
         promotal_committee:
-          back: Terug
           more_information: "(Meer informatie)"
         select_initiative_type:
           back: Terug
           choose_html: Ik wil een <strong>%{title}</strong> aanmaken
-          more_information: "(Meer informatie)"
+          more_information: (Meer informatie)
           select: Ik wil dit initiatief promoten
         share_committee_link:
-          continue: Doorgaan met
           invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotieraad
-        show_similar_initiatives:
-          back: Terug
-          compare_help: Als een van de volgende initiatieven vergelijkbaar is met dat van jou, moedigen wij je aan dit te ondersteunen. Je voorstel heeft meer mogelijkheden om gerealiseerd te worden.
-          continue: Mijn initiatief is anders
-          more_information: "(Meer informatie)"
       events:
         approve_membership_request:
           email_intro: "%{author_nickname} heeft je aanvraag om deel uit te maken van het promotiecomité %{resource_title} aanvaard."
@@ -329,15 +307,9 @@ nl:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> wil graag deel uitmaken van de promotiecommissie voor jouw initiatief <a href="%{resource_url}">%{resource_title}</a>. Om te accepteren of te weigeren, klik <a href="%{resource_url}/edit">hier</a>.
       form:
         attachment_legend: "(Optioneel) Voeg een bijlage toe"
-      index:
-        title: Initiatieven
       initiative_signatures:
         fill_personal_data:
           continue: Doorgaan met
-          date_select:
-            day: Dag
-            month: Maand
-            year: Jaar
         finish:
           back_to_initiative: Terug naar initiatief
         sms_code:
@@ -353,8 +325,6 @@ nl:
         sms_phone:
           invalid: Het telefoonnummer is ongeldig of in afwachting van autorisatie. Controleer alstublieft uw autorisaties.
       initiatives:
-        author:
-          deleted: verwijderde
         author_list:
           hidden_authors_count:
             one: en nog 1 persoon
@@ -372,11 +342,6 @@ nl:
           search: Zoeken
           state: Staat
           type: Type
-        filters_small_view:
-          close_modal: Sluit venster
-          filter: Sorteer
-          filter_by: Sorteer op
-          unfold: Uitvouwen
         index_header:
           new_initiative: Nieuw initiatief
         initiatives:
@@ -397,8 +362,6 @@ nl:
           city: stad
         result:
           initiative_rejected_reason: Dit initiatief is afgewezen vanwege het gebrek aan handtekeningen.
-        show:
-          follow_description: Ontvang een melding wanneer er nieuws is in dit initiatief
         signatures_count:
           one: " handtekening"
           other: " handtekeningen"
@@ -412,8 +375,6 @@ nl:
           count:
             one: HANDTEKENING
             other: HANDTEKENINGEN
-          most_popular_initiative: Populairste initiatief
-          need_more_votes: Meer handtekeningen nodig
       initiatives_mailer:
         creation_subject: Je burgerinitiatief '%{title}' is gemaakt
         initiative_link:
@@ -428,14 +389,8 @@ nl:
       modal:
         not_authorized:
           authorizations_page: Bekijk autorisaties
-          close: Afsluiten
           explanation: Je moet geverifieerd worden om een nieuw initiatief te kunnen maken.
           title: Autorisatie vereist
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Actieve initiatieven
-            see_all_initiatives: Bekijk alle initiatieven
       show:
         badge_name:
           accepted: Genoeg handtekeningen
@@ -448,9 +403,6 @@ nl:
         accepted: Aanvaard
         expired: Vervallen
       unavailable_scope: Niet beschikbaar bereik
-      versions:
-        shared:
-          back_to_resource: Ga terug naar het initiatief
     menu:
       initiatives: Initiatieven
     resources:
@@ -464,26 +416,15 @@ nl:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Terug
         fill_data: creëren
         finish: Voltooien
-        previous_form: Begin
         promotal_committee: Promotieraad
         select_initiative_type: Kiezen
-        show_similar_initiatives: Vergelijken
-        title: Maak nieuw initiatief
-      initiative_header:
-        initiative_menu_item: Initiatief
       initiative_signature_creation_header:
-        back: Terug
         fill_personal_data: Vul uw gegevens in
         finish: Voltooien
-        finished: Initiatief handtekening gemaakt
-        see_steps: zie stappen
-        select_identity: Selecteer identiteit
         sms_code: Verificatie van sms-codes
         sms_phone_number: Mobiele telefoonnummer
-        step: Stap %{current} van %{total}
         title: Teken %{initiative_title}
       initiatives:
         initiative:

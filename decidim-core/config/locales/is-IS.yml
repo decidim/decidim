@@ -129,10 +129,7 @@ is-IS:
         new:
           already_have_an_account?: Ertu þegar með reikning?
           newsletter: Fáðu einstaka fréttabréf með viðeigandi upplýsingum
-          sign_in: Skrá inn
           sign_up: Skráðu þig
-          sign_up_as:
-            legend: Skráðu þig sem
           subtitle: Skráðu þig til að taka þátt í umræðum og stuðningsatriðum.
           tos_agreement: Með því að skrá þig samþykkir þú %{link}.
           username_help: Almennt nafn sem birtist á færslunum þínum. Með það að markmiði að tryggja nafnleyndina getur verið nafn.
@@ -250,11 +247,6 @@ is-IS:
       show:
         newsletter_notifications: Ég vil fá fréttabréf
         update_notifications_settings: Vista breytingar
-    own_user_groups:
-      index:
-        pending: Í bið
-        rejected: Hafnað
-        verified: Staðfest
     participatory_space_private_users:
       not_allowed: Þú hefur ekki leyfi til að skoða þetta efni
     reported_mailer:
@@ -280,10 +272,6 @@ is-IS:
       prompt: Veldu umfang
       scopes: Scopes
     shared:
-      embed_modal:
-        close_window: Lokaðu glugga
-        embed: Vinsamlegast lítið þennan kóða á síðunni þinni
-        embed_link: Fella inn
       flag_modal:
         already_reported: Þetta efni er þegar tilkynnt og það verður endurskoðað af stjórnanda.
         close: Loka
@@ -292,17 +280,13 @@ is-IS:
         report: Skýrsla
         spam: Inniheldur clickbait, auglýsingar, óþekktarangi eða handritabots.
         title: Tilkynna um vandamál
-      follow_button:
-        sign_in_before_follow: Vinsamlegast skráðu þig inn áður en aðgerðin er framkvæmd
       login_modal:
-        please_sign_in: Vinsamlegast skráðu þig inn
         sign_up: Skráðu þig
       reference:
         reference: 'Tilvísun: %{reference}'
       results_per_page:
         label: 'Niðurstöður á síðu:'
       share_modal:
-        close_window: Lokaðu glugga
         share: Deila
         share_link: Deila tengil
     user_conversations:
@@ -338,10 +322,6 @@ is-IS:
     decidim:
       footer:
         made_with_open_source: Website gert með <a target="_blank" href="https://github.com/decidim/decidim">ókeypis hugbúnaði</a>.
-      header:
-        close_menu: Loka valmyndinni
-        navigation: Siglingar
-        sign_in: Skráðu þig inn
         sign_up: Skráðu þig
       impersonation_warning:
         close_session: Loka fundi
@@ -354,14 +334,11 @@ is-IS:
         notifications: Tilkynningar
         profile: Minn reikningur
         public_profile: Opinbera prófílinn minn
-        sign_out: Útskrá
       user_profile:
         account: Reikningur
         authorizations: Heimildir
         delete_my_account: Eyða reikningnum mínum
         notifications_settings: Tilkynningarstillingar
-      widget:
-        see_more: Sjá meira
   locale:
     name: Íslenska
     name_with_error: Íslenska (mistök!)

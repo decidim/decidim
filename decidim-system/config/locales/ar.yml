@@ -37,7 +37,6 @@ ar:
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا؟
         destroy: حذف
         edit: تعديل
-        new: الجديد
         save: حفظ
         title: أفعال
       admins:
@@ -70,7 +69,6 @@ ar:
           fields:
             created_at: أنشئت في
             email: البريد الإلكتروني
-          name: مشرف
           validations:
             email_uniqueness: يوجد مشرف آخر بنفس البريد الإلكتروني بالفعل
         oauth_application:
@@ -78,7 +76,6 @@ ar:
             created_at: أنشئ في
             name: اسم تطبيق OAuth
             organization_name: المنظمة
-          name: تطبيق OAuth
         organization:
           actions:
             save_and_invite: إنشاء منظمة ودعوة المشرف
@@ -88,7 +85,6 @@ ar:
             name: اسم
             omniauth_settings: إعدادات Omniauth
             smtp_settings: إعدادات الـ SMTP
-          name: منظمة
       oauth_applications:
         create:
           error: كانت هناك مشكلة في إنشاء هذا التطبيق.

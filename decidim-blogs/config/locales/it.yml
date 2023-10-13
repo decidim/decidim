@@ -17,9 +17,6 @@ it:
         new: Nuovo post
         title: Azioni
       admin:
-        models:
-          post:
-            name: Inviare
         posts:
           edit:
             save: Aggiornare
@@ -36,9 +33,6 @@ it:
           fields:
             author: Autore
             body: Corpo
-      posts:
-        show:
-          view: vista
     components:
       blogs:
         name: blog

@@ -19,6 +19,7 @@ pl:
         banner_image: Banner
         end_time: Głosowanie kończy się
         start_time: Głosowanie rozpoczyna się
+        voting_type: Typ głosowania
     errors:
       models:
         answer:
@@ -116,7 +117,6 @@ pl:
         manage_answers: Zarządzaj odpowiedziami
         manage_questions: Zarządzaj pytaniami
         manage_steps: Zarządzaj krokami
-        new: Nowy %{name}
         preview: Podgląd
         publish: Opublikuj
         title: Działania
@@ -158,12 +158,6 @@ pl:
         models:
           answer:
             name: Odpowiedź
-          election:
-            name: Wybory
-          question:
-            name: Pytanie
-          trustee:
-            name: Mąż (osoba) zaufania
         proposals_imports:
           new:
             create: Importuj propozycje do odpowiedzi
@@ -312,7 +306,6 @@ pl:
           key_ceremony_title: '"Ceremonia kluczy"'
           not_available: Jeszcze nie jest dostępny
           not_created: Nie został utworzony
-          not_published: Nie został ogłoszony
           not_ready: Nie jest gotowy
           not_started: Nie rozpoczął się
           published: Ogłoszony
@@ -344,13 +337,7 @@ pl:
           active: Aktywne
           all: Wszystkie
           finished: Zakończone
-          search: Szukaj
           upcoming: Nadchodzące
-        filters_small_view:
-          close_modal: Zamknij okno
-          filter: Filtr
-          filter_by: Filtruj według
-          unfold: Rozwiń
         preview:
           available_answers: 'Możliwe odpowiedzi:'
           description: 'Oto pytania, które zostaną zadane w procesie głosowania:'
@@ -370,7 +357,6 @@ pl:
             change_vote: Zmień swój głos
             vote: Rozpocznij głosowanie
             vote_again: Zagłosuj ponownie
-          back: Dostępne wybory
           callout:
             already_voted: Już głosowałeś w tych wyborach. Możesz zmienić swój głos lub zweryfikować go.
             pending_vote: Twój głos jest właśnie oddawany na serwerze.
@@ -427,7 +413,6 @@ pl:
           backup_modal:
             description: Te wybory są tworzone na Tablicy danych wyborczych. Każdy przypisany do niej mąż (osoba) zaufania powinien stworzyć kopię zapasową kluczy i przechowywać je w bezpiecznym miejscu. Po tym, proces będzie kontynuowany.
             download_election_keys: Pobierz klucze
-            download_icon: Ikona wskazująca akcję pobierania
             title: Kopia zapasowa kluczy dla głosowania %{election}
           key_ceremony_steps:
             back: Wróć
@@ -442,7 +427,6 @@ pl:
               task: Zadanie
             process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy mężowie (osoby) zaufania powinni być podłączeni w celu jego ukończenia.
             start: Rozpocznij
-            start_icon: Ikona wskazująca przycisk startu dla tworzenia kluczy wyborczych
             status:
               completed: Zakończono
               pending: Oczekujące
@@ -452,7 +436,6 @@ pl:
             description: Tablica danych wyborczych posiada informacje od Ciebie jako męża (osoby) zaufania w tych wyborach. Aby kontynuować proces, najpierw wgraj plik kopii zapasowej wygenerowany podczas poprzedniej sesji.
             title: Przywróć klucze dla wyborów %{election}
             upload_election_keys: Prześlij klucze wyborcze
-            upload_icon: Ikona wskazująca akcję pobierania
           tally_started_steps:
             description: Wyniki tego głosowania są generowane na Tablicy danych wyborczych. Aby zakończyć ten proces niezbędne jest twoje uczestnictwo jako męża (osoby) zaufania.
             keys:
@@ -497,7 +480,7 @@ pl:
             success: Twój publiczny klucz identyfikacyjny został zapisany.
       votes:
         ballot_decision:
-          audit: "( Sprawdź kartę z oddanym głosem )"
+          audit: ( Sprawdź kartę z oddanym głosem )
           back: Rozpocznij proces głosowania ponownie
           ballot_hash: 'Numer Twojej karty do głosowania to:'
           description: Masz tutaj dwie opcje, albo możesz już oddać głos tak aby został poprawnie zliczony, albo możesz sprawdzić czy Twoja karta do głosowania została prawidłowo zaszyfrowania. Ze względów bezpieczeństwa sprawdzenie poprawności szyfrowania karty zepsuje ją. Oznacza to, że musisz ponownie rozpocząć od nowa proces oddawania głosu aby oddać głos.
@@ -506,14 +489,12 @@ pl:
           header: Oddawanie głosu...
           text: Twoja karta do głosowania jest składana do urny wyborczej.
         confirm:
-          answer: Odpowiedz
           answer_number: odpowiedz %{number}
           confirm: Potwierdź
           edit: edytuj
           header: Potwierdź swój głos
           intro: Oto podsumowanie głosu, który zamierzasz oddać. <br> Proszę potwierdzić swój głos lub edytuj swoje odpowiedzi.
           nota_option: Pusty
-          question: Pytanie %{count}
         confirmed:
           back: Wróć do wyborów
           experience: Jak oceniasz proces głosowania?
@@ -534,11 +515,7 @@ pl:
           try_again: Spróbuj ponownie
         header:
           ballot_decision: Oddaj głos, albo sprawdź poprawność szyfrowania Twojego głosu
-          casting: Oddawanie głosu
           confirm: Potwierdź swój głos
-          confirmed: Głos potwierdzony
-          encrypting: Szyfrowanie głosu
-          failed: Oddanie głosu nie powiodło się
         messages:
           invalid_token: Twoja sesja w kabinie wyborczej nie jest ważna. Spróbuj zagłosować ponownie.
           not_allowed: W tej chwili nie wolno Ci głosować w tych wyborach.
@@ -553,7 +530,6 @@ pl:
           question_steps: Pytanie %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> opcji wyboru"
         onboarding_modal:
-          close: Zamknij okno
           create_account: Utwórz konto
           no_account: Nie, dziękuję.
         update:
@@ -633,7 +609,6 @@ pl:
               confirm_destroy: Czy na pewno?
               destroy: Usuń
               edit: Edytuj
-              new: Nowy
               title: Działania
             associated_census_data: Powiązane wpisy z listy wyborców
             title: Rodzaje kart wyborczych
@@ -643,31 +618,7 @@ pl:
         content_blocks:
           highlighted_votings:
             max_results: Maksymalna ilość elementów do wyświetlenia
-          landing_page:
-            attachments_and_folders:
-              name: Załączniki i foldery do głosowania
-            description:
-              name: Opis głosowania
-            elections:
-              name: Wybory
-            header:
-              name: Nagłówek głosowania
-            html_block_1:
-              name: Pierwszy blok html głosowania
-            html_block_2:
-              name: Drugi blok html głosowania
-            html_block_3:
-              name: Trzeci blok html głosowania
-            metrics:
-              name: Metryka głosowania
-            polling_stations:
-              name: Lokale wyborcze
-            stats:
-              name: Statystyki głosowania
-            timeline:
-              name: Oś czasu głosowania
         index:
-          not_published: Nie opublikowano
           published: Opublikowano
         landing_page:
           content_blocks:
@@ -685,7 +636,6 @@ pl:
             ballot_styles: Rodzaje kart wyborczych
             census: Lista wyborców
             components: Komponenty
-            info: Informacje
             landing_page: Strona Startowa
             monitoring_committee: Komisja monitorująca
             monitoring_committee_election_results: Zweryfikuj wyniki
@@ -698,29 +648,24 @@ pl:
           ballot_style:
             fields:
               code: Kod
-            name: Rodzaj kart wyborczych
           monitoring_committee_member:
             fields:
               email: Adres e-mail
               name: Imię
-            name: Członek Komisji Wyborczej
           polling_officer:
             fields:
               email: Adres e-mail
               name: Imię
               polling_station: Lokal wyborczy (role)
-            name: Oficer wyborczy
           polling_station:
             fields:
               address: Adres
               polling_station_managers: Kierownicy
               polling_station_president: Przewodniczący
               title: Tytuł
-            name: Lokal wyborczy
           voting:
             fields:
               created_at: Utworzono
-              promoted: Wyróżniony
               published: Opublikowano
               title: Tytuł
         monitoring_committee_election_results:
@@ -826,18 +771,16 @@ pl:
             confirm_destroy: Jesteś pewny?
             destroy: Usuń
             new_voting: Nowa przestrzeń do głosowania
-            publish: Publikuj
-            unpublish: Cofnij publikowanie
           edit:
             update: Aktualizuj
           form:
             select_a_voting_type: Wybierz typ głosowania
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Tytuł
             voting_type:
               hybrid: Hybrydowe
               in_person: Osobiste
               online: Online
+            voting_type_label: Typ głosowania
           new:
             create: Utwórz
             title: Nowe głosowanie
@@ -900,25 +843,15 @@ pl:
         highlighted_votings:
           name: Wyróżnione głosowania
         landing_page:
-          metrics:
-            heading: Partycypacja w liczbach
           polling_stations:
             heading: Lokale wyborcze
             no_polling_stations: Nie ma jeszcze żadnych punktów wyborczych.
-          timeline:
-            heading: Oś czasu
       monitoring_committee_members:
         actions:
           confirm_destroy: Jesteś pewny?
           destroy: Usuń
           new: Nowy członek
           title: Działania
-      pages:
-        home:
-          highlighted_votings:
-            active_votings: Aktywne głosowania
-            see_all_votings: Zobacz wszystkie głosowania
-            votings_button_title: Link do strony Głosowań wyświetla wszystkie głosowania
       polling_officer_zone:
         closures:
           back_to_polling_stations: Wróć do lokali wyborczych
@@ -950,7 +883,6 @@ pl:
             info_text: 'Podaj liczbę oddanych głosów ponownie przeliczonych w tym lokalu wyborczym:'
             modal_ballots_count_error:
               btn_validate_total: Sprawdź sumę przeliczonych głosów
-              close_modal: Zamknij
               message_for_monitoring_committee: Wiadomość dla Komisji Wyborczej
               review_recount: Zweryfikuje przeliczenie głosów
               text_area_placeholder: Wpisz wiadomość
@@ -965,7 +897,6 @@ pl:
             info_text: Zamknięcie lokalu wyborczego.
           sign:
             cancel: Anuluj
-            close_modal: Zamknij
             confirm: Ok, kontynuuj
             error: Wystąpił błąd, spróbuj ponownie.
             heading: Przeliczenie głosów - Podpisz zamknięcie
@@ -1033,7 +964,6 @@ pl:
         actions:
           confirm_destroy: Jesteś pewny?
           destroy: Usuń
-          new: Nowy
           title: Działania
         roles:
           manager: Kierownik
@@ -1054,7 +984,6 @@ pl:
           confirm_destroy: Jesteś pewny?
           destroy: Usuń
           edit: Edytuj
-          new: Nowy
           title: Działania
       votings:
         access_code_modal:
@@ -1092,9 +1021,7 @@ pl:
             many: "%{count} głosowań"
             other: "%{count} głosowania"
         elections_log:
-          bb_status: Status wyborów
           description: Dziennik zdarzeń wyborczych pokaże Ci wszystkie istotne informacje o każdym głosowaniu. Na przykład status ceremonii kluczy lub też, czy wyniki są już publikowane. Kliknij na wybory o którym chcesz uzyskać informacje z dziennika zdarzeń wyborczych.
-          election_log: Dziennik zdarzeń wyborczych
           title: Dziennik zdarzeń wyborczych
         filters:
           active: Aktywne
@@ -1102,11 +1029,6 @@ pl:
           finished: Zakończone
           search: Szukaj
           upcoming: Nadchodzące
-        filters_small_view:
-          close_modal: Zamknij okno
-          filter: Filtr
-          filter_by: Filtruj według
-          unfold: Rozwiń
         index:
           no_votings: Brak głosowań spełniających kryteria wyszukiwania.
           only_finished: Obecnie nie ma żadnych zaplanowanych głosowań, ale możesz zobaczyć wszystkie zakończone głosowania.
@@ -1117,29 +1039,21 @@ pl:
           ask_for_a_new_one: Poproś o nowe.
           form_title: 'Wypełnij poniższy formularz, aby uzyskać dostęp do głosowania:'
           start_voting: Rozpocznij głosowanie
-          step: Identyfikacja
           title: Zidentyfikuj mnie z danymi na liście wyborców
         orders:
           label: 'Sortuj głosowania według:'
           random: Losowo
           recent: Najnowsze
-        show:
-          dates: Daty
       votings_m:
         badge_name:
           finished: Zakończone
           ongoing: W toku
           upcoming: Nadchodzące
-        footer_button_text:
-          participate: Dołącz
-          view: Zobacz
-          vote: Głosuj
         unspecified: Nie określono
         voting_type:
           hybrid: Hybrydowe
           in_person: Osobiste
           online: Online
-        voting_types_label: Typ głosowania
   layouts:
     decidim:
       election_votes_header:
@@ -1147,10 +1061,8 @@ pl:
       voting_navigation:
         check_census: Mogę głosować?
         election_log: Dziennik zdarzeń wyborczych
-        voting_menu_item: Głosowanie
       votings:
         index:
           promoted_votings: Wyróżnione głosowania
         promoted_voting:
-          more_info: Więcej informacji
           vote: Głosuj

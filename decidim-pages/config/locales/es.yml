@@ -28,8 +28,3 @@ es:
           update:
             invalid: Se ha producido un error al guardar la página.
             success: Página guardada correctamente.
-      home:
-        hero:
-          participate_title: Participa en los procesos de la plataforma
-        sub_hero:
-          register_title: Regístrate para tener una cuenta

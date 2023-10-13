@@ -38,7 +38,6 @@ lb:
         destroy: Läschen
         edit: Editéieren
         import_csv: CSV importéieren
-        new: Néi %{name}
         preview: Preview
         timeline_entries: Projektentwécklung
         title: Aktiounen
@@ -55,8 +54,6 @@ lb:
             name: Resultat
           status:
             name: Status
-          timeline_entry:
-            name: Zeitachseneintrag
         results:
           edit:
             title: Ergebnis bearbeiten

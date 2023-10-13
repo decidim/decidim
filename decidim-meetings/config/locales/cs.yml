@@ -20,6 +20,7 @@ cs:
         description: Popis
         end_time: Čas ukončení
         id: ID
+        iframe_access_level: Úroveň přístupu do iframe
         iframe_embed_type: Typ vloženého rámu
         location: Umístění
         location_hints: Nápověda k poloze
@@ -56,6 +57,8 @@ cs:
           attributes:
             iframe_embed_type:
               not_embeddable: Tato adresa URL nemůže být vložena do stránky schůzky nebo živé události.
+            online_meeting_url:
+              url_format: Musí být platná URL
         meeting_agenda:
           attributes:
             base:
@@ -125,7 +128,6 @@ cs:
           success: Duplicitní schůzka úspěšně.
         new:
           copy: Kopírovat
-          select: Vyberte, která data chcete duplikovat
           title: Duplicitní schůzka
     components:
       meetings:
@@ -229,7 +231,7 @@ cs:
             many: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
             other: 'Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů:'
         manage_poll: Spravovat anketu
-        new: Nové setkání
+        new_meeting: Nová schůzka
         preview: Náhled
         registrations: Registrace
         title: Akce
@@ -291,7 +293,6 @@ cs:
               all: Vše
               rejected: Odmítnuto
               sent: Odeslaná
-            filter_by: Filtrovat podle
             invite_attendee: Pozvat účastníka
             invites: Pozvánky
             registrations_disabled: Nemůžete pozvat účastníka, protože registrace jsou blokovány.
@@ -359,9 +360,6 @@ cs:
           update:
             invalid: Při aktualizaci této schůze došlo k chybě.
             success: Anketa ke schůzi byla úspěšně aktualizována.
-        models:
-          meeting:
-            name: Setkání
         registrations:
           edit:
             save: Uložit
@@ -408,11 +406,8 @@ cs:
           all: Vše
         filter_meeting_space_values:
           all: Vše
-        filter_scope_values:
-          all: Vše
       calendar_modal:
         calendar_url: Adresa URL kalendáře
-        close_window: Zavřete okno
         copy_calendar_url: Kopírovat
         copy_calendar_url_clarification: Kopírovat URL kalendáře do schránky
         copy_calendar_url_copied: Zkopírováno!
@@ -430,11 +425,10 @@ cs:
       content_blocks:
         upcoming_meetings:
           name: Nadcházející schůzky
-          upcoming_meetings: Nadcházející schůzky
-          view_all_meetings: Zobrazit vše
       directory:
         meetings:
           index:
+            go_to_list: Zobrazit seznam událostí
             meetings: Setkání
             space_type: Účastní prostor
       iframe_access_level:
@@ -472,7 +466,6 @@ cs:
         calendar_modal:
           add_to_calendar: Přidat do kalendáře
           apple: Přidat do Apple kalendáře
-          close_window: Zavřít okno
           full_details_html: Pro úplné podrobnosti přejděte na %{link}
           google: Přidat do Google kalendáře
           outlook: Přidat do kalendáře aplikace Outlook
@@ -504,8 +497,7 @@ cs:
             all: Vše
             official: Úředník
             participants: Účastníci
-            user_groups: Skupiny
-          scope: Oblast působnosti
+            user_group: Skupiny
           search: Vyhledávání
           type: Typ
           type_values:
@@ -513,11 +505,6 @@ cs:
             hybrid: Hybridní
             in_person: Osobně
             online: Online
-        filters_small_view:
-          close_modal: Zavřít modální
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozvinout
         form:
           address_help: 'Adresa: použita Geocoderem k nalezení polohy'
           available_slots_help: Ponechte 0, pokud máte k dispozici neomezený počet slotů
@@ -538,8 +525,11 @@ cs:
           see_all: Zobrazit všechny schůzky
           see_all_withdrawn: Zobrazit všechny stažené schůzky
           text_banner: Zobrazujete seznam schůzek stažených jejich autory. %{go_back_link}.
-        meeting_minutes:
-          related_information: Související informace
+        meeting:
+          close_meeting: Ukončit schůzku
+          edit_close_meeting: Upravit zprávu schůzky
+          edit_meeting: Upravit schůzku
+          join_meeting: Připojit se ke schůzce
         meetings:
           no_meetings_warning: Žádná schůzka neodpovídá vašim kritériím nebo není naplánována žádná schůzka.
           upcoming_meetings_warning: V současné době neexistují žádné plánované schůzky, ale naleznete zde všechny minulé schůzky.
@@ -552,13 +542,8 @@ cs:
           confirm: Potvrdit
         show:
           attendees: Počet účastníků
-          back: Zpět na seznam
-          close_meeting: Ukončit schůzku
           contributions: Počet příspěvků
           date: Datum
-          edit_close_meeting: Upravit zprávu schůzky
-          edit_meeting: Upravit schůzku
-          going: Přihlásili jste se k této schůzce
           join: Připojte se k setkání
           leave: Zrušit registraci
           leave_confirmation: Opravdu chcete zrušit registraci na tuto schůzku?
@@ -586,8 +571,6 @@ cs:
         update:
           invalid: Při aktualizaci schůzky došlo k chybě.
           success: Úspěšně jste aktualizovali schůzku.
-      meetings_map:
-        view_meeting: Zobrazit schůzku
       models:
         invite:
           fields:
@@ -629,6 +612,7 @@ cs:
             question_replied: Odpověď na otázku
             reply_question: Odpovědět na otázku
       public_participants_list:
+        attending_organizations: Organizace
         attending_participants: Účast účastníků
         hidden_participants_count:
           one: a %{count} další osoba
@@ -660,11 +644,9 @@ cs:
         in_person: Osobně
         online: Online
       types:
-        private_meeting: Privátní setkání
+        private_meeting: Soukromá schůzka
         transparent: Průhledný
         withdraw: Staženo
-      versions:
-        back_to_resource: Přejít zpět na schůzku
       withdraw:
         error: Došlo k chybě při stahování schůzky.
         success: Schůzka byla úspěšně stažena.
@@ -678,8 +660,6 @@ cs:
         past_meetings: Minulé schůze
         see_all: Zobrazit všechny (%{count})
         upcoming_meetings: Nadcházející schůzky
-      upcoming_meeting_for_card:
-        upcoming_meeting: Nadcházející schůzka
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Související výsledky:'

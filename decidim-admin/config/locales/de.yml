@@ -37,6 +37,9 @@ de:
         user_group_id: Importierte Inhalte erstellen als
       newsletter:
         body: Haupttext
+        send_to_all_users: An alle Benutzenden senden
+        send_to_followers: An Follower senden
+        send_to_participants: An Teilnehmende senden
         subject: Betreff
       organization:
         admin_terms_of_service_body: Inhalt für die Admin-Nutzungsbedingungen
@@ -90,9 +93,10 @@ de:
         secondary_hosts: Weitere Hosts
         send_welcome_notification: Willkommens-Benachrichtigung senden
         success_color: Erfolg
+        tertiary_color: Tertiär
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
-        twitter_handler: Twitter-Handler
+        twitter_handler: X-Handler
         user_groups_enabled: Benutzergruppen aktivieren
         users_registration_mode: Benutzerregistrierungs-Modus
         warning_color: Warnung
@@ -185,8 +189,6 @@ de:
         export: Alles exportieren
         export-selection: Auswahl exportieren
         import: Importieren
-        manage: Verwalten
-        new: Neu %{name}
         newsletter:
           new: Neuer Newsletter
         participatory_space_private_user:
@@ -194,6 +196,7 @@ de:
         per_page: Pro Seite
         permissions: Berechtigungen
         reject: Ablehnen
+        send_me_a_test_email: Mir eine Test-E-Mail senden
         share: Teilen
         user:
           new: Neuer Administrator
@@ -254,7 +257,6 @@ de:
           title: Ordner bearbeiten
           update: Aktualisieren
         index:
-          attachment_collection_used: Dieser Ordner kann nicht entfernt werden, weil er verwendet wird.
           attachment_collections_title: Anhang Ordner
         new:
           create: Erstellen
@@ -303,7 +305,6 @@ de:
           update: Aktualisieren
         index:
           categories_title: Kategorien
-          category_used: Diese Kategorie kann nicht entfernt werden, weil sie verwendet wird.
         new:
           create: Kategorie erstellen
           title: Neue Kategorie
@@ -318,6 +319,7 @@ de:
         create:
           error: Beim Erstellen dieser Komponente ist ein Fehler aufgetreten.
           success: Komponente wurde erfolgreich erstellt.
+          success_landing_page: Komponente erfolgreich erstellt. Sie können einen Inhaltsblock für diese Komponente auf der Startseite des Bereichs hinzufügen. Gehen Sie dazu zur <a href="%{landing_page_path}">Startseite</a>, um sie zu konfigurieren.
         destroy:
           error: Beim Löschen dieser Komponente ist ein Fehler aufgetreten.
           success: Komponente wurde erfolgreich gelöscht.
@@ -369,8 +371,8 @@ de:
           goto_moderation: Gehe zur globalen Moderation
           title: Offene Moderationen
         show:
+          dropdown: Dropdown
           view_more_logs: Weitere Protokolle anzeigen
-          welcome: Willkommen beim Admin-Panel von Decidim.
       domain_whitelist:
         form:
           domain_too_short: Domain zu kurz
@@ -395,7 +397,7 @@ de:
             'false': 'Nein'
             'true': 'Ja'
         last_sign_in_at_present:
-          label: Schon einmal eingeloggt
+          label: Zuletzt angemeldet
           values:
             'false': 'Nein'
             'true': 'Ja'
@@ -469,7 +471,6 @@ de:
             all: Alle
             managed: Gelang es
             not_managed: Nicht verwaltet
-          filter_by: Filtern nach
           impersonate: Imitieren
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
           managed: Gelang es
@@ -559,7 +560,6 @@ de:
         areas: Bereiche
         configuration: Aufbau
         content: Gemeldeter Inhalt
-        dashboard: Instrumententafel
         external_domain_whitelist: Erlaubte externe Domains
         help_sections: Hilfeabschnitte
         homepage: Startseite
@@ -570,6 +570,7 @@ de:
         reported_users: Gemeldete Teilnehmende
         scope_types: Bereichstypen
         scopes: Bereiche
+        see_site: Seite ansehen
         settings: die Einstellungen
         static_pages: Seiten
         user_groups: Benutzergruppen
@@ -740,8 +741,8 @@ de:
         select_recipients_to_deliver:
           all_spaces: Alle
           all_users_help: Sendet Newsletter an alle bestätigten Benutzer.
-          confirm_deliver: Möchten Sie diesen Newsletter wirklich liefern? Diese Aktion kann nicht rückgängig gemacht werden.
-          deliver: Liefern Newsletter
+          confirm_deliver: Möchten Sie diesen Newsletter wirklich versenden? Diese Aktion kann nicht rückgängig gemacht werden.
+          deliver: Newsletter versenden
           followers_help: Sendet den Newsletter an alle bestätigten Benutzer, die den ausgewählten Teilnehmerräumen in der Liste folgen.
           none: Niemand
           participants_help: Sendet den Newsletter an alle bestätigten Benutzer, die an den ausgewählten Teilnehmerräumen der Liste teilgenommen haben.
@@ -750,16 +751,16 @@ de:
           select_scopes: Nur Teilnehmer anzeigen, die einen der gewählten Themenbereiche in Ihren "Meine Interessen" Einstellungen ihres Kontos aktiviert haben.
           select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
           select_users: Wählen Sie aus, welchen Benutzern Sie den Newsletter senden möchten
-          send_to_all_users: An alle Benutzer senden
-          send_to_followers: An Follower senden
-          send_to_participants: An Teilnehmer senden
           title: Empfänger auswählen
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
         send:
           no_recipients: Keine Empfänger für diese Auswahl.
+        send_to_user:
+          sent_successfully: Newsletter wurde erfolgreich an %{email} gesendet
         show:
           preview: Vorschau
           select_recipients_to_deliver: Empfänger auswählen
+          send_me_a_test_email: Mir eine Test-E-Mail senden
           subject: Gegenstand
         update:
           error: Beim Aktualisieren dieses Newsletters ist ein Fehler aufgetreten.
@@ -793,7 +794,6 @@ de:
           officialize: Offizialisieren
           title: Benutzer "%{name}" offiziellisieren
         show_email_modal:
-          close_modal: Modal schließen
           description: Wenn Sie einen Teilnehmer direkt kontaktieren möchten, können Sie auf die Schaltfläche "Anzeigen" klicken, um seine E-Mail-Adresse zu sehen. Diese Aktion wird protokolliert.
           email_address: E-Mail-Adresse
           full_name: Voller Name
@@ -813,7 +813,7 @@ de:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: Youtube
         update:
@@ -824,10 +824,16 @@ de:
           update: Aktualisieren
         form:
           colors:
+            choose_color: Primärfarbe auswählen
             colors_title: Organisationsfarben
             colors_warning_html: Warnung! Das Ändern dieser Farben kann die für Barrierefreiheit notwendigen Kontraste brechen. Sie können den Kontrast Ihrer Wahl mit <a href="%{link}">WebAIM Contrast Checker</a> oder ähnlichen Tools überprüfen.
-            header_snippets_help: Verwenden Sie dieses Feld, um Dinge zum HTML-Kopf hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieterdiensten, für die zusätzliches JavaScript oder CSS erforderlich ist. Außerdem können Sie damit dem HTML zusätzliche Meta-Tags hinzufügen. Beachten Sie, dass dies nur auf öffentlichen Seiten und nicht im Admin-Bereich erfolgt.
-          cta_button_path_help: 'Sie können überschreiben, wo die Call To Action-Schaltfläche in der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
+            explanation: Dieses Tool hilft Ihnen, ein Farbschema mit Farbtönen auszuwählen, die gleichmäßig um das Farbrad verteilt sind und die auf der Website der Organisation verwendet werden.
+            header_snippets_help_html: Benutzen Sie dieses Feld, um dem HTML-Head Inhalte hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieter-Diensten, die ein zusätzliches JavaScript oder CSS erfordern. Außerdem können Sie dem HTML-Code zusätzliche Meta-Tags hinzuzufügen. Beachten Sie, dass dies nur auf den öffentlichen Seiten dargestellt wird und nicht im Admin-Bereich. Wenn der Code mit externen APIs interagiert oder nicht mit den Sicherheitsrichtlinien der Anwendung übereinstimmt, ist es notwendig, die Sicherheitsrichtlinien der Inhalte (Content Security Policy) zu ändern. Weitere Informationen finden Sie <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">auf der Dokumentationsseite</a>.
+            legend_html: Hauptfarben der Anwendung, basierend auf dem <a href="https://www.color-meanings.com/triadic-colors/">triadischen Algorithmus</a>. Die <i>sekundäre</i> Farbe wird automatisch von der Primärfarbe und der Sättigung, die Sie gewählt haben, berechnet.
+            saturation: Sättigung
+            title: Farbauswahl
+            update_suggested_colors: Vorgeschlagene Farben aktualisieren
+          cta_button_path_help_html: 'Sie können überschreiben, womit die Call To Action-Schaltfläche auf der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
           cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
@@ -1003,9 +1009,7 @@ de:
           update: Aktualisieren
         form:
           none: Keiner
-          slug_help: 'Benutze partielle Pfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
-        index:
-          last_notable_change: Letzte bemerkenswerte Änderung
+          slug_help_html: 'Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Beispiel: %{url}'
         new:
           create: Seite erstellen
           title: Neue Seite
@@ -1023,14 +1027,17 @@ de:
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
         dashboard: Instrumententafel
+        edit_external_domains: Externe Domain-Whitelist
+        edit_landing_page: Seiteninhalte
+        edit_organization_appearance: Homepage-Erscheinungsbild bearbeiten
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
         metrics: Kriterien
+        pages: Seiten
         panel: Admin
         participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
-        static_pages: Seiten
         statistics: Aktivität
         user_groups: Benutzergruppen
         users: Administratoren
@@ -1082,7 +1089,6 @@ de:
           last_week: Letzte Woche
           no_users_count_statistics_yet: Es gibt noch keine Nutzendestatistiken.
           participants: Teilnehmer
-      view_public_page: Öffentliche Seite anzeigen
     forms:
       errors:
         impersonate_user:
@@ -1143,9 +1149,3 @@ de:
       admin:
         global_moderations:
           title: Globale Moderationen
-        newsletters:
-          title: Newsletter
-        settings:
-          title: die Einstellungen
-        users:
-          title: Benutzer

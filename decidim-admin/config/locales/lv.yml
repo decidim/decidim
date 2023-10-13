@@ -62,7 +62,6 @@ lv:
         success_color: Panākumi
         time_zone: Laika josla
         tos_version: Pakalpojumu sniegšanas noteikumu versija
-        twitter_handler: Twitter apdarinātājs
         user_groups_enabled: Iespējot grupas
         warning_color: Brīdinājums
         welcome_notification_body: Sveiciena paziņojuma pamatteksts
@@ -119,8 +118,6 @@ lv:
       actions:
         add: Pievienot
         browse: Pārlūkot
-        manage: Pārvaldīt
-        new: Jauns %{name}
         per_page: Lapā
         permissions: Atļaujas
         reject: Noraidīt
@@ -160,7 +157,6 @@ lv:
           title: Rediģēt mapi
           update: Atjaunināt
         index:
-          attachment_collection_used: Šo mapi nevar noņemt, jo tā tiek izmantota.
           attachment_collections_title: Pielikumu mapes
         new:
           create: Izveidot
@@ -199,7 +195,6 @@ lv:
           update: Atjaunināt
         index:
           categories_title: Kategorijas
-          category_used: Šo kategoriju nevar noņemt, jo tā tiek izmantota.
         new:
           create: Izveidot kategoriju
           title: Jauna kategorija
@@ -280,7 +275,6 @@ lv:
             all: Visi
             managed: Tiek pārvaldīti
             not_managed: Netiek pārvaldīti
-          filter_by: Filtrēt pēc
           impersonate: Uzdoties par
           impersonate_new_managed_user: Pārvaldīt jaunu dalībnieku
           managed: Tiek pārvaldīti
@@ -323,7 +317,6 @@ lv:
         area_types: Jomu veidi
         areas: Jomas
         configuration: Konfigurācija
-        dashboard: Informācijas panelis
         help_sections: Palīdzības sadaļas
         homepage: Sākumlapa
         impersonations: Uzdošanās par citu personu
@@ -391,7 +384,6 @@ lv:
           fields:
             created_at: Izveides datums
             email: E-pasts
-            last_sign_in_at: Pēdējās pierakstīšanās datums
             name: Nosaukums
             role: Loma
             roles:
@@ -462,9 +454,6 @@ lv:
           select_scopes: Filtrēt lietotājus, kuri sava konta iestatījumos "Manas intereses" ir aktivizējuši jebkuru izvēlēto darbības tvērumu.
           select_spaces: Izvēlieties telpas, lai segmentētu informatīvo biļetenu
           select_users: Izvēlieties lietotājus, kuriem vēlaties nosūtīt informatīvo biļetenu
-          send_to_all_users: Nosūtīt visiem lietotājiem
-          send_to_followers: Nosūtīt sekotājiem
-          send_to_participants: Nosūtīt dalībniekiem
           title: Izvēlieties adresātus, kuriem nosūtīt
           warning: "<strong>Uzmanību:</strong> šis informatīvais biļetens tiks nosūtīts tikai tiem lietotājiem, kuri savos paziņojumu iestatījumos ir aktivizējuši <em>Vēlos saņemt informatīvos biļetenus</em>."
         show:
@@ -513,8 +502,6 @@ lv:
         form:
           colors:
             colors_title: Organizācijas krāsas
-            header_snippets_help: Izmantojiet šo lauku, lai pievienotu objektus HTML galvenei. Visbiežāk tiek izmantots, lai integrētu trešo pušu pakalpojumus, kuriem nepieciešams papildu JavaScript vai CSS. Varat arī to izmantot, lai HTML pievienotu papildu meta tagus. Ņemiet vērā, ka tas tiks parādīts tikai publiskajās lapās, nevis administratoru sadaļā.
-          cta_button_path_help: 'Jūs varat mainīt to, uz kurieni ved sākumlapā atrodamā poga Call To Action. Šeit izmantojiet daļējus ceļus, nevis pilnus URL. Tajos var būt tikai burti, cipari, defises un slīpsvītras, un tiem jāsākas ar burtu. Poga Call To Action redzama sākumlapā starp sveiciena tekstu un aprakstu. Piemērs: %{url}'
           cta_button_text_help: Jūs varat pārrakstīt sākumlapā redzamās pogas Call To Action tekstu visās jūsu organizācijā pieejamajās valodās. Ja vērtība nav iestatīta, tiks izmantota noklusējuma vērtība. Poga Call To Action redzama sākumlapā starp sveiciena tekstu un aprakstu.
           homepage_appearance_title: Labot sākumlapas izskatu
           homepage_highlighted_content_banner_title: Izceltais satura reklāmkarogs
@@ -608,9 +595,6 @@ lv:
           update: Atjaunināt
         form:
           none: Nav
-          slug_help: 'Šeit izmantojiet daļējus ceļus, nevis pilnus URL. Tajos var būt tikai burti, cipari, defises un slīpsvītras, un tiem jāsākas ar burtu. Piemērs: %{url}'
-        index:
-          last_notable_change: Pēdējās nozīmīgās izmaiņas
         new:
           create: Izveidot lapu
           title: Jauna lapa
@@ -632,7 +616,6 @@ lv:
         participants: Dalībnieki
         scope_types: Tvēruma veidi
         scopes: Darbības tvērums
-        static_pages: Lapas
         statistics: Aktivitāte
         user_groups: Grupas
       user_group:
@@ -674,7 +657,6 @@ lv:
           last_month: Iepriekšējais mēnesis
           last_week: Iepriekšējā nedēļa
           participants: Dalībnieki
-      view_public_page: Skatīt publisko lapu
     moderations:
       actions:
         hidden: Slēpts
@@ -703,12 +685,3 @@ lv:
   errors:
     messages:
       invalid_json: Nederīgs JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Informatīvie biļeteni
-        settings:
-          title: Iestatījumi
-        users:
-          title: Dalībnieki

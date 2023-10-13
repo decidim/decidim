@@ -417,7 +417,6 @@ en:
       directory:
         meetings:
           index:
-            go_to_list: See the event list
             meetings: Meetings
             space_type: Participatory space
       iframe_access_level:
@@ -530,7 +529,6 @@ en:
         show:
           attendees: Attendees count
           contributions: Contributions count
-          date: Date
           join: Register
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
@@ -548,7 +546,6 @@ en:
           remaining_slots:
             one: "%{count} slot remaining"
             other: "%{count} slots remaining"
-          view: View
           visit_finished: View past meeting
           withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
           withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>

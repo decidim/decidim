@@ -79,7 +79,9 @@ es:
   decidim:
     admin:
       actions:
+        manage: Gestionar
         new_initiative_type: Nuevo tipo de iniciativa
+        new_initiative_type_scope: Añadir ámbito del tipo de iniciativa
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -106,8 +108,11 @@ es:
         committee_members: Miembros de la comisión
         components: Componentes
         information: Información
+        initiative_type_scopes: Ámbitos del tipo de iniciativa
         initiatives: Iniciativas
         initiatives_settings: Configuración
+        initiatives_submenu:
+          info: Acerca de esta iniciativa
         initiatives_types: Tipos de Iniciativa
         moderations: Moderaciones
       models:
@@ -244,7 +249,6 @@ es:
             success: La iniciativa se ha enviado a validación técnica.
             update: Actualizar
           form:
-            attachments: Archivos adjuntos
             settings: Ajustes
             title: Información general
           index:
@@ -276,13 +280,9 @@ es:
           destroy:
             success: El ámbito ha sido eliminado con éxito.
           edit:
-            back: Volver
-            confirm_destroy: '¿Estás seguro?'
-            destroy: Borrar
             title: Editar ámbito del tipo de iniciativa
             update: Actualizar
           new:
-            back: Volver
             create: Crear
             title: Crear ámbito del tipo de iniciativa
           update:
@@ -295,15 +295,12 @@ es:
           destroy:
             success: El tipo de iniciativa se ha eliminado correctamente.
           edit:
-            confirm_destroy: '¿Estás seguro?'
-            destroy: Borrar
             update: Actualizar
           form:
             authorizations: Ajustes de autorización
             child_scope_threshold_enabled_help: 'Este ajuste de configuración no admite las votaciones sin conexión. Habilita los subámbitos y funciona con un gestor de autorizaciones que asocia un ámbito al usuario. Asegúrate de seleccionar esa autorización, más abajo en la configuración de autorizaciones. Para que funcione, los ámbitos deben configurarse de forma jerárquica: 1 Padre - N hijos. Para más información sobre cómo funciona esta configuración, <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ver la documentación sobre l''administraciónb de iniciativas</a>.'
             only_global_scope_enabled_help: Marca esta casilla si habilitaste "Activar firmas por subámbito" y configuraste el ámbito global como el ámbito principal. Al habilitar esta casilla, la selección del tipo de iniciativa se omitirá en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">enlace</a>.
             options: Opciones
-            title: Información general
           initiative_type_scopes:
             title: Ámbitos del tipo de iniciativa
           new:
@@ -332,10 +329,6 @@ es:
         rejected: No ha conseguido las firmas necesarias
         validating: Validación técnica
       application_helper:
-        filter_area_values:
-          all: Todas
-        filter_scope_values:
-          all: Todos
         filter_state_values:
           accepted: Ha conseguido las firmas
           all: Todos
@@ -362,8 +355,8 @@ es:
         fill_data:
           back: Volver
           continue: Continuar
-          decidim_user_group_id_help: No es posible cambiar l'autoría de la iniciativa después de crearla.
           fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. En persona, en línea o una combinación de ambos</li> <li>¿Cuál es el alcance geográfico de la iniciativa?</li> </ul>"
+          initiative_type: Tipo de iniciativa
           more_information: "(Más información)"
           select_area: Selecciona un área
           select_scope: Selecciona un ámbito
@@ -377,32 +370,23 @@ es:
           more_information: "(Más información)"
           send_my_initiative: Enviar mi iniciativa a validación técnica
         finish_help:
-          access_reminder: Puede acceder a tus iniciativas a través del filtro %{link} en la página de Iniciativas.
           publish_helper_text: Recuerda que para que tu iniciativa sea publicada debes completar la información requerida y <strong>enviarla a validación técnica</strong> para que una administradora la revise.
         previous_form:
           back: Volver
           continue: Continuar
-          help: '¿En qué consiste la iniciativa? Escribe el título y la descripción. Recomendamos un título breve y conciso, y una descripción centrada en la solución propuesta.'
-          more_information: "(Más información)"
         promotal_committee:
-          back: Volver
           individual_help_text: Este tipo de iniciativa ciudadana requiere un comité promotor compuesto por al menos %{committee_size} miembros (certificadores). Debes compartir el siguiente enlace con las demás personas que forman parte de esta iniciativa. Cuando tus contactos reciban este enlace, tendrán que seguir los pasos que se les indiquen.
           more_information: "(Más información)"
         select_initiative_type:
           back: Volver
           choose_html: Quiero <strong>%{title}</strong>
-          more_information: "(Más información)"
+          more_information: (Más información)
+          new: Crea una nueva iniciativa
           select: Quiero promover esta iniciativa
           select_initiative_type_help: Las iniciativas son un medio por el que las participantes pueden intervenir para que la organización emprenda acciones en defensa del interés general. ¿Qué iniciativa quieres lanzar?
           verification_required: Verifica tu cuenta para impulsar la iniciativa
         share_committee_link:
-          continue: Continuar
           invite_to_committee_help: Enlace para invitar a personas que formarán parte del Comisión Promotora.
-        show_similar_initiatives:
-          back: Volver
-          compare_help: Si alguna de las siguientes iniciativas es similar a la tuya, te animamos a que la firmes. Tu propuesta tendrá más posibilidades de llevarse a cabo.
-          continue: Mi iniciativa es diferente
-          more_information: "(Más información)"
       edit:
         accept: Aceptar la iniciativa
         back: Volver
@@ -440,19 +424,17 @@ es:
           email_subject: "%{applicant_nickname} quiere unirse a tu iniciativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha solicitado unirse al comité promotor de tu iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceptar o rechazar la solicitud haz clic <a href="%{resource_url}/edit">aquí</a>.
       form:
-        add_attachments: Documentos
+        add_documents: Añadir documentos
+        add_image: Añadir imagen
         attachment_legend: "(Opcional) Añadir un archivo adjunto"
-        delete_attachment: Borrar
+        edit_documents: Editar documentos
+        edit_image: Editar imagen
+        image_legend: "(Opcional) Añadir una imágen"
       index:
-        title: Iniciativas
         uninitialized: Las iniciativas aún no están configuradas desde la administración.
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
-          date_select:
-            day: Día
-            month: Mes
-            year: Año
           help: Por favor, rellena los siguientes campos con tus datos personales para firmar la iniciativa.
         finish:
           back_to_initiative: Volver a la iniciativa
@@ -474,8 +456,6 @@ es:
         sms_phone:
           invalid: El número de teléfono no es válido o está pendiente de autorización. Por favor, revisa tus autorizaciones.
       initiatives:
-        author:
-          deleted: Eliminado
         author_list:
           hidden_authors_count:
             one: y 1 persona más
@@ -484,8 +464,8 @@ es:
           approve: Aprobar
           confirm_revoke: '¿Estás seguro/a?'
           invite_to_committee_help: Comparte este enlace para invitar a otras participantes a la comisión promotora.
+          link: Enlace
           no_members_yet: La comisión promotora no tiene miembros.
-          revoke: Revocar
           title: Miembros del comité
         count:
           title:
@@ -500,11 +480,6 @@ es:
           search: Buscar
           state: Estado
           type: Tipo
-        filters_small_view:
-          close_modal: Cerrar ventana
-          filter: Filtrar
-          filter_by: Filtrado por
-          unfold: Desplegar
         index_header:
           new_initiative: Nueva iniciativa
         initiatives:
@@ -548,13 +523,17 @@ es:
           answer_title: Se ha respondido a esta iniciativa.
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de firmas.
         show:
-          any_vote_method: Esta iniciativa recoge firmas digitales y presenciales.
+          area: Área
+          before_send_to_technical_validation_announcement: 'Antes de enviar tu iniciativa de validación técnica, tienes que añadir %{count} miembros más a la comisión promotora.<br/><br/>Comparte este enlace con las personas que quieres formar parte de la comisión: %{href}'
           confirm: Vas a enviar la iniciativa para que una administrador ala revise y publique. Una vez publicada no podrás editarla. ¿Estás segura?
           edit: Editar
-          follow_description: Recibir una notificación cuando haya novedades sobre esta iniciativa
-          offline_method: Esta iniciativa solo recoge firmas presenciales.
-          print: Imprimir Iniciativa
+          initiative_data: Datos sobre la iniciativa
+          scope: Ámbito
           send_to_technical_validation: Enviar a validación técnica
+          send_to_technical_validation_announcement: Si todo parece correcto, haga clic en "Enviar a validación técnica" para que una administradora revise y publique tu iniciativa
+          signature_collection: Firmas recogidas
+          state: Estado
+          type: Tipo
         signatures_count:
           one: " firma"
           other: " firmas"
@@ -568,8 +547,6 @@ es:
           count:
             one: Firma
             other: Firmas
-          most_popular_initiative: Iniciativa más popular
-          need_more_votes: Necesita más firmas
       initiatives_mailer:
         creation_subject: Se ha creado tu iniciativa ciudadana '%{title}'
         initiative_link:
@@ -586,14 +563,13 @@ es:
       modal:
         not_authorized:
           authorizations_page: Ver autorizaciones
-          close: Cerrar
           explanation: Debes estar verificado para crear una nueva iniciativa.
           title: Autorización requerida
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Iniciativas activas
-            see_all_initiatives: Ver todas las iniciativas
+            active_spaces: Iniciativas activas
+            see_all_spaces: Ver todas las iniciativas
       show:
         badge_name:
           accepted: Con las firmas necesarias
@@ -602,18 +578,13 @@ es:
           published: Publicada
           rejected: No ha conseguido las firmas
           validating: Validación técnica
-      signature_interval:
-        title: Período de recogida de firmas
       states:
-        accepted: Aceptado
-        expired: Caducado
+        accepted: Aceptada
+        expired: Caducada
       unavailable_scope: Ámbito no disponible
       update:
         error: Se ha producido un error.
         success: La iniciativa se ha actualizado correctamente.
-      versions:
-        shared:
-          back_to_resource: Volver a la iniciativa
     menu:
       initiatives: Iniciativas
     resources:
@@ -628,26 +599,15 @@ es:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Volver
         fill_data: Crear
         finish: Terminar
-        previous_form: Iniciar
         promotal_committee: Comisión Promotora
         select_initiative_type: Escoger
-        show_similar_initiatives: Comparar
-        title: Crear nueva iniciativa
-      initiative_header:
-        initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
-        back: Volver
         fill_personal_data: Completa tus datos
         finish: Terminar
-        finished: Has firmado la iniciativa correctamente
-        see_steps: ver los pasos
-        select_identity: Seleccionar identidad
         sms_code: Verificación por código SMS
         sms_phone_number: Número de teléfono móvil
-        step: Paso %{current} de %{total}
         title: Firmar %{initiative_title}
       initiatives:
         initiative:

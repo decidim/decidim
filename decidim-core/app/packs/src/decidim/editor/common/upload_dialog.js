@@ -1,4 +1,4 @@
-import icon from "src/decidim/redesigned_icon";
+import icon from "src/decidim/icon";
 import { fileNameToTitle } from "src/decidim/editor/utilities/file";
 
 const createElement = (template) => {
