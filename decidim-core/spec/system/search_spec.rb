@@ -34,6 +34,14 @@ describe "Search", type: :system do
     end
   end
 
+    it "has all the resources to search" do
+      within ".search__filter" do
+        expect(page).to have_content("All")
+        expect(page).to have_content("Participants")
+        # TODO: all the resources
+      end
+    end
+
   context "when the device is a mobile" do
     before do
       driven_by(:iphone)
