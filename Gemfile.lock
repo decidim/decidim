@@ -51,7 +51,7 @@ PATH
     decidim-conferences (0.28.0.dev)
       decidim-core (= 0.28.0.dev)
       decidim-meetings (= 0.28.0.dev)
-      wicked_pdf (~> 2.6)
+      wicked_pdf (~> 2.7)
       wkhtmltopdf-binary (~> 0.12)
     decidim-core (0.28.0.dev)
       active_link_to (~> 1.0)
