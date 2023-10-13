@@ -1,5 +1,45 @@
 # frozen_string_literal: true
 
+require "json"
+require "fileutils"
+require "decidim/gem_manager"
+
+shared_context "when generating a new application" do
+  let(:env) do |example|
+    #
+    # When tracking coverage, make sure the ruby environment points to the
+    # local version, so we get the benefits of running `decidim` directly
+    # without `bundler` (more realistic test), but also get code coverage
+    # properly measured (we track coverage on the local version and not on the
+    # installed version).
+    #
+    if ENV["SIMPLECOV"]
+      {
+        "RUBYOPT" => "-rsimplecov #{ENV.fetch("RUBYOPT", nil)}",
+        "RUBYLIB" => "#{repo_root}/decidim-generators/lib:#{ENV.fetch("RUBYLIB", nil)}",
+        "PATH" => "#{repo_root}/decidim-generators/exe:#{ENV.fetch("PATH", nil)}",
+        "COMMAND_NAME" => example.full_description.tr(" ", "_")
+      }
+    else
+      {}
+    end
+  end
+
+  let(:result) do
+    Bundler.with_original_env { GemManager.capture(command, env:) }
+  end
+
+  # rubocop:disable RSpec/BeforeAfterAll
+  before(:all) do
+    Bundler.with_original_env { Decidim::GemManager.install_all(out: File::NULL) }
+  end
+
+  after(:all) do
+    Bundler.with_original_env { Decidim::GemManager.uninstall_all(out: File::NULL) }
+  end
+  # rubocop:enable RSpec/BeforeAfterAll
+end
+
 shared_examples_for "a new production application" do
   it "includes optional plugins commented out in Gemfile" do
     expect(result[1]).to be_success, result[0]
