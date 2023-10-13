@@ -32,7 +32,6 @@ describe "Search", type: :system do
       expect(page).to have_content(/results for the search: "#{term}"/i)
       expect(page).to have_selector(".filter-search.filter-container")
     end
-  end
 
     it "has all the resources to search" do
       within ".search__filter" do
@@ -41,6 +40,7 @@ describe "Search", type: :system do
         # TODO: all the resources
       end
     end
+  end
 
   context "when the device is a mobile" do
     before do
