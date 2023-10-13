@@ -51,22 +51,22 @@
       </div>
 
       <div class="row">
-        <div class="columns xlarge-6">
+        <div class="columns">
           <%= form.datetime_field :start_time %>
         </div>
 
-        <div class="columns xlarge-6">
+        <div class="columns">
           <%= form.datetime_field :end_time %>
         </div>
       </div>
       <div class="row">
         <% if current_component.has_subscopes? %>
-          <div class="columns xlarge-6">
+          <div class="columns">
             <%= scopes_select_field form, :decidim_scope_id, root: current_component.scope %>
           </div>
         <% end %>
 
-        <div class="columns xlarge-6">
+        <div class="columns">
           <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: "", disable_parents: false %>
         </div>
       </div>

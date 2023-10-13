@@ -19,7 +19,7 @@
       </div>
 
       <div class="row column">
-        <div class="columns xlarge-6">
+        <div class="columns">
           <%= form.text_field :hashtag, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
         </div>
       </div>
@@ -38,7 +38,7 @@
 
     <div id="panel-settings" class="card-section">
       <div class="row">
-        <div class="columns xlarge-6">
+        <div class="columns">
           <%= form.select :state,
                           Decidim::Initiative.states.keys.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] },
                           {},
@@ -48,7 +48,7 @@
 
       <div class="row">
         <% unless single_initiative_type? %>
-        <div class="columns xlarge-6">
+        <div class="columns">
           <%= form.select :type_id,
                           initiative_type_options,
                           {},
@@ -63,18 +63,18 @@
                           } %>
         </div>
         <% end %>
-        <div class="columns xlarge-6">
+        <div class="columns">
           <%= form.select :decidim_scope_id, [], {}, { disabled: !@form.signature_type_updatable? } %>
         </div>
       </div>
 
       <% if current_initiative.published? && current_user.admin? %>
         <div class="row">
-          <div class="columns xlarge-6">
+          <div class="columns">
             <%= form.date_field :signature_start_date %>
           </div>
 
-          <div class="columns xlarge-6">
+          <div class="columns">
             <%= form.date_field :signature_end_date %>
           </div>
         </div>
@@ -99,14 +99,14 @@
       <% end %>
 
       <div class="row">
-        <div class="columns xlarge-6">
+        <div class="columns">
           <%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
         </div>
       </div>
 
       <% if current_initiative.accepts_offline_votes? && current_user.admin? %>
         <div class="row">
-          <div class="columns xlarge-6">
+          <div class="columns">
             <% @form.offline_votes.each do |scope_id, (votes, scope_name)| %>
               <%= label_tag "initiative_offline_votes_#{scope_id}", t("activemodel.attributes.initiative.offline_votes_for_scope", scope_name: translated_attribute(scope_name)) %>
               <%= number_field_tag "initiative[offline_votes][#{scope_id}]", votes, min: 0, id: "initiative_offline_votes_#{scope_id}" %>

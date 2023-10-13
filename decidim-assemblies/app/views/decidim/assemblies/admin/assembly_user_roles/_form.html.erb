@@ -2,13 +2,13 @@
   <div class="card pt-4">
     <div class="card-section">
       <div class="row">
-        <div class="columns xlarge-4">
+        <div class="columns">
           <%= form.text_field :name, readonly: @form.persisted? %>
         </div>
-        <div class="columns xlarge-4">
+        <div class="columns">
           <%= form.email_field :email, readonly: @form.persisted? %>
         </div>
-        <div class="columns xlarge-4">
+        <div class="columns">
           <%= form.label :role %>
           <%= select :assembly_user_role, :role, @form.roles, include_blank: false %>
         </div>
