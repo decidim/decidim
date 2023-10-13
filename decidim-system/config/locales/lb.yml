@@ -6,3 +6,8 @@ lb:
         organization_logo: Organisatiounslogo (quadratesch)
         organization_name: Organisatioun
         organization_url: URL der Organisatioun
+  decidim:
+    system:
+      models:
+        organization:
+          name: Organisatioun

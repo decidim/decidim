@@ -836,7 +836,6 @@ fi-pl:
             timeline:
               name: Äänestyksen aikajana
         index:
-          not_published: Julkaisematon
           published: Julkaistu
         landing_page:
           content_blocks:
@@ -1041,6 +1040,7 @@ fi-pl:
             promoted: Korostettu
             select_a_voting_type: Valitse äänestystapa
             slug: Tunniste
+            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteita, jotka viittaavat tähän äänestykseen. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
             title: Otsikko
             voting_type:
               hybrid: Yhdistetty äänestystapa

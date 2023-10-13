@@ -61,7 +61,6 @@ nl:
             name: Naam
             omniauth_settings: Omniauth instellingen
             smtp_settings: SMTP-instellingen
-          name: Organisatie
       organizations:
         advanced_settings:
           hide: Geavanceerde instellingen verbergen

@@ -370,7 +370,7 @@ de:
         participatory_process_groups:
           form:
             metadata: Metadaten
-            title: Allgemeine Informationen
+            title: Allgemeine Information
             visibility: Sichtbarkeit
         participatory_process_imports:
           form:

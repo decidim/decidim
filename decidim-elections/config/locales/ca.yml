@@ -216,7 +216,7 @@ ca:
           answer:
             name: Resposta
           election:
-            name: Votació
+            name: Elecció
           question:
             name: Pregunta
           trustee:

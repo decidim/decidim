@@ -49,7 +49,6 @@ sk:
             name: Meno
             omniauth_settings: Nastavenia Omniauth
             smtp_settings: Nastavenie SMTP
-          name: Organizácia
       organizations:
         create:
           error: Pri vytváraní novej organizácie došlo k chybe.

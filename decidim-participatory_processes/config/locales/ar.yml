@@ -105,7 +105,6 @@ ar:
           attachments: مرفقات
           categories: الاقسام
           components: المكونات
-          info: معلومات
           moderations: الإعتدال
           private_users: المشاركون من القطاع الخاص
           process_admins: مدراء العملية
@@ -303,6 +302,9 @@ ar:
         content_blocks:
           highlighted_processes:
             max_results: أقصى قدر من العناصر لإظهارها
+        participatory_process_groups:
+          form:
+            title: معلومات عامة
         participatory_process_imports:
           form:
             document_legend: إضافة وثيقة

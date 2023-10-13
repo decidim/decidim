@@ -102,7 +102,7 @@ fi:
           success: Konferenssin julkaisu onnistui.
         destroy:
           error: Konferenssin julkaisun lopettaminen epäonnistui.
-          success: Konferenssin julkaisun peruminen onnistui.
+          success: Konferenssin julkaisun lopettaminen onnistui.
       conference_registration:
         confirm:
           error: Konferenssin ilmoittautumisen vahvistaminen epäonnistui.
@@ -269,7 +269,7 @@ fi:
           success: Ilmoittautumistyypin julkaisu onnistui.
         destroy:
           error: Ilmoittautumistyypin julkaisun lopettaminen epäonnistui.
-          success: Ilmoittamistyypin julkaisun peruminen onnistui.
+          success: Ilmoittamistyypin julkaisun lopettaminen onnistui.
       registration_types:
         create:
           error: Ilmoittautumistyyppin lisääminen tälle konferenssille epäonnistui.
@@ -328,6 +328,9 @@ fi:
         title: Puhujat
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         conference_invites:
           create:
             error: Käyttäjän kutsuminen konferenssiin epäonnistui.
@@ -369,6 +372,7 @@ fi:
             registrations_count:
               one: Ilmoittautumisia on 1 kpl.
               other: Ilmoittautumisia on %{count} kpl.
+            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         diplomas:
           edit:
             save: Tallenna
@@ -458,7 +462,7 @@ fi:
         show:
           login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
           make_conference_registration: 'Ilmoittaudu konferenssiin:'
-          register: Rekisteröidy
+          register: Ilmoittaudu
       content_blocks:
         highlighted_conferences:
           name: Tärkeimmät konferenssit

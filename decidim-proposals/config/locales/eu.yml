@@ -179,7 +179,7 @@ eu:
             scope_id: Eremua
             scopes_enabled: Eremuak gaituta
             threshold_per_proposal: Proposamen bakoitzeko atalasea
-            vote_limit: Erabiltzaile bakoitzari botoa emateko muga
+            vote_limit: Partaide bakoitzeko botoen muga
           step:
             amendment_creation_enabled: Zuzenketa sortzea aktibatuta
             amendment_creation_enabled_help: Parte-hartzaileak proposamenak alda ditzake.
@@ -217,7 +217,7 @@ eu:
             suggested_hashtags: Traolek erabiltzaileei proposamen berriak proposatu dizkie
             votes_blocked: Botoak blokeatuta
             votes_enabled: Botoak gaituta
-            votes_hidden: Botoiak ezkutatuta (bozkak gaituta badadaude, hau egiaztatuz bozka kopurua ezkutatuko da)
+            votes_hidden: Botoak ezkutatuta (bozkak gaituta badadaude, hau egiaztatuz bozka kopurua ezkutatuko da)
     events:
       proposals:
         admin:
@@ -350,7 +350,7 @@ eu:
           description: Bereizgarri hori beste pertsona batzuen proposamenak boskatzen dituzunean ematen da.
           description_another: Erabiltzaile honek %{score} proposamen onartzen ditu.
           description_own: '%{score} proposamenei man diezu zure babesa.'
-          name: Proposamenak onartzen ditu
+          name: Proposamenaren aldeko botoak
           next_level_in: Eman babesa % {score} proposamen gehiagori hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek oraindik ez du proposamenik onartzen.
           unearned_own: Oraindik ez duzu proposamenik egin.
@@ -545,14 +545,14 @@ eu:
               one: eta 1 gehiago
               other: eta %{count} gehiago
             photos: Argazkiak
-            proposals: Proposamenak
+            proposals: proposamenak
             ranking: "%{total} tik %{ranking}"
             related_meetings: Erlazionatutako topaketak
             remove_assignment: Desegin esleipena
             remove_assignment_confirmation: Ziur zaude proposamen honen ebaluatzailea desesleitu nahi duzula?
             valuators: Ebaluatzaileak
             votes_count: Botoen zenbaketa
-            votes_ranking: Sailkapena aldekoen arabera
+            votes_ranking: Aldeko basen araberako sailkapena
           update_category:
             invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} kategoria.'
             select_a_category: Mesedez, hautatu kategoria bat
@@ -905,13 +905,13 @@ eu:
             one: SOSTENGU
             other: Babesak
           most_popular_proposal: Proposamenrik ezagunena
-          need_more_votes: Botoa gehiago behar duzu
+          need_more_votes: Boto gehiago behar da
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Proposamen bakoitza %{limit} euskarri baino gehiagotan pilatu daiteke
+            description: Proposamen bakoitzak %{limit} babes baino gehiagotan jaso dezake
           minimum_votes_per_user:
             description: Gutxienez %{votes} bozka eman behar dituzu proposamen desberdinen artean.
-            given_enough_votes: Onartutako euskarri guztiak eman dituzu.
+            given_enough_votes: Nahikoa babes eman dituzu.
             supports_remaining: '%{remaining_votes} boto gehiago proposatu behar dituzu zure botoak kontuan hartzeko.'
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
@@ -920,7 +920,7 @@ eu:
           title: 'Bozkek arau hauek bete behar dituzte:'
           vote_limit:
             description: '%{limit} proposamenari bozkatu ahal zaizkio.'
-            left: Geratzen diren hiru aukerak
+            left: Gainerako botoak
             votes: Botoak
         wizard_aside:
           back: Atzera

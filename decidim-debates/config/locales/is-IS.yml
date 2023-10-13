@@ -41,9 +41,6 @@ is-IS:
           new:
             create: Búðu til umræðu
             title: Ný umræða
-        models:
-          debate:
-            name: Umræða
       admin_log:
         debate:
           create: "%{user_name} búið til %{resource_name} umræðu á %{space_name} plássinu"

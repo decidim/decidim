@@ -124,8 +124,6 @@ tr:
             name: Cevap
           election:
             name: Seçim
-          question:
-            name: Soru
           trustee:
             name: Vekil
         proposals_imports:

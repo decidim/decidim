@@ -47,7 +47,6 @@ uk:
           fields:
             created_at: 'Додано:'
             name: Ім'я
-          name: Організація
       organizations:
         create:
           error: При спробі додати нову організацію сталася помилка.
