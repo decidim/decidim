@@ -296,7 +296,7 @@ pt-BR:
             success: Enquete da reunião atualizada com sucesso
         models:
           meeting:
-            name: encontro
+            name: Encontro
         registrations:
           edit:
             save: Salvar

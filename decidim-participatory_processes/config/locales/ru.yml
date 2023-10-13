@@ -91,7 +91,6 @@ ru:
           attachments: Прикрепленные файлы
           categories: Категории
           components: Составляющие
-          info: Сведения
           moderations: Действия по модерации
           private_users: Частные участники
           process_admins: Участники движения
@@ -178,6 +177,9 @@ ru:
         update:
           error: При попытке обновить этот шаг движения соучастия произошла ошибка.
           success: Шаг движения соучастия успешно обновлен.
+      participatory_process_types:
+        form:
+          title: Название
       participatory_process_user_roles:
         create:
           error: При попытке добавить участника в это движение соучастия произошла ошибка.
@@ -270,6 +272,9 @@ ru:
         title: Шаги движения соучастия
     participatory_processes:
       admin:
+        participatory_process_groups:
+          form:
+            title: Общие сведения
         participatory_processes:
           form:
             announcement_help: Текст, который вы введете здесь, будет показан участнику прямо под описанием движения.

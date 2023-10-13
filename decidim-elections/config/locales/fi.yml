@@ -208,7 +208,7 @@ fi:
           publish:
             success: Vaalin julkaisu onnistui.
           unpublish:
-            success: Vaalin julkaisu epäonnistui.
+            success: Vaalin julkaisun lopettaminen epäonnistui.
           update:
             invalid: Vaalin päivitys epäonnistui
             success: Vaalin päivitys onnistui
@@ -392,7 +392,7 @@ fi:
           start_key_ceremony: "%{user_name} aloitti avainseremonian vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"
           start_tally: "%{user_name} aloitti ääntenlaskennan vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"
           start_vote: "%{user_name} aloitti äänestysajan vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"
-          unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisemisen osallistumistilassa %{space_name}"
+          unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisun osallistumistilassa %{space_name}"
           update: "%{user_name} päivitti vaalia %{resource_name} osallistumistilassa %{space_name}"
         trustee:
           create: "%{user_name} määritti käyttäjän %{trustee_user} luottamushenkilöksi"
@@ -841,7 +841,6 @@ fi:
             timeline:
               name: Äänestyksen aikajana
         index:
-          not_published: Julkaisematon
           published: Julkaistu
         landing_page:
           content_blocks:
@@ -1047,6 +1046,7 @@ fi:
             select_a_voting_type: Valitse äänestystapa
             show_check_census_help: Määrittää, näytetäänkö "Voinko äänestää?" -linkki julkisten äänestysten sivuilla
             slug: Tunniste
+            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteita, jotka viittaavat tähän äänestykseen. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
             title: Otsikko
             voting_type:
               hybrid: Yhdistetty äänestystapa

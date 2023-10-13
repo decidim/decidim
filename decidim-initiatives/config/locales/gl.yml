@@ -167,6 +167,7 @@ gl:
             success: A iniciativa foi enviada á validación técnica
             update: Actualización
           form:
+            attachments: Anexos
             title: Información xeral
           index:
             actions_title: Acción

@@ -227,6 +227,9 @@ eu:
         update:
           error: Errorea gertatu da prozesu partizipatiboaren fase hau eguneratzean.
           success: Prozesu partizipatiboaren fasea zuzen eguneratu da.
+      participatory_process_types:
+        form:
+          title: Titulua
       participatory_process_user_roles:
         create:
           error: Errore bat gertatu da partaidetza prozesu honetan erabiltzailea gehitzea.
@@ -365,7 +368,7 @@ eu:
         participatory_process_groups:
           form:
             metadata: Metadatuak
-            title: Informazio Orokorra
+            title: Informazio orokorra
             visibility: Ikusgarritasuna
         participatory_process_imports:
           form:

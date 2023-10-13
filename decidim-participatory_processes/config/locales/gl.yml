@@ -203,6 +203,9 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este paso de proceso participativo.
           success: Paso de proceso participativo actualizado con éxito.
+      participatory_process_types:
+        form:
+          title: Título
       participatory_process_user_roles:
         create:
           error: Houbo un erro engadindo un usuario a este proceso participativo.

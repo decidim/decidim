@@ -185,7 +185,7 @@ sk:
           destroy:
             success: Typ iniciatívy bol úspešne odstránený
           edit:
-            confirm_destroy: Ste si istý?
+            confirm_destroy: Si si istý?
             destroy: Odstrániť
             update: Aktualizovať
           form:

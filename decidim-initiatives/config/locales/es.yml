@@ -245,7 +245,7 @@ es:
             success: La iniciativa se ha enviado a validación técnica
             update: Actualizar
           form:
-            attachments: Archivos adjuntos
+            attachments: Adjuntos
             settings: Ajustes
             title: Información general
           index:

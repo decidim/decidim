@@ -89,7 +89,6 @@ id:
           attachments: Lampiran
           categories: Kategori
           components: Komponen
-          info: Info
           moderations: Moderasi
           private_users: Pengguna Pribadi
           process_admins: Memproses pengguna
@@ -176,6 +175,9 @@ id:
         update:
           error: Ada kesalahan saat memperbarui langkah proses partisipatif ini.
           success: Langkah proses partisipatif berhasil diperbarui.
+      participatory_process_types:
+        form:
+          title: Judul
       participatory_process_user_roles:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna untuk proses partisipatif ini.
@@ -283,6 +285,9 @@ id:
         content_blocks:
           highlighted_processes:
             max_results: Jumlah maksimum elemen untuk ditampilkan
+        participatory_process_groups:
+          form:
+            title: Informasi Umum
         participatory_process_steps:
           form:
             cta_text_help: Jika tidak disetel, tombol tidak akan ditampilkan.

@@ -517,7 +517,6 @@ sv:
             metrics:
               name: Omröstningsmetrik
         index:
-          not_published: Ej publicerade
           published: Publicerad
         landing_page:
           content_blocks:

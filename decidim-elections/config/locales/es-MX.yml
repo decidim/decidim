@@ -226,7 +226,7 @@ es-MX:
           answer:
             name: Respuesta
           election:
-            name: Votación
+            name: Elección
           question:
             name: Pregunta
           trustee:

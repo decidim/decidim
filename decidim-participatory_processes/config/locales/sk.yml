@@ -101,7 +101,6 @@ sk:
           attachments: Prílohy
           categories: Kategória
           components: Komponenty
-          info: Info
           moderations: Moderovanie
           private_users: Súkromní užívatelia
           process_admins: Spracovať užívateľa
@@ -198,6 +197,9 @@ sk:
         update:
           error: Pri aktualizácii tohto kroku procesu participácie došlo k chybe.
           success: Úspešný krok procesu bol úspešne aktualizovaný.
+      participatory_process_types:
+        form:
+          title: Titul
       participatory_process_user_roles:
         create:
           error: Pri pridávaní používateľa pre tento participačné proces došlo k chybe.
@@ -310,6 +312,9 @@ sk:
         content_blocks:
           highlighted_processes:
             max_results: Maximálne množstvo prvkov, ktoré chcete zobraziť
+        participatory_process_groups:
+          form:
+            title: Všeobecná informácia
         participatory_process_imports:
           form:
             document_legend: Pridať dokument

@@ -141,7 +141,7 @@ de:
       email_change:
         body1: Wir haben eine E-Mail an %{unconfirmed_email} gesendet, um Ihre neue E-Mail-Adresse zu verifizieren.
         body2: Möchten Sie die Verifizierungs-E-Mail erneut senden? %{resend_link} oder %{cancel_link}.
-        cancel: stornieren
+        cancel: Abbrechen
         cancel_error: Die Änderung der E-Mail-Adresse konnte nicht storniert werden.
         cancel_successfully: Die Änderung der E-Mail-Adresse wurde erfolgreich storniert.
         resend_error: Bestätigungs-E-Mail konnte nicht erneut gesendet werden.
@@ -158,7 +158,7 @@ de:
         success_with_email_confirmation: Ihr Konto wurde erfolgreich aktualisiert. Sie erhalten eine E-Mail zur Bestätigung Ihrer neuen E-Mail-Adresse.
     admin:
       actions:
-        cancel: Stornieren
+        cancel: Abbrechen
       password_change:
         alert: Sie müssen Ihr Passwort ändern, um fortzufahren
         notification: Administratoren müssen ihr Passwort alle %{days} Tage ändern.
@@ -398,7 +398,7 @@ de:
           explanation: Ihre Autorisierung ist abgelaufen. Um diese Aktion auszuführen, müssen Sie mit "%{authorization}" erneut autorisiert werden.
           title: Die Autorisierung ist abgelaufen
         incomplete:
-          cancel: Stornieren
+          cancel: Abbrechen
           explanation: 'Obwohl Sie derzeit mit "%{authorization}" autorisiert sind, müssen Sie erneut autorisieren, da uns folgende Daten fehlen:'
           invalid_field: "%{field}"
           reauthorize: Erneut autorisieren
@@ -1339,7 +1339,7 @@ de:
     scopes:
       global: Globaler Umfang
       picker:
-        cancel: Stornieren
+        cancel: Abbrechen
         change: Ausgewählten Bereich ändern
         choose: Wählen
         currently_selected: Aktuell ausgewählter Bereich

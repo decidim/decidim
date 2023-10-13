@@ -172,8 +172,8 @@ fi:
           error: Ryhmän julkaiseminen epäonnistui.
           success: Ryhmän julkaisu onnistui.
         destroy:
-          error: Ryhmän julkaisun peruminen epäonnistui.
-          success: Ryhmän julkaisun peruminen onnistui.
+          error: Ryhmän julkaisun lopettaminen epäonnistui.
+          success: Ryhmän julkaisun lopettaminen onnistui.
       assembly_user_roles:
         create:
           error: Hallintakäyttäjän lisäys ryhmään epäonnistui.
@@ -289,6 +289,7 @@ fi:
             select_an_area: Valitse alue
             select_an_assembly_type: Valitse ryhmän tyyppi
             select_parent_assembly: Valitse pääryhmä
+            slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: Sosiaalinen media
             title: Yleiset tiedot
             visbility: Näkyvyys
@@ -300,9 +301,13 @@ fi:
         assemblies_types:
           form:
             title: Muokkaa ryhmätyyppiä
+        assembly_copies:
+          form:
+            slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_imports:
           form:
             document_legend: Lisää dokumentti
+            slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_members:
           form:
             existing_user: Olemassa oleva käyttäjä

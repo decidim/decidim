@@ -199,7 +199,7 @@ el:
           answer:
             name: Απάντηση
           election:
-            name: Εκλογή
+            name: Εκλογές
           question:
             name: Ερώτηση
           trustee:
@@ -730,7 +730,6 @@ el:
             description:
               name: Περιγραφή ψηφοφορίας
         index:
-          not_published: Αδημοσίευτο
           published: Δημοσιεύθηκε
         landing_page:
           content_blocks:

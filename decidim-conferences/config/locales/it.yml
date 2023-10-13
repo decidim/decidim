@@ -197,7 +197,7 @@ it:
         conference:
           fields:
             created_at: Creato il
-            promoted: Evidenziato
+            promoted: In evidenza
             published: Pubblicato
             title: Titolo
         conference_speaker:

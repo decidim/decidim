@@ -76,21 +76,21 @@ fi:
         new_response_group: Uusi ryhmä
         publish_results: Julkaise tulokset
         response_groups: Hallitse vastausryhmiä
-        unpublish_results: Peru tulosten julkistus
+        unpublish_results: Lopeta tulosten julkaisu
       consultation_publications:
         create:
           error: Kuulemisen julkaiseminen epäonnistui.
           success: Kuulemisen julkaiseminen onnistui.
         destroy:
           error: Kuulemisen julkaisun lopettaminen epäonnistui.
-          success: Kuulemisen julkaisun peruminen onnistui.
+          success: Kuulemisen julkaisun lopettaminen onnistui.
       consultation_results_publications:
         create:
           error: Kuulemisen tulosten julkaisu epäonnistui.
           success: Kuulemisen tulosten julkaisu onnistui.
         destroy:
-          error: Kuulemisen tulosten julkaisun peruminen epäonnistui.
-          success: Kuulemisen tulosten julkaisun peruminen onnistui.
+          error: Kuulemisen tulosten julkaisun lopettaminen epäonnistui.
+          success: Kuulemisen tulosten julkaisun lopettaminen onnistui.
       consultations:
         create:
           error: Kuulemisen luonti epäonnistui.
@@ -163,8 +163,8 @@ fi:
           error: Kysymyksen julkaisu epäonnistui.
           success: Kysymyksen julkaisu onnistui.
         destroy:
-          error: Kysymyksen julkaisun peruminen epäonnistui.
-          success: Kysymyksen julkaisun peruminen onnistui.
+          error: Kysymyksen julkaisun lopettaminen epäonnistui.
+          success: Kysymyksen julkaisun lopettaminen onnistui.
       questions:
         create:
           error: Uuden kysymyksen luonti epäonnistui.

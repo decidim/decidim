@@ -203,7 +203,7 @@ eu:
           answer:
             name: Erantzuna
           election:
-            name: Bozketa
+            name: Aukera
           question:
             name: Galdera
           trustee:
@@ -740,7 +740,6 @@ eu:
             description:
               name: Bozketaren deskribapena
         index:
-          not_published: Desargitaratua
           published: Argitaratua
         landing_page:
           content_blocks:

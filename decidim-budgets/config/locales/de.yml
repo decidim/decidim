@@ -203,7 +203,7 @@ de:
       projects:
         budget_confirm:
           are_you_sure: Wenn du deine Meinung änderst, kannst du deine Stimme nachträglich ändern.
-          cancel: Stornieren
+          cancel: Abbrechen
           confirm: Bestätigen
           description: Dies sind die Projekte, die Sie für das Budget ausgewählt haben.
           title: Bestätigung der Abstimmung

@@ -208,7 +208,7 @@ ro:
         conference:
           fields:
             created_at: Creat la
-            promoted: Evident
+            promoted: Evidenţiat
             published: Publicat
             title: Titlu
         conference_speaker:

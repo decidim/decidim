@@ -226,7 +226,7 @@ ro:
             few: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propuneri asociate:'
             other: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propuneri asociate acestuia:'
         manage_poll: Gestionare sondaj
-        new: Noua întâlnire
+        new: Întâlnire nouă
         preview: Previzualizare
         registrations: Înregistrări
         title: Acțiuni

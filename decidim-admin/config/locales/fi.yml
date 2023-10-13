@@ -342,7 +342,7 @@ fi:
           success: Komponentin julkaisu onnistui.
         title: Komponentit
         unpublish:
-          success: Komponentin julkaisun peruminen onnistui.
+          success: Komponentin julkaisun lopettaminen onnistui.
         update:
           error: Komponentin päivitys epäonnistui.
           success: Komponentin päivitys onnistui.
@@ -736,6 +736,9 @@ fi:
           select_scopes: Suodata käyttäjiä, jotka ovat valinneet minkä tahansa teeman tilinsä "Kiinnostuksen kohteet" -asetuksesta.
           select_spaces: Valitse tilat, joille haluat kohdistaa uutiskirjeen
           select_users: Valitse käyttäjät, joille haluat lähettää uutiskirjeen
+          send_to_all_users: Lähetä kaikille käyttäjille
+          send_to_followers: Lähetä seuraajille
+          send_to_participants: Lähetä osallistujille
           title: Valitse vastaanottajat
           warning: "<strong>Huomio:</strong> Tämä uutiskirje lähetetään ainoastaan käyttäjille, jotka ovat valinneet asetuksen <em>Haluan vastaanottaa uutiskirjeitä</em> tilinsä ilmoitusasetuksista."
         send:
@@ -810,6 +813,7 @@ fi:
             colors_title: Organisaation värit
             colors_warning_html: Varoitus! Näiden värien muuttaminen voi rikkoa palvelun saavutettavuuden vaatimat kontrastiarvot. Voit tarkastaa kontrastiarvot valitsemillesi väreille <a href="%{link}">WebAIM kontrastintarkastustyökalulla</a> tai muilla vastaavilla työkaluilla.
             header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
+          cta_button_path_help: 'Voit määrittää, mihin kotisivun toimintopainike (Call To Action) linkkaa. Käytä tässä osoitepolkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja kauttaviivat. Arvon on alettava kirjaimella. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä. Esimerkki: %{url}'
           cta_button_text_help: Voit korvata toimintopainikkeen (Call to Action) tekstin kotisivulla jokaiselle organisaatiosi kielelle. Mikäli tätä ei ole asetettu, oletusarvoa käytetään. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä.
           homepage_appearance_title: Muokkaa kotisivun ulkoasua
           homepage_highlighted_content_banner_title: Tärkeä sisältöbanneri
@@ -921,7 +925,7 @@ fi:
           success: Tunnisteen poistaminen onnistui.
         share_tokens:
           empty: Aktiivisia tunnisteita ei ole tällä hetkellä
-          help: Näitä tunnisteita käytetään jaettaessa tätä kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakoikonia vieraillaksesi jaettavassa URL-osoitteessa.
+          help: Näitä tunnisteita käytetään jaettaessa tätä julkaisematonta kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakoikonia vieraillaksesi jaettavassa URL-osoitteessa.
           title: Jakotunnisteet
       shared:
         gallery:
@@ -958,6 +962,7 @@ fi:
           update: Päivitä
         form:
           none: Ei mitään
+          slug_help: 'Käytä tässä osoitepolkuja, ei koko URL-osoitteita. Hyväksyy kirjaimia, numeroita, viivoja ja kauttaviivoja. Arvo on aloitettava kirjaimella. Esimerkki: %{url}'
         index:
           last_notable_change: Viimeinen huomattava muutos
         new:
