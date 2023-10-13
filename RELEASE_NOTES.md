@@ -156,7 +156,7 @@ In order to continue having support for Webpacker like syntax, we have switched 
 In order to perform the update, you will need to make sure that you **do not have webpacker in your Gemfile**.
 If you have it, please remove it, and allow Decidim to handle the webpacker / shakapacker dependency.
 
-In order to perform the migration to shakapacker, please backup the following files, to make sure that you save any customizations you may have done to webpacker:
+In order to perform the migration to Shakapacker, please backup the following files, to make sure that you save any customizations you may have done to webpacker:
 
 ```console
 config/webpacker.yml
@@ -169,14 +169,9 @@ After all the backups and changes mentioned above have been completed, follow th
 Then run the below command, and replace all the configuration with the one that Decidim is providing by default:
 
 ```console
+rm -r config/webpack/* config/webpacker.yml
 bundle exec rake decidim:webpacker:install
 ```
-
-This will make the necessary changes in the `config/shakapacker.yml`, but also in the `config/webpack/` folder.
-
-Shakapacker has been upgraded to version 7.1.0, which will stop using `config/webpacker/test.js`, `config/webpacker/development.js`, `config/webpacker/production.js`.
-
-The project no longer needs to use `config/webpacker.yml`, in favor of `config/shakapacker.yml`. It is recommended to remove the `config/webpacker.yml` to avoid further confusion.
 
 #### Note for development
 
@@ -191,6 +186,9 @@ In order to run your development server, you will need to run the following comm
 ```console
 ./bin/dev
 ```
+
+Also, by migrating to Shakapacker, we no longer use `config/webpacker.yml`. All the webpack configuration will be done through `config/shakapacker.yml`
+
 
 You can read more about this change on PR
 
