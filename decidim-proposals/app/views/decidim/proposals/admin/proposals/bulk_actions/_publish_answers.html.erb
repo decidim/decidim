@@ -1,5 +1,5 @@
 <div id="js-publish-answers-actions" class="hide js-bulk-action-form">
-  <%= form_tag(publish_answers_proposals_path, method: :post, remote: true, id: "js-form-publish-answers", class: "flex-gap--1") do %>
+  <%= form_tag(publish_answers_proposals_path, method: :post, remote: true, id: "js-form-publish-answers", class: "flex align-middle text-center gap-x-4 ml-auto") do %>
     <div class="checkboxes hide">
       <% proposals.each do |proposal| %>
         <%= check_box_tag "proposal_ids[]", proposal.id, false, class: "js-check-all-proposal js-proposal-id-#{proposal.id}" %>

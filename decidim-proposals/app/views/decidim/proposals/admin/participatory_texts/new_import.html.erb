@@ -3,13 +3,11 @@
     <%= t(".title") %>
   </h2>
 </div>
-
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@import, url: import_participatory_texts_path, html: { class: "form form-defaults grid-container" }) do |form| %>
       <div class="form__wrapper">
-        <div class="card">
-          <div class="card-divider"></div>
+        <div class="card pt-4">
           <div class="card-section">
             <div id="import-title" class="row column">
               <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
@@ -24,10 +22,13 @@
             </div>
           </div>
         </div>
-
-        <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-          <%= t(".bottom_hint") %>
-          <%= form.submit t(".upload_document"), class: "button button__sm button__secondary" %>
+        <div class="item__edit-sticky">
+          <div class="item__edit-sticky-container">
+            <div class="flex-col-reverse md:flex-row justify-between text-white">
+              <%= t(".bottom_hint") %>
+              <%= form.submit t(".upload_document"), class: "button button__sm button__secondary" %>
+            </div>
+          </div>
         </div>
       </div>
     <% end -%>
