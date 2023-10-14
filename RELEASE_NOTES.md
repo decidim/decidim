@@ -189,7 +189,6 @@ In order to run your development server, you will need to run the following comm
 
 Also, by migrating to Shakapacker, we no longer use `config/webpacker.yml`. All the webpack configuration will be done through `config/shakapacker.yml`
 
-
 You can read more about this change on PR
 
 - [\#10389](https://github.com/decidim/decidim/pull/10389)
