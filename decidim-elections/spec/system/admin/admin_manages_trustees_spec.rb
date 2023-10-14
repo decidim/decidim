@@ -18,7 +18,7 @@ describe "Admin manages trustees", type: :system do
 
   context "without existing trustee" do
     it "creates a new trustee" do
-      click_link "New Trustee"
+      click_link "New trustee"
 
       within ".new_trustee" do
         autocomplete_select "#{user.name} (@#{user.nickname})", from: :user_id
@@ -110,7 +110,7 @@ describe "Admin manages trustees", type: :system do
     let(:participatory_space) { create(:assembly, organization:) }
 
     it "shows the trustees page" do
-      expect(page).to have_content("New Trustee")
+      expect(page).to have_content("New trustee")
     end
   end
 
@@ -118,7 +118,7 @@ describe "Admin manages trustees", type: :system do
     let(:participatory_space) { create(:voting, organization:) }
 
     it "shows the trustees page" do
-      expect(page).to have_content("New Trustee")
+      expect(page).to have_content("New trustee")
     end
   end
 end

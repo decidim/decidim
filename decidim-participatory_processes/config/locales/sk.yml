@@ -81,7 +81,6 @@ sk:
         edit: Upraviť
         filter:
           all_processes: Zobraziť všetky procesy
-          process_groups: Skupiny procesov
         import_process: Importovať
         new_process: Nový proces
         new_process_group: Nová skupina procesov
@@ -100,7 +99,6 @@ sk:
           attachments: Prílohy
           categories: Kategória
           components: Komponenty
-          info: Info
           moderations: Moderovanie
           private_users: Súkromní užívatelia
           process_admins: Spracovať užívateľa
@@ -110,7 +108,6 @@ sk:
           fields:
             created_at: Vytvorené u
             private: Súkromné
-            promoted: Zvýraznený
             published: Publikované
             title: Titul
           name: Participatívne proces
@@ -218,7 +215,6 @@ sk:
         edit:
           update: Aktualizácia
         index:
-          not_published: Nie je zverejnené
           private: Súkromné
           public: Verejnosť
           published: Publikované
@@ -295,22 +291,16 @@ sk:
     participatory_process_steps:
       index:
         process_steps: Kroky procesu
-        title: Kroky participatívneho procesu
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
             max_results: Maximálne množstvo prvkov, ktoré chcete zobraziť
-        participatory_process_copies:
-          form:
-            slug_help: 'Stĺpce adries URL sa používajú na vygenerovanie adries URL, ktoré smerujú k tomuto procesu. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:%{url} '
         participatory_process_imports:
           form:
             document_legend: Pridať dokument
-            slug_help: 'URL slug sa používajú na vygenerovanie adries URL, ktoré odkazujú na toto zhromaždenie. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:%{url} '
         participatory_process_steps:
           form:
-            cta_path_help: 'Použite tu čiastočné cesty, nie úplné adresy URL. Prijme písmená, čísla, pomlčky a lomítka a musí začínať písmenom. Ak nie je nastavené, tlačidlo sa nezobrazí. Príklad:%{url} '
             cta_text_help: Ak nie je nastavené, tlačidlo sa nezobrazí.
         participatory_processes:
           form:
@@ -324,7 +314,6 @@ sk:
             scope_type_max_depth_help: Obmedziť hĺbku filtra rozsahu; filter umožňuje zobraziť všeobecné alebo vybrané druhy rozsahov.
             select_an_area: Vyberte rozsah
             select_process_group: Vyberte skupinu procesov
-            slug_help: 'Stĺpce adries URL sa používajú na vygenerovanie adries URL, ktoré smerujú k tomuto procesu. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:%{url} '
             title: Všeobecná informácia
             visbility: Viditeľnosť
       content_blocks:
@@ -334,14 +323,6 @@ sk:
         title: Participatívna procesy
       last_activity:
         new_participatory_process: Nový participačné proces
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Aktívne procesy
-            active_step: Aktívne krok
-            more_information: Viac informácií
-            participate: Zúčastniť sa
-            see_all_processes: Zobraziť všetky procesy
       participatory_processes:
         filters:
           counters:
@@ -373,31 +354,15 @@ sk:
             past: Uplynulé
             upcoming: Nadchádzajúce
           see: Vidieť
-        index:
-          loading: Načítá výsledky ...
       show:
-        area: Plocha
-        developer_group: Skupina promotérov
-        end_date: Dátum ukončenia
-        local_area: Oblasť organizácie
-        participatory_scope: Čo sa rozhodlo
-        participatory_structure: Ako sa to rozhoduje
         private_space: Jedná sa o súkromný proces
         related_processes: Súvisiace procesy
-        scope: Rozsah
-        start_date: Dátum začatia
-        target: Kto sa zúčastňuje
-        unspecified: Nešpecifikované
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: Prechádzať
           processes_count: 'Procesy:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktívne krok
-          take_part: Zúčastniť sa
       participatory_processes:
         index:
           promoted_processes: Zvýraznené procesy
@@ -405,12 +370,3 @@ sk:
           active_step: 'Aktuálny krok:'
           more_info: Viac informácií
           take_part: Zúčastniť sa
-        promoted_process:
-          active_step: 'Aktuálny krok:'
-          more_info: Viac informácií
-          take_part: Zúčastniť sa
-      process_header_steps:
-        step: Krok%{current} z%{total}
-        view_steps: Zobraziť kroky
-      process_navigation:
-        process_menu_item: Proces

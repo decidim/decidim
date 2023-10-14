@@ -37,7 +37,6 @@ ro:
         confirm_destroy: Sigur dorești să ştergi acest element?
         destroy: Ștergere
         edit: Editare
-        new: Nou
         save: Salvează
         title: Acțiuni
       admins:
@@ -74,7 +73,6 @@ ro:
           fields:
             created_at: Creat la
             email: E-mail
-          name: Admin
           validations:
             email_uniqueness: un alt administrator cu același e-mail există deja
         oauth_application:
@@ -82,7 +80,6 @@ ro:
             created_at: Creat la
             name: Numele aplicației OAuth
             organization_name: Organizație
-          name: Aplicație OAuth
         organization:
           actions:
             save_and_invite: Creează grupul de lucru și invită un administrator
@@ -92,7 +89,6 @@ ro:
             name: Nume
             omniauth_settings: Setări Omniauth
             smtp_settings: Setări SMTP
-          name: Organizație
       oauth_applications:
         create:
           error: A apărut o eroare la crearea acestei aplicații.

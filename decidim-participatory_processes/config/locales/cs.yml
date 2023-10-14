@@ -106,7 +106,7 @@ cs:
         edit: Upravit
         filter:
           all_processes: Zobrazit všechny procesy
-          process_groups: Skupiny procesů
+          process_groups: Filtrovat procesy ve skupinách
         import_process: Importovat
         moderate: Moderovat
         new_process: Nový proces
@@ -117,6 +117,7 @@ cs:
         preview: Náhled
         publish: Publikovat
         resend_invitation: Znovu poslat pozvánku
+        see_process: Zobrazit proces
         unpublish: Zrušit publikování
       menu:
         participatory_process_groups: Skupiny procesů
@@ -131,7 +132,8 @@ cs:
           attachments: Přílohy
           categories: Kategorie
           components: Komponenty
-          info: Info
+          info: O tomto procesu
+          landing_page: Úvodní stránka
           moderations: Moderování
           private_users: Soukromí uživatelé
           process_admins: Administrátoři procesu
@@ -139,9 +141,9 @@ cs:
       models:
         participatory_process:
           fields:
+            actions: Akce
             created_at: Vytvořeno v
             private: Soukromé
-            promoted: Zvýrazněno
             published: Publikováno
             title: Titul
           name: Participační proces
@@ -260,8 +262,6 @@ cs:
         edit:
           title: Upravit typ procesu
           update: Aktualizovat
-        form:
-          title: Název
         new:
           create: Vytvořit
           title: Nový typ procesu
@@ -292,10 +292,10 @@ cs:
         edit:
           update: Aktualizace
         index:
-          not_published: Není zveřejněno
           private: Soukromé
           public: Veřejné
           published: Publikováno
+          unpublished: Nezveřejněno
         new:
           create: Vytvořit
           title: Nový participační proces
@@ -377,30 +377,31 @@ cs:
         description: Počet participativních procesů v této organizaci
         object: participativní procesy
         title: Participativní procesy
-    participatory_process:
-      show:
-        related_assemblies: Související shromáždění
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Propagováno
+          name: Metadata
+          participatory_scope: O čem se rozhoduje
+          participatory_structure: Jak se o tom rozhoduje
+          target: Kdo se účastní
+        html:
+          name: HTML blok
         html_1:
           name: První HTML blok
         html_2:
           name: Druhý HTML blok
         html_3:
           name: Třetí HTML blok
-        metadata:
-          developer_group: Propagováno
-          name: Metadata
-          participatory_scope: O čem se rozhoduje
-          participatory_structure: Jak se o tom rozhoduje
-          target: Kdo se účastní
+        main_data:
+          name: Název a popis
         participatory_processes:
+          active: Aktivní participační procesy
           name: Participativní procesy
         stats:
           name: Statistiky
         title:
           meta_scope: Oblast působnosti
-          name: Název, popis a hashtag
           participatory_processes:
             one: 1 proces
             few: "%{count} procesy"
@@ -411,30 +412,32 @@ cs:
     participatory_process_steps:
       index:
         process_steps: Procesní kroky
-        title: Stacionární kroky procesu
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Aktivní
+            all: Vše
             max_results: Maximální množství prvků, které chcete zobrazit
+            selection_criteria: Kritéria výběru
         new_import:
           accepted_types:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které směřují k tomuto procesu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadata
-            title: Obecné informace
+            title: O tomto procesu
             visibility: Viditelnost
         participatory_process_imports:
           form:
             document_legend: Přidat dokument
-            slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na toto shromáždění. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Není-li nastaveno, tlačítko se nezobrazí. Příklad: %{url}'
+            cta_path_help_html: 'Zde použijte částečné cesty, nikoli úplné adresy URL. Jsou povolena písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Příklad: %{url}'
             cta_text_help: Není-li nastaveno, tlačítko se nezobrazí.
         participatory_processes:
           form:
@@ -449,12 +452,18 @@ cs:
             select_an_area: Vyberte oblast
             select_participatory_process_type: Vyberte typ procesu
             select_process_group: Vyberte skupinu procesů
-            slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které směřují k tomuto procesu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Obecná informace
             visbility: Viditelnost
       content_blocks:
+        extra_data:
+          name: Fáze a doba trvání
+        hero:
+          name: Obrázek hrdiny a CTA
         highlighted_processes:
           name: Zvýrazněné procesy
+        related_processes:
+          name: Související procesy
       index:
         title: Participativní procesy
       last_activity:
@@ -462,17 +471,22 @@ cs:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktivní procesy
-            active_step: Aktivní krok
-            more_information: Více informací
-            participate: Účastnit se
-            participate_in: Zapojte se do procesu %{resource_name}
-            processes_button_title: Odkaz na stránku Procesů zobrazující všechny procesy
-            see_all_processes: Zobrazit všechny procesy
+            active_spaces: Aktivní procesy
+            see_all_spaces: Zobrazit všechny procesy
       participatory_process_steps:
         index:
           back_to_process: Zpět na stránku procesu
       participatory_processes:
+        description:
+          area_name: Oblast
+          data: Zpracování dat
+          developer_group: Skupina propagátorů
+          local_area: Oblast organizace
+          meta_scope: Oblast působnosti
+          participatory_scope: O čem se rozhoduje
+          participatory_structure: Jak se o tom rozhoduje
+          target: Kdo se účastní
+          title: O tomto procesu
         filters:
           all_types: Všechny typy
           counters:
@@ -496,6 +510,7 @@ cs:
               few: "%{count} nadcházejících procesů"
               many: "%{count} nadcházejících procesů"
               other: "%{count} nadcházejících procesů"
+          date: Datum
           explanations:
             no_active: Žádné aktivní procesy.
             no_active_nor_upcoming: Žádné aktivní ani nadcházející procesy.
@@ -507,25 +522,13 @@ cs:
             past: Minulé
             upcoming: Nadcházející
           see: Vidět
-        index:
-          loading: Načítání výsledků...
+          type: Typ
         show:
           title: O tomto procesu
       show:
-        area: Oblast
         belongs_to_group: Tento proces patří do
-        dates: Data
-        developer_group: Skupina promotérů
-        end_date: Datum ukončení
-        local_area: Oblast působnosti organizace
-        participatory_scope: Co se rozhodlo
-        participatory_structure: Jak se to rozhoduje
         private_space: Jedná se o soukromý proces
         related_processes: Související procesy
-        scope: Rozsah
-        start_date: Datum zahájení
-        target: Kdo se účastní
-        unspecified: Nespecifikováno
     statistics:
       processes_count: Procesy
   layouts:
@@ -535,10 +538,6 @@ cs:
           browse: Procházet
           browse_resource: Procházet skupinu procesů %{resource_name}
           processes_count: 'Procesy:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktivní krok
-          take_part: Zúčastnit se
       participatory_processes:
         index:
           promoted_processes: Zvýrazněné procesy
@@ -548,16 +547,3 @@ cs:
           more_info_about: Další informace o procesu %{resource_name}
           take_part: Zúčastnit se
           take_part_in: Zapojte se do procesu %{resource_name}
-        promoted_process:
-          active_step: 'Aktuální krok:'
-          more_info: Více informací
-          more_info_about: Další informace o procesu %{resource_name}
-          take_part: Zúčastnit se
-          take_part_in: Zapojte se do procesu %{resource_name}
-        promoted_process_group:
-          more_info: Více informací
-      process_header_steps:
-        step: Krok %{current} z %{total}
-        view_steps: Zobrazit kroky
-      process_navigation:
-        process_menu_item: Proces

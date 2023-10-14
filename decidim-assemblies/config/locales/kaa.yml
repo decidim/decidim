@@ -1,1 +1,58 @@
 kaa:
+  activemodel:
+    attributes:
+      assembly:
+        facebook: Facebook
+        github: GitHub
+        instagram: Instagram
+  decidim:
+    admin:
+      actions:
+        import_assembly: Importlaw
+      assemblies:
+        edit:
+          update: Jańalaw
+        new:
+          create: Jaratıw
+      assemblies_types:
+        new:
+          create: Jaratıw
+      assembly_copies:
+        new:
+          copy: Kóshirip alıw
+      assembly_imports:
+        new:
+          import: Importlaw
+      assembly_members:
+        edit:
+          update: Jańalaw
+        new:
+          create: Jaratıw
+      assembly_user_roles:
+        edit:
+          update: Jańalaw
+      menu:
+        assemblies_settings: Sazlawlar
+        assemblies_submenu:
+          attachment_collections: Papkalar
+          attachment_files: Fayllar
+          categories: Kategoriyalar
+      models:
+        assembly_user_role:
+          fields:
+            email: Elektron pochta
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            images: Súwretler
+            other: Basqa
+        assemblies_settings:
+          edit:
+            update: Jańalaw
+        assembly_members:
+          index:
+            search: Izlew
+        new_import:
+          accepted_types:
+            json: JSON

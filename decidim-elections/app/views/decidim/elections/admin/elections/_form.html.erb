@@ -1,9 +1,5 @@
 <div class="form__wrapper">
-  <div class="card">
-    <div class="card-divider">
-      <h2 class="card-title"><%= title %></h2>
-    </div>
-
+  <div class="card pt-4">
     <div class="card-section">
       <div class="row column">
         <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
@@ -14,11 +10,9 @@
       </div>
 
       <div class="row">
-        <div class="callout warning">
-          <p><%= t(".organization_time_zone",
-                   time_zone: current_organization.time_zone,
-                   time: Time.zone.now) %></p>
-        </div>
+        <% announcement_message = t(".organization_time_zone", time_zone: current_organization.time_zone, time: Time.zone.now) %>
+        <%= cell("decidim/announcement", announcement_message, callout_class: "warning" ) %>
+
         <div class="column xlarge-6">
           <%= form.datetime_field :start_time %>
         </div>

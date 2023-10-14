@@ -18,7 +18,9 @@ lt:
         decidim_scope_id: Apimtis
         decidim_user_group_id: Naudotojų grupė
         description: Aprašymas
+        end_time: Pabaigos laikas
         id: ID
+        iframe_embed_type: Iframe įtraukos tipas
         location: Vieta
         location_hints: Vietos užuomina
         online_meeting_url: Virtualaus susitikimo URL
@@ -28,11 +30,43 @@ lt:
         registration_email_custom_content: Suasmenintas registracijos el. laiško turinys
         registration_form_enabled: Registracijos forma įjungta
         registration_terms: Registracijos sąlygos
+        registration_type: Registracijos tipas
         registration_url: Registracijos URL
         registrations_enabled: Registracijos įjungtos
+        reserved_slots: Šiam susirinkimui rezervuoti intervalai
+        start_time: Pradžios laikas
         title: Pavadinimas
         transparent: Skaidrus
         type_of_meeting: Tipas
+      meeting_agenda:
+        title: Pavadinimas
+        visible: Matomas
+      meeting_agenda_items:
+        description: Aprašymas
+        duration: Trukmė
+        title: Pavadinimas
+      meeting_registration_invite:
+        email: El. paštas
+        name: Pavadinimas
+      validate_registration_code:
+        code: Kodas
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Šios nuorodos negalima įterpti į susitikimo ar tiesioginio įvykio puslapį.
+            online_meeting_url:
+              url_format: Turi būti galiojanti nuoroda
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Elementų trukmė viršijo posėdžio trukmę %{count} minutėmis (ių).
+              too_many_minutes_child: Antrinių elementų trukmė viršijo darbotvarkės pirminio elemento „%{parent_title}“ trukmę %{count} minutėmis (ių).
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Šio el. laiško paskyros adresatas jau buvo pakviestas.
     models:
       decidim/meetings/close_meeting_event: Susitikimas baigtas
       decidim/meetings/create_meeting_event: Susitikimas
@@ -93,7 +127,6 @@ lt:
           success: Susitikimas dubliuotas.
         new:
           copy: Kopijuoti
-          select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti
           title: Dubliuoti susirinkimą
     components:
       meetings:
@@ -166,6 +199,9 @@ lt:
           email_outro: Gavote šį pranešimą nes sekate "%{resource_title}" susirinkimą. Galite jo nebesekti paspaudę ant ankstesnės nuorodos.
           email_subject: '"%{resource_title}" susirinkimas prasidės už mažiau nei 48 val.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> Susirinkimas prasidės už mažiau nei 48 val.
+    forms:
+      meetings:
+        attendees_count_help_text: Nepamirškite įrašyti dalyvių susirinkime skaičiaus (tiek dalyvaujančių gyvai, tiek nuotoliniu būdu).
     gamification:
       badges:
         attended_meetings:
@@ -176,6 +212,8 @@ lt:
           description_own: Jūs dalyvavote %{score} susirinkimuose (-ų).
           name: Dalyvauta susirinkimuose
           next_level_in: Dalyvaukite dar %{score} susirinkimuose (-ų) ir pasiekite kitą lygį!
+          unearned_another: Šis dalyvis dar nedalyvavo nė viename susirinkime.
+          unearned_own: Jūs dar nedalyvavote nė viename posėdyje.
     meetings:
       actions:
         agenda: Darbotvarkė
@@ -192,7 +230,6 @@ lt:
             many: 'Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai:'
             other: 'Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai:'
         manage_poll: Tvarkyti apklausą
-        new: Naujas susirinkimas
         preview: Peržiūra
         registrations: Registracijos
         title: Veiksmai
@@ -210,6 +247,9 @@ lt:
             down: Žemyn
             remove: Pašalinti
             up: Aukštyn
+          create:
+            invalid: Kuriant šią darbotvarkę iškilo problema.
+            success: Darbotvarkė sukurta.
           edit:
             title: Redaguoti darbotvarkę
             update: Atnaujinti
@@ -221,6 +261,9 @@ lt:
           new:
             create: Sukurti
             title: Nauja darbotvarkė
+          update:
+            invalid: Atnaujinant šią darbotvarkę iškilo problema.
+            success: Darbotvarkė atnaujinta.
         exports:
           answers: Atsakymai
           meeting_comments: Komentarai
@@ -248,24 +291,35 @@ lt:
               all: Visi
               rejected: Atmestas
               sent: Išsiųstas
-            filter_by: Filtruoti pagal
             invite_attendee: Kviesti dalyvį
             invites: Pakvietimai
+            registrations_disabled: Negalite kviesti dalyvio, nes registracija išjungta.
             search: Ieškoti
         meeting_closes:
           edit:
             close: Uždaryti
             title: Baigti susirinkimą
         meetings:
+          close:
+            invalid: Užbaigiant šį susirinkimą iškilo problema.
+            success: Susirinkimas uždarytas.
           create:
+            invalid: Kuriant šį susirinkimą iškilo problema.
             success: Susirinkimas sėkmingai sukurtas. Jis dar nepublikuotas, tai turite padaryti rankiniu būdu.
           destroy:
+            invalid:
+              proposals_count:
+                one: Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymas.
+                few: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
+                many: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
+                other: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
             success: Susirinkimas sėkmingai pašalintas
           edit:
             title: Redaguoti susirinkimą
             update: Atnaujinti
           form:
             address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
+            disclaimer: 'Perspėjimas: Naudodami išorinę registracijos sistemą jūs suprantate, kad %{organization} organizatoriai nėra atsakingi už naudotojų išorinei paslaugai pateiktus duomenis.'
             location_help: 'Vieta: naudotojams skirtas pranešimas, kuriame nurodoma susitikimo vieta'
             location_hints_help: 'Vietos priedėliai: papildoma informacija kaip pvz. buto numeris, iš kurios pusės įeiti ir t. t.'
             online_meeting_url_help: 'Nuoroda: leisti dalyviams tiesiai prisijungti prie susirinkimo'
@@ -279,6 +333,9 @@ lt:
           new:
             create: Sukurti
             title: Sukurti susirinkimą
+          publish:
+            invalid: Skelbiant šį susirinkimą iškilo problema.
+            success: Susirinkimas sėkmingai paskelbtas.
           service:
             description: Aprašymas
             down: Žemyn
@@ -289,12 +346,18 @@ lt:
           services:
             add_service: Pridėti paslaugą
             services: Paslaugos
+          unpublish:
+            invalid: Depublikuojant šį susirinkimą iškilo problema.
+            success: Susirinkimas sėkmingai depublikuotas.
+          update:
+            invalid: Atnaujinat šį susirinkimą iškilo problema.
+            success: Posėdis sėkmingai atnaujintas.
         meetings_poll:
           form:
             title: Redaguoti klausimyną %{questionnaire_for}
-        models:
-          meeting:
-            name: Susirinkimas
+          update:
+            invalid: Atnaujinat šio susirinkimo klausimyną iškilo problema.
+            success: Susirinkimo klausimynas sėkmingai atnaujintas.
         registrations:
           edit:
             save: Išsaugoti
@@ -311,6 +374,7 @@ lt:
               few: Yra %{count} registracijų.
               many: Yra %{count} registracijų.
               other: Yra %{count} registracijų.
+            reserved_slots_help: Palikite 0, jei vietos nerezervuotos.
             reserved_slots_less_than: Turi būti ne didesnis kaip %{count} arba jam lygus
             title: Registracijos
           update:
@@ -340,15 +404,13 @@ lt:
           all: Visi
         filter_meeting_space_values:
           all: Visi
-        filter_scope_values:
-          all: Visi
       calendar_modal:
         calendar_url: Kalendoriaus URL
-        close_window: Uždaryti langą
         copy_calendar_url: Kopijuoti
         copy_calendar_url_clarification: Kopijuoti kalendoriaus URL į iškarpinę
         copy_calendar_url_copied: Nukopijuota!
         copy_calendar_url_description: Kalendoriaus programėlėje galite matyti visus paskelbtus susitikimus. Nukopijuokite ir įklijuokite šį URL į savo kalendorių naudodami parinktį „Pridėti naują kalendorių iš URL“.
+        copy_calendar_url_explanation: Atkreipkite dėmesį, kad eksportuojate pasirinktus susirinkimus (nes yra aktyvių filtrų). Jei norėtumėt eksportuoti viską, pirmiausiai panaikinkite filtrus.
         copy_calendar_url_message: Nuoroda sėkmingai nukopijuota į iškarpinę.
         export_calendar: Eksportuoti kalendorių
       close_meeting_reminder_mailer:
@@ -361,11 +423,10 @@ lt:
       content_blocks:
         upcoming_meetings:
           name: Artėjantys susirinkimai
-          upcoming_meetings: Artėjantys susirinkimai
-          view_all_meetings: Peržiūrėti visus
       directory:
         meetings:
           index:
+            go_to_list: Žiūrėti susirinkimų sąrašą
             meetings: Susirinkimai
             space_type: Dalyvaujamoji erdvė
       iframe_access_level:
@@ -392,6 +453,8 @@ lt:
         registration_mailer:
           confirmation:
             subject: Jūsų registracija į susirinkimą buvo patvirtinta
+      meeting:
+        not_allowed: Jūs negalite peržiūrėti šio susirinkimo.
       meeting_closes:
         edit:
           back: Atgal
@@ -401,7 +464,6 @@ lt:
         calendar_modal:
           add_to_calendar: Pridėti į kalendorių
           apple: Įtraukti į Apple kalendorių
-          close_window: Uždaryti langą
           full_details_html: Pilnas aprašymas - %{link}
           google: Įtraukti į „Google“ kalendorių
           outlook: Įtraukti į „Outlook“ kalendorių
@@ -433,8 +495,7 @@ lt:
             all: Visi
             official: Oficialus
             participants: Dalyviai
-            user_groups: Grupės
-          scope: Apimtis
+            user_group: Grupės
           search: Ieškoti
           type: Tipas
           type_values:
@@ -442,15 +503,11 @@ lt:
             hybrid: Hibridiniai
             in_person: Fiziniai
             online: Virtualūs
-        filters_small_view:
-          close_modal: Uždaryti modalinį langą
-          filter: Filtras
-          filter_by: Filtruoti pagal
-          unfold: Išskleisti
         form:
           address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
           available_slots_help: Jei nėra ribojimų įrašykite 0
           create_as: Sukurti posėdį kaip
+          disclaimer: 'Perspėjimas: Naudodami išorinę registracijos sistemą jūs suprantate, kad %{organization} organizatoriai nėra atsakingi už naudotojų išorinei paslaugai pateiktus duomenis.'
           location_help: 'Vieta: naudotojams skirtas pranešimas, kuriame nurodoma susitikimo vieta'
           location_hints_help: 'Vietos užuominos: papildoma informacija. Pavyzdžiui: pastato aukštas, jei tai yra susitikimas gyvai, arba susitikimo slaptažodis, jei tai virtualus susitikimas su ribota prieiga.'
           online_meeting_url_help: 'Nuoroda: leiskite dalyviams tiesiai prisijungti prie susitikimo'
@@ -466,9 +523,13 @@ lt:
           see_all: Žiūrėti visus susitikimus
           see_all_withdrawn: Žiūrėti visus atšauktus susitikimus
           text_banner: Jūs žiūrite susitikimų, kuriuos atšaukė jų autoriai, sąrašą. %{go_back_link}.
-        meeting_minutes:
-          related_information: Susijusi informacija
+        meeting:
+          close_meeting: Uždaryti susitikimą
+          edit_close_meeting: Redaguoti susitikimo ataskaitą
+          edit_meeting: Redaguoti susitikimą
+          join_meeting: Prisijunkite prie susitikimo
         meetings:
+          no_meetings_warning: Jūsų paieškos kriterijus atitinkančių susirinkimų nerasta arba neplanuojama.
           upcoming_meetings_warning: Šiuo metu suplanuotų susitikimų nėra, tačiau čia galite rasti visus buvusius susitikimus.
         new:
           back: Atgal
@@ -479,13 +540,8 @@ lt:
           confirm: Patvirtinti
         show:
           attendees: Dalyvių skaičius
-          back: Grįžti į sąrašą
-          close_meeting: Uždaryti susitikimą
           contributions: Nuomonių skaičius
           date: Data
-          edit_close_meeting: Redaguoti susitikimo ataskaitą
-          edit_meeting: Redaguoti susitikimą
-          going: Jūs užsiregistravote šiame susitikime
           join: Prisijunkite prie susitikimo
           leave: Atšaukti registraciją
           leave_confirmation: Ar tikrai norite atšaukti savo registraciją į šį susirinkimą?
@@ -513,8 +569,6 @@ lt:
         update:
           invalid: Atnaujinant susirinkimą iškilo problema.
           success: Sėkmingai atnaujinote susirinkimą.
-      meetings_map:
-        view_meeting: Peržiūrėti susirinkimą
       models:
         invite:
           fields:
@@ -556,6 +610,7 @@ lt:
             question_replied: Klausimas atsakytas
             reply_question: Atsakyti į klausimą
       public_participants_list:
+        attending_organizations: Organizacijos
         attending_participants: Dalyviai
         hidden_participants_count:
           one: ir dar %{count} žmogus
@@ -575,6 +630,7 @@ lt:
       registrations:
         create:
           invalid: Jungiantis prie šio susirinkimo iškilo problema.
+          success: Jūs prisijungėte prie susirinkimo. Kadangi užsiregistravote šiame posėdyje, jums bus pranešta, jeigu jo informacija bus atnaujinta.
         decline_invitation:
           invalid: Atmetant kvietimą iškilo problema.
           success: Jūs atmetėte kvietimą.
@@ -589,8 +645,9 @@ lt:
         private_meeting: Uždaras posėdis
         transparent: Skaidrus
         withdraw: Atsiimta
-      versions:
-        back_to_resource: Grįžti į susirinkimą
+      withdraw:
+        error: Išimant susirinkimą įvyko klaida.
+        success: Susirinkimas sėkmingai išimtas.
     metrics:
       meetings:
         description: Sukurtų susirinkimų skaičius
@@ -601,8 +658,6 @@ lt:
         past_meetings: Įvykę susirinkimai
         see_all: Žiūrėti visus susirinkimus (%{count})
         upcoming_meetings: Artėjantys susirinkimai
-      upcoming_meeting_for_card:
-        upcoming_meeting: Būsimas susirinkimas
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Susiję rezultatai:'

@@ -5,31 +5,13 @@
   </h2>
 </div>
 
-<div class="item__edit">
-  <div class="item__edit-menu">
-    <div class="item__edit-menu-sticky">
-      <p class="item__edit-menu-title">
-        <%= t("sections", scope: "decidim.assemblies.admin.assemblies.form") %>
-      </p>
-      <%= link_to t("initiatives_types.form.title", scope: "decidim.initiatives.admin"), edit_initiatives_type_path(anchor: "title"), class: "item__edit-menu-anchor" %>
-      <%= link_to t("initiatives_types.form.options", scope: "decidim.initiatives.admin"), edit_initiatives_type_path(anchor: "options"), class: "item__edit-menu-anchor" %>
-      <%= link_to t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin"), edit_initiatives_type_path(anchor: "authorizations"), class: "item__edit-menu-anchor" %>
-      <%= link_to t("initiatives_types.initiative_type_scopes.title", scope: "decidim.initiatives.admin"), edit_initiatives_type_path(anchor: "initiative_type_scopes"), class: "item__edit-menu-anchor" %>
-    </div>
-  </div>
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, html: { class: "form-defaults form edit_initiative_type" }) do |f| %>
       <%= render partial: "form", object: f %>
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
           <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
-
-          <% if allowed_to? :destroy, :initiative_type, initiative_type: current_initiative_type %>
-            <%= link_to t(".destroy"), current_initiative_type,
-                        method: :delete,
-                        class: "button button__sm button__secondary",
-                        data: { confirm: t(".confirm_destroy") } %>
-          <% end %>
         </div>
       </div>
       <%= render partial: "initiative_type_scopes", locals: { initiative_type: current_initiative_type } %>

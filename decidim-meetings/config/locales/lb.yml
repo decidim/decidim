@@ -80,7 +80,6 @@ lb:
           success: Dupliziertes Meeting erfolgreich
         new:
           copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
           title: Doppelte Besprechung
     components:
       meetings:
@@ -179,7 +178,6 @@ lb:
               all: Alle
               rejected: Abgelehnt
               sent: Geschickt
-            filter_by: Filtern nach
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             search: Suche
@@ -218,9 +216,6 @@ lb:
           services:
             add_service: Service dobäisetzen
             services: Dienstleistungen
-        models:
-          meeting:
-            name: Versammlung
         registrations:
           edit:
             save: Späicheren
@@ -256,12 +251,8 @@ lb:
           update: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} aktualisiert"
       calendar_modal:
         calendar_url: Kalender-URL
-        close_window: Fenster schließen
         export_calendar: Kalender exportieren
       conference_venues: Tagungsstätten
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: Alle ansehen
       directory:
         meetings:
           index:
@@ -290,8 +281,6 @@ lb:
           select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
         index:
           new_meeting: Nei Versammlung
-        meeting_minutes:
-          related_information: Zugehörige Informationen
         meetings:
           upcoming_meetings_warning: Momentan gibt es keine geplanten Besprechungen, aber hier finden Sie alle aufgelisteten Besprechungen.
         new:
@@ -303,12 +292,8 @@ lb:
           confirm: Bestätegen
         show:
           attendees: Teilnehmer zählen
-          back: Zurück zur Liste
-          close_meeting: Meeting beenden
           contributions: Beiträge zählen
           date: Datum
-          edit_meeting: Versammlung bearbeiten
-          going: Sie haben sich für diese Sitzung angemeldet
           join: Tritt dem Treffen bei
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
@@ -323,8 +308,6 @@ lb:
         update:
           invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
           success: Sie haben die Sitzung erfolgreich aktualisiert.
-      meetings_map:
-        view_meeting: Besprechung anzeigen
       models:
         invite:
           fields:

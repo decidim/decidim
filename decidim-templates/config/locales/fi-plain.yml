@@ -9,6 +9,7 @@ fi-pl:
   decidim:
     admin:
       menu:
+        manage: Hallinnoi
         templates: Mallipohjat
       templates:
         apply:
@@ -42,12 +43,15 @@ fi-pl:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Muokkaa käyttäjän poistoviestin mallipohjaa
           form:
             save: Tallenna
-            template_title: Mallipohjan tiedot
           index:
             confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
             title: Käyttäjien eston viestit
+          new:
+            title: Uusi käyttäjän poistoviestin mallipohja
           template_chooser:
             select_template: Valitse mallivastaus
         questionnaire_templates:
@@ -61,13 +65,14 @@ fi-pl:
             edit: Muokkaa
             empty: Kysymyksiä ei ole vielä.
             questionnaire: Kysely
+            title: Muokkaa kyselylomakkeen mallipohjaa
           form:
-            save: Tallenna
-            template_title: Mallipohjan tiedot
             title: Kyselylomakemalli %{questionnaire_for}
           index:
             confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
             title: Kyselymallit
+          new:
+            title: Uusi kyselylomakkeen mallipohja
           preview:
             current_step: Vaihe %{step}
             of_total_steps: / %{total_steps}

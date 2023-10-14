@@ -37,7 +37,6 @@ zh-TW:
         actions:
           destroy: 取消選民隨機抽籤
           edit: 編輯
-          new: 新的抽籤
           show: 抽籤詳細資料
         models:
           sortition:
@@ -51,8 +50,6 @@ zh-TW:
               seed: 種子碼
               target_items: 選擇項目
               title: 標題
-            name:
-              other: 抽籤
         sortitions:
           confirm_destroy:
             confirm_destroy: 您確定要取消此選項嗎？
@@ -70,7 +67,6 @@ zh-TW:
           form:
             all_categories: 所有類別
             select_proposal_component: 選擇提案集
-            title: 提案新抽籤
           index:
             title: 抽籤
           new:
@@ -96,14 +92,7 @@ zh-TW:
           all: 全部
           cancelled: 已取消
           category: 類別
-          category_prompt: 選擇一個類別
-          search: 搜尋
           state: 狀態
-        filters_small_view:
-          close_modal: 關閉視窗
-          filter: 篩選
-          filter_by: 篩選條件
-          unfold: 展開
         linked_sortitions:
           selected_proposals: 選擇的提案
         orders:
@@ -116,23 +105,21 @@ zh-TW:
         show:
           algorithm: 抽籤排序算法
           any_category: 從所有類別中
-          back: 返回列表
           cancelled: 取消的抽籤
           candidate_proposal_ids: 隨機抽籤提案的順序和 ID
           candidate_proposals_info: '該抽籤是在以下提案中進行的 (%{category_label})，以下是這些提案的 ID (選中的提案以粗體標出)  '
           category: 來自 %{category} 類別
-          dice_result: "(1) 骰子結果"
+          dice_result: (1) 骰子結果
           introduction: '本頁面包含了抽籤 %{reference} 的結果。透過這個抽籤，從下面顯示的提案集合中隨機且以等機率隨機選出了 %{target_items} 個結果。除了顯示的結果外，此頁面的資訊提供了最大化保證並重現結果所需的所有資訊。此抽籤質量的關鍵在於雙重隨機性，一方面是由證人驗證的擲骰子結果，另一方面是精確的抽籤時間提供的算法輸入以產生隨機選擇。抽籤的時間種子如此精確(秒級)，以至於人類無法控制，從而提供雙重「不可控制」輸入，以保證公平結果。  '
           mathematical_result: 結果 (1) x (2)
           proposals_selected_by_sortition: 通過抽籤選中的提案
           sortition_reproducibility_details: 抽籤可重複性詳情
-          time_seed: "(2) 時間種子"
+          time_seed: (2) 時間種子
           witnesses: 見證人
         sortition:
           random_seed: 隨機種子
           selected_proposals:
             other: 選中的提案
-          view: 檢視
         sortition_author:
           deleted: 已刪除的參與者
         sortition_cancel_author:

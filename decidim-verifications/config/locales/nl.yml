@@ -46,7 +46,7 @@ nl:
             - Gebruikers vullen hun identiteitsinformatie in en uploaden een kopie van hun document.
             - U vult de informatie in die in de geüploade afbeelding aanwezig is.
             - De informatie moet overeenkomen met wat de gebruiker heeft ingevuld.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
             - Deelnemers vragen een verificatiecode op te sturen naar hun adres.

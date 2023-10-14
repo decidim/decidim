@@ -6,18 +6,8 @@
     <%= t("info", scope: "decidim.admin.menu.initiatives_submenu") %>
   </h2>
 </div>
-<div class="item__edit">
-  <div class="item__edit-menu">
-    <div class="item__edit-menu-sticky">
-      <p class="item__edit-menu-title">
-        <%= t("sections", scope: "decidim.assemblies.admin.assemblies.form") %>
-      </p>
-      <%= link_to t("title", scope: "decidim.initiatives.admin.initiatives.form"), decidim_admin_initiatives.edit_initiative_path(current_participatory_space, anchor: "title"), class: "item__edit-menu-anchor" %>
-      <%= link_to t("settings", scope: "decidim.initiatives.admin.initiatives.form"), decidim_admin_initiatives.edit_initiative_path(current_participatory_space, anchor: "settings"), class: "item__edit-menu-anchor" %>
-      <%= link_to t("attachments", scope: "decidim.initiatives.admin.initiatives.form"), decidim_admin_initiatives.edit_initiative_path(current_participatory_space, anchor: "attachments"), class: "item__edit-menu-anchor" %>
-    </div>
-  </div>
 
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for @form, html: { class: "form-defaults form edit_initiative" } do |f| %>
       <%= render partial: "form", object: f %>

@@ -5,19 +5,7 @@
   </h2>
 </div>
 
-<div class="item__edit">
-  <div class="item__edit-menu">
-    <div class="item__edit-menu-sticky">
-      <p class="item__edit-menu-title">
-        <p class="item__edit-menu-title">
-          <%= t("sections", scope: "decidim.assemblies.admin.assemblies.form") %>
-        </p>
-        <%= link_to t("initiatives_types.form.title", scope: "decidim.initiatives.admin"), new_initiatives_type_path(anchor: "title"), class: "item__edit-menu-anchor" %>
-        <%= link_to t("initiatives_types.form.options", scope: "decidim.initiatives.admin"), new_initiatives_type_path(anchor: "options"), class: "item__edit-menu-anchor" %>
-        <%= link_to t("initiatives_types.form.authorizations", scope: "decidim.initiatives.admin"), new_initiatives_type_path(anchor: "authorizations"), class: "item__edit-menu-anchor" %>
-      </p>
-    </div>
-  </div>
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
   <%= decidim_form_for(@form, html: { class: "form form-defaults new_initiatives_types" }) do |f| %>
     <%= render partial: "form", object: f %>

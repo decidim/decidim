@@ -28,20 +28,15 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento del commento.
       comments_count: Conteggio dei Commenti
-      last_activity:
-        new_comment_at_html: "<span>Nuovo commento al %{link}</span>"
-      view: Visualizza
       votes:
         create:
           error: Ci sono stati errori durante la votazione del commento.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Connessione con il tuo account</a> o <a href="%{sign_up_url}">Sign up</a> per aggiungere il tuo commento.
         form:
           body:
             label: Commenta
             placeholder: Cosa ne pensi?
-          submit: Invia
           user_group_id:
             label: Commenta come
         opinion:
@@ -85,8 +80,6 @@ it:
           older: Più vecchi
           recent: Più recenti
         title: 'Ordina per:'
-      comment_thread:
-        title: Conversazioni con %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Devi essere verificato prima di poter commentare, ma puoi leggere i commenti precedenti.
         blocked_comments_for_user_warning: Non sei in grado di commentare in questo momento, ma puoi leggere quelli precedenti.

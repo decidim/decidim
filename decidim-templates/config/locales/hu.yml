@@ -33,6 +33,9 @@ hu:
         name: Sablon
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Mentés
         questionnaire_templates:
           choose:
             create_from_template: Létrehozás sablonból
@@ -44,8 +47,6 @@ hu:
             edit: Szerkesztés
             questionnaire: Kérdőív
           form:
-            save: Mentés
-            template_title: Sablon információi
             title: Kérdőív sablon %{questionnaire_for}
           index:
             confirm_delete: Biztos törölni szeretné a sablont?

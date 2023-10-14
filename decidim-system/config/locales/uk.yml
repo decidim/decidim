@@ -5,7 +5,6 @@ uk:
         confirm_destroy: Ви впевнені, що хочете видалити це?
         destroy: Видалити
         edit: Редагувати
-        new: Додати
         save: Зберегти
         title: Дії
       admins:
@@ -34,7 +33,6 @@ uk:
           fields:
             created_at: 'Додано:'
             email: Адреса електронної пошти
-          name: Адміністратор
           validations:
             email_uniqueness: вже є інший адміністратор з такою ж адресою електронної пошти
         organization:
@@ -43,7 +41,6 @@ uk:
           fields:
             created_at: 'Додано:'
             name: Ім'я
-          name: Організація
       organizations:
         create:
           error: При спробі додати нову організацію сталася помилка.

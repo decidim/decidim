@@ -33,8 +33,7 @@ de:
       comments_count: Kommentaranzahl
       comments_title: Kommentar
       last_activity:
-        new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
-      view: Ansicht
+        new_comment: 'Neuer Kommentar:'
       votes:
         create:
           error: Beim Abstimmen des Kommentars sind Fehler aufgetreten.
@@ -46,7 +45,8 @@ de:
             label: Kommentar
             placeholder: Was denken Sie darüber?
           form_error: Der Text ist erforderlich und darf nicht länger als %{length} Zeichen sein.
-          submit: Senden
+          submit_reply: Antwort veröffentlichen
+          submit_root_comment: Kommentar veröffentlichen
           user_group_id:
             label: Kommentieren als
         opinion:
@@ -64,6 +64,7 @@ de:
         alignment:
           against: Gegen
           in_favor: Zugunsten
+        cancel_reply: Antwort abbrechen
         confirm_destroy: Bist du sicher, dass du diesen Kommentar löschen willst?
         delete: Löschen
         deleted_at: Kommentar gelöscht am %{date}
@@ -95,8 +96,6 @@ de:
           older: Chronologisch
           recent: Kürzlich hinzugefügt
         title: 'Sortieren nach:'
-      comment_thread:
-        title: Konversation mit %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Sie müssen aktuell verifiziert sein um zu kommentieren, aber Sie können die bisherigen Kommentare lesen.
         blocked_comments_for_user_warning: Sie können momentan nichts kommentieren, aber Sie können die vorherigen lesen.

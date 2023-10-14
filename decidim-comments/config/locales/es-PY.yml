@@ -33,20 +33,20 @@ es-PY:
       comments_count: Número de comentarios
       comments_title: Comentario
       last_activity:
-        new_comment_at_html: "<span>Nuevo comentario en %{link}</span>"
-      view: Ver
+        new_comment: 'Nuevo comentario:'
       votes:
         create:
           error: Ha habido errores al votar el comentario.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_url}">regístrate</a> para añadir tu comentario.
+        account_message: Para añadir un comentario, <a href="%{sign_in_url}">inicia tu sesión </a> o <a href="%{sign_up_url}">regístrate</a>.
         form:
           body:
             label: Comentario
             placeholder: '¿Qué piensas sobre esto?'
           form_error: El texto es necesario y no puede ser más largo de %{length}.
-          submit: Enviar
+          submit_reply: Publicar respuesta
+          submit_root_comment: Publicar comentario
           user_group_id:
             label: Comentar como
         opinion:
@@ -64,6 +64,7 @@ es-PY:
         alignment:
           against: En contra
           in_favor: A favor
+        cancel_reply: Cancelar respuesta
         confirm_destroy: '¿Seguro que quieres eliminar este comentario?'
         delete: Eliminar
         deleted_at: Comentario eliminado el %{date}
@@ -95,8 +96,6 @@ es-PY:
           older: Más antiguo
           recent: Reciente
         title: 'Ordenar por:'
-      comment_thread:
-        title: Conversación con %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Necesitas estar verificada para comentar en este momento, pero puedes leer los comentarios anteriores.
         blocked_comments_for_user_warning: No puede hacer comentarios en este momento, pero puede leer los anteriores.

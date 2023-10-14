@@ -95,9 +95,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         expect(page).to have_content(template.templatable.title["en"])
       end
 
-      within ".create-from-template" do
-        find("*[type=submit]").click
-      end
+      click_button "Create from template"
     end
 
     it "copies the template data to the questionnaire on submit" do

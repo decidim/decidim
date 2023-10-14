@@ -1,10 +1,11 @@
 <div id="js-bulk-actions-wrapper">
   <button
     id="js-bulk-actions-button"
-    class="button button__sm button__transparent button__transparent-secondary dropdown"
+    class="button button__sm button__secondary"
     type="button"
     data-toggle="js-bulk-actions-dropdown">
     <%= t("decidim.proposals.admin.proposals.index.actions") %>
+    <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
   </button>
 
   <div
@@ -15,7 +16,7 @@
     data-dropdown="dropdown"
     data-auto-focus="false"
     data-events="resize">
-    <ul class="list-reset">
+    <ul>
       <li>
         <button type="button" data-action="recategorize-proposals">
           <%= t("decidim.proposals.admin.proposals.index.change_category") %>

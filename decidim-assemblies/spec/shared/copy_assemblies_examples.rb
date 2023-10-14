@@ -34,7 +34,7 @@ shared_examples "copy assemblies" do
 
       expect(page).to have_content("successfully")
       expect(page).to have_content("Copy assembly")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
     end
   end
 
@@ -118,7 +118,7 @@ shared_examples "copy assemblies" do
 
       expect(page).to have_content("successfully")
       expect(page).to have_content("Copy assembly")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
     end
   end
 end

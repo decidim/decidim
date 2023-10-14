@@ -32,8 +32,3 @@ ar:
           update:
             invalid: حدثت مشكلة أثناء حفظ الصفحة.
             success: تم حفظ الصفحة بنجاح.
-      home:
-        hero:
-          participate_title: المشاركة في مسارات المنصة
-        sub_hero:
-          register_title: قم بالتسجيل لإنشاء حساب

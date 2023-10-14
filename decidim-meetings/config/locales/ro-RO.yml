@@ -117,7 +117,6 @@ ro:
           success: Întâlnire duplicată cu succes.
         new:
           copy: Copiază
-          select: Selectați datele pe care le dorești duplicate
           title: Duplicarea reuniunii
     components:
       meetings:
@@ -215,7 +214,6 @@ ro:
             few: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propuneri asociate:'
             other: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propuneri asociate acestuia:'
         manage_poll: Gestionare sondaj
-        new: Noua întâlnire
         preview: Previzualizare
         registrations: Înregistrări
         title: Acțiuni
@@ -271,7 +269,6 @@ ro:
               all: Toate
               rejected: Respins
               sent: Trimis
-            filter_by: Filtrare după
             invite_attendee: Invită participantul
             invites: Invitații
             search: Caută
@@ -320,9 +317,6 @@ ro:
         meetings_poll:
           form:
             title: Editează chestionarul sondajului pentru %{questionnaire_for}
-        models:
-          meeting:
-            name: Întâlnire
         registrations:
           edit:
             save: Salvează
@@ -365,11 +359,8 @@ ro:
           all: Toate
         filter_meeting_space_values:
           all: Toate
-        filter_scope_values:
-          all: Toate
       calendar_modal:
         calendar_url: URL Calendar
-        close_window: Închide fereastra
         copy_calendar_url: Copiază
         copy_calendar_url_clarification: Copiază URL-ul calendarului în clipboard
         copy_calendar_url_copied: Copiat!
@@ -383,8 +374,6 @@ ro:
       content_blocks:
         upcoming_meetings:
           name: Şedinţe viitoare
-          upcoming_meetings: Şedinţe viitoare
-          view_all_meetings: Vezi toate
       directory:
         meetings:
           index:
@@ -422,7 +411,6 @@ ro:
         calendar_modal:
           add_to_calendar: Adauga la calendar
           apple: Adaugă la Calendarul Apple
-          close_window: Închideţi fereastra
           full_details_html: Pentru detalii complete, accesează %{link}
           google: Adaugă la Google Calendar
           outlook: Adaugă la Calendarul Outlook
@@ -453,8 +441,6 @@ ro:
             all: Toate
             official: Oficial
             participants: Participanți
-            user_groups: Grupuri
-          scope: Domeniu de interes
           search: Caută
           type: Tip
           type_values:
@@ -462,11 +448,6 @@ ro:
             hybrid: Hibrid
             in_person: În persoană
             online: Online
-        filters_small_view:
-          close_modal: Închide fereastra
-          filter: Filtrare
-          filter_by: Filtrare după
-          unfold: Desfășurat
         form:
           address_help: 'Adresă: utilizată de Geocoder pentru a găsi locaţia'
           available_slots_help: Lasă această opțiune la 0 dacă ai sloturi disponibile nelimitate
@@ -484,8 +465,6 @@ ro:
           see_all: Vezi toate întâlnirile
           see_all_withdrawn: Afișează toate întâlnirile anulate
           text_banner: Vizualizezi lista de întâlniri anulate de autorii lor. %{go_back_link}.
-        meeting_minutes:
-          related_information: Informații asociate
         meetings:
           upcoming_meetings_warning: În prezent, nu există întâlniri programate, dar aici se află pe listă toate întâlnirile anterioare.
         new:
@@ -497,13 +476,8 @@ ro:
           confirm: Confirmare
         show:
           attendees: Numărul participanților
-          back: Înapoi la listă
-          close_meeting: Închide ședința
           contributions: Număr de contribuții
           date: Data
-          edit_close_meeting: Editează raportul întâlnirii
-          edit_meeting: Editează întâlnirea
-          going: Te-ai înregistrat pentru această întâlnire
           join: Participă la întâlnire
           leave: Anulează înregistrarea
           leave_confirmation: Sigur dorești să anulezi înregistrarea la această întâlnire?
@@ -530,8 +504,6 @@ ro:
         update:
           invalid: A apărut o eroare la actualizarea ședinței.
           success: Ai actualizat întâlnirea cu succes.
-      meetings_map:
-        view_meeting: Vizualizează întâlnirea
       models:
         invite:
           fields:
@@ -604,8 +576,6 @@ ro:
         private_meeting: Întâlnire privată
         transparent: Transparent
         withdraw: Retrasă
-      versions:
-        back_to_resource: Intră din nou în întâlnire
     metrics:
       meetings:
         description: Numărul de întâlniri create
@@ -616,8 +586,6 @@ ro:
         past_meetings: Întâlniri anterioare
         see_all: Afișează toate întâlnirile (%{count})
         upcoming_meetings: Întâlniri viitoare
-      upcoming_meeting_for_card:
-        upcoming_meeting: Întâlnire viitoare
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Rezultate asociate:'

@@ -36,7 +36,6 @@ bg:
         destroy: Изтрий
         edit: Редактирай
         import_csv: Импорт CVS
-        new: Ново %{name}
         preview: Преглед
         timeline_entries: Развитие на проекта
         title: Действия
@@ -52,8 +51,6 @@ bg:
             name: Резултат
           status:
             name: Статус
-          timeline_entry:
-            name: Запис във времевата линия
         results:
           edit:
             title: Редактирай резултат

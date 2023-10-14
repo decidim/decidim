@@ -56,10 +56,7 @@ shared_examples "comments" do
       expect(page).to have_selector("#comment_#{deleted_comment.id}")
 
       expect(page).not_to have_content(deleted_comment.author.name)
-      expect(page).not_to have_content(deleted_comment.body.values.first)
-      # REDESIGN PENDING:
-      # When redesign is enabled in tests, the following line can be uncommented. The deleted text is not shown in the redesign.
-      # expect(page).to have_no_content(comment_body)
+      expect(page).not_to have_content(translated(deleted_comment.body))
       within "#comment_#{deleted_comment.id}" do
         expect(page).to have_content("Comment deleted on")
         expect(page).not_to have_selector("comment__footer")
@@ -452,7 +449,6 @@ shared_examples "comments" do
         end
       end
 
-      # REDESIGN PENDING: the new JS of external links is not working in tests until the redesign is enabled
       it "adds external link css" do
         expect(page).to have_css("a", text: "http://www.debian.org")
         within("a", text: "http://www.debian.org") do
@@ -460,7 +456,6 @@ shared_examples "comments" do
         end
       end
 
-      # REDESIGN PENDING: the new JS of external links is not working in tests until the redesign is enabled
       it "changes link to point to /link" do
         expect(page).to have_link("http://www.debian.org", href: "/link?external_url=http%3A%2F%2Fwww.debian.org%2F")
       end

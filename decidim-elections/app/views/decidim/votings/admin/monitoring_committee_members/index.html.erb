@@ -2,7 +2,7 @@
   <div class="item_show__header">
     <h2 class="item_show__header-title">
       <%= t(".title") %>
-      <%= link_to t("actions.new", scope: "decidim.votings.monitoring_committee_members", name: t("models.monitoring_committee_member.name", scope: "decidim.votings.admin")), new_voting_monitoring_committee_member_path(current_voting), class: "button button__sm button__secondary" if allowed_to? :create, :monitoring_committee_member, voting: current_voting %>
+      <%= link_to t("actions.new", scope: "decidim.votings.monitoring_committee_members"), new_voting_monitoring_committee_member_path(current_voting), class: "button button__sm button__secondary" if allowed_to? :create, :monitoring_committee_member, voting: current_voting %>
     </h2>
   </div>
   <div class="table-scroll">

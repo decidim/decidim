@@ -1,6 +1,3 @@
-<%# = render partial: "decidim/shared/filter_form_help", locals: { skip_to_id: "meetings" } %>
-
-<%# REDESING_PENDING: processes/assemblees use this same layout for filters in a core's shared view. try to join %>
 <% filter_sections = [].tap do |f|
     f.append(method: :with_any_date, collection: filter_date_values, label_scope: "decidim.meetings.meetings.filters", id: "date", type: :radio_buttons) if filter_options[:date]
     f.append(method: :with_any_type, collection: filter_type_values, label_scope: "decidim.meetings.meetings.filters", id: "type") if filter_options[:type]

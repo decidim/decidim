@@ -84,6 +84,7 @@ es-MX:
   date:
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
@@ -103,6 +104,23 @@ es-MX:
       less_than_x_seconds:
         one: hace menos de un segundo
         other: hace menos de %{count} segundos
+      short:
+        about_x_days: "%{count} día/s"
+        about_x_hours: "%{count} hora/s"
+        about_x_minutes: "%{count} minuto/s"
+        about_x_months: "%{count} mes/es"
+        about_x_years: "%{count} año/s"
+        almost_x_years: "%{count} año/s"
+        half_a_minute: 1 minuto
+        less_than_x_minutes: "%{count} minutos/s"
+        less_than_x_seconds: "%{count} segundo/s"
+        over_x_years: "%{count} año/s"
+        x_days: "%{count} día/s"
+        x_hours: "%{count} hora/s"
+        x_minutes: "%{count} minutos/s"
+        x_months: "%{count} mes/es"
+        x_seconds: "%{count} segundo/s"
+        x_years: "%{count} año/s"
       x_days:
         one: 1 día
         other: "%{count} días"
@@ -265,7 +283,6 @@ es-MX:
         error: Ocurrió un error al aceptar la enmienda.
         success: La enmienda ha sido aceptada correctamente.
       amendable:
-        amended_by: Enmendado por
         button: Enmendar %{model_name}
         error: Se ha producido un error al modificar este recurso.
         help_text: Mejora este %{model_name} modificando su %{amendable_fields}.
@@ -273,6 +290,10 @@ es-MX:
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
         promote_help_text: Puedes promocionar esta enmienda y publicarla como una %{model_name} independiente.
         section_heading: Enmiendas (%{count})
+      amendments:
+        title:
+          one: "%{count} enmienda"
+          other: "%{count} enmiendas"
       compare_draft:
         continue: Continuar
         no_similars_found: No se encontraron enmiendas similares.
@@ -285,7 +306,6 @@ es-MX:
         success: El borrador de la propuesta fue eliminado correctamente.
       edit_draft:
         discard: Descartar este borrador
-        discard_confirmation: '¿Está seguro de que desea descartar este borrador de enmienda?'
         send: Vista previa
         title: Editar borrador de enmienda
       emendation:
@@ -305,6 +325,7 @@ es-MX:
           withdrawn: |-
             Esta enmienda para el %{amendable_type} %{amendable_link}
             ha sido retirada por el autor.
+      name: Enmienda
       new:
         amendment_author: Autor de la enmienda
         send: Crear
@@ -325,7 +346,6 @@ es-MX:
       review:
         back: Volver
         heading: Revisar la enmienda
-        help_text: Estás revisando una enmienda al %{model_name}.
         send: Aceptar enmienda
       update_draft:
         error: Se ha producido un error al actualizar el borrador de enmienda.
@@ -344,17 +364,16 @@ es-MX:
       document:
         download: Descargar archivo
       documents:
+        documents: Documentos
         related_documents: Documentos relacionados
-      geocoding:
-        geocoded_address: Dirección
       photo:
         alt: Imagen para los medios
         title: Imagen
       photos:
+        photos: Imágenes
         related_photos: Fotos relacionadas
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar para varias usuarias
       comments:
         one: comentario
         other: comentarios
@@ -396,7 +415,6 @@ es-MX:
       started_at: Comenzó el %{timestamp}
     authorization_modals:
       content:
-        close_modal: Cerrar la ventana
         expired:
           authorize: Volver a autorizar con "%{authorization}"
           explanation: Tu autorización ha expirado. Para realizar esta acción, tienes que volver a obtener la autorización con "%{authorization}".
@@ -483,6 +501,8 @@ es-MX:
             dummy_step_translatable_text: Fase de ejemplo traducible
     contact: Contacto
     content_blocks:
+      announcement:
+        name: Aviso
       cta:
         name: Imagen, texto y botón de acción
       cta_settings_form:
@@ -492,6 +512,8 @@ es-MX:
         description: Descripción
       footer_sub_hero:
         name: Banner de sub-hero de pie de página
+      global_menu:
+        name: Menú global
       hero:
         name: Imagen de hero
       hero_settings_form:
@@ -500,6 +522,9 @@ es-MX:
       highlighted_content_banner:
         name: Banner de contenido resaltado
       highlighted_elements_settings_form:
+        components:
+          all: Todos
+          label: 'Seleccionar componente:'
         orders:
           label: 'Ordenar elementos por:'
           random: Aleatorio
@@ -513,8 +538,20 @@ es-MX:
         name: Última actividad
         title: Última actividad
         view_all: Ver todo
+      last_activity_settings_form:
+        max_last_activity_users: Número máximo de avatares de participantes con actividad reciente a mostrar
+      main_data:
+        name: Datos principales
+      metadata:
+        name: Metadatos
       metrics:
         name: Métricas de la organización
+      participatory_space_metrics:
+        name: Métricas
+      participatory_space_stats:
+        name: Estadísticas
+      social_networks_metadata:
+        name: Redes sociales
       static_page:
         section:
           name: Sección
@@ -534,8 +571,13 @@ es-MX:
       actions:
         login_before_access: Por favor, inicia sesión con tu cuenta antes de acceder.
         unauthorized: No tienes autorización para realizar esta acción.
-    datepicker:
-      help_text: 'Formato esperado: %{datepicker_format}'
+      application_helper:
+        filter_area_values:
+          all: Todas
+        filter_category_values:
+          all: Todas
+        filter_scope_values:
+          all: Todos
     devise:
       omniauth_registrations:
         create:
@@ -549,13 +591,10 @@ es-MX:
       registrations:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
+          log_in: Entra
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
-          sign_in: Entra
           sign_up: Regístrate
-          sign_up_as:
-            legend: Inscribirse como
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
           terms: los términos y condiciones de uso
           tos_agreement: Al registrarte aceptas %{link}.
@@ -568,12 +607,11 @@ es-MX:
           sign_in_disabled: Puedes acceder con una cuenta externa.
           sign_up_disabled: El registro está deshabilitado, puedes usar una cuenta existente para acceder.
         user:
-          timed_out: Has estado sin actividad durante demasiado tiempo y se te ha cerrado automáticamente la sesión del servicio. Si quieres seguir utilizando el servicio, vuelve a iniciar sesión.
+          timed_out: Has estado sin actividad durante demasiado tiempo y tu sesión se ha cerrado automáticamente. Si quieres seguir participando, inicia sesión de nuevo.
       shared:
         newsletter_modal:
           buttons:
             check: Verificar y continuar
-            close_modal: Cerrar modal
             uncheck: Mantener desmarcado
           notice: |-
             <p>Hola, ¿seguro que no quieres recibir un boletín informativo?<br>
@@ -585,13 +623,19 @@ es-MX:
           title: Notificaciones de boletines
         omniauth_buttons:
           or: O
+        password_fields:
+          hidden_password: Tu contraseña está oculta
+          hide_password: Ocultar contraseña
+          show_password: Mostrar contraseña
+          shown_password: La contraseña es visible
+        placeholder_email: hi@example.org
     doorkeeper:
       authorizations:
         new:
           authorize: Autorice la aplicación
           by_organization_link_html: <small class="heading-small">por %{link}</small>
           cancel: Cancelar
-          connect_your_account_html: Conecte tu cuenta iniciando sesión en <strong>%{organization}</strong>.
+          connect_your_account_html: Conecta tu cuenta iniciando sesión en %{organization}>.
           publish_content: Publique contenido para usted
           see_email: Ver tu correo electrónico
           see_name: Ver tu nombre
@@ -605,16 +649,16 @@ es-MX:
         ready: Listo
       show:
         download_data: Descargar los datos
-        download_data_description: Se enviará un archivo con toda la información asociada a tu cuenta a <strong>%{user_email}</strong>. Este correo electrónico contendrá un archivo .zip y una contraseña para abrirlo.<br/><br/>Para descomprimir el archivo, necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) o <a href="https://www.keka.io/">Keka</a> (para MacOS). Si usas Linux, la mayoría de las veces lo tendrás instalado por defecto. Si no, puedes utilizar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
+        download_data_description_html: |-
+          Se enviará un archivo con toda la información asociada a tu cuenta a <strong>%{user_email}</strong>.
+          Este correo electrónico contendrá un archivo .zip y una contraseña para abrirlo.<br/><br/>Para descomprimir el archivo, necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) o <a href="https://www.keka.io/">Keka</a> (para MacOS). Si usas Linux, la mayoría de las veces lo tendrás instalado por defecto. 
+          Si no, puedes utilizar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Solicitar datos
     editor_images:
       create:
         error: Error al cargar la imagen.
         success: Imagen cargada correctamente.
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
-    endorsable:
-      endorsements: Adhesiones
-      endorsements_count: Número de adhesiones
     endorsement_buttons_cell:
       already_endorsed: No me gusta
       endorse: Me gusta
@@ -799,6 +843,7 @@ es-MX:
     filters:
       linked_classes:
         all: Todas
+        answer: Respuesta
         collaborative_draft: Borrador colaborativo
         dummy_resource: Recursos ficticios
         meeting: Encuentros
@@ -923,6 +968,7 @@ es-MX:
       invite:
         error: Se ha producido un error al invitar a esta participante.
         success: Participante invitada correctamente.
+      pending_invitations: Solicitudes pendientes
       reject:
         error: Se ha producido un error al rechazar esta invitación.
         success: Invitación rechazada correctamente.
@@ -994,12 +1040,13 @@ es-MX:
         description: Lee más sobre %{organization}.
         title: Ayuda general
     last_activities:
-      activities:
-        no_activities_warning: Ninguna actividad
       all: Todos los tipos de actividad
       index:
         last_activity: Última actividad
-        resource_type: Tipo
+      name: Últimas actividades
+      no_activities_warning: No hay nada que mostrar para este tipo de actividad.
+    linked_resource_from:
+      included_in: Incluido en
     links:
       invalid_url: Dirección URL no válida
       warning:
@@ -1050,35 +1097,35 @@ es-MX:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
           intro: "%{manager} ha iniciado una nueva conversación en nombre de %{group}. Haz clic aquí para verla:"
-          outro: '¡Disfruta Decidim!'
+          outro: '¡Disfruta de la plataforma!'
           subject: "%{manager} ha iniciado una nueva conversación como %{group}"
         comanagers_new_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: Hola, %{recipient}!
           intro: "%{manager} ha publicado nuevos mensajes en una conversación en nombre de %{group}. Haz clic aquí para verla:"
-          outro: '¡Disfruta Decidim!'
+          outro: '¡Disfruta de la plataforma!'
           subject: "%{manager} ha enviado nuevos mensajes como %{group}"
         new_conversation:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación contigo. Haz click aquí para verla:"
-          outro: '¡Disfruta Decidim!'
+          outro: '¡Disfruta de la plataforma!'
           subject: "%{sender} ha iniciado una conversación contigo"
         new_group_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
           intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
-          outro: '¡Disfruta Decidim!'
+          outro: '¡Disfruta de la plataforma!'
           subject: "%{sender} ha iniciado una nueva conversación con %{group}"
         new_group_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
           intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
-          outro: '¡Disfruta Decidim!'
+          outro: '¡Disfruta de la plataforma!'
           subject: "%{group} tiene nuevos mensajes de %{sender}"
         new_message:
           greeting: '¡Hola, %{recipient}!'
           intro: "%{sender} ha publicado nuevos mensajes en tu conversación. Haz clic aquí para verlos:"
-          outro: '¡Disfruta Decidim!'
+          outro: '¡Disfruta de la plataforma!'
           subject: Tienes nuevos mensajes de %{sender}
       conversations:
         add_conversation_users:
@@ -1113,6 +1160,12 @@ es-MX:
           send: Enviar
         update:
           error: El mensaje no se ha enviado debido a un error.
+    metadata:
+      progress:
+        active: Activas
+        finished: 'Terminado el: %{end_date}'
+        not_started: Aún no ha comenzado
+        remaining: "queda %{time_distance}"
     metrics:
       download:
         csv: Descargar datos (CSV)
@@ -1222,16 +1275,12 @@ es-MX:
         error: Ha habido un error al actualizar la configuración de las notificaciones.
         success: La configuración de las notificaciones se han actualizado correctamente.
     offline:
+      name: Sin conexión
       show:
         message: Parece que estás desconectada. Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
     open_data:
       not_available_yet: Los ficheros de datos abiertos aún no están disponibles, inténtalo de nuevo en unos minutos.
-    own_user_groups:
-      index:
-        pending: Pendientes
-        rejected: Rechazados
-        verified: Verificada
     pad_iframe:
       disclaimer: Los contenidos de este pad están escritos por usuarios registrados y expresan sus opiniones. %{organization} no se hace responsable de su contenido.
       explanation: Usa este bloc para tomar notas de manera colaborativa durante el encuentro, para que sea más fácil escribir el acta después.
@@ -1253,13 +1302,13 @@ es-MX:
           register: Regístrate
         hero:
           participate: Participar
+          participate_title: Participa en los procesos de la plataforma
           welcome: Bienvenido/a a %{organization}!
-        metrics:
-          headline: Participación en cifras
         statistics:
           headline: Estado actual de %{organization}
         sub_hero:
           register: Regístrate
+          register_title: Regístrate para crear una cuenta
       index:
         standalone_pages: Páginas
         subheading: Navegar por las páginas de ayuda de %{name}
@@ -1281,7 +1330,6 @@ es-MX:
           modal_btn_continue: Aceptar los términos y condiciones de uso, y continuar
           modal_btn_exit: Los revisaré más tarde
           modal_button: Rechazar los términos y condiciones de uso
-          modal_close: Cerrar ventana
           modal_title: '¿Confirmas que no aceptas los términos y condiciones de uso actualizados?'
         required_review:
           alert: Hemos actualizado nuestros Términos y Condiciones, por favor, revísalos.
@@ -1294,9 +1342,8 @@ es-MX:
         error: Ha habido un problema al actualizar la contraseña.
         success: La contraseña se ha actualizado correctamente.
     profile:
-      deleted: Participante eliminada
+      deleted: Usuario eliminado
       inaccessible_message: '¡Este perfil es inaccesible debido a la violación de términos y condiciones de uso!'
-      view: Ver
     profiles:
       default_officialization_text_for_user_groups: Este grupo está verificado públicamente, su nombre se ha verificado para que se corresponda con su nombre real.
       default_officialization_text_for_users: Esta participante está verificada públicamente. Se ha verificado que su nombre o cargo corresponde con su nombre y función reales.
@@ -1306,11 +1353,12 @@ es-MX:
         conversations: Conversaciones
         followers: Seguidores
         following: Sigue
+        group_admins: Gestionar administradoras
+        group_members: Gestionar miembros
         groups: Grupos
         members: Miembros
         officialized: Participante oficial
         send_private_message: Envia mensaje privado
-        view_full_profile: Ver el perfil completo
       sidebar:
         badges:
           info: Los distintivos se obtienen realizando una actividad específica en la plataforma.
@@ -1318,13 +1366,17 @@ es-MX:
       user:
         actions:
           create_user_group: Crear un grupo
+          disabled_message: Mensaje
           edit_profile: Editar el perfil
           edit_user_group: Editar el perfil del grupo
           invite_user: Invitar a una participante
           join_user_group: Solicitar unirse al grupo
+          leave_user_group: Salir del grupo
+          manage_user_group: Gestionar el grupo
           manage_user_group_admins: Gestionar administradoras
           manage_user_group_users: Gestionar miembros
           message: Mensaje
+          resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         create_user_group: Crear un grupo
         edit_profile: Editar perfil
@@ -1375,27 +1427,24 @@ es-MX:
       scopes_picker_input:
         select_scope: 'Seleccionar un ámbito (actualmente: %{current})'
     search:
+      name: Buscar
       results: Resultados de la búsqueda
       results_found_for_term: '%{count} Resultados de la búsqueda: "%{term}"'
       term_input_placeholder: Buscar
     searches:
       filters:
-        back: Volver a resultados
         jump_to: 'Salta a:'
+        search: Buscar
         state:
           active: Activo
           all: Todos
           future: Futuros
           past: Pasados
       filters_small_view:
-        close_modal: Cerrar modal
         filter: Filtrar
+        filter_and_search: Filtrar y buscar
         filter_by: Filtrar por
-        unfold: Desplegar
       results:
-        results:
-          one: "%{count} resultado"
-          other: "%{count} resultados"
         view_all: Ver todo (%{count})
     security:
       selfxss_warning:
@@ -1407,10 +1456,6 @@ es-MX:
         close_modal: Cerrar el modal
         ok: De acuerdo
         title: Confirmar
-      embed_modal:
-        close_window: Cerrar ventana
-        embed: Por favor, pega este código en tu página
-        embed_link: Incrustar
       extended_navigation_bar:
         more: Más
         unfold: Desplegar
@@ -1429,7 +1474,6 @@ es-MX:
         report: Denunciar
         spam: Contiene clickbait, publicidad o estafas.
         title: Denunciar un problema
-        visit_profile: Si también quieres bloquear al participante y el resto de sus contenidos, ve a la página de perfil de %{user_link}.
       flag_user_modal:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
         block: Eliminar a esta participante
@@ -1442,25 +1486,23 @@ es-MX:
         spam: Contiene clickbait, publicidad, estafas o robots de guión.
         title: Reportar usuaria inapropiada
       floating_help:
-        close: Cerrar la ayuda
         help: Ayuda
       follow_button:
-        sign_in_before_follow: Inicia sesión antes de realizar esta acción
+        log_in_before_follow: Pro favor, inicia sesión antes de realizar esta acción
       login_modal:
-        close_modal: Cerrar el modal
-        please_sign_in: Por favor, regístrate
+        please_log_in: Por favor, inicia la sesión
         sign_up: Regístrate
       mentions_modal:
         remove_recipient: Eliminar destinataria %{name}
       participatory_space_filters:
         filters:
+          area: Área
           areas: Áreas
+          scope: Ámbito
           select_an_area: Seleccione un area
+      progress: Progreso
       public_participation:
         public_participation: Mostrar mi asistencia públicamente
-      redesigned_login_modal:
-        please_sign_in: Por favor, inicia la sesión
-        sign_up: Registrarse
       reference:
         reference: 'Referencia: %{reference}'
       represent_user_group:
@@ -1470,7 +1512,6 @@ es-MX:
         label: 'Resultados por página:'
         title: Seleccionar el número de resultados por página
       share_modal:
-        close_window: Cerrar ventana
         copy_share_link: Copia
         copy_share_link_clarification: Copiar al portapapeles el enlace para compartir
         copy_share_link_copied: '¡Copiado!'
@@ -1504,30 +1545,12 @@ es-MX:
         existing_error: El mensaje no se ha podido crear. La conversación ya existe, por favor inténtalo de nuevo ahora.
         success: '¡Conversación iniciada correctamente!'
       index:
-        add_max_users: 'Añadir usuarias a la conversación: máximo 9 usuarias'
-        add_users_placeholder: Buscar...
-        close: Cerar
         conversations_info: Las conversaciones son privadas. Nadie más puede verlas. Se puede iniciar una conversación con cualquier participante o grupo registrado en la plataforma.
-        from: 'De:'
-        last_message: Último mensaje
-        modal_title: Nueva conversación
-        new_conversation: Nueva conversación
-        next: Siguente
         no_conversations_warning: Aún no hay ninguna conversación.
-        no_results: No hay resultados
-        participant_with_disabled_message_reception: Esta participante ha desactivado la recepción de mensajes.
         time_ago: "Hace %{time}"
-      new:
-        title: Iniciar una conversación
       reply:
         placeholder: Tu respuesta...
         send: Enviar
-        title_reply: Responder
-      show:
-        back: Ver todas las conversaciones
-        deleted_accounts: No puedes tener una conversación con cuentas eliminadas.
-        not_allowed: Esta participante no acepta mensajes directos.
-        title: Conversación con %{usernames}
       update:
         error: Mensaje no enviado. Inténtalo de nuevo más tarde
     user_interests:
@@ -1552,27 +1575,13 @@ es-MX:
         back_to_resource: Volver atrás
         changes_at_title: Cambios en "%{title}"
         number_of_versions: Versiones
-        show_all_versions: Mostrar todas las versiones
-        version_author: Autoría de la versión
         version_created_at: Versión creada el
-        version_number: Número de versión
-        version_number_out_of_total: "%{current_version} de %{total_count}"
-    version_author:
-      show:
-        deleted: Usuario eliminado
     versions:
       resource_version:
         of_versions: "(de %{number})"
         see_other_versions: ver otras versiones
         version: Versión %{number}
-    versions_list:
-      show:
-        back_to_resource: Volver atrás
-        changes_at_title: Cambios en "%{title}"
-        number_of_versions: Versiones
-        title: Versiones
     versions_list_item:
-      back: Mostrar todas las versiones
       show:
         version_index: Versión %{index}
     welcome_notification:
@@ -1599,7 +1608,7 @@ es-MX:
       last_attempt: Tienes un intento más antes de que tu cuenta se bloquee.
       locked: Tu cuenta está bloqueada.
       not_found_in_database: '%{authentication_keys} o contraseña inválida.'
-      timeout: Tu sesión expiró Por favor, inicia sesión de nuevo para continuar.
+      timeout: Tu sesión expiró. Por favor, vuelve a iniciarla para continuar.
       unauthenticated: Debes iniciar sesión o registrarte antes de continuar.
     invitations:
       edit:
@@ -1662,7 +1671,7 @@ es-MX:
         action: Desbloquear mi cuenta
         greeting: '¡Hola %{recipient}!'
         instruction: 'Haz clic en el siguiente enlace para desbloquear tu cuenta:'
-        message: Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos de inicio de sesión fallidos.
+        message: Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos fallidos de inicio de sesión.
         subject: Desbloquear instrucciones
     omniauth_callbacks:
       failure: No se pudo autenticar desde %{kind} porque "%{reason}".
@@ -1694,19 +1703,19 @@ es-MX:
       update_needs_confirmation: Has actualizado tu cuenta con éxito, pero necesitamos verificar tu nueva dirección de correo electrónico. Verifica tu correo electrónico y sigue el enlace confirmar para confirmar tu nueva dirección de correo electrónico.
       updated: Tu cuenta ha sido actualizada con éxito.
     sessions:
-      already_signed_out: Sesión finalizada con éxito.
+      already_signed_out: La sesión se ha cerrado correctamente.
       new:
-        sign_in: Iniciar sesión
+        log_in: Entra
       signed_in: Sesión iniciada con éxito.
-      signed_out: Sesión finalizada con éxito.
+      signed_out: La sesión se ha cerrado correctamente.
     shared:
       links:
         back: Atrás
         didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
         didn_t_receive_unlock_instructions: '¿No has recibido las instrucciones para desbloquear?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
-        sign_in: Iniciar sesión
-        sign_in_with_provider: Inicia sesión con %{provider}
+        log_in: Entra
+        log_in_with_provider: Inicia sesión con %{provider}
         sign_up: Regístrate
       minimum_password_length:
         one: "(%{count} caracteres como mínimo)"
@@ -1716,7 +1725,7 @@ es-MX:
         resend_unlock_instructions: Reenviar instrucciones de desbloqueo
       send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo desbloquear tu cuenta en unos minutos.
       send_paranoid_instructions: Si tu cuenta existe, recibirás un correo electrónico con instrucciones sobre cómo desbloquearla en unos minutos.
-      unlocked: Tu cuenta ha sido desbloqueada con éxito. Por favor inicia sesión para continuar.
+      unlocked: Tu cuenta se ha desbloqueado con éxito. Inicia sesión para continuar.
   doorkeeper:
     scopes:
       public: Tu información pública
@@ -1805,7 +1814,7 @@ es-MX:
   errors:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
-      already_confirmed: Ya fuiste confirmado, intenta iniciar sesión
+      already_confirmed: ya ha sido confirmado, por favor, intente iniciar sesión de nuevo
       blank: no puede estar en blanco
       cannot_be_blank: no puede estar en blanco
       confirmation: no coincide con %{attribute}
@@ -1841,6 +1850,9 @@ es-MX:
     timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelva a enviar.
   layouts:
     decidim:
+      announcements:
+        view_less: Mostrar menos
+        view_more: Más información
       data_consent:
         details:
           columns:
@@ -1896,14 +1908,16 @@ es-MX:
         cc_by_license: Con licencia Creative Commons
         data_consent_settings: Configuración de cookies
         decidim_logo: Logo Decidim
+        decidim_title: Decidim
         download_open_data: Descargar ficheros de datos abiertos
+        log_in: Entra
         made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
-      header:
-        close_menu: Cerrar menú
-        main_menu: Menú principal
-        navigation: Navegación
-        sign_in: Entra
+        resources: Recursos
         sign_up: Regístrate
+        terms_and_conditions: Términos y condiciones
+      header:
+        log_in: Entra
+        main_menu: Menú principal
         user_menu: Menú de usuario
       impersonation_warning:
         close_session: Cerrar la sesión
@@ -1916,27 +1930,32 @@ es-MX:
         mark_as_read: Marcar como leído
       offline_banner:
         cache_version_page: '¡Ups! Tu red está desconectada. Esta es una versión previa en caché de la página que estás visitando, quizás el contenido no está actualizado.'
+      shared:
+        layout_item:
+          next: Siguiente tema
+          prev: Tema anterior
       social_media_links:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"
         instagram: "%{organization} en Instagram"
-        twitter: "%{organization} en Twitter"
+        x: "%{organization} en X"
         youtube: "%{organization} en YouTube"
       timeout_modal:
         body: Has estado sin actividad durante %{minutes} minutos. Si sigues estando inactivo, serás desconectado automáticamente por tu propia seguridad.
         continue_session: Continuar sesión
-        sign_out: Cerrar sesión
+        log_out: Salir
         title: '¿Quieres continuar con la sesión?'
       upload_modal:
         close_modal: Cerrar ventana
       user_menu:
         account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración
+        configuration: Configuración
         conversations: Conversaciones
+        log_out: Salir
         notifications: Notificaciones
         profile: Mi cuenta
         public_profile: Mi perfil público
-        sign_out: Cerrar sesión
         title: Enlaces de perfil
       user_profile:
         account: Cuenta
@@ -1945,10 +1964,9 @@ es-MX:
         my_data: Mis datos
         my_interests: Mis intereses
         notifications_settings: Configuracion de notificaciones
+        profile: Perfil
         title: Ajustes de usuario
         user_groups: Grupos
-      widget:
-        see_more: Ver más
   locale:
     name: Español
     name_with_error: Español (¡error!)
@@ -1993,6 +2011,7 @@ es-MX:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x:
     xing: Xing
   time:
     formats:
@@ -2021,11 +2040,11 @@ es-MX:
     dropdown:
       choose_diff_view_html: 'Modo de vista HTML:'
       choose_diff_view_mode: 'Comparar el modo de visualización:'
-      choose_diff_view_mode_menu: Elegir el modo de comparación
       option_escaped: Escapado
       option_split: En paralelo
       option_unescaped: Desescapado
       option_unified: Unificado
+      toggle: Cambiar vista
   views:
     pagination:
       next: Siguiente
