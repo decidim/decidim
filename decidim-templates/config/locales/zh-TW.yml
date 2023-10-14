@@ -44,7 +44,6 @@ zh-TW:
         block_user_templates:
           form:
             save: 儲存
-            template_title: 範本資訊
           index:
             confirm_delete: 您是否確定要刪除本範本？
             title: 封鎖使用者訊息
@@ -62,8 +61,6 @@ zh-TW:
             empty: 目前為止還沒有什麼問題.
             questionnaire: 問題調查
           form:
-            save: 儲存
-            template_title: 範本資訊
             title: 問卷範本 %{questionnaire_for}
           index:
             confirm_delete: 您是否確定要刪除本範本？

@@ -51,7 +51,7 @@ es-MX:
         confirm_destroy: '¿Seguro que quieres borrar el debate?'
         destroy: Borrar
         edit: Editar
-        new: Nuevo %{name}
+        new: Añadir debate
         title: Acciones
       admin:
         debate_closes:
@@ -81,9 +81,6 @@ es-MX:
             success: Debate actualizado con éxito.
         exports:
           comments: Comentarios
-        models:
-          debate:
-            name: Debate
       admin_log:
         debate:
           close: "La participante %{user_name} ha creado el debate %{resource_name} en el espacio %{space_name}"
@@ -96,7 +93,7 @@ es-MX:
           invalid: Se ha producido un error al cerrar el debate.
           success: Debate cerrado correctamente.
         close_debate_modal:
-          close: Cerrar
+          cancel: Cancelar
           description: '¿Cuál es el resumen o la conclusión de este debate?'
           send: Cerrar debate
         closed: Cerrado
@@ -123,18 +120,12 @@ es-MX:
           official: Oficial
           origin: Origen
           participants: Participantes
-          scope: Ámbito
           search: Buscar
           state: Estado
           state_values:
             closed: Cerrado
             open: Abierto
-          user_groups: Grupos
-        filters_small_view:
-          close_modal: Cerrar ventana
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desplegar
+          user_group: Grupos
         form:
           select_a_category: Por favor, selecciona una categoría
         index:
@@ -150,7 +141,6 @@ es-MX:
           recent: Más recientes
           updated: Actualizados recientemente
         show:
-          back: Volver al listado
           close_debate: Cerrar debate
           date: Fecha
           debate_closed: Cerrado
@@ -158,28 +148,21 @@ es-MX:
           edit_conclusions: Editar conclusiones
           edit_debate: Editar debate
           groups_count: Grupos
-          last_comment_by: Último comentario de
-          no_comments_yet: No hay comentarios todavía
           open: Debate abierto
           participants_count: Participantes
         update:
           invalid: Se ha producido un error al actualizar este debate.
           success: Debate actualizado correctamente.
-        versions:
-          debates:
-            back_to_resource: Volver al debate
-          index:
-            title: Versiones
-        versions_list:
-          back_to_resource: Volver al debate
       last_activity:
         debate_updated: 'Debate actualizado:'
         new_debate: 'Nuevo debate:'
       models:
         debate:
           fields:
+            end: Finaliza
             end_time: Fecha de finalización
             official_debate: Debate oficial
+            start: Empieza
             start_time: Fecha de inicio
             title: Título
     events:

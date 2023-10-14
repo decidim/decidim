@@ -55,7 +55,6 @@ ru:
           success: Успешно создана копия встречи.
         new:
           copy: Копировать
-          select: Выберите, какие данные вы хотели бы скопировать
           title: Скопировать встречу
     components:
       meetings:
@@ -134,7 +133,6 @@ ru:
         confirm_destroy: Вы действительно хотите удалить эту встречу?
         destroy: Удалить
         edit: Редактировать
-        new: Новая встреча
         preview: Предпросмотр
         registrations: Регистрации
         title: Действия
@@ -188,7 +186,6 @@ ru:
               all: Все
               rejected: Отклоненные
               sent: Отправленные
-            filter_by: 'Отобрать по признаку:'
             invite_attendee: Пригласить участника
             invites: Приглашения
             search: Поиск
@@ -216,9 +213,6 @@ ru:
           services:
             add_service: Добавить услугу
             services: Услуги
-        models:
-          meeting:
-            name: Встреча
         registrations:
           edit:
             save: Сохранить
@@ -252,7 +246,6 @@ ru:
               not_found: 'Организатор не найден в базе данных (ID: %{id})'
       calendar_modal:
         calendar_url: Ссылка на календарь
-        close_window: Закрыть окно
         export_calendar: Экспорт календаря
       directory:
         meetings:
@@ -270,13 +263,6 @@ ru:
           category: Категория
           date: Дата
           search: Поиск
-        filters_small_view:
-          close_modal: Закрыть окошко
-          filter: Отобрать
-          filter_by: 'Отобрать по признаку:'
-          unfold: Развернуть
-        meeting_minutes:
-          related_information: Сопутствующие сведения
         meetings:
           upcoming_meetings_warning: Сейчас нет запланированных встреч, но здесь вы можете найти список всех прошедших встреч.
         registration_confirm:
@@ -294,8 +280,6 @@ ru:
             validated: ПОДТВЕРЖДЕНО
             validation_pending: ОЖИДАНИЕ ПОДТВЕРЖДЕНИЯ
           view: Посмотреть
-      meetings_map:
-        view_meeting: Посмотреть встречу
       models:
         invite:
           fields:
@@ -342,8 +326,6 @@ ru:
         past_meetings: Прошедшие встречи
         see_all: Посмотреть все (%{count})
         upcoming_meetings: Предстоящие встречи
-      upcoming_meeting_for_card:
-        upcoming_meeting: Предстоящая встреча
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Подобные итоги:'

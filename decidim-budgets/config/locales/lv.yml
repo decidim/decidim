@@ -66,15 +66,12 @@ lv:
         budget_excess:
           budget_excess:
             title: Pārsniegts maksimālais budžets
-          close: Aizvērt
           ok: Labi
         budget_summary:
           are_you_sure: Vai tiešām vēlaties atcelt savu balsojumu?
-          assigned: 'Piešķirts:'
           cancel_order: izdzēsiet savu balsojumu un sāciet no jauna
           checked_out:
             title: Balsojums par budžetu pabeigts
-          title: Jūs lemjat par budžetu
         count:
           projects_count:
             zero: "%{count} projekti"
@@ -84,20 +81,6 @@ lv:
           category: Kategorija
           scope: Darbības tvērums
           search: Meklēt
-        filters_small_view:
-          close_modal: Aizvērt modal
-          filter: Filtrēt
-          filter_by: Filtrēt pēc
-          unfold: Atritināt
-        order_progress:
-          vote: Balsot
-        order_selected_projects:
-          remove: Noņemt
-          selected_projects:
-            zero: atlasītie projekti
-            one: atlasītais projekts
-            other: atlasītie projekti
-          view: Apskatīt
         orders:
           highest_cost: Lielākās izmaksas
           label: Sakārtot projektus pēc
@@ -108,7 +91,6 @@ lv:
           view: Apskatīt
         show:
           budget: Budžets
-          view_all_projects: Skatīt visus projektus
     components:
       budgets:
         actions:

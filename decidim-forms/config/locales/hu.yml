@@ -79,7 +79,6 @@ hu:
           max_choices: 'Max választás: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Jelentkezz be a fiókoddal </a> vagy <a href="%{sign_up_link}">iratkozz fel</a> a kérdőív megválaszolásához.
             title: Válaszoljon a kérdőívre
           questionnaire_answered:
             body: Már megválaszoltad ezt a kérdőívet.
@@ -94,6 +93,7 @@ hu:
       step_navigation:
         show:
           are_you_sure: Ez a művelet nem vonható vissza, és nem tudod majd szerkeszteni a válaszokat. Biztos vagy ebben?
+          continue: Folytatás
           submit: Beküldés
       user_answers_serializer:
         created_at: Válaszolt

@@ -23,13 +23,13 @@ is-IS:
             - Notendur fylla inn upplýsingar um auðkenni þeirra og senda afrit af skjalinu sínu.
             - Þú fyllir inn upplýsingar sem eru til staðar í myndinni sem hlaðið var upp.
             - Upplýsingarnar ættu að passa hvað sem notandinn hefur fyllt inn.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
-            - Participants request a verification code to be sent to their address.
+            - 
             - Þú sendir bréfið á heimilisfangið með staðfestingarkóðanum.
             - Þú merkir stafinn sem sendur er.
-            - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
+            - 
       direct: Bein
       help: Hjálp
       id_documents:

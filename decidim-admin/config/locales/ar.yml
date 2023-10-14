@@ -87,7 +87,6 @@ ar:
         success_color: نجاح
         time_zone: المنطقة الزمنية
         tos_version: شروط وأحكام الخدمة
-        twitter_handler: مُعرّف حساب تويتر
         user_groups_enabled: تمكين المجموعات
         warning_color: تحذير
         welcome_notification_body: محتوى إشعار الترحيب
@@ -153,8 +152,6 @@ ar:
           new: فئة جديدة
         export: تصدير الكل
         import: استيراد
-        manage: تدبير
-        new: جديد %{name}
         newsletter:
           new: رسالة إخبارية جديدة
         per_page: في كل صفحة
@@ -202,7 +199,6 @@ ar:
           title: تحرير المجلد
           update: تحديث
         index:
-          attachment_collection_used: لا يمكن إزالة هذا المجلد لأنه قيد الاستخدام.
           attachment_collections_title: مجلدات المرفقات
         new:
           create: إنشاء
@@ -245,7 +241,6 @@ ar:
           update: تحديث
         index:
           categories_title: الاقسام
-          category_used: لا يمكن إزالة هذه الفئة لأنها قيد الاستخدام.
         new:
           create: إنشاء فئة
           title: فئة جديدة
@@ -305,7 +300,6 @@ ar:
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
-          welcome: أهلا بك على اللوح الإداري.
       domain_whitelist:
         form:
           domain_too_short: نطاق الدومين قصير جداً
@@ -398,7 +392,6 @@ ar:
             all: الكل
             managed: تمكن
             not_managed: غير مُدار
-          filter_by: مصنف بواسطة
           impersonate: انتحال
           impersonate_new_managed_user: إدارة مشارك جديد
           managed: تمكن
@@ -459,7 +452,6 @@ ar:
         area_types: أنواع المناطق
         areas: المناطق
         configuration: الإعدادات
-        dashboard: لوحة القيادة
         help_sections: أقسام المساعدة
         homepage: الصفحة الرئيسية
         impersonations: التقليد
@@ -530,7 +522,6 @@ ar:
           fields:
             created_at: تاريخ الإنشاء
             email: البريد الإلكتروني
-            last_sign_in_at: تسجيل الدخول الأخير في التاريخ
             name: اسم
             role: وظيفة
             roles:
@@ -616,9 +607,6 @@ ar:
           none: لا شَيْء
           scopes_help: إرسال النشرة الإخبارية للمستخدمين الذين لديهم أي من المجالات المحددة تم تفعيله في إعدادات "اهتماماتي" لحسابهم.
           select_scopes: أختر للمستخدمين الذين فعلوا أي مجال محدد في إعدادات أهتماماتي لحساباتهم.
-          send_to_all_users: إرسال إلى كافة المستخدمين
-          send_to_followers: إرسال إلى المتابِعين
-          send_to_participants: إرسال إلى المشاركين
           title: حدد المستلمين للإرسال اليهم
           warning: "<strong>تنبيه:</strong> سيتم إرسال هذه النشرة الإخبارية فقط للمستخدمين الذين فعلوا <em>أريد تلقي النشرات الإخبارية</em> في إعدادات الإشعارات الخاصة بهم."
         show:
@@ -650,7 +638,6 @@ ar:
           officialize: الصفة الرسمية
           title: إضفاء الطابع الرسمي على المشارك "%{name}"
         show_email_modal:
-          close_modal: اغلاق النموذج
           description: إذا كنت بحاجة إلى الاتصال بأحد المشاركين مباشرة، يمكنك النقر على زر العرض لرؤية عنوان بريده الإلكتروني. سيتم تسجيل هذا الإجراء.
           email_address: عنوان البريد الإلكتروني
           full_name: الاسم الكامل
@@ -666,7 +653,6 @@ ar:
           github: غِت‌ هَب
           instagram: إينستاجرام
           social_handlers: التواصل الاجتماعي
-          twitter: تويتر
           url: عنوان الرابط
           youtube: يوتيوب
         update:
@@ -678,8 +664,6 @@ ar:
         form:
           colors:
             colors_title: ألوان المنظمة
-            header_snippets_help: استخدم هذا الحقل لإضافة أشياء إلى رأس HTML. الاستخدام الأكثر شيوعًا هو دمج خدمات الجهات الخارجية التي تتطلب بعض JavaScript أو CSS إضافية. أيضًا ، يمكنك استخدامه لإضافة علامات وصفية إضافية إلى HTML. لاحظ أنه سيتم عرض هذا فقط في الصفحات العامة ، وليس في قسم المسؤول.
-          cta_button_path_help: 'يمكنك الكتابة فوق المكان الذي يرتبط به زر Call To Action في الصفحة الرئيسية. استخدم المسارات الجزئية ، وليس عناوين URL الكاملة هنا. يقبل الحروف والأرقام والشرطات والمائلة ، ويجب أن يبدأ بحرف. يظهر زر Call To Action في الصفحة الرئيسية بين نص الترحيب والوصف. مثال: %{url}'
           cta_button_text_help: يمكنك الكتابة فوق نص زر Call To Action في الصفحة الرئيسية لكل لغة متاحة في مؤسستك. إذا لم يتم تعيينها ، سيتم استخدام القيمة الافتراضية. يظهر زر Call To Action في الصفحة الرئيسية بين نص الترحيب والوصف.
           homepage_appearance_title: تحرير مظهر الصفحة الرئيسية
           homepage_highlighted_content_banner_title: لافتة المحتوى الراقي
@@ -798,8 +782,6 @@ ar:
           update: تحديث
         form:
           none: لا شيء
-        index:
-          last_notable_change: آخر تغيير ملحوظ
         new:
           create: إنشاء صفحة
           title: صفحة جديدة
@@ -821,7 +803,6 @@ ar:
         participants: المشاركين
         scope_types: أنواع النطاق
         scopes: مجالات
-        static_pages: صفحات
         statistics: النشاط
         user_groups: المجموعات
         users: المدراء
@@ -865,7 +846,6 @@ ar:
           last_month: الشهر الماضي
           last_week: الأسبوع الماضي
           participants: المشاركون
-      view_public_page: عرض الصفحة العامة
     metrics:
       blocked_users:
         title: المستخدمين المحظورين
@@ -910,12 +890,3 @@ ar:
   errors:
     messages:
       invalid_json: JSON غير صالح
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: النشرات الإخبارية
-        settings:
-          title: الإعدادات
-        users:
-          title: المشاركين

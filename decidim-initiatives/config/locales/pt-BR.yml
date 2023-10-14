@@ -217,7 +217,6 @@ pt-BR:
             send_to_technical_validation: Enviar para validação técnica
             update: Atualizar
           form:
-            attachments: Anexos
             settings: Configurações
             title: Informação geral
           index:
@@ -231,24 +230,17 @@ pt-BR:
             photos: Fotos
         initiatives_type_scopes:
           edit:
-            back: Costas
-            confirm_destroy: Você tem certeza?
-            destroy: Excluir
             title: Editar o âmbito do tipo de iniciativa
             update: Atualizar
           new:
-            back: Costas
             create: Criar
             title: Criar âmbito de tipo de iniciativa
         initiatives_types:
           edit:
-            confirm_destroy: Você tem certeza?
-            destroy: Excluir
             update: Atualizar
           form:
             authorizations: Opções de autorização
             options: Opções
-            title: Informação geral
           initiative_type_scopes:
             title: Escopos para o tipo de iniciativa
           new:
@@ -268,10 +260,6 @@ pt-BR:
         rejected: Não há assinaturas suficientes
         validating: Validação técnica
       application_helper:
-        filter_area_values:
-          all: Tudo
-        filter_scope_values:
-          all: Tudo
         filter_state_values:
           accepted: Assinaturas suficientes
           all: Tudo
@@ -298,6 +286,7 @@ pt-BR:
           back: Costas
           continue: Continuar
           fill_data_help: "<ul> <li>Revise o conteúdo de sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa?</li> </ul>"
+          initiative_type: Tipo de iniciativa
           more_information: "(Mais Informações)"
           select_area: Selecione uma área
           select_scope: Selecione um âmbito
@@ -311,31 +300,22 @@ pt-BR:
           more_information: "(Mais Informações)"
           send_my_initiative: Enviar minha iniciativa para validação técnica
         finish_help:
-          access_reminder: Você pode acessar suas iniciativas através do filtro %{link} na página de iniciativas.
           publish_helper_text: Lembre-se de que para que sua iniciativa seja publicada, você precisa preencher as informações necessárias e <strong>enviá-las à validação técnica</strong> para que um administrador as analise.
         previous_form:
           back: Costas
           continue: Continuar
-          help: Em que consiste a iniciativa? Anote o título e a descrição. Recomendamos um título curto e conciso e uma descrição focada na solução proposta.
-          more_information: "(Mais Informações)"
         promotal_committee:
-          back: Costas
           individual_help_text: Este tipo de iniciativa requer uma Comissão Promover composta por pelo menos %{committee_size} pessoas (atestadores). Têm de partilhar o seguinte link com as outras pessoas que fazem parte desta iniciativa. Quando seus contatos receberem este link eles terão que seguir os passos indicados.
           more_information: "(Mais Informações)"
         select_initiative_type:
           back: Costas
           choose_html: Eu quero criar um <strong>%{title}</strong>
-          more_information: "(Mais Informações)"
+          more_information: (Mais Informações)
+          new: Criar iniciativa
           select: Eu quero promover essa iniciativa
           select_initiative_type_help: As iniciativas são um meio através do qual os participantes podem intervir para que a organização possa empreender acções em defesa do interesse geral. Qual iniciativa você quer lançar?
         share_committee_link:
-          continue: Continuar
           invite_to_committee_help: Link para convidar pessoas que farão parte do comitê de promotores
-        show_similar_initiatives:
-          back: Costas
-          compare_help: Se alguma das seguintes iniciativas for semelhante à sua, incentivamos você a apoiá-la. Sua proposta terá mais possibilidades de ser feita.
-          continue: Minha iniciativa é diferente
-          more_information: "(Mais Informações)"
       edit:
         accept: Aceitar a iniciativa
         back: Voltar
@@ -373,17 +353,14 @@ pt-BR:
           email_subject: "%{applicant_nickname} quer participar de sua iniciativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> se candidatou ao comitê de promotores da sua iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceitar ou rejeitar, clique <a href="%{resource_url}/edit">aqui</a>.
       form:
-        add_attachments: Documentos
-        delete_attachment: Excluir
-      index:
-        title: Iniciativas
+        add_documents: Adicionar Documentos
+        add_image: Adicionar imagem
+        edit_documents: Editar documentos
+        edit_image: Editar imagem
+        image_legend: "(Opcional) Adicionar um anexo"
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
-          date_select:
-            day: Dia
-            month: Mês
-            year: Ano
         finish:
           back_to_initiative: De volta à iniciativa
         sms_code:
@@ -399,8 +376,6 @@ pt-BR:
         sms_phone:
           invalid: O número de telefone é inválido ou está pendente de autorização. Por favor, verifique suas autorizações.
       initiatives:
-        author:
-          deleted: Excluído
         author_list:
           hidden_authors_count:
             one: e mais 1 pessoa
@@ -408,7 +383,7 @@ pt-BR:
         committee_members:
           approve: Aprovar
           confirm_revoke: Você tem certeza?
-          revoke: Revogar
+          link: Link
           title: Membros do Comitê
         count:
           title:
@@ -423,11 +398,6 @@ pt-BR:
           search: Pesquisa
           state: Estado
           type: Tipo
-        filters_small_view:
-          close_modal: Janela fechada
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Desdobrar
         index_header:
           new_initiative: Nova iniciativa
         initiatives:
@@ -469,13 +439,15 @@ pt-BR:
         result:
           initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de suporte.
         show:
-          any_vote_method: Essa iniciativa coleta assinaturas on-line e presencial.
+          area: Área
           confirm: Você vai enviar a iniciativa para um administrador revisá-lo e publicá-lo. Uma vez publicado, você não será capaz de editá-lo. Você tem certeza?
           edit: Editar
-          follow_description: Receber uma notificação quando houver notícias nesta iniciativa
-          offline_method: Esta iniciativa recolhe apenas assinaturas presenciais.
-          print: Imprimir Iniciativa
+          initiative_data: Dados da iniciativa
+          scope: Escopo
           send_to_technical_validation: Enviar para validação técnica
+          signature_collection: Coleção de assinaturas
+          state: Estado
+          type: Tipo
         signatures_count:
           one: " assinatura"
           other: " assinaturas"
@@ -489,8 +461,6 @@ pt-BR:
           count:
             one: ASSINATURA
             other: ASSINATURAS
-          most_popular_initiative: Iniciativa mais popular
-          need_more_votes: Precisa de mais assinaturas
       initiatives_mailer:
         creation_subject: Sua iniciativa cidadã '%{title}' foi criada
         initiative_link:
@@ -505,14 +475,13 @@ pt-BR:
       modal:
         not_authorized:
           authorizations_page: Ver autorizações
-          close: Fechar
           explanation: Você precisa ser verificado para criar uma nova iniciativa.
           title: Autorização necessária
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Iniciativas ativas
-            see_all_initiatives: Veja todas as iniciativas
+            active_spaces: Iniciativas ativas
+            see_all_spaces: Ver todas as iniciativas
       show:
         badge_name:
           accepted: Assinaturas suficientes
@@ -525,9 +494,6 @@ pt-BR:
         accepted: Aceitaram
         expired: Expirado
       unavailable_scope: Escopo não disponível
-      versions:
-        shared:
-          back_to_resource: Voltar à iniciativa
     menu:
       initiatives: Iniciativas
     resources:
@@ -538,26 +504,15 @@ pt-BR:
   layouts:
     decidim:
       initiative_creation_header:
-        back: De volta
         fill_data: Criar
         finish: Finalizar
-        previous_form: Começar
         promotal_committee: Comitê Promotor
         select_initiative_type: Escolher
-        show_similar_initiatives: Comparar
-        title: Criar nova iniciativa
-      initiative_header:
-        initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
-        back: De volta
         fill_personal_data: Complete seus dados
         finish: Terminar
-        finished: Assinatura de iniciativa criada
-        see_steps: ver passos
-        select_identity: Selecione identidade
         sms_code: Verificação de código SMS
         sms_phone_number: número de celular
-        step: Etapa %{current} de %{total}
         title: Assinar %{initiative_title}
       initiatives:
         initiative:

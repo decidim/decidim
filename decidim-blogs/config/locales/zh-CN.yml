@@ -15,9 +15,6 @@ zh-CN:
         new: 新建帖子
         title: 行动
       admin:
-        models:
-          post:
-            name: 帖子
         posts:
           edit:
             save: 更新
@@ -33,9 +30,6 @@ zh-CN:
           fields:
             author: 作者
             body: 正文内容
-      posts:
-        show:
-          view: 查看
     components:
       blogs:
         name: 博客

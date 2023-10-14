@@ -15,6 +15,7 @@ sv:
         settings:
           global:
             guided: Guidad ingång
+            guided_help: Hjälptext
             readonly_attribute: Skrivskyddat attribut
             test: Ett test
             test_choices:

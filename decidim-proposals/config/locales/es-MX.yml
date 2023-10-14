@@ -386,6 +386,7 @@ es-MX:
         title: Votos
     participatory_spaces:
       highlighted_proposals:
+        last: Propuestas más recientes
         see_all: Ver todo (%{count})
     proposals:
       actions:
@@ -456,7 +457,7 @@ es-MX:
               md: Reducción
               odt: ODT
             bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
-            document_legend: 'Añade un documento menor de 2MB, cada sección hasta 3 niveles de profundidad serán analizados en propuestas. Los formatos soportados son: %{valid_mime_types}'
+            document_legend: 'Añade un documento menor de 2 MB, cada sección hasta 3 niveles de profundidad serán analizados en propuestas. Los formatos soportados son: %{valid_mime_types}'
             title: AÑADIR DOCUMENTO
             upload_document: Subir documento
           publish:
@@ -530,30 +531,22 @@ es-MX:
           show:
             amendments_count: Número de enmiendas
             assigned_valuators: Evaluadoras asignadas
-            authors: Autores
             body: Cuerpo
             comments_count: Número de comentarios
-            comments_negative_count: En contra
-            comments_neutral_count: Neutral
-            comments_positive_count: A favor
-            created_at: Fecha de creación
             documents: Documentos
             endorsements_count: Número de adhesiones
-            endorsements_ranking: Clasificación por adhesiones
             endorsers: Se han adherido
             link: Enlace
             n_more_endorsers:
               one: y 1 más
               other: y %{count} más
             photos: Fotos
-            proposals: Propuestas
             ranking: "%{ranking} de %{total}"
             related_meetings: Encuentros relacionados
             remove_assignment: Deshacer asignación
             remove_assignment_confirmation: '¿Seguro que quieres desasignar a la evaluadora de esta propuesta?'
             valuators: Evaluadoras
             votes_count: Número de apoyos
-            votes_ranking: Clasificación por apoyos
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{proposals}.'
             select_a_category: Por favor, selecciona una categoría.
@@ -607,16 +600,12 @@ es-MX:
         rejected: Rechazada
         withdrawn: Retirada
       application_helper:
-        filter_category_values:
-          all: Todos
         filter_origin_values:
           all: Todos
           meetings: Encuentros
           official: Oficial
           participants: Participantes
           user_groups: Grupos de Usuarios
-        filter_scope_values:
-          all: Todos
         filter_state_values:
           accepted: Aceptado
           all: Todos
@@ -637,7 +626,6 @@ es-MX:
               ok: Publicar como una propuesta
               title: La siguiente acción es irreversible
             success: Borrador de colaborativo publicado con éxito como una propuesta.
-          view_collaborative_draft: Ver borrador colaborativo
           withdraw:
             error: Ha habido errores al cerrar el borrador colaborativo.
             irreversible_action_modal:
@@ -646,10 +634,6 @@ es-MX:
               ok: Retirar el borrador colaborativo
               title: La siguiente acción es irreversible
             success: Borrador colaborativo retirado con éxito.
-        count:
-          drafts_count:
-            one: "%{count} borrador colaborativo"
-            other: "%{count} borrador colaborativo"
         create:
           error: Se ha producido un error al crear este borrador colaborativo.
           success: Borrador colaborativo creado con éxito.
@@ -659,6 +643,8 @@ es-MX:
           select_a_category: Por favor seleccione una categoría
           send: Enviar
           title: Editar borrador colaborativo
+        empty: Todavía no hay borradores colaborativos
+        empty_filters: No hay un borrador de colaboración con este criterio
         filters:
           all: Todas
           amendment: Enmiendas
@@ -675,6 +661,11 @@ es-MX:
           filter: Filtrar
           filter_by: Filtrado por
           unfold: Desplegar
+        index:
+          count:
+            one: "%{count} borrador colaborativo"
+            other: "%{count} borrador colaborativo"
+        name: Borradores colaborativos
         new:
           add_file: Añadir archivo
           edit_file: Editar fichero
@@ -701,7 +692,6 @@ es-MX:
             error: No se pudo rechazar como colaborador, inténtalo de nuevo más tarde.
             success: "Se ha rechazado con éxito @%{user} como colaboradora."
         show:
-          back: Volver
           edit: Editar borrador colaborativo
           final_proposal: propuesta final
           final_proposal_help_text: Este borrador está terminado. Puedes ver la propuesta final terminada
@@ -714,7 +704,6 @@ es-MX:
           published_proposal: propuesta publicada
           request_access: Solicitar acceso
           requested_access: Acceso solicitado
-          version_history: ver el historial de versiones de esta propuesta
           withdraw: retirar el borrador
         states:
           open: Abierto
@@ -725,12 +714,11 @@ es-MX:
           success: Borrador colaborativo actualizado con éxito.
         wizard_aside:
           back_from_collaborative_draft: Volver al borrador colaborativo
-          info: Estás creando un borrador colaborativo <strong></strong>.
         wizard_header:
           title: Crea tu borrador colaborativo
       content_blocks:
         highlighted_proposals:
-          proposals: Propuestas
+          name: Propuestas
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada con éxito. Guardada como borrador.
@@ -741,11 +729,6 @@ es-MX:
         new_proposal: 'Nueva propuesta:'
         proposal_updated: 'Propuesta actualizada:'
       models:
-        collaborative_draft:
-          fields:
-            authors: Autores
-            comments: Comentarios
-            contributions: Contribuciones
         proposal:
           fields:
             category: Categoría
@@ -768,7 +751,6 @@ es-MX:
         buttons:
           amend: Enmendar
           comment: Comentario
-          comments: Comentarios
       proposal_votes:
         create:
           error: Ha habido errores al apoyar la propuesta.
@@ -780,21 +762,14 @@ es-MX:
         complete:
           send: Enviar
           title: Completa tu propuesta
-        count:
-          proposals_count:
-            one: "%{count} propuesta"
-            other: "%{count} propuestas"
         dynamic_map_instructions:
           description: Las coordenadas se actualizarán cuando hagas clic en el botón 'previsualizar'. Sin embargo, la dirección no cambia.
           instructions: Puedes mover la ubicación en el mapa.
         edit:
           add_documents: Añadir documentos
-          add_image: Añadir imagen
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
           back: Atrás
           edit_documents: Editar documentos
-          edit_image: Editar imagen
-          gallery_legend: "(Opcional) Añadir una imagen a la tarjeta de propuesta"
           select_a_category: Por favor, selecciona una categoría
           send: Enviar
           title: Editar propuesta
@@ -816,23 +791,16 @@ es-MX:
           state: Estado
           type: Tipo
           voted: Apoyadas
-        filters_small_view:
-          close_modal: Cerrar ventana
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desplegar
         index:
           click_here: Ver todas las propuestas
           collaborative_drafts_list: Acceder a borradores colaborativos
+          count:
+            one: "%{count} propuesta"
+            other: "%{count} propuestas"
           new_proposal: Nueva propuesta
           see_all: Ver todas las propuestas
           see_all_withdrawn: Ver todas las propuestas retiradas
           text_banner: Estás viendo la lista de propuestas retiradas por sus autoras. %{go_back_link}.
-          view_proposal: Ver propuesta
-        linked_proposals:
-          proposal_votes:
-            one: dar apoyo
-            other: apoyos
         new:
           send: Continuar
           title: Crea tu propuesta
@@ -846,10 +814,8 @@ es-MX:
           recent: Reciente
           with_more_authors: Con más autoras
         participatory_texts:
-          index:
-            document_index: Índice del documento
           view_index:
-            see_index: Ver índice
+            document_index: Índice del documento
         placeholder:
           address: 37 Homewood Drive Brownsburg, EN 46112
         preview:
@@ -861,18 +827,12 @@ es-MX:
             other: Podrás editar esta propuesta durante los primeros %{count} minutos después que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publica tu propuesta
-        proposal:
-          creation_date: 'Fecha de creación: %{date}'
-          view_proposal: Ver propuesta
         proposals:
           empty: Aún no hay ninguna propuesta.
           empty_filters: No hay ninguna propuesta con este criterio.
         show:
           answer: Respuesta
-          back_to: Volver a
-          back_to_list: Volver al listado
           changes_at_title: Enmienda a "%{title}"
-          comments: Comentarios
           edit_proposal: Editar propuesta
           estimated_cost: Coste estimado
           hidden_endorsers_count:
@@ -887,14 +847,9 @@ es-MX:
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
-          read_less: Leer menos
-          read_more: Leer más
-          report: Denunciar
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation_html: '¿Seguro que quieres retirar esta propuesta?<br><br><strong>Esta acción no se puede deshacer!</strong>'
           withdraw_proposal: Retirar propuesta
-        tags:
-          changed_from: "(modificado desde <u>%{previous_name}</u> por una administradora)"
         update:
           title: Actualizar propuesta
         vote_button:
@@ -908,8 +863,6 @@ es-MX:
           count:
             one: APOYO
             other: APOYOS
-          most_popular_proposal: Propuestas más populares
-          need_more_votes: Necesita más apoyos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos
@@ -924,7 +877,6 @@ es-MX:
           title: 'La recogida de apoyos se rige por las siguientes normas:'
           vote_limit:
             description: Puedes apoyar hasta %{limit} propuestas.
-            left: Restante
             votes: Apoyos
         wizard_aside:
           back: Volver
@@ -932,20 +884,15 @@ es-MX:
           back_from_step_2: Volver a propuestas
           back_from_step_3: Volver a comparar propuestas
           back_from_step_4: Volver a editar borrador
-          info: Estás creando una <strong>propuesta</strong>.
         wizard_steps:
           current_step: Paso actual
-          see_steps: ver los pasos
           step_1: Crear tu propuesta
           step_2: Comparar
           step_3: Completar
           step_4: Publicar tu propuesta
-          step_of: Paso %{current_step_num} de %{total_steps}
           title: Pasos de creación de una propuesta
       proposals_picker:
         choose_proposals: Elegir propuestas
-        close: Cerrar
-        more_proposals: Hay %{number} propuestas más. Refina tu búsqueda para localizarlas.
         no_proposals: No hay propuestas que coincidan con tu criterio de búsqueda o no hay ninguna propuesta.
       publish:
         error: Ha habido errores al publicar la propuesta.
@@ -959,12 +906,8 @@ es-MX:
         error: Ha habido errores al guardar el borrador de la propuesta.
         success: Borrador de propuesta actualizado con éxito.
       versions:
-        collaborative_drafts:
-          back_to_resource: Volver al borrador colaborativo
         index:
           title: Versiones
-        proposals:
-          back_to_resource: Volver a propuesta
       withdraw:
         errors:
           has_supports: Esta propuesta no puede ser retirada porque ya tiene apoyos.

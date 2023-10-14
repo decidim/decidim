@@ -5,7 +5,6 @@ gl:
         assemblies_ids: Asembleas relacionadas
         available_slots: Prazas dispoñíbeis
         banner_image: Imaxe do banner
-        consultations_ids: Consultas relacionadas
         copy_categories: Copiar categorías
         copy_components: Copiar compoñentes
         copy_features: Copiar funcións
@@ -56,7 +55,6 @@ gl:
         conference_meeting_ids: Xuntanzas relacionadas
         full_name: Nome completo
         position: Posición
-        twitter_handle: Conta do Twitter
         user_id: Usuario
       conference_user_role:
         email: Correo electrónico
@@ -77,7 +75,6 @@ gl:
     admin:
       actions:
         confirm: Confirmar
-        new_conference: Nova conferencia
         send_diplomas: Enviar certificados de asistencia
       conference_copies:
         new:
@@ -138,7 +135,6 @@ gl:
         form:
           title: Información xeral
         index:
-          not_published: Non publicado
           published: Publicado
         new:
           create: Crear
@@ -179,7 +175,6 @@ gl:
           conference_invites: Invitacións
           conference_speakers: Ponentes
           diploma: Certificado de asistencia
-          info: Información
           media_links: Ligazóns multimedia
           moderations: Moderacións
           partners: Socios
@@ -190,7 +185,6 @@ gl:
         conference:
           fields:
             created_at: Creado en
-            promoted: Promocionado
             published: Publicado
             title: Título
         conference_speaker:
@@ -309,9 +303,6 @@ gl:
         title: Ponentes
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a esta conferencia. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         conference_invites:
           create:
             error: Houbo un problema ao invitar ao usuario a unirse á conferencia.
@@ -328,7 +319,6 @@ gl:
               all: Todo
               rejected: Rexeitado
               sent: Enviado
-            filter_by: Filtrar por
             invite_attendee: Invitar asistente
             invites: Invitacións
             search: Busca
@@ -352,7 +342,6 @@ gl:
             registrations_count:
               one: Houbo 1 rexistro.
               other: Houbo %{count} rexistros.
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a esta conferencia. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         diplomas:
           edit:
             save: Gardar
@@ -411,7 +400,6 @@ gl:
           invalid: Houbo un problema deixando esta conferencia.
           success: Deixaches con éxito a conferencia.
       conference_speaker:
-        go_to_twitter: Ir a Twitter
         more_info: máis información
         personal_website: Sitio web persoal
         show:
@@ -463,9 +451,7 @@ gl:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Conferencias activas
-            conferences_button_title: Ligazón á páxina de Conferencias que amosa todas as conferencias
-            see_all_conferences: Ver todas as conferencias
+            active_spaces: Conferencias activas
       registration_types:
         index:
           choose_an_option: 'Elixe a túa opción de rexistro:'
@@ -477,7 +463,6 @@ gl:
         introduction: Introdución
         objectives: Obxectivos
         related_assemblies: Asembleas relacionadas
-        related_consultations: Consultas relacionadas
         related_participatory_processes: Procesos participativos relacionados
     events:
       conferences:
@@ -529,9 +514,6 @@ gl:
     decidim:
       conference_hero:
         register: Rexistrarse
-      conference_widgets:
-        show:
-          take_part: Tomar parte en
       conferences:
         conference:
           more_info: Máis información
@@ -542,11 +524,7 @@ gl:
           conferences:
             one: "%{count} conferencia"
             other: "%{count} conferencias"
-        promoted_conference:
-          more_info: Máis información
-          take_part: Tomar parte en
       conferences_nav:
-        conference_menu_item: Información
         conference_partners_menu_item: Socios
         conference_speaker_menu_item: Ponentes
         media: Medios de comunicación

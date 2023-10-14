@@ -5,7 +5,6 @@ ru:
         confirm_destroy: Вы действительно хотите удалить это?
         destroy: Удалить
         edit: Редактировать
-        new: Добавить
         save: Сохранить
         title: Действия
       admins:
@@ -34,7 +33,6 @@ ru:
           fields:
             created_at: 'Добавлено:'
             email: Эл. адрес
-          name: Администратор
           validations:
             email_uniqueness: уже есть другой администратор с тем же эл-адресом
         organization:
@@ -44,7 +42,6 @@ ru:
             created_at: 'Добавлено:'
             name: Имя
             smtp_settings: Настройки SMTP
-          name: Организация
       organizations:
         create:
           error: При попытке добавить новую организацию произошла ошибка.
