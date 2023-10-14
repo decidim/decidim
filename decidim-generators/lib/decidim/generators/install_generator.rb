@@ -100,7 +100,8 @@ module Decidim
 
         # Run Decidim custom procfile installation
         rails "decidim:procfile:install"
-        # replace robots.txt
+
+        # Replace robots.txt
         rails "decidim:robots:replace"
       end
 
