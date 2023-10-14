@@ -159,13 +159,13 @@ en:
         destroy:
           success: Member successfully deleted for this assembly.
         edit:
-          title: Update assembly member.
+          title: Update assembly member
           update: Update
         index:
           assembly_members_title: Assembly members
         new:
           create: Create
-          title: New assembly member.
+          title: New assembly member
         update:
           error: There was a problem updating the member for this assembly.
           success: Member successfully updated for this assembly.
@@ -183,13 +183,13 @@ en:
         destroy:
           success: Admin successfully removed from this assembly.
         edit:
-          title: Update assembly admin.
+          title: Update assembly admin
           update: Update
         index:
           assembly_admins_title: Assembly admins
         new:
           create: Create
-          title: New assembly admin.
+          title: New assembly admin
         update:
           error: There was a problem updating an admin for this assembly.
           success: Admin updated successfully for this assembly.
