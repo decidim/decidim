@@ -27,9 +27,6 @@ ar:
         new: منشور جديد
         title: أفعال
       admin:
-        models:
-          post:
-            name: بريد
         posts:
           edit:
             save: تحديث
@@ -56,9 +53,6 @@ ar:
             official_blog_post: المنشور الرسمي
             published_at: موعد النشر
             title: العنوان
-      posts:
-        show:
-          view: رأي
     components:
       blogs:
         actions:

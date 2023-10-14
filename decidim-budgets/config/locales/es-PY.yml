@@ -45,7 +45,8 @@ es-PY:
         edit: Editar
         edit_projects: Gestionar proyectos
         import: Importar propuestas a proyectos
-        new: Nuevo %{name}
+        new_budget: Añadir presupuesto
+        new_project: Añadir proyecto
         preview: Previsualizar
         send_voting_reminders: Enviar recordatorios de votación
         title: Acciones
@@ -161,20 +162,22 @@ es-PY:
         close_modal: Cierra el modal
         continue: Continuar
         more_information: Más información
-      budget_list_item:
-        voting_finished: Has votado en este presupuesto.
-        voting_started: Has empezado a votar en este presupuesto.
       budgets_list:
+        budgets: Presupuestos
         cancel_order:
           more_than_one: eliminar tu voto en %{name} y empezar de nuevo
           only_one: eliminar tu voto y empezar de nuevo.
+        count:
+          one: "%{count} presupuesto"
+          other: "%{count} presupuestos"
         finished_message: Has terminado el proceso de votación. ¡Gracias por participar!
         highlighted_cta: Votar en %{name}
         if_change_opinion: Si has cambiado de opinión, puedes %{cancel_link}.
-        my_budgets: Mis presupuestos
         progress: Finalizar votación
+        remove_vote: Eliminar el voto
         show: Ver proyectos
         vote: Votar
+        voted_budgets: Presupuestos votados
         voted_on: Has votado a %{links}.
       last_activity:
         new_vote_at: Nueva votación presupuestaria en
@@ -210,7 +213,6 @@ es-PY:
           budget_excess:
             description: No se puede añadir este proyecto porque sobrepasaría el máximo del presupuesto disponible. Si lo deseas, puedes eliminar alguno de los proyectos que ya hayas seleccionado para poder votar de acuerdo a tus preferencias.
             title: Presupuesto excedido
-          close: Cerrar
           description: No se puede añadir este proyecto porque sobrepasaría el máximo del presupuesto disponible. Si lo deseas, puedes eliminar alguno de los proyectos que ya hayas seleccionado para poder votar de acuerdo a tus preferencias.
           ok: De acuerdo
           projects_excess:
@@ -218,35 +220,17 @@ es-PY:
             title: Se ha superado el número máximo de proyectos
         budget_summary:
           are_you_sure: '¿Estás seguro de que deseas cancelar tu voto?'
-          assigned: 'Asignado:'
           cancel_order: eliminar tu voto y empezar de nuevo
           checked_out:
             description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.
             title: Voto enviado correctamente
-          minimum_projects_rule:
-            description: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona por lo menos %{minimum_number} y vota según tus preferencias para definir el presupuesto.'
-            instruction: "<li>Selecciona al menos %{minimum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
-          projects_rule:
-            description: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona entre %{minimum_number} y %{maximum_number} proyectos, y vota según tus preferencias para definir el presupuesto.'
-            instruction: "<li>Selecciona al menos %{minimum_number} y hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
-          projects_rule_maximum_only:
-            description: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona hasta %{maximum_number} y vota según tus preferencias para definir el presupuesto.'
-            instruction: "<li>Selecciona hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
-          rules:
-            title: Reglas de presupuesto
-          title: Tú decides el presupuesto
-          total_budget: Presupuesto total
-          total_projects: Total de votos
-          vote_threshold_percent_rule:
-            description: '¿A qué proyectos crees que deberíamos asignar el presupuesto? Asigna por lo menos %{minimum_budget} a los proyectos que desees y vota para definir el presupuesto.'
-            instruction: "<li>Selecciona al menos %{minimum_budget} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
+          vote: Votar presupuesto
         count:
           projects_count:
             one: 1 proyecto
             other: "%{count} proyectos"
         exit_modal:
           cancel: Volver a la votación
-          close_modal: Cerrar modal
           exit: Salir de la votación
           message: Tu voto no ha sido registrado porque aún no has completado el proceso de votación. ¿Seguro que quieres salir de la votación?
           title: Aún no has votado
@@ -259,21 +243,24 @@ es-PY:
             all: Todos
             not_selected: No seleccionado
             selected: Seleccionado
-        filters_small_view:
-          close_modal: Cerrar ventana
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desplegar
         index:
-          view_project: Ver proyecto
+          back_to_budgets: volver a los presupuestos
         order_progress:
-          vote: Dar apoyo
-        order_selected_projects:
-          remove: Eliminar
-          selected_projects:
-            one: proyecto seleccionado
-            other: proyectos seleccionados
-          view: Ver
+          assigned: Asignado
+          budget: Presupuesto
+          dynamic_help:
+            keep_adding_projects: Seguir añadiendo proyectos
+            minimum_reached: Has alcanzado el mínimo para poder votar
+            start_adding_projects: Empezar a añadir proyectos
+          minimum: Mínimo
+          minimum_projects_rule:
+            description: Selecciona al menos %{minimum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
+          projects_rule:
+            description: Selecciona al menos %{minimum_number} y hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
+          projects_rule_maximum_only:
+            description: Selecciona hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
+          vote_threshold_percent_rule:
+            description: Selecciona al menos %{minimum_budget} com los proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
         orders:
           highest_cost: Mayor coste
           label: Ordenar proyectos por
@@ -295,10 +282,13 @@ es-PY:
           add_descriptive: Añade el proyecto %{resource_name} a tu voto.
           added: Añadido a tu voto
           added_descriptive: El proyecto %{resource_name} se ha añadido a tu voto.
+        project_filter:
+          added: Añadido
+          all: Todos
         projects_for: Proyectos de %{name}
+        select_projects: Selecciona proyectos
         show:
           budget: Presupuesto
-          view_all_projects: Ver todos los proyectos
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Áreas donde tienes una votación inacabada:'
@@ -367,7 +357,8 @@ es-PY:
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto.
-        success: Tu voto se ha aceptado correctamente.
+        success_html: <p>Tu voto ha sido aceptado con éxito.</p> <p class="text-sm font-normal">Puedes <a class="text-secondary underline" href="%{rest_of_budgets_link}">explorar el resto de presupuestos</a>.</p>
+        success_no_left_budgets_html: Tu voto se ha aceptado correctamente.
       destroy:
         error: Se ha producido un error al cancelar tu voto.
         success: Tu voto se ha cancelado correctamente.

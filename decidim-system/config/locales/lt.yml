@@ -37,12 +37,14 @@ lt:
         confirm_destroy: Ar tikrai norite tai ištrinti?
         destroy: Ištrinti
         edit: Redaguoti
-        new: Naujas
         save: Išsaugoti
         title: Veiksmai
       admins:
         create:
           error: Kuriant naują administratorių iškilo problema.
+          success: Administratorius sukurtas.
+        destroy:
+          success: Administratorius pašalintas.
         edit:
           title: Redaguoti administratorių
           update: Atnaujinti
@@ -53,13 +55,16 @@ lt:
           title: Naujas administratorius
         update:
           error: Atnaujinant šį administratorių iškilo problema.
+          success: Administratorius atnaujintas.
       dashboard:
         show:
           current_organizations: Dabartinės organizacijos
       default_pages:
         placeholders:
           content: Administratoriaus suvestinės statiniame puslapyje %{page} įrašykite prasmingą turinį.
+          summary: Prašome pridėti prasmingą santrauką %{page} statiniam puslapiui administravimo skydelyje.
           title: '%{page} numatytasis pavadinimas'
+        terms-of-service: Paslaugų teikimo sąlygos
       menu:
         admins: Administratoriai
         dashboard: Švieslentė
@@ -70,7 +75,6 @@ lt:
           fields:
             created_at: Sukurta
             email: El. paštas
-          name: Administratorius
           validations:
             email_uniqueness: jau yra kitas administratorius su tokiu pačiu el. pašto adresu
         oauth_application:
@@ -78,17 +82,16 @@ lt:
             created_at: Sukurta
             name: '„OAuth“ programos pavadinimas'
             organization_name: Organizacija
-          name: OAuth aplikacija
         organization:
           actions:
             save_and_invite: Sukurti organizaciją ir pakviesti administratorių
           fields:
+            content_security_policy: Turinio saugumo politika
             created_at: Sukurta
             file_upload_settings: Failų įkėlimo nustatymai
             name: Vardas
             omniauth_settings: '„Omniauth“ nuostatos'
             smtp_settings: SMTP nustatymai
-          name: Organizacija
       oauth_applications:
         create:
           error: Kuriant šią aplikaciją iškilo problema.
@@ -117,6 +120,15 @@ lt:
         create:
           error: Kuriant naują organizaciją iškilo problema.
           success: Organizacija sėkmingai sukurta.
+        csp_settings:
+          connect_src: Prijungti src
+          default_src: Numatytasis src
+          font_src: Šrifto src
+          frame_src: Rėmelio src
+          img_src: Paveikslėlio src
+          media_src: Medijos src
+          script_src: Script src
+          style_src: Stiliaus src
         edit:
           secondary_hosts_hint: Kiekvieną iš jų įrašykite į naują eilutę
         file_upload_settings:
@@ -140,6 +152,8 @@ lt:
         index:
           title: Organizacijos
         new:
+          reference_prefix_hint: Nuorodos priešdėlis naudojamas unikaliai identifikuoti išteklius visoje organizacijoje.
+          secondary_hosts_hint: Kiekvieną iš jų įrašykite į naują eilutę.
           title: Nauja organizacija
         omniauth_settings:
           decidim:
@@ -162,6 +176,8 @@ lt:
         smtp_settings:
           fieldsets:
             sender: Siuntėjas
+          instructions:
+            from_label: 'El. pašto siuntėjas bus: "jūsų-organizacijos-pavadinimas <your-organization@example.org>". Palikite tuščią, jei norite naudoti el. pašto adresą kaip etiketę.'
           placeholder:
             from_email: jūsų-organizacija@example.org
             from_label: jūsų-organizacijos-pavadinimas
@@ -171,6 +187,7 @@ lt:
         users_registration_mode:
           disabled: Prieiga galima tik iš išorės paskyrų
           enabled: Leisti dalyviams registruotis ir prisijungti
+          existing: Neleisti dalyviams užsiregistruoti, bet leiskite esamiems dalyviams prisijungti
       shared:
         notices:
           no_organization_warning_html: Norėdami pradėti, turite sukurti organizaciją. Prieš tęsdami būtinai perskaitykite %{guide}.

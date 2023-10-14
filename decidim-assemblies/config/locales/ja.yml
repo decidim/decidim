@@ -58,7 +58,7 @@ ja:
         subtitle: サブタイトル
         target: 参加者
         title: タイトル
-        twitter: Twitter
+        twitter: X
         weight: 順番の位置
         youtube: YouTube
       assembly_member:
@@ -103,7 +103,6 @@ ja:
         edit:
           update: 更新
         index:
-          not_published: 未公開
           private: プライベート
           public: 公開
           published: 公開済み
@@ -201,9 +200,11 @@ ja:
           attachments: 添付ファイル
           categories: カテゴリ
           components: コンポーネント
-          info: 情報
+          info: この参加スペースについて
+          landing_page: ランディングページ
           moderations: モデレーション
           private_users: プライベートユーザー
+          see_assembly: 参加スペースを見る
         assemblies_types: 参加スペース種別
       models:
         assemblies_types:
@@ -212,6 +213,7 @@ ja:
             title: タイトル
         assembly:
           fields:
+            actions: アクション
             created_at: 作成日時
             private: プライベート
             promoted: 強調表示
@@ -285,7 +287,7 @@ ja:
             select_an_area: エリアを選択
             select_an_assembly_type: 参加スペース種別を選択
             select_parent_assembly: 親参加スペースを選択
-            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             social_handlers: ソーシャル
             title: 一般情報
             visbility: 公開範囲
@@ -299,11 +301,10 @@ ja:
             title: タイトル
         assembly_copies:
           form:
-            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         assembly_imports:
           form:
-            document_legend: ドキュメントを追加
-            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         assembly_members:
           form:
             existing_user: 既存の参加者
@@ -319,7 +320,6 @@ ja:
               all: すべて
               ceased: 終了済み
               not_ceased: 終了していません
-            filter_by: フィルター
             search: 検索
         content_blocks:
           highlighted_assemblies:
@@ -328,6 +328,26 @@ ja:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: エリア
+          closing_date: 終了日
+          created_by: 作成者
+          creation_date: 作成日
+          data: 参加スペースデータ
+          developer_group: プロモーターグループ
+          duration: 期間
+          included_at: 含まれた日時
+          indefinite_duration: 無期限
+          local_area: 組織エリア
+          meta_scope: スコープ
+          participatory_scope: 決めること
+          participatory_structure: 決定方法
+          target: 参加者
+          title: この参加スペースについて
+        filters:
+          names:
+            all: すべて
+          type: 種別
         show:
           title: この参加スペースについて
       assembly_members:
@@ -342,8 +362,16 @@ ja:
         participatory: 参加者
         working_group: ワーキンググループ
       content_blocks:
+        children_assemblies:
+          name: 参加スペース
+        dates_metadata:
+          name: 日付のメタデータ
+        extra_data:
+          name: 種別と期間
         highlighted_assemblies:
           name: ハイライトされた参加スペース
+        related_assemblies:
+          name: 関連する参加スペース
       created_by:
         city_council: 市議会
         others: その他
@@ -365,40 +393,20 @@ ja:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: アクティブな参加スペース
-            assemblies_button_title: すべての参加スペースを表示する参加スペースページへのリンク
-            see_all_assemblies: すべての参加スペースを表示
+            active_spaces: アクティブな参加スペース
+            see_all_spaces: すべての参加スペースを表示
         user_profile:
           member_of:
             member_of: メンバー
       show:
-        area: エリア
         assembly_type: 参加スペース種別
-        children: 参加スペース
-        closing_date: 終了日
-        composition: 構成
-        created_by: '作成者:'
-        creation_date: 作成日
-        developer_group: プロモーターグループ
         duration: 持続期間
-        included_at: 含まれた日
-        indefinite_duration: 無期限
-        internal_organisation: 内部組織
         is_transparent:
           'false': 不透明な
           'true': 透明性
-        local_area: 組織エリア
-        participatory_scope: 決定されるもの
-        participatory_structure: どのように決められますか？
         private_space: これは私的参加スペースです
-        purpose_of_action: アクションの目的
-        read_less: 未読にする
-        read_more: もっと読む
         related_participatory_processes: 関連する参加型プロセス
-        scope: スコープ
-        social_networks: ソーシャル ネットワーク
         social_networks_title: 参加スペースを訪問
-        target: 参加者
     assembly_members:
       assembly_member:
         designated_on: 指定日時：
@@ -448,19 +456,12 @@ ja:
           more_info: 詳細情報
           take_part: 参加する
         index:
-          children: '参加スペース: '
-          organizational_chart: 組織図
           promoted_assemblies: ハイライトされた参加スペース
-          reset_chart: リセット
+        metadata:
+          children_item:
+            other: "%{count} 個の参加スペース"
         order_by_assemblies:
           assemblies:
             other: "%{count} 個の参加スペース"
-        promoted_assembly:
-          more_info: 詳細情報
-          take_part: 参加する
       assembly_navigation:
         assembly_member_menu_item: メンバー
-        assembly_menu_item: 参加スペース
-      assembly_widgets:
-        show:
-          take_part: 参加する

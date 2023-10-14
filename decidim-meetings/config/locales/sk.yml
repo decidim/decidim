@@ -55,7 +55,6 @@ sk:
           success: Duplicitné schôdzka úspešne.
         new:
           copy: kopírovať
-          select: Vyberte, ktoré dáta chcete duplikovať
           title: Duplicitné schôdzka
     components:
       meetings:
@@ -136,7 +135,6 @@ sk:
         confirm_destroy: Naozaj chcete túto schôdzku vymazať?
         destroy: Odstrániť
         edit: Upraviť
-        new: Nové stretnutie
         preview: Náhľad
         registrations: Registrácia
         title: Akcia
@@ -190,7 +188,6 @@ sk:
               all: Všetko
               rejected: Odmietnuté
               sent: Odoslaná
-            filter_by: Filtrovať podľa
             invite_attendee: Pozvať účastníka
             invites: Pozvánky
             search: Vyhľadávanie
@@ -221,9 +218,6 @@ sk:
           services:
             add_service: Pridať službu
             services: Služby
-        models:
-          meeting:
-            name: Stretnutie
         registrations:
           edit:
             save: Uložiť
@@ -263,12 +257,8 @@ sk:
               not_found: 'Organizátor nebol nájdený v databáze (ID:%{id})'
       calendar_modal:
         calendar_url: URL kalendára
-        close_window: Zatvorte okno
         export_calendar: Exportovať kalendár
       conference_venues: Konferenčné priestory
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: Zobraziť všetko
       directory:
         meetings:
           index:
@@ -286,13 +276,6 @@ sk:
           category: Kategória
           date: dátum
           search: Vyhľadávanie
-        filters_small_view:
-          close_modal: Zatvoriť modálne
-          filter: Filter
-          filter_by: Filtrovať podľa
-          unfold: Rozbaliť
-        meeting_minutes:
-          related_information: Súvisiace informácie
         meetings:
           upcoming_meetings_warning: V súčasnosti neexistujú žiadne plánované schôdzky, ale nájdete tu všetky minulé stretnutia.
         registration_confirm:
@@ -300,7 +283,6 @@ sk:
           confirm: Potvrdiť
         show:
           attendees: Počet účastníkov
-          back: Späť na zoznam
           contributions: Počet príspevkov
           join: Pripojte sa k stretnutie
           meeting_minutes: Zápisnica z porady
@@ -316,8 +298,6 @@ sk:
             many: "%{count} zostávajúcich blokov"
             other: "%{count} zostávajúcich blokov"
           view: Zobrazenie
-      meetings_map:
-        view_meeting: Zobraziť schôdzku
       models:
         invite:
           fields:
@@ -364,8 +344,6 @@ sk:
         past_meetings: Minulé schôdze
         see_all: Zobraziť všetky (%{count})
         upcoming_meetings: Nadchádzajúce schôdzky
-      upcoming_meeting_for_card:
-        upcoming_meeting: Nadchádzajúce schôdzka
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Súvisiace výsledky:'

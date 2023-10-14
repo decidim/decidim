@@ -10,7 +10,6 @@ sl:
     devise:
       registrations:
         new:
-          sign_in: Prijava
           sign_up: Registracija
     filters:
       linked_classes:
@@ -38,9 +37,6 @@ sl:
     shared:
       login_modal:
         sign_up: Registracija
-    user_conversations:
-      index:
-        add_users_placeholder: Išči...
     welcome_notification:
       default_subject: Hvala, ker ste se pridružili nači organizaciji {{organization}}!
   devise:
@@ -51,19 +47,14 @@ sl:
       new:
         sign_up: Registracija
       signed_up: Dobrodošli! Uspešno ste se vpisali.
-    sessions:
-      new:
-        sign_in: Prijava
     shared:
       links:
-        sign_in: Prijava
         sign_up: Registracija
   layouts:
     decidim:
       edit_link:
         edit: Uredi
-      header:
-        sign_in: Prijava
+      footer:
         sign_up: Registracija
   locale:
     name: Slovenščina

@@ -4,7 +4,6 @@ sk:
       conference:
         assemblies_ids: Podobné zhromaždenia
         banner_image: Obrázok banneru
-        consultations_ids: Podobné Konzultácie
         copy_categories: Kopírovať kategórie
         copy_components: Kopírovať komponenty
         copy_features: Kopírovať prvky
@@ -49,7 +48,6 @@ sk:
     admin:
       actions:
         confirm: Potvrdiť
-        new_conference: Nová konferencia
         send_diplomas: Zaslať certifikáty o účasti
       conference_copies:
         new:
@@ -110,7 +108,6 @@ sk:
         form:
           title: Všeobecné informácie
         index:
-          not_published: Neuverejnené
           published: Zverejnené
         new:
           create: Vytvoriť
@@ -151,7 +148,6 @@ sk:
           conference_invites: Pozvánky
           conference_speakers: Rečníci
           diploma: Certifikát účasti
-          info: Informácie
           media_links: Mediálne odkazy
           moderations: Moderácia
           partners: Partneri
@@ -162,7 +158,6 @@ sk:
         conference:
           fields:
             created_at: Vytvorené
-            promoted: Zvýraznené
             published: Zverejnené
             title: Názov
         conference_speaker:
@@ -280,9 +275,6 @@ sk:
         title: Rečníci
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Krátke URL odkazy sa používajú na tvorbu URL odkazov na túto konferenciu. Povolené sú iba písmená, čísla, pomlčky, a musia začínať písmenom. Príklad: %{url}'
         conference_invites:
           create:
             error: Nastal problém s pozývaním účastníka na konferenciu.
@@ -299,7 +291,6 @@ sk:
               all: Všetko
               rejected: Odmietnuté
               sent: Odoslané
-            filter_by: Filtrovať podľa
             invite_attendee: Pozvať účastníka
             invites: Pozvánky
             search: Hľadať
@@ -325,7 +316,6 @@ sk:
               few: Sú tu %{count} registrácie.
               many: Je tu %{count} registrácií.
               other: Je tu %{count} registrácií.
-            slug_help: 'Krátke URL odkazy sa používajú na tvorbu URL odkazov na túto konferenciu. Povolené sú iba písmená, čísla, pomlčky, a musia začínať písmenom. Príklad: %{url}'
         diplomas:
           edit:
             save: Uložiť
@@ -384,7 +374,6 @@ sk:
           invalid: Vyskytol sa problém s opustením tejto konferencie.
           success: Úspešne ste opustili konferenciu.
       conference_speaker:
-        go_to_twitter: Ísť na Twitter
         more_info: viac informácií
         personal_website: Osobná stránka
         show:
@@ -435,8 +424,7 @@ sk:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktívne konferencie
-            see_all_conferences: Zobraziť všetky konferencie
+            active_spaces: Aktívne konferencie
       registration_types:
         index:
           choose_an_option: 'Zvoľte si možnosti registrácie:'
@@ -447,7 +435,6 @@ sk:
         introduction: Úvod
         objectives: Ciele
         related_assemblies: Súvisiace zhromaždenia
-        related_consultations: Súvisiace Konzultácie
         related_participatory_processes: Súvisiace participatívne procesy
     events:
       conferences:
@@ -489,9 +476,6 @@ sk:
     decidim:
       conference_hero:
         register: Registrovať
-      conference_widgets:
-        show:
-          take_part: Zapojte sa
       conferences:
         conference:
           more_info: Viac informácií
@@ -504,11 +488,7 @@ sk:
             few: "%{count} konferencií"
             many: "%{count} konferencií"
             other: "%{count} konferencií"
-        promoted_conference:
-          more_info: Viac informácií
-          take_part: Zapojte sa
       conferences_nav:
-        conference_menu_item: Informácie
         conference_partners_menu_item: Partneri
         conference_speaker_menu_item: Rečníci
         media: Médiá

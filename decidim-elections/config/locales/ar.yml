@@ -18,8 +18,6 @@ ar:
         models:
           answer:
             name: الإجابة
-          question:
-            name: سؤال
         steps:
           tally_started:
             mark_as_missing: وضع علامة مفقود

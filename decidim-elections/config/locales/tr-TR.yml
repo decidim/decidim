@@ -37,6 +37,14 @@ tr:
         one: Soru
         other: Sorular
   decidim:
+    admin:
+      voting_publications:
+        create:
+          error: Bu oylama yayınlanırken bir sorun oluştu.
+          success: Soru/oylama başarıyla yayınlandı.
+        destroy:
+          error: Bu soru/Oylama yayından kaldırılırken bir hata oluştu.
+          success: Soru başarıyla yayından kaldırıldı
     components:
       elections:
         actions:
@@ -56,7 +64,10 @@ tr:
         import: Teklifleri yanıtlara aktarın
         manage_answers: Cevapları yönet
         manage_questions: Soruları yönet
-        new: Yeni %{name}
+        new_answer: Yeni Yanıt
+        new_election: Yeni seçim
+        new_question: Yeni soru
+        new_trustee: Yeni Vekil
         preview: Önizleme
         publish: Yayınla
         title: Eylemler
@@ -94,12 +105,6 @@ tr:
         models:
           answer:
             name: Cevap
-          election:
-            name: Seçim
-          question:
-            name: Soru
-          trustee:
-            name: Vekil
         proposals_imports:
           new:
             create: Teklifleri yanıtlara aktarın
@@ -149,13 +154,7 @@ tr:
           active: Aktif
           all: Tümü
           finished: Bitti
-          search: Arama
           upcoming: Yakında
-        filters_small_view:
-          close_modal: Pencereyi kapat
-          filter: Filtrele
-          filter_by: Şuna göre filtrele
-          unfold: Aç
         preview:
           title: Seçim soruları
         results:
@@ -165,7 +164,6 @@ tr:
             one: "%{count} oy"
             other: "%{count} oy"
         show:
-          back: Mevcut seçimler
           preview: Önizleme
           voting_period_status:
             finished: Oylama %{start_time} tarihinde başladı ve %{end_time} tarihinde sona erdi
@@ -229,15 +227,15 @@ tr:
           update:
             success: Tanımlama genel anahtarınız başarıyla saklandı.
       votes:
+        ballot_decision:
+          audit: Oy kontrolü
         confirm:
-          answer: Cevap
           answer_number: '%{number} cevap'
           confirm: Onayla
           edit: düzenle
           header: Oyunu onayla
           intro: İşte kullanmak üzere olduğunuz oyların bir özeti. <br> Lütfen oyunuzu onaylayın veya yanıtlarınızı düzenleyin.
           nota_option: Boş
-          question: '%{count} soru'
         confirmed:
           back: Seçimlere dön
           experience: Şu ana kadarki deneyiminiz nasıl?
@@ -245,8 +243,11 @@ tr:
           header: Oy onaylandı
           text: 'Aşağıdaki tanımlayıcıyla oyunuzun başarıyla oy sandığına eklenip eklenmediğini kontrol edebilirsiniz: <strong class = "evote__poll-id">%{e_vote_poll_id} </strong>'
         header:
+          ballot_decision: Kullanmak
           confirm: Oyunu onayla
-          confirmed: Oy onaylandı
+          election: Seçim
+          register: Kayıt Olmak
+          vote_for: Oy vermek
         messages:
           not_allowed: Şu anda bu seçim için oy kullanmanıza izin verilmiyor.
         modal:
@@ -280,6 +281,52 @@ tr:
             email_intro: Bir yönetici sizi %{resource_name} için güvenilen kişi olarak ekledi. Genel anahtarınızı <a href='%{trustee_zone_url}'> güvenilen bölgenizde </a> oluşturmalısınız
             email_subject: '%{resource_name} için vekil birisiniz.'
             notification_title: <a href="%{participatory_space_url}">%{resource_name} </a> için vekil birisiniz.
+    participatory_spaces:
+      related_elections:
+        see_all: Tüm seçimleri görünüz
+    votings:
+      admin:
+        ballot_styles:
+          index:
+            actions:
+              new: Yeni oylama Yöntemi
+        content_blocks:
+          attachments_and_folders:
+            name: Oylama ekleri ve klasörleri
+          header:
+            name: Oylama Başlığı
+          html_block_1:
+            name: Oylama html bloğu 1
+          html_block_2:
+            name: Oylama html bloğu 2
+          html_block_3:
+            name: Oylama html bloğu 3
+          main_data:
+            name: Başlık ve Açıklama
+          metrics:
+            name: Oylama Metrikleri
+          polling_stations:
+            name: Oy kullanma yeri
+          related_elections:
+            name: Seçim ve Seçmenler
+          stats:
+            name: Oylama istatistikleri
+          timeline:
+            name: Oylama Zaman Çizelgesi
+      pages:
+        home:
+          highlighted_votings:
+            active_spaces: Aktif oylamalar
+            see_all_spaces: Tüm Oylamaları Görün
+      polling_officers:
+        actions:
+          new: Yeni Oylama Memuru
+      polling_stations:
+        actions:
+          new: Oy verme yeri
+      votings:
+        show:
+          title: Bu Oylama Hakkında
   layouts:
     decidim:
       election_votes_header:

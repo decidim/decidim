@@ -174,8 +174,6 @@ uk:
             create: Внести
             title: Створити пропозицію
           show:
-            created_at: Дата створення
-            proposals: Пропозиції
             votes_count: Кількість голосів
         proposals_imports:
           new:
@@ -247,21 +245,9 @@ uk:
           search: Шукати
           state: Стан
           voted: Проголосоване
-        filters_small_view:
-          close_modal: Закрити віконце
-          filter: Відібрати
-          filter_by: 'Відібрати за ознакою:'
-          unfold: Розгорнути
         index:
           new_proposal: Додати нову пропозицію
           see_all_withdrawn: Переглянути всі відкликані пропозиції
-          view_proposal: Переглянути пропозицію
-        linked_proposals:
-          proposal_votes:
-            one: голос
-            few: голоси
-            many: голосів
-            other: голосів
         new:
           send: Продовжити
         orders:
@@ -278,17 +264,12 @@ uk:
             other: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після оприлюднення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
           publish: Оприлюднити
           title: Оприлюднити свою пропозицію
-        proposal:
-          creation_date: 'Внесено: %{date}'
-          view_proposal: Переглянути пропозицію
         show:
           answer: Відповісти
-          comments: Коментарі
           edit_proposal: Редагувати пропозицію
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
-          report: Поскаржитись
           withdraw_btn_hint: Ви можете зняти свою пропозицію, якщо ви передумали, доки ви не отримали жодної підтримки. Пропозиція не видаляється, вона з'явиться у списку відкликаних пропозицій.
           withdraw_proposal: Зняти пропозицію
         vote_button:
@@ -304,8 +285,6 @@ uk:
             few: ГОЛОСИ
             many: ГОЛОСІВ
             other: ГОЛОСІВ
-          most_popular_proposal: Найпопулярніша пропозиція
-          need_more_votes: Потрібно більше голосів
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Кожну пропозицію можуть підтримувати понад %{limit} людей
@@ -314,18 +293,14 @@ uk:
           title: 'Голосування регулюється наступними правилами:'
           vote_limit:
             description: Ви можете проголосувати до %{limit} пропозицій.
-            left: Залишилось
             votes: Голоси
         wizard_aside:
           back: Повернутись
-          info: Ви вносите <strong>пропозицію</strong>.
         wizard_steps:
-          see_steps: переглянути кроки
           step_1: Внесіть свою пропозицію
           step_2: Порівняти
           step_3: Завершити
           step_4: Оприлюднити свою пропозицію
-          step_of: '%{current_step_num}-й крок з %{total_steps} кроків'
       publish:
         error: При спробі оприлюднити цю пропозицію сталися помилки.
         success: Пропозицію успішно оприлюднено.

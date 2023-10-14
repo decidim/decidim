@@ -60,15 +60,12 @@ id:
         budget_excess:
           budget_excess:
             title: Anggaran maksimum terlampaui
-          close: Dekat
           ok: baik
         budget_summary:
           are_you_sure: Anda yakin ingin membatalkan suara?
-          assigned: 'Ditugaskan:'
           cancel_order: hapus suara Anda dan mulai lagi dari awal
           checked_out:
             title: Suara anggaran selesai
-          title: Anda yang memutuskan anggaran
         count:
           projects_count:
             other: "%{count} proyek"
@@ -76,23 +73,10 @@ id:
           category: Kategori
           scope: Cakupan
           search: Pencarian
-        filters_small_view:
-          close_modal: Tutup modal
-          filter: Filter
-          filter_by: Saring menurut
-          unfold: Membuka
-        order_progress:
-          vote: Memilih
-        order_selected_projects:
-          remove: Menghapus
-          selected_projects:
-            other: proyek yang dipilih
-          view: Melihat
         project:
           view: Melihat
         show:
           budget: Anggaran
-          view_all_projects: Lihat semua proyek
     components:
       budgets:
         actions:

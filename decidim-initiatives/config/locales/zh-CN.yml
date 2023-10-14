@@ -199,7 +199,6 @@ zh-CN:
             send_to_technical_validation: 发送到技术验证
             update: 更新
           form:
-            attachments: 附件
             settings: 设置
             title: 通告周知
           index:
@@ -213,24 +212,17 @@ zh-CN:
             photos: 照片
         initiatives_type_scopes:
           edit:
-            back: 后退
-            confirm_destroy: 您确定吗？
-            destroy: 删除
             title: 编辑倡议类型范围
             update: 更新
           new:
-            back: 后退
             create: 创建
             title: 创建倡议类型范围
         initiatives_types:
           edit:
-            confirm_destroy: 您确定吗？
-            destroy: 删除
             update: 更新
           form:
             authorizations: 授权设置
             options: 备选方案
-            title: 通告周知
           initiative_type_scopes:
             title: 倡议类型的范围
           new:
@@ -250,10 +242,6 @@ zh-CN:
         rejected: 签名不足
         validating: 技术验证
       application_helper:
-        filter_area_values:
-          all: 所有的
-        filter_scope_values:
-          all: 所有的
         filter_state_values:
           accepted: 足够的签名
           all: 所有的
@@ -286,24 +274,15 @@ zh-CN:
         previous_form:
           back: 后退
           continue: 继续
-          help: 倡议包含什么？请写下标题和描述。 我们提出了一个简短的标题和一个侧重于拟议解决办法的说明。
-          more_information: "(更多信息)"
         promotal_committee:
-          back: 后退
           more_information: "(更多信息)"
         select_initiative_type:
           back: 后退
           choose_html: 我想要创建 <strong>%{title}</strong>
-          more_information: "(更多信息)"
+          more_information: (更多信息)
           select: 我想促进这项倡议
         share_committee_link:
-          continue: 继续
           invite_to_committee_help: 邀请将成为促进委员会成员的人的链接
-        show_similar_initiatives:
-          back: 后退
-          compare_help: 如果以下任何一项倡议与您的倡议相似，我们鼓励您签署。您的建议将有更多的机会去完成。
-          continue: 我的倡议是不同的
-          more_information: "(更多信息)"
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}，您正在关注这个问题，已经创建了一个新的倡议，查看它并做出贡献："
@@ -315,15 +294,9 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注 %{author_nickname}。您可以停止收到跟随上一个链接的通知。
           email_subject: '%{author_nickname} 认可的倡议'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议已被 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 认可。
-      index:
-        title: 倡议
       initiative_signatures:
         fill_personal_data:
           continue: 继续
-          date_select:
-            day: 日
-            month: 月
-            year: 年份
         finish:
           back_to_initiative: 回到倡议
         sms_code:
@@ -339,8 +312,6 @@ zh-CN:
         sms_phone:
           invalid: 电话号码无效或正在等待授权。请检查您的授权。
       initiatives:
-        author:
-          deleted: 已删除
         author_list:
           hidden_authors_count:
             other: 和更多 %{count} 人
@@ -356,11 +327,6 @@ zh-CN:
           search: 搜索
           state: 状态
           type: 类型
-        filters_small_view:
-          close_modal: 关闭窗口
-          filter: 筛选器
-          filter_by: 筛选方式
-          unfold: 展开...
         index_header:
           new_initiative: 新举措
         initiatives:
@@ -381,8 +347,6 @@ zh-CN:
           city: 城市
         result:
           initiative_rejected_reason: 这项倡议由于没有签字而被拒绝。
-        show:
-          follow_description: 当该倡议有消息时收到通知
         signatures_count:
           other: " 签名"
         vote_cabin:
@@ -394,8 +358,6 @@ zh-CN:
         votes_count:
           count:
             other: 签名
-          most_popular_initiative: 最受欢迎的倡议
-          need_more_votes: 需要更多签名
       initiatives_mailer:
         creation_subject: 您的倡议%{title}已创建
         initiative_link:
@@ -410,14 +372,8 @@ zh-CN:
       modal:
         not_authorized:
           authorizations_page: 查看授权
-          close: 关闭
           explanation: 您需要验证才能创建一个新的倡议。
           title: 需要授权
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: 积极的倡议
-            see_all_initiatives: 查看所有倡议
       show:
         badge_name:
           accepted: 足够的签名
@@ -430,9 +386,6 @@ zh-CN:
         accepted: 已接受
         expired: 已过期
       unavailable_scope: 不可用的范围
-      versions:
-        shared:
-          back_to_resource: 回到倡议
     menu:
       initiatives: 倡议
     resources:
@@ -443,26 +396,15 @@ zh-CN:
   layouts:
     decidim:
       initiative_creation_header:
-        back: 后退
         fill_data: 创建
         finish: 完成
-        previous_form: 开始
         promotal_committee: 宣传委员会
         select_initiative_type: 选择
-        show_similar_initiatives: 比较
-        title: 创建新的倡议
-      initiative_header:
-        initiative_menu_item: 倡议
       initiative_signature_creation_header:
-        back: 后退
         fill_personal_data: 完成您的数据
         finish: 完成
-        finished: 倡议签名已创建
-        see_steps: 查看步骤
-        select_identity: 选择身份
         sms_code: 短信代码验证
         sms_phone_number: 手机号码
-        step: 步骤 %{current} / %{total}
         title: 签名 %{initiative_title}
       initiatives:
         initiative:

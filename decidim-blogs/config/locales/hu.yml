@@ -23,9 +23,6 @@ hu:
         new: Új bejegyzés
         title: Műveletek
       admin:
-        models:
-          post:
-            name: Bejegyzés
         posts:
           create:
             invalid: Probléma történt a bejegyzés létrehozásakor.
@@ -49,6 +46,11 @@ hu:
           create: "%{user_name} létrehozta a(z) %{resource_name} blogposztot itt: %{space_name}"
           delete: "%{user_name} törölte a(z) %{resource_name} blogposztot itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} blogposztot itt: %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Utoljára közzétett
+          name: Bejegyzések
+          see_all: Megnézem az összes bejegyzést
       last_activity:
         new_post: 'Új bejegyzés:'
       models:
@@ -59,9 +61,6 @@ hu:
             official_blog_post: Hivatalos bejegyzés
             published_at: Közzététel időpontja
             title: Cím
-      posts:
-        show:
-          view: Nézet
     components:
       blogs:
         actions:

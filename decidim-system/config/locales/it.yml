@@ -37,7 +37,6 @@ it:
         confirm_destroy: Sei sicuro di voler cancellare?
         destroy: Elimina
         edit: Modifica
-        new: Nuovo
         save: Salva
         title: Azioni
       admins:
@@ -70,7 +69,6 @@ it:
           fields:
             created_at: Data/ora di creazione
             email: E-mail
-          name: Amministratore
           validations:
             email_uniqueness: Esiste già un utente Admin con l'email che hai indicato.
         oauth_application:
@@ -78,7 +76,6 @@ it:
             created_at: Data/ora di creazione
             name: Nome dell'applicazione OAuth
             organization_name: Organizzazione
-          name: Applicazione OAuth
         organization:
           actions:
             save_and_invite: Crea una nuova organizzazione e invita un utente Admin
@@ -88,7 +85,6 @@ it:
             name: Nome
             omniauth_settings: Impostazioni Omniauth
             smtp_settings: Impostazioni SMTP
-          name: Organizzazione
       oauth_applications:
         create:
           error: Si è verificato un errore durante la creazione di questa applicazione.

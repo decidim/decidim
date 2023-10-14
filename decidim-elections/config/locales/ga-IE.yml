@@ -47,10 +47,6 @@ ga:
         models:
           answer:
             name: Freagra
-          question:
-            name: Ceist
-          trustee:
-            name: Iontaobhaí
         questions:
           index:
             title: Ceisteanna
@@ -95,11 +91,7 @@ ga:
           active: Gníomhach
           all: Uile
           finished: Críochnaithe
-          search: Cuardaigh
           upcoming: Le teacht
-        filters_small_view:
-          filter: Scag
-          unfold: Oscail
         show:
           action_button:
             change_vote: Athraigh do vóta
@@ -152,7 +144,6 @@ ga:
               submit: Deimhnigh
       votes:
         confirm:
-          answer: Freagra
           confirm: Deimhnigh
           edit: eagar
           nota_option: Bán
@@ -177,7 +168,6 @@ ga:
             actions:
               destroy: Scrios
               edit: Eagar
-              new: Nua
               title: Gníomhartha
           new:
             create: Cruthaigh
@@ -247,7 +237,6 @@ ga:
         votings:
           actions:
             destroy: Scrios
-            publish: Foilsigh
           edit:
             update: Nuashonraigh
           form:
@@ -264,10 +253,6 @@ ga:
         export_mailer:
           access_codes_export:
             download: Íoslódáil
-      content_blocks:
-        landing_page:
-          metrics:
-            heading: Méadrachtaí
       monitoring_committee_members:
         actions:
           destroy: Scrios
@@ -277,12 +262,8 @@ ga:
           edit:
             modal_ballots_results_count_error:
               close_modal: Dún
-          new:
-            modal_ballots_count_error:
-              close_modal: Dún
           sign:
             cancel: Cealaigh
-            close_modal: Dún
         in_person_votes:
           in_person_form:
             day: Lá
@@ -303,7 +284,6 @@ ga:
       polling_officers:
         actions:
           destroy: Scrios
-          new: Nua
           title: Gníomhartha
         roles:
           manager: Bainisteoir
@@ -313,7 +293,6 @@ ga:
         actions:
           destroy: Scrios
           edit: Eagar
-          new: Nua
           title: Gníomhartha
       votings:
         check_fields:
@@ -331,25 +310,17 @@ ga:
           finished: Críochnaithe
           search: Cuardaigh
           upcoming: Le teacht
-        filters_small_view:
-          filter: Scag
-          unfold: Oscail
         index:
           title: Vótála
         login:
           start_voting: Tosaigh ag vótáil
         orders:
           random: Randamach
-        show:
-          dates: Dátaí
       votings_m:
         badge_name:
           finished: Críochnaithe
           ongoing: Leanúnach
           upcoming: Le teacht
-        footer_button_text:
-          view: Amharc
-          vote: Vóta
         voting_type:
           hybrid: Hibrid
           online: Ar líne

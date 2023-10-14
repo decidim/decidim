@@ -30,21 +30,16 @@ zh-TW:
           error: 更新評論時出現問題。
       comments_count: 評論次數
       comments_title: 評論
-      last_activity:
-        new_comment_at_html: "<span>在 %{link} 上發布了新評論</span>"
-      view: 檢視
       votes:
         create:
           error: 投票評論時發生問題。
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">登入您的帳戶</a>或<a href="%{sign_up_url}">註冊</a>以新增您的評論。
         form:
           body:
             label: 評論
             placeholder: 你有什麼想法？
           form_error: 文字為必填欄位，且不可超過 %{length} 個字元。
-          submit: 發送
           user_group_id:
             label: 評論者：
         opinion:
@@ -92,8 +87,6 @@ zh-TW:
           older: 較早的
           recent: 最近
         title: '排序方式:'
-      comment_thread:
-        title: 與 %{authorName} 的對話
       comments:
         blocked_comments_for_unauthorized_user_warning: 目前需要驗證您的身份才能發表評論，但您可以閱讀先前的評論。
         blocked_comments_for_user_warning: 目前您無法發表評論，但您可以閱讀先前的評論。
