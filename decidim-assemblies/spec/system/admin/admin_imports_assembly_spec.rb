@@ -30,7 +30,7 @@ describe "Admin imports assembly", type: :system do
         "image/jpeg"
       )
 
-      within_admin_sidebar_menu do
+      within_admin_menu do
         click_link "Import"
       end
 

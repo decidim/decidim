@@ -296,7 +296,7 @@ describe "Admin manages votings", type: :system do
       end
     end
 
-    within_admin_menu do
+    within_admin_sidebar_menu do
       expect(page).to have_content("About this voting")
       expect(page).to have_content("Landing Page")
       expect(page).to have_content("Components")
