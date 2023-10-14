@@ -122,29 +122,20 @@ ga:
           new:
             create: Cruthaigh
           show:
-            authors: Údair
             body: Corp
-            comments_negative_count: In Aghaidh
-            comments_neutral_count: Neodrach
-            comments_positive_count: I Bhfabhar
             endorsements_count: Líon formhuinithe
             endorsers: Formhuinitheoirí
             link: Nasc
             photos: Grianghraif
-            proposals: Moltaí
       answers:
         accepted: Glactha
         rejected: Diúltaithe
       application_helper:
-        filter_category_values:
-          all: Uile
         filter_origin_values:
           all: Uile
           meetings: Cruinnithe
           official: Oifigiúil
           user_groups: Grúpaí
-        filter_scope_values:
-          all: Uile
         filter_state_values:
           accepted: Glactha
           all: Uile
@@ -184,18 +175,10 @@ ga:
             accept_request: Glac
             reject_request: Diúltaigh
         show:
-          back: Ar Ais
           publish: Foilsigh
         states:
           open: Oscail
-      content_blocks:
-        highlighted_proposals:
-          proposals: Moltaí
       models:
-        collaborative_draft:
-          fields:
-            authors: Údair
-            comments: Tráchtanna
         proposal:
           fields:
             category: Catagóir
@@ -211,7 +194,6 @@ ga:
         buttons:
           amend: Leasaigh
           comment: Trácht
-          comments: Tráchtanna
       proposals:
         compare:
           continue: Lean ar aghaidh
@@ -232,9 +214,6 @@ ga:
           search: Cuardaigh
           state: Stádas
           type: Cineál
-        filters_small_view:
-          filter: Scag
-          unfold: Oscail
         new:
           send: Lean ar aghaidh
         orders:
@@ -245,9 +224,6 @@ ga:
           publish: Foilsigh
         show:
           answer: Freagra
-          back_to: Siar
-          comments: Tráchtanna
-          report: Tuairiscigh
         vote_button:
           vote: Tacaigh le
         voting_rules:
@@ -258,8 +234,6 @@ ga:
         wizard_steps:
           step_2: Cuir i gcomparáid
           step_3: Críochnaithe
-      proposals_picker:
-        close: Dún
       versions:
         index:
           title: Leaganacha

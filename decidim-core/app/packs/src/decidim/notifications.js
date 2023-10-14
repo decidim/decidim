@@ -1,5 +1,5 @@
 /**
- * The topbar__notifications element has changes after redesign
+ * This file handles the interactions of the notifications site via javascript
  * @param {HTMLElement} node target node
  * @returns {void}
  */

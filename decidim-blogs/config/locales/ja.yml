@@ -22,9 +22,6 @@ ja:
         new: 新規投稿
         title: アクション
       admin:
-        models:
-          post:
-            name: 投稿
         posts:
           create:
             invalid: 投稿の作成中に問題が発生しました。
@@ -48,6 +45,11 @@ ja:
           create: "%{user_name} が %{space_name} でブログ投稿 %{resource_name} を作成しました"
           delete: "%{user_name} がブログ投稿 %{resource_name} を %{space_name} から削除しました"
           update: "%{user_name} が %{space_name} のブログ投稿 %{resource_name} を更新しました"
+      content_blocks:
+        highlighted_posts:
+          last_published: 最近公開された投稿
+          name: 投稿
+          see_all: すべての投稿を表示
       last_activity:
         new_post: '新しい投稿:'
       models:
@@ -59,8 +61,9 @@ ja:
             published_at: 公開時刻
             title: タイトル
       posts:
-        show:
-          view: 表示
+        index:
+          count:
+            other: "%{count} 件の投稿"
     components:
       blogs:
         actions:

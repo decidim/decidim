@@ -49,7 +49,6 @@ sv:
         confirm_destroy: Är du säker?
         destroy: Radera
         edit: Redigera
-        new: Ny %{name}
         title: Åtgärder
       admin:
         debate_closes:
@@ -79,9 +78,6 @@ sv:
             success: Debatten uppdaterades.
         exports:
           comments: Kommentarer
-        models:
-          debate:
-            name: Debatt
       admin_log:
         debate:
           close: "%{user_name} stängde debatten %{resource_name} i utrymmet %{space_name}"
@@ -94,7 +90,7 @@ sv:
           invalid: Det gick inte att stänga debatten.
           success: Debatten har stängts.
         close_debate_modal:
-          close: Stäng
+          cancel: Avbryta
           description: Vad är sammanfattningen för denna debatt?
           send: Stäng debatt
         closed: Stängd
@@ -121,18 +117,12 @@ sv:
           official: Officiell
           origin: Ursprung
           participants: Deltagare
-          scope: Omfång
           search: Sök
           state: Status
           state_values:
             closed: Stängda
             open: Öppna
-          user_groups: Grupper
-        filters_small_view:
-          close_modal: Stäng fönstret
-          filter: Filtrera
-          filter_by: Filtrera efter
-          unfold: Veckla ut
+          user_group: Grupper
         form:
           select_a_category: Välj en kategori
         index:
@@ -148,7 +138,6 @@ sv:
           recent: Senaste
           updated: Senast uppdaterade
         show:
-          back: Tillbaka till listan
           close_debate: Stäng debatt
           date: Datum
           debate_closed: Stängd
@@ -156,25 +145,18 @@ sv:
           edit_conclusions: Redigera slutsatser
           edit_debate: Redigera debatt
           groups_count: Grupper
-          last_comment_by: Senaste kommentar av
-          no_comments_yet: Inga kommentarer ännu
           open: Öppna debatt
           participants_count: Deltagare
         update:
           invalid: Det gick inte att uppdatera debatten.
           success: Debatten har uppdaterats.
-        versions:
-          debates:
-            back_to_resource: Gå tillbaka till debatten
-          index:
-            title: Versioner
-        versions_list:
-          back_to_resource: Gå tillbaka till debatten
       models:
         debate:
           fields:
+            end: Slut
             end_time: Slutdatum
             official_debate: Officiell debatt
+            start: Start
             start_time: Startdatum
             title: Titel
     events:

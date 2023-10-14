@@ -71,7 +71,6 @@ zh-CN:
         success_color: 成功
         time_zone: 时区
         tos_version: 服务条款版本
-        twitter_handler: Twitter handler
         user_groups_enabled: 启用组
         warning_color: 警告
         welcome_notification_body: 欢迎通知机构
@@ -128,8 +127,6 @@ zh-CN:
       actions:
         add: 添加
         browse: 浏览
-        manage: 管理
-        new: 新建 %{name}
         per_page: 每页
         permissions: 权限
         reject: 拒绝
@@ -170,7 +167,6 @@ zh-CN:
           title: 编辑文件夹
           update: 更新
         index:
-          attachment_collection_used: 无法删除此文件夹，因为它正在使用。
           attachment_collections_title: 附件文件夹
         new:
           create: 创建
@@ -209,7 +205,6 @@ zh-CN:
           update: 更新
         index:
           categories_title: 类别管理
-          category_used: 无法删除此类别，因为它正在使用。
         new:
           create: 创建类别
           title: 新类别
@@ -298,7 +293,6 @@ zh-CN:
             all: 所有的
             managed: 已管理
             not_managed: 未管理
-          filter_by: 筛选方式
           impersonate: 仿冒的
           impersonate_new_managed_user: 管理新参与者
           managed: 已管理
@@ -341,7 +335,6 @@ zh-CN:
         area_types: 区域类型
         areas: 地区
         configuration: 配置
-        dashboard: 仪表板
         help_sections: 帮助部分
         homepage: 主页
         impersonations: 影像
@@ -418,7 +411,6 @@ zh-CN:
           fields:
             created_at: 创建日期
             email: 电子邮件地址
-            last_sign_in_at: 最后登录日期
             name: 名称
             role: 作用
             roles:
@@ -489,9 +481,6 @@ zh-CN:
           select_scopes: 筛选已激活其账户中任何选定范围的用户。
           select_spaces: 选择要断开通讯的空格
           select_users: 选择您想要发送消息的用户
-          send_to_all_users: 发送给所有用户
-          send_to_followers: 发送给关注者
-          send_to_participants: 发送给参与者
           title: 选择要交付的收件人
           warning: "<strong>注意:</strong> 这份通讯将只发送给已激活 <em>我想在其通知设置中接收新闻简讯</em>。"
         show:
@@ -520,7 +509,6 @@ zh-CN:
           officialize: 正式化
           title: 认证参与者 "%{name}"
         show_email_modal:
-          close_modal: 关闭模式
           email_address: 电子邮件地址
           full_name: 全名
           hidden: hidden
@@ -535,7 +523,6 @@ zh-CN:
           instagram: Instagram
           rich_text_editor_in_public_views_help: 在某些文本领域，参与者将能够通过使用丰富的文本编辑器插入一些HTML标签。
           social_handlers: 社交活动
-          twitter: 推特
           youtube: YouTube
         update:
           error: 更新这个组织时出现问题。
@@ -546,8 +533,6 @@ zh-CN:
         form:
           colors:
             colors_title: 组织颜色
-            header_snippets_help: 使用此字段将物品添加到HTML头部。 最常见的用途是集成第三方服务，需要额外的 JavaScript 或 CSS 另外，您可以使用它添加额外的元标签到 HTML。 请注意，这只会在公开页面中提供，而不会在管理部分提供。
-          cta_button_path_help: '您可以覆盖主页链接中的通话动作按钮的位置。请使用部分路径，而不是这里的完整URL。 接受字母、 数字、 破折号和斜线，并且必须以字母开头。 “调用动作”按钮在主页的欢迎文本和描述之间显示。例如： %{url}'
           cta_button_text_help: 您可以在主页中为您的组织中的每种可用语言覆盖“通话动作”按钮文本。 如果未设置，将使用默认值。 “通话动作”按钮显示在欢迎文本和描述之间的主页。
           homepage_appearance_title: 编辑主页外观
           homepage_highlighted_content_banner_title: 高亮的内容素材
@@ -656,9 +641,6 @@ zh-CN:
           update: 更新
         form:
           none: 无
-          slug_help: '在这里使用部分路径，不是完整的 URL。接受字母、数字、破折号和斜线，并且必须以字母开头。例如: %{url}'
-        index:
-          last_notable_change: 上一次值得注意的变化
         new:
           create: 创建页面
           title: 新页面
@@ -680,7 +662,6 @@ zh-CN:
         participants: 参加者
         scope_types: 范围类型
         scopes: 范围
-        static_pages: 页 次
         statistics: 活动
         user_groups: 群組
       user_group:
@@ -722,7 +703,6 @@ zh-CN:
           last_month: 上月
           last_week: 上周
           participants: 参加者
-      view_public_page: 查看公共页面
     moderations:
       actions:
         hidden: Hidden
@@ -751,12 +731,3 @@ zh-CN:
   errors:
     messages:
       invalid_json: 无效的 JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: 新闻通讯
-        settings:
-          title: 设置
-        users:
-          title: 参加者

@@ -10,7 +10,6 @@
   $comments.replaceWith(commentsHtml);
 
   $comments = $("#" + rootCommentableId);
-  $comments.foundation();
 
   // Re-create the component
   component = new Decidim.CommentsComponent($comments, $comments.data("decidim-comments"));

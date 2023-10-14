@@ -82,7 +82,6 @@ lb:
         edit: Editéieren
         filter:
           all_processes: Alle Beteiligungsprozesse anzeigen
-          process_groups: Prozessgruppen
         import_process: Import
         new_process: Neuer Beteiligungsprozess
         new_process_group: Neue Prozessgruppe
@@ -104,7 +103,6 @@ lb:
           attachments: Unhäng
           categories: Kategorien
           components: Komponenten
-          info: Informatioun
           moderations: Moderationen
           private_users: Private Benutzer
           process_admins: Benutzer verarbeiten
@@ -114,7 +112,6 @@ lb:
           fields:
             created_at: Erstallt den
             private: Privat
-            promoted: Highlighted
             published: Verëffentlecht
             title: Titel
           name: Bedeelegungsprozess
@@ -223,9 +220,6 @@ lb:
         description: Anzahl der Beteiligungsprozesse in dieser Organisation
         object: Bedeelegungsprozesser
         title: Bedeelegungsprozesser
-    participatory_process:
-      show:
-        related_assemblies: Ähnliche Versammlungen
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -234,36 +228,19 @@ lb:
           name: Zweiter HTML-Block
         html_3:
           name: Dritter HTML-Block
-        metadata:
-          developer_group: Unterstützt von
-          name: Metadaten
-          participatory_scope: Was wird entschieden
-          participatory_structure: Wie wird es entschieden
-          target: Wer nimmt teil
         participatory_processes:
           name: Bedeelegungsprozesser
         stats:
           name: Aktivität
         title:
           meta_scope: Ëmfang
-          name: Titel, Beschreibung und Hashtag
       show:
         title: Prozessgruppen
     participatory_processes:
       show:
         belongs_to_group: Dieser Prozess gehört zu
-        dates: Daten
-        developer_group: Promoter-Gruppe
-        end_date: Endtermin
-        local_area: Organisationsbereich
-        participatory_scope: Was wird entschieden
-        participatory_structure: Wie wird es entschieden
         private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
-        scope: Ëmfang
-        start_date: Ufanksdatum
-        target: Wer nimmt teil
-        unspecified: Keine Angabe
     statistics:
       processes_count: Bedeelegungsprozesser
   layouts:
@@ -273,29 +250,12 @@ lb:
           browse: Durchsuchen
           browse_resource: Prozessgruppe %{resource_name} durchsuchen
           processes_count: 'Bedeelegungsprozesser:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktiv Etapp
-          take_part: Deelhuelen
       participatory_processes:
         index:
           promoted_processes: Hervorgehobene Beteiligungsprozesse
         participatory_process:
-          active_step: 'Aktuell Etapp'
+          active_step: Aktuell Etapp
           more_info: Méi Informatiounen
           more_info_about: Méi Informatiounen iwert den Prozess %{resource_name}
           take_part: Deelhuelen
           take_part_in: Deelhuelen um Prozess %{resource_name}
-        promoted_process:
-          active_step: 'Aktuell Etapp:'
-          more_info: Méi Informatiounen
-          more_info_about: Méi Informatiounen iwert den Prozess %{resource_name}
-          take_part: Deelhuelen
-          take_part_in: Deelhuelen um Prozess %{resource_name}
-        promoted_process_group:
-          more_info: Méi Informatiounen
-      process_header_steps:
-        step: Etapp %{current} vun %{total}
-        view_steps: Prozessetappen
-      process_navigation:
-        process_menu_item: De Prozess

@@ -527,7 +527,7 @@ en:
             create: Create
             title: Create proposal
           publish_answers:
-            number_of_proposals: Answers for %{number} proposals will be published.
+            number_of_proposals: Answers for %{number} proposal's will be published?
             select_a_proposal: Please select a proposal.
           show:
             amendments_count: Amendments count
@@ -537,7 +537,7 @@ en:
             documents: Documents
             endorsements_count: Endorsements count
             endorsers: Endorsers
-            link: Link
+            link: See proposal
             n_more_endorsers:
               one: and 1 more
               other: and %{count} more

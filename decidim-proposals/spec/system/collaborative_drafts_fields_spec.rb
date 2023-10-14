@@ -28,8 +28,6 @@ describe "Collaborative drafts", type: :system do
   end
 
   context "when creating a new collaborative_draft" do
-    let(:scope_picker) { select_data_picker(:collaborative_draft_scope_id) }
-
     context "when the user is logged in" do
       before do
         login_as user, scope: :user

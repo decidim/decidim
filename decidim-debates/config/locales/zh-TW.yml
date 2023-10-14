@@ -50,7 +50,6 @@ zh-TW:
         confirm_destroy: 您確定嗎？
         destroy: 刪除
         edit: 編輯
-        new: 新增 %{name}
         title: 操作
       admin:
         debate_closes:
@@ -80,9 +79,6 @@ zh-TW:
             success: 辯論已成功更新
         exports:
           comments: 評論
-        models:
-          debate:
-            name: 辯論
       admin_log:
         debate:
           close: "%{user_name} 在 %{space_name} 空間關閉了 %{resource_name} 辯論。"
@@ -95,7 +91,6 @@ zh-TW:
           invalid: 關閉辯論時出現問題
           success: 辯論成功關閉
         close_debate_modal:
-          close: 關閉
           description: 這場辯論的總結或結論是什麼？
           send: 關閉辯論
         closed: 關閉
@@ -121,18 +116,11 @@ zh-TW:
           official: 官方
           origin: 起源
           participants: 參與者
-          scope: 範圍
           search: 搜尋
           state: 狀態
           state_values:
             closed: 關閉
             open: 開啟
-          user_groups: 群組
-        filters_small_view:
-          close_modal: 關閉視窗
-          filter: 篩選
-          filter_by: 篩選條件
-          unfold: 展開
         form:
           select_a_category: 請選擇一個類別
         index:
@@ -148,7 +136,6 @@ zh-TW:
           recent: 最近
           updated: 最近更新
         show:
-          back: 返回列表
           close_debate: 關閉辯論
           date: 日期
           debate_closed: 關閉
@@ -156,20 +143,11 @@ zh-TW:
           edit_conclusions: 修改結論
           edit_debate: 編輯辯論
           groups_count: 群組
-          last_comment_by: 最後評論
-          no_comments_yet: 尚無留言
           open: 開放性辯論
           participants_count: 參與者
         update:
           invalid: 更新此辯論時發生問題。
           success: 辯論已成功更新
-        versions:
-          debates:
-            back_to_resource: 返回辯論
-          index:
-            title: 版本
-        versions_list:
-          back_to_resource: 返回辯論
       last_activity:
         debate_updated: '辯論已更新:'
         new_debate: '新辯論:'

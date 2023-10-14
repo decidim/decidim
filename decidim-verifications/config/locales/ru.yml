@@ -24,7 +24,7 @@ ru:
             - Участники вводят свои личные данные и загружают фото своего документа.
             - Вы вводите данные из загруженной фотографии.
             - Данные должны соответствовать тем, которые предоставил участник.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
             - Участники запрашивают проверочный код для отправки по их адресу.

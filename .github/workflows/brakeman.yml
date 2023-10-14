@@ -1,4 +1,4 @@
-name: "[CI] Brakeman analysis"
+name: "[CI] Brakeman"
 
 on:
   push:
@@ -52,7 +52,7 @@ jobs:
           - decidim-templates
           - decidim-verifications
     runs-on: ubuntu-latest
-    name: Brakeman
+    name: ${{ matrix.working-directory }}
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     steps:

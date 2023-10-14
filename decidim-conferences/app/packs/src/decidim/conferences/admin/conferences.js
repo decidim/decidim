@@ -6,9 +6,9 @@ $(() => {
   if ($form.length > 0) {
     $conferenceScopeEnabled.on("change", (event) => {
       const checked = event.target.checked;
-      window.theDataPicker.enabled($conferenceScopeId, checked);
+      $conferenceScopeId.attr("disabled", !checked);
     })
-    window.theDataPicker.enabled($conferenceScopeId, $conferenceScopeEnabled.prop("checked"));
+    $conferenceScopeId.attr("disabled", !$conferenceScopeEnabled.prop("checked"));
 
     const $registrationsEnabled = $form.find("#conference_registrations_enabled");
     const $availableSlots = $form.find("#conference_available_slots");
