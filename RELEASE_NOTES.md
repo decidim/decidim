@@ -267,9 +267,9 @@ Please read more in the docs:
 
 You can check more about the implementation in the [\#10700](https://github.com/decidim/decidim/pull/10700) pull request.
 
-### 3.11 Patch robots.txt
+### 3.11 Anti-spam measures in the robots.txt
 
-In order to append default Decidim robots.txt to the application's robots.txt, we have added a new task that helps you to do that.
+In order to improve the fight against spam attacks in Decidim applications, we have added a new task that helps you replace yours. Take into account that this will override your robots.txt, so if you have done any change you need to make a backup before running this task.
 
 ```bash
 bundle exec rails decidim:robots:replace
