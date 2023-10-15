@@ -251,7 +251,7 @@ module Decidim
                         I18n.t("landing_page", scope: "decidim.admin.menu.participatory_process_groups_submenu"),
                         decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group),
                         position: 2,
-                        icon_name: "pages-line",
+                        icon_name: "layout-masonry-line",
                         if: allowed_to?(:update, :process_group, process_group: participatory_process_group),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_group_landing_page_path(participatory_process_group))
         end
