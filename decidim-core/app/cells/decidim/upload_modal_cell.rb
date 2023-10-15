@@ -190,6 +190,10 @@ module Decidim
       Rails.application.class.routes.url_helpers.rails_direct_uploads_path
     end
 
+    def upload_validations_url
+      Decidim::Core::Engine.routes.url_helpers.upload_validations_path
+    end
+
     def form_object_class
       form.object.class.to_s
     end
