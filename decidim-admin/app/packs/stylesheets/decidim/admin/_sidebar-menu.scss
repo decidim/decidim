@@ -44,7 +44,7 @@
   }
 
   &__container {
-    @apply flex flex-col md:flex-row items-stretch gap-6 md:gap-12;
+    @apply flex flex-col md:flex-row items-stretch;
 
     [id*="dropdown-menu"] {
       @apply py-3.5;
