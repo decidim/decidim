@@ -98,10 +98,6 @@ module Decidim
         def participatory_process_params
           { id: params[:slug] }.merge(params[:participatory_process].to_unsafe_h)
         end
-
-        def current_participatory_space_path
-          Decidim::ResourceLocatorPresenter.new(current_participatory_space).show
-        end
       end
     end
   end

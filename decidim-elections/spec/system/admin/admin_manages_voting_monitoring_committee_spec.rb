@@ -12,7 +12,7 @@ describe "Admin manages the monitoring committee", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Members"
     end
   end

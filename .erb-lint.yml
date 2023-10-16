@@ -1,4 +1,8 @@
 ---
+glob: "decidim-*/app/{cells,views}/**/*.erb"
+exclude:
+  - '**/vendor/**/*'
+  - '**/node_modules/**/*'
 
 linters:
   ExtraNewline:
@@ -19,6 +23,15 @@ linters:
       - text/javascript
       - text/template
 
+  DeprecatedClasses:
+    enabled: true
+    exclude:
+      - 'decidim_app-design/**/*.erb'
+    addendum: "Please remove it from code."
+    rule_set:
+      - deprecated: ['xlarge-[\w]*']
+        suggestion: "Foundation classes are deprecated."
+
   Rubocop:
     enabled: true
 
@@ -28,6 +41,36 @@ linters:
 
       AllCops:
         DisabledByDefault: true
+
+      Layout/InitialIndentation:
+        Enabled: false
+
+      Lint/SymbolConversion:
+        Enabled: false
+
+      Layout/SpaceInsideParens:
+        Enabled: false
+
+      Layout/SpaceAfterColon:
+        Enabled: false
+
+      Lint/UselessAssignment:
+        Enabled: false
+
+      Layout/ArgumentAlignment:
+        Enabled: true
+
+      Layout/SpaceAfterComma:
+        Enabled: false
+
+      Layout/TrailingWhitespace:
+        Enabled: false
+
+      Layout/LeadingEmptyLines:
+        Enabled: false
+
+      Layout/SpaceBeforeComma:
+        Enabled: false
 
       Style/Copyright:
         Enabled: false
@@ -69,7 +112,7 @@ linters:
         Enabled: false
 
       Layout/MultilineMethodCallIndentation:
-        Enabled: false
+        Enabled: true
 
       Layout/IndentationWidth:
         Enabled: false

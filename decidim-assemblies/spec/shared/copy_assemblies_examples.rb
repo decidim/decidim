@@ -63,7 +63,7 @@ shared_examples "copy assemblies" do
       within find("tr", text: "Copy assembly") do
         click_link "Configure"
       end
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Categories"
       end
 
@@ -83,7 +83,7 @@ shared_examples "copy assemblies" do
       within find("tr", text: "Copy assembly") do
         click_link "Configure"
       end
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Components"
       end
 
