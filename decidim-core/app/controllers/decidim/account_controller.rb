@@ -29,7 +29,7 @@ module Decidim
         end
 
         on(:invalid) do |password|
-          update_account_password(password)
+          fetch_entered_password(password)
           flash[:alert] = t("account.update.error", scope: "decidim")
           render action: :show
         end
@@ -108,7 +108,7 @@ module Decidim
       params[:user].to_unsafe_h
     end
 
-    def update_account_password(password)
+    def fetch_entered_password(password)
       @account.password = password
     end
   end
