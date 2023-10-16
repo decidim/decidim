@@ -5,93 +5,60 @@ require "decidim/form_builder"
 module Decidim
   # This custom FormBuilder is used to create resource filter forms
   class FilterFormBuilder < FormBuilder
-    # Wrap the radio buttons collection in a custom fieldset.
-    # It also renders the inputs inside its labels.
-    def collection_radio_buttons(method, collection, value_method, label_method, options = {}, html_options = {})
-      fieldset_wrapper(options[:legend_title], "#{method}_collection_radio_buttons_filter") do
-        super(method, collection, value_method, label_method, options, html_options) do |builder|
-          if block_given?
-            yield builder
-          else
-            builder.label { builder.radio_button + builder.text }
-          end
-        end
+    # This method is used to generate a section of options in a filter block
+    # @param method [Symbol] - The method associated to the filter object of the form builder.
+    # @param collection [Array] - The collection used to display the options. It can be an
+    #                                                   array of options where each options if represented by an
+    #                                                   array containing a value and a name or a check_boxes_tree
+    #                                                   struct as defined in Decidim::CheckBoxesTreeHelper for more
+    #                                                   complex situations which require nested options.
+    # @param label_scope [String] - The scope used to translate the title of the section.
+    # @param id [String] - The id of the section. It is also used to get the translation of the
+    #                                      section title.
+    # @param options [Hash] - Additional options:
+    #   * type: The type of selector to use with the collection it can be
+    #           check_boxes, radio_buttons or check_boxes_tree (used by default
+    #           when a tree struct is passed. The default selector for arrays
+    #           is radio_buttons.
+    #   * The rest of options are passed to the partial used to generate the
+    #     section.
+    # @return [ActionView::OutputBuffer] - the HTML of the generated collection filter
+    def collection_filter(method:, collection:, label_scope:, id:, **options)
+      type = options.delete(:type) || default_form_type_for_collection(collection)
+
+      case type.to_s
+      when "check_boxes", "check_box", "radio_buttons", "radio_button"
+        options.merge!(builder_type: type.to_s.pluralize)
+        type = "collection"
+      when "check_boxes_tree"
+        options.merge!(check_boxes_tree_id: check_boxes_tree_id(method))
       end
+
+      @template.render(
+        "decidim/shared/filters/#{type}",
+        **options.merge(
+          method:,
+          collection:,
+          label_scope:,
+          id:,
+          form: self
+        )
+      )
     end
 
-    # Wrap the check_boxes collection in a custom fieldset.
-    # It also renders the inputs inside its labels.
-    def collection_check_boxes(method, collection, value_method, label_method, options = {}, html_options = {})
-      fieldset_wrapper(options[:legend_title], "#{method}_collection_check_boxes_filter") do
-        super(method, collection, value_method, label_method, options, html_options) do |builder|
-          if block_given?
-            yield builder
-          else
-            builder.label { builder.check_box + builder.text }
-          end
-        end
-      end
-    end
-
-    # Wrap the dependant check_boxes in a custom fieldset.
-    # checked parent checks its children
-    def check_boxes_tree(method, collection, options = {})
-      fieldset_wrapper(options.delete(:legend_title), "#{method}_check_boxes_tree_filter") do
-        @template.render("decidim/shared/check_boxes_tree",
-                         form: self,
-                         attribute: method,
-                         collection:,
-                         check_boxes_tree_id: check_boxes_tree_id(method),
-                         hide_node: "false",
-                         options:).html_safe
-      end
-    end
-
-    # Wrap the category select in a custom fieldset.
-    def categories_select(method, collection, options = {}, html_options = {})
-      fieldset_wrapper(options.delete(:legend_title), "#{method}_categories_select_filter") do
-        super(method, collection, options, html_options)
-      end
-    end
-
-    # Wrap the areas select in a custom fieldset.
-    def areas_select(method, collection, options = {}, html_options = {})
-      fieldset_wrapper(options[:legend_title], "#{method}_areas_select_filter") do
-        super(method, collection, options, html_options)
-      end
-    end
-
-    # Wrap the custom select in a custom fieldset.
-    # Any *_select can be used as a custom_select; what changes is the superclass method,
-    # and this one knows which one has to be called, depending on the `name` provided.
-    def custom_select(name, method, collection, options = {})
-      fieldset_wrapper(options[:legend_title], "#{method}_#{name}_select_filter") do
-        send(:"#{name}_select", method, collection, options)
-      end
-    end
-
-    # Wrap the scopes picker in a custom fieldset.
-    def scopes_picker(method, options = { checkboxes_on_top: true })
-      fieldset_wrapper(options[:legend_title], "#{method}_scopes_picker_filter") do
-        super(method, options)
-      end
+    def dropdown_label(item, method, options = {})
+      @template.render("decidim/shared/filters/dropdown_label", **options.merge(item:, method:, form: self))
     end
 
     private
 
-    # Private: Renders a custom fieldset and execute the given block.
-    def fieldset_wrapper(legend_title, extra_class)
-      @template.content_tag(:div, "", class: "filters__section #{extra_class}") do
-        @template.content_tag(:fieldset) do
-          @template.content_tag(:legend, class: "mini-title") do
-            legend_title
-          end + yield
-        end
-      end
+    def check_boxes_tree_id(method)
+      method
     end
 
-    def check_boxes_tree_id(attribute)
-      "#{attribute}-#{object_id}"
+    def default_form_type_for_collection(collection)
+      return "radio_buttons" if collection.is_a?(Array)
+      return "check_boxes_tree" if collection.is_a?(Decidim::CheckBoxesTreeHelper::TreeNode)
     end
   end
 end

@@ -154,22 +154,14 @@ sk:
             print: Tlač
         initiatives_type_scopes:
           edit:
-            back: Späť
-            confirm_destroy: Si si istý?
-            destroy: Odstrániť
             title: Upraviť rozsah typu iniciatívy
             update: Aktualizovať
           new:
-            back: Späť
             create: Vytvoriť
             title: Vytvoriť rozsah typov iniciatívy
         initiatives_types:
           edit:
-            confirm_destroy: Ste si istý?
-            destroy: Odstrániť
             update: Aktualizovať
-          form:
-            title: Všeobecná informácia
           initiative_type_scopes:
             title: Zameriava sa na typ iniciatívy
           new:
@@ -210,24 +202,15 @@ sk:
         previous_form:
           back: Späť
           continue: Pokračovať
-          help: Z čoho sa iniciatíva skladá? Napíšte názov a popis. Odporúčame krátky a výstižný názov a popis zameraný na navrhované riešenie.
-          more_information: "(Viac informácií)"
         promotal_committee:
-          back: Späť
           more_information: "(Viac informácií)"
         select_initiative_type:
           back: Späť
           choose_html: Chcem vytvoriť <strong>%{title} </strong>
-          more_information: "(Viac informácií)"
+          more_information: (Viac informácií)
           select: Chcem túto iniciatívu podporiť
         share_committee_link:
-          continue: Pokračovať
           invite_to_committee_help: Odkaz na pozvanie ľudí, ktorí budú súčasťou podporovaného výboru
-        show_similar_initiatives:
-          back: Späť
-          compare_help: Ak je niektorá z nasledujúcich iniciatív podobná vašim, odporúčame vám ju podporiť. Váš návrh bude mať viac možností, ako to urobiť.
-          continue: Moja iniciatíva je iná
-          more_information: "(Viac informácií)"
       events:
         create_initiative_event:
           email_intro: "% {AUTHOR_NAME}% {author_nickname}, ktorého sledujete, vytvoril novú iniciatívu, skontroloval ju a prispel:"
@@ -239,15 +222,9 @@ sk:
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{author_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Iniciatíva bola schválená od%{author_nickname}
           notification_title: Iniciatíva <a href="%{resource_path}">% {resource_title} </a> bola schválená <a href="%{author_path}">% {AUTHOR_NAME}% {author_nickname} </a>.
-      index:
-        title: Iniciatívy
       initiative_signatures:
         fill_personal_data:
           continue: Pokračovať
-          date_select:
-            day: Deň
-            month: Mesiac
-            year: Rok
         finish:
           back_to_initiative: Späť na iniciatívu
         sms_code:
@@ -263,8 +240,6 @@ sk:
         sms_phone:
           invalid: Telefónne číslo je neplatné alebo čaká na autorizáciu. Skontrolujte prosím vaše oprávnenie.
       initiatives:
-        author:
-          deleted: Zmazaných
         author_list:
           hidden_authors_count:
             one: a 1 ďalšou osobou
@@ -284,9 +259,6 @@ sk:
           search: Vyhľadávanie
           state: Štát
           type: Typ
-        filters_small_view:
-          close_modal: Zatvoriť okno
-          filter_by: Filtrovať podľa
         index_header:
           new_initiative: Nová iniciatíva
         interactions:
@@ -306,8 +278,6 @@ sk:
           city: Mesto
         result:
           initiative_rejected_reason: Táto iniciatíva bola zamietnutá z dôvodu nedostatočnej podpory.
-        show:
-          follow_description: Dostanete oznámenia, ak sú v tejto iniciatíve správy
         signatures_count:
           one: "podpis"
           few: "podpisy"
@@ -325,8 +295,6 @@ sk:
             few: PODPISY
             many: PODPISY
             other: PODPISY
-          most_popular_initiative: Najobľúbenejšie iniciatíva
-          need_more_votes: Potrebujete ďalšie podpisy
       initiatives_mailer:
         creation_subject: Vaša občianska iniciatíva "%{title}" bola vytvorená
         initiative_link:
@@ -338,11 +306,6 @@ sk:
         promotal_committee_help: Nezabudnite, že musíte vyzvať najmenej%{member_count} ľudí na organizačný výbor. Odovzdanie nasledujúceho odkazu na pozvanie osôb do výboru predkladateľov
         status_change_body_for: 'Iniciatíva%{title} zmenila svoj stav na:%{state}'
         status_change_for: Iniciatíva%{title} zmenila svoj stav
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktívne iniciatívy
-            see_all_initiatives: Zobraziť všetky iniciatívy
       states:
         accepted: Prijal
         expired: Platnosť vypršala
@@ -357,26 +320,15 @@ sk:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Späť
         fill_data: Vytvoriť
         finish: Dokončiť
-        previous_form: Štart
         promotal_committee: Výbor predkladateľov
         select_initiative_type: Vybrať
-        show_similar_initiatives: Porovnať
-        title: Vytvoriť novú iniciatívu
-      initiative_header:
-        initiative_menu_item: Iniciatíva
       initiative_signature_creation_header:
-        back: Späť
         fill_personal_data: Dokončiť svoje údaje
         finish: Dokončiť
-        finished: Vytvorenie podpisu iniciatívy
-        see_steps: pozri kroky
-        select_identity: Vybrať identitu
         sms_code: Overenie kódu SMS
         sms_phone_number: Číslo mobilného telefónu
-        step: Krok%{current} z%{total}
         title: Podpísať%{initiative_title}
       initiatives:
         initiative:

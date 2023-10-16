@@ -368,7 +368,6 @@ it:
               md: .md
               odt: ODT
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
-            document_legend: 'Aggiungi un documento di dimensione inferiore a 2MB. Ciascuna sezione contenente fino a 3 livelli di profondità sarà suddivisa in proposte. I formati accettati sono i seguenti: %{valid_mime_types}'
             title: AGGIUNGI DOCUMENTO
             upload_document: Carica il documento
           sections:
@@ -428,30 +427,22 @@ it:
           show:
             amendments_count: Numero di emendamenti
             assigned_valuators: Valutatori assegnati
-            authors: autori
             body: Corpo
             comments_count: Conteggio dei Commenti
-            comments_negative_count: Contro
-            comments_neutral_count: Neutrale
-            comments_positive_count: A favore
-            created_at: Data di creazione
             documents: Documenti
             endorsements_count: Numero di Appoggi
-            endorsements_ranking: Classifica per appoggi
             endorsers: Sostenitori
             link: Link
             n_more_endorsers:
               one: e 1 altro
               other: e altri %{count}
             photos: Foto
-            proposals: proposte
             ranking: "%{ranking} di %{total}"
             related_meetings: Riunioni correlate
             remove_assignment: Rimuovi assegnazione
             remove_assignment_confirmation: Sei sicuro di voler rimuovere il valutatore da questa proposta?
             valuators: Valutatori
             votes_count: Contare i voti
-            votes_ranking: Ordina per numero di supporti
           update_category:
             invalid: 'Queste proposte avevano già la categoria %{subject_name} %{proposals}.'
             success: 'Proposte aggiornate con successo alla categoria %{subject_name}: %{proposals}.'
@@ -489,16 +480,12 @@ it:
         rejected: Rifiutata
         withdrawn: Ritirato
       application_helper:
-        filter_category_values:
-          all: Tutti
         filter_origin_values:
           all: Tutti
           meetings: Incontri
           official: Ufficiale
           participants: Utenti
           user_groups: Gruppi di utenti
-        filter_scope_values:
-          all: Tutti
         filter_state_values:
           accepted: Accettato
           all: Tutti
@@ -518,7 +505,6 @@ it:
               ok: Pubblica come proposta
               title: La seguente azione è irreversibile
             success: Bozza collaborativa pubblicata con successo come proposta.
-          view_collaborative_draft: Visualizza bozza collaborativa
           withdraw:
             error: Ci sono stati errori nel chiudere la bozza collaborativa.
             irreversible_action_modal:
@@ -526,10 +512,6 @@ it:
               ok: Ritirare la bozza collaborativa
               title: La seguente azione è irreversibile
             success: Bozza collaborativa ritirata con successo.
-        count:
-          drafts_count:
-            one: "%{count} bozza collaborativa"
-            other: "%{count} bozza collaborativa"
         create:
           success: Bozza collaborativa creata con successo.
         edit:
@@ -554,6 +536,10 @@ it:
           filter: Filtro
           filter_by: Filtra per
           unfold: spiegare
+        index:
+          count:
+            one: "%{count} bozza collaborativa"
+            other: "%{count} bozza collaborativa"
         new:
           send: Continua
         new_collaborative_draft_button:
@@ -575,7 +561,6 @@ it:
           rejected_request:
             error: Non può essere rifiutato come collaboratore, riprova più tardi.
         show:
-          back: Indietro
           edit: Modifica bozza collaborativa
           final_proposal: proposta finale
           final_proposal_help_text: Questa bozza è finita. Puoi vedere la proposta finale finale
@@ -587,7 +572,6 @@ it:
           published_proposal: proposta pubblicata
           request_access: Richiesta di accesso
           requested_access: Accesso richiesto
-          version_history: vedere la cronologia delle versioni per questa proposta
           withdraw: ritirare la bozza
         states:
           open: Aperto
@@ -598,12 +582,8 @@ it:
           success: Bozza collaborativa aggiornata correttamente.
         wizard_aside:
           back_from_collaborative_draft: Torna alle bozze collaborative
-          info: Stai creando una bozza collaborativa <strong></strong>.
         wizard_header:
           title: Crea la tua bozza collaborativa
-      content_blocks:
-        highlighted_proposals:
-          proposals: Proposte
       create:
         error: C'è stato un errore durante il salvataggio di questa proposta.
         success: Proposta creata con successo. Salvato come bozza.
@@ -611,11 +591,6 @@ it:
         error: Si sono verificati errori durante l'eliminazione della bozza della proposta.
         success: La bozza della proposta è stata cancellata con successo.
       models:
-        collaborative_draft:
-          fields:
-            authors: autori
-            comments: Commenti
-            contributions: contributi
         proposal:
           fields:
             category: Categoria
@@ -636,7 +611,6 @@ it:
         buttons:
           amend: emendare
           comment: Commento
-          comments: Commenti
       proposal_votes:
         create:
           error: Ci sono stati errori durante la votazione della proposta.
@@ -648,17 +622,12 @@ it:
         complete:
           send: Inviare
           title: Completa la tua proposta
-        count:
-          proposals_count:
-            one: "%{count} proposta"
-            other: "%{count} proposte"
         dynamic_map_instructions:
           description: Le coordinate verranno aggiornate quando si fa clic sul pulsante 'Anteprima'. Tuttavia, l'indirizzo non cambia.
           instructions: Puoi spostare il punto sulla mappa.
         edit:
           attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
-          gallery_legend: "(Facoltativo) Aggiungi un'immagine alla scheda proposta"
           select_a_category: Seleziona una categoria
           send: Inviare
           title: Modifica la proposta
@@ -680,20 +649,13 @@ it:
           state: Stato
           type: genere
           voted: Votata
-        filters_small_view:
-          close_modal: Chiudi modalità
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Espandi
         index:
           collaborative_drafts_list: Accedi alle bozze di collaborazione
+          count:
+            one: "%{count} proposta"
+            other: "%{count} proposte"
           new_proposal: Nuova proposta
           see_all_withdrawn: Vedi tutte le proposte ritirate
-          view_proposal: Visualizza proposta
-        linked_proposals:
-          proposal_votes:
-            one: voto
-            other: voti
         new:
           send: Continua
         orders:
@@ -705,11 +667,6 @@ it:
           random: A caso
           recent: le più recenti
           with_more_authors: Con più autori
-        participatory_texts:
-          index:
-            document_index: Indice del documento
-          view_index:
-            see_index: Vedi indice
         placeholder:
           address: Homewood Drive 37, Brownsburg, IN 46112
         preview:
@@ -721,15 +678,9 @@ it:
             other: Potrai modificare questa proposta durante i primi %{count} minuti dopo la pubblicazione della proposta. Una volta passato questo periodo, non sarai più in grado di modificare la proposta.
           publish: Pubblica
           title: Pubblica la tua proposta
-        proposal:
-          creation_date: 'Creazione: %{date}'
-          view_proposal: Visualizza la proposta
         show:
           answer: Risposta
-          back_to: Torna a
-          back_to_list: Torna alla lista
           changes_at_title: Modifica a "%{title}"
-          comments: Commenti
           edit_proposal: Modifica la proposta
           estimated_cost: Costo stimato
           hidden_endorsers_count:
@@ -744,14 +695,9 @@ it:
           proposal_accepted_reason: 'Questa proposta è stata accettata perché:'
           proposal_in_evaluation_reason: Questa proposta è in fase di valutazione
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
-          read_less: Leggi di meno
-          read_more: Leggi di più
-          report: Report
           withdraw_btn_hint: Puoi ritirare la tua proposta se cambi idea, purché non abbia ricevuto alcun supporto. La proposta non viene cancellata, apparirà nell'elenco delle proposte ritirate.
           withdraw_confirmation_html: Sei sicuro di voler ritirare questa proposta?<br><br><strong>Questa azione non può essere annullata!</strong>
           withdraw_proposal: Ritirare la proposta
-        tags:
-          changed_from: "(modificato da <u>%{previous_name}</u> da un amministratore)"
         update:
           title: Aggiorna proposta
         vote_button:
@@ -765,8 +711,6 @@ it:
           count:
             one: VOTO
             other: VOTI
-          most_popular_proposal: La proposta più popolare
-          need_more_votes: Hai bisogno di più voti
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Ogni proposta può accumulare più di %{limit} supporti
@@ -778,7 +722,6 @@ it:
           title: 'Il voto è soggetto alle seguenti regole:'
           vote_limit:
             description: Puoi votare fino a %{limit} proposte.
-            left: Restano
             votes: Voti
         wizard_aside:
           back: Indietro
@@ -786,20 +729,15 @@ it:
           back_from_step_2: Torna alle proposte
           back_from_step_3: Torna a confrontare le proposte
           back_from_step_4: Torna a modificare la bozza
-          info: Stai creando una <strong>proposta</strong>.
         wizard_steps:
           current_step: Fase attuale
-          see_steps: vedere i passaggi
           step_1: Crea la tua proposta
           step_2: Confronta
           step_3: Completa
           step_4: Pubblica la tua proposta
-          step_of: Step %{current_step_num} di %{total_steps}
           title: Fasi di creazione delle proposte
       proposals_picker:
         choose_proposals: Scegli proposte
-        close: Chiudi
-        more_proposals: Ci sono altre %{number} proposte. Affina la tua ricerca per localizzarle.
       publish:
         error: Si sono verificati errori durante la pubblicazione della proposta.
         success: Proposta pubblicata con successo.
@@ -812,12 +750,8 @@ it:
         error: Si sono verificati errori durante il salvataggio della bozza della proposta.
         success: Bozza proposta aggiornata correttamente.
       versions:
-        collaborative_drafts:
-          back_to_resource: Torna alla bozza collaborativa
         index:
           title: versioni
-        proposals:
-          back_to_resource: Torna alla proposta
     resource_links:
       copied_from_component:
         proposal_proposal: Proposte correlate

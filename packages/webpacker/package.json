@@ -31,7 +31,7 @@
     "mini-css-extract-plugin": "^2.7.6",
     "path-complete-extname": "^1.0.0",
     "pnp-webpack-plugin": "^1.7.0",
-    "postcss": "^8.4.25",
+    "postcss": ">=8.4.31",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.1.0",
     "postcss-loader": "^7.3.3",

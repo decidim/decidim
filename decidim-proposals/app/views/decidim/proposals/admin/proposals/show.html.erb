@@ -32,8 +32,8 @@
         </div>
       </div>
       <div class="ml-auto">
-        <%= link_to resource_locator(proposal).url, class: "button button__sm button__transparent-secondary" do %>
-          <%= icon "arrow-left-line", class: "fill-current" %>
+        <%= link_to resource_locator(proposal).url, class: "button button__sm button__transparent-secondary", target: :blank, data: { "external-link": false } do %>
+          <%= icon "eye-line", class: "fill-current" %>
           <%= t ".link" %>
         <% end %>
       </div>

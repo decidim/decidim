@@ -76,7 +76,6 @@ gl:
           max_choices: 'Opcións máximas: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Inicie sesión coa súa conta</a> ou <a href="%{sign_up_link}">rexístrese</a> para responder ao cuestionario.
             title: Responde o cuestionario
           questionnaire_answered:
             body: Xa contestou este cuestionario.

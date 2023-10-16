@@ -12,13 +12,9 @@ const DEFAULT_ATTRIBUTES = {
  * @returns {Void} - Returns nothing.
  */
 export default function icon(iconKey, attributes = {}) {
-  const iconAttributes = $.extend(DEFAULT_ATTRIBUTES, attributes);
-  const title = iconAttributes.title || iconAttributes.ariaLabel;
-  Reflect.deleteProperty(iconAttributes, "title");
+  const iconAttributes = { ...DEFAULT_ATTRIBUTES, ...attributes };
+  const htmlAttributes = { width: "0.75em", height: "0.75em" };
 
-  const htmlAttributes = {
-    "class": `icon icon--${iconKey}`
-  };
   Object.keys(iconAttributes).forEach((key) => {
     // Convert the key to dash-format.
     const newKey = key.replace(/([A-Z])/g, (ucw) => `-${ucw[0].toLowerCase()}`);
@@ -29,18 +25,16 @@ export default function icon(iconKey, attributes = {}) {
     }
   });
 
-  const iconsPath =  window.Decidim.config.get("icons_path");
-  const elHtml = `<svg><use href="${iconsPath}#icon-${iconKey}"></use></svg>`;
-  const $el = $(elHtml);
-  if (title) {
-    $el.prepend(`<title>${title}</title>`);
-  } else {
-    // This keeps accessibility audit tools happy
-    $el.prepend(`<title>${iconKey}</title>`);
-    // Force hidden if title is not defined
-    htmlAttributes["aria-hidden"] = "true";
-  }
-  $el.attr(htmlAttributes);
+  const svg = document.createElement("svg")
+  const use = document.createElement("use")
+  const title = document.createElement("title")
 
-  return $("<div />").append($el).html();
+  title.innerHTML = iconAttributes.title || iconAttributes.ariaLabel || iconKey
+  use.setAttribute("href", `${window.Decidim.config.get("icons_path")}#ri-${iconKey}`)
+  Object.entries(htmlAttributes).forEach(([key, value]) => svg.setAttribute(key, value))
+
+  svg.appendChild(title)
+  svg.appendChild(use)
+
+  return svg.outerHTML;
 }

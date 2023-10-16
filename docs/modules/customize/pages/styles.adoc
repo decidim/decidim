@@ -54,10 +54,9 @@ Notice that you can resize this textarea.
 
 Decidim uses Webpacker to compile assets. There are two ways to customize CSS:
 
-1. if you want to redefine just CSS vars or Foundation settings, use _decidim-settings.scss
-2. if you want to redefine a specific snippet of CSS (say a few classes but not a whole file) you can use decidim_application.scss
-3. and of course you can overwrite whole files by copying them into the application i.e: to replace `decidim-core/app/packs/stylesheets/decidim/modules/_data-consent.scss` you should create in your Rails app a file in
-  `app/packs/stylesheets/decidim/modules/_data-consent.scss` and it will have more priority over the Decidim file.
+1. if you want to redefine a specific snippet of CSS (say a few classes but not a whole file) you can use decidim_application.scss
+2. and of course you can overwrite whole files by copying them into the application i.e: to replace `decidim-core/app/packs/stylesheets/decidim/modules/_data-consent.scss` you should create in your Rails app a file in `app/packs/stylesheets/decidim/modules/_data-consent.scss` and it will have more priority over the Decidim file.
+3. if you want to customize the application colors yo can use the admin interface.
 
 We use http://sass-lang.com/guide[SASS, with SCSS syntax] as CSS preprocessor.
 

@@ -17,7 +17,7 @@ module Decidim
       private
 
       def format_thumbprint(thumbprint)
-        "<pre class='text-small text-muted'>#{thumbprint[0..14]}\n#{thumbprint[15..-16]}\n#{thumbprint[-15..-1]}</pre>".html_safe
+        "<pre class='text-muted'>#{thumbprint[0..14]}\n#{thumbprint[15..-16]}\n#{thumbprint[-15..-1]}</pre>".html_safe
       end
 
       def jwk_thumbprint(key)

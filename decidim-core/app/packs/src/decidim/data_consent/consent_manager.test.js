@@ -27,7 +27,7 @@ global.window.location = {
 
 describe("ConsentManager", () => {
   const dialogContent = `
-    <div id="dc-dialog-wrapper" class="flex-center" role="region">
+    <div id="dc-dialog-wrapper" role="region">
       <div class="dc-dialog padding-vertical-1">
         <div class="row expanded">
           <div class="columns medium-12 large-8">
@@ -39,7 +39,7 @@ describe("ConsentManager", () => {
             </div>
           </div>
           <div class="columns medium-12 large-4">
-            <div class="dc-button-wrapper flex-center">
+            <div class="dc-button-wrapper">
               <button id="dc-dialog-accept" class="button">
                 Accept all
               </button>
@@ -66,7 +66,7 @@ describe("ConsentManager", () => {
 
       <div class="dc-categories">
         <div class="category-wrapper margin-vertical-1" data-id="essential">
-          <div class="category-row flex-center">
+          <div class="category-row">
             <button class="dc-title padding-left-3">
               <span class="h5 dc-category-title">
                 <strong>Essential</strong>
@@ -110,7 +110,7 @@ describe("ConsentManager", () => {
           </div>
         </div>
         <div class="category-wrapper margin-vertical-1" data-id="preferences">
-          <div class="category-row flex-center">
+          <div class="category-row">
             <button class="dc-title padding-left-3">
               <span class="h5 dc-category-title">
                 <strong>Preferences</strong>
@@ -130,7 +130,7 @@ describe("ConsentManager", () => {
           </div>
         </div>
         <div class="category-wrapper margin-vertical-1" data-id="analytics">
-          <div class="category-row flex-center">
+          <div class="category-row">
             <button class="dc-title padding-left-3">
               <span class="h5 dc-category-title">
                 <strong>Analytics and statistics</strong>
@@ -150,7 +150,7 @@ describe("ConsentManager", () => {
           </div>
         </div>
         <div class="category-wrapper margin-vertical-1" data-id="marketing">
-          <div class="category-row flex-center">
+          <div class="category-row">
             <button class="dc-title padding-left-3">
               <span class="h5 dc-category-title">
                 <strong>Marketing</strong>
@@ -170,7 +170,7 @@ describe("ConsentManager", () => {
           </div>
         </div>
       </div>
-      <div class="dc-buttons-wrapper flex-center">
+      <div class="dc-buttons-wrapper">
         <div class="dc-buttons-left">
           <button id="dc-modal-accept" class="button" data-close="">Accept all</button>
           <button id="dc-modal-reject" class="button hollow" data-close="">Accept only essential</button>
@@ -182,7 +182,7 @@ describe("ConsentManager", () => {
     </div>
   `;
   const cookieWarningContent = `
-    <div class="dataconsent-warning flex-center padding-1 hide">
+    <div class="dataconsent-warning padding-1 hide">
       <p>You need to enable all cookies in order to see this content.</p>
       <a href="#" class="button margin-vertical-2" data-open="dc-modal">
         Change cookie settings

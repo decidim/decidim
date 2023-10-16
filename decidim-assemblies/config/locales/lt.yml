@@ -3,7 +3,10 @@ lt:
     attributes:
       assemblies_setting:
         enable_organization_chart: Įgalinti organizacijos modelį
+      assemblies_type:
+        title: Pavadinimas
       assembly:
+        announcement: Pranešimas
         area_id: Aplinka
         assembly_type: Asamblėjos tipas
         assembly_type_other: Kitas asamblėjos tipas
@@ -22,12 +25,16 @@ lt:
         decidim_scope_id: Apimtis
         description: Aprašymas
         developer_group: Rėmėjų grupė
+        document: Dokumentas
         domain: Domenas
         duration: Trukmė
         facebook: Facebook
         github: GitHub
         hashtag: Grotažymė
         hero_image: Pradžios paveikslėlis
+        import_attachments: Importuoti priedus
+        import_categories: Importuoti kategorijas
+        import_components: Importuoti komponentus
         included_at: Įtraukta
         instagram: Instagram
         internal_organisation: Vidinė organizacija
@@ -51,7 +58,6 @@ lt:
         subtitle: Paantraštė
         target: Kas dalyvauja
         title: Pavadinimas
-        twitter: Twitter
         weight: Vieta eilėje
         youtube: YouTube
       assembly_member:
@@ -64,10 +70,17 @@ lt:
         non_user_avatar: Avataras
         position: Pozicija
         user_id: Vartotojas arba grupė
+        weight: Vieta eilėje
       assembly_user_role:
         email: El. paštas
         name: Vardas
         role: Rolė
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Nevalidus turinio tipas. Leidžiamos rinkmenos tik su šiomis galūnėmis: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -98,7 +111,6 @@ lt:
         edit:
           update: Atnaujinti
         index:
-          not_published: Nepublikuota
           private: Privati
           public: Vieša
           published: Publikuota
@@ -196,7 +208,7 @@ lt:
           attachments: Priedai
           categories: Kategorijos
           components: Komponentai
-          info: Informacija
+          landing_page: Pagrindinis puslapis
           moderations: Moderavimai
           private_users: Privatūs naudotojai
         assemblies_types: Asamblėjų tipai
@@ -280,7 +292,6 @@ lt:
             select_an_area: Pasirinkti aplinką
             select_an_assembly_type: Pasirinkti asamblėjos tipą
             select_parent_assembly: Pasirinkti pagrindinę asamblėją
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
             social_handlers: Socialiniai
             title: Bendroji informacija
             visbility: Matomumas
@@ -292,13 +303,6 @@ lt:
         assemblies_types:
           form:
             title: Pavadinimas
-        assembly_copies:
-          form:
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
-        assembly_imports:
-          form:
-            document_legend: Pridėti dokumentą
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
         assembly_members:
           form:
             existing_user: Egzistuojantis dalyvis
@@ -314,7 +318,6 @@ lt:
               all: Visi
               ceased: Nutraukta
               not_ceased: Nenutraukta
-            filter_by: Filtruoti pagal
             search: Ieškoti
         content_blocks:
           highlighted_assemblies:
@@ -323,6 +326,26 @@ lt:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Aplinka
+          closing_date: Pabaigos data
+          created_by: Sukurta
+          creation_date: Sukūrimo data
+          data: Asamblėjos duomenys
+          developer_group: Rėmėjų grupė
+          duration: Trukmė
+          included_at: Įtraukta į
+          indefinite_duration: Neribota
+          local_area: Organizacijos vietovė
+          meta_scope: Sritis
+          participatory_scope: Kas sprendžiama
+          participatory_structure: Kaip sprendžiama
+          target: Kas dalyvauja
+          title: Apie šią asamblėją
+        filters:
+          names:
+            all: Visi
+          type: Tipas
         show:
           title: Apie šią asamblėją
       assembly_members:
@@ -337,8 +360,16 @@ lt:
         participatory: Dalyvaujamoji
         working_group: Darbo grupė
       content_blocks:
+        children_assemblies:
+          name: Asamblėjos
+        dates_metadata:
+          name: Datų metaduomenys
+        extra_data:
+          name: Tipas ir trukmė
         highlighted_assemblies:
           name: Paryškintos asamblėjos
+        related_assemblies:
+          name: Susijusios asamblėjos
       created_by:
         city_council: Miesto taryba
         others: Kita
@@ -360,40 +391,20 @@ lt:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktyvios asamblėjos
-            assemblies_button_title: Nuoroda į puslapį „Asamblėjos“, kuriame pateikiamos visos asamblėjos
-            see_all_assemblies: Žiūrėti visas asamblėjas
+            active_spaces: Aktyvios asamblėjos
+            see_all_spaces: Žiūrėti visas asamblėjas
         user_profile:
           member_of:
             member_of: Narys
       show:
-        area: Aplinka
         assembly_type: Asamblėjos tipas
-        children: Asamblėjos
-        closing_date: Pabaigos data
-        composition: Sudėtis
-        created_by: Sukurta
-        creation_date: Sukūrimo data
-        developer_group: Rėmėjų grupė
         duration: Trukmė
-        included_at: Įtraukta į
-        indefinite_duration: Neribota
-        internal_organisation: Vidinė organizacija
         is_transparent:
           'false': neskaidru
           'true': skaidru
-        local_area: Organizacijos aplinka
-        participatory_scope: Kas nuspręsta
-        participatory_structure: Kaip nuspręsta
         private_space: Tai yra uždara asamblėja
-        purpose_of_action: Veiksmo tikslas
-        read_less: Suskleisti
-        read_more: Išskleisti
         related_participatory_processes: Susiję dalyvaujamieji procesai
-        scope: Apimtis
-        social_networks: Socialiniai tinklai
         social_networks_title: Aplankyti asamblėją
-        target: Kas dalyvauja
     assembly_members:
       assembly_member:
         designated_on: Paskirtas
@@ -443,22 +454,18 @@ lt:
           more_info: Daugiau informacijos
           take_part: Dalyvaukite
         index:
-          children: 'Asamblėjos: '
-          organizational_chart: Organizacinė schema
           promoted_assemblies: Paryškintos asamblėjos
-          reset_chart: Atkurti
+        metadata:
+          children_item:
+            one: "%{count} asamblėja"
+            few: "%{count} asamblėjos"
+            many: "%{count} asamblėjos"
+            other: "%{count} asamblėjos"
         order_by_assemblies:
           assemblies:
             one: "%{count} asamblėja"
             few: "%{count} asamblėjos"
             many: "%{count} asamblėjos"
             other: "%{count} asamblėjos"
-        promoted_assembly:
-          more_info: Daugiau informacijos
-          take_part: Dalyvaukite
       assembly_navigation:
         assembly_member_menu_item: Nariai
-        assembly_menu_item: Asamblėja
-      assembly_widgets:
-        show:
-          take_part: Dalyvaukite

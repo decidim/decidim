@@ -28,8 +28,6 @@ describe "Proposals", type: :system do
   end
 
   context "when creating a new proposal" do
-    let(:scope_picker) { select_data_picker(:proposal_scope_id) }
-
     context "when the user is logged in" do
       before do
         login_as user, scope: :user

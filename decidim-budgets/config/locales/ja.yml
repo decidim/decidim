@@ -44,7 +44,6 @@ ja:
         edit: 編集
         edit_projects: プロジェクトの管理...
         import: プロジェクトへの提案をインポート
-        new: 新しい %{name}
         preview: プレビュー
         send_voting_reminders: 投票リマインダーを送信
         title: アクション
@@ -159,20 +158,21 @@ ja:
         close_modal: ウィンドウを閉じる
         continue: 続行
         more_information: 詳細情報
-      budget_list_item:
-        voting_finished: あなたはこの予算で投票しました。
-        voting_started: この予算に投票を開始しました。
       budgets_list:
+        budgets: 予算
         cancel_order:
           more_than_one: '%{name} への投票を削除してからやり直してください'
           only_one: 投票を削除してやり直してください
+        count:
+          other: "%{count} 件の予算"
         finished_message: 投票プロセスが終了しました。ご参加ありがとうございます！
         highlighted_cta: '%{name} に投票'
         if_change_opinion: 'もし気が変わった場合は、以下を行うことができます:'
-        my_budgets: 私の予算
         progress: 投票を終了
+        remove_vote: 投票を削除
         show: プロジェクトを表示
         vote: 投票
+        voted_budgets: 投票された予算
         voted_on: '%{links} に投票しました。'
       last_activity:
         new_vote_at: 新しい予算投票日時
@@ -208,7 +208,6 @@ ja:
           budget_excess:
             description: このプロジェクトは予算上限を超えているため、追加できません。もし希望する場合、既に選択したプロジェクトを削除すれば、好みに応じた再投票が可能になります。
             title: 最大予算を超えました
-          close: 閉じる
           description: このプロジェクトは予算上限を超えているため、追加できません。もし希望する場合、既に選択したプロジェクトを削除すれば、好みに応じた再投票が可能になります。
           ok: OK
           projects_excess:
@@ -216,34 +215,16 @@ ja:
             title: プロジェクト数の上限を超えました
         budget_summary:
           are_you_sure: 投票をキャンセルしてもよろしいですか？
-          assigned: 'アサイン済み:'
           cancel_order: 投票を削除してやり直してください
           checked_out:
             description: 予算にすでに投票しています。もし考えが変わった場合は、%{cancel_link} できます。
             title: 予算投票が完了しました
-          minimum_projects_rule:
-            description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトを %{minimum_number} 件以上選択し、好ましいと思う予算を決めて投票します。
-            instruction: "<li>希望するプロジェクトを %{minimum_number} 件以上選択し、好ましいと思う予算を決めて投票します。</li>"
-          projects_rule:
-            description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトを最小 %{minimum_number} 件、最大 %{maximum_number} 件選択し、好ましいと思う予算を決めて投票します。
-            instruction: "<li>希望するプロジェクトを最小 %{minimum_number} 件、最大 %{maximum_number} 件選択し、好ましいと思う予算を決めて投票します。</li>"
-          projects_rule_maximum_only:
-            description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトを %{maximum_number} 件まで選択し、好ましいと思う予算を決めて投票します。
-            instruction: "<li>希望するプロジェクトを %{maximum_number} 件まで選択し、好ましいと思う予算を決めて投票します。</li>"
-          rules:
-            title: 予算ルール
-          title: 予算を決める
-          total_budget: 予算の合計
-          total_projects: 投票の合計
-          vote_threshold_percent_rule:
-            description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトに予算を %{minimum_budget} 以上割り当てて、好ましいと思う予算を決めて投票します。
-            instruction: "<li>希望するプロジェクトに %{minimum_budget} 以上の予算を割り当てて、好ましいと思う予算を決めて投票します。</li>"
+          vote: 予算の投票
         count:
           projects_count:
             other: "%{count} プロジェクト"
         exit_modal:
           cancel: 投票に戻る
-          close_modal: 閉じる
           exit: 投票を終了
           message: 投票プロセスがまだ完了していないため、投票が登録されていません。投票を終了してもよろしいですか？
           title: まだ投票していません
@@ -256,20 +237,24 @@ ja:
             all: 全て
             not_selected: 未選択
             selected: 選択済
-        filters_small_view:
-          close_modal: モーダルを閉じる
-          filter: フィルター
-          filter_by: フィルター
-          unfold: 展開する
         index:
-          view_project: プロジェクトを表示
+          back_to_budgets: 予算に戻る
         order_progress:
-          vote: 投票
-        order_selected_projects:
-          remove: 削除
-          selected_projects:
-            other: 選択されたプロジェクト
-          view: 表示
+          assigned: 割り当て済み
+          budget: 予算
+          dynamic_help:
+            keep_adding_projects: プロジェクトを追加したままにする
+            minimum_reached: 投票できる最小値に達しました
+            start_adding_projects: プロジェクトの追加を開始
+          minimum: 最小
+          minimum_projects_rule:
+            description: 希望するプロジェクトを %{minimum_number} 件以上選択し、好ましいと思う予算を決めて投票します。
+          projects_rule:
+            description: 希望するプロジェクトを最小 %{minimum_number} 件、最大 %{maximum_number} 件選択し、好ましいと思う予算を決めて投票します。
+          projects_rule_maximum_only:
+            description: 希望するプロジェクトを %{maximum_number} 件まで選択し、好ましいと思う予算を決めて投票します。
+          vote_threshold_percent_rule:
+            description: 希望するプロジェクトに %{minimum_budget} 以上の予算を割り当てて、好ましいと思う予算を決めて投票します。
         orders:
           highest_cost: 最高コスト
           label: 'プロジェクトを注文:'
@@ -290,10 +275,13 @@ ja:
           add_descriptive: プロジェクト %{resource_name} を投票に追加します。
           added: 投票に追加しました
           added_descriptive: プロジェクト %{resource_name} が投票に追加されました。
+        project_filter:
+          added: 追加済
+          all: すべて
         projects_for: '%{name} のプロジェクト'
+        select_projects: プロジェクトを選択
         show:
           budget: 予算
-          view_all_projects: すべてのプロジェクトを表示
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: '未完了の投票場所:'
@@ -361,7 +349,8 @@ ja:
     orders:
       checkout:
         error: 投票処理中に問題が発生しました。
-        success: 投票が正常に受け付けられました。
+        success_html: <p>あなたの投票は正常に受理されました。</p> <p class="text-sm font-normal"> <a class="text-secondary underline" href="%{rest_of_budgets_link}">残りの予算</a>を探索できます。</p>
+        success_no_left_budgets_html: 投票が正常に受理されました。
       destroy:
         error: 投票の取り消し中に問題が発生しました。
         success: 投票をキャンセルしました。

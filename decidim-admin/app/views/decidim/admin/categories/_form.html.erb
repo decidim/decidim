@@ -1,14 +1,5 @@
 <div class="form__wrapper">
-  <div class="card" data-component="accordion" id="accordion-title">
-    <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-title" type="button">
-        <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="title">
-          <%= title %>
-        </h2>
-      </button>
-    </div>
-
+  <div class="card pt-4">
     <div id="panel-title" class="card-section">
       <div class="row column">
         <%= form.translated :text_field, :name, autofocus: true, aria: { label: :name } %>

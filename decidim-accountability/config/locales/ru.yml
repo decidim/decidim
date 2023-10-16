@@ -37,7 +37,6 @@ ru:
         confirm_destroy: Вы действительно хотите удалить %{name}?
         destroy: Удалить
         edit: Редактировать
-        new: Добавить %{name}
         preview: Предварительный просмотр
         timeline_entries: Развитие проекта
         title: Действия
@@ -49,8 +48,6 @@ ru:
             name: Итог
           status:
             name: Состояние
-          timeline_entry:
-            name: Запись на линии времени
         results:
           edit:
             title: Редактировать итог

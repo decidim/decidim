@@ -37,6 +37,9 @@ es-MX:
         user_group_id: Importar como
       newsletter:
         body: Cuerpo
+        send_to_all_users: Enviar a todas las usuarias
+        send_to_followers: Enviar a las seguidoras
+        send_to_participants: Enviar a las participantes
         subject: Asunto
       organization:
         admin_terms_of_service_body: Cuerpo de texto para los términos de servicio de administración
@@ -90,9 +93,10 @@ es-MX:
         secondary_hosts: Hosts secundarios
         send_welcome_notification: Enviar notificación de bienvenida
         success_color: Éxito
+        tertiary_color: Terciario
         time_zone: Zona Horaria
         tos_version: Versión de los Términos de Servicio
-        twitter_handler: Nombre de Twitter
+        twitter_handler: Nombre de usuaria en X
         user_groups_enabled: Habilitar grupos de usuarios
         users_registration_mode: Modo de registro de usuarios
         warning_color: Advertencia
@@ -185,8 +189,6 @@ es-MX:
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
-        manage: Gestionar
-        new: Nuevo %{name}
         newsletter:
           new: Nuevo boletín
         participatory_space_private_user:
@@ -194,6 +196,7 @@ es-MX:
         per_page: Por página
         permissions: Permisos
         reject: Rechazar
+        send_me_a_test_email: Enviarme un correo electrónico de prueba
         share: Compartir
         user:
           new: Nueva administradora
@@ -254,7 +257,6 @@ es-MX:
           title: Editar carpeta
           update: Actualizar
         index:
-          attachment_collection_used: Esta carpeta no se puede eliminar porque está en uso.
           attachment_collections_title: Carpetas de archivos adjuntos
         new:
           create: Crear
@@ -303,7 +305,6 @@ es-MX:
           update: Actualizar
         index:
           categories_title: Categorías
-          category_used: Esta categoría no se puede eliminar porque está en uso.
         new:
           create: Crear categoría
           title: Nueva categoría
@@ -318,6 +319,7 @@ es-MX:
         create:
           error: Hubo un error al crear este componente.
           success: Componente creado con éxito.
+          success_landing_page: Componente creado con éxito. Puedes añadir un bloque de contenido para este componente en la ppágina de inicio del espacio de participación. <a href="%{landing_page_path}">Ve a la página de inicio</a> para configurarla.
         destroy:
           error: Ha habido un error al eliminar este componente.
           success: Componente borrado con éxito.
@@ -369,8 +371,8 @@ es-MX:
           goto_moderation: Ir a moderaciones globales
           title: Moderaciones pendientes
         show:
+          dropdown: Desplegable
           view_more_logs: Ver más registros
-          welcome: Bienvenida al panel de administración.
       domain_whitelist:
         form:
           domain_too_short: Dominio demasiado corto
@@ -469,7 +471,6 @@ es-MX:
             all: Todas
             managed: Administrado
             not_managed: No gestionado
-          filter_by: Filtrado por
           impersonate: Suplantar
           impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
           managed: Administrado
@@ -559,7 +560,6 @@ es-MX:
         areas: Áreas
         configuration: Configuración
         content: Contenido reportado
-        dashboard: Panel de control
         external_domain_whitelist: Dominios externos permitidos
         help_sections: Secciones de ayuda
         homepage: Página principal
@@ -570,6 +570,7 @@ es-MX:
         reported_users: Participantes reportadas
         scope_types: Tipos de ámbito
         scopes: Ámbitos
+        see_site: Ver el sitio web
         settings: Configuración
         static_pages: Páginas
         user_groups: Grupos de usuarios
@@ -639,7 +640,7 @@ es-MX:
           fields:
             created_at: Fecha de creación
             email: Correo electrónico
-            last_sign_in_at: Última fecha de identificación
+            last_sign_in_at: Última conexión
             name: Nombre
             role: Rol
             roles:
@@ -750,16 +751,16 @@ es-MX:
           select_scopes: Filtrar para las participantes que hayan activado cualquier ámbito en su configuración de "Mis intereses".
           select_spaces: Selecciona espacios para segmentar el boletín
           select_users: Selecciona a qué usuarios deseas enviar el boletín
-          send_to_all_users: Enviar a todos los usuarios
-          send_to_followers: Enviar a los seguidores
-          send_to_participants: Enviar a los participantes
           title: Selecciona los destinatarios
           warning: "<strong>Atención:</strong> Este boletín sólo será enviado a participantes que hayan activado <em>Quiero recibir boletines de noticias</em> en sus ajustes de notificaciones."
         send:
           no_recipients: No hay destinatarias para esta selección.
+        send_to_user:
+          sent_successfully: El boletín ha sido enviado correctamente a %{email}
         show:
           preview: Previsualizar
           select_recipients_to_deliver: Selecciona los destinatarios
+          send_me_a_test_email: Enviarme un correo electrónico de prueba
           subject: Asunto
         update:
           error: Se ha producido un error al actualizar este boletín.
@@ -793,7 +794,6 @@ es-MX:
           officialize: Oficializar
           title: Oficializar el usuario "%{name}"
         show_email_modal:
-          close_modal: Cierra el modal
           description: Si necesitas contactar directamente con una participante, puedes hacer clic en el botón Mostrar para ver la dirección de correo electrónico. Esta acción se registrará.
           email_address: Dirección de correo electrónico
           full_name: Nombre completo
@@ -813,7 +813,7 @@ es-MX:
           instagram: Instagram
           rich_text_editor_in_public_views_help: En algunas áreas de texto, los participantes podrán insertar algunas etiquetas HTML utilizando el editor de texto enriquecido.
           social_handlers: Social
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -824,10 +824,16 @@ es-MX:
           update: Actualizar
         form:
           colors:
+            choose_color: Elegir un color primario
             colors_title: Colores de organizacion
             colors_warning_html: '¡Advertencia! Cambiar estos colores puede romper los contrastes de accesibilidad. Puedes comprobar el contraste de tu elección con <a href="%{link}">WebAIM Contrast Checker</a> u otras herramientas similares.'
-            header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
-          cta_button_path_help: 'Puedes sobrescribir el enlace al botón de acción principal en la página principal. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
+            explanation: Esta herramienta te ayuda a elegir un esquema de color, compuesto por distintas tonalidades seleccionadas de forma armoniosa para usarse en el sitio web de la organización.
+            header_snippets_help_html: Utiliza este campo para añadir cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieren JavaScript o CSS adicionales. También, puedes usarlo para añadir meta-etiquetas extra al HTML. Ten en cuenta que esto sólo será renderizado en páginas públicas, no en la sección de administración. Si el código interactúa con APIs externas o no cumple con las pautas de seguridad de la aplicación, será necesario cambiar la Política de Seguridad del Contenido. Lea más sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">en el sitio de documentación</a>.
+            legend_html: Colores principales de la aplicación, basados en el <a href="https://www.color-meanings.com/triadic-colors/">algoritmo Triadic</a>. El color <i>secundario</i> es autocalculado a partir del color primario y la saturación que has elegido.
+            saturation: Saturación
+            title: Selector de color
+            update_suggested_colors: Actualizar a los colores sugeridos
+          cta_button_path_help_html: 'Puedes redirigir la dirección donde enlaza el Botón de Acción principal de la página de inicio donde desees. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El Botón de Acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           homepage_appearance_title: Editar apariencia de página de inicio
           homepage_highlighted_content_banner_title: Banner de contenido resaltado
@@ -1003,9 +1009,7 @@ es-MX:
           update: Actualizar
         form:
           none: Ninguna
-          slug_help: 'Usa rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
-        index:
-          last_notable_change: Último cambio notable
+          slug_help_html: 'Usa rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
         new:
           create: Crear página
           title: Nueva página
@@ -1023,14 +1027,17 @@ es-MX:
         areas: Áreas
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
+        edit_external_domains: Listado de dominios externos permitidos
+        edit_landing_page: Contenidos de la página
+        edit_organization_appearance: Editar apariencia de página de inicio
         impersonatable_users: Usuarios manejables
         impersonations: Gestion de usuarios
         metrics: Métricas
+        pages: Páginas
         panel: Administradora
         participants: Usuarios
         scope_types: Tipos de ámbito
         scopes: Ámbitos
-        static_pages: Páginas
         statistics: Actividad
         user_groups: Grupos de usuarios
         users: Administradoras
@@ -1082,7 +1089,6 @@ es-MX:
           last_week: La última semana
           no_users_count_statistics_yet: Aún no hay estadísticas de recuento de usuarias.
           participants: Participantes
-      view_public_page: Ver página pública
     forms:
       errors:
         impersonate_user:
@@ -1143,9 +1149,3 @@ es-MX:
       admin:
         global_moderations:
           title: Moderaciones globales
-        newsletters:
-          title: Boletines
-        settings:
-          title: Ajustes
-        users:
-          title: Usuarios

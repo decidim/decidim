@@ -9,13 +9,13 @@
       <div class="filters__has-subfilters">
     <% end %>
       <%= form.check_box attribute,
-                       check_boxes_tree_options(
-                         collection.leaf.value,
-                         collection.leaf.label,
-                         **({
-                           "data-checkboxes-tree": data_checkboxes_tree_id,
-                           is_root_check_box:
-                         }.merge(options))),
+                         check_boxes_tree_options(
+                           collection.leaf.value,
+                           collection.leaf.label,
+                           **({
+                             "data-checkboxes-tree": data_checkboxes_tree_id,
+                             is_root_check_box:
+                           }.merge(options))),
                          collection.leaf.value.to_s, nil %>
 
     <% unless is_root_check_box %>
@@ -35,20 +35,20 @@
         <% collection.node.each do |item| %>
           <% if item.tree_node? %>
             <%= render "decidim/shared/check_boxes_tree",
-                        form:,
-                        attribute:,
-                        collection: item,
-                        check_boxes_tree_id: "#{check_boxes_tree_id}-#{item.leaf.value}",
-                        hide_node: "true",
-                        options: %>
+                       form:,
+                       attribute:,
+                       collection: item,
+                       check_boxes_tree_id: "#{check_boxes_tree_id}-#{item.leaf.value}",
+                       hide_node: "true",
+                       options: %>
           <% else %>
             <%= form.check_box attribute,
-                                check_boxes_tree_options(
-                                  item.value,
-                                  item.label,
-                                  **options
-                                ),
-                                item.value, nil %>
+                               check_boxes_tree_options(
+                                 item.value,
+                                 item.label,
+                                 **options
+                               ),
+                               item.value, nil %>
           <% end %>
         <% end %>
       </div>

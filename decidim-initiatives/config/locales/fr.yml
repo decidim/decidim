@@ -79,7 +79,9 @@ fr:
   decidim:
     admin:
       actions:
+        manage: Gérer
         new_initiative_type: Nouveau type de pétition
+        new_initiative_type_scope: Nouveau secteur du type de pétition
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -106,8 +108,11 @@ fr:
         committee_members: Membres du comité
         components: Fonctionnalités
         information: Informations
+        initiative_type_scopes: Secteurs du type de pétition
         initiatives: Pétitions
         initiatives_settings: Paramètres
+        initiatives_submenu:
+          info: À propos de cette pétition
         initiatives_types: Types de pétitions
         moderations: Modérations
       models:
@@ -244,7 +249,6 @@ fr:
             success: La pétition a été envoyée à la validation technique.
             update: Mettre à jour
           form:
-            attachments: Pièces jointes
             settings: Paramètres
             title: Informations générales
           index:
@@ -276,13 +280,9 @@ fr:
           destroy:
             success: Le secteur a été supprimé avec succès.
           edit:
-            back: Retour
-            confirm_destroy: Êtes-vous certain ?
-            destroy: Supprimer
             title: Modifier le secteur de ce type de pétition
             update: Mettre à jour
           new:
-            back: Retour
             create: Créer
             title: Créer un secteur pour ce type de pétition
           update:
@@ -295,15 +295,12 @@ fr:
           destroy:
             success: Le type de pétition a été supprimé avec succès.
           edit:
-            confirm_destroy: Êtes-vous certain ?
-            destroy: Supprimer
             update: Mettre à jour
           form:
             authorizations: Paramètres d'autorisation
             child_scope_threshold_enabled_help: 'Cette option de configuration ne prend pas en charge les votes hors-ligne, elle permet d''activer des sous-secteurs et fonctionne avec un gestionnaire d''autorisation qui associe un secteur à l''utilisateur. Assurez-vous de sélectionner cette autorisation dans les paramètres d''autorisation ci-dessous. Pour que cela fonctionne, les secteurs doivent être configurés de manière hiérarchique : 1 Parent - N Enfants. Pour plus d''informations sur le fonctionnement de cette configuration, consultez la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentation sur l''administration des initiatives</a>.'
             only_global_scope_enabled_help: Cochez cette case si vous avez activé "Autoriser les signatures par sous-secteur" et configurer la portée globale comme votre portée parente. En activant cette option, la sélection du type de pétition sera ignorée dans l'assistant de création d'initiative. Pour plus d'informations sur le fonctionnement de cette configuration, voir ce <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">lien</a>.
             options: Paramètres
-            title: informations générales
           initiative_type_scopes:
             title: Secteurs pour ce type de pétition
           new:
@@ -332,10 +329,6 @@ fr:
         rejected: Pas assez de signatures
         validating: Validation technique
       application_helper:
-        filter_area_values:
-          all: Tout
-        filter_scope_values:
-          all: Tout
         filter_state_values:
           accepted: Assez de signatures
           all: Tout
@@ -362,8 +355,8 @@ fr:
         fill_data:
           back: Retour
           continue: Continuer
-          decidim_user_group_id_help: Il n'est pas possible de changer l'auteur de la pétition après sa création.
           fill_data_help: "<ul> <li>Vérifier le contenu de votre pétition : le titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de signature : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ?</li> </ul>"
+          initiative_type: Type de pétition
           more_information: "(Plus d'informations)"
           select_area: Sélectionnez une zone
           select_scope: Sélectionnez une portée
@@ -377,32 +370,23 @@ fr:
           more_information: "(Plus d'informations)"
           send_my_initiative: Envoyer ma pétition pour validation technique
         finish_help:
-          access_reminder: Vous pouvez accéder à vos pétitions via le filtre %{link} sur la page Pétitions.
           publish_helper_text: N'oubliez pas que pour que votre pétition soit publiée, vous devez compléter les informations requises et <strong>l'envoyer à la validation technique</strong> pour qu'un administrateur puisse l'examiner.
         previous_form:
           back: Retour
           continue: Continuer
-          help: En quoi consiste la pétition ? Saisissez son titre et sa description. Nous recommandons un titre court et synthétique et une description axée sur la solution proposée.
-          more_information: "(Plus d'informations)"
         promotal_committee:
-          back: Retour
           individual_help_text: Ce type de pétition nécessite un Comité de promotion composé d’au moins %{committee_size} personnes (garants). Pour réunir un comité de promotion, partagez le lien suivant aux personnes que vous souhaitez. Lorsque ces personnes recevront ce lien, elles devront suivre les étapes indiquées.
           more_information: "(Plus d'informations)"
         select_initiative_type:
           back: Retour
           choose_html: Je veux créer un <strong>%{title}</strong>
-          more_information: "(Plus d'informations)"
+          more_information: Plus d'informations
+          new: Créer une nouvelle pétition
           select: Créer une pétition
           select_initiative_type_help: Les pétitions sont un moyen par lequel les participants peuvent intervenir afin que l'organisation puisse entreprendre des actions en faveur de l'intérêt général. Quelle pétition voulez-vous lancer?
           verification_required: Vérifiez votre compte pour créer une pétition
         share_committee_link:
-          continue: Continuer
           invite_to_committee_help: Lien pour inviter des personnes à faire partie du Comité de promotion
-        show_similar_initiatives:
-          back: Retour
-          compare_help: Si l'une des pétitions suivantes est similaire à la vôtre, nous vous encourageons à la soutenir. Votre proposition aura ainsi plus de possibilités de se réaliser.
-          continue: Ma pétition est différente
-          more_information: "(Plus d'informations)"
       edit:
         accept: Accepter la pétition
         back: Retour
@@ -440,19 +424,17 @@ fr:
           email_subject: "%{applicant_nickname} veut rejoindre le comité de promotion de votre pétition"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a postulé pour faire partie du comité de promotion de votre pétition <a href="%{resource_url}">%{resource_title}</a>. Pour accepter ou rejeter la demande, cliquez <a href="%{resource_url}/edit">ici</a>.
       form:
-        add_attachments: Pièces-jointes
+        add_documents: Ajouter des documents
+        add_image: Ajouter une image
         attachment_legend: "(Facultatif) Ajouter une pièce jointe"
-        delete_attachment: Supprimer
+        edit_documents: Modifier les documents
+        edit_image: Modifier l'Image
+        image_legend: "(Facultatif) Ajouter une image"
       index:
-        title: Pétitions
         uninitialized: Les pétitions ne sont pas encore configurées par un administrateur.
       initiative_signatures:
         fill_personal_data:
           continue: Continuer
-          date_select:
-            day: journée
-            month: Mois
-            year: Année
           help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles pour signer la pétition.
         finish:
           back_to_initiative: Retour à la pétition
@@ -474,8 +456,6 @@ fr:
         sms_phone:
           invalid: Le numéro de téléphone est invalide ou en attente d'autorisation. S'il vous plaît, vérifiez vos autorisations.
       initiatives:
-        author:
-          deleted: Supprimé
         author_list:
           hidden_authors_count:
             one: et 1 autre personne
@@ -484,8 +464,8 @@ fr:
           approve: Accepter
           confirm_revoke: Êtes-vous sûr(e) ?
           invite_to_committee_help: Partagez ce lien pour inviter d'autres utilisateurs au Comité de promotion.
+          link: Lien
           no_members_yet: Il n'y a pas encore de membres dans le Comité de promotion.
-          revoke: Révoquer
           title: Membres du Comité de promotion
         count:
           title:
@@ -500,11 +480,6 @@ fr:
           search: Rechercher
           state: État
           type: Type
-        filters_small_view:
-          close_modal: Fermer la fenêtre
-          filter: Filtre
-          filter_by: Filtrer par
-          unfold: Voir la suite
         index_header:
           new_initiative: Nouvelle pétition
         initiatives:
@@ -548,13 +523,17 @@ fr:
           answer_title: Cette pétition a reçu une réponse.
           initiative_rejected_reason: Cette pétition a été rejetée car elle n'a pas atteint le nombre de signatures requis dans le délai de collecte.
         show:
-          any_vote_method: Cette pétition recueille des signatures en ligne ainsi qu'en présentiel.
+          area: Périmètre d'assemblée
+          before_send_to_technical_validation_announcement: 'Avant d''envoyer votre pétition à la validation technique, vous devez inviter %{count} membres du comité de promotion. <br/><br/>Partagez ce lien avec les personnes que vous souhaitez voir faire partie de votre comité : %{href}'
           confirm: Vous allez envoyer la pétition à un administrateur pour qu'il la consulte et la publie. Une fois publiée, vous ne serez plus en mesure de l'éditer. Êtes-vous sûr que votre pétition est prête ?
           edit: Modifier
-          follow_description: Recevoir une notification lorsqu'il y a des actualités sur cette pétition
-          offline_method: Cette pétition ne recueille que des signatures en présentiel.
-          print: Imprimer la pétition
+          initiative_data: Données de la pétition
+          scope: Secteur
           send_to_technical_validation: Envoyer à la validation technique
+          send_to_technical_validation_announcement: Si tout semble correct, cliquez sur "Envoyer à la validation technique" pour qu'un administrateur puisse relire et publier votre pétition
+          signature_collection: Collecte de signatures
+          state: État
+          type: Type
         signatures_count:
           one: " signature"
           other: " signatures"
@@ -568,8 +547,6 @@ fr:
           count:
             one: Signature
             other: Signatures
-          most_popular_initiative: Pétition la plus populaire
-          need_more_votes: Besoin de plus de signatures
       initiatives_mailer:
         creation_subject: Votre pétition '%{title}' a été créée
         initiative_link:
@@ -586,14 +563,13 @@ fr:
       modal:
         not_authorized:
           authorizations_page: Voir les autorisations
-          close: Fermer
           explanation: Votre compte doit être vérifié pour créer une nouvelle pétition.
           title: Autorisation requise
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Pétitions actives
-            see_all_initiatives: Voir toutes les pétitions
+            active_spaces: Pétitions actives
+            see_all_spaces: Voir toutes les pétitions
       show:
         badge_name:
           accepted: Assez de signatures
@@ -602,8 +578,6 @@ fr:
           published: Publié
           rejected: Pas assez de signatures
           validating: Validation technique
-      signature_interval:
-        title: Période de collecte des signatures
       states:
         accepted: Acceptées
         expired: Expirées
@@ -611,9 +585,6 @@ fr:
       update:
         error: Une erreur est survenue.
         success: La pétition a été mise à jour avec succès.
-      versions:
-        shared:
-          back_to_resource: Retour à la pétition
     menu:
       initiatives: Pétitions
     resources:
@@ -628,26 +599,15 @@ fr:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Retour
         fill_data: Complétez votre pétition
         finish: Publiez votre pétition
-        previous_form: Créez votre pétition
         promotal_committee: Comité de promotion
         select_initiative_type: Sélectionnez le type de pétition
-        show_similar_initiatives: Comparez avec les autres pétitions
-        title: Créer une nouvelle pétition
-      initiative_header:
-        initiative_menu_item: Pétition
       initiative_signature_creation_header:
-        back: Retour
         fill_personal_data: Complétez vos données
         finish: terminer
-        finished: Pétition signée avec succès
-        see_steps: voir les étapes
-        select_identity: Sélectionner une identité
         sms_code: Vérification du code SMS
         sms_phone_number: numéro de téléphone portable
-        step: Étape %{current} sur %{total}
         title: Signer %{initiative_title}
       initiatives:
         initiative:

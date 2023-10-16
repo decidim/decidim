@@ -23,25 +23,34 @@ eu:
         new: Post berria
         title: Ekintzak
       admin:
-        models:
-          post:
-            name: Argitalpena
         posts:
+          create:
+            invalid: Arazo bat sortu da post hau sortzean.
+            success: Posta ondo sortu da.
+          destroy:
+            success: Posta zuzen ezabatu da.
           edit:
             save: Eguneratu
             title: Editatu argitalpena
           index:
+            not_published_yet: Oraindik argitaratu gabe.
             title: Argitalpenak
           new:
             create: Sortu
             title: Sortu argitalpena
           update:
             invalid: Akatsen bat gertatu da mezua gordetzean.
+            success: Posta zuzen gorde da.
       admin_log:
         post:
           create: "%{user_name} k %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
           delete: "%{user_name} k %{resource_name} blogeko argitalpena ezabatu du %{space_name} espazioan"
           update: "%{user_name} k %{resource_name} blogeko argitalpena eguneratu egin da %{space_name} espazioan"
+      content_blocks:
+        highlighted_posts:
+          last_published: Azken argitarapena
+          name: Argitalpenak
+          see_all: Ikusi edukin guztiak
       last_activity:
         new_post: 'Argitalpen berria blogean:'
       models:
@@ -53,8 +62,10 @@ eu:
             published_at: Argitaratze data
             title: Izenburua
       posts:
-        show:
-          view: Ikusi
+        index:
+          count:
+            one: "Edukin 1"
+            other: "%{count} edukin"
     components:
       blogs:
         actions:

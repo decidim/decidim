@@ -17,9 +17,6 @@ module Decidim
           member do
             put :withdraw
           end
-          collection do
-            get :year_calendar
-          end
           resources :meeting_closes, only: [:edit, :update] do
             get :proposals_picker, on: :collection
           end

@@ -1,5 +1,11 @@
 <%= cell("decidim/announcement", announcement_body, callout_class: current_user.admin_terms_accepted? ? "success" : "warning" ) %>
 
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t("title", scope: "decidim.admin.admin_terms_of_service") %>
+  </h2>
+</div>
+
 <article class="card">
   <div class="card-section p-4">
     <div class="cell medium-12">

@@ -23,17 +23,6 @@ module Decidim
         allow(helper).to receive(:dummies_path)
       end
 
-      it "wraps everything in a div with class 'filters'" do
-        expect(helper)
-          .to receive(:content_tag)
-          .with(:div, { class: "filters" }, any_args)
-          .and_call_original
-
-        helper.filter_form_for(filter) do
-          # invoke the helper
-        end
-      end
-
       it "calls form_for helper with specific arguments" do
         expect(helper)
           .to receive(:form_for)

@@ -116,7 +116,6 @@ zh-TW:
           success: 成功複製會議。
         new:
           copy: 複製
-          select: 請選擇您想要複製的資料
           title: 複製會議
     components:
       meetings:
@@ -217,7 +216,6 @@ zh-TW:
           proposals_count:
             other: '該會議因有 %{count} 個相關提案而無法刪除:'
         manage_poll: 管理投票
-        new: 新會議
         preview: 預覽
         registrations: 註冊
         title: 操作
@@ -279,7 +277,6 @@ zh-TW:
               all: 全部
               rejected: 已拒絕
               sent: 傳送
-            filter_by: 篩選條件
             invite_attendee: 邀請的與會者
             invites: 邀請
             registrations_disabled: 你無法邀請參加者，因為註冊已被禁用。
@@ -344,9 +341,6 @@ zh-TW:
           update:
             invalid: 更新會議投票時出現問題.
             success: 會議投票已成功更新"
-        models:
-          meeting:
-            name: 會議
         registrations:
           edit:
             save: 儲存
@@ -390,11 +384,8 @@ zh-TW:
           all: 全部
         filter_meeting_space_values:
           all: 全部
-        filter_scope_values:
-          all: 全部
       calendar_modal:
         calendar_url: 行事曆 URL
-        close_window: 關閉視窗
         copy_calendar_url: 複製
         copy_calendar_url_clarification: 將日曆 URL 複製到剪貼板
         copy_calendar_url_copied: 已複製！
@@ -412,8 +403,6 @@ zh-TW:
       content_blocks:
         upcoming_meetings:
           name: 即將到來的會議
-          upcoming_meetings: 即將到來的會議
-          view_all_meetings: 檢視全部
       directory:
         meetings:
           index:
@@ -454,7 +443,6 @@ zh-TW:
         calendar_modal:
           add_to_calendar: 新增至行事曆
           apple: 新增至 Apple 日曆
-          close_window: 關閉視窗
           full_details_html: 詳細內容請前往 %{link}
           google: 新增至 Google 日曆
           outlook: 添加到Outlook 行事曆
@@ -483,8 +471,6 @@ zh-TW:
             all: 全部
             official: 官方
             participants: 參與者
-            user_groups: 群組
-          scope: 範圍
           search: 搜尋
           type: 類別
           type_values:
@@ -492,11 +478,6 @@ zh-TW:
             hybrid: 混合
             in_person: 親自
             online: 線上
-        filters_small_view:
-          close_modal: 關閉視窗
-          filter: 篩選
-          filter_by: 篩選條件
-          unfold: 展開
         form:
           address_help: '地址：用於地理編碼器找到位置'
           available_slots_help: 如果您有無限的可用名額，請將其設置為0。
@@ -517,8 +498,6 @@ zh-TW:
           see_all: 查看所有會議
           see_all_withdrawn: 查看所有撤回的會議
           text_banner: 您正在查看已被其作者撤回的會議列表。 %{go_back_link}。
-        meeting_minutes:
-          related_information: 相關信息
         meetings:
           no_meetings_warning: 沒有符合搜尋條件的會議或者目前沒有任何已排定的會議。
           upcoming_meetings_warning: 目前沒有安排的會議，但您可以在這裡找到所有過去的會議列表。
@@ -531,13 +510,8 @@ zh-TW:
           confirm: 確認
         show:
           attendees: 出席人數
-          back: 返回列表
-          close_meeting: 關閉會議
           contributions: 貢獻次數
           date: 日期
-          edit_close_meeting: 編輯會議報告
-          edit_meeting: 編輯會議
-          going: 您已經註冊參加此會議
           join: 加入會議
           leave: 取消您的註冊
           leave_confirmation: 您確定要取消此次會議的註冊嗎？
@@ -562,8 +536,6 @@ zh-TW:
         update:
           invalid: 更新會議時發生問題.
           success: 您已成功更新會議。
-      meetings_map:
-        view_meeting: 檢視會議
       models:
         invite:
           fields:
@@ -636,8 +608,6 @@ zh-TW:
         private_meeting: 私人會議
         transparent: 透明
         withdraw: 撤回
-      versions:
-        back_to_resource: 回到會議畫面
       withdraw:
         error: 退出會議時發生錯誤.
         success: 會議已成功撤回.
@@ -651,8 +621,6 @@ zh-TW:
         past_meetings: 過去的會議
         see_all: 檢視所有會議 (%{count})
         upcoming_meetings: 即將到來的會議
-      upcoming_meeting_for_card:
-        upcoming_meeting: 即將到來的會議
     resource_links:
       meetings_through_proposals:
         meeting_result: '相關結果：'

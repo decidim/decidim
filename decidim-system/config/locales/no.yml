@@ -37,7 +37,6 @@
         confirm_destroy: Er du sikker på at du vil slette dette?
         destroy: Slett
         edit: Rediger
-        new: Nytt
         save: Lagre
         title: Handlinger
       admins:
@@ -70,7 +69,6 @@
           fields:
             created_at: Opprettet på
             email: Epost
-          name: Administrator
           validations:
             email_uniqueness: en annen administrator med samme email eksisterer allerede
         oauth_application:
@@ -78,7 +76,6 @@
             created_at: Opprettet
             name: OAuth applikasjonsnavn
             organization_name: Organisasjon
-          name: OAuth applikasjon
         organization:
           actions:
             save_and_invite: Opprett organisasjon og inviter administrator
@@ -88,7 +85,6 @@
             name: Navn
             omniauth_settings: Omniauth innstillinger
             smtp_settings: SMTP innstillinger
-          name: Organisasjon
       oauth_applications:
         create:
           error: Kunne ikke opprette denne applikasjonen.

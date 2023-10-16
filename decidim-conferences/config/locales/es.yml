@@ -5,7 +5,6 @@ es:
         assemblies_ids: Asambleas relacionadas
         available_slots: Plazas disponibles
         banner_image: Imagen de banner
-        consultations_ids: Consultas relacionadas
         copy_categories: Copiar categorías
         copy_components: Copiar componentes
         copy_features: Copiar funcionalidades
@@ -63,7 +62,7 @@ es:
         personal_url: URL personal
         position: Cargo
         short_bio: Breve biografía
-        twitter_handle: Cuenta de Twitter
+        twitter_handle: Cuenta en X
         user_id: Usuaria
       conference_user_role:
         email: Correo electrónico
@@ -90,7 +89,12 @@ es:
     admin:
       actions:
         confirm: Confirmar
-        new_conference: Nueva jornada
+        new_conference: Añadir jornada
+        new_conference_user_role: Añadir administradora
+        new_media_link: Añadir enlace multimedia
+        new_partner: Añadir colaboradora
+        new_registration_type: Añadir tipo de registro
+        new_speaker: Añadir ponente
         send_diplomas: Enviar certificados de asistencia
       conference_copies:
         new:
@@ -153,8 +157,8 @@ es:
         form:
           title: Información general
         index:
-          not_published: No publicado
           published: Publicado
+          unpublished: Despublicada
         new:
           create: Crear
           title: Conferencia
@@ -194,18 +198,18 @@ es:
           conference_invites: Invita
           conference_speakers: Ponentes
           diploma: Certificado de asistencia
-          info: Información
+          info: Acerca de esta jornada
           media_links: Enlaces multimedia
           moderations: Moderaciones
           partners: Colaboradoras
           registration_types: Tipos de inscripción
           registrations: Inscripciones
+          see_conference: Ver la jornada
           user_registrations: Inscripciones de participantes
       models:
         conference:
           fields:
             created_at: Creada en
-            promoted: Destacada
             published: Publicada
             title: Título
         conference_speaker:
@@ -331,7 +335,7 @@ es:
       admin:
         conference_copies:
           form:
-            slug_help: 'Las URL amigables se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'Las URL amigables se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         conference_invites:
           create:
             error: Se ha producido un error al invitar a esta participante a unirse a la jornada.
@@ -348,7 +352,6 @@ es:
               all: Todas
               rejected: Rechazada
               sent: Enviada
-            filter_by: Filtrar por
             invite_attendee: Invitar participante
             invites: Invita
             search: Buscar
@@ -373,7 +376,7 @@ es:
             registrations_count:
               one: Ha habido 1 inscripción.
               other: Ha habido %{count} inscripciones.
-            slug_help: 'Las URL amigables se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'Las URL amigables se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         diplomas:
           edit:
             save: Guardar
@@ -435,7 +438,7 @@ es:
           invalid: Se ha producido un error al abandonar esta jornada.
           success: Has abandonado la jornada correctamente.
       conference_speaker:
-        go_to_twitter: Ir a twitter
+        go_to_twitter: Ir a X
         more_info: más información
         personal_website: Sitio web personal
         show:
@@ -454,9 +457,14 @@ es:
           collaborators: Colaboradores
           main_promotors: Organizadores
         show:
+          already_have_an_account?: '¿Ya tienes una cuenta?'
+          are_you_new?: '¿Aún no eres participante?'
           login_as: Has iniciado sesión como %{name} <%{email}>
           make_conference_registration: Inscríbete en la jornada
+          manage_registration: Gestionar inscripciones
           register: Inscripciones
+          sign_in_description: Inicia sesión para inscribirte en la conferencia
+          sign_up_description: Crea una cuenta de participante para inscribirte en la jornada
       content_blocks:
         highlighted_conferences:
           name: Jornadas destacadas
@@ -498,9 +506,8 @@ es:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Jornadas activas
-            conferences_button_title: Enlace a la página de Jornadas que muestra todas las jornadas
-            see_all_conferences: Ver todas las jornadas
+            active_spaces: Jornadas activas
+            see_all_spaces: Ver todas las jornadas
       registration_types:
         index:
           choose_an_option: 'Elige tu tipo de inscripción:'
@@ -512,7 +519,6 @@ es:
         introduction: Introducción
         objectives: Objetivos
         related_assemblies: Asambleas relacionadas
-        related_consultations: Consultas relacionadas
         related_participatory_processes: Procesos participativos relacionados
     events:
       conferences:
@@ -570,10 +576,8 @@ es:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Gestionar inscripciones
         register: Inscripción
-      conference_widgets:
-        show:
-          take_part: Participar
       conferences:
         conference:
           more_info: Más información
@@ -584,11 +588,7 @@ es:
           conferences:
             one: "%{count} jornada"
             other: "%{count} jornadas"
-        promoted_conference:
-          more_info: Más información
-          take_part: Participar
       conferences_nav:
-        conference_menu_item: Información
         conference_partners_menu_item: Colaboradoras
         conference_speaker_menu_item: Ponentes
         media: Media

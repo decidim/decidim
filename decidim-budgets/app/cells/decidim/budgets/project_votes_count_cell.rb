@@ -28,11 +28,11 @@ module Decidim
       end
 
       def number
-        content_tag :div, model.confirmed_orders_count, class: "text-large"
+        content_tag :div, model.confirmed_orders_count
       end
 
       def count_label
-        content_tag(:span, t("decidim.budgets.projects.project.votes", count: model.confirmed_orders_count), class: "text-uppercase text-small")
+        content_tag(:span, t("decidim.budgets.projects.project.votes", count: model.confirmed_orders_count))
       end
 
       def css_class

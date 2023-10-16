@@ -374,7 +374,7 @@ describe "Participatory Processes", type: :system do
             let(:show_metrics) { false }
 
             it "the metrics for the participatory processes are not rendered" do
-              expect(page).not_to have_css("h4.section-heading", text: "METRICS")
+              expect(page).not_to have_css("h4", text: "METRICS")
             end
 
             it "has no link to all metrics" do

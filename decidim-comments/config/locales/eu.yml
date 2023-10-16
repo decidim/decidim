@@ -31,19 +31,18 @@ eu:
       comments_count: Iruzkin kopurua
       comments_title: Iruzkina
       last_activity:
-        new_comment_at_html: "<span>Iruzkin berria %{link}</span>"
-      view: Bistaratu
+        new_comment: 'Iruzkin berria:'
       votes:
         create:
           error: Arazo bat dago iruzkina bozkatzeko.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Hasi saioa zure kontuarekin</a> o <a href="%{sign_up_url}">erregistratu</a> zure iruzkina txertatzeko.
         form:
           body:
             label: Iruzkina
             placeholder: Zer deritzozu honi?
-          submit: Bidali
+          submit_reply: Erantzuna argitaratu
+          submit_root_comment: Iruzkina argitaratu
           user_group_id:
             label: 'Egin iruzkina honako honen gisa:'
         opinion:
@@ -61,6 +60,7 @@ eu:
         alignment:
           against: Aurka
           in_favor: Alde
+        cancel_reply: Erantzuna ezabatu
         confirm_destroy: Ziur zaude iruzkin hau ezabatu nahi duzula?
         delete: Ezabatu
         deleted_at: Iruzkina ezabatu da data honetan %{date}
@@ -91,8 +91,6 @@ eu:
           older: Zaharrenak
           recent: Berrienak
         title: 'Ordenatu honen arabera:'
-      comment_thread:
-        title: 'Solasaldia honekin: %{authorName}'
       comments:
         blocked_comments_for_unauthorized_user_warning: Egiaztatuta egon behar zara momentu honetan iruzkina egiteko, baina aurreko iruzkinak irakur ditzakezu.
         blocked_comments_for_user_warning: Oraindik ez duzu iruzkinik egin, baina aurrekoak irakurri ditzakezu.

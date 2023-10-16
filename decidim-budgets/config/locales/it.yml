@@ -30,7 +30,6 @@ it:
         edit: Modifica
         edit_projects: Gestisci progetti
         import: Importa proposte nei progetti
-        new: Nuovo %{name}
         preview: Anteprima
         title: Azioni
       admin:
@@ -93,7 +92,6 @@ it:
           more_than_one: elimina il tuo voto su %{name} e ricomincia
           only_one: cancella il tuo voto e ricomincia.
         highlighted_cta: Vota su %{name}
-        my_budgets: I miei budget
         progress: Chiusura voto
         show: Vedi progetti
         vote: Vota
@@ -124,40 +122,20 @@ it:
         budget_excess:
           budget_excess:
             title: Budget superato
-          close: Chiudi
           ok: Ok
           projects_excess:
             title: Limite massimo di progetti superato
         budget_summary:
           are_you_sure: Sei certo di voler cancellare il tuo voto?
-          assigned: 'Assegnato:'
           cancel_order: Cancella il tuo voto e ricomincia.
           checked_out:
             title: Voto di budget completato.
-          minimum_projects_rule:
-            description: A quali progetti pensi che dovremmo destinare un budget? Seleziona almeno %{minimum_number} progetti che desideri e vota in base alle tue preferenze per definirne il budget.
-            instruction: "<li>Seleziona almeno %{minimum_number} progetti che desideri e vota in base alle tue preferenze per definirne il budget.</li>"
-          projects_rule:
-            description: A quali progetti pensi che dovremmo destinare un budget? Seleziona almeno %{minimum_number} e fino a %{maximum_number} progetti che desideri e vota in base alle tue preferenze per definirne il budget.
-            instruction: "<li>Seleziona almeno %{minimum_number} e fino a %{maximum_number} progetti che desideri e vota in base alle tue preferenze per definirne il budget.</li>"
-          projects_rule_maximum_only:
-            description: A quali progetti pensi che dovremmo destinare un budget? Seleziona fino a %{maximum_number} progetti che desideri e vota in base alle tue preferenze per definirne il budget.
-            instruction: "<li>Seleziona fino a %{maximum_number} progetti che desideri e vota in base alle tue preferenze per definirne il budget.</li>"
-          rules:
-            title: Regole di bilancio
-          title: Tu decidi il budget
-          total_budget: Budget totale
-          total_projects: Voti totali
-          vote_threshold_percent_rule:
-            description: A quali progetti ritieni che dovremmo assegnare un budget? Assegna almeno %{minimum_budget} ai progetti che desideri vedere realizzati e vota con le tue preferenze per definirne il budget.
-            instruction: "<li>Assegna almeno %{minimum_budget} ai progetti che desideri e vota in base alle tue preferenze per definirne il budget.</li>"
         count:
           projects_count:
             one: 1 progetto
             other: "%{count} progetti"
         exit_modal:
           cancel: Ritorna alla votazione
-          close_modal: Chiudi modalità
           exit: Esci dalla votazione
           message: Il tuo voto non è stato registrato perché non hai ancora completato il processo di votazione. Sei sicuro di voler uscire dal voto?
           title: Non hai ancora votato
@@ -170,19 +148,6 @@ it:
             all: Tutti
             not_selected: Non selezionato
             selected: Selezionato
-        filters_small_view:
-          close_modal: Chiudi modalità
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Espandi
-        order_progress:
-          vote: Vota
-        order_selected_projects:
-          remove: Rimuovi
-          selected_projects:
-            one: Progetto scelto
-            other: Progetti scelti
-          view: Visualizza
         orders:
           highest_cost: Costo più alto
           label: Ordina i progetti per
@@ -202,7 +167,6 @@ it:
         projects_for: Progetti per %{name}
         show:
           budget: Budget
-          view_all_projects: Visualizza tutti i progetti
     components:
       budgets:
         actions:

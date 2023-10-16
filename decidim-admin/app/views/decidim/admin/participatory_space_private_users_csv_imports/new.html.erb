@@ -1,7 +1,17 @@
+<% add_decidim_page_title(t(".title")) %>
+
 <div class="card">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
-      <%= t(".destroy.title") %>
+    <h1 class="item_show__header-title">
+      <%= t(".title") %>
+    </h1>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t ".destroy.title" %>
     </h2>
   </div>
   <div class="card-section p-4">
@@ -17,13 +27,14 @@
     <% end %>
   </div>
 </div>
-<div class="card" id='user-groups'>
+
+<div class="card">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= t ".title" %>
+      <%= t ".csv_upload.title" %>
     </h2>
   </div>
-  <div class="card-section  p-4">
+  <div class="card-section p-4">
     <%= decidim_form_for(@form, url: participatory_space_private_users_csv_imports_path, html: { class: "form form-defaults" }) do |form| %>
       <div class="mb-s">
         <p><%= t(".explanation") %></p>
@@ -34,8 +45,10 @@
         <%= form.upload :file, button_class: "button button__sm button__transparent-secondary" %>
       </div>
 
-      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= form.submit t(".upload"), class: "button button__sm button__secondary" %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= form.submit t(".upload"), class: "button button__sm button__secondary" %>
+        </div>
       </div>
     <% end %>
   </div>
