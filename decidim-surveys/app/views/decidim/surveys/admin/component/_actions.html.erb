@@ -1,5 +1,3 @@
 <% if component.manifest_name == "surveys" && component.settings.clean_after_publish %>
   <%= icon_link_to "check-line", url_for(action: :publish, id: component, controller: "components"), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :put, data: { confirm: t(".answers_alert") } %>
-<% else %>
-  <%= icon_link_to "check-line", url_for(action: :publish, id: component, controller: "components"), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :put %>
 <% end %>
