@@ -47,3 +47,24 @@
     @apply font-bold text-3xl;
   }
 }
+
+[id$="metric-tooltip"] {
+  @apply absolute overflow-visible translate-x-[-50%] shadow-[0_0_20px_0] shadow-gray;
+
+  > * {
+    @apply p-2 text-sm relative;
+
+    &::after,
+    &::before {
+      @apply top-full left-1/2 content-[""] h-0 w-0 absolute pointer-events-none border-transparent;
+    }
+
+    &::after {
+      @apply top-[calc(100%_-_1px)] -ml-[10px] border-[10px] border-t-white;
+    }
+
+    &::before {
+      @apply -ml-[11px] border-[11px];
+    }
+  }
+}
