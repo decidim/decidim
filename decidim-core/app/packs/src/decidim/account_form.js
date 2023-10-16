@@ -37,7 +37,9 @@ const initializeAccountForm = () => {
   }
 
   const observer = new MutationObserver(() => {
-    newPwVisible = newPasswordPanel.ariaHidden === "false";
+    let ariaHiddenValue = newPasswordPanel.getAttribute("aria-hidden");
+    newPwVisible = ariaHiddenValue === "false";
+
     toggleNewPassword();
     toggleOldPassword();
   });
