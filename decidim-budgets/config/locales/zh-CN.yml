@@ -27,7 +27,6 @@ zh-CN:
         edit: 编辑
         edit_projects: 管理项目
         import: 导入提案到项目
-        new: 新建 %{name}
         preview: 预览
         title: 行动
       admin:
@@ -83,7 +82,6 @@ zh-CN:
           more_than_one: 删除您对 %{name} 的投票并开始
           only_one: 删除您的投票并重新开始
         highlighted_cta: 对 %{name} 投票
-        my_budgets: 我的预算
       limit_announcement:
         limit_reached: 您在 %{links}有活跃的投票。要对此预算进行投票，您必须 <a href="%{landing_path}">删除您的投票并开始于</a> 开始投票。
       models:
@@ -110,15 +108,12 @@ zh-CN:
         budget_excess:
           budget_excess:
             title: 超出最大预算
-          close: 关闭
           ok: 好的
         budget_summary:
           are_you_sure: 您确定要取消您的投票吗？
-          assigned: '已指派：'
           cancel_order: 删除您的投票并开始
           checked_out:
             title: 预算投票完成
-          title: 您决定预算
         count:
           projects_count:
             other: "%{count} 个项目"
@@ -131,18 +126,6 @@ zh-CN:
             all: 所有的
             not_selected: 未选择
             selected: 已选择
-        filters_small_view:
-          close_modal: 关闭模式
-          filter: 筛选器
-          filter_by: 筛选方式
-          unfold: 展开...
-        order_progress:
-          vote: 投票
-        order_selected_projects:
-          remove: 删除
-          selected_projects:
-            other: 已选择的项目
-          view: 查看
         orders:
           highest_cost: 最高成本
           label: 项目订购方式
@@ -161,7 +144,6 @@ zh-CN:
         projects_for: '%{name} 的项目'
         show:
           budget: 三. 预算
-          view_all_projects: 查看所有项目
     components:
       budgets:
         actions:

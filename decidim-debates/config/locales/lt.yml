@@ -10,6 +10,7 @@ lt:
         end_time: Biagiasi
         information_updates: Informacijos atnaujinimai
         instructions: Dalyvavimo instrukcija
+        scope_id: Sritis
         start_time: Prasideda
         title: Pavadinimas
         user_group_id: Sukurti diskusiją kaip
@@ -52,7 +53,6 @@ lt:
         confirm_destroy: Ar esate tikri?
         destroy: Ištrinti
         edit: Redaguoti
-        new: Naujas %{name}
         title: Veiksmai
       admin:
         debate_closes:
@@ -82,9 +82,6 @@ lt:
             success: Diskusija atnaujinta.
         exports:
           comments: Komentarai
-        models:
-          debate:
-            name: Diskusija
       admin_log:
         debate:
           close: "%{user_name} uždarė %{resource_name} diskusiją %{space_name} erdvėje"
@@ -97,7 +94,7 @@ lt:
           invalid: Baigiant diskusiją iškilo problema.
           success: Diskusija baigta.
         close_debate_modal:
-          close: Uždaryti
+          cancel: Atšaukti
           description: Kokia šios diskusijos santrauka ar išvada?
           send: Uždaryti diskusiją
         closed: Uždaryta
@@ -126,18 +123,12 @@ lt:
           official: Oficialūs
           origin: Kilmė
           participants: Dalyviai
-          scope: Apimtis
           search: Ieškoti
           state: Būsena
           state_values:
             closed: Uždaryta
             open: Atidaryta
-          user_groups: Grupės
-        filters_small_view:
-          close_modal: Uždaryti modalinį langą
-          filter: Filtras
-          filter_by: Filtruoti pagal
-          unfold: Išskleisti
+          user_group: Grupės
         form:
           select_a_category: Pasirinkite kategoriją
         index:
@@ -153,7 +144,6 @@ lt:
           recent: Naujausia
           updated: Neseniai atnaujinta
         show:
-          back: Grįžti į sąrašą
           close_debate: Uždaryti diskusiją
           date: Data
           debate_closed: Uždaryta
@@ -161,28 +151,21 @@ lt:
           edit_conclusions: Keisti išvadas
           edit_debate: Redaguoti diskusiją
           groups_count: Grupės
-          last_comment_by: Paskutinį kartą komentavo
-          no_comments_yet: Dar komentarų nėra
           open: Atverti diskusiją
           participants_count: Dalyviai
         update:
           invalid: Atnaujinant diskusiją iškilo problema.
           success: Diskusija atnaujinta.
-        versions:
-          debates:
-            back_to_resource: Grįžti į diskusiją
-          index:
-            title: Versijos
-        versions_list:
-          back_to_resource: Grįžti į diskusiją
       last_activity:
         debate_updated: 'Diskusija atnaujinta:'
         new_debate: 'Nauja diskusija:'
       models:
         debate:
           fields:
+            end: Baigiasi
             end_time: Pabaigos data
             official_debate: Oficiali diskusija
+            start: Pradėti
             start_time: Pradžios data
             title: Pavadinimas
     events:
@@ -211,6 +194,7 @@ lt:
           email_intro: 'Dabar galite pradėti naujas diskusijas %{participatory_space_title}! Pradėti dalyvauti šiame puslapyje:'
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
           email_subject: Diskusijos nuo šiol prieinamos %{participatory_space_title}
+          notification_title: Dabar galite pradėti <a href="%{resource_path}">naujas diskusijas</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         debate_closed:
           affected_user:
             email_intro: '"%{resource_title}" diskusija uždaryta. Išvadas galite perskaityti jos puslapyje:'
@@ -233,6 +217,7 @@ lt:
           name: Diskusijos
           next_level_in: Įsitraukite į %{score} daugiau diskusijų ir pasiekite kitą lygį!
           unearned_another: Šis dalyvis dar nedalyvavo nė vienoje diskusijoje.
+          unearned_own: Jūs dar nedalyvavote nė vienoje diskusijoje.
     metrics:
       debates:
         description: Sukurtų diskusijų skaičius

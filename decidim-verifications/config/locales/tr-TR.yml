@@ -38,7 +38,7 @@ tr:
             - Kullanıcılar kimlik bilgilerini doldurur ve dokümanlarının bir kopyasını yüklerler.
             - Yüklenen görüntüdeki mevcut bilgileri doldurursunuz.
             - Bilgiler, kullanıcının doldurduğu bilgilerle eşleşmelidir.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
             - Kullanıcılar adreslerine gönderilecek bir doğrulama kodu ister.

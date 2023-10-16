@@ -39,7 +39,7 @@ sv:
             - Användare fyller i sin identitetsinformation och skickar in en kopia av sin ID-handling.
             - Du fyller i informationen som visas i den inskickade bilden.
             - Informationen ska stämma överens med vad användaren fyllde i.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
             - Deltagare begär en verifieringskod som ska skickas till deras adress.
@@ -79,8 +79,10 @@ sv:
           verify_with_these_options: 'Det här är de tillgängliga alternativen för att verifiera din identitet:'
         index:
           expired_verification: Verifieringen har gått ut
+          introduce_code: Introducera kod
           pending_verification: Väntar på verifiering
           show_renew_info: Klicka för att förnya verifieringen
+          subscribe: Prenumerera
         new:
           authorize: Skicka
           authorize_with: Verifiera med %{authorizer}

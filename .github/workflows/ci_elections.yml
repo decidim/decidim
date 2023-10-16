@@ -1,4 +1,4 @@
-name: "[CI] Elections (system admin)"
+name: "[CI] Elections"
 on:
   push:
     branches:

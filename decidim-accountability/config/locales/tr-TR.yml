@@ -41,7 +41,9 @@ tr:
         edit: Düzenle
         import: Projeleri sonuçlara aktar 
         import_csv: CSV'yi içe aktar
-        new: Yeni %{name}
+        new_result: Yeni sonuç
+        new_status: Yeni Durum
+        new_timeline_entry: Yeni Zaman çizelgesi Kaydı
         preview: Ön izleme
         timeline_entries: Proje evrimi
         title: Eylemler
@@ -59,8 +61,6 @@ tr:
             name: Sonuç
           status:
             name: durum
-          timeline_entry:
-            name: Zaman çizelgesi girişi
         projects_import:
           new:
             create: İçe aktar
@@ -152,6 +152,7 @@ tr:
           global_status: Genel yürütme durumu
         nav_breadcrumb:
           global: Global yürütme
+        no_results: Proje Bulunamadı
         search:
           search: İşlemleri ara
         show:

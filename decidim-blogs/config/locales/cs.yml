@@ -25,9 +25,6 @@ cs:
         new: Nový příspěvek
         title: Akce
       admin:
-        models:
-          post:
-            name: Příspěvek
         posts:
           create:
             invalid: Při vytváření tohoto příspěvku nastal problém.
@@ -51,6 +48,11 @@ cs:
           create: "%{user_name} vytvořil příspěvek %{resource_name} v %{space_name}"
           delete: "%{user_name} odstranil příspěvek %{resource_name} z %{space_name}"
           update: "%{user_name} aktualizoval příspěvek %{resource_name} v %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Naposledy publikováno
+          name: Příspěvky
+          see_all: Zobrazit všechny příspěvky
       last_activity:
         new_post: 'Nový příspěvek:'
       models:
@@ -62,8 +64,12 @@ cs:
             published_at: Čas zveřejnění
             title: Název
       posts:
-        show:
-          view: Zobrazit
+        index:
+          count:
+            one: "%{count} příspěvek"
+            few: "%{count} příspěvky"
+            many: "%{count} příspěvků"
+            other: "%{count} příspěvků"
     components:
       blogs:
         actions:

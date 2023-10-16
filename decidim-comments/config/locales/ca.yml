@@ -33,20 +33,20 @@ ca:
       comments_count: Número de comentaris
       comments_title: Comentari
       last_activity:
-        new_comment_at_html: "<span>Nou comentari a %{link}</span>"
-      view: Mostrar
+        new_comment: 'Nou comentari:'
       votes:
         create:
           error: S'ha produït un error en votar el comentari.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Inicia la sessió amb el teu compte</a> o <a href="%{sign_up_url}">registra't</a> per afegir el teu comentari.
+        account_message: Per afegir un comentari, <a href="%{sign_in_url}">inicia la teva sessió</a> o <a href="%{sign_up_url}">registra't</a>.
         form:
           body:
             label: Comentari
             placeholder: Què en penses d'això?
           form_error: El text és necessari i no pot ser més llarg de %{length}.
-          submit: Enviar
+          submit_reply: Publicar resposta
+          submit_root_comment: Publicar comentari
           user_group_id:
             label: Comentar com a
         opinion:
@@ -64,6 +64,7 @@ ca:
         alignment:
           against: En contra
           in_favor: A favor
+        cancel_reply: Cancel·lar resposta
         confirm_destroy: Segur que vols esborrar aquest comentari?
         delete: Esborrar
         deleted_at: Comentari esborrat el %{date}
@@ -95,8 +96,6 @@ ca:
           older: Més antic
           recent: Recent
         title: 'Ordenar per:'
-      comment_thread:
-        title: Conversa amb %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Has d'estar verificat abans de poder fer comentaris, però pots llegir els comentaris anteriors.
         blocked_comments_for_user_warning: No pots fer comentaris en aquest moment, però pots llegir els anteriors.

@@ -45,7 +45,8 @@ eu:
         edit: Editatu
         edit_projects: Kudeatu proiektuak
         import: Inportatu proposamenak proiektuetarako
-        new: '%{name} berria'
+        new_budget: Beste aurrekontu bat
+        new_project: Beste proiektu bat
         preview: Aurreikusi
         send_voting_reminders: Botoa gogorarazi
         title: Ekintzak
@@ -91,6 +92,10 @@ eu:
           new:
             create: Sortu
             title: Proiektu berria
+          update_category:
+            select_a_category: Mesedez, hautatu kategoria bat.
+          update_scope:
+            select_a_project: Mesedez, hautatu proiektu bat.
           update_selected:
             invalid:
               selected: 'Honako proiektu hauek dagoeneko gauzatzeko hautatu dira: %{projects}.'
@@ -102,6 +107,7 @@ eu:
           new:
             create: Inportatu proposamenak proiektuetarako
             no_components: Proposamenak proiektuetan inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
+            origin_component_id: Jatorrizko osagaia
             select_component: Hautatu osagaia
             title: Inportatu proposamenak
       admin_log:
@@ -125,7 +131,6 @@ eu:
           more_than_one: ezabatu zure botoa hemen %{name} eta hasi berriro
           only_one: ezabatu zure botoa eta hasi berriro.
         highlighted_cta: Botoa eman hemen %{name}
-        my_budgets: Nire aurrekontuak
         progress: Amaitu bozketa
         show: Ikusi proiektuak
         vote: Eman botoa
@@ -157,33 +162,14 @@ eu:
         budget_excess:
           budget_excess:
             title: Aurrekontua gainditu da
-          close: Itxi
           ok: Ados
           projects_excess:
             title: Gehieneko proiektu kopurua gainditu egin da
         budget_summary:
           are_you_sure: Ziur zaude zure botoa ezeztatu nahi duzula?
-          assigned: 'Esleituta:'
           cancel_order: ezabatu ezazu botoa eta hasi berriro
           checked_out:
             title: Botoa zuzen bidali da
-          minimum_projects_rule:
-            description: Zure aburuz, proiektuetako zeinei esleitu behar diegu aurrekontua? Hautatu gutxienez %{minimum_number} eta bozkatu zure lehentasunen arabera proiektua zehazteko.
-            instruction: "<li>Hautatu gutxienez nahi dituzun %{minimum_number} proiektu eta bozkatu zure lehentasunen arabera </li> proiektua zehazteko"
-          projects_rule:
-            description: Zure ustez, zein proiekturi esleitu beharko genieke aurrekontua? Hautatu %{minimum_number} eta %{maximum_number} arteko proiektuak, eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
-            instruction: "<li>Hautatu gutxienez nahi dituzun %{minimum_number} eta %{maximum_number} arteko proiektu eta bozkatu zure lehentasunen arabera </li> proiektua zehazteko"
-          projects_rule_maximum_only:
-            description: Zure ustez, zein proiekturi eman beharko genieke aurrekontua? Hautatu %{maximum_number} arte eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
-            instruction: "<li>Hautatu %{maximum_number} arte nahi beste proiektu eta eman botoa zure lehentasunen arabera aurrekontua zehazteko </li>"
-          rules:
-            title: Aurrekontuaren arauak
-          title: Zure esku dago aurrekontua erabakitzea
-          total_budget: Aurrekontua guztira
-          total_projects: Botoak guztira
-          vote_threshold_percent_rule:
-            description: Zure ustez, zein proiekturi eman beharko genieke aurrekontua? Hautatu %{minimum_budget} arte eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
-            instruction: "<li>Hautatu %{minimum_budget} arte nahi beste proiektu eta eman botoa zure lehentasunen arabera aurrekontua zehazteko </li>"
         count:
           projects_count:
             one: Proiektu bat
@@ -202,19 +188,6 @@ eu:
             all: Denak
             not_selected: Ez hautatua
             selected: Hautatua
-        filters_small_view:
-          close_modal: Itxi leihoa
-          filter: Iragazi
-          filter_by: 'Iragazi honen arabera:'
-          unfold: Zabaldu
-        order_progress:
-          vote: Proiektuaren alde egin
-        order_selected_projects:
-          remove: Kendu
-          selected_projects:
-            one: hautatutako proiektua
-            other: hautatutako proiektuak
-          view: Ikusi
         orders:
           highest_cost: Kostu handiena
           label: Antolatu proiektuak honen arabera
@@ -235,7 +208,6 @@ eu:
         projects_for: '%{name} ren prozesuak'
         show:
           budget: Aurrekontua
-          view_all_projects: Ikusi proiektu guztiak
     components:
       budgets:
         actions:

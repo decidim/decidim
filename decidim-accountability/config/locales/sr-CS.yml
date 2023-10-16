@@ -36,7 +36,6 @@ sr:
         confirm_destroy: Da li ste sigurni da želite da obrišete ovo %{name}?
         destroy: Obriši
         edit: Izmeni
-        new: Novo %{name}
         preview: Pregled
         timeline_entries: Evolucija predloga
         title: Akcije
@@ -48,8 +47,6 @@ sr:
             name: Rezultat
           status:
             name: Stanje
-          timeline_entry:
-            name: Unos u vremensku liniju
         results:
           edit:
             title: Izmeni rezultat

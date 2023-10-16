@@ -37,6 +37,9 @@ ja:
         user_group_id: インポートを作成
       newsletter:
         body: 本文
+        send_to_all_users: すべてのユーザーに送信
+        send_to_followers: フォロワーに送信
+        send_to_participants: 参加者に送信
         subject: 件名
       organization:
         admin_terms_of_service_body: 管理者向け利用規約本文
@@ -83,16 +86,17 @@ ja:
         organization_admin_email: 組織管理者メールアドレス
         organization_admin_name: 組織管理者名
         organization_locales: 組織のロケール
-        primary_color: プライマリ（プライマリ）
+        primary_color: プライマリ
         reference_prefix: 参照の接頭辞：
         rich_text_editor_in_public_views: 参加者にリッチテキストエディタを有効にする
         secondary_color: セカンダリ
         secondary_hosts: セカンダリホスト
         send_welcome_notification: ウェルカム通知を送信
         success_color: 成功
+        tertiary_color: ターシャリ（第三色）
         time_zone: タイムゾーン
         tos_version: 利用規約のバージョン
-        twitter_handler: Twitter ハンドラー
+        twitter_handler: X ハンドラー
         user_groups_enabled: グループを有効にする
         users_registration_mode: ユーザー登録モード
         warning_color: 警告
@@ -185,8 +189,6 @@ ja:
         export: 全てエクスポート
         export-selection: 選択したものをエクスポート
         import: インポート
-        manage: 管理
-        new: 新しい %{name}
         newsletter:
           new: 新しいニュースレター
         participatory_space_private_user:
@@ -194,6 +196,7 @@ ja:
         per_page: ページごと
         permissions: アクセス許可
         reject: 拒否
+        send_me_a_test_email: テストメールを自分宛てに送信
         share: 共有
         user:
           new: 新しい管理者
@@ -254,7 +257,6 @@ ja:
           title: フォルダを編集
           update: 更新
         index:
-          attachment_collection_used: このフォルダは使用中のため削除できません。
           attachment_collections_title: 添付ファイルフォルダ
         new:
           create: 作成
@@ -303,7 +305,6 @@ ja:
           update: 更新
         index:
           categories_title: カテゴリ
-          category_used: このカテゴリは使用中のため削除できません。
         new:
           create: カテゴリを作成
           title: 新しいカテゴリ
@@ -318,6 +319,7 @@ ja:
         create:
           error: このコンポーネントの作成に問題がありました。
           success: コンポーネントが作成されました。
+          success_landing_page: コンポーネントを作成しました。このコンポーネントのコンテンツブロックをスペースのホームに追加できます。 <a href="%{landing_page_path}">ランディングページ</a> に移動して設定してください。
         destroy:
           error: このコンポーネントの削除中に問題が発生しました。
           success: コンポーネントは正常に削除されました。
@@ -368,8 +370,8 @@ ja:
           goto_moderation: グローバルモデレーションへ移動
           title: 保留中のモデレーション
         show:
+          dropdown: ドロップダウン
           view_more_logs: もっとログを見る
-          welcome: 管理画面へようこそ。
       domain_whitelist:
         form:
           domain_too_short: ドメインが短すぎます
@@ -468,7 +470,6 @@ ja:
             all: すべて
             managed: 管理
             not_managed: 非管理対象
-          filter_by: フィルター
           impersonate: なりすまし
           impersonate_new_managed_user: 新規参加者の管理
           managed: 管理対象
@@ -554,7 +555,6 @@ ja:
         areas: エリア
         configuration: 設定
         content: 報告されたコンテンツ
-        dashboard: ダッシュボード
         external_domain_whitelist: 許可された外部ドメイン
         help_sections: ヘルプセクション
         homepage: ホームページ
@@ -565,6 +565,7 @@ ja:
         reported_users: 報告された参加者
         scope_types: スコープ種別
         scopes: スコープ
+        see_site: サイトを見る
         settings: 設定
         static_pages: ページ
         user_groups: グループ
@@ -745,16 +746,16 @@ ja:
           select_scopes: アカウントの「趣味」設定で選択したスコープを有効にしているユーザーをフィルタリングします。
           select_spaces: ニュースレターをセグメント化するスペースを選択
           select_users: ニュースレターを送信したいユーザーを選択してください
-          send_to_all_users: すべてのユーザーに送信
-          send_to_followers: フォロワーに送る
-          send_to_participants: 参加者に送る
           title: 配信する宛先を選択
           warning: "<strong>注意:</strong> このニュースレターは、通知設定で <em>ニュースレターを受信したい</em> ユーザーにのみ送信されます。"
         send:
           no_recipients: 受信者が選択されていません。
+        send_to_user:
+          sent_successfully: ニュースレターが %{email} に送信されました
         show:
           preview: プレビュー
           select_recipients_to_deliver: 配信する宛先を選択
+          send_me_a_test_email: テストメールを自分宛てに送信
           subject: 件名
         update:
           error: このニュースレターの更新中に問題が発生しました。
@@ -788,7 +789,6 @@ ja:
           officialize: 公式化
           title: 参加者 "%{name} " を正規化
         show_email_modal:
-          close_modal: モーダルを閉じる
           description: 直接参加者に連絡する必要がある場合、彼らの電子メールアドレスを見るために表示ボタンをクリックしてください。このアクションは記録されます。
           email_address: メールアドレス
           full_name: フルネーム
@@ -808,7 +808,7 @@ ja:
           instagram: Instagram
           rich_text_editor_in_public_views_help: 一部のテキストエリアでは、参加者はリッチテキストエディタを使用してHTMLタグを挿入することができます。
           social_handlers: ソーシャル
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -819,10 +819,16 @@ ja:
           update: 更新
         form:
           colors:
+            choose_color: プライマリカラーを選択
             colors_title: 組織の色
             colors_warning_html: '警告: これらの色を変更すると、アクセシビリティのコントラストが壊れる可能性があります。 <a href="%{link}">WebAIM Contrast Checker</a> または他の同様のツールで、選択したコントラストを確認できます。'
-            header_snippets_help: HTML head 内にコードを追加するには、このフィールドを使用します。 最も一般的な用途は、追加の JavaScript や CSS を必要とするサードパーティのサービスを統合することです。 また、HTML にメタタグを追加するためにも使用できます。 これは公開ページでのみ表示され、管理用セクションでは表示されないことに注意してください。
-          cta_button_path_help: 'ホームページへのリンクの「通話先アクション」ボタンの場所を上書きすることができます。完全なURLではなく、部分的なパスを使用してください。 文字、数字、ダッシュ、スラッシュを使用でき、文字で始まる必要があります。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。例: %{url}'
+            explanation: このツールは、カラーホイールの周りに均等に間隔を置いた色相で構成された配色を選択するのに役立ちます。 これは組織のウェブサイトに掲載されています
+            header_snippets_help_html: HTMLヘッダ部分に追加するには、このフィールドを使用します。 最も一般的な用途は、追加の JavaScript や CSS を必要とするサードパーティのサービスとの統合です。 また、HTML に追加のメタタグを追加するためにも使用できます。 これは一般向けの公開ページでのみ表示され、管理者向けセクションでは表示されないことに注意してください。 コードが外部 API と相互作用する場合や、アプリケーション・セキュリティ・ガイドラインに準拠していない場合、コンテンツセキュリティポリシーを変更する必要があります。 詳細は <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">ドキュメント サイト</a> をご覧ください。
+            legend_html: <a href="https://www.color-meanings.com/triadic-colors/">三角法に基づく</a>に基づくメインのアプリケーションカラーです. 選択されたプライマリカラーと彩度に基づいて、<i>セカンダリ</i> カラーはは自動的に計算されます.
+            saturation: 彩度
+            title: 色の選択
+            update_suggested_colors: 提案色を更新
+          cta_button_path_help_html: 'ホームページにあるCall to Actionボタンのリンク先を上書きすることができます。完全なURLではなく、相対パスを使用してください。 英字、数字、ハイフン、スラッシュを使用でき、英字で始まる必要があります。 Call To Actionボタンは、ホームページ内のウェルカムテキストと説明の間に表示されます。例: %{url}'
           cta_button_text_help: 組織の利用可能な言語ごとにホームページの [Call To Action] ボタンのテキストを上書きできます。 設定されていない場合は、デフォルト値が使用されます。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。
           homepage_appearance_title: ホームページの外観を編集
           homepage_highlighted_content_banner_title: ハイライトされたコンテンツバナー
@@ -856,7 +862,7 @@ ja:
           add: コンテンツブロックを追加
           destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
           inactive_content_blocks: 非アクティブコンテンツブロック
-          title: ページコンテンツ
+          title: ページ内容
       participatory_space_private_users:
         create:
           error: この参加型スペースにプライベート参加者を追加する際に問題が発生しました。
@@ -997,9 +1003,7 @@ ja:
           update: 更新
         form:
           none: なし
-          slug_help: 'ここでは完全な URL ではなく、部分パスを使用してください。文字、数字、ダッシュ、スラッシュを受け入れ、文字で始める必要があります。例: %{url}'
-        index:
-          last_notable_change: 前回の注目すべき変更
+          slug_help_html: 'ここでは完全な URL ではなく、相対パスを使用してください。英字、数字、ハイフン、スラッシュを受け入れ、英字で始まる必要があります。例: %{url}'
         new:
           create: ページを作成
           title: 新しいページ
@@ -1017,14 +1021,17 @@ ja:
         areas: エリア
         authorization_workflows: 確認方法
         dashboard: ダッシュボード
+        edit_external_domains: 外部ドメインのホワイトリスト
+        edit_landing_page: ページ内容
+        edit_organization_appearance: ホームページの外観を編集
         impersonatable_users: 管理可能な参加者
         impersonations: 参加者管理
         metrics: 指標
+        pages: ページ
         panel: 管理者
         participants: 参加者
         scope_types: スコープ種別
         scopes: スコープ
-        static_pages: ページ
         statistics: アクティビティ
         user_groups: グループ
         users: 管理者
@@ -1071,12 +1078,11 @@ ja:
       users_statistics:
         users_count:
           admins: 管理者
-          last_day: 過去24時間
-          last_month: 過去1ヶ月間
-          last_week: 過去1週間
+          last_day: 直近24時間
+          last_month: 直近1ヶ月間
+          last_week: 直近1週間
           no_users_count_statistics_yet: ユーザー数の統計情報はまだありません。
           participants: 参加者
-      view_public_page: 公開ページを表示
     forms:
       errors:
         impersonate_user:
@@ -1137,9 +1143,3 @@ ja:
       admin:
         global_moderations:
           title: グローバルモデレーション
-        newsletters:
-          title: ニュースレター
-        settings:
-          title: 設定
-        users:
-          title: 参加者

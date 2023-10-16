@@ -13,10 +13,10 @@
         <% announcement_message = t(".organization_time_zone", time_zone: current_organization.time_zone, time: Time.zone.now) %>
         <%= cell("decidim/announcement", announcement_message, callout_class: "warning" ) %>
 
-        <div class="column xlarge-6">
+        <div class="column">
           <%= form.datetime_field :start_time %>
         </div>
-        <div class="column xlarge-6">
+        <div class="column">
           <%= form.datetime_field :end_time %>
         </div>
       </div>

@@ -5,7 +5,6 @@ lt:
         assemblies_ids: Susijusios Asamblėjos
         available_slots: Laisvos vietos
         banner_image: Reklamjuostės paveikslėlis
-        consultations_ids: Susijusios Konsultacijos
         copy_categories: Kopijuoti kategorijas
         copy_components: Kopijuoti komponentus
         copy_features: Kopijuoti požymius
@@ -28,19 +27,23 @@ lt:
         show_statistics: Rodyti statistiką
         sign_date: Pasirašymo data
         signature: Parašas
+        signature_name: Parašo pavadinimas
         slogan: Šūkis
         slug: URL priedas
         start_date: Pradžios data
         title: Pavadinimas
+        weight: Vieta eilėje
       conference_media_link:
         date: Data
         link: Nuoroda
         title: Pavadinimas
+        weight: Vieta eilėje
       conference_partner:
         link: Nuoroda
         logo: Logotipas
         name: Vardas
         partner_type: Partnerio tipas
+        weight: Vieta eilėje
       conference_registration_invite:
         email: El. paštas
         name: Vardas
@@ -50,6 +53,7 @@ lt:
         description: Aprašymas
         price: Kaina
         title: Pavadinimas
+        weight: Vieta eilėje
       conference_speaker:
         affiliation: Organizacija
         avatar: Avataras
@@ -58,12 +62,17 @@ lt:
         personal_url: Asmeninis URL
         position: Pozicija
         short_bio: Trumpas gyvenimo aprašymas
-        twitter_handle: Twitter tvarkyklė
         user_id: Naudotojas
       conference_user_role:
         email: El. paštas
         name: Vardas
         role: Rolė
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Šio el. laiško adresatas jau buvo pakviestas.
   activerecord:
     models:
       decidim/conference:
@@ -85,7 +94,6 @@ lt:
     admin:
       actions:
         confirm: Patvirtinti
-        new_conference: Nauja Konferencija
         send_diplomas: Siųsti dalyvavimo konferencijoje pažymėjimus
       conference_copies:
         new:
@@ -129,6 +137,8 @@ lt:
         edit:
           title: Atnaujinti konferencijos administratorių.
           update: Atnaujinti
+        index:
+          conference_admins_title: Konferencijos administratoriai
         new:
           create: Sukurti
           title: Naujas konferencijos administratorius.
@@ -146,7 +156,6 @@ lt:
         form:
           title: Bendroji informacija
         index:
-          not_published: Nepublikuota
           published: Publikuota
         new:
           create: Sukurti
@@ -187,7 +196,6 @@ lt:
           conference_invites: Pakvietimai
           conference_speakers: Pranešėjai
           diploma: Dalyvavimo konferencijoje pažymėjimas
-          info: Informacija
           media_links: Multimedijos Nuorodos
           moderations: Moderavimai
           partners: Partneriai
@@ -198,7 +206,6 @@ lt:
         conference:
           fields:
             created_at: Sukurta
-            promoted: Paryškinta
             published: Publikuota
             title: Pavadinimas
         conference_speaker:
@@ -306,6 +313,7 @@ lt:
           update: "%{user_name} atnaujino partnerį %{resource_name} %{space_name} konferencijoje"
         registration_type:
           create: "%{user_name} sukūrė %{resource_name} registracijos tipą %{space_name} konferencijoje"
+          delete: "%{user_name} pašalino %{resource_name} registracijos tipą iš %{space_name} konferencijos"
           publish: "%{user_name} sukūrė %{resource_name} registracijos tipą %{space_name} konferencijoje"
           unpublish: "%{user_name} išėmė %{resource_name} registracijos tipą iš %{space_name} konferencijos"
           update: "%{user_name} atnaujino %{resource_name} registracijos tipą %{space_name} konferencijoje"
@@ -321,9 +329,6 @@ lt:
         title: Pranešėjai
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL priedėliai naudojami nuorodų į konferenciją sukūrimui. Juose gali būti raidės, skaičiai ir brukšneliai, tačiau privalo prasidėti nuo raidės. Pavyzdys: %{url}'
         conference_invites:
           create:
             error: Kviečiant dalyvį dalyvauti šioje konferencijoje iškilo problema.
@@ -340,11 +345,11 @@ lt:
               all: Visi
               rejected: Atmestas
               sent: Išsiųstas
-            filter_by: Filtruoti pagal
             invite_attendee: Kviesti dalyvį
             invites: Pakvietimai
             search: Ieškoti
           new:
+            explanation: Dalyvis bus pakviestas dalyvauti konferencijoje. Jei e. laiškas nebus užregistruotas, dalyvis bus taip pat pakviestas būti organizacijos dalimi.
             invite: Pakviesti
             new_invite: Kviesti dalyvį
         conference_registrations:
@@ -366,7 +371,6 @@ lt:
               few: Yra %{count} registracijų.
               many: Yra %{count} registracijų.
               other: Yra %{count} registracijų.
-            slug_help: 'URL priedėliai naudojami nuorodų į konferenciją sukūrimui. Juose gali būti raidės, skaičiai ir brukšneliai, tačiau privalo prasidėti nuo raidės. Pavyzdys: %{url}'
         diplomas:
           edit:
             save: Išsaugoti
@@ -375,6 +379,7 @@ lt:
           invite:
             decline: Atmesti kvietimą į „%{conference_title}“
             invited_existing_user_to_join_a_conference: "%{invited_by} jus pakvietė dalyvauti konferencijoje %{application}. Kvietimą galite atmesti arba priimti spustelėję toliau pateikiamas nuorodas."
+            invited_user_to_join_a_conference: "%{invited_by} jus pakvietė dalyvauti konferencijoje %{application}. Kvietimą galite atmesti arba priimti spustelėję toliau pateikiamą nuorodą."
             registration: Registracija į „%{conference_title}“
         partners:
           index:
@@ -425,7 +430,6 @@ lt:
           invalid: Paliekant šią konferenciją iškilo problema.
           success: Jūs sėkmingai palikote konferenciją.
       conference_speaker:
-        go_to_twitter: Eiti į Twitter
         more_info: daugiau informacijos
         personal_website: Asmeninė interneto svetainė
         show:
@@ -434,12 +438,20 @@ lt:
       conference_speaker_cell:
         personal_url:
           personal_website: Asmeninė interneto svetainė
+      conference_speakers:
+        index:
+          speakers:
+            one: Kalbėtoja(-s)
+            few: Kalbėtojai
+            many: Kalbėtojai
+            other: Kalbėtojai
       conferences:
         partners:
           collaborators: Partneriai
           main_promotors: Organizatoriai
         show:
           login_as: Jūs prisijungėte kaip %{name} <%{email}>
+          make_conference_registration: Registruokitės į konferenciją
           register: Registruotis
       content_blocks:
         highlighted_conferences:
@@ -447,6 +459,11 @@ lt:
       index:
         title: Konferencijos
       mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: Jūsų registracija į konferenciją buvo patvirtinta.
+          pending_validation:
+            subject: Jūsų registracija į konferenciją laukia patvirtinimo.
         invite_join_conference_mailer:
           invite:
             subject: Kvietimas dalyvauti konferencijoje
@@ -477,9 +494,8 @@ lt:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktyvios konferencijos
-            conferences_button_title: Nuoroda į puslapį „Konferencijos“, kuriame pateikiamos visos konferencijos
-            see_all_conferences: Žiūrėti visas konferencijas
+            active_spaces: Aktyvios konferencijos
+            see_all_spaces: Žiūrėti visas konferencijas
       registration_types:
         index:
           choose_an_option: 'Pasirinkite registracijos būdą:'
@@ -491,7 +507,6 @@ lt:
         introduction: Įžanga
         objectives: Tikslai
         related_assemblies: Susijusios asamblėjos
-        related_consultations: Susijusios Konsultacijos
         related_participatory_processes: Susiję dalyvaujamieji procesai
     events:
       conferences:
@@ -530,6 +545,10 @@ lt:
           contextual: "<p> <strong>Konferencija</strong> yra susitikimų, surengtų pagal programą, rinkinys, į kurį pakviečiama daug kalbėtojų. Konferencijoms, kaip ir kitiems dideliems susirinkimams ar socialiniams renginiams, būdingi ypatumai yra registracijos, renginį remiančių ar kitaip padedančių organizacijų sąrašas ir kt.</p><p>Pavyzdžiui, konferencija gali būti svarbus įvykis organizacijai ir jos nariams, vykti kaip dalyvaujamojo proceso dalis arba tai gali būti renginys po konsultacijos.</p>\n"
           page: "<p> <strong>Konferencija</strong> yra susitikimų, surengtų pagal programą, rinkinys, į kurį pakviečiama daug kalbėtojų. Konferencijoms, kaip ir kitiems dideliems susirinkimams ar socialiniams renginiams, būdingi ypatumai yra registracijos, renginį remiančių ar kitaip padedančių organizacijų sąrašas ir kt.</p><p>Pavyzdžiui, konferencija gali būti svarbus įvykis organizacijai ir jos nariams, vykti kaip dalyvaujamojo proceso dalis arba tai gali būti renginys po konsultacijos.</p>\n"
           title: Kas yra konferencijos?
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'Konferencija duomenų bazėje nerasta (ID: %{id}).'
     media:
       index:
         description: Nuorodos apie šią konferenciją
@@ -546,9 +565,6 @@ lt:
     decidim:
       conference_hero:
         register: Registruotis
-      conference_widgets:
-        show:
-          take_part: Dalyvaukite
       conferences:
         conference:
           more_info: Daugiau informacijos
@@ -561,11 +577,7 @@ lt:
             few: "%{count} konferencijos"
             many: "%{count} konferencijos"
             other: "%{count} konferencijos"
-        promoted_conference:
-          more_info: Daugiau informacijos
-          take_part: Dalyvaukite
       conferences_nav:
-        conference_menu_item: Informacija
         conference_partners_menu_item: Partneriai
         conference_speaker_menu_item: Pranešėjai
         media: Medija

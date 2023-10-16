@@ -39,7 +39,7 @@
     }
 
     &-text {
-      @apply grow px-4 py-3 flex flex-col gap-y-2 md:gap-y-4 text-gray-2;
+      @apply grow px-4 py-3 flex flex-col gap-y-2 md:gap-y-4 text-gray-2 break-words;
     }
 
     &:hover &-text h3 {

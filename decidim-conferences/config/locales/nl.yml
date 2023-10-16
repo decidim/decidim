@@ -5,7 +5,6 @@ nl:
         assemblies_ids: Gerelateerde bijeenkomsten
         available_slots: Beschikbare plaatsen
         banner_image: Banner afbeelding
-        consultations_ids: Gerelateerde consultaties
         copy_categories: Categorieën kopiëren
         copy_components: Kopieer componenten
         copy_features: Functies kopiëren
@@ -56,7 +55,6 @@ nl:
         conference_meeting_ids: Gerelateerde vergaderingen
         full_name: Voor-en achternaam
         position: Positie
-        twitter_handle: Twitter-account
         user_id: Gebruiker
       conference_user_role:
         email: E-mail
@@ -77,7 +75,6 @@ nl:
     admin:
       actions:
         confirm: Bevestigen
-        new_conference: Nieuwe conferentie
         send_diplomas: Stuur certificaten van deelname
       conference_copies:
         new:
@@ -138,7 +135,6 @@ nl:
         form:
           title: Algemene informatie
         index:
-          not_published: Niet gepubliceerd
           published: Gepubliceerd
         new:
           create: Creëren
@@ -179,7 +175,6 @@ nl:
           conference_invites: Uitnodigingen
           conference_speakers: Sprekers
           diploma: Certificaat van Deelname
-          info: Info
           media_links: Mediakoppelingen
           moderations: Moderaties
           partners: Partners
@@ -190,7 +185,6 @@ nl:
         conference:
           fields:
             created_at: Aangemaakt op
-            promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
         conference_speaker:
@@ -313,9 +307,6 @@ nl:
         title: Sprekers
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze conferentie verwijzen. Accepteert alleen letters, cijfers en streepjes en moet beginnen met een letter. Voorbeeld: %{url}'
         conference_invites:
           create:
             error: Er is een probleem opgetreden tijdens het uitnodigen van de gebruiker om deel te nemen aan de conferentie.
@@ -332,7 +323,6 @@ nl:
               all: Alle
               rejected: Verworpen
               sent: Verzonden
-            filter_by: Filteren op
             invite_attendee: Nodig deelnemer uit
             invites: Uitnodigingen
             search: Zoeken
@@ -356,7 +346,6 @@ nl:
             registrations_count:
               one: Er is 1 registratie geweest.
               other: Er zijn %{count} registraties geweest.
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze conferentie verwijzen. Accepteert alleen letters, cijfers en streepjes en moet beginnen met een letter. Voorbeeld: %{url}'
         diplomas:
           edit:
             save: Opslaan
@@ -415,7 +404,6 @@ nl:
           invalid: Er is een probleem met het verlaten van deze conferentie.
           success: U hebt de conferentie met succes verlaten.
       conference_speaker:
-        go_to_twitter: Ga naar Twitter
         more_info: meer informatie
         personal_website: Persoonlijke website
         show:
@@ -467,9 +455,7 @@ nl:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Actieve conferenties
-            conferences_button_title: Link naar de pagina Conferenties waarop alle conferenties worden weergegeven
-            see_all_conferences: Bekijk alle conferenties
+            active_spaces: Actieve conferenties
       registration_types:
         index:
           choose_an_option: 'Kies je registratieoptie:'
@@ -481,7 +467,6 @@ nl:
         introduction: Inleiding
         objectives: Doelen
         related_assemblies: Gerelateerde bijeenkomsten
-        related_consultations: Gerelateerde consultaties
         related_participatory_processes: Verwante participatieve processen
     events:
       conferences:
@@ -536,9 +521,6 @@ nl:
     decidim:
       conference_hero:
         register: Registreren
-      conference_widgets:
-        show:
-          take_part: Deelnemen
       conferences:
         conference:
           more_info: Meer informatie
@@ -549,11 +531,7 @@ nl:
           conferences:
             one: "%{count} conferentie"
             other: "%{count} conferenties"
-        promoted_conference:
-          more_info: Meer informatie
-          take_part: Deelnemen
       conferences_nav:
-        conference_menu_item: Informatie
         conference_partners_menu_item: Partners
         conference_speaker_menu_item: Sprekers
         media: Media

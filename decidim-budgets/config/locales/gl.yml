@@ -41,7 +41,6 @@ gl:
         edit: Editar
         edit_projects: Xestionar proxectos
         import: Importa propostas a proxectos
-        new: Novo %{name}
         preview: Vista previa
         title: Accións
       admin:
@@ -101,7 +100,6 @@ gl:
           more_than_one: eliminar o teu voto de %{name} e comezar de novo
           only_one: eliminar o teu voto e comezar de novo.
         highlighted_cta: Votar en %{name}
-        my_budgets: Os meus orzamentos
         progress: Finalizar votación
         show: Ver proxectos
         vote: Votar
@@ -128,26 +126,18 @@ gl:
         budget_excess:
           budget_excess:
             title: Orzamento máximo excedido
-          close: Pechar
           ok: Ok
         budget_summary:
           are_you_sure: Estás certo de querer cancelar o teu voto?
-          assigned: 'Asignado:'
           cancel_order: elimine o seu voto e volva comezar
           checked_out:
             title: A votación do orzamento completada
-          rules:
-            title: Regras do orzamento
-          title: Vostede decide o orzamento
-          total_budget: Orzamento total
-          total_projects: Votos totais
         count:
           projects_count:
             one: 1 proxecto
             other: "%{count} proxectos"
         exit_modal:
           cancel: Volver á votación
-          close_modal: Pechar modal
           exit: Saír da votación
           message: O teu voto non foi rexistrado xa que aínda non completaches o proceso de votación. Estás certo/a de querer saír da votación?
           title: Aínda non votaches
@@ -160,19 +150,6 @@ gl:
             all: Todos
             not_selected: Non seleccionado
             selected: Seleccionado
-        filters_small_view:
-          close_modal: Pechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Despregar
-        order_progress:
-          vote: Vota
-        order_selected_projects:
-          remove: Quitar
-          selected_projects:
-            one: proxecto seleccionado
-            other: proxectos seleccionados
-          view: Ver
         orders:
           highest_cost: Maior custo
           label: Ordenar proxectos por
@@ -192,7 +169,6 @@ gl:
         projects_for: Proxectos para %{name}
         show:
           budget: Orzamento
-          view_all_projects: Ver todos os proxectos
       vote_reminder_mailer:
         vote_reminder:
           email_outro: Por favor, lembra completar a voto. Para votar, tes que seleccionar a proposta ou propostas para as que desexas votar e despois confirmar o teu voto premendo o botón "Votat".

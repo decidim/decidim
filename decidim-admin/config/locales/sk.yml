@@ -64,7 +64,6 @@ sk:
         success_color: Úspech
         time_zone: Časové pásmo
         tos_version: Verzia podmienok použitia
-        twitter_handler: Twitter handler
         user_groups_enabled: Povoliť skupiny
         warning_color: Varovanie
         welcome_notification_body: Telo textu úvodného privítania
@@ -113,7 +112,7 @@ sk:
         client_id: ID klienta
         client_secret: Tajný kľúč klienta
         organization_name: Názov organizácie
-        organization_url: Odkaz na stránku organizácie
+        organization_url: Odkaz na stránku organizácie 
         redirect_uri: Presmerovanie URI
         site: Webstránka
   decidim:
@@ -121,8 +120,6 @@ sk:
       actions:
         add: Pridať
         browse: Prechádzať
-        manage: Správa
-        new: Nový %{name}
         per_page: Na stranu
         permissions: Práva
         reject: Odmietnuť
@@ -162,7 +159,6 @@ sk:
           title: Upraviť priečinok
           update: Aktualizovať
         index:
-          attachment_collection_used: Tento priečinok nemôže byť odstránený, pretože je používaný.
           attachment_collections_title: Priečinky s prílohami
         new:
           create: Vytvoriť
@@ -201,7 +197,6 @@ sk:
           update: Aktualizovať
         index:
           categories_title: Kategórie
-          category_used: Táto kategória nemôže byť odstránená, pretože je používaná.
         new:
           create: Vytvoriť kategóriu
           title: Nová kategória
@@ -282,7 +277,6 @@ sk:
             all: Všetko
             managed: Spravované
             not_managed: Nespravované
-          filter_by: Filtrovať podľa
           impersonate: Vydávať sa za používateľa
           impersonate_new_managed_user: Správa nového používateľa
           managed: Spravované
@@ -325,7 +319,6 @@ sk:
         area_types: Typy oblastí
         areas: Oblasti
         configuration: Konfigurácia
-        dashboard: Hlavný panel
         help_sections: Sekcie Pomoci
         homepage: Domovská stránka
         impersonations: Vydávanie sa za používateľa
@@ -394,7 +387,6 @@ sk:
           fields:
             created_at: Dátum vytvorenia
             email: E-mail
-            last_sign_in_at: Naposledy prihlásený
             name: Meno
             role: Rola
             roles:
@@ -465,9 +457,6 @@ sk:
           select_scopes: Filtrovať užívateľov, ktorí aktivovali aspoň jednu označenú oblasť vo svojich nastaveniach "Moje záujmy".
           select_spaces: Vyberte skupiny pre rozdelenie spravodaja
           select_users: Vyberte, ktorým účastníkom chcete rozoslať spravodaj
-          send_to_all_users: Poslať všetkým účastníkom
-          send_to_followers: Poslať sledujúcim
-          send_to_participants: Poslať účastníkom
           title: Vyberte príjemcov
           warning: "<strong>Pozor:</strong> Tento spravodaj bude odoslaný len účastníkom, ktorí aktivovali možnosť <em>Chcem dostávať spravodaje</em> vo svojich nastaveniach."
         show:
@@ -510,7 +499,6 @@ sk:
           instagram: Instagram
           rich_text_editor_in_public_views_help: V niektorých textových oknách budú účastníci môcť vkladať niektoré HTML tagy pomocou pokročilého textového editoru.
           social_handlers: Sociálne
-          twitter: Twitter
           youtube: YouTube
         update:
           error: Pri aktualizácii organizácie došlo k chybe.
@@ -521,13 +509,11 @@ sk:
         form:
           colors:
             colors_title: Farby organizácie
-            header_snippets_help: Použite pole pre pridanie vecí do HTML hlavičky. Najbežnejšie využitie je integrácia služieb tretích strán, JavaScriptu a CSS. Tiež môžete pridať ďalšie meta tagy. Tieto veci sa zobrazia iba na verejných stránkach, nie administrátorskej.
-          cta_button_path_help: 'Môžete prepísať, kam tlačidlo Výzva do Akcie na úvodnej stránke odkazuje. Používajte relatívne adresy, nie celé URL. Akceptuje písmená, čísla, pomlčky a lomky, ale musí začínať písmenom. Tlačidlo Výzva do Akcie sa zobrazuje na úvodnej strane medzi úvodným textom a popisom. Príklad: %{url}'
           cta_button_text_help: Môžete prepísať tlačidlo Výzva do Akcie pre každý dostupný jazyk Vašej organizácie. Ak to nespravíte, bude použitý primárny jazyk. Tlačidlo Výzva do Akcie sa zobrazuje na úvodnej strane medzi úvodným textom a popisom.
           homepage_appearance_title: Upraviť vzhľad úvodnej obrazovky
           homepage_highlighted_content_banner_title: Banner so zdôrazneným obsahom
           images:
-            layout_appearance_title: Upraviť vzhľad
+            layout_appearance_title: Upraviť vzhľad 
           omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
       organization_homepage:
         edit:
@@ -615,9 +601,6 @@ sk:
           update: Aktualizovať
         form:
           none: Žiadne
-          slug_help: 'Použite tu čiastočné cesty, nie úplné adresy URL. Prijme písmená, čísla, pomlčky a lomítka a musí začínať písmenom. Príklad: %{url}'
-        index:
-          last_notable_change: Posledná výrazná úprava
         new:
           create: Vytvoriť stránku
           title: Nová stránka
@@ -639,7 +622,6 @@ sk:
         participants: Účastníci
         scope_types: Typy rozsahov
         scopes: Rozsahy
-        static_pages: Stránky
         statistics: Aktivita
         user_groups: Skupiny
       user_group:
@@ -681,7 +663,6 @@ sk:
           last_month: Posledný mesiac
           last_week: Posledný týždeň
           participants: Účastníci
-      view_public_page: Zobraziť verejnú stránku
     moderations:
       actions:
         hidden: Skryté
@@ -710,12 +691,3 @@ sk:
   errors:
     messages:
       invalid_json: Neplatný JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Spravodaje
-        settings:
-          title: Nastavenia
-        users:
-          title: Účastníci

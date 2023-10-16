@@ -1,5 +1,5 @@
 <div class="row column">
-  <div class="columns xlarge-12">
+  <div class="columns">
     <% if current_initiative.documents.any? %>
       <div class="row column">
         <strong><%= t ".documents" %>:</strong>
@@ -27,7 +27,7 @@
       </div>
     <% end %>
   </div>
-  <div class="columns xlarge-12">
+  <div class="columns">
     <% if allowed_to?(:update, :initiative, initiative: current_initiative) %>
       <%= aria_selected_link_to t(".edit"),
                                 decidim_admin_initiatives.initiative_attachments_path(current_participatory_space),
