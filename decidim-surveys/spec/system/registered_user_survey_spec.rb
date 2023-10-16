@@ -60,6 +60,8 @@ describe "Answer a survey", type: :system do
     end
 
     it "allows answering the questionnaire" do
+      allow(Decidim::Surveys::SurveyConfirmationMailer).to receive(:confirmation).and_return(mailer)
+
       visit_component
 
       expect(page).to have_i18n_content(questionnaire.title)
@@ -75,18 +77,14 @@ describe "Answer a survey", type: :system do
         expect(page).to have_content("successfully")
       end
 
-      allow(Decidim::Surveys::SurveyConfirmationMailer).to receive(:confirmation).with(user, questionnaire, [questionnaire.answers.last]).and_return(mailer)
-      expect(Decidim::Surveys::SurveyConfirmationMailer).to have_received(:confirmation).with(user, questionnaire, [questionnaire.answers.last])
-      expect(mailer).to have_received(:deliver_later)
-
       expect(page).to have_content("You have already answered this form.")
       expect(page).to have_no_i18n_content(question.body)
 
       expect(questionnaire.answers.last.session_token).not_to be_empty
       expect(questionnaire.answers.last.ip_hash).not_to be_empty
 
-      expect(questionnaire.answers.last.session_token).not_to be_empty
-      expect(questionnaire.answers.last.ip_hash).not_to be_empty
+      expect(Decidim::Surveys::SurveyConfirmationMailer).to have_received(:confirmation).with(user, questionnaire, [[questionnaire.answers.last]])
+      expect(mailer).to have_received(:deliver_later)
     end
 
     def questionnaire_public_path
