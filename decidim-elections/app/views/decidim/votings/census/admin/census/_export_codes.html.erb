@@ -2,7 +2,7 @@
   <%= cell("decidim/announcement", t("export_access_codes.callout", scope: "decidim.votings.census.admin.census", email: user_email), callout_class: "warning" ) %>
 
   <%= link_to t("export_access_codes.button", scope: "decidim.votings.census.admin.census"),
-                    export_access_codes_path,
-                    class: "button button__sm button__secondary",
-                    data: { confirm: t("export_access_codes.confirm", scope: "decidim.votings.census.admin.census", email: user_email) } %>
+              export_access_codes_path,
+              class: "button button__sm button__secondary",
+              data: { confirm: t("export_access_codes.confirm", scope: "decidim.votings.census.admin.census", email: user_email) } %>
 </div>

@@ -58,7 +58,7 @@ describe "Admin imports assembly", type: :system do
         click_link "Configure"
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Categories"
       end
       within ".table-list" do
@@ -66,7 +66,7 @@ describe "Admin imports assembly", type: :system do
         expect(page).to have_content(translated("Quidem aliquid reiciendis incidunt iste."))
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Components"
       end
       expect(Decidim::Assembly.last.components.size).to eq(9)
@@ -76,7 +76,7 @@ describe "Admin imports assembly", type: :system do
         end
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Files"
       end
       if Decidim::Assembly.last.attachments.any?

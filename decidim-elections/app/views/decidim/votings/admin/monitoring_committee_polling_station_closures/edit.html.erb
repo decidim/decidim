@@ -15,12 +15,12 @@
   <div class="card-section">
     <%= decidim_form_for @form, url: validate_voting_monitoring_committee_polling_station_closure_path(current_voting, closure), method: :post do |form| %>
       <%= content_tag :div,
-        form.text_area(
-          :monitoring_committee_notes,
-          rows: 5,
-          label: t(".monitoring_committee_notes"),
-          placeholder: t(".monitoring_committee_notes_placeholder")
-        ) %>
+                      form.text_area(
+                        :monitoring_committee_notes,
+                        rows: 5,
+                        label: t(".monitoring_committee_notes"),
+                        placeholder: t(".monitoring_committee_notes_placeholder")
+                      ) %>
 
       <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
         <%= form.submit t("actions.validate", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures"), class: "button button__sm button__secondary" %>

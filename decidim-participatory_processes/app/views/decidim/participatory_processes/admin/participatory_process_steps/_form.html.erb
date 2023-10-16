@@ -9,20 +9,20 @@
         <%= form.translated :editor, :description, aria: { label: :description } %>
       </div>
 
-      <div class="row column xlarge-6">
+      <div class="row column">
         <%= form.datetime_field :start_date %>
       </div>
 
-      <div class="row column xlarge-6">
+      <div class="row column">
         <%= form.datetime_field :end_date %>
       </div>
 
-      <div class="row column xlarge-6 slug">
+      <div class="row column slug">
         <%= form.text_field :cta_path,
-          help_text: t(".cta_path_help_html", url: decidim_form_slug_url("processes/" + current_participatory_process.slug, form.object.cta_path)) %>
+                            help_text: t(".cta_path_help_html", url: decidim_form_slug_url("processes/" + current_participatory_process.slug, form.object.cta_path)) %>
       </div>
 
-      <div class="row column xlarge-6">
+      <div class="row column">
         <%= form.translated :text_field, :cta_text, help_text: t(".cta_text_help") %>
       </div>
     </div>

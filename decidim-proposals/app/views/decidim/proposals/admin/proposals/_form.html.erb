@@ -36,9 +36,9 @@
           </div>
           <div class="row column" id="proposal_meeting">
             <%= form.select :meeting_id,
-                                options_for_select(@form.meetings&.map { |meeting| [present(meeting).title(html_escape: true), meeting.id] }, selected: meetings_as_authors_selected ),
-                                { include_blank: true, label: t(".select_a_meeting") },
-                                { multiple: false, class: "chosen-select" } %>
+                            options_for_select(@form.meetings&.map { |meeting| [present(meeting).title(html_escape: true), meeting.id] }, selected: meetings_as_authors_selected ),
+                            { include_blank: true, label: t(".select_a_meeting") },
+                            { multiple: false, class: "chosen-select" } %>
           </div>
         </div>
       <% end %>
