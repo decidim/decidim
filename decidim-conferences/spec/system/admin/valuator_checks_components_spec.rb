@@ -32,7 +32,7 @@ describe "Valuator checks components", type: :system do
 
   context "when listing components in the space components page" do
     it "can only see the proposals component" do
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Components"
       end
 

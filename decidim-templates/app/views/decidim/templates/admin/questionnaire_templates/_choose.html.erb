@@ -13,16 +13,16 @@
         <div class="card p-4">
           <%= t(".description") %>
           <%= datalist_select(templates,
-            {
-              id: "choose-template",
-              list: "template-list",
-              label: t(".label"),
-              name: "select-template",
-              placeholder: t("placeholder", scope: "decidim.templates.admin.questionnaire_templates.choose"),
-              data: {
-                previewurl: decidim_admin_templates.preview_questionnaire_templates_url(format: :js)
-              }
-            }
+                              {
+                                id: "choose-template",
+                                list: "template-list",
+                                label: t(".label"),
+                                name: "select-template",
+                                placeholder: t("placeholder", scope: "decidim.templates.admin.questionnaire_templates.choose"),
+                                data: {
+                                  previewurl: decidim_admin_templates.preview_questionnaire_templates_url(format: :js)
+                                }
+                              }
           ) { form.hidden_field :questionnaire_template_id } %>
           <div class="card-section questionnaire-template-preview pt-4 hide">
             <h2 class="item_show__header-title template-name"></h2>
