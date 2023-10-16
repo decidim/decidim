@@ -29,6 +29,8 @@ linters:
       - 'decidim_app-design/**/*.erb'
     addendum: "Please remove it from code."
     rule_set:
+      - deprecated: ['process-content']
+        suggestion: "This class is deprecateded. Please remove the sorounding element"
       - deprecated: ['xlarge-[\w]*']
         suggestion: "Foundation classes are deprecated."
 
