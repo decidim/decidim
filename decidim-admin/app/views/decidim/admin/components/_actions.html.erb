@@ -19,11 +19,7 @@
   <% if component.published? %>
     <%= icon_link_to "close-circle-line", url_for(action: :unpublish, id: component, controller: "components"), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :put %>
   <% else %>
-    <% if lookup_context.find_all("decidim/#{component.manifest_name}/admin/component/_actions").any? %>
-      <%= render partial: "decidim/#{component.manifest_name}/admin/component/actions", locals: { component: } %>
-    <% else %>
-      <%= icon_link_to "check-line", url_for(action: :publish, id: component, controller: "components"), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :put %>
-    <% end %>
+    <%= icon_link_to "check-line", url_for(action: :publish, id: component, controller: "components"), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :put %>
   <% end %>
 <% else %>
   <span class="action-space icon"></span>

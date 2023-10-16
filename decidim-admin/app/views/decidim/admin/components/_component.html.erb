@@ -12,7 +12,11 @@
     </td>
     <%= td_resource_scope_for(component.scope) %>
     <td class="table-list__actions">
-      <%= render partial: "actions", locals: { component: } %>
+      <% if lookup_context.find_all("decidim/#{component.manifest_name}/admin/component/_actions").any? %>
+        <%= render partial: "decidim/#{component.manifest_name}/admin/component/actions", locals: { component: } %>
+      <% else %>
+        <%= render partial: "actions", locals: { component: } %>
+      <% end %>
     </td>
   </tr>
 <% end %>
