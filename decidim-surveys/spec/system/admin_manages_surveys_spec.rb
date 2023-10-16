@@ -102,11 +102,11 @@ describe "Admin manages surveys", type: :system do
 
             it "deletes previous answers" do
               expect(survey.clean_after_publish?).to be true
-  
+
               perform_enqueued_jobs do
                 Decidim::Admin::PublishComponent.call(component, user)
               end
-  
+
               expect(questionnaire.answers).to be_empty
             end
           end
