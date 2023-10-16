@@ -151,6 +151,13 @@ cs:
           values:
             'false': Neschváleno
             'true': Schváleno
+      voting_publications:
+        create:
+          error: Při publikování tohoto hlasování došlo k chybě.
+          success: Hlasování bylo úspěšně publikováno.
+        destroy:
+          error: Při rušení publikování tohoto hlasování došlo k chybě.
+          success: Hlasování bylo úspěšně nezveřejněno.
     components:
       elections:
         actions:
@@ -171,7 +178,10 @@ cs:
         manage_answers: Spravovat odpovědi
         manage_questions: Spravovat otázky
         manage_steps: Spravovat kroky
-        new: Nový %{name}
+        new_answer: Nová odpověď
+        new_election: Nové volby
+        new_question: Nová otázka
+        new_trustee: Nový důvěrník
         preview: Náhled
         publish: Publikovat
         title: Akce
@@ -244,12 +254,6 @@ cs:
         models:
           answer:
             name: Odpověď
-          election:
-            name: Volby
-          question:
-            name: Otázka
-          trustee:
-            name: Důvěrník
         proposals_imports:
           create:
             invalid: Při importu návrhů do odpovědí došlo k potížím.
@@ -464,7 +468,6 @@ cs:
           key_ceremony_title: Úvodní ceremoniál
           not_available: Ještě není k dispozici
           not_created: Nevytvořeno
-          not_published: Nezveřejněno
           not_ready: Není připraveno
           not_started: Nezahájeno
           published: Publikováno
@@ -479,6 +482,7 @@ cs:
             started: Proces byl zahájen.
           tally_title: Proces volebního přepočítání
           title: Volební protokol
+          unpublished: Nezveřejněno
           verifiable_results:
             checksum: 'Kontrolní součet SHA256 souboru:'
             description:
@@ -498,13 +502,7 @@ cs:
           all: Vše
           date: Datum
           finished: Dokončeno
-          search: Hledat
           upcoming: Nadcházející
-        filters_small_view:
-          close_modal: Zavřít okno
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozbalit
         preview:
           available_answers: 'Dostupné odpovědi:'
           description: 'Toto jsou otázky, které najdete v procesu hlasování:'
@@ -524,7 +522,6 @@ cs:
             change_vote: Změňte svůj hlas
             vote: Zahájit hlasování
             vote_again: Znovu hlasovat
-          back: Dostupné volby
           callout:
             already_voted: V této volbě jste již hlasovali. Můžete změnit svůj hlas nebo jej ověřit.
             pending_vote: Váš hlas se odehrává na serveru.
@@ -582,7 +579,6 @@ cs:
           backup_modal:
             description: Tyto volby jsou vytvořeny na Vývěsce. Je velmi důležité, aby každý důvěrník, který se na něm podílí, vytvořil záložní kopii těchto klíčů a uložil je na bezpečném místě. Poté proces pokračuje.
             download_election_keys: Stáhnout klíče
-            download_icon: Ikona, která indikuje akci ke stažení
             title: Zálohovat volební klíče pro %{election}
           key_ceremony_steps:
             back: Zpět
@@ -597,7 +593,6 @@ cs:
               task: Úkol
             process_warning: Po spuštění procesu byste neměli tuto stránku ukončit, dokud proces neskončí. Trvá to několik minut, protože všichni důvěrníci by měli být k dokončení připojeni.
             start: Začít
-            start_icon: Ikona, která označuje tlačítko pro spuštění generování volebních klíčů
             status:
               completed: Dokončeno
               pending: Čekající
@@ -607,7 +602,6 @@ cs:
             description: Vývěska má od vás jako důvěrníka informace o těchto volbách. Chcete-li pokračovat v procesu, nejprve nahrajte záložní soubor generovaný během předchozí relace.
             title: Obnovit volební klíče pro %{election}
             upload_election_keys: Nahrát volební klíče
-            upload_icon: Ikona, která indikuje akci ke stažení
           tally_started_steps:
             back: Zpět
             description: Výsledky těchto voleb jsou vyčísleny na Vývěsce. Pro dokončení tohoto procesu je zapotřebí vaší účasti jako Důvěrníka.
@@ -621,7 +615,6 @@ cs:
               task: Úkol
             process_warning: Po spuštění procesu byste neměli tuto stránku ukončit, dokud proces neskončí. Trvá to několik minut, protože všichni důvěrníci by měli být k dokončení připojeni.
             start: Začít
-            start_icon: Ikona, která označuje tlačítko pro spuštění generování volebních klíčů
             status:
               completed: Dokončeno
               pending: Čekající
@@ -674,7 +667,7 @@ cs:
             success: Váš identifikační veřejný klíč byl úspěšně uložen.
       votes:
         ballot_decision:
-          audit: "(Audit volebního lístku)"
+          audit: (Audit volebního lístku)
           back: Zahájit proces hlasování znovu
           ballot_hash: 'Identifikátor vašeho hlasování:'
           cast: Uložte hlasování, abyste dokončili vaše hlasování
@@ -684,14 +677,12 @@ cs:
           header: Hlasování...
           text: Váš hlasovací lístek byl vložen do volební urny.
         confirm:
-          answer: Odpověď
           answer_number: odpověď %{number}
           confirm: Potvrdit
           edit: upravit
           header: Potvrďte svůj hlas
           intro: Zde je shrnutí hlasů, které se chystáte odeslat. <br> Prosím potvrďte svůj hlas nebo upravte své odpovědi.
           nota_option: Prázdné
-          question: Otázka %{count}
         confirmed:
           back: Zpět k volbám
           experience: Jaká byla vaše zkušenost?
@@ -712,11 +703,10 @@ cs:
           try_again: Zkuste to znovu
         header:
           ballot_decision: Zahlasování nebo audit vašeho hlasování
-          casting: Hlasování
           confirm: Potvrďte svůj hlas
-          confirmed: Hlasování potvrzeno
-          encrypting: Šifrování hlasování
-          failed: Hlasování se nezdařilo
+          election: Volby
+          register: Registrovat
+          vote_for: Hlasujte pro %{title}
         messages:
           invalid_token: Vaše relace u hlasovacího místa není platná. Zkuste hlasovat znovu.
           not_allowed: V tuto chvíli vám není dovoleno hlasovat o těchto volbách.
@@ -731,7 +721,6 @@ cs:
           question_steps: Otázka %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> výběrů"
         onboarding_modal:
-          close: Zavřít okno
           create_account: Vytvořit účet
           description: Chcete vytvořit nový účet na platformě? Budete se moci účastnit procesů a být aktivní součástí organizace.
           no_account: Ne, děkuji.
@@ -803,6 +792,9 @@ cs:
           title: Co jsou hlasování?
     menu:
       votings: Hlasování
+    participatory_spaces:
+      related_elections:
+        see_all: Zobrazit všechny volby
     statistics:
       elections_count: Volby
       votings_count: Hlasování
@@ -828,7 +820,7 @@ cs:
               confirm_destroy: Jste si jist?
               destroy: Smazat
               edit: Upravit
-              new: Nový
+              new: Nový styl hlasování
               title: Akce
             associated_census_data: Související záznamy ze seznamu obyvatel
             explanation_callout: Styl hlasování specifikuje, jaké otázky budou předloženy u přítomného voliče za plentou. Ve stylu hlasování si můžete vybrat, jaké otázky z volebních složek tohoto hlasování patří k volbám. Kód stylu hlasování se používá k tomu, aby volič ze seznamu členů odpovídal na hlasování, které bude prezentováno za plentou. Pokud chcete vždy prezentovat všechny otázky, nevytvářejte žádný styl hlasování.
@@ -840,34 +832,33 @@ cs:
             invalid: Při aktualizaci tohoto stylu hlasování došlo k chybě.
             success: Styl hlasování byl úspěšně aktualizován.
         content_blocks:
+          attachments_and_folders:
+            name: Přílohy a složky hlasování
+          header:
+            name: Záhlaví hlasování
           highlighted_votings:
             max_results: Maximální počet prvků k zobrazení
-          landing_page:
-            attachments_and_folders:
-              name: Přílohy a složky hlasování
-            description:
-              name: Popis hlasování
-            elections:
-              name: Hlasovací volby
-            header:
-              name: Záhlaví hlasování
-            html_block_1:
-              name: Html blok 1 hlasování
-            html_block_2:
-              name: Html blok 2 hlasování
-            html_block_3:
-              name: Html blok 3 hlasování
-            metrics:
-              name: Metriky hlasování
-            polling_stations:
-              name: Volební místnosti hlasování
-            stats:
-              name: Statistiky hlasování
-            timeline:
-              name: Časová osa hlasování
+          html_block_1:
+            name: Html blok 1 hlasování
+          html_block_2:
+            name: Html blok 2 hlasování
+          html_block_3:
+            name: Html blok 3 hlasování
+          main_data:
+            name: Název a popis
+          metrics:
+            name: Metriky hlasování
+          polling_stations:
+            name: Volební místnosti hlasování
+          related_elections:
+            name: Hlasovací volby
+          stats:
+            name: Statistiky hlasování
+          timeline:
+            name: Časová osa hlasování
         index:
-          not_published: Nezveřejněno
           published: Zveřejněno
+          unpublished: Nezveřejněno
         landing_page:
           content_blocks:
             create:
@@ -893,7 +884,7 @@ cs:
             ballot_styles: Styly hlasování
             census: Seznam obyvatel
             components: Komponenty
-            info: Informace
+            info: O tomto hlasování
             landing_page: Vstupní stránka
             monitoring_committee: Monitorovací výbor
             monitoring_committee_election_results: Ověřit výsledky
@@ -902,33 +893,29 @@ cs:
             monitoring_committee_verify_elections: Ověřit volby
             polling_officers: Volební komisaři
             polling_stations: Volební místnost
+            see_voting: Zobrazit hlasování
         models:
           ballot_style:
             fields:
               code: Kód
-            name: Styly hlasování
           monitoring_committee_member:
             fields:
               email: E-mail
               name: Název
-            name: Člen monitorovacího výboru
           polling_officer:
             fields:
               email: E-mail
               name: Jméno
               polling_station: Volební místnost (role)
-            name: Volební komisař
           polling_station:
             fields:
               address: Adresa
               polling_station_managers: Manažeři
               polling_station_president: Předseda
               title: Název
-            name: Volební místnost
           voting:
             fields:
               created_at: Vytvořeno v
-              promoted: Zvýrazněno
               published: Publikováno
               title: Název
         monitoring_committee_election_results:
@@ -1063,8 +1050,6 @@ cs:
             confirm_destroy: Jsi si jist?
             destroy: Zničit
             new_voting: Nové hlasovací místo
-            publish: Publikovat
-            unpublish: Zrušit publikování
           create:
             invalid: Při vytváření tohoto hlasování došlo k chybě.
             success: Hlasování bylo úspěšně vytvořeno.
@@ -1081,7 +1066,7 @@ cs:
             select_a_voting_type: Vyberte prosím typ hlasování
             show_check_census_help: Zda zobrazit odkaz "Mohu hlasovat?" v nabídce veřejného hlasování.
             slug: Slug
-            slug_help: 'URL slug se používá k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help_html: 'URL slug se používá k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Název
             voting_type:
               hybrid: Hybridní
@@ -1091,10 +1076,6 @@ cs:
           new:
             create: Vytvořit
             title: Nové hlasování
-          publish:
-            success: Hlasování bylo úspěšně publikováno.
-          unpublish:
-            success: Hlasování bylo úspěšně nezveřejněno.
           update:
             invalid: Při aktualizaci tohoto hlasování došlo k chybě.
             success: Hlasování bylo úspěšně aktualizováno.
@@ -1194,15 +1175,9 @@ cs:
         highlighted_votings:
           name: Zvýrazněné hlasování
         landing_page:
-          description:
-            title: O tomto hlasování
-          metrics:
-            heading: Metriky
           polling_stations:
             heading: Volební místnosti
             no_polling_stations: Zatím nejsou žádné volební místnosti.
-          timeline:
-            heading: Časová osa
       monitoring_committee_members:
         actions:
           confirm_destroy: Jste si jisti?
@@ -1212,9 +1187,8 @@ cs:
       pages:
         home:
           highlighted_votings:
-            active_votings: Aktivní hlasování
-            see_all_votings: Zobrazit všechna hlasování
-            votings_button_title: Odkaz na stránku hlasování zobrazující všechna hlasování
+            active_spaces: Aktivní hlasování
+            see_all_spaces: Zobrazit všechna hlasování
       polling_officer_zone:
         closures:
           back_to_polling_stations: Zpět do volební místnosti
@@ -1247,7 +1221,6 @@ cs:
             info_text: 'Uveďte celkový počet hlasovacích lístků (obálek) přepočtených v této volební místnosti:'
             modal_ballots_count_error:
               btn_validate_total: Ověření celkového přepočtu hlasovacích lístků
-              close_modal: Zavřít
               info_explanation_text: 'Zkontrolujte celkový počet hlasovacích lístků. Pokud je celkové číslo nesprávné, musíte monitorovacímu výboru poskytnout vysvětlení:'
               info_text: Celkový počet vložených hlasovacích lístků (obálek) neodpovídá počtu osob, které v této volební místnosti hlasovaly.
               message_for_monitoring_committee: Zpráva pro monitorovací výbor
@@ -1265,14 +1238,12 @@ cs:
           sign:
             cancel: Zrušit
             check_box: Přezkoumal jsem to a je to stejné jako fyzický certifikát o ukončení voleb
-            close_modal: Zavřít
             confirm: Ok, pokračovat
             error: Došlo k chybě. Prosím zkuste to znovu.
             heading: Přepočet hlasů - uzavření podpisu
             info_text: Pokud budete pokračovat, již nemůžete upravovat žádné informace, tuto akci nelze vrátit zpět.
             submit: Podepsat uzavření
             success: Uzavření úspěšně podepsáno.
-            title: Akci nelze vrátit zpět
           update:
             error: Při aktualizaci výsledků uzávěrky došlo k chybě, zkuste to prosím později.
             success: Výsledky uzávěrky byly úspěšně aktualizovány.
@@ -1339,7 +1310,7 @@ cs:
         actions:
           confirm_destroy: Jste si jisti?
           destroy: Smazat
-          new: Nový
+          new: Nový volební komisař
           title: Akce
         roles:
           manager: Manažer
@@ -1360,7 +1331,7 @@ cs:
           confirm_destroy: Jste si jist?
           destroy: Smazat
           edit: Upravit
-          new: Nový
+          new: Nová volební místnost
           title: Akce
       votings:
         access_code_modal:
@@ -1405,9 +1376,7 @@ cs:
             many: "%{count} hlasování"
             other: "%{count} hlasů"
         elections_log:
-          bb_status: Stav voleb
           description: Volební protokol vám zobrazí všechny příslušné informace o každém hlasování. Například status úvodního ceremoniálu nebo tally nebo pokud jsou výsledky již zveřejněny. Klikněte na volby, o kterých chcete protokolem informovat.
-          election_log: Volební protokol
           title: Volební protokol
         filters:
           active: Aktivní
@@ -1416,11 +1385,6 @@ cs:
           finished: Dokončeno
           search: Hledat
           upcoming: Nadcházející
-        filters_small_view:
-          close_modal: Zavřít modal
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozbalit
         index:
           no_votings: Žádné hlasování neodpovídá vašim kritériím hledání.
           only_finished: Momentálně nejsou žádné naplánované hlasování, ale zde můžete najít dokončené hlasování uvedené v seznamu.
@@ -1432,7 +1396,6 @@ cs:
           dont_have_access_code: Nemáte přístupový kód?
           form_title: 'Pro přístup k hlasování vyplňte následující formulář:'
           start_voting: Zahájit hlasování
-          step: Identifikace
           title: Identifikujte se podle dat mého seznamu osob
         no_census_contact_information: Zatím nejsou žádné kontaktní informace.
         orders:
@@ -1443,22 +1406,17 @@ cs:
           invalid: Při odesílání přístupového kódu došlo k chybě.
           success: Váš přístupový kód byl úspěšně odeslán.
         show:
-          dates: Data
+          title: O tomto hlasování
       votings_m:
         badge_name:
           finished: Dokončeno
           ongoing: Probíhající
           upcoming: Nadcházející
-        footer_button_text:
-          participate: Účastnit se
-          view: Zobrazit
-          vote: Hlasovat
         unspecified: Nespecifikováno
         voting_type:
           hybrid: Hybridní
           in_person: Osobně
           online: Online
-        voting_types_label: Typ hlasování
   layouts:
     decidim:
       election_votes_header:
@@ -1466,10 +1424,8 @@ cs:
       voting_navigation:
         check_census: Mohu hlasovat?
         election_log: Volební protokol
-        voting_menu_item: Hlasování
       votings:
         index:
           promoted_votings: Zvýrazněné hlasování
         promoted_voting:
-          more_info: Více informací
           vote: Hlasovat

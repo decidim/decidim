@@ -5,7 +5,6 @@ ar:
         assemblies_ids: الجمعيات ذات الصلة
         available_slots: المواعيد المتاحة
         banner_image: صورة بانر
-        consultations_ids: المشاورات ذات الصلة
         copy_categories: نسخ الفئات
         copy_components: نسخ المكونات
         copy_features: نسخ الميزات
@@ -57,7 +56,6 @@ ar:
         conference_meeting_ids: الاجتماعات ذات الصلة
         full_name: الاسم الكامل
         position: المنصب
-        twitter_handle: مُعرّف حساب تويتر
         user_id: المستخدم
       conference_user_role:
         email: البريد الإلكتروني
@@ -90,7 +88,6 @@ ar:
     admin:
       actions:
         confirm: تؤكد
-        new_conference: مؤتمر جديد
         send_diplomas: إرسال شهادات الحضور
       conference_copies:
         new:
@@ -151,7 +148,6 @@ ar:
         form:
           title: معلومات عامة
         index:
-          not_published: غير منشور
           published: نشرت
         new:
           create: إنشاء
@@ -192,7 +188,6 @@ ar:
           conference_invites: تدعو
           conference_speakers: مكبرات الصوت
           diploma: شهادة حضور
-          info: معلومات
           media_links: روابط الوسائط
           moderations: الإعتدال
           partners: شركاء
@@ -203,7 +198,6 @@ ar:
         conference:
           fields:
             created_at: أنشئت في
-            promoted: سلط الضوء
             published: نشرت
             title: عنوان
         conference_speaker:
@@ -326,9 +320,6 @@ ar:
         title: مكبرات الصوت
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا المؤتمر. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
         conference_invites:
           create:
             error: حدثت مشكلة أثناء دعوة المشارك للانضمام إلى المؤتمر.
@@ -345,7 +336,6 @@ ar:
               all: الكل
               rejected: مرفوض
               sent: أرسلت
-            filter_by: مصنف بواسطة
             invite_attendee: دعوة مشارك
             invites: تدعو
             search: بحث
@@ -373,7 +363,6 @@ ar:
               few: كان هناك %{count} التسجيلات.
               many: كان هناك %{count} التسجيلات.
               other: كان هناك %{count} التسجيلات.
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا المؤتمر. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
         diplomas:
           edit:
             save: حفظ
@@ -432,7 +421,6 @@ ar:
           invalid: حدثت مشكلة أثناء مغادرة هذا المؤتمر.
           success: لقد تركت المؤتمر بنجاح.
       conference_speaker:
-        go_to_twitter: انتقل إلى تويتر
         more_info: مزيد من المعلومات
         personal_website: موقع الويب الشخصي
         show:
@@ -484,9 +472,7 @@ ar:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: المؤتمرات النشطة
-            conferences_button_title: رابط إلى صفحة المؤتمرات لعرض جميع المؤتمرات
-            see_all_conferences: رؤية جميع المؤتمرات
+            active_spaces: المؤتمرات النشطة
       registration_types:
         index:
           choose_an_option: 'اختر خيار التسجيل الخاص بك:'
@@ -498,7 +484,6 @@ ar:
         introduction: المقدمة
         objectives: الأهداف
         related_assemblies: الجمعيات ذات الصلة
-        related_consultations: المشاورات ذات الصلة
         related_participatory_processes: العمليات التشاركية ذات الصلة
     events:
       conferences:
@@ -553,9 +538,6 @@ ar:
     decidim:
       conference_hero:
         register: تسجيل
-      conference_widgets:
-        show:
-          take_part: خذ جزء
       conferences:
         conference:
           more_info: مزيد من المعلومات
@@ -570,11 +552,7 @@ ar:
             few: "%{count} مؤتمرات"
             many: "%{count} مؤتمرات"
             other: "%{count} مؤتمرات"
-        promoted_conference:
-          more_info: مزيد من المعلومات
-          take_part: خذ جزء
       conferences_nav:
-        conference_menu_item: معلومات
         conference_partners_menu_item: شركاء
         conference_speaker_menu_item: مكبرات الصوت
         media: وسائل الإعلام

@@ -9,6 +9,7 @@ ja:
   decidim:
     admin:
       menu:
+        manage: 管理
         templates: テンプレート
       templates:
         apply:
@@ -42,12 +43,15 @@ ja:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: ブロックユーザーメッセージテンプレートの編集
           form:
             save: 保存
-            template_title: テンプレート情報
           index:
             confirm_delete: このテンプレートを削除してもよろしいですか？
             title: ユーザーメッセージをブロック
+          new:
+            title: 新しいブロックユーザーメッセージテンプレート
           template_chooser:
             select_template: テンプレート回答を選択
         questionnaire_templates:
@@ -61,13 +65,14 @@ ja:
             edit: 編集
             empty: 質問はまだありません。
             questionnaire: アンケート
+            title: アンケートテンプレートの編集
           form:
-            save: 保存
-            template_title: テンプレート情報
             title: アンケートテンプレート %{questionnaire_for}
           index:
             confirm_delete: このテンプレートを削除してもよろしいですか？
             title: アンケートテンプレート
+          new:
+            title: 新しいアンケートテンプレート
           preview:
             current_step: ステップ %{step}
             of_total_steps: / %{total_steps}

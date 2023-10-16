@@ -22,20 +22,15 @@ lb:
         update:
           error: Beim Aktualisieren des Kommentars ist ein Problem aufgetreten.
       comments_count: Kommentaranzahl
-      last_activity:
-        new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
-      view: Ansicht
       votes:
         create:
           error: Beim Abstimmen des Kommentars sind Fehler aufgetreten.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_url}">registrieren Sie sich</a>, um Ihren Kommentar hinzuzufügen.
         form:
           body:
             label: Kommentar
             placeholder: Was denken Sie darüber?
-          submit: Senden
           user_group_id:
             label: Kommentieren als
         opinion:
@@ -79,8 +74,6 @@ lb:
           older: Chronologisch
           recent: Kürzlich hinzugefügt
         title: 'Sortieren nach:'
-      comment_thread:
-        title: Konversation mit %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Sie müssen aktuell verifiziert sein um zu kommentieren, aber Sie können die bisherigen Kommentare lesen.
         blocked_comments_for_user_warning: Sie können momentan nichts kommentieren, aber Sie können die vorherigen lesen.

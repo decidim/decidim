@@ -48,7 +48,6 @@ ru:
         subtitle: Подзаголовок
         target: Кто участвует
         title: Название
-        twitter: Твиттер
         youtube: ЮТуб
       assembly_member:
         birthday: День рождения
@@ -90,7 +89,6 @@ ru:
         edit:
           update: Обновить
         index:
-          not_published: Не обнародовано
           private: Частное
           public: Обнародованные
           published: Обнародовано
@@ -163,7 +161,6 @@ ru:
           attachments: Прикрепленные файлы
           categories: Категории
           components: Составляющие
-          info: Сведения
           moderations: Действия по модерации
           private_users: Частные участники
       models:
@@ -225,15 +222,11 @@ ru:
             select_a_created_by: Укажите, кем создано
             select_an_area: Выберите участок
             select_an_assembly_type: Выберите вид собрания
-            slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
             social_handlers: Социальные сети
             title: Общие сведения
         assemblies_types:
           form:
             title: Название
-        assembly_copies:
-          form:
-            slug_help: 'Сокращенные веб-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
         assembly_members:
           form:
             existing_user: Существующий участник
@@ -246,7 +239,6 @@ ru:
               all: Все
               ceased: Срок полномочий истек
               not_ceased: Срок полномочий не истек
-            filter_by: 'Отобрать по признаку:'
             search: Поиск
       assembly_members:
         index:
@@ -269,40 +261,17 @@ ru:
       index:
         title: Собрания
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Действующие собрания
-            see_all_assemblies: Просмотреть все собрания
         user_profile:
           member_of:
             member_of: 'Входит в состав:'
       show:
-        area: Участок
         assembly_type: Вид собрания
-        children: Собрания
-        closing_date: Дата закрытия
-        composition: Состав
-        created_by: 'Автор:'
-        creation_date: Дата создания
-        developer_group: Рабочая группа по продвижению
         duration: Длительность
-        included_at: Включено в
-        indefinite_duration: Бессрочное
-        internal_organisation: Внутренняя организация
         is_transparent:
           'false': непрозрачное
           'true': прозрачное
-        local_area: Участок организации
-        participatory_scope: Что решается
-        participatory_structure: Как это решается
         private_space: Это частное собрание
-        purpose_of_action: Цель действия
-        read_less: Читать меньше
-        read_more: Читать подробнее
         related_participatory_processes: Сопутствующие движения соучастия
-        scope: Охват
-        social_networks: Социальные сети
-        target: Кто участвует
     assembly_members:
       assembly_member:
         designated_on: 'Полномочия предоставлены:'
@@ -327,11 +296,3 @@ ru:
             few: "%{count} собрания"
             many: "%{count} собраний"
             other: "%{count} собраний"
-        promoted_assembly:
-          more_info: Дополнительные сведения
-          take_part: Принять участие
-      assembly_navigation:
-        assembly_menu_item: Собрание
-      assembly_widgets:
-        show:
-          take_part: Принять участие

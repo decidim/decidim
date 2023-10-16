@@ -994,8 +994,6 @@ en:
             title: Create polling officer
           polling_officers_picker:
             choose_polling_officers: Choose polling officers
-            close: Close
-            more_polling_officers: There are %{number} more polling officers. Refine your search to locate them.
             no_polling_officers: No polling officers match your search criteria or there is not any polling officer.
         polling_stations:
           create:
@@ -1396,8 +1394,6 @@ en:
           online: Online
   layouts:
     decidim:
-      election_votes_header:
-        exit: Exit
       voting_navigation:
         check_census: Can I vote?
         election_log: Election log

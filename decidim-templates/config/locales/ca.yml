@@ -9,8 +9,11 @@ ca:
   decidim:
     admin:
       menu:
+        manage: Gestionar
         templates: Plantilles
       templates:
+        actions:
+          new_template: Afegir plantilla
         apply:
           error: S'ha produït un error en actualitzar aquesta plantilla.
           success: La plantilla s'ha aplicat correctament.
@@ -42,12 +45,15 @@ ca:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Editar la plantilla del missatge de bloqueig del compte d'usuària
           form:
             save: Desar
-            template_title: Informació de la plantilla
           index:
             confirm_delete: Segur que vols eliminar aquesta plantilla?
             title: Bloquejar els missatges de la usuària
+          new:
+            title: Nova plantilla del missatge de bloqueig del compte d'usuària
           template_chooser:
             select_template: Selecciona una plantilla de resposta
         questionnaire_templates:
@@ -61,13 +67,14 @@ ca:
             edit: Editar
             empty: Encara no hi ha preguntes.
             questionnaire: Qüestionari
+            title: Editar la plantilla del qüestionari
           form:
-            save: Desar
-            template_title: Informació de la plantilla
             title: Plantilla del qüestionari %{questionnaire_for}
           index:
             confirm_delete: Segur que vols eliminar aquesta plantilla?
             title: Plantilles de qüestionari
+          new:
+            title: Nova plantilla de qüestioniari
           preview:
             current_step: Pas %{step}
             of_total_steps: de %{total_steps}

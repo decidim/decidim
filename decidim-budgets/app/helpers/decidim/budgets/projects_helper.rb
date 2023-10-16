@@ -116,10 +116,7 @@ module Decidim
           .merge(
             title: decidim_html_escape(translated_attribute(project.title)),
             link: ::Decidim::ResourceLocatorPresenter.new([project.budget, project]).path,
-            items: cell("decidim/budgets/project_metadata", project).send(:project_items_for_map).to_json,
-            # REDESING_PENDING: deprecated attributes
-            description: html_truncate(decidim_sanitize_editor(translated_attribute(project.description)), length: 100),
-            icon: icon("project", width: 40, height: 70, remove_icon_class: true)
+            items: cell("decidim/budgets/project_metadata", project).send(:project_items_for_map).to_json
           )
       end
 

@@ -67,7 +67,6 @@ ar:
           max_choices: 'خيارات ماكس: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">قم بتسجيل الدخول بحسابك</a> أو <a href="%{sign_up_link}">اشترك</a> للإجابة على النموذج
             title: أجب عن النموذج
           questionnaire_answered:
             body: لقد أجبت بالفعل على هذا النموذج.

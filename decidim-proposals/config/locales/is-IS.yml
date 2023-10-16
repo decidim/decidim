@@ -125,9 +125,6 @@ is-IS:
           new:
             create: Búa til
             title: Búðu tillögu
-          show:
-            created_at: Sköpunardegi
-            proposals: Tillögur
         proposals_imports:
           new:
             create: Innflutningur tillögur
@@ -183,15 +180,9 @@ is-IS:
           origin: Uppruni
           related_to: Tengjast
           search: Leita
-        filters_small_view:
-          close_modal: Loka mát
-          filter: Sía
-          filter_by: Sía eftir
-          unfold: Fella út
         index:
           new_proposal: Ný tillaga
           see_all_withdrawn: Sjá öll afturkallað tillögur
-          view_proposal: Skoða tillögu
         new:
           send: Haltu áfram
         orders:
@@ -205,35 +196,23 @@ is-IS:
             other: Þú verður að geta breytt þessari tillögu á fyrstu %{count} mínútum eftir að tillagan er birt. Þegar þessi tími gluggi fer, munt þú ekki geta breytt tillögunni.
           publish: Birta
           title: Birta tillöguna þína
-        proposal:
-          creation_date: 'Sköpun: %{date}'
-          view_proposal: Skoða tillögu
         show:
           answer: Svara
-          comments: Athugasemdir
           edit_proposal: Breyta tillögu
           proposal_accepted_reason: 'Þessi tillaga hefur verið samþykkt vegna þess að:'
           proposal_in_evaluation_reason: Þessi tillaga er metin
           proposal_rejected_reason: 'Þessi tillaga hefur verið hafnað vegna þess að:'
-          report: Skýrsla
           withdraw_btn_hint: Þú getur afturkallað tillöguna þína ef þú skiptir um skoðun, svo lengi sem þú hefur ekki fengið stuðning. Tillagan er ekki eytt, hún mun birtast á lista yfir afturkallað tillögur.
           withdraw_proposal: Afturkalla tillögu
-        votes_count:
-          most_popular_proposal: Vinsælasta tillöguna
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Hver tillaga getur safnast meira en %{limit} styður
           proposal_limit:
             description: Þú getur búið til allt að %{limit} tillögur.
-          vote_limit:
-            left: Eftirstöðvar
         wizard_aside:
           back: Til baka
-          info: Þú ert að búa til <strong>tillögu</strong>.
         wizard_steps:
-          see_steps: sjá skref
           step_1: Búðu til tillöguna þína
           step_2: Bera saman
           step_3: Heill
           step_4: Birta tillöguna þína
-          step_of: Skref %{current_step_num} af %{total_steps}

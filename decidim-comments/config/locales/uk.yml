@@ -25,12 +25,10 @@ uk:
           error: При голосуванні щодо коментаря сталися помилки.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Увійдіть за допомогою свого облікового запису</a> або <a href="%{sign_up_url}">зареєструйтесь</a>, щоб додати свій коментар.
         form:
           body:
             label: Коментар
             placeholder: Що ви думаєте з цього приводу?
-          submit: Надіслати
           user_group_id:
             label: Коментувати як
         opinion:
@@ -60,8 +58,6 @@ uk:
           older: Давніші
           recent: Нещодавнє
         title: 'Впорядкувати за:'
-      comment_thread:
-        title: Бесіда з %{authorName}
       comments:
         blocked_comments_warning: Коментарі зараз вимкнені, але ви можете прочитати попередні.
         loading: Завантаження коментарів...

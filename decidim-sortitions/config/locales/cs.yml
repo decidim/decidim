@@ -40,7 +40,7 @@ cs:
         actions:
           destroy: Zrušit losování
           edit: Upravit
-          new: Nové losování
+          new_sortition: Nové losování
           show: Detaily losování
         models:
           sortition:
@@ -54,11 +54,6 @@ cs:
               seed: Založení
               target_items: Položky k výběru
               title: Název
-            name:
-              one: Losování
-              few: Losování
-              many: Losování
-              other: Losování
         sortitions:
           confirm_destroy:
             confirm_destroy: Opravdu chcete zrušit toto losování?
@@ -76,7 +71,6 @@ cs:
           form:
             all_categories: Všechny kategorie
             select_proposal_component: Vyberte sadu návrhů
-            title: Nové losování pro návrhy
           index:
             title: Losování
           new:
@@ -105,14 +99,7 @@ cs:
           all: Vše
           cancelled: Zrušeno
           category: Kategorie
-          category_prompt: Vyberte kategorii
-          search: Vyhledávání
           state: Stav
-        filters_small_view:
-          close_modal: Zavřít okno
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozbalit
         linked_sortitions:
           selected_proposals: Vybrané návrhy
         orders:
@@ -128,17 +115,16 @@ cs:
         show:
           algorithm: Kód algoritmu losování
           any_category: ze všech kategorií
-          back: Zpět na seznam
           cancelled: Zrušené losování
           candidate_proposal_ids: Pořadí a ID návrhů k losování
           candidate_proposals_info: 'Losování bylo provedeno mezi následujícími návrhy (%{category_label}), s následujícími ID (označené tučně vybrané návrhy)  '
           category: z kategorie %{category}
-          dice_result: "(1) Výsledek hodu kostkou"
-          introduction: 'Tato stránka obsahuje výsledky losování %{reference}. Prostřednictvím tohoto losování bylo vybráno %{target_items} počet výsledků náhodně a se stejným rozdělením pravděpodobnosti ze souboru návrhů zobrazených níže. Spolu s výsledky informace zobrazené na této stránce poskytují všechny informace potřebné pro maximalizaci záruk a reprodukci výsledků. Klíčem ke kvalitě tohoto losování je dvojitá náhodnost, kterou poskytuje hod kostkou (ověřený svědky) a přesný čas výběru, který poskytuje vstup pro algoritmus, který generuje náhodný výběr. Časový základ pro losování je tak přesný(sekundy), že není možné ovládat lidi, a tak lze poskytnout dvojitý "nekontrolovatelný" vstup, který zaručí spravedlivý výsledek.  '
+          dice_result: (1) Výsledek hodu kostkou
+          introduction: "Tato stránka obsahuje výsledky losování %{reference}. Prostřednictvím tohoto losování bylo vybráno %{target_items} výsledků náhodně a se stejným rozdělením pravděpodobnosti ze souboru návrhů zobrazených níže. \n\nSpolu s výsledky informace zobrazené na této stránce poskytují všechny informace potřebné pro maximalizaci záruk a reprodukci výsledků. Klíčem ke kvalitě tohoto losování je dvojitá náhodnost, kterou poskytuje hod kostkou (ověřený svědky) a přesný čas výběru, který poskytuje vstup pro algoritmus, který generuje náhodný výběr. \n\nČasový základ pro losování je tak přesný (na sekundy), že není možné ovládat lidi, a tak lze poskytnout dvojitý \"nekontrolovatelný\" vstup, který zaručí spravedlivý výsledek.  "
           mathematical_result: Výsledek (1) x (2)
           proposals_selected_by_sortition: Návrhy vybrané losováním
           sortition_reproducibility_details: Detaily reprodukovatelnosti losování
-          time_seed: "(2) Časový základ"
+          time_seed: (2) Časový základ
           witnesses: Svědci
         sortition:
           random_seed: Náhodný časový základ
@@ -147,7 +133,6 @@ cs:
             few: vybraných návrhů
             many: vybraných návrhů
             other: vybraných návrhů
-          view: Zobrazit
         sortition_author:
           deleted: Odstraněný uživatel
         sortition_cancel_author:

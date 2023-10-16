@@ -48,7 +48,6 @@ uk:
         subtitle: Підзаголовок
         target: Хто бере участь
         title: Назва
-        twitter: Твіттер
         youtube: ЮТуб
       assembly_member:
         birthday: День народження
@@ -90,7 +89,6 @@ uk:
         edit:
           update: Оновити
         index:
-          not_published: Не оприлюднено
           private: Приватні
           public: Оприлюдені
           published: Оприлюднено
@@ -163,7 +161,6 @@ uk:
           attachments: Вкладені файли
           categories: Категорії
           components: Складові
-          info: Відомості
           moderations: Дії з модерації
           private_users: Приватні учасники
       models:
@@ -225,15 +222,11 @@ uk:
             select_a_created_by: Вкажіть, ким створені
             select_an_area: Оберіть дільницю
             select_an_assembly_type: Оберіть різновид зборів
-            slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
             social_handlers: Соціальні мережі
             title: Загальні відомості
         assemblies_types:
           form:
             title: Назва
-        assembly_copies:
-          form:
-            slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
         assembly_members:
           form:
             existing_user: Чинний учасник
@@ -246,7 +239,6 @@ uk:
               all: Усі
               ceased: Повноваження припинені
               not_ceased: Повноваження не припинені
-            filter_by: 'Відібрати за ознакою:'
             search: Шукати
       assembly_members:
         index:
@@ -269,40 +261,17 @@ uk:
       index:
         title: Збори
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Діючі збори
-            see_all_assemblies: Переглянути всі збори
         user_profile:
           member_of:
             member_of: 'Входить у склад:'
       show:
-        area: Дільниця
         assembly_type: Різновид зборів
-        children: Збори
-        closing_date: Дата закриття
-        composition: Склад
-        created_by: 'Автор:'
-        creation_date: Дата створення
-        developer_group: Робочий гурт з просування
         duration: Тривалість
-        included_at: Включено в
-        indefinite_duration: Безстрокова
-        internal_organisation: Внутрішня організація
         is_transparent:
           'false': непрозорі
           'true': прозорі
-        local_area: Дільниця організації
-        participatory_scope: Що вирішується
-        participatory_structure: Як це вирішується
         private_space: Це приватні збори
-        purpose_of_action: Мета дії
-        read_less: Читати менше
-        read_more: Читати далі
         related_participatory_processes: Пов'язані рухи співучасті
-        scope: Обсяг
-        social_networks: Соціальні мережі
-        target: Хто бере участь
     assembly_members:
       assembly_member:
         designated_on: 'Надано повноваження:'
@@ -327,11 +296,3 @@ uk:
             few: "%{count} зборів"
             many: "%{count} зборів"
             other: "%{count} зборів"
-        promoted_assembly:
-          more_info: Додаткові відомості
-          take_part: Взяти участь
-      assembly_navigation:
-        assembly_menu_item: Збори
-      assembly_widgets:
-        show:
-          take_part: Взяти участь

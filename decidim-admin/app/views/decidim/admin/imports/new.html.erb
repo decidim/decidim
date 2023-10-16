@@ -1,17 +1,20 @@
-<% add_decidim_page_title(t("impersonate_new_managed_user", scope: "decidim.admin.impersonations.new")) %>
+<% add_decidim_page_title(import_manifest.message(:title, self)) %>
 <div class="item_show__header">
   <h2 class="item_show__header-title">
     <%= import_manifest.message(:title, self) %>
 
     <div id="js-other-actions-wrapper">
       <% if import_manifest.has_example? %>
-        <span class="imports-example dropdown tiny button button__sm button__secondary button--simple" data-toggle="example-dropdown"><%= t(".download_example") %></span>
+        <span class="imports-example tiny button button__sm button__secondary button--simple mr-2" data-toggle="example-dropdown">
+          <%= t(".download_example") %>
+          <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+        </span>
         <div class="dropdown-pane" id="example-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
           <ul class="vertical menu add-components">
             <% mime_types.each do |format, name| %>
               <li class="examples--format--<%= format.downcase %> examples--<%= import_manifest.name %>">
                 <%= link_to t(".download_example_format", name:),
-                  admin_imports_example_path(@current_component, name: import_manifest.name, format:) %>
+                            admin_imports_example_path(@current_component, name: import_manifest.name, format:) %>
               </li>
             <% end %>
           </ul>

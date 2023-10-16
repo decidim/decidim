@@ -17,9 +17,9 @@ module Decidim
       min_length = ::PasswordValidator.minimum_length_for(user)
       help_text =
         if needs_admin_password?(user)
-          t("devise.passwords.edit.password_help_admin", minimun_characters: min_length)
+          t("devise.passwords.edit.password_help_admin", minimum_characters: min_length)
         else
-          t("devise.passwords.edit.password_help", minimun_characters: min_length)
+          t("devise.passwords.edit.password_help", minimum_characters: min_length)
         end
 
       {

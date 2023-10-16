@@ -111,6 +111,8 @@ en:
         information: Information
         initiative_type_scopes: Initiative type scopes
         initiatives: Initiatives
+        initiatives_menu:
+          see_initiative: See initiative
         initiatives_settings: Settings
         initiatives_submenu:
           info: About this initiative
@@ -478,7 +480,6 @@ en:
           author: Author
           myself: My initiatives
           scope: Scope
-          search: Search
           state: Status
           type: Type
         index_header:
@@ -611,8 +612,5 @@ en:
         sms_phone_number: Mobile phone number
         title: Sign %{initiative_title}
       initiatives:
-        initiative:
-          check: Check it out
-          check_and_support: Check it out and sign
         no_initiatives_yet:
           no_initiatives_yet: No initiatives yet!

@@ -20,6 +20,7 @@ fi-pl:
         description: Kuvaus
         end_time: Päättymisaika
         id: ID
+        iframe_access_level: Iframe-käyttöoikeustaso
         iframe_embed_type: Iframe-upotuksen tyyppi
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
@@ -121,7 +122,6 @@ fi-pl:
           success: Tapahtuman monistaminen onnistui.
         new:
           copy: Kopioi
-          select: Valitse, mitkä tiedot haluat monistaa
           title: Monista tapahtuma
     components:
       meetings:
@@ -223,7 +223,6 @@ fi-pl:
             one: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotus:'
             other: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta:'
         manage_poll: Hallitse mielipidetiedustelua
-        new: Uusi kokous
         preview: Esikatsele
         registrations: Ilmoittautumiset
         title: Toiminnot
@@ -285,7 +284,6 @@ fi-pl:
               all: Kaikki
               rejected: Hylätyt
               sent: Lähetetyt
-            filter_by: Rajaa hakua
             invite_attendee: Kutsu osallistuja
             invites: Kutsut
             registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
@@ -351,9 +349,6 @@ fi-pl:
           update:
             invalid: Tapaamisen mielipidetiedustelun päivittäminen epäonnistui.
             success: Tapaamisen mielipidetiedustelun päivittäminen onnistui.
-        models:
-          meeting:
-            name: Tapahtuma
         registrations:
           edit:
             save: Tallenna
@@ -398,11 +393,8 @@ fi-pl:
           all: Kaikki
         filter_meeting_space_values:
           all: Kaikki
-        filter_scope_values:
-          all: Kaikki
       calendar_modal:
         calendar_url: Kalenterin URL
-        close_window: Sulje ikkuna
         copy_calendar_url: Kopio
         copy_calendar_url_clarification: Kopioi kalenterin URL-osoite leikepöydälle
         copy_calendar_url_copied: Kopioitu!
@@ -420,11 +412,10 @@ fi-pl:
       content_blocks:
         upcoming_meetings:
           name: Tulevat tapaamiset
-          upcoming_meetings: Tulevat tapaamiset
-          view_all_meetings: Näytä kaikki
       directory:
         meetings:
           index:
+            go_to_list: Näytä tapaamisluettelo
             meetings: Tapahtumat
             space_type: Osallisuustila
       iframe_access_level:
@@ -462,7 +453,6 @@ fi-pl:
         calendar_modal:
           add_to_calendar: Lisää kalenteriin
           apple: Lähetä Apple-kalenteriin
-          close_window: Sulje ikkuna
           full_details_html: Tapahtuman kaikki tiedot löytyvät osoitteesta %{link}
           google: Lisää Google-kalenteriin
           outlook: Lisää Outlook-kalenteriin
@@ -492,8 +482,7 @@ fi-pl:
             all: Kaikki
             official: Viralliset
             participants: Osallistujat
-            user_groups: Ryhmät
-          scope: Teema
+            user_group: Ryhmät
           search: Hae
           type: Tyyppi
           type_values:
@@ -501,11 +490,6 @@ fi-pl:
             hybrid: Hybridi
             in_person: Fyysinen
             online: Verkossa
-        filters_small_view:
-          close_modal: Sulje ikkuna
-          filter: Rajaa
-          filter_by: Rajaa hakua
-          unfold: Avaa
         form:
           address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
           available_slots_help: Määritä tähän kenttään arvo 0, jos tapahtuman paikkamäärää ei ole rajoitettu
@@ -526,8 +510,11 @@ fi-pl:
           see_all: Näytä kaikki tapahtumat
           see_all_withdrawn: Näytä kaikki peruutetut tapahtumat
           text_banner: Katselet peruutettuja tapahtumia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
-        meeting_minutes:
-          related_information: Liittyviä tietoja
+        meeting:
+          close_meeting: Sulje tapaaminen
+          edit_close_meeting: Muokkaa tapaamisraporttia
+          edit_meeting: Muokkaa tapaamista
+          join_meeting: Ilmoittaudu tapaamiseen
         meetings:
           no_meetings_warning: Yksikään tapaaminen ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole suunniteltu.
           upcoming_meetings_warning: Tällä hetkellä ei ole suuniteltuja tapahtumia, mutta täältä löydät kaikki aikaisemmat tapahtumat.
@@ -540,13 +527,8 @@ fi-pl:
           confirm: Vahvista
         show:
           attendees: Osallistujamäärä
-          back: Takaisin listaan
-          close_meeting: Sulje tapaaminen
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
-          edit_close_meeting: Muokkaa tapahtumaraporttia
-          edit_meeting: Muokkaa tapahtumaa
-          going: Olet ilmoittautunut tähän tapaamiseen
           join: Liity tapahtumaan
           leave: Peruuta ilmoittautumisesi
           leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?
@@ -572,8 +554,6 @@ fi-pl:
         update:
           invalid: Tapahtuman luonti epäonnistui.
           success: Tapahtuman luonti onnistui.
-      meetings_map:
-        view_meeting: Näytä tapahtuma
       models:
         invite:
           fields:
@@ -615,6 +595,7 @@ fi-pl:
             question_replied: Kysymykseen on vastattu
             reply_question: Vastaa kysymykseen
       public_participants_list:
+        attending_organizations: Organisaatiot
         attending_participants: Mukana olevat osallistujat
         hidden_participants_count:
           one: ja %{count} muu henkilö
@@ -647,8 +628,6 @@ fi-pl:
         private_meeting: Yksityinen tapahtuma
         transparent: Läpinäkyvä
         withdraw: Peruutettu
-      versions:
-        back_to_resource: Takaisin tapahtumaan
       withdraw:
         error: Tapaamisen peruuttaminen epäonnistui.
         success: Tapaaminen on peruttu.
@@ -662,8 +641,6 @@ fi-pl:
         past_meetings: Aiemmat tapahtumat
         see_all: Näytä kaikki (%{count})
         upcoming_meetings: Tulevat tapahtumat
-      upcoming_meeting_for_card:
-        upcoming_meeting: Tuleva tapahtuma
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Liittyvät tulokset:'

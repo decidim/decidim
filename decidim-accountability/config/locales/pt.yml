@@ -38,7 +38,6 @@ pt:
         destroy: Eliminar
         edit: Editar
         import_csv: Importar CSV
-        new: Novo %{name}
         preview: Pré-visualizar
         timeline_entries: Evolução do projeto
         title: Ações
@@ -55,8 +54,6 @@ pt:
             name: Resultado
           status:
             name: Estado
-          timeline_entry:
-            name: Entrada do cronograma
         results:
           edit:
             title: Editar resultado

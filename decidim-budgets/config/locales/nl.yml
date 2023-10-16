@@ -45,7 +45,6 @@ nl:
         edit: Bewerk
         edit_projects: Beheer projecten
         import: Voorstellen importeren in projecten
-        new: Nieuwe %{name}
         preview: Voorbeeld
         title: Acties
       admin:
@@ -129,7 +128,6 @@ nl:
           more_than_one: verwijder je stem op %{name} en begin opnieuw
           only_one: verwijder je stem en begin opnieuw.
         highlighted_cta: Stem op %{name}
-        my_budgets: Mijn budgetten
         progress: Beëindig stemmen
         show: Bekijk projecten
         vote: Stem
@@ -163,41 +161,21 @@ nl:
         budget_excess:
           budget_excess:
             title: Maximum budget overschreden
-          close: Sluit
           ok: OK
           projects_excess:
             description: Dit project overschrijdt het maximale aantal projecten en kan niet worden toegevoegd. Als je wil, kun je een project verwijderen dat je al had geselecteerd, om je stem opnieuw te kunnen uitbrengen.
             title: Maximum aantal projecten overschreden
         budget_summary:
           are_you_sure: Weet u zeker dat u uw stem wilt annuleren?
-          assigned: 'Toegewezen:'
           cancel_order: Verwijder uw stem en begin opnieuw
           checked_out:
             title: Begrotingsstemming voltooid
-          minimum_projects_rule:
-            description: Aan welke projecten moeten volgens jou middelen worden toegewezen? Selecteer minstens %{minimum_number} project(en) en geef zo je voorkeur voor het budget door.
-            instruction: "<li>Kies minstens %{minimum_number} project(en) en geef zo je voorkeur voor het budget door.</li>"
-          projects_rule:
-            description: Aan welke projecten moeten volgens jou middelen worden toegewezen? Selecteer minstens %{minimum_number} project(en) en maximum %{maximum_number} projecten en geef zo je voorkeur voor het budget door.
-            instruction: "<li>Selecteer minstens %{minimum_number} project(en) en maximum %{maximum_number} projecten en geef zo je voorkeur voor het budget door.</li>"
-          projects_rule_maximum_only:
-            description: Aan welke projecten moeten volgens jou middelen worden toegewezen? Selecteer maximum %{maximum_number} projecten en geef je voorkeuren door om het budget vast te leggen.
-            instruction: "<li>Selecteer maximum %{maximum_number} project(en) en geef zo je voorkeur voor het budget door.</li>"
-          rules:
-            title: Budgetregels
-          title: U bepaalt het budget
-          total_budget: Totale budget
-          total_projects: Totaal aantal stemmen
-          vote_threshold_percent_rule:
-            description: Voor welke projecten vind jij dat we budget moeten vrijmaken? Wijs minstens %{minimum_budget} toe aan de projecten die jij wil en geef zo je voorkeur voor het budget door.
-            instruction: "<li>Wijs minstens %{minimum_budget} toe aan de projecten die je wil en geef zo je voorkeur voor het budget door.</li>"
         count:
           projects_count:
             one: 1 project
             other: "%{count} projecten"
         exit_modal:
           cancel: Terug naar stemmen
-          close_modal: Sluit venster
           exit: Verlaat stemmen
           message: Je stem is niet geregistreerd omdat je het stemproces nog niet hebt voltooid. Weet je zeker dat je stemmen wil verlaten?
           title: Je hebt nog niet gestemd
@@ -210,21 +188,6 @@ nl:
             all: Alles
             not_selected: Niet geselecteerd
             selected: Geselecteerd
-        filters_small_view:
-          close_modal: Dialoogvenster sluiten
-          filter: Filter
-          filter_by: Filteren op
-          unfold: Uitvouwen
-        index:
-          view_project: Bekijk project
-        order_progress:
-          vote: Stem
-        order_selected_projects:
-          remove: Verwijderen
-          selected_projects:
-            one: Geselecteerd project
-            other: Geselecteerde projecten
-          view: Bekijk
         orders:
           highest_cost: Hoogste kosten
           label: Projecten sorteren op
@@ -244,7 +207,6 @@ nl:
         projects_for: Projecten voor %{name}
         show:
           budget: Begroting
-          view_all_projects: Bekijk alle projecten
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Onderdelen waar je een onvoltooide stemming hebt:'

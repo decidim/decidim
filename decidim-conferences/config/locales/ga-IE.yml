@@ -69,7 +69,6 @@ ga:
           categories: Catagóirí
           conference_invites: Cuirí
           conference_speakers: Cainteoirí
-          info: Eolas
           partners: Comhpháirtithe
       models:
         conference:

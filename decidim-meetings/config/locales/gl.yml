@@ -63,7 +63,6 @@ gl:
           success: Reunión duplicada con éxito.
         new:
           copy: Copiar
-          select: Seleccione os datos que desexa duplicar
           title: Reunión duplicada
     components:
       meetings:
@@ -146,7 +145,6 @@ gl:
         confirm_destroy: Estás seguro de que queres eliminar esta reunión?
         destroy: Eliminar
         edit: Editar
-        new: Nova reunión
         preview: Vista previa
         registrations: Rexistros
         title: Accións
@@ -201,7 +199,6 @@ gl:
               all: Todo
               rejected: Rexeitado
               sent: Enviado
-            filter_by: Filtrar por
             invite_attendee: Invitar asistente
             invites: Invitacións
             search: Busca
@@ -229,9 +226,6 @@ gl:
           services:
             add_service: Engadir servizo
             services: Servizos
-        models:
-          meeting:
-            name: Reunión
         registrations:
           edit:
             save: Gardar
@@ -271,18 +265,13 @@ gl:
           all: Todas
         filter_meeting_space_values:
           all: Todas
-        filter_scope_values:
-          all: Todas
       calendar_modal:
         calendar_url: URL do calendario
-        close_window: Pechar ventá
         export_calendar: Calendario de exportación
       conference_venues: Lugares de conferencias
       content_blocks:
         upcoming_meetings:
           name: Vindeiras xuntanzas
-          upcoming_meetings: Vindeiras xuntanzas
-          view_all_meetings: Ver todo
       directory:
         meetings:
           index:
@@ -308,7 +297,6 @@ gl:
         calendar_modal:
           add_to_calendar: Engadir ao calendario
           apple: Engadir ao Apple Calendar
-          close_window: Pechar xanela
           full_details_html: Ver todos os detalles en %{link}
           google: Engadir ao Google Calendar
           outlook: Engadir ao calendario do Outlook
@@ -318,11 +306,6 @@ gl:
           origin_values:
             participants: Participantes
           search: Busca
-        filters_small_view:
-          close_modal: Pechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Despregar
         form:
           select_an_iframe_access_level: Por favor, selecciona o nivel de acceso ao iframe
         index:
@@ -330,8 +313,6 @@ gl:
           see_all: Ver todas as xuntanzas
           see_all_withdrawn: Ver todas as xuntanzas anuladas
           text_banner: Estás a ver todas as xuntanzas anuladas polos seus autores. %{go_back_link}.
-        meeting_minutes:
-          related_information: Información relacionada
         meetings:
           upcoming_meetings_warning: Actualmente, non hai reunións programadas, pero aquí podes atopar todas as reunións anteriores.
         registration_confirm:
@@ -340,8 +321,6 @@ gl:
         show:
           attendees: Os asistentes contan
           contributions: Contribucións contar
-          edit_close_meeting: Editar o informe da xuntanza
-          going: Inscribícheste nesta xuntaza
           join: Únete a reunión
           leave: Cancelar a túa inscrición
           leave_confirmation: Estás certo/a de querer cancelar a túa inscrición nesta xuntanza?
@@ -359,8 +338,6 @@ gl:
           withdraw_btn_hint: Podes anular a túa xuntanza se mudas de parecer. A xuntanza non está anulada, aparecerá na listaxe de xuntanzas anuladas.
           withdraw_confirmation_html: Estás certo/a de querer anular esta xuntanza?<br><br><strong>Esta acción non pode ser cancelada!</strong>
           withdraw_meeting: Anular xuntanza
-      meetings_map:
-        view_meeting: Ver reunión
       models:
         invite:
           fields:
@@ -425,8 +402,6 @@ gl:
         past_meetings: Reunións pasadas
         see_all: Ver todos (%{count})
         upcoming_meetings: Próximas reunións
-      upcoming_meeting_for_card:
-        upcoming_meeting: Próxima reunión
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'

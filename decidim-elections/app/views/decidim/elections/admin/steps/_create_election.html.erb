@@ -7,7 +7,7 @@
 
   <div class="card-section">
     <div class="row column">
-      <ul class="no-bullet-indented">
+      <ul>
         <% form.messages.each do |key, value| %>
           <% if form.errors.include?(key) %>
             <li><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
@@ -19,7 +19,7 @@
 
       <% if form.needs_census? %>
         <h4><%= t(".census") %></h4>
-        <ul class="no-bullet-indented">
+        <ul>
           <% form.census_messages.each do |key, value| %>
             <% if form.errors.include?(key) %>
               <li><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
@@ -31,14 +31,15 @@
       <% end %>
 
       <h4><%= t(".trustees") %></h4>
-      <ul class="no-bullet-indented">
+      <ul>
         <% if form.participatory_space_trustees.none? %>
           <li><%= icon "close-line", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= t(".no_trustees") %></li>
         <% end %>
 
-        <% form.participatory_space_trustees.map { |trustee| [trustee, form.trustees.none? || form.trustees.include?(trustee)] }
-                                            .sort_by { |_trustee, used| used ? 0 : 1 }
-                                            .each do |trustee, used| %>
+        <% form.participatory_space_trustees
+               .map { |trustee| [trustee, form.trustees.none? || form.trustees.include?(trustee)] }
+               .sort_by { |_trustee, used| used ? 0 : 1 }
+               .each do |trustee, used| %>
           <li <%= "class=text-muted" if !used %>>
             <%= icon trustee.public_key ? "check" : "x", class: "text-#{trustee.public_key ? "success" : "alert"}", role: "img", "aria-hidden": true %>
             <%= trustee.user.name || trustee.name %> <%= t(".public_key.#{used}").html_safe %>

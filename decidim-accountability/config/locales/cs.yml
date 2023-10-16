@@ -43,7 +43,9 @@ cs:
         edit: Upravit
         import: Importovat projekty do výsledků
         import_csv: Importovat CSV
-        new: Nový %{name}
+        new_result: Nový výsledek
+        new_status: Nový status
+        new_timeline_entry: Nový záznam v časové ose
         preview: Náhled
         timeline_entries: Vývoj projektu
         title: Akce
@@ -79,14 +81,13 @@ cs:
             title: Importovat výsledky z CSV
         imports:
           create:
+            invalid: Při importu výsledků došlo k chybě.
             success: Soubor se začal importovat. Během několika následujících minut obdržíte e-mail s výsledkem importu.
         models:
           result:
             name: Výsledek
           status:
             name: Stav
-          timeline_entry:
-            name: Záznam v harmonogramu
         projects_import:
           create:
             invalid: Došlo k potížím při importu projektů do výsledků, postupujte prosím pečlivě podle pokynů a ujistěte se, že jste vybrali projekty pro realizaci.
@@ -241,6 +242,7 @@ cs:
           global_status: Globální stav provedení
         nav_breadcrumb:
           global: Globální provedení
+        no_results: Nebyly nalezeny žádné projekty
         search:
           search: Hledat akce
         show:

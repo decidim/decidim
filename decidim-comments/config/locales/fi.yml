@@ -33,20 +33,20 @@ fi:
       comments_count: Kommenttien määrä
       comments_title: Kommentti
       last_activity:
-        new_comment_at_html: "<span>Uusi kommentti osoitteessa %{link}</span>"
-      view: Näytä
+        new_comment: 'Uusi kommentti:'
       votes:
         create:
           error: Kommentin äänestys epäonnistui.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Kirjaudu sisään</a> tai <a href="%{sign_up_url}">rekisteröidy palveluun</a> kommentoidaksesi.
+        account_message: <a href="%{sign_in_url}">Kirjaudu tilillesi</a> tai <a href="%{sign_up_url}">rekisteröidy</a> kommentoidaksesi.
         form:
           body:
             label: Kommentti
             placeholder: Mitä mieltä olet tästä?
           form_error: Teksti vaaditaan ja se ei voi olla pidempi kuin %{length} merkkiä.
-          submit: Lähetä
+          submit_reply: Julkaise vastaus
+          submit_root_comment: Julkaise kommentti
           user_group_id:
             label: Kommentoi käyttäjänä
         opinion:
@@ -64,6 +64,7 @@ fi:
         alignment:
           against: Vastaan
           in_favor: Puolesta
+        cancel_reply: Peruuta vastaus
         confirm_destroy: Haluatko varmasti poistaa tämän kommentin?
         delete: Poista
         deleted_at: Kommentti poistettu %{date}
@@ -95,8 +96,6 @@ fi:
           older: Vanhimmat
           recent: Uusimmat
         title: 'Järjestä tulokset:'
-      comment_thread:
-        title: Keskustelu henkilön %{authorName} kanssa
       comments:
         blocked_comments_for_unauthorized_user_warning: Tilisi tulee olla varmennettu, jotta voit kommentoida tällä hetkellä. Voit kuitenkin lukea muiden jättämiä kommentteja.
         blocked_comments_for_user_warning: Et voi kommentoida tällä hetkellä, mutta voit lukea aikaisempia kommentteja.

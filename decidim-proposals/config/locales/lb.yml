@@ -28,13 +28,8 @@ lb:
         proposals:
           index:
             title: Virschléi
-          show:
-            proposals: Virschléi
       application_helper:
         filter_type_values:
-          proposals: Virschléi
-      content_blocks:
-        highlighted_proposals:
           proposals: Virschléi
     statistics:
       proposals_count: Virschléi

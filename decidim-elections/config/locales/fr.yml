@@ -133,6 +133,13 @@ fr:
           values:
             'false': Non validé
             'true': Validé
+      voting_publications:
+        create:
+          error: Une erreur s'est produite lors de la publication de ce vote.
+          success: Vote publié avec succès.
+        destroy:
+          error: Il y a eu un problème lors de la dépublication de ce vote.
+          success: Vote dépublié avec succès.
     components:
       elections:
         actions:
@@ -153,7 +160,10 @@ fr:
         manage_answers: Gérer les réponses
         manage_questions: Gérer les questions
         manage_steps: Gérer les étapes
-        new: Nouveau %{name}
+        new_answer: Nouvelle réponse
+        new_election: Nouvelle élection
+        new_question: Nouvelle question
+        new_trustee: Nouveau garant
         preview: Aperçu
         publish: Publier
         title: Actions
@@ -226,12 +236,6 @@ fr:
         models:
           answer:
             name: Réponse
-          election:
-            name: Élection
-          question:
-            name: Question
-          trustee:
-            name: Garant
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'import des propositions en réponses.
@@ -272,7 +276,7 @@ fr:
               minimum_answers: Les questions doivent avoir <strong>au moins deux réponses</strong>.
               minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
               published: L'élection n'est <strong>pas publiée</strong>.
-              time_before: L'heure de début se situe<strong>moins de %{hours} heures </strong> avant le commencement de l'élection.
+              time_before: L'heure de début se situe<strong>moins de %{hours}</strong> avant le début de l'élection.
               trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             invalid: Une erreur est survenue lors de la création de l'élection
             no_trustees: Il n'y a pas de garants configurés pour cet espace participatif
@@ -289,7 +293,7 @@ fr:
               minimum_answers: Chaque question a <strong>au moins 2 réponses</strong>.
               minimum_questions: L'élection a <strong>au moins 1 question</strong>.
               published: L'élection est <strong>publiée</strong>.
-              time_before: La configuration est réalisée <strong>au moins %{hours} heures</strong> avant le début de l'élection.
+              time_before: La configuration est réalisée <strong>au moins %{hours}</strong> avant le début de l'élection.
               trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             submit: Configurer l'élection
             success: L' élection a été envoyée avec succès au Panneau d'Affichage.
@@ -442,7 +446,6 @@ fr:
           key_ceremony_title: Cérémonie de génération des clés
           not_available: N'est pas encore disponible
           not_created: N'est pas créée
-          not_published: Non publié
           not_ready: Pas encore prêt
           not_started: Non démarré
           published: Publié
@@ -457,6 +460,7 @@ fr:
             started: Le dépouillement a commencé.
           tally_title: Dépouillement
           title: Journal de l'élection
+          unpublished: Non publié
           verifiable_results:
             checksum: 'Fichier de somme de contrôle SHA256:'
             description:
@@ -476,13 +480,7 @@ fr:
           all: Toutes
           date: Date
           finished: Terminées
-          search: Rechercher
           upcoming: À venir
-        filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtrer
-          filter_by: Filtrer par
-          unfold: Voir plus
         preview:
           available_answers: 'Réponses disponibles :'
           description: 'Voici les questions que vous trouverez dans le processus de vote :'
@@ -500,7 +498,6 @@ fr:
             change_vote: Changer votre vote
             vote: Commencer à voter
             vote_again: Voter à nouveau
-          back: Élections disponibles
           callout:
             already_voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
             pending_vote: Votre vote est en cours de validation sur le serveur.
@@ -558,7 +555,6 @@ fr:
           backup_modal:
             description: Cette élection est en cours de création dans le Panneau d'affichage. Il est très important que chaque garant qui y participe fasse une sauvegarde de ces clés et les stocke dans un endroit sûr. Ensuite, le processus se poursuit.
             download_election_keys: Télécharger les clés
-            download_icon: Icône indiquant une action de téléchargement
             title: Sauvegarder les clés d'élection pour %{election}
           key_ceremony_steps:
             back: Retour
@@ -573,7 +569,6 @@ fr:
               task: Tâche
             process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les garants doivent être connectés pour le compléter.
             start: Démarrer
-            start_icon: Icône indiquant un bouton de démarrage pour démarrer la génération des clés d'élection
             status:
               completed: Terminé
               pending: En attente
@@ -583,7 +578,6 @@ fr:
             description: Le Panneau d'affichage a des informations pour vous en temps que garant de cette élection. Pour continuer le processus, commencer par télécharger le fichier de sauvegarde généré pendant la session précédente.
             title: Restaurer les clés d'élection pour %{election}
             upload_election_keys: Télécharger les clés d'élection
-            upload_icon: Icône indiquant une action de téléchargement
           tally_started_steps:
             back: Retour
             description: Les résultats de cette élection sont calculés dans le Panneau d'affichage et pour compléter ce processus, votre participation en tant que garant est nécessaire.
@@ -597,7 +591,6 @@ fr:
               task: Tâche
             process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les garants doivent être connectés pour le compléter.
             start: Démarrer
-            start_icon: Icône indiquant un bouton de démarrage pour démarrer la génération des clés d'élection
             status:
               completed: Terminé
               pending: En attente
@@ -650,7 +643,7 @@ fr:
             success: Votre clé d'identification publique a bien été stockée.
       votes:
         ballot_decision:
-          audit: "(Auditer le bulletin de vote)"
+          audit: Auditer le bulletin de vote
           back: Recommencer le processus de vote
           ballot_hash: 'L''identifiant de votre bulletin est :'
           cast: Remplir le bulletin pour terminer votre vote
@@ -660,21 +653,19 @@ fr:
           header: Vote en cours...
           text: Votre bulletin a bien été pris en compte.
         confirm:
-          answer: Répondre
           answer_number: répondre à %{number}
           confirm: Valider
           edit: éditer
           header: Confirmer votre vote
           intro: Voici un résumé du vote que vous êtes sur le point d'envoyer. <br> Veuillez confirmer votre vote ou modifier vos réponses.
           nota_option: Vide
-          question: Question %{count}
         confirmed:
           back: Retour aux élections
           experience: Comment a été votre expérience?
           feedback: Donnez-nous votre avis
           header: Vote confirmé
           lead: Votre vote a été comptabilisé !
-          text: 'Vous pouvez vérifier que votre vote a bien été ajouté aux urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          text: 'Vous pouvez vérifier que votre vote a bien été ajouté aux urnes avec l''identifiant suivant : '
           verify_link: Pour vérifier que votre vote a bien été pris en compte, copiez l'identifiant et collez-le sur la <a href="%{link}">page de vérification de vote</a>
         create:
           error: Un problème s'est produit lors de la validation du vote. Veuillez réessayer.
@@ -687,12 +678,11 @@ fr:
           text: Une erreur est survenue, veuillez réessayer.
           try_again: Réessayez
         header:
-          ballot_decision: Validez ou auditez votre vote
-          casting: Vote en cours
+          ballot_decision: Voter
           confirm: Confirmer votre vote
-          confirmed: Vote confirmé
-          encrypting: Chiffrement du vote
-          failed: Le vote a échoué
+          election: Élection
+          register: S'inscrire
+          vote_for: Voter pour %{title}
         messages:
           invalid_token: Votre session dans l'isoloir n'est pas valide. Essayez de voter à nouveau.
           not_allowed: Vous n'êtes pas autorisé à voter sur cette élection pour le moment.
@@ -705,9 +695,8 @@ fr:
           nota_option: Vide / Aucune des options ci-dessus
           preview_alert: Ceci est un aperçu de la cabine de vote.
           question_steps: Question %{current_step} sur %{total_steps}
-          selections: "%{selected} sur %{max_selections}<br> sélections"
+          selections: "%{selected} sur %{max_selections} sélections"
         onboarding_modal:
-          close: Fermer la fenêtre de dialogue
           create_account: S'inscrire
           description: Voulez-vous créer un compte sur la plateforme ? Vous pourrez participer aux concertations et prendre une part active dans l'organisation.
           no_account: Non, merci.
@@ -779,6 +768,9 @@ fr:
           title: Que sont les élections ?
     menu:
       votings: Élections
+    participatory_spaces:
+      related_elections:
+        see_all: Voir toutes les élections
     statistics:
       elections_count: Élections
       votings_count: Votes
@@ -804,7 +796,7 @@ fr:
               confirm_destroy: Êtes-vous sûr(e) ?
               destroy: Supprimer
               edit: Modifier
-              new: Nouveau
+              new: Nouveau style de bulletin
               title: Actions
             associated_census_data: Entrées de recensement associées
             explanation_callout: Un style de bulletin spécifie quelles questions seront présentées aux électeurs dans l'isoloir. Dans un style de bulletin, vous pouvez choisir quelles questions de la fonctionnalité Élection de ce vote appartiennent à un bulletin de vote. Le code de style de bulletin est utilisé pour faire correspondre un électeur du recensement avec le bulletin de vote qui lui sera présenté dans l'isoloir. Ne créez pas de style de vote si vous voulez présenter toutes les questions systématiquement.
@@ -816,34 +808,33 @@ fr:
             invalid: Un problème est survenu lors de la mise à jour de ce style de scrutin.
             success: Mise à jour réussie du style de scrutin.
         content_blocks:
+          attachments_and_folders:
+            name: Pièces jointes et dossiers du vote
+          header:
+            name: En-tête de vote
           highlighted_votings:
             max_results: Nombre maximum d'éléments à afficher
-          landing_page:
-            attachments_and_folders:
-              name: Pièces jointes et dossiers du vote
-            description:
-              name: Description du vote
-            elections:
-              name: Élections
-            header:
-              name: Header du vote
-            html_block_1:
-              name: Bloc HTML 1 du Vote
-            html_block_2:
-              name: Bloc HTML 2 du Vote
-            html_block_3:
-              name: Bloc HTML 3 du Vote
-            metrics:
-              name: Métriques de vote
-            polling_stations:
-              name: Bureaux de vote
-            stats:
-              name: Statistiques du vote
-            timeline:
-              name: Calendrier du vote
+          html_block_1:
+            name: Bloc HTML 1 du Vote
+          html_block_2:
+            name: Bloc HTML 2 du Vote
+          html_block_3:
+            name: Bloc HTML 3 du Vote
+          main_data:
+            name: Titre et description
+          metrics:
+            name: Métriques de vote
+          polling_stations:
+            name: Bureaux de vote
+          related_elections:
+            name: Élections
+          stats:
+            name: Statistiques du vote
+          timeline:
+            name: Calendrier du vote
         index:
-          not_published: Non publié
           published: Publié
+          unpublished: Non publié
         landing_page:
           content_blocks:
             create:
@@ -869,7 +860,7 @@ fr:
             ballot_styles: Styles de bulletin
             census: Recensement
             components: Fonctionnalités
-            info: Information
+            info: À propos de ce vote
             landing_page: Page d’accueil
             monitoring_committee: Comité de suivi
             monitoring_committee_election_results: Valider les résultats
@@ -878,33 +869,29 @@ fr:
             monitoring_committee_verify_elections: Vérifier les élections
             polling_officers: Responsables du scrutin
             polling_stations: Bureaux de vote
+            see_voting: Voir le vote
         models:
           ballot_style:
             fields:
               code: Code
-            name: Style de bulletin
           monitoring_committee_member:
             fields:
               email: Email
               name: Nom
-            name: Membre du comité de suivi
           polling_officer:
             fields:
               email: Email
               name: Nom
               polling_station: Bureau de vote (rôle)
-            name: Responsable du scrutin
           polling_station:
             fields:
               address: Adresse
               polling_station_managers: Directeurs
               polling_station_president: Président
               title: Titre
-            name: Bureau de vote
           voting:
             fields:
               created_at: Créée le
-              promoted: Mis en avant
               published: Publié
               title: Titre
         monitoring_committee_election_results:
@@ -1039,8 +1026,6 @@ fr:
             confirm_destroy: Êtes-vous sûr(e) ?
             destroy: Supprimer
             new_voting: Nouvel espace de vote
-            publish: Publier
-            unpublish: Dépublier
           create:
             invalid: Une erreur s'est produite lors de la création de cette élection.
             success: Élection créée avec succès.
@@ -1057,7 +1042,7 @@ fr:
             select_a_voting_type: Veuillez sélectionner un type de vote
             show_check_census_help: Si vous voulez afficher le lien "Puis-je voter?" dans le menu des votes publics.
             slug: Slug
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers ce vote. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             title: Titre
             voting_type:
               hybrid: Hybride
@@ -1067,10 +1052,6 @@ fr:
           new:
             create: Créer
             title: Nouveau vote
-          publish:
-            success: Vote publié avec succès.
-          unpublish:
-            success: Vote dépublié avec succès.
           update:
             invalid: Une erreur s'est produite lors de la mise à jour de ce vote.
             success: Vote mis à jour avec succès.
@@ -1170,15 +1151,9 @@ fr:
         highlighted_votings:
           name: Élections mises en avant
         landing_page:
-          description:
-            title: À propos de ce vote
-          metrics:
-            heading: Métriques
           polling_stations:
             heading: Bureaux de vote
             no_polling_stations: Il n'y a pas encore de bureau de vote.
-          timeline:
-            heading: Chronologie
       monitoring_committee_members:
         actions:
           confirm_destroy: Êtes-vous sûr?
@@ -1188,9 +1163,8 @@ fr:
       pages:
         home:
           highlighted_votings:
-            active_votings: Votations en cours
-            see_all_votings: Voir toutes les votations
-            votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
+            active_spaces: Votations en cours
+            see_all_spaces: Voir toutes les votations
       polling_officer_zone:
         closures:
           back_to_polling_stations: Retourner aux bureaux de vote
@@ -1223,7 +1197,6 @@ fr:
             info_text: 'Veuillez introduire le nombre total de bulletins de vote (enveloppes) recomptés dans ce Bureau de vote:'
             modal_ballots_count_error:
               btn_validate_total: Valider le nombre total de bulletins
-              close_modal: Fermer
               info_explanation_text: 'Veuillez examiner le nombre total de bulletins de vote. Si le nombre total est incorrect, vous devez fournir une explication pour le comité de suivi :'
               info_text: Le nombre total de bulletins de vote ne correspond pas au nombre de personnes ayant voté dans ce bureau de vote.
               message_for_monitoring_committee: Message pour le comité de suivi
@@ -1241,14 +1214,12 @@ fr:
           sign:
             cancel: Annuler
             check_box: Après vérification, ce certificat est identique au certificat physique de clôture des élections
-            close_modal: Clore
             confirm: Ok, continuer
             error: Une erreur est survenue, veuillez réessayer.
             heading: Recomptage des voix - Signer la fermeture
             info_text: Cette action est irréversible. Si vous continuez, vous ne pourrez plus modifier les informations.
             submit: Signer la fermeture
             success: Fermeture signée avec succès.
-            title: Cette action est irréversible
           update:
             error: Une erreur s'est produite lors de la mise à jour des résultats de fermeture, veuillez réessayer plus tard.
             success: Résultats de fermeture mis à jour avec succès.
@@ -1315,7 +1286,7 @@ fr:
         actions:
           confirm_destroy: Êtes-vous sûr?
           destroy: Supprimer
-          new: Nouveau
+          new: Nouvel accesseur
           title: Actions
         roles:
           manager: Directeur
@@ -1336,7 +1307,7 @@ fr:
           confirm_destroy: Êtes-vous sûr(e) ?
           destroy: Supprimer
           edit: Modifier
-          new: Nouveau
+          new: Nouveau bureau de vote
           title: Actions
       votings:
         access_code_modal:
@@ -1379,9 +1350,7 @@ fr:
             one: "%{count} élection"
             other: "%{count} élections"
         elections_log:
-          bb_status: État actuel de l'élection
           description: Le journal des élections vous montrera toutes les informations pertinentes sur chaque vote. Par exemple, le statut de la cérémonie de génération des clés ou du dépouillement ou si les résultats sont déjà publiés. Cliquez sur l'élection à propos de laquelle vous voulez des informations.
-          election_log: Logs de l'élection
           title: Journal de l'élection
         filters:
           active: Actifs
@@ -1390,11 +1359,6 @@ fr:
           finished: Terminées
           search: Rechercher
           upcoming: À venir
-        filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtrer
-          filter_by: Filtrer par
-          unfold: Dérouler
         index:
           no_votings: Aucun vote ne correspond à votre recherche.
           only_finished: À l'heure actuelle, il n'y a pas de votes planifiés, mais vous trouverez ici une liste de tous les votes passées.
@@ -1406,7 +1370,6 @@ fr:
           dont_have_access_code: Vous n'avez pas de code d'accès?
           form_title: 'Remplissez le formulaire suivant pour accéder au vote :'
           start_voting: Commencer à voter
-          step: Identification
           title: Je m'identifie avec mes données de recensement de vote
         no_census_contact_information: Il n'y a pas encore d'informations de contact.
         orders:
@@ -1417,22 +1380,17 @@ fr:
           invalid: Un problème est survenu lors de l'envoi du code d'accès.
           success: Votre code d'accès a été envoyé avec succès.
         show:
-          dates: Dates
+          title: À propos de ce vote
       votings_m:
         badge_name:
           finished: Passées
           ongoing: En cours
           upcoming: À venir
-        footer_button_text:
-          participate: Participer
-          view: Voir
-          vote: Voter
         unspecified: Non précisées
         voting_type:
           hybrid: Hybride
           in_person: En présentiel
           online: En ligne
-        voting_types_label: Type de vote
   layouts:
     decidim:
       election_votes_header:
@@ -1440,10 +1398,8 @@ fr:
       voting_navigation:
         check_census: Puis-je voter ?
         election_log: Journal de l'élection
-        voting_menu_item: Le vote
       votings:
         index:
           promoted_votings: Votations mises en avant
         promoted_voting:
-          more_info: Plus d'informations
           vote: Voter

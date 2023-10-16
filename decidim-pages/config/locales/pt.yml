@@ -28,6 +28,3 @@ pt:
           update:
             invalid: Ocorreu um problema ao guardar a página.
             success: Pagina guardada com êxito.
-      home:
-        sub_hero:
-          register_title: Registre para criar conta

@@ -1,4 +1,4 @@
-name: "[CI] Generators (Generator flags)"
+name: "[CI] Generators"
 on:
   push:
     branches:
@@ -33,7 +33,13 @@ jobs:
       fail-fast: false
       matrix:
         test-command:
-          - bundle exec parallel_test --type rspec --pattern spec/runtime/config_flags_generator_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/branch_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/component_generator_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/edge_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/no_flags_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/path_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/queue_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/storage_flag_spec.rb
           - bundle exec parallel_test --type rspec --pattern spec/runtime/full_app_generator_spec.rb
           - bundle exec parallel_test --type rspec --pattern spec/lib/
     name: "[CI] Generators"
@@ -77,6 +83,12 @@ jobs:
           key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
+      - uses: actions/cache@v3
+        id: app-cache
+        with:
+          path: ./Gemfile.lock
+          key: gemfile-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: gemfile-${{ hashFiles('Gemfile.lock') }}
       - run: bundle install --jobs 4 --retry 3
         name: Install Ruby deps
         working-directory: ${{ env.DECIDIM_MODULE }}

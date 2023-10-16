@@ -1,6 +1,6 @@
 <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
   <%= cell("decidim/announcement", t("decidim.proposals.proposals.index.text_banner",
-  go_back_link: link_to(t("decidim.proposals.proposals.index.click_here"), proposals_path("filter[with_availability]" => nil))
+                                     go_back_link: link_to(t("decidim.proposals.proposals.index.click_here"), proposals_path("filter[with_availability]" => nil))
   ).html_safe, callout_class: "warning [&>a]:text-secondary") %>
 <% end %>
 

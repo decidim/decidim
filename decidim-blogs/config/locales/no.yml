@@ -17,9 +17,6 @@
         new: Nytt innlegg
         title: Handlinger
       admin:
-        models:
-          post:
-            name: Innlegg
         posts:
           edit:
             save: Oppdater
@@ -36,9 +33,6 @@
           fields:
             author: Forfatter
             body: Tekst
-      posts:
-        show:
-          view: Vis
     components:
       blogs:
         actions:
