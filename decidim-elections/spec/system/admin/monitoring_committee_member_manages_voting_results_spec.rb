@@ -23,7 +23,7 @@ describe "Monitoring committee member manages voting results", type: :system do
     let!(:other_election) { create(:election, :complete, :published, :finished, component: elections_component) }
 
     it "lists all the finished elections for the voting" do
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Validate Results"
       end
 
@@ -38,7 +38,7 @@ describe "Monitoring committee member manages voting results", type: :system do
     include_context "with test bulletin board"
 
     it "shows the results for the election" do
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Validate Results"
       end
 

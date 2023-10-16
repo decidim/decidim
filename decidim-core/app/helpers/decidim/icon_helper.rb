@@ -16,6 +16,7 @@ module Decidim
       "Decidim::Proposals::Proposal" => "chat-new-line",
       "Decidim::Budgets::Order" => "check-double-line",
       "Decidim::Budgets::Budget" => "coin-line",
+      "Decidim::Budgets::Project" => "coin-line",
       "Decidim::Assembly" => "government-line",
       "Decidim::Amendment" => "git-branch-line",
       "Decidim::ParticipatoryProcess" => "treasure-map-line",

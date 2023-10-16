@@ -45,7 +45,7 @@ describe "Admin imports participatory process", type: :system do
         click_link "Import participatory process"
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Phases"
       end
 
@@ -53,7 +53,7 @@ describe "Admin imports participatory process", type: :system do
         expect(page).to have_content(translated("Magni."))
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Categories"
       end
 
@@ -62,7 +62,7 @@ describe "Admin imports participatory process", type: :system do
         expect(page).to have_content(translated("Expedita sint earum rerum consequatur."))
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Components"
       end
 
@@ -73,7 +73,7 @@ describe "Admin imports participatory process", type: :system do
         end
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Files"
       end
 

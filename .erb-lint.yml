@@ -114,7 +114,7 @@ linters:
         Enabled: false
 
       Layout/MultilineMethodCallIndentation:
-        Enabled: false
+        Enabled: true
 
       Layout/IndentationWidth:
         Enabled: false
