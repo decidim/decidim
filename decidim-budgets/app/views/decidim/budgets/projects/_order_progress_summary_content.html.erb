@@ -1,4 +1,4 @@
-<div <%= responsive ? "data-order-progress-responsive=true" : "data-order-progress-responsive=false" %> class="budget-summary__content">
+<div data-order-progress-responsive="<%= responsive.inspect %>" class="budget-summary__content">
   <div class="budget-summary__progressbox" data-current-allocation="<%= current_order ? current_order.total : 0 %>">
     <% if include_heading %>
       <% if current_order_checked_out? %>
@@ -24,8 +24,7 @@
         <div class="progress-meter budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
           <span class="progress-meter--minimum-mark"></span>
         </div>
-        <div class="progress-meter budget-summary__progressbar--meter" style="width: <%= current_order_budget_percent %>%">
-        </div>
+        <div class="progress-meter budget-summary__progressbar--meter" style="width: <%= current_order_budget_percent %>%"></div>
       </div>
       <div class="budget-summary__progressbar-marks">
         <span class="budget-summary__progressbar-legend" style="width: <%= current_order_budget_percent_minimum %>%;">

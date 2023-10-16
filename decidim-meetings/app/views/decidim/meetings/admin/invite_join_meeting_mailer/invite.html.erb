@@ -4,5 +4,14 @@
   <%= t ".invited_you_to_join_a_meeting", invited_by: @invited_by.name, application: @user.organization.name %>
 </p>
 
-<p class="email-button email-button__cta cta-decline"><%= link_to t(".decline", meeting_title: present(@meeting).title),routes.decline_invitation_meeting_registration_url(meeting_id: @meeting, participatory_space_id: @meeting.component.participatory_space) %>
-<p class="email-button email-button__cta cta-accept"><%= link_to t(".join", meeting_title: present(@meeting).title),routes.meeting_registration_url(meeting_id: @meeting, participatory_space_id: @meeting.component.participatory_space) %>
+<p class="email-button email-button__cta cta-decline">
+  <%= link_to t(".decline", meeting_title: present(@meeting).title),
+              routes.decline_invitation_meeting_registration_url(meeting_id: @meeting,
+                                                                 participatory_space_id: @meeting.component.participatory_space
+              ) %>
+</p>
+<p class="email-button email-button__cta cta-accept">
+  <%= link_to t(".join", meeting_title: present(@meeting).title),
+              routes.meeting_registration_url(meeting_id: @meeting,
+                                              participatory_space_id: @meeting.component.participatory_space) %>
+</p>
