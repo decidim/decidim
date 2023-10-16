@@ -8,11 +8,10 @@ module Decidim
 
       def confirmation(user, questionnaire, answers)
         @user = user
-        @organization = user.organization
         @questionnaire_title = translated_attribute(questionnaire.title)
         @participatory_space_title = translated_attribute(questionnaire.questionnaire_for.component.participatory_space.title)
 
-        return if answers.blank?
+        return if answers.blank? || user.nil?
 
         add_file_with_answers(answers)
 

@@ -84,7 +84,7 @@ describe "Answer a survey", type: :system do
 
       expect(questionnaire.answers.last.session_token).not_to be_empty
       expect(questionnaire.answers.last.ip_hash).not_to be_empty
-      
+
       expect(questionnaire.answers.last.session_token).not_to be_empty
       expect(questionnaire.answers.last.ip_hash).not_to be_empty
     end
