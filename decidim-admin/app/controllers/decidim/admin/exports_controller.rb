@@ -6,12 +6,12 @@ module Decidim
     class ExportsController < Decidim::Admin::ApplicationController
       include Decidim::ComponentPathHelper
 
-      def create
+      def create(collection = nil)
         enforce_permission_to(:export, :component_data, component:)
         name = params[:id]
 
         Decidim.traceability.perform_action!("export_component", component, current_user, { name:, format: params[:format] || default_format }) do
-          ExportJob.perform_later(current_user, component, name, params[:format] || default_format, params[:resource_id].presence)
+          ExportJob.perform_later(current_user, component, name, params[:format] || default_format, params[:resource_id].presence, nil, collection)
         end
 
         flash[:notice] = t("decidim.admin.exports.notice")

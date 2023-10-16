@@ -7,7 +7,7 @@
     <% end %>
 
     <% if allowed_to? :export, :proposals %>
-      <%= export_dropdown %>
+      <%= export_dropdowns(query) %>
     <% end %>
 
     <% if allowed_to? :import, :proposals %>
