@@ -23,6 +23,15 @@ linters:
       - text/javascript
       - text/template
 
+  DeprecatedClasses:
+    enabled: true
+    exclude:
+      - 'decidim_app-design/**/*.erb'
+    addendum: "Please remove it from code."
+    rule_set:
+      - deprecated: ['xlarge-[\w]*']
+        suggestion: "Foundation classes are deprecated."
+
   Rubocop:
     enabled: true
 
