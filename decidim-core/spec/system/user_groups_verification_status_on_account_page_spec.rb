@@ -18,7 +18,7 @@ describe "User group verification status on account page", type: :system do
     it "the user can check their status on their account page" do
       visit decidim.own_user_groups_path
 
-      within "#dropdown-menu" do
+      within "#dropdown-menu-profile" do
         click_link "Groups"
       end
 
@@ -39,7 +39,7 @@ describe "User group verification status on account page", type: :system do
     it "the user can check their status on their account page" do
       visit decidim.own_user_groups_path
 
-      within "#dropdown-menu" do
+      within "#dropdown-menu-profile" do
         click_link "Groups"
       end
 
@@ -54,7 +54,7 @@ describe "User group verification status on account page", type: :system do
     it "the user can check their status on their account page" do
       visit decidim.own_user_groups_path
 
-      within "#dropdown-menu" do
+      within "#dropdown-menu-profile" do
         click_link "Groups"
       end
 

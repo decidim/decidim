@@ -1,4 +1,4 @@
-<%= redesigned_filter_form_for filter, url_for, data: { filters: "", component: "accordion" } do |form| %>
+<%= filter_form_for filter, url_for, data: { filters: "", component: "accordion" } do |form| %>
   <%= form.collection_radio_buttons(
         :addition_type,
         filter_addition_type_values(added_count: search.result.with_order(current_order).size),
@@ -10,9 +10,7 @@
         <%= builder.text[:text] %>
       </span>
       <%= render partial: "projects_count", locals: { count: builder.text[:count] } %>
-     <button class="w-0">
-        <%= builder.radio_button(class: "appearance-none") %>
-      </button>
+      <%= builder.radio_button(class: "!hidden") %>
     <% end %>
   <% end %>
 <% end %>

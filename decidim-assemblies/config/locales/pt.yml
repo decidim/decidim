@@ -51,7 +51,6 @@ pt:
         subtitle: Subtítulo
         target: Quem participa
         title: Título
-        twitter: Twitter
         weight: Posição de ordenamento
         youtube: Youtube
       assembly_member:
@@ -92,7 +91,6 @@ pt:
         edit:
           update: Atualizar
         index:
-          not_published: Não publicado
           private: Privado
           public: Público
           published: Publicado
@@ -190,7 +188,6 @@ pt:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          info: Info
           moderations: Moderação
           private_users: Utilizadores privados
         assemblies_types: Tipos de reuniões
@@ -270,7 +267,6 @@ pt:
             select_an_area: Selecione uma Área
             select_an_assembly_type: Selecione um tipo de reunião
             select_parent_assembly: Selecione a reunião pai
-            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social
             title: Informação geral
             visbility: Visibilidade
@@ -282,13 +278,6 @@ pt:
         assemblies_types:
           form:
             title: Título
-        assembly_copies:
-          form:
-            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
-        assembly_imports:
-          form:
-            document_legend: Adicionar um documento
-            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para esta reunião. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         assembly_members:
           form:
             existing_user: Participante existente
@@ -304,7 +293,6 @@ pt:
               all: Todos
               ceased: Cessado
               not_ceased: Não cessado
-            filter_by: Filtrar por
             search: Pesquisar
         content_blocks:
           highlighted_assemblies:
@@ -343,41 +331,17 @@ pt:
       index:
         title: Reuniões
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Reuniões ativas
-            assemblies_button_title: Hiperligação para página de Reuniões que apresenta todas as reuniões
-            see_all_assemblies: Ver todas as reuniões
         user_profile:
           member_of:
             member_of: Membro de
       show:
-        area: Área
         assembly_type: Tipo de reunião
-        children: Reuniões
-        closing_date: Data de encerramento
-        composition: Composição
-        created_by: Criado por
-        creation_date: Data de criação
-        developer_group: Grupo promotor
         duration: Duração
-        included_at: Incluído em
-        indefinite_duration: Indeterminado
-        internal_organisation: Organização interna
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Área de organização
-        participatory_scope: O que é decidido
-        participatory_structure: Como é decidido
         private_space: Esta é uma reunião privada
-        purpose_of_action: Objetivo da ação
-        read_less: Ler menos
-        read_more: Ler mais
         related_participatory_processes: Processos participativos relacionados
-        scope: Âmbito
-        social_networks: Redes sociais
-        target: Quem participa
     assembly_members:
       assembly_member:
         designated_on: Designado em
@@ -426,20 +390,10 @@ pt:
           more_info: Mais informações
           take_part: Participar
         index:
-          children: 'Reuniões: '
-          organizational_chart: Organograma
           promoted_assemblies: Reuniões realçadas
-          reset_chart: Repor
         order_by_assemblies:
           assemblies:
             one: "%{count} reunião"
             other: "%{count} reuniões"
-        promoted_assembly:
-          more_info: Mais informações
-          take_part: Participar
       assembly_navigation:
         assembly_member_menu_item: Membros
-        assembly_menu_item: A assembléia
-      assembly_widgets:
-        show:
-          take_part: Participar

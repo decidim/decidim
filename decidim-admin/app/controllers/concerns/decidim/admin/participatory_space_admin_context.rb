@@ -24,6 +24,7 @@ module Decidim
 
       included do
         include Decidim::NeedsOrganization
+        include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
         helper ParticipatorySpaceHelpers
 
         helper_method :current_participatory_space

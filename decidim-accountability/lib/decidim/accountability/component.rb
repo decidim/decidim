@@ -6,6 +6,7 @@ Decidim.register_component(:accountability) do |component|
   component.engine = Decidim::Accountability::Engine
   component.admin_engine = Decidim::Accountability::AdminEngine
   component.icon = "media/images/decidim_accountability.svg"
+  component.icon_key = "bar-chart-line"
   component.stylesheet = "decidim/accountability/accountability"
   component.permissions_class_name = "Decidim::Accountability::Permissions"
   component.query_type = "Decidim::Accountability::AccountabilityType"

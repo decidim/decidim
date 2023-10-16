@@ -28,6 +28,3 @@ sv:
           update:
             invalid: Det gick inte att spara sidan.
             success: Sidan sparades framgångsrikt.
-      home:
-        sub_hero:
-          register_title: Skapa ett konto

@@ -1,8 +1,7 @@
 <% provide :title do %>
-  <h2><%= t ".title" %></h2>
+  <h1 class="h1"><%= t ".title" %></h1>
 <% end %>
 
-<div class="actions title">
-  <%= link_to t("actions.new", scope: "decidim.system", name: t("models.organization.name", scope: "decidim.system")), [:new, :organization], class: "new" %>
-</div>
+<%= link_to t("actions.new_organization", scope: "decidim.system"), [:new, :organization], class: "button button__sm md:button__lg button__primary" %>
+
 <%= render partial: "decidim/system/shared/organizations_list", locals: { organizations: @organizations } %>

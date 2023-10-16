@@ -458,7 +458,7 @@ en:
               md: Markdown
               odt: ODT
             bottom_hint: "(You will be able to preview and sort document sections)"
-            document_legend: 'Add a document lesser than 2MB, each section until 3 levels deep will be parsed into proposals. Suported formats are: %{valid_mime_types}'
+            document_legend: 'Add a document lesser than 2MB, each section until 3 levels deep will be parsed into proposals. Supported formats are: %{valid_mime_types}'
             title: Add document
             upload_document: Upload document
           publish:
@@ -527,35 +527,27 @@ en:
             create: Create
             title: Create proposal
           publish_answers:
-            number_of_proposals: Answers for %{number} proposals will be published.
+            number_of_proposals: Answers for %{number} proposal's will be published?
             select_a_proposal: Please select a proposal.
           show:
             amendments_count: Amendments count
             assigned_valuators: Assigned valuators
-            authors: Authors
             body: Body
             comments_count: Comments count
-            comments_negative_count: Against
-            comments_neutral_count: Neutral
-            comments_positive_count: Favor
-            created_at: Creation date
             documents: Documents
             endorsements_count: Endorsements count
-            endorsements_ranking: Ranking by endorsements
             endorsers: Endorsers
-            link: Link
+            link: See proposal
             n_more_endorsers:
               one: and 1 more
               other: and %{count} more
             photos: Photos
-            proposals: Proposals
             ranking: "%{ranking} of %{total}"
             related_meetings: Related meetings
             remove_assignment: Remove assignment
             remove_assignment_confirmation: Are you sure you want to remove the valuator from this proposal?
             valuators: Valuators
             votes_count: Supports count
-            votes_ranking: Ranking by supports
           update_category:
             invalid: 'These proposals already had the %{subject_name} category: %{proposals}.'
             select_a_category: Please select a category.
@@ -670,6 +662,10 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
+        index:
+          count:
+            one: "%{count} collaborative draft"
+            other: "%{count} collaborative drafts"
         name: Collaborative drafts
         new:
           add_file: Add file
@@ -799,6 +795,9 @@ en:
         index:
           click_here: See all proposals
           collaborative_drafts_list: Access collaborative drafts
+          count:
+            one: "%{count} proposal"
+            other: "%{count} proposals"
           new_proposal: New proposal
           see_all: See all proposals
           see_all_withdrawn: See all withdrawn proposals
@@ -895,8 +894,6 @@ en:
           title: Proposal creation steps
       proposals_picker:
         choose_proposals: Choose proposals
-        close: Close
-        more_proposals: There are %{number} more proposals. Refine your search to locate them.
         no_proposals: No proposals match your search criteria or there is not any proposals.
       publish:
         error: There was a problem publishing the proposal.

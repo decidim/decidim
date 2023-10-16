@@ -39,7 +39,7 @@ en:
         actions:
           destroy: Cancel the sortition
           edit: Edit
-          new: New sortition
+          new_sortition: New sortition
           show: Sortition details
         models:
           sortition:
@@ -53,9 +53,6 @@ en:
               seed: Seed
               target_items: Items to select
               title: Title
-            name:
-              one: Sortition
-              other: Sortitions
         sortitions:
           confirm_destroy:
             confirm_destroy: Are you sure you want to cancel this sortition?
@@ -73,7 +70,6 @@ en:
           form:
             all_categories: All categories
             select_proposal_component: Select the proposals set
-            title: New sortition for proposals
           index:
             title: Sortitions
           new:
@@ -100,14 +96,7 @@ en:
           all: All
           cancelled: Cancelled
           category: Category
-          category_prompt: Select a category
-          search: Search
           state: Status
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         linked_sortitions:
           selected_proposals: Selected proposals
         orders:

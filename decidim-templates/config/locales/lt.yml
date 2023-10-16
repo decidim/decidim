@@ -13,11 +13,19 @@ lt:
       templates:
         apply:
           error: Pritaikant šį šabloną iškilo problema.
+          success: Šablonas sėkmingai pritaikytas.
         copy:
           error: Kopijuojant šį šabloną iškilo problema.
+          success: Šablonas sėkmingai nukopijuotas.
         create:
           error: Kuriant šį šabloną iškilo problema.
+          success: Šablonas sukurtas sėkmingai.
+        destroy:
+          success: Šablonas ištrintas sėkmingai.
         empty: Dar nėra šablonų.
+        update:
+          error: Atnaujinant šį šabloną kilo problema.
+          success: Šablonas atnaujintas sėkmingai.
       titles:
         template_types:
           questionnaires: Klausimyno šablonai
@@ -33,6 +41,14 @@ lt:
         name: Šablonas
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Išsaugoti
+          index:
+            confirm_delete: Ar tikrai norite ištrinti šį šabloną?
+            title: Blokuoti naudotojų žinutes
+          template_chooser:
+            select_template: Pasirinkite šablono atsakymą
         questionnaire_templates:
           choose:
             create_from_template: Kurti iš šablono
@@ -42,10 +58,9 @@ lt:
             skip_template: Praleisti
           edit:
             edit: Redaguoti
+            empty: Dar nėra klausimų.
             questionnaire: Klausimynas
           form:
-            save: Išsaugoti
-            template_title: Šablono informacija
             title: Klausimyno šablonas %{questionnaire_for}
           index:
             confirm_delete: Ar tikrai norite ištrinti šį šabloną?
@@ -61,4 +76,5 @@ lt:
           duplicate: "%{user_name} dublikavo %{resource_name} klausimyno šabloną"
           update: "%{user_name} atnaujino %{resource_name} klausimyno šabloną"
       template_types:
+        block_user: Blokuoti naudotojų žinutes
         questionnaires: Klausimynai

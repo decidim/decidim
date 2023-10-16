@@ -18,7 +18,7 @@ module Decidim
       def participatory_processes_for_assembly(assembly_participatory_processes)
         html = ""
         html += %( <div class="section"> ).html_safe
-        html += %( <h4 class="section-heading">#{t("assemblies.show.related_participatory_processes", scope: "decidim")}</h4> ).html_safe
+        html += %( <h4>#{t("assemblies.show.related_participatory_processes", scope: "decidim")}</h4> ).html_safe
         html += %( <div class="row small-up-1 medium-up-2 card-grid"> ).html_safe
         assembly_participatory_processes.each do |assembly_participatory_process|
           html += render partial: "decidim/participatory_processes/participatory_process", locals: { participatory_process: assembly_participatory_process }
@@ -43,11 +43,6 @@ module Decidim
         components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
 
         [
-          {
-            name: t("assembly_menu_item", scope: "layouts.decidim.assembly_navigation"),
-            url: decidim_assemblies.assembly_path(participatory_space),
-            active: is_active_link?(decidim_assemblies.assembly_path(participatory_space), :exclusive)
-          },
           *(if participatory_space.members.not_ceased.any?
               [{
                 name: t("assembly_member_menu_item", scope: "layouts.decidim.assembly_navigation"),

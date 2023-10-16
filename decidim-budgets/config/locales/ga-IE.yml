@@ -51,7 +51,6 @@ ga:
           cancel: Cealaigh
           confirm: Deimhnigh
         budget_excess:
-          close: Dún
           ok: Togha
         filters:
           category: Catagóir
@@ -60,14 +59,6 @@ ga:
           status: Stádas
           status_values:
             all: Uile
-        filters_small_view:
-          filter: Scag
-          unfold: Oscail
-        order_progress:
-          vote: Vóta
-        order_selected_projects:
-          remove: Bain as
-          view: Amharc
         project:
           view: Amharc
         show:

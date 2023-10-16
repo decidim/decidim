@@ -1,0 +1,65 @@
+<%= render layout: "decidim/design/layout" do %>
+  <div class="cols-8">
+    <h1 class="h2 mb-4">Layout spacing</h1>
+    <h1 class="h3 mb-4">Main</h1>
+
+    <main class="layout-item__main">
+
+      <section class="layout-main__section layout-main__heading">
+
+        <h1 class="h2 decorator">
+          <!-- item.Title -->
+        </h1>
+
+        <div class="layout-author">
+          <!-- cell "decidim/author -->
+        </div>
+
+      </section>
+
+      <section class="layout-main__section">
+
+        <div class="editor-content">
+          <!-- item.body -->
+        </div>
+
+      </section>
+
+      <section class="layout-main__section" data-component="accordion">
+        <!-- TABS: proposals, participants, images documents etc... -->
+      </section>
+
+      <section class="layout-main__section">
+        <!-- render partial: "actions" -->
+      </section>
+
+    </main>
+
+    <h1 class="h3 mt-8 mb-4">Aside</h1>
+
+    <aside class="layout-item__main layout-item__aside--footer">
+
+      <section class="layout-aside__section layout-aside__buttons">
+        <!-- ACTIONS BUTTONS: EDIT, CLOSE -->
+      </section>
+
+      <section class="layout-aside__section">
+        <!-- MORE INFORMATION -->
+      </section>
+
+    </aside>
+
+    <h1 class="h3 mt-8 mb-4">Aside footer</h1>
+    <aside class="layout-item__main layout-item__aside--footer">
+
+      <section class="layout-aside__section layout-aside__buttons">
+        <!-- ACTIONS BUTTONS: EDIT, CLOSE -->
+      </section>
+
+      <section class="layout-aside__section">
+        <!-- MORE INFORMATION -->
+      </section>
+
+    </aside>
+  </div>
+<% end %>

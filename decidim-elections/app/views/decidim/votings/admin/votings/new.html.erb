@@ -1,12 +1,19 @@
 <% add_decidim_page_title(t("votings.new.title", scope: "decidim.votings.admin")) %>
-<h2 class="voting-title-summary">
-  <%= t("votings.new.title", scope: "decidim.votings.admin") %>
-</h2>
+<div class="item_show__header">
+    <h2 class="item_show__header-title">
+    <%= t("votings.new.title", scope: "decidim.votings.admin") %>
+  </h2>
+</div>
 
-<%= decidim_form_for(@form, html: { class: "form new_voting" }) do |f| %>
-  <%= render partial: "form", object: f %>
-
-  <div class="button--double form-general-submit">
-    <%= f.submit t("votings.new.create", scope: "decidim.votings.admin") %>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, html: { class: "form new_voting form-defaults" }) do |f| %>
+      <%= render partial: "form", object: f %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t("votings.new.create", scope: "decidim.votings.admin"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

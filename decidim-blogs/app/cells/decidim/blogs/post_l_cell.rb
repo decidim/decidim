@@ -3,7 +3,7 @@
 module Decidim
   module Blogs
     # This cell renders the List (:l) post card
-    # for an given instance of a Post
+    # for a given instance of a Post
     class PostLCell < Decidim::CardLCell
       delegate :photo, to: :model
 

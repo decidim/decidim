@@ -16,7 +16,6 @@ module Decidim
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
-  autoload :RedesignedFilterFormBuilder, "decidim/redesigned_filter_form_builder"
   autoload :ComponentManifest, "decidim/component_manifest"
   autoload :NotificationSettingManifest, "decidim/notification_setting_manifest"
   autoload :ParticipatorySpaceManifest, "decidim/participatory_space_manifest"
@@ -116,8 +115,6 @@ module Decidim
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
-  autoload :RedesignLayout, "decidim/redesign_layout"
-  autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
   autoload :BlockRegistry, "decidim/block_registry"
   autoload :DependencyResolver, "decidim/dependency_resolver"
   autoload :Upgrade, "decidim/upgrade"
@@ -392,13 +389,7 @@ module Decidim
 
   # Social Networking services used for social sharing
   config_accessor :social_share_services do
-    %w(Twitter Facebook WhatsApp Telegram)
-  end
-
-  # If set to true redesigned versions of layouts and cells will be used by
-  # default
-  config_accessor :redesign_active do
-    ENV.fetch("REDESIGN_ENABLED", "true") == "true"
+    %w(X Facebook WhatsApp Telegram)
   end
 
   # The Decidim::Exporters::CSV's default column separator

@@ -17,7 +17,7 @@ edit_link(
 <%= append_stylesheet_pack_tag "decidim_sortitions" %>
 
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: :sortitions, commentable: sortition } do %>
-  <%= cell("decidim/announcement", t("introduction", scope: "decidim.sortitions.sortitions.show", reference: sortition.id, target_items: sortition.target_items), truncate: true, callout_class: "secondary") %>
+  <%= cell("decidim/announcement", t("introduction", scope: "decidim.sortitions.sortitions.show", reference: sortition.id, target_items: sortition.target_items), callout_class: "secondary") %>
 
   <section class="layout-main__section layout-main__heading">
     <h1 class="h1 decorator mb-4">
@@ -38,9 +38,9 @@ edit_link(
     </div>
   </section>
   <section class="layout-main__section">
-    <h3 class="h3">
+    <h2 class="h3">
       <%= t("witnesses", scope: "decidim.sortitions.sortitions.show") %>
-    </h3>
+    </h2>
     <div class="editor-content">
       <%= decidim_sanitize_editor translated_attribute sortition.witnesses %>
     </div>
@@ -48,9 +48,9 @@ edit_link(
 
   <% if sortition&.proposals %>
     <section class="layout-main__section">
-      <h3 id="proposals-count" class="h3 mb-4">
+      <h2 id="proposals-count" class="h3 mb-4">
         <%= t("proposals_selected_by_sortition", scope: "decidim.sortitions.sortitions.show") %>
-      </h3>
+      </h2>
       <div id="proposals">
         <%= render partial: "proposal", collection: sortition.proposals %>
       </div>
@@ -59,9 +59,9 @@ edit_link(
 
   <% if sortition.cancelled? %>
     <section class="layout-main__section">
-      <h3 class="h3 mt-8 mb-4">
+      <h2 class="h3 mt-8 mb-4">
         <%= t("cancelled", scope: "decidim.sortitions.sortitions.show") %>
-      </h3>
+      </h2>
       <div class="layout-author">
         <%= cell "decidim/author", present(sortition.cancelled_by_user), context_actions: [:cancelled_on], from: sortition, layout: :compact %>
         <% if sortition.cancelled_by_user&.deleted? %>
@@ -70,9 +70,7 @@ edit_link(
           </span>
         <% end %>
       </div>
-      <div class="callout alert">
-        <%= decidim_sanitize_editor translated_attribute sortition.cancel_reason %>
-      </div>
+      <%= cell("decidim/announcement", decidim_sanitize_editor(translated_attribute(sortition.cancel_reason)), callout_class: "alert") %>
     </section>
   <% end %>
 
@@ -85,9 +83,9 @@ edit_link(
       <%= render partial: "results_count", locals: { sortition: } %>
     </section>
     <section class="layout-aside__section">
-      <h4 class="text-sm text-gray-2 uppercase font-semibold mb-4 ">
+      <div class="text-sm text-gray-2 uppercase font-semibold mb-4 ">
         <%= t("sortition_reproducibility_details", scope: "decidim.sortitions.sortitions.show") %>
-      </h4>
+      </div>
       <div class="sortition__aside-element bg-background p-4 rounded">
         <div class="sortition__aside-element-item">
           <span class="sortition__aside-element-item__title">
@@ -119,9 +117,9 @@ edit_link(
       </div>
     </section>
     <section class="layout-aside__section">
-      <h2 class="text-sm text-gray-2 uppercase font-semibold mb-4">
+      <div class="text-sm text-gray-2 uppercase font-semibold mb-4">
         <%= t("candidate_proposal_ids", scope: "decidim.sortitions.sortitions.show") %>
-      </h2>
+      </div>
       <div class="sortition__aside-element bg-background p-4 rounded">
         <div class="sortition__aside-element-item">
           <span class="sortition__aside-element-item__title">
@@ -139,8 +137,8 @@ edit_link(
   <% end %>
   <% content_for :item_footer do %>
     <%= comments_for sortition %>
-    <ul class="drawer-metadata__container layout-main__section">
-      <%= content_tag :li, resource_reference(sortition), class: "drawer-metadata__item" %>
+    <ul class="metadata__container layout-main__section" data-metadata-footer>
+      <%= content_tag :li, resource_reference(sortition), class: "metadata__item" %>
     </ul>
   <% end %>
 <% end %>

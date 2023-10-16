@@ -44,7 +44,6 @@ ro:
         block_user_templates:
           form:
             save: Salvează
-            template_title: Informații șablon
           index:
             confirm_delete: Sunteți sigur că doriți să ștergeți acest șablon?
             title: Blochează mesajele utilizatorilor
@@ -62,8 +61,6 @@ ro:
             empty: Nu există încă întrebări.
             questionnaire: Chestionar
           form:
-            save: Salvează
-            template_title: Informatii despre model
             title: Model de chestionar %{questionnaire_for}
           index:
             confirm_delete: Sigur dorești să ștergi acest model?

@@ -174,8 +174,6 @@ ru:
             create: Внести
             title: Создать предложение
           show:
-            created_at: Дата создания
-            proposals: Предложения
             votes_count: Количество голосов
         proposals_imports:
           new:
@@ -247,21 +245,9 @@ ru:
           search: Поиск
           state: Cостояние
           voted: Проголосованные
-        filters_small_view:
-          close_modal: Закрыть окошко
-          filter: Отобрать
-          filter_by: 'Отобрать по признаку:'
-          unfold: Развернуть
         index:
           new_proposal: Внести предложение
           see_all_withdrawn: Просмотреть все отозванные предложения
-          view_proposal: Просмотреть предложение
-        linked_proposals:
-          proposal_votes:
-            one: голосовать
-            few: голоса
-            many: голоса
-            other: голоса
         new:
           send: Продолжить
         orders:
@@ -278,17 +264,12 @@ ru:
             other: Вы сможете отредактировать это предложение в течение первых %{count} минут после обнародования предложения. После того, как пройдет этот промежуток времени, вы не сможете редактировать предложение.
           publish: Обнародовать
           title: Обнародуйте свое предложение
-        proposal:
-          creation_date: 'Создано: %{date}'
-          view_proposal: Просмотреть предложение
         show:
           answer: Ответить
-          comments: Комментарии
           edit_proposal: Редактировать предложение
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
-          report: Пожаловаться
           withdraw_btn_hint: Вы можете снять свое предложение, если передумаете, пока вы не получили никакой поддержки. Предложение не будет удалено, оно будет указано в списке снятых предложений.
           withdraw_proposal: Снять предложение
         vote_button:
@@ -304,8 +285,6 @@ ru:
             few: ГОЛОСА
             many: ГОЛОСОВ
             other: ГОЛОСА
-          most_popular_proposal: Самое популярное предложение
-          need_more_votes: Нужно больше голосов
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Каждое предложение может накапливать более %{limit} выражений поддержки
@@ -314,18 +293,14 @@ ru:
           title: 'Голосование регулируется следующими правилами:'
           vote_limit:
             description: Вы можете проголосовать до %{limit} предложений.
-            left: Осталось
             votes: Голоса
         wizard_aside:
           back: Вернуться
-          info: Вы создаете <strong>предложение</strong>.
         wizard_steps:
-          see_steps: просмотреть шаги
           step_1: Создайте свое предложение
           step_2: Сравните
           step_3: Завершите
           step_4: Обнародуйте свое предложение
-          step_of: Шаг %{current_step_num} из %{total_steps}
       publish:
         error: При попытке обнародовать это предложение произошли ошибки.
         success: Предложение успешно обнародовано.

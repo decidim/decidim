@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 shared_examples "follows" do
-  include_context "with a component"
-
   before do
     login_as user, scope: :user
   end
@@ -34,6 +32,11 @@ shared_examples "follows" do
       end
     end
   end
+end
+
+shared_examples "follows with a component" do
+  include_context "with a component"
+  include_examples "follows"
 
   context "when the user is following the followable's participatory space" do
     before do

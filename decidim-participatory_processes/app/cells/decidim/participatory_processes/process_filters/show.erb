@@ -1,12 +1,12 @@
 <div class="row column">
-  <div class="flex--sbe">
-    <h3 class="section-heading collapse">
+  <div>
+    <h3 class="collapse">
       <%= title %>
       <%= render :filter_tabs %>
     </h3>
     <%= render :type_filter if participatory_process_types_for_select.present? %>
   </div>
-  <hr class="reset mt-s mb-s">
+  <hr class="mt-s mb-s">
 </div>
 <% if process_count_by_filter["active"] == 0 && process_count_by_filter["upcoming"] == 0 %>
   <div class="row column">

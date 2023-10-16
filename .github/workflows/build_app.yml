@@ -8,7 +8,7 @@ on:
         required: false
       node_version:
         description: 'Node version'
-        default: '16.13.0'
+        default: '18.17.1'
         required: false
         type: string
 jobs:
@@ -24,7 +24,7 @@ jobs:
       RUBYOPT: '-W:no-deprecated'
     services:
       postgres:
-        image: postgres:11
+        image: postgres:14
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready

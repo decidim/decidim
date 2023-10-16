@@ -37,7 +37,6 @@ pt:
         confirm_destroy: Tem a certeza de que pretende eliminar isto?
         destroy: Eliminar
         edit: Editar
-        new: Novo
         save: Guardar
         title: Ações
       admins:
@@ -70,7 +69,6 @@ pt:
           fields:
             created_at: Criado em
             email: E-mail
-          name: Administrador
           validations:
             email_uniqueness: já existe outro administrador com o mesmo e-mail
         oauth_application:
@@ -78,7 +76,6 @@ pt:
             created_at: Criado em
             name: Nome do aplicativo OAuth
             organization_name: Organização
-          name: Aplicativo OAuth
         organization:
           actions:
             save_and_invite: Criar organização e convidar administrador
@@ -88,7 +85,6 @@ pt:
             name: Nome
             omniauth_settings: Configurações Omniauth
             smtp_settings: Configurações SMTP
-          name: Organização
       oauth_applications:
         create:
           error: Houve um problema ao criar este modelo.

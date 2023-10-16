@@ -1,0 +1,117 @@
+.cookies {
+  @apply container flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-24 py-6;
+
+  &__container {
+    @apply fixed bottom-0 z-50 bg-white w-full shadow-[0_-4px_6px_rgba(211,211,211,0.25)];
+
+    animation-name: slideInUp;
+    animation-duration: 50ms;
+
+    @keyframes slideInUp {
+      from {
+        transform: translate3d(0, 100%, 0);
+        visibility: visible;
+      }
+
+      to {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  &__left {
+    @apply w-full md:w-4/5 flex flex-col md:flex-row items-start md:items-center gap-6;
+
+    p {
+      @apply mt-2 text-sm text-gray-2;
+    }
+  }
+
+  &__right {
+    @apply w-full md:w-1/5 flex flex-col gap-2;
+  }
+
+  &__category {
+    @apply border-4 border-background rounded p-4 my-2 first:mt-0 last:mb-0;
+
+    &-trigger {
+      @apply flex justify-between items-center gap-2;
+
+      > :last-child {
+        @apply grow flex items-center gap-2 last:[&>*]:ml-auto;
+      }
+
+      > :first-child {
+        @apply flex-none;
+      }
+
+      &-title {
+        @apply h4 text-secondary;
+      }
+
+      &-snippet {
+        @apply text-gray-2 mt-2;
+      }
+
+      &-arrow {
+        @apply w-8 h-8 text-secondary fill-current first:block last:hidden;
+      }
+
+      [role="button"][aria-expanded="true"] &-arrow {
+        @apply first:hidden last:block;
+      }
+    }
+
+    &-panel {
+      @apply divide-y divide-gray-3 [&>*]:py-4 [&>p]:text-gray-2;
+
+      &__tr {
+        @apply flex items-center justify-between rounded first-of-type:bg-background-4;
+      }
+
+      &__th {
+        @apply w-1/4 p-2 bg-background-4 text-gray-2 font-bold text-sm;
+      }
+
+      &__td {
+        @apply w-1/4 p-2 text-gray-2 text-xs;
+      }
+    }
+
+    &-toggle {
+      @apply relative inline-block w-14 h-6 rounded-full;
+
+      input {
+        @apply opacity-0 w-0 h-0;
+      }
+
+      &-content {
+        @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-alert/10 rounded-full before:content-[''] before:absolute before:w-5 before:h-5 before:bottom-0.5 before:left-0.5 before:rounded-full before:bg-alert before:transition before:duration-300;
+      }
+
+      input:focus ~ &-content {
+        @apply outline outline-tertiary outline-offset-2 outline-1 transition-none;
+      }
+
+      input:checked ~ &-content {
+        @apply bg-success before:bg-white before:translate-x-8;
+      }
+
+      input:disabled ~ &-content {
+        @apply bg-background-3 cursor-not-allowed before:bg-gray before:border before:border-gray;
+      }
+
+      &-icon {
+        @apply absolute top-1/2 -translate-y-1/2 w-4 h-4 fill-current first-of-type:text-white last-of-type:text-alert first-of-type:hidden last-of-type:block first-of-type:left-2 last-of-type:right-2;
+      }
+
+      input:checked ~ &-icon {
+        @apply first-of-type:block last-of-type:hidden;
+      }
+
+      input:disabled ~ &-icon {
+        @apply text-gray cursor-not-allowed;
+      }
+    }
+  }
+}

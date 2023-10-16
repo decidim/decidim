@@ -4,7 +4,7 @@
 <% append_javascript_pack_tag "decidim_proposals" %>
 
 <% content_for :aside do %>
-  <h1 id="proposals-count" class="h3 md:h1 decorator"><%= component_name %></h1>
+  <h1 id="proposals-count" class="title-decorator"><%= component_name %></h1>
 
   <div class="proposal-list__aside__button-container">
     <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
@@ -22,7 +22,7 @@
     <% end %>
   </div>
 
-  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont } do %>
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont, skip_to_id: "proposals" } do %>
     <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
   <% end %>
 <% end %>
@@ -52,10 +52,14 @@
 
   <%= render partial: "decidim/shared/component_announcement" %>
 
-  <%= render partial: "voting_rules" %>
+  <% if show_voting_rules? %>
+    <section class="layout-main__section">
+      <%= render partial: "voting_rules" %>
+    </section>
+  <% end %>
 
-  <div id="proposals">
+  <section id="proposals" class="layout-main__section layout-main__heading">
     <%= render partial: "proposals" %>
-  </div>
+  </section>
 
 <% end %>

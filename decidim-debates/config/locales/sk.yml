@@ -39,7 +39,6 @@ sk:
         confirm_destroy: Ste si istí?
         destroy: Odstrániť
         edit: Upraviť
-        new: Nová %{name}
         title: Akcie
       admin:
         debates:
@@ -59,9 +58,6 @@ sk:
           update:
             invalid: Pri aktualizácii debaty došlo k problému.
             success: Debata úspešne aktualizovaná
-        models:
-          debate:
-            name: Debata
       admin_log:
         debate:
           create: "%{user_name} vytvoril/a debatu%{resource_name} v priestore %{space_name}"
@@ -85,11 +81,6 @@ sk:
           official: Oficiálni
           origin: Pôvod
           search: Vyhľadávanie
-        filters_small_view:
-          close_modal: Zatvoriť okno
-          filter: Filter
-          filter_by: Filtrovať podľa
-          unfold: Rozbaliť
         form:
           select_a_category: Vyberte kategóriu
         index:
@@ -98,8 +89,6 @@ sk:
           back: Späť
           create: Vytvoriť
           title: Nová debata
-        show:
-          back: Späť na zoznam
       models:
         debate:
           fields:

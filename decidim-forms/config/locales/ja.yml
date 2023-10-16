@@ -156,7 +156,6 @@ ja:
         show:
           answer_questionnaire:
             already_have_an_account?: 既にアカウントをお持ちですか？
-            anonymous_user_message: <a href="%{sign_in_link}">あなたのアカウントでログインする</a> か、 <a href="%{sign_up_link}">ユーザー登録</a> してフォームに回答してください。
             are_you_new?: 新しいユーザーですか？
             sign_in_description: ログインしてアンケートに答える
             sign_up_description: アンケートに答えるために参加者アカウントを作成します
@@ -178,7 +177,6 @@ ja:
           questionnaire_not_published:
             body: このフォームはまだ公開されていません。
           tos_agreement: 参加することにより、利用規約に同意します。
-          upload_file: ファイルのアップロード
       step_navigation:
         show:
           are_you_sure: この操作は元に戻すことができず、回答を編集することはできません。よろしいですか？

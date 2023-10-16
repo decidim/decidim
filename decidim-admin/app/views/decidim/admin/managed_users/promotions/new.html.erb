@@ -3,9 +3,7 @@
 </h2>
 
 <div class="section">
-  <div class="callout warning">
-    <p><%= t(".explanation") %></p>
-  </div>
+  <%= cell("decidim/announcement", t(".explanation"), callout_class: "warning" ) %>
 </div>
 
 <%= decidim_form_for(@form, url: impersonatable_user_promotions_path, html: { class: "form new_managed_user_promotion" }) do |f| %>
@@ -15,7 +13,7 @@
     </div>
   </div>
 
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".promote") %>
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= f.submit t(".promote"), class: "button button__sm button__secondary" %>
   </div>
 <% end %>

@@ -54,12 +54,6 @@ lb:
           state_values:
             closed: Geschlossen
             open: Offen
-          user_groups: Gruppen
-        filters_small_view:
-          close_modal: Modal schließen
-          filter: Filter
-          filter_by: Filtern nach
-          unfold: Entfalten
         form:
           select_a_category: Bitte wählen sie eine Kategorie
         index:
@@ -75,7 +69,6 @@ lb:
           recent: Neueste zuerst
           updated: Kürzlich aktualisiert
         show:
-          back: Zurück zur Liste
           close_debate: Debatte schließen
           date: Datum
           debate_closed: Geschlossen
@@ -83,20 +76,11 @@ lb:
           edit_conclusions: Schlussfolgerungen bearbeiten
           edit_debate: Debatte bearbeiten
           groups_count: Gruppen
-          last_comment_by: Letzter Kommentar von
-          no_comments_yet: Noch keine Kommentare
           open: Offene Debatte
           participants_count: Teilnehmer
         update:
           invalid: Es gab ein Problem bei der Aktualisierung der Aussprache.
           success: Debatte erfolgreich aktualisiert.
-        versions:
-          debates:
-            back_to_resource: Zurück zur Debatte
-          index:
-            title: Versionen
-        versions_list:
-          back_to_resource: Zurück zur Debatte
       models:
         debate:
           fields:

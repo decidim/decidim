@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Conversations", type: :system do
-  let!(:organization) { create(:organization, twitter_handler: "redesigned") }
+  let!(:organization) { create(:organization, twitter_handler: "organization") }
   let(:user) { create(:user, :confirmed, organization:) }
 
   before do
@@ -23,6 +23,25 @@ describe "Conversations", type: :system do
     it "shows the topbar button as inactive" do
       within "#trigger-dropdown-account" do
         expect(page).not_to have_selector("span[data-unread-items]")
+      end
+    end
+
+    context "when searching for a user group to a new conversation" do
+      let!(:user_group) { create(:user_group, :confirmed, name: "Example user group", nickname: "example", organization:) }
+
+      it "only shows one match even if the keyword matches both name and nickname" do
+        visit decidim.conversations_path
+
+        click_button "New conversation"
+
+        fill_in "add_conversation_users", with: "example"
+
+        expect(find("#autoComplete_list_1")).to have_selector("li", count: 1)
+
+        within "#autoComplete_result_0" do
+          expect(page).to have_content("example")
+          expect(page).to have_content("Example user group")
+        end
       end
     end
   end
@@ -115,10 +134,8 @@ describe "Conversations", type: :system do
     it "shows user's conversation list" do
       visit_inbox
 
-      within ".conversation__container" do
-        expect(page).to have_selector(".conversation__item img[alt='Avatar: #{interlocutor.name}']")
-        expect(page).to have_selector(".conversation__item", text: "who wants apples?")
-      end
+      expect(page).to have_selector(".conversation__item img[alt='Avatar: #{interlocutor.name}']")
+      expect(page).to have_selector(".conversation__item", text: "who wants apples?")
     end
 
     it "allows entering a conversation" do
@@ -316,7 +333,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows only the other participant name" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).not_to have_content(user.name)
           end
@@ -329,7 +346,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows only the other participant name" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
           end
         end
@@ -369,7 +386,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other three participants names" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -384,7 +401,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other three participants names" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -439,7 +456,7 @@ describe "Conversations", type: :system do
         it_behaves_like "accessible page"
 
         it "shows the other nine participants names" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -460,7 +477,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other nine participants names" do
-          within ".conversation .conversation__participants" do
+          within ".conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -496,10 +513,8 @@ describe "Conversations", type: :system do
     it "shows user's conversation list" do
       visit_inbox
 
-      within ".conversation__container" do
-        expect(page).to have_selector(".conversation__item img[alt='Avatar: Deleted participant']")
-        expect(page).to have_selector(".conversation__item", text: "who wants apples?")
-      end
+      expect(page).to have_selector(".conversation__item img[alt='Avatar: Deleted participant']")
+      expect(page).to have_selector(".conversation__item", text: "who wants apples?")
     end
 
     it "allows entering a conversation" do

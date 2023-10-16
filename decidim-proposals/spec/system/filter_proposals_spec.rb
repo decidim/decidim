@@ -77,7 +77,7 @@ describe "Filter Proposals", :slow, type: :system do
             check "Official"
           end
 
-          expect(page).to have_css(".proposal-list-item", count: 2)
+          expect(page).to have_css("[id^='proposals__proposal']", count: 2)
         end
       end
 
@@ -92,7 +92,7 @@ describe "Filter Proposals", :slow, type: :system do
             check "Participants"
           end
 
-          expect(page).to have_css(".proposal-list-item", count: 2)
+          expect(page).to have_css("[id^='proposals__proposal']", count: 2)
         end
       end
     end
@@ -113,7 +113,6 @@ describe "Filter Proposals", :slow, type: :system do
   end
 
   context "when filtering proposals by SCOPE" do
-    let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
     let!(:scope2) { create(:scope, organization: participatory_process.organization) }
 
     before do
@@ -136,7 +135,7 @@ describe "Filter Proposals", :slow, type: :system do
           check "Global"
         end
 
-        expect(page).to have_css(".proposal-list-item", count: 1)
+        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
       end
     end
 
@@ -147,7 +146,7 @@ describe "Filter Proposals", :slow, type: :system do
           check scope.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".proposal-list-item", count: 2)
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
       end
     end
 
@@ -159,7 +158,7 @@ describe "Filter Proposals", :slow, type: :system do
           check scope.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".proposal-list-item", count: 3)
+        expect(page).to have_css("[id^='proposals__proposal']", count: 3)
       end
     end
 
@@ -172,7 +171,7 @@ describe "Filter Proposals", :slow, type: :system do
           uncheck scope.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".proposal-list-item", count: 1)
+        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
       end
     end
 
@@ -236,9 +235,9 @@ describe "Filter Proposals", :slow, type: :system do
             check "Accepted"
           end
 
-          expect(page).to have_css(".proposal-list-item", count: 1)
+          expect(page).to have_css("[id^='proposals__proposal']", count: 1)
 
-          within ".proposal-list-item" do
+          within "[id^='proposals__proposal']" do
             expect(page).to have_content("Accepted")
           end
         end
@@ -253,9 +252,9 @@ describe "Filter Proposals", :slow, type: :system do
             check "Rejected"
           end
 
-          expect(page).to have_css(".proposal-list-item", count: 1)
+          expect(page).to have_css("[id^='proposals__proposal']", count: 1)
 
-          within ".proposal-list-item" do
+          within "[id^='proposals__proposal']" do
             expect(page).to have_content("Rejected")
           end
         end
@@ -276,9 +275,9 @@ describe "Filter Proposals", :slow, type: :system do
               check "Accepted"
             end
 
-            expect(page).to have_css(".proposal-list-item", count: 1)
+            expect(page).to have_css("[id^='proposals__proposal']", count: 1)
 
-            within ".proposal-list-item" do
+            within "[id^='proposals__proposal']" do
               expect(page).to have_content("Accepted")
             end
           end
@@ -290,9 +289,9 @@ describe "Filter Proposals", :slow, type: :system do
               check "Not answered"
             end
 
-            expect(page).to have_css(".proposal-list-item", count: 1)
+            expect(page).to have_css("[id^='proposals__proposal']", count: 1)
 
-            within ".proposal-list-item" do
+            within "[id^='proposals__proposal']" do
               expect(page).to have_content(translated(proposal.title))
               expect(page).not_to have_content("Accepted")
             end
@@ -343,6 +342,9 @@ describe "Filter Proposals", :slow, type: :system do
       let!(:proposal1) { create(:proposal, component:, category:) }
       let!(:proposal2) { create(:proposal, component:, category: category2) }
       let!(:proposal3) { create(:proposal, component:, category: category3) }
+      let!(:proposal4) { create(:proposal, component:, category:) }
+      let!(:proposal1_comment) { create(:comment, commentable: proposal1) }
+      let!(:proposal4_follow) { create(:follow, followable: proposal4) }
 
       before do
         login_as user, scope: :user
@@ -356,7 +358,7 @@ describe "Filter Proposals", :slow, type: :system do
           check category.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".proposal-list-item", count: 1)
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
       end
 
       it "can be filtered by two categories" do
@@ -368,7 +370,32 @@ describe "Filter Proposals", :slow, type: :system do
           check category2.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".proposal-list-item", count: 2)
+        expect(page).to have_css("[id^='proposals__proposal']", count: 3)
+      end
+
+      it "can be ordered by most commented and most followed after filtering" do
+        visit_component
+
+        within "#dropdown-menu-filters div.filter-container", text: "Category" do
+          uncheck "All"
+          check category.name[I18n.locale.to_s]
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+
+        within "#dropdown-menu-order" do
+          click_link "Most commented"
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(proposal1.title))
+
+        within "#dropdown-menu-order" do
+          click_link "Most followed"
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(proposal4.title))
       end
     end
   end
@@ -402,7 +429,7 @@ describe "Filter Proposals", :slow, type: :system do
         within "form.new_filter" do
           find("input[value='my_proposals']").click
         end
-        expect(page).to have_css(".proposal-list-item", count: 1)
+        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
       end
 
       context "when votes are enabled" do
@@ -422,7 +449,7 @@ describe "Filter Proposals", :slow, type: :system do
             find("input[value='voted']").click
           end
 
-          expect(page).to have_css(".proposal-list-item", text: translated(voted_proposal.title))
+          expect(page).to have_css("[id^='proposals__proposal']", text: translated(voted_proposal.title))
         end
       end
 
@@ -464,7 +491,7 @@ describe "Filter Proposals", :slow, type: :system do
         it "lists the filtered proposals" do
           find('input[name="filter[type]"][value="all"]').click
 
-          expect(page).to have_css(".card__list.proposal-list-item", count: 2)
+          expect(page).to have_css("[id^='proposals__proposal']", count: 2)
           expect(page).to have_content("Amendment", count: 2)
         end
       end
@@ -475,7 +502,7 @@ describe "Filter Proposals", :slow, type: :system do
             choose "Proposals"
           end
 
-          expect(page).to have_css(".card__list.proposal-list-item", count: 1)
+          expect(page).to have_css("[id^='proposals__proposal']", count: 1)
           expect(page).to have_content("Amendment", count: 1)
         end
       end
@@ -486,7 +513,7 @@ describe "Filter Proposals", :slow, type: :system do
             choose "Amendments"
           end
 
-          expect(page).to have_css(".card__list.proposal-list-item", count: 1)
+          expect(page).to have_css("[id^='proposals__proposal']", count: 1)
           expect(page).to have_content("Amendment", count: 2)
         end
       end
@@ -528,7 +555,7 @@ describe "Filter Proposals", :slow, type: :system do
                 within "#dropdown-menu-filters div.filter-container", text: "Type" do
                   choose "Amendments"
                 end
-                expect(page).to have_css(".card__list.proposal-list-item", count: 1)
+                expect(page).to have_css("[id^='proposals__proposal']", count: 1)
                 expect(page).to have_content("Amendment", count: 2)
                 expect(page).to have_content(translated(new_emendation.title))
                 expect(page).not_to have_content(translated(emendation.title))
@@ -600,7 +627,7 @@ describe "Filter Proposals", :slow, type: :system do
                 within "#dropdown-menu-filters div.filter-container", text: "Type" do
                   choose "Amendments"
                 end
-                expect(page).to have_css(".card__list.proposal-list-item", count: 2)
+                expect(page).to have_css("[id^='proposals__proposal']", count: 2)
                 expect(page).to have_content("Amendment", count: 3)
                 expect(page).to have_content(translated(new_emendation.title))
                 expect(page).to have_content(translated(emendation.title))
@@ -652,11 +679,11 @@ describe "Filter Proposals", :slow, type: :system do
         check "Rejected"
       end
 
-      expect(page).to have_css(".card__list.proposal-list-item", count: 8)
+      expect(page).to have_css("[id^='proposals__proposal']", count: 8)
 
       page.go_back
 
-      expect(page).to have_css(".card__list.proposal-list-item", count: 6)
+      expect(page).to have_css("[id^='proposals__proposal']", count: 6)
     end
 
     it "recover filters from previous pages" do
@@ -676,22 +703,22 @@ describe "Filter Proposals", :slow, type: :system do
         check "Accepted"
       end
 
-      expect(page).to have_css(".card__list.proposal-list-item", count: 2)
+      expect(page).to have_css("[id^='proposals__proposal']", count: 2)
 
       page.go_back
 
       page.refresh
-      expect(page).to have_css(".card__list.proposal-list-item", count: 6)
+      expect(page).to have_css("[id^='proposals__proposal']", count: 6)
 
       page.go_back
 
       page.refresh
-      expect(page).to have_css(".card__list.proposal-list-item", count: 8)
+      expect(page).to have_css("[id^='proposals__proposal']", count: 8)
 
       page.go_forward
 
       page.refresh
-      expect(page).to have_css(".card__list.proposal-list-item", count: 6)
+      expect(page).to have_css("[id^='proposals__proposal']", count: 6)
     end
   end
 
@@ -706,13 +733,13 @@ describe "Filter Proposals", :slow, type: :system do
     end
 
     it "saves and restores the filtering" do
-      expect(page).to have_css(".card__list.proposal-list-item", count: 6)
+      expect(page).to have_css("[id^='proposals__proposal']", count: 6)
 
       within "#dropdown-menu-filters div.filter-container", text: "Status" do
         check "Rejected"
       end
 
-      expect(page).to have_css(".card__list.proposal-list-item", count: 8)
+      expect(page).to have_css("[id^='proposals__proposal']", count: 8)
     end
   end
 end

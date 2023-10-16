@@ -1,41 +1,54 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<div class="card">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t(".title") %>
+    </h1>
+  </div>
+</div>
+
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= t(".destroy.title") %>
+      <%= t ".destroy.title" %>
     </h2>
   </div>
-  <div class="card-section">
+  <div class="card-section p-4">
     <% if @count != 0 %>
       <p><%= t(".destroy.explanation", count: @count) %></p>
       <%= link_to t(".destroy.button"),
                   destroy_all_participatory_space_private_users_csv_imports_path,
                   method: :delete,
-                  class: "button alert",
+                  class: "button button__sm button__secondary alert",
                   data: { confirm: t(".destroy.confirm") } %>
     <% else %>
       <p><%= t(".destroy.empty") %></p>
     <% end %>
   </div>
 </div>
-<div class="card" id='user-groups'>
+
+<div class="card">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= t ".title" %>
+      <%= t ".csv_upload.title" %>
     </h2>
   </div>
-  <div class="card-section">
-    <%= decidim_form_for(@form, url: participatory_space_private_users_csv_imports_path, html: { class: "form" }) do |form| %>
+  <div class="card-section p-4">
+    <%= decidim_form_for(@form, url: participatory_space_private_users_csv_imports_path, html: { class: "form form-defaults" }) do |form| %>
       <div class="mb-s">
         <p><%= t(".explanation") %></p>
         <p><%= t(".example_file") %></p>
         <code class="code-block"><%= t(".explanation_example", csv_col_sep: Decidim.default_csv_col_sep) %></code>
       </div>
       <div class="row column">
-        <%= form.upload :file, required: true %>
+        <%= form.upload :file, button_class: "button button__sm button__transparent-secondary" %>
       </div>
 
-      <div class="button--double form-general-submit">
-        <%= form.submit t(".upload") %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= form.submit t(".upload"), class: "button button__sm button__secondary" %>
+        </div>
       </div>
     <% end %>
   </div>

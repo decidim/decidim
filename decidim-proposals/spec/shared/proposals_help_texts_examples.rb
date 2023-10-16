@@ -26,7 +26,7 @@ shared_examples "manage proposals help texts" do
 
     visit new_proposal_path(current_component)
 
-    within ".callout[data-announcement]" do
+    within ".flash[data-announcement]" do
       expect(page).to have_content("Create a proposal following our guidelines.")
     end
   end

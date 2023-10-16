@@ -82,8 +82,6 @@ module Decidim
                   initiative: current_initiative
                 )
         @form.attachment = form_attachment_model
-
-        render layout: "decidim/initiative"
       end
 
       # PUT /initiatives/:id

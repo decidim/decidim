@@ -71,7 +71,7 @@ tr:
         success_color: başarı
         time_zone: Zaman Dilimi
         tos_version: Hizmet sürümü şartları
-        twitter_handler: Twitter işleyicisi
+        twitter_handler: "X işleyicisi.\nX Çözümleyici\n\n"
         user_groups_enabled: Kullanıcı gruplarını etkinleştir
         warning_color: Uyarı
         welcome_notification_body: Karşılama bildirimi gövdesi
@@ -133,8 +133,6 @@ tr:
       actions:
         add: Eklemek
         browse: Araştır
-        manage: yönetme
-        new: Yeni %{name}
         per_page: Sayfa başına
         permissions: İzinler
         reject: reddetmek
@@ -175,7 +173,6 @@ tr:
           title: Klasörü düzenle
           update: Güncelleştirme
         index:
-          attachment_collection_used: Bu klasör kullanımda olduğundan kaldırılamaz.
           attachment_collections_title: Ek klasörleri
         new:
           create: yaratmak
@@ -219,7 +216,6 @@ tr:
           update: Güncelleştirme
         index:
           categories_title: Kategoriler
-          category_used: Bu kategori kullanımda olduğu için kaldırılamaz.
         new:
           create: Kategori oluştur
           title: Yeni kategori
@@ -326,7 +322,6 @@ tr:
             all: Herşey
             managed: Yönetilen
             not_managed: Yönetilmeyen
-          filter_by: Tarafından filtre
           impersonate: taklit etmek
           impersonate_new_managed_user: Yeni yönetilen kullanıcıyı taklit et
           managed: Yönetilen
@@ -369,7 +364,6 @@ tr:
         area_types: Alan türleri
         areas: alanlar
         configuration: Yapılandırma
-        dashboard: gösterge paneli
         help_sections: Yardım bölümleri
         homepage: Anasayfa
         impersonations: impersonations
@@ -447,7 +441,6 @@ tr:
           fields:
             created_at: Oluşturulma tarihi
             email: E-posta
-            last_sign_in_at: Son giriş tarihi
             name: isim
             role: rol
             roles:
@@ -546,9 +539,6 @@ tr:
           select_scopes: Hesaplarındaki 'İlgi Alanlarım' ayarlarında herhangi bir seçilmiş kapsam etkinleştirilmiş bulunan kullanıcılar için filtre.
           select_spaces: Haber bültenini bölmek için alanları seçin
           select_users: Haber bültenini göndermek istediğiniz kullanıcıları seçiniz
-          send_to_all_users: Tüm kullanıcılara gönder
-          send_to_followers: Takipçilere gönder
-          send_to_participants: Katılımcılara gönder
           title: Teslim etmek için alıcıları seçiniz
           warning: "<strong>Dikkat:</strong> Haber bülteni yalnızca bildirim seçeneklerinden <em>Haber bülteni almak istiyorum</em> ayarını etkinleştirmiş kullanıcılara gönderilecektir."
         show:
@@ -580,7 +570,6 @@ tr:
           officialize: ', resmiyete'
           title: '"%{name}" kullanıcısını resmi olarak yetkilendir'
         show_email_modal:
-          close_modal: Pencereyi kapat
           email_address: E-posta adresi
           full_name: Tam adı
           hidden: saklı
@@ -595,7 +584,7 @@ tr:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Bazı metin alanlarında, katılımcılar zengin metin düzenleyicisini kullanarak HTML etiketleri ekleyebilecekler.
           social_handlers: Sosyal
-          twitter: Twitter
+          twitter: x
           url: URL
           youtube: YouTube
         update:
@@ -607,8 +596,6 @@ tr:
         form:
           colors:
             colors_title: Organizasyon renkleri
-            header_snippets_help: HTML kafasına bir şeyler eklemek için bu alanı kullanın. En yaygın kullanım, bazı ekstra JavaScript veya CSS gerektiren üçüncü taraf hizmetleri entegre etmektir. Ayrıca, HTML'ye fazladan meta etiketler eklemek için de kullanabilirsiniz. Bunun yalnızca yönetici bölümünde değil, herkese açık sayfalarda gösterileceğini unutmayın.
-          cta_button_path_help: 'Ana sayfadaki Harekete Geçirici Mesaj düğmesinin nereye bağlanacağı üzerine yazabilirsiniz. Tam URL’leri değil kısmi yolları kullanın. Harfleri, sayıları, kısa çizgileri ve eğik çizgileri kabul eder ve bir harfle başlamalıdır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir. Örnek: %{url}'
           cta_button_text_help: Kuruluşunuzdaki mevcut her dil için ana sayfada Harekete Geçirici Mesaj düğmesinin üzerine yazabilirsiniz. Ayarlanmazsa, varsayılan değer kullanılır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir.
           homepage_appearance_title: Ana sayfa görünümünü düzenle
           homepage_highlighted_content_banner_title: Yüksek içerikli banner
@@ -619,11 +606,11 @@ tr:
       organization_homepage:
         content_blocks:
           edit:
-            update: Güncellemeler
+            update: Güncellemeler 
         edit:
           active_content_blocks: Aktif içerik blokları
-          add: Içerik bloğu ekle
-          destroy_confirmation: Bu içerik bloğunu silmek istediğnizeden emin misiniz
+          add: Içerik bloğu ekle 
+          destroy_confirmation: Bu içerik bloğunu silmek istediğnizeden emin misiniz 
           inactive_content_blocks: Etkin olmayan içerik blokları
           title: Sayfa içeriği
       participatory_space_private_users:
@@ -715,10 +702,10 @@ tr:
         actions:
           view: Genel sayfayı görüntüle
         content_blocks:
-          add: Içerik bloğu ekle
-          destroy_confirmation: Bu içerik bloğunu silmek istediğnizeden emin misiniz
+          add: Içerik bloğu ekle 
+          destroy_confirmation: Bu içerik bloğunu silmek istediğnizeden emin misiniz 
           edit:
-            update: Güncellemeler
+            update: Güncellemeler 
         create:
           error: Yeni bir sayfa oluşturulurken bir hata oluştu.
           success: Sayfa başarıyla oluşturuldu.
@@ -729,9 +716,6 @@ tr:
           update: Güncelleştirme
         form:
           none: Yok
-          slug_help: 'Burada tam URLleri değil, kısmi yolları kullanınız. Harfleri, sayıları, kesik çizgileri, taksimleri kabul eder ve bir harf ile başlamak zorundadır. Örnek: %{url}'
-        index:
-          last_notable_change: Son önemli değişiklik
         new:
           create: Sayfa oluştur
           title: Yeni sayfa
@@ -747,14 +731,17 @@ tr:
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
         dashboard: Pano
+        edit_external_domains: Harici Güvenli Alan
+        edit_landing_page: Sayfa İçeriği
+        edit_organization_appearance: Ana Sayfayı Düzenleme
         impersonatable_users: Yönetilebilir kullanıcılar
         impersonations: Kullanıcılar yönetimi
         metrics: Metrik
+        pages: Sayfalar
         panel: Yönetici
         participants: Kullanıcılar
         scope_types: Kapsam türleri
         scopes: kapsamları
-        static_pages: Sayfalar
         statistics: Aktivite
         user_groups: Kullanıcı Grupları
       user_group:
@@ -796,7 +783,6 @@ tr:
           last_month: Geçen ay
           last_week: Geçen hafta
           participants: Katılımcılar
-      view_public_page: Genel sayfayı görüntüle
     moderations:
       actions:
         expand: Genişlet
@@ -833,12 +819,3 @@ tr:
   errors:
     messages:
       invalid_json: Geçersiz JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Haber bültenleri
-        settings:
-          title: Ayarlar
-        users:
-          title: Kullanıcılar

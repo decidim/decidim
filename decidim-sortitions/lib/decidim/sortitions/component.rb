@@ -4,6 +4,7 @@ Decidim.register_component(:sortitions) do |component|
   component.engine = Decidim::Sortitions::Engine
   component.admin_engine = Decidim::Sortitions::AdminEngine
   component.icon = "media/images/decidim_sortitions.svg"
+  component.icon_key = "billiards-line"
   # component.stylesheet = "decidim/sortitions/sortitions"
   component.permissions_class_name = "Decidim::Sortitions::Permissions"
   component.query_type = "Decidim::Sortitions::SortitionsType"

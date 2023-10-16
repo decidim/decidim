@@ -41,7 +41,6 @@ sv:
         edit: Redigera
         import: Importera projekt till resultat
         import_csv: Importera CSV
-        new: Ny %{name}
         preview: Förhandsvisa
         timeline_entries: Projektutveckling
         title: Åtgärder
@@ -53,14 +52,36 @@ sv:
           new:
             download_export: Ladda ner exporten som CSV
             import: Importera
+            info: |
+              <p>Vi rekommenderar att du följer dessa steg:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Skapa statusarna för de resultat</a> som du vill lägga till</li>
+              <li><a href='%{link_new_result}' target='_blank'>Skapa minst ett resultat manuellt</a> via denna administratörspanel innan du använder Import, för att få en bättre förståelse för formatet och vad du behöver fylla i.</li>
+              <li>%{link_export_csv}</li>
+              <li>Genomför ändringarna lokalt. Du kan endast ändra följande kolumner i CSV-filen:
+              <ul>
+              <li><b>category/id:</b> ID för kategorin</li>
+              <li><b>scope/id:</b> ID för tillämpningsområdet</li>
+              <li><b>parent/id:</b> ID för överordnad (för relaterade resultat). Alternativ</li>
+              <li><b>title/I18N:</b> Titel på X språk</li>
+              <li><b>description/I18N:</b> Beskrivning av X språk</li>
+              <li><b>start_date:</b> datum då resultatet börjar genomföras (format ÅÅÅÅ-MM-DD)</li>
+              <li><b>end_date:</b> datum då resultatet slutar genomföras (format ÅÅÅÅ-MM-DD)</li>
+              <li><b>status/id:</b> ID för statusen för detta resultat</li>
+              <li><b>progress:</b> Procent (från 0 till 100) av genomförandet</li>
+              <li><b>proposals_ids:</b>internt ID för relaterade förslag (kommaseparerade). Omvandlas automatiskt till <span class='attribute-name'>proposal_url</span></li>
+              </ul>
+              </li>
+              </ol>
             title: Importera resultat från CSV
+        imports:
+          create:
+            success: Importen av filen har påbörjats. Inom några minuter kommer du att få ett e-postmeddelande med importresultatet.
         models:
           result:
             name: Resultat
           status:
             name: Status
-          timeline_entry:
-            name: Post i tidslinje
         projects_import:
           create:
             invalid: Det gick inte att importera projekten till resultat, följ instruktionerna noga och se till att du har valt projekt för genomförande.
@@ -179,6 +200,7 @@ sv:
           global_status: Global genomförandestatus
         nav_breadcrumb:
           global: Globalt genomförande
+        no_results: Det finns inga projekt
         search:
           search: Sök efter åtgärder
         show:

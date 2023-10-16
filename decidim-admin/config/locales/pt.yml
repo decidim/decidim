@@ -84,7 +84,6 @@ pt:
         success_color: Sucesso
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
-        twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos
         users_registration_mode: Modo de registo dos utilizadores
         warning_color: Aviso
@@ -154,8 +153,6 @@ pt:
         export: Exportar tudo
         export-selection: Exportar selecção
         import: Importar
-        manage: Gerir
-        new: Novo %{name}
         newsletter:
           new: Novo boletim informativo
         participatory_space_private_user:
@@ -202,7 +199,6 @@ pt:
           title: Editar pasta
           update: Atualizar
         index:
-          attachment_collection_used: Esta pasta não pode ser removida porque está em uso.
           attachment_collections_title: Pastas de anexos
         new:
           create: Criar
@@ -247,7 +243,6 @@ pt:
           update: Atualizar
         index:
           categories_title: Categorias
-          category_used: Esta categoria não pode ser apagada porque está a ser usada.
         new:
           create: Criar categoria
           title: Nova categoria
@@ -391,7 +386,6 @@ pt:
             all: Todos
             managed: Gerido
             not_managed: Não gerido
-          filter_by: Filtrar por
           impersonate: Personificar
           impersonate_new_managed_user: Gerir novo participante
           managed: Gerido
@@ -444,7 +438,6 @@ pt:
         area_types: Tipos de área
         areas: Áreas
         configuration: Configuração
-        dashboard: Painel de controlo
         external_domain_whitelist: Domínios externos autorizados
         help_sections: Secções de ajuda
         homepage: Página inicial
@@ -523,7 +516,6 @@ pt:
           fields:
             created_at: Data de criação
             email: E-mail
-            last_sign_in_at: Última data de início de sessão
             name: Nome
             role: Função
             roles:
@@ -629,9 +621,6 @@ pt:
           select_scopes: Filtro para os utilizadores que ativaram qualquer âmbito selecionado nas definições "Os meus interesses" das suas contas.
           select_spaces: Selecione os espaços para segmentar o boletim informativo
           select_users: Selecione os utilizadores para os quais pretende enviar o boletim informativo
-          send_to_all_users: Enviar para todos os utilizadores
-          send_to_followers: Enviar para os seguidores
-          send_to_participants: Enviar para os participantes
           title: Selecione os destinatários
           warning: "<strong>Atenção:</strong> Este boletim informativo apenas será enviado para utilizadores que tenham ativado a opção <em>Pretendo receber boletins informativo</em> nas suas definições de notificações."
         show:
@@ -663,7 +652,6 @@ pt:
           officialize: Oficializar
           title: Oficializar participante "%{name}"
         show_email_modal:
-          close_modal: Fechar modal
           description: Se precisar de contactar directamente um, pode clicar no botão Mostrar para ver seu endereço de e-mail.
           email_address: Endereço de e-mail
           full_name: Nome completo
@@ -680,7 +668,6 @@ pt:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes serão capazes de inserir algumas etiquetas HTML utilizando o editor de texto avançado.
           social_handlers: Social
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
@@ -692,8 +679,6 @@ pt:
         form:
           colors:
             colors_title: Cores da organização
-            header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na secção de administração.
-          cta_button_path_help: 'Pode substituir onde o botão Chamar para Ação na página inicial liga. Aqui use caminhos parciais, não URLs completos. Aceita letras, números, traços e barras, e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível na sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
           homepage_appearance_title: Editar a aparência da página inicial
           homepage_highlighted_content_banner_title: Faixa de conteúdo realçado
@@ -814,9 +799,6 @@ pt:
           update: Atualizar
         form:
           none: Nenhum
-          slug_help: 'Utilize caminhos parciais e não URL completos aqui. Aceita letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
-        index:
-          last_notable_change: Última alteração notável
         new:
           create: Criar página
           title: Nova página
@@ -839,7 +821,6 @@ pt:
         participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
-        static_pages: Páginas
         statistics: Atividade
         user_groups: Grupos
       user_group:
@@ -881,7 +862,6 @@ pt:
           last_month: Último mês
           last_week: Última semana
           participants: Participantes
-      view_public_page: Ver página pública
     metrics:
       blocked_users:
         object: utilizadores bloqueados
@@ -928,12 +908,3 @@ pt:
   errors:
     messages:
       invalid_json: JSON inválido
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Boletins Informativos
-        settings:
-          title: Configurações
-        users:
-          title: Participantes

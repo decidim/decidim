@@ -217,7 +217,6 @@ it:
             send_to_technical_validation: Invia a convalida tecnica
             update: Aggiornare
           form:
-            attachments: Allegati
             settings: Impostazioni
             title: Informazione generale
           index:
@@ -231,24 +230,17 @@ it:
             photos: Foto
         initiatives_type_scopes:
           edit:
-            back: Indietro
-            confirm_destroy: Sei sicuro?
-            destroy: Elimina
             title: Modifica l'ambito del tipo di iniziativa
             update: Aggiornare
           new:
-            back: Indietro
             create: Creare
             title: Crea lo scope del tipo di iniziativa
         initiatives_types:
           edit:
-            confirm_destroy: Sei sicuro?
-            destroy: Elimina
             update: Aggiornare
           form:
             authorizations: Impostazioni di autorizzazione
             options: Opzioni
-            title: Informazione generale
           initiative_type_scopes:
             title: Ambiti per il tipo di iniziativa
           new:
@@ -268,10 +260,6 @@ it:
         rejected: Firme non sufficienti
         validating: Convalida tecnica
       application_helper:
-        filter_area_values:
-          all: Tutti
-        filter_scope_values:
-          all: Tutti
         filter_state_values:
           accepted: Firme sufficienti
           all: Tutti
@@ -311,31 +299,21 @@ it:
           more_information: "(Maggiori informazioni)"
           send_my_initiative: Invia la mia iniziativa alla convalida tecnica
         finish_help:
-          access_reminder: Puoi accedere alle tue iniziative tramite il filtro %{link} nella pagina Iniziative.
           publish_helper_text: Ricorda che affinché la tua iniziativa sia pubblicata, devi completare le informazioni richieste e <strong>inviarle alla convalida tecnica</strong> per un amministratore per rivederle.
         previous_form:
           back: Indietro
           continue: Continua
-          help: In cosa consiste l'iniziativa? Annota il titolo e la descrizione. Raccomandiamo un titolo breve e conciso e una descrizione focalizzata sulla soluzione proposta.
-          more_information: "(Maggiori informazioni)"
         promotal_committee:
-          back: Indietro
           individual_help_text: Questo tipo di iniziativa richiede una commissione promotrice composta da almeno %{committee_size} persone (valutatori). Devi condividere il seguente link con gli altri partecipanti all'iniziativa. Quando i tuoi contatti riceveranno il link, dovranno seguire la procedura indicata.
           more_information: "(Maggiori informazioni)"
         select_initiative_type:
           back: Indietro
           choose_html: Voglio creare uno <strong>%{title}</strong>
-          more_information: "(Maggiori informazioni)"
+          more_information: (Maggiori informazioni)
           select: Voglio promuovere questa iniziativa
           select_initiative_type_help: Le iniziative sono un mezzo attraverso il quale i partecipanti possono intervenire in modo che l'organizzazione possa intraprendere azioni in difesa dell'interesse generale. Quale iniziativa vuoi lanciare?
         share_committee_link:
-          continue: Continua
           invite_to_committee_help: Link per invitare persone che faranno parte del comitato promotore
-        show_similar_initiatives:
-          back: Indietro
-          compare_help: Se una qualsiasi delle seguenti iniziative è simile alla tua, ti incoraggiamo a supportarla. La tua proposta avrà più possibilità di essere scelta.
-          continue: La mia iniziativa è diversa
-          more_information: "(Maggiori informazioni)"
       edit:
         accept: Accetta l'iniziativa
         back: Indietro
@@ -372,18 +350,9 @@ it:
           email_outro: 'Hai ricevuto questa notifica perché sei l''autore di questa iniziativa: %{resource_title}'
           email_subject: "%{applicant_nickname} vuole unirsi alla tua iniziativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha fatto domanda per il comitato promoter della tua iniziativa <a href="%{resource_url}">%{resource_title}</a>. Per accettare o rifiutare clicca <a href="%{resource_url}/edit">qui</a>.
-      form:
-        add_attachments: Documenti
-        delete_attachment: Cancella
-      index:
-        title: Iniziative
       initiative_signatures:
         fill_personal_data:
           continue: Continua
-          date_select:
-            day: Giorno
-            month: Mese
-            year: Anno
         finish:
           back_to_initiative: Ritorno all'iniziativa
         sms_code:
@@ -399,8 +368,6 @@ it:
         sms_phone:
           invalid: Il numero di telefono non è valido o è in attesa di autorizzazione. Per favore, controlla le tue autorizzazioni.
       initiatives:
-        author:
-          deleted: eliminata
         author_list:
           hidden_authors_count:
             one: e 1 altra persona
@@ -408,7 +375,6 @@ it:
         committee_members:
           approve: Approva
           confirm_revoke: Sei sicuro?
-          revoke: Revoca
           title: Membri del comitato
         count:
           title:
@@ -423,11 +389,6 @@ it:
           search: Ricerca
           state: Stato
           type: genere
-        filters_small_view:
-          close_modal: Chiudi la finestra
-          filter: Filtro
-          filter_by: Filtra per
-          unfold: spiegare
         index_header:
           new_initiative: Nuova iniziativa
         initiatives:
@@ -469,12 +430,8 @@ it:
         result:
           initiative_rejected_reason: Questa iniziativa è stata respinta a causa della mancanza di firme.
         show:
-          any_vote_method: Questa iniziativa raccoglie solo firme autografe.
           confirm: Stai per inviare l'iniziativa per un amministratore per rivederla e pubblicarla. Una volta pubblicato non sarai in grado di modificarlo. Sei sicuro?
           edit: Modifica
-          follow_description: Ricevi una notifica quando ci sono novità in questa iniziativa
-          offline_method: Questa iniziativa dei cittadini raccoglie solo firme autografe.
-          print: Stampa Iniziativa
           send_to_technical_validation: Invia per la convalida tecnica
         signatures_count:
           one: " firma"
@@ -489,8 +446,6 @@ it:
           count:
             one: FIRMA
             other: FIRME
-          most_popular_initiative: Iniziativa più popolare
-          need_more_votes: Hai bisogno di più firme
       initiatives_mailer:
         creation_subject: La tua iniziativa cittadina '%{title}' è stata creata
         initiative_link:
@@ -505,14 +460,8 @@ it:
       modal:
         not_authorized:
           authorizations_page: Visualizza autorizzazioni
-          close: Chiudi
           explanation: È necessario essere verificati per creare una nuova iniziativa.
           title: Autorizzazione richiesta
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Iniziative attive
-            see_all_initiatives: Vedi tutte le iniziative
       show:
         badge_name:
           accepted: Firme sufficienti
@@ -525,9 +474,6 @@ it:
         accepted: Accettato
         expired: Scaduto
       unavailable_scope: Ambito non disponibile
-      versions:
-        shared:
-          back_to_resource: Torna all'iniziativa
     menu:
       initiatives: Iniziative
     resources:
@@ -541,26 +487,15 @@ it:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Indietro
         fill_data: Creare
         finish: finire
-        previous_form: Inizio
         promotal_committee: Comitato promotore
         select_initiative_type: Scegliere
-        show_similar_initiatives: Confronta
-        title: Crea una nuova iniziativa
-      initiative_header:
-        initiative_menu_item: Iniziativa
       initiative_signature_creation_header:
-        back: Indietro
         fill_personal_data: Completa i tuoi dati
         finish: finire
-        finished: Firma dell'iniziativa creata
-        see_steps: vedere i passaggi
-        select_identity: Seleziona identità
         sms_code: Verifica del codice SMS
         sms_phone_number: Numero di cellulare
-        step: Passaggio %{current} di %{total}
         title: Firma %{initiative_title}
       initiatives:
         initiative:

@@ -20,8 +20,10 @@ module Decidim
             resource :line_item, only: [:create, :destroy]
           end
         end
-
-        root to: "budgets#index"
+        scope "/budgets" do
+          root to: "budgets#index"
+        end
+        get "/", to: redirect("budgets", status: 301)
       end
 
       initializer "decidim_budgets.add_cells_view_paths" do
