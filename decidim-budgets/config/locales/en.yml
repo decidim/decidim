@@ -21,12 +21,12 @@ en:
         scope_id: Scope
   activerecord:
     models:
-      decidim/budgets/project:
-        one: Project
-        other: Projects
       decidim/budgets/budget:
         one: Budget
         other: Budgets
+      decidim/budgets/project:
+        one: Project
+        other: Projects
   decidim:
     admin:
       filters:
