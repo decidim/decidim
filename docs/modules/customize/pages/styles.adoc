@@ -60,6 +60,14 @@ Decidim uses Webpacker to compile assets. There are two ways to customize CSS:
 
 We use http://sass-lang.com/guide[SASS, with SCSS syntax] as CSS preprocessor.
 
+== Tailwind CSS
+
+Decidim uses Taiwind CSS as a CSS framework, which has a default configuration that is being handled by `tailwind.config.js` in the root of your project.
+
+Since this file is being managed by Decidim, it will be impossible to customize it.
+
+You can override the default configuration by creating a file  `config/tailwind.config.js.erb` starting from the following https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/assets/tailwind/tailwind.config.js.erb[content]
+
 == Accessibility
 
 To maintain accesibility level, if you add new colors use a http://webaim.org/resources/contrastchecker/[Color contrast checker] (WCAG AA is mandatory, WCAG AAA is recommended)
