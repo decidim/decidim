@@ -7,7 +7,7 @@ shared_examples "manage conference speakers examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Speakers"
     end
   end

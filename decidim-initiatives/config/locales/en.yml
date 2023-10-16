@@ -111,6 +111,8 @@ en:
         information: Information
         initiative_type_scopes: Initiative type scopes
         initiatives: Initiatives
+        initiatives_menu:
+          see_initiative: See initiative
         initiatives_settings: Settings
         initiatives_submenu:
           info: About this initiative

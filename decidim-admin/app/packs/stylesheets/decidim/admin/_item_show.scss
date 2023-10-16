@@ -1,3 +1,7 @@
+.item_show__wrapper {
+  @apply bg-white p-8;
+}
+
 .item_show__header {
   @apply flex items-center pb-4 border-b border-gray mb-4 gap-x-2;
 

@@ -13,7 +13,7 @@ describe "Monitoring committee member manages voting polling station closures", 
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Validate Certificates"
     end
   end

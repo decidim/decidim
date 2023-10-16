@@ -1,5 +1,5 @@
 .sidebar-menu {
-  @apply flex-none w-full md:w-fit max-w-full md:max-w-xs;
+  @apply p-8 flex-none w-full md:w-fit max-w-full md:max-w-xs;
 
   &__item {
     a {
@@ -20,7 +20,7 @@
     }
 
     ul {
-      @apply ml-6;
+      @apply ml-10;
 
       li {
         a {
@@ -44,7 +44,7 @@
   }
 
   &__container {
-    @apply flex flex-col md:flex-row items-stretch gap-6 md:gap-12;
+    @apply flex flex-col md:flex-row items-stretch;
 
     [id*="dropdown-menu"] {
       @apply py-3.5;
