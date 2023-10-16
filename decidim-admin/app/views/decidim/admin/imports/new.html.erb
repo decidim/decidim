@@ -14,7 +14,7 @@
             <% mime_types.each do |format, name| %>
               <li class="examples--format--<%= format.downcase %> examples--<%= import_manifest.name %>">
                 <%= link_to t(".download_example_format", name:),
-                  admin_imports_example_path(@current_component, name: import_manifest.name, format:) %>
+                            admin_imports_example_path(@current_component, name: import_manifest.name, format:) %>
               </li>
             <% end %>
           </ul>

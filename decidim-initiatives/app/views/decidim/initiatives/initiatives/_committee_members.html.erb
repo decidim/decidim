@@ -28,9 +28,9 @@
         <%= card_for request.user %>
         <% if allowed_to? :approve, :initiative_committee_member, initiative: current_initiative, request: request %>
           <%= icon_link_to "forbid-line",
-                          approve_initiative_committee_request_path(current_initiative, request),
-                          t(".approve"),
-                          class: "action-icon--check" %>
+                           approve_initiative_committee_request_path(current_initiative, request),
+                           t(".approve"),
+                           class: "action-icon--check" %>
         <% end %>
         <% if allowed_to? :revoke, :initiative_committee_member, initiative: current_initiative, request: request %>
           <%= link_to(

@@ -29,8 +29,8 @@
             <% if allowed_to? :manage, :participatory_process_type %>
               <%= icon "price-tag-3-line", class: "fill-gray-2" %>
               <%= link_to t("menu.participatory_process_types", scope: "decidim.admin"),
-                         decidim_admin_participatory_processes.participatory_process_types_path,
-                         class: "text-secondary" %>
+                          decidim_admin_participatory_processes.participatory_process_types_path,
+                          class: "text-secondary" %>
             <% end %>
           </li>
         </ul>

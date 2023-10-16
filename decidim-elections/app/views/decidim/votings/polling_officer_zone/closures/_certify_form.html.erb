@@ -4,9 +4,9 @@
 
   <div class="form__wrapper">
     <%= form.attachment :photos,
-      multiple: true,
-      label: t("add_images", scope: "decidim.votings.polling_officer_zone.closures.certify"),
-      button__label: t("form_legend", scope: "decidim.votings.polling_officer_zone.closures.certify") %>
+                        multiple: true,
+                        label: t("add_images", scope: "decidim.votings.polling_officer_zone.closures.certify"),
+                        button__label: t("form_legend", scope: "decidim.votings.polling_officer_zone.closures.certify") %>
   </div>
 
   <%= form.submit t("submit", scope: "decidim.votings.polling_officer_zone.closures.certify"), class: "button button--sc mt-sm mb-none" %>

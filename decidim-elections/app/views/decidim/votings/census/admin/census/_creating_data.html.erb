@@ -1,10 +1,10 @@
 <div class="card-section" id="census-creating-data-wrapper" data-update-status-url="<%= admin_status_voting_census_path %>">
   <% info_message = "<span class='loading-spinner'></span> &nbsp;
                       #{t("creating_data.info_message",
-                        scope: "decidim.votings.census.admin.census",
-                        processed_count: current_census.csv_row_processed_count,
-                        raw_count: current_census.csv_row_raw_count,
-                        file: current_census.filename)}" %>
+                          scope: "decidim.votings.census.admin.census",
+                          processed_count: current_census.csv_row_processed_count,
+                          raw_count: current_census.csv_row_raw_count,
+                          file: current_census.filename)}" %>
 
   <%= cell("decidim/announcement", info_message, callout_class: "warning") %>
 </div>

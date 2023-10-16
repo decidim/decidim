@@ -79,9 +79,9 @@
             <td><%= report.details&.truncate(250) %></td>
             <td class="actions">
               <%= icon_link_to "fullscreen-line",
-                                moderation_report_path(moderation_id: moderation, id: report.id),
-                                t("actions.expand", scope: "decidim.moderations"),
-                                class: "action-icon--expand" %>
+                               moderation_report_path(moderation_id: moderation, id: report.id),
+                               t("actions.expand", scope: "decidim.moderations"),
+                               class: "action-icon--expand" %>
             </td>
           </tr>
         <% end %>
