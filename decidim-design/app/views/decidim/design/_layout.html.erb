@@ -77,13 +77,6 @@
       <% if content_for?(:right_aside) %>
         <%= yield :right_aside %>
       <% else %>
-        <form action="" class="relative mb-12">
-          <input type="search" placeholder="Search" class="block bg-transparent w-full px-4 py-1.5">
-          <button class="absolute right-2 inset-y-2 text-secondary">
-            <%= icon "search-line", class: "w-4 h-4 fill-current" %>
-          </button>
-        </form>
-
         <nav class="space-y-2 text-sm [&>*]:block [&_a]:text-secondary [&_a]:underline">
           <strong class="text-md mb-4">On this page</strong>
           <%= yield :toc %>
