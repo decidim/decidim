@@ -13,7 +13,13 @@
     url: false,
     path: "components",
     icon: "focus-line",
-    text: "Components"
+    text: "Components",
+    extra_items: [
+      {
+        name: "cards",
+        path: components_cards_path
+      }
+    ]
   }]
 %>
 
@@ -21,35 +27,34 @@
   <aside class="col-span-2 py-12 pr-16">
     <ul class="sticky top-12 space-y-4">
       <% sections.each do |section| %>
-      <li>
-        <% block = capture do %>
-          <%= icon section[:icon], class: "text-gray fill-current" %>
-          <span class="font-semibold"><%= section[:text] %></span>
-        <% end %>
-
-        <% if section[:url].present? %>
-          <%= link_to section[:url], class: "flex gap-1 items-center hover:underline" do %>
-            <%= block %>
+        <li>
+          <% block = capture do %>
+            <%= icon section[:icon], class: "text-gray fill-current" %>
+            <span class="font-semibold"><%= section[:text] %></span>
           <% end %>
-        <% else %>
-          <%= content_tag :span, class: "flex gap-1 items-center" do %>
-            <%= block %>
-          <% end %>
-        <% end %>
 
-        <% gem_path = Bundler.load.specs.find { |spec| spec.name == "decidim-design" }.full_gem_path %>
-        <% @files = Dir.glob("#{gem_path}/app/views/decidim/design/#{section[:path]}/*").select { |fn| File.directory?(fn) } %>
-        <% if @files.any? %>
-          <ul class="pl-5 pt-4 space-y-4">
-            <% @files.each do |file| %>
-              <li class="text-sm text-black cursor-pointer flex items-center gap-1">
-                <%= link_to File.basename(file), send("#{section[:path]}_#{File.basename(file)}_path"), class: "hover:underline first-letter:capitalize" %>
-                <%= icon "arrow-right-line", class: "w-3 h-3 fill-current" %>
-              </li>
+          <% if section[:url].present? %>
+            <%= link_to section[:url], class: "flex gap-1 items-center hover:underline" do %>
+              <%= block %>
             <% end %>
-          </ul>
-        <% end %>
-      </li>
+          <% else %>
+            <%= content_tag :span, class: "flex gap-1 items-center" do %>
+              <%= block %>
+            <% end %>
+          <% end %>
+
+          <% items = path_items(section[:path]).concat(section[:extra_items].to_a) %>
+          <% if items.present? %>
+            <ul class="pl-5 pt-4 space-y-4">
+              <% items.each do |item| %>
+                <li class="text-sm text-black cursor-pointer flex items-center gap-1">
+                  <%= link_to item[:name], item[:path], class: "hover:underline first-letter:capitalize" %>
+                  <%= icon "arrow-right-line", class: "w-3 h-3 fill-current" %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </li>
       <% end %>
     </ul>
   </aside>

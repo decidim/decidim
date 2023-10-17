@@ -23,7 +23,7 @@
     base_columns << { value: "#EBC34B", name: "tertiary", rgba: "rgba(235,195,75,1)", usage: "Graphic ornaments and accent color\nCards and list items hover state border" }
   %>
 
-  <%= render partial: "table", locals: { columns: base_columns } %>
+  <%= render partial: "decidim/design/foundations/color/table", locals: { columns: base_columns } %>
 </section>
 
 <section id="state">
@@ -36,7 +36,7 @@
     state_columns << { value: "#ED1C24", name: "alert", rgba: "rgba(237,28,36,1)", usage: "Alert notice border\nAlert notice icon fill" }
   %>
 
-  <%= render partial: "table", locals: { columns: state_columns } %>
+  <%= render partial: "decidim/design/foundations/color/table", locals: { columns: state_columns } %>
 </section>
 
 <section id="main">
@@ -52,7 +52,7 @@
     text_columns << { value: "#155ABF", name: "secondary", rgba: "rgba(21,90,191,1)", usage: "Links and buttons" }
   %>
 
-  <%= render partial: "table", locals: { columns: text_columns } %>
+  <%= render partial: "decidim/design/foundations/color/table", locals: { columns: text_columns } %>
 
   <h3 class="mt-10 text-xl font-semibold">Background and borders</h3>
 
@@ -65,7 +65,7 @@
     bg_columns << { value: "#242424", name: "gray-4", rgba: "rgba(36,36,36,1)", usage: "Footer background" }
   %>
 
-  <%= render partial: "table", locals: { columns: bg_columns } %>
+  <%= render partial: "decidim/design/foundations/color/table", locals: { columns: bg_columns } %>
 
   <h3 class="mt-10 text-xl font-semibold">Form elements</h3>
 
@@ -75,5 +75,5 @@
     form_elements << { value: "#EFEFEF", name: "background-3", rgba: "rgba(239,239,239,1))", usage: "Input elements disabled state background" }
   %>
 
-  <%= render partial: "table", locals: { columns: form_elements } %>
+  <%= render partial: "decidim/design/foundations/color/table", locals: { columns: form_elements } %>
 </section>
