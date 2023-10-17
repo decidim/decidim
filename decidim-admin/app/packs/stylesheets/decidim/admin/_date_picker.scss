@@ -1,0 +1,48 @@
+.clock_button {
+  @apply top-0;
+
+  > svg {
+    @apply h-6 w-6;
+  }
+}
+
+.calendar_button {
+  @apply top-0;
+}
+
+.wc-datepicker__current-month {
+  @apply mt-4;
+}
+
+.wc-datepicker__next-month-button,
+.wc-datepicker__previous-month-button {
+  > svg {
+    @apply fill-none w-16 h-16;
+  }
+}
+
+.pick_calendar {
+  @apply z-[2];
+}
+.close_calendar {
+  @apply z-[2];
+}
+
+.wc-datepicker {
+  @apply z-[1];
+}
+
+.time_frame {
+  @apply z-[1]
+}
+
+.hourdown,
+.hourup,
+.minuteup,
+.minutedown {
+  @apply h-6 w-[22px];
+
+  > svg {
+    @apply w-6 h-6 pr-1;
+  }
+}

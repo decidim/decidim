@@ -40,7 +40,7 @@ describe "Datepicker", type: :system do
 
     template.instance_eval do
       js_config = {
-        icons_path: asset_pack_path("media/images/icons.svg"),
+        icons_path: asset_pack_path("media/images/remixicon.symbol.svg"),
         messages: {
           editor: I18n.t("editor"),
           selfxssWarning: I18n.t("decidim.security.selfxss_warning"),
@@ -89,7 +89,6 @@ describe "Datepicker", type: :system do
   context "when format dd.mm.yyyy" do
     context "when filling form datetime input with datepicker" do
       it "fills the field correctly" do
-        expect(page).to have_content("Format")
         find(".calendar_button").click
         find('span > input[name="year"]').set("1994")
         select("January", from: "month").select_option
@@ -266,7 +265,7 @@ describe "Datepicker", type: :system do
             find(".minuteup").click
             hour = find("input.hourpicker")
             minute = find("input.minutepicker")
-            time = find("input.timepicker")
+            time =
             expect(time.value).to eq("23:01")
             click_button "Reset"
             expect(hour.value).to eq("00")

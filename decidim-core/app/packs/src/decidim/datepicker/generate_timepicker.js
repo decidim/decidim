@@ -9,7 +9,6 @@ export default function generateTimePicker(input, row, formats) {
 
   const time = document.createElement("input");
   time.setAttribute("id", `${input.id}_time`);
-  time.setAttribute("class", "timepicker");
   time.setAttribute("type", "text");
 
   const clock = document.createElement("button");

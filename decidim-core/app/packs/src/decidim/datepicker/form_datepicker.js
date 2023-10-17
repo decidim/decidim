@@ -39,7 +39,6 @@ export default function redesignedFormDatePicker() {
     helpTextTime.innerText = i10nHelp.time_format;
 
     helpTextContainer.appendChild(helpTextDate);
-    helpTextContainer.appendChild(helpTextTime);
 
     if (label) {
       label.after(row);
@@ -48,7 +47,11 @@ export default function redesignedFormDatePicker() {
     };
 
     generateDatePicker(input, row, formats);
-    generateTimePicker(input, row, formats);
+
+    if (input.type === "datetime-local") {
+      generateTimePicker(input, row, formats);
+      helpTextContainer.appendChild(helpTextTime);
+    };
 
     row.before(helpTextContainer);
 
@@ -59,12 +62,16 @@ export default function redesignedFormDatePicker() {
     const inputFieldValue = document.getElementById(`${input.id}`).value;
 
     if (inputFieldValue !== "") {
-      const dateTimeValue = inputFieldValue.split("T");
-      const date = dateTimeValue[0];
-      const time = dateTimeValue[1];
+      if (input.type === "datetime-local") {
+        const dateTimeValue = inputFieldValue.split("T");
+        const date = dateTimeValue[0];
+        const time = dateTimeValue[1];
 
-      document.getElementById(`${input.id}_date`).value = formatInputDate(date, formats.date, input);
-      document.getElementById(`${input.id}_time`).value = formatInputTime(time, formats.time, input);
+        document.getElementById(`${input.id}_date`).value = formatInputDate(date, formats.date, input);
+        document.getElementById(`${input.id}_time`).value = formatInputTime(time, formats.time, input);
+      } else if (input.type === "date") {
+        document.getElementById(`${input.id}_date`).value = formatInputDate(inputFieldValue, formats.date, input);
+      };
     };
   });
 

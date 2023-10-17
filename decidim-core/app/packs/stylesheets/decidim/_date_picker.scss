@@ -1,5 +1,5 @@
 .sc-wc-datepicker-h {
-  @apply absolute w-11/12 h-96 left-0;
+  @apply absolute w-80 h-96 left-0;
 }
 
 .wc-datepicker {
@@ -54,7 +54,7 @@
 
 .hour_column,
 .minute_column {
-  @apply rounded border border-solid border-gray flex-1 h-12 relative my-2 mx-1;
+  @apply border border-solid border-gray flex-1 h-12 relative my-2 mx-1;
 }
 
 .period_column {
@@ -93,7 +93,7 @@
 }
 
 .close_calendar {
-  @apply border border-solid border-gray rounded absolute z-30 bottom-2 right-0 w-14 h-6;
+  @apply border border-solid border-gray rounded absolute z-30 bottom-2 right-1 w-14 h-6;
 }
 
 .pick_calendar {
@@ -113,7 +113,7 @@
 }
 
 .hourup {
-  @apply rounded border border-solid border-gray absolute right-0;
+  @apply border border-solid border-gray absolute right-0 h-6;
 
   &:hover {
     @apply bg-gray;
@@ -121,7 +121,7 @@
 }
 
 .hourdown {
-  @apply rounded border border-solid border-gray absolute right-0 bottom-0;
+  @apply border border-solid border-gray absolute right-0 bottom-0 h-6;
 
   &:hover {
     @apply bg-gray;
@@ -129,7 +129,7 @@
 }
 
 .minuteup {
-  @apply rounded border border-solid border-gray absolute right-0;
+  @apply border border-solid border-gray absolute right-0 h-6;
 
   &:hover {
     @apply bg-gray;
@@ -137,7 +137,7 @@
 }
 
 .minutedown {
-  @apply rounded border border-solid border-gray absolute right-0 bottom-0;
+  @apply border border-solid border-gray absolute right-0 bottom-0 h-6;
 
     &:hover {
     @apply bg-gray;

@@ -30,7 +30,7 @@ export const timeKeyDownListener = (time) => {
 };
 export const timeBeforeInputListener = (time) => {
   time.addEventListener("beforeinput", (event) => {
-    if (time.value.length >= 5 && event.inputType === "insertText") {
+    if (time.value.length >= 5 && event.inputType === "insertText" && event.target.selectionStart === event.target.selectionEnd) {
       event.preventDefault();
     };
   });
@@ -71,7 +71,7 @@ export const dateKeyDownListener = (date) => {
 
 export const dateBeforeInputListener = (date) => {
   date.addEventListener("beforeinput", (event) => {
-    if (date.value.length >= 10 && event.inputType === "insertText") {
+    if (date.value.length >= 10 && event.inputType === "insertText" && event.target.selectionStart === event.target.selectionEnd) {
       event.preventDefault();
     };
   });
