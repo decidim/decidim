@@ -4,7 +4,6 @@ Decidim::Design::Engine.routes.draw do
   namespace :components do
     get "forms", to: "forms#index"
     get "cards", to: "cards#index"
-    get "spacing", to: "spacing#index"
   end
 
   namespace :foundations do

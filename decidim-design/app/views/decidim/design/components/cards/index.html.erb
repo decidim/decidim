@@ -1,10 +1,14 @@
+<% content_for :heading do %>
+  <%= cell "decidim/announcement", "This page comes from a legacy view. Content is outdated.", callout_class: "alert" %>
+
+  Cards
+<% end %>
+
 <% content_for :toc do %>
   <% @sections.each do |title, results| %>
     <a href="#<%= title %>"><%= title %></a>
   <% end %>
 <% end %>
-
-<h1 class="h1">Cards</h1>
 
 <% @sections.each do |title, results| %>
   <section id="<%= title %>">

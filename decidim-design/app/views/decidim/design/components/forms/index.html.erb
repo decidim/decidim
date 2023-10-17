@@ -1,3 +1,17 @@
+<% content_for :heading do %>
+  <%= cell "decidim/announcement", "This page comes from a legacy view. Content is outdated.", callout_class: "alert" %>
+  Forms
+<% end %>
+
+<% content_for :toc do %>
+  <a href="#common">HTML regular inputs</a>
+  <a href="#helps">Help texts</a>
+  <a href="#disabled">Disabled</a>
+  <a href="#error">Errors</a>
+  <a href="#length">Min/Max length</a>
+  <a href="#emoji">Emojis</a>
+<% end %>
+
 <%
   text_types = [
                 "date",
@@ -16,17 +30,6 @@
 
   options_types = %w(checkbox radio)
 %>
-
-<% content_for :toc do %>
-  <a href="#common">HTML regular inputs</a>
-  <a href="#helps">Help texts</a>
-  <a href="#disabled">Disabled</a>
-  <a href="#error">Errors</a>
-  <a href="#length">Min/Max length</a>
-  <a href="#emoji">Emojis</a>
-<% end %>
-
-<h1 class="h1">Forms</h1>
 
 <section id="common-panel">
   <h2 class="h2">HTML regular inputs</h2>
