@@ -2,7 +2,7 @@
 
 module Decidim
   module Design
-    class HomeController < Decidim::ApplicationController
+    class HomeController < Decidim::Design::ApplicationController
       include Decidim::ControllerHelpers
 
       def index; end

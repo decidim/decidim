@@ -3,7 +3,7 @@
 module Decidim
   module Design
     module Components
-      class SpacingController < Decidim::ApplicationController
+      class SpacingController < Decidim::Design::ApplicationController
         include Decidim::ControllerHelpers
 
         def index; end

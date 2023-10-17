@@ -3,7 +3,7 @@
 module Decidim
   module Design
     module Foundations
-      class AccessibilityController < Decidim::ApplicationController
+      class AccessibilityController < Decidim::Design::ApplicationController
         include Decidim::ControllerHelpers
 
         def index; end

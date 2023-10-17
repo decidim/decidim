@@ -3,7 +3,7 @@
 module Decidim
   module Design
     module Foundations
-      class IconographyController < Decidim::ApplicationController
+      class IconographyController < Decidim::Design::ApplicationController
         include Decidim::ControllerHelpers
 
         def index; end

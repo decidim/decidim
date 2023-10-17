@@ -3,7 +3,7 @@
 module Decidim
   module Design
     module Foundations
-      class LayoutController < Decidim::ApplicationController
+      class LayoutController < Decidim::Design::ApplicationController
         include Decidim::ControllerHelpers
 
         def index; end

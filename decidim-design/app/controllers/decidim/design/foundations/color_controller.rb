@@ -3,7 +3,7 @@
 module Decidim
   module Design
     module Foundations
-      class ColorController < Decidim::ApplicationController
+      class ColorController < Decidim::Design::ApplicationController
         include Decidim::ControllerHelpers
 
         def index; end

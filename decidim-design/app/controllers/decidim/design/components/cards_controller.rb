@@ -3,11 +3,13 @@
 module Decidim
   module Design
     module Components
-      class CardsController < Decidim::ApplicationController
+      class CardsController < Decidim::Design::ApplicationController
         include Decidim::ControllerHelpers
         include FilterResource
         include Paginable
         helper Decidim::FiltersHelper
+        helper Decidim::CardHelper
+
         helper_method :term
 
         def index

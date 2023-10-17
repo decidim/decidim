@@ -3,7 +3,7 @@
 module Decidim
   module Design
     module Foundations
-      class TypographyController < Decidim::ApplicationController
+      class TypographyController < Decidim::Design::ApplicationController
         include Decidim::ControllerHelpers
 
         def index; end

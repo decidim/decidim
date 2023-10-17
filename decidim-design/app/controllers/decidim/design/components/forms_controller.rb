@@ -3,7 +3,7 @@
 module Decidim
   module Design
     module Components
-      class FormsController < Decidim::ApplicationController
+      class FormsController < Decidim::Design::ApplicationController
         include Decidim::ControllerHelpers
 
         def index; end
