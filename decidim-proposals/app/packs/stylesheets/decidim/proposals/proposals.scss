@@ -3,7 +3,7 @@
 .proposal-list {
   &__aside {
     &__button-container {
-      @apply flex flex-col gap-4 md:gap-10 w-full md:w-fit;
+      @apply flex flex-col gap-4 md:gap-10 w-full;
     }
   }
 
