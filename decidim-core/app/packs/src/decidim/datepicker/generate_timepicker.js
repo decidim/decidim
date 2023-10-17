@@ -175,7 +175,13 @@ export default function generateTimePicker(input, row, formats) {
     event.preventDefault();
     const value = event.clipboardData.getData("text/plain");
 
-    if ((/^([0-9]|0[0-9]|1[0-9]|2[0-3])(.|:)[0-5][0-9]/).test(value)) {
+    let formatGuard = (/^([0-9]|0[0-9]|1[0-9]|2[0-3])(.|:)[0-5][0-9]/).test(value);
+
+    if (formats.time === 12) {
+      formatGuard = (/^([0-9]|0[0-9]|1[0-2])(.|:)[0-5][0-9]/).test(value);
+    };
+
+    if (formatGuard) {
       if ((/(^[0-9])(.|:)[0-5][0-9]/).test(value)) {
         hour = Number(value[0]);
         minute = Number(`${value[2]}${value[3]}`);

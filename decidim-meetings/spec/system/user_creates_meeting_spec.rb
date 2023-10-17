@@ -55,10 +55,15 @@ describe "User creates meeting", type: :system do
         let(:meeting_address) { "Some address" }
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
-        let!(:meeting_start_date) { Time.new.utc.strftime("%d/%m/%Y") }
-        let!(:meeting_start_time) { Time.new.utc.strftime("%H:%M") }
-        let!(:meeting_end_date) { Time.new.utc.strftime("%d/%m/%Y") }
-        let!(:meeting_end_time) { (Time.new.utc + 4.hours).strftime("%H:%M") }
+        let(:base_date) { Time.new.utc }
+        let(:meeting_start_date) { base_date.strftime("%d.%m.%Y") }
+        let(:start_month) { base_date.strftime("%b") }
+        let(:start_day) { base_date.day }
+        let(:meeting_start_time) { base_date.strftime("%H:%M") }
+        let(:meeting_end_date) { ((base_date + 2.days) + 1.month).strftime("%d.%m.%Y") }
+        let(:end_month) { (base_date + 1.month).strftime("%b") }
+        let(:end_day) { ((base_date + 2.days) + 1.month).day }
+        let(:meeting_end_time) { (base_date + 4.hours).strftime("%H:%M") }
         let(:meeting_available_slots) { 30 }
         let(:meeting_registration_terms) { "These are the registration terms for this meeting" }
         let(:online_meeting_url) { "http://decidim.org" }
@@ -80,7 +85,6 @@ describe "User creates meeting", type: :system do
 
         it "creates a new meeting", :slow do
           stub_geocoding(meeting_address, [latitude, longitude])
-
           visit_component
 
           click_link "New meeting"
@@ -109,6 +113,9 @@ describe "User creates meeting", type: :system do
           expect(page).to have_content(translated(category.name))
           expect(page).to have_content(translated(meeting_scope.name))
           expect(page).to have_content(meeting_address)
+          expect(page).to have_content("#{start_month.upcase}\n-\n#{end_month.upcase}")
+          expect(page).to have_content(start_day)
+          expect(page).to have_content(end_day)
           expect(page).to have_content(meeting_start_time)
           expect(page).to have_content(meeting_end_time)
           expect(page).to have_selector("[data-author]", text: user.name)

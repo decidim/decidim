@@ -10,6 +10,11 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:service_titles) { ["This is the first service", "This is the second service"] }
+  let(:base_date) { Time.new.utc }
+  let(:meeting_start_date) { base_date.strftime("%d.%m.%Y") }
+  let(:meeting_start_time) { base_date.utc.strftime("%H:%M") }
+  let(:meeting_end_date) { ((base_date + 2.days) + 1.month).strftime("%d.%m.%Y") }
+  let(:meeting_end_time) { (base_date + 4.hours).strftime("%H:%M") }
 
   include_context "when managing a component as an admin"
 
@@ -305,8 +310,10 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     select "Registration disabled", from: :meeting_registration_type
 
-    fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
-    fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
+    fill_in_datepicker :meeting_start_time_date, with: meeting_start_date
+    fill_in_timepicker :meeting_start_time_time, with: meeting_start_time
+    fill_in_datepicker :meeting_end_time_date, with: meeting_end_date
+    fill_in_timepicker :meeting_end_time_time, with: meeting_end_time
 
     select translated(scope.name), from: :meeting_decidim_scope_id
     select translated(category.name), from: :meeting_decidim_category_id
@@ -370,8 +377,10 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
         select "Registration disabled", from: :meeting_registration_type
 
-        fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
-        fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
+        fill_in_datepicker :meeting_start_time_date, with: meeting_start_date
+        fill_in_timepicker :meeting_start_time_time, with: meeting_start_time
+        fill_in_datepicker :meeting_end_time_date, with: meeting_end_date
+        fill_in_timepicker :meeting_end_time_time, with: meeting_end_time
       end
     end
   end
@@ -512,8 +521,10 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       fill_in :meeting_address, with: address
       select "Registration disabled", from: :meeting_registration_type
 
-      fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
-      fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
+      fill_in_datepicker :meeting_start_time_date, with: meeting_start_date
+      fill_in_timepicker :meeting_start_time_time, with: meeting_start_time
+      fill_in_datepicker :meeting_end_time_date, with: meeting_end_date
+      fill_in_timepicker :meeting_end_time_time, with: meeting_end_time
 
       select translated(scope.name), from: :meeting_decidim_scope_id
       select translated(category.name), from: :meeting_decidim_category_id

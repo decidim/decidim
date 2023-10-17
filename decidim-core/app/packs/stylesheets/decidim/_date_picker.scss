@@ -140,12 +140,12 @@
   @apply border border-solid border-gray absolute right-0 bottom-0 h-6;
 
     &:hover {
-    @apply bg-gray;
+      @apply bg-gray;
   }
 }
 
 .period_am {
-  @apply ml-1 accent-secondary bg-secondary
+  @apply ml-1 accent-secondary bg-secondary;
 }
 
 .period_pm {

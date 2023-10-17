@@ -65,11 +65,7 @@ export default function generateDatePicker(input, row, formats) {
       } else if ((/([0-2][0-9]|3[0-1])(-|.|\/)([1-9])(-|.|\/)([0-9]{4})$/).test(value)) {
         date.value = `${value[0]}${value[1]}${separator}0${value[3]}${separator}${value.substring(value.length - 4)}`;
       } else {
-        date.value = value.replace(/[-/]/g, ".")
-
-        if (formats.date === "%m/%d/%Y") {
-          date.value = value.replace(/[-.]/g, "/");
-        };
+        date.value = value.replace(/[-./]/g, separator)
       };
 
       if (input.type === "date") {
