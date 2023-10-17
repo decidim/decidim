@@ -1,16 +1,16 @@
+<% add_secondary_root_menu(:admin_initiative_menu) %>
+
 <% content_for :breadcrumb_context_menu do %>
-  <div class="inline-block relative">
-    <%= button_tag id: "initiative-menu-trigger", data: { component: "dropdown", target: "initiative-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
-      <%= t("actions.manage", scope: "decidim.admin") %>
-      <%= icon "arrow-down-s-line" %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <%= link_to decidim_initiatives.initiative_path(current_participatory_space), class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link", target: "_blank", data: { "external-link": false } do %>
+      <%= icon "eye-line" %>
+      <span>
+        <%= t("see_initiative", scope: "decidim.admin.menu.initiatives_menu") %>
+      </span>
     <% end %>
-    <div id="initiative-dropdown-menu-settings" class="process-title-content-dropdown">
-      <%= sidebar_menu(:admin_initiative_menu).render %>
-    </div>
   </div>
 <% end %>
+
 <%= render "layouts/decidim/admin/application" do %>
-  <div class="process-content">
-    <%= yield %>
-  </div>
+  <%= yield %>
 <% end %>

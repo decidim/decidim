@@ -16,13 +16,12 @@
         <%= icon "arrow-down-s-line" %>
       <% end %>
       <div id="processes-dropdown-menu-settings" class="process-title-content-dropdown">
-        <%= sidebar_menu(:admin_participatory_process_group_menu).render %>
+        <%= dropdown_menu(:admin_participatory_process_group_menu).render %>
       </div>
     </div>
   </div>
 <% end %>
+
 <%= render "layouts/decidim/admin/application" do %>
-  <div class="process-content">
-    <%= yield %>
-  </div>
+  <%= yield %>
 <% end %>

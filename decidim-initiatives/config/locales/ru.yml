@@ -107,22 +107,14 @@ ru:
             print: Распечатать
         initiatives_type_scopes:
           edit:
-            back: Вернуться
-            confirm_destroy: Вы уверены?
-            destroy: Удалить
             title: Изменить охват вида почина
             update: Обновить
           new:
-            back: Вернуться
             create: Создать
             title: Создать охват вида почина
         initiatives_types:
           edit:
-            confirm_destroy: Вы уверены?
-            destroy: Удалить
             update: Обновить
-          form:
-            title: Общие сведения
           initiative_type_scopes:
             title: Охваты для вида почина
           new:
@@ -165,22 +157,13 @@ ru:
         previous_form:
           back: Вернуться
           continue: Продолжить
-          help: В чем состоит этот почин? Изложите название и описание. Мы рекомендуем лаконичное и немногословное название и описание, направленное на предлагаемое решение.
-          more_information: "(Дополнительные сведения)"
         promotal_committee:
-          back: Вернуться
           more_information: "(Дополнительные сведения)"
         select_initiative_type:
           back: Вернуться
-          more_information: "(Дополнительные сведения)"
+          more_information: (Дополнительные сведения)
         share_committee_link:
-          continue: Продолжить
           invite_to_committee_help: Ссылка для приглашения людей, которые войдут в рабочую группу по продвижению
-        show_similar_initiatives:
-          back: Вернуться
-          compare_help: Если какой-либо из следующих починов похож на ваш, мы призываем вас поддержать его. У вашего предложения будет больше возможностей для воплощения в жизнь.
-          continue: Мой почин другой
-          more_information: "(Дополнительные сведения)"
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, за которым вы следите, создал новый почин. Прочитайте его и внесите свой вклад:"
@@ -192,14 +175,10 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Инициатива поддержана %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> поддержал почин <a href="%{resource_path}">%{resource_title}</a>.
-      index:
-        title: Почины
       initiative_votes:
         create:
           error: При попытке подписаться за этот почин произошли ошибки.
       initiatives:
-        author:
-          deleted: Удален
         author_list:
           hidden_authors_count:
             one: и еще 1 человек
@@ -219,11 +198,6 @@ ru:
           search: Поиск
           state: Cостояние
           type: Вид
-        filters_small_view:
-          close_modal: Закрыть окно
-          filter: Отобрать
-          filter_by: 'Отобрать по признаку:'
-          unfold: Развернуть
         index_header:
           new_initiative: Добавить почин
         orders:
@@ -263,11 +237,6 @@ ru:
         promotal_committee_help: Помните, что вы должны пригласить не менее %{member_count} человек в рабочую группу по продвижению. Перешлите им следующую ссылку, чтобы пригласить их в рабочую группу по продвижению
         status_change_body_for: 'Состояние почина %{title} изменилось на: %{state}'
         status_change_for: Состояние почина %{title} изменилось
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Действующие почины
-            see_all_initiatives: Просмотреть все инициативы
       states:
         accepted: Принятые
         expired: Истекшие
@@ -278,12 +247,8 @@ ru:
       initiative_creation_header:
         fill_data: Создать
         finish: Закончить
-        previous_form: Начать
         promotal_committee: Рабочая группа по продвижению
         select_initiative_type: Выбрать
-        show_similar_initiatives: Сравнить
-      initiative_header:
-        initiative_menu_item: Почин
       initiatives:
         initiative:
           check: Проверьте это

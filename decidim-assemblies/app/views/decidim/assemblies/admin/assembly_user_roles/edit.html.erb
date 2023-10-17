@@ -6,7 +6,7 @@
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: assembly_user_role_path(@user_role.assembly, @user_role), html: { class: "form-defaults form edit_assembly_user_roles" }) do |f| %>
-      <%= render partial: "form", object: f, locals: { title: t("assembly_user_roles.edit.title", scope: "decidim.admin") } %>
+      <%= render partial: "form", object: f %>
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
           <%= f.submit t("assembly_user_roles.edit.update", scope: "decidim.admin"), class: "button button__sm button__secondary" %>

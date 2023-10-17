@@ -48,10 +48,9 @@ de:
     debates:
       actions:
         close: Schließen
-        confirm_destroy: Bist du sicher?
+        confirm_destroy: Sind Sie sicher?
         destroy: Löschen
         edit: Bearbeiten
-        new: Neu %{name}
         title: Aktionen
       admin:
         debate_closes:
@@ -81,9 +80,6 @@ de:
             success: Die Diskussion wurde erfolgreich aktualisiert.
         exports:
           comments: Kommentare
-        models:
-          debate:
-            name: Debatte
       admin_log:
         debate:
           close: "%{user_name} hat die Debatte %{resource_name} in %{space_name} geschlossen"
@@ -96,7 +92,7 @@ de:
           invalid: Beim Beenden der Debatte ist ein Problem aufgetreten.
           success: Debatte erfolgreich beendet.
         close_debate_modal:
-          close: Schließen
+          cancel: Abbrechen
           description: Wie lautet die Zusammenfassung oder Schlussfolgerung dieser Debatte?
           send: Debatte schließen
         closed: Geschlossen
@@ -123,18 +119,12 @@ de:
           official: Offiziell
           origin: Ursprung
           participants: Teilnehmer
-          scope: Bereich
           search: Suche
           state: Status
           state_values:
             closed: Geschlossen
             open: Offen
-          user_groups: Gruppen
-        filters_small_view:
-          close_modal: Modal schließen
-          filter: Filter
-          filter_by: Filtern nach
-          unfold: Entfalten
+          user_group: Gruppen
         form:
           select_a_category: Bitte wählen sie eine Kategorie
         index:
@@ -150,7 +140,6 @@ de:
           recent: Neueste zuerst
           updated: Kürzlich aktualisiert
         show:
-          back: Zurück zur Liste
           close_debate: Debatte schließen
           date: Datum
           debate_closed: Geschlossen
@@ -158,28 +147,21 @@ de:
           edit_conclusions: Schlussfolgerungen bearbeiten
           edit_debate: Debatte bearbeiten
           groups_count: Gruppen
-          last_comment_by: Letzter Kommentar von
-          no_comments_yet: Noch keine Kommentare
           open: Offene Debatte
           participants_count: Teilnehmer
         update:
           invalid: Es gab ein Problem bei der Aktualisierung der Aussprache.
           success: Debatte erfolgreich aktualisiert.
-        versions:
-          debates:
-            back_to_resource: Zurück zur Debatte
-          index:
-            title: Versionen
-        versions_list:
-          back_to_resource: Zurück zur Debatte
       last_activity:
         debate_updated: 'Debatte aktualisiert:'
         new_debate: 'Neue Debatte:'
       models:
         debate:
           fields:
+            end: Ende
             end_time: Endtermin
             official_debate: Offizielle Debatte
+            start: Start
             start_time: Anfangsdatum
             title: Titel
     events:

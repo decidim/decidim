@@ -5,7 +5,6 @@ module Decidim
     module Admin
       # This controller allows the create or update answers for a question.
       class AnswersController < Admin::ApplicationController
-        include Decidim::Proposals::Admin::Picker
         helper Decidim::ApplicationHelper
         helper_method :election, :question, :answers, :answers, :missing_answers
 

@@ -151,7 +151,6 @@ eu:
         show:
           answer_questionnaire:
             already_have_an_account?: Baduzu kontu bat?
-            anonymous_user_message: <a href="%{sign_in_link}">Hasi saioa zure kontuarekin</a> edo <a href="%{sign_up_link}">saioa hasi</a> galdetegiari erantzuteko.
             are_you_new?: Erabiltzaile berria?
             sign_in_description: Sartu inkesta egiteko
             sign_up_description: Parte-hartzaileen kontua sortu inkesta egiteko
@@ -173,7 +172,6 @@ eu:
           questionnaire_not_published:
             body: Argitalpen hau oraindik ez da argitaratu.
           tos_agreement: Parte hartzean, haren zerbitzu-baldintzak onartzen dituzu
-          upload_file: Kargatu artxiboa
       step_navigation:
         show:
           are_you_sure: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?

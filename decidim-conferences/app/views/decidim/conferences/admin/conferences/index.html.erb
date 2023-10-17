@@ -32,7 +32,7 @@
               <% if conference.published? %>
                 <span class="label !text-sm success"><%= t("conferences.index.published", scope: "decidim.admin") %></span>
               <% else %>
-                <span class="label !text-sm alert"><%= t("conferences.index.not_published", scope: "decidim.admin") %></span>
+                <span class="label !text-sm alert"><%= t("conferences.index.unpublished", scope: "decidim.admin") %></span>
               <% end %>
             </td>
             <td class="table-list__actions">

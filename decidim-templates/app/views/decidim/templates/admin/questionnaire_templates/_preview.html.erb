@@ -14,7 +14,7 @@
       <div id="step-<%= step_index %>" class="<%= step_index.zero? ? "questionnaire-step" : "questionnaire-step hide" %>" data-toggler=".hide">
         <div class="form__wrapper">
           <% if @preview_form.total_steps > 1 %>
-            <h4 class="section-heading">
+            <h4>
               <%= t(".current_step", step: step_index + 1) %> <span class="answer-questionnaire__steps"><%= t(".of_total_steps", total_steps: @preview_form.total_steps) %></span>
             </h4>
           <% end %>
@@ -48,7 +48,7 @@
           <% end %>
         </div>
 
-        <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+        <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between mb-4">
           <%= cell(
             "decidim/forms/step_navigation",
             step_index,

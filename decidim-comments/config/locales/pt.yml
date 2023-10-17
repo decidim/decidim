@@ -28,20 +28,15 @@ pt:
         update:
           error: Ocorreu um problema ao actualizar a comentário.
       comments_count: Contagem de comentários
-      last_activity:
-        new_comment_at_html: "<span>Novo comentário em %{link}</span>"
-      view: Visualizar
       votes:
         create:
           error: Houve erros na votação do comentário.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Ligue-se com sua conta</a> ou <a href="%{sign_up_url}">sign up</a> para adicionar seu comentário.
         form:
           body:
             label: Comente
             placeholder: O que você pensa sobre isso?
-          submit: Enviar
           user_group_id:
             label: Comente como
         opinion:
@@ -85,8 +80,6 @@ pt:
           older: Mais velho
           recent: Recente
         title: 'Ordenar por:'
-      comment_thread:
-        title: Conversa com %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Precisa de estar verificado para comentar neste momento, mas pode ler os precedentes.
         blocked_comments_for_user_warning: Não pode comentar neste momento, mas pode ler os anteriores.

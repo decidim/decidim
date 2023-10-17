@@ -17,6 +17,10 @@ module Decidim
       end
     end
 
+    def id_option
+      @id_option ||= options[:mobile] ? "follow-mobile" : "follow"
+    end
+
     private
 
     def button_classes

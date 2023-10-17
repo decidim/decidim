@@ -32,21 +32,16 @@ hu:
           error: Hiba történt a hozzászólás frissítése során.
       comments_count: Hozzászólások száma
       comments_title: Hozzászólás
-      last_activity:
-        new_comment_at_html: "<span>Új megjegyzés: %{link}</span>"
-      view: Megtekintés
       votes:
         create:
           error: Hiba történt a megjegyzésre való szavazáskor.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Jelentkezzen be fiókodba</a> vagy <a href="%{sign_up_url}">iratkozz fel</a> megjegyzés küldéséhez.
         form:
           body:
             label: Megjegyzés
             placeholder: Mit gondolsz erről?
           form_error: Kötelező kitölteni, és nem lehet hosszabb, mint %{length} karakter.
-          submit: Küldés
           user_group_id:
             label: 'Megjegyzés mint:'
         opinion:
@@ -92,8 +87,6 @@ hu:
           older: Korábbi
           recent: Legutóbbi
         title: 'Rendezés:'
-      comment_thread:
-        title: 'Beszélgetés vele: %{authorName}'
       comments:
         blocked_comments_for_unauthorized_user_warning: Ebben a pillanatban nem tud megjegyzéseket tenni, de elolvashatja az előzőeket.
         blocked_comments_for_user_warning: Ebben a pillanatban nem tud megjegyzéseket tenni, de elolvashatja az előzőeket.

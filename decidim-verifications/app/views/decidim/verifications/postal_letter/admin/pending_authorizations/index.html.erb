@@ -37,13 +37,13 @@
                 <td>
                   <% if authorization.letter_sent? %>
                     <%= icon "checkbox-circle-line",
-                            class: "action-icon action-icon--disabled" %>
+                             class: "action-icon action-icon--disabled" %>
                   <% else %>
                     <%= icon_link_to "checkbox-circle-line",
-                                    pending_authorization_postage_path(authorization.id),
-                                    t(".mark_as_sent"),
-                                    method: :post,
-                                    class: "action-icon--verify" %>
+                                     pending_authorization_postage_path(authorization.id),
+                                     t(".mark_as_sent"),
+                                     method: :post,
+                                     class: "action-icon--verify" %>
                   <% end %>
                 </td>
               </tr>

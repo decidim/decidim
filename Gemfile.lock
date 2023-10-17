@@ -65,7 +65,7 @@ PATH
       date_validator (~> 0.12.0)
       decidim-api (= 0.28.0.dev)
       devise (~> 4.7)
-      devise-i18n (~> 1.2)
+      devise-i18n (~> 1.2, < 1.11.1)
       diffy (~> 3.3)
       doorkeeper (~> 5.6, >= 5.6.6)
       doorkeeper-i18n (~> 4.0)
@@ -264,7 +264,7 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     batch-loader (1.5.0)
-    bcrypt (3.1.18)
+    bcrypt (3.1.19)
     better_html (2.0.1)
       actionview (>= 6.0)
       activesupport (>= 6.0)
@@ -337,8 +337,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.10.2)
-      devise (>= 4.8.0)
+    devise-i18n (1.11.0)
+      devise (>= 4.9.0)
     devise_invitable (2.0.8)
       actionmailer (>= 5.0)
       devise (>= 4.6)
@@ -512,7 +512,7 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.4)
-    minitest (5.19.0)
+    minitest (5.20.0)
     msgpack (1.4.5)
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -808,7 +808,7 @@ GEM
     wkhtmltopdf-binary (0.12.6.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.11)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   ruby

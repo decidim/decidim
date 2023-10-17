@@ -53,12 +53,6 @@ module Decidim
           render layout: "decidim/admin/participatory_process"
         end
 
-        def show
-          raise ActionController::RoutingError, I18n.t("content_doesnt_exist", scope: "decidim.errors.not_found") if current_participatory_process.blank?
-
-          render layout: "decidim/admin/participatory_process"
-        end
-
         def update
           enforce_permission_to :update, :process, process: current_participatory_process
           @form = form(ParticipatoryProcessForm).from_params(
@@ -103,10 +97,6 @@ module Decidim
 
         def participatory_process_params
           { id: params[:slug] }.merge(params[:participatory_process].to_unsafe_h)
-        end
-
-        def current_participatory_space_path
-          Decidim::ResourceLocatorPresenter.new(current_participatory_space).show
         end
       end
     end

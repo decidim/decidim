@@ -1,4 +1,9 @@
 <% add_decidim_page_title(translated_attribute(@template.name)) %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t(".title") %>
+  </h2>
+</div>
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: block_user_template_path, html: { class: "form-defaults form edit_user_block_template" }) do |f| %>

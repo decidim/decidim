@@ -15,13 +15,13 @@ describe "Admin manages budgets", type: :system do
   end
 
   describe "admin form" do
-    before { click_on "New Budget" }
+    before { click_on "New budget" }
 
     it_behaves_like "having a rich text editor", "new_budget", "content"
   end
 
   it "creates a new budget" do
-    click_link "New Budget"
+    click_link "New budget"
 
     within ".new_budget" do
       fill_in_i18n(
@@ -45,9 +45,7 @@ describe "Admin manages budgets", type: :system do
 
     click_button "Create budget"
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("Budget successfully created.")
 
     within "table" do
       expect(page).to have_content("My Budget")
@@ -72,9 +70,7 @@ describe "Admin manages budgets", type: :system do
 
       click_button "Update budget"
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Budget successfully updated.")
 
       within "table" do
         expect(page).to have_content("My new title")
@@ -97,9 +93,7 @@ describe "Admin manages budgets", type: :system do
         end
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Budget successfully deleted.")
 
       within "table" do
         expect(page).not_to have_content(translated(budget.title))

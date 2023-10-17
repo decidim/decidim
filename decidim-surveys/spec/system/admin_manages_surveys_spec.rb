@@ -69,7 +69,7 @@ describe "Admin manages surveys", type: :system do
           click_button "Save"
         end
 
-        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout "Survey successfully saved"
         expect(questionnaire.answers).to be_empty
       end
 

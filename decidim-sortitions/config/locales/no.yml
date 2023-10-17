@@ -38,7 +38,6 @@
         actions:
           destroy: Avbryt sorteringen
           edit: Editar
-          new: Ny sortering
           show: Sorterings detaljer
         models:
           sortition:
@@ -52,9 +51,6 @@
               seed: Seed
               target_items: Gjenstander å velge
               title: Tittel
-            name:
-              one: Sortering
-              other: Sorteringer
         sortitions:
           confirm_destroy:
             confirm_destroy: Er du sikker på at du vil avbryte denne sorteringen?
@@ -68,7 +64,6 @@
           form:
             all_categories: Alle kategorier
             select_proposal_component: Velg forslagets set
-            title: Ny sortering for forslag
           index:
             title: Sorteringer
           new:
@@ -93,14 +88,7 @@
           all: Alle
           cancelled: Avbrutt
           category: Kategori
-          category_prompt: Velg en kategori
-          search: Søk
           state: Status
-        filters_small_view:
-          close_modal: Lukk modal
-          filter: Filter
-          filter_by: Filtrer etter
-          unfold: Åpne
         linked_sortitions:
           selected_proposals: Utvalgte forslag
         orders:
@@ -114,24 +102,22 @@
         show:
           algorithm: Sorterings algoritmekode
           any_category: fra alle kategorier
-          back: Tilbake til listen
           cancelled: Avbrutt sortering
           candidate_proposal_ids: Sorterings forslags ordre og IDer
           candidate_proposals_info: 'Sorteringen ble gjennomført blant følgende forslag (%{category_label}), med følgende ID-er (i fet skrift, de valgte forslagene)  '
           category: fra kategorien %{category}
-          dice_result: "(1) Terning resultat"
+          dice_result: (1) Terning resultat
           introduction: 'Denne siden inneholder resultatene av sorteringen %{reference}. Ved hjelp av denne sorteringen er %{target_items} antall resultater valgt tilfeldig og med en lik sannsynlighetsfordeling fra settet av forslag som blir vist nedenfor. Sammen med resultatene gir informasjonen som vises på denne siden all nødvendig informasjon for å maksimere garantier og for å reprodusere resultatene. Nøkkelen til kvaliteten på denne sorteringen er dobbelt tilfeldighet gitt ved rulling av terninger (bekreftet av vitner) og den nøyaktige tiden for sorteringen som gir input til en algoritme som genererer et tilfeldig utvalg. Tids-seedet for sorteringen er så nøyaktig (sekunder) at det er umulig å kontrollere av mennesker og gir dermed et dobbelt "ukontrollerbart" input for å garantere et rettferdig resultat.  '
           mathematical_result: Resultat (1) x (2)
           proposals_selected_by_sortition: Forslag valgt etter sortering
           sortition_reproducibility_details: Detaljer for sorterings reproduksjonbarhet
-          time_seed: "(2) Tids seed"
+          time_seed: (2) Tids seed
           witnesses: Tilbaketrukket
         sortition:
           random_seed: Tilfeldig seed
           selected_proposals:
             one: forslag valgt
             other: forslag valgt
-          view: Vis
         sortition_author:
           deleted: Slettet deltaker
         sortition_cancel_author:

@@ -11,7 +11,7 @@ describe "Admin manages ballot styles", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Ballot Styles"
     end
   end
@@ -38,7 +38,7 @@ describe "Admin manages ballot styles", type: :system do
     end
 
     it "can add a ballot style" do
-      click_link("New")
+      click_link("New ballot style")
 
       within ".new_ballot_style" do
         fill_in :ballot_style_code, with: "new code"

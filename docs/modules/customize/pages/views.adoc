@@ -13,7 +13,7 @@ To find what you need to change you will need to make some detective work to fin
 
 If you want to override a view or partial given by Decidim you can do this just by naming it with the same filename that you already have. On more details, if you want to change the social media icons on the footer, you can do so by looking at which file you need to change, copying that file to your application with the same filename and directory structure, and making your local changes.
 
-As an example, if I want to change the footer, you'd need to search for the file (on this case, it is on https://github.com/decidim/decidim/blob/e181d7e67bdf915a3a8e58416c683f52346de047/decidim-core/app/views/layouts/decidim/_mini_footer.html.erb[`decidim-core/app/views/layouts/decidim/_mini_footer.html.erb`]), and copy that file to your own application on `app/views/layouts/decidim/_mini_footer.html.erb`).
+As an example, if I want to change the footer, you'd need to search for the file (on this case, it is on https://github.com/decidim/decidim/blob/5e636a1215774f27eddb29426ebc786c83df6c36/decidim-core/app/views/layouts/decidim/footer/_mini.html.erb[`decidim-core/app/views/layouts/decidim/footer/_mini.html.erb`]), and copy that file to your own application on `app/views/layouts/decidim/footer/_mini.html.erb`).
 
 == Deface method
 

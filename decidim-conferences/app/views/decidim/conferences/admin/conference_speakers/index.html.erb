@@ -1,28 +1,30 @@
 <% add_decidim_page_title(t("conference_speakers.index.conference_speakers_title", scope: "decidim.admin")) %>
-<div class="filters__section">
-  <div class="fcell search">
-    <%= form_tag "", method: :get do %>
-      <div class="input-group">
-        <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
-        <div class="input-group-button">
-         <button type="submit" class="text-secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
-          <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
-        </button>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
 
 <div class="card" id="conference_speakers">
   <div class="item_show__header">
     <h2 class="item_show__header-title">
       <%= t("conference_speakers.index.conference_speakers_title", scope: "decidim.admin") %>
       <% if allowed_to? :create, :conference_speaker %>
-         <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.conference_speaker.name", scope: "decidim.admin")), new_conference_speaker_path(current_conference), class: "button button__sm button__secondary new" %>
+         <%= link_to t("actions.new_speaker", scope: "decidim.admin"), new_conference_speaker_path(current_conference), class: "button button__sm button__secondary new" %>
       <% end %>
     </h2>
   </div>
+
+  <div class="filters__section">
+    <div class="fcell search">
+      <%= form_tag "", method: :get do %>
+        <div class="input-group">
+          <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
+          <div class="input-group-button">
+            <button type="submit" class="text-secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+              <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
+            </button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <div class="table-scroll">
     <table class="table-list">
       <thead>
@@ -61,5 +63,5 @@
       </tbody>
     </table>
   </div>
+  <%= decidim_paginate @conference_speakers %>
 </div>
-<%= decidim_paginate @conference_speakers %>

@@ -1,23 +1,5 @@
+<% add_secondary_root_menu(:admin_settings_menu) %>
 <%= render "layouts/decidim/admin/application" do %>
   <%= yield :title %>
-
-  <div class="settings-menu__container">
-    <div class="settings-menu">
-      <%= button_tag id: "admin-settings-dropdown-trigger", data: { component: "dropdown", target: "admin-settings-dropdown-menu-settings", "disabled-md": true } do %>
-        <span>
-          <%= t("menu.settings", scope: "decidim.admin") %>
-        </span>
-        <%= icon "arrow-down-s-line" %>
-        <%= icon "arrow-up-s-line" %>
-      <% end %>
-
-      <div id="admin-settings-dropdown-menu-settings">
-        <%= sidebar_menu_settings(:admin_settings_menu).render %>
-      </div>
-    </div>
-
-    <div>
-      <%= yield %>
-    </div>
-  </div>
+  <%= yield %>
 <% end %>

@@ -7,10 +7,7 @@ shared_examples "export meetings" do
     find(".exports").click
     perform_enqueued_jobs { click_link "Meetings as CSV" }
 
-    within ".callout.success" do
-      expect(page).to have_content("in progress")
-    end
-
+    expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to include("meetings", "csv")
     expect(last_email.attachments.length).to be_positive
     expect(last_email.attachments.first.filename).to match(/^meetings.*\.zip$/)
@@ -20,10 +17,7 @@ shared_examples "export meetings" do
     find(".exports").click
     perform_enqueued_jobs { click_link "Meetings as JSON" }
 
-    within ".callout.success" do
-      expect(page).to have_content("in progress")
-    end
-
+    expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to include("meetings", "json")
     expect(last_email.attachments.length).to be_positive
     expect(last_email.attachments.first.filename).to match(/^meetings.*\.zip$/)

@@ -29,22 +29,20 @@
   <%= form.text_field :online_meeting_url, help_text: t(".online_meeting_url_help") %>
 </div>
 
-<div class="iframe-fields">
-  <div class="field" data-meeting-type="online">
-    <%= form.select :iframe_embed_type,
-      @form.iframe_embed_type_select,
-      {
-        multiple: false,
-        help_text: t(".show_embedded_iframe_help", domains: Decidim::Meetings.embeddable_services&.join(" "))
-      } %>
-  </div>
+<div class="field" data-meeting-type="online">
+  <%= form.select :iframe_embed_type,
+                  @form.iframe_embed_type_select,
+                  {
+                    multiple: false,
+                    help_text: t(".show_embedded_iframe_help", domains: Decidim::Meetings.embeddable_services&.join(" "))
+                  } %>
+</div>
 
-  <div class="field iframe-fields--access-level" id="meeting_iframe_embed_type" data-meeting-type="online-access-level">
-    <%= form.select :iframe_access_level,
-      @form.iframe_access_level_select,
-      { include_blank: t(".select_an_iframe_access_level") },
-      { multiple: false } %>
-  </div>
+<div class="field iframe-fields--access-level" id="meeting_iframe_embed_type" data-meeting-type="online-access-level">
+  <%= form.select :iframe_access_level,
+                  @form.iframe_access_level_select,
+                  { include_blank: t(".select_an_iframe_access_level") },
+                  { multiple: false } %>
 </div>
 
 <div class="field">
@@ -67,9 +65,9 @@
 
 <div class="row column">
   <%= form.select :registration_type,
-    @form.registration_type_select,
-    { include_blank: t(".select_a_registration_type") },
-    { multiple: false } %>
+                  @form.registration_type_select,
+                  { include_blank: t(".select_a_registration_type") },
+                  { multiple: false } %>
 </div>
 
 <div class="row column" id="meeting_available_slots">

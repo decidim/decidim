@@ -11,15 +11,22 @@ lt:
         decidim_area_id: Aplinka
         description: Aprašymas
         developer_group: Rėmėjų grupė
+        document: Dokumentas
         domain: Domenas
         end_date: Pabaigos data
         hashtag: Grotažymė
         hero_image: Pradžios paveikslėlis
+        import_attachments: Importuoti priedus
+        import_categories: Importuoti kategorijas
+        import_components: Importuoti komponentus
+        import_steps: Importuoti žingsnius
         local_area: Organizacijos aplinka
         meta_scope: Srities metaduomenys
         participatory_process_group_id: Procesų grupė
+        participatory_process_type_id: Proceso tipas
         participatory_scope: Kas nuspręsta
         participatory_structure: Kaip nuspręsta
+        private_space: Privatus procesas
         promoted: Paaukštintas/a
         published_at: Publikuota
         related_process_ids: Susiję procesai
@@ -62,6 +69,12 @@ lt:
         email: El. paštas
         name: Vardas
         role: Rolė
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Nevalidus turinio tipas. Leidžiamos rinkmenos tik su šiomis galūnėmis: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Etapas aktyvuotas
       decidim/participatory_process_step_changed_event: Eatapas pakeistas
@@ -93,8 +106,8 @@ lt:
         edit: Redaguoti
         filter:
           all_processes: Rodyti visus procesus
-          process_groups: Procesų grupės
         import_process: Importuoti
+        moderate: Moderuoti
         new_process: Naujas procesas
         new_process_group: Nauja procesų grupė
         new_process_step: Naujas etapas
@@ -117,7 +130,7 @@ lt:
           attachments: Priedai
           categories: Kategorijos
           components: Komponentai
-          info: Informacija
+          landing_page: Pagrindinis puslapis
           moderations: Moderavimai
           private_users: Privatūs dalyviai
           process_admins: Proceso administratoriai
@@ -127,7 +140,6 @@ lt:
           fields:
             created_at: Sukurta
             private: Privatu
-            promoted: Paryškinta
             published: Paskelbta
             title: Pavadinimas
           name: Dalyvaujamasis procesas
@@ -169,8 +181,17 @@ lt:
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Aktyvūs turinio blokai
+          add: Pridėti turinio bloką
+          destroy_confirmation: Ar tikrai norite ištrinti šį turinio bloką?
           inactive_content_blocks: Neaktyvūs turinio blokai
+          title: Puslapio turinys
       participatory_process_group_landing_page_content_blocks:
+        create:
+          error: Bandant sukurti šį turinio bloką kilo problema.
+          success: Turinio blokas sėkmingai sukurtas.
+        destroy:
+          error: Bandant pašalinti šį turinio bloką kilo problema.
+          success: Turinio blokas sėkmingai pašalintas.
         edit:
           update: Atnaujinti
       participatory_process_groups:
@@ -211,6 +232,9 @@ lt:
           success: Dalyvaujamojo proceso etapas sukurtas.
         default_title: Įžanga
         destroy:
+          error:
+            active_step: Negalima pašalinti aktyviojo etapo.
+            last_step: Negalima pašalinti proceso paskutinio etapo.
           success: Dalyvaujamojo proceso etapas pašalintas.
         edit:
           title: Redaguoti dalyvaujamojo proceso etapą
@@ -234,8 +258,6 @@ lt:
         edit:
           title: Redaguoti proceso tipą
           update: Atnaujinti
-        form:
-          title: Pavadinimas
         new:
           create: Sukurti
           title: Naujas proceso tipas
@@ -266,7 +288,6 @@ lt:
         edit:
           update: Atnaujinti
         index:
-          not_published: Nepaskelbta
           private: Privatu
           public: Vieša
           published: Paskelbta
@@ -340,6 +361,10 @@ lt:
           contextual: "<p> <strong>dalyvaujamasis procesas</strong> – dalyvaujamųjų veiklų seka (pvz., visų pirma surengiama apklausa, tada pateikiami pasiūlymai, jie aptariami tiesioginiuose susitikimuose arba vaizdo konferencijose ir galiausiai nustatomi pasiūlymų prioritetai). Šios veiklos tikslas – nustatyti ir priimti sprendimus konkrečia tema.</p> <p>Dalyvaujamojo proceso pavyzdžiai: komiteto narių rinkimo procesas (pirmiausia pateikiamos kandidatūros, po to diskutuojama ir galiausiai pasirenkamas kandidatas), dalyvaujamojo biudžeto nustatymas (teikiami pasiūlymai, jie vertinami ekonomiškai ir dėl jų balsuojama remiantis turimomis lėšomis), strateginio planavimo procesas, bendras reglamento ar standarto rengimas, miesto erdvės planavimas arba viešosios politikos plano rengimas.</p>\n"
           page: "<p> <strong>dalyvaujamasis procesas</strong> – dalyvaujamųjų veiklų seka (pvz., visų pirma surengiama apklausa, tada pateikiami pasiūlymai, jie aptariami tiesioginiuose susitikimuose arba vaizdo konferencijose ir galiausiai nustatomi pasiūlymų prioritetai). Šios veiklos tikslas – nustatyti ir priimti sprendimus konkrečia tema.</p> <p>Dalyvaujamojo proceso pavyzdžiai: komiteto narių rinkimo procesas (pirmiausia pateikiamos kandidatūros, po to diskutuojama ir galiausiai pasirenkamas kandidatas), dalyvaujamojo biudžeto nustatymas (teikiami pasiūlymai, jie vertinami ekonomiškai ir dėl jų balsuojama remiantis turimomis lėšomis), strateginio planavimo procesas, bendras reglamento ar standarto rengimas, miesto erdvės planavimas arba viešosios politikos plano rengimas.</p>\n"
           title: Kas yra dalyvaujamasis procesas?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Proceso tipas duomenų bazėje nerastas (ID: %{id}).'
     menu:
       processes: Procesai
     metrics:
@@ -347,30 +372,31 @@ lt:
         description: Dalyvaujamųjų procesų skaičius šioje organizacijoje
         object: dalyvaujamieji procesai
         title: Dalyvaujamieji procesai
-    participatory_process:
-      show:
-        related_assemblies: Susijusios asamblėjos
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Paaukštinta(-s)
+          name: Metaduomenys
+          participatory_scope: Kas sprendžiama
+          participatory_structure: Kaip sprendžiama
+          target: Kas dalyvauja
+        html:
+          name: HTML blokas
         html_1:
           name: Pirmas HTML blokas
         html_2:
           name: Antras HTML blokas
         html_3:
           name: Trečias HTML blokas
-        metadata:
-          developer_group: Paaukštintas/a
-          name: Metaduomenys
-          participatory_scope: Kas nuspręsta
-          participatory_structure: Kaip nuspręsta
-          target: Kas dalyvauja
+        main_data:
+          name: Pavadinimas ir aprašymas
         participatory_processes:
+          active: Aktyvūs dalyvaujamieji procesai
           name: Dalyvaujamieji procesai
         stats:
           name: Statistika
         title:
           meta_scope: Apimtis
-          name: Pavadinimas, aprašymas ir grotažymė
           participatory_processes:
             one: 1 procesas
             few: "%{count} procesai"
@@ -381,30 +407,26 @@ lt:
     participatory_process_steps:
       index:
         process_steps: Proceso etapai
-        title: Dalyvaujamojo proceso etapai
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
+            active: Aktyvūs
+            all: Visi
             max_results: Didžiausias rodomų elementų skaičius
+            selection_criteria: Pasirinkimo kriterijai
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
         participatory_process_groups:
           form:
             metadata: Metaduomenys
-            title: Bendroji informacija
             visibility: Matomumas
         participatory_process_imports:
           form:
             document_legend: Pridėti dokumentą
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkrečią asamblėją. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Naudokite dalines, ne pilnas, nuorodas. Galima naudoti raides, skaičius, brūkšnius ir pasviruosius brūkšnius, tačiau pradėti būtina raide. Pavyzdys: %{url}'
             cta_text_help: Jei nenustatyta, mygtukas nebus matomas.
         participatory_processes:
           form:
@@ -419,12 +441,17 @@ lt:
             select_an_area: Pasirinkti aplinką
             select_participatory_process_type: Pasirinkti proceso tipą
             select_process_group: Pasirinkti procesų grupę
-            slug_help: 'Nuorodos priedėliai nukreipia į šią konkretų procesą. Priedėliai sudaromi iš raidžių, skaičių, brukšnių ir turi prasidėti nuo raidės. Pavyzdys: %{url}'
             title: Bendroji informacija
             visbility: Matomumas
       content_blocks:
+        extra_data:
+          name: Fazė ir trukmė
+        hero:
+          name: Pagrindinis paveikslėlis ir mygtukas
         highlighted_processes:
           name: Paryškinti procesai
+        related_processes:
+          name: Susiję procesai
       index:
         title: Dalyvaujamieji procesai
       last_activity:
@@ -432,17 +459,22 @@ lt:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktyvūs procesai
-            active_step: Aktyvusis etapas
-            more_information: Daugiau informacijos
-            participate: Dalyvauti
-            participate_in: Dalyvauti procese %{resource_name}
-            processes_button_title: Nuoroda į puslapį „Procesai“, kuriame pateikiami visi procesai
-            see_all_processes: Žiūrėti visus procesus
+            active_spaces: Aktyvūs procesai
+            see_all_spaces: Žiūrėti visus procesus
       participatory_process_steps:
         index:
           back_to_process: Grįžti į procesų puslapį
       participatory_processes:
+        description:
+          area_name: Aplinka
+          data: Proceso duomenys
+          developer_group: Rėmėjų grupė
+          local_area: Organizacijos vietovė
+          meta_scope: Sritis
+          participatory_scope: Kas sprendžiama
+          participatory_structure: Kaip sprendžiama
+          target: Kas dalyvauja
+          title: Apie šį procesą
         filters:
           all_types: Visi tipai
           counters:
@@ -466,7 +498,10 @@ lt:
               few: "%{count} būsimi procesai"
               many: "%{count} būsimi procesai"
               other: "%{count} būsimi procesai"
+          date: Data
           explanations:
+            no_active: Aktyvių procesų nėra.
+            no_active_nor_upcoming: Nei aktyvių, nei būsimų procesų nėra.
             no_active_nor_upcoming_callout: Nei aktyvių, nei būsimų procesų nėra. Čia pateikiamas buvusių procesų sąrašas.
           filter_by: Rodyti
           names:
@@ -475,25 +510,13 @@ lt:
             past: Praėję
             upcoming: Artėjantys
           see: Žiūrėti
-        index:
-          loading: Įkeliami rezultatai...
+          type: Tipas
         show:
           title: Apie šį procesą
       show:
-        area: Aplinka
         belongs_to_group: Šis procesas priklauso
-        dates: Datos
-        developer_group: Rėmėjų grupė
-        end_date: Pabaigos data
-        local_area: Organizacijos vietovė
-        participatory_scope: Kas nuspręsta
-        participatory_structure: Kaip nuspręsta
         private_space: Tai yra uždaras procesas
         related_processes: Susiję procesai
-        scope: Apimtis
-        start_date: Pradžios data
-        target: Kas dalyvauja
-        unspecified: Nepatikslinta
     statistics:
       processes_count: Procesai
   layouts:
@@ -503,10 +526,6 @@ lt:
           browse: Naršyti
           browse_resource: Naršyti proceso grupėje %{resource_name}
           processes_count: 'Procesai:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktyvusis etapas
-          take_part: Dalyvaukite
       participatory_processes:
         index:
           promoted_processes: Paryškinti procesai
@@ -516,16 +535,3 @@ lt:
           more_info_about: Daugiau informacijos apie procesą %{resource_name}
           take_part: Dalyvaukite
           take_part_in: Dalyvaukite procese %{resource_name}
-        promoted_process:
-          active_step: 'Dabartinis etapas:'
-          more_info: Daugiau informacijos
-          more_info_about: Daugiau informacijos apie procesą %{resource_name}
-          take_part: Dalyvaukite
-          take_part_in: Dalyvaukite procese %{resource_name}
-        promoted_process_group:
-          more_info: Daugiau informacijos
-      process_header_steps:
-        step: '%{current} etapas iš %{total}'
-        view_steps: Proceso etapai
-      process_navigation:
-        process_menu_item: Procesas

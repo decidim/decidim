@@ -6,18 +6,18 @@
 </div>
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
-    <%= form_tag(import_results_path, multipart: true, class: "form form-defaults new_import") do %>
+    <%= form_for(@form, url: import_results_path, html: { class: "form form-defaults import_projects" }) do |form| %>
       <div class="card py-4">
-        <div class="card-section space-y-4">
+        <div class="card-section space-y-4 prose max-w-full">
           <div class="row column">
             <p><%= t(".info",
                      link_new_status: new_status_path,
                      link_new_result: new_result_path,
                      link_export_csv: link_to(t(".download_export"),exports_path(current_component, id: "results", format: "CSV"), method: :post)
-                    ).try("html_safe") %></p>
+                   ).try("html_safe") %></p>
           </div>
           <div class="row column">
-            <%= file_field_tag :csv_file %>
+            <%= form.upload :file, button_class: "button button__sm button__transparent-secondary" %>
           </div>
         </div>
       </div>

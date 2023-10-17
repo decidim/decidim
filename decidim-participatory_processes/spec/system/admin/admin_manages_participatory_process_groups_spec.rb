@@ -181,14 +181,15 @@ describe "Admin manages participatory process groups", type: :system do
       end
     end
 
-    it "has an edit menu with sections" do
+    it "has a link to the landing page" do
       within find("tr", text: participatory_process_group.title["en"]) do
         click_link "Edit"
       end
 
-      within "div.item__edit-menu" do
-        expect(page).to have_css("a.item__edit-menu-anchor")
-      end
+      click_button "Manage"
+      click_link "Landing page"
+
+      expect(page).to have_content "Active content blocks"
     end
   end
 

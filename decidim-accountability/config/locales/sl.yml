@@ -31,7 +31,6 @@ sl:
         destroy: Izbriši
         edit: Uredi
         import_csv: Uvozi CSV
-        new: Novo %{name}
         preview: Predogled
         timeline_entries: Razvoj projekta
         title: Dejanja

@@ -4,7 +4,7 @@
     <h2 class="item_show__header-title">
       <%= t ".title" %>
       <% if allowed_to?(:create, :template) %>
-        <%= link_to t("actions.new", scope: "decidim.admin", name: t("template.name", scope: "decidim.models").downcase), [:new, :block_user_template], class: "button button__sm button__secondary new" %>
+        <%= link_to t("actions.new_template", scope: "decidim.admin.templates"), [:new, :block_user_template], class: "button button__sm button__secondary new" %>
       <% end %>
     </h2>
   </div>

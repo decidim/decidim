@@ -5,9 +5,12 @@
       <%= content_blocks_title %>
 
       <div>
-        <button class="button button__sm button__secondary button--title" data-toggle="add-content-block-dropdown"><%= add_content_block_text %></button>
+        <button class="button button__sm button__secondary button--title" data-toggle="add-content-block-dropdown">
+          <%= add_content_block_text %>
+          <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+        </button>
         <div class="dropdown-pane" id="add-content-block-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true">
-          <ul class="vertical menu add-components">
+          <ul class="vertical menu add-components font-normal">
             <% available_manifests.each do |manifest| %>
               <li><%= link_to t(manifest.public_name_key), resource_create_url(manifest.name), method: :post %></li>
             <% end %>

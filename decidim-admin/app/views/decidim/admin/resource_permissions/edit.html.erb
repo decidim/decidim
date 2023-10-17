@@ -1,3 +1,5 @@
+<% add_decidim_page_title(t(".title")) %>
+
 <section id="components">
   <div class="item_show__header">
     <h2 class="item_show__header-title">
@@ -43,8 +45,10 @@
           </fieldset>
         <% end %>
       <% end %>
-      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= permissions_form.submit t(".submit"), class: "button button__sm button__secondary" %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= permissions_form.submit t(".submit"), class: "button button__sm button__secondary" %>
+        </div>
       </div>
     </div>
   <% end %>

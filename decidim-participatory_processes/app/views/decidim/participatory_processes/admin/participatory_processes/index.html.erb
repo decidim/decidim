@@ -8,7 +8,7 @@
       <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
     </button>
     <div id="process_groups" class="dropdown-pane" data-position="bottom" data-dropdown data-auto-focus="true">
-      <ul class="list-reset">
+      <ul>
         <%= link_to query_params_with(decidim_participatory_process_group_id_eq: nil) do %>
           <li><%= t("actions.filter.all_processes", scope: "decidim.admin") %></li>
         <% end %>
@@ -23,7 +23,7 @@
   <% if process_group %>
     <div>
       <%= link_to translated_attribute(process_group.title),
-        edit_participatory_process_group_path(process_group) %>
+                  edit_participatory_process_group_path(process_group) %>
     </div>
   <% end %>
   <br>
@@ -58,7 +58,7 @@
               <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin") %>
             <% end %>
             <% if allowed_to? :update, :process, process: process %>
-              <%= link_to translated_attribute(process.title), participatory_process_path(process) %><br>
+              <%= link_to translated_attribute(process.title), edit_participatory_process_path(process) %><br>
             <% else %>
               <%= translated_attribute(process.title) %>
             <% end %>
@@ -81,6 +81,12 @@
             <% end %>
           </td>
           <td class="table-list__actions">
+
+            <% if allowed_to? :update, :process, process: process %>
+              <%= icon_link_to "pencil-line", edit_participatory_process_path(process), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+            <% else %>
+              <span class="action-space icon"></span>
+            <% end %>
 
             <% if allowed_to? :create, :process, process: process %>
               <%= icon_link_to "download-line", participatory_process_export_path(process), t("actions.export", scope: "decidim.admin"), method: :post, class: "action-icon--export" %>

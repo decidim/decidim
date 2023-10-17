@@ -54,11 +54,8 @@
           </fieldset>
 
       </details>
-      <div class="callout warning mt-2">
-        <p>
-          <%= t ".colors_warning_html" %>
-        </p>
-      </div>
+      <%= cell("decidim/announcement", t(".colors_warning_html"), callout_class: "warning") %>
+
       <div class="organization-colors">
         <%= form.color_field :primary_color, value: current_organization.colors["primary"] %>
         <%= form.color_field :secondary_color, value: current_organization.colors["secondary"] %>

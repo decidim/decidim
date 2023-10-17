@@ -7,8 +7,9 @@ shared_examples "manage partners examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
-    click_button(id: "conference-menu-trigger")
-    click_link "Partners"
+    within_admin_sidebar_menu do
+      click_link "Partners"
+    end
   end
 
   it "shows conference partners list" do

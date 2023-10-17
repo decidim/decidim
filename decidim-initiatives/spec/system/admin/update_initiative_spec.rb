@@ -10,9 +10,7 @@ describe "User prints the initiative", type: :system do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout "The initiative has been successfully updated."
   end
 
   context "when initiative update" do

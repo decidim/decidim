@@ -98,7 +98,7 @@ shared_examples "manage processes examples" do
         click_link translated(participatory_process.title)
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "About this process"
       end
     end
@@ -136,7 +136,7 @@ shared_examples "manage processes examples" do
         click_link translated(participatory_process.title)
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "About this process"
       end
     end
@@ -160,7 +160,7 @@ shared_examples "manage processes examples" do
         click_link translated(participatory_process.title)
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "About this process"
       end
     end
@@ -202,13 +202,13 @@ shared_examples "manage processes examples" do
         click_link translated(participatory_process.title)
       end
 
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "About this process"
       end
 
       uncheck :participatory_process_scopes_enabled
 
-      expect(page).to have_selector("#participatory_process_scope_id.disabled")
+      expect(page).to have_selector("#participatory_process_scope_id[disabled]")
 
       within ".edit_participatory_process" do
         find("*[type=submit]").click

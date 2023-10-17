@@ -1,9 +1,5 @@
 <div class="form__wrapper">
-  <div class="card">
-    <div class="card-divider">
-      <h2 class="card-title"><%= title %></h2>
-    </div>
-
+  <div class="card pt-4">
     <div class="card-section">
       <div class="row column">
         <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
@@ -20,7 +16,7 @@
       <%= render partial: "decidim/admin/shared/gallery", locals: { form: } %>
 
       <div class="row column">
-        <%= proposals_picker(form, :proposals, proposals_picker_election_question_answers_path(election, question)) %>
+        <%= render partial: "decidim/proposals/proposals/proposals_picker.html.erb", locals: { form:, field: :proposals } %>
       </div>
     </div>
   </div>

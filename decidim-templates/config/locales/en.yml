@@ -13,6 +13,8 @@ en:
         manage: Manage
         templates: Templates
       templates:
+        actions:
+          new_template: New template
         apply:
           error: There was a problem applying this template.
           success: Template applied successfully.
@@ -44,12 +46,15 @@ en:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Edit block user message template
           form:
             save: Save
-            template_title: Template information
           index:
             confirm_delete: Are you sure you want to delete this template?
             title: Block user messages
+          new:
+            title: New block user message template
           template_chooser:
             select_template: Select a template answer
         questionnaire_templates:
@@ -63,12 +68,14 @@ en:
             edit: Edit
             empty: There are no questions yet.
             questionnaire: Questionnaire
+            title: Edit questionnaire template
           form:
-            template_title: Template information
             title: Questionnaire template %{questionnaire_for}
           index:
             confirm_delete: Are you sure you want to delete this template?
             title: Questionnaire templates
+          new:
+            title: New questionnaire template
           preview:
             current_step: Step %{step}
             of_total_steps: of %{total_steps}

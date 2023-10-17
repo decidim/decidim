@@ -12,9 +12,10 @@ describe "Admin manages participatory space private users via csv import", type:
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    click_button(id: "assembly-menu-trigger")
-    find("a[href*='participatory_space_private_users']").click
-    find("a[href*='csv_import'").click
+    within_admin_sidebar_menu do
+      click_link "Private users"
+    end
+    click_link "Import via CSV"
   end
 
   it "show the form to add some private users via csv" do

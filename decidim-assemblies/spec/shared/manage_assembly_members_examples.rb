@@ -5,7 +5,7 @@ shared_examples "manage assembly members examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Members"
     end
   end
@@ -14,9 +14,7 @@ shared_examples "manage assembly members examples" do
     let!(:assembly_member) { create(:assembly_member, assembly:) }
 
     it "creates a new assembly member" do
-      within ".process-title-content" do
-        click_link "New Member"
-      end
+      click_link "New assembly member"
 
       fill_in :assembly_member_designation_date, with: Time.current
 
@@ -50,9 +48,7 @@ shared_examples "manage assembly members examples" do
     let!(:member_user) { create(:user, organization: assembly.organization) }
 
     it "creates a new assembly member" do
-      within ".process-title-content" do
-        click_link "New Member"
-      end
+      click_link "New assembly member"
 
       fill_in :assembly_member_designation_date, with: Time.current
 
@@ -78,9 +74,7 @@ shared_examples "manage assembly members examples" do
     let!(:member_organization) { create(:user_group, :verified, organization: assembly.organization) }
 
     it "creates a new assembly member" do
-      within ".process-title-content" do
-        click_link "New Member"
-      end
+      click_link "New assembly member"
 
       fill_in :assembly_member_designation_date, with: Time.current
 

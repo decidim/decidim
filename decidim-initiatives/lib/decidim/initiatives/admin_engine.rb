@@ -112,7 +112,10 @@ module Decidim
             menu.add_item [component.manifest_name, component.id].join("_"),
                           caption.html_safe,
                           manage_component_path(component),
-                          active: is_active_link?(manage_component_path(component)),
+                          active: is_active_link?(manage_component_path(component)) ||
+                                  is_active_link?(decidim_admin_initiatives.edit_component_path(current_participatory_space, component)) ||
+                                  is_active_link?(decidim_admin_initiatives.edit_component_permissions_path(current_participatory_space, component)) ||
+                                  participatory_space_active_link?(component),
                           if: component.manifest.admin_engine # && user_role_config.component_is_accessible?(component.manifest_name)
           end
         end
@@ -123,7 +126,7 @@ module Decidim
           menu.add_item :edit_initiative,
                         I18n.t("menu.information", scope: "decidim.admin"),
                         decidim_admin_initiatives.edit_initiative_path(current_participatory_space),
-                        icon_name: "tools-line",
+                        icon_name: "information-line",
                         if: allowed_to?(:edit, :initiative, initiative: current_participatory_space)
 
           menu.add_item :initiative_committee_requests,
@@ -135,9 +138,11 @@ module Decidim
           menu.add_item :components,
                         I18n.t("menu.components", scope: "decidim.admin"),
                         decidim_admin_initiatives.components_path(current_participatory_space),
-                        icon_name: "layout-masonry-line",
-                        if: allowed_to?(:read, :component, initiative: current_participatory_space)
-
+                        icon_name: "tools-line",
+                        active: is_active_link?(decidim_admin_initiatives.components_path(current_participatory_space),
+                                                ["decidim/initiatives/admin/components", %w(index new edit)]),
+                        if: allowed_to?(:read, :component, initiative: current_participatory_space),
+                        submenu: { target_menu: :admin_initiatives_components_menu }
           menu.add_item :initiative_attachments,
                         I18n.t("menu.attachments", scope: "decidim.admin"),
                         decidim_admin_initiatives.initiative_attachments_path(current_participatory_space),

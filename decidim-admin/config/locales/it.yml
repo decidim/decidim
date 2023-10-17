@@ -84,7 +84,6 @@ it:
         success_color: Successo
         time_zone: Fuso Orario
         tos_version: Termini di versione del servizio
-        twitter_handler: Gestore di Twitter
         user_groups_enabled: Abilita gruppi
         users_registration_mode: Modalità di registrazione utenti
         warning_color: Attenzione
@@ -154,8 +153,6 @@ it:
         export: Esporta tutto
         export-selection: Esporta selezione
         import: Importazione
-        manage: Gestisci
-        new: Nuovo %{name}
         newsletter:
           new: Nuova newsletter
         participatory_space_private_user:
@@ -202,7 +199,6 @@ it:
           title: Modifica cartella
           update: Aggiorna
         index:
-          attachment_collection_used: Questa cartella non può essere rimossa perché è in uso.
           attachment_collections_title: Cartelle dell'allegato
         new:
           create: Creare
@@ -247,7 +243,6 @@ it:
           update: Aggiorna
         index:
           categories_title: Categorie
-          category_used: Questa categoria non può essere rimossa perché è in uso.
         new:
           create: Crea nuova categoria
           title: Nuova categoria
@@ -391,7 +386,6 @@ it:
             all: Tutti
             managed: Gestito
             not_managed: Non gestito
-          filter_by: Filtra per
           impersonate: Impersonare
           impersonate_new_managed_user: Gestisci nuovi partecipanti
           managed: Gestito
@@ -444,7 +438,6 @@ it:
         area_types: Tipi di ambito territoriale
         areas: Ambiti territoriali
         configuration: Configurazione
-        dashboard: Cruscotto (Dashboard)
         external_domain_whitelist: Consenti l'uso di domini esterni
         help_sections: Sezioni di Aiuto
         homepage: Homepage
@@ -524,7 +517,6 @@ it:
           fields:
             created_at: Data di creazione
             email: E-mail
-            last_sign_in_at: Data dell'ultimo accesso
             name: Nome
             role: Ruolo
             roles:
@@ -630,9 +622,6 @@ it:
           select_scopes: Filtra per gli utenti che hanno attivato qualsiasi ambito selezionato nelle impostazioni interessi personali del proprio account.
           select_spaces: Selezionare gli spazi per segmentare la newsletter
           select_users: Seleziona gli utenti a cui desideri inviare la newsletter
-          send_to_all_users: Invia a tutti gli utenti
-          send_to_followers: Invia ai follower
-          send_to_participants: Invia ai partecipanti
           title: Seleziona destinatari a cui inviare
           warning: "<strong>Attenzione:</strong> Questa newsletter sarà inviata solo agli utenti che hanno attivato <em>Voglio ricevere newsletter</em> nelle impostazioni delle notifiche."
         show:
@@ -664,7 +653,6 @@ it:
           officialize: ufficializzare
           title: Utente ufficiale "%{name}"
         show_email_modal:
-          close_modal: Chiudi modalità
           description: Se hai bisogno di contattare un partecipante direttamente, puoi fare clic sul pulsante Mostra per vedere il loro indirizzo email. Questa azione sarà registrata.
           email_address: Indirizzo email
           full_name: Nome Completo
@@ -681,7 +669,6 @@ it:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In alcune aree di testo, i partecipanti saranno in grado di inserire alcuni tag HTML utilizzando l'editor di testo rich text.
           social_handlers: Social networks
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
@@ -693,8 +680,6 @@ it:
         form:
           colors:
             colors_title: Colori dell'organizzazione
-            header_snippets_help: Utilizza questo campo per aggiungere le cose alla testa HTML. L'uso più comune è quello di integrare i servizi di terze parti che richiedono JavaScript o CSS extra. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra all'HTML. Tieni presente che questo sarà reso solo nelle pagine pubbliche, non nella sezione admin.
-          cta_button_path_help: 'Puoi sovrascrivere il collegamento del pulsante di "Chiamata all''azione" nella home page. Utilizza i percorsi parziali e non gli URL completi qui. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Il pulsante "Chiamata all''azione" è mostrato nella homepage tra il testo di benvenuto e la descrizione. Esempio: %{url}'
           cta_button_text_help: Puoi sovrascrivere il testo del pulsante Chiamata all'azione nella home page per ogni lingua disponibile nell'organizzazione. Se non è impostato, verrà utilizzato il valore predefinito. Il pulsante Chiamata all'azione è mostrato nella homepage tra il testo di benvenuto e la descrizione.
           homepage_appearance_title: Modifica l'aspetto della home page
           homepage_highlighted_content_banner_title: Banner con contenuti Highligted
@@ -820,9 +805,6 @@ it:
           update: Aggiorna
         form:
           none: Nessuna
-          slug_help: 'Usa URL relativi, non URL assoluti. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Esempio: %{url}'
-        index:
-          last_notable_change: Ultimo cambiamento significativo
         new:
           create: Crea pagina
           title: Nuova pagina
@@ -845,7 +827,6 @@ it:
         participants: Partecipanti
         scope_types: Tipi di ambito
         scopes: Ambiti
-        static_pages: Pagine
         statistics: Attività
         user_groups: Gruppi di utenti
       user_group:
@@ -887,7 +868,6 @@ it:
           last_month: Mese precedente
           last_week: Settimana precedente
           participants: Partecipanti
-      view_public_page: Visualizza la pagina pubblica
     metrics:
       blocked_users:
         object: utenti bloccati
@@ -934,12 +914,3 @@ it:
   errors:
     messages:
       invalid_json: Problemi con la trasmissione tramite JSON (JSON non valido)
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Newsletters
-        settings:
-          title: Impostazioni
-        users:
-          title: Partecipanti

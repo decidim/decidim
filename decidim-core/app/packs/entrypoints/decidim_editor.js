@@ -1,7 +1,7 @@
 import createEditor from "src/decidim/editor";
 
 // CSS
-import "entrypoints/decidim_editor.scss"
+import "stylesheets/decidim/editor.scss"
 
 // Global exports
 window.createEditor = createEditor;

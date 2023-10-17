@@ -24,7 +24,7 @@ module Decidim
         )
       end
 
-      def sidebar_menu(target_menu)
+      def dropdown_menu(target_menu)
         ::Decidim::Admin::SecondaryMenuPresenter.new(
           target_menu,
           self,
@@ -34,11 +34,11 @@ module Decidim
         )
       end
 
-      def sidebar_menu_settings(target_menu)
+      def sidebar_menu(target_menu)
         ::Decidim::Admin::SecondaryMenuPresenter.new(
           target_menu,
           self,
-          element_class: "settings-menu__item",
+          element_class: "sidebar-menu__item",
           active_class: "is-active"
         )
       end
@@ -68,13 +68,19 @@ module Decidim
         )
       end
 
-      def aside_menu(target_menu)
-        ::Decidim::Admin::AsideMenuPresenter.new(target_menu, self)
-      end
-
       def simple_menu(target_menu:, options: {})
         options = { active_class: "is-active" }.merge(options)
         ::Decidim::Admin::SimpleMenuPresenter.new(target_menu, self, options)
+      end
+
+      def add_secondary_root_menu(menu)
+        @secondary_root_menu = menu
+      end
+
+      attr_reader :secondary_root_menu
+
+      def has_secondary_root_menu?
+        @secondary_root_menu.present?
       end
     end
   end

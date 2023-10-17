@@ -1,4 +1,4 @@
-<div class="flex items-center gap-x-4 mb-4">
+<div class="flex items-center gap-x-4">
   <div class="bulk-actions-budgets">
     <%= render partial: "decidim/budgets/admin/projects/bulk_actions/dropdown" %>
 
@@ -6,10 +6,16 @@
     <%= render partial: "decidim/budgets/admin/projects/bulk_actions/scope-change" %>
     <%= render partial: "decidim/budgets/admin/projects/bulk_actions/change-selected" %>
 
-    <%= link_to t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_proposals_import_path(budget), class: "button button__sm button__secondary" if allowed_to? :import_proposals, :project %>
     <% if allowed_to? :export, :budget %>
       <%= export_dropdown(current_component, budget.id) %>
     <% end %>
-    <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_project_path, class: "button button__sm button__secondary new" if allowed_to? :create, :project %>
+    <% if allowed_to? :import_proposals, :project %>
+      <%= import_dropdown do %>
+        <li class="imports--component">
+          <%= link_to t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_proposals_import_path(budget) %>
+        </li>
+      <% end %>
+    <% end %>
+    <%= link_to t("actions.new_project", scope: "decidim.budgets"), new_budget_project_path, class: "button button__sm button__secondary new" if allowed_to? :create, :project %>
   </div>
 </div>

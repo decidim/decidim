@@ -41,7 +41,7 @@ describe "Accessibility tool", type: :system do
   end
   let(:html_body) do
     <<~HTML.strip
-      <p id="paragraph">This page is not <span id="color_contrast" style="color:#fff;">accessible</span></p>
+      <p id="paragraph">This page is not <span id="color_contrast" style="color:#ffe;">accessible</span></p>
     HTML
   end
 

@@ -10,7 +10,6 @@ ga:
       actions:
         destroy: Scrios
         edit: Eagar
-        new: Nua
         save: Sábháil
         title: Gníomhartha
       admins:
@@ -26,7 +25,6 @@ ga:
         admin:
           fields:
             email: Seoladh ríomhphoist
-          name: Riarachán
         organization:
           fields:
             name: Ainm

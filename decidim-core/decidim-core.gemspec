@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   s.add_dependency "charlock_holmes", "~> 0.7"
   s.add_dependency "date_validator", "~> 0.12.0"
   s.add_dependency "devise", "~> 4.7"
-  s.add_dependency "devise-i18n", "~> 1.2"
+  s.add_dependency "devise-i18n", "~> 1.2", "< 1.11.1"
   s.add_dependency "diffy", "~> 3.3"
   s.add_dependency "doorkeeper", "~> 5.6", ">= 5.6.6"
   s.add_dependency "doorkeeper-i18n", "~> 4.0"

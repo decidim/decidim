@@ -6,7 +6,6 @@ module Decidim
       # This controller allows an admin to manage projects from a Participatory Process
       class ProjectsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
-        include Decidim::Proposals::Admin::Picker if Decidim::Budgets.enable_proposal_linking
         include Decidim::Budgets::Admin::Filterable
         helper Decidim::Budgets::Admin::ProjectBulkActionsHelper
 

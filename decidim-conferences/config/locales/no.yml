@@ -5,7 +5,6 @@
         assemblies_ids: Relaterte Forsamlinger
         available_slots: Tilgjengelige plasser
         banner_image: Bannerafbeelding
-        consultations_ids: Relaterte konsultasjoner
         copy_categories: Kopier kategorier
         copy_components: Kopier komponenter
         copy_features: Kopier funksjoner
@@ -56,7 +55,6 @@
         conference_meeting_ids: Relaterte møter
         full_name: Fullt navn
         position: Stilling
-        twitter_handle: Brukernavn Twitter
         user_id: Bruker
       conference_user_role:
         email: Epost
@@ -77,7 +75,6 @@
     admin:
       actions:
         confirm: Bekreft
-        new_conference: Ny Konferanse
         send_diplomas: Send deltakerbevis
       conference_copies:
         new:
@@ -138,7 +135,6 @@
         form:
           title: Generell Informasjon
         index:
-          not_published: Ikke publisert
           published: Publisert
         new:
           create: Opprett
@@ -179,7 +175,6 @@
           conference_invites: Invitasjoner
           conference_speakers: Talere
           diploma: Sertifikat for Oppmøte
-          info: Info
           media_links: Media Lenker
           moderations: Moderering
           partners: Partnere
@@ -190,7 +185,6 @@
         conference:
           fields:
             created_at: Opprettet på
-            promoted: Fremhevet
             published: Publisert
             title: Tittel
         conference_speaker:
@@ -313,9 +307,6 @@
         title: Talere
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konferansen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         conference_invites:
           create:
             error: Det oppstod et problem med å invitere deltakeren til å delta på konferansen.
@@ -332,7 +323,6 @@
               all: Alle
               rejected: Avvist
               sent: Sendt
-            filter_by: Filtrer etter
             invite_attendee: Inviter deltaker
             invites: Invitasjoner
             search: Søk
@@ -356,7 +346,6 @@
             registrations_count:
               one: Det har vært 1 registrering.
               other: Det har vært %{count} registreringer.
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konferansen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         diplomas:
           edit:
             save: Lagre
@@ -415,7 +404,6 @@
           invalid: Det oppstod et problem med å forlate denne konferansen.
           success: Du har forlatt konferansen.
       conference_speaker:
-        go_to_twitter: Gå til Twitter
         more_info: mer info
         personal_website: Personlig nettside
         show:
@@ -467,9 +455,7 @@
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktive konferanser
-            conferences_button_title: Lenke til konferansesiden som viser alle konferansene
-            see_all_conferences: Se alle konferanser
+            active_spaces: Aktive konferanser
       registration_types:
         index:
           choose_an_option: 'Velg ditt registrerings alternativ:'
@@ -481,7 +467,6 @@
         introduction: Introduksjon
         objectives: Mål
         related_assemblies: Relaterte forsamlinger
-        related_consultations: Relaterte konsultasjoner
         related_participatory_processes: Relaterte deltakerprosesser
     events:
       conferences:
@@ -536,9 +521,6 @@
     decidim:
       conference_hero:
         register: Registrer
-      conference_widgets:
-        show:
-          take_part: Delta
       conferences:
         conference:
           more_info: Mer info
@@ -549,11 +531,7 @@
           conferences:
             one: "%{count} konferanse"
             other: "%{count} konferanser"
-        promoted_conference:
-          more_info: Mer info
-          take_part: Delta
       conferences_nav:
-        conference_menu_item: Informasjon
         conference_partners_menu_item: Partnere
         conference_speaker_menu_item: Talere
         media: Medier

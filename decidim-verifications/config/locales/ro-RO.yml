@@ -46,7 +46,7 @@ ro:
             - Utilizatorii completează informațiile lor de identitate și încarcă o copie a documentului lor.
             - Ai completat informațiile prezente în imaginea încărcată.
             - Informaţiile trebuie să corespundă cu ce a completat utilizatorul.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
             - Participanții solicită un cod de verificare pentru a fi trimis la adresa lor.

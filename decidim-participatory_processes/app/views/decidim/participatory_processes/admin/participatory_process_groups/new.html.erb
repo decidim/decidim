@@ -16,17 +16,8 @@
     <%= t "participatory_process_groups.new.title", scope: "decidim.admin" %>
   </h2>
 </div>
-<div class="item__edit">
-  <div class="item__edit-menu">
-    <div class="item__edit-menu-sticky">
-      <p class="item__edit-menu-title">
-        <%= t("sections", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-      </p>
-      <%= link_to t("title", scope: "decidim.participatory_processes.admin.participatory_process_groups.form"), [:new, :participatory_process_group], anchor: "title", class: "item__edit-menu-anchor" %>
-      <%= link_to t("metadata", scope: "decidim.participatory_processes.admin.participatory_process_groups.form"), [:new, :participatory_process_group], anchor: "metadata", class: "item__edit-menu-anchor" %>
-      <%= link_to t("visibility", scope: "decidim.participatory_processes.admin.participatory_process_groups.form"), [:new, :participatory_process_group], anchor: "visibility", class: "item__edit-menu-anchor" %>
-    </div>
-  </div>
+
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, html: { class: "form-defaults form new_participatory_process_group" }) do |f| %>
       <%= render partial: "form", object: f %>

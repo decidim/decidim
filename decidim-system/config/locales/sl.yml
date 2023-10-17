@@ -5,7 +5,6 @@ sl:
         confirm_destroy: Ali ste prepričani, da želite izbrisati to?
         destroy: Izbriši
         edit: Uredi
-        new: Nov
         save: Shrani
         title: Dejanja
       admins:
@@ -30,7 +29,6 @@ sl:
           fields:
             created_at: Ustvarjen ob
             email: Email
-          name: Skrbnik
         organization:
           actions:
             save_and_invite: Ustvari organizacijo in povabi skrbnika
@@ -38,7 +36,6 @@ sl:
             created_at: Ustvarjen ob
             name: Ime
             smtp_settings: SMTP nastavitve
-          name: Organizacija
       organizations:
         create:
           error: Pojavila se je težava pri kreiranju organizacije.

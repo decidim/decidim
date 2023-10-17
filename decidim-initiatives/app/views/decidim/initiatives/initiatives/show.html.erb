@@ -25,8 +25,8 @@ edit_link(
     <% else %>
       <section class="layout-aside__section layout-aside__buttons">
         <%= link_to t(".edit"),
-            edit_initiative_path(current_initiative),
-            class: "button button__xl w-full button__secondary" %>
+                    edit_initiative_path(current_initiative),
+                    class: "button button__xl w-full button__secondary" %>
         <%= render partial: "send_to_technical_validation", locals: { title: t(".send_to_technical_validation"), confirm: t(".confirm") } %>
       </section>
     <% end %>
@@ -205,9 +205,6 @@ edit_link(
   <% end %>
   <div class="ml-auto">
     <%= cell "decidim/share_button", nil %>
-    <% if current_user %>
-      <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: current_participatory_space, large: true } %>
-    <% end %>
   </div>
 </section>
 

@@ -6,9 +6,7 @@ describe("ExternalLink", () => {
   const content = `
     <div id="links">
       <a href="https://decidim.org/" target="_blank">This is an external link</a>
-      <a href="https://decidim.org/" target="_blank"><img src="/path/to/image.png" alt=""></a>
-      <a href="https://decidim.org/" target="_blank" data-external-link-spacer="%%%">Custom spacer link</a>
-      <a href="https://decidim.org/" target="_blank" data-external-link-target=".external-wrapper"><span class="external-wrapper"></span>This is the link</a>
+      <a href="https://decidim.org/" target="_blank" data-external-link="false">This is an normal link</a>
     </div>
   `;
 
@@ -20,45 +18,26 @@ describe("ExternalLink", () => {
       get: (key) => config[key]
     }
   }
-  const expectedIcon = '<svg class="icon icon--external-link" role="img" aria-hidden="true"><title>external-link</title><use href="/path/to/icons.svg#icon-external-link"></use></svg>';
+  const expectedIcon = "<svg width=\"0.75em\" height=\"0.75em\" role=\"img\" aria-hidden=\"true\" class=\"fill-current\"><title>external-link-line</title><use href=\"/path/to/icons.svg#ri-external-link-line\"></use></svg><span class=\"sr-only\">(External link)</span>";
 
   beforeEach(() => {
-    $("body").html(content);
-    $('a[target="_blank"]').each((_i, elem) => {
-      const $link = $(elem);
-      $link.data("external-link", new ExternalLink($link));
-    });
+    document.body.innerHTML = content
+    document.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => new ExternalLink(elem))
   });
 
-  it("adds the external link indicator to the normal external link", () => {
+  it("adds the external link indicator to the external link", () => {
     const $link = $("#links a")[0];
 
     expect($link.outerHTML).toEqual(
-      `<a href="https://decidim.org/" target="_blank" class="external-link-container">This is an external link&nbsp;<span class="external-link-indicator">${expectedIcon}<span class="show-for-sr">(External link)</span></span></a>`
+      `<a href="https://decidim.org/" target="_blank">This is an external link<span data-external-link="true" class="inline-block mx-0.5">${expectedIcon}</span></a>`
     );
   });
 
-  it("adds the external link indicator without a spacer to the image link", () => {
+  it("does not add the external link when is disabled", () => {
     const $link = $("#links a")[1];
 
     expect($link.outerHTML).toEqual(
-      `<a href="https://decidim.org/" target="_blank" class="external-link-container"><img src="/path/to/image.png" alt=""><span class="external-link-indicator">${expectedIcon}<span class="show-for-sr">(External link)</span></span></a>`
-    );
-  });
-
-  it("adds the external link indicator with a custom spacer to the link with the custom spacer configuration", () => {
-    const $link = $("#links a")[2];
-
-    expect($link.outerHTML).toEqual(
-      `<a href="https://decidim.org/" target="_blank" data-external-link-spacer="%%%" class="external-link-container">Custom spacer link%%%<span class="external-link-indicator">${expectedIcon}<span class="show-for-sr">(External link)</span></span></a>`
-    );
-  });
-
-  it("adds the external link indicator with a custom container to the link with the custom container configuration", () => {
-    const $link = $("#links a")[3];
-
-    expect($link.outerHTML).toEqual(
-      `<a href="https://decidim.org/" target="_blank" data-external-link-target=".external-wrapper"><span class="external-wrapper external-link-container"><span class="external-link-indicator">${expectedIcon}<span class="show-for-sr">(External link)</span></span></span>This is the link</a>`
+      "<a href=\"https://decidim.org/\" target=\"_blank\" data-external-link=\"false\">This is an normal link</a>"
     );
   });
 });

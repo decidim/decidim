@@ -34,6 +34,11 @@ module Decidim
           return broadcast(:invalid) if attachments_invalid?
         end
 
+        if process_gallery?
+          build_gallery
+          return broadcast(:invalid) if gallery_invalid?
+        end
+
         @initiative = Decidim.traceability.update!(
           initiative,
           current_user,
@@ -43,6 +48,7 @@ module Decidim
         photo_cleanup!
         document_cleanup!
         create_attachments if process_attachments?
+        create_gallery if process_gallery?
 
         broadcast(:ok, initiative)
       rescue ActiveRecord::RecordInvalid
