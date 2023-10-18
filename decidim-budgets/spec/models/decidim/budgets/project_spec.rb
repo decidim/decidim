@@ -36,7 +36,18 @@ module Decidim::Budgets
 
     describe ".ordered_ids" do
       let(:budget) { create(:budget, total_budget: 1_000_000) }
-      let(:projects) { create_list(:project, 50, budget:, budget_amount: 100_000) }
+      let(:category) { create(:category, participatory_space: budget.participatory_space) }
+      let(:projects) { create_list(:project, 50, budget:, budget_amount: 100_000, category:) }
+      let(:test_ids) do
+        first = described_class.where(budget:).order(:id).pluck(:id)[0..3]
+        ids = described_class.where(budget:).pluck(:id).shuffle
+
+        # Put the first items at the end of the IDs array in order to get
+        # possibly "conflicting" matches for them at earlier array positions.
+        # As we have 50 projects, we should have IDs starting with 1, 2, 3 and 4
+        # which is why we put the first 4 items at the end.
+        (ids - first) + first
+      end
 
       before do
         # Reset the project IDs to start from 1 in order to get possibly
@@ -50,16 +61,11 @@ module Decidim::Budgets
       end
 
       it "returns the correctly ordered projects" do
-        first = described_class.where(budget:).order(:id).pluck(:id)[0..3]
-        ids = described_class.where(budget:).pluck(:id).shuffle
-
-        # Put the first items at the end of the IDs array in order to get
-        # possibly "conflicting" matches for them at earlier array positions.
-        # As we have 50 projects, we should have IDs starting with 1, 2, 3 and 4
-        # which is why we put the first 4 items at the end.
-        test_ids = (ids - first) + first
-
         expect(described_class.ordered_ids(test_ids).pluck(:id)).to eq(test_ids)
+      end
+
+      it "returns the correctly ordered projects after filtering by category" do
+        expect(described_class.with_any_category([category.id]).ordered_ids(test_ids).pluck(:id)).to eq(test_ids)
       end
     end
 

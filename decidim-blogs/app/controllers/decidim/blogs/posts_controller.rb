@@ -8,8 +8,6 @@ module Decidim
       include Paginable
       include Decidim::IconHelper
 
-      redesign active: true
-
       helper_method :posts, :post, :post_presenter, :paginate_posts, :posts_most_commented, :tabs, :panels
 
       def index; end

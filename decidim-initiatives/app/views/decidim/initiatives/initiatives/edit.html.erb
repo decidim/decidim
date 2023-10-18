@@ -1,11 +1,13 @@
 <% add_decidim_page_title(action_name) %>
 
-<div class="text-center py-10">
-  <h1 class="h3 md:h1 decorator inline-block text-left"><%= t("title", scope: "decidim.initiatives.edit") %></h1>
-</div>
+<%= render layout:"layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left"><%= t("title", scope: "decidim.initiatives.edit") %></h1>
+  </div>
 
-<%= decidim_form_for @form, html: { class: "form__wrapper edit_initiative" } do |f| %>
+  <%= decidim_form_for @form, html: { class: "form__wrapper edit_initiative" } do |f| %>
     <%= render partial: "form", object: f %>
+
     <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
       <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
         <%= icon "arrow-left-line", class: "fill-current" %>
@@ -68,3 +70,4 @@
       <% end %>
     </div>
   <% end %>
+<% end %>

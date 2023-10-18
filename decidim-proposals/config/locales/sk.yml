@@ -383,16 +383,10 @@ sk:
           show:
             amendments_count: Počet zmien
             assigned_valuators: Priradení hodnotitelia
-            authors: Autori
             body: Telo
             comments_count: Počet komentárov
-            comments_negative_count: Proti
-            comments_neutral_count: Neutrálne
-            comments_positive_count: Za
-            created_at: Dátum vzniku
             documents: Dokumenty
             endorsements_count: Počet podporení
-            endorsements_ranking: Umiestnenie podľa množstva podpory
             endorsers: Podporovatelia
             link: Odkaz
             n_more_endorsers:
@@ -401,14 +395,12 @@ sk:
               many: + %{count} ďalších
               other: + %{count} ďalších
             photos: Fotografie
-            proposals: Návrhy
             ranking: "%{ranking} z celkového %{total}"
             related_meetings: Podobné stretnutia
             remove_assignment: Zrušiť priradenie
             remove_assignment_confirmation: Ste si istý, že chcete odstrániť hodnotiteľa z návrhu?
             valuators: Hodnotiteľ
             votes_count: Počet hlasov
-            votes_ranking: Umiestnenie podľa hlasov
           update_category:
             invalid: 'Tieto návrhy už majú kategóriu %{subject_name}: %{proposals}.'
             success: 'Návrhy úspešne pridané do kategórie %{subject_name}: %{proposals}.'
@@ -445,15 +437,11 @@ sk:
         rejected: Odmietnuté
         withdrawn: Stiahnuté
       application_helper:
-        filter_category_values:
-          all: Všetko
         filter_origin_values:
           all: Všetko
           meetings: Stretnutie
           official: Oficiálne
           user_groups: Skupiny užívateľov
-        filter_scope_values:
-          all: Všetko
         filter_state_values:
           accepted: Prijal
           all: Všetko
@@ -473,7 +461,6 @@ sk:
               ok: Publikovať ako návrh
               title: Nasledujúci akcia je nevratná
             success: Projekt spolupráce bol úspešne zverejnený ako návrh.
-          view_collaborative_draft: Zobraziť kolektívne návrh
           withdraw:
             error: Došlo k chybe pri uzatvorení návrhu spolupráce.
             irreversible_action_modal:
@@ -481,12 +468,6 @@ sk:
               ok: Vyberte návrh spolupráca
               title: Nasledujúci akcia je nevratná
             success: Kolaboratívne návrh bol úspešne zrušený.
-        count:
-          drafts_count:
-            one: "%{count} návrh spolupráce"
-            few: "%{count} návrh spolupráce"
-            many: "%{count} návrh spolupráce"
-            other: "%{count} návrh spolupráce"
         create:
           success: Projekt spolupráce bol úspešne vytvorený.
         edit:
@@ -511,6 +492,12 @@ sk:
           filter: Filter
           filter_by: Filtrovať podľa
           unfold: Rozbaliť
+        index:
+          count:
+            one: "%{count} návrh spolupráce"
+            few: "%{count} návrh spolupráce"
+            many: "%{count} návrh spolupráce"
+            other: "%{count} návrh spolupráce"
         new:
           send: Pokračovať
         new_collaborative_draft_button:
@@ -532,7 +519,6 @@ sk:
           rejected_request:
             error: Nemohol byť odmietnutý ako spolupracovník, skúste to znova neskôr.
         show:
-          back: Zadná
           edit: Úprava konceptu spolupráce
           final_proposal: konečný návrh
           final_proposal_help_text: Tento návrh je dokončený. Môžete vidieť konečný konečný návrh
@@ -546,7 +532,6 @@ sk:
           published_proposal: zverejnený návrh
           request_access: Požiadať o prístup
           requested_access: Požadovaný prístup
-          version_history: pozri históriu verzií tohto návrhu
           withdraw: stiahnuť návrh
         states:
           open: otvorené
@@ -555,8 +540,6 @@ sk:
         update:
           error: Pri ukladaní schéme spolupráce došlo k chybám.
           success: Protokol o spolupráci bol úspešne aktualizovaný.
-        wizard_aside:
-          info: Pri vytváraní <strong> spolupráca návrhu </strong>.
         wizard_header:
           title: Vytvorte návrh spolupráca
       create:
@@ -566,11 +549,6 @@ sk:
         error: Došlo k chybám s vymazaním návrhového návrhu.
         success: Koncept návrhu bol úspešne zmazaný.
       models:
-        collaborative_draft:
-          fields:
-            authors: Autori
-            comments: Komentáre
-            contributions: Príspevky
         proposal:
           fields:
             category: Kategória
@@ -591,7 +569,6 @@ sk:
         buttons:
           amend: doplňujúci návrh
           comment: Komentár
-          comments: Komentáre
       proposal_votes:
         create:
           error: Pri hlasovaní o návrhu došlo k chybám.
@@ -603,12 +580,6 @@ sk:
         complete:
           send: Poslať
           title: Dokončite svoj návrh
-        count:
-          proposals_count:
-            one: "%{count} návrh"
-            few: "%{count} návrhov"
-            many: "%{count} návrhov"
-            other: "%{count} návrhov"
         edit:
           attachment_legend: "(Voliteľné) Pridanie prílohy"
           back: Zadná
@@ -633,22 +604,15 @@ sk:
           state: Štát
           type: Typ
           voted: Hlasoval
-        filters_small_view:
-          close_modal: Zatvoriť okno
-          filter: Filter
-          filter_by: Filtrovať podľa
-          unfold: Rozbaliť
         index:
           collaborative_drafts_list: Získajte prístup k spolupráci
+          count:
+            one: "%{count} návrh"
+            few: "%{count} návrhov"
+            many: "%{count} návrhov"
+            other: "%{count} návrhov"
           new_proposal: Nový návrh
           see_all_withdrawn: Pozrite sa na všetky stiahnuté návrhy
-          view_proposal: Zobraziť návrh
-        linked_proposals:
-          proposal_votes:
-            one: hlasovanie
-            few: hlasov
-            many: hlasov
-            other: hlasov
         new:
           send: Pokračovať
         orders:
@@ -660,11 +624,6 @@ sk:
           random: Náhodný
           recent: Nedávno
           with_more_authors: S viac autormi
-        participatory_texts:
-          index:
-            document_index: Index dokumentov
-          view_index:
-            see_index: Pozri index
         preview:
           modify: Upravte návrh
           proposal_edit_before_minutes:
@@ -674,15 +633,9 @@ sk:
             other: Budete mať možnosť upraviť tento návrh počas prvých %{count} minút po návrh zverejnený. Po uplynutí tohto časového okna nebudete môcť návrh upraviť.
           publish: Publikovať
           title: Publikujte svoj návrh
-        proposal:
-          creation_date: 'Tvorba:%{date}'
-          view_proposal: Zobraziť návrh
         show:
           answer: Odpovedať
-          back_to: Späť k
-          back_to_list: Späť na zoznam
           changes_at_title: doplňujúci návrh k "%{title}"
-          comments: Komentáre
           edit_proposal: Upraviť návrh
           estimated_cost: Odhadované náklady
           hidden_endorsers_count:
@@ -699,13 +652,8 @@ sk:
           proposal_accepted_reason: 'Tento návrh bol prijatý, pretože:'
           proposal_in_evaluation_reason: Tento návrh sa hodnotí
           proposal_rejected_reason: 'Tento návrh bol zamietnutý, pretože:'
-          read_less: Čítať menej
-          read_more: Čítať ďalej
-          report: Správa
           withdraw_btn_hint: Ak zmeníte názor, môžete svoj návrh stiahnuť, ak ste nedostali žiadnu podporu. Návrh nie je zrušený, objaví sa v zozname stiahnutých návrhov.
           withdraw_proposal: Návrh stiahnuť
-        tags:
-          changed_from: "(zmenené z kategórie <u>% {previous_category} </u> správcom)"
         vote_button:
           already_voted: Už bolo hlasované
           already_voted_hover: Zavolajte
@@ -719,8 +667,6 @@ sk:
             few: HLASOVANIE
             many: HLASOVANIE
             other: HLASOVANIE
-          most_popular_proposal: Najobľúbenejšie návrh
-          need_more_votes: Potrebujete viac hlasov
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Každý návrh môže akumulovať viac ako%{limit} pomoci
@@ -732,22 +678,16 @@ sk:
           title: 'Hlasovanie podlieha týmto pravidlám:'
           vote_limit:
             description: Môžete hlasovať až pre %{limit} návrhov.
-            left: Zvyšné
             votes: Hlasy
         wizard_aside:
           back: Zadná
-          info: Vytvárate <strong> návrh </strong>.
         wizard_steps:
-          see_steps: pozri kroky
           step_1: Vytvorte svoj návrh
           step_2: Porovnajte
           step_3: Kompletné
           step_4: Publikujte svoj návrh
-          step_of: Krok %{current_step_num} z %{total_steps}
       proposals_picker:
         choose_proposals: Zvoliť návrhy
-        close: Zavrieť
-        more_proposals: Celkovo je tu o %{number} návrhov viac. Hľadajte s podrobnejšími nastaveniami.
       publish:
         error: Pri publikovaní návrhu došlo k chybám.
         success: Návrh bol úspešne publikovaný.
@@ -760,12 +700,8 @@ sk:
         error: Pri ukladaní konceptu návrhu došlo k chybám.
         success: Návrh návrhu bol úspešne aktualizovaný.
       versions:
-        collaborative_drafts:
-          back_to_resource: Vraťte se zpět do kolektivní schůzky
         index:
           title: Verze
-        proposals:
-          back_to_resource: Vraťte se k návrhu
     resource_links:
       copied_from_component:
         proposal_proposal: Související návrhy

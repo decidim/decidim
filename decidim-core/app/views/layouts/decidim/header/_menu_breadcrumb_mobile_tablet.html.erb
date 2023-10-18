@@ -1,0 +1,33 @@
+<% dropdown_item = breadcrumb_items.select { |item| item[:dropdown_cell].present? }.last %>
+<div class="menu-bar__breadcrumb-mobile__dropdown-trigger">
+  <span>
+    <% breadcrumb_items.last(2).each_with_index do |item, i| %>
+      <% item_label = decidim_html_escape(translated_attribute(item[:label])) %>
+      <% if i.positive? %>
+        <span>/</span>
+      <% end %>
+      <span class="cursor-pointer <%= "truncate" if i.positive? %>" <%== 'aria-current="page"' if item[:active] %>>
+        <% if item[:url].present? && !is_active_link?(item[:url], :exclusive) %>
+          <%= link_to(item_label, item[:url]) %>
+        <% else %>
+          <%= item_label %>
+        <% end %>
+      </span>
+    <% end %>
+  </span>
+  <% if dropdown_item.present? %>
+    <button id="secondary-dropdown-trigger-mobile" data-component="dropdown" data-hover="true" data-target="secondary-dropdown-menu-mobile">
+      <%= icon "arrow-down-s-line", class: "flex-none w-6 h-6 fill-current" %>
+    </button>
+  <% end %>
+  <% if content_for?(:participatory_space_mobile_actions) %>
+    <div class="menu-bar__actions-mobile">
+      <%= content_for :participatory_space_mobile_actions %>
+    </div>
+  <% end %>
+</div>
+<% if dropdown_item.present? %>
+  <div id="secondary-dropdown-menu-mobile" aria-hidden="true">
+    <%= cell dropdown_item[:dropdown_cell], dropdown_item[:resource], mobile: true %>
+  </div>
+<% end %>

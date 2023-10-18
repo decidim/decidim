@@ -1,5 +1,6 @@
 import "src/decidim/proposals/utils"
 import "src/decidim/proposals/add_proposal"
+import "src/decidim/proposals/choose_proposals"
 
 // Images
 require.context("../images", true)
@@ -8,4 +9,4 @@ require.context("../images", true)
 require.context("../documents", true)
 
 // CSS
-import "stylesheets/decidim/proposals/redesigned_proposals.scss"
+import "stylesheets/decidim/proposals/proposals.scss"

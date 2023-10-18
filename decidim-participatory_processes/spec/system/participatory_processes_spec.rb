@@ -99,9 +99,7 @@ describe "Participatory Processes", type: :system do
         visit decidim_participatory_processes.participatory_processes_path
       end
 
-      # REDESIGN_PENDING: Uncomment this test when redesign of this page
-      # finished. The headings increasing levels is correct there
-      # it_behaves_like "accessible page"
+      it_behaves_like "accessible page"
 
       context "and accessing from the homepage" do
         let!(:menu_content_block) { create(:content_block, organization:, manifest_name: :global_menu, scope_name: :homepage) }
@@ -124,9 +122,7 @@ describe "Participatory Processes", type: :system do
           visit decidim_participatory_processes.participatory_processes_path
         end
 
-        # REDESIGN_PENDING: Uncomment this test when redesign of this page
-        # finished. The headings increasing levels is correct there
-        # it_behaves_like "accessible page"
+        it_behaves_like "accessible page"
 
         it "lists all the highlighted processes" do
           within "#highlighted-processes" do
@@ -178,76 +174,6 @@ describe "Participatory Processes", type: :system do
             end
           end
         end
-
-        context "when the active step has CTA text and url set" do
-          # REDESIGN_PENDING - The process card-g is not expected to display
-          # CTA. Delete the test if this is correct or implement and
-          # adapt the tests
-          let(:cta_path) { "my_path" }
-          let(:cta_text) { { en: "Take action!", ca: "Take action!", es: "Take action!" } }
-
-          before do
-            skip "REDESIGN_PENDING - Remove or implement and adapt the tests"
-
-            active_step.update!(cta_path:, cta_text:)
-          end
-
-          it "shows a CTA button" do
-            visit decidim_participatory_processes.participatory_processes_path
-
-            within "#participatory_process_#{participatory_process.id}" do
-              expect(page).to have_link("Take action!")
-            end
-          end
-
-          context "when cta_text is empty in current locale" do
-            let(:cta_text) { { en: "", ca: "Take action!", es: "Take action!" } }
-
-            it "displays the regular cta button" do
-              visit decidim_participatory_processes.participatory_processes_path
-
-              within "#participatory_process_#{participatory_process.id}" do
-                expect(page).not_to have_link("Take action!")
-                expect(page).to have_link("More info")
-              end
-            end
-          end
-
-          context "when process is promoted" do
-            let(:cta_text) { { en: "Take promoted action!", ca: "Take promoted action!", es: "Take promoted action!" } }
-            let!(:active_step) do
-              create(:participatory_process_step,
-                     :active,
-                     participatory_process: promoted_process,
-                     title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
-            end
-
-            it "shows a CTA button" do
-              skip "REDESIGN_DETAILS: CTA button may be deprecated after redesign integration"
-
-              visit decidim_participatory_processes.participatory_processes_path
-
-              within "#highlighted-processes" do
-                expect(page).to have_link("Take promoted action!")
-              end
-            end
-          end
-
-          context "when user switch locale" do
-            before do
-              visit decidim_participatory_processes.participatory_processes_path
-              within_language_menu do
-                click_link "Català"
-              end
-            end
-
-            it "displays the regular cta button" do
-              within "#participatory_process_#{participatory_process.id}" do
-                expect(page).to have_link("Take action!", href: "/processes/#{participatory_process.slug}/my_path")
-              end
-            end
-          end
-        end
       end
 
       context "when there are promoted participatory process groups" do
@@ -274,46 +200,6 @@ describe "Participatory Processes", type: :system do
             expect(page).to have_content(translated(promoted_group.title, locale: :en))
             expect(page).to have_selector("[id^='participatory_process_highlight']", count: 1)
             expect(page).to have_selector("[id^='participatory_process_group_highlight']", count: 1)
-          end
-        end
-
-        context "and promoted group has defined a CTA content block" do
-          let(:cta_settings) do
-            {
-              button_url: "https://example.org/action",
-              button_text_en: "cta text",
-              description_en: "cta description"
-            }
-          end
-
-          before do
-            create(
-              :content_block,
-              organization:,
-              scope_name: :participatory_process_group_homepage,
-              scoped_resource_id: promoted_group.id,
-              manifest_name: :cta,
-              settings: cta_settings
-            )
-            visit decidim_participatory_processes.participatory_processes_path
-          end
-
-          it "shows a CTA button inside group card" do
-            skip "REDESIGN_DETAILS: CTA button may be deprecated after redesign integration"
-
-            within("#highlighted-processes") do
-              expect(page).to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
-            end
-          end
-
-          context "and promoted group belongs to another organization" do
-            let!(:promoted_group) { create(:participatory_process_group, :promoted, :with_participatory_processes) }
-
-            it "shows a CTA button inside group card" do
-              within("#highlighted-processes") do
-                expect(page).not_to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
-              end
-            end
           end
         end
       end
@@ -344,25 +230,45 @@ describe "Participatory Processes", type: :system do
         visit decidim_participatory_processes.participatory_process_path(participatory_process)
       end
 
+      describe "follow button" do
+        let!(:user) { create(:user, :confirmed, organization:) }
+        let(:followable) { participatory_process }
+        let(:followable_path) { decidim_participatory_processes.participatory_process_path(participatory_process) }
+
+        include_examples "follows"
+      end
+
       context "when requesting the process path" do
         context "when hero, main_data and phase and duration blocks are enabled" do
-          let(:blocks_manifests) { [:process_hero, :main_data, :extra_data] }
+          let(:blocks_manifests) { [:process_hero, :main_data, :extra_data, :metadata] }
 
           it "shows the details of the given process" do
             within "[data-content]" do
+              expect(page).to have_content("About this process")
               expect(page).to have_content(translated(participatory_process.title, locale: :en))
               expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
+              expect(page).to have_content(translated(participatory_process.description, locale: :en))
               expect(page).to have_content(translated(participatory_process.short_description, locale: :en))
+              expect(page).to have_content(translated(participatory_process.meta_scope, locale: :en))
+              expect(page).to have_content(translated(participatory_process.developer_group, locale: :en))
+              expect(page).to have_content(translated(participatory_process.local_area, locale: :en))
+              expect(page).to have_content(translated(participatory_process.target, locale: :en))
+              expect(page).to have_content(translated(participatory_process.participatory_scope, locale: :en))
+              expect(page).to have_content(translated(participatory_process.participatory_structure, locale: :en))
+              expect(page).to have_content(I18n.l(participatory_process.start_date, format: :decidim_short_with_month_name_short))
               expect(page).to have_content(I18n.l(participatory_process.end_date, format: :decidim_short_with_month_name_short))
               expect(page).to have_content(participatory_process.hashtag)
             end
           end
+
+          it_behaves_like "has embedded video in description", :base_description
+          it_behaves_like "has embedded video in description", :short_description
         end
 
         context "when attachments blocks enabled" do
           let(:blocks_manifests) { [:related_documents, :related_images] }
 
-          it_behaves_like "has attachments" do
+          it_behaves_like "has attachments content blocks" do
             let(:attached_to) { participatory_process }
           end
 
@@ -468,7 +374,7 @@ describe "Participatory Processes", type: :system do
             let(:show_metrics) { false }
 
             it "the metrics for the participatory processes are not rendered" do
-              expect(page).not_to have_css("h4.section-heading", text: "METRICS")
+              expect(page).not_to have_css("h4", text: "METRICS")
             end
 
             it "has no link to all metrics" do
@@ -508,11 +414,6 @@ describe "Participatory Processes", type: :system do
             expect(page).not_to have_content(translated(private_assembly.title))
           end
         end
-
-        # REDESIGN_PENDING - These examples have to be moved to the details
-        # page
-        # it_behaves_like "has embedded video in description", :base_description
-        # it_behaves_like "has embedded video in description", :short_description
       end
     end
   end

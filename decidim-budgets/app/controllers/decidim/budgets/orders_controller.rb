@@ -12,7 +12,7 @@ module Decidim
         Checkout.call(current_order) do
           on(:ok) do
             i18n_key = pending_to_vote_budgets.any? ? "success_html" : "success_no_left_budgets_html"
-            flash[:notice] = I18n.t(i18n_key, scope: "decidim.orders.checkout", rest_of_budgets_link: "#budgets-to-vote")
+            flash[:notice] = I18n.t(i18n_key, scope: "decidim.orders.checkout", rest_of_budgets_link: "#budgets")
             redirect_to budgets_path
           end
 
@@ -40,7 +40,7 @@ module Decidim
       private
 
       def budget
-        @budget ||= Budget.find_by(id: params[:budget_id])
+        @budget ||= Budget.find_by(id: params[:budget_id], component: current_component)
       end
 
       def redirect_path

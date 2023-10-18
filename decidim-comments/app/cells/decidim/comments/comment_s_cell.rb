@@ -3,7 +3,7 @@
 module Decidim
   module Comments
     # This cell renders the Search (:s) comment card
-    # for an given instance of a Comment
+    # for a given instance of a Comment
     class CommentSCell < Decidim::CardSCell
       include CommentCellsHelper
 

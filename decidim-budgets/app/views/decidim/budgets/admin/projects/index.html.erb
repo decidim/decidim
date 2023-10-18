@@ -1,6 +1,7 @@
-<div class="card with-overflow">
-  <div class="card-divider">
-    <h2 class="card-title flex--sbc">
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <div>
         <%= link_to translated_attribute(budget.title), budgets_path %> &gt;
         <%= t(".title") %>
@@ -9,31 +10,28 @@
       <%= render partial: "bulk-actions" %>
     </h2>
   </div>
-
   <%= admin_filter_selector(:projects) %>
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th><%= check_box_tag "projects_bulk", "all", false, class: "js-check-all" %></th>
-            <th><%= sort_link(query, :id, t("models.project.fields.id", scope: "decidim.budgets"), default_order: :desc) %>
-            <th><%= sort_link(query, :title, t("models.project.fields.title", scope: "decidim.budgets")) %></th>
-            <th><%= sort_link(query, :category_name, t("models.project.fields.category", scope: "decidim.budgets") ) %></th>
-            <%= th_scope_sort_link %>
-            <th><%= sort_link(query, :confirmed_orders_count, t("index.confirmed_orders_count")) %></th>
-            <th><%= sort_link(query, :selected, t(".selected")) %></th>
-            <th class="actions"><%= t("actions.title", scope: "decidim.budgets") %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% projects.each do |project| %>
-            <%= render partial: "project-tr", locals: { project: } %>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate projects, theme: "decidim" %>
-    </div>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= check_box_tag "projects_bulk", "all", false, class: "js-check-all" %></th>
+          <th><%= sort_link(query, :id, t("models.project.fields.id", scope: "decidim.budgets"), default_order: :desc) %>
+          <th><%= sort_link(query, :title, t("models.project.fields.title", scope: "decidim.budgets")) %></th>
+          <th><%= sort_link(query, :category_name, t("models.project.fields.category", scope: "decidim.budgets") ) %></th>
+          <%= th_scope_sort_link %>
+          <th><%= sort_link(query, :confirmed_orders_count, t("index.confirmed_orders_count")) %></th>
+          <th><%= sort_link(query, :selected, t(".selected")) %></th>
+          <th class="actions"><%= t("actions.title", scope: "decidim.budgets") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% projects.each do |project| %>
+          <%= render partial: "project-tr", locals: { project: } %>
+        <% end %>
+      </tbody>
+    </table>
+    <%= decidim_paginate projects %>
   </div>
   <div class="card-divider">
     <strong><%= t ".finished_orders" %>:&nbsp;</strong><span><%= finished_orders.count %></span>

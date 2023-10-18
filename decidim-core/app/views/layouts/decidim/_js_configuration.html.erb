@@ -1,6 +1,6 @@
 <%
 js_configs = {
-  icons_path: Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg"),
+  icons_path: Decidim.cors_enabled ? "" : asset_pack_path("media/images/remixicon.symbol.svg"),
   messages: {
     "selfxssWarning": I18n.t("decidim.security.selfxss_warning"),
     "mentionsModal": {
@@ -10,7 +10,8 @@ js_configs = {
     editor: I18n.t("editor")
   },
   external_domain_whitelist: [current_organization.host] + current_organization.external_domain_whitelist,
-  consent_cookie_name: Decidim.consent_cookie_name
+  consent_cookie_name: Decidim.consent_cookie_name,
+  sign_out_path: decidim.destroy_user_session_path
 }
 character_messages = {
   "charactersAtLeast": {

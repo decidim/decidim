@@ -24,12 +24,6 @@ describe "Participatory texts", type: :system do
     prop_block.hover
     clean_proposal_body = strip_tags(translated(proposal.body))
 
-    if Decidim.redesign_active
-      expect(prop_block).to have_link("Follow")
-    else
-      expect(prop_block).to have_button("Follow")
-    end
-
     expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
     expect(prop_block).to have_link(proposal.comments_count.to_s) if component.settings.comments_enabled
     expect(prop_block).to have_content(clean_proposal_body) if proposal.participatory_text_level == "article"
@@ -38,19 +32,18 @@ describe "Participatory texts", type: :system do
 
   shared_examples_for "lists all the proposals ordered" do
     it "by position" do
-      skip "REDESIGN_PENDING - This feature redesign will be done in other PR"
-
       visit_component
-      expect(page).to have_css("section[id^='proposal']", count: proposals.count)
-      proposals.each_with_index do |proposal, index|
-        should_have_proposal("#proposals section[id^='proposal']:nth-child(#{index + 1})", proposal)
+
+      within "#proposals" do
+        expect(page).to have_css("[id^='proposal']", count: proposals.count)
+        proposals.each_with_index do |proposal, index|
+          should_have_proposal("[id^='proposal']:nth-child(#{index + 1})", proposal)
+        end
       end
     end
 
     context "when participatory text level is not article" do
       it "not renders the participatory text body" do
-        skip "REDESIGN_PENDING - This feature redesign will be done in other PR"
-
         proposal_section = proposals.first
         proposal_section.participatory_text_level = "section"
         proposal_section.save!
@@ -61,8 +54,6 @@ describe "Participatory texts", type: :system do
 
     context "when participatory text level is article" do
       it "renders the proposal body" do
-        skip "REDESIGN_PENDING - This feature redesign will be done in other PR"
-
         proposal_article = proposals.last
         proposal_article.participatory_text_level = "article"
         proposal_article.save!
@@ -73,11 +64,9 @@ describe "Participatory texts", type: :system do
   end
 
   shared_examples "showing the Amend button and amendments counter when hovered" do
-    let(:amend_button_disabled?) { page.find("a", text: "AMEND")[:disabled].present? }
+    let(:amend_button_disabled?) { page.find("a", text: "Amend")[:disabled].present? }
 
     it "shows the Amend button and amendments counter inside the proposal div" do
-      skip "REDESIGN_PENDING - This feature redesign will be done in other PR"
-
       visit_component
       proposal_title = translated(proposals.first.title)
       find("#proposals section[id^='proposal']", text: proposal_title).hover

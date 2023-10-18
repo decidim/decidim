@@ -1,15 +1,13 @@
 <% content_for :aside do %>
-  <h1 class="h1 decorator">
-    <%= render partial: "sortitions_count" %>
-  </h1>
+  <h1 class="title-decorator"><%= component_name %></h1>
 
-  <%= render layout: "decidim/shared/filters", locals: { filter_sections: filter_sections_sortitions , search_variable: :search_text_cont } do %>
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections: filter_sections_sortitions, search_variable: :search_text_cont, skip_to_id: "sortitions" } do %>
     <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
   <% end %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <div id="sortitions">
+  <section id="sortitions" class="layout-main__section layout-main__heading">
     <%= render partial: "sortitions" %>
-  </div>
+  </section>
 <% end %>

@@ -117,6 +117,7 @@ ignore_missing:
   - decidim.budgets.projects_helper.current_rule_call_for_action_text.*
   - decidim.debates.debate_m.footer.commented_time_ago
   - date.abbr_day_names
+  - date.day_names
   - date.month_names
   - explanation
 
@@ -160,6 +161,11 @@ ignore_unused:
   - decidim.proposals.proposals.wizard_aside.back_from_step_2
   - decidim.proposals.proposals.wizard_aside.back_from_step_3
   - decidim.proposals.proposals.wizard_aside.back_from_step_4
+  - decidim.proposals.proposals.wizard_steps.current_step
+  - decidim.proposals.proposals.wizard_steps.step_1
+  - decidim.proposals.proposals.wizard_steps.step_2
+  - decidim.proposals.proposals.wizard_steps.step_3
+  - decidim.proposals.proposals.wizard_steps.step_4
   - decidim.proposals.proposals.show.proposal_accepted_reason
   - decidim.proposals.proposals.show.proposal_in_evaluation_reason
   - decidim.proposals.proposals.show.proposal_rejected_reason
@@ -180,6 +186,7 @@ ignore_unused:
   - decidim.elections.connection.failed.*
   - decidim.elections.orders.*
   - decidim.elections.election_m.*
+  - decidim.elections.votes.header.*
   - decidim.proposals.admin_log.*
   - decidim.log.base_presenter.*
   - decidim.admin_log.*
@@ -208,18 +215,15 @@ ignore_unused:
   - decidim.budgets.projects.order_progress.maximum_projects_rule.*
   - decidim.budgets.projects.order_progress.vote_threshold_percent_rule.*
   - decidim.orders.checkout.*
-  # REDESIGN_PENDING: The filters translations will be in use after filters
-  # integration in budgets. Remove the following line after doing it
   - decidim.budgets.projects.filters.*
   - decidim.sortitions.admin_log.*
+  - decidim.sortitions.sortitions.filters.*
   - decidim.sortitions.sortitions.orders.*
-  - decidim.consultations.admin_log.*
-  - decidim.consultations.consultations.orders.*
-  - decidim.consultations.show.badge_name.*
   - decidim.votings.admin_log.*
   - decidim.votings.votings.filters.*
   - decidim.votings.votings.orders.*
   - decidim.votings.votings_m.badge_name.*
+  - decidim.votings.votings_m.voting_type.*
   - decidim.initiatives.admin_log.*
   - decidim.initiatives.initiatives.orders.*
   - decidim.initiatives.states.*
@@ -244,7 +248,6 @@ ignore_unused:
   - decidim.participatory_process_groups.content_blocks.*.name
   - decidim.assemblies.content_blocks.*.name
   - decidim.initiatives.content_blocks.*.name
-  - decidim.consultations.content_blocks.*.name
   - decidim.meetings.content_blocks.*.name
   - decidim.votings.content_blocks.*.name
   - decidim.blogs.content_blocks.*.name
@@ -315,8 +318,9 @@ ignore_unused:
   - decidim.elections.feedback.answer.*
   - decidim.elections.trustee_zone.elections.key_ceremony_steps.keys.*
   - decidim.elections.trustee_zone.elections.tally_started_steps.keys.*
+  - decidim.elections.elections.filters.*
   - decidim.votings.admin_log.*
-  - decidim.votings.admin.content_blocks.landing_page.*
+  - decidim.votings.admin.content_blocks.*
   - decidim.votings.census.admin.census.new.file_help.*
   - decidim.votings.census.document_types.*
   - decidim.devise.sessions.user.timed_out
@@ -361,16 +365,14 @@ ignore_unused:
   - layouts.decidim.votings.promoted_voting.vote
   - versions.directions.*
   - layouts.decidim.conferences.conference.*
-  - decidim.consultations.show.footer_button_text.*
   - decidim.admin.conflicts.*
-  - decidim.profiles.show.badges
   - decidim.profiles.show.conversations
-  - decidim.profiles.show.groups
   - decidim.profiles.show.view_full_profile
   - layouts.decidim.assemblies.promoted_assembly.take_part
   - versions.dropdown.option_*
   - decidim.meetings.meetings.filters.*
   - decidim.meetings.directory.meetings.index.space_type
+  - decidim.authorization_modals.content.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

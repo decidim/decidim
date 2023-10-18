@@ -7,7 +7,6 @@ module Decidim
       #
       class AssemblyMembersController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
-        layout "decidim/admin/assembly_members"
 
         def index
           enforce_permission_to :index, :assembly_member
@@ -79,7 +78,7 @@ module Decidim
         private
 
         def collection
-          @collection ||= Decidim::AssemblyMember.where(assembly: current_assembly)
+          @collection ||= current_assembly.members
         end
       end
     end

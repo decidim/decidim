@@ -29,20 +29,17 @@ sv:
         update:
           error: Det gick inte att uppdatera kommentaren.
       comments_count: Antal kommentarer
-      last_activity:
-        new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
-      view: Visa
+      comments_title: Kommentar
       votes:
         create:
           error: Det gick inte att rösta om kommentaren.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Logga in med ditt konto</a> eller <a href="%{sign_up_url}">registrera dig</a> för att lägga till din kommentar.
         form:
           body:
             label: Kommentera
             placeholder: Vad tycker du om detta?
-          submit: Skicka
+          submit_reply: Publicera svar
           user_group_id:
             label: Kommentera som
         opinion:
@@ -79,6 +76,9 @@ sv:
             offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
             spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
           title: Rapportera olämpligt innehåll
+        show_replies:
+          one: Visa svar
+          other: Visa %{count} svar
         single_comment_link_title: Hämta länk
       comment_order_selector:
         order:
@@ -87,8 +87,6 @@ sv:
           older: Äldre
           recent: Senaste
         title: 'Sortera efter:'
-      comment_thread:
-        title: Samtal med %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Du behöver verifiera dig för att kunna kommentera just nu, men du kan läsa tidigare kommentarer.
         blocked_comments_for_user_warning: Du kan inte kommentera just nu, men du kan läsa tidigare kommentarer.

@@ -22,7 +22,6 @@ describe "Admin passwords", type: :system do
       expect(page).to have_content("Admin users need to change their password every 90 days")
       expect(page).to have_content("Password change")
       fill_in :password_user_password, with: new_password
-      fill_in :password_user_password_confirmation, with: new_password
       click_button "Change my password"
       expect(page).to have_css("[data-alert-box].success")
       expect(page).to have_content("Password successfully updated")
@@ -49,10 +48,25 @@ describe "Admin passwords", type: :system do
         manual_login(user.email, password)
         expect(page).to have_content("Password change")
         fill_in :password_user_password, with: new_password
-        fill_in :password_user_password_confirmation, with: new_password
         click_button "Change my password"
-        expect(page).to have_css(".callout.success")
+
+        expect(page).to have_admin_callout("Password successfully updated")
         expect(page).to have_current_path(decidim_admin.root_path)
+      end
+    end
+
+    context "when password expiry is disabled" do
+      around do |ex|
+        original = Decidim.config.admin_password_expiration_days
+        Decidim.config.admin_password_expiration_days = 0
+        ex.run
+        Decidim.config.admin_password_expiration_days = original
+      end
+
+      it "does not prompt to change password" do
+        manual_login(user.email, password)
+        expect(page).not_to have_content("Admin users need to change their password every")
+        expect(page).not_to have_content("Password change")
       end
     end
   end
@@ -67,7 +81,7 @@ describe "Admin passwords", type: :system do
   end
 
   def manual_login(email, password)
-    click_link "Sign In", match: :first
+    click_link "Log in", match: :first
     fill_in :session_user_email, with: email
     fill_in :session_user_password, with: password
     click_button "Log in"

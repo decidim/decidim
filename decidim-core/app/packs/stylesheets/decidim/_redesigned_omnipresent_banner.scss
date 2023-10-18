@@ -1,7 +1,0 @@
-.omnipresent-banner {
-  @apply flex items-center justify-center gap-4 bg-gray-4 text-white text-center px-4 py-2 text-md transition first:[&>*]:font-bold focus:outline-none hover:bg-black focus:bg-black;
-
-  svg {
-    @apply flex-none text-white fill-current;
-  }
-}

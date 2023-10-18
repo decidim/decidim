@@ -110,19 +110,16 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :html_content, type: :text, translated: true
           end
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:assembly_homepage, :hero) do |content_block|
           content_block.cell = "decidim/content_blocks/participatory_space_hero"
           content_block.public_name_key = "decidim.content_blocks.hero.name"
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:assembly_homepage, :announcement) do |content_block|
           content_block.cell = "decidim/content_blocks/participatory_space_announcement"
           content_block.public_name_key = "decidim.content_blocks.announcement.name"
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:assembly_homepage, :main_data) do |content_block|
@@ -134,7 +131,6 @@ module Decidim
         Decidim.content_blocks.register(:assembly_homepage, :extra_data) do |content_block|
           content_block.cell = "decidim/assemblies/content_blocks/extra_data"
           content_block.public_name_key = "decidim.assemblies.content_blocks.extra_data.name"
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:assembly_homepage, :metadata) do |content_block|
@@ -146,13 +142,11 @@ module Decidim
         Decidim.content_blocks.register(:assembly_homepage, :dates_metadata) do |content_block|
           content_block.cell = "decidim/assemblies/content_blocks/dates_metadata"
           content_block.public_name_key = "decidim.assemblies.content_blocks.dates_metadata.name"
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:assembly_homepage, :social_networks_metadata) do |content_block|
           content_block.cell = "decidim/content_blocks/participatory_space_social_networks"
           content_block.public_name_key = "decidim.content_blocks.social_networks_metadata.name"
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:assembly_homepage, :last_activity) do |content_block|
@@ -162,13 +156,11 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :max_last_activity_users, type: :integer, default: Decidim::ContentBlocks::ParticipatorySpaceLastActivityCell::DEFAULT_MAX_LAST_ACTIVITY_USERS
           end
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:assembly_homepage, :stats) do |content_block|
           content_block.cell = "decidim/assemblies/content_blocks/stats"
           content_block.public_name_key = "decidim.content_blocks.participatory_space_stats.name"
-          content_block.default!
         end
 
         if Decidim.module_installed?(:accountability)

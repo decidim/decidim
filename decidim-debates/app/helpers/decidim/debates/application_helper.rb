@@ -46,7 +46,7 @@ module Decidim
         origin_keys = %w(official participants)
         origin_keys << "user_group" if current_organization.user_groups_enabled?
 
-        origin_values = origin_keys.map { |key| [key, filter_text_for(t(key, scope: "decidim.debates.debates.filters"))] }
+        origin_values = origin_keys.map { |key| [key, t(key, scope: "decidim.debates.debates.filters")] }
         origin_values.prepend(["", all_filter_text])
 
         filter_tree_from_array(origin_values)
@@ -54,19 +54,19 @@ module Decidim
 
       # Options to filter Debates by activity.
       def activity_filter_values
-        %w(all my_debates commented).map { |k| [k, filter_text_for(t(k, scope: "decidim.debates.debates.filters"))] }
+        %w(all my_debates commented).map { |k| [k, t(k, scope: "decidim.debates.debates.filters")] }
       end
 
       # Returns a TreeNode to be used in the list filters to filter debates by
       # its state.
       def filter_debates_state_values
-        %w(open closed).map { |k| [k, filter_text_for(t(k, scope: "decidim.debates.debates.filters.state_values"))] }.prepend(
+        %w(open closed).map { |k| [k, t(k, scope: "decidim.debates.debates.filters.state_values")] }.prepend(
           ["all", all_filter_text]
         )
       end
 
       def all_filter_text
-        filter_text_for(t("all", scope: "decidim.debates.debates.filters"))
+        t("all", scope: "decidim.debates.debates.filters")
       end
 
       def filter_sections

@@ -1,64 +1,63 @@
-<div class="card with-overflow" id='user-groups'>
-  <div class="card-divider">
-    <h2 class="card-title"><%= t "decidim.admin.titles.participants" %></h2>
+<% add_decidim_page_title(t("decidim.admin.titles.participants")) %>
+<div class="card" id="user-groups">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title"><%= t "decidim.admin.titles.participants" %></h2>
   </div>
   <%= admin_filter_selector %>
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th><%= sort_link(query, :name, t(".name"), default_order: :desc) %></th>
-            <th><%= sort_link(query, :nickname, t(".nickname"), default_order: :desc) %></th>
-            <th><%= sort_link(query, :created_at, t(".created_at"), default_order: :desc) %></th>
-            <th><%= sort_link(query, :officialized_at, t(".status"), default_order: :desc) %></th>
-            <th><%= t(".badge") %></th>
-            <th><%= sort_link(query, :user_moderation_report_count, t(".reports"), default_order: :desc) %></th>
-            <th><%= t(".actions") %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
-            <tr data-user-id="<%= user.id %>">
-              <td><%= link_to_if user.nickname.present?, user.name, decidim.profile_path(user.nickname) %></td>
-              <td><%= link_to_if user.nickname.present?, user.nickname, decidim.profile_path(user.nickname) %></td>
-              <td><%= l user.created_at, format: :short %></td>
-              <td><%= user.officialized? ? t(".officialized") : t(".not_officialized") %></td>
-              <td><%= translated_attribute(user.officialized_as) %></td>
-              <td><%= user.report_count %></td>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= sort_link(query, :name, t(".name"), default_order: :desc) %></th>
+          <th><%= sort_link(query, :nickname, t(".nickname"), default_order: :desc) %></th>
+          <th><%= sort_link(query, :created_at, t(".created_at"), default_order: :desc) %></th>
+          <th><%= sort_link(query, :officialized_at, t(".status"), default_order: :desc) %></th>
+          <th><%= t(".badge") %></th>
+          <th><%= sort_link(query, :user_moderation_report_count, t(".reports"), default_order: :desc) %></th>
+          <th><%= t(".actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr data-user-id="<%= user.id %>">
+            <td><%= link_to_if user.nickname.present?, user.name, decidim.profile_path(user.nickname) %></td>
+            <td><%= link_to_if user.nickname.present?, user.nickname, decidim.profile_path(user.nickname) %></td>
+            <td><%= l user.created_at, format: :short %></td>
+            <td><%= user.officialized? ? t(".officialized") : t(".not_officialized") %></td>
+            <td><%= translated_attribute(user.officialized_as) %></td>
+            <td><%= user.report_count %></td>
 
-              <td class="table-list__actions">
-                <% if allowed_to?(:block, :admin_user, user: user) %>
-                  <% if user.blocked? %>
-                    <%= icon_link_to "ban", user_block_path(user_id: user.id), t(".unblock"), class: "action-icon action-icon--disabled", method: :delete %>
-                  <% else %>
-                    <%= icon_link_to "ban", new_user_block_path(user_id: user.id), t(".block"), class: "action-icon action-icon" %>
-                  <% end %>
+            <td class="table-list__actions">
+              <% if allowed_to?(:block, :admin_user, user: user) %>
+                <% if user.blocked? %>
+                  <%= icon_link_to "forbid-2-line", user_block_path(user_id: user.id), t(".unblock"), class: "action-icon action-icon--disabled", method: :delete %>
+                <% else %>
+                  <%= icon_link_to "forbid-2-line", new_user_block_path(user_id: user.id), t(".block"), class: "action-icon action-icon" %>
                 <% end %>
-                <% if allowed_to? :show_email, :user, user: user %>
-                  <%= icon_link_to "envelope-open", show_email_officialization_path(user_id: user.id), t(".show_email"), class: "action-icon action-icon--show-email", data: { full_name: user.name, toggle: "show-email-modal" } %>
+              <% end %>
+              <% if allowed_to? :show_email, :user, user: user %>
+                <%= icon_link_to "mail-open-line", show_email_officialization_path(user_id: user.id), t(".show_email"), class: "action-icon action-icon--show-email", data: { full_name: user.name, dialog_open: "show-email-modal" } %>
+              <% end %>
+              <% unless user.blocked? %>
+                <% unless current_user == user %>
+                  <%= icon_link_to "mail-line", current_or_new_conversation_path_with(user), t("decidim.contact"), class:"action-icon--new" %>
                 <% end %>
-                <% unless user.blocked? %>
-                  <% unless current_user == user %>
-                    <%= icon_link_to "envelope-closed", current_or_new_conversation_path_with(user), t("decidim.contact"), class:"action-icon--new" %>
-                  <% end %>
-                  <% if user.officialized? %>
-                    <%= icon "circle-check", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".officialize") %>
-                    <%= icon_link_to "pencil", new_officialization_path(user_id: user.id), t(".reofficialize"), class: "action-icon--new" %>
-                    <%= icon_link_to "circle-x", officialization_path(user.id), t(".unofficialize"), method: :delete, class: "action-icon--reject" %>
-                  <% else %>
-                    <%= icon_link_to "circle-check", new_officialization_path(user_id: user.id), t(".officialize"), class: "action-icon--verify" %>
-                    <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".reofficialize") %>
-                    <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".unofficialize") %>
-                  <% end %>
+                <% if user.officialized? %>
+                  <%= icon "checkbox-circle-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".officialize") %>
+                  <%= icon_link_to "pencil-line", new_officialization_path(user_id: user.id), t(".reofficialize"), class: "action-icon--new" %>
+                  <%= icon_link_to "delete-bin-line", officialization_path(user.id), t(".unofficialize"), method: :delete, class: "action-icon--reject" %>
+                <% else %>
+                  <%= icon_link_to "checkbox-circle-line", new_officialization_path(user_id: user.id), t(".officialize"), class: "action-icon--verify" %>
+                  <%= icon "pencil-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".reofficialize") %>
+                  <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".unofficialize") %>
                 <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @users, theme: "decidim" %>
-    </div>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
+<%= decidim_paginate @users %>
 <%= render "show_email_modal" %>

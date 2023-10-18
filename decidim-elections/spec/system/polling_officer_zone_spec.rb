@@ -23,7 +23,7 @@ describe "Polling Officer zone", type: :system do
 
     expect(page).to have_content("Polling Officer zone")
 
-    within "#dropdown-menu" do
+    within "#dropdown-menu-profile" do
       click_link "Polling Officer zone"
     end
 
@@ -54,7 +54,7 @@ describe "Polling Officer zone", type: :system do
     it "can access the new results form for the polling station" do
       visit decidim.decidim_votings_polling_officer_zone_path
 
-      within ".card__polling_station" do
+      within "[data-polling-station]" do
         expect(page).to have_content(translated(election.title))
         expect(page).to have_content("Count votes")
       end
@@ -139,6 +139,9 @@ describe "Polling Officer zone", type: :system do
         within ".form.sign_closure" do
           check "I have reviewed this and is the same as the physical electoral closure certificate"
           click_button "Sign the closure", wait: 2
+        end
+
+        within "#modal-closure-sign-content" do
           click_button "Ok, continue"
         end
 

@@ -42,7 +42,7 @@ module Decidim
         end
 
         def invites
-          @invites ||= Decidim::Meetings::Admin::Invites.for(meeting.invites, @query, @status).page(params[:page]).per(15)
+          @invites ||= Decidim::Admin::Invites.for(meeting.invites, @query, @status).page(params[:page]).per(15)
         end
       end
     end

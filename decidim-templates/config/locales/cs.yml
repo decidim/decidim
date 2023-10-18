@@ -9,8 +9,11 @@ cs:
   decidim:
     admin:
       menu:
+        manage: Spravovat
         templates: Šablony
       templates:
+        actions:
+          new_template: Nová šablona
         apply:
           error: Při použití této šablony došlo k chybě.
           success: Šablona byla úspěšně použita.
@@ -42,12 +45,15 @@ cs:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Upravit šablonu zprávy uživatele
           form:
             save: Uložit
-            template_title: Informace o šabloně
           index:
             confirm_delete: Opravdu chcete tuto šablonu odstranit?
             title: Blokovat zprávy uživatele
+          new:
+            title: Nová šablona zprávy uživatele
           template_chooser:
             select_template: Vyberte šablonu odpovědi
         questionnaire_templates:
@@ -61,13 +67,14 @@ cs:
             edit: Upravit
             empty: Zatím nejsou žádné otázky.
             questionnaire: Dotazník
+            title: Upravit šablonu dotazníku
           form:
-            save: Uložit
-            template_title: Informace o šabloně
             title: Šablona dotazníku %{questionnaire_for}
           index:
             confirm_delete: Jste si jisti, že chcete odstranit tuto šablonu?
             title: Šablony dotazníků
+          new:
+            title: Nová šablona dotazníku
           preview:
             current_step: Krok %{step}
             of_total_steps: z %{total_steps}

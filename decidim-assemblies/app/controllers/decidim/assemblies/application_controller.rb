@@ -8,9 +8,6 @@ module Decidim
       helper Decidim::Assemblies::AssembliesHelper
       include NeedsPermission
 
-      include RedesignLayout
-      redesign active: true
-
       register_permissions(Decidim::Assemblies::ApplicationController,
                            ::Decidim::Assemblies::Permissions,
                            ::Decidim::Admin::Permissions,

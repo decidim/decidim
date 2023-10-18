@@ -151,8 +151,8 @@ describe "Explore Collaborative Drafts", type: :system, versioning: true do
 
       context "with a category" do
         it "shows tags for category" do
-          expect(page).to have_selector("ul.tags")
-          within "ul.tags" do
+          expect(page).to have_selector("ul.tag-container")
+          within "ul.tag-container" do
             expect(page).to have_content(translated(collaborative_draft.category.name))
           end
         end
@@ -160,8 +160,8 @@ describe "Explore Collaborative Drafts", type: :system, versioning: true do
 
       context "with a scope" do
         it "shows tags for scope" do
-          expect(page).to have_selector("ul.tags")
-          within "ul.tags" do
+          expect(page).to have_selector("ul.tag-container")
+          within "ul.tag-container" do
             expect(page).to have_content(translated(collaborative_draft.scope.name))
           end
         end
@@ -296,18 +296,16 @@ describe "Explore Collaborative Drafts", type: :system, versioning: true do
                 expect(page).to have_content("@#{user.nickname} has been accepted as a collaborator successfully")
                 relogin_as user, scope: :user
                 visit current_path
-                within ".main-bar__links-desktop" do
-                  skip "REDESIGN_PENDING - The collaborative draft currently only displays the first coauthors identity. This is pending in https://github.com/decidim/decidim/issues/10846"
-                  expect(page).to have_content(user.name)
-                end
+                expect(page).to have_css("span.main-bar__avatar")
               end
 
               it "shows the user as a coauthor" do
-                expect(page).to have_css("#content .wrapper .author--inline [data-author] .author__name", text: user.name)
+                expect(page).to have_css("#content div.author__coauthors .author__name", text: user.name)
               end
 
               it "removes the announcement to collaborate" do
-                expect(page).not_to have_css("callout.secondary")
+                expect(page).not_to have_css("#new_accept_access_to_collaborative_draft_")
+                expect(page).not_to have_css("#new_reject_access_to_collaborative_draft_")
               end
 
               it "does not show the buttons to publish or withdraw" do

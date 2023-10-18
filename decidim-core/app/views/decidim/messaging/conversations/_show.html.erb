@@ -2,7 +2,7 @@
 
 <% content_for :aside do %>
   <div class="conversation__aside">
-    <h1 class="h3 md:h1 decorator">
+    <h1 class="title-decorator">
       <%= t("decidim.messaging.conversations.index.title") %>
     </h1>
 
@@ -18,7 +18,7 @@
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <div class="conversation">
+  <section class="layout-main__section">
     <h2 class="h4 conversation__title">
       <%= t("decidim.messaging.conversations.show.chat_with") %>
     </h2>
@@ -30,5 +30,5 @@
     </div>
 
     <%= yield %>
-  </div>
+  </section>
 <% end %>

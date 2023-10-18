@@ -6,7 +6,7 @@
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="flex justify-center">
-    <h1 class="h3 md:h1 decorator my-12"><%= t("decidim.devise.registrations.new.sign_up") %></h1>
+    <h1 class="title-decorator my-12"><%= t("decidim.devise.registrations.new.sign_up") %></h1>
   </div>
 
   <div class="login__info">
@@ -15,7 +15,7 @@
     </p>
     <p class="font-semibold">
       <%= t("decidim.devise.registrations.new.already_have_an_account?") %>
-      <%= link_to t("decidim.devise.registrations.new.sign_in"), new_user_session_path %>
+      <%= link_to t("decidim.devise.registrations.new.log_in"), new_user_session_path %>
     </p>
   </div>
 
@@ -23,11 +23,11 @@
     <%= form_required_explanation %>
   </div>
 
-  <div class="login__omniauth-container">
-    <% cache current_organization do %>
-      <%= render "decidim/devise/shared/omniauth_buttons" %>
-    <% end %>
-  </div>
+  <span class="login__info-separator"></span>
+
+  <% cache current_organization do %>
+    <%= render "decidim/devise/shared/omniauth_buttons" %>
+  <% end %>
 
   <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: registration_path(resource_name), html: { id: "register-form" }) do |f| %>
     <%= invisible_captcha %>
@@ -35,13 +35,9 @@
     <div class="form__wrapper">
       <%= f.text_field :name, help_text: t("decidim.devise.registrations.new.username_help"), autocomplete: "name", placeholder: "John Doe" %>
 
-      <%= f.text_field :nickname, help_text: t("decidim.devise.registrations.new.nickname_help", organization: current_organization.name), autocomplete: "nickname", placeholder: "johndoe" %>
+      <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
 
-      <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
-
-      <%= f.password_field :password, password_field_options_for(:user) %>
-
-      <%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text) %>
+      <%= render partial: "decidim/account/password_fields", locals: { form: f, user: :user } %>
     </div>
 
     <div id="card__tos" class="form__wrapper-block">
@@ -69,7 +65,7 @@
     </div>
 
     <div class="login__links">
-      <%= render "decidim/devise/shared/redesigned_links" %>
+      <%= render "decidim/devise/shared/links" %>
     </div>
   <% end %>
 <% end %>

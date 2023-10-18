@@ -1,5 +1,11 @@
-<div class="row column">
-  <%= form.translated :text_field, :subject %>
-</div>
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="row column">
+      <%= form.translated :text_field, :subject, aria: { label: :subject } %>
+    </div>
 
-<%= cell content_block.settings_form_cell, form, content_block: %>
+    <div class="row column">
+      <%= cell content_block.settings_form_cell, form, content_block: %>
+    </div>
+  </div>
+</div>

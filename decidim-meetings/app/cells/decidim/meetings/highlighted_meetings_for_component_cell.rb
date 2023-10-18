@@ -61,6 +61,18 @@ module Decidim
         @show_upcoming_meetings ||= options[:force_upcoming] || upcoming_meetings.present?
       end
 
+      def show_map?
+        maps_active? && !all_online_meetings?
+      end
+
+      def maps_active?
+        Decidim::Map.available?(:geocoding, :dynamic)
+      end
+
+      def all_online_meetings?
+        collection.collect(&:type_of_meeting).all?("online")
+      end
+
       def show_calendar?
         @show_calendar ||= show_upcoming_meetings? && collection.minimum(:start_time).before?(2.months.from_now.beginning_of_month)
       end

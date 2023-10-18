@@ -1,22 +1,18 @@
-<div class="wrapper external-link-page-content">
-  <h1 class="text-center"><%= t("decidim.links.warning.title") %></h1>
-  <div class="row columns large-centered large-8">
-    <div class="card">
-      <div>
-        <%= render partial: "warning" %>
-        <div class="card-section">
-          <div class="card external-link-url">
-            <div class="card__content text-center">
-              <%= highlight_domain %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="columns large-12 text-center">
-              <%= link_to t("decidim.links.warning.proceed"), external_url.to_s, class: "button expanded primary" %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+
+  <div class="flex justify-center">
+    <h1 class="title-decorator my-12"><%= t("decidim.links.warning.title") %></h1>
   </div>
-</div>
+
+  <p><%= t("body_1", scope: "decidim.links.warning") %></p>
+  <p><%= t("body_2", scope: "decidim.links.warning") %></p>
+
+  <code class="mt-5 block break-all">
+    <%= highlight_domain %>
+  </code>
+
+  <div class="form__wrapper-block">
+    <%= link_to t("decidim.links.warning.proceed"), external_url.to_s, class: "button button__lg button__secondary ml-auto" %>
+  </div>
+
+<% end %>

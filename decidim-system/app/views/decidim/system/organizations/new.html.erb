@@ -1,79 +1,66 @@
 <% provide :title do %>
-  <h2><%= t ".title" %></h2>
+  <h1 class="h1"><%= t ".title" %></h1>
 <% end %>
 
 <%= decidim_form_for(@form) do |f| %>
-  <div class="field">
+  <div class="form__wrapper">
     <%= f.text_field :name, autofocus: true %>
-  </div>
 
-  <div class="field">
-    <%= f.text_field :reference_prefix %>
-    <p class="help-text"><%= t(".reference_prefix_hint") %></p>
-  </div>
+    <%= f.text_field :reference_prefix, help_text: t(".reference_prefix_hint") %>
 
-  <div class="field">
     <%= f.text_field :host %>
-  </div>
 
-  <div class="field">
-    <%= f.text_area :secondary_hosts %>
-    <p class="help-text"><%= t(".secondary_hosts_hint") %></p>
-  </div>
+    <%= f.text_area :secondary_hosts, help_text: t(".secondary_hosts_hint") %>
 
-  <div class="field">
     <%= f.text_field :organization_admin_name %>
-  </div>
 
-  <div class="field">
     <%= f.email_field :organization_admin_email %>
-  </div>
 
-  <%= f.fields_for :locales do |fields| %>
-    <div class="field">
+    <%= f.fields_for :locales do |fields| %>
       <%= f.label :organization_locales, "", class: @form.respond_to?(:errors) && @form.errors[:default_locale].present? ? "is-invalid-label" : "" %>
       <table>
         <thead>
           <tr>
-            <td>Locale</td>
-            <td>Enabled <%= f.error_for(:available_locales) %></td>
-            <td>Default? <%= f.error_for(:default_locale) %></td>
+            <th><%= t(".locale") %></th>
+            <th><%= t(".enabled") %> <%= f.error_for(:available_locales) %></th>
+            <th><%= t(".default") %><%= f.error_for(:default_locale) %></th>
           </tr>
         </thead>
         <tbody>
           <% localized_locales.each do |locale| %>
             <tr>
               <td><%= locale.name %></td>
-              <td><%= check_box_tag "organization[available_locales][#{locale.id}]", locale.id, @form.available_locales.include?(locale.id) %></td>
-              <td><%= radio_button_tag "organization[default_locale]", locale.id, @form.default_locale == locale.id %></td>
+              <td><%= check_box_tag "organization[available_locales][#{locale.id}]", locale.id, @form.available_locales.include?(locale.id), class: "!m-0" %></td>
+              <td><%= radio_button_tag "organization[default_locale]", locale.id, @form.default_locale == locale.id, class: "!m-0" %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
-    </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :force_authentication %>
-    <%= f.check_box :force_users_to_authenticate_before_access_organization %>
+    <%= field_set_tag f.label(:force_authentication, nil, for: nil) do %>
+      <%= f.check_box :force_users_to_authenticate_before_access_organization, label_options: { class: "form__wrapper-checkbox-label" } %>
+    <% end %>
+
+    <%= field_set_tag f.label(:users_registration_mode, nil, for: nil) do %>
+      <%= f.collection_radio_buttons :users_registration_mode,
+                                     Decidim::Organization.users_registration_modes,
+                                     :first,
+                                     ->(mode) { t("decidim.system.organizations.users_registration_mode.#{mode.first}") } do |builder|
+                                      builder.label(for: nil, class: "form__wrapper-checkbox-label") { builder.radio_button(id: nil) + builder.text }
+                                    end %>
+    <% end %>
+
+    <%= field_set_tag f.label(:available_authorizations, nil, for: nil) do %>
+      <%= f.collection_check_boxes :available_authorizations, Decidim.authorization_workflows, :name, :description do |builder|
+        builder.label(for: nil, class: "form__wrapper-checkbox-label") { builder.check_box(id: nil) + builder.text }
+      end %>
+    <% end %>
+
+    <%= render partial: "advanced_settings", locals: { f: } %>
   </div>
 
-  <div class="field">
-    <%= f.label :users_registration_mode %>
-    <%= f.collection_radio_buttons :users_registration_mode,
-                                   Decidim::Organization.users_registration_modes,
-                                   :first,
-                                   ->(mode) { t("decidim.system.organizations.users_registration_mode.#{mode.first}") } %>
-  </div>
-
-  <div class="field">
-    <%= f.label :available_authorizations %>
-    <%= f.collection_check_boxes :available_authorizations, Decidim.authorization_workflows, :name, :description %>
-  </div>
-
-  <%= render partial: "advanced_settings", locals: { f: } %>
-
-  <div class="actions">
-    <%= f.submit t("decidim.system.models.organization.actions.save_and_invite") %>
+  <div class="form__wrapper-block">
+    <%= f.submit t("decidim.system.models.organization.actions.save_and_invite"), class: "button button__sm md:button__lg button__primary" %>
   </div>
 <% end %>

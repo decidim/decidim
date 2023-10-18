@@ -120,7 +120,7 @@ module Decidim
               toggle_allow(user.admin? && (voting.dataset.blank? || voting.dataset.init_data?) && ballot_style.present?)
             end
           when :component_data
-            toggle_allow(user.admin?) if permission_action.action == :import
+            toggle_allow(user.admin?) if [:import, :export].member? permission_action.action
           end
         end
 

@@ -1,23 +1,20 @@
 <% i18n_scope = "decidim.system.organizations.omniauth_settings" %>
 
-<div class="card">
-  <h5><%= provider_name(provider) %></h5>
-
+<%= field_set_tag f.label(provider_name(provider), nil, for: nil), class: "border-2 border-background p-4 form__wrapper last:pb-4" do %>
   <% if provider_enabled?(provider) %>
     <p class="help-text"><%= t("enabled_by_default", scope: i18n_scope) %></p>
   <% end %>
 
-  <div class="card-section">
-    <%= f.check_box(
-          "omniauth_settings_#{provider}_enabled",
-          label: t("enabled", scope: i18n_scope)
-        ) %>
+  <%= f.check_box(
+    "omniauth_settings_#{provider}_enabled",
+    label: t("enabled", scope: i18n_scope),
+    label_options: { class: "form__wrapper-checkbox-label" }
+  ) %>
 
-    <% Rails.application.secrets.dig(:omniauth, provider.to_sym).keys.select { |k| k != :enabled }.each do |setting| %>
-        <%= f.text_field("omniauth_settings_#{provider}_#{setting}", label: I18n.t(
-              ".#{setting}",
-              scope: [:icon, :icon_path].include?(setting) ? i18n_scope : "#{i18n_scope}.#{provider}"
-            )) %>
-    <% end %>
-  </div>
-</div>
+  <% Rails.application.secrets.dig(:omniauth, provider.to_sym).keys.select { |k| k != :enabled }.each do |setting| %>
+  <%= f.text_field("omniauth_settings_#{provider}_#{setting}", label: I18n.t(
+        ".#{setting}",
+        scope: [:icon, :icon_path].include?(setting) ? i18n_scope : "#{i18n_scope}.#{provider}"
+      )) %>
+  <% end %>
+<% end %>

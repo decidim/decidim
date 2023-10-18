@@ -8,7 +8,9 @@ describe "Admin manages impersonations", type: :system do
   def navigate_to_impersonations_page
     visit decidim_admin.root_path
     click_link "Participants"
-    click_link "Impersonations"
+    within_admin_sidebar_menu do
+      click_link "Impersonations"
+    end
   end
 
   it_behaves_like "manage impersonations examples"

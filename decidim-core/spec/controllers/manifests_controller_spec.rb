@@ -6,7 +6,7 @@ module Decidim
   describe ManifestsController, type: :controller do
     routes { Decidim::Core::Engine.routes }
 
-    let(:organization) { create(:organization, name: "Organization's name", colors: { "theme" => "#f0f0f0" }) }
+    let(:organization) { create(:organization, name: "Organization's name") }
 
     before do
       Decidim::Organization.destroy_all
@@ -25,8 +25,8 @@ module Decidim
         expect(manifest["name"]).to eq(organization.name)
         expect(manifest["lang"]).to eq(organization.default_locale)
         expect(manifest["description"]).to eq(ActionView::Base.full_sanitizer.sanitize(organization.description["en"]))
-        expect(manifest["background_color"]).to eq("#f0f0f0")
-        expect(manifest["theme_color"]).to eq("#f0f0f0")
+        expect(manifest["background_color"]).to eq("#e02d2d")
+        expect(manifest["theme_color"]).to eq("#e02d2d")
         expect(manifest["display"]).to eq("standalone")
         expect(manifest["start_url"]).to eq("/")
         expect(manifest["icons"]).to match(

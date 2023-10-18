@@ -1,4 +1,6 @@
-<%= yield :item_header %>
+<div role="complementary">
+  <%= yield :item_header %>
+</div>
 <div class="layout-item">
   <main class="layout-item__main">
     <% if params[:included_in] %>
@@ -6,16 +8,16 @@
     <% end %>
 
     <% if local_assigns.has_key?(:prev_path) %>
-      <%= link_to prev_path, class: "layout-item__arrow prev" do %>
+      <%= link_to prev_path, class: "layout-item__arrow prev", title: t(".prev") do %>
         <%= icon "arrow-left-s-line" %>
-        <span class="sr-only">prev item</span>
+        <span class="sr-only">%<%= t(".prev") %></span>
       <% end %>
     <% end %>
 
     <% if local_assigns.has_key?(:next_path) %>
-      <%= link_to next_path, class: "layout-item__arrow next" do %>
+      <%= link_to next_path, class: "layout-item__arrow next", title: t(".next") do %>
         <%= icon "arrow-right-s-line" %>
-        <span class="sr-only">next item</span>
+        <span class="sr-only"><%= t(".next") %></span>
       <% end %>
     <% end %>
 

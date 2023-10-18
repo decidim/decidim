@@ -24,8 +24,7 @@ module Decidim
     private
 
     def tags_classes
-      # REDESIGN_PENDING: 'tags' class is legacy. Try to delete
-      (["tags tag-container"] + context[:extra_classes].to_a).join(" ")
+      (["tag-container"] + context[:extra_classes].to_a).join(" ")
     end
 
     def category?
@@ -74,7 +73,7 @@ module Decidim
     end
 
     def category_path
-      resource_locator(model).index(filter: { category_id: [model.category.id.to_s] })
+      resource_locator(model).index(filter: { filter_param(:category) => [model.category.id.to_s] })
     end
 
     def scope?
@@ -106,7 +105,18 @@ module Decidim
     end
 
     def scope_path
-      resource_locator(model).index(filter: { scope_id: [model.scope.id] })
+      resource_locator(model).index(filter: { filter_param(:scope) => [model.scope.id] })
+    end
+
+    def filter_param(name)
+      candidates = ["with_any_#{name}".to_sym, "with_#{name}".to_sym]
+      return candidates.first unless controller.respond_to?(:default_filter_params, true)
+
+      available_params = controller.send(:default_filter_params)
+      candidates.each do |candidate|
+        return candidate if available_params.has_key?(candidate)
+      end
+      candidates.first
     end
   end
 end

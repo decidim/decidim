@@ -68,7 +68,7 @@ describe "Explore meetings", :slow, type: :system do
 
         it "shows an empty page with a message" do
           expect(page).to have_content("No meetings match your search criteria or there is not any meeting scheduled.")
-          within ".callout.info", match: :first do
+          within ".flash.info", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end
         end
@@ -84,7 +84,7 @@ describe "Explore meetings", :slow, type: :system do
 
         it "shows all the withdrawn meetings" do
           expect(page).to have_css("span", text: "Withdrawn", count: 3)
-          within ".callout.info", match: :first do
+          within ".flash.info", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end
         end
@@ -124,8 +124,6 @@ describe "Explore meetings", :slow, type: :system do
     context "when filtering" do
       context "when filtering by text" do
         it "updates the current URL" do
-          skip_unless_redesign_enabled
-
           create(:meeting, :published, component:, title: { en: "Foobar meeting" })
           create(:meeting, :published, component:, title: { en: "Another meeting" })
           visit_component
@@ -157,8 +155,6 @@ describe "Explore meetings", :slow, type: :system do
 
         context "with 'official' origin" do
           it "lists the filtered meetings" do
-            skip_unless_redesign_enabled
-
             visit_component
 
             within "#panel-dropdown-menu-origin" do
@@ -176,8 +172,6 @@ describe "Explore meetings", :slow, type: :system do
 
         context "with 'groups' origin" do
           it "lists the filtered meetings" do
-            skip_unless_redesign_enabled
-
             visit_component
 
             within "#panel-dropdown-menu-origin" do
@@ -194,8 +188,6 @@ describe "Explore meetings", :slow, type: :system do
 
         context "with 'participants' origin" do
           it "lists the filtered meetings" do
-            skip_unless_redesign_enabled
-
             visit_component
 
             within "#panel-dropdown-menu-origin" do
@@ -209,8 +201,6 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "allows searching by text", :slow do
-        skip_unless_redesign_enabled
-
         visit_component
         within "form.new_filter" do
           fill_in("filter[search_text_cont]", with: translated(meetings.first.title))
@@ -232,8 +222,6 @@ describe "Explore meetings", :slow, type: :system do
         let!(:upcoming_meeting3) { create(:meeting, :published, component:, start_time: 2.days.from_now) }
 
         it "lists filtered meetings" do
-          skip_unless_redesign_enabled
-
           visit_component
 
           within "#panel-dropdown-menu-date" do
@@ -264,8 +252,6 @@ describe "Explore meetings", :slow, type: :system do
 
         context "when there are multiple past meetings" do
           it "orders them by start date" do
-            skip_unless_redesign_enabled
-
             visit_component
             within "#panel-dropdown-menu-date" do
               click_filter_item "Past"
@@ -273,7 +259,7 @@ describe "Explore meetings", :slow, type: :system do
 
             expect(page).to have_content(translated(past_meeting1.title))
 
-            result = page.find("#meetings .meeting-list__container").text
+            result = page.find("#meetings .card__list-list").text
             expect(result.index(translated(past_meeting3.title))).to be < result.index(translated(past_meeting1.title))
             expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting2.title))
           end
@@ -281,8 +267,6 @@ describe "Explore meetings", :slow, type: :system do
 
         context "when there are multiple upcoming meetings" do
           it "orders them by start date" do
-            skip_unless_redesign_enabled
-
             visit_component
             within "#panel-dropdown-menu-date" do
               click_filter_item "Upcoming"
@@ -290,7 +274,7 @@ describe "Explore meetings", :slow, type: :system do
 
             expect(page).to have_content(translated(upcoming_meeting1.title))
 
-            result = page.find("#meetings .meeting-list__container").text
+            result = page.find("#meetings .card__list-list").text
             expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
             expect(result.index(translated(upcoming_meeting1.title))).to be < result.index(translated(upcoming_meeting2.title))
           end
@@ -298,8 +282,6 @@ describe "Explore meetings", :slow, type: :system do
 
         context "when there are multiple meetings" do
           it "orders them by start date" do
-            skip_unless_redesign_enabled
-
             page.visit "#{main_component_path(component)}?per_page=20"
             within "#panel-dropdown-menu-date" do
               click_filter_item "All"
@@ -307,7 +289,7 @@ describe "Explore meetings", :slow, type: :system do
 
             expect(page).to have_content(translated(past_meeting1.title))
 
-            result = page.find("#meetings .meeting-list__container").text
+            result = page.find("#meetings .card__list-list").text
             expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(past_meeting1.title))
             expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting3.title))
             expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(upcoming_meeting1.title))
@@ -318,8 +300,6 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "allows linking to the filtered view using a short link" do
-        skip_unless_redesign_enabled
-
         past_meeting = create(:meeting, :published, component:, start_time: 1.day.ago)
         visit_component
 
@@ -355,8 +335,6 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "allows filtering by scope" do
-        skip_unless_redesign_enabled
-
         scope = create(:scope, organization:)
         meeting = meetings.first
         meeting.scope = scope
@@ -385,7 +363,7 @@ describe "Explore meetings", :slow, type: :system do
 
       it "shows the correct warning" do
         visit_component
-        within ".callout" do
+        within ".flash" do
           expect(page).to have_content("no scheduled meetings")
         end
       end
@@ -396,7 +374,7 @@ describe "Explore meetings", :slow, type: :system do
 
       it "shows the correct warning" do
         visit_component
-        within ".callout" do
+        within ".flash" do
           expect(page).to have_content("any meeting scheduled")
         end
       end
@@ -458,7 +436,7 @@ describe "Explore meetings", :slow, type: :system do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).not_to have_selector("ul.tags.tag-container")
+        expect(page).not_to have_selector("[data-tags]")
       end
     end
 
@@ -471,14 +449,14 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "shows tags for category" do
-        expect(page).to have_selector("ul.tags.tag-container")
-        within "ul.tags.tag-container" do
+        expect(page).to have_selector("[data-tags]")
+        within "[data-tags]" do
           expect(page).to have_content(translated(meeting.category.name))
         end
       end
 
       it "links to the filter for this category" do
-        within "ul.tags.tag-container" do
+        within "[data-tags]" do
           click_link translated(meeting.category.name)
         end
 
@@ -495,8 +473,8 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "shows tags for scope" do
-        expect(page).to have_selector("ul.tags.tag-container")
-        within "ul.tags.tag-container" do
+        expect(page).to have_selector("[data-tags]")
+        within "[data-tags]" do
           expect(page).to have_content(translated(meeting.scope.name))
         end
       end
@@ -542,7 +520,7 @@ describe "Explore meetings", :slow, type: :system do
       end
     end
 
-    it_behaves_like "has redesigned attachments" do
+    it_behaves_like "has attachments tabs" do
       let(:attached_to) { meeting }
     end
 

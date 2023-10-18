@@ -1,0 +1,15 @@
+<%= append_javascript_pack_tag "decidim_initiatives" %>
+<%= append_stylesheet_pack_tag "decidim_initiatives", media: "all" %>
+
+<% provide :meta_image_url, current_initiative.type.attached_uploader(:banner_image).path %>
+
+<%= render partial: "layouts/decidim/header/follow_space_menu_bar_button", locals: { participatory_space: current_participatory_space } %>
+
+<%= render "layouts/decidim/application" do %>
+  <%= render partial: "decidim/initiatives/initiatives/initiative_hero" %>
+  <%= render layout:"layouts/decidim/shared/layout_two_col", locals: { reverse: true, main_enabled: false } do %>
+    <main>
+      <%= yield %>
+    </main>
+  <% end %>
+<% end %>

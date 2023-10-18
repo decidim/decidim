@@ -29,7 +29,7 @@ module Decidim
       # @return [Hash] The default options for the map builder.
       def builder_options
         {
-          marker_color: organization.colors.fetch("primary", "#ef604d"),
+          marker_color: organization.colors.fetch("primary", "#e02d2d"),
           tile_layer: tile_layer_configuration
         }
       end

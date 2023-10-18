@@ -110,7 +110,23 @@
 }
 
 @media print {
+  .decidim-accessibility-indicator {
+    display: none;
+  }
+
+  .decidim-accessibility-badge {
+    display: none;
+  }
+
+  .decidim-accessibility-report {
+    display: none;
+  }
+
   .process-header {
+    display: none;
+  }
+
+  header {
     display: none;
   }
 

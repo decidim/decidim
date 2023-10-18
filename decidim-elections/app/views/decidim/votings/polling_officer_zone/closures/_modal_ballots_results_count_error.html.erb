@@ -1,20 +1,20 @@
-<div class="reveal" data-reveal id="modal-closure-results-count-error" role="dialog" aria-modal="true" aria-labelledby="modal-closure-results-count-error-label">
-  <div class="reveal__header">
-    <%= content_tag :h3,
-                    t("title", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error"),
-                    class: "reveal__title",
-                    id: "modal-closure-results-count-error-label" %>
+<%= decidim_modal id:"modal-closure-results-count-error" do %>
+  <div data-dialog-container>
+    <%= icon "error-warning-line" %>
+    <h3 class="h3" id="dialog-title-modal-closure-results-count-error" tabindex="-1" data-dialog-title>
+      <%= t("title", scope: "decidim.votings.polling_officer_zone.closures.new.modal_ballots_count_error") %>
+    </h3>
 
-    <button class="close-button" data-close aria-label="<%= t("close_modal", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error") %>" type="button">
-      <span aria-hidden="true">×</span>
-    </button>
+    <div>
+      <%= content_tag :p,
+                      t("info_text", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error"),
+                      id: "dialog-desc-modal-closure-results-count-error" %>
+    </div>
   </div>
-
-  <%= content_tag :p,
-                  t("info_text", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error") %>
-  <%= content_tag :button,
-                  t("close_modal", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error"),
-                  type: "button",
-                  data: { close: "" },
-                  class: "button button--sc expanded" %>
-</div>
+  <div data-dialog-actions>
+    <%= content_tag :button,
+                    t("close_modal", scope: "decidim.votings.polling_officer_zone.closures.edit.modal_ballots_results_count_error"),
+                    data: { "dialog-close": "modal-closure-results-count-error" },
+                    class: "button button__sm md:button__lg button__transparent-secondary" %>
+  </div>
+<% end %>

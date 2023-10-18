@@ -1,11 +1,12 @@
-<div class="vote-wrapper">
-  <div class="focus__step">
-    <% if vote&.pending? %>
-      <%= render("show_casting") %>
-    <% elsif vote&.accepted? || preview_mode? %>
-      <%= render("show_casted") %>
-    <% else %>
-      <%= render("show_failed") %>
-    <% end %>
-  </div>
-</div>
+<%= append_stylesheet_pack_tag "decidim_elections" %>
+<%= append_javascript_pack_tag "decidim_elections" %>
+
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <% if vote&.pending? %>
+    <%= render("show_casting") %>
+  <% elsif vote&.accepted? || preview_mode? %>
+    <%= render("show_casted") %>
+  <% else %>
+    <%= render("show_failed") %>
+  <% end %>
+<% end %>

@@ -1,7 +1,7 @@
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
   <div class="text-center py-12">
-    <h1 class="h3 md:h1 decorator inline-block text-left mb-12"><%= t "devise.invitations.edit.header" %></h1>
+    <h1 class="title-decorator inline-block text-left mb-12"><%= t "devise.invitations.edit.header" %></h1>
 
     <p class="text-lg text-gray-2">
       <%= t("devise.invitations.edit.subtitle").html_safe %>
@@ -17,8 +17,7 @@
       <%= f.text_field :nickname, help_text: t("devise.invitations.edit.nickname_help", organization: current_organization.name), required: "required", autocomplete: "nickname" %>
 
       <% if f.object.class.require_password_on_accepting %>
-        <%= f.password_field :password, password_field_options_for(:user).except(:help_text) %>
-        <%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text) %>
+        <%= render partial: "decidim/account/password_fields", locals: { form: f, user: :user } %>
       <% end %>
     </div>
 

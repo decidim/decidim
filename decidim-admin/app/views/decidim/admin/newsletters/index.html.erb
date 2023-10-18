@@ -1,71 +1,68 @@
+<% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t ".title" %>
-    </h2>
-    <div class="card-title">
-      <div class="text-right">
-        <strong class="subscribed_title"><%= t("newsletters.index.subscribed_count", scope: "decidim.admin") %></strong>
-        <span class="subscribed_count"><%= recipients_count_query %></span>
+      <div class="flex ml-auto items-center gap-x-4">
+        <strong class="font-bold text-md text-gray-2"><%= t("newsletters.index.subscribed_count", scope: "decidim.admin") %></strong>
+        <span class="subscribed_count font-semibold text-md text-gray-2"><%= recipients_count_query %></span>
         <% if allowed_to? :create, :newsletter %>
-          <%= link_to t("actions.newsletter.new", scope: "decidim.admin"), [:newsletter_templates], class: "button tiny button--title new" %>
+          <%= link_to t("actions.newsletter.new", scope: "decidim.admin"), [:newsletter_templates], class: "button button__sm button__secondary new" %>
         <% end %>
       </div>
-    </div>
+    </h2>
   </div>
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th><%= t("models.newsletter.fields.subject", scope: "decidim.admin") %></th>
-            <th><%= t("models.newsletter.fields.created_at", scope: "decidim.admin") %></th>
-            <th><%= t("models.newsletter.fields.sent_at", scope: "decidim.admin") %></th>
-            <th><%= t("models.newsletter.fields.sent_to", scope: "decidim.admin") %></th>
-            <th><%= t("models.newsletter.fields.progress", scope: "decidim.admin") %></th>
-            <th></th>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t("models.newsletter.fields.subject", scope: "decidim.admin") %></th>
+          <th><%= t("models.newsletter.fields.created_at", scope: "decidim.admin") %></th>
+          <th><%= t("models.newsletter.fields.sent_at", scope: "decidim.admin") %></th>
+          <th><%= t("models.newsletter.fields.sent_to", scope: "decidim.admin") %></th>
+          <th><%= t("models.newsletter.fields.progress", scope: "decidim.admin") %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @newsletters.each do |newsletter| %>
+          <tr data-newsletter-id="<%= newsletter.id %>">
+            <td>
+              <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
+                <%= link_to translated_attribute(newsletter.subject), decidim_admin.newsletter_path(newsletter) %>
+              <% else %>
+                <%= translated_attribute newsletter.subject %>
+              <% end %>
+            </td>
+            <td><%= l newsletter.created_at, format: :long if newsletter.created_at %></td>
+            <td><%= l newsletter.sent_at, format: :long if newsletter.sent_at %></td>
+            <td><%= selective_newsletter_to newsletter %></td>
+            <td>
+              <% if newsletter.sent? %>
+                <%= "#{newsletter.total_deliveries} / #{newsletter.total_recipients}" %>
+              <% end %>
+            </td>
+            <td class="table-list__actions">
+              <% if allowed_to?(:update, :newsletter, newsletter: newsletter) && !newsletter.sent? %>
+                <%= icon_link_to "pencil-line", decidim_admin.edit_newsletter_path(newsletter), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
+              <% end %>
+
+              <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
+                <%= icon_link_to "share-line", decidim_admin.send_to_user_newsletter_path(newsletter), t("actions.send_me_a_test_email", scope: "decidim.admin"), class: "preview", method: :post %>
+              <% end %>
+
+              <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
+                <%= icon_link_to "eye-line", decidim_admin.newsletter_path(newsletter), t("actions.preview", scope: "decidim.admin"), class: "preview", target: "_blank", data: { "external-link": false } %>
+              <% end %>
+
+              <% if allowed_to?(:destroy, :newsletter, newsletter: newsletter) && !newsletter.sent? %>
+                <%= icon_link_to "delete-bin-line", decidim_admin.newsletter_path(newsletter), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
+              <% end %>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          <% @newsletters.each do |newsletter| %>
-            <tr data-newsletter-id="<%= newsletter.id %>">
-              <td>
-                <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
-                  <%= link_to translated_attribute(newsletter.subject), decidim_admin.newsletter_path(newsletter) %>
-                <% else %>
-                  <%= translated_attribute newsletter.subject %>
-                <% end %>
-              </td>
-              <td><%= l newsletter.created_at, format: :long if newsletter.created_at %></td>
-              <td><%= l newsletter.sent_at, format: :long if newsletter.sent_at %></td>
-              <td><%= selective_newsletter_to newsletter %></td>
-              <td>
-                <% if newsletter.sent? %>
-                  <%= "#{newsletter.total_deliveries} / #{newsletter.total_recipients}" %>
-                <% end %>
-              </td>
-              <td class="table-list__actions">
-                <% if allowed_to?(:update, :newsletter, newsletter: newsletter) && !newsletter.sent? %>
-                  <%= icon_link_to "pencil", decidim_admin.edit_newsletter_path(newsletter), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
-                <% end %>
-
-                <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
-                  <%= icon_link_to "share-boxed", decidim_admin.send_to_user_newsletter_path(newsletter), t("actions.send_me_a_test_email", scope: "decidim.admin"), class: "preview", method: :post %>
-                <% end %>
-
-                <% if allowed_to?(:read, :newsletter, newsletter: newsletter) %>
-                  <%= icon_link_to "eye", decidim_admin.newsletter_path(newsletter), t("actions.preview", scope: "decidim.admin"), class: "preview" %>
-                <% end %>
-
-                <% if allowed_to?(:destroy, :newsletter, newsletter: newsletter) && !newsletter.sent? %>
-                  <%= icon_link_to "circle-x", decidim_admin.newsletter_path(newsletter), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <%= decidim_paginate @newsletters %>
+        <% end %>
+      </tbody>
+    </table>
   </div>
+  <%= decidim_paginate @newsletters %>
 </div>

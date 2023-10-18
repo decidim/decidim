@@ -2,10 +2,10 @@
 
 module Decidim
   module Initiatives
-    # This type represents a initiative committee member.
+    # This type represents an initiative committee member.
     class InitiativeCommitteeMemberType < Decidim::Api::Types::BaseObject
       graphql_name "InitiativeCommitteeMemberType"
-      description "A initiative committee member"
+      description "An initiative committee member"
 
       field :id, GraphQL::Types::ID, "Internal ID for this member of the committee", null: false
       field :user, Decidim::Core::UserType, "The decidim user for this initiative committee member", null: true

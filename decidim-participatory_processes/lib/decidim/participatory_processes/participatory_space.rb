@@ -93,19 +93,8 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
       )
     end
 
-    landing_page_content_blocks = [:title, :extra_data, :cta, :highlighted_proposals, :highlighted_results, :highlighted_meetings, :stats, :participatory_processes]
-
     process_groups.each do |process_group|
-      landing_page_content_blocks.each.with_index(1) do |manifest_name, index|
-        Decidim::ContentBlock.create(
-          organization:,
-          scope_name: :participatory_process_group_homepage,
-          manifest_name:,
-          weight: index,
-          scoped_resource_id: process_group.id,
-          published_at: Time.current
-        )
-      end
+      Decidim::ContentBlocksCreator.new(process_group).create_default!
     end
 
     process_types = []
@@ -187,7 +176,6 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
           name: Faker::Name.name,
           nickname: Faker::Twitter.unique.screen_name,
           password: "decidim123456789",
-          password_confirmation: "decidim123456789",
           organization:,
           confirmed_at: Time.current,
           locale: I18n.default_locale,
@@ -199,6 +187,8 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
           participatory_process: process,
           role:
         )
+
+        Decidim::ContentBlocksCreator.new(process).create_default!
       end
 
       attachment_collection = Decidim::AttachmentCollection.create!(

@@ -4,33 +4,11 @@ module Decidim
   module Initiatives
     # Helper functions for initiatives views
     module InitiativesHelper
-      def initiatives_filter_form_for(filter)
-        content_tag :div, class: "filters" do
-          form_for filter,
-                   namespace: filter_form_namespace,
-                   builder: Decidim::Initiatives::InitiativesFilterFormBuilder,
-                   url: url_for,
-                   as: :filter,
-                   method: :get,
-                   remote: true,
-                   html: { id: nil } do |form|
-            yield form
-          end
-        end
-      end
-
       # Items to display in the navigation of an initiative
       def initiative_nav_items(participatory_space)
         components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
 
-        [
-          {
-            name: t("initiative_menu_item", scope: "layouts.decidim.initiative_header"),
-            url: decidim_initiatives.initiative_path(participatory_space),
-            active: is_active_link?(decidim_initiatives.initiative_path(participatory_space), :exclusive) ||
-              is_active_link?(decidim_initiatives.initiative_version_path(participatory_space, participatory_space.versions.count), :inclusive)
-          }
-        ] + components.map do |component|
+        components.map do |component|
           {
             name: translated_attribute(component.name),
             url: main_component_path(component),
@@ -48,6 +26,11 @@ module Decidim
         "filters_#{SecureRandom.uuid}"
       end
 
+      # i18n-tasks-use t('decidim.initiatives.initiatives.filters.state')
+      # i18n-tasks-use t('decidim.initiatives.initiatives.filters.scope')
+      # i18n-tasks-use t('decidim.initiatives.initiatives.filters.type')
+      # i18n-tasks-use t('decidim.initiatives.initiatives.filters.area')
+      # i18n-tasks-use t('decidim.initiatives.initiatives.filters.author')
       def filter_sections
         sections = [
           { method: :with_any_state, collection: filter_states_values, label_scope: "decidim.initiatives.initiatives.filters", id: "state" },
@@ -61,8 +44,8 @@ module Decidim
 
       def filter_author_values
         [
-          ["any", filter_text_for(t("any", scope: "decidim.initiatives.initiatives.filters"))],
-          ["myself", filter_text_for(t("myself", scope: "decidim.initiatives.initiatives.filters"))]
+          ["any", t("any", scope: "decidim.initiatives.initiatives.filters")],
+          ["myself", t("myself", scope: "decidim.initiatives.initiatives.filters")]
         ]
       end
     end

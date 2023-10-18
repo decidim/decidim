@@ -4,7 +4,7 @@
 
   <% if current_component.has_subscopes? %>
     <div class="filter-container">
-      <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
+      <button id="dropdown-trigger-accountability" data-component="dropdown" data-target="dropdown-menu-accountability" data-auto-close="true" data-disabled-md="true">
         <% items.each do |item| %>
           <%= content_tag :span, class: "#{"is-active" if item[:active]}" do %>
             <span class="sr-only"><%= item[:sr_text] %></span>
@@ -15,7 +15,7 @@
         <%= icon "arrow-down-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
         <%= icon "arrow-up-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
       </button>
-      <ul id="dropdown-menu" data-scope-filters>
+      <ul id="dropdown-menu-accountability" data-scope-filters>
         <% items.each do |item| %>
           <li>
             <%= link_to item[:url], class: "filter#{" is-active" if item[:active]}" do %>

@@ -65,6 +65,9 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.comments.update_comment:before"
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.comments.update_comment:after"
+
           it "updates the comment" do
             command.call
             comment.reload

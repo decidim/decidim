@@ -1,17 +1,12 @@
 <div class="card" id="answers">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t ".title", number: current_idx %>
-      <div class="button--title">
-        <%= link_to_unless last?, t("actions.next", scope: "decidim.forms.admin.questionnaires.answers").html_safe, next_url, rel: "next", class: "button tiny button--title next" %>
-      </div>
-      <div class="button--title">
-        <%= link_to_unless first?, t("actions.previous", scope: "decidim.forms.admin.questionnaires.answers").html_safe, prev_url, rel: "prev", class: "button tiny button--title prev" %>
-      </div>
-      <div class="button--title">
-        <%= link_to t("actions.export", scope: "decidim.forms.admin.questionnaires.answers"), questionnaire_export_response_url(@participant.session_token), class: "button tiny button--title export" %>
-        <%= link_to t("actions.back", scope: "decidim.forms.admin.questionnaires.answers"), questionnaire_participants_url, class: "button tiny button--title back" %>
-      </div>
+
+      <%= link_to t("actions.next", scope: "decidim.forms.admin.questionnaires.answers").html_safe, next_url, rel: "next", class: "button button__sm button__secondary next" unless last? %>
+      <%= link_to t("actions.previous", scope: "decidim.forms.admin.questionnaires.answers").html_safe, prev_url, rel: "prev", class: "button button__sm button__secondary prev" unless first? %>
+      <%= link_to t("actions.export", scope: "decidim.forms.admin.questionnaires.answers"), questionnaire_export_response_url(@participant.session_token), class: "button button__sm button__secondary export" %>
+      <%= link_to t("actions.back", scope: "decidim.forms.admin.questionnaires.answers"), questionnaire_participants_url, class: "button button__sm button__secondary back" %>
     </h2>
   </div>
   <div class="card-section">
@@ -38,9 +33,9 @@
         </tbody>
       </table>
     </div>
-    <dl>
+    <dl class="p-4 [&_ul]:list-disc [&_ul]:pl-4">
       <% @participant.answers.each do |answer| %>
-        <dt><%= answer.question %></dt>
+        <dt class="font-semibold"><%= answer.question %></dt>
         <dd><%= answer.body %></dd>
       <% end %>
     </dl>

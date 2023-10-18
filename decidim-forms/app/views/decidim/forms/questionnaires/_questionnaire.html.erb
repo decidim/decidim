@@ -6,11 +6,8 @@
   <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_for_private_users.title"), body: t("decidim.forms.questionnaires.show.questionnaire_for_private_users.body") }, callout_class: "alert") %>
 <% end %>
 
-<div class="mb-10">
-  <%= form_required_explanation %>
-</div>
-
 <%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form answer-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
+  <%= form_required_explanation %>
 
   <%= invisible_captcha %>
   <% answer_idx = 0 %>

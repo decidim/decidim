@@ -101,7 +101,6 @@ end
 
 load "decidim-dev/lib/tasks/generators.rake"
 load "lib/tasks/common_passwords_tasks.rake"
-load "lib/tasks/redesign_tasks.rake"
 
 desc "Generates a dummy app for testing"
 task test_app: "decidim:generate_external_test_app"

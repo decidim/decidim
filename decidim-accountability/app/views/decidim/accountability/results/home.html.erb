@@ -2,7 +2,7 @@
 <%= append_stylesheet_pack_tag "decidim_accountability" %>
 
 <% content_for :aside do %>
-  <h1 class="h3 md:h1 decorator"><%= component_name %></h1>
+  <h1 class="title-decorator"><%= component_name %></h1>
 
   <% if component_settings.display_progress_enabled? %>
     <%= cell(
@@ -19,8 +19,12 @@
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
 
-  <div class="editor-content mt-4"><%== translated_attribute component_settings.intro %></div>
+  <section class="layout-main__section">
+    <div class="editor-content"><%== translated_attribute component_settings.intro %></div>
+  </section>
 
-  <%= render partial: "home_categories" %>
+  <section class="layout-main__section">
+    <%= render partial: "home_categories" %>
+  </section>
 
 <% end %>

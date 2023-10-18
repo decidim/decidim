@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-# Redesign pending
-# These specs are pending for the new design to be applied to proposals module
-# The failure happens in the report modal, which is not yet implemented
-#
 require "spec_helper"
 
 describe "Report a debate", type: :system do

@@ -3,7 +3,7 @@
   var upVotes = <%= comment.up_votes.count.to_json %>;
   var downVotes = <%= comment.down_votes.count.to_json %>;
   var $comment = $("#comment_" + commentId);
-  var $votes = $("> .comment__footer .comment__votes", $comment);
+  var $votes = $("> .comment__footer > .comment__footer-grid .comment__votes", $comment);
   var $upVote = $(".js-comment__votes--up", $votes);
   var $downVote = $(".js-comment__votes--down", $votes);
 

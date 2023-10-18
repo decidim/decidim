@@ -1,9 +1,0 @@
-<% if model.hashtag.present? %>
-  <%= link_to(
-    "##{hashtag}",
-    twitter_hashtag_url(hashtag),
-    class: "card__text--category",
-    target: "_blank"
-  ) %>
-<% end %>
-<%= render partial: "decidim/initiatives/initiatives/tags.html", locals: { resource: model } %>

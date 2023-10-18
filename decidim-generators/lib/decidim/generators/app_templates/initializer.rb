@@ -47,6 +47,9 @@ Decidim.configure do |config|
 
   # Map and Geocoder configuration
   #
+  # See Decidim docs at https://docs.decidim.org/en/develop/services/maps.html
+  # for more information about how it works and how to set it up.
+  #
   # == HERE Maps ==
   # config.maps = {
   #   provider: :here,
@@ -341,8 +344,6 @@ Decidim.configure do |config|
   # Defines the social networking services used for social sharing
   config.social_share_services = Rails.application.secrets.decidim[:social_share_services]
 
-  config.redesign_active = Rails.application.secrets.decidim[:redesign_active] if Rails.application.secrets.decidim[:redesign_active].present?
-
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
   config.consent_cookie_name = Rails.application.secrets.decidim[:consent_cookie_name] if Rails.application.secrets.decidim[:consent_cookie_name].present?
@@ -446,12 +447,6 @@ if Decidim.module_installed? :accountability
     unless Rails.application.secrets.dig(:decidim, :accountability, :enable_proposal_linking) == "auto"
       config.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :accountability, :enable_proposal_linking).present?
     end
-  end
-end
-
-if Decidim.module_installed? :consultations
-  Decidim::Consultations.configure do |config|
-    config.stats_cache_expiration_time = Rails.application.secrets.dig(:decidim, :consultations, :stats_cache_expiration_time).to_i.minutes
   end
 end
 

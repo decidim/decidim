@@ -119,7 +119,7 @@ Finally, note that the returned object is an array, each item of which is a repr
 >
 > There are two types of objects to filter and ordering collections in Decidim, they all work in a similar fashion. The type involved in filtering always have the suffix "Filter", for ordering it has the suffix "Sort".
 >
-> The types used to filter participatory spaces are: [ParticipatoryProcessFilter](#ParticipatoryProcessFilter), [AssemblyFilter](#AssemblyFilter), [ConsultationFilter](#ConsultationFilter) and so on.
+> The types used to filter participatory spaces are: [ParticipatoryProcessFilter](#ParticipatoryProcessFilter), [AssemblyFilter](#AssemblyFilter), and so on.
 >
 > Other collections (or connections) may have their own filters (i.e. [ComponentFilter](#ComponentFilter)).
 >
@@ -156,9 +156,9 @@ Finally, note that the returned object is an array, each item of which is a repr
 
 Decidim has 2 main types of objects through which content is provided. These are Participatory Spaces and Components.
 
-A participatory space is the first level, currently there are 5 officially supported: *Participatory Processes*, *Assemblies*, *Consultations*, *Conferences* and *Initiatives*. For each participatory process there will correspond a collection type and a "single item" type.
+A participatory space is the first level, currently there are 5 officially supported: *Participatory Processes*, *Assemblies*, *Conferences* and *Initiatives*. For each participatory process there will correspond a collection type and a "single item" type.
 
-The previous example uses the collection type for participatory processes. You can try `assemblies`, `conferences`, `consultations` or `initiatives` for the others. Note that each collection can implement their own filter and order types with different properties.
+The previous example uses the collection type for participatory processes. You can try `assemblies`, `conferences`, or `initiatives` for the others. Note that each collection can implement their own filter and order types with different properties.
 
 As an example for a single item query, you can run:
 

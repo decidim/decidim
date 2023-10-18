@@ -72,10 +72,6 @@
 
     &__progressbar-legend {
       @apply text-sm block;
-
-      .mini-title__strong {
-        @apply block;
-      }
     }
 
     &__progressbar-legend-strong {
@@ -144,12 +140,10 @@
   }
 
   &__list--header {
-    @apply grid grid-cols-2 my-8;
+    @apply grid grid-cols-2;
   }
 
   &-list {
-    @apply my-4;
-
     .card__list {
       @apply pr-0;
     }
@@ -199,7 +193,7 @@
 }
 
 .progressbox-fixed-wrapper {
-  @apply bg-tertiary fixed hidden inset-x-0 inset-y-0 h-max z-10;
+  @apply bg-tertiary fixed hidden inset-x-0 inset-y-0 h-max z-20;
 
   box-shadow: 0 4px 6px 0 rgba(211, 211, 211, 0.25);
 }
@@ -224,35 +218,33 @@
   @apply hidden md:block;
 }
 
-.voting-wrapper {
-  .budget-summary__content {
-    @apply md:grid md:grid-cols-12 md:items-center md:px-16 pt-4 px-4;
+.budget-summary__content {
+  @apply md:grid md:grid-cols-12 md:items-center md:px-16 pt-4 px-4;
+}
+
+.budget-summary__progressbox {
+  @apply md:col-span-8;
+}
+
+.budget-summary__progressbox-buttons {
+  @apply md:col-span-3 md:col-start-10;
+}
+
+.budget-summary__button-modal {
+  @apply col-span-12 mb-4 pb-4;
+}
+
+.progressbox-fixed-wrapper {
+  .budget-summary__progressbar {
+    @apply md:pl-32 md:pr-8;
   }
 
   .budget-summary__progressbox {
-    @apply md:col-span-8;
+    @apply md:col-span-5 md:col-start-4;
   }
 
   .budget-summary__progressbox-buttons {
-    @apply md:col-span-3 md:col-start-10;
-  }
-
-  .budget-summary__button-modal {
-    @apply col-span-12 mb-4 pb-4;
-  }
-
-  .progressbox-fixed-wrapper {
-    .budget-summary__progressbar {
-      @apply md:pl-32 md:pr-8;
-    }
-
-    .budget-summary__progressbox {
-      @apply md:col-span-5 md:col-start-4;
-    }
-
-    .budget-summary__progressbox-buttons {
-      @apply md:col-start-10 md:col-span-2;
-    }
+    @apply md:col-start-10 md:col-span-2;
   }
 }
 

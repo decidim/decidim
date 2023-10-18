@@ -30,11 +30,12 @@ describe "Vote online in an election", type: :system do
 
       uses_the_voting_booth
 
-      page.find("a.focus__exit").click
+      click_link "Back to elections"
+      click_link(id: "elections__election_#{election.id}")
 
       expect(page).to have_current_path router.election_path(id: election.id)
-
       expect(page).to have_content("You have already voted in this election.")
+
       click_link "Change your vote"
 
       uses_the_voting_booth
@@ -51,7 +52,7 @@ describe "Vote online in an election", type: :system do
         visit_component
         click_link translated(election.title)
         click_link "Start voting"
-        expect(page).to have_content("MORE INFORMATION")
+        expect(page).to have_content("More information")
       end
     end
 
@@ -66,7 +67,7 @@ describe "Vote online in an election", type: :system do
         visit_component
         click_link translated(election.title)
         click_link "Start voting"
-        expect(page).not_to have_content("MORE INFORMATION")
+        expect(page).not_to have_content("More information")
       end
     end
   end
@@ -158,7 +159,8 @@ describe "Vote online in an election", type: :system do
       click_link "Start voting"
 
       dismiss_prompt do
-        page.find("a.focus__exit").click
+        # click anything outside of the #vote-wrapper element
+        page.find("#main-bar [aria-label='Go to front page']").click
       end
 
       expect(page).to have_content("Next")

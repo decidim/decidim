@@ -64,7 +64,6 @@ sr:
         success_color: Uspeh
         time_zone: Vremenska zona
         tos_version: Verzija uslova korišćenja
-        twitter_handler: Administrator Twitter-a
         user_groups_enabled: Omogući grupe
         warning_color: Upozorenje
         welcome_notification_body: Glavni tekst obaveštenja dobrodošlice
@@ -121,8 +120,6 @@ sr:
       actions:
         add: Dodaj
         browse: Prеglеdaj
-        manage: Upravljaj
-        new: Novo %{name}
         per_page: Po stranici
         permissions: Dozvole
         reject: Odbaci
@@ -162,7 +159,6 @@ sr:
           title: Izmeni fasciklu
           update: Ažuriraj
         index:
-          attachment_collection_used: Ova fascikla se ne može ukloniti jer se trenutno koristi.
           attachment_collections_title: Fascikle priloga
         new:
           create: Stvori
@@ -201,7 +197,6 @@ sr:
           update: Ažuriraj
         index:
           categories_title: Kategorije
-          category_used: Ova kategorija se ne može ukloniti jer se trenutno koristi.
         new:
           create: Stvori kategoriju
           title: Nova katеgorija
@@ -282,7 +277,6 @@ sr:
             all: Sve
             managed: Obrađeno
             not_managed: Neobrađeno
-          filter_by: Izaberi po
           impersonate: Predstavlja
           impersonate_new_managed_user: Upravljanje novim učesnikom
           managed: Obrađeno
@@ -325,7 +319,6 @@ sr:
         area_types: Tipovi oblasti
         areas: Oblasti
         configuration: Konfiguracija
-        dashboard: Kontrolna tabla
         help_sections: Sekcije za pomoć
         homepage: Početna stranica
         impersonations: Predstavljanja
@@ -394,7 +387,6 @@ sr:
           fields:
             created_at: Datum kreiranja
             email: E-pošta
-            last_sign_in_at: Datum poslednjeg pristupanja
             name: Ime
             role: Uloga
             roles:
@@ -465,9 +457,6 @@ sr:
           select_scopes: Filter za korisnike koji su aktivirali makar jedan od odabranih opsega u podešavanjima "Moji interesi" svog naloga.
           select_spaces: Izaberite prostore da podelite bilten
           select_users: Izaberite kojim korisnicima želite da pošaljete bilten
-          send_to_all_users: Pošalji svim korisnicima
-          send_to_followers: Pošalji pratiocima
-          send_to_participants: Pošalji učesnicima
           title: Izaberi primaoce za dostavu
           warning: "<strong>Pažnja:</strong> Ovaj bilten će biti poslan samo korisnicima koji su aktivirali <em>Želim da dobijam biltene</em> u svojim podešavanjima obaveštenja."
         show:
@@ -510,7 +499,6 @@ sr:
           instagram: Instagram
           rich_text_editor_in_public_views_help: U pojedinim delovima teksta učesnici će uz pomoć programa moći da ubace HTML oznake.
           social_handlers: Društvene
-          twitter: Twitter
           youtube: YouTube
         update:
           error: Pojavio se problem pri ažuriranju ove organizacije.

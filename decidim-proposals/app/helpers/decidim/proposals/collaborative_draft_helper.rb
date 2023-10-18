@@ -8,11 +8,11 @@ module Decidim
       def filter_collaborative_drafts_state_values
         scope = "decidim.proposals.collaborative_drafts.filters"
         Decidim::CheckBoxesTreeHelper::TreeNode.new(
-          Decidim::CheckBoxesTreeHelper::TreePoint.new("", filter_text_for(t("all", scope:))),
+          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("all", scope:)),
           [
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("open", filter_text_for(t("open", scope:))),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("withdrawn", filter_text_for(t("withdrawn", scope:))),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("published", filter_text_for(t("published", scope:)))
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("open", t("open", scope:)),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("withdrawn", t("withdrawn", scope:)),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("published", t("published", scope:))
           ]
         )
       end

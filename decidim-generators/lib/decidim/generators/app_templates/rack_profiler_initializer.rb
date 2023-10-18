@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-if Rails.env.development?
+if Rails.env.development? && !Rails.application.config.try(:boost_performance)
   require "rack-mini-profiler"
 
   # initialization is skipped so trigger it

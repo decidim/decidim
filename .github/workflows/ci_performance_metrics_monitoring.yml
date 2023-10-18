@@ -19,8 +19,9 @@ env:
   CI: "true"
   SIMPLECOV: "true"
   RUBY_VERSION: 3.1.1
-  NODE_VERSION: 16.13.0
+  NODE_VERSION: 18.17.1
   RAILS_ENV: development
+  RAILS_BOOST_PERFORMANCE: "true"
   WEBPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:
@@ -35,7 +36,7 @@ jobs:
     timeout-minutes: 60
     services:
       postgres:
-        image: postgres:11
+        image: postgres:14
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
@@ -84,8 +85,11 @@ jobs:
       - run: bundle exec rails server -b localhost -d
         name: Run Rails server
         working-directory: ./development_app/
+      - run: bundle exec rails decidim:lighthouse:warmup
+        name: Warmup the cache at the configured lighthouse urls
+        working-directory: ./development_app/
       - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v8
+        uses: treosh/lighthouse-ci-action@v10
         with:
           runs: 3 # run more than once to warm up the application
           uploadArtifacts: true

@@ -7,7 +7,7 @@
       <%= t("download_data", scope:"decidim.download_your_data.show") %>
     </span>
     <p class="help-text pb-8">
-      <%= t("download_data_description", scope:"decidim.download_your_data.show" , user_email: current_user.email).html_safe %>
+      <%= t("download_data_description_html", scope:"decidim.download_your_data.show" , user_email: current_user.email) %>
     </p>
     <div class="form__wrapper-block">
       <%= button_to t("request_data", scope:"decidim.download_your_data.show"), export_download_your_data_path, class: "button button__sm md:button__lg button__secondary mr-auto !ml-0", data: { disable: true } %>

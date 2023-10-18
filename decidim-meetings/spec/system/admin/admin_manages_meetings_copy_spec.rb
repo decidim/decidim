@@ -49,15 +49,8 @@ describe "Admin copies meetings", type: :system do
 
       fill_in :meeting_online_meeting_url, with: "https://google.com"
 
-      page.execute_script("$('#meeting_start_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "10:00").click
-      page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-      page.execute_script("$('#meeting_end_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "12:00").click
-      page.find(".datepicker-dropdown .minute", text: "12:50").click
+      fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+      fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
       within ".copy_meetings" do
         find("*[type=submit]").click
@@ -115,15 +108,8 @@ describe "Admin copies meetings", type: :system do
       fill_in_geocoding :meeting_address, with: address
       fill_in :meeting_online_meeting_url, with: "https://google.com"
 
-      page.execute_script("$('#meeting_start_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "10:00").click
-      page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-      page.execute_script("$('#meeting_end_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "12:00").click
-      page.find(".datepicker-dropdown .minute", text: "12:50").click
+      fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+      fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
       within ".copy_meetings" do
         find("*[type=submit]").click
@@ -180,15 +166,8 @@ describe "Admin copies meetings", type: :system do
 
       fill_in_geocoding :meeting_address, with: address
 
-      page.execute_script("$('#meeting_start_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "10:00").click
-      page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-      page.execute_script("$('#meeting_end_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "12:00").click
-      page.find(".datepicker-dropdown .minute", text: "12:50").click
+      fill_in :meeting_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+      fill_in :meeting_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
       within ".copy_meetings" do
         find("*[type=submit]").click

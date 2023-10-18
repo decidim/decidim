@@ -31,13 +31,11 @@ describe "Elections log", type: :system do
     it "shows list of elections" do
       visit decidim_votings.voting_elections_log_path(voting)
       expect(page).to have_content("The election log will show you all relevant information about each voting. For example, the status of the key ceremony or tally or if results are published already. Click on the election you want the log information about.")
-      expect(page).to have_selector(".card--list__item").exactly(4).times
-      expect(page).to have_link(translated(vote_election.title))
-
-      click_link translated(vote_election.title)
-
-      expect(page).to have_content("Election Log")
-      expect(page).to have_content("The voting process has started.")
+      expect(page).to have_selector("[data-log-entry]").exactly(4).times
+      expect(page).to have_content(translated(vote_election.title))
+      expect(page).to have_content(strip_tags(translated(vote_election.description)))
+      expect(page).to have_content(vote_election.start_time)
+      expect(page).to have_content(vote_election.bb_status.to_s.titlecase)
     end
   end
 end

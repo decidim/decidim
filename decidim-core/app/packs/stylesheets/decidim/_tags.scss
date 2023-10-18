@@ -1,0 +1,11 @@
+.tag {
+  @apply flex items-center gap-1 hover:underline;
+
+  &-container {
+    @apply flex items-center gap-2 text-sm text-gray-2;
+  }
+
+  svg {
+    @apply w-3.5 h-3.5 text-gray fill-current;
+  }
+}

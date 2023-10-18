@@ -18,22 +18,6 @@ module Decidim
 
         helper_method :meetings, :search
 
-        def year_calendar
-          @filter_options = {
-            # REDESIGN_PENDING: This variable must be set
-            date: !@forced_past_meetings,
-            type: true,
-            directory_scopes: true,
-            directory_categories: true,
-            origin: true,
-            space_type: true,
-            activity: current_user.present?
-          }
-          @search_variable = :title_or_description_cont
-          @year = (params[:year] || Date.current.year).to_i
-          @year_path = proc { |year| year_calendar_path(year) }
-        end
-
         def calendar
           render plain: CalendarRenderer.for(current_organization, filter_params), content_type: "type/calendar"
         end

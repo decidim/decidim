@@ -20,7 +20,7 @@ RUN pg_dropcluster $PGVERSION main \
 USER gitpod
 
 # Install nvm and Node
-ENV NODE_VERSION=16.13.0
+ENV NODE_VERSION=18.17.1
 RUN curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | PROFILE=/dev/null bash \
     && bash -c ". .nvm/nvm.sh \
         && nvm install v${NODE_VERSION} \

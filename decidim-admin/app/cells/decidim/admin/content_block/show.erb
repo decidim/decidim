@@ -5,11 +5,11 @@
       <% if model.persisted? %>
         <% if has_settings? %>
           <%= link_to edit_content_block_path, class: "mr-s text-muted" do %>
-            <%= icon "pencil", role: "img", "aria-hidden": true %>
+            <%= icon "pencil-line", role: "img", "aria-hidden": true %>
           <% end %>
         <% end %>
         <%= link_to content_block_path, method: :delete, data: { confirm: content_block_destroy_confirmation_text }, class: "mr-s text-muted" do %>
-          <%= icon "x", role: "img", "aria-hidden": true %>
+          <%= icon "delete-bin-line", role: "img", "aria-hidden": true %>
         <% end %>
       <% end %>
       <%= icon "menu", role: "img", "aria-hidden": true %>

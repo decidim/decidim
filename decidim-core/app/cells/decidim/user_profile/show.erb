@@ -6,10 +6,10 @@
     <%= render :badge if show_badge? %>
   </div>
   <div class="space-y-1">
-    <h5 class="profile__user-name">
+    <div class="profile__user-name">
       <%= name %>
       <%= render :role_badge if role.present? %>
-    </h5>
+    </div>
     <span class="profile__user-nick"><%= nickname %></span>
   </div>
 <% end %>

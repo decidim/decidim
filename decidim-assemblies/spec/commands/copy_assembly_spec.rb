@@ -85,7 +85,7 @@ module Decidim::Assemblies
     context "when copy_categories exists" do
       let(:copy_categories) { true }
 
-      it "duplicates a assembly and the categories" do
+      it "duplicates an assembly and the categories" do
         expect { subject.call }.to change(Decidim::Category, :count).by(1)
         expect(Decidim::Category.unscoped.distinct.pluck(:decidim_participatory_space_id).count).to eq 2
 

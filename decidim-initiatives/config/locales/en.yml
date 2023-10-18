@@ -80,7 +80,9 @@ en:
   decidim:
     admin:
       actions:
+        manage: Manage
         new_initiative_type: New initiative type
+        new_initiative_type_scope: New initiative type scope
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -107,8 +109,13 @@ en:
         committee_members: Committee members
         components: Components
         information: Information
+        initiative_type_scopes: Initiative type scopes
         initiatives: Initiatives
+        initiatives_menu:
+          see_initiative: See initiative
         initiatives_settings: Settings
+        initiatives_submenu:
+          info: About this initiative
         initiatives_types: Initiative types
         moderations: Moderations
       models:
@@ -245,7 +252,6 @@ en:
             success: The initiative has been sent to technical validation.
             update: Update
           form:
-            attachments: Attachments
             settings: Settings
             title: General information
           index:
@@ -277,13 +283,9 @@ en:
           destroy:
             success: The scope has been successfully removed.
           edit:
-            back: Back
-            confirm_destroy: Are you sure?
-            destroy: Delete
             title: Edit initiative type scope
             update: Update
           new:
-            back: Back
             create: Create
             title: Create initiative type scope
           update:
@@ -296,15 +298,12 @@ en:
           destroy:
             success: The initiative type has been successfully removed.
           edit:
-            confirm_destroy: Are you sure?
-            destroy: Delete
             update: Update
           form:
             authorizations: Authorization settings
             child_scope_threshold_enabled_help: 'This config flag doesn''t support offline votes. It enables sub-scopes and works with an authorization handler that associates a scope to the user. Make sure you select that authorization, below in authorization settings. For it to work, scopes need to be configured in a hierarchical way: 1 Parent - N Child. For more info on how this configuration works, see <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">initiatives'' admin documentation page</a>.'
             only_global_scope_enabled_help: Tick this flag if you enabled "Child scope signature" and configured the global scope as your parent scope. By enabling this, initiative type selection will be skipped in the initiative creation wizard. For more info on how this configuration works, see this <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Options
-            title: General information
           initiative_type_scopes:
             title: Scopes for the initiative type
           new:
@@ -333,8 +332,6 @@ en:
         rejected: Not enough signatures
         validating: Technical validation
       application_helper:
-        filter_area_values:
-          all: All
         filter_state_values:
           accepted: Enough signatures
           all: All
@@ -376,7 +373,6 @@ en:
           more_information: "(More information)"
           send_my_initiative: Send my initiative to technical validation
         finish_help:
-          access_reminder: You can access your initiatives through the %{link} filter on the Initiatives page.
           publish_helper_text: Remember that for your initiative to be published you must complete the required information and <strong>send it to technical validation</strong> for an administrator to review it.
         previous_form:
           back: Back
@@ -442,10 +438,6 @@ en:
       initiative_signatures:
         fill_personal_data:
           continue: Continue
-          date_select:
-            day: Day
-            month: Month
-            year: Year
           help: Please, fill the following fields with your personal data to sign the initiative.
         finish:
           back_to_initiative: Back to initiative
@@ -488,14 +480,8 @@ en:
           author: Author
           myself: My initiatives
           scope: Scope
-          search: Search
           state: Status
           type: Type
-        filters_small_view:
-          close_modal: Close window
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         index_header:
           new_initiative: New initiative
         initiatives:
@@ -540,11 +526,13 @@ en:
           initiative_rejected_reason: This initiative has been rejected due to its lack of signatures.
         show:
           area: Area
+          before_send_to_technical_validation_announcement: 'Before sending your initiative for technical validation, you need to add %{count} more members to the promoter committee.<br/><br/>Share this link with the people you want to be part of your committee: %{href}'
           confirm: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
           edit: Edit
           initiative_data: Initiative data
           scope: Scope
           send_to_technical_validation: Send to technical validation
+          send_to_technical_validation_announcement: If everything looks ok, click on "Send to technical validation" for an administrator to review and publish your initiative
           signature_collection: Signature collection
           state: State
           type: Type
@@ -617,19 +605,12 @@ en:
         finish: Finish
         promotal_committee: Promoter committee
         select_initiative_type: Choose
-      initiative_header:
-        initiative_menu_item: Initiative
       initiative_signature_creation_header:
-        back: Back
         fill_personal_data: Complete your data
         finish: Finish
-        finished: Initiative signature created
         sms_code: SMS code verification
         sms_phone_number: Mobile phone number
         title: Sign %{initiative_title}
       initiatives:
-        initiative:
-          check: Check it out
-          check_and_support: Check it out and sign
         no_initiatives_yet:
           no_initiatives_yet: No initiatives yet!

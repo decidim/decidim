@@ -3,7 +3,7 @@
 module Decidim
   module Blogs
     # This cell renders the Grid (:g) post card
-    # for an given instance of a Post
+    # for a given instance of a Post
     class PostGCell < Decidim::CardGCell
       delegate :photo, to: :model
 

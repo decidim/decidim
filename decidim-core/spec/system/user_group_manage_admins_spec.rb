@@ -21,11 +21,7 @@ describe "User group manage admins", type: :system do
     end
 
     it "does not show the link to edit" do
-      if Decidim.redesign_active
-        expect(page).not_to have_content("Manage group")
-      else
-        expect(page).not_to have_content("Manage admins")
-      end
+      expect(page).not_to have_content("Manage group")
     end
 
     it "rejects the user that accesses manually" do
@@ -39,7 +35,7 @@ describe "User group manage admins", type: :system do
       login_as creator, scope: :user
       visit decidim.profile_path(user_group.nickname)
 
-      click_button "Manage group" if Decidim.redesign_active
+      click_button "Manage group"
       click_link "Manage admins"
     end
 

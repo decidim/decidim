@@ -46,12 +46,12 @@ module Decidim
             end
           end
 
-          resources :attachment_collections, controller: "conference_attachment_collections"
-          resources :attachments, controller: "conference_attachments"
+          resources :attachment_collections, controller: "conference_attachment_collections", except: [:show]
+          resources :attachments, controller: "conference_attachments", except: [:show]
         end
 
         scope "/conferences/:conference_slug" do
-          resources :categories
+          resources :categories, except: [:show]
 
           resources :components do
             resource :permissions, controller: "component_permissions"
@@ -155,27 +155,29 @@ module Decidim
                         I18n.t("info", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.edit_conference_path(current_participatory_space),
                         position: 1,
-                        if: allowed_to?(:update, :conference, conference: current_participatory_space),
-                        active: is_active_link?(decidim_admin_conferences.edit_conference_path(current_participatory_space))
+                        icon_name: "information-line",
+                        if: allowed_to?(:update, :conference, conference: current_participatory_space)
 
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.components_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_conferences.components_path(current_participatory_space)),
+                        icon_name: "tools-line",
                         if: allowed_to?(:read, :component, conference: current_participatory_space),
-                        submenu: { target_menu: :admin_conferences_components_menu, options: { container_options: { id: "components-list" } } }
+                        active: is_active_link?(decidim_admin_conferences.components_path(current_participatory_space),
+                                                ["decidim/conferences/admin/components", %w(index new edit)]),
+                        submenu: { target_menu: :admin_conferences_components_menu }
 
           menu.add_item :categories,
                         I18n.t("categories", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.categories_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_conferences.categories_path(current_participatory_space)),
+                        icon_name: "price-tag-3-line",
                         if: allowed_to?(:read, :category, conference: current_participatory_space)
 
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.admin.menu.conferences_submenu"),
                         "#",
-                        active: is_active_link?(decidim_admin_conferences.conference_attachment_collections_path(current_participatory_space)) ||
-                                is_active_link?(decidim_admin_conferences.conference_attachments_path(current_participatory_space)),
+                        icon_name: "attachment-2",
+                        active: false,
                         if: allowed_to?(:read, :attachment_collection, conference: current_participatory_space) ||
                             allowed_to?(:read, :attachment, conference: current_participatory_space),
                         submenu: { target_menu: :conferences_admin_attachments_menu }
@@ -183,25 +185,26 @@ module Decidim
           menu.add_item :conference_media_links,
                         I18n.t("media_links", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.conference_media_links_path(current_participatory_space),
-                        if: allowed_to?(:read, :media_link, conference: current_participatory_space),
+                        icon_name: "film-line",
                         active: is_active_link?(decidim_admin_conferences.conference_media_links_path(current_participatory_space))
 
           menu.add_item :conference_partners,
                         I18n.t("partners", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.conference_partners_path(current_participatory_space),
-                        if: allowed_to?(:read, :partner, conference: current_participatory_space),
-                        active: is_active_link?(decidim_admin_conferences.conference_partners_path(current_participatory_space))
+                        icon_name: "service-line",
+                        if: allowed_to?(:read, :partner, conference: current_participatory_space)
 
           menu.add_item :conference_speakers,
                         I18n.t("conference_speakers", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.conference_speakers_path(current_participatory_space),
-                        if: allowed_to?(:read, :conference_speaker, conference: current_participatory_space),
-                        active: is_active_link?(decidim_admin_conferences.conference_speakers_path(current_participatory_space))
+                        icon_name: "user-voice-line",
+                        if: allowed_to?(:read, :conference_speaker, conference: current_participatory_space)
 
           menu.add_item :registrations,
                         I18n.t("registrations", scope: "decidim.admin.menu.conferences_submenu"),
                         "#",
                         active: false,
+                        icon_name: "group-line",
                         if: allowed_to?(:read, :conference_invite, conference: current_participatory_space) ||
                             allowed_to?(:read, :registration_type, conference: current_participatory_space) ||
                             allowed_to?(:read, :conference_registration, conference: current_participatory_space),
@@ -210,23 +213,23 @@ module Decidim
           menu.add_item :conference_user_roles,
                         I18n.t("conference_admins", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.conference_user_roles_path(current_participatory_space),
-                        if: allowed_to?(:read, :conference_user_role, conference: current_participatory_space),
-                        active: is_active_link?(decidim_admin_conferences.conference_user_roles_path(current_participatory_space))
+                        icon_name: "user-settings-line",
+                        if: allowed_to?(:read, :conference_user_role, conference: current_participatory_space)
 
           menu.add_item :moderations,
                         I18n.t("moderations", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.moderations_path(current_participatory_space),
-                        if: allowed_to?(:read, :moderation, conference: current_participatory_space),
-                        active: is_active_link?(decidim_admin_conferences.moderations_path(current_participatory_space))
+                        icon_name: "flag-line",
+                        if: allowed_to?(:read, :moderation, conference: current_participatory_space)
         end
       end
 
       initializer "decidim_conferences_admin.menu" do
-        Decidim.menu :admin_menu do |menu|
+        Decidim.menu :admin_menu_modules do |menu|
           menu.add_item :conferences,
                         I18n.t("menu.conferences", scope: "decidim.admin"),
                         decidim_admin_conferences.conferences_path,
-                        icon_name: "microphone",
+                        icon_name: "live-line",
                         position: 2.8,
                         active: :inclusive,
                         if: allowed_to?(:enter, :space_area, space_name: :conferences)

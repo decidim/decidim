@@ -1,6 +1,11 @@
-<%= link_to model.link || "", target: "_blank", class: "conference__grid-item", data: { "external-link": "false" } do %>
-  <div class="conference__grid-item-img">
-    <%= image_tag model.attached_uploader(:logo).path(variant: :medium), alt: "logo" %>
-  </div>
-  <h3 class="h5 conference__grid-item-text"><%= model.name %></h3>
+<% if model.link.present? %>
+  <%= link_to model.link, target: "_blank", class: "conference__grid-item", data: { "external-link": "false" } do %>
+    <%= render :image %>
+    <%= render :text %>
+  <% end %>
+<% else %>
+  <%= content_tag :div, nil, class: "conference__grid-item" do %>
+    <%= render :image %>
+    <%= render :text %>
+  <% end %>
 <% end %>

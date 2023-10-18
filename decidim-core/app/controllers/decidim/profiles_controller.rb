@@ -2,6 +2,11 @@
 
 module Decidim
   # The controller to handle the user's public profile page.
+  #
+  # i18n-tasks-use t('decidim.profiles.show.badges')
+  # i18n-tasks-use t('decidim.profiles.show.groups')
+  # i18n-tasks-use t('decidim.profiles.show.group_admins')
+  # i18n-tasks-use t('decidim.profiles.show.group_members')
   class ProfilesController < Decidim::ApplicationController
     include UserGroups
     include Flaggable
@@ -15,8 +20,6 @@ module Decidim
     before_action :ensure_profile_holder_is_a_group, only: [:members]
     before_action :ensure_profile_holder_is_a_user, only: [:groups, :following]
     before_action :ensure_user_not_blocked
-
-    redesign active: true
 
     def show
       return redirect_to profile_members_path if profile_holder.is_a?(Decidim::UserGroup)

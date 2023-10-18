@@ -1,31 +1,17 @@
 import { DirectUpload } from "@rails/activestorage";
 
 export class Uploader {
-  constructor(modal, uploadItem, options) {
+  constructor(modal, options) {
     this.modal = modal;
-    this.uploadItem = uploadItem;
-    this.progressBar = uploadItem.querySelector(".progress-bar");
+    this.options = options;
     this.validationSent = false;
-    this.fileTooBig = false;
+    this.errors = []
+
     if (modal.options.maxFileSize && options.file.size > modal.options.maxFileSize) {
-      this.fileTooBig = true;
-      this.showError([modal.locales.file_size_too_large]);
+      this.errors = [modal.locales.file_size_too_large]
     } else {
       this.upload = new DirectUpload(options.file, options.url, this);
     }
-  }
-
-  showError(errors) {
-    this.progressBar.classList.add("filled");
-    this.progressBar.innerHTML = this.modal.locales.validation_error;
-    this.uploadItem.dataset.state = "error";
-    const errorList = this.uploadItem.querySelector(".upload-errors");
-    errors.forEach((error) => {
-      const errorItem = document.createElement("li");
-      errorItem.classList.add("form-error", "is-visible");
-      errorItem.innerHTML = error;
-      errorList.appendChild(errorItem);
-    })
   }
 
   validate(blobId) {
@@ -35,14 +21,9 @@ export class Uploader {
         errors = errors.concat(value);
       }
 
-      this.progressBar.style.justifyContent = "center";
-      if (errors.length === 0) {
-        this.progressBar.innerHTML = this.modal.locales.uploaded;
-        this.uploadItem.dataset.state = "validated";
-      } else {
-        this.showError(errors);
+      if (errors.length) {
+        this.errors = errors;
       }
-      this.progressBar.classList.add("filled");
     }
 
     if (!this.validationSent) {
@@ -57,33 +38,26 @@ export class Uploader {
         formClass: this.modal.options.formObjectClass
       });
 
-      fetch(`/upload_validations?${params.toString()}`, {
+      return fetch(`/upload_validations?${params.toString()}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
         }
-      }).then((response) => response.json()).then((data) => {
-        callback(data);
-      });
-      this.validationSent = true;
+      }).
+        then((response) => response.json()).
+        then((data) => {
+          this.validationSent = true;
+          callback(data);
+        });
     }
+
+    return Promise.resolve()
   }
 
+  // The following method come from @rails/activestorage
+  // {@link https://edgeguides.rubyonrails.org/active_storage_overview.html#direct-upload-javascript-events Active Storage Rails guide}
   directUploadWillStoreFileWithXHR(request) {
-    request.upload.addEventListener("progress", (event) => {
-      const progress = Math.floor(event.loaded / event.total * 100);
-      let width = "15%";
-      if (progress > 15) {
-        width = `${progress}%`;
-      }
-      this.progressBar.style.width = width;
-
-      if (progress === 100) {
-        this.progressBar.innerHTML = this.modal.locales.validating;
-        return;
-      }
-      this.progressBar.innerHTML = `${progress}%`;
-    });
+    request.upload.addEventListener("progress", ({ loaded, total }) => this.modal.setProgressBar(this.options.attachmentName, Math.floor(loaded / total * 100)));
   }
 }

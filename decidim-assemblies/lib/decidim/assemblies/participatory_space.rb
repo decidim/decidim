@@ -136,7 +136,6 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
           name: Faker::Name.name,
           nickname: Faker::Twitter.unique.screen_name,
           password: "decidim123456789",
-          password_confirmation: "decidim123456789",
           organization:,
           confirmed_at: Time.current,
           locale: I18n.default_locale,
@@ -271,6 +270,8 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         Decidim.component_manifests.each do |manifest|
           manifest.seed!(current_assembly.reload)
         end
+
+        Decidim::ContentBlocksCreator.new(current_assembly).create_default!
       end
     end
   end

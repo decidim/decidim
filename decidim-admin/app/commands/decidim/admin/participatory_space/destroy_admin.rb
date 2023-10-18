@@ -20,8 +20,10 @@ module Decidim
         #
         # Returns nothing.
         def call
-          destroy_role!
-          dispatch_system_event
+          with_events do
+            destroy_role!
+          end
+
           broadcast(:ok)
         end
 
@@ -29,8 +31,11 @@ module Decidim
 
         attr_reader :role, :current_user
 
-        def dispatch_system_event
-          ActiveSupport::Notifications.publish("decidim.system.participatory_space.admin.destroyed", role.class.name, role.id)
+        def event_arguments
+          {
+            class_name: role.class.name,
+            role: role.id
+          }
         end
 
         def destroy_role!

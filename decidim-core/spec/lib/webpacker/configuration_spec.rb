@@ -46,17 +46,6 @@ module Decidim
             "decidim_map_provider_here" => "#{core_path}/app/packs/entrypoints/decidim_map_provider_here.js"
           )
         end
-
-        it "adds the stylesheet imports to the webpacker runtime configuration" do
-          expect(runtime_config["default"]["stylesheet_imports"].keys).to include("imports")
-          expect(runtime_config["default"]["stylesheet_imports"]["imports"].keys).to include("app")
-          expect(runtime_config["default"]["stylesheet_imports"]["imports"]["app"]).to include(
-            "stylesheets/decidim/consultations/consultations",
-            "stylesheets/decidim/elections/elections",
-            "stylesheets/decidim/votings/votings",
-            "stylesheets/decidim/initiatives/initiatives"
-          )
-        end
       end
     end
   end

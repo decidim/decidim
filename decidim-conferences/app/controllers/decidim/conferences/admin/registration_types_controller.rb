@@ -77,7 +77,7 @@ module Decidim
         private
 
         def collection
-          @collection ||= Decidim::Conferences::RegistrationType.where(conference: current_conference)
+          @collection ||= current_conference.registration_types
         end
       end
     end

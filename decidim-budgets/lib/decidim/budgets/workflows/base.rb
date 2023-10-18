@@ -40,7 +40,7 @@ module Decidim
         #                      Using `false` allow UI to offer users to discard votes in progress to start voting in another resource.
         #
         # Returns Boolean.
-        def vote_allowed?(_resource, _consider_progress: true)
+        def vote_allowed?(_resource, consider_progress: true) # rubocop:disable Lint/UnusedMethodArgument
           raise StandardError, "Not implemented"
         end
 

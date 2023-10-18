@@ -22,8 +22,6 @@ module Decidim
         end
 
         def project
-          return unless projects
-
           @project ||= projects.find(params[:id])
         end
       end

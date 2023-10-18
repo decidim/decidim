@@ -93,8 +93,6 @@ namespace :decidim do
         "Decidim::Blogs::Post" => %w(body),
         "Decidim::Pages::Page" => %w(body),
         "Decidim::Sortitions::Sortition" => %w(additional_info witnesses cancel_reason),
-        "Decidim::Consultations::Question" => %w(title question_context what_is_decided instructions),
-        "Decidim::Consultation" => %w(description),
         "Decidim::Debates::Debate" => %w(description instructions information_updates conclusions),
         "Decidim::Budgets::Budget" => %w(description),
         "Decidim::Budgets::Project" => %w(description),

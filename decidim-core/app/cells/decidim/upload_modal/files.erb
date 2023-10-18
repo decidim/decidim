@@ -13,7 +13,7 @@
     <div id="default-active-<%= modal_id %>" class="upload-modal__files">
       <div class="attachment-details">
         <div>
-          <%= image_tag uploader_default_image_path(attribute) %>
+          <%= image_tag(uploader_default_image_path(attribute), alt: attribute) %>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@
 
     <div class="active-uploads upload-modal__files" data-active-uploads="<%= modal_id %>">
       <% attachments.each do |attachment| %>
-        <% next if attachment.is_a? Array %>
+        <% next if [Array, Hash].any? { |klass| attachment.is_a? klass } %>
 
         <div class="attachment-details" data-attachment-id="<%= attachment.id %>" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
           <% if file_attachment_path(attachment) && blob(attachment).image? %>
@@ -46,23 +46,23 @@
   </div>
 
   <%= tag.button button_label,
-    id: button_id,
-    name: attribute,
-    class: button_class,
-    type: "button",
-    data: {
-      modal_open_key => modal_id,
-      upload: {
-        add_attribute:,
-        resource_name:,
-        resource_class:,
-        required: required?,
-        max_file_size:,
-        multiple:,
-        titled: has_title?,
-        form_object_class:
-      }.transform_keys { |key| key.to_s.camelize(:lower) }
-    } %>
+                 id: button_id,
+                 name: attribute,
+                 class: button_class,
+                 type: "button",
+                 data: {
+                   "dialog-open": modal_id,
+                   upload: {
+                     add_attribute:,
+                     resource_name:,
+                     resource_class:,
+                     required: required?,
+                     max_file_size:,
+                     multiple:,
+                     titled: has_title?,
+                     form_object_class:
+                   }.transform_keys { |key| key.to_s.camelize(:lower) }
+                 } %>
 
   <%= input_validation_field if required? %>
 </div>

@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Voting", type: :system do
   let!(:organization) { create(:organization) }
-  let!(:voting) { create(:voting, :published, organization:) }
+  let!(:voting) { create(:voting, :published, :with_content_blocks, organization:, blocks_manifests: [:title]) }
   let!(:user) { create(:user, :confirmed, organization:) }
 
   before do
@@ -23,6 +23,13 @@ describe "Voting", type: :system do
     it "shows the basic voting data" do
       expect(page).to have_i18n_content(voting.title)
       expect(page).to have_i18n_content(voting.description)
+    end
+
+    describe "follow button" do
+      let(:followable) { voting }
+      let(:followable_path) { decidim_votings.voting_path(voting) }
+
+      include_examples "follows"
     end
 
     it_behaves_like "has embedded video in description", :description do

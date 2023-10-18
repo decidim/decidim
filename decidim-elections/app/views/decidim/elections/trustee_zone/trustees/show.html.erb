@@ -1,102 +1,29 @@
-<div id="not_supported_browser" class="callout alert">
-  <p><strong><%= t(".not_supported_browser_title") %></strong></p>
-  <p><%= t(".not_supported_browser_description") %></p>
-</div>
+<%= append_javascript_pack_tag "decidim_elections" %>
+<%= append_stylesheet_pack_tag "decidim_elections" %>
 
-<div class="trustee_zone">
-  <%= decidim_form_for(trustee, html: { class: "form edit_trustee" }) do |f| %>
-    <%= f.hidden_field :slug %>
-    <%= f.hidden_field :name %>
-    <%= f.hidden_field :public_key %>
-    <%= f.submit "", id: "submit_identification_public_key", class: "hide" %>
-  <% end %>
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
 
-  <div class="callout success">
-    <p><%= t(".trustee_role_description") %></p>
-  </div>
-  <% if trustee.public_key.blank? %>
-    <h2><%= t(".identification_keys.title") %></h2>
-    <p><%= t(".identification_keys.generate_legend") %></p>
-    <ol>
-      <li><%= t(".identification_keys.generate_legend_1") %></li>
-      <li><%= t(".identification_keys.generate_legend_2") %></li>
-      <li><%= t(".identification_keys.generate_legend_3") %></li>
-      <li><%= t(".identification_keys.generate_legend_4") %></li>
-    </ol>
-    <div id="submit_identification_keys" class="small-12 large-6">
-      <div class="card">
-          <div class="card__content">
-            <h4 class="card__title"><%= t(".identification_keys.submit_title") %></h4>
-            <p><%= t(".identification_keys.submit_legend") %></p>
-          </div>
-          <div class="card__footer">
-            <div class="card__support">
-              <div>
-                <button class="card__button button small hollow" type="button">
-                  <%= icon "x", role: "img", "aria-hidden": true %> <%= t(".identification_keys.cancel") %>
-                </button>
-                <label class="card__button button small" for="submit_identification_public_key">
-                  <%= icon "check", role: "img", "aria-hidden": true %> <%= t(".identification_keys.submit") %>
-                </label>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
-    <div id="generate_identification_keys" data-error="<%= t(".identification_keys.generate_error") %>">
-      <button class="button">
-        <%= icon "key", role: "img", "aria-hidden": true %> <%= t(".identification_keys.generate") %>
-      </button>
-    </div>
-  <% else %>
-    <div <%= t(".identification_keys.upload_error").map { |key, message| "data-#{key}=\"#{message}\"" } .join(" ").html_safe %>
-         id="upload_identification_keys" class="hide">
-      <h2><%= t(".identification_keys.title") %></h2>
-      <p><%= t(".identification_keys.upload_legend") %></p>
-      <button class="button" type="button">
-        <%= icon "data-transfer-upload", role: "img", "aria-hidden": true %> <%= t(".identification_keys.upload") %>
-      </button>
-    </div>
+  <%= cell("decidim/announcement", {
+             title: t("not_supported_browser_title", scope: "decidim.elections.trustee_zone.trustees.show"),
+             body: t("not_supported_browser_description", scope: "decidim.elections.trustee_zone.trustees.show")
+           }, callout_class: "alert", id: "not_supported_browser", hidden: true ) %>
 
-    <h2><%= t(".elections.title") %></h2>
-    <% if trustee.elections.any? %>
-      <div class="table-scroll">
-        <table class="table-list">
-          <thead>
-            <tr>
-              <th><%= t(".elections.list.election") %></th>
-              <th><%= t(".elections.list.voting_period") %></th>
-              <th><%= t(".elections.list.bb_status") %></th>
-              <th><%= t(".elections.list.action_required.name") %></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% trustee.elections.each do |election| %>
-              <tr>
-                <td><%= present(election).title %></td>
-                <td><%= l(election.start_time, format: :decidim_short) %> - <%= l(election.end_time, format: :decidim_short) %></td>
-                <td><%= election.bb_status %></td>
-                <td>
-                  <% if election.trustee_action_required? %>
-                    <%= link_to trustee_election_elections_path(election) do %>
-                      <%= t(".elections.list.action_required.true") %>
-                    <% end %>
-                  <% else %>
-                    <%= t(".elections.list.action_required.false") %>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    <% else %>
-      <div class="callout warning">
-        <%= t(".elections.no_elections") %>
-      </div>
+  <%= cell("decidim/announcement", t("trustee_role_description", scope: "decidim.elections.trustee_zone.trustees.show"), callout_class: "success" ) %>
+
+  <div id="trustee_zone" class="election-trustee__container">
+    <%# This hidden form must be shared in both partials %>
+    <%= decidim_form_for(trustee, html: { hidden: true }) do |f| %>
+      <%= f.hidden_field :slug %>
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :public_key %>
+      <%= f.submit "", id: "submit_identification_public_key" %>
     <% end %>
-  <% end %>
-</div>
 
-<%= append_javascript_pack_tag "decidim_elections_trustee_trustee_zone" %>
-<%= append_stylesheet_pack_tag "decidim_elections_trustee_zone" %>
+    <% if trustee.public_key.blank? %>
+      <%= render partial: "no_public_keys" %>
+    <% else %>
+      <%= render partial: "public_keys" %>
+    <% end %>
+  </div>
+
+<% end %>

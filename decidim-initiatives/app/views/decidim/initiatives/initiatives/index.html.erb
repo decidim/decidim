@@ -10,18 +10,18 @@ edit_link(
 %>
 
 <% content_for :aside do %>
-  <h1 class="h1 decorator"><%= component_name %></h1>
+  <h1 class="title-decorator"><%= component_name %></h1>
   <%= render partial: "new_initiative_button" %>
 
-  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont } do %>
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections: , search_variable: :search_text_cont, skip_to_id: "initiatives" } do %>
     <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
   <% end %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <%= participatory_space_wrapper do %>
-    <div id="initiatives">
-      <%= render partial: "initiatives" %>
-    </div>
-  <% end %>
+  <%= participatory_space_floating_help %>
+
+  <section id="initiatives" class="layout-main__section layout-main__heading">
+    <%= render partial: "initiatives" %>
+  </section>
 <% end %>

@@ -1,27 +1,11 @@
-<%= content_tag :div, id: options[:id], class: "callout #{callout_class}", data: { announcement: "", component: ("accordion" if truncate?) }.compact do %>
+<%= content_tag :div, id: options[:id], class: "flash #{css_class}", data: { announcement: "" }.compact, hidden: options[:hidden] do %>
   <% if has_title? %>
     <div class="h4">
       <%= clean_title %>
     </div>
   <% end %>
 
-  <% if truncate? %>
-    <% seed = options[:id] || SecureRandom.hex(4) %>
-    <div id="panel-view-more-<%= seed %>" aria-hidden="true">
-      <%= text %>
-    </div>
-
-    <button class="button button__sm button__text-secondary mt-2" data-controls="panel-view-more-<%= seed %>" aria-expanded="false">
-      <span>
-        <%= t("view_more", scope: "layouts.decidim.announcements") %>
-      </span>
-      <%= icon "arrow-down-s-line" %>
-      <span>
-        <%= t("close", scope: "layouts.decidim.announcements") %>
-      </span>
-      <%= icon "arrow-up-s-line" %>
-    </button>
-  <% else %>
+  <span class="flash__message">
     <%= text %>
-  <% end %>
+  </span>
 <% end %>

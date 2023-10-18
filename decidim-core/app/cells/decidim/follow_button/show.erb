@@ -5,7 +5,7 @@
         title: text,
         method:,
         remote:,
-        id: dom_id(model, :follow)
+        id: dom_id(model, id_option)
       ) do %>
     <%= render :content %>
   <% end %>
@@ -15,10 +15,10 @@
         path,
         resource: model,
         class: button_classes,
-        title: t("decidim.shared.follow_button.sign_in_before_follow"),
+        title: t("decidim.shared.follow_button.log_in_before_follow"),
         params: req_params,
         'aria-haspopup': true,
-        id: dom_id(model, :follow)
+        id: dom_id(model, id_option)
       ) do %>
     <%= render :content %>
   <% end %>

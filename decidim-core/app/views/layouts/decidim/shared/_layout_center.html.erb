@@ -1,6 +1,6 @@
 <%
 main_enabled = true unless local_assigns.has_key?(:main_enabled)
-main_tag = redesign_enabled? && main_enabled ? :main : :div
+main_tag = main_enabled ? :main : :div
 columns ||= 6
 # Class names need to be complete, not metaprogarmmed, because of Tailwind class purge
 css_class = case columns

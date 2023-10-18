@@ -17,7 +17,7 @@ describe Decidim::Proposals::Engine do
 
       it "removes the record" do
         expect do
-          ActiveSupport::Notifications.publish("decidim.system.participatory_space.admin.destroyed", valuator_role.class.name, valuator_role.id)
+          ActiveSupport::Notifications.publish("decidim.admin.participatorty_space.destroy_admin:after", valuator_role.class.name, valuator_role.id)
         end.to change(Decidim::Proposals::ValuationAssignment, :count).by(-1)
       end
     end
@@ -29,7 +29,7 @@ describe Decidim::Proposals::Engine do
 
       it "removes the record" do
         expect do
-          ActiveSupport::Notifications.publish("decidim.system.participatory_space.admin.destroyed", valuator_role.class.name, valuator_role.id)
+          ActiveSupport::Notifications.publish("decidim.admin.participatorty_space.destroy_admin:after", valuator_role.class.name, valuator_role.id)
         end.to change(Decidim::Proposals::ValuationAssignment, :count).by(-1)
       end
     end
@@ -41,7 +41,7 @@ describe Decidim::Proposals::Engine do
 
       it "removes the record" do
         expect do
-          ActiveSupport::Notifications.publish("decidim.system.participatory_space.admin.destroyed", valuator_role.class.name, valuator_role.id)
+          ActiveSupport::Notifications.publish("decidim.admin.participatorty_space.destroy_admin:after", valuator_role.class.name, valuator_role.id)
         end.to change(Decidim::Proposals::ValuationAssignment, :count).by(-1)
       end
     end

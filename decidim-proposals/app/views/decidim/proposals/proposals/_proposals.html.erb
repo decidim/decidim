@@ -1,27 +1,25 @@
 <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
   <%= cell("decidim/announcement", t("decidim.proposals.proposals.index.text_banner",
-  go_back_link: link_to(t("decidim.proposals.proposals.index.click_here"), proposals_path("filter[with_availability]" => nil))
+                                     go_back_link: link_to(t("decidim.proposals.proposals.index.click_here"), proposals_path("filter[with_availability]" => nil))
   ).html_safe, callout_class: "warning [&>a]:text-secondary") %>
 <% end %>
 
 <% if @proposals.empty? %>
   <%= cell("decidim/announcement", params[:filter].present? ? t(".empty_filters") : t(".empty")) %>
 <% else %>
-  <div class="my-8">
-    <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
-  </div>
+  <h2 class="h5 md:h3 decorator"><%= t("count", scope: "decidim.proposals.proposals.index", count: @proposals.length) %></h2>
 
-  <div class="proposal-list__container">
+  <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
+
+  <div class="card__list-list">
     <%= render @proposals %>
   </div>
 
   <%= decidim_paginate @proposals %>
 <% end %>
 
-<div class="mt-6 md:mt-16">
-  <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
-    <%= link_to t("decidim.proposals.proposals.index.see_all"), proposals_path("filter[with_availability]" => nil), class: "button button__sm button__text-secondary" %>
-  <% else %>
-    <%= link_to t("decidim.proposals.proposals.index.see_all_withdrawn"), proposals_path(filter: { with_availability: "withdrawn", state: [""] }), class: "button button__sm button__text-secondary" %>
-  <% end %>
-</div>
+<% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
+  <%= link_to t("decidim.proposals.proposals.index.see_all"), proposals_path("filter[with_availability]" => nil), class: "button button__sm button__text-secondary" %>
+<% else %>
+  <%= link_to t("decidim.proposals.proposals.index.see_all_withdrawn"), proposals_path(filter: { with_availability: "withdrawn", with_any_state: [] }), class: "button button__sm button__text-secondary" %>
+<% end %>

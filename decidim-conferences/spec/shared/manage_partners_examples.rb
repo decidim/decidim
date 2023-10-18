@@ -7,7 +7,9 @@ shared_examples "manage partners examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
-    click_link "Partners"
+    within_admin_sidebar_menu do
+      click_link "Partners"
+    end
   end
 
   it "shows conference partners list" do
@@ -65,7 +67,7 @@ shared_examples "manage partners examples" do
 
     it "deletes the conference partner" do
       within find("#partners tr", text: conference_partner.name) do
-        accept_confirm(admin: true) { find("a.action-icon--remove").click }
+        accept_confirm { find("a.action-icon--remove").click }
       end
 
       expect(page).to have_admin_callout("successfully")

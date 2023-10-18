@@ -4,8 +4,8 @@
   "description": "<%= organization_params.translated_description %>",
   "display": "<%= organization_params.pwa_display %>",
   "start_url": "<%= organization_params.start_url %>",
-  "theme_color": "<%= organization_params.colors["theme"] %>",
-  "background_color": "<%= organization_params.colors["theme"] %>",
+  "theme_color": "<%= organization_params.colors["primary"] %>",
+  "background_color": "<%= organization_params.colors["primary"] %>",
   "icons": [
     {
       "src": "<%= current_organization.attached_uploader(:favicon).variant_path :small %>",

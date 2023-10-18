@@ -8,7 +8,6 @@ module Decidim
       include Decidim::SanitizeHelper
       include Decidim::Conferences::Engine.routes.url_helpers
       include Decidim::LayoutHelper
-      include Decidim::RedesignHelper
 
       def show
         render

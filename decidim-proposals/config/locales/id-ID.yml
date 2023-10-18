@@ -321,10 +321,7 @@ id:
             create: Membuat
             title: Buat proposal
           show:
-            authors: Penulis
             body: Tubuh
-            created_at: Tanggal pembuatan
-            proposals: Proposal
             votes_count: Suara menghitung
         proposals_imports:
           new:
@@ -352,15 +349,11 @@ id:
         rejected: Ditolak
         withdrawn: Ditarik
       application_helper:
-        filter_category_values:
-          all: Semua
         filter_origin_values:
           all: Semua
           meetings: Rapat
           official: Resmi
           user_groups: Grup Pengguna
-        filter_scope_values:
-          all: Semua
         filter_state_values:
           accepted: Diterima
           all: Semua
@@ -380,7 +373,6 @@ id:
               ok: Publikasikan sebagai Proposal
               title: Tindakan berikut tidak dapat diubah
             success: Draf kolaboratif berhasil diterbitkan sebagai proposal.
-          view_collaborative_draft: Lihat Draf Kolaborasi
           withdraw:
             error: Terjadi kesalahan saat menutup draf kolaboratif.
             irreversible_action_modal:
@@ -388,9 +380,6 @@ id:
               ok: Tarik draf kolaboratif
               title: Tindakan berikut tidak dapat diubah
             success: Draf kolaboratif berhasil ditarik.
-        count:
-          drafts_count:
-            other: "%{count} draf kolaboratif"
         create:
           success: Draf kolaboratif berhasil dibuat.
         edit:
@@ -415,6 +404,9 @@ id:
           filter: Filter
           filter_by: Filter berdasarkan
           unfold: Membuka
+        index:
+          count:
+            other: "%{count} draf kolaboratif"
         new:
           send: Terus
         new_collaborative_draft_button:
@@ -436,7 +428,6 @@ id:
           rejected_request:
             error: Tidak dapat ditolak sebagai kolaborator, coba lagi nanti.
         show:
-          back: Kembali
           edit: Edit draf kolaboratif
           final_proposal: proposal terakhir
           final_proposal_help_text: Rancangan ini selesai. Anda dapat melihat proposal selesai akhir
@@ -447,7 +438,6 @@ id:
           published_proposal: proposal yang dipublikasikan
           request_access: Minta akses
           requested_access: Akses diminta
-          version_history: lihat riwayat versi untuk proposal ini
           withdraw: tarik draft
         states:
           open: Buka
@@ -456,8 +446,6 @@ id:
         update:
           error: Sudah ada kesalahan saat menyimpan draf kolaboratif.
           success: Draf kolaboratif berhasil diperbarui.
-        wizard_aside:
-          info: Anda membuat <strong>draf kolaboratif</strong>.
         wizard_header:
           title: Buat draf kolaboratif Anda
       create:
@@ -467,11 +455,6 @@ id:
         error: Terjadi kesalahan saat menghapus draf proposal.
         success: Proposal proposal berhasil dihapus.
       models:
-        collaborative_draft:
-          fields:
-            authors: Penulis
-            comments: Komentar
-            contributions: Kontribusi
         proposal:
           fields:
             category: Kategori
@@ -489,7 +472,6 @@ id:
         buttons:
           amend: Merubah
           comment: Komentar
-          comments: Komentar
       proposal_votes:
         create:
           error: Ada kesalahan saat memilih proposal.
@@ -501,9 +483,6 @@ id:
         complete:
           send: Kirim
           title: Selesaikan proposal Anda
-        count:
-          proposals_count:
-            other: "%{count} proposal"
         edit:
           attachment_legend: "(Opsional) Tambahkan lampiran"
           back: Kembali
@@ -525,19 +504,12 @@ id:
           state: Negara
           type: Mengetik
           voted: Dipilih
-        filters_small_view:
-          close_modal: Tutup modal
-          filter: Filter
-          filter_by: Filter berdasarkan
-          unfold: Membuka
         index:
           collaborative_drafts_list: Akses draf kolaboratif
+          count:
+            other: "%{count} proposal"
           new_proposal: Proposal baru
           see_all_withdrawn: Lihat semua proposal yang ditarik
-          view_proposal: Lihat proposal
-        linked_proposals:
-          proposal_votes:
-            other: suara
         new:
           send: Terus
         orders:
@@ -545,24 +517,14 @@ id:
           most_voted: Sebagian besar memilih
           random: Acak
           recent: Baru
-        participatory_texts:
-          index:
-            document_index: Indeks dokumen
-          view_index:
-            see_index: Lihat indeks
         preview:
           modify: Ubah proposal
           proposal_edit_before_minutes:
             other: Anda akan dapat mengedit proposal ini selama %{count} menit pertama setelah proposal diterbitkan. Setelah jendela waktu ini berlalu, Anda tidak akan dapat mengedit proposal.
           publish: Menerbitkan
           title: Publikasikan proposal Anda
-        proposal:
-          creation_date: 'Penciptaan: %{date}'
-          view_proposal: Lihat proposal
         show:
           answer: Menjawab
-          back_to: Kembali ke
-          comments: Komentar
           edit_proposal: Edit proposal
           hidden_endorsers_count:
             other: dan %{count} lebih banyak orang
@@ -571,7 +533,6 @@ id:
           proposal_accepted_reason: 'Proposal ini telah diterima karena:'
           proposal_in_evaluation_reason: Proposal ini sedang dievaluasi
           proposal_rejected_reason: 'Proposal ini telah ditolak karena:'
-          report: Melaporkan
           withdraw_btn_hint: Anda dapat menarik proposal Anda jika Anda berubah pikiran, selama Anda belum menerima dukungan apa pun. Proposal tidak dihapus, itu akan muncul dalam daftar proposal yang ditarik.
           withdraw_proposal: Tarik proposal
         vote_button:
@@ -584,8 +545,6 @@ id:
         votes_count:
           count:
             other: SUARA
-          most_popular_proposal: Proposal paling populer
-          need_more_votes: Butuh lebih banyak suara
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Setiap proposal dapat mengumpulkan lebih dari %{limit} dukungan
@@ -597,18 +556,14 @@ id:
           title: 'Voting tunduk pada aturan berikut:'
           vote_limit:
             description: Anda dapat memilih hingga %{limit} proposal.
-            left: Sisa
             votes: Suara
         wizard_aside:
           back: Kembali
-          info: Anda membuat <strong>proposal</strong>.
         wizard_steps:
-          see_steps: lihat langkah-langkahnya
           step_1: Buat proposal Anda
           step_2: Membandingkan
           step_3: Lengkap
           step_4: Publikasikan proposal Anda
-          step_of: Langkah %{current_step_num} dari %{total_steps}
       publish:
         error: Sudah ada kesalahan saat memublikasikan proposal.
         success: Proposal berhasil diterbitkan.
@@ -619,12 +574,8 @@ id:
         error: Ada kesalahan saat menyimpan draf proposal.
         success: Proposal proposal berhasil diperbarui.
       versions:
-        collaborative_drafts:
-          back_to_resource: Kembali ke draf kolaboratif
         index:
           title: Versi
-        proposals:
-          back_to_resource: Kembali ke proposal
     resource_links:
       copied_from_component:
         proposal_proposal: Proposal terkait

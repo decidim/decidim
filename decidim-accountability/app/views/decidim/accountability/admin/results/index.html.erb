@@ -1,122 +1,121 @@
+<% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= link_to "#{translated_attribute(parent_result.title)} > ", edit_result_path(parent_result) if parent_result %>
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
+      <% if parent_result %>
+        <%= "#{translated_attribute(parent_result.title)} > " %>
+      <% end %>
       <%= t(".title") %>
-      <div class="button--title">
-        <%= link_to t("actions.new", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")), new_result_path(parent_id: parent_result), class: "button tiny button--simple" if allowed_to? :create, :result %>
-        <%= render partial: "decidim/accountability/admin/shared/subnav" unless parent_result %>
-        <%= export_dropdown %>
-        <%= import_dropdown do %>
-          <li class="imports--component imports--results">
-            <%= link_to t("actions.import", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")), new_projects_import_path if allowed_to?(:create, :result) && parent_result.nil? %>
-          </li>
-          <li class="imports--component imports--results">
-            <%= link_to t("actions.import_csv", scope: "decidim.accountability"), import_results_path if allowed_to? :create, :result %>
-          </li>
-        <% end %>
 
-      </div>
+      <%= export_dropdown %>
+      <%= import_dropdown do %>
+        <li class="imports--component imports--results">
+          <%= link_to t("actions.import", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")), new_projects_import_path if allowed_to?(:create, :result) && parent_result.nil? %>
+        </li>
+        <li class="imports--component imports--results">
+          <%= link_to t("actions.import_csv", scope: "decidim.accountability"), import_results_path if allowed_to? :create, :result %>
+        </li>
+      <% end %>
+      <%= render partial: "decidim/accountability/admin/shared/subnav" unless parent_result %>
+      <%= link_to t("actions.new_result", scope: "decidim.accountability"), new_result_path(parent_id: parent_result), class: "button button__sm button__secondary" if allowed_to? :create, :result %>
     </h2>
   </div>
 
   <%= admin_filter_selector(:results) %>
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th>
+            <%= sort_link(query, :id, t("models.result.fields.id", scope: "decidim.accountability"), default_order: :desc ) %>
+          </th>
+          <th>
+            <%= sort_link(query, :title, t("models.result.fields.title", scope: "decidim.accountability")) %>
+          </th>
+          <th>
+            <%= sort_link(query, :category_name, t("models.result.fields.category", scope: "decidim.accountability") ) %>
+          </th>
+          <% if resource_with_scopes_enabled? %>
             <th>
-              <%= sort_link(query, :id, t("models.result.fields.id", scope: "decidim.accountability"), default_order: :desc ) %>
+              <%= sort_link(query, :scope_name, t("models.result.fields.scope", scope: "decidim.accountability") ) %>
             </th>
-            <th>
-              <%= sort_link(query, :title, t("models.result.fields.title", scope: "decidim.accountability")) %>
-            </th>
-            <th>
-              <%= sort_link(query, :category_name, t("models.result.fields.category", scope: "decidim.accountability") ) %>
-            </th>
-            <% if resource_with_scopes_enabled? %>
-              <th>
-                <%= sort_link(query, :scope_name, t("models.result.fields.scope", scope: "decidim.accountability") ) %>
-              </th>
-            <% end %>
-            <th>
-              <%= sort_link(query, :status_name, t("models.result.fields.status", scope: "decidim.accountability") ) %>
-            </th>
-            <th>
-              <%= sort_link(query, :progress, t("models.result.fields.progress", scope: "decidim.accountability") ) %>
-            </th>
-            <th>
-              <%= sort_link(query, :created_at, t("models.result.fields.created_at", scope: "decidim.accountability") ) %>
-            </th>
-            <th class="actions"><%= t("actions.title", scope: "decidim.accountability") %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% results.each do |result| %>
-            <tr data-id="<%= result.id %>">
-              <td>
-                <%= result.id %><br>
-              </td>
-              <td>
-                <% if result.parent_id.nil? %>
-                  <%= link_to translated_attribute(result.title), results_path(parent_id: result.id) %><br>
-                <% else %>
-                  <%= translated_attribute(result.title) %>
-                <% end %>
-              </td>
-              <td>
-                <% if result.category %>
-                  <%= translated_attribute result.category.name %>
-                <% end %>
-              </td>
-              <%= td_resource_scope_for(result.scope) %>
-              <td>
-                <% if result.status %>
-                  <%= translated_attribute result.status.name %>
-                <% end %>
-              </td>
-              <td>
-                <%= result.progress&.to_i %>
-              </td>
-              <td>
-                <%= l result.created_at, format: :decidim_short %>
-              </td>
-
-              <td class="table-list__actions">
-                <% if allowed_to? :update, :result, result: result %>
-                  <%= icon_link_to "pencil", edit_result_path(result), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
-                <% end %>
-
-                <% if allowed_to? :create_children, :result, result: result %>
-                  <%= icon_link_to "plus", results_path(parent_id: result.id), t("actions.new", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")), class: "action-icon--plus" %>
-                <% end %>
-
-                <% if allowed_to? :update, :result, result: result %>
-                  <%= icon_link_to "clock", result_timeline_entries_path(result), t("actions.timeline_entries", scope: "decidim.accountability"), class: "action-icon--clock" %>
-                <% end %>
-
-                <% if allowed_to? :update, :result, result: result %>
-                    <%= icon_link_to "folder", result_attachment_collections_path(result), t("actions.attachment_collections", scope: "decidim.accountability"), class: "action-icon--attachment_collections" %>
-                <% end %>
-
-                <% if allowed_to? :update, :result, result: result %>
-                  <%= icon_link_to "paperclip", result_attachments_path(result), t("actions.attachments", scope: "decidim.accountability"), class: "action-icon--attachments" %>
-                <% end %>
-
-                <%= icon_link_to "eye", resource_locator(result).path, t("actions.preview", scope: "decidim.accountability"), class: "action-icon--preview", target: :blank %>
-
-                <%= resource_permissions_link(result) %>
-
-                <% if allowed_to? :destroy, :result, result: result %>
-                  <%= icon_link_to "circle-x", result_path(result), t("actions.destroy", scope: "decidim.accountability"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")) } %>
-                <% end %>
-              </td>
-            </tr>
           <% end %>
-        </tbody>
-      </table>
-      <%= paginate results, theme: "decidim" %>
-    </div>
+          <th>
+            <%= sort_link(query, :status_name, t("models.result.fields.status", scope: "decidim.accountability") ) %>
+          </th>
+          <th>
+            <%= sort_link(query, :progress, t("models.result.fields.progress", scope: "decidim.accountability") ) %>
+          </th>
+          <th>
+            <%= sort_link(query, :created_at, t("models.result.fields.created_at", scope: "decidim.accountability") ) %>
+          </th>
+          <th class="actions"><%= t("actions.title", scope: "decidim.accountability") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% results.each do |result| %>
+          <tr data-id="<%= result.id %>">
+            <td>
+              <%= result.id %><br>
+            </td>
+            <td>
+              <% if result.parent_id.nil? %>
+                <%= link_to translated_attribute(result.title), results_path(parent_id: result.id) %><br>
+              <% else %>
+                <%= translated_attribute(result.title) %>
+              <% end %>
+            </td>
+            <td>
+              <% if result.category %>
+                <%= translated_attribute result.category.name %>
+              <% end %>
+            </td>
+            <%= td_resource_scope_for(result.scope) %>
+            <td>
+              <% if result.status %>
+                <%= translated_attribute result.status.name %>
+              <% end %>
+            </td>
+            <td>
+              <%= result.progress&.to_i %>
+            </td>
+            <td>
+              <%= l result.created_at, format: :decidim_short %>
+            </td>
+
+            <td class="table-list__actions">
+              <% if allowed_to? :update, :result, result: result %>
+                <%= icon_link_to "pencil-line", edit_result_path(result), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
+              <% end %>
+
+              <% if allowed_to? :create_children, :result, result: result %>
+                <%= icon_link_to "add-line", results_path(parent_id: result.id), t("actions.new_result", scope: "decidim.accountability"), class: "action-icon--plus" %>
+              <% end %>
+
+              <% if allowed_to? :update, :result, result: result %>
+                <%= icon_link_to "time-line", result_timeline_entries_path(result), t("actions.timeline_entries", scope: "decidim.accountability"), class: "action-icon--clock" %>
+              <% end %>
+
+              <% if allowed_to? :update, :result, result: result %>
+                  <%= icon_link_to "folder-line", result_attachment_collections_path(result), t("actions.attachment_collections", scope: "decidim.accountability"), class: "action-icon--attachment_collections" %>
+              <% end %>
+
+              <% if allowed_to? :update, :result, result: result %>
+                <%= icon_link_to "attachment-line", result_attachments_path(result), t("actions.attachments", scope: "decidim.accountability"), class: "action-icon--attachments" %>
+              <% end %>
+
+              <%= icon_link_to "eye-line", resource_locator(result).path, t("actions.preview", scope: "decidim.accountability"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
+
+              <%= resource_permissions_link(result) %>
+
+              <% if allowed_to? :destroy, :result, result: result %>
+                <%= icon_link_to "delete-bin-line", result_path(result), t("actions.destroy", scope: "decidim.accountability"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")) } %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
+<%= decidim_paginate results %>

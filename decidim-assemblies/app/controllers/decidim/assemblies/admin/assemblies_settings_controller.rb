@@ -6,7 +6,7 @@ module Decidim
       # Controller used to manage the assemblies settings for the current
       # organization.
       class AssembliesSettingsController < Decidim::Assemblies::Admin::ApplicationController
-        layout "decidim/admin/assemblies"
+        layout "decidim/admin/assemblies_settings"
 
         # GET /admin/assemblies_settings/edit
         def edit

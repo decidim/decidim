@@ -1,27 +1,33 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title"><%= t ".preview" %></h2>
-  </div>
-  <div class="card-section">
-    <dl>
-      <dt><%= t ".subject" %></dt>
-      <dd><%= @email.subject %></dd>
-      <dt><%= t("models.newsletter.fields.sent_to", scope: "decidim.admin") %></dt>
-      <dd><%= selective_newsletter_to newsletter %></dd>
-    </dl>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t ".preview" %>
+  </h2>
+</div>
+<div class="form__wrapper">
+  <div class="card">
+    <div class="card-section p-4">
+      <div class="row column">
+        <dl>
+          <dt class="font-bold"><%= t ".subject" %></dt>
+          <dd><%= @email.subject %></dd>
+          <dt class="font-bold"><%= t("models.newsletter.fields.sent_to", scope: "decidim.admin") %></dt>
+          <dd><%= selective_newsletter_to newsletter %></dd>
+        </dl>
 
-    <iframe src="<%= preview_newsletter_path(@newsletter) %>" class="email-preview">
-    </iframe>
+        <iframe src="<%= preview_newsletter_path(@newsletter) %>" class="email-preview w-full">
+        </iframe>
+      </div>
+    </div>
   </div>
 </div>
-<div class="button--double form-general-submit">
+<div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
   <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) %>
     <% unless @newsletter.sent? %>
-      <%= link_to t("actions.edit", scope: "decidim.admin"), [:edit, @newsletter], class: "button" %>
+      <%= link_to t("actions.edit", scope: "decidim.admin"), [:edit, @newsletter], class: "button button__sm button__secondary" %>
     <% end %>
-    <%= link_to t(".send_me_a_test_email"), send_to_user_newsletter_path(@newsletter), class: "button hollow", method: :post %>
+    <%= link_to t(".send_me_a_test_email"), send_to_user_newsletter_path(@newsletter), class: "button button__sm button__secondary hollow", method: :post %>
     <% unless @newsletter.sent? %>
-      <%= link_to t(".select_recipients_to_deliver"), select_recipients_to_deliver_newsletter_path(@newsletter), class: "button alert" %>
+      <%= link_to t(".select_recipients_to_deliver"), select_recipients_to_deliver_newsletter_path(@newsletter), class: "button button__sm button__secondary alert" %>
     <% end %>
   <% end %>
 </div>

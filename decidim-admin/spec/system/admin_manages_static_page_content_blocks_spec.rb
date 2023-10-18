@@ -69,12 +69,8 @@ describe "Admin manages static page content blocks", type: :system do
 
       within ".edit_content_blocks" do
         within first("ul.js-list-actives li") do
-          find(".icon--x").click
+          accept_confirm { find("a[data-method='delete']").click }
         end
-      end
-
-      within ".confirm-modal-footer" do
-        find("a.button[data-confirm-ok]").click
       end
 
       expect(page).to have_content("Content block successfully deleted")

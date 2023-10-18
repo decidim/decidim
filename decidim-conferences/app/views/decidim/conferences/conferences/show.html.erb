@@ -22,12 +22,12 @@ edit_link(
 
   <%= content_for :aside do %>
     <div class="conference__nav-container">
-      <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
+      <button id="dropdown-trigger-conference" data-component="dropdown" data-target="dropdown-menu-conference" data-auto-close="true" data-disabled-md="true" data-scroll-to-menu="true">
         <span><%= t("decidim.searches.filters.jump_to") %></span>
         <%= icon "arrow-down-s-line" %>
         <%= icon "arrow-up-s-line" %>
       </button>
-      <ul id="dropdown-menu" class="conference__nav" aria-hidden="true">
+      <ul id="dropdown-menu-conference" class="conference__nav">
         <%= render partial: "layouts/decidim/conferences/conference_nav_item", collection: conference_nav_items(current_participatory_space), as: :item %>
       </ul>
     </div>
@@ -35,7 +35,7 @@ edit_link(
 
   <%= render partial: "conference_hero" %>
 
-  <%= render layout:"layouts/decidim/shared/layout_two_col", locals: { reverse: true, main_enabled: false } do %>
+  <%= render layout: "layouts/decidim/shared/layout_two_col", locals: { reverse: true, main_enabled: false } do %>
 
     <%= participatory_space_floating_help %>
 
@@ -54,11 +54,15 @@ edit_link(
 
       <div>
         <% if current_participatory_space.registrations_enabled? %>
-          <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button__lg button__secondary" %>
+          <% if current_participatory_space.has_registration_for?(current_user) %>
+            <%= link_to t("decidim.conferences.conferences.show.manage_registration"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__primary" %>
+          <% else %>
+            <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__secondary" %>
+          <% end %>
         <% end %>
         <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
           <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
-            <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button__lg button__transparent-secondary" %>
+            <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class: "button button__lg button__transparent-secondary" %>
           <% end %>
         <% end %>
       </div>
@@ -88,11 +92,15 @@ edit_link(
               <p class="conference__box-description"><%= t("decidim.conferences.conferences.show.login_as", name: current_user.name, email: current_user.email ) %></p>
             </div>
             <div>
-              <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button__lg button__secondary" %>
+              <% if current_participatory_space.has_registration_for?(current_user) %>
+                <%= link_to t("decidim.conferences.conferences.show.manage_registration"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__primary" %>
+              <% else %>
+                <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__secondary" %>
+              <% end %>
             </div>
           </div>
         <% else %>
-          <%= render partial: "decidim/devise/shared/login_boxes" %>
+          <%= render partial: "decidim/devise/shared/login_boxes", locals: { scope: "decidim.conferences.conferences.show" } %>
         <% end %>
       </section>
     <% end %>
@@ -102,7 +110,7 @@ edit_link(
     <% if current_participatory_space.show_statistics? %>
       <section class="content-block" data-statistics>
         <h2 class="h2 decorator"><%= t("decidim.statistics.headline") %></h2>
-        <%= cell("decidim/statistics", stats.highlighted) %>
+        <%= cell("decidim/statistics", stats.collection) %>
       </section>
     <% end %>
 

@@ -12,52 +12,76 @@ edit_link(
 )
 %>
 
-<%= render partial: "decidim/shared/component_announcement" %>
+<%= append_javascript_pack_tag "decidim_elections" %>
+<%= append_stylesheet_pack_tag "decidim_elections" %>
 
-<div class="row">
-  <div class="columns">
+<% content_for :aside do %>
+  <section class="layout-aside__section layout-aside__buttons">
+    <%= cell("decidim/elections/election_vote_cta", election) %>
+  </section>
 
-    <% unless single? %>
-      <%= link_to :elections, class: "small hollow" do %>
-        <%= icon "caret-left", class: "icon--small" %>
-        <%= t(".back") %>
+  <section class="layout-aside__section layout-aside__buttons">
+    <p class="election__aside-heading"><%= t("verify.already_voted", scope: "decidim.elections.elections.show") %></p>
+
+    <div class="election__aside-link">
+      <%= icon "checkbox-multiple-line" %>
+
+      <% if election.started? %>
+        <%= link_to t("verify.verify_here", scope: "decidim.elections.elections.show"), election_vote_verify_path(
+              "#{current_participatory_space.underscored_name}_slug".to_sym => current_participatory_space.slug,
+              component_id: current_component.id,
+              election_id: election.id,
+              vote_id: "_"
+            ) %>
+      <% else %>
+        <span><%= t("verify.will_verify", scope: "decidim.elections.elections.show") %></span>
       <% end %>
-    <% end %>
-
-    <h2 class="heading3">
-      <%== present(election).title %>
-    </h2>
-    <div class="card__callout">
-      <%= cell "decidim/elections/remaining_time_callout", election %>
     </div>
-    <p>
-      <%= t(".voting_period_status.#{election.voting_period_status}",
-            start_time: "<strong>#{l election.start_time, format: :long}</strong>",
-            end_time: "<strong>#{l election.end_time, format: :long}</strong>").html_safe %>
-    </p>
-  </div>
-</div>
-<div class="row section">
-  <% if election.attachments.first.present? && election.attachments.first.image? %>
-    <div class="columns medium-4 mediumlarge-5">
-      <img src="<%= election.attachments.first.url %>" alt="">
+
+    <div class="election__aside-link">
+      <%= icon "book-2-line" %>
+      <%= link_to(t("election_log", scope: "decidim.elections.elections.show"), election_log_election_path(election)) %>
     </div>
-  <% end %>
-  <div class="columns medium-8 mediumlarge-7">
-    <div class="section">
-      <p><%= decidim_sanitize_editor_admin(translated_attribute(election.description)) %></p>
-
-      <%= cell("decidim/elections/election_vote_cta", election) %>
-
-      <%= link_to(t(".election_log"), election_log_election_path(election), class:"text-sm") %>
-    </div>
-  </div>
-</div>
-
-<% if onboarding %>
-  <%= render partial: "decidim/elections/votes/onboarding_modal" %>
+  </section>
 <% end %>
 
-<%= cell("decidim/elections/election_preview", election) %>
+<%= render layout: "layouts/decidim/shared/layout_item" do %>
 
-<%= cell("decidim/elections/election_results", election) %>
+  <section class="layout-main__section layout-main__heading">
+    <%= render partial: "decidim/shared/component_announcement" %>
+
+    <%= cell "decidim/elections/remaining_time_callout", election %>
+
+    <%= cell("decidim/announcement", t("voting_period_status.#{election.voting_period_status}",
+                                       scope: "decidim.elections.elections.show",
+                                       start_time: "<strong>#{l election.start_time, format: :long}</strong>",
+                                       end_time: "<strong>#{l election.end_time, format: :long}</strong>").html_safe) %>
+
+    <h1 class="h2 decorator"><%== present(election).title %></h1>
+  </section>
+
+  <section class="layout-main__section">
+    <div class="editor-content">
+      <%= decidim_sanitize_editor_admin(translated_attribute(election.description)) %>
+    </div>
+  </section>
+
+  <%= attachments_for election %>
+
+  <% if onboarding %>
+    <%= render partial: "decidim/elections/votes/onboarding_modal" %>
+  <% end %>
+
+  <% unless election.finished? %>
+    <section class="layout-main__section">
+      <%= cell("decidim/elections/election_preview", election) %>
+    </section>
+  <% end %>
+
+  <% if election.results_published? %>
+    <section class="layout-main__section">
+      <%= cell("decidim/elections/election_results", election) %>
+    </section>
+  <% end %>
+
+<% end %>

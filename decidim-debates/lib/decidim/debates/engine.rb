@@ -15,7 +15,10 @@ module Decidim
           end
           resources :versions, only: [:show]
         end
-        root to: "debates#index"
+        scope "/debates" do
+          root to: "debates#index"
+        end
+        get "/", to: redirect("debates", status: 301)
       end
 
       initializer "decidim_debates.settings_changes" do
@@ -110,8 +113,10 @@ module Decidim
       end
 
       initializer "decidim_debates.moderation_content" do
-        ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
-          Decidim::Debates::HideAllCreatedByAuthorJob.perform_later(**data)
+        config.to_prepare do
+          ActiveSupport::Notifications.subscribe("decidim.admin.block_user:after") do |_event_name, data|
+            Decidim::Debates::HideAllCreatedByAuthorJob.perform_later(**data)
+          end
         end
       end
     end

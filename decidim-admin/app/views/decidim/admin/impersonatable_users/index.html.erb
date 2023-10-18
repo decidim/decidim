@@ -1,22 +1,26 @@
+<% add_decidim_page_title(t("impersonatable_users", scope: "decidim.admin.titles")) %>
 <% if current_organization.available_authorizations.empty? %>
   <div class="section">
-    <div class="callout warning">
-      <p><%= t(".needs_authorization_warning") %></p>
-    </div>
+    <%= cell("decidim/announcement", t(".needs_authorization_warning"), callout_class: "warning" ) %>
   </div>
 <% end %>
 
-<div class="filters row">
-  <div class="column medium-3">
-    <span class="dropdown-menu-inverted_label"><%= t(".filter_by") %> :</span>
-    <ul class="dropdown menu dropdown-inverted" data-dropdown-menu data-close-on-click-inside="false">
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t "decidim.admin.titles.impersonatable_users" %>
+    <% if allowed_to? :impersonate, :impersonatable_user, user: new_managed_user %>
+      <%= link_to t(".impersonate_new_managed_user"), new_impersonatable_user_impersonation_path(:new_managed_user), class: "button button__sm button__secondary #{"disabled" if current_organization.available_authorizations.empty?}" %>
+    <% end %>
+  </h2>
+</div>
+
+<div class="filters__section">
+  <div class="fcell">
+    <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
       <li class="is-dropdown-submenu-parent">
-        <a href="#">
-        <% if @state.present? %>
-          <%= t(".filter.#{@state}") %>
-        <% else %>
-          <%= t(".filter.all") %>
-        <% end %>
+        <a href="#" class="dropdown button">
+          <%= t("filter_label", scope: "decidim.admin.filters") %>
+          <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
         </a>
         <ul class="menu is-dropdown-submenu">
           <li><%= link_to t(".filter.managed"), url_for(state: "managed", q: @query) %></li>
@@ -26,15 +30,15 @@
       </li>
     </ul>
   </div>
-  <div class="column medium-4">
+  <div class="fcell search">
     <%= form_tag "", method: :get do %>
       <div class="filters__search">
         <div class="input-group">
           <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
           <%= hidden_field_tag :state, @state %>
           <div class="input-group-button">
-            <button type="submit" class="button">
-              <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
+            <button type="submit" class="text-secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+              <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
             </button>
           </div>
         </div>
@@ -44,43 +48,33 @@
 </div>
 
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= t "decidim.admin.titles.impersonatable_users" %>
-      <% if allowed_to? :impersonate, :impersonatable_user, user: new_managed_user %>
-        <%= link_to t(".impersonate_new_managed_user"), new_impersonatable_user_impersonation_path(:new_managed_user), class: "button tiny button--title #{"disabled" if current_organization.available_authorizations.empty?}" %>
-      <% end %>
-    </h2>
-  </div>
-  <div class="card-section">
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th><%= t(".name") %></th>
-            <th><%= t(".status") %></th>
-            <th></th>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t(".name") %></th>
+          <th><%= t(".status") %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr data-user-id="<%= user.id %>">
+            <td><%= user.name %></td>
+            <td><%= user.managed? ? t(".managed") : t(".not_managed") %></td>
+            <td class="table-list__actions">
+              <% if allowed_to? :impersonate, :impersonatable_user, user: user %>
+                <%= icon_link_to "login-box-line", new_impersonatable_user_impersonation_path(user), t(".impersonate"), class: "action-icon--impersonate" %>
+              <% end %>
+              <%= icon_link_to "time-line", impersonatable_user_impersonation_logs_path(user), t(".view_logs"), class: "action-icon--view-logs" %>
+              <% if allowed_to? :promote, :impersonatable_user, user: user %>
+                <%= icon_link_to "award-line", new_impersonatable_user_promotion_path(user), t(".promote"), class: "action-icon--promote" %>
+              <% end %>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
-            <tr data-user-id="<%= user.id %>">
-              <td><%= user.name %></td>
-              <td><%= user.managed? ? t(".managed") : t(".not_managed") %></td>
-              <td class="table-list__actions">
-                <% if allowed_to? :impersonate, :impersonatable_user, user: user %>
-                  <%= icon_link_to "account-login", new_impersonatable_user_impersonation_path(user), t(".impersonate"), class: "action-icon--impersonate" %>
-                <% end %>
-                <%= icon_link_to "clock", impersonatable_user_impersonation_logs_path(user), t(".view_logs"), class: "action-icon--view-logs" %>
-                <% if allowed_to? :promote, :impersonatable_user, user: user %>
-                  <%= icon_link_to "badge", new_impersonatable_user_promotion_path(user), t(".promote"), class: "action-icon--promote" %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @users, theme: "decidim" %>
-    </div>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
+<%= decidim_paginate @users %>

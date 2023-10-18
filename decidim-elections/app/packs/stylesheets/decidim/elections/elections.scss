@@ -1,8 +1,202 @@
-@import "stylesheets/decidim/elections/focus/accordion";
-@import "stylesheets/decidim/elections/focus/evote";
-@import "stylesheets/decidim/elections/focus/focus";
+.election {
+  &__section {
+    &-title {
+      @apply flex gap-1 items-center;
 
-.card__icondata ul li:not(:first-child) strong,
-.card__block ul li:not(:first-child) strong {
-  font-size: 100%;
+      svg {
+        @apply w-6 h-6 text-tertiary fill-current;
+      }
+    }
+
+    &-desc {
+      @apply text-gray-2 my-6;
+    }
+  }
+
+  &__accordion {
+    @apply border-4 border-background rounded px-3 py-2;
+
+    &-trigger {
+      @apply flex justify-between items-center w-full font-bold text-secondary hover:underline focus:outline-none focus:underline;
+
+      > :last-child {
+        @apply flex-none;
+      }
+
+      svg {
+        @apply w-8 h-8 text-secondary fill-current first:block last:hidden;
+      }
+
+      &[role="button"][aria-expanded="true"] svg {
+        @apply first:hidden last:block;
+      }
+    }
+
+    &-panel {
+      @apply border-t border-gray-3 mt-4 pt-4 space-y-4;
+
+      ul {
+        @apply list-decimal px-4;
+      }
+    }
+  }
+
+  &__aside {
+    &-heading {
+      @apply uppercase font-semibold text-gray-2 text-sm;
+    }
+
+    &-link {
+      @apply flex items-center gap-2 text-sm;
+
+      svg {
+        @apply w-4 h-4 flex-none text-gray fill-current;
+      }
+
+      a {
+        @apply text-md text-secondary;
+      }
+    }
+  }
+}
+
+.election-log {
+  &__entry {
+    @apply flex flex-col gap-2 rounded border-4 border-background p-4 mb-8 last:mb-0 text-gray-2;
+  }
+
+  &__hash,
+  &__time {
+    @apply text-sm empty:hidden;
+  }
+
+  &__pre {
+    @apply bg-background p-2 rounded;
+  }
+}
+
+.election-question {
+  @apply block rounded p-4 border-4 border-background flex items-center text-lg text-gray-2 hover:border-tertiary focus:border-tertiary cursor-pointer;
+
+  &[aria-disabled="true"] {
+    @apply text-gray cursor-not-allowed hover:border-background focus:border-background;
+  }
+
+  &__counter {
+    @apply font-semibold text-black text-lg bg-tertiary inline-block;
+  }
+
+  /* overwrite default accordion styles */
+  [id^="step"][aria-hidden="true"] {
+    @apply hidden;
+  }
+
+  &__container {
+    @apply space-y-4 mb-8;
+  }
+
+  &__intro {
+    @apply py-8 border-t-2 border-background space-y-4;
+  }
+
+  &__description {
+    @apply text-gray-2 text-lg;
+  }
+
+  &__maxselections {
+    @apply flex items-center justify-between gap-2 text-gray-2;
+  }
+
+  &__answer {
+    @apply flex flex-col items-start gap-4 py-8 text-gray-2 border-t-2 border-background;
+
+    &-option {
+      @apply flex items-center justify-between w-full text-lg;
+    }
+  }
+
+  &__ballot {
+    @apply flex flex-col items-start gap-2 py-8 border-t-2 border-background text-lg text-gray-2;
+  }
+
+  &__modal {
+    &-explanation {
+      @apply space-y-4;
+    }
+
+    &-grid {
+      @apply grid grid-cols-2 gap-4;
+    }
+
+    img {
+      @apply aspect-video object-cover h-full w-full;
+    }
+
+    ul {
+      @apply list-disc;
+    }
+
+    li {
+      @apply ml-4;
+    }
+
+    a {
+      @apply text-secondary;
+    }
+  }
+}
+
+.election-trustee {
+  &__container {
+    @apply space-y-6 [&_p]:text-gray-2;
+  }
+
+  &__list {
+    @apply list-disc pl-4 text-gray-2;
+  }
+
+  &__table {
+    @apply text-left w-full border-2 border-background;
+
+    th,
+    td {
+      @apply px-4 py-2;
+    }
+
+    th {
+      @apply bg-background;
+    }
+
+    tr:nth-child(even) td {
+      @apply bg-gray-3;
+    }
+
+    a {
+      @apply text-secondary underline;
+    }
+
+    .step_status {
+      span {
+        @apply hidden;
+      }
+
+      &[data-step-status="pending"] .pending,
+      &[data-step-status="processing"] .processing,
+      &[data-step-status="completed"] .completed {
+        @apply block;
+      }
+    }
+  }
+
+  &__submit {
+    @apply p-4 border-4 border-background space-y-4 rounded;
+  }
+
+  &__buttons {
+    @apply flex items-center gap-4;
+
+    [hidden] {
+      @apply hidden;
+    }
+  }
 }

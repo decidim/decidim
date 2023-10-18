@@ -33,7 +33,7 @@ shared_examples "manage assemblies" do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_selector("input[value='My new title']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
         expect(page).to have_css("input[value='#{Date.yesterday}']")
@@ -51,7 +51,9 @@ shared_examples "manage assemblies" do
     end
 
     it "update an assembly without images does not delete them" do
-      click_submenu_link "Info"
+      within_admin_sidebar_menu do
+        click_link "About this assembly"
+      end
       click_button "Update"
 
       expect(page).to have_admin_callout("successfully")
@@ -66,12 +68,16 @@ shared_examples "manage assemblies" do
       let!(:assembly) { create(:assembly, :unpublished, :with_content_blocks, organization:, parent: parent_assembly) }
 
       it "allows the user to preview the unpublished assembly" do
-        within find("tr", text: translated(assembly.title)) do
-          click_link "Preview"
+        new_window = window_opened_by do
+          within find("tr", text: translated(assembly.title)) do
+            click_link "Preview"
+          end
         end
 
-        within(".participatory-space__container") do
-          expect(page).to have_content(translated(assembly.title))
+        page.within_window(new_window) do
+          within(".participatory-space__container") do
+            expect(page).to have_content(translated(assembly.title))
+          end
         end
       end
     end
@@ -80,12 +86,16 @@ shared_examples "manage assemblies" do
       let!(:assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
       it "allows the user to preview the unpublished assembly" do
-        within find("tr", text: translated(assembly.title)) do
-          click_link "Preview"
+        new_window = window_opened_by do
+          within find("tr", text: translated(assembly.title)) do
+            click_link "Preview"
+          end
         end
 
-        expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
-        expect(page).to have_content(translated(assembly.title))
+        page.within_window(new_window) do
+          expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
+          expect(page).to have_content(translated(assembly.title))
+        end
       end
     end
   end
@@ -158,8 +168,7 @@ shared_examples "manage assemblies" do
 
       uncheck :assembly_scopes_enabled
 
-      expect(page).to have_selector("#assembly_scope_id.disabled")
-      expect(page).to have_selector("#assembly_scope_id .picker-values div input[disabled]", visible: :all)
+      expect(page).to have_selector("select#assembly_scope_id[disabled]")
 
       within ".edit_assembly" do
         find("*[type=submit]").click

@@ -11,9 +11,9 @@
       <span><%= l(end_time, format: "%d") if !same_day? || !same_month? %></span>
     </div>
     <div class="meeting__calendar-time">
-      <span><%= l(start_time, format: "%H:%M") %></span>
+      <time datetime="<%= start_time.iso8601 %>"><%= l(start_time, format: "%H:%M") %></time>
       <span class="meeting__calendar-separator"><%= "-" %></span>
-      <span><%= l(end_time, format: "%H:%M") %></span>
+      <time datetime="<%= end_time.iso8601 %>"><%= l(end_time, format: "%H:%M") %></time>
     </div>
   </div>
 

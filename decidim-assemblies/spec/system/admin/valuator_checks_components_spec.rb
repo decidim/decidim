@@ -30,18 +30,9 @@ describe "Valuator checks components", type: :system do
     let(:user) { create(:user, :confirmed, organization:) }
   end
 
-  context "when listing the space components in the sidebar" do
-    it "can only see the proposals component" do
-      within ".layout-nav #components-list" do
-        expect(page).to have_content(translated(current_component.name))
-        expect(page).not_to have_content(translated(another_component.name))
-      end
-    end
-  end
-
   context "when listing components in the space components page" do
     it "can only see the proposals component" do
-      within ".layout-nav" do
+      within_admin_sidebar_menu do
         click_link "Components"
       end
 

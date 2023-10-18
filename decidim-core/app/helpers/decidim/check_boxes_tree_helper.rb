@@ -61,17 +61,17 @@ module Decidim
         end
 
         subcategories = sorted_descendant_categories.flat_map do |subcategory|
-          TreePoint.new(subcategory.id.to_s, filter_text_for(translated_attribute(subcategory.name, organization)))
+          TreePoint.new(subcategory.id.to_s, translated_attribute(subcategory.name, organization))
         end
 
         TreeNode.new(
-          TreePoint.new(category.id.to_s, filter_text_for(translated_attribute(category.name, organization))),
+          TreePoint.new(category.id.to_s, translated_attribute(category.name, organization)),
           subcategories
         )
       end
 
       TreeNode.new(
-        TreePoint.new("", filter_text_for(t("decidim.proposals.application_helper.filter_category_values.all"))),
+        TreePoint.new("", t("decidim.core.application_helper.filter_category_values.all")),
         categories_values
       )
     end
@@ -106,7 +106,7 @@ module Decidim
                      end
 
       TreeNode.new(
-        TreePoint.new("", filter_text_for(t("decidim.initiatives.application_helper.filter_area_values.all"))),
+        TreePoint.new("", t("decidim.core.application_helper.filter_area_values.all")),
         areas_values
       )
     end
@@ -115,7 +115,7 @@ module Decidim
       root_point = if array.first[0].blank?
                      TreePoint.new(*array.shift)
                    else
-                     TreePoint.new("", filter_text_for(t("decidim.proposals.application_helper.filter_scope_values.all")))
+                     TreePoint.new("", t("decidim.core.application_helper.filter_scope_values.all"))
                    end
       TreeNode.new(
         root_point,
@@ -126,12 +126,12 @@ module Decidim
     def flat_filter_values(*types, **options)
       scope = options[:scope]
       types.map do |type|
-        [type, filter_text_for(t(type, scope:))]
+        [type, t(type, scope:)]
       end
     end
 
-    def filter_text_for(translation)
-      content_tag(:span, translation).html_safe + content_tag(:span)
+    def filter_text_for(translation, id: nil)
+      content_tag(:span, translation, id:).html_safe + content_tag(:span)
     end
 
     private
@@ -140,11 +140,11 @@ module Decidim
       scopes_values = []
       scope.children.each do |child|
         unless child.children
-          scopes_values << TreePoint.new(child.id.to_s, filter_text_for(translated_attribute(child.name, current_participatory_space.organization)))
+          scopes_values << TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization))
           next
         end
         scopes_values << TreeNode.new(
-          TreePoint.new(child.id.to_s, filter_text_for(translated_attribute(child.name, current_participatory_space.organization))),
+          TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization)),
           scope_children_to_tree(child, current_participatory_space)
         )
       end
@@ -155,12 +155,12 @@ module Decidim
     def filter_scopes_values_from(scopes, participatory_space = nil)
       scopes_values = scopes.compact.flat_map do |scope|
         TreeNode.new(
-          TreePoint.new(scope.id.to_s, filter_text_for(translated_attribute(scope.name))),
+          TreePoint.new(scope.id.to_s, translated_attribute(scope.name)),
           scope_children_to_tree(scope, participatory_space)
         )
       end
 
-      scopes_values.prepend(TreePoint.new("global", filter_text_for(t("decidim.scopes.global")))) if participatory_space&.scope.blank?
+      scopes_values.prepend(TreePoint.new("global", t("decidim.scopes.global"))) if participatory_space&.scope.blank?
 
       filter_tree_from(scopes_values)
     end
@@ -171,7 +171,7 @@ module Decidim
 
       scope.children.includes(:scope_type, :children).flat_map do |child|
         TreeNode.new(
-          TreePoint.new(child.id.to_s, filter_text_for(translated_attribute(child.name))),
+          TreePoint.new(child.id.to_s, translated_attribute(child.name)),
           scope_children_to_tree(child, participatory_space)
         )
       end
@@ -179,7 +179,7 @@ module Decidim
 
     def filter_tree_from(scopes_values)
       TreeNode.new(
-        TreePoint.new("", filter_text_for(t("decidim.proposals.application_helper.filter_scope_values.all"))),
+        TreePoint.new("", t("decidim.core.application_helper.filter_scope_values.all")),
         scopes_values
       )
     end
@@ -187,7 +187,7 @@ module Decidim
     def filter_areas(areas)
       areas.map do |area|
         TreeNode.new(
-          TreePoint.new(area.id.to_s, filter_text_for(area.name[I18n.locale.to_s]))
+          TreePoint.new(area.id.to_s, area.name[I18n.locale.to_s])
         )
       end
     end
@@ -195,9 +195,9 @@ module Decidim
     def filter_areas_and_types(area_types)
       area_types.map do |area_type|
         TreeNode.new(
-          TreePoint.new(area_type.area_ids.join("_"), filter_text_for(area_type.name[I18n.locale.to_s])),
+          TreePoint.new(area_type.area_ids.join("_"), area_type.name[I18n.locale.to_s]),
           area_type.areas.map do |area|
-            TreePoint.new(area.id.to_s, filter_text_for(area.name[I18n.locale.to_s]))
+            TreePoint.new(area.id.to_s, area.name[I18n.locale.to_s])
           end
         )
       end

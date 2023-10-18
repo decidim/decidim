@@ -1,6 +1,6 @@
 <% size_factor = 0.2 %>
 <div id="minimap-wrapper">
-  <div id="minimap">
+  <div id="minimap" class="grid grid-cols-1 md:grid-cols-2">
     <div class="minimap-tab">
       <% if current_organization.favicon.attached? %>
         <%= image_tag current_organization.attached_uploader(:favicon).path, class: "minimap-favicon" %>

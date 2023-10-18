@@ -1,13 +1,13 @@
-<button class="order-by__button" id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-open="false">
+<button class="order-by__button" id="dropdown-trigger-order" data-component="dropdown" data-target="dropdown-menu-order" data-open="false" data-disabled-md="true">
   <%= icon "arrow-down-s-line" %>
   <%= icon "arrow-up-s-line" %>
   <span><%= t("#{i18n_scope}.label") %></span>
 </button>
-<div id="dropdown-menu" class="order-by">
+<div id="dropdown-menu-order" class="order-by">
   <% orders.each do |order_name| %>
     <%= order_link order_name,
-                          i18n_scope:,
-                          title: t("#{i18n_scope}.label"),
-                          class: "button button__sm button__text-secondary #{order_name == order ? "underline font-bold" : "font-normal"}" %>
+                   i18n_scope:,
+                   title: t("#{i18n_scope}.label"),
+                   class: "button button__sm button__text-secondary #{order_name == order ? "underline font-bold" : "font-normal"}" %>
   <% end %>
 </div>

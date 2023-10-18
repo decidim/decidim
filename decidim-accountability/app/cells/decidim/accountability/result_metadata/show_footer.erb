@@ -1,6 +1,6 @@
-<ul class="drawer-metadata__container layout-main__section" data-result-footer>
+<ul class="metadata__container layout-main__section" data-metadata-footer>
   <% items.each do |item| %>
-    <li class="drawer-metadata__item">
+    <li class="metadata__item">
       <% if item.has_key? :partial %>
         <%= render item[:partial] %>
       <% else %>

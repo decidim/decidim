@@ -50,7 +50,7 @@ extra_admin_link(
         <%= cell "decidim/coauthorships", @proposal %>
 
         <% if not ["section","subsection"].include? @proposal.participatory_text_level %>
-          <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
+          <%== cell("decidim/proposals/proposal_metadata", @proposal).state_item&.dig(:text)&.html_safe %>
         <% end %>
       </div>
     <% end %>
@@ -58,7 +58,11 @@ extra_admin_link(
 
   <section class="layout-main__section">
     <% if @proposal.emendation? %>
-      <%= cell("decidim/diff", proposal_presenter.versions.last, path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) }) %>
+      <%= cell(
+            "decidim/diff",
+            proposal_presenter.versions.last,
+            path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) }
+          ) %>
     <% elsif not ["section","subsection"].include? @proposal.participatory_text_level %>
       <div class="editor-content">
         <%= render_proposal_body(@proposal) %>
@@ -89,12 +93,12 @@ extra_admin_link(
   <% content_for :item_footer do %>
     <%= comments_for @proposal %>
 
-     <ul class="drawer-metadata__container layout-main__section" data-metadata-footer>
-       <%= content_tag :li, resource_reference(@proposal), class: "drawer-metadata__item" %>
-       <%= content_tag :li, resource_version(proposal_presenter, versions_path: proposal_version_path(@proposal, @proposal.versions.count)), class: "drawer-metadata__item" %>
+     <ul class="metadata__container layout-main__section" data-metadata-footer>
+       <%= content_tag :li, resource_reference(@proposal), class: "metadata__item" %>
+       <%= content_tag :li, resource_version(proposal_presenter, versions_path: proposal_version_path(@proposal, @proposal.versions.count)), class: "metadata__item" %>
 
        <% fingerprint_id = dom_id(@proposal, :fingerprint_dialog) %>
-       <%= content_tag :li, class: "drawer-metadata__item" do %>
+       <%= content_tag :li, class: "metadata__item" do %>
          <%= content_tag :button, t("decidim.fingerprint.check"), data: { dialog_open: fingerprint_id } %>
        <% end %>
     </ul>
@@ -112,7 +116,7 @@ extra_admin_link(
             <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.source" %>:</span>
             <code class="fingerprint-modal__code"><%= @proposal.fingerprint.source %></code>
           </div>
-          <p><%= t("decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "http://www.md5calc.com/sha256", target: "_blank", rel: "noopener")).html_safe %>
+          <p><%= t("decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "http://www.md5calc.com/sha256", target: "_blank", rel: "noopener")).html_safe %></p>
         </div>
       </div>
     <% end %>

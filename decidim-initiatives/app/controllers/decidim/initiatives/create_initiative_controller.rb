@@ -118,11 +118,11 @@ module Decidim
       end
 
       def current_initiative
-        @current_initiative ||= Initiative.find_by(id: session[:initiative_id])
+        @current_initiative ||= Initiative.where(organization: current_organization).find_by(id: session[:initiative_id] || nil)
       end
 
       def initiative_type
-        @initiative_type ||= InitiativesType.find_by(id: initiative_type_id)
+        @initiative_type ||= InitiativesType.where(organization: current_organization).find_by(id: initiative_type_id)
       end
 
       def promotal_committee_required?

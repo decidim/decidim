@@ -5,11 +5,7 @@ module Decidim
   module EndorsableHelper
     # Invokes the decidim/endorsement_buttons cell.
     def endorsement_buttons_cell(resource)
-      if redesign_enabled?
-        cell("decidim/endorsement_block", resource)
-      else
-        cell("decidim/endorsement_buttons", resource)
-      end
+      cell("decidim/endorsement_block", resource)
     end
 
     # Invokes the decidim/endorsers_list cell.

@@ -85,10 +85,6 @@ describe Decidim::ActivityCell, type: :cell do
 
     before do
       allow(controller).to receive(:current_user).and_return(nil)
-      allow(controller).to receive(:redesigned_layout).with(:cell_name).and_return(cell_name)
-      allow(controller).to receive(:redesigned_layout) do |name|
-        name
-      end
     end
 
     context "when the author is shown" do

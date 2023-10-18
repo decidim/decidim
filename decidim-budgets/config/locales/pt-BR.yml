@@ -13,14 +13,29 @@ pt-BR:
         decidim_scope_id: Âmbito
         description: Descrição
         proposal_ids: Propostas relacionadas
+        proposals: Propostas
         selected: Selecionado para implementação
         title: Título
+      proposals_import:
+        scope_id: Escopo
   activerecord:
     models:
       decidim/budgets/project:
         one: Projeto
         other: Projetos
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Categoria
+          scope_id_eq:
+            label: Escopo
+          selected_at_null:
+            label: Selecionado
+            values:
+              'false': Selecionado para implementação
+              'true': Não selecionado para implementação
     budgets:
       actions:
         attachment_collections: Pastas
@@ -30,11 +45,17 @@ pt-BR:
         edit: Editar
         edit_projects: Gerenciar projetos
         import: Importar propostas para os projetos
-        new: Novo %{name}
         preview: Pré-visualização
+        send_voting_reminders: Enviar lembretes de votação
         title: Ações
       admin:
         budgets:
+          create:
+            invalid: Ocorreu um erro ao criar este orçamento.
+            success: Orçamento criado com sucesso.
+          destroy:
+            invalid: Ocorreu um erro ao deletar este orçamento.
+            success: Orçamento deletado com sucesso.
           edit:
             title: Editar orçamento
             update: Atualizar orçamento
@@ -47,6 +68,9 @@ pt-BR:
           new:
             create: Criar orçamento
             title: Novo orçamento
+          update:
+            invalid: Ocorreu um erro ao atualizar este orçamento.
+            success: Orçamento atualizado com sucesso.
         exports:
           projects: Projetos
         models:
@@ -55,10 +79,20 @@ pt-BR:
           project:
             name: Projeto
         projects:
+          create:
+            invalid: Ocorreu um erro ao criar este projeto.
+            success: Projeto criado com sucesso.
+          destroy:
+            success: Projeto deletado com sucesso.
           edit:
             title: Editar projeto
             update: Atualizar
           index:
+            actions: Ações
+            cancel: Cancelar
+            change_category: Mudar categoria
+            change_scope: Mudar escopo
+            change_selected: Alterar estado selecionado
             finished_orders: Votos finais
             pending_orders: Votações pendentes
             selected: Selecionado
@@ -93,7 +127,6 @@ pt-BR:
           more_than_one: exclua seu voto em %{name} e comece de novo
           only_one: exclua seu voto e comece novamente.
         highlighted_cta: Votar em %{name}
-        my_budgets: Meus orçamentos
       limit_announcement:
         limit_reached: Você tem votos ativos em %{links}. Para votar neste orçamento você deve <a href="%{landing_path}">excluir seu voto e começar do zero</a>.
       models:
@@ -121,33 +154,14 @@ pt-BR:
         budget_excess:
           budget_excess:
             title: O orçamento máximo excedeu
-          close: Fechar
           ok: OK
           projects_excess:
             title: Máximo de projetos excedido
         budget_summary:
           are_you_sure: Deseja mesmo cancelar o seu voto?
-          assigned: 'Atribuído:'
           cancel_order: exclua seu voto e comece de novo
           checked_out:
             title: Votação do orçamento concluída
-          minimum_projects_rule:
-            description: Em que projetos julga que devemos alocar o orçamento? Selecione pelo menos %{minimum_number} projeto que você deseja e vote de acordo com suas preferências para definir o orçamento.
-            instruction: "<li>Selecione pelo menos %{minimum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.</li>"
-          projects_rule:
-            description: Em que projetos julga que devemos alocar o orçamento? Selecione pelo menos %{minimum_number} e até %{maximum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
-            instruction: "<li>Selecione pelo menos %{minimum_number} e até %{maximum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.</li>"
-          projects_rule_maximum_only:
-            description: Em que projetos julga que devemos alocar o orçamento? Selecione até %{maximum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
-            instruction: "<li>Selecione até %{maximum_number} projetos que você desejar e vote de acordo com suas preferências para definir o orçamento.</li>"
-          rules:
-            title: Regras do orçamento
-          title: Você decide o orçamento
-          total_budget: Orçamento total
-          total_projects: Total de votos
-          vote_threshold_percent_rule:
-            description: Em que projetos julga que devemos alocar o orçamento? Atribua pelo menos %{minimum_budget} aos projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
-            instruction: "<li>Atribua pelo menos %{minimum_budget} aos projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.</li>"
         count:
           projects_count:
             one: 1 projeto
@@ -161,19 +175,6 @@ pt-BR:
             all: Todos
             not_selected: Não selecionado
             selected: Selecionado
-        filters_small_view:
-          close_modal: Fechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Desdobrar
-        order_progress:
-          vote: Voto
-        order_selected_projects:
-          remove: Remover
-          selected_projects:
-            one: projeto selecionado
-            other: projetos selecionados
-          view: Visão
         orders:
           highest_cost: Custo mais alto
           label: Ordenar projetos por
@@ -193,7 +194,6 @@ pt-BR:
         projects_for: Projetos para %{name}
         show:
           budget: Orçamento
-          view_all_projects: Ver todos os projetos
     components:
       budgets:
         actions:

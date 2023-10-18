@@ -48,8 +48,6 @@ describe "Proposals", type: :system do
 
     it_behaves_like "accessible page" do
       before do
-        skip_unless_redesign_enabled("Old menu layout breaks this test using layout item")
-
         visit_component
         click_link proposal_title
       end
@@ -72,9 +70,6 @@ describe "Proposals", type: :system do
       expect(page).to have_content(strip_tags(translated(proposal.body)).strip)
       expect(page).to have_author(proposal.creator_author.name)
       expect(page).to have_content(proposal.reference)
-      # REDESIGN_PENDING - Remove the following example if is correct that the
-      # publication date should not appear
-      # expect(page).to have_creation_date(I18n.l(proposal.published_at, format: :decidim_short))
     end
 
     context "when process is not related to any scope" do
@@ -112,58 +107,30 @@ describe "Proposals", type: :system do
         expect(page).to have_content("Official proposal")
       end
 
-      # REDESIGN_PENDING - The rich text editor is related with this test. This
-      # feature probably will be disabled. Remove these shared examples if
-      # correct
-      # it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
+      it_behaves_like "rendering safe content", ".editor-content"
     end
 
-    # REDESIGN_PENDING - The rich text editor is related with this test. This
-    # feature probably will be disabled. Remove these shared examples if
-    # correct
-    # context "when rich text editor is enabled for participants" do
-    #   let!(:proposal) { create(:proposal, body: content, component:) }
+    context "when rich text editor is enabled for participants" do
+      let!(:proposal) { create(:proposal, body: content, component:) }
 
-    #   before do
-    #     organization.update(rich_text_editor_in_public_views: true)
-    #     visit_component
-    #     click_link proposal_title
-    #   end
-
-    #   it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
-    # end
-
-    # REDESIGN_PENDING - The rich text editor is related with this test. This
-    # feature probably will be disabled. Remove these shared examples if
-    # correct
-    # context "when rich text editor is NOT enabled for participants" do
-    #   let!(:proposal) { create(:proposal, body: content, component:) }
-
-    #   before do
-    #     visit_component
-    #     click_link proposal_title
-    #   end
-
-    #   it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.large-9"
-    # end
-
-    context "when it is a proposal with image" do
-      let!(:component) do
-        create(:proposal_component,
-               manifest:,
-               participatory_space: participatory_process)
-      end
-
-      let!(:proposal) { create(:proposal, component:) }
-      let!(:image) { create(:attachment, attached_to: proposal) }
-
-      it "shows the card image" do
-        skip "REDESIGN_PENDING - The card-l for proposals does not implement images. Delete this test if this is correct"
+      before do
+        organization.update(rich_text_editor_in_public_views: true)
         visit_component
-        within "#proposals__proposal_#{proposal.id}" do
-          expect(page).to have_selector(".card__image")
-        end
+        click_link proposal_title
       end
+
+      it_behaves_like "rendering safe content", ".editor-content"
+    end
+
+    context "when rich text editor is NOT enabled for participants" do
+      let!(:proposal) { create(:proposal, body: content, component:) }
+
+      before do
+        visit_component
+        click_link proposal_title
+      end
+
+      it_behaves_like "rendering unsafe content", ".editor-content"
     end
 
     context "when it is an official meeting proposal" do
@@ -179,10 +146,7 @@ describe "Proposals", type: :system do
         expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(proposal.authors.first.title)))
       end
 
-      # REDESIGN_PENDING - The rich text editor is related with this test. This
-      # feature probably will be disabled. Remove these shared examples if
-      # correct
-      # it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
+      it_behaves_like "rendering safe content", ".editor-content"
     end
 
     context "when a proposal has comments" do
@@ -326,7 +290,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Evaluating")
 
-        within ".callout.warning[data-announcement]" do
+        within ".flash.warning[data-announcement]" do
           expect(page).to have_content("This proposal is being evaluated")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -337,12 +301,6 @@ describe "Proposals", type: :system do
       let!(:proposal) { create(:proposal, :with_answer, :rejected, component:) }
 
       it "shows the rejection reason" do
-        skip_unless_redesign_enabled("Filters update the results when redesign is fully enabled")
-
-        # REDESIGN_PENDING - This test fails because unchecking all options
-        # make the controller to use the default filter which excludes
-        # "Rejected" items. The expected behavior is to select all items, not
-        # filtered by status
         visit_component
         uncheck "Accepted"
         uncheck "Evaluating"
@@ -352,7 +310,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Rejected")
 
-        within ".callout.alert[data-announcement]" do
+        within ".flash.alert[data-announcement]" do
           expect(page).to have_content("This proposal has been rejected")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -368,7 +326,7 @@ describe "Proposals", type: :system do
 
         expect(page).to have_content("Accepted")
 
-        within ".callout.success[data-announcement]" do
+        within ".flash.success[data-announcement]" do
           expect(page).to have_content("This proposal has been accepted")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -440,9 +398,9 @@ describe "Proposals", type: :system do
         visit_component
 
         expect(page).to have_selector("a", text: "Random")
-        expect(page).to have_selector(".proposal-list-item", count: 2)
-        expect(page).to have_selector(".proposal-list-item", text: lucky_proposal_title)
-        expect(page).to have_selector(".proposal-list-item", text: unlucky_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']", count: 2)
+        expect(page).to have_selector("[id^='proposals__proposal']", text: lucky_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']", text: unlucky_proposal_title)
         expect(page).to have_author(lucky_proposal.creator_author.name)
       end
     end
@@ -459,7 +417,7 @@ describe "Proposals", type: :system do
       create_list(:proposal, 3, component:)
 
       visit_component
-      expect(page).to have_css(".proposal-list-item", count: 3)
+      expect(page).to have_css("[id^='proposals__proposal']", count: 3)
     end
 
     describe "editable content" do
@@ -511,15 +469,8 @@ describe "Proposals", type: :system do
 
       it "lists the proposals ordered by votes by default" do
         expect(page).to have_selector("a", text: "Most supported")
-        expect(page).to have_selector("#proposals .proposal-list__container .proposal-list-item:first-child", text: most_voted_proposal_title)
-        expect(page).to have_selector("#proposals .proposal-list__container .proposal-list-item:last-child", text: less_voted_proposal_title)
-      end
-
-      it "shows a disabled vote button for each proposal, but no links to full proposals" do
-        skip "REDESIGN_PENDING - Voting from index is deprecated in proposals. Remove this test if this is correct"
-
-        expect(page).to have_button("Supports disabled", disabled: true, count: 2)
-        expect(page).not_to have_link("View proposal")
+        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: most_voted_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']:last-child", text: less_voted_proposal_title)
       end
     end
 
@@ -540,10 +491,7 @@ describe "Proposals", type: :system do
 
         visit_component
 
-        # REDESIGN_PENDING - Voting from index is deprecated in proposals. Remove this test if this is correct
-        # expect(page).not_to have_button("Supports disabled", disabled: true)
-        # expect(page).not_to have_button("Vote")
-        expect(page).to have_css(".proposal-list-item", count: 2)
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
       end
     end
 
@@ -555,13 +503,13 @@ describe "Proposals", type: :system do
       it "paginates them" do
         visit_component
 
-        expect(page).to have_css(".proposal-list-item", count: Decidim::Paginable::OPTIONS.first)
+        expect(page).to have_css("[id^='proposals__proposal']", count: Decidim::Paginable::OPTIONS.first)
 
         click_link "Next"
 
         expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
 
-        expect(page).to have_css(".proposal-list-item", count: 5)
+        expect(page).to have_css("[id^='proposals__proposal']", count: 5)
       end
     end
 
@@ -578,8 +526,8 @@ describe "Proposals", type: :system do
       end
 
       it "lists the proposals ordered by selected option" do
-        expect(page).to have_selector("#proposals .proposal-list__container .proposal-list-item:first-child", text: first_proposal_title)
-        expect(page).to have_selector("#proposals .proposal-list__container .proposal-list-item:last-child", text: last_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: first_proposal_title)
+        expect(page).to have_selector("[id^='proposals__proposal']:last-child", text: last_proposal_title)
       end
     end
 
@@ -683,7 +631,7 @@ describe "Proposals", type: :system do
 
     context "when paginating" do
       let!(:collection) { create_list(:proposal, collection_size, component:) }
-      let!(:resource_selector) { ".proposal-list-item" }
+      let!(:resource_selector) { "[id^='proposals__proposal']" }
 
       it_behaves_like "a paginated resource"
     end

@@ -173,30 +173,6 @@ module Decidim
       end
     end
 
-    describe "#user_is_moderator?" do
-      context "when an organization has a moderator and a regular user" do
-        let(:organization) { create(:organization, available_locales: [:en]) }
-        let(:participatory_space) { create(:participatory_process, organization:) }
-        let(:moderator) do
-          create(
-            :process_moderator,
-            :confirmed,
-            organization:,
-            participatory_process: participatory_space
-          )
-        end
-        let(:user) { create(:user, organization:) }
-
-        it "returns false when user is not a moderator" do
-          expect(subject.user_is_moderator?(user)).to be false
-        end
-
-        it "returns true when user is a moderator" do
-          expect(subject.user_is_moderator?(moderator)).to be true
-        end
-      end
-    end
-
     describe "#meet_push_notifications_requirements?" do
       context "when the notifications requirements are met" do
         before do

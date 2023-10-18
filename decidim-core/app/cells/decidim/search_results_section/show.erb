@@ -5,7 +5,7 @@
   </h2>
 
   <% results.each do |result| %>
-    <%= card_for result, { size: :s, force_redesign: true } %>
+    <%= card_for result, { size: :s } %>
   <% end %>
 
   <% if results_count > Decidim::Search::HIGHLIGHTED_RESULTS_COUNT && !paginated? %>

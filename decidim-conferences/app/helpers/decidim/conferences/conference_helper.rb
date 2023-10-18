@@ -17,12 +17,7 @@ module Decidim
       # Items to display in the navigation of a conference
       #
       def conference_nav_items(participatory_space)
-        [
-          {
-            name: t("layouts.decidim.conferences_nav.conference_menu_item"),
-            url: decidim_conferences.conference_path(participatory_space)
-          }
-        ].tap do |items|
+        [].tap do |items|
           if participatory_space.speakers.exists?
             items << {
               name: t("layouts.decidim.conferences_nav.conference_speaker_menu_item"),

@@ -39,13 +39,13 @@ module Decidim
 
         case state
         when "accepted"
-          "text-success"
+          "success"
         when "rejected", "withdrawn"
-          "text-alert"
+          "alert"
         when "evaluating"
-          "text-warning"
+          "warning"
         else
-          "text-info"
+          "info"
         end
       end
 
@@ -150,19 +150,19 @@ module Decidim
 
       def filter_type_values
         [
-          ["all", filter_text_for(t("decidim.proposals.application_helper.filter_type_values.all"))],
-          ["proposals", filter_text_for(t("decidim.proposals.application_helper.filter_type_values.proposals"))],
-          ["amendments", filter_text_for(t("decidim.proposals.application_helper.filter_type_values.amendments"))]
+          ["all", t("decidim.proposals.application_helper.filter_type_values.all")],
+          ["proposals", t("decidim.proposals.application_helper.filter_type_values.proposals")],
+          ["amendments", t("decidim.proposals.application_helper.filter_type_values.amendments")]
         ]
       end
 
       # Options to filter Proposals by activity.
       def activity_filter_values
         base = [
-          ["all", filter_text_for(t("decidim.proposals.proposals.filters.all"))],
-          ["my_proposals", filter_text_for(t("decidim.proposals.proposals.filters.my_proposals"))]
+          ["all", t("decidim.proposals.proposals.filters.all")],
+          ["my_proposals", t("decidim.proposals.proposals.filters.my_proposals")]
         ]
-        base += [["voted", filter_text_for(t("decidim.proposals.proposals.filters.voted"))]] if current_settings.votes_enabled?
+        base += [["voted", t("decidim.proposals.proposals.filters.voted")]] if current_settings.votes_enabled?
         base
       end
 
@@ -176,25 +176,25 @@ module Decidim
       def filter_origin_values
         scope = "decidim.proposals.application_helper.filter_origin_values"
         origin_values = []
-        origin_values << TreePoint.new("official", filter_text_for(t("official", scope:))) if component_settings.official_proposals_enabled
-        origin_values << TreePoint.new("participants", filter_text_for(t("participants", scope:)))
-        origin_values << TreePoint.new("user_group", filter_text_for(t("user_groups", scope:))) if current_organization.user_groups_enabled?
-        origin_values << TreePoint.new("meeting", filter_text_for(t("meetings", scope:)))
+        origin_values << TreePoint.new("official", t("official", scope:)) if component_settings.official_proposals_enabled
+        origin_values << TreePoint.new("participants", t("participants", scope:))
+        origin_values << TreePoint.new("user_group", t("user_groups", scope:)) if current_organization.user_groups_enabled?
+        origin_values << TreePoint.new("meeting", t("meetings", scope:))
 
         TreeNode.new(
-          TreePoint.new("", filter_text_for(t("all", scope:))),
+          TreePoint.new("", t("all", scope:)),
           origin_values
         )
       end
 
       def filter_proposals_state_values
         Decidim::CheckBoxesTreeHelper::TreeNode.new(
-          Decidim::CheckBoxesTreeHelper::TreePoint.new("", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.all"))),
+          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.proposals.application_helper.filter_state_values.all")),
           [
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("accepted", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.accepted"))),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("evaluating", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.evaluating"))),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.not_answered"))),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.rejected")))
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", t("decidim.proposals.application_helper.filter_state_values.not_answered")),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected"))
           ]
         )
       end

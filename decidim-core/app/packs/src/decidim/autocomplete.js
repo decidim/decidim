@@ -74,6 +74,7 @@ export default class AutoComplete {
 
     this.autocomplete = new AutoCompleteJS({
       selector: () => this.element,
+      diacritics: true,
       placeHolder: options.placeholder,
       // Delay (milliseconds) before autocomplete engine starts. It is preventing many queries when user is typing fast.
       debounce: 200,
@@ -94,11 +95,17 @@ export default class AutoComplete {
           }
         },
         filter: (list) => {
+          const results = list.filter(
+            (item, idx, arr) => {
+              return arr.findIndex((val) => val.value === item.value) === idx;
+            }
+          );
+
           if (this.options.dataFilter) {
-            return this.options.dataFilter(list);
+            return this.options.dataFilter(results);
           }
 
-          return list;
+          return results;
         }
       },
       resultsList: {

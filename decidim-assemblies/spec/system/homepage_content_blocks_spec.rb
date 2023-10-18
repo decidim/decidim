@@ -15,8 +15,6 @@ describe "Homepage assemblies content blocks", type: :system do
   end
 
   it "includes active assemblies to the homepage" do
-    skip "REDESIGN_PENDING - This content block is not redesigned yet and hides the assemblies with the new layout"
-
     visit decidim.root_path
 
     within "#highlighted-assemblies" do

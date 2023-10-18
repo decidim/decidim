@@ -38,7 +38,7 @@ module Decidim
 
         let(:query) { %({ initiatives { id }}) }
 
-        it "returns all the consultations" do
+        it "returns all the initiatives" do
           expect(response["initiatives"]).to include("id" => initiative1.id.to_s)
           expect(response["initiatives"]).to include("id" => initiative2.id.to_s)
           expect(response["initiatives"]).not_to include("id" => initiative3.id.to_s)
@@ -48,7 +48,7 @@ module Decidim
       describe "initiative" do
         let(:query) { %({ initiative(id: "#{id}") { id }}) }
 
-        context "with a consultation that belongs to the current organization" do
+        context "with an initiative that belongs to the current organization" do
           let!(:initiative) { create(:initiative, organization: current_organization) }
           let(:id) { initiative.id }
 

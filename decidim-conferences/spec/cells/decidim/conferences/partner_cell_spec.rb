@@ -23,5 +23,19 @@ module Decidim::Conferences
         expect(subject).to have_css(".conference__grid-item")
       end
     end
+
+    context "when rendering a partner with a link" do
+      it "renders a link" do
+        expect(subject).to have_css("a.conference__grid-item")
+      end
+    end
+
+    context "when rendering a partner without a link" do
+      let(:partner) { create(:partner, :collaborator, conference:, link: nil) }
+
+      it "renders a div instead of a link" do
+        expect(subject).to have_css("div.conference__grid-item")
+      end
+    end
   end
 end

@@ -15,12 +15,13 @@
   )
 %>
 
+<%= append_javascript_pack_tag "decidim_blogs" %>
 <%= append_stylesheet_pack_tag "decidim_blogs" %>
 
 <%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
 
   <div class="flex justify-center">
-    <h1 class="h3 md:h1 decorator my-12"><%= translated_attribute post.title %></h1>
+    <h1 class="title-decorator my-12"><%= translated_attribute post.title %></h1>
   </div>
 
   <% if post.photo.present? %>

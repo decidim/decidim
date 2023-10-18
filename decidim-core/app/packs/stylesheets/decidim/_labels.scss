@@ -1,0 +1,26 @@
+.label {
+  --success: #16592e;
+  --bg-success: #c4ecd0;
+  --alert: #b9081b;
+  --bg-alert: #ffdee3;
+  --warning: #ad4910;
+  --bg-warning: #ffeebd;
+
+  @apply bg-background text-gray-2 rounded inline-flex items-center gap-1 px-2 font-semibold text-sm;
+
+  &.success {
+    @apply bg-[var(--bg-success)] text-[var(--success)];
+  }
+
+  &.alert {
+    @apply bg-[var(--bg-alert)] text-[var(--alert)];
+  }
+
+  &.warning {
+    @apply bg-[var(--bg-warning)] text-[var(--warning)];
+  }
+
+  &.reverse {
+    @apply bg-gray-2 text-white;
+  }
+}

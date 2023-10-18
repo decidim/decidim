@@ -6,7 +6,7 @@ module Decidim::Conferences
   describe ConferenceCell, type: :cell do
     controller Decidim::Conferences::ConferencesController
 
-    subject { cell("decidim/conferences/conference_m", model).call }
+    subject { cell("decidim/conferences/conference", model).call }
 
     let(:model) { create(:conference) }
 

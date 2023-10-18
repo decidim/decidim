@@ -16,7 +16,7 @@ shared_examples "manage conference components" do
         find(".dummy").click
       end
 
-      within ".new_component" do
+      within ".item__edit-form .new_component" do
         fill_in_i18n(
           :component_name,
           "#component-name-tabs",

@@ -24,6 +24,7 @@ describe Decidim::Log::BasePresenter, type: :helper do
   let(:action) { :create }
   let(:version_double) { double(present?: false) }
   let(:presenter_double) { double(present: true) }
+  let(:changeset) { {} }
 
   before do
     helper.extend(Decidim::ApplicationHelper)
@@ -47,10 +48,20 @@ describe Decidim::Log::BasePresenter, type: :helper do
     end
 
     context "when version exists" do
-      let(:version_double) { double(present?: true, changeset: {}) }
+      let(:version_double) { double(present?: true, changeset:) }
 
-      it "renders a dropdown" do
-        expect(subject).to include("class=\"logs__log__actions-dropdown\"")
+      context "and changeset is present" do
+        let(:changeset) { { test: "test" } }
+
+        it "renders a dropdown" do
+          expect(subject).to include("class=\"logs__log__actions-dropdown\"")
+        end
+      end
+
+      context "and changeset is blank" do
+        it "does not render a dropdown" do
+          expect(subject).not_to include("class=\"logs__log__actions-dropdown\"")
+        end
       end
 
       it "renders the diff" do

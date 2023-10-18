@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     module Admin
-      # This controller allows admins to manage moderations in an conference.
+      # This controller allows admins to manage moderations in a conference.
       class ModerationsController < Decidim::Admin::ModerationsController
         include Concerns::ConferenceAdmin
       end

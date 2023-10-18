@@ -1,12 +1,6 @@
-<%= cell("decidim/announcement", t("decidim.initiatives.initiative_votes.create.success_html"), callout_class: "secondary", title: translated_attribute(current_initiative.title)) %>
+<%= cell("decidim/announcement", t("decidim.initiatives.initiative_votes.create.success_html", title: translated_attribute(current_initiative.title)), callout_class: "secondary") %>
 
-<h2 class="section-heading"><%= t("finished", scope: "layouts.decidim.initiative_signature_creation_header") %></h2>
-
-<%= render partial: "wizard_steps" %>
-
-<div class="card">
-  <br>
-  <div class="column actions">
-    <%= link_to t(".back_to_initiative"), initiative_path(current_initiative), class: "button white-button expanded" %>
-  </div>
-</div>
+<%= link_to initiative_path(current_initiative), class: "button button__sm md:button__lg button__text-secondary" do %>
+  <%= icon "arrow-left-line" %>
+  <%= t(".back_to_initiative") %>
+<% end %>

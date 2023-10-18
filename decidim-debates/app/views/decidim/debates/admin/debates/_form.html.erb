@@ -1,51 +1,52 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title"><%= title %></h2>
-  </div>
-
-  <div class="card-section debate-fields">
-     <div class="row column hashtags__container">
-      <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
-    </div>
-
-     <div class="row column hashtags__container">
-      <%= form.translated :editor, :description, hashtaggable: true %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :editor, :instructions %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :editor, :information_updates %>
-    </div>
-
-    <div class="row column">
-      <%= label_tag :debate_type, t(".debate_type") %>
-      <%= form.collection_radio_buttons(:finite, [[t(".finite"), true], [t(".open"), false]], :last, :first) %>
-    </div>
-
-    <div class="row debate-fields--finite">
-      <div class="column xlarge-6">
-        <%= form.datetime_field :start_time %>
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section debate-fields">
+       <div class="row column hashtags__container">
+        <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title } %>
       </div>
-      <div class="column xlarge-6">
-        <%= form.datetime_field :end_time %>
-      </div>
-    </div>
 
-    <% if current_component.has_subscopes? %>
+       <div class="row column hashtags__container">
+        <%= form.translated :editor, :description, hashtaggable: true, aria: { label: :description } %>
+      </div>
+
       <div class="row column">
-        <%= scopes_picker_field form, :scope_id, root: current_component.scope %>
+        <%= form.translated :editor, :instructions, aria: { label: :instructions } %>
       </div>
-    <% end %>
 
-    <div class="row column">
-      <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: "", disable_parents: false %>
-    </div>
+      <div class="row column">
+        <%= form.translated :editor, :information_updates, aria: { label: :information_updates } %>
+      </div>
 
-    <div class="row column">
-      <%= form.check_box :comments_enabled, label: t("enabled", scope: "decidim.comments.admin.shared.availability_fields") %>
+      <div class="row column">
+        <%= label_tag :debate_type, t(".debate_type") %>
+        <div>
+          <%= form.collection_radio_buttons(:finite, [[t(".finite"), true], [t(".open"), false]], :last, :first) do |builder|
+            builder.label(class: "form__wrapper-checkbox-label") { builder.radio_button + builder.text } end %>
+        </div>
+      </div>
+
+      <div class="row column debate-fields--finite">
+        <div class="column">
+          <%= form.datetime_field :start_time %>
+        </div>
+        <div class="column">
+          <%= form.datetime_field :end_time %>
+        </div>
+      </div>
+
+      <% if current_component.has_subscopes? %>
+        <div class="row column">
+          <%= scopes_select_field form, :scope_id, root: current_component.scope %>
+        </div>
+      <% end %>
+
+      <div class="row column">
+        <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: "", disable_parents: false %>
+      </div>
+
+      <div class="row column">
+        <%= form.check_box :comments_enabled, label: t("enabled", scope: "decidim.comments.admin.shared.availability_fields") %>
+      </div>
     </div>
   </div>
 </div>

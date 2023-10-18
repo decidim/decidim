@@ -1,18 +1,18 @@
 <div class="comment__actions">
+  <% if depth.zero? && has_replies_in_children? %>
+    <button class="button button__sm button__text-secondary comment__hide" data-controls="comment-<%= model.id %>-replies">
+      <%= icon "arrow-up-s-line" %>
+      <span class="hide-comment-replies font-normal"><%= t("decidim.components.comment.hide_replies") %></span>
+      <%= icon "arrow-down-s-line" %>
+      <span class="show-comment-replies font-normal"><%= t("decidim.components.comment.show_replies", count: replies.size, replies_count: replies.size ) %></span>
+    </button>
+  <% end %>
   <% if can_reply? %>
     <button class="button button__sm button__text-secondary" data-controls="panel-<%= reply_id %>">
       <%= icon "chat-1-line" %>
       <span class="font-normal"><%= t("decidim.components.comment.reply") %></span>
       <%= icon "close-circle-line" %>
       <span class="font-normal"><%= t("decidim.components.comment.cancel_reply") %></span>
-    </button>
-  <% end %>
-  <% if depth.zero? && has_replies_in_children? %>
-    <button class="button button__sm button__text-secondary comment__hide" data-controls="comment-<%= model.id %>-replies">
-      <%= icon "comment-square" %>
-      <span class="hide-comment-replies font-normal"><%= t("decidim.components.comment.hide_replies") %></span>
-      <%= icon "comment-square" %>
-      <span class="show-comment-replies font-normal"><%= t("decidim.components.comment.show_replies", count: replies.size, replies_count: replies.size ) %></span>
     </button>
   <% end %>
 </div>

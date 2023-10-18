@@ -82,8 +82,6 @@ describe "show", type: :system do
       end
 
       it "shows the number of participants" do
-        skip_unless_redesign_enabled "This content appears with redesign fully enabled"
-
         within ".layout-item__aside" do
           expect(page).to have_content("Participants\n1")
           expect(page).to have_content("Groups\n1")

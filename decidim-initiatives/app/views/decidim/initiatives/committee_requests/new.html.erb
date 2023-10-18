@@ -9,21 +9,25 @@
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 <% provide :meta_image_url, current_initiative.type.attached_uploader(:banner_image).path %>
 
-<main class="layout-1col">
-  <div class="cols-8">
-    <div class="text-center py-10">
-      <h2 class="h3 md:h1 decorator inline-block text-left"><%= translated_attribute(current_initiative.title) %></h2>
-    </div>
-    <%= render partial: "decidim/initiatives/initiatives/author", locals: { initiative: current_initiative } %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h2 class="title-decorator inline-block text-left"><%= translated_attribute(current_initiative.title) %></h2>
+  </div>
 
-    <div class="form__wrapper">
-      <div class="editor-content">
-        <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
-      </div>
-      <%= cell("decidim/announcement", t("decidim.initiatives.committee_requests.new.help_text"), callout_class: "secondary") %>
-      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= logged_link_to t(".continue"), spawn_initiative_committee_requests_path(current_initiative), class: "button button__sm md:button__lg button__secondary", data: current_user.blank? ? { dialog_open: "loginModal" } : {} %>
-      </div>
+  <%= cell "decidim/coauthorships", OpenStruct.new(identities: current_initiative.committee_members.excluding_author.approved.map(&:user).reject(&:deleted?).prepend(current_initiative.author) ) %>
+
+  <div class="form__wrapper">
+
+    <span class="text-gray-2"><%= l current_initiative.published_at || current_initiative.created_at, format: :decidim_short %></span>
+
+    <div class="editor-content">
+      <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
+    </div>
+
+    <%= cell("decidim/announcement", t("decidim.initiatives.committee_requests.new.help_text"), callout_class: "secondary") %>
+
+    <div class="form__wrapper-block">
+      <%= logged_link_to t("continue", scope: "decidim.initiatives.committee_requests.new"), spawn_initiative_committee_requests_path(current_initiative), class: "button button__sm md:button__lg button__secondary", data: current_user.blank? ? { dialog_open: "loginModal" } : {} %>
     </div>
   </div>
-</main>
+<% end %>

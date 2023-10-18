@@ -24,9 +24,6 @@ en:
         new: New post
         title: Actions
       admin:
-        models:
-          post:
-            name: Post
         posts:
           create:
             invalid: There was a problem creating this post.
@@ -66,8 +63,10 @@ en:
             published_at: Publish time
             title: Title
       posts:
-        show:
-          view: View
+        index:
+          count:
+            one: "%{count} post"
+            other: "%{count} posts"
     components:
       blogs:
         actions:

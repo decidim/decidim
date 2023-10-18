@@ -2,7 +2,7 @@
 <%= append_javascript_pack_tag "decidim_proposals" %>
 
 <% content_for :aside do %>
-  <h1 class="h3 md:h1 decorator">
+  <h1 class="title-decorator">
     <%= translated_attribute(current_component.name) %>
   </h1>
 
@@ -13,14 +13,20 @@
 
   <%= render partial: "decidim/shared/component_announcement" %>
 
-  <h2 class="proposal-participatory__heading">
-    <%= render_participatory_text_title(@participatory_text) %>
-  </h2>
-
-  <div id="proposals">
-    <% @proposals.each do |proposal| %>
-    <%= cell("decidim/proposals/participatory_text_proposal", proposal, context: { current_user: }) %>
+  <section class="layout-main__section">
+    <% if @participatory_text.nil? %>
+      <%= cell("decidim/announcement", t("alternative_title", scope: "decidim.proposals.participatory_text_proposal")) %>
+    <% else %>
+      <h2 class="proposal-participatory__heading">
+        <%= translated_attribute(@participatory_text.title) %>
+      </h2>
     <% end %>
-  </div>
+  </section>
+
+  <section id="proposals" class="layout-main__section">
+    <% @proposals.each do |proposal| %>
+      <%= cell("decidim/proposals/participatory_text_proposal", proposal, context: { current_user: }) %>
+    <% end %>
+  </section>
 
 <% end %>

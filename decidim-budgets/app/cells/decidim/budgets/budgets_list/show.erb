@@ -1,15 +1,15 @@
 <% if !voting_finished? && voted? %>
-  <div class="section">
-    <h2 class="h5 md:h3 decorator mb-8">
-      <%= t("voted_budgets", scope: "decidim.budgets.budgets_list") %>
-    </h2>
+  <h2 class="h5 md:h3 decorator mb-8">
+    <%= t("voted_budgets", scope: "decidim.budgets.budgets_list") %>
+  </h2>
 
-    <%= render :voted %>
-  </div>
+  <%= render :voted %>
 <% end %>
 
 <% if budgets.where.not(id: voted.map(&:id)).exists? %>
-  <%= main_list %>
+  <div id="budgets" class="card__list-list">
+    <%= main_list %>
+  </div>
 <% end %>
 
 <%= decidim_paginate budget_paginate %>

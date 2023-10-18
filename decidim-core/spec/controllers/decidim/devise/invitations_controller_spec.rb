@@ -28,8 +28,7 @@ module Decidim::Devise
         {
           invitation_token: user.raw_invitation_token,
           nickname: "invited_user",
-          password:,
-          password_confirmation: password
+          password:
         }
       end
 

@@ -385,7 +385,6 @@ nl:
               md: Markdown
               odt: ODT
             bottom_hint: "(U kunt documentsecties vooraf bekijken en sorteren)"
-            document_legend: 'Voeg een document toe van minder dan 2MB. Elk onderdeel tot op 3 niveaus diep wordt verwerkt tot voorstellen. Ondersteunde formaten zijn: %{valid_mime_types}'
             title: VOEG DOCUMENT TOE
             upload_document: Document uploaden
           sections:
@@ -445,30 +444,22 @@ nl:
           show:
             amendments_count: Aantal amendementen
             assigned_valuators: Toegewezen beoordelaars
-            authors: auteurs
             body: Tekstgedeelte
             comments_count: Aantal reacties
-            comments_negative_count: Tegen
-            comments_neutral_count: Neutraal
-            comments_positive_count: Favoriet
-            created_at: Aangemaakt op
             documents: Documenten
             endorsements_count: Aantal suggesties
-            endorsements_ranking: Rangschikking op aantekeningen
             endorsers: Aanbevelers
             link: Koppeling
             n_more_endorsers:
               one: en nog 1
               other: en %{count} meer
             photos: Foto's
-            proposals: Voorstellen
             ranking: "%{ranking} van %{total}"
             related_meetings: Gerelateerde vergaderingen
             remove_assignment: Opdracht verwijderen
             remove_assignment_confirmation: Weet u zeker dat u de beoordelaar uit dit voorstel wilt verwijderen?
             valuators: Beoordelaars
             votes_count: Aantal stemmen
-            votes_ranking: Rangschikking door ondersteuning
           update_category:
             invalid: 'Deze voorstellen hadden al de %{subject_name} categorie: %{proposals}.'
             success: 'Voorstellen zijn succesvol bijgewerkt naar de %{subject_name} categorie: %{proposals}.'
@@ -507,16 +498,12 @@ nl:
         rejected: Geweigerd
         withdrawn: Ingetrokken
       application_helper:
-        filter_category_values:
-          all: Alle
         filter_origin_values:
           all: Alle
           meetings: vergaderingen
           official: Officieel
           participants: Deelnemers
           user_groups: Groepen
-        filter_scope_values:
-          all: Alle
         filter_state_values:
           accepted: Aanvaard
           all: Alle
@@ -536,7 +523,6 @@ nl:
               ok: Publiceer als een voorstel
               title: De volgende actie is onomkeerbaar
             success: Samenwerkingsconcept met succes gepubliceerd als een voorstel.
-          view_collaborative_draft: Gezamenlijk ontwerp bekijken
           withdraw:
             error: Er zijn fouten opgetreden bij het sluiten van het gezamenlijk ontwerp.
             irreversible_action_modal:
@@ -544,10 +530,6 @@ nl:
               ok: Trek het gezamenlijk ontwerp in
               title: De volgende actie is onomkeerbaar
             success: Gezamenlijk ontwerp is succesvol ingetrokken.
-        count:
-          drafts_count:
-            one: "%{count} gezamenlijk ontwerp"
-            other: "%{count} gezamenlijke ontwerpen"
         create:
           success: Gezamenlijk ontwerp met succes gemaakt.
         edit:
@@ -572,6 +554,10 @@ nl:
           filter: Filter
           filter_by: Filteren op
           unfold: Ontvouwen
+        index:
+          count:
+            one: "%{count} gezamenlijk ontwerp"
+            other: "%{count} gezamenlijke ontwerpen"
         new:
           send: Doorgaan met
         new_collaborative_draft_button:
@@ -593,7 +579,6 @@ nl:
           rejected_request:
             error: Kan niet worden afgewezen als bijdrager, probeer het later opnieuw.
         show:
-          back: Terug
           edit: Bewerk gezamenlijk ontwerp
           final_proposal: definitief voorstel
           final_proposal_help_text: Dit concept is voltooid. U kunt het definitieve voltooide voorstel zien
@@ -605,7 +590,6 @@ nl:
           published_proposal: gepubliceerd voorstel
           request_access: Toegang vragen
           requested_access: Toegang aangevraagd
-          version_history: bekijk versiegeschiedenis voor dit voorstel
           withdraw: het ontwerp terugtrekken
         states:
           open: Open
@@ -616,12 +600,8 @@ nl:
           success: Samenwerkingsconcept met succes bijgewerkt.
         wizard_aside:
           back_from_collaborative_draft: Terug naar gezamenlijke concepten
-          info: U maakt een <strong>gezamenlijk ontwerp</strong>.
         wizard_header:
           title: Maak uw gezamenlijk ontwerp
-      content_blocks:
-        highlighted_proposals:
-          proposals: Voorstellen
       create:
         error: Er is een fout opgetreden bij het opslaan van het voorstel.
         success: Voorstel succesvol aangemaakt. Opgeslagen als concept.
@@ -629,11 +609,6 @@ nl:
         error: Er zijn fouten opgetreden bij het verwijderen van het concept.
         success: Voorstel concept is succesvol verwijderd.
       models:
-        collaborative_draft:
-          fields:
-            authors: auteurs
-            comments: Reacties
-            contributions: bijdragen
         proposal:
           fields:
             category: Categorie
@@ -654,7 +629,6 @@ nl:
         buttons:
           amend: Wijzigen
           comment: Commentaar
-          comments: Commentaren
       proposal_votes:
         create:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
@@ -666,17 +640,12 @@ nl:
         complete:
           send: Verzenden
           title: Maak uw voorstel af
-        count:
-          proposals_count:
-            one: "%{count} voorstel"
-            other: "%{count} voorstellen"
         dynamic_map_instructions:
           description: De coördinaten worden bijgewerkt bij het klikken op de 'preview' knop. Het adres verandert echter niet.
           instructions: Je kunt het punt op de kaart verplaatsen.
         edit:
           attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
-          gallery_legend: "(Optioneel) Voeg een afbeelding toe aan het voorstel"
           select_a_category: Selecteer een categorie
           send: Verzenden
           title: Bewerk voorstel
@@ -698,23 +667,16 @@ nl:
           state: Status
           type: Type
           voted: Gestemd
-        filters_small_view:
-          close_modal: Dialoogvenster sluiten
-          filter: Filter
-          filter_by: Filteren op
-          unfold: Uitvouwen
         index:
           click_here: Bekijk alle voorstellen
           collaborative_drafts_list: Toegang tot samenwerkende concepten
+          count:
+            one: "%{count} voorstel"
+            other: "%{count} voorstellen"
           new_proposal: Nieuw voorstel
           see_all: Bekijk alle voorstellen
           see_all_withdrawn: Bekijk alle ingetrokken voorstellen
           text_banner: Je bekijkt de lijst van voorstellen die zijn ingetrokken door hun maker. %{go_back_link}.
-          view_proposal: Bekijk voorstel
-        linked_proposals:
-          proposal_votes:
-            one: stem
-            other: stemmen
         new:
           send: Doorgaan
         orders:
@@ -726,11 +688,6 @@ nl:
           random: Willekeurig
           recent: Meest recent
           with_more_authors: Met meer auteurs
-        participatory_texts:
-          index:
-            document_index: Documentindex
-          view_index:
-            see_index: Zie index
         preview:
           announcement_body: Jouw voorstel is opgeslagen als concept. Het moet gepubliceerd worden om het op de site te laten verschijnen.
           announcement_title: Je voorstel is nog niet gepubliceerd
@@ -740,15 +697,9 @@ nl:
             other: Je kan dit voorstel bewerken in de eerste %{count} minuten nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
           publish: Publiceer
           title: Publiceer je voorstel
-        proposal:
-          creation_date: 'Aangemaakt op: %{date}'
-          view_proposal: Bekijk voorstel
         show:
           answer: Antwoord
-          back_to: Terug naar
-          back_to_list: Terug naar het overzicht
           changes_at_title: Amendement op "%{title}"
-          comments: Reacties
           edit_proposal: Bewerk voorstel
           estimated_cost: Geschatte kosten
           hidden_endorsers_count:
@@ -763,14 +714,9 @@ nl:
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'
-          read_less: Minder lezen
-          read_more: Lees meer
-          report: Rapporteren
           withdraw_btn_hint: Je kan je voorstel intrekken als je van gedacht verandert, zolang je geen hulp hebt ontvangen. Het voorstel wordt niet verwijderd; het wordt weergegeven in de lijst met ingetrokken voorstellen.
           withdraw_confirmation_html: Weet u zeker dat u dit voorstel wilt intrekken?<br><br><strong>Deze actie kan niet worden geannuleerd!</strong>
           withdraw_proposal: Voorstel intrekken
-        tags:
-          changed_from: "(gewijzigd van <u>%{previous_name}</u> door een beheerder)"
         update:
           title: Update voorstel
         vote_button:
@@ -784,8 +730,6 @@ nl:
           count:
             one: STEM
             other: STEMMEN
-          most_popular_proposal: Populairste voorstel
-          need_more_votes: Meer stemmen nodig
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Elk voorstel kan meer dan %{limit} stemmen verzamelen
@@ -797,7 +741,6 @@ nl:
           title: 'Stemmen zijn onderworpen aan de volgende regels:'
           vote_limit:
             description: U kunt tot %{limit} voorstellen stemmen.
-            left: Resterend
             votes: Stemmen
         wizard_aside:
           back: Terug
@@ -805,20 +748,15 @@ nl:
           back_from_step_2: Terug naar voorstellen
           back_from_step_3: Terug naar de vergelijking
           back_from_step_4: Terug naar het ontwerp bewerken
-          info: Je maakt een <strong>voorstel</strong>.
         wizard_steps:
           current_step: Huidige stap
-          see_steps: Bekijk stappen
           step_1: Maak je voorstel
           step_2: Vergelijk
           step_3: Compleet
           step_4: Publiceer uw voorstel
-          step_of: Stap %{current_step_num} van %{total_steps}
           title: Voorstel creatie stappen
       proposals_picker:
         choose_proposals: Kies voorstellen
-        close: Afsluiten
-        more_proposals: Er zijn nog %{number} voorstellen. Verfijn je zoekopdracht om ze te vinden.
       publish:
         error: Er is een fout opgetreden bij het publiceren van het voorstel.
         success: Voorstel succesvol gepubliceerd.
@@ -831,12 +769,8 @@ nl:
         error: Er is een fout opgetreden bij het opslaan van het gezamenlijk concept.
         success: Concept succesvol bijgewerkt.
       versions:
-        collaborative_drafts:
-          back_to_resource: Ga terug naar het gezamenlijke concept
         index:
           title: versies
-        proposals:
-          back_to_resource: Ga terug naar het voorstel
     resource_links:
       copied_from_component:
         proposal_proposal: Verwante voorstellen

@@ -35,6 +35,8 @@ describe "Initiative signing", type: :system do
     allow(Decidim::Verifications::Sms::MobilePhoneForm).to receive(:new).and_return(verification_form)
     allow(verification_form).to receive(:verification_metadata).and_return(verification_code: sms_code)
 
+    expect(page).to have_css(".initiative__aside", text: signature_text(0))
+
     within ".initiative__aside" do
       expect(page).to have_content(signature_text(0))
       click_on "Sign"
@@ -43,9 +45,8 @@ describe "Initiative signing", type: :system do
     if has_content?("Complete your data")
       fill_in :initiatives_vote_name_and_surname, with: confirmed_user.name
       fill_in :initiatives_vote_document_number, with: document_number
-      select 30.years.ago.year.to_s, from: :initiatives_vote_date_of_birth_1i
-      select "January", from: :initiatives_vote_date_of_birth_2i
-      select "1", from: :initiatives_vote_date_of_birth_3i
+      fill_in :initiatives_vote_date_of_birth, with: 30.years.ago.strftime("01/01/%Y")
+
       fill_in :initiatives_vote_postal_code, with: "01234"
 
       click_button "Continue"
@@ -58,7 +59,7 @@ describe "Initiative signing", type: :system do
     let(:initiatives_type) { create(:initiatives_type, :with_sms_code_validation, organization:) }
 
     it "The sms step appears" do
-      expect(page).to have_content("MOBILE PHONE NUMBER")
+      expect(page).to have_content("Mobile phone number")
     end
   end
 

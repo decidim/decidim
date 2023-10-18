@@ -29,8 +29,6 @@ eo:
         subject: Temo
   decidim:
     admin:
-      actions:
-        new: Nova %{name}
       managed_users:
         promotions:
           new:

@@ -2,5 +2,5 @@
   <%= cell "decidim/activities", activities %>
   <%= decidim_paginate activities, resource_type: params[:with_resource_type] %>
 <% else %>
-  <%= cell "decidim/announcement", t("decidim.user_activity.index.no_activities_warning") %>
+  <%= cell "decidim/announcement", t("decidim.last_activities.no_activities_warning") %>
 <% end %>

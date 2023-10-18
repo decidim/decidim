@@ -1,5 +1,5 @@
-<div class="card__calendar">
+<time class="card__calendar" datetime="<%= meeting.start_time.iso8601 %>">
   <div class="card__calendar-month"><%= l(meeting.start_time, format: "%b") %></div>
   <div class="card__calendar-day"><%= l(meeting.start_time, format: "%d") %></div>
   <div class="card__calendar-time"><%= l(meeting.start_time, format: "%H:%M") %></div>
-</div>
+</time>

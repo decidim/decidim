@@ -1,9 +1,0 @@
-<%= append_javascript_pack_tag "decidim_initiatives" %>
-<%= append_stylesheet_pack_tag "decidim_initiatives", media: "all" %>
-
-<%= render "layouts/decidim/redesigned_application" do %>
-  <%= render layout: "layouts/decidim/shared/layout_center" do %>
-    <%= render partial: "layouts/decidim/initiative_creation_header" %>
-    <%= yield %>
-  <% end %>
-<% end %>

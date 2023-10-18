@@ -6,8 +6,9 @@
     <%= render partial: "layouts/decidim/head" %>
   </head>
 
-  <body>
+  <body class="text-black text-md form-defaults">
     <!--noindex--><!--googleoff: all-->
+    <%= link_to t("skip_button", scope: "decidim.accessibility"), "#content", class: "layout-container__skip" %>
     <%= cell("decidim/data_consent", current_organization) %>
     <%= render partial: "layouts/decidim/impersonation_warning" %>
     <%= render partial: "layouts/decidim/omnipresent_banner" %>
@@ -16,13 +17,17 @@
     <!--googleon: all--><!--/noindex-->
 
     <%= render "layouts/decidim/wrapper" do %>
+      <%= cell "decidim/translation_bar", current_organization %>
+
       <%= yield %>
     <% end %>
 
     <%= render partial: "decidim/shared/confirm_modal" %>
     <%= render partial: "decidim/shared/login_modal" unless current_user %>
     <%= render partial: "decidim/shared/authorization_modal" %>
+    <%= render partial: "decidim/shared/share_modal" %>
     <%= render partial: "layouts/decidim/decidim_javascript" %>
     <%= render partial: "layouts/decidim/data_consent_warning" %>
+
   </body>
 </html>

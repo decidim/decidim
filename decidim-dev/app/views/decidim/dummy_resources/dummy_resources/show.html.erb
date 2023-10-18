@@ -4,18 +4,22 @@
                            url: dummy_resource_url(@commentable)
                          }) %>
 
-<div id="resource" class="row">
-  <h2><%= translated_attribute(@commentable.title) %></h2>
-</div>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { commentable: @commentable } do %>
+  <h2 class="h2 decorator mb-8">
+    <%= translated_attribute(@commentable.title) %>
+  </h2>
 
-<div class="row">
-  <%= action_authorized_link_to :foo, foo_dummy_resource_path(@commentable) do %>
-    Foo
+  <% content_for :aside do %>
+    <%= action_authorized_link_to :foo, foo_dummy_resource_path(@commentable) do %>
+      Foo
+    <% end %>
+
+    <section class="layout-main__section layout-main__buttons" data-buttons>
+      <%= cell "decidim/comments_button", nil %>
+      <div class="ml-auto">
+        <%= cell "decidim/share_button", nil %>
+      </div>
+    </section>
   <% end %>
-</div>
-
-<div class="row">
-  <%= render partial: "decidim/shared/share_modal" %>
-</div>
-
-<%= comments_for(@commentable) %>
+  <%= comments_for(@commentable) %>
+<% end %>

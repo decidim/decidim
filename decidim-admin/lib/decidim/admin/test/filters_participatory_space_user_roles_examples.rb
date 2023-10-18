@@ -95,48 +95,28 @@ end
 shared_examples "filterable participatory space user roles" do
   context "when filtering by invite Accepted" do
     context "when filtering by null" do
-      it "returns participatory space users" do
-        apply_filter("Invite accepted", "Yes")
-
-        within ".stack tbody" do
-          expect(page).to have_content(invited_user2.name)
-          expect(page).to have_css("tr", count: 1)
-        end
+      include_examples "admin is filtering participatory space users", label: "Invite accepted", value: "Yes" do
+        let(:compare_with) { invited_user2.name }
       end
     end
 
     context "when filtering by not null" do
-      it "returns participatory space users" do
-        apply_filter("Invite accepted", "No")
-
-        within ".stack tbody" do
-          expect(page).to have_content(invited_user1.name)
-          expect(page).to have_css("tr", count: 1)
-        end
+      include_examples "admin is filtering participatory space users", label: "Invite accepted", value: "No" do
+        let(:compare_with) { invited_user1.name }
       end
     end
   end
 
   context "when filtering by logged in" do
     context "when filtering by null" do
-      it "returns participatory space users" do
-        apply_filter("Ever logged in", "Yes")
-
-        within ".stack tbody" do
-          expect(page).to have_content(invited_user2.name)
-          expect(page).to have_css("tr", count: 1)
-        end
+      include_examples "admin is filtering participatory space users", label: "Ever logged in", value: "Yes" do
+        let(:compare_with) { invited_user2.name }
       end
     end
 
     context "when filtering by not null" do
-      it "returns participatory space users" do
-        apply_filter("Ever logged in", "No")
-
-        within ".stack tbody" do
-          expect(page).to have_content(invited_user1.name)
-          expect(page).to have_css("tr", count: 1)
-        end
+      include_examples "admin is filtering participatory space users", label: "Ever logged in", value: "No" do
+        let(:compare_with) { invited_user1.name }
       end
     end
   end
@@ -144,22 +124,11 @@ end
 
 shared_examples "searchable participatory space user roles" do
   context "when searching by name or nickname or email" do
-    it "can be searched by name" do
-      search_by_text(name)
-
-      within ".stack tbody" do
-        expect(page).to have_content(name)
-        expect(page).to have_css("tr", count: 1)
-      end
+    include_examples "admin is searching participatory space users" do
+      let(:value) { name }
     end
-
-    it "can be searched by email" do
-      search_by_text(email)
-
-      within ".stack tbody" do
-        expect(page).to have_content(email)
-        expect(page).to have_css("tr", count: 1)
-      end
+    include_examples "admin is searching participatory space users" do
+      let(:value) { email }
     end
   end
 end

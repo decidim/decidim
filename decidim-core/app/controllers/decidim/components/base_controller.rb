@@ -10,7 +10,7 @@ module Decidim
       include Decidim::NeedsPermission
 
       include ParticipatorySpaceContext
-      participatory_space_layout
+      before_action :authorize_participatory_space
 
       helper Decidim::FiltersHelper
       helper Decidim::OrdersHelper

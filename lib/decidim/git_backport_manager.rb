@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "shellwords"
 require "English"
 
 module Decidim
@@ -14,7 +15,7 @@ module Decidim
     def initialize(pull_request_id:, release_branch:, backport_branch:, working_dir: Dir.pwd, exit_with_unstaged_changes: false)
       @pull_request_id = pull_request_id
       @release_branch = release_branch
-      @backport_branch = backport_branch
+      @backport_branch = sanitize_branch(backport_branch)
       @working_dir = working_dir
       @exit_with_unstaged_changes = exit_with_unstaged_changes
     end
@@ -144,6 +145,14 @@ module Decidim
     # @return [String] the SHA1 commit
     def sha_commit_to_backport
       `git log --format=oneline | grep "(##{pull_request_id})"`.split.first
+    end
+
+    # Replace all the characters from the user supplied input that are uncontrolled
+    # and could generate a command line injection
+    #
+    # @return [String] the sanitized branch name
+    def sanitize_branch(branch_name)
+      Shellwords.escape(branch_name.gsub("`", ""))
     end
 
     # Exit the script execution if there are any unstaged changes

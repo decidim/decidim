@@ -111,6 +111,13 @@ FactoryBot.define do
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
     enable_participatory_space_filters { true }
     content_security_policy { {} }
+    colors do
+      {
+        primary: "#e02d2d",
+        secondary: "#155abf",
+        tertiary: "#ebc34b"
+      }
+    end
 
     trait :secure_context do
       host { "localhost" }
@@ -175,7 +182,6 @@ FactoryBot.define do
     trait :managed do
       email { "" }
       password { "" }
-      password_confirmation { "" }
       encrypted_password { "" }
       managed { true }
     end
@@ -190,18 +196,17 @@ FactoryBot.define do
       # to do this to ensure the user creation does not fail due to the short
       # password.
       user.password ||= evaluator.password || "decidim123456789"
-      user.password_confirmation ||= evaluator.password_confirmation || user.password
     end
   end
 
   factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
     user
-    privatable_to { create :participatory_process, organization: user.organization }
+    privatable_to { create(:participatory_process, organization: user.organization) }
   end
 
   factory :assembly_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
     user
-    privatable_to { create :assembly, organization: user.organization }
+    privatable_to { create(:assembly, organization: user.organization) }
   end
 
   factory :user_group, class: "Decidim::UserGroup" do
@@ -655,7 +660,7 @@ FactoryBot.define do
 
     organization { user.organization }
     user
-    participatory_space { build :participatory_process, organization: }
+    participatory_space { build(:participatory_process, organization:) }
     component { build(:component, participatory_space:) }
     resource { build(:dummy_resource, component:) }
     action { "create" }
@@ -737,9 +742,9 @@ FactoryBot.define do
     metric_type { "random_metric" }
     cumulative { 2 }
     quantity { 1 }
-    category { create :category }
-    participatory_space { create :participatory_process, organization: }
-    related_object { create :component, participatory_space: }
+    category { create(:category) }
+    participatory_space { create(:participatory_process, organization:) }
+    related_object { create(:component, participatory_space:) }
   end
 
   factory :amendment, class: "Decidim::Amendment" do

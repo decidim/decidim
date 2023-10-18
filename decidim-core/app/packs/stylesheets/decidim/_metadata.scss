@@ -1,0 +1,18 @@
+.metadata {
+  &__container {
+    @apply mx-auto flex flex-col md:flex-row gap-2 md:gap-0 items-center justify-center;
+  }
+
+  &__item {
+    @apply md:px-6 border-background md:border-x first:pl-0 last:pr-0 first:border-l-0 last:border-r-0 text-sm text-gray-2;
+
+    strong {
+      @apply font-bold text-black;
+    }
+
+    button,
+    a {
+      @apply underline text-sm text-secondary inline-block first-letter:uppercase;
+    }
+  }
+}

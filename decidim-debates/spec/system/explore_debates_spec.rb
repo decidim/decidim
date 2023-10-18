@@ -116,8 +116,6 @@ describe "Explore debates", type: :system do
     context "when filtering" do
       context "when filtering by text" do
         it "updates the current URL" do
-          skip_unless_redesign_enabled "Only redesigned filters work"
-
           create(:debate, component:, title: { en: "Foobar debate" })
           create(:debate, component:, title: { en: "Another debate" })
           visit_component
@@ -142,8 +140,6 @@ describe "Explore debates", type: :system do
           let!(:debates) { create_list(:debate, 2, component:) }
 
           it "lists the filtered debates" do
-            skip_unless_redesign_enabled "Only redesigned filters work"
-
             create(:debate, :participant_author, component:)
             visit_component
 
@@ -160,8 +156,6 @@ describe "Explore debates", type: :system do
           let!(:debates) { create_list(:debate, 2, :participant_author, component:) }
 
           it "lists the filtered debates" do
-            skip_unless_redesign_enabled "Only redesigned filters work"
-
             create(:debate, component:)
             visit_component
 
@@ -176,8 +170,6 @@ describe "Explore debates", type: :system do
       end
 
       it "allows filtering by scope" do
-        skip_unless_redesign_enabled "Only redesigned filters work"
-
         scope = create(:scope, organization:)
         debate = debates.first
         debate.scope = scope
@@ -205,8 +197,6 @@ describe "Explore debates", type: :system do
         end
 
         it "can be filtered by category" do
-          skip_unless_redesign_enabled "Only redesigned filters work"
-
           within "#panel-dropdown-menu-category" do
             uncheck "All"
             check category.name[I18n.locale.to_s]
@@ -289,7 +279,7 @@ describe "Explore debates", type: :system do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).not_to have_selector("ul.tags.tag-container")
+        expect(page).not_to have_selector("[data-tags]")
       end
     end
 
@@ -302,9 +292,9 @@ describe "Explore debates", type: :system do
       end
 
       it "shows tags for category" do
-        expect(page).to have_selector("ul.tags.tag-container")
+        expect(page).to have_selector("[data-tags]")
 
-        within "ul.tags.tag-container" do
+        within "[data-tags]" do
           expect(page).to have_content(translated(debate.category.name))
         end
       end
@@ -319,14 +309,14 @@ describe "Explore debates", type: :system do
       end
 
       it "shows tags for scope" do
-        expect(page).to have_selector("ul.tags.tag-container")
-        within "ul.tags.tag-container" do
+        expect(page).to have_selector("[data-tags]")
+        within "[data-tags]" do
           expect(page).to have_content(translated(debate.scope.name))
         end
       end
 
       it "links to the filter for this scope" do
-        within "ul.tags.tag-container" do
+        within "[data-tags]" do
           click_link translated(debate.scope.name)
         end
 

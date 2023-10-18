@@ -6,7 +6,9 @@ $(() => {
   const $addressInputField = $("[data-decidim-geocoding]");
 
   if ($map.length) {
-    $map.hide();
+    if (!$addressInputField.data("coordinates")) {
+      $map.hide();
+    }
     $addressInputField.on("geocoder-suggest-coordinates.decidim", () => $map.show());
 
     let latFieldName = "latitude";
@@ -17,19 +19,22 @@ $(() => {
       longFieldName = getCoordinateInputName("longitude", $addressInputField, {})
     }
 
-    const ctrl = $("[data-decidim-map]").data("map-controller");
-    ctrl.setEventHandler("coordinates", (ev) => {
-      $(`input[name='${latFieldName}']`).val(ev.lat);
-      $(`input[name='${longFieldName}']`).val(ev.lng);
-    });
+    $("[data-decidim-map]").on("ready.decidim", (event) => {
+      const ctrl = $(event.target).data("map-controller");
 
-    attachGeocoding($addressInputField, null, (coordinates) => {
-      // Remove previous marker when user updates address in address field
-      ctrl.removeMarker();
-      ctrl.addMarker({
-        latitude: coordinates[0],
-        longitude: coordinates[1],
-        address: $addressInputField.val()
+      ctrl.setEventHandler("coordinates", (ev) => {
+        $(`input[name='${latFieldName}']`).val(ev.lat);
+        $(`input[name='${longFieldName}']`).val(ev.lng);
+      });
+
+      attachGeocoding($addressInputField, null, (coordinates) => {
+        // Remove previous marker when user updates address in address field
+        ctrl.removeMarker();
+        ctrl.addMarker({
+          latitude: coordinates[1],
+          longitude: coordinates[0],
+          address: $addressInputField.val()
+        });
       });
     });
   }

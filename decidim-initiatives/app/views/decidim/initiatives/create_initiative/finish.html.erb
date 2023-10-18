@@ -12,19 +12,21 @@
 
 <%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
 
-<%= render partial: "finish_help" %>
-<div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-  <%= link_to t(".edit_my_initiative"), edit_initiative_path(current_initiative), class: "button button__sm button__transparent-secondary md:button__lg" %>
-  <%= link_to t(".go_to_my_initiatives"), decidim_initiatives.initiatives_path(filter: { author: "myself", with_any_state: "" }), class: "button button__sm md:button__lg button__secondary" %>
+<div class="form__wrapper">
+  <p><%== t "publish_helper_text", scope: "decidim.initiatives.create_initiative.finish_help" %></p>
 </div>
 
 <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-  <%= link_to initiatives_path, class: "button button__xs button__text-secondary" do %>
-    <%= t(".back_to_initiatives") %>
-    <%= icon "arrow-right-line", class: "fill-current" %>
+  <%= link_to initiatives_path, class: "button button__sm md:button__lg button__text-secondary" do %>
+    <%= icon "arrow-left-line" %>
+    <span><%= t(".back_to_initiatives") %></span>
   <% end %>
+
+  <%= link_to t(".edit_my_initiative"), edit_initiative_path(current_initiative), class: "button button__sm md:button__lg button__transparent-secondary md:ml-auto" %>
+
+  <%= link_to t(".go_to_my_initiatives"), decidim_initiatives.initiatives_path(filter: { author: "myself", with_any_state: "" }), class: "button button__sm md:button__lg button__secondary" %>
+
   <% unless promotal_committee_required? %>
     <%= link_to t(".send_my_initiative"), decidim_initiatives.send_to_technical_validation_initiative_path(current_initiative), class: "button button__sm md:button__lg button__secondary", data: { confirm: t(".confirm") } %>
   <% end %>
-
 </div>

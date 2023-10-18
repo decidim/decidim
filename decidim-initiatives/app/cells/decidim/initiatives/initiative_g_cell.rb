@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # This cell renders the Grid (:g) initiative card
-    # for an given instance of an Initiative
+    # for a given instance of an Initiative
     class InitiativeGCell < Decidim::CardGCell
       private
 

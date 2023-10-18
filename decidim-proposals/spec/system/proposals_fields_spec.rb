@@ -28,8 +28,6 @@ describe "Proposals", type: :system do
   end
 
   context "when creating a new proposal" do
-    let(:scope_picker) { select_data_picker(:proposal_scope_id) }
-
     context "when the user is logged in" do
       before do
         login_as user, scope: :user
@@ -116,8 +114,7 @@ describe "Proposals", type: :system do
               fill_in :proposal_body, with: "Cities need more people, not more cars"
               fill_in_geocoding :proposal_address, with: address
 
-              # REDESIGN_PENDING - The map should work in redesign
-              # expect(page).to have_css("[data-decidim-map]")
+              expect(page).to have_css("[data-decidim-map]")
               expect(page).to have_content("You can move the point on the map.")
 
               select translated(category.name), from: :proposal_category_id
@@ -281,8 +278,6 @@ describe "Proposals", type: :system do
           end
 
           it "shows a modal dialog" do
-            # skip "REDESIGN_PENDING - The upload feature has to be simplified in redesign and multiple files upload fails"
-
             visit_component
             click_link "New proposal"
             expect(page).to have_content("Authorization required")
@@ -301,8 +296,6 @@ describe "Proposals", type: :system do
           let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.") }
 
           it "creates a new proposal with attachments" do
-            # skip "REDESIGN_PENDING - The upload feature has to be simplified in redesign and multiple files upload fails"
-
             visit complete_proposal_path(component, proposal_draft)
 
             within ".edit_proposal" do
@@ -310,7 +303,7 @@ describe "Proposals", type: :system do
               fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
             end
 
-            dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+            dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))
 
             within ".edit_proposal" do
               find("*[type=submit]").click
@@ -339,12 +332,12 @@ describe "Proposals", type: :system do
               skip "REDESIGN_PENDING - Flaky test: upload modal fails on GitHub with multiple fileshttps://github.com/decidim/decidim/issues/10961"
 
               # Attach one card image and two document images and go to preview
-              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))
               expect(page).to have_content("city.jpeg")
-              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"), front_interface: true)
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
               expect(page).to have_content("city.jpeg")
               expect(page).to have_content("city2.jpeg")
-              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"), front_interface: true)
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
               expect(page).to have_content("city.jpeg")
               expect(page).to have_content("city2.jpeg")
               expect(page).to have_content("city3.jpeg")

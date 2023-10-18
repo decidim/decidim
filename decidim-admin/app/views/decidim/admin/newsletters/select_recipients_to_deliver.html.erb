@@ -1,76 +1,73 @@
-<%= decidim_form_for(@form, url: deliver_newsletter_path(@newsletter), method: :post, html: { class: "form newsletter_deliver" }, data: { "recipients-count-newsletter-path": recipients_count_newsletter_path(@newsletter) }) do |f| %>
-  <div class="card">
-
-    <div class="card-divider">
-      <h2 class="card-title"><%= t ".title" %></h2>
-    </div>
-    <div class="card-section">
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t ".title" %>
+  </h2>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: deliver_newsletter_path(@newsletter), method: :post, html: { class: "form form-defaults newsletter_deliver" }, data: { "recipients-count-newsletter-path": recipients_count_newsletter_path(@newsletter) }) do |f| %>
       <%= cell("decidim/announcement", newsletter_attention_callout_announcement, callout_class: "warning") %>
-
-      <div class="card">
-        <div class="card-divider">
-          <h2 class="card-title"><%= t ".select_users" %></h2>
-        </div>
-        <div class="card-section">
-          <div class="row">
-            <% if current_user.admin? %>
-              <div class="grid-x grid-padding-x">
-                <div class="cell small-12" id="send_newsletter_to_all_users">
-                  <%= f.check_box :send_to_all_users, label: t(".send_to_all_users") %>
-                  <p class="help-text"><%= t ".all_users_help" %></p>
-                </div>
-              </div>
-              <hr class="reset mt-s mb-s">
-            <% end %>
-            <div class="grid-x grid-padding-x">
-              <div class="cell small-12 medium-6" id="send_newsletter_to_followers">
-                <%= f.check_box :send_to_participants, label: t(".send_to_participants") %>
-                <p class="help-text"><%= t ".participants_help" %></p>
-              </div>
-              <div class="cell small-12 medium-6" id="send_newsletter_to_participants">
-                <%= f.check_box :send_to_followers, label: t(".send_to_followers") %>
-                <p class="help-text"><%= t ".followers_help" %></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" id="participatory_spaces_for_select">
-        <div class="card-divider">
-          <h2 class="card-title"><%= t ".select_spaces" %></h2>
-        </div>
-        <div class="card-section">
-          <div class="row">
-            <%= participatory_spaces_for_select f %>
-          </div>
-        </div>
-      </div>
-
-      <% if current_user.admin? %>
-        <div class="card">
+      <%= cell("decidim/announcement", newsletter_recipients_count_callout_announcement, callout_class: "warning") %>
+      <div class="form__wrapper">
+        <div class="card mb-2">
           <div class="card-divider">
-            <h2 class="card-title"><%= t ".select_scopes" %></h2>
+            <h2 class="card-title"><%= t ".select_users" %></h2>
           </div>
           <div class="card-section">
-            <div class="row">
-              <%= scopes_picker_filter f, :scope_ids %>
-              <p class="help-text"><%= t ".scopes_help" %></p>
+            <div class="row column">
+              <% if current_user.admin? %>
+                <div class="grid-x grid-padding-x">
+                  <div class="cell small-12" id="send_newsletter_to_all_users">
+                    <%= f.check_box :send_to_all_users, help_text: t(".all_users_help") %>
+                  </div>
+                </div>
+                <hr class="mt-s mb-s">
+              <% end %>
+              <div class="grid-x grid-padding-x">
+                <div class="cell small-12 medium-6" id="send_newsletter_to_followers">
+                  <%= f.check_box :send_to_participants, help_text: t(".participants_help") %>
+                </div>
+
+                <div class="cell small-12 medium-6" id="send_newsletter_to_participants">
+                  <%= f.check_box :send_to_followers, help_text: t(".followers_help") %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      <% end %>
 
-      <%= cell("decidim/announcement", newsletter_recipients_count_callout_announcement, callout_class: "warning") %>
+        <div class="card mb-2" id="participatory_spaces_for_select">
+          <div class="card-divider">
+            <h2 class="card-title"><%= t ".select_spaces" %></h2>
+          </div>
+          <div class="card-section">
+            <div class="row column">
+              <%= participatory_spaces_for_select f %>
+            </div>
+          </div>
+        </div>
 
-      <div class="button--double form-general-submit">
-        <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) && !@newsletter.sent? %>
-          <%= link_to t("actions.edit", scope: "decidim.admin"), [:edit, @newsletter], class: "button" %>
-        <% end %>
-        <% unless @newsletter.sent? %>
-        <%= f.submit t(".deliver"), class: "button alert", data: { confirm: t(".confirm_deliver") } %>
+        <% if current_user.admin? %>
+          <div class="card">
+            <div class="card-divider">
+              <h2 class="card-title"><%= t ".select_scopes" %></h2>
+            </div>
+            <div class="card-section">
+              <div class="row column">
+                <%= scopes_picker_filter f, :scope_ids, help_text: t(".scopes_help") %>
+              </div>
+            </div>
+          </div>
         <% end %>
       </div>
-    </div>
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+        <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) && !@newsletter.sent? %>
+          <%= link_to t("actions.edit", scope: "decidim.admin"), [:edit, @newsletter], class: "button button__sm button__secondary" %>
+        <% end %>
+        <% unless @newsletter.sent? %>
+        <%= f.submit t(".deliver"), class: "button button__sm button__secondary", data: { confirm: t(".confirm_deliver") } %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

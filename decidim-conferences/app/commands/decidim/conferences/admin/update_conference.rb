@@ -29,7 +29,6 @@ module Decidim
           update_conference
           link_participatory_processes
           link_assemblies
-          link_consultations
 
           if @conference.valid?
             broadcast(:ok, @conference)
@@ -152,15 +151,6 @@ module Decidim
 
         def link_assemblies
           @conference.link_participatory_space_resources(assemblies, "included_assemblies")
-        end
-
-        def consultations
-          @consultations ||= @conference.participatory_space_sibling_scope(:consultations)
-                                        .where(id: @form.consultations_ids)
-        end
-
-        def link_consultations
-          @conference.link_participatory_space_resources(consultations, "included_consultations")
         end
       end
     end

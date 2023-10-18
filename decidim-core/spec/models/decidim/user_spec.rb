@@ -386,6 +386,29 @@ module Decidim
       end
     end
 
+    describe "#moderator?" do
+      context "when an organization has a moderator and a regular user" do
+        let(:organization) { create(:organization, available_locales: [:en]) }
+        let(:participatory_space) { create(:participatory_process, organization:) }
+        let(:moderator) do
+          create(
+            :process_moderator,
+            :confirmed,
+            organization:,
+            participatory_process: participatory_space
+          )
+        end
+
+        it "returns false when user is not a moderator" do
+          expect(subject.moderator?).to be false
+        end
+
+        it "returns true when user is a moderator" do
+          expect(moderator.moderator?).to be true
+        end
+      end
+    end
+
     describe ".interested_in_scopes" do
       let(:scopes) { [] }
 

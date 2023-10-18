@@ -1,4 +1,4 @@
-name: "[CI] Brakeman analysis"
+name: "[CI] Brakeman"
 
 on:
   push:
@@ -13,7 +13,7 @@ on:
 env:
   CI: "true"
   RUBY_VERSION: 3.1.1
-  NODE_VERSION: 16.13.0
+  NODE_VERSION: 18.17.1
   PARALLEL_TEST_PROCESSORS: 2
   CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
   WEBPACKER_RUNTIME_COMPILE: "false"
@@ -25,6 +25,7 @@ concurrency:
 jobs:
   brakeman:
     strategy:
+      fail-fast: false
       matrix:
         working-directory:
           - decidim-accountability
@@ -35,7 +36,6 @@ jobs:
           - decidim-budgets
           - decidim-comments
           - decidim-conferences
-          - decidim-consultations
           - decidim-core
           - decidim-debates
           - decidim-dev
@@ -52,7 +52,7 @@ jobs:
           - decidim-templates
           - decidim-verifications
     runs-on: ubuntu-latest
-    name: Brakeman
+    name: ${{ matrix.working-directory }}
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     steps:

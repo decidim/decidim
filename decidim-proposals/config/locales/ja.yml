@@ -106,12 +106,18 @@ ja:
             values:
               accepted: 受理
               evaluating: 評価
+              not_answered: 未回答
               published: 公開済
               rejected: 却下済み
               validating: 技術的検証
               withdrawn: 撤回
           valuator_role_ids_has:
             label: 評価者にアサインされました
+          with_any_state:
+            label: 回答済み
+            values:
+              state_not_published: 未回答
+              state_published: 回答済み
         search_placeholder:
           id_string_or_title_cont: '%{collection} をIDまたはタイトルで検索します。'
     components:
@@ -376,6 +382,7 @@ ja:
         title: サポート
     participatory_spaces:
       highlighted_proposals:
+        last: 最近の提案
         see_all: すべての提案を見る (%{count})
     proposals:
       actions:
@@ -444,7 +451,7 @@ ja:
               md: Markdown
               odt: ODT
             bottom_hint: "(ドキュメントセクションのプレビューとソートが可能になります)"
-            document_legend: '2MB未満のドキュメントを追加してください。セクションの深さが3レベルになるまで、各セクションは提案にパースされます。提案書式は次のとおりです: %{valid_mime_types}'
+            document_legend: '2MB未満のドキュメントを追加します。セクションの深さが3レベルになるまで、各セクションは提案にパースされます。サポートされているフォーマットは次のとおりです。 %{valid_mime_types}'
             title: ドキュメントを追加
             upload_document: ドキュメントをアップロード
           publish:
@@ -518,29 +525,21 @@ ja:
           show:
             amendments_count: 修正数
             assigned_valuators: 割り当てられた評価者
-            authors: 著者
             body: 本文
             comments_count: コメント数
-            comments_negative_count: 反対
-            comments_neutral_count: 中立
-            comments_positive_count: お気に入り
-            created_at: 作成日
             documents: ドキュメント
             endorsements_count: オススメ数
-            endorsements_ranking: オススメランキング
             endorsers: オススメしている人
             link: リンク
             n_more_endorsers:
               other: 他 %{count} 名
             photos: 写真
-            proposals: 提案
             ranking: "%{ranking} / %{total}"
             related_meetings: 関連するミーティング
             remove_assignment: 課題を削除
             remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
             valuators: 評価者
             votes_count: サポート数
-            votes_ranking: サポートによるランキング
           update_category:
             invalid: 'これらの提案は既に %{subject_name} カテゴリ: %{proposals} を持っています。'
             select_a_category: カテゴリを選択してください。
@@ -594,16 +593,12 @@ ja:
         rejected: 拒否
         withdrawn: 撤回
       application_helper:
-        filter_category_values:
-          all: すべて
         filter_origin_values:
           all: すべて
           meetings: ミーティング
           official: 事務局
           participants: 参加者
           user_groups: グループ
-        filter_scope_values:
-          all: すべて
         filter_state_values:
           accepted: 承認済み
           all: すべて
@@ -624,7 +619,6 @@ ja:
               ok: 提案として公開
               title: 次のアクションは取り消せません
             success: 共同草案は提案として正常に公開されました。
-          view_collaborative_draft: 共同草案を表示
           withdraw:
             error: 共同草案を閉じる際に問題が発生しました。
             irreversible_action_modal:
@@ -633,9 +627,6 @@ ja:
               ok: 共同草案を撤回する
               title: 次のアクションは取り消せません
             success: 共同草案は正常に撤回されました。
-        count:
-          drafts_count:
-            other: "%{count} 件の共同草案"
         create:
           error: 共同草案の作成中に問題が発生しました.
           success: 共同草案を作成しました。
@@ -645,6 +636,8 @@ ja:
           select_a_category: カテゴリを選択してください
           send: 送信
           title: 共同草案を編集
+        empty: 共同草案はまだありません
+        empty_filters: この基準との共同草案はありません
         filters:
           all: すべて
           amendment: 修正
@@ -661,6 +654,10 @@ ja:
           filter: フィルター
           filter_by: フィルター
           unfold: 展開する
+        index:
+          count:
+            other: "%{count} 件の共同草案"
+        name: 共同草案
         new:
           add_file: ファイルを追加
           edit_file: ファイルを編集
@@ -687,7 +684,6 @@ ja:
             error: コラボレーターとして拒否できませんでした。後でもう一度やり直してください。
             success: "@%{user} さんはコラボレーターとして正常に拒否されました。"
         show:
-          back: 戻る
           edit: 共同草案を編集
           final_proposal: 最終的な提案
           final_proposal_help_text: この草案は終了しました。最終提案を確認してください。
@@ -699,7 +695,6 @@ ja:
           published_proposal: 公開された提案
           request_access: アクセスを要求する
           requested_access: アクセスがリクエストされました
-          version_history: この提案のバージョン履歴を見る
           withdraw: 草案を撤回する
         states:
           open: 開く
@@ -710,12 +705,11 @@ ja:
           success: 共同草案が正常に更新されました。
         wizard_aside:
           back_from_collaborative_draft: 共同草案に戻る
-          info: <strong>共同草案</strong>を作成しています。
         wizard_header:
           title: 共同草案を作成する
       content_blocks:
         highlighted_proposals:
-          proposals: 提案
+          name: 提案
       create:
         error: 提案を保存する際に問題がありました。
         success: 提案は正常に作成されました。草案として保存されました。
@@ -726,11 +720,6 @@ ja:
         new_proposal: '新しい提案:'
         proposal_updated: '更新された提案:'
       models:
-        collaborative_draft:
-          fields:
-            authors: 著者
-            comments: コメント
-            contributions: 貢献
         proposal:
           fields:
             category: カテゴリ
@@ -753,7 +742,6 @@ ja:
         buttons:
           amend: 修正
           comment: コメント
-          comments: コメント
       proposal_votes:
         create:
           error: その提案を支持するのに問題があった。
@@ -765,20 +753,14 @@ ja:
         complete:
           send: 送信
           title: 提案を完了する
-        count:
-          proposals_count:
-            other: "%{count} の提案"
         dynamic_map_instructions:
           description: '「プレビュー」ボタンをクリックすると座標が更新されますが、アドレスは変更されません。'
           instructions: 地図上のポイントを移動できます。
         edit:
           add_documents: ドキュメントを追加
-          add_image: 画像を追加
           attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
           edit_documents: ドキュメントを編集
-          edit_image: 画像を編集
-          gallery_legend: "(オプション) 提案カードに画像を追加する"
           select_a_category: カテゴリを選択してください
           send: 送信
           title: 提案を編集
@@ -800,22 +782,15 @@ ja:
           state: ステータス
           type: タイプ
           voted: サポート
-        filters_small_view:
-          close_modal: モーダルを閉じる
-          filter: フィルター
-          filter_by: フィルター
-          unfold: 展開する
         index:
           click_here: すべての提案を見る
           collaborative_drafts_list: 共同草案にアクセスする
+          count:
+            other: "%{count} の提案"
           new_proposal: 新しい提案
           see_all: すべての提案を見る
           see_all_withdrawn: すべての撤回された提案を見る
           text_banner: 提案者が撤回した提案の一覧を表示しています。 %{go_back_link}.
-          view_proposal: 提案を表示
-        linked_proposals:
-          proposal_votes:
-            other: サポート
         new:
           send: 続ける
           title: 提案を作成
@@ -829,10 +804,8 @@ ja:
           recent: 新しい順
           with_more_authors: 起案者の多い順
         participatory_texts:
-          index:
-            document_index: ドキュメントのインデックス
           view_index:
-            see_index: インデックスを見る
+            document_index: ドキュメントの目次
         placeholder:
           address: インディアナ州 ホームウッドドライブブラウンズバーグ 37, 46112
         preview:
@@ -843,18 +816,12 @@ ja:
             other: 提案が公開されてから最初の %{count} 分間、この提案を編集することができます。 この時間が経過すると、提案を編集することはできません。
           publish: 公開
           title: 提案を公開
-        proposal:
-          creation_date: '作成: %{date}'
-          view_proposal: 提案を表示
         proposals:
           empty: まだ提案はありません。
           empty_filters: この条件の提案はありません。
         show:
           answer: 回答
-          back_to: 前に戻る
-          back_to_list: リストに戻る
           changes_at_title: '「%{title} 」に修正'
-          comments: コメント
           edit_proposal: 提案を編集
           estimated_cost: 推定コスト
           hidden_endorsers_count:
@@ -868,14 +835,9 @@ ja:
           proposal_accepted_reason: 'この提案は以下の理由により承認されました:'
           proposal_in_evaluation_reason: この提案は評価されています
           proposal_rejected_reason: 'この提案は以下の理由により拒否されました:'
-          read_less: 未読にする
-          read_more: もっと読む
-          report: レポート
           withdraw_btn_hint: サポートを受けていない限り、気が変わった場合は提案を撤回することができます。 提案は削除されず、撤回された提案のリストに表示されます。
           withdraw_confirmation_html: この提案を撤回してもよろしいですか？<br><br><strong>この操作はキャンセルできません！</strong>
           withdraw_proposal: 提案を撤回する
-        tags:
-          changed_from: "(管理者によって <u>%{previous_name}</u> から変更されました)"
         update:
           title: 提案を更新
         vote_button:
@@ -888,8 +850,6 @@ ja:
         votes_count:
           count:
             other: サポート
-          most_popular_proposal: 最も人気のある提案
-          need_more_votes: さらにサポートが必要です
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: 各提案は %{limit} 以上のサポートを蓄積できます
@@ -904,7 +864,6 @@ ja:
           title: 'サポートは以下のルールに従います:'
           vote_limit:
             description: 最大 %{limit} 件の提案をサポートできます。
-            left: 残り
             votes: サポート
         wizard_aside:
           back: 戻る
@@ -912,20 +871,15 @@ ja:
           back_from_step_2: 提案に戻る
           back_from_step_3: 提案の比較に戻る
           back_from_step_4: 下書き編集に戻る
-          info: <strong>提案</strong> を作成しています。
         wizard_steps:
           current_step: 現在のステップ
-          see_steps: 手順を見る
           step_1: 提案を作成
           step_2: 比較
           step_3: Complete
           step_4: 提案を公開
-          step_of: '%{current_step_num} / %{total_steps}'
           title: 提案の作成手順
       proposals_picker:
         choose_proposals: 提案を選択
-        close: 閉じる
-        more_proposals: あと %{number} 件の提案があります。検索を絞り込んで見つけましょう。
         no_proposals: 検索条件に一致する提案がないか、提案がありません。
       publish:
         error: 提案を発表する際に問題が発生しました。
@@ -939,12 +893,8 @@ ja:
         error: 共同草案を保存する際に問題が発生しました。
         success: 提案の草案が正常に更新されました。
       versions:
-        collaborative_drafts:
-          back_to_resource: 共同草案に戻る
         index:
           title: バージョン
-        proposals:
-          back_to_resource: 提案に戻る
       withdraw:
         errors:
           has_supports: この提案はすでにサポートされているため撤回できません。

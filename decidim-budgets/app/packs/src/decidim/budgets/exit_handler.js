@@ -36,7 +36,7 @@ const allowExitFrom = ($el) => {
     return true;
   } else if ($el.attr("id") === "exit-notification-link") {
     return true;
-  } else if ($el.parents(".voting-wrapper").length > 0) {
+  } else if ($el.parents("main").length > 0) {
     return true;
   } else if (isSafeUrl($el.attr("href"))) {
     return true

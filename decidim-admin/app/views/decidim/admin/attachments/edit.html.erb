@@ -1,7 +1,20 @@
-<%= decidim_form_for(@form, url: url_for([@attachment.attached_to, @attachment]), html: { class: "form edit_attachment" }) do |f| %>
-  <%= render partial: "decidim/admin/attachments/form", object: f, locals: { title: t(".title") } %>
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t(".title") %>
+  </h2>
+</div>
 
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".update") %>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: url_for([@attachment.attached_to, @attachment]), html: { class: "form form-defaults edit_attachment" }) do |f| %>
+      <%= render partial: "decidim/admin/attachments/form", object: f %>
+
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

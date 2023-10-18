@@ -1,15 +1,26 @@
-<%= decidim_form_for(@form, html: { class: "form edit_content_block" }, url: resource_landing_page_content_block_path) do |form| %>
-  <div class="card">
-    <div class="card-divider">
-      <h2 class="card-title"><%= t content_block.public_name_key %></h2>
-    </div>
-
-    <div class="card-section">
-      <%= cell content_block.settings_form_cell, form, content_block: %>
-    </div>
+<% add_decidim_page_title(t(content_block.public_name_key)) %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t content_block.public_name_key %>
+  </h2>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, html: { class: "form-defaults form edit_content_block [&_button]:button [&_button]:button__sm [&_button]:button__secondary" }, url: resource_landing_page_content_block_path) do |form| %>
+      <div class="form__wrapper">
+        <div class="card py-4">
+          <div class="card-section">
+            <div class="row column">
+              <%= cell content_block.settings_form_cell, form, content_block: %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= form.submit submit_button_text, class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="button--double form-general-submit">
-    <%= form.submit submit_button_text %>
-  </div>
-<% end %>
+</div>

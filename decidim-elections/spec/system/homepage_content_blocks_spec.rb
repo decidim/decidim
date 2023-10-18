@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Homepage votings content blocks", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
-  let!(:promoted_voting) { create(:voting, :promoted, organization:) }
+  let!(:promoted_voting) { create(:voting, :promoted, :with_content_blocks, organization:, blocks_manifests: [:title]) }
 
   before do
     create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_votings)

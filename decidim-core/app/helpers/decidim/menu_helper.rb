@@ -14,6 +14,16 @@ module Decidim
       )
     end
 
+    def main_menu_modules
+      @main_menu ||= ::Decidim::MenuPresenter.new(
+        :menu,
+        self,
+        element_class: "main-nav__link-modules",
+        active_class: "main-nav__link-modules--active",
+        label: t("layouts.decidim.header.main_menu")
+      )
+    end
+
     # Public: Returns the user menu presenter object
     def user_menu
       @user_menu ||= ::Decidim::InlineMenuPresenter.new(
@@ -37,7 +47,7 @@ module Decidim
       @footer_menu ||= ::Decidim::FooterMenuPresenter.new(
         :menu,
         self,
-        element_class: "font-semibold",
+        element_class: "font-semibold underline",
         active_class: "is-active",
         container_options: { class: "space-y-4 break-inside-avoid" },
         label: t("layouts.decidim.footer.decidim_title")

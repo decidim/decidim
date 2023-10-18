@@ -20,7 +20,7 @@ module Decidim
         button_to(
           t("decidim.admin.admin_terms_of_service.actions.accept"),
           admin_terms_accept_path,
-          class: "button success",
+          class: "button button__sm button__secondary success",
           method: :put
         )
       end
@@ -29,7 +29,7 @@ module Decidim
         link_to(
           t("decidim.admin.admin_terms_of_service.actions.refuse"),
           decidim.root_path,
-          class: "button clear",
+          class: "button button__sm button__secondary clear",
           data: {
             confirm: t("actions.are_you_sure", scope: "decidim.admin.admin_terms_of_service")
           }

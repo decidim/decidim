@@ -8,6 +8,9 @@ module Decidim
       class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         include Decidim::Admin::ParticipatorySpaceAdminContext
         include Decidim::ParticipatoryProcesses::Admin::Filterable
+
+        add_breadcrumb_item_from_menu :admin_participatory_process_menu, only: :show
+
         participatory_space_admin_layout only: [:edit]
 
         helper ProcessGroupsForSelectHelper
@@ -77,7 +80,7 @@ module Decidim
         private
 
         def process_group
-          @process_group ||= ParticipatoryProcessGroup.find_by(id: ransack_params[:decidim_participatory_process_group_id_eq])
+          @process_group ||= ParticipatoryProcessGroup.find_by(id: ransack_params[:decidim_participatory_process_group_id_eq], organization: current_organization)
         end
 
         def collection

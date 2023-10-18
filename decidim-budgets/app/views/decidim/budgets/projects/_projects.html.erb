@@ -8,6 +8,8 @@
   </div>
 </div>
 
-<%= render partial: "projects_list", locals: { project: } %>
+<div class="budget-list">
+  <%= render partial: "projects_list", locals: { project: } %>
+</div>
 
 <%= decidim_paginate projects %>

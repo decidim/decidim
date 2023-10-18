@@ -18,7 +18,7 @@ on:
 
 env:
   CI: "true"
-  NODE_VERSION: 16.13.0
+  NODE_VERSION: 18.17.1
   WEBPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:

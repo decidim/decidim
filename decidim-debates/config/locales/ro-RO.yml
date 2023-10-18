@@ -52,7 +52,6 @@ ro:
         confirm_destroy: Sigur dorești asta?
         destroy: Ștergere
         edit: Editare
-        new: '%{name} nou'
         title: Acțiuni
       admin:
         debate_closes:
@@ -82,9 +81,6 @@ ro:
             success: Dezbatere actualizata cu succes.
         exports:
           comments: Comentarii
-        models:
-          debate:
-            name: Dezbatere
       admin_log:
         debate:
           close: "%{user_name} a închis dezbaterea %{resource_name} cu privire la spațiul %{space_name}"
@@ -97,7 +93,6 @@ ro:
           invalid: A existat o problemă la închiderea dezbaterii.
           success: Dezbatere închisă.
         close_debate_modal:
-          close: Închide
           description: Care este rezumatul sau concluzia acestei dezbateri?
           send: Închide dezbaterea
         closed: Închisă
@@ -125,18 +120,11 @@ ro:
           official: Oficial
           origin: Origine
           participants: Participanți
-          scope: Domeniu de interes
           search: Caută
           state: Stare
           state_values:
             closed: Închisă
             open: Deschide
-          user_groups: Grupuri
-        filters_small_view:
-          close_modal: Închide fereastra
-          filter: Filtrare
-          filter_by: Filtrare după
-          unfold: Desfășurat
         form:
           select_a_category: Te rugăm selectează o categorie
         index:
@@ -152,7 +140,6 @@ ro:
           recent: Cele mai recente
           updated: Actualizate recent
         show:
-          back: Înapoi la listă
           close_debate: Închide dezbaterea
           date: Data
           debate_closed: Închisă
@@ -160,20 +147,11 @@ ro:
           edit_conclusions: Editează concluziile
           edit_debate: Editează dezbaterea
           groups_count: Grupuri
-          last_comment_by: Ultimul comentariu din partea
-          no_comments_yet: Încă nu există comentarii
           open: Dezbatere deschisă
           participants_count: Participanţi
         update:
           invalid: A apărut o problemă la actualizarea dezbaterii.
           success: Dezbatere actualizata cu succes.
-        versions:
-          debates:
-            back_to_resource: Revenire la dezbatere
-          index:
-            title: Versiuni
-        versions_list:
-          back_to_resource: Înapoi la dezbatere
       last_activity:
         debate_updated: 'Dezbatere actualizată:'
         new_debate: 'Dezbatere nouă:'

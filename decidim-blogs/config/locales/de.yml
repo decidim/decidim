@@ -23,9 +23,6 @@ de:
         new: Neuer Beitrag
         title: Aktionen
       admin:
-        models:
-          post:
-            name: Post
         posts:
           create:
             invalid: Beim Erstellen dieses Beitrags ist ein Problem aufgetreten.
@@ -49,6 +46,11 @@ de:
           create: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} gelöscht"
           update: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} aktualisiert"
+      content_blocks:
+        highlighted_posts:
+          last_published: Zuletzt veröffentlicht
+          name: Beiträge
+          see_all: Alle Beiträge ansehen
       last_activity:
         new_post: 'Neuer Beitrag:'
       models:
@@ -60,8 +62,10 @@ de:
             published_at: Veröffentlicht am
             title: Titel
       posts:
-        show:
-          view: Anzeigen
+        index:
+          count:
+            one: "%{count} Beitrag"
+            other: "%{count} Beiträge"
     components:
       blogs:
         actions:

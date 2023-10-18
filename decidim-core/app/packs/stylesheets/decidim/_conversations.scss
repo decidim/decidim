@@ -1,0 +1,122 @@
+.conversation {
+  &__aside {
+    @apply w-full flex md:flex-col items-start justify-between gap-4 md:gap-8;
+
+    &-actions {
+      @apply flex flex-row md:flex-col gap-2 md:gap-8 items-center md:items-start;
+    }
+  }
+
+  &__item {
+    @apply flex items-center justify-between gap-4 pb-4 last:pb-0;
+
+    & + & {
+      @apply border-t border-gray-3 pt-4;
+    }
+
+    &-avatar {
+      @apply flex-none w-8 h-8 rounded-full overflow-hidden drop-shadow-md border-2 border-white grid place-items-center;
+    }
+
+    &-snippet {
+      @apply grow space-y-2.5 truncate;
+
+      &-title {
+        @apply flex gap-4;
+      }
+
+      &-message {
+        @apply text-gray-2 truncate;
+      }
+
+      &-time {
+        @apply text-gray-2 text-sm;
+      }
+    }
+
+    &-unread {
+      @apply w-1/12 flex-none text-sm text-white;
+
+      & > * {
+        @apply bg-secondary rounded-full font-semibold px-1.5;
+      }
+    }
+
+    &:hover &-avatar {
+      @apply border-tertiary;
+    }
+
+    &:hover &-snippet-title {
+      @apply underline;
+    }
+  }
+
+  &__title {
+    @apply h4 mb-6;
+  }
+
+  &__participants {
+    @apply bg-background rounded px-4 py-2 flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-6 mb-14;
+  }
+
+  &__message {
+    @apply flex items-start gap-4 w-full md:w-3/4;
+
+    &-text {
+      @apply grow bg-background rounded p-4 pt-2 flex flex-col space-y-2 text-gray-2;
+    }
+
+    &-sender {
+      @apply text-xs text-secondary font-semibold;
+    }
+
+    &-time {
+      @apply block text-xs;
+    }
+  }
+
+  &__reply {
+    @apply flex flex-col w-full md:w-2/3 mx-auto;
+
+    &-container {
+      @apply border-t-2 border-background mt-6 py-12;
+    }
+
+    textarea {
+      @apply w-full border border-gray rounded-lg px-4 py-2;
+    }
+  }
+
+  &__modal {
+    &-results {
+      @apply mb-20 flex flex-wrap gap-x-8 gap-y-4;
+    }
+
+    [role="listbox"],
+    &-results {
+      li {
+        @apply flex items-center gap-2;
+      }
+
+      img {
+        @apply rounded-full w-6 h-6 object-cover;
+      }
+
+      span {
+        @apply font-semibold text-sm text-secondary;
+      }
+
+      small {
+        @apply font-normal text-gray-2 text-xs;
+      }
+
+      svg {
+        @apply w-4 h-4 text-primary fill-current;
+      }
+
+      .is-group {
+        @apply flex items-center gap-1;
+      }
+    }
+  }
+}

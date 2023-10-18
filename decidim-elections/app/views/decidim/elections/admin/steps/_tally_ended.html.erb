@@ -1,6 +1,6 @@
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <%= t(".title") %>
     </h2>
   </div>
@@ -11,7 +11,7 @@
         data-allow-all-closed="true">
         <% election.questions.each_with_index do |question, i| %>
           <li class="accordion-item evote__preview-question <%= " is-active" if i.zero? %>" data-accordion-item>
-            <a href="#" class="accordion-title flex--sbc"><%= t(".question") %>: <%= translated_attribute(question.title) %></a>
+            <a href="#" class="accordion-title"><%= t(".question") %>: <%= translated_attribute(question.title) %></a>
             <div class="accordion-content" data-tab-content>
               <div>
                 <table>

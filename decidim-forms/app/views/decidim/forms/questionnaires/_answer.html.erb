@@ -8,7 +8,7 @@
 <% elsif answer.question.title_and_description? %>
 
   <div class="answer-questionnaire__step-heading">
-    <h3><%= translated_attribute(answer.question.body) %></h3>
+    <h3 class="h3"><%= translated_attribute(answer.question.body) %></h3>
     <% if translated_attribute(answer.question.description).present? %>
       <div>
         <%= decidim_sanitize_editor_admin translated_attribute(answer.question.description) %>

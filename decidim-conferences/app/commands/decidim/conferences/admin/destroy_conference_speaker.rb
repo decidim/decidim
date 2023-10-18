@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     module Admin
-      # A command with all the business logic when destroying an conference
+      # A command with all the business logic when destroying a conference
       # speaker in the system.
       class DestroyConferenceSpeaker < Decidim::Command
         # Public: Initializes the command.

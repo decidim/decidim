@@ -1,9 +1,9 @@
-<% add_decidim_page_title(t("devise.sessions.new.sign_in")) %>
+<% add_decidim_page_title(t("devise.sessions.new.log_in")) %>
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
   <div class="flex justify-center">
-    <h1 class="h3 md:h1 decorator my-12"><%= t("devise.sessions.new.sign_in") %></h1>
+    <h1 class="title-decorator my-12"><%= t("devise.sessions.new.log_in") %></h1>
   </div>
 
   <div class="login__info font-semibold">
@@ -23,18 +23,18 @@
     <% end %>
   </div>
 
-  <div class="login__omniauth-container">
-    <% cache current_organization do %>
-      <%= render "decidim/devise/shared/omniauth_buttons" %>
-    <% end %>
-  </div>
+  <span class="login__info-separator"></span>
+
+  <% cache current_organization do %>
+    <%= render "decidim/devise/shared/omniauth_buttons" %>
+  <% end %>
 
   <% if current_organization.sign_in_enabled? %>
-    <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name) ) do |f| %>
+    <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form__wrapper">
-        <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
+        <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared"), required: true %>
 
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: "••••••" %>
+        <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
 
         <% if devise_mapping.rememberable? %>
           <%= f.check_box :remember_me, label_options: { class: "form__wrapper-checkbox-label" } %>
@@ -43,13 +43,13 @@
 
       <div class="form__wrapper-block">
         <button type="submit" class="button button__lg button__secondary">
-          <%= t("devise.sessions.new.sign_in") %>
+          <%= t("devise.sessions.new.log_in") %>
           <%= icon "arrow-right-line", class: "fill-current" %>
         </button>
       </div>
 
       <div class="login__links">
-        <%= render "decidim/devise/shared/redesigned_links" %>
+        <%= render "decidim/devise/shared/links" %>
       </div>
     <% end %>
 

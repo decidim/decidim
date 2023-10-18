@@ -23,7 +23,6 @@ module Decidim
             nickname: "nickname",
             email:,
             password: "rPYWYKQJrXm97b4ytswc",
-            password_confirmation: "rPYWYKQJrXm97b4ytswc",
             tos_agreement: "1",
             newsletter: "0"
           }
@@ -71,7 +70,6 @@ module Decidim
                 nickname: "",
                 email:,
                 password: "123",
-                password_confirmation: "456",
                 tos_agreement: "0",
                 newsletter: "0"
               }
@@ -83,10 +81,7 @@ module Decidim
             expect(controller.flash.now[:alert]).to have_content(
               [
                 "Your name cannot be blank",
-                "Nickname cannot be blank",
-                "Nickname is invalid",
                 "Your email cannot be blank",
-                "Confirm your password does not match Password",
                 "Password is too short",
                 "Password does not have enough unique characters",
                 "Terms of service agreement must be accepted"

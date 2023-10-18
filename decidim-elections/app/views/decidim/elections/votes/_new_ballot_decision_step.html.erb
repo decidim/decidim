@@ -1,30 +1,26 @@
-<%= render("focus_header", header_title: t("decidim.elections.votes.header.ballot_decision")) %>
+<div class="election-question__intro">
+  <h2 class="h3">
+    <%= t("decidim.elections.votes.ballot_decision.header") %>
+  </h2>
+  <p class="election-question__description"><%= t("decidim.elections.votes.ballot_decision.description") %></p>
+</div>
 
-<div class="focus__content evote ballot_decision">
-  <div class="row">
-    <h1 class="heading2">
-      <%= t("decidim.elections.votes.ballot_decision.header") %>
-    </h1>
+<div class="election-question__ballot">
+  <p class="h4"><%= t("decidim.elections.votes.ballot_decision.ballot_hash") %></p>
+  <code id="ballot-hash"></code>
+  <button id="audit_ballot" class="text-secondary underline"><%= t("decidim.elections.votes.ballot_decision.audit") %></button>
+</div>
 
-    <div class="evote__content">
-      <p><%= t("decidim.elections.votes.ballot_decision.description") %></p>
-      <p>
-        <%= t("decidim.elections.votes.ballot_decision.ballot_hash") %>
-        <strong class="ballot-hash"></strong>
-        <a class="audit_ballot"><%= t("decidim.elections.votes.ballot_decision.audit") %></a>
-      </p>
-    </div>
+<div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+  <%= link_to election_path(election), id: "back", class: "button button__sm md:button__lg button__transparent-secondary" do %>
+    <%= t("decidim.elections.votes.ballot_decision.back") %>
+  <% end %>
 
-    <%= decidim_form_for(@form, url: election_votes_path(election), html: { autocomplete: "off" }) do |f| %>
-      <%= f.hidden_field :encrypted_data %>
-      <%= f.hidden_field :encrypted_data_hash %>
-      <%= f.hidden_field :voter_token %>
-      <%= f.hidden_field :voter_id %>
-      <%= f.submit t("decidim.elections.votes.ballot_decision.cast"), class: "button cast_ballot" %>
-    <% end %>
-
-    <%= link_to election_path(election), class: "button back hide" do %>
-      <%= t("decidim.elections.votes.ballot_decision.back") %>
-    <% end %>
-  </div>
+  <%= decidim_form_for(@form, url: election_votes_path(election), html: { autocomplete: "off" }) do |f| %>
+    <%= f.hidden_field :encrypted_data %>
+    <%= f.hidden_field :encrypted_data_hash %>
+    <%= f.hidden_field :voter_token %>
+    <%= f.hidden_field :voter_id %>
+    <%= f.submit t("decidim.elections.votes.ballot_decision.cast"), id: "cast_ballot", class: "button button__sm md:button__lg button__transparent-secondary" %>
+  <% end %>
 </div>

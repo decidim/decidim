@@ -6,6 +6,9 @@ module Decidim
     #
     class ScopeTypesController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
+
+      add_breadcrumb_item_from_menu :admin_settings_menu
+
       helper_method :scope_types
 
       def index

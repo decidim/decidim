@@ -1,29 +1,20 @@
-<div>
-  <%= f.select :document_type,
-  form.options_for_document_type_select,
-  { include_blank: t(".select"), label: t(".document_type") },
-  { multiple: false } %>
-</div>
-<div>
-  <%= f.text_field :document_number, label: t(".document_number"), placeholder: t(".document_number_placeholder") %>
-</div>
-<div>
-  <%= f.text_field :postal_code, label: t(".postal_code"), placeholder: t(".postal_code_placeholder") %>
-</div>
-<fieldset>
-  <legend><%= t(".date_of_birth") %></legend>
-  <div class="row">
-    <div class="columns small-4">
-      <%= f.text_field :day, placeholder: t(".day_placeholder"), label: t(".day"), "data-autojump" => true, "data-max-length" => 2,
-                             "data-jump-next" => "#login_month" %>
-    </div>
-    <div class="columns small-4">
-      <%= f.text_field :month, placeholder: t(".month_placeholder"), label: t(".month"), "data-autojump" => true, "data-max-length" => 2,
-                               "data-jump-prev" => "#login_day", "data-jump-next" => "#login_year" %>
-    </div>
-    <div class="columns small-4">
-      <%= f.text_field :year, placeholder: t(".year_placeholder"), label: t(".year"), "data-autojump" => true, "data-max-length" => 4,
-                              "data-jump-prev" => "#login_month" %>
-    </div>
+<%= f.select :document_type,
+             form.options_for_document_type_select,
+             { include_blank: t(".select"), label: t(".document_type") },
+             { multiple: false } %>
+
+<%= f.text_field :document_number, label: t(".document_number"), placeholder: t(".document_number_placeholder") %>
+
+<%= f.text_field :postal_code, label: t(".postal_code"), placeholder: t(".postal_code_placeholder") %>
+
+<div class="space-y-2">
+  <%= f.label t(".date_of_birth") %>
+
+  <div class="flex gap-2">
+
+    <%= f.text_field :day, placeholder: t(".day_placeholder"), label: t(".day"), "data-autojump" => true, "data-max-length" => 2, "data-jump-next" => "##{f.object_name}_month" %>
+    <%= f.text_field :month, placeholder: t(".month_placeholder"), label: t(".month"), "data-autojump" => true, "data-max-length" => 2, "data-jump-prev" => "##{f.object_name}_day", "data-jump-next" => "##{f.object_name}_year" %>
+    <%= f.text_field :year, placeholder: t(".year_placeholder"), label: t(".year"), "data-autojump" => true, "data-max-length" => 4, "data-jump-prev" => "##{f.object_name}_month" %>
+
   </div>
-</fieldset>
+</div>

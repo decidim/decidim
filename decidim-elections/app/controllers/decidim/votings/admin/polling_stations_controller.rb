@@ -6,7 +6,6 @@ module Decidim
       # This controller allows to create or update a polling station.
       class PollingStationsController < Admin::ApplicationController
         include Decidim::PollingStations::Admin::Filterable
-        helper Decidim::Votings::Admin::PollingOfficersPickerHelper
         include VotingAdmin
 
         helper_method :current_voting, :polling_station, :filtered_polling_stations

@@ -3,8 +3,7 @@
     <div class="version__selector-container">
       <%= render :diff_mode_dropdown %>
       <%= render :diff_mode_html %>
-
-      <%= submit_tag nil, hidden: true %>
+      <%= submit_tag t("versions.dropdown.toggle"), class: "button button__sm md:button__lg button__secondary" %>
     </div>
   <% end %>
 <% end %>

@@ -1,13 +1,7 @@
 <%= render "layouts/decidim/application" do %>
-  <div class="wrapper">
-  <div class="row">
+  <%= render layout:"layouts/decidim/shared/layout_center", locals: { main_enabled: false } do %>
     <%= render partial: "layouts/decidim/initiative_signature_creation_header" %>
-    <div class="columns large-6">
-      <%= yield %>
-    </div>
-    <div class="columns large-3"></div>
-  </div>
-  </div>
-
-  <%= append_javascript_pack_tag "decidim_initiatives" %>
+    <%= yield %>
+    <%= append_javascript_pack_tag "decidim_initiatives" %>
+  <% end %>
 <% end %>

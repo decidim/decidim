@@ -35,7 +35,12 @@ module Decidim
 
         CreateComponent.call(@form) do
           on(:ok) do
-            flash[:notice] = I18n.t("components.create.success", scope: "decidim.admin")
+            if (landing_page_path = participatory_space_landing_page_path(@component)).present?
+              flash[:notice_html] = I18n.t("components.create.success_landing_page", landing_page_path:, scope: "decidim.admin").html_safe
+            else
+              flash[:notice] = I18n.t("components.create.success", scope: "decidim.admin")
+            end
+
             redirect_to action: :index
           end
 
@@ -167,6 +172,13 @@ module Decidim
           previous_settings["default_step"] || {},
           current_settings["default_step"] || {}
         )
+      end
+
+      def participatory_space_landing_page_path(component)
+        participatory_space = component.participatory_space
+        return if participatory_space.manifest.content_blocks_scope_name.blank?
+
+        Decidim::EngineRouter.admin_proxy(participatory_space).send("edit_#{participatory_space.manifest.route_name}_landing_page_path")
       end
     end
   end

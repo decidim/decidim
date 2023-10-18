@@ -1,6 +1,6 @@
 <% if show_voting_rules? %>
   <% announcement_body = capture do %>
-    <div class="proposal__voting-rules">
+    <div class="editor-content">
       <ul>
         <% if vote_limit_enabled? %>
           <li><%= t(".vote_limit.description", limit: component_settings.vote_limit) %></li>

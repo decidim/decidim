@@ -1,0 +1,20 @@
+.tab-x {
+  @apply w-full flex gap-2 justify-center items-center text-sm text-gray-2 border-gray border-b-2 py-1 cursor-pointer;
+
+  &-container {
+    @apply flex gap-1 [&>*]:grow;
+  }
+
+  &[aria-expanded="true"],
+  &:hover {
+    @apply text-secondary border-secondary;
+
+    svg {
+      @apply text-secondary;
+    }
+  }
+}
+
+.tabs-1 {
+  pointer-events: none;
+}

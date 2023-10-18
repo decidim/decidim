@@ -7,7 +7,7 @@ module Decidim
     module Admin
       module Concerns
         # This concern is meant to be included in all controllers that are scoped
-        # into an conference's admin panel. It will override the layout so it shows
+        # into a conference's admin panel. It will override the layout so it shows
         # the sidebar, preload the conference, etc.
         module ConferenceAdmin
           extend ActiveSupport::Concern

@@ -1,76 +1,57 @@
-<div class="verify-vote-wrapper"
-  data-election-id="<%= election.id %>"
-  data-api-endpoint-url="<%= bulletin_board_server %>"
-  data-election-unique-id="<%= election_unique_id %>">
+<%= append_stylesheet_pack_tag "decidim_elections" %>
+<%= append_javascript_pack_tag "decidim_elections" %>
 
-  <div class="focus__header">
-    <div class="row">
-      <div class="focus__steps">
-        <strong>
-          <%= t("decidim.elections.votes.verify.header.title") %>
-        </strong>
-      </div>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
 
-      <div class="heading5 focus__header-title">
-        <%= translated_attribute(election.title) %>
-      </div>
-    </div>
+  <div class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left">
+      <%= t("decidim.elections.votes.verify.header.title") %>: <%= translated_attribute(election.title) %>
+    </h1>
   </div>
 
-  <div class="focus__content evote">
-    <div class="row">
-      <h1 class="heading2">
-        <%= t("decidim.elections.votes.verify.content.heading") %>
-      </h1>
+  <div id="verify-vote-wrapper"
+    data-election-id="<%= election.id %>"
+    data-api-endpoint-url="<%= bulletin_board_server %>"
+    data-election-unique-id="<%= election_unique_id %>">
 
-      <p>
-        <%= t("decidim.elections.votes.verify.content.info") %>
-      </p>
+    <h2 class="h3">
+      <%= t("decidim.elections.votes.verify.content.heading") %>
+    </h2>
 
-      <div class="evote__content small-6">
-        <div class="verify-vote-success hide callout success">
-          <h2 class="heading4">
-            <%= t("decidim.elections.votes.verify.success.header") %>
-          </h2>
+    <p class="text-gray-2 mt-4">
+      <%= t("decidim.elections.votes.verify.content.info") %>
+    </p>
 
-          <p>
-            <%== t("decidim.elections.votes.verify.success.info", link: link_to(translated_attribute(election.title), election_path(election))) %>
-          </p>
-        </div>
+    <div id="verify-vote-success" hidden>
+      <%= cell("decidim/announcement", { title: t("decidim.elections.votes.verify.success.header"), body: t("decidim.elections.votes.verify.success.info", link: link_to(translated_attribute(election.title), election_path(election))).html_safe }, callout_class: "success") %>
+    </div>
 
-        <div class="verify-vote-error hide callout alert">
-          <h2 class="heading4">
-            <%= t("decidim.elections.votes.verify.error.header") %>
-          </h2>
+    <div id="verify-vote-error" hidden>
+      <%= cell("decidim/announcement", { title: t("decidim.elections.votes.verify.error.header"), body: t("decidim.elections.votes.verify.error.info", link: link_to(translated_attribute(election.title), election_path(election))).html_safe }, callout_class: "alert") %>
+    </div>
 
-          <p>
-            <%== t("decidim.elections.votes.verify.error.info", link: link_to(translated_attribute(election.title), election_path(election))) %>
-          </p>
-        </div>
+    <form class="form">
+      <div class="form__wrapper">
+        <label>
+          <%= t("decidim.elections.votes.verify.form.vote_identifier") %>
 
-        <form class="form">
-          <label>
-            <%= t("decidim.elections.votes.verify.form.vote_identifier") %>
-
-            <input type="text" class="vote-identifier" name="vote-identifier" value="<%= params[:vote_id].gsub("_","") %>">
-          </label>
           <p class="help-text"><%= t("decidim.elections.votes.verify.form.vote_identifier_help") %></p>
-          <div>
-            <%= link_to(
-              "#",
-              class: "button focus__next confirm"
-            ) do %>
-
-              <%= t("decidim.elections.votes.verify.form.submit") %>
-            <% end %>
-          </div>
-
-          <%= link_to(t("decidim.elections.votes.verify.form.back"), election_path(election)) %>
-        </form>
+          <input type="text" class="vote-identifier" name="vote-identifier" value="<%= params[:vote_id].gsub("_","") %>">
+        </label>
       </div>
-    </div>
+
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+        <%= link_to election_path(election), class: "button button__sm md:button__lg button__transparent-secondary" do %>
+          <span><%= t("decidim.elections.votes.verify.form.back") %></span>
+        <% end %>
+
+        <button type="submit" class="button button__sm md:button__lg button__secondary">
+          <span><%= t("decidim.elections.votes.verify.form.submit") %></span>
+          <%= icon "arrow-right-line" %>
+        </button>
+      </div>
+    </form>
+
   </div>
 
-</div>
-
-<%= append_javascript_pack_tag "decidim_elections_voter_verify_vote" %>
+<% end %>

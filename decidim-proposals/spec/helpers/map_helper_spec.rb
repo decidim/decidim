@@ -16,15 +16,6 @@ module Decidim
       let(:address) { "Carrer Pic de Peguera 15, 17003 Girona" }
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }
-      let(:redesign_enabled) { false }
-
-      before do
-        # rubocop:disable RSpec/AnyInstance
-        allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
-        allow_any_instance_of(ActionView::Base).to receive(:redesigned_layout).and_return("decidim/proposals/proposal_metadata")
-        allow_any_instance_of(Decidim::Proposals::ProposalMetadataCell).to receive(:redesign_enabled?).and_return(redesign_enabled)
-        # rubocop:enable RSpec/AnyInstance
-      end
 
       describe "#has_position?" do
         subject { helper.has_position?(proposal) }
@@ -47,8 +38,6 @@ module Decidim
           expect(subject[:type]).to eq("drag-marker")
           expect(marker["latitude"]).to eq(latitude)
           expect(marker["longitude"]).to eq(longitude)
-          expect(marker["address"]).to eq(address)
-          expect(marker["icon"]).to match(/<svg.+/)
         end
       end
 
@@ -70,9 +59,7 @@ module Decidim
           expect(subject["longitude"]).to eq(longitude)
           expect(subject["address"]).to eq(address)
           expect(subject["title"]).to eq("&lt;script&gt;alert(&quot;HEY&quot;)&lt;/script&gt; This is my title")
-          expect(subject["body"]).to eq(%(<div class="rich-text-display">alert(&quot;HEY&quot;) This is my long, but still super interesting, body of my also long, but also super inte…</div>))
           expect(subject["link"]).to eq(Decidim::Proposals::ProposalPresenter.new(proposal).proposal_path)
-          expect(subject["icon"]).to match(/<svg.+/)
         end
       end
 

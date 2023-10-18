@@ -59,7 +59,7 @@ en:
         subtitle: Subtitle
         target: Who participates
         title: Title
-        twitter: Twitter
+        twitter: X
         weight: Order position
         youtube: YouTube
       assembly_member:
@@ -99,7 +99,9 @@ en:
       actions:
         import_assembly: Import
         new_assembly: New assembly
+        new_assembly_member: New assembly member
         new_assembly_type: New assembly type
+        new_assembly_user_role: New assembly admin
       assemblies:
         create:
           error: There was a problem creating a new assembly.
@@ -107,10 +109,10 @@ en:
         edit:
           update: Update
         index:
-          not_published: Not published
           private: Private
           public: Public
           published: Published
+          unpublished: Unpublished
         new:
           create: Create
           title: New assembly
@@ -205,10 +207,11 @@ en:
           attachments: Attachments
           categories: Categories
           components: Components
-          info: Info
+          info: About this assembly
           landing_page: Landing page
           moderations: Moderations
           private_users: Private users
+          see_assembly: See assembly
         assemblies_types: Assemblies types
       models:
         assemblies_types:
@@ -217,6 +220,7 @@ en:
             title: Title
         assembly:
           fields:
+            actions: Actions
             created_at: Created at
             private: Private
             promoted: Highlighted
@@ -290,7 +294,7 @@ en:
             select_an_area: Select an Area
             select_an_assembly_type: Select an assembly type
             select_parent_assembly: Select parent assembly
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
             title: General Information
             visbility: Visibility
@@ -301,14 +305,13 @@ en:
             title: Settings for assemblies
         assemblies_types:
           form:
-            title: Title
+            title: Edit assembly type
         assembly_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_imports:
           form:
-            document_legend: Add a document
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_members:
           form:
             existing_user: Existing participant
@@ -324,7 +327,6 @@ en:
               all: All
               ceased: Ceased
               not_ceased: Not ceased
-            filter_by: Filter by
             search: Search
         content_blocks:
           highlighted_assemblies:
@@ -461,7 +463,6 @@ en:
           more_info: More info
           take_part: Take part
         index:
-          children: 'Assemblies: '
           promoted_assemblies: Highlighted assemblies
         metadata:
           children_item:
@@ -473,4 +474,3 @@ en:
             other: "%{count} assemblies"
       assembly_navigation:
         assembly_member_menu_item: Members
-        assembly_menu_item: The assembly

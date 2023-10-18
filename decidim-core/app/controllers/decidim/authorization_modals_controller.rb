@@ -21,7 +21,7 @@ module Decidim
     end
 
     def current_component
-      @current_component ||= Decidim::Component.find(params[:component_id])
+      @current_component ||= Decidim::Component.where(participatory_space: current_organization.participatory_spaces).find(params[:component_id])
     end
 
     def authorization_action

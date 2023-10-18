@@ -1,106 +1,104 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <div>
       <%= link_to "#{t("title", scope: "decidim.admin.moderations.index")} > ", moderations_path %>
       <%= t(".title") %>
-    </h2>
-  </div>
-  <div class="card-section moderation-details">
-    <div class="callout warning">
-      <%= icon "info" %>
-      <span class="callout-text"><%= t(".callout_html", icon: icon("flag")) %></span>
     </div>
-    <dl>
-      <dt><%= t("models.moderation.fields.reported_content_url", scope: "decidim.moderations") %></dt>
-      <% if (reportable_url = moderation.reportable.reported_content_url) %>
-        <dd><%= link_to moderation.reportable.reported_content_url, reportable_url, target: "_blank" %></dd>
-      <% else %>
-        <dd><%= t("models.moderation.fields.deleted_resource", scope: "decidim.moderations") %></dd>
-      <% end %>
-
-      <dt><%= t("models.moderation.fields.reportable_id", scope: "decidim.moderations") %></dt>
-      <dd><%= moderation.reportable.id %></dd>
-
-      <% if translatable_resource?(moderation.reportable) %>
-        <dt><%= t(".content_original_language") %></dt>
-        <dd><%= locale_name moderation.reportable.content_original_language %> </dd>
-      <% end %>
-
-      <dt>
-        <%= t(".reported_content") %>
-        <% if translatable_resource?(moderation.reportable) %>
-          <button
-            class="toggle-content"
-            data-see-original-button-label="<%= t(".see_original") %>"
-            data-see-current-button-label="<%= t(".see_current") %>">
-            <%= t(".see_original") %>
-          </button>
-        <% end %>
-      </dt>
-      <dd class="reported-content">
-        <div class="current">
-          <%= reported_content_for moderation.reportable %>
-        </div>
-        <% if translatable_resource?(moderation.reportable) %>
-          <div class="original">
-            <%= reported_content_for moderation.reportable, locale: moderation.reportable.content_original_language %>
-          </div>
-        <% end %>
-      </dd>
-
-      <dt><%= t(".author") %></dt>
-      <dd>
-        <%= reportable_author_name(moderation.reportable) %>
-      </dd>
-
-      <dt><%= t("models.moderation.fields.reportable_type", scope: "decidim.moderations") %></dt>
-      <dd><%= moderation.reportable.class.name.demodulize %></dd>
-
-      <dt><%= t("models.moderation.fields.created_at", scope: "decidim.moderations") %></dt>
-      <dd><%= l(moderation.created_at, format: :long) %></dd>
-
-      <dt><%= t(".participatory_space") %></dt>
-      <dd><%= translated_attribute moderation.participatory_space.title %></dd>
-      </div>
-    </dl>
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th><%= t("models.report.fields.reason", scope: "decidim.moderations") %></th>
-            <th><%= t("models.report.fields.locale", scope: "decidim.moderations") %></th>
-            <th><%= t("models.report.fields.details", scope: "decidim.moderations") %></th>
-            <th class="actions"><%= t("actions.title", scope: "decidim.moderations") %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% reports.each do |report| %>
-            <tr data-id="<%= report.id %>">
-              <td><%= t("decidim.admin.moderations.report.reasons.#{report.reason}") %></td>
-              <td><%= report.locale.present? ? locale_name(report.locale) : "" %></td>
-              <td><%= report.details&.truncate(250) %></td>
-              <td class="actions">
-                <%= icon_link_to "fullscreen-enter",
-                                  moderation_report_path(moderation_id: moderation, id: report.id),
-                                  t("actions.expand", scope: "decidim.moderations"),
-                                  class: "action-icon--expand" %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  </h2>
 </div>
 
-<div class="button--double form-general-submit">
-  <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
-    <%= link_to t("actions.unreport", scope: "decidim.moderations"), unreport_moderation_path(id: moderation), method: :put, class: "button" %>
-  <% end %>
-  <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
-    <%= link_to t("actions.hide", scope: "decidim.moderations"), hide_moderation_path(id: moderation), method: :put, class: "button alert" %>
-  <% end %>
-  <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
-    <%= link_to t("actions.unhide", scope: "decidim.moderations"), unhide_moderation_path(id: moderation), method: :put, class: "button alert" %>
-  <% end %>
+<div class="card-section moderation-details">
+    <%= cell("decidim/announcement", t(".callout_html", icon: icon("flag-line")), callout_class: "warning" ) %>
+  <dl>
+    <dt><%= t("models.moderation.fields.reported_content_url", scope: "decidim.moderations") %></dt>
+    <% if (reportable_url = moderation.reportable.reported_content_url) %>
+      <dd><%= link_to moderation.reportable.reported_content_url, reportable_url, target: "_blank" %></dd>
+    <% else %>
+      <dd><%= t("models.moderation.fields.deleted_resource", scope: "decidim.moderations") %></dd>
+    <% end %>
+
+    <dt><%= t("models.moderation.fields.reportable_id", scope: "decidim.moderations") %></dt>
+    <dd><%= moderation.reportable.id %></dd>
+
+    <% if translatable_resource?(moderation.reportable) %>
+      <dt><%= t(".content_original_language") %></dt>
+      <dd><%= locale_name moderation.reportable.content_original_language %> </dd>
+    <% end %>
+
+    <dt>
+      <%= t(".reported_content") %>
+      <% if translatable_resource?(moderation.reportable) %>
+        <button
+          class="toggle-content"
+          data-see-original-button-label="<%= t(".see_original") %>"
+          data-see-current-button-label="<%= t(".see_current") %>">
+          <%= t(".see_original") %>
+        </button>
+      <% end %>
+    </dt>
+    <dd class="reported-content">
+      <div class="current">
+        <%= reported_content_for moderation.reportable %>
+      </div>
+      <% if translatable_resource?(moderation.reportable) %>
+        <div class="original">
+          <%= reported_content_for moderation.reportable, locale: moderation.reportable.content_original_language %>
+        </div>
+      <% end %>
+    </dd>
+
+    <dt><%= t(".author") %></dt>
+    <dd>
+      <%= reportable_author_name(moderation.reportable) %>
+    </dd>
+
+    <dt><%= t("models.moderation.fields.reportable_type", scope: "decidim.moderations") %></dt>
+    <dd><%= moderation.reportable.class.name.demodulize %></dd>
+
+    <dt><%= t("models.moderation.fields.created_at", scope: "decidim.moderations") %></dt>
+    <dd><%= l(moderation.created_at, format: :long) %></dd>
+
+    <dt><%= t(".participatory_space") %></dt>
+    <dd><%= translated_attribute moderation.participatory_space.title %></dd>
+  </dl>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t("models.report.fields.reason", scope: "decidim.moderations") %></th>
+          <th><%= t("models.report.fields.locale", scope: "decidim.moderations") %></th>
+          <th><%= t("models.report.fields.details", scope: "decidim.moderations") %></th>
+          <th class="actions"><%= t("actions.title", scope: "decidim.moderations") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% reports.each do |report| %>
+          <tr data-id="<%= report.id %>">
+            <td><%= t("decidim.admin.moderations.report.reasons.#{report.reason}") %></td>
+            <td><%= report.locale.present? ? locale_name(report.locale) : "" %></td>
+            <td><%= report.details&.truncate(250) %></td>
+            <td class="actions">
+              <%= icon_link_to "fullscreen-line",
+                               moderation_report_path(moderation_id: moderation, id: report.id),
+                               t("actions.expand", scope: "decidim.moderations"),
+                               class: "action-icon--expand" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="item__edit-sticky">
+    <div class="item__edit-sticky-container">
+      <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
+        <%= link_to t("actions.unreport", scope: "decidim.moderations"), unreport_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary" %>
+      <% end %>
+      <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
+        <%= link_to t("actions.hide", scope: "decidim.moderations"), hide_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary alert" %>
+      <% end %>
+      <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
+        <%= link_to t("actions.unhide", scope: "decidim.moderations"), unhide_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary alert" %>
+      <% end %>
+    </div>
+  </div>
 </div>

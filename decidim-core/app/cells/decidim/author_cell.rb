@@ -106,7 +106,7 @@ module Decidim
 
     def creation_date?
       return unless from_context
-      return unless show_action? && (from_context.respond_to?(:published_at) || from_context.respond_to?(:created_at))
+      return unless from_context.respond_to?(:published_at) || from_context.respond_to?(:created_at)
 
       true
     end

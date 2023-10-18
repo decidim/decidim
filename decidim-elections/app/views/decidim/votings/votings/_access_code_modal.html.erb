@@ -1,33 +1,28 @@
-<div class="reveal" data-reveal id="access-code-modal">
-  <div class="reveal__header">
-    <h3 class="reveal__title"><%= t(".title") %></h3>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
+<%= decidim_modal id: "access-code-modal" do %>
+  <div data-dialog-container>
+    <%= icon "lock-unlock-line" %>
+    <h3 class="h3" id="dialog-title-access-code-modal" tabindex="-1" data-dialog-title>
+      <%= t("title", scope: "decidim.votings.votings.access_code_modal") %>
+    </h3>
+    <p id="dialog-desc-access-code-modal">
+      <%= t("info", scope: "decidim.votings.votings.access_code_modal") %>
+    </p>
   </div>
-  <p>
-    <%= t(".info") %>
-  </p>
-  <div class="row">
-    <div class="columns medium-8 medium-offset-2">
-      <% if email.empty? %>
-        <button class="disabled button hollow expanded">
-          <%= t(".no_email") %>
-        </button>
-      <% else %>
-        <%= button_to t(".email", email:), voting_send_access_code_path(datum.dataset.voting, datum_id: datum, medium: "email"), class: "button hollow expanded" %>
-      <% end %>
-    </div>
+  <div data-dialog-actions>
+    <% if email.empty? %>
+      <button class="button button__sm md:button__lg button__secondary" disabled>
+        <%= t("no_email", scope: "decidim.votings.votings.access_code_modal") %>
+      </button>
+    <% else %>
+      <%= button_to t("email", scope: "decidim.votings.votings.access_code_modal", email:), voting_send_access_code_path(datum.dataset.voting, datum_id: datum, medium: "email"), class: "button button__sm md:button__lg button__secondary" %>
+    <% end %>
+
+    <% if sms.empty? %>
+      <button class="button button__sm md:button__lg button__secondary" disabled>
+        <%= t("no_sms", scope: "decidim.votings.votings.access_code_modal") %>
+      </button>
+    <% else %>
+      <%= button_to t("sms", scope: "decidim.votings.votings.access_code_modal", sms:), voting_send_access_code_path(datum.dataset.voting, datum_id: datum, medium: "sms"), class: "button button__sm md:button__lg button__secondary" %>
+    <% end %>
   </div>
-  <div class="row">
-    <div class="columns medium-8 medium-offset-2">
-      <% if sms.empty? %>
-        <button class="disabled button hollow expanded">
-          <%= t(".no_sms") %>
-        </button>
-      <% else %>
-        <%= button_to t(".sms", sms:), voting_send_access_code_path(datum.dataset.voting, datum_id: datum, medium: "sms"), class: "button hollow expanded" %>
-      <% end %>
-    </div>
-  </div>
-</div>
+<% end %>

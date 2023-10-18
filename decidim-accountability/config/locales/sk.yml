@@ -38,7 +38,6 @@ sk:
         destroy: Odstrániť
         edit: Upraviť
         import_csv: Importovať súbor CSV
-        new: Nový %{name}
         preview: Ukážka
         timeline_entries: Vývoj projektu
         title: Akcie
@@ -54,8 +53,6 @@ sk:
             name: Výsledok
           status:
             name: Stav
-          timeline_entry:
-            name: Časová osa
         results:
           edit:
             title: Upraviť výsledok

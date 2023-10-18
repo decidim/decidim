@@ -26,6 +26,7 @@ en:
         locale: Locale
         name: Your name
         nickname: Nickname
+        old_password: Current password
         password: Password
         password_confirmation: Confirm your password
         personal_url: Personal URL
@@ -286,11 +287,9 @@ en:
       amendable:
         button: Amend %{model_name}
         error: There has been an error amending this resource.
-        help_text: Improve this %{model_name} by modifying its %{amendable_fields}.
         promote_button: Promote to %{model_name}
         promote_confirm_text: Are you sure you want to promote this emendation?
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}.
-        section_heading: Amendments (%{count})
       amendments:
         title:
           one: "%{count} amendment"
@@ -416,7 +415,6 @@ en:
       started_at: Started at %{timestamp}
     authorization_modals:
       content:
-        close_modal: Close modal
         expired:
           authorize: Reauthorize with "%{authorization}"
           explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
@@ -459,7 +457,6 @@ en:
         one: and %{count} more
         other: and %{count} more
       see_less: "(see less)"
-      see_more: "(see more)"
     components:
       component_order_selector:
         no_content: We could not find any content with this criteria.
@@ -573,8 +570,13 @@ en:
       actions:
         login_before_access: Please, login with your account before access.
         unauthorized: You are not authorized to perform this action.
-    datepicker:
-      help_text: 'Expected format: %{datepicker_format}'
+      application_helper:
+        filter_area_values:
+          all: All
+        filter_category_values:
+          all: All
+        filter_scope_values:
+          all: All
     devise:
       omniauth_registrations:
         create:
@@ -588,10 +590,9 @@ en:
       registrations:
         new:
           already_have_an_account?: Already have an account?
+          log_in: Log in
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
-          nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
-          sign_in: Log in
           sign_up: Sign up
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms of service
@@ -605,7 +606,7 @@ en:
           sign_in_disabled: You can access with an external account.
           sign_up_disabled: Sign up is disabled, you can use an existing account to access.
         user:
-          timed_out: You were inactive for too long and you have been automatically signed out from the service. If you would like to continue using the service, please sign in again.
+          timed_out: You were inactive for too long and you have been automatically logged out from the service. If you would like to continue using the service, please log in again.
       shared:
         newsletter_modal:
           buttons:
@@ -625,13 +626,19 @@ en:
           title: Newsletter notifications
         omniauth_buttons:
           or: Or
+        password_fields:
+          hidden_password: Your password is hidden
+          hide_password: Hide password
+          show_password: Show password
+          shown_password: Your password is shown
+        placeholder_email: hi@example.org
     doorkeeper:
       authorizations:
         new:
           authorize: Authorize application
           by_organization_link_html: by %{link}
           cancel: Cancel
-          connect_your_account_html: Connect your account by signing in to %{organization}.
+          connect_your_account_html: Connect your account by logging in to %{organization}.
           publish_content: Publish content for you
           see_email: See your email
           see_name: See your name
@@ -645,16 +652,16 @@ en:
         ready: Ready
       show:
         download_data: Download the data
-        download_data_description: A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>. This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS). If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
+        download_data_description_html: |-
+          A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>.
+          This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS).
+          If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Request data
     editor_images:
       create:
         error: Error uploading image.
         success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
-    endorsable:
-      endorsements: Endorsements
-      endorsements_count: Endorsements count
     endorsement_buttons_cell:
       already_endorsed: Dislike
       endorse: Like
@@ -903,14 +910,12 @@ en:
           add_attachment: Add attachment
           add_file: Add file
           add_image: Add image
-          cancel: Cancel
           edit_image: Edit image
           error: Error!
           file_size_too_large: 'File size is too large! Maximun file size: %{megabytes}MB'
           filename: Filename
           remove: Remove
           replace: Replace
-          save: Save
           title: Title
           title_required: Title is required!
           uploaded: Uploaded
@@ -1040,6 +1045,7 @@ en:
       index:
         last_activity: Last activity
       name: Last activities
+      no_activities_warning: There are no entries to show for this activity type.
     linked_resource_from:
       included_in: Included in
     links:
@@ -1092,35 +1098,35 @@ en:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} has started a new conversation in the name of %{group}. Click here to see it:"
-          outro: Enjoy Decidim!
+          outro: Enjoy the platform!
           subject: "%{manager} has started a new conversation as a %{group}"
         comanagers_new_message:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} has posted new messages in a conversation in the name of %{group}. Click here to see them:"
-          outro: Enjoy Decidim!
+          outro: Enjoy the platform!
           subject: "%{manager} has send new messages as a %{group}"
         new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has started a new conversation with you. Click here to see it:"
-          outro: Enjoy Decidim!
+          outro: Enjoy the platform!
           subject: "%{sender} has started a conversation with you"
         new_group_conversation:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} has started a new conversation with the group %{group}. Click here to see it:"
-          outro: Enjoy Decidim!
+          outro: Enjoy the platform!
           subject: "%{sender} has started a conversation with %{group}"
         new_group_message:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} has posted new messages in a conversation with the group %{group}. Click here to see it:"
-          outro: Enjoy Decidim!
+          outro: Enjoy the platform!
           subject: "%{group} have new messages from %{sender}"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has posted new messages in your conversation. Click here to see them:"
-          outro: Enjoy Decidim!
+          outro: Enjoy the platform!
           subject: You have new messages from %{sender}
       conversations:
         add_conversation_users:
@@ -1297,11 +1303,13 @@ en:
           register: Register
         hero:
           participate: Participate
+          participate_title: Participate in the platform's processes
           welcome: Welcome to %{organization}!
         statistics:
           headline: Current state of %{organization}
         sub_hero:
           register: Register
+          register_title: Sign up to create an account
       index:
         standalone_pages: Pages
         subheading: Navigate through the help pages of %{name}
@@ -1346,6 +1354,8 @@ en:
         conversations: Conversations
         followers: Followers
         following: Follows
+        group_admins: Manage admins
+        group_members: Manage members
         groups: Groups
         members: Members
         officialized: Official participant
@@ -1432,11 +1442,9 @@ en:
           future: Future
           past: Past
       filters_small_view:
-        close_modal: Close modal
         filter: Filter
         filter_and_search: Filter and Search
         filter_by: Filter by
-        unfold: Unfold
       results:
         view_all: View all (%{count})
     security:
@@ -1479,13 +1487,11 @@ en:
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate User
       floating_help:
-        close: Close help
         help: Help
       follow_button:
-        sign_in_before_follow: Please sign in before performing this action
+        log_in_before_follow: Please log in before performing this action
       login_modal:
-        close_modal: Close modal
-        please_sign_in: Please sign in
+        please_log_in: Please log in
         sign_up: Sign up
       mentions_modal:
         remove_recipient: Remove recipient %{name}
@@ -1495,11 +1501,9 @@ en:
           areas: Areas
           scope: Scope
           select_an_area: Select an area
+      progress: Progress
       public_participation:
         public_participation: Show my attendance publicly
-      redesigned_login_modal:
-        please_sign_in: Please sign in
-        sign_up: Sign up
       reference:
         reference: 'Reference: %{reference}'
       represent_user_group:
@@ -1509,7 +1513,6 @@ en:
         label: 'Results per page:'
         title: Select number of results per page
       share_modal:
-        close_window: Close window
         copy_share_link: Copy
         copy_share_link_clarification: Copy share link to clipboard
         copy_share_link_copied: Copied!
@@ -1606,8 +1609,8 @@ en:
       last_attempt: You have one more attempt before your account is locked.
       locked: Your account is locked.
       not_found_in_database: Invalid %{authentication_keys} or password.
-      timeout: Your session expired. Please sign in again to continue.
-      unauthenticated: You need to sign in or sign up before continuing.
+      timeout: Your session expired. Please log in again to continue.
+      unauthenticated: You need to log in or sign up before continuing.
     invitations:
       edit:
         header: Finish creating your account
@@ -1670,7 +1673,7 @@ en:
         action: Unlock my account
         greeting: Hello %{recipient}!
         instruction: 'Click the link below to unlock your account:'
-        message: Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
+        message: Your account has been locked due to an excessive amount of unsuccessful log in attempts.
         subject: Unlock instructions
     omniauth_callbacks:
       failure: Could not authenticate you from %{kind} because "%{reason}".
@@ -1680,8 +1683,9 @@ en:
         change_my_password: Change my password
         confirm_new_password: Confirm new password
         new_password: New password
-        password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
-        password_help_admin: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and must be different from your old passwords."
+        old_password_help: In order to confirm the changes to your account, please provide your current password.
+        password_help: "%{minimum_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
+        password_help_admin: "%{minimum_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and must be different from your old passwords."
         title: Password change
       new:
         forgot_your_password: Forgot your password?
@@ -1702,19 +1706,19 @@ en:
       update_needs_confirmation: You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.
       updated: Your account has been successfully updated.
     sessions:
-      already_signed_out: Signed out successfully.
+      already_signed_out: Logged out successfully.
       new:
-        sign_in: Log in
-      signed_in: Signed in successfully.
-      signed_out: Signed out successfully.
+        log_in: Log in
+      signed_in: Logged in successfully.
+      signed_out: Logged out successfully.
     shared:
       links:
         back: Back
         didn_t_receive_confirmation_instructions: Did not receive confirmation instructions?
         didn_t_receive_unlock_instructions: Did not receive unlock instructions?
         forgot_your_password: Forgot your password?
-        sign_in: Log in
-        sign_in_with_provider: Sign in with %{provider}
+        log_in: Log in
+        log_in_with_provider: Log in with %{provider}
         sign_up: Sign up
       minimum_password_length:
         one: "(%{count} character minimum)"
@@ -1724,7 +1728,7 @@ en:
         resend_unlock_instructions: Resend unlock instructions
       send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
       send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
-      unlocked: Your account has been successfully unlocked. Please sign in to continue.
+      unlocked: Your account has been successfully unlocked. Please log in to continue.
   doorkeeper:
     scopes:
       public: Your public information.
@@ -1813,7 +1817,7 @@ en:
   errors:
     messages:
       allowed_file_content_types: 'only files with the following extensions are allowed: %{types}'
-      already_confirmed: was already confirmed, please try signing in
+      already_confirmed: was already confirmed, please try logging in
       blank: cannot be blank
       cannot_be_blank: cannot be blank
       confirmation: does not match %{attribute}
@@ -1850,7 +1854,7 @@ en:
   layouts:
     decidim:
       announcements:
-        close: Close
+        view_less: Show less
         view_more: More information
       data_consent:
         details:
@@ -1909,17 +1913,14 @@ en:
         decidim_logo: Decidim Logo
         decidim_title: Decidim
         download_open_data: Download Open Data files
+        log_in: Log in
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Resources
-        sign_in: Sign In
         sign_up: Sign Up
         terms_and_conditions: Terms and Conditions
       header:
-        close_menu: Close menu
+        log_in: Log in
         main_menu: Main menu
-        navigation: Navigation
-        sign_in: Sign In
-        sign_up: Sign Up
         user_menu: User menu
       impersonation_warning:
         close_session: Close session
@@ -1932,28 +1933,30 @@ en:
         mark_as_read: Mark as read
       offline_banner:
         cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you are visiting, perhaps the content is not up to date.
+      shared:
+        layout_item:
+          next: Next item
+          prev: Previous item
       social_media_links:
         facebook: "%{organization} at Facebook"
         github: "%{organization} at GitHub"
         instagram: "%{organization} at Instagram"
-        twitter: "%{organization} at Twitter"
+        x: "%{organization} at X"
         youtube: "%{organization} at YouTube"
       timeout_modal:
         body: You have been inactive for %{minutes} minutes. If you continue being inactive, you will be automatically signed out for your own security.
         continue_session: Continue session
-        sign_out: Sign out
+        log_out: Log out
         title: Would you like to continue your session?
-      upload_modal:
-        close_modal: Close modal
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard
         configuration: Configuration
         conversations: Conversations
+        log_out: Log out
         notifications: Notifications
         profile: My account
         public_profile: My public profile
-        sign_out: Sign out
         title: Profile links
       user_profile:
         account: Account
@@ -2009,6 +2012,7 @@ en:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
@@ -2041,6 +2045,7 @@ en:
       option_split: Side-by-side
       option_unescaped: Unescaped
       option_unified: Unified
+      toggle: Toggle view
   views:
     pagination:
       next: Next

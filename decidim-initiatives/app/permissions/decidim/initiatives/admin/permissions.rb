@@ -163,6 +163,7 @@ module Decidim
 
         def initiative_export_action?
           allow! if permission_action.subject == :initiatives && permission_action.action == :export
+          allow! if permission_action.action == :export && permission_action.subject == :component_data
         end
 
         def initiatives_settings_action?

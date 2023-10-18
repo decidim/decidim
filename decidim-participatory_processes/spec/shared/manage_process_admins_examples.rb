@@ -14,7 +14,9 @@ shared_examples "manage process admins examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
-    click_link "Process admins"
+    within_admin_sidebar_menu do
+      click_link "Process admins"
+    end
   end
 
   it "shows process admin list" do
@@ -24,7 +26,7 @@ shared_examples "manage process admins examples" do
   end
 
   it "creates a new process admin" do
-    find(".card-title a.new").click
+    click_link "New process admin"
 
     within ".new_participatory_process_user_role" do
       fill_in :participatory_process_user_role_email, with: other_user.email
@@ -70,7 +72,7 @@ shared_examples "manage process admins examples" do
 
     it "deletes a participatory_process_user_role" do
       within find("#process_admins tr", text: other_user.email) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

@@ -14,10 +14,6 @@ edit_link(
 )
 %>
 
-<%= participatory_space_floating_help %>
-
-<% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
-
 <%= content_for :aside do %>
   <section class="initiative__aside">
     <% if current_initiative.published? || current_initiative.rejected? || current_initiative.accepted? || current_initiative.discarded? %>
@@ -29,8 +25,8 @@ edit_link(
     <% else %>
       <section class="layout-aside__section layout-aside__buttons">
         <%= link_to t(".edit"),
-            edit_initiative_path(current_initiative),
-            class: "button button__xl w-full button__secondary" %>
+                    edit_initiative_path(current_initiative),
+                    class: "button button__xl w-full button__secondary" %>
         <%= render partial: "send_to_technical_validation", locals: { title: t(".send_to_technical_validation"), confirm: t(".confirm") } %>
       </section>
     <% end %>
@@ -88,7 +84,7 @@ edit_link(
         </p>
         <span class="initiative__aside__element__data-text">
           <span class="text-sm font-normal text-gray-2 block">
-            <%= link_to translated_attribute(current_initiative.scope_name), initiatives_path(filter: { scope_id: [current_initiative.scope&.id] }) %>
+            <%= link_to translated_attribute(current_initiative.scope_name), initiatives_path(filter: { with_any_scope: [current_initiative.scope&.id] }) %>
           </span>
         </span>
       </div>
@@ -109,7 +105,7 @@ edit_link(
           </p>
           <span class="initiative__aside__element__data-text">
             <span class="text-sm font-normal text-gray-2 block">
-              <%= link_to translated_attribute(current_initiative.area_name), initiatives_path(filter: { area_id: [current_initiative.area.id] }) %>
+              <%= link_to translated_attribute(current_initiative.area_name), initiatives_path(filter: { with_any_area: [current_initiative.area.id] }) %>
             </span>
           </span>
         </div>
@@ -124,9 +120,10 @@ edit_link(
             <%= t("title", scope: "decidim.initiatives.admin.committee_requests.index") %>
           </span>
           <div class="ml-auto fill-secondary inline-block">
-            <input id="urlShareLink" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>" readonly>
-            <button type="button" class="button button__sm button__text-secondary" data-clipboard-copy="#urlShareLink">
+            <input id="urlShareLink-committee" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>" readonly>
+            <button type="button" class="button button__sm button__text-secondary" data-clipboard-copy="#urlShareLink-committee">
               <%= render_committee_tooltip %>
+              <span class="sr-only"><%= t("decidim.shared.share_modal.copy_share_link") %></span>
             </button>
           </div>
         </div>
@@ -146,6 +143,21 @@ edit_link(
     <% end %>
   </section>
 <% end %>
+
+<%= participatory_space_floating_help %>
+
+<% if current_initiative.created? %>
+  <% if allowed_to? :send_to_technical_validation, :initiative, initiative: current_initiative %>
+    <%= cell("decidim/announcement", t(".send_to_technical_validation_announcement"), callout_class: "success") %>
+  <% else %>
+    <%= cell("decidim/announcement", t(".before_send_to_technical_validation_announcement",
+                                       count: current_initiative.missing_committee_members,
+                                       href: link_to(new_initiative_committee_request_url(current_initiative),
+                                                     new_initiative_committee_request_path(current_initiative))), callout_class: "warning") %>
+  <% end %>
+<% end %>
+
+<% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 
 <section class="layout-main__section layout-main__heading">
   <h2 class="h2 decorator">
@@ -189,20 +201,17 @@ edit_link(
 
 <section class="layout-main__section layout-main__buttons" data-buttons>
   <% if current_initiative.commentable? && current_initiative.published? %>
-    <%= cell "decidim/comments_button", nil %>
+    <%= cell "decidim/comments_button", nil, display: current_initiative.commentable? && current_initiative.published? %>
   <% end %>
   <div class="ml-auto">
     <%= cell "decidim/share_button", nil %>
-    <% if current_user %>
-      <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: current_participatory_space, large: true } %>
-    <% end %>
   </div>
 </section>
 
-<section class="layout-main__section">
+<section class="layout-main__section layout-item__aside--footer">
   <%= comments_for current_initiative if current_initiative.commentable? && current_initiative.published? %>
-  <ul class="drawer-metadata__container layout-main__section" data-metadata-footer>
-    <%= content_tag :li, resource_reference(current_initiative), class: "drawer-metadata__item" %>
-    <%= content_tag :li, resource_version(current_initiative, versions_path: initiative_version_path(current_initiative, current_initiative.versions.count)), class: "drawer-metadata__item" %>
+  <ul class="metadata__container layout-main__section" data-metadata-footer>
+    <%= content_tag :li, resource_reference(current_initiative), class: "metadata__item" %>
+    <%= content_tag :li, resource_version(current_initiative, versions_path: initiative_version_path(current_initiative, current_initiative.versions.count)), class: "metadata__item" %>
   </ul>
 </section>

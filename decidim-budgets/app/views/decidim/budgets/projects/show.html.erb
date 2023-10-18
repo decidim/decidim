@@ -15,11 +15,7 @@ edit_link(
 <%= append_javascript_pack_tag "decidim_budgets" %>
 <%= append_stylesheet_pack_tag "decidim_budgets" %>
 
-<% if redesign_enabled? %>
-  <%= render partial: "redesigned_exit_modal" %>
-<% else %>
-  <%= render partial: "exit_modal" %>
-<% end %>
+<%= render partial: "exit_modal" %>
 
 <div id="project-item">
   <%= render partial: "budget_summary", locals: { include_heading: true, project_item: true, responsive: true } %>
@@ -99,8 +95,8 @@ edit_link(
     <% end %>
     <% content_for :item_footer do %>
       <%= comments_for project, polymorphic: [project.budget] %>
-      <ul class="drawer-metadata__container layout-main__section" data-metadata-footer>
-        <%= content_tag :li, resource_reference(project), class: "drawer-metadata__item" %>
+      <ul class="metadata__container layout-main__section" data-metadata-footer>
+        <%= content_tag :li, resource_reference(project), class: "metadata__item" %>
       </ul>
     <% end %>
   <% end %>

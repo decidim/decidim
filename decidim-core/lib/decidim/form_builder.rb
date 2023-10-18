@@ -25,7 +25,7 @@ module Decidim
     # Renders a collection of check boxes.
     # rubocop:disable Metrics/ParameterLists
     def collection_check_boxes(attribute, collection, value_attribute, text_attribute, options = {}, html_options = {})
-      super + error_and_help_text(attribute, options)
+      error_and_help_text(attribute, options) + super
     end
     # rubocop:enable Metrics/ParameterLists
 
@@ -42,7 +42,7 @@ module Decidim
     # Renders a collection of radio buttons.
     # rubocop:disable Metrics/ParameterLists
     def collection_radio_buttons(attribute, collection, value_attribute, text_attribute, options = {}, html_options = {})
-      super + error_and_help_text(attribute, options)
+      error_and_help_text(attribute, options) + super
     end
     # rubocop:enable Metrics/ParameterLists
 
@@ -54,9 +54,9 @@ module Decidim
       end
     end
 
-    # Public: Generates an form field for each locale.
+    # Public: Generates a form field for each locale.
     #
-    # type - The form field's type, like `text_area` or `text_input`
+    # type - The form field's type, like `text_area` or `text_field`
     # name - The name of the field
     # options - The set of options to send to the field
     #
@@ -97,6 +97,7 @@ module Decidim
     def password_field(attribute, options = {})
       field attribute, options do |opts|
         opts[:autocomplete] ||= :off
+        opts[:class] ||= "input-group-field"
         method(__method__).super_method.super_method.call(attribute, opts)
       end
     end
@@ -112,9 +113,9 @@ module Decidim
     end
 
     # Public: Generates a field for hashtaggable type.
-    # type - The form field's type, like `text_area` or `text_input`
+    # type - The form field's type, like `text_area` or `text_field`
     # name - The name of the field
-    # handlers - The social handlers to be created
+    # locale - The locale to be created
     # options - The set of options to send to the field
     #
     # Renders form fields for each locale.
@@ -130,9 +131,9 @@ module Decidim
       end
     end
 
-    # Public: Generates an form field for each social.
+    # Public: Generates a form field for each social.
     #
-    # type - The form field's type, like `text_area` or `text_input`
+    # type - The form field's type, like `text_area` or `text_field`
     # name - The name of the field
     # handlers - The social handlers to be created
     # options - The set of options to send to the field
@@ -180,6 +181,7 @@ module Decidim
     #           :toolbar - The String value to configure WYSIWYG toolbar. It should be 'basic' or
     #                      or 'full' (optional) (default: 'basic')
     #           :lines - The Integer to indicate how many lines should editor have (optional) (default: 10)
+    #           :help_text - The help text to display
     #           :disabled - Whether the editor should be disabled
     #
     # Renders a container with both hidden field and editor container
@@ -190,6 +192,7 @@ module Decidim
       label_text = options[:label].to_s
       label_text = label_for(name) if label_text.blank?
       options.delete(:required)
+      help_text = options.delete(:help_text)
       editor_image = Decidim::EditorImage.new
       editor_options = editor_options(editor_image, options)
       hidden_options = extract_validations(name, options).merge(options)
@@ -205,6 +208,7 @@ module Decidim
         template = ""
         template += label(name, label_text + required_for_attribute(name), for: nil) if options.fetch(:label, true)
         template += hidden_field(name, hidden_options.merge(id: nil))
+        template += content_tag(:span, help_text, class: "help-text") if help_text
         template += content_tag(
           :div,
           nil,
@@ -364,8 +368,8 @@ module Decidim
 
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
-      template += @template.render("decidim/widgets/data_picker", picker_options:, prompt_params:, items:)
       template += error_and_help_text(attribute, options)
+      template += @template.render("decidim/widgets/data_picker", picker_options:, prompt_params:, items:)
       template.html_safe
     end
 
@@ -374,49 +378,8 @@ module Decidim
       custom_label(attribute, options[:label], options[:label_options], field_before_label: true) do
         options.delete(:label)
         options.delete(:label_options)
-        @template.check_box(@object_name, attribute, objectify_options(options), checked_value, unchecked_value)
+        @template.check_box(@object_name, attribute, objectify_options(options.except(:help_text)), checked_value, unchecked_value)
       end + error_and_help_text(attribute, options)
-    end
-
-    # Public: Override so the date fields are rendered using foundation
-    # datepicker library
-    def date_field(attribute, options = {})
-      value = object.send(attribute)
-      data = { datepicker: "" }
-      data[:startdate] = I18n.l(value, format: :decidim_short) if value.present? && value.is_a?(Date)
-      datepicker_format = ruby_format_to_datepicker(I18n.t("date.formats.decidim_short"))
-      data[:"date-format"] = datepicker_format
-      options[:help_text] ||= I18n.t("decidim.datepicker.help_text", datepicker_format:)
-
-      template = text_field(
-        attribute,
-        options.merge(data:)
-      )
-      template.html_safe
-    end
-
-    # Public: Generates a timepicker field using foundation
-    # datepicker library
-    def datetime_field(attribute, options = {})
-      value = object.send(attribute)
-      data = { datepicker: "", timepicker: "" }
-      if value.present?
-        case value
-        when ActiveSupport::TimeWithZone
-          data[:startdate] = I18n.l(value, format: :decidim_short)
-        when Time, DateTime
-          data[:startdate] = I18n.l(value.in_time_zone(Time.zone), format: :decidim_short)
-        end
-      end
-      datepicker_format = ruby_format_to_datepicker(I18n.t("time.formats.decidim_short"))
-      data[:"date-format"] = datepicker_format
-      options[:help_text] ||= I18n.t("decidim.datepicker.help_text", datepicker_format:)
-
-      template = text_field(
-        attribute,
-        options.merge(data:)
-      )
-      template.html_safe
     end
 
     # Public: Generates a file upload field for Decidim::Attachment type of attachment.
@@ -471,7 +434,6 @@ module Decidim
       max_file_size = options[:max_file_size] || max_file_size(object, attribute)
       button_label = options[:button_label] || choose_button_label(attribute)
       help_messages = options[:help] || upload_help(object, attribute, options)
-      redesigned = @template.try(:redesign_enabled?)
 
       options = {
         attribute:,
@@ -484,8 +446,7 @@ module Decidim
         help: help_messages,
         label: label_for(attribute),
         button_label:,
-        button_edit_label: I18n.t("decidim.forms.upload.labels.replace"),
-        redesigned:
+        button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
       }.merge(options)
 
       ::Decidim::ViewModel.cell(
@@ -612,7 +573,7 @@ module Decidim
       content = content.html_safe
 
       html = error_and_help_text(attribute, options.merge(help_text:))
-      wrap_prefix_and_postfix(content, prefix, postfix) + html
+      html + wrap_prefix_and_postfix(content, prefix, postfix)
     end
 
     # rubocop: disable Metrics/CyclomaticComplexity

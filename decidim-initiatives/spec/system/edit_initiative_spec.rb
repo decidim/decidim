@@ -8,10 +8,10 @@ describe "Edit initiative", type: :system do
   let(:initiative_title) { translated(initiative.title) }
   let(:new_title) { "This is my initiative new title" }
 
-  let!(:initiative_type) { create(:initiatives_type, :online_signature_enabled, organization:) }
+  let!(:initiative_type) { create(:initiatives_type, :attachments_enabled, :online_signature_enabled, organization:) }
   let!(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
 
-  let!(:other_initiative_type) { create(:initiatives_type, organization:) }
+  let!(:other_initiative_type) { create(:initiatives_type, :attachments_enabled, organization:) }
   let!(:other_scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
 
   let(:initiative_path) { decidim_initiatives.initiative_path(initiative) }
@@ -50,6 +50,31 @@ describe "Edit initiative", type: :system do
       within ".main-bar" do
         expect(page).not_to have_link("Edit")
       end
+    end
+
+    it "does not have status field" do
+      expect(page).not_to have_xpath("//select[@id='initiative_state']")
+    end
+
+    it "allows adding attachments" do
+      visit initiative_path
+
+      click_link("Edit", href: edit_initiative_path)
+
+      expect(page).to have_content "Edit Initiative"
+
+      expect(initiative.reload.attachments.count).to eq(0)
+
+      dynamically_attach_file(:initiative_documents, Decidim::Dev.asset("Exampledocument.pdf"))
+      dynamically_attach_file(:initiative_photos, Decidim::Dev.asset("avatar.jpg"))
+
+      within "form.edit_initiative" do
+        click_button "Update"
+      end
+
+      expect(initiative.reload.documents.count).to eq(1)
+      expect(initiative.photos.count).to eq(1)
+      expect(initiative.attachments.count).to eq(2)
     end
 
     context "when initiative is published" do

@@ -101,7 +101,7 @@ en:
         edit: Edit
         filter:
           all_processes: Show all processes
-          process_groups: Process Groups
+          process_groups: Filter processes in groups
         import_process: Import
         moderate: Moderate
         new_process: New process
@@ -112,6 +112,7 @@ en:
         preview: Preview
         publish: Publish
         resend_invitation: Resend invitation
+        see_process: See process
         unpublish: Unpublish
       menu:
         participatory_process_groups: Process groups
@@ -126,7 +127,7 @@ en:
           attachments: Attachments
           categories: Categories
           components: Components
-          info: Info
+          info: About this process
           landing_page: Landing page
           moderations: Moderations
           private_users: Private participants
@@ -135,9 +136,9 @@ en:
       models:
         participatory_process:
           fields:
+            actions: Actions
             created_at: Created at
             private: Private
-            promoted: Highlighted
             published: Published
             title: Title
           name: Participatory process
@@ -256,8 +257,6 @@ en:
         edit:
           title: Edit process type
           update: Update
-        form:
-          title: Title
         new:
           create: Create
           title: New process type
@@ -288,10 +287,10 @@ en:
         edit:
           update: Update
         index:
-          not_published: Not published
           private: Private
           public: Public
           published: Published
+          unpublished: Unpublished
         new:
           create: Create
           title: New participatory process
@@ -406,7 +405,6 @@ en:
     participatory_process_steps:
       index:
         process_steps: Process phases
-        title: Participatory process phases
     participatory_processes:
       admin:
         content_blocks:
@@ -420,19 +418,19 @@ en:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadata
-            title: General Information
+            title: About this process
             visibility: Visibility
         participatory_process_imports:
           form:
             document_legend: Add a document
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
+            cta_path_help_html: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
             cta_text_help: If not set, the button will not be shown.
         participatory_processes:
           form:
@@ -447,7 +445,7 @@ en:
             select_an_area: Select an Area
             select_participatory_process_type: Select a process type
             select_process_group: Select a process group
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: General Information
             visbility: Visibility
       content_blocks:
@@ -514,10 +512,8 @@ en:
           title: About this process
       show:
         belongs_to_group: This process belongs to
-        dates: Dates
         private_space: This is a private process
         related_processes: Related processes
-        unspecified: Not specified
     statistics:
       processes_count: Processes
   layouts:
@@ -536,8 +532,3 @@ en:
           more_info_about: More info about process %{resource_name}
           take_part: Take part
           take_part_in: Take part in process %{resource_name}
-      process_header_steps:
-        step: Phase %{current} of %{total}
-        view_steps: Process phases
-      process_navigation:
-        process_menu_item: The process

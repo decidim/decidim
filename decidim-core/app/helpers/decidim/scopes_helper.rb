@@ -54,46 +54,34 @@ module Decidim
     #
     # Returns nothing.
     def scopes_select_field(form, name, root: false, options: {})
-      root = try(:current_participatory_space)&.scope if root == false
-      ordered_descendants = if root.present?
-                              root.descendants
-                            else
-                              current_organization.scopes
-                            end.sort { |a, b| a.part_of.reverse <=> b.part_of.reverse }
-
       form.select(
         name,
-        ordered_descendants.map { |scope| [" #{"&nbsp;" * 4 * (scope.part_of.count - 1)} #{translated_attribute(scope.name)}".html_safe, scope&.id] },
+        ordered_scopes_descendants_for_select(root),
         options.merge(include_blank: I18n.t("decidim.scopes.prompt"))
       )
     end
 
-    # Renders a scopes picker field in a form, not linked to a specific model.
-    # name - name for the input
-    # value - value for the input
-    #
-    # Returns nothing.
-    def scopes_picker_tag(name, value, options = {})
-      root = try(:current_participatory_space)&.scope
-      field = options[:field] || name
-
-      scopes_picker_field_tag name, value, id: options[:id] do |scope|
-        { url: decidim.scopes_picker_path(root:, current: scope&.id, field:),
-          text: scope_name_for_picker(scope, I18n.t("decidim.scopes.global")) }
-      end
+    def scopes_select_tag(name, root: false, options: {})
+      select_tag(
+        name,
+        options_for_select(ordered_scopes_descendants_for_select(root)),
+        options.merge(include_blank: I18n.t("decidim.scopes.prompt"))
+      )
     end
 
     # Renders a scopes picker field in a filter form.
     # form - FilterFormBuilder object
     # name - attribute name
+    # help_text - The help text to display
     # checkboxes_on_top - Show picker values on top (default) or below the picker prompt (only for multiple pickers)
     #
     # Returns nothing.
-    def scopes_picker_filter(form, name, checkboxes_on_top: true)
+    def scopes_picker_filter(form, name, help_text: nil, checkboxes_on_top: true)
       options = {
         multiple: true,
         legend_title: I18n.t("decidim.scopes.scopes"),
         label: false,
+        help_text:,
         checkboxes_on_top:
       }
 

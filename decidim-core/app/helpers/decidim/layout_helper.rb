@@ -46,7 +46,7 @@ module Decidim
     #             :class - The String to add as a CSS class (optional).
     #
     # Returns a String.
-    def redesigned_icon(name, options = {})
+    def icon(name, options = {})
       default_html_properties = {
         "width" => "1em",
         "height" => "1em",
@@ -62,45 +62,6 @@ module Decidim
       content_tag :svg, html_properties do
         content_tag :use, nil, "href" => "#{href}#ri-#{name}", tabindex: -1
       end
-    end
-
-    def legacy_icon(name, options = {})
-      options = options.with_indifferent_access
-      html_properties = {}
-
-      html_properties["width"] = options[:width]
-      html_properties["height"] = options[:height]
-      html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"]
-      html_properties["role"] = options[:role] || "img"
-      html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"]
-
-      html_properties["class"] = (["icon--#{name}"] + _icon_classes(options)).join(" ")
-
-      title = options["title"] || html_properties["aria-label"]
-      if title.blank? && html_properties["role"] == "img"
-        # This will make the accessibility audit tools happy as with the "img"
-        # role, the alternative text (aria-label) and title are required for the
-        # element. This will also force the SVG to be hidden because otherwise
-        # the screen reader would announce the icon name which can be in
-        # different language (English) than the page language which is not
-        # allowed.
-        title = name
-        html_properties["aria-label"] = title
-        html_properties["aria-hidden"] = true
-      end
-
-      href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg")
-
-      content_tag :svg, html_properties do
-        inner = content_tag :title, title
-        inner += content_tag :use, nil, "href" => "#{href}#icon-#{name}"
-
-        inner
-      end
-    end
-
-    def icon(*args)
-      redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
     end
 
     # Outputs a SVG icon from an external file. It apparently renders an image
@@ -173,7 +134,7 @@ module Decidim
     # Example:
     #
     # --primary: #ff0000;
-    # --primary-rgb: 255,0,0
+    # --primary-rgb: 255 0 0
     #
     # Hexadecimal variables can be used as a normal CSS color:
     #

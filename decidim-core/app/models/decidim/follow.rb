@@ -24,9 +24,7 @@ module Decidim
     end
 
     def self.user_follower_ids_for_participatory_spaces(spaces)
-      # IF the space has questions it is a Consultations
-      followables = spaces.flat_map { |space| space.try(:questions) || space }
-      joins(:user).where(followable: followables).pluck(:decidim_user_id).uniq
+      joins(:user).where(followable: spaces).pluck(:decidim_user_id).uniq
     end
 
     private

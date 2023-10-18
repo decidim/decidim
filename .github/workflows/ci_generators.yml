@@ -1,4 +1,4 @@
-name: "[CI] Generators (Generator flags)"
+name: "[CI] Generators"
 on:
   push:
     branches:
@@ -17,7 +17,7 @@ on:
 env:
   CI: "true"
   RUBY_VERSION: 3.1.1
-  NODE_VERSION: 16.13.0
+  NODE_VERSION: 18.17.1
   DECIDIM_MODULE: decidim-generators
   PARALLEL_TEST_PROCESSORS: 2
   CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
@@ -30,9 +30,16 @@ concurrency:
 jobs:
   main:
     strategy:
+      fail-fast: false
       matrix:
         test-command:
-          - bundle exec parallel_test --type rspec --pattern spec/runtime/config_flags_generator_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/branch_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/component_generator_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/edge_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/no_flags_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/path_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/queue_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/storage_flag_spec.rb
           - bundle exec parallel_test --type rspec --pattern spec/runtime/full_app_generator_spec.rb
           - bundle exec parallel_test --type rspec --pattern spec/lib/
     name: "[CI] Generators"
@@ -41,7 +48,7 @@ jobs:
     timeout-minutes: 60
     services:
       postgres:
-        image: postgres:11
+        image: postgres:14
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
@@ -76,6 +83,12 @@ jobs:
           key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
+      - uses: actions/cache@v3
+        id: app-cache
+        with:
+          path: ./Gemfile.lock
+          key: gemfile-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: gemfile-${{ hashFiles('Gemfile.lock') }}
       - run: bundle install --jobs 4 --retry 3
         name: Install Ruby deps
         working-directory: ${{ env.DECIDIM_MODULE }}
@@ -88,5 +101,5 @@ jobs:
         name: Upload coverage
         with:
           token: ${{ env.CODECOV_TOKEN }}
-          name: decidim-generators-flags
-          flags: decidim-generators-flags
+          name: decidim-generators
+          flags: decidim-generators

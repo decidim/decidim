@@ -8,7 +8,6 @@ module Decidim
     # Note that it inherits from `Decidim::Components::BaseController`, which
     # override its layout and provide all kinds of useful methods.
     class ApplicationController < Decidim::Components::BaseController
-      redesign_participatory_space_layout skip_authorize_participatory_space: true
     end
   end
 end

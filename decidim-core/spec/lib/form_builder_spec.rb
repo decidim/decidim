@@ -3,13 +3,14 @@
 require "spec_helper"
 require "nokogiri"
 
+require "decidim/core/test/shared_examples/form_builder_examples"
+
 module Decidim
   describe FormBuilder do
     let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
     let(:available_locales) { %w(ca en de-CH) }
     let(:uploader) { Decidim::ApplicationUploader }
     let(:organization) { create(:organization) }
-    let(:redesign_enabled?) { false }
 
     let(:resource) do
       class DummyClass
@@ -80,7 +81,6 @@ module Decidim
     before do
       allow(Decidim).to receive(:available_locales).and_return available_locales
       allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
-      allow(helper).to receive(:redesign_enabled?).and_return(redesign_enabled?)
     end
 
     describe "#editor" do
@@ -106,6 +106,16 @@ module Decidim
           expect(parsed.css(".editor label")).not_to be_empty
           expect(parsed.css(".editor .editor-container[data-toolbar='full']")).not_to be_empty
         end
+      end
+
+      context "when a help text is defined" do
+        let(:field) { "editor-input" }
+        let(:help_text_text) { "This is the help" }
+        let(:output) do
+          builder.editor :slug, help_text: help_text_text
+        end
+
+        it_behaves_like "having a help text"
       end
     end
 
@@ -135,6 +145,16 @@ module Decidim
 
           it "does not render a dropdown" do
             expect(parsed.css("option")).to be_empty
+          end
+
+          context "when a help text is defined" do
+            let(:field) { "textarea" }
+            let(:help_text_text) { "This is the help" }
+            let(:output) do
+              builder.translated :text_area, :name, help_text: help_text_text
+            end
+
+            it_behaves_like "having a help text"
           end
         end
 
@@ -233,7 +253,53 @@ module Decidim
       end
     end
 
-    describe "categories_for_select" do
+    describe "#select" do
+      let(:options) { [%w(All all), %w(None none)] }
+      let(:output) do
+        builder.select :scopes, options
+      end
+
+      it "renders" do
+        expect(output).to match(
+          "<label for=\"resource_scopes\">Scopes" \
+          "<select name=\"resource[scopes]\" id=\"resource_scopes\">" \
+          "<option value=\"all\">All</option>\n" \
+          "<option value=\"none\">None</option></select></label>"
+        )
+      end
+
+      context "when a help text is defined" do
+        let(:field) { "select" }
+        let(:help_text_text) { "This is the help" }
+        let(:output) do
+          builder.select :scopes, options, help_text: help_text_text
+        end
+
+        it "renders" do
+          expect(output).to match(
+            "<label for=\"resource_scopes\">Scopes<span class=\"help-text\">This is the help</span>" \
+            "<select name=\"resource[scopes]\" id=\"resource_scopes\">" \
+            "<option value=\"all\">All</option>\n" \
+            "<option value=\"none\">None</option></select></label>"
+          )
+        end
+
+        it_behaves_like "having a help text"
+      end
+    end
+
+    describe "#hashtaggable_text_field" do
+      let(:output) do
+        builder.hashtaggable_text_field :text_field, :name, "en", { autofocus: true, class: "js-hashtags", label: false }
+      end
+
+      it "renders" do
+        expect(parsed.css(".hashtags__container")).not_to be_empty
+        expect(parsed.css("input#resource_name_en")).not_to be_empty
+      end
+    end
+
+    describe "#categories_for_select" do
       subject { Nokogiri::HTML(output) }
 
       let!(:component) { create(:component) }
@@ -334,7 +400,7 @@ module Decidim
       end
     end
 
-    describe "checkbox" do
+    describe "#check_box" do
       let(:output) do
         builder.check_box :name
       end
@@ -346,6 +412,38 @@ module Decidim
           "</label>"
         )
       end
+
+      context "when a help text is defined" do
+        let(:field) { "input" }
+        let(:help_text_text) { "This is the help" }
+        let(:output) do
+          builder.check_box :name, help_text: help_text_text
+        end
+
+        it "renders correctly" do
+          expect(output).to eq(
+            '<label for="resource_name"><input name="resource[name]" type="hidden" value="0" autocomplete="off" />' \
+            '<input type="checkbox" value="1" name="resource[name]" id="resource_name" />Name' \
+            "</label>" \
+            '<span class="help-text">This is the help</span>'
+          )
+        end
+
+        it "renders the help text" do
+          expect(parsed.css(".help-text")).not_to be_empty
+        end
+
+        # Mind that we are not using the "having a help text" shared example
+        # for #check_box, as in this case we actually want to show it after
+        # the input
+        it "renders the help text after the field" do
+          expect(parsed.to_s.index("help-text")).to be > parsed.to_s.index(field)
+        end
+
+        it "renders the help text text only once" do
+          expect(parsed.to_s.scan(/#{help_text_text}/).size).to eq 1
+        end
+      end
     end
 
     describe "#password_field" do
@@ -355,19 +453,29 @@ module Decidim
       let(:options) { {} }
 
       it "renders the input type password" do
-        expect(output).to eq('<label for="resource_password">Password<input autocomplete="off" type="password" name="resource[password]" id="resource_password" /></label>')
+        expect(output).to eq('<label for="resource_password">Password<input autocomplete="off" class="input-group-field" type="password" name="resource[password]" id="resource_password" /></label>')
       end
 
       context "when autocomplete attribute is defined" do
         let(:options) { { autocomplete: "new-password" } }
 
         it "renders the input type password with given autocomplete attribute" do
-          expect(output).to eq('<label for="resource_password">Password<input autocomplete="new-password" type="password" name="resource[password]" id="resource_password" /></label>')
+          expect(output).to eq('<label for="resource_password">Password<input autocomplete="new-password" class="input-group-field" type="password" name="resource[password]" id="resource_password" /></label>')
         end
+      end
+
+      context "when a help text is defined" do
+        let(:field) { "input" }
+        let(:help_text_text) { "This is the help" }
+        let(:output) do
+          builder.password_field :slug, help_text: help_text_text
+        end
+
+        it_behaves_like "having a help text"
       end
     end
 
-    describe "date_field" do
+    describe "#date_field" do
       context "when the resource has errors" do
         before do
           resource.valid?
@@ -380,67 +488,22 @@ module Decidim
         it "renders the input with the proper class" do
           expect(parsed.css("input.is-invalid-input")).not_to be_empty
         end
+
+        context "when a help text is defined" do
+          let(:field) { "input" }
+          let(:help_text_text) { "This is the help" }
+          let(:output) do
+            builder.date_field :born_at, help_text: help_text_text
+          end
+
+          it_behaves_like "having a help text"
+        end
       end
     end
 
-    describe "datetime_field" do
+    describe "#datetime_field" do
       let(:output) do
         builder.datetime_field :start_time
-      end
-
-      context "when the start_time is set as ActiveSupport::TimeWithZone" do
-        before do
-          resource.start_time = Time.parse("2017-02-01T15:00:00.000Z").in_time_zone("UTC")
-        end
-
-        it { expect(resource.start_time).to be_a(ActiveSupport::TimeWithZone) }
-
-        it "formats the start date correctly" do
-          expect(parsed.css("input").first.attr("data-startdate")).to eq("01/02/2017 15:00")
-        end
-
-        context "with another timezone", tz: "Helsinki" do
-          it "formats the start date in the original time zone" do
-            # Note: this case is correct because it should preserve the zone stored within the value itself.
-            expect(parsed.css("input").first.attr("data-startdate")).to eq("01/02/2017 15:00")
-          end
-        end
-      end
-
-      context "when the start_time is set as Time" do
-        before do
-          resource.start_time = Time.parse("2017-02-01T15:00:00.000Z")
-        end
-
-        it { expect(resource.start_time).to be_a(Time) }
-
-        it "formats the start date correctly" do
-          expect(parsed.css("input").first.attr("data-startdate")).to eq("01/02/2017 15:00")
-        end
-
-        context "with another timezone", tz: "Helsinki" do
-          it "formats the start date in the correct time zone" do
-            expect(parsed.css("input").first.attr("data-startdate")).to eq("01/02/2017 17:00")
-          end
-        end
-      end
-
-      context "when the start_time is set as DateTime" do
-        before do
-          resource.start_time = DateTime.parse("2017-02-01T15:00:00.000Z") # rubocop:disable Style/DateTime
-        end
-
-        it { expect(resource.start_time).to be_a(DateTime) }
-
-        it "formats the start date correctly" do
-          expect(parsed.css("input").first.attr("data-startdate")).to eq("01/02/2017 15:00")
-        end
-
-        context "with another timezone", tz: "Helsinki" do
-          it "formats the start date in the correct time zone" do
-            expect(parsed.css("input").first.attr("data-startdate")).to eq("01/02/2017 17:00")
-          end
-        end
       end
 
       context "when the resource has errors" do
@@ -450,6 +513,16 @@ module Decidim
 
         it "renders the input with the proper class" do
           expect(parsed.css("input.is-invalid-input")).not_to be_empty
+        end
+
+        context "when a help text is defined" do
+          let(:field) { "input" }
+          let(:help_text_text) { "This is the help" }
+          let(:output) do
+            builder.datetime_field :born_at, help_text: help_text_text
+          end
+
+          it_behaves_like "having a help text"
         end
       end
     end
@@ -670,7 +743,7 @@ module Decidim
       end
     end
 
-    describe "upload" do
+    describe "#upload" do
       let(:present?) { false }
       let(:filename) { "my_image.jpg" }
       let(:image?) { false }
@@ -788,14 +861,14 @@ module Decidim
 
           it "renders the correctly sorted values" do
             html = output
-            expect(html).to include(
-              [
-                "<li>This image will be resized and padded to 33 x 33 px.</li>",
-                "<li>This image will be resized and padded to 99 x 99 px.</li>",
-                "<li>This image will be resized to fit 32 x 32 px.</li>",
-                "<li>This image will be resized to fit 100 x 100 px.</li>"
-              ].join("\n      \n        ")
-            )
+            [
+              "<li>This image will be resized and padded to 33 x 33 px.</li>",
+              "<li>This image will be resized and padded to 99 x 99 px.</li>",
+              "<li>This image will be resized to fit 32 x 32 px.</li>",
+              "<li>This image will be resized to fit 100 x 100 px.</li>"
+            ].each do |value|
+              expect(html).to include(value)
+            end
           end
         end
       end
@@ -863,6 +936,16 @@ module Decidim
 
         it "renders a hidden field and a container for the editor" do
           expect(parsed.css("label[for='resource_scopes']").text).to eq("Scopes")
+        end
+
+        context "when a help text is defined" do
+          let(:field) { "rendering" }
+          let(:help_text_text) { "This is the help" }
+          let(:output) do
+            builder.data_picker(:scopes, { help_text: help_text_text }, prompt_params)
+          end
+
+          it_behaves_like "having a help text"
         end
       end
     end

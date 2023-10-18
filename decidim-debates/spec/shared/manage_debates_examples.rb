@@ -19,7 +19,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   describe "admin form" do
-    before { click_on "New Debate" }
+    before { click_on "New debate" }
 
     it_behaves_like "having a rich text editor", "new_debate", "full"
   end
@@ -42,9 +42,7 @@ RSpec.shared_examples "manage debates" do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout "Debate successfully updated"
 
       within "table" do
         expect(page).to have_content("My new title")
@@ -77,9 +75,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   it "creates a new finite debate" do
-    within ".card-title" do
-      click_link "New Debate"
-    end
+    click_link "New debate"
 
     within ".new_debate" do
       fill_in_i18n(
@@ -107,15 +103,8 @@ RSpec.shared_examples "manage debates" do
       choose "Finite"
     end
 
-    page.execute_script("$('#debate_start_time').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.find(".datepicker-dropdown .hour", text: "10:00").click
-    page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-    page.execute_script("$('#debate_end_time').focus()")
-    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-    page.find(".datepicker-dropdown .hour", text: "12:00").click
-    page.find(".datepicker-dropdown .minute", text: "12:50").click
+    fill_in :debate_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
+    fill_in :debate_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
 
     within ".new_debate" do
       select translated(category.name), from: :debate_decidim_category_id
@@ -123,9 +112,7 @@ RSpec.shared_examples "manage debates" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout "Debate successfully created"
 
     within "table" do
       expect(page).to have_content("My debate")
@@ -133,9 +120,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   it "creates a new open debate" do
-    within ".card-title" do
-      click_link "New Debate"
-    end
+    click_link "New debate"
 
     within ".new_debate" do
       fill_in_i18n(
@@ -172,9 +157,7 @@ RSpec.shared_examples "manage debates" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout "Debate successfully created"
 
     within "table" do
       expect(page).to have_content("My debate")
@@ -190,14 +173,12 @@ RSpec.shared_examples "manage debates" do
 
     it "deletes a debate" do
       within find("tr", text: translated(debate2.title)) do
-        accept_confirm admin: true do
+        accept_confirm do
           page.find(".action-icon--remove").click
         end
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout "Debate successfully deleted"
 
       within "table" do
         expect(page).not_to have_content(translated(debate2.title))
@@ -233,9 +214,7 @@ RSpec.shared_examples "manage debates" do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout "Debate successfully closed"
 
       within "table" do
         within find("tr", text: translated(debate.title)) do

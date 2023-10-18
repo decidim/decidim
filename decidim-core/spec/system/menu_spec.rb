@@ -33,4 +33,20 @@ describe "Menu", type: :system do
       end
     end
   end
+
+  context "when rendering a component with special characters" do
+    let(:component_name) { "Collaborative Drafts & Amendments" }
+    let(:participatory_space) { create(:participatory_process, organization:) }
+    let(:proposal_component) { create(:proposal_component, name: { en: component_name }, participatory_space:) }
+    let(:proposal) { create(:proposal, component: proposal_component) }
+    let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
+
+    before do
+      visit proposal_path
+    end
+
+    it "renders the component name correctly" do
+      expect(page).to have_selector(".menu-bar__breadcrumb-desktop__dropdown-wrapper", text: component_name)
+    end
+  end
 end

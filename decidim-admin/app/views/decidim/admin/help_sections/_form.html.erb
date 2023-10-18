@@ -1,21 +1,37 @@
-<%= decidim_form_for(form, url: help_sections_path, method: :put) do |f| %>
-  <% f.object.sections.each do |section| %>
-    <%= f.fields_for "sections[]", section do |section_form| %>
-      <div class="card" id="area-types">
-        <div class="card-divider">
-          <h2 class="card-title">
-            <%= translated_attribute section.name %>
-          </h2>
-        </div>
-        <div class="card-section">
-          <%= section_form.hidden_field :id %>
-          <%= section_form.translated :editor, :content, tabs_id: "sections_#{section_form.object.id}_content" %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t "decidim.admin.menu.help_sections" %>
+  </h2>
+</div>
 
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".save") %>
-  </div>
-<% end %>
+<div class="item__edit-form">
+  <%= decidim_form_for(form, url: help_sections_path, method: :put, html: { class: "form-defaults form help_sections" }) do |f| %>
+    <% f.object.sections.each do |section| %>
+      <%= f.fields_for "sections[]", section do |section_form| %>
+        <div class="form__wrapper">
+          <div class="card" data-component="accordion" id="accordion-<%= translated_attribute section.name %>">
+            <div class="card-divider">
+              <button class="card-divider-button" data-open="true" data-controls="panel-<%= translated_attribute section.name %>" type="button">
+                <%= icon "arrow-right-s-line" %>
+                <h2 class="card-title" id="<%= translated_attribute section.name %>">
+                  <%= translated_attribute section.name %>
+                </h2>
+              </button>
+            </div>
+            <div id="panel-<%= translated_attribute section.name %>" class="card-section">
+              <div class="row column">
+                <%= section_form.hidden_field :id %>
+                <%= section_form.translated :editor, :content, tabs_id: "sections_#{section_form.object.id}_content" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t(".save"), class: "button button__sm button__secondary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

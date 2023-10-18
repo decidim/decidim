@@ -12,13 +12,13 @@
           data-api-endpoint-url="<%= bulletin_board_server %>"
           data-message-id="<%= publish_results_form.pending_action.message_id %>"></div>
 
-    <%= append_javascript_pack_tag "decidim_elections_admin_pending_action" %>
+    <%= append_javascript_pack_tag "decidim_elections_admin" %>
     <span class='loading-spinner'></span> <%= t(".publishing") %></div>
   <% else %>
-    <div class="button--double form-general-submit">
-      <%= f.submit t(".publish_results") %>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <%= f.submit t(".publish_results"), class: "button button__sm button__secondary" %>
     </div>
   <% end %>
 <% end %>
 
-<%= append_stylesheet_pack_tag "decidim_votings_admin_votings" %>
+<%= append_stylesheet_pack_tag "decidim_votings_admin" %>

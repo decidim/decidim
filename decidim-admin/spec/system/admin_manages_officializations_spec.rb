@@ -30,7 +30,7 @@ describe "Admin manages officializations", type: :system do
     let!(:external_not_officialized) { create(:user) }
 
     before do
-      within ".secondary-nav" do
+      within_admin_sidebar_menu do
         click_link "Participants"
       end
     end
@@ -52,7 +52,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :blocked, organization:) }
 
     before do
-      within ".secondary-nav" do
+      within_admin_sidebar_menu do
         click_link "Participants"
       end
     end
@@ -71,7 +71,7 @@ describe "Admin manages officializations", type: :system do
       let!(:user) { create(:user, organization:) }
 
       before do
-        within ".secondary-nav" do
+        within_admin_sidebar_menu do
           click_link "Participants"
         end
 
@@ -119,7 +119,7 @@ describe "Admin manages officializations", type: :system do
       end
 
       before do
-        within ".secondary-nav" do
+        within_admin_sidebar_menu do
           click_link "Participants"
         end
 
@@ -151,7 +151,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :officialized, organization:) }
 
     before do
-      within ".secondary-nav" do
+      within_admin_sidebar_menu do
         click_link "Participants"
       end
 
@@ -173,7 +173,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization:) }
 
     before do
-      within ".secondary-nav" do
+      within_admin_sidebar_menu do
         click_link "Participants"
       end
     end
@@ -190,7 +190,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization:) }
 
     before do
-      within ".secondary-nav" do
+      within_admin_sidebar_menu do
         click_link "Participants"
       end
     end
@@ -210,7 +210,7 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, organization:) }
 
     before do
-      within ".secondary-nav" do
+      within_admin_sidebar_menu do
         click_link "Participants"
       end
     end
@@ -230,7 +230,7 @@ describe "Admin manages officializations", type: :system do
     let!(:users) { create_list(:user, 3, organization:) }
 
     before do
-      within ".secondary-nav" do
+      within_admin_sidebar_menu do
         click_link "Participants"
       end
     end
@@ -249,7 +249,7 @@ describe "Admin manages officializations", type: :system do
 
           expect(page).to have_content(user.email)
 
-          find("button[data-close]").click
+          find("button[data-dialog-close]").click
         end
       end
 

@@ -5,44 +5,43 @@ require "spec_helper"
 describe "Social share button", type: :system do
   let!(:resource) { create(:dummy_resource) }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
-  let(:modal_selector) { Decidim.redesign_active ? "[data-social-share]" : ".social-share-button" }
 
   before { switch_to_host(resource.organization.host) }
 
   shared_examples_for "showing the social share buttons" do
     it "shows the 'socialShare' modal" do
       within "#socialShare", visible: :visible do
-        expect(page).to have_css("h3", text: "Share:")
-        expect(page).to have_css(modal_selector)
+        expect(page).to have_css("h2", text: "Share")
+        expect(page).to have_css("[data-social-share]")
       end
     end
 
-    it "shows the 'Share to Twitter' button" do
-      within modal_selector do
-        expect(page).to have_css('a[data-site="twitter"]')
+    it "shows the 'Share to X' button" do
+      within "[data-social-share]" do
+        expect(page).to have_css('a[data-site="x"]')
       end
     end
 
     it "shows the 'Share to Facebook' button" do
-      within modal_selector do
+      within "[data-social-share]" do
         expect(page).to have_css('a[data-site="facebook"]')
       end
     end
 
     it "shows the 'Share to Telegram' button" do
-      within modal_selector do
+      within "[data-social-share]" do
         expect(page).to have_css('a[data-site="telegram"]')
       end
     end
 
     it "shows the 'Share to Whatsapp' button" do
-      within modal_selector do
+      within "[data-social-share]" do
         expect(page).to have_css('a[data-site="whatsapp"]')
       end
     end
 
     it "does not have the external domain warning in the URL" do
-      within modal_selector do
+      within "[data-social-share]" do
         link = find('a[data-site="telegram"]')
         expect(link[:href]).not_to include("/link?external_url")
       end
