@@ -210,7 +210,6 @@ export default class UploadModal {
       template = "titled"
     }
 
-    // eslint-disable-next-line no-ternary
     const attachmentId = opts.attachmentId
       ? `data-attachment-id="${opts.attachmentId}"`
       : ""

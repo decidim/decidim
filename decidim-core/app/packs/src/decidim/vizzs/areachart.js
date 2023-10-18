@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc, id-length, no-undefined, no-unused-vars, multiline-ternary, no-ternary, no-nested-ternary, no-invalid-this */
+/* eslint-disable require-jsdoc, id-length, no-undefined, no-unused-vars, multiline-ternary, no-nested-ternary, no-invalid-this */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
 /* eslint no-unused-vars: 0 */
