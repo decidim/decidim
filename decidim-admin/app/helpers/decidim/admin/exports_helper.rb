@@ -23,7 +23,7 @@ module Decidim
       def export_dropdowns(query, component = current_component, resource_id = nil)
         return export_dropdown(component, resource_id, apply_search: false) if query.conditions.empty?
 
-        export_dropdown(component, resource_id, apply_search: false).concat(export_dropdown(current_component, resource_id, apply_search: true))
+        export_dropdown(component, resource_id, apply_search: false).concat(export_dropdown(component, resource_id, apply_search: true))
       end
 
       # Routes to the correct exporter for a component.
