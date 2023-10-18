@@ -1,0 +1,89 @@
+<% content_for :heading do %>
+  Buttons
+<% end %>
+
+<% content_for :description do %>
+  Buttons are built using different combinations of CSS classes: the <code>button</code> class, a size and a color.
+<% end %>
+
+<% content_for :toc do %>
+  <a href="#sizes">Sizes</a>
+  <a href="#colors">Colors</a>
+  <a href="#transparent">Transparent</a>
+  <a href="#combinations">Text</a>
+  <a href="#disabled">Disabled</a>
+<% end %>
+
+<section id="sizes">
+  <h2 class="text-3xl font-semibold">Sizes</h2>
+
+  <%
+    rows = []
+    rows << { class: "button__xs" }
+    rows << { class: "button__sm" }
+    rows << { class: "button__lg" }
+    rows << { class: "button__xl" }
+
+    rows.each do |row|
+  %>
+    <button class="mt-4 block button button__primary <%= row[:class] %>"><code>.button.button__primary.<%= row[:class] %></code></button>
+  <% end %>
+</section>
+
+<section id="colors">
+  <h2 class="text-3xl font-semibold">Colors</h2>
+
+  <%
+    rows = []
+    rows << { class: "button__primary" }
+    rows << { class: "button__secondary" }
+    rows << { class: "button__tertiary" }
+
+    rows.each do |row|
+  %>
+    <button class="mt-4 block button button__lg <%= row[:class] %>"><code>.button.button__lg.<%= row[:class] %></code></button>
+  <% end %>
+</section>
+
+<section id="transparent">
+  <h2 class="text-3xl font-semibold">Transparent</h2>
+
+  <%
+    rows = []
+    rows << { class: "button__transparent-primary" }
+    rows << { class: "button__transparent-secondary" }
+    rows << { class: "button__transparent-tertiary" }
+
+    rows.each do |row|
+  %>
+    <button class="mt-4 block button button__lg <%= row[:class] %>"><code>.button.button__lg.<%= row[:class] %></code></button>
+  <% end %>
+
+  <p class="my-4 text-gray-2">In case of a darker background:</p>
+
+  <div class="bg-primary p-4 rounded">
+    <button class="block ml-auto button button__lg button__transparent"><code>.button.button__lg.button__transparent</code></button>
+  </div>
+</section>
+
+<section id="text">
+  <h2 class="text-3xl font-semibold">Text</h2>
+
+  <%
+    rows = []
+    rows << { class: "button__text" }
+    rows << { class: "button__text-primary" }
+    rows << { class: "button__text-secondary" }
+    rows << { class: "button__text-tertiary" }
+
+    rows.each do |row|
+  %>
+    <button class="mt-4 block button button__lg <%= row[:class] %>"><code>.button.button__lg.<%= row[:class] %></code></button>
+  <% end %>
+</section>
+
+<section id="disabled">
+  <h2 class="text-3xl font-semibold">Disabled</h2>
+
+  <button class="mt-4 block button button__lg" disabled><code>.button.button__lg</code></button>
+</section>
