@@ -4,7 +4,7 @@ The Design module implements the design guide for Decidim, a guide that includes
 
 ## Usage
 
-TO COMPLETE with the urls
+The design application index is available at `/design` path
 
 ## Installation
 
