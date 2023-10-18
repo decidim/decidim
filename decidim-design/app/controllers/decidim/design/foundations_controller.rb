@@ -4,10 +4,7 @@ module Decidim
   module Design
     class FoundationsController < Decidim::Design::ApplicationController
       include Decidim::ControllerHelpers
-
-      def show
-        render "decidim/design/foundations/#{params[:id]}"
-      end
+      include Decidim::Design::HasTemplates
     end
   end
 end

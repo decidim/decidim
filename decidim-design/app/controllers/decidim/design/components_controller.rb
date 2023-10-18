@@ -4,10 +4,7 @@ module Decidim
   module Design
     class ComponentsController < Decidim::Design::ApplicationController
       include Decidim::ControllerHelpers
-
-      def show
-        render "decidim/design/components/#{params[:id]}"
-      end
+      include Decidim::Design::HasTemplates
     end
   end
 end
