@@ -192,48 +192,86 @@ describe "Datepicker", type: :system do
           end
         end
 
-        context "when pasting a correct format date to date input field" do
-          context "when pasting with the correct separator" do
-            it "pastes the date to the input field" do
-              fill_in :example_input_clipboard, with: "24.11.2012"
+        context "when pasting" do
+          context "when pasting a correct format date to date input field" do
+            context "when pasting with the correct separator" do
+              it "pastes the date to the input field" do
+                fill_in :example_input_clipboard, with: "24.11.2012"
+
+                clipboard = find("#example_input_clipboard")
+                clipboard.send_keys [:control, "a"]
+                clipboard.send_keys [:control, "c"]
+                find("#example_input_date").send_keys [:control, "v"]
+                expect(page).to have_field("example_input_date", with: "24.11.2012")
+              end
+            end
+
+            context "when pasting with incorrect separator" do
+              it "pastes the date to the input field with the correct separator" do
+                fill_in :example_input_clipboard, with: "24/11/2012"
+
+                clipboard = find("#example_input_clipboard")
+                clipboard.send_keys [:control, "a"]
+                clipboard.send_keys [:control, "c"]
+                find("#example_input_date").send_keys [:control, "v"]
+                expect(page).to have_field("example_input_date", with: "24.11.2012")
+
+                fill_in :example_input_clipboard, with: "24-11-2012"
+
+                clipboard.send_keys [:control, "a"]
+                clipboard.send_keys [:control, "c"]
+                find("#example_input_date").send_keys [:control, "v"]
+                expect(page).to have_field("example_input_date", with: "24.11.2012")
+              end
+            end
+
+            context "when pasting without a leading zero in the date" do
+              it "adds the leading zero to the date" do
+                fill_in :example_input_clipboard, with: "1.11.2012"
+
+                clipboard = find("#example_input_clipboard")
+                clipboard.send_keys [:control, "a"]
+                clipboard.send_keys [:control, "c"]
+                find("#example_input_date").send_keys [:control, "v"]
+                expect(page).to have_field("example_input_date", with: "01.11.2012")
+              end
+            end
+
+            context "when pasting without a leading zero in the month" do
+              it "adds the leading zero to the month" do
+                fill_in :example_input_clipboard, with: "11.1.2012"
+
+                clipboard = find("#example_input_clipboard")
+                clipboard.send_keys [:control, "a"]
+                clipboard.send_keys [:control, "c"]
+                find("#example_input_date").send_keys [:control, "v"]
+                expect(page).to have_field("example_input_date", with: "11.01.2012")
+              end
+            end
+
+            context "when pasting without a leading zero in the date and the month" do
+              it "adds the leading zero to the date and the month" do
+                fill_in :example_input_clipboard, with: "1.1.2012"
+
+                clipboard = find("#example_input_clipboard")
+                clipboard.send_keys [:control, "a"]
+                clipboard.send_keys [:control, "c"]
+                find("#example_input_date").send_keys [:control, "v"]
+                expect(page).to have_field("example_input_date", with: "01.01.2012")
+              end
+            end
+          end
+
+          context "when pasting an incorrect value to date input field" do
+            it "doesn't paste anything" do
+              fill_in :example_input_clipboard, with: "99.99.9999"
 
               clipboard = find("#example_input_clipboard")
               clipboard.send_keys [:control, "a"]
               clipboard.send_keys [:control, "c"]
               find("#example_input_date").send_keys [:control, "v"]
-              expect(page).to have_field("example_input_date", with: "24.11.2012")
+              expect(page).to have_field("example_input_date", with: "")
             end
-          end
-
-          context "when pasting with incorrect separator" do
-            it "pastes the date to the input field with the correct separator" do
-              fill_in :example_input_clipboard, with: "24/11/2012"
-
-              clipboard = find("#example_input_clipboard")
-              clipboard.send_keys [:control, "a"]
-              clipboard.send_keys [:control, "c"]
-              find("#example_input_date").send_keys [:control, "v"]
-              expect(page).to have_field("example_input_date", with: "24.11.2012")
-
-              fill_in :example_input_clipboard, with: "24-11-2012"
-
-              clipboard.send_keys [:control, "a"]
-              clipboard.send_keys [:control, "c"]
-              find("#example_input_date").send_keys [:control, "v"]
-              expect(page).to have_field("example_input_date", with: "24.11.2012")
-            end
-          end
-        end
-
-        context "when pasting an incorrect value to date input field" do
-          it "doesn't paste anything" do
-            fill_in :example_input_clipboard, with: "99.99.9999"
-
-            clipboard = find("#example_input_clipboard")
-            clipboard.send_keys [:control, "a"]
-            clipboard.send_keys [:control, "c"]
-            find("#example_input_date").send_keys [:control, "v"]
-            expect(page).to have_field("example_input_date", with: "")
           end
         end
       end
@@ -346,53 +384,57 @@ describe "Datepicker", type: :system do
             expect(minute.value).to eq("00")
           end
         end
-# TIME PASTE  TIME PASTE  TIME PASTE  TIME PASTE  TIME PASTE
-        context "when pasting a correct format date to date input field" do
-          context "when pasting with the correct separator" do
-            it "pastes the date to the input field" do
-              fill_in :example_input_clipboard, with: "24.11.2012"
+
+        context "when pasting" do
+          context "when pasting a correct time to time input field" do
+            it "pastes the time to the input field" do
+              fill_in :example_input_clipboard, with: "15:15"
 
               clipboard = find("#example_input_clipboard")
               clipboard.send_keys [:control, "a"]
               clipboard.send_keys [:control, "c"]
-              find("#example_input_date").send_keys [:control, "v"]
-              expect(page).to have_field("example_input_date", with: "24.11.2012")
+              find("#example_input_time").send_keys [:control, "v"]
+              expect(page).to have_field("example_input_time", with: "15:15")
             end
           end
 
-          context "when pasting with incorrect separator" do
-            it "pastes the date to the input field with the correct separator" do
-              fill_in :example_input_clipboard, with: "24/11/2012"
+          context "when pasting a correct time to time input field with '.' -separator" do
+            it "changes separator to ':'" do
+              fill_in :example_input_clipboard, with: "15.15"
 
               clipboard = find("#example_input_clipboard")
               clipboard.send_keys [:control, "a"]
               clipboard.send_keys [:control, "c"]
-              find("#example_input_date").send_keys [:control, "v"]
-              expect(page).to have_field("example_input_date", with: "24.11.2012")
-
-              fill_in :example_input_clipboard, with: "24-11-2012"
-
-              clipboard.send_keys [:control, "a"]
-              clipboard.send_keys [:control, "c"]
-              find("#example_input_date").send_keys [:control, "v"]
-              expect(page).to have_field("example_input_date", with: "24.11.2012")
+              find("#example_input_time").send_keys [:control, "v"]
+              expect(page).to have_field("example_input_time", with: "15:15")
             end
           end
-        end
 
-        context "when pasting an incorrect value to date input field" do
-          it "doesn't paste anything" do
-            fill_in :example_input_clipboard, with: "99.99.9999"
+          context "when pasting a time without a leading zero in the hour" do
+            it "adds the leading zero" do
+              fill_in :example_input_clipboard, with: "2:15"
 
-            clipboard = find("#example_input_clipboard")
-            clipboard.send_keys [:control, "a"]
-            clipboard.send_keys [:control, "c"]
-            find("#example_input_date").send_keys [:control, "v"]
-            expect(page).to have_field("example_input_date", with: "")
+              clipboard = find("#example_input_clipboard")
+              clipboard.send_keys [:control, "a"]
+              clipboard.send_keys [:control, "c"]
+              find("#example_input_time").send_keys [:control, "v"]
+              expect(page).to have_field("example_input_time", with: "02:15")
+            end
+          end
+
+          context "when pasting an incorrect value to time input field" do
+            it "doesn't paste anything" do
+              fill_in :example_input_clipboard, with: "99:99"
+
+              clipboard = find("#example_input_clipboard")
+              clipboard.send_keys [:control, "a"]
+              clipboard.send_keys [:control, "c"]
+              find("#example_input_time").send_keys [:control, "v"]
+              expect(page).to have_field("example_input_time", with: "")
+            end
           end
         end
       end
-      # TIME PASTE  TIME PASTE  TIME PASTE  TIME PASTE
     end
   end
 
@@ -525,7 +567,7 @@ describe "Datepicker", type: :system do
 
         context "when typing correct date with '.' -separator" do
           it "replaces separator with the format's correct separator" do
-            fill_in_datepicker :example_input_date, with: "24.11.2012"
+            fill_in_datepicker :example_input_date, with: "01.20.1994"
             expect(page).to have_field("example_input_date", with: "01.20.1994")
             find("#example_input_time").click
             expect(page).to have_field("example_input_date", with: "01/20/1994")
