@@ -32,6 +32,7 @@ jobs:
           - ./.github/run_erblint.sh
           - npm run markdownlint
           - ./.github/run_spelling_check.sh
+          - npm run linthtml
     name: Lint code
     runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
