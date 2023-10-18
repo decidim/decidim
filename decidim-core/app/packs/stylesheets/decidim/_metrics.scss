@@ -49,7 +49,7 @@
 }
 
 [id$="metric-tooltip"] {
-  @apply absolute overflow-visible translate-x-[-50%] shadow-[0_0_20px_0] shadow-gray;
+  @apply absolute overflow-visible translate-x-[-50%] shadow-[0_0_20px_0] shadow-gray bg-white;
 
   > * {
     @apply p-2 text-sm relative;
