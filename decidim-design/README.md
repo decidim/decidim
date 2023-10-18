@@ -1,6 +1,6 @@
 # decidim-design
 
-The DESIGN module implements the design guide for Decidim, a guide that includes all information related with the new design of the platform.
+The Design module implements the design guide for Decidim, a guide that includes all information related with the design of the platform.
 
 ## Usage
 
