@@ -7,7 +7,7 @@
     <%= render partial: "decidim/budgets/admin/projects/bulk_actions/change-selected" %>
 
     <% if allowed_to? :export, :budget %>
-      <%= export_dropdown(current_component, budget.id) %>
+      <%= export_dropdowns(query, current_component, budget.id) %>
     <% end %>
     <% if allowed_to? :import_proposals, :project %>
       <%= import_dropdown do %>
