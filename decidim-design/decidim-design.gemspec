@@ -22,8 +22,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 3.1"
 
   s.name = "decidim-design"
-  s.summary = "Decidim design system module"
-  s.description = "The design system module for Decidim."
+  s.summary = "Decidim Design Guide (DDG) module"
+  s.description = "The design guide module for Decidim."
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
