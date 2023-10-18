@@ -20,7 +20,6 @@ module Decidim
             resource :proposals_merge, only: [:create]
             resource :proposals_split, only: [:create]
             resource :valuation_assignment, only: [:create, :destroy]
-            resource :proposals_exports, only: [:create]
           end
           resources :proposal_answers, only: [:edit, :update]
           resources :proposal_notes, only: [:create]

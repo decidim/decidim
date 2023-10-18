@@ -10,8 +10,20 @@ module Decidim
       #           current component.
       #
       # Returns a rendered dropdown.
-      def export_dropdown(component = current_component, resource_id = nil)
-        render partial: "decidim/admin/exports/dropdown", locals: { component:, resource_id: }
+      def export_dropdown(component = current_component, resource_id = nil, apply_search: false)
+        filters =
+          if apply_search && respond_to?(:query)
+            { id_in: query.result.map(&:id) }
+          else
+            {}
+          end
+        render partial: "decidim/admin/exports/dropdown", locals: { component:, resource_id:, filters: }
+      end
+
+      def export_dropdowns(query)
+        return export_dropdown if query.conditions.empty?
+
+        export_dropdown.concat(export_dropdown(current_component, nil, apply_search: true))
       end
 
       # Routes to the correct exporter for a component.
@@ -22,6 +34,12 @@ module Decidim
       # Returns the path to the component exporter.
       def exports_path(component, options)
         EngineRouter.admin_proxy(component.participatory_space).component_exports_path(options.merge(component_id: component))
+      end
+
+      def dropdown_id(filters)
+        return "export-dropdown" if filters.empty?
+
+        "export-selection-dropdown"
       end
     end
   end
