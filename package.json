@@ -19,6 +19,7 @@
     "stylelint": "stylelint decidim-*/**/*.scss",
     "prettier": "prettier --check 'decidim-*/**/*.scss'",
     "prettify": "prettier --write 'decidim-*/**/*.scss'",
+    "linthtml": "linthtml decidim-*/**/*.html.erb decidim-*/cells/**/*.erb",
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "test:ci": "npm run lint && npm run test"
