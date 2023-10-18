@@ -109,14 +109,15 @@
     </thead>
     <tbody>
       <%
-        rows = [];
+        rows = []
         rows << { breakpoint: "sm (640px)", properties: "max-width: 640px;" }
         rows << { breakpoint: "md (768px)", properties: "max-width: 768px;" }
         rows << { breakpoint: "lg (1024px)", properties: "max-width: 1024px;" }
         rows << { breakpoint: "xl (1280px)", properties: "max-width: 1280px;" }
         rows << { breakpoint: "2xl (1536px)", properties: "max-width: 1536px;" }
 
-        rows.each do |row| %>
+        rows.each do |row|
+      %>
         <tr>
           <td class="px-6 py-4 border border-background"><%= row[:breakpoint] %></td>
           <td class="px-6 py-4 border border-background"><%= row[:properties] %></td>
