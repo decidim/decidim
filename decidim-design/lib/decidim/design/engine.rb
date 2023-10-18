@@ -7,8 +7,6 @@ require "decidim/core"
 module Decidim
   module Design
     # This is the engine that runs on the public interface of `decidim-design`.
-    # It mostly handles rendering the created design associated to a participatory
-    # process.
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::Design
 
