@@ -165,7 +165,6 @@ pt:
         error: Ocorreu um problema ao aceitar a modificação.
         success: A modificação foi aceite corretamente.
       amendable:
-        amended_by: Modificada por
         button: Modificar %{model_name}
         error: Ocorreu um erro ao modificar este recurso.
         promote_button: Promover a %{model_name}
@@ -183,7 +182,6 @@ pt:
         success: O rascunho da modificação foi eliminado corretamente.
       edit_draft:
         discard: Rejeitar este rascunho
-        discard_confirmation: Tem a certeza de que pretende rejeitar este rascunho da modificação?
         send: Pré-visualização
         title: Editar Rascunho da Modificação
       emendation:
@@ -232,13 +230,10 @@ pt:
         download: Transferir ficheiro
       documents:
         related_documents: Documentos relacionados
-      geocoding:
-        geocoded_address: Endereço
       photos:
         related_photos: Imagens relacionadas
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar para múltiplos utilizadores
       comments:
         one: comentário
         other: comentários
@@ -389,8 +384,6 @@ pt:
         name: Estatísticas da organização
       sub_hero:
         name: Faixa de sub hero
-    datepicker:
-      help_text: 'Formato esperado: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
@@ -404,11 +397,7 @@ pt:
           already_have_an_account?: Já tem uma conta?
           newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
-          nickname_help: A sua alcunha em %{organization}. Só pode conter letras, números, “-”, e “_”
-          sign_in: Entrar
           sign_up: Inscreva-se
-          sign_up_as:
-            legend: Inscreva-se como
           subtitle: Inscreva-se para participar em discussões e propostas de suporte.
           tos_agreement: Ao se inscrever, aceita %{link}.
           tos_title: Termos de Serviço
@@ -417,13 +406,10 @@ pt:
         new:
           are_you_new?: Novo na plataforma?
           register: Criar uma conta
-        user:
-          timed_out: Esteve inactivo por muito tempo e foi automaticamente desligado do serviço. Se quiser continuar a usar o serviço, por favor ligue-se de novo.
       shared:
         newsletter_modal:
           buttons:
             check: Verificar e continuar
-            close_modal: Fechar modal
             uncheck: Manter não verificado
           title: Notificações do boletim informativo
         omniauth_buttons:
@@ -447,11 +433,7 @@ pt:
         ready: Pronto
       show:
         download_data: Transferir os dados
-        download_data_description: Um ficheiro contendo toda a informação associada com a sua conta será enviado a <strong>%{user_email}</strong>. Este e-mail irá conter um ficheiro .zip e uma password para o abrir. <Br/><br/>Para abrir o ficheiro zip irá precisar do <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se utiliza Linux, provavelmente terá a ferramenta instalada por defeito. Se não, pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Solicitar dados
-    endorsable:
-      endorsements: Endossos
-      endorsements_count: Contagem de apoios
     endorsements:
       identities:
         done: Concluído
@@ -721,12 +703,9 @@ pt:
           title: O que posso fazer em %{organization}?
         title: Ajuda Geral
     last_activities:
-      activities:
-        no_activities_warning: Nenhuma atividade
       all: Todos os tipos de atividade
       index:
         last_activity: Última atividade
-        resource_type: Tipo
     links:
       invalid_url: URL inválido
       warning:
@@ -886,11 +865,6 @@ pt:
         success: Suas configurações de notificações foram atualizadas com sucesso.
     open_data:
       not_available_yet: Os arquivos Open Data ainda não estão disponíveis. Tente novamente dentro de poucos minutos.
-    own_user_groups:
-      index:
-        pending: Pendente
-        rejected: Rejeitadas
-        verified: Verificado
     pad_iframe:
       disclaimer: O conteúdo deste bloco é escrito por usuários registrados e expressa suas opiniões. %{organization} não pode ser responsabilizado pelo seu conteúdo.
       pad: Bloco
@@ -912,8 +886,6 @@ pt:
         hero:
           participate: Participar
           welcome: Bem-vindo a %{organization}!
-        metrics:
-          headline: Métricas
         statistics:
           headline: Estado atual de %{organization}
         sub_hero:
@@ -930,7 +902,7 @@ pt:
     participatory_space_private_users:
       not_allowed: Não tem permissão para visualizar este conteúdo
     profile:
-      view: Visualizar
+      deleted: Participante eliminado
     profiles:
       show:
         activity: Atividade
@@ -942,7 +914,6 @@ pt:
         members: Membros
         officialized: Participante oficial
         send_private_message: Enviar mensagem privada
-        view_full_profile: Ver o perfil completo
       sidebar:
         badges:
           info: Os distintivos são obtidos através da realização de atividades específicas na plataforma.
@@ -1001,7 +972,6 @@ pt:
       term_input_placeholder: Pesquisar
     searches:
       filters:
-        back: Retroceder aos resultados
         jump_to: 'Saltar para:'
         state:
           active: Ativo
@@ -1009,14 +979,9 @@ pt:
           future: Futuro
           past: Passado
       filters_small_view:
-        close_modal: Fechar modal
         filter: Filtrar
         filter_by: Filtrar por
-        unfold: Desdobrar
       results:
-        results:
-          one: "%{count} resultado"
-          other: "%{count} resultados"
         view_all: Ver todos (%{count})
     security:
       selfxss_warning:
@@ -1028,10 +993,6 @@ pt:
         close_modal: Fechar modal
         ok: OK
         title: Confirmar
-      embed_modal:
-        close_window: Fechar janela
-        embed: Cole este código na sua página
-        embed_link: Incorporar
       extended_navigation_bar:
         more: Mais
         unfold: Desdobrar
@@ -1056,13 +1017,8 @@ pt:
         spam: Contém clickbait, publicidade, golpes ou bots de script.
         title: Denunciar utilizador inapropriado
       floating_help:
-        close: Fechar ajuda
         help: Ajuda
-      follow_button:
-        sign_in_before_follow: Por favor inicie sessão antes de executar esta ação
       login_modal:
-        close_modal: Fechar modal
-        please_sign_in: Por favor, inicie a sessão
         sign_up: Inscrever-se
       participatory_space_filters:
         filters:
@@ -1079,7 +1035,6 @@ pt:
         label: 'Resultados por página:'
         title: Selecionar número de resultados por página
       share_modal:
-        close_window: Fechar janela
         copy_share_link: Copiar
         copy_share_link_clarification: Copiar a ligação de partilha para o clipboard
         copy_share_link_copied: Copiado!
@@ -1108,28 +1063,12 @@ pt:
         existing_error: Não foi possível criar a mensagem. A conversa já existe, por favor tente novamente agora.
         success: Conversa iniciada corretamente!
       index:
-        add_max_users: 'Adicionar utilizadores à conversa: 9 utilizadores no máx.'
-        add_users_placeholder: Pesquisar...
-        close: Fechar
         conversations_info: As conversas são privadas, mais ninguém consegue vê-las. Uma conversa pode ser iniciada com quaisquer participantes ou grupos registados na plataforma.
-        from: De
-        last_message: Última mensagem
-        modal_title: Nova conversa
-        new_conversation: Nova conversa
-        next: Seguinte
         no_conversations_warning: Ainda não há conversas.
-        no_results: Sem resultados
         time_ago: "Há %{time}"
-      new:
-        title: Iniciar uma conversa
       reply:
         placeholder: A sua resposta...
         send: Enviar
-        title_reply: Responder
-      show:
-        back: Mostrar todas as conversas
-        not_allowed: Este utilizador não aceita mais mensagens diretas.
-        title: Conversa com %{usernames}
       update:
         error: Mensagem não enviada. Tente novamente mais tarde
     user_interests:
@@ -1151,27 +1090,13 @@ pt:
         back_to_resource: Retroceder
         changes_at_title: Alterações em "%{title}"
         number_of_versions: Versões
-        show_all_versions: Mostrar todas as versões
-        version_author: Autor da versão
         version_created_at: Versão criada em
-        version_number: Número da versão
-        version_number_out_of_total: "%{current_version} de %{total_count}"
-    version_author:
-      show:
-        deleted: Participante eliminado
     versions:
       resource_version:
         of_versions: "(de %{number})"
         see_other_versions: ver outras versões
         version: Versão %{number}
-    versions_list:
-      show:
-        back_to_resource: Retroceder
-        changes_at_title: Alterações em "%{title}"
-        number_of_versions: Versões
-        title: Versões
     versions_list_item:
-      back: Mostrar todas as versões
       show:
         version_index: Versão %{index}
     welcome_notification:
@@ -1197,8 +1122,6 @@ pt:
       last_attempt: Tem mais uma tentativa antes que a sua conta seja bloqueada.
       locked: A sua conta está bloqueada.
       not_found_in_database: '%{authentication_keys} ou palavra-passe inválidos(as).'
-      timeout: A sua sessão expirou. Por favor, inicie sessão novamente para continuar.
-      unauthenticated: É necessário iniciar sessão ou inscrever-se antes de continuar.
     invitations:
       edit:
         header: Termine a criação da sua conta
@@ -1245,7 +1168,6 @@ pt:
         action: Desbloquear a minha conta
         greeting: Olá %{recipient}!
         instruction: 'Clique na hiperligação abaixo para desbloquear a sua conta:'
-        message: A sua conta foi bloqueada devido a uma quantidade excessiva de tentativas de início de sessão malsucedidas.
         subject: Desbloquear instruções
     omniauth_callbacks:
       failure: Não foi possível autenticá-lo(a) a partir de %{kind} porque "%{reason}".
@@ -1273,18 +1195,10 @@ pt:
       signed_up_but_unconfirmed: Uma mensagem com uma hiperligação de confirmação foi enviada para o seu endereço de e-mail. Por favor, siga a hiperligação para ativar a sua conta.
       update_needs_confirmation: Atualizou a sua conta corretamente, mas precisamos de confirmar o seu novo endereço de e-mail. Por favor, verifique o seu e-mail e siga a hiperligação de confirmação para confirmar o seu novo endereço de e-mail.
       updated: A sua conta foi atualizada corretamente.
-    sessions:
-      already_signed_out: Sessão terminada corretamente.
-      new:
-        sign_in: Iniciar sessão
-      signed_in: Sessão iniciada corretamente.
-      signed_out: Sessão terminada corretamente.
     shared:
       links:
         back: Retroceder
         forgot_your_password: Esqueceu a sua palavra-passe?
-        sign_in: Iniciar sessão
-        sign_in_with_provider: Iniciar sessão com %{provider}
         sign_up: Inscrever-se
       minimum_password_length:
         one: "(%{count} carácter no mínimo)"
@@ -1294,13 +1208,11 @@ pt:
         resend_unlock_instructions: Reenviar as instruções de desbloqueio
       send_instructions: Receberá um e-mail com instruções sobre como desbloquear a sua conta dentro de poucos minutos.
       send_paranoid_instructions: Se a sua conta existir, receberá um e-mail com instruções sobre como desbloqueá-la dentro de poucos minutos.
-      unlocked: Sua conta foi desbloqueada com sucesso. Por favor, entre para continuar.
   doorkeeper:
     scopes:
       public: A sua informação pública.
   errors:
     messages:
-      already_confirmed: já foi confirmado, por favor tente iniciar sessão
       confirmation_period_expired: necessita de ser confirmado dentro de %{period}, por favor solicite um novo
       content_type_allowlist_error: o tipo de ficheiro não é válido
       expired: expirou, por favor solicite um novo
@@ -1328,6 +1240,10 @@ pt:
     timestamp_error_message: Desculpe, isso foi muito rápido! Por favor reenvie.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Tipo
       edit_link:
         edit: Editar
       footer:
@@ -1335,12 +1251,9 @@ pt:
         decidim_logo: Logótipo do Decidim
         download_open_data: Transferir ficheiros Open Data
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
-      header:
-        close_menu: Fechar menu
-        main_menu: Menu principal
-        navigation: Navegação
-        sign_in: Entrar
         sign_up: Inscrever-se
+      header:
+        main_menu: Menu principal
         user_menu: Menu de utilizador
       impersonation_warning:
         close_session: Terminar sessão
@@ -1355,12 +1268,10 @@ pt:
         facebook: "%{organization} no Facebook"
         github: "%{organization} no GitHub"
         instagram: "%{organization} no Instagram"
-        twitter: "%{organization} no Twitter"
         youtube: "%{organization} no YouTube"
       timeout_modal:
         body: Está inactivo há %{minutes}. Se continuar inactivo será automaticamente desligado para a sua própria segurança.
         continue_session: Continuar sessão
-        sign_out: Desligar
         title: Gostaria de continuar a sua sessão?
       user_menu:
         account: 'Conta de utilizador: %{name}'
@@ -1369,7 +1280,6 @@ pt:
         notifications: Notificações
         profile: A minha conta
         public_profile: O meu perfil público
-        sign_out: Sair
         title: Ligações de perfil
       user_profile:
         account: Conta
@@ -1380,8 +1290,6 @@ pt:
         notifications_settings: Configurações de notificações
         title: Configurações do participante
         user_groups: Grupos
-      widget:
-        see_more: Ver mais
   locale:
     name: Português
     name_with_error: Português (erro!)

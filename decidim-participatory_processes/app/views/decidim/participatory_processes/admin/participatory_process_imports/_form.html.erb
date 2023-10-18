@@ -1,6 +1,5 @@
 <div class="form__wrapper">
-  <div class="card" id="processes">
-    <div class="card-divider"></div>
+  <div class="card pt-4" id="processes">
     <div class="card-section">
       <div class="row column">
         <%= form.translated :text_field, :title, autofocus: true %>
@@ -16,7 +15,7 @@
 
       <div class="card-divider">
         <div class="card-title">
-          <%= select %>
+          <%= t("participatory_process_imports.new.select", scope: "decidim.admin") %>
         </div>
       </div>
       <div class="card-section">

@@ -1,4 +1,4 @@
-<%= content_tag :ul, class: tags_classes do %>
+<%= content_tag :ul, class: tags_classes, data: { tags: "" } do %>
   <%= content_tag :li, link_to_tag(category_path, category_name, t("decidim.tags.filter_results_for_category", resource: category_name)) if category? %>
   <%= content_tag :li, link_to_tag(scope_path, scope_name, t("decidim.tags.filter_results_for_scope", resource: scope_name)) if scope? %>
 <% end %>

@@ -133,7 +133,6 @@ nl:
           max_choices: 'Max. Keuzes: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Meld u aan met uw account</a> of <a href="%{sign_up_link}">meld u aan</a> om de vragenlijst te beantwoorden.
             title: Beantwoord de vragenlijst
           current_step: Stap %{step}
           of_total_steps: van %{total_steps}

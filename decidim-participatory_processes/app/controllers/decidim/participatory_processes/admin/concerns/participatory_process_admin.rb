@@ -33,10 +33,6 @@ module Decidim
                 organization_processes.find_by!(slug: params[:participatory_process_slug] || params[:slug])
             end
 
-            def current_participatory_space_path
-              Decidim::ResourceLocatorPresenter.new(current_participatory_space).show
-            end
-
             def permissions_context
               super.merge(current_participatory_space:)
             end

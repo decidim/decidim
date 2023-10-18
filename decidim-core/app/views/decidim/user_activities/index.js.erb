@@ -6,7 +6,7 @@ var $activitiesContainer = $('#activities-container'),
   $decidimPaginateContainer.html('<%= j(decidim_paginate(activities).to_s).strip.html_safe %>');
 <% else %>
   $activitiesContainer.html(`
-    <div class="callout"><%= t "decidim.user_activity.index.no_activities_warning" %></div>
+    <%= cell("decidim/announcement", t("decidim.user_activity.index.no_activities_warning"), callout_class: "warning" ) %>
   `);
   $decidimPaginateContainer.html('');
 <% end %>

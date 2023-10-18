@@ -2,6 +2,11 @@
 
 module Decidim
   # The controller to handle the user's public profile page.
+  #
+  # i18n-tasks-use t('decidim.profiles.show.badges')
+  # i18n-tasks-use t('decidim.profiles.show.groups')
+  # i18n-tasks-use t('decidim.profiles.show.group_admins')
+  # i18n-tasks-use t('decidim.profiles.show.group_members')
   class ProfilesController < Decidim::ApplicationController
     include UserGroups
     include Flaggable

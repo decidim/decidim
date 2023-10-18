@@ -12,7 +12,7 @@ describe "Admin manages polling officers", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Polling Officers"
     end
   end
@@ -84,7 +84,7 @@ describe "Admin manages polling officers", type: :system do
     let(:existing_user) { create(:user, organization: voting.organization) }
 
     before do
-      click_link("New")
+      click_link("New polling officer")
     end
 
     it "creates a new user" do

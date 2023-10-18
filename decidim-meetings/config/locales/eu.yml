@@ -20,6 +20,7 @@ eu:
         description: Deskribapena
         end_time: Bukaera ordua
         id: ID
+        iframe_access_level: Iframe sarbide-maila
         iframe_embed_type: Txertatutako iframe mota
         location: Kokapena
         location_hints: Kokapen-argibideak
@@ -104,7 +105,6 @@ eu:
           success: Bildutako topaketa bikoiztua behar bezala egin da.
         new:
           copy: Kopiatu
-          select: Aukeratu zein datu bikoiztu nahi dituzun
           title: Topaketa bikoiztua
     components:
       meetings:
@@ -201,7 +201,7 @@ eu:
             one: 'Topaketa ezin da ezabatu lotutako proposamen bat dituelako:'
             other: 'Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako:'
         manage_poll: Konfiguratu inkesta
-        new: Topaketa berria
+        new_meeting: Beste topaketa bat
         preview: Aurreikusi
         registrations: Izen-emateak
         title: Ekintzak
@@ -257,7 +257,6 @@ eu:
               all: Guztiak
               rejected: Baztertuta
               sent: Bidalita
-            filter_by: Iragazi arabera
             invite_attendee: Gonbidatu
             invites: Gonbidapenak
             search: Bilatu
@@ -301,9 +300,6 @@ eu:
         meetings_poll:
           form:
             title: Editatu %{questionnaire_for} inkestaren galdetekgia
-        models:
-          meeting:
-            name: Topaketa
         registrations:
           edit:
             save: Gorde
@@ -347,11 +343,8 @@ eu:
           all: Guztiak
         filter_meeting_space_values:
           all: Guztiak
-        filter_scope_values:
-          all: Guztiak
       calendar_modal:
         calendar_url: Egutegiaren URLa
-        close_window: Itxi leihoa
         copy_calendar_url: Kopiatu
         copy_calendar_url_clarification: Kopiatu URL egutegia arbelera
         copy_calendar_url_copied: Kopiatuta!
@@ -368,11 +361,10 @@ eu:
       content_blocks:
         upcoming_meetings:
           name: Hurrengo topaketak
-          upcoming_meetings: Hurrengo topaketak
-          view_all_meetings: Ikusi dena
       directory:
         meetings:
           index:
+            go_to_list: Ikusi saioen zerrenda
             meetings: Topaketak
             space_type: Partaidetza espazioa
       iframe_access_level:
@@ -408,7 +400,6 @@ eu:
         calendar_modal:
           add_to_calendar: Gehitu egutegira
           apple: Gehitu Appleren egutegira
-          close_window: Itxi leihoa
           full_details_html: Xehetasun guztiak edukitzeko, zoaz hona %{link}
           google: Gehitu Googleren egutegira
           outlook: Ireki Outlooken egutegia
@@ -438,8 +429,7 @@ eu:
             all: Denak
             official: Ofiziala
             participants: Parte-hartzaileak
-            user_groups: Taldeak
-          scope: Eremua
+            user_group: Taldeak
           search: Bilatu
           type: Mota
           type_values:
@@ -447,11 +437,6 @@ eu:
             hybrid: Hibridoa
             in_person: Aurrez aurre
             online: Online
-        filters_small_view:
-          close_modal: Itxi leihoa
-          filter: Iragazi
-          filter_by: 'Iragazi honen arabera:'
-          unfold: Zabaldu
         form:
           address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
           available_slots_help: Uzti 0an erabiltzeko espazio mugatua baduzu
@@ -471,8 +456,11 @@ eu:
           see_all: Ikusi topaketa guztiak
           see_all_withdrawn: Ikusi bertan behera utzitako topaketa guztiak
           text_banner: Ikusten ari zara egileek bertan behera utzitako topaketak %{go_back_link}.
-        meeting_minutes:
-          related_information: Lotutako informazioa
+        meeting:
+          close_meeting: Topaketa itxi
+          edit_close_meeting: Editatu topaketaren txostena
+          edit_meeting: Editatu topaketa
+          join_meeting: Izena eman
         meetings:
           upcoming_meetings_warning: Orain ez dago topaketarik programaturik, baina aurreko topaketak ikus ditzakezu.
         new:
@@ -484,14 +472,9 @@ eu:
           confirm: Baieztatu
         show:
           attendees: Bertaratuen kopurua
-          back: Itzuli zerrendara
-          close_meeting: Itxi topaketa
           contributions: Ekarpen-kopurua
           date: Data
-          edit_close_meeting: Editatu topaketaren txostena
-          edit_meeting: Editatu topaketa
-          going: Topaketa honetan eman duzu izena
-          join: Izena eman topaketan
+          join: Izena eman
           leave: Baliogabetu zure izen-ematea
           leave_confirmation: Ziur zaude topaketa honetarako zure izen-ematea indargabetu nahi duzula?
           link_available_soon: Esteka hau laster erabilgarria izango da
@@ -516,8 +499,6 @@ eu:
         update:
           invalid: Arazo bat izan da topaketa hau eguneratzean.
           success: Topaketa zuzen eguneratu duzu.
-      meetings_map:
-        view_meeting: Topaketa ikusi
       models:
         invite:
           fields:
@@ -559,7 +540,8 @@ eu:
             question_replied: Galdera erantzunda
             reply_question: Erantzun galdera
       public_participants_list:
-        attending_participants: Bertaratutako parte-hartzaileak
+        attending_organizations: Erakundeak
+        attending_participants: Parte-hartzaileak
         hidden_participants_count:
           one: eta %{count} pertsona gehiago
           other: eta %{count} pertsona gehiago
@@ -590,8 +572,6 @@ eu:
         private_meeting: Topaketa pribatua
         transparent: Gardena
         withdraw: Kenduta
-      versions:
-        back_to_resource: Itzuli topaketara
     metrics:
       meetings:
         description: Topaketa kopurua sortu da
@@ -600,10 +580,8 @@ eu:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Azken topaketak
-        see_all: Ikusi dena (%{count})
+        see_all: Ikusi topaketa guztiak
         upcoming_meetings: Hurrengo topaketak
-      upcoming_meeting_for_card:
-        upcoming_meeting: Hurrengo bilera
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Topaketaren emaitzak:'

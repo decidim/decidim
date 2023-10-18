@@ -4,7 +4,7 @@
     <h2 class="item_show__header-title">
       <%= t(".title") %>
       <% if allowed_to? :create, :registration_type %>
-         <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.registration_type.name", scope: "decidim.admin")), new_conference_registration_type_path(current_conference), class: "button button__sm button__secondary new" %>
+         <%= link_to t("actions.new_registration_type", scope: "decidim.admin"), new_conference_registration_type_path(current_conference), class: "button button__sm button__secondary new" %>
       <% end %>
     </h2>
   </div>

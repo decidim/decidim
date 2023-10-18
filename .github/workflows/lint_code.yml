@@ -22,6 +22,16 @@ concurrency:
 
 jobs:
   lint:
+    strategy:
+      fail-fast: false
+      matrix:
+        command:
+          - bundle exec rubocop -P
+          - npm run lint
+          - npm run stylelint
+          - ./.github/run_erblint.sh
+          - npm run markdownlint
+          - ./.github/run_spelling_check.sh
     name: Lint code
     runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
@@ -49,15 +59,5 @@ jobs:
             npm-
       - name: Install JS dependencies
         run: npm ci
-      - run: bundle exec rubocop -P
-        name: Lint Ruby files
-      - run: npm run lint
-        name: Lint JS files
-      - run: npm run stylelint
-        name: Lint SCSS files
-      - run: ./.github/run_erblint.sh
-        name: Lint ERB files
-      - run: npm run markdownlint
-        name: Lint Markdown files
-      - run: ./.github/run_spelling_check.sh
-        name: Lint spelling
+      - run: ${{ matrix.command }}
+        name: ${{ matrix.command }}

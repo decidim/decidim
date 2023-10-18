@@ -21,14 +21,14 @@
         <% if result.versions.any? %>
           <div class="definition-data__item versions_count">
             <div>
-              <%= resource_version_number(result.versions_count, "text-large") %>
-              <small class="text-medium">
+              <%= resource_version_number(result.versions_count) %>
+              <small>
                 <%= resource_version_of(result.versions_count) %>
               </small>
             </div>
 
             <div>
-              <span class="text-medium">
+              <span>
                 <%= link_to_other_resource_versions(result_versions_path(result)) %>
               </span>
             </div>

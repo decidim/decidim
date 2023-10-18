@@ -3,8 +3,8 @@
 shared_examples "manage projects" do
   describe "admin form" do
     before do
-      within ".process-content" do
-        click_link("New Project", class: "button")
+      within ".item_show__wrapper" do
+        click_link("New project", class: "button")
       end
     end
 
@@ -142,7 +142,7 @@ shared_examples "manage projects" do
 
   it "creates a new project", :slow do
     within ".bulk-actions-budgets" do
-      click_link "New Project"
+      click_link "New project"
     end
 
     within ".new_project" do
@@ -247,7 +247,7 @@ shared_examples "manage projects" do
 
     it "creates a new project" do
       within ".bulk-actions-budgets" do
-        click_link "New Project"
+        click_link "New project"
       end
 
       within ".new_project" do

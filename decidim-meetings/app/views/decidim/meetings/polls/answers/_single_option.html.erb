@@ -5,15 +5,15 @@
 
   <%= label_tag "#{choice_id}_body" do %>
     <%= radio_button_tag "answer[choices][#{idx}][body]",
-                        translated_attribute(answer_option.body),
-                        answer_option.id == choice.try(:decidim_answer_option_id),
-                        id: "#{choice_id}_body", disabled: %>
+                         translated_attribute(answer_option.body),
+                         answer_option.id == choice.try(:decidim_answer_option_id),
+                         id: "#{choice_id}_body", disabled: %>
 
     <%= translated_attribute(answer_option.body) %>
 
     <%= hidden_field_tag "answer[choices][#{idx}][answer_option_id]",
-                        answer_option.id,
-                        id: "#{choice_id}_answer_option",
-                        disabled: %>
+                         answer_option.id,
+                         id: "#{choice_id}_answer_option",
+                         disabled: %>
   <% end %>
 <% end %>

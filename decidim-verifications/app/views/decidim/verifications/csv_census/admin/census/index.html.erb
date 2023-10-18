@@ -19,10 +19,10 @@
                                                                           due_date: l(@status.last_import_at, format: :long)) %>
             </p>
             <%= link_to t("decidim.verifications.csv_census.admin.destroy.title"),
-              destroy_all_census_path,
-              method: :delete,
-              class: "button button__sm button__secondary alert",
-              data: { confirm: t("decidim.verifications.csv_census.admin.destroy.confirm") } %>
+                        destroy_all_census_path,
+                        method: :delete,
+                        class: "button button__sm button__secondary alert",
+                        data: { confirm: t("decidim.verifications.csv_census.admin.destroy.confirm") } %>
           </div>
         <% else %>
           <p class="row column"><%= t("admin.index.empty", scope: "decidim.verifications.csv_census") %></p>
@@ -44,7 +44,12 @@
             <%= decidim_form_for @form, url: census_path, multipart: true do |form| %>
               <%= label_tag :file, t("admin.new.file", scope: "decidim.verifications.csv_census") %>
               <%= form.file_field :file %>
-              <%= submit_tag t("admin.new.submit", scope: "decidim.verifications.csv_census"), class: "button button__sm button__secondary" %>
+
+              <div class="item__edit-sticky">
+                <div class="item__edit-sticky-container">
+                  <%= submit_tag t("admin.new.submit", scope: "decidim.verifications.csv_census"), class: "button button__sm button__secondary" %>
+                </div>
+              </div>
             <% end %>
           </div>
         </div>

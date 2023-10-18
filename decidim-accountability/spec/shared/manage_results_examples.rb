@@ -6,7 +6,7 @@ shared_examples "manage results" do
   include_context "when managing an accountability component as an admin"
 
   describe "admin form" do
-    before { click_on "New Result", match: :first }
+    before { click_on "New result", match: :first }
 
     it_behaves_like "having a rich text editor", "new_result", "full"
 
@@ -59,7 +59,7 @@ shared_examples "manage results" do
     end
 
     it "creates a new result", :slow do
-      click_link "New Result", match: :first
+      click_link "New result", match: :first
 
       within ".new_result" do
         fill_in_i18n(

@@ -190,7 +190,6 @@ en:
         export: Export all
         export-selection: Export selection
         import: Import
-        new: New %{name}
         newsletter:
           new: New newsletter
         participatory_space_private_user:
@@ -888,6 +887,8 @@ en:
           invalid: There was a problem reading the CSV file. Please make sure you have followed the instructions.
           success: CSV file uploaded successfully, we are sending an invitation email to participants. This might take a while.
         new:
+          csv_upload:
+            title: Upload your CSV file
           destroy:
             button: Delete all private participants
             confirm: Are you sure you want to delete all private participants? This action cannot be undone, you will not be able to recover them.
@@ -899,7 +900,7 @@ en:
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Upload your CSV file
+          title: Import private participants via CSV
           upload: Upload
       reminders:
         create:
@@ -965,7 +966,6 @@ en:
       shared:
         gallery:
           add_images: Add images
-          delete_image: Delete Image
           edit_images: Edit images
           gallery_legend: Add an image gallery (Optional)
       static_page_topics:
@@ -1013,7 +1013,7 @@ en:
           none: None
           slug_help_html: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
         index:
-          last_notable_change: Last notable change
+          last_notable_change: 'Last notable change: %{tos_version_formatted}'
         new:
           create: Create page
           title: New page

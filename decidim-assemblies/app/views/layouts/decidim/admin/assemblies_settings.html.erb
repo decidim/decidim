@@ -1,38 +1,9 @@
 <% content_for :breadcrumb_context_menu do %>
   <div class="process-title-content-breadcrumb-container-right">
-    <div class="inline-block relative">
-      <%= button_tag id: "assemblies-menu-trigger", data: { component: "dropdown", target: "assemblies-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
-        <span>
-          <%= t("menu.manage", scope: "decidim.admin") %>
-        </span>
-        <%= icon "arrow-down-s-line" %>
-      <% end %>
-      <div id="assemblies-dropdown-menu-settings">
-        <ul class="dropdown dropdown__bottom">
-          <li class="dropdown__item">
-            <% if allowed_to? :import, :assembly %>
-              <%= icon "upload-line" %>
-               <%= link_to t("actions.import_assembly", scope: "decidim.admin"),
-                           new_import_path,
-                           class: "text-secondary" %>
-             <% end %>
-          </li>
-          <li class="dropdown__item">
-            <% if allowed_to? :read, :assemblies_setting %>
-              <%= icon "tools-line" %>
-              <%= link_to t("menu.assemblies_settings", scope: "decidim.admin"),
-                         decidim_admin_assemblies.edit_assemblies_settings_path,
-                         class: "text-secondary" %>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <%= render partial: "layouts/decidim/admin/manage_assemblies" %>
   </div>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>
-  <div class="process-content">
-    <%= yield %>
-  </div>
+  <%= yield %>
 <% end %>

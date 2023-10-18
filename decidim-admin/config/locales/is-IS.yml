@@ -65,7 +65,6 @@ is-IS:
         secondary_color: Til vara
         success_color: Tókst
         time_zone: Tímabelti
-        twitter_handler: Twitter handler
         user_groups_enabled: Virkja hópa
         warning_color: Aðvörun
         youtube_handler: YouTube umsjónarmaður
@@ -126,8 +125,6 @@ is-IS:
         category:
           new: Nýr flokkur
         import: Flytja inn
-        manage: Stjórna
-        new: Nýtt %{name}
         newsletter:
           new: Nýtt fréttabréf
         per_page: Á hveri síðu
@@ -162,8 +159,6 @@ is-IS:
         edit:
           title: Breyta möppu
           update: Uppfæra
-        index:
-          attachment_collection_used: Ekki er hægt að fjarlægja þessa möppu vegna þess að það er í notkun.
         new:
           create: Búa til
           title: Ný mappa
@@ -194,7 +189,6 @@ is-IS:
           update: Uppfæra
         index:
           categories_title: Flokkar
-          category_used: Ekki er hægt að fjarlægja þennan flokk vegna þess að hún er í notkun.
         new:
           create: Búa til flokk
           title: Ný flokkur
@@ -251,7 +245,6 @@ is-IS:
             all: Allt
             managed: Stýrður
             not_managed: Ekki tekist
-          filter_by: Sía eftir
           impersonate: Líkjast notanda
           managed: Stýrður
           name: Nafn
@@ -281,7 +274,6 @@ is-IS:
         area_types: Svæði tegundir
         areas: Svæði
         configuration: Stillingar
-        dashboard: Mælaborð
         impersonations: Impersonations
         newsletters: Fréttabréf
         scope_types: Gildissvið
@@ -335,7 +327,6 @@ is-IS:
           fields:
             created_at: Sköpunardegi
             email: Email
-            last_sign_in_at: Síðasta skilti inn dagsetning
             name: Nafn
             role: Hlutverk
             roles:
@@ -405,7 +396,6 @@ is-IS:
           github: GitHub
           instagram: Instagram
           social_handlers: Félagsleg
-          twitter: Twitter
           youtube: Youtube
         update:
           success: Skipulag uppfærður með góðum árangri.
@@ -413,9 +403,6 @@ is-IS:
         edit:
           update: Uppfæra
         form:
-          colors:
-            header_snippets_help: Notaðu þetta reit til að bæta hlutum við HTML höfuðið. Algengasta notkunin er að samþætta þjónustu þriðja aðila sem krefst viðbótar JavaScript eða CSS. Einnig er hægt að nota það til að bæta við auka meta tags í HTML. Athugaðu að þetta verður aðeins birt á opinberum síðum, ekki í stjórnunarhlutanum.
-          cta_button_path_help: 'Þú getur skrifað yfir hvar Hnappurinn Hringja til aðgerða á heimasíðunni tengist. Notaðu hluta slóða, ekki fulla vefslóðir hér. Tekur bréf, tölur, bindur og rista, og verður að byrja með stafi. Hnappurinn Hringja til aðgerða er sýndur á heimasíðunni á milli velkomna textans og lýsingarinnar. Dæmi: %{url}'
           cta_button_text_help: Þú getur skrifað yfirskriftina Hringja til aðgerða hnappatexta á heimasíðunni fyrir hvert tiltækt tungumál í fyrirtækinu þínu. Ef ekki er valið verður sjálfgefið gildi. Hnappurinn Hringja til aðgerða er sýndur á heimasíðunni á milli velkomna textans og lýsingarinnar.
           homepage_appearance_title: Breyta heimasíðu útliti
           homepage_highlighted_content_banner_title: Hápunktur efni borði
@@ -472,7 +459,6 @@ is-IS:
         dashboard: Mælaborð
         scope_types: Gildissvið
         scopes: Scopes
-        static_pages: Síður
       user_groups:
         index:
           state:
@@ -511,10 +497,3 @@ is-IS:
   errors:
     messages:
       invalid_json: Ógilt JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Fréttabréf
-        settings:
-          title: Stillingar

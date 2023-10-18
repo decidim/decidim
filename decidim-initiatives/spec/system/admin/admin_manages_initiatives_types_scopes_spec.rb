@@ -15,8 +15,8 @@ describe "Admin manages initiatives types scopes", type: :system do
   end
 
   context "when creating a new initiative type scope" do
-    it "creates a new initiative type scope" do
-      click_link "New Initiative type scope"
+    it "Creates a new initiative type scope" do
+      click_link "New initiative type scope"
       select translated(scope.name), from: :initiatives_type_scope_decidim_scopes_id
       fill_in :initiatives_type_scope_supports_required, with: 1000
       click_button "Create"
@@ -25,7 +25,7 @@ describe "Admin manages initiatives types scopes", type: :system do
     end
 
     it "allows creating initiative type scopes with a Global scope" do
-      click_link "New Initiative type scope"
+      click_link "New initiative type scope"
       fill_in :initiatives_type_scope_supports_required, with: 10
       click_button "Create"
 
@@ -49,13 +49,6 @@ describe "Admin manages initiatives types scopes", type: :system do
       click_button "Update"
 
       expect(page).to have_admin_callout("The scope has been successfully updated")
-    end
-
-    it "removes the initiative type scope" do
-      click_link "Configure"
-      accept_confirm { click_link "Delete" }
-
-      expect(page).to have_admin_callout("The scope has been successfully removed")
     end
   end
 end

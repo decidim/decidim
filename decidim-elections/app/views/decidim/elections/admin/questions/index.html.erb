@@ -3,7 +3,7 @@
     <h2 class="item_show__header-title">
       <%= t(".title") %>
 
-      <%= link_to t("actions.new", scope: "decidim.elections", name: t("models.question.name", scope: "decidim.elections.admin")), new_election_question_path(election), class: "button button__sm button__secondary" if allowed_to? :create, :question, election: election %>
+      <%= link_to t("actions.new_question", scope: "decidim.elections"), new_election_question_path(election), class: "button button__sm button__secondary" if allowed_to? :create, :question, election: election %>
     </h2>
   </div>
   <div class="table-scroll">

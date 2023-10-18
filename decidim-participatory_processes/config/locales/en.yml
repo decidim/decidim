@@ -257,8 +257,6 @@ en:
         edit:
           title: Edit process type
           update: Update
-        form:
-          title: Title
         new:
           create: Create
           title: New process type
@@ -444,7 +442,6 @@ en:
             other: Other
             related_processes: Related processes
             scope_type_max_depth_help: Restrict the scope filter depth; The filter will show from general to the selected scope type.
-            sections: Sections
             select_an_area: Select an Area
             select_participatory_process_type: Select a process type
             select_process_group: Select a process group

@@ -4,8 +4,8 @@
     <h2 class="item_show__header-title">
       <%= t(".title") %>
       <div class="button--title">
-        <%= link_to t("actions.new", scope: "decidim.meetings", name: t("models.meeting.name", scope: "decidim.meetings.admin")), new_meeting_path, class: "button button__sm button__secondary" if allowed_to? :create, :meeting %>
         <%= export_dropdown %>
+        <%= link_to t("actions.new_meeting", scope: "decidim.meetings"), new_meeting_path, class: "button button__sm button__secondary" if allowed_to? :create, :meeting %>
       </div>
     </h2>
   </div>
@@ -69,7 +69,7 @@
             </td>
             <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
               <td>
-                <%= static_map_link(meeting) %>
+                <%= static_map_link(meeting, {}, { class: "static-map__admin" }) unless meeting.online? %>
               </td>
             <% end %>
             <%= td_resource_scope_for(meeting.scope) %>

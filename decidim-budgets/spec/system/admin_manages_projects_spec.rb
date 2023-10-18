@@ -51,7 +51,7 @@ describe "Admin manages projects", type: :system do
       find(".js-resource-id-#{project.id}").set(true)
       find("#js-bulk-actions-button").click
       click_button "Change scope"
-      scope_pick select_data_picker(:scope_id), scope
+      select translated(scope.name), from: :scope_id
       click_button "Update"
 
       expect(page).to have_admin_callout "Projects successfully updated to the scope"

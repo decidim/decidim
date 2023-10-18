@@ -220,5 +220,20 @@ module Decidim
 
       organization.area_types
     end
+
+    def ordered_scopes_descendants(root = nil)
+      root = try(:current_participatory_space)&.scope if root == false
+      if root.present?
+        root.descendants
+      else
+        current_organization.scopes
+      end.sort { |a, b| a.part_of.reverse <=> b.part_of.reverse }
+    end
+
+    def ordered_scopes_descendants_for_select(root = nil)
+      ordered_scopes_descendants(root).map do |scope|
+        [" #{"&nbsp;" * 4 * (scope.part_of.count - 1)} #{translated_attribute(scope.name)}".html_safe, scope&.id]
+      end
+    end
   end
 end

@@ -29,24 +29,24 @@
 
     <div>
       <%= link_to t("polling_station.identify_person", scope: "decidim.votings.polling_officer_zone.polling_officers.index"),
-                new_polling_officer_election_in_person_vote_path(polling_officer, election),
-                class: "button button__sm button__transparent-secondary" %>
+                  new_polling_officer_election_in_person_vote_path(polling_officer, election),
+                  class: "button button__sm button__transparent-secondary" %>
 
       <% closure = polling_officer.polling_station.closures.find_by(election:) %>
       <% if closure %>
         <% if closure.results_phase? %>
           <%= link_to t("polling_station.count_votes", scope: "decidim.votings.polling_officer_zone.polling_officers.index"),
-                    edit_polling_officer_election_closure_path(polling_officer, election),
-                    class: "button button__sm button__transparent-secondary" %>
+                      edit_polling_officer_election_closure_path(polling_officer, election),
+                      class: "button button__sm button__transparent-secondary" %>
         <% else %>
           <%= link_to t("polling_station.show_closure", scope: "decidim.votings.polling_officer_zone.polling_officers.index"),
-                    polling_officer_election_closure_path(polling_officer, election),
-                    class: "button button__sm button__secondary" %>
+                      polling_officer_election_closure_path(polling_officer, election),
+                      class: "button button__sm button__secondary" %>
         <% end %>
       <% else %>
         <%= link_to t("polling_station.count_votes", scope: "decidim.votings.polling_officer_zone.polling_officers.index"),
-                  new_polling_officer_election_closure_path(polling_officer, election),
-                  class: "button button__sm button__secondary" %>
+                    new_polling_officer_election_closure_path(polling_officer, election),
+                    class: "button button__sm button__secondary" %>
       <% end %>
     </div>
   <% end %>

@@ -1,63 +1,33 @@
 /**
- * @deprecated since feature/redesign
+ * Send a request to select which identity want to use
+ * NOTE: this should not be done using javascript
  *
- * Makes the #select-identity-button to open a popup for the user to
- * select with which identity they want to perform an action.
- *
+ * @param {HTMLElement} node target node
+ * @returns {void}
  */
-$(() => {
-  let button = $("#select-identity-button"),
-      identitiesUrl = null,
-      userIdentitiesDialog = $("#user-identities");
+export default function(node = document) {
+  node.addEventListener("click", ({ target: element }) => {
+    const { method } = element.dataset
 
-  if (userIdentitiesDialog.length) {
-    identitiesUrl = userIdentitiesDialog.data("reveal-identities-url");
+    let attr = "destroy_url";
 
-    button.click(function () {
-      $.ajax(identitiesUrl).done(function(response) {
-        userIdentitiesDialog.html(response).foundation("open");
-        button.trigger("ajax:success")
-      });
-    });
-  }
-});
+    if (method === "POST") {
+      attr = "create_url";
+    }
 
-/**
- * @deprecated since feature/redesign
- *
- * Manage the identity selector for endorsements.
- *
- */
-$(() => {
-  $("#select-identity-button").on("ajax:success", function() {
-    // once reveal popup has been rendered register event callbacks
-    $("#user-identities ul.reveal__list li").each(function(index, elem) {
-      let liTag = $(elem)
-      liTag.on("click", function() {
-        let method = liTag.data("method"),
-            urlDataAttr = null;
+    const { [attr]: url } = element.dataset
+    Rails.ajax({
+      url: url,
+      type: method,
+      success: function() {
         if (method === "POST") {
-          urlDataAttr = "create_url";
+          element.classList.add("is-selected")
+          element.dataset.method = "DELETE"
         } else {
-          urlDataAttr = "destroy_url";
+          element.classList.remove("is-selected")
+          element.dataset.method = "POST"
         }
-        $.ajax({
-          url: liTag.data(urlDataAttr),
-          method: method,
-          dataType: "script",
-          success: function() {
-            if (liTag.hasClass("selected")) {
-              liTag.removeClass("selected")
-              liTag.find(".icon--circle-check").addClass("invisible")
-              liTag.data("method", "POST")
-            } else {
-              liTag.addClass("selected")
-              liTag.find(".icon--circle-check").removeClass("invisible")
-              liTag.data("method", "DELETE")
-            }
-          }
-        })
-      })
-    });
-  });
-})
+      }
+    })
+  })
+}

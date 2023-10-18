@@ -29,7 +29,6 @@ is-IS:
         confirm_destroy: Ertu viss?
         destroy: Eyða
         edit: Breyta
-        new: Nýtt %{name}
         title: Aðgerðir
       admin:
         debates:
@@ -41,9 +40,6 @@ is-IS:
           new:
             create: Búðu til umræðu
             title: Ný umræða
-        models:
-          debate:
-            name: Umræða
       admin_log:
         debate:
           create: "%{user_name} búið til %{resource_name} umræðu á %{space_name} plássinu"
@@ -62,11 +58,6 @@ is-IS:
           official: Opinber
           origin: Uppruni
           search: Leita
-        filters_small_view:
-          close_modal: Loka mát
-          filter: Sía
-          filter_by: Sía eftir
-          unfold: Fella út
         form:
           select_a_category: Vinsamlegast veldu flokk
         index:

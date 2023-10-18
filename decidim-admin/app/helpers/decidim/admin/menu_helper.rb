@@ -68,10 +68,6 @@ module Decidim
         )
       end
 
-      def aside_menu(target_menu)
-        ::Decidim::Admin::AsideMenuPresenter.new(target_menu, self)
-      end
-
       def simple_menu(target_menu:, options: {})
         options = { active_class: "is-active" }.merge(options)
         ::Decidim::Admin::SimpleMenuPresenter.new(target_menu, self, options)

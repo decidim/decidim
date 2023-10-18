@@ -446,7 +446,6 @@ zh-TW:
               md: Markdown
               odt: ODT
             bottom_hint: "(您可以預覽和排序文件章節)"
-            document_legend: '新增一份小於2MB的文件，每個部分最多支援三個層級轉換為提案。支援的格式為：%{valid_mime_types}'
             title: 新增文件
             upload_document: 上傳文件
           publish:
@@ -520,29 +519,21 @@ zh-TW:
           show:
             amendments_count: 修改案數量
             assigned_valuators: 已分配給評估人員
-            authors: 作者
             body: 正文
             comments_count: 評論次數
-            comments_negative_count: 反對
-            comments_neutral_count: 中性
-            comments_positive_count: 喜好
-            created_at: 創建日期
             documents: 文件
             endorsements_count: 連署人數
-            endorsements_ranking: 按連署人數排序
             endorsers: 贊助人
             link: 連結
             n_more_endorsers:
               other: 還有 %{count} 位
             photos: 圖片
-            proposals: 提案
             ranking: "%{total} 的%{ranking}"
             related_meetings: 相關會議
             remove_assignment: 移除指派
             remove_assignment_confirmation: 您確定要將評估者從此提案中移除嗎？
             valuators: 評估者
             votes_count: 支持數量
-            votes_ranking: 依據支持排名
           update_category:
             invalid: '這些提案已經擁有 %{subject_name} 類別: %{proposals}。'
             select_a_category: 請選擇一個類別。
@@ -596,16 +587,12 @@ zh-TW:
         rejected: 已拒絕
         withdrawn: 已撤回
       application_helper:
-        filter_category_values:
-          all: 全部
         filter_origin_values:
           all: 全部
           meetings: 會議
           official: 官方
           participants: 參與者
           user_groups: 群組
-        filter_scope_values:
-          all: 全部
         filter_state_values:
           accepted: 已接受
           all: 全部
@@ -626,7 +613,6 @@ zh-TW:
               ok: 作為提案發布
               title: 這個動作是不可逆的
             success: 協作草稿已成功發布為提案。
-          view_collaborative_draft: 查看協作草稿
           withdraw:
             error: 關閉協作草稿時出現問題
             irreversible_action_modal:
@@ -635,9 +621,6 @@ zh-TW:
               ok: 撤回協作草稿
               title: 這個動作是不可逆的
             success: 協作草稿已成功撤回。
-        count:
-          drafts_count:
-            other: "%{count} 個協作草稿"
         create:
           error: 建立協作草稿時發生問題。
           success: 協作草稿建立成功。
@@ -663,6 +646,9 @@ zh-TW:
           filter: 篩選
           filter_by: 篩選條件
           unfold: 展開
+        index:
+          count:
+            other: "%{count} 個協作草稿"
         new:
           add_file: 添加檔案
           edit_file: 編輯檔案
@@ -689,7 +675,6 @@ zh-TW:
             error: 無法拒絕作為合作者，請稍後再試。
             success: "@%{user} 已被成功拒絕成為協作者。"
         show:
-          back: 返回
           edit: 編輯協作草稿
           final_proposal: 最終提案
           final_proposal_help_text: 此草案已完成。請查看最終提案。
@@ -701,7 +686,6 @@ zh-TW:
           published_proposal: 發佈提案
           request_access: 申請權限
           requested_access: 授權請求
-          version_history: 查看此提案的版本歷史
           withdraw: 撤回草稿
         states:
           open: 開啟
@@ -712,12 +696,8 @@ zh-TW:
           success: 協作草稿更新成功。
         wizard_aside:
           back_from_collaborative_draft: 回到協作草稿
-          info: 你正在建立一個<strong>協作草案</strong>。
         wizard_header:
           title: 建立你的協作草案
-      content_blocks:
-        highlighted_proposals:
-          proposals: 提案
       create:
         error: 儲存提案時出現問題。
         success: 提案已成功建立。儲存為草案。
@@ -728,11 +708,6 @@ zh-TW:
         new_proposal: '新提案:'
         proposal_updated: '提案更新：'
       models:
-        collaborative_draft:
-          fields:
-            authors: 作者
-            comments: 評論
-            contributions: 貢獻
         proposal:
           fields:
             category: 分類
@@ -755,7 +730,6 @@ zh-TW:
         buttons:
           amend: 修訂
           comment: 評論
-          comments: 評論
       proposal_votes:
         create:
           error: 支持提案時發生問題。
@@ -767,20 +741,14 @@ zh-TW:
         complete:
           send: 發送
           title: 完成您的提案
-        count:
-          proposals_count:
-            other: "%{count} 個提案"
         dynamic_map_instructions:
           description: 當點擊“預覽”按鈕時，座標將會更新，但地址不會更改。
           instructions: 您可以在地圖上移動點。
         edit:
           add_documents: 新增文件
-          add_image: 新增圖片
           attachment_legend: "(可選) 新增附件"
           back: 返回
           edit_documents: 編輯文件
-          edit_image: 編輯圖片
-          gallery_legend: "(選填) 在提案卡片上添加圖片"
           select_a_category: 請選擇一個類別
           send: 發送
           title: 編輯提案
@@ -802,22 +770,15 @@ zh-TW:
           state: 狀態
           type: 類別
           voted: 支持
-        filters_small_view:
-          close_modal: 關閉視窗
-          filter: 篩選
-          filter_by: 篩選條件
-          unfold: 展開
         index:
           click_here: 檢視所有提案
           collaborative_drafts_list: 進入協作草稿
+          count:
+            other: "%{count} 個提案"
           new_proposal: 新提案
           see_all: 檢視所有提案
           see_all_withdrawn: 查看所有撤回的提案
           text_banner: 您正在查看由其作者撤回的提案列表。%{go_back_link}。
-          view_proposal: 檢視提案
-        linked_proposals:
-          proposal_votes:
-            other: 支持
         new:
           send: 繼續
           title: 創建你的提案
@@ -830,11 +791,6 @@ zh-TW:
           random: 隨機
           recent: 最近
           with_more_authors: 有更多作者
-        participatory_texts:
-          index:
-            document_index: 文件索引
-          view_index:
-            see_index: 查看索引
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
@@ -845,18 +801,12 @@ zh-TW:
             other: "One\n提案發布後的前1分鐘內，您可以對其進行編輯。此時間窗口過後，您將無法編輯提案。\nOther\n提案發布後的前 %{count} 分鐘內，您可以對其進行編輯。此時間窗口過後，您將無法編輯提案。"
           publish: 發布
           title: 發佈您的提案
-        proposal:
-          creation_date: '創建日期： %{date}"'
-          view_proposal: 檢視提案
         proposals:
           empty: 目前尚未有提案.
           empty_filters: 沒有符合此條件的提案。
         show:
           answer: 回答
-          back_to: 返回
-          back_to_list: 返回列表
           changes_at_title: 修正案 "%{title}"
-          comments: 評論
           edit_proposal: 編輯提案
           estimated_cost: 預估成本
           hidden_endorsers_count:
@@ -870,14 +820,9 @@ zh-TW:
           proposal_accepted_reason: '這個提案已經被接受，因為：'
           proposal_in_evaluation_reason: 這個提案正在被評估中
           proposal_rejected_reason: '這個提案被拒絕了，因為：'
-          read_less: 顯示較少
-          read_more: 顯示較多
-          report: 報告
           withdraw_btn_hint: 如果你改變主意，只要你的提案沒有獲得任何支持，你可以撤回你的提案。提案不會被刪除，它會顯示在被撤回的提案清單中。
           withdraw_confirmation_html: 您確定要撤回此提案嗎？<br><br><strong>此操作無法取消！</strong>
           withdraw_proposal: 撤回提案
-        tags:
-          changed_from: "(由管理員修改自 <u>%{previous_name}</u>)"
         update:
           title: 更新提案
         vote_button:
@@ -890,8 +835,6 @@ zh-TW:
         votes_count:
           count:
             other: 支持
-          most_popular_proposal: 最受歡迎的提案
-          need_more_votes: 需要更多支持
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: 每個提案可以累積超過%{limit} 個支持
@@ -906,7 +849,6 @@ zh-TW:
           title: '支持需遵守以下規則：'
           vote_limit:
             description: 您最多可以支持 %{limit} 個提案。
-            left: 剩餘
             votes: 支持
         wizard_aside:
           back: 返回
@@ -914,20 +856,15 @@ zh-TW:
           back_from_step_2: 返回提案
           back_from_step_3: 返回比較提案
           back_from_step_4: 返回編輯草案
-          info: 你正在建立一個<strong>提案</strong>。
         wizard_steps:
           current_step: 當前步驟
-          see_steps: 看步驟
           step_1: 創建你的提案
           step_2: 比較
           step_3: 完成
           step_4: 發佈您的提案
-          step_of: 第 %{current_step_num} 步，共 %{total_steps} 步
           title: 提案創建步驟
       proposals_picker:
         choose_proposals: 選擇提案
-        close: 關閉
-        more_proposals: 還有 %{number} 個提案。請優化您的搜尋條件以查找它們。
         no_proposals: 沒有符合您的搜尋條件的提案，或者目前沒有任何提案。
       publish:
         error: 發佈提案時出現問題。
@@ -941,12 +878,8 @@ zh-TW:
         error: 在儲存提案時出現問題
         success: 成功更新提案草案
       versions:
-        collaborative_drafts:
-          back_to_resource: 回到協作草稿
         index:
           title: 版本
-        proposals:
-          back_to_resource: 返回提案
       withdraw:
         errors:
           has_supports: 這份提案無法撤回，因為它已經得到支持。

@@ -4,7 +4,6 @@ zh-CN:
       conference:
         assemblies_ids: 相关程序集
         banner_image: 横幅图像
-        consultations_ids: 相关协商
         copy_categories: 复制类别
         copy_components: 复制组件
         copy_features: 复制功能
@@ -40,7 +39,6 @@ zh-CN:
     admin:
       actions:
         confirm: 确认
-        new_conference: 新会议
         send_diplomas: 发送出勤证书
       conference_copies:
         new:
@@ -101,7 +99,6 @@ zh-CN:
         form:
           title: 一般信息
         index:
-          not_published: 未发布
           published: 已发布
         new:
           create: 创建
@@ -142,7 +139,6 @@ zh-CN:
           conference_invites: 邀请
           conference_speakers: 发言者：
           diploma: 出席证书
-          info: 信息
           media_links: 媒体链接
           moderations: 版面
           partners: 合作伙伴
@@ -153,7 +149,6 @@ zh-CN:
         conference:
           fields:
             created_at: 创建于
-            promoted: 高亮
             published: 已发布
             title: 标题
         conference_speaker:
@@ -271,9 +266,6 @@ zh-CN:
         title: 发言者：
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugs 用于生成指向此会议的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
         conference_invites:
           create:
             error: 邀请与会者参加会议时出现问题。
@@ -290,7 +282,6 @@ zh-CN:
               all: 所有的
               rejected: 已拒绝
               sent: 已发送
-            filter_by: 筛选方式
             invite_attendee: Invite participant
             invites: 邀请
             search: 搜索
@@ -313,7 +304,6 @@ zh-CN:
             available_slots_help: 如果您有无限空位可用，则将其留给0。
             registrations_count:
               other: 有 %{count} 个注册。
-            slug_help: 'URL slugs 用于生成指向此会议的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
         diplomas:
           edit:
             save: 保存
@@ -372,7 +362,6 @@ zh-CN:
           invalid: 离开此会议时出现问题。
           success: 您已经成功离开了会议。
       conference_speaker:
-        go_to_twitter: 转到Twitter
         more_info: 更多信息
         personal_website: 个人网站
         show:
@@ -423,8 +412,7 @@ zh-CN:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: 活跃的会议
-            see_all_conferences: 查看所有会议
+            active_spaces: 活跃的会议
       registration_types:
         index:
           choose_an_option: '选择您的注册选项：'
@@ -436,7 +424,6 @@ zh-CN:
         introduction: 一. 导言
         objectives: 目标
         related_assemblies: 相关的会议
-        related_consultations: 相关协商
         related_participatory_processes: 相关的参与进程
     events:
       conferences:
@@ -483,9 +470,6 @@ zh-CN:
     decidim:
       conference_hero:
         register: 注册
-      conference_widgets:
-        show:
-          take_part: 参与
       conferences:
         conference:
           more_info: 更多信息
@@ -495,11 +479,7 @@ zh-CN:
         order_by_conferences:
           conferences:
             other: "%{count} 个会议"
-        promoted_conference:
-          more_info: 更多信息
-          take_part: 参与
       conferences_nav:
-        conference_menu_item: 信息
         conference_partners_menu_item: 合作伙伴
         conference_speaker_menu_item: 发言者：
         media: 媒体

@@ -14,7 +14,7 @@ shared_examples "manage assembly admins examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Assembly admins"
     end
   end
@@ -26,7 +26,7 @@ shared_examples "manage assembly admins examples" do
   end
 
   it "creates a new assembly admin" do
-    click_link "New Assembly admin"
+    click_link "New assembly admin"
 
     within ".new_assembly_user_role" do
       fill_in :assembly_user_role_email, with: other_user.email

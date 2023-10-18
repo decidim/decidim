@@ -5,22 +5,7 @@
   </h2>
 </div>
 
-<div class="item__edit">
-  <div class="item__edit-menu">
-    <div class="item__edit-menu-sticky">
-      <p class="item__edit-menu-title">
-        <%= t("sections", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-      </p>
-      <%= link_to t("title", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.new_participatory_process_path(current_participatory_space, anchor: "title"), class: "item__edit-menu-anchor" %>
-      <%= link_to t("duration", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.new_participatory_process_path(current_participatory_space, anchor: "duration"), class: "item__edit-menu-anchor" %>
-      <%= link_to t("images", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.new_participatory_process_path(current_participatory_space, anchor: "images"), class: "item__edit-menu-anchor" %>
-      <%= link_to t("metadata", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.new_participatory_process_path(current_participatory_space, anchor: "metadata"), class: "item__edit-menu-anchor" %>
-      <%= link_to t("filters", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.new_participatory_process_path(current_participatory_space, anchor: "filters"), class: "item__edit-menu-anchor" %>
-      <%= link_to t("visbility", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.new_participatory_process_path(current_participatory_space, anchor: "visbility"), class: "item__edit-menu-anchor" %>
-      <%= link_to t("related_processes", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.new_participatory_process_path(current_participatory_space, anchor: "related_processes"), class: "item__edit-menu-anchor" %>
-      <%= link_to t("other", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin_participatory_processes.new_participatory_process_path(current_participatory_space, anchor: "other"), class: "item__edit-menu-anchor" %>
-    </div>
-  </div>
+<div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, html: { class: "form form-defaults new_participatory_process" }) do |f| %>
       <%= render partial: "form", object: f %>

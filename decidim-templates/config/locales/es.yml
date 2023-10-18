@@ -9,8 +9,11 @@ es:
   decidim:
     admin:
       menu:
+        manage: Gestionar
         templates: Plantillas
       templates:
+        actions:
+          new_template: Añadir plantilla
         apply:
           error: Se ha producido un error al aplicar esta plantilla.
           success: Plantilla aplicada correctamente.
@@ -42,12 +45,15 @@ es:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Editar plantilla del mensaje de bloqueo de la cuenta de usuaria
           form:
             save: Guardar
-            template_title: Información de la plantilla
           index:
             confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
             title: Bloquear los mensajes de la usuaria
+          new:
+            title: Nueva plantilla para el mensaje de bloqueo de la cuenta de usuaria
           template_chooser:
             select_template: Selecciona una plantilla de respuesta
         questionnaire_templates:
@@ -61,13 +67,14 @@ es:
             edit: Editar
             empty: Aún no hay preguntas.
             questionnaire: Cuestionario
+            title: Editar plantilla del cuestionario
           form:
-            save: Guardar
-            template_title: Información de la plantilla
             title: Plantilla de cuestionario %{questionnaire_for}
           index:
             confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
             title: Plantillas de cuestionario
+          new:
+            title: Nueva plantilla de cuestionario
           preview:
             current_step: Paso %{step}
             of_total_steps: de %{total_steps}

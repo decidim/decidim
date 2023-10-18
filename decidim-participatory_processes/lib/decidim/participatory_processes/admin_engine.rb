@@ -21,7 +21,7 @@ module Decidim
           end
         end
         resources :participatory_process_types
-        resources :participatory_processes, param: :slug, except: [:destroy] do
+        resources :participatory_processes, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
           resources :copies, controller: "participatory_process_copies", only: [:new, :create]
 
@@ -168,44 +168,27 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes_admin.process_components_right_menu" do
-        Decidim.menu :admin_participatory_process_components_right_menu do |menu|
-          menu.add_item :edit_participatory_process,
-                        I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space),
-                        icon_name: "tools-line",
-                        if: allowed_to?(:update, :process, process: current_participatory_space)
-          current_participatory_space.components.each do |component|
-            caption = translated_attribute(component.name)
-            caption += content_tag(
-              :span,
-              t(component.published_at? ? "published" : "unpublished", scope: "decidim.admin.participatory_processes.index"),
-              class: component.published_at? ? "label success !text-sm" : "label alert !text-sm"
-            )
-
-            menu.add_item [component.manifest_name, component.id].join("_"),
-                          caption.html_safe,
-                          manage_component_path(component),
-                          icon_name: component.manifest.icon_key || "pages-line",
-                          if: component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name)
-          end
-        end
-      end
-
       initializer "decidim_participatory_processes_admin.process_menu" do
         Decidim.menu :admin_participatory_process_menu do |menu|
           menu.add_item :edit_participatory_process,
                         I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space)),
-                        icon_name: "tools-line",
+                        icon_name: "information-line",
+                        if: allowed_to?(:update, :process, process: current_participatory_space)
+
+          menu.add_item :edit_participatory_process_landing_page,
+                        I18n.t("landing_page", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.edit_participatory_process_landing_page_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_landing_page_path(current_participatory_space)),
+                        icon_name: "layout-masonry-line",
                         if: allowed_to?(:update, :process, process: current_participatory_space)
 
           menu.add_item :participatory_process_steps,
                         I18n.t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space)),
-                        icon_name: "layout-masonry-line",
+                        icon_name: "direction-line",
                         if: allowed_to?(:read, :process_step)
 
           menu.add_item :components,
@@ -213,7 +196,7 @@ module Decidim
                         decidim_admin_participatory_processes.components_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.components_path(current_participatory_space),
                                                 ["decidim/participatory_processes/admin/components", %w(index new edit)]),
-                        icon_name: "layout-masonry-line",
+                        icon_name: "tools-line",
                         if: allowed_to?(:read, :component),
                         submenu: { target_menu: :admin_participatory_process_components_menu }
 
@@ -252,13 +235,6 @@ module Decidim
                         active: is_active_link?(decidim_admin_participatory_processes.moderations_path(current_participatory_space)),
                         icon_name: "flag-line",
                         if: allowed_to?(:read, :moderation)
-
-          menu.add_item :edit_participatory_process_landing_page,
-                        I18n.t("landing_page", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        decidim_admin_participatory_processes.edit_participatory_process_landing_page_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_landing_page_path(current_participatory_space)),
-                        icon_name: "tools-line",
-                        if: allowed_to?(:update, :process, process: current_participatory_space)
         end
       end
 
@@ -275,7 +251,7 @@ module Decidim
                         I18n.t("landing_page", scope: "decidim.admin.menu.participatory_process_groups_submenu"),
                         decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group),
                         position: 2,
-                        icon_name: "pages-line",
+                        icon_name: "layout-masonry-line",
                         if: allowed_to?(:update, :process_group, process_group: participatory_process_group),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_group_landing_page_path(participatory_process_group))
         end

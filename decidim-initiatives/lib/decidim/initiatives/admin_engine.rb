@@ -126,7 +126,7 @@ module Decidim
           menu.add_item :edit_initiative,
                         I18n.t("menu.information", scope: "decidim.admin"),
                         decidim_admin_initiatives.edit_initiative_path(current_participatory_space),
-                        icon_name: "tools-line",
+                        icon_name: "information-line",
                         if: allowed_to?(:edit, :initiative, initiative: current_participatory_space)
 
           menu.add_item :initiative_committee_requests,
@@ -138,7 +138,7 @@ module Decidim
           menu.add_item :components,
                         I18n.t("menu.components", scope: "decidim.admin"),
                         decidim_admin_initiatives.components_path(current_participatory_space),
-                        icon_name: "layout-masonry-line",
+                        icon_name: "tools-line",
                         active: is_active_link?(decidim_admin_initiatives.components_path(current_participatory_space),
                                                 ["decidim/initiatives/admin/components", %w(index new edit)]),
                         if: allowed_to?(:read, :component, initiative: current_participatory_space),

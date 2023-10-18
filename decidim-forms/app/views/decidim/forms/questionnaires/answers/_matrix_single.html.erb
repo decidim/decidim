@@ -18,24 +18,24 @@
             <td>
               <div class="js-collection-input">
                 <%= radio_button_tag "questionnaire[responses][#{answer_idx}][choices][#{row_idx}][body]",
-                                      translated_attribute(answer_option.body),
-                                      answer_option.id == choice.try(:answer_option_id),
-                                      "aria-label": translated_attribute(answer_option.body),
-                                      id: "#{choice_id}_body", disabled: %>
+                                     translated_attribute(answer_option.body),
+                                     answer_option.id == choice.try(:answer_option_id),
+                                     "aria-label": translated_attribute(answer_option.body),
+                                     id: "#{choice_id}_body", disabled: %>
                 <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{row_idx}][answer_option_id]",
-                                      answer_option.id,
-                                      id: "#{choice_id}_answer_option",
-                                      disabled: true %>
+                                     answer_option.id,
+                                     id: "#{choice_id}_answer_option",
+                                     disabled: true %>
                 <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{row_idx}][matrix_row_id]",
-                                      row.id,
-                                      id: "#{choice_id}_matrix_row",
-                                      disabled: true %>
+                                     row.id,
+                                     id: "#{choice_id}_matrix_row",
+                                     disabled: true %>
                 <% if answer_option.free_text %>
                   <%= text_field_tag "questionnaire[responses][#{answer_idx}][choices][#{row_idx}][custom_body]",
-                  choice.try(:custom_body),
-                  id: "#{choice_id}_custom_body",
-                  disabled: true,
-                  maxlength: %>
+                                     choice.try(:custom_body),
+                                     id: "#{choice_id}_custom_body",
+                                     disabled: true,
+                                     maxlength: %>
                 <% end %>
               </div>
             </td>

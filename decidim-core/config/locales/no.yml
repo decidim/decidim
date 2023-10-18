@@ -174,7 +174,6 @@
         error: En feil oppstod under godkjenningen av endringen.
         success: Endringen ble godtatt.
       amendable:
-        amended_by: Endret av
         button: Endre %{model_name}
         error: Det oppsto feil under endringen av denne resurssen.
         promote_button: Promoter til %{model_name}
@@ -192,7 +191,6 @@
         success: Endrings utkastet ble slettet.
       edit_draft:
         discard: Forkast dette utkastet
-        discard_confirmation: Er du sikker på at du vil forkaste dette endrings utkastet?
         send: Forhåndsvisning
         title: Rediger endringsutkastet
       emendation:
@@ -239,13 +237,10 @@
         download: Last ned fil
       documents:
         related_documents: Grunnlagsdokumenter
-      geocoding:
-        geocoded_address: Adresse
       photos:
         related_photos: Illustrasjoner
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar for flere brukere
       comments:
         one: kommentar
         other: kommentarer
@@ -396,8 +391,6 @@
         name: Organisasjonsstatistikk
       sub_hero:
         name: Underhelt banner
-    datepicker:
-      help_text: 'Forventet format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
@@ -411,11 +404,7 @@
           already_have_an_account?: Har du allerede en bruker?
           newsletter: Motta et sporadisk nyhetsbrev med relevant informasjon
           newsletter_title: Kontakt tillatelse
-          nickname_help: Ditt alias i %{organization}, kan bare inneholde bokstaver, tall, '-' og '_'.
-          sign_in: Logg inn
           sign_up: Registrer deg
-          sign_up_as:
-            legend: Registrer deg som
           subtitle: Registrer deg for å delta i diskusjoner og medvirkningsprosesser.
           tos_agreement: Ved å registrere deg godtar du til %{link}.
           tos_title: Vilkår for bruk
@@ -424,13 +413,10 @@
         new:
           are_you_new?: Er du ny på plattformen?
           register: Opprett en konto
-        user:
-          timed_out: Du har vært inaktiv for lenge og du har blitt automatisk logget ut fra tjenesten. Hvis du ønsker å fortsette å bruke tjenesten, vennligst logg på igjen.
       shared:
         newsletter_modal:
           buttons:
             check: Sjekk og fortsett
-            close_modal: Lukk modal
             uncheck: Hold usjekket
           title: Varsler om nyhetsbrev
         omniauth_buttons:
@@ -454,13 +440,9 @@
         ready: Klar
       show:
         download_data: Last ned informasjonen
-        download_data_description: En fil som inneholder all informasjon tilknyttet kontoen din vil bli sendt til <strong>%{user_email}</strong>. Denne e-posten inneholder en .zip-fil og et passord for å åpne den.<br/><br/>For å pakke ut filen vil du trenge <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) eller <a href="https://www.keka.io/">Keka</a> (for MacOS). Hvis du bruker Linux vil du i de fleste tilfeller ha den installert som standard. Dersom dette ikke stemmer, kan du bruke <a href="https://gitlab.gnome.org/GNOME/file-roller">filroller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Etterspør informasjonen
     editor_images:
       drag_and_drop_help: Legg til bilder ved å dra og slippe eller lime dem inn.
-    endorsable:
-      endorsements: Påtegnelser
-      endorsements_count: Antall tilslutninger
     endorsements:
       identities:
         done: Ferdig
@@ -732,12 +714,9 @@
           title: Hva kan jeg gjøre i %{organization}?
         title: Generell hjelp
     last_activities:
-      activities:
-        no_activities_warning: Ingen aktivitet
       all: Alle aktivitetstyper
       index:
         last_activity: Siste aktivitet
-        resource_type: Type
     links:
       invalid_url: Ugyldig URL
       warning:
@@ -906,11 +885,6 @@
         retry: Prøv igjen
     open_data:
       not_available_yet: Open Data-filene er ikke tilgjengelige ennå, prøv igjen om noen minutter.
-    own_user_groups:
-      index:
-        pending: Venter
-        rejected: Avvist
-        verified: Verifisert
     pad_iframe:
       disclaimer: Innholdet på denne padden er skrevet av registrerte brukere og uttrykker deres meninger. %{organization} kan ikke holdes ansvarlig for innholdet.
       pad: Pad
@@ -932,8 +906,6 @@
         hero:
           participate: Delta
           welcome: Velkommen til %{organization}!
-        metrics:
-          headline: Deltakelse i tall
         statistics:
           headline: Nåværende status for %{organization}
         sub_hero:
@@ -950,7 +922,7 @@
     participatory_space_private_users:
       not_allowed: Du er ikke tillatt å se dette innholdet
     profile:
-      view: Vis
+      deleted: Slettet deltaker
     profiles:
       show:
         activity: Aktivitet
@@ -962,7 +934,6 @@
         members: Medlemmer
         officialized: Offisiell deltaker
         send_private_message: Send privat melding
-        view_full_profile: Vis hele profilen
       sidebar:
         badges:
           info: Merker tjenes med å utføre spesifikke aktivitet i plattformen.
@@ -1021,7 +992,6 @@
       term_input_placeholder: Søk
     searches:
       filters:
-        back: Tilbake til resultater
         jump_to: 'Hopp til:'
         state:
           active: Aktiv
@@ -1029,14 +999,9 @@
           future: Fremtidige
           past: Fortid
       filters_small_view:
-        close_modal: Lukk modal
         filter: Filter
         filter_by: Filtrer etter
-        unfold: Åpne
       results:
-        results:
-          one: "%{count} resultat"
-          other: "%{count} resultater"
         view_all: Vis alle (%{count})
     security:
       selfxss_warning:
@@ -1048,10 +1013,6 @@
         close_modal: Lukk modal
         ok: Ok
         title: Bekreft
-      embed_modal:
-        close_window: Lukk vindu
-        embed: Lim inn denne koden på siden din
-        embed_link: Bygge inn
       extended_navigation_bar:
         more: Mer
         unfold: Åpne
@@ -1076,13 +1037,8 @@
         spam: Inneholder klikkeagn, reklame, svindel eller skriptbotter.
         title: Rapporter upassende bruker
       floating_help:
-        close: Lukk hjelp
         help: Hjelp
-      follow_button:
-        sign_in_before_follow: Logg på før du utfører denne handlingen
       login_modal:
-        close_modal: Lukk dialogboks
-        please_sign_in: Vennligst logg inn
         sign_up: Registrer deg
       participatory_space_filters:
         filters:
@@ -1099,7 +1055,6 @@
         label: 'Resultater per side:'
         title: Velg antall resultater per side
       share_modal:
-        close_window: Lukk vindu
         copy_share_link: Kopier
         copy_share_link_clarification: Kopier lenke til utklippstavlen
         copy_share_link_copied: Kopiert!
@@ -1128,28 +1083,12 @@
         existing_error: Meldingen kunne ikke opprettes. Samtalen eksisterer allerede, prøv igjen nå.
         success: Samtalen startet vellykket!
       index:
-        add_max_users: 'Legg til brukere i samtale: maks 9 brukere'
-        add_users_placeholder: Søk..
-        close: Lukk
         conversations_info: Samtaler er private. Ingen andre kan se dem. En samtale kan startes med alle deltakere eller grupper som er registrert på plattformen.
-        from: Fra
-        last_message: Siste melding
-        modal_title: Ny samtale
-        new_conversation: Ny samtale
-        next: Neste
         no_conversations_warning: Det er ingen samtaler ennå.
-        no_results: Ingen resultater
         time_ago: "%{time} siden"
-      new:
-        title: Start en samtale
       reply:
         placeholder: Ditt svar...
         send: Send
-        title_reply: Svar
-      show:
-        back: Vis alle samtaler
-        not_allowed: Denne brukeren godtar ingen flere direktemeldinger.
-        title: Samtale med %{usernames}
       update:
         error: Melding ikke sendt. Prøv igjen senere
     user_interests:
@@ -1171,27 +1110,13 @@
         back_to_resource: Gå tilbake
         changes_at_title: Endringer på"%{title}
         number_of_versions: Versjoner
-        show_all_versions: Vis alle versjoner
-        version_author: Forfatter av versjonen
         version_created_at: Versjon opprettet på
-        version_number: Versjonsnummer
-        version_number_out_of_total: "%{current_version} av %{total_count}"
-    version_author:
-      show:
-        deleted: Slettet deltaker
     versions:
       resource_version:
         of_versions: "(av %{number})"
         see_other_versions: se andre versjoner
         version: Versjon %{number}
-    versions_list:
-      show:
-        back_to_resource: Gå tilbake
-        changes_at_title: Endringer på "%{title}"
-        number_of_versions: Versjoner
-        title: Versjoner
     versions_list_item:
-      back: Vis alle versjoner
       show:
         version_index: Versjon %{index}
     welcome_notification:
@@ -1217,8 +1142,6 @@
       last_attempt: Du har ett forsøk til før kontoen låses.
       locked: Din konto er låst.
       not_found_in_database: Ugyldig %{authentication_keys} eller passord.
-      timeout: Økten din har utløpt. Vennligst logg inn igjen for å fortsette.
-      unauthenticated: Du må logge inn eller registrere deg før du fortsetter.
     invitations:
       edit:
         header: Fullfør oppretting av kontoen din
@@ -1265,7 +1188,6 @@
         action: Lås opp kontoen min
         greeting: Hei %{recipient}!
         instruction: 'Klikk på lenken nedenfor for å låse opp kontoen din:'
-        message: Kontoen din er låst på grunn av en for stor mengde mislykkede påloggingsforsøk.
         subject: Instruksjoner for å låse opp
     omniauth_callbacks:
       failure: Kunne ikke verifisere deg fra %{kind} fordi "%{reason}".
@@ -1293,18 +1215,10 @@
       signed_up_but_unconfirmed: En melding med en bekreftelseslink er sendt til din e-postadresse. Følg lenken for å aktivere kontoen din.
       update_needs_confirmation: Du har oppdatert kontoen, men vi trenger å bekrefte din nye e-postadresse. Sjekk din e-post og følg lenken for å bekrefte din nye e-postadresse.
       updated: Kontoen din er oppdatert.
-    sessions:
-      already_signed_out: Logget ut.
-      new:
-        sign_in: Logg inn
-      signed_in: Logget inn.
-      signed_out: Logget ut.
     shared:
       links:
         back: Tilbake
         forgot_your_password: Glemt ditt passord?
-        sign_in: Logg inn
-        sign_in_with_provider: Logg deg på med %{provider}
         sign_up: Registrer deg
       minimum_password_length:
         one: "(%{count} karakter minimum)"
@@ -1314,13 +1228,11 @@
         resend_unlock_instructions: Send opplåsings instruksjoner på nytt
       send_instructions: Du vil om få minutter motta en epost med instruksjoner om hvordan du låser opp kontoen din.
       send_paranoid_instructions: Hvis din konto finnes, vil du om få minutter motta en e-post med instruksjoner om hvordan du låser den opp.
-      unlocked: Kontoen din er låst opp. Logg på for å fortsette.
   doorkeeper:
     scopes:
       public: Din offentlige informasjon.
   errors:
     messages:
-      already_confirmed: var allerede bekreftet, vennligst prøv å logge inn
       confirmation_period_expired: må bekreftes innen %{period}, vennligst be om ny en
       content_type_allowlist_error: filtypen er ikke gyldig
       expired: har utløpt, vennligst be om ny
@@ -1348,6 +1260,10 @@
     timestamp_error_message: Beklager, det var for raskt! Vennligst, send inn på nytt.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Type
       edit_link:
         edit: Rediger
       footer:
@@ -1355,12 +1271,9 @@
         decidim_logo: Decidim logo
         download_open_data: Last ned Åpen Data filer
         made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">fri programvare</a>.
-      header:
-        close_menu: Lukk meny
-        main_menu: Hovedmeny
-        navigation: Navigasjon
-        sign_in: Logg på
         sign_up: Registrer deg
+      header:
+        main_menu: Hovedmeny
         user_menu: Brukermeny
       impersonation_warning:
         close_session: Lukk økt
@@ -1375,12 +1288,10 @@
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
         instagram: "%{organization} på Instagram"
-        twitter: "%{organization} på Twitter"
         youtube: "%{organization} på YouTube"
       timeout_modal:
         body: Du har vært inaktiv i %{minutes} minutter. Hvis du fortsetter å være inaktiv, vil du automatisk bli logget ut for din egen sikkerhet.
         continue_session: Fortsett økten
-        sign_out: Logg ut
         title: Ønsker du å fortsette økten?
       user_menu:
         account: 'Brukerkonto: %{name}'
@@ -1389,7 +1300,6 @@
         notifications: Varsler
         profile: Min konto
         public_profile: Min offentlige profil
-        sign_out: Logg ut
         title: Lenker til profil
       user_profile:
         account: Konto
@@ -1400,8 +1310,6 @@
         notifications_settings: Varslingsinnstillinger
         title: Deltaker innstillinger
         user_groups: Grupper
-      widget:
-        see_more: Se mer
   locale:
     name: Norsk
     name_with_error: Norsk (feil!)

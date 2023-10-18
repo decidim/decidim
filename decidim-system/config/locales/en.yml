@@ -38,7 +38,9 @@ en:
         confirm_destroy: Are you sure you want to delete this?
         destroy: Delete
         edit: Edit
-        new: New
+        new_admin: New admin
+        new_oauth_application: New OAUTH application
+        new_organization: New organization
         save: Save
         title: Actions
       admins:
@@ -95,7 +97,6 @@ en:
           fields:
             created_at: Created at
             email: Email
-          name: Admin
           validations:
             email_uniqueness: another admin with the same email already exists
         oauth_application:
@@ -103,7 +104,6 @@ en:
             created_at: Created at
             name: OAuth application name
             organization_name: Organization
-          name: OAuth application
         organization:
           actions:
             save_and_invite: Create organization & invite admin
@@ -114,7 +114,6 @@ en:
             name: Name
             omniauth_settings: Omniauth settings
             smtp_settings: SMTP settings
-          name: Organization
       oauth_applications:
         create:
           error: There was a problem creating this application.

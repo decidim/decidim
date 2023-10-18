@@ -79,7 +79,6 @@ lv:
           max_choices: 'Maksimālais izvēļu skaits: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Pierakstieties, izmantojot savu kontu,</a> vai <a href="%{sign_up_link}"> reģistrējieties </a>, lai atbildētu veidlapā.
             title: Atbildiet uz veidlapas jautājumiem
           current_step: '%{step} solis'
           of_total_steps: no %{total_steps}

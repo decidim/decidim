@@ -46,7 +46,6 @@ ro:
         edit: Editare
         edit_projects: Gestionați proiectele
         import: Importă propuneri în proiecte
-        new: Nou %{name}
         preview: Previzualizare
         send_voting_reminders: Trimite memento-uri de votare
         title: Acțiuni
@@ -118,7 +117,6 @@ ro:
           more_than_one: șterge votul tău pentru %{name} și reia procesul
           only_one: șterge votul și reia procesul.
         highlighted_cta: Votează pentru %{name}
-        my_budgets: Bugetele mele
         progress: Finalizează votul
         show: Vezi proiectele
         vote: Votează
@@ -152,33 +150,14 @@ ro:
         budget_excess:
           budget_excess:
             title: Buget maxim depășit
-          close: Inchide
           ok: Ok
           projects_excess:
             title: Numărul maxim de proiecte a fost depășit
         budget_summary:
           are_you_sure: Sigur dorești să îți anulezi votul?
-          assigned: 'Atribuit:'
           cancel_order: șterge votul și reia procesul
           checked_out:
             title: Votul pentru buget a fost finalizat
-          minimum_projects_rule:
-            description: Pentru ce proiecte consideri că ar trebui să alocăm bugetul? Selectează cel puțin %{minimum_number} proiecte pe care le susții și votează apoi conform preferințelor tale pentru a defini bugetul.
-            instruction: "<li>Selectează cel puțin %{minimum_number} proiecte pe care le susții și votează în funcție de preferințele tale pentru a defini bugetul.</li>"
-          projects_rule:
-            description: Pentru ce proiecte consideri că ar trebui să alocăm bugetul? Selectează cel puțin %{minimum_number} și până la %{maximum_number} proiecte pe care le susții și votează apoi conform preferințelor tale pentru a defini bugetul.
-            instruction: "<li>Selectează cel puțin %{minimum_number} și până la %{maximum_number} proiecte pe care le susții și votează apoi conform preferințelor tale pentru a defini bugetul.</li>"
-          projects_rule_maximum_only:
-            description: Pentru ce proiecte consideri că ar trebui să alocăm bugetul? Selectează până la %{maximum_number} proiecte pe care le susții și votează apoi conform preferințelor tale pentru a defini bugetul.
-            instruction: "<li>Selectează până la %{maximum_number} proiecte pe care le susții și votează în funcție de preferințele tale pentru a defini bugetul.</li>"
-          rules:
-            title: Reguli privind votarea
-          title: Tu decizi bugetul
-          total_budget: Buget total
-          total_projects: Total voturi
-          vote_threshold_percent_rule:
-            description: Pentru ce proiecte consideri că ar trebui să alocăm bugetul? Alocă cel puțin %{minimum_budget} pentru proiectele pe care le susții și votează apoi conform preferințelor tale pentru a defini bugetul.
-            instruction: "<li>Alocă cel puțin %{minimum_budget} pentru proiectele pe care le susții și votează apoi conform preferințelor tale pentru a defini bugetul.</li>"
         count:
           projects_count:
             one: 1 proiect
@@ -186,7 +165,6 @@ ro:
             other: "%{count} proiecte"
         exit_modal:
           cancel: Revino la secțiunea de votare
-          close_modal: Închide fereastra
           exit: Ieși din secțiunea de votare
           message: Votul tău nu a fost înregistrat încă pentru că nu ai finalizat procesul de votare. Sigur dorești să ieși din secțiunea de votare?
           title: Nu ai votat încă
@@ -199,22 +177,6 @@ ro:
             all: Toate
             not_selected: Neselectate
             selected: Selectate
-        filters_small_view:
-          close_modal: Închide fereastra
-          filter: Filtrare
-          filter_by: Filtrează după
-          unfold: Extinde
-        index:
-          view_project: Vizualizare proiect
-        order_progress:
-          vote: Votează
-        order_selected_projects:
-          remove: Elimină
-          selected_projects:
-            one: proiect selectat
-            few: proiecte selectate
-            other: proiecte selectate
-          view: Vizualizează
         orders:
           highest_cost: Cel mai mare cost
           label: Ordonează proiectele după
@@ -235,7 +197,6 @@ ro:
         projects_for: Proiecte pentru %{name}
         show:
           budget: Buget
-          view_all_projects: Vezi toate proiectele
     components:
       budgets:
         actions:

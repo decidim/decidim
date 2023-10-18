@@ -33,6 +33,9 @@ pt-BR:
         name: Modelo
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Salvar
         questionnaire_templates:
           choose:
             create_from_template: Criar a partir de modelo
@@ -44,8 +47,6 @@ pt-BR:
             edit: Editar
             questionnaire: Questionário
           form:
-            save: Salvar
-            template_title: Informações do Template
             title: Modelo de questionário %{questionnaire_for}
           index:
             confirm_delete: Tem certeza de que deseja excluir este modelo?

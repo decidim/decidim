@@ -34,7 +34,7 @@ shared_examples "copy assemblies" do
 
       expect(page).to have_content("successfully")
       expect(page).to have_content("Copy assembly")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
     end
   end
 
@@ -63,7 +63,7 @@ shared_examples "copy assemblies" do
       within find("tr", text: "Copy assembly") do
         click_link "Configure"
       end
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Categories"
       end
 
@@ -83,7 +83,7 @@ shared_examples "copy assemblies" do
       within find("tr", text: "Copy assembly") do
         click_link "Configure"
       end
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Components"
       end
 
@@ -118,7 +118,7 @@ shared_examples "copy assemblies" do
 
       expect(page).to have_content("successfully")
       expect(page).to have_content("Copy assembly")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
     end
   end
 end

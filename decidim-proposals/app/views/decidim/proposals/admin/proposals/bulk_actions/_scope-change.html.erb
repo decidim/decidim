@@ -6,11 +6,7 @@
       <% end %>
     </div>
 
-    <%= scopes_picker_tag(
-          :scope_id,
-          try(:current_participatory_space)&.scope,
-          field: t("models.proposal.fields.scope", scope: "decidim.proposals")
-        ) %>
+    <%= scopes_select_tag(:scope_id) %>
 
     <%= submit_tag(
           t("decidim.proposals.admin.proposals.index.update_scope_button"),
