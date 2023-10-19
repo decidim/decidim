@@ -75,6 +75,13 @@ describe "Admin manages surveys", type: :system do
 
       context "when publishing the survey" do
         let(:clean_after_publish) { true }
+        let!(:participatory_process) do
+          create(:participatory_process, organization:)
+        end
+        let(:participatory_space_path) do
+          decidim_admin_participatory_processes.components_path(participatory_process)
+        end
+        let(:components_path) { participatory_space_path }
 
         before do
           component.update!(
@@ -82,17 +89,26 @@ describe "Admin manages surveys", type: :system do
               clean_after_publish: clean_after_publish
             }
           )
+
+          visit components_path
         end
 
         context "when clean_after_publish is set to true" do
-          it "deletes previous answers afer publishing" do
-            expect(survey.clean_after_publish?).to be true
-
-            perform_enqueued_jobs do
-              Decidim::Admin::PublishComponent.call(component, user)
+          context "when deletes previous answers afer publishing" do
+            it "show popup with an alert" do
+              find(:css, ".action-icon--publish").click
+              expect(page).to have_content("Confirm")
             end
 
-            expect(questionnaire.answers).to be_empty
+            it "deletes previous answers" do
+              expect(survey.clean_after_publish?).to be true
+
+              perform_enqueued_jobs do
+                Decidim::Admin::PublishComponent.call(component, user)
+              end
+
+              expect(questionnaire.answers).to be_empty
+            end
           end
         end
 
