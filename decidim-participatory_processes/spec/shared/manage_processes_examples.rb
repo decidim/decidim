@@ -113,7 +113,7 @@ shared_examples "manage processes examples" do
       )
       dynamically_attach_file(:participatory_process_banner_image, image3_path, remove_before: true)
 
-      fill_in :participatory_process_end_date, with: Time.current.change(day: 22)
+      fill_in_datepicker :participatory_process_end_date_date, with: Time.new.utc.strftime("%d.%m.%Y")
 
       within ".edit_participatory_process" do
         find("*[type=submit]").click

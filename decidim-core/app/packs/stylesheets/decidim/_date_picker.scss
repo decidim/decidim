@@ -50,6 +50,10 @@
 .date_column,
 .time_column {
   @apply flex-1 w-1/2 relative;
+
+  > input {
+    @apply h-9;
+  }
 }
 
 .hour_column,

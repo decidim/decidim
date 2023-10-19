@@ -318,7 +318,7 @@ shared_examples "manage impersonations examples" do
       fill_in(:impersonate_user_reason, with: reason) if reason
       fill_in :impersonate_user_authorization_document_number, with: document_number
       fill_in :impersonate_user_authorization_postal_code, with: "08224"
-      fill_in :impersonate_user_authorization_birthday, with: Time.current.change(day: 12)
+      fill_in_datepicker :impersonate_user_authorization_birthday_date, with: Time.new.utc.strftime("%d.%m.%Y")
     end
 
     within "[data-content]" do
