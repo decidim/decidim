@@ -20,7 +20,7 @@ module Decidim
 
         context "when template is not present" do
           it "throws a routing error exception" do
-            expect { get :show, params: { id: "not_exisint_template" } }.to raise_error(ActionController::RoutingError)
+            expect { get :show, params: { id: "not_existing_template" } }.to raise_error(ActionController::RoutingError)
           end
         end
       end
