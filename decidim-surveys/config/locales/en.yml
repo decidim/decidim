@@ -54,6 +54,9 @@ en:
       answers_count: Answers
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: If you publish the component, all results will be removed.
         exports:
           survey_user_answers: Survey participant answers
         surveys:
