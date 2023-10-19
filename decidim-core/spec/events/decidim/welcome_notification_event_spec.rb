@@ -13,7 +13,7 @@ describe Decidim::WelcomeNotificationEvent do
     )
   end
   let(:event_name) { "decidim.events.core.welcome_notification" }
-  let(:user) { create :user }
+  let(:user) { create(:user) }
 
   describe "#email_subject" do
     subject { event_instance.email_subject }

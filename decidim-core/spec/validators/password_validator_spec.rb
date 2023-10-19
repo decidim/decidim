@@ -52,14 +52,14 @@ describe PasswordValidator do
       context "when the record responds to organization instead of current_organization" do
         let(:record) do
           double(
-            name: ::Faker::Name.name,
-            email: ::Faker::Internet.email,
-            nickname: ::Faker::Internet.username(specifier: 10..15),
+            name: Faker::Name.name,
+            email: Faker::Internet.email,
+            nickname: Faker::Internet.username(specifier: 10..15),
             organization:,
             errors:,
             admin?: admin_record,
             previous_passwords:,
-            encrypted_password_was: ::Devise::Encryptor.digest(Decidim::User, "decidim123456"),
+            encrypted_password_was: Devise::Encryptor.digest(Decidim::User, "decidim123456"),
             encrypted_password_changed?: true
           )
         end

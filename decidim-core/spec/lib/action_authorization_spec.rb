@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe "ActionAuthorization", type: :controller do
-    let!(:organization) { create :organization }
+    let!(:organization) { create(:organization) }
     let(:component) { create(:dummy_component, organization:) }
     let(:resource) { create(:dummy_resource, component:) }
     let(:permissions_holder) { nil }

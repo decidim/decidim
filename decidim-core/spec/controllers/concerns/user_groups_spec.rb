@@ -4,8 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe "UserGroups", type: :controller do
-    let!(:organization) { create :organization }
-    let!(:user) { create :user, :confirmed, organization: }
+    let!(:organization) { create(:organization) }
+    let!(:user) { create(:user, :confirmed, organization:) }
 
     controller do
       include Decidim::NeedsOrganization
@@ -36,7 +36,7 @@ module Decidim
     end
 
     context "when groups are disabled for the organization" do
-      let!(:organization) { create :organization, user_groups_enabled: false }
+      let!(:organization) { create(:organization, user_groups_enabled: false) }
 
       it "raises Decidim::ActionForbidden" do
         get :show
