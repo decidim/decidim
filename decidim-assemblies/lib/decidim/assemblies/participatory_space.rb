@@ -139,7 +139,8 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
           organization:,
           confirmed_at: Time.current,
           locale: I18n.default_locale,
-          tos_agreement: true
+          tos_agreement: true,
+          accepted_tos_version: organization.tos_version
         )
 
         Decidim::AssemblyUserRole.find_or_create_by!(

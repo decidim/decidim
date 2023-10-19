@@ -32,7 +32,7 @@ FactoryBot.define do
       start_time { nil }
       end_time { nil }
       author do
-        build(:user, organization: component.organization) if component
+        build(:user, :confirmed, organization: component.organization) if component
       end
     end
 
@@ -42,11 +42,11 @@ FactoryBot.define do
 
     trait :user_group_author do
       author do
-        create(:user, organization: component.organization) if component
+        create(:user, :confirmed, organization: component.organization) if component
       end
 
       user_group do
-        create(:user_group, :verified, organization: component.organization, users: [author]) if component
+        create(:user_group, :confirmed, :verified, organization: component.organization, users: [author]) if component
       end
     end
 

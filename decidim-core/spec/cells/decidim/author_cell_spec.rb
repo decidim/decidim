@@ -10,7 +10,7 @@ describe Decidim::AuthorCell, type: :cell do
   let(:my_cell) { cell("decidim/author", model) }
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
-  let(:user_group) { create(:user_group, :verified) }
+  let(:user_group) { create(:user_group, :confirmed, :verified) }
   let(:model) { Decidim::UserPresenter.new(user) }
 
   context "when rendering a user" do

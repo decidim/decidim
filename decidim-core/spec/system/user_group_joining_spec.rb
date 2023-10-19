@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "User group joining", type: :system do
   let!(:user) { create(:user, :confirmed) }
-  let!(:user_group) { create(:user_group, users: [], organization: user.organization) }
+  let!(:user_group) { create(:user_group, :confirmed, :verified, users: [], organization: user.organization) }
 
   before do
     switch_to_host(user_group.organization.host)

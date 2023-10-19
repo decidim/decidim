@@ -32,7 +32,7 @@ module Decidim
       expect(subject.user_groups).to eq([user_group])
     end
 
-    describe "name" do
+    describe "#name" do
       context "when it has a name" do
         let(:user) { build(:user, name: "Oriol") }
 
@@ -64,6 +64,36 @@ module Decidim
           expect(user.user_name).to eq("Blocked user")
         end
       end
+    end
+
+    it_behaves_like "profile visibility" do
+      let(:profile) { build(:user, :confirmed, organization:) }
+    end
+
+    shared_examples "user visibility" do
+      context "with a confirmed user" do
+        let(:user) { build(:user, :confirmed, organization:) }
+
+        it { is_expected.to be(true) }
+      end
+
+      context "with an unconfirmed user" do
+        let(:user) { build(:user, organization:) }
+
+        it { is_expected.to be(false) }
+      end
+    end
+
+    describe "#profile_published?" do
+      subject { user.profile_published? }
+
+      include_examples "user visibility"
+    end
+
+    describe "#visible?" do
+      subject { user.visible? }
+
+      include_examples "user visibility"
     end
 
     describe "validations" do

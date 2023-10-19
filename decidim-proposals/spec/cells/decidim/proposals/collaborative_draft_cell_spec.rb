@@ -12,7 +12,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
   let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled) }
   let(:author) { create(:user, :confirmed, organization: component.organization) }
   let!(:collaborative_draft) { create(:collaborative_draft, component:) }
-  let(:authors) { create_list(:user, 5, organization: component.organization) }
+  let(:authors) { create_list(:user, 5, :confirmed, organization: component.organization) }
   let(:collaborative_draft_va) { create(:collaborative_draft, component:, users: authors) }
   let(:context) { nil }
 

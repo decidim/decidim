@@ -14,6 +14,10 @@ module Decidim
       true
     end
 
+    def visible?
+      true
+    end
+
     def avatar_url(_variant = nil)
       Decidim::AvatarUploader.new(Decidim::User.new, :avatar).default_url
     end

@@ -10,7 +10,7 @@ FactoryBot.define do
   end
 
   factory :conflict, class: "Decidim::Verifications::Conflict" do
-    current_user { create(:user) }
+    current_user { create(:user, :confirmed) }
     managed_user { create(:user, managed: true, organization: current_user.organization) }
     unique_id { "12345678X" }
     times { 1 }

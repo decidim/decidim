@@ -4,7 +4,7 @@ require "decidim/core/test/factories"
 
 FactoryBot.define do
   factory :comment, class: "Decidim::Comments::Comment" do
-    author { build(:user, organization: commentable.organization) }
+    author { build(:user, :confirmed, organization: commentable.organization) }
     commentable { build(:dummy_resource) }
     root_commentable { commentable }
     body { Decidim::Faker::Localized.paragraph }
@@ -25,7 +25,7 @@ FactoryBot.define do
     end
 
     trait :comment_on_comment do
-      author { build(:user, organization: root_commentable.organization) }
+      author { build(:user, :confirmed, organization: root_commentable.organization) }
       commentable do
         build(
           :comment,
@@ -40,7 +40,7 @@ FactoryBot.define do
 
   factory :comment_vote, class: "Decidim::Comments::CommentVote" do
     comment { build(:comment) }
-    author { build(:user, organization: comment.organization) }
+    author { build(:user, :confirmed, organization: comment.organization) }
     weight { [-1, 1].sample }
 
     trait :up_vote do

@@ -10,9 +10,9 @@ describe "Valuator manages proposals", type: :system do
   let(:participatory_space_path) do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end
-  let!(:user) { create(:user, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process:) }
-  let!(:another_user) { create(:user, organization:) }
+  let!(:another_user) { create(:user, :confirmed, organization:) }
   let!(:another_valuator_role) { create(:participatory_process_user_role, role: :valuator, user: another_user, participatory_process:) }
 
   include Decidim::ComponentPathHelper

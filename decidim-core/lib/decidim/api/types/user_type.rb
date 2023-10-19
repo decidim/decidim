@@ -48,7 +48,7 @@ module Decidim
       end
 
       def organization_name
-        object.organization.name
+        object.organization&.name || ""
       end
 
       def deleted

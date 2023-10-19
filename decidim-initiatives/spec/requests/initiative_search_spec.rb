@@ -13,8 +13,8 @@ RSpec.describe "Initiative search", type: :request do
   let(:scoped_type2) { create(:initiatives_type_scope, type: type2) }
   let(:user1) { create(:user, :confirmed, organization:, name: "John McDoggo", nickname: "john_mcdoggo") }
   let(:user2) { create(:user, :confirmed, organization:, nickname: "doggotrainer") }
-  let(:group1) { create(:user_group, :confirmed, organization:, name: "The Doggo House", nickname: "the_doggo_house") }
-  let(:group2) { create(:user_group, :confirmed, organization:, nickname: "thedoggokeeper") }
+  let(:group1) { create(:user_group, :confirmed, :verified, organization:, name: "The Doggo House", nickname: "the_doggo_house") }
+  let(:group2) { create(:user_group, :confirmed, :verified, organization:, nickname: "thedoggokeeper") }
   let(:area1) { create(:area, organization:) }
   let(:area2) { create(:area, organization:) }
 

@@ -13,7 +13,7 @@ describe Decidim::ProfileCell, type: :cell do
 
   context "when show is rendered" do
     it "does not show the inaccessible profile alert" do
-      expect(subject).to have_text(user.name)
+      expect(subject).not_to have_text("This profile is inaccessible due to terms of service violation!")
     end
   end
 

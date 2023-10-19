@@ -132,7 +132,7 @@ FactoryBot.define do
     end
 
     trait :with_user do
-      user { create(:user, organization: conference.organization) }
+      user { create(:user, :confirmed, organization: conference.organization) }
     end
 
     trait :with_meeting do

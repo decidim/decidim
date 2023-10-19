@@ -17,7 +17,7 @@ describe "Explore posts", type: :system do
 
     before do
       create(:comment, commentable: old_post)
-      create(:endorsement, resource: old_post, author: build(:user, organization: old_post.participatory_space.organization))
+      create(:endorsement, resource: old_post, author: build(:user, :confirmed, organization: old_post.participatory_space.organization))
 
       visit_component
     end
@@ -75,7 +75,7 @@ describe "Explore posts", type: :system do
     end
 
     context "when author is a user_group" do
-      let(:author) { create(:user_group, :verified, organization:) }
+      let(:author) { create(:user_group, :confirmed, :verified, organization:) }
 
       it "shows user group as the author" do
         within ".author__name" do

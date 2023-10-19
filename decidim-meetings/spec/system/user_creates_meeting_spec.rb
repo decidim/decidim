@@ -140,7 +140,7 @@ describe "User creates meeting", type: :system do
         end
 
         context "when creating as a user group" do
-          let!(:user_group) { create(:user_group, :verified, organization:, users: [user]) }
+          let!(:user_group) { create(:user_group, :confirmed, :verified, organization:, users: [user]) }
 
           it "creates a new meeting", :slow do
             stub_geocoding(meeting_address, [latitude, longitude])

@@ -29,6 +29,10 @@ module Decidim
       ActionController::Base.helpers.asset_pack_path("media/images/default-avatar.svg")
     end
 
+    def visible?
+      true
+    end
+
     def deleted?
       false
     end

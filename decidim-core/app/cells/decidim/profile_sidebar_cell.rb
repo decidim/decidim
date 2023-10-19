@@ -24,7 +24,22 @@ module Decidim
     end
 
     def profile_user
-      @profile_user ||= present(model)
+      @profile_user ||= present(model, presenter_class: profile_presenter)
+    end
+
+    def profile_presenter
+      return Decidim::HiddenUserGroupPresenter if hidden_group_for_member?
+
+      # Default
+      nil
+    end
+
+    def hidden_group_for_member?
+      return false unless current_user
+      return false if model.visible?
+      return false unless model.is_a?(Decidim::UserGroup)
+
+      model.accepted_users.include?(current_user)
     end
 
     def can_contact_user?

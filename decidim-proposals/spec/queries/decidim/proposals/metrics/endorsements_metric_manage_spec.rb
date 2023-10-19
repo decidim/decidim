@@ -10,12 +10,12 @@ describe Decidim::Proposals::Metrics::EndorsementsMetricManage do
   let(:day) { Time.zone.today - 1.day }
   let!(:endorsements) do
     5.times.collect do
-      create(:endorsement, resource: proposal, created_at: day, author: build(:user, organization: proposal.organization))
+      create(:endorsement, resource: proposal, created_at: day, author: build(:user, :confirmed, organization: proposal.organization))
     end
   end
   let!(:old_endorsements) do
     5.times.collect do
-      create(:endorsement, resource: proposal, created_at: (day - 1.week), author: build(:user, organization: proposal.organization))
+      create(:endorsement, resource: proposal, created_at: (day - 1.week), author: build(:user, :confirmed, organization: proposal.organization))
     end
   end
 

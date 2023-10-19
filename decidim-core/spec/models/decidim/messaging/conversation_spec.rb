@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe Decidim::Messaging::Conversation do
   describe ".start_conversation" do
-    let(:originator) { create(:user) }
-    let(:interlocutor) { create(:user) }
+    let(:originator) { create(:user, :confirmed) }
+    let(:interlocutor) { create(:user, :confirmed) }
     let(:from) { nil }
     let(:conversation) do
       described_class.start!(
@@ -26,7 +26,7 @@ describe Decidim::Messaging::Conversation do
           body: "Hei!"
         )
       end
-      let(:interlocutor2) { create(:user) }
+      let(:interlocutor2) { create(:user, :confirmed) }
 
       before do
         allow(interlocutor).to receive(:accepts_conversation?).and_return(true)
@@ -72,9 +72,9 @@ describe Decidim::Messaging::Conversation do
     end
 
     context "when the originator is a group" do
-      let(:originator) { create(:user_group, users: [manager1, manager2]) }
-      let(:manager1) { create(:user) }
-      let(:manager2) { create(:user) }
+      let(:originator) { create(:user_group, :confirmed, :verified, users: [manager1, manager2]) }
+      let(:manager1) { create(:user, :confirmed) }
+      let(:manager2) { create(:user, :confirmed) }
       let(:from) { manager1 }
 
       it "creates receipts for all participants" do
@@ -104,9 +104,9 @@ describe Decidim::Messaging::Conversation do
     end
 
     context "when the interlocutor is a group" do
-      let(:interlocutor) { create(:user_group, users: [manager1, manager2]) }
-      let(:manager1) { create(:user) }
-      let(:manager2) { create(:user) }
+      let(:interlocutor) { create(:user_group, :confirmed, :verified, users: [manager1, manager2]) }
+      let(:manager1) { create(:user, :confirmed) }
+      let(:manager2) { create(:user, :confirmed) }
       let(:from) { manager1 }
 
       it "creates receipts for all participants" do

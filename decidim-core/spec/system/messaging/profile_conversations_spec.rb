@@ -7,7 +7,7 @@ describe "ProfileConversations", type: :system do
   let(:user) { create(:user, :confirmed, organization:) }
   let(:another_user) { create(:user, :confirmed, organization:) }
   let(:extra_user) { create(:user, :confirmed, organization:) }
-  let(:user_group) { create(:user_group, :confirmed, organization:, users: [user, extra_user]) }
+  let(:user_group) { create(:user_group, :confirmed, :verified, organization:, users: [user, extra_user]) }
 
   let(:profile) { user_group }
 
@@ -28,7 +28,7 @@ describe "ProfileConversations", type: :system do
   end
 
   context "when visiting blocked profile page" do
-    let(:profile) { create(:user_group, :confirmed, :blocked, organization:, users: [user, extra_user]) }
+    let(:profile) { create(:user_group, :confirmed, :verified, :blocked, organization:, users: [user, extra_user]) }
     let!(:admin) { create(:user, :admin, :confirmed, organization:) }
 
     before do
@@ -66,7 +66,7 @@ describe "ProfileConversations", type: :system do
   end
 
   context "when starting a conversation" do
-    let(:recipient) { create(:user, organization:) }
+    let(:recipient) { create(:user, :confirmed, organization:) }
 
     before do
       visit decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
@@ -80,7 +80,7 @@ describe "ProfileConversations", type: :system do
     it_behaves_like "create new conversation"
 
     context "and recipient has restricted communications" do
-      let(:recipient) { create(:user, direct_message_types: "followed-only", organization:) }
+      let(:recipient) { create(:user, :confirmed, direct_message_types: "followed-only", organization:) }
 
       context "and recipient does not follow user" do
         it "redirects user with access error" do

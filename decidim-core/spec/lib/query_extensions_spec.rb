@@ -49,7 +49,7 @@ module Decidim
 
       describe "users" do
         let!(:user1) { create(:user, :confirmed, organization: current_organization) }
-        let!(:user2) { create(:user_group, :confirmed, organization: current_organization) }
+        let!(:user2) { create(:user_group, :confirmed, :verified, organization: current_organization) }
         let!(:user3) { create(:user, organization: current_organization) }
         let!(:user4) { create(:user, :confirmed) }
 
@@ -65,7 +65,7 @@ module Decidim
 
       describe "users with empty exclusion list" do
         let!(:user1) { create(:user, :confirmed, organization: current_organization) }
-        let!(:user2) { create(:user_group, :confirmed, organization: current_organization) }
+        let!(:user2) { create(:user_group, :confirmed, :verified, organization: current_organization) }
         let!(:user3) { create(:user, organization: current_organization) }
         let!(:user4) { create(:user, :confirmed) }
         let!(:user5) { create(:user, :confirmed, organization: current_organization) }
@@ -86,7 +86,7 @@ module Decidim
 
       describe "users with one user exclusion list" do
         let!(:user1) { create(:user, :confirmed, organization: current_organization) }
-        let!(:user2) { create(:user_group, :confirmed, organization: current_organization) }
+        let!(:user2) { create(:user_group, :confirmed, :verified, organization: current_organization) }
         let!(:user3) { create(:user, organization: current_organization) }
         let!(:user4) { create(:user, :confirmed) }
         let!(:user5) { create(:user, :confirmed, organization: current_organization) }
@@ -107,7 +107,7 @@ module Decidim
 
       describe "users with multiple users exclusion list" do
         let!(:user1) { create(:user, :confirmed, organization: current_organization) }
-        let!(:user2) { create(:user_group, :confirmed, organization: current_organization) }
+        let!(:user2) { create(:user_group, :confirmed, :verified, organization: current_organization) }
         let!(:user3) { create(:user, organization: current_organization) }
         let!(:user4) { create(:user, :confirmed) }
         let!(:user5) { create(:user, :confirmed, organization: current_organization) }

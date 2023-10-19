@@ -27,6 +27,8 @@ module Decidim
     end
 
     def resource_path
+      return "#" unless user.visible?
+
       # Exposes the same method, both Decidim::User and Decidim::UserGroup
       user.try(:profile_url) || decidim.profile_path(user.nickname)
     end

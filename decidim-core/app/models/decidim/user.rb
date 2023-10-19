@@ -13,8 +13,6 @@ module Decidim
     include Decidim::UserReportable
     include Decidim::Traceable
 
-    REGEXP_NICKNAME = /\A[\w-]+\z/
-
     class Roles
       def self.all
         Decidim.config.user_roles
@@ -37,19 +35,15 @@ module Decidim
     has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", dependent: :destroy
 
     validates :name, presence: true, unless: -> { deleted? }
-    validates :nickname,
-              presence: true,
-              format: { with: REGEXP_NICKNAME },
-              length: { maximum: Decidim::User.nickname_max_length },
-              unless: -> { deleted? || managed? }
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :tos_agreement, acceptance: true, if: :user_invited?
-    validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? || nickname.blank? }
 
     validate :all_roles_are_valid
 
     has_one_attached :download_your_data_file
+
+    scope :tos_accepted, -> { where.not(accepted_tos_version: nil) }
 
     scope :not_deleted, -> { where(deleted_at: nil) }
 
@@ -63,7 +57,7 @@ module Decidim
       actual_ids = scope_ids.select(&:presence)
       if actual_ids.count.positive?
         ids = actual_ids.map(&:to_i).join(",")
-        where(Arel.sql("extended_data->'interested_scopes' @> ANY('{#{ids}}')").to_s)
+        where(Arel.sql("decidim_users.extended_data->'interested_scopes' @> ANY('{#{ids}}')").to_s)
       else
         # Do not apply the scope filter when there are scope ids available. Note
         # that the active record scope must always return an active record
@@ -83,14 +77,22 @@ module Decidim
                         B: :nickname,
                         datetime: :created_at
                       },
-                      index_on_create: ->(user) { !(user.deleted? || user.blocked?) },
-                      index_on_update: ->(user) { !(user.deleted? || user.blocked?) })
+                      index_on_create: ->(user) { !user.hidden? },
+                      index_on_update: ->(user) { !user.hidden? })
 
     before_save :ensure_encrypted_password
     before_save :save_password_change
 
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?
+    end
+
+    def profile_published?
+      # Note that we are not calling `tos_accepted?` here to avoid N+1 queries
+      # when querying through e.g. a list of records and their authors.
+      return false if accepted_tos_version.blank?
+
+      super
     end
 
     # Public: Allows customizing the invitation instruction email content when

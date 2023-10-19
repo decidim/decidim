@@ -113,7 +113,7 @@ FactoryBot.define do
     end
 
     trait :not_official do
-      author { create(:user, organization: component.organization) if component }
+      author { create(:user, :confirmed, organization: component.organization) if component }
     end
 
     trait :with_services do
@@ -132,10 +132,10 @@ FactoryBot.define do
 
     trait :user_group_author do
       author do
-        create(:user, organization: component.organization) if component
+        create(:user, :confirmed, organization: component.organization) if component
       end
       user_group do
-        create(:user_group, :verified, organization: component.organization, users: [author]) if component
+        create(:user_group, :confirmed, :verified, organization: component.organization, users: [author]) if component
       end
     end
 

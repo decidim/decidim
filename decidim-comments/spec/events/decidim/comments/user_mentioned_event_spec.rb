@@ -19,9 +19,9 @@ describe Decidim::Comments::UserMentionedEvent do
   let(:component) { create(:component, participatory_space: participatory_process) }
   let(:commentable) { create(:dummy_resource, component:) }
 
-  let(:author) { create(:user, organization:) }
+  let(:author) { create(:user, :confirmed, organization:) }
   let!(:comment) { create(:comment, body:, author:, commentable:) }
-  let(:user) { create(:user, organization:, locale: "ca") }
+  let(:user) { create(:user, :confirmed, organization:, locale: "ca") }
 
   it_behaves_like "a comment event"
 

@@ -22,7 +22,7 @@ describe Decidim::Proposals::Import::ProposalCreator do
     }
   end
   let(:organization) { create(:organization, available_locales: [:en]) }
-  let(:user) { create(:user, organization:) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:context) do
     {
       current_organization: organization,

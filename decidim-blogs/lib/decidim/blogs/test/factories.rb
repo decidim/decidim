@@ -20,7 +20,7 @@ FactoryBot.define do
     trait :with_endorsements do
       after :create do |post|
         5.times.collect do
-          create(:endorsement, resource: post, author: build(:user, organization: post.participatory_space.organization))
+          create(:endorsement, resource: post, author: build(:user, :confirmed, organization: post.participatory_space.organization))
         end
       end
     end
