@@ -17,7 +17,7 @@ module Decidim
           else
             {}
           end
-        render partial: "decidim/admin/exports/dropdown", locals: { component:, resource_id:, filters: }
+        render_dropdown(component:, resource_id:, filters:)
       end
 
       def export_dropdowns(query, component = current_component, resource_id = nil)
@@ -40,6 +40,12 @@ module Decidim
         return "export-dropdown" if filters.empty?
 
         "export-selection-dropdown"
+      end
+
+      private
+
+      def render_dropdown(component:, resource_id:, filters:)
+        render partial: "decidim/admin/exports/dropdown", locals: { component:, resource_id:, filters: }
       end
     end
   end

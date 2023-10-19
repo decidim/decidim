@@ -38,6 +38,7 @@ module Decidim
 
         before do
           allow(helper).to receive(:query).and_return(query)
+          allow(helper).to receive(:render_dropdown).and_call_original
         end
 
         context "with no query" do
@@ -46,6 +47,8 @@ module Decidim
             expect(subject).not_to have_selector("#export-selection-dropdown")
             expect(subject).to have_content("Export all")
             expect(subject).not_to have_content("Export selectioin")
+            expect(helper).to have_received(:render_dropdown).with(component:, resource_id: nil, filters: {}).once
+            expect(helper).not_to have_received(:render_dropdown).with(component:, resource_id: nil, filters: { id_in: [1] })
           end
         end
 
@@ -57,6 +60,8 @@ module Decidim
             expect(subject).to have_selector("#export-selection-dropdown")
             expect(subject).to have_content("Export all")
             expect(subject).to have_content("Export selection")
+            expect(helper).to have_received(:render_dropdown).with(component:, resource_id: nil, filters: { id_in: [1] }).once
+            expect(helper).to have_received(:render_dropdown).with(component:, resource_id: nil, filters: {}).once
           end
         end
       end
