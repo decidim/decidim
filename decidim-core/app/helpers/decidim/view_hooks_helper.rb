@@ -5,9 +5,6 @@ module Decidim
   module ViewHooksHelper
     # Public: Renders all hooks registered as `hook_name`.
     #
-    #   Note: We are passing a deep copy of the view context to allow
-    #   us to extend it without polluting the original view context
-    #
     # @param hook_name [Symbol] representing the name of the hook.
     #
     # @return [String] an HTML safe String
