@@ -4,7 +4,7 @@
 
 <% content_for :description do %>
   <p>We provide a Base palette with few colors so simple customizations are easy. You can modify the Base palette either in the Administration area or in the Tailwind configuration file if you need more advanced customization.</p>
-  <p>When customizing your colors, have in mind the <u>WCAG 2.1 AA compliant contrast ratios</u>.</p>
+  <p>When customizing your colors, have in mind the <%= link_to "WCAG 2.1 AA compliant contrast ratios", "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html" %>. You can check the contrast of your choosing with <%= link_to "WebAIM Contrast Checker", "https://webaim.org/resources/contrastchecker" %> or other similar tools.</p>
 <% end %>
 
 <% content_for :toc do %>
