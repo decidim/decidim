@@ -1,0 +1,39 @@
+<% content_for :heading do %>
+  Cards
+<% end %>
+
+<% content_for :toc do %>
+ <a href="#types">Types</a>
+ <a href="#options">Options</a>
+<% end %>
+
+<section id="types">
+  <h2 class="text-3xl font-semibold">Types</h2>
+
+  <h3 class="mt-10 text-xl font-semibold">Card L <span class="label">list</span></h3>
+
+  <div class="mt-4">
+    <%= render partial: "decidim/design/components/cards/static-card-l" %>
+    <%= render partial: "decidim/design/components/cards/static-card-l" %>
+  </div>
+
+  <h3 class="mt-10 text-xl font-semibold">Card G <span class="label">grid</span></h3>
+
+  <div class="mt-4 card__grid-grid">
+    <%= render partial: "decidim/design/components/cards/static-card-g" %>
+    <%= render partial: "decidim/design/components/cards/static-card-g" %>
+  </div>
+
+  <h3 class="mt-10 text-xl font-semibold">Card S <span class="label">search</span></h3>
+
+  <div class="mt-4">
+    <%= render partial: "decidim/design/components/cards/static-card-s" %>
+    <%= render partial: "decidim/design/components/cards/static-card-s" %>
+  </div>
+</section>
+
+<section id="options">
+  <h2 class="text-3xl font-semibold">Options</h2>
+
+  <i>TBD</i>
+</section>
