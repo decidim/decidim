@@ -100,6 +100,10 @@ The redesign has introduced Tailwind CSS framework to compile CSS. It integrates
 
 You will need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app from scratch, that entry will already be included in the `.gitignore`.
 
+You will also need to migrate your settings from your applications's `_decidim-settings.scss` file, available at `app/packs/stylesheets/decidim/_decidim-settings.scss`.
+
+If you want to define the colors and other Tailwind related configurations, you can do it following the instructions on the documentation on how to [customize Tailwind](https://docs.decidim.org/en/develop/customize/styles.html#_tailwind_css).
+
 You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
 
 ### 3.2. Content migration for rich text editor
