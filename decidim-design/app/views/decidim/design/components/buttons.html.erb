@@ -11,6 +11,7 @@
   <a href="#colors">Colors</a>
   <a href="#transparent">Transparent</a>
   <a href="#combinations">Text</a>
+  <a href="#icons">Icons</a>
   <a href="#disabled">Disabled</a>
 <% end %>
 
@@ -19,15 +20,13 @@
 
   <%
     rows = []
-    rows << { class: "button__xs" }
-    rows << { class: "button__sm" }
-    rows << { class: "button__lg" }
-    rows << { class: "button__xl" }
-
-    rows.each do |row|
+    rows << { class: "button button__primary button__xs" }
+    rows << { class: "button button__primary button__sm" }
+    rows << { class: "button button__primary button__lg" }
+    rows << { class: "button button__primary button__xl" }
   %>
-    <button class="mt-4 block button button__primary <%= row[:class] %>"><code>.button.button__primary.<%= row[:class] %></code></button>
-  <% end %>
+
+  <%= render partial: "decidim/design/components/buttons/table", locals: { rows: } %>
 </section>
 
 <section id="colors">
@@ -35,14 +34,12 @@
 
   <%
     rows = []
-    rows << { class: "button__primary" }
-    rows << { class: "button__secondary" }
-    rows << { class: "button__tertiary" }
-
-    rows.each do |row|
+    rows << { class: "button button__lg button__primary" }
+    rows << { class: "button button__lg button__secondary" }
+    rows << { class: "button button__lg button__tertiary" }
   %>
-    <button class="mt-4 block button button__lg <%= row[:class] %>"><code>.button.button__lg.<%= row[:class] %></code></button>
-  <% end %>
+
+  <%= render partial: "decidim/design/components/buttons/table", locals: { rows: } %>
 </section>
 
 <section id="transparent">
@@ -50,20 +47,33 @@
 
   <%
     rows = []
-    rows << { class: "button__transparent-primary" }
-    rows << { class: "button__transparent-secondary" }
-    rows << { class: "button__transparent-tertiary" }
-
-    rows.each do |row|
+    rows << { class: "button button__lg button__transparent-primary" }
+    rows << { class: "button button__lg button__transparent-secondary" }
+    rows << { class: "button button__lg button__transparent-tertiary" }
   %>
-    <button class="mt-4 block button button__lg <%= row[:class] %>"><code>.button.button__lg.<%= row[:class] %></code></button>
-  <% end %>
+
+  <%= render partial: "decidim/design/components/buttons/table", locals: { rows: } %>
 
   <p class="my-4 text-gray-2">In case of a darker background:</p>
 
-  <div class="bg-primary p-4 rounded">
-    <button class="block ml-auto button button__lg button__transparent"><code>.button.button__lg.button__transparent</code></button>
-  </div>
+  <table class="mt-4 w-full text-center text-sm text-gray-2">
+    <thead class="bg-gray-3">
+      <th class="px-6 py-2 font-normal border border-background">Button</th>
+      <th class="px-6 py-2 font-normal border border-background">Classes</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="px-6 py-4 border border-background">
+          <div class="bg-primary p-4 rounded">
+            <button class="button button__lg button__transparent">Send</button>
+          </div>
+        </td>
+        <td class="px-6 py-4 border border-background">
+          button button__lg button__transparent
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
 <section id="text">
@@ -71,19 +81,67 @@
 
   <%
     rows = []
-    rows << { class: "button__text" }
-    rows << { class: "button__text-primary" }
-    rows << { class: "button__text-secondary" }
-    rows << { class: "button__text-tertiary" }
-
-    rows.each do |row|
+    rows << { class: "button button__lg button__text" }
+    rows << { class: "button button__lg button__text-primary" }
+    rows << { class: "button button__lg button__text-secondary" }
+    rows << { class: "button button__lg button__text-tertiary" }
   %>
-    <button class="mt-4 block button button__lg <%= row[:class] %>"><code>.button.button__lg.<%= row[:class] %></code></button>
-  <% end %>
+
+  <%= render partial: "decidim/design/components/buttons/table", locals: { rows: } %>
+</section>
+
+<section id="icons">
+  <h2 class="text-3xl font-semibold">Icons</h2>
+
+  <table class="mt-4 w-full text-center text-sm text-gray-2">
+    <thead class="bg-gray-3">
+      <th class="px-6 py-2 font-normal border border-background">Button</th>
+      <th class="px-6 py-2 font-normal border border-background">Class</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="px-6 py-4 border border-background">
+          <button class="button button__lg button__secondary">
+            <%= icon "question-line" %>
+            <span>Send</span>
+          </button>
+        </td>
+        <td class="px-6 py-4 border border-background">
+          button button__lg button__secondary
+        </td>
+      </tr>
+      <tr>
+        <td class="px-6 py-4 border border-background">
+          <button class="button button__lg button__transparent-secondary">
+            <%= icon "question-line" %>
+            <span>Send</span>
+          </button>
+        </td>
+        <td class="px-6 py-4 border border-background">
+          button button__lg button__transparent-secondary
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
 <section id="disabled">
   <h2 class="text-3xl font-semibold">Disabled</h2>
 
-  <button class="mt-4 block button button__lg" disabled><code>.button.button__lg</code></button>
+  <table class="mt-4 w-full text-center text-sm text-gray-2">
+    <thead class="bg-gray-3">
+      <th class="px-6 py-2 font-normal border border-background">Button</th>
+      <th class="px-6 py-2 font-normal border border-background">HTML</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="px-6 py-4 border border-background">
+          <button class="button button__lg" disabled>Send</button>
+        </td>
+        <td class="px-6 py-4 border border-background">
+          <code>disabled</code> data-attribute present
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </section>
