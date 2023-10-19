@@ -135,7 +135,7 @@ module Decidim
       subject { presenter.officialization_text }
 
       it "returns the default officialization text" do
-        expect(subject).to eq("This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role")
+        expect(subject).to eq("This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role.")
       end
 
       context "when the user is officialized as" do

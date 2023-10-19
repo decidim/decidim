@@ -227,6 +227,8 @@ describe Decidim::ActionLog do
   describe "#user_lazy" do
     subject { action_log.user_lazy }
 
+    let(:action_log) { create(:action_log) }
+
     it "returns the lazy-loaded user" do
       expect(subject).to be_a(Decidim::User)
     end

@@ -110,8 +110,8 @@ module Decidim
             {
               description_another: "This participant has 1 followers.",
               description_own: "1 people are following you.",
-              unearned_another: "This participant doesn't have any followers yet.",
-              unearned_own: "You've got no followers yet."
+              unearned_another: "This participant does not have any followers yet.",
+              unearned_own: "You have got no followers yet."
             }
           )
         end

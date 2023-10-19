@@ -131,7 +131,7 @@ module Decidim::System
         expect(subject.file_upload_settings.final).to eq(
           {
             allowed_content_types: { "admin" => %w(image/*), "default" => %w(image/*) },
-            allowed_file_extensions: { "admin" => %w(jpg jpeg png), "default" => %w(jpg jpeg), "favicon" => %w(png), "image" => %w(jpg jpeg png) },
+            allowed_file_extensions: { "admin" => %w(jpg jpeg png), "default" => %w(jpg jpeg), "image" => %w(jpg jpeg png) },
             maximum_file_size: { "avatar" => 2.4, "default" => 7.2 }
           }
         )
