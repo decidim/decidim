@@ -856,7 +856,7 @@ module Decidim
     end
 
     # Private: Creates a tag from the given options for the field prefix and
-    # suffix. Overridden from Foundation Rails helper to make the generated HTML
+    # suffix. Overridden from FoundationRailsHelper to make the generated HTML
     # valid since these elements are printed within <label> elements and <div>'s
     # are not allowed there.
     def tag_from_options(name, options)
@@ -868,7 +868,7 @@ module Decidim
     end
 
     # Private: Wraps the prefix and postfix for the field. Overridden from
-    # Foundation Rails helper to make the generated HTML valid since these
+    # FoundationRailsHelper to make the generated HTML valid since these
     # elements are printed within <label> elements and <div>'s are not allowed
     # there.
     def wrap_prefix_and_postfix(block, prefix_options, postfix_options)
