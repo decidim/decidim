@@ -16,7 +16,7 @@ module Decidim
     describe "#officialization_text" do
       subject { presenter.officialization_text }
 
-      it { is_expected.to eq("This group is publicly verified, its name has been verified to correspond with its real name") }
+      it { is_expected.to eq("This group is publicly verified, its name has been verified to correspond with its real name.") }
     end
 
     describe "#members_count" do
