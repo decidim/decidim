@@ -3,7 +3,7 @@
 shared_examples "manage projects" do
   describe "admin form" do
     before do
-      within ".process-content" do
+      within ".item_show__wrapper" do
         click_link("New project", class: "button")
       end
     end
