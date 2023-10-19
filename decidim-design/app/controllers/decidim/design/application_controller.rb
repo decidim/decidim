@@ -5,6 +5,8 @@ module Decidim
     class ApplicationController < ::DecidimController
       include NeedsOrganization
 
+      helper Decidim::MetaTagsHelper
+
       helper_method :path_items
 
       def path_items(path)
