@@ -110,6 +110,10 @@ If you want to define the colors and other Tailwind related configurations, you 
 ```console
 rm app/packs/stylesheets/decidim/_decidim-settings.scss
 ```
+4. Remove this comment from your `decidim-application.scss` file, available at `app/packs/stylesheets/decidim/decidim_application.scss`.
+```javascript
+// To override CSS variables or Foundation settings use _decidim-settings.scss
+```
 
 You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
 
