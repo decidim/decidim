@@ -11,7 +11,7 @@ module Decidim
       end
 
       collection = export_manifest.collection.call(component, user, resource_id)
-      collection = collection.ransack(filters).result if filters
+      collection = collection.ransack(filters).result if collection.respond_to?(:ransack) && filters
       serializer = export_manifest.serializer
 
       export_data = Decidim::Exporters.find_exporter(format).new(collection, serializer).export

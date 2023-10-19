@@ -43,4 +43,3 @@ shared_examples "export as JSON" do
     expect(last_email.attachments.first.filename).to match(/^meetings.*\.zip$/)
   end
 end
-
