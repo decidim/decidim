@@ -102,6 +102,7 @@ module Decidim
         rails "decidim:procfile:install"
 
         # Replace robots.txt
+        remove_file"public/robots.txt"
         rails "decidim:robots:replace"
       end
 
