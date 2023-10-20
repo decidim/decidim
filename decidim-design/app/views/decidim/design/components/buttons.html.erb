@@ -8,7 +8,7 @@
 
 <% content_for :toc do %>
   <% buttons_sections.each do |section| %>
-    <%= link_to(section_text(section), "#{section[:id]}") %>
+    <%= link_to(section_text(section), "##{section[:id]}") %>
   <% end %>
 <% end %>
 
