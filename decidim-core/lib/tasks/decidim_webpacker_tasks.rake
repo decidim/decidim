@@ -4,13 +4,6 @@ require "decidim/gem_manager"
 
 namespace :decidim do
   namespace :webpacker do
-
-    # this task attempts to identify if you have the
-    task migrate_to_shakapacker: :environment do
-      raise "Decidim gem is not installed" if decidim_path.nil?
-
-    end
-
     desc "Installs Decidim webpacker files in Rails instance application"
     task install: :environment do
       raise "Decidim gem is not installed" if decidim_path.nil?
@@ -83,6 +76,9 @@ namespace :decidim do
       copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
 
       Rake::Task["shakapacker:binstubs"].invoke unless File.exist?(rails_app_path.join("bin/shakapacker"))
+      # Modify the webpack binstubs
+      add_binstub_load_path "bin/shakapacker"
+      add_binstub_load_path "bin/shakapacker-dev-server"
     end
 
     def install_decidim_npm
