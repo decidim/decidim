@@ -4,6 +4,13 @@ require "decidim/gem_manager"
 
 namespace :decidim do
   namespace :webpacker do
+
+    # this task attempts to identify if you have the
+    task migrate_to_shakapacker: :environment do
+      raise "Decidim gem is not installed" if decidim_path.nil?
+
+    end
+
     desc "Installs Decidim webpacker files in Rails instance application"
     task install: :environment do
       raise "Decidim gem is not installed" if decidim_path.nil?
@@ -16,10 +23,9 @@ namespace :decidim do
       copy_file_to_application "babel.config.json"
       # PostCSS configuration
       copy_file_to_application "decidim-core/lib/decidim/webpacker/postcss.config.js", "postcss.config.js"
-      # Webpacker configuration
-      copy_file_to_application "decidim-core/lib/decidim/webpacker/shakapacker.yml", "config/shakapacker.yml"
-      # Webpack JS config files
-      copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
+
+      # Remnove the Webpacker config and deploy shakacpacker
+      migrate_shakapacker
 
       # Install JS dependencies
       install_decidim_npm
@@ -47,10 +53,6 @@ namespace :decidim do
       )
       system! "npm uninstall #{webpacker_packages.join(" ")}"
 
-      # Modify the webpack binstubs
-      add_binstub_load_path "bin/shakapacker"
-      add_binstub_load_path "bin/shakapacker-dev-server"
-
       # Add the Browserslist configuration to the project
       add_decidim_browserslist_configuration
     end
@@ -60,16 +62,27 @@ namespace :decidim do
       raise "Decidim gem is not installed" if decidim_path.nil?
 
       remove_file_from_application "bin/yarn"
-      remove_file_from_application "bin/webpack"
-      remove_file_from_application "bin/webpack-dev-server"
 
-      Rake::Task["shakapacker:binstubs"].invoke unless File.exist?(rails_app_path.join("bin/shakapacker"))
+      # Remnove the Webpacker config and deploy shakacpacker
+      migrate_shakapacker
 
       # Update JS dependencies
       install_decidim_npm
+    end
 
-      # Update JS config files
+    def migrate_shakapacker
+      remove_file_from_application "config/webpacker.yml"
+      remove_file_from_application "bin/webpack"
+      remove_file_from_application "bin/webpack-dev-server"
+
+      unless File.exist?(rails_app_path.join("config/shakapacker.yml"))
+        copy_file_to_application "decidim-core/lib/decidim/webpacker/shakapacker.yml", "config/shakapacker.yml"
+        remove_folder_from_application "config/webpack"
+      end
+
       copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
+
+      Rake::Task["shakapacker:binstubs"].invoke unless File.exist?(rails_app_path.join("bin/shakapacker"))
     end
 
     def install_decidim_npm
@@ -164,6 +177,10 @@ namespace :decidim do
 
     def remove_file_from_application(path)
       FileUtils.rm(path, force: true)
+    end
+
+    def remove_folder_from_application(path)
+      FileUtils.rm_rf(path)
     end
 
     def add_binstub_load_path(binstub_path)

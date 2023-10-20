@@ -156,23 +156,6 @@ In order to continue having support for Webpacker like syntax, we have switched 
 In order to perform the update, you will need to make sure that you **do not have webpacker in your Gemfile**.
 If you have it, please remove it, and allow Decidim to handle the webpacker / shakapacker dependency.
 
-In order to perform the migration to Shakapacker, please backup the following files, to make sure that you save any customizations you may have done to webpacker:
-
-```console
-config/webpacker.yml
-config/webpack/*
-package.json
-postcss.config.js
-```
-
-After all the backups and changes mentioned above have been completed, follow the default upgrade steps, as mentioned above in the document.
-Then run the below command, and replace all the configuration with the one that Decidim is providing by default:
-
-```console
-rm -r config/webpack/* config/webpacker.yml
-bundle exec rake decidim:webpacker:install
-```
-
 #### Note for development
 
 If you are using the `Procfile.dev` file, you will need to make sure that you have the following line in your configuration. If you have not altered the `Procfile.dev` file, you will not need to do anything, as we covered that part:
