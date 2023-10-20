@@ -4,7 +4,8 @@
 
 <% content_for :toc do %>
  <a href="#types">Types</a>
- <a href="#options">Options</a>
+ <a href="#variations">Variations</a>
+ <a href="#sourcecode">Source code</a>
 <% end %>
 
 <section id="types">
@@ -32,8 +33,119 @@
   </div>
 </section>
 
-<section id="options">
-  <h2 class="text-3xl font-semibold">Options</h2>
+<section id="variations">
+  <h2 class="text-3xl font-semibold">Variations</h2>
 
-  <i>TBD</i>
+  <p class="mt-4 text-gray-2">
+    Each card will look like different regarding the properties of the resource displayed. You can override such behaviour in the specific cell.
+  </p>
+
+  <h3 class="mt-10 text-xl font-semibold">Metadata items</h3>
+
+  <div class="mt-4 card__grid-grid">
+    <%= render partial: "decidim/design/components/cards/static-card-g-metadata" %>
+    <%= render partial: "decidim/design/components/cards/static-card-g-metadata-2" %>
+  </div>
+
+  <p class="mt-4 text-gray-2">
+    Each resource define its own metadata items
+  </p>
+
+  <h3 class="mt-10 text-xl font-semibold">Image and description</h3>
+
+  <div class="mt-4">
+    <%= render partial: "decidim/design/components/cards/static-card-l-image" %>
+  </div>
+
+  <p class="mt-4 text-gray-2">
+    Used by <i>Blogs</i> cards
+  </p>
+
+  <h3 class="mt-10 text-xl font-semibold">Description</h3>
+
+  <div class="mt-4">
+    <%= render partial: "decidim/design/components/cards/static-card-l-description" %>
+  </div>
+
+  <p class="mt-4 text-gray-2">
+    Used by <i>Debates</i> cards
+  </p>
+
+  <h3 class="mt-10 text-xl font-semibold">Use different template for the image block</h3>
+
+  <div class="mt-4">
+    <%= render partial: "decidim/design/components/cards/static-card-l-meetings" %>
+  </div>
+
+  <p class="mt-4 text-gray-2">
+    Used by <i>Meetings</i> cards
+  </p>
+
+  <h3 class="mt-10 text-xl font-semibold">Use the extra_data block</h3>
+
+  <div class="mt-4">
+    <%= append_stylesheet_pack_tag "decidim_accountability" %>
+    <%= render partial: "decidim/design/components/cards/static-card-l-extra-data" %>
+  </div>
+
+  <p class="mt-4 text-gray-2">
+    Used by <i>Accountability projects</i> cards
+  </p>
+
+  <div class="mt-4">
+    <%= append_stylesheet_pack_tag "decidim_budgets" %>
+    <%= render partial: "decidim/design/components/cards/static-card-l-extra-data-2" %>
+  </div>
+
+  <p class="mt-4 text-gray-2">
+    Used by <i>Budget projects</i> cards
+  </p>
+</section>
+
+<section id="sourcecode">
+  <h2 class="text-3xl font-semibold">Source code</h2>
+
+  <table class="mt-4 w-full text-center text-sm text-gray-2">
+    <thead class="bg-gray-3">
+      <th class="px-6 py-2 font-normal border border-background">Card</th>
+      <th class="px-6 py-2 font-normal border border-background">Code</th>
+    </thead>
+    <tbody>
+      <%
+        rows = []
+        rows << { name: "Card L (core)", url: "https://github.com/decidim/decidim/tree/develop/decidim-core/app/cells/decidim/card_l_cell.rb" }
+        rows << { name: "Card G (core)", url: "https://github.com/decidim/decidim/tree/develop/decidim-core/app/cells/decidim/card_g_cell.rb" }
+        rows << { name: "Card S (core)", url: "https://github.com/decidim/decidim/tree/develop/decidim-core/app/cells/decidim/card_s_cell.rb" }
+        rows << { name: "Result L", url: "https://github.com/decidim/decidim/blob/develop/decidim-accountability/app/cells/decidim/accountability/result_l_cell.rb" }
+        rows << { name: "Post L", url: "https://github.com/decidim/decidim/blob/develop/decidim-blogs/app/cells/decidim/blogs/post_l_cell.rb" }
+        rows << { name: "Project L", url: "https://github.com/decidim/decidim/blob/develop/decidim-budgets/app/cells/decidim/budgets/project_l_cell.rb" }
+        rows << { name: "Conference L", url: "https://github.com/decidim/decidim/blob/develop/decidim-conferences/app/cells/decidim/conferences/conference_l_cell.rb" }
+        rows << { name: "Debate L", url: "https://github.com/decidim/decidim/blob/develop/decidim-debates/app/cells/decidim/debates/debate_l_cell.rb" }
+        rows << { name: "Meeting L", url: "https://github.com/decidim/decidim/blob/develop/decidim-meetings/app/cells/decidim/meetings/meeting_l_cell.rb" }
+        rows << { name: "Process Group L", url: "https://github.com/decidim/decidim/blob/develop/decidim-participatory_processes/app/cells/decidim/participatory_processes/process_group_l_cell.rb" }
+        rows << { name: "Process L", url: "https://github.com/decidim/decidim/blob/develop/decidim-participatory_processes/app/cells/decidim/participatory_processes/process_l_cell.rb" }
+        rows << { name: "Collaborative Draft L", url: "https://github.com/decidim/decidim/blob/develop/decidim-proposals/app/cells/decidim/proposals/collaborative_draft_l_cell.rb" }
+        rows << { name: "Proposal L", url: "https://github.com/decidim/decidim/blob/develop/decidim-proposals/app/cells/decidim/proposals/proposal_l_cell.rb" }
+        rows << { name: "Sortition L", url: "https://github.com/decidim/decidim/blob/develop/decidim-sortitions/app/cells/decidim/sortitions/sortition_l_cell.rb" }
+        rows << { name: "Assembly G", url: "https://github.com/decidim/decidim/blob/develop/decidim-assemblies/app/cells/decidim/assemblies/assembly_g_cell.rb" }
+        rows << { name: "Post G", url: "https://github.com/decidim/decidim/blob/develop/decidim-blogs/app/cells/decidim/blogs/post_g_cell.rb" }
+        rows << { name: "Conference G", url: "https://github.com/decidim/decidim/blob/develop/decidim-conferences/app/cells/decidim/conferences/conference_g_cell.rb" }
+        rows << { name: "Election G", url: "https://github.com/decidim/decidim/blob/develop/decidim-elections/app/cells/decidim/elections/election_g_cell.rb" }
+        rows << { name: "Voting G", url: "https://github.com/decidim/decidim/blob/develop/decidim-elections/app/cells/decidim/votings/voting_g_cell.rb" }
+        rows << { name: "Initiative G", url: "https://github.com/decidim/decidim/blob/develop/decidim-initiatives/app/cells/decidim/initiatives/initiative_g_cell.rb" }
+        rows << { name: "Process G", url: "https://github.com/decidim/decidim/blob/develop/decidim-participatory_processes/app/cells/decidim/participatory_processes/process_g_cell.rb" }
+        rows << { name: "Process Group G", url: "https://github.com/decidim/decidim/blob/develop/decidim-participatory_processes/app/cells/decidim/participatory_processes/process_group_g_cell.rb" }
+        rows << { name: "Proposal G", url: "https://github.com/decidim/decidim/blob/develop/decidim-proposals/app/cells/decidim/proposals/proposal_g_cell.rb" }
+
+        rows.each do |row|
+      %>
+        <tr>
+          <td class="px-6 py-4 border border-background"><%= row[:name] %></td>
+          <td class="px-6 py-4 border border-background">
+            <a href="<%= row[:url] %>" target="_blank" class="text-secondary underline"><%= row[:url].split("/").last %></a>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </section>
