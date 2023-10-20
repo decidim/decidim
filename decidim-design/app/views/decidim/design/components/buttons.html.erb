@@ -15,8 +15,8 @@
   <a href="#disabled">Disabled</a>
 <% end %>
 
-<section id="sizes">
-  <h2 class="text-3xl font-semibold">Sizes</h2>
+<section id="sizes" class="design__section">
+  <h2 class="design__heading__3xl">Sizes</h2>
 
   <%
     rows = []
@@ -29,8 +29,8 @@
   <%= render partial: "decidim/design/components/buttons/table", locals: { rows: } %>
 </section>
 
-<section id="colors">
-  <h2 class="text-3xl font-semibold">Colors</h2>
+<section id="colors" class="design__section">
+  <h2 class="design__heading__3xl">Colors</h2>
 
   <%
     rows = []
@@ -42,8 +42,8 @@
   <%= render partial: "decidim/design/components/buttons/table", locals: { rows: } %>
 </section>
 
-<section id="transparent">
-  <h2 class="text-3xl font-semibold">Transparent</h2>
+<section id="transparent" class="design__section">
+  <h2 class="design__heading__3xl">Transparent</h2>
 
   <%
     rows = []
@@ -56,19 +56,19 @@
 
   <p class="my-4 text-gray-2">In case of a darker background:</p>
 
-  <table class="mt-4 w-full text-center text-sm text-gray-2">
-    <thead class="bg-gray-3">
-      <th class="px-6 py-2 font-normal border border-background">Button</th>
-      <th class="px-6 py-2 font-normal border border-background">Classes</th>
+  <table class="design__table">
+    <thead>
+      <th>Button</th>
+      <th>Classes</th>
     </thead>
     <tbody>
       <tr>
-        <td class="px-6 py-4 border border-background">
+        <td>
           <div class="bg-primary p-4 rounded">
             <button class="button button__lg button__transparent">Send</button>
           </div>
         </td>
-        <td class="px-6 py-4 border border-background">
+        <td>
           button button__lg button__transparent
         </td>
       </tr>
@@ -76,8 +76,8 @@
   </table>
 </section>
 
-<section id="text">
-  <h2 class="text-3xl font-semibold">Text</h2>
+<section id="text" class="design__section">
+  <h2 class="design__heading__3xl">Text</h2>
 
   <%
     rows = []
@@ -90,34 +90,34 @@
   <%= render partial: "decidim/design/components/buttons/table", locals: { rows: } %>
 </section>
 
-<section id="icons">
-  <h2 class="text-3xl font-semibold">Icons</h2>
+<section id="icons" class="design__section">
+  <h2 class="design__heading__3xl">Icons</h2>
 
-  <table class="mt-4 w-full text-center text-sm text-gray-2">
-    <thead class="bg-gray-3">
-      <th class="px-6 py-2 font-normal border border-background">Button</th>
-      <th class="px-6 py-2 font-normal border border-background">Class</th>
+  <table class="design__table">
+    <thead>
+      <th>Button</th>
+      <th>Class</th>
     </thead>
     <tbody>
       <tr>
-        <td class="px-6 py-4 border border-background">
+        <td>
           <button class="button button__lg button__secondary">
             <%= icon "question-line" %>
             <span>Send</span>
           </button>
         </td>
-        <td class="px-6 py-4 border border-background">
+        <td>
           button button__lg button__secondary
         </td>
       </tr>
       <tr>
-        <td class="px-6 py-4 border border-background">
+        <td>
           <button class="button button__lg button__transparent-secondary">
             <%= icon "question-line" %>
             <span>Send</span>
           </button>
         </td>
-        <td class="px-6 py-4 border border-background">
+        <td>
           button button__lg button__transparent-secondary
         </td>
       </tr>
@@ -125,20 +125,20 @@
   </table>
 </section>
 
-<section id="disabled">
-  <h2 class="text-3xl font-semibold">Disabled</h2>
+<section id="disabled" class="design__section">
+  <h2 class="design__heading__3xl">Disabled</h2>
 
-  <table class="mt-4 w-full text-center text-sm text-gray-2">
-    <thead class="bg-gray-3">
-      <th class="px-6 py-2 font-normal border border-background">Button</th>
-      <th class="px-6 py-2 font-normal border border-background">HTML</th>
+  <table class="design__table">
+    <thead>
+      <th>Button</th>
+      <th>HTML</th>
     </thead>
     <tbody>
       <tr>
-        <td class="px-6 py-4 border border-background">
+        <td>
           <button class="button button__lg" disabled>Send</button>
         </td>
-        <td class="px-6 py-4 border border-background">
+        <td>
           <code>disabled</code> data-attribute present
         </td>
       </tr>

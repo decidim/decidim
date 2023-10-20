@@ -1,15 +1,15 @@
-<table class="mt-4 w-full text-center text-sm text-gray-2">
-  <thead class="bg-gray-3">
-    <th class="px-6 py-2 font-normal border border-background">Button</th>
-    <th class="px-6 py-2 font-normal border border-background">Classes</th>
+<table class="design__table">
+  <thead>
+    <th>Button</th>
+    <th>Classes</th>
   </thead>
   <tbody>
     <% rows.each do |row| %>
       <tr>
-        <td class="px-6 py-4 border border-background">
+        <td>
           <button class="<%= row[:class] %>">Send</button>
         </td>
-        <td class="px-6 py-4 border border-background">
+        <td>
           <%= row[:class] %>
         </td>
       </tr>
