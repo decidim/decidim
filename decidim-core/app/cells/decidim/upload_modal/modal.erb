@@ -5,13 +5,13 @@
   <div>
     <div data-name="<%= attribute %>" class="upload-modal__dropzone-container" data-dropzone>
       <%= form.file_field add_attribute,
-        id: "files-#{modal_id}",
-        label: false,
-        required: false,
-        multiple:,
-        direct_upload: true,
-        hidden: true,
-        data: { direct_upload_url: } %>
+                          id: "files-#{modal_id}",
+                          label: false,
+                          required: false,
+                          multiple:,
+                          direct_upload: true,
+                          hidden: true,
+                          data: { direct_upload_url: } %>
 
       <%= tag.ul class: "upload-modal__dropzone", hidden: true, data: {
             dropzone_items: "",

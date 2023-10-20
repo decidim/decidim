@@ -26,11 +26,11 @@
 
             <% if @form.signature_dates_required? %>
               <div class="row">
-                <div class="columns xlarge-6">
+                <div class="columns">
                   <%= f.date_field :signature_start_date, disabled: !@form.signature_dates_required? %>
                 </div>
 
-                <div class="columns xlarge-6">
+                <div class="columns">
                   <%= f.date_field :signature_end_date, disabled: !@form.signature_dates_required? %>
                 </div>
               </div>

@@ -33,6 +33,10 @@ body {
     @apply p-8 pb-24 m-0 min-h-max;
   }
 
+  &__container-sidebar {
+    @apply pb-24 m-0 min-h-max;
+  }
+
   .hide {
     @apply hidden;
   }

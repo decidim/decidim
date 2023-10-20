@@ -8,22 +8,9 @@
         <%= t("see_process", scope: "decidim.admin.actions") %>
       </span>
     <% end %>
-    <div class="inline-block relative">
-      <%= button_tag id: "processes-menu-trigger", data: { component: "dropdown", target: "processes-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
-        <span>
-          <%= t("menu.manage", scope: "decidim.admin") %>
-        </span>
-        <%= icon "arrow-down-s-line" %>
-      <% end %>
-      <div id="processes-dropdown-menu-settings" class="process-title-content-dropdown">
-        <%= dropdown_menu(:admin_participatory_process_menu).render %>
-      </div>
-    </div>
   </div>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>
-  <div class="process-content">
-    <%= yield %>
-  </div>
+  <%= yield %>
 <% end %>

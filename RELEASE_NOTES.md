@@ -254,6 +254,16 @@ Please read more in the docs:
 
 You can check more about the implementation in the [\#10700](https://github.com/decidim/decidim/pull/10700) pull request.
 
+### 3.11 Anti-spam measures in the robots.txt
+
+In order to improve the fight against spam attacks in Decidim applications, we have added a new task that helps you replace yours. Take into account that this will override your robots.txt, so if you have done any change you need to make a backup before running this task.
+
+```bash
+bundle exec rails decidim:robots:replace
+```
+
+You can see more details about this change on PR [\#11693](https://github.com/decidim/decidim/pull/11693)
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples

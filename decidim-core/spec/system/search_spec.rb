@@ -32,6 +32,26 @@ describe "Search", type: :system do
       expect(page).to have_content(/results for the search: "#{term}"/i)
       expect(page).to have_selector(".filter-search.filter-container")
     end
+
+    it "has all the resources to search" do
+      within ".search__filter" do
+        expect(page).to have_content("All")
+        expect(page).to have_content("Participants")
+        expect(page).to have_content("Groups")
+        expect(page).to have_content("Participatory processes")
+        expect(page).to have_content("Assemblies")
+        expect(page).to have_content("Conferences")
+        expect(page).to have_content("Votings")
+        expect(page).to have_content("Initiatives")
+        expect(page).to have_content("Meetings")
+        expect(page).to have_content("Proposals")
+        expect(page).to have_content("Budget")
+        expect(page).to have_content("Projects")
+        expect(page).to have_content("Debates")
+        expect(page).to have_content("Posts")
+        expect(page).to have_content("Comments")
+      end
+    end
   end
 
   context "when the device is a mobile" do
