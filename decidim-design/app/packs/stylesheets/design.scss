@@ -1,0 +1,103 @@
+.design__layout {
+  @apply grid md:grid-cols-12 container min-h-screen before:content-[''] before:absolute before:-z-10 before:w-1/2 before:h-full before:inset-0 before:bg-background;
+
+  aside:first-child {
+    @apply col-span-2 py-12 pr-16;
+  }
+
+  main {
+    @apply bg-white col-span-8 py-12 px-16 [&_section+section]:mt-10;
+  }
+
+  aside:last-child {
+    @apply bg-white col-span-2 py-12 pl-16;
+  }
+}
+
+.design__navigation {
+  @apply sticky top-12 space-y-4;
+
+  & > li > *:not(ul) {
+    @apply flex gap-1 items-center;
+
+    svg {
+      @apply text-gray fill-current;
+    }
+
+    span {
+      @apply font-semibold;
+    }
+  }
+
+  & > li > a {
+    @apply hover:underline;
+  }
+
+  & > li > ul {
+    @apply pl-5 pt-4 space-y-4;
+  }
+
+  & > li > ul > li {
+    @apply text-sm text-black cursor-pointer flex items-center gap-1;
+
+    svg {
+      @apply w-3 h-3 fill-current;
+    }
+
+    a {
+      @apply hover:underline first-letter:capitalize;
+    }
+  }
+}
+
+.design__navigation__right {
+  @apply sticky top-12;
+
+  nav {
+    @apply space-y-2 text-sm [&>*]:block [&_a]:text-secondary [&_a]:underline;
+  }
+
+  strong {
+    @apply text-md mb-4;
+  }
+}
+
+.design__heading__5xl {
+  @apply text-5xl font-bold text-black;
+}
+
+.design__heading__3xl {
+  @apply text-3xl font-semibold;
+}
+
+.design__heading__xl {
+  @apply text-xl font-semibold;
+}
+
+.design__heading__section {
+  @apply pb-10 border-b border-background;
+}
+
+.design__heading__description {
+  @apply mt-10 text-gray-2 text-md font-normal [&>*+*]:mt-4;
+}
+
+.design__section {
+  @apply [&>*+*]:mt-6 [&>p]:text-gray-2;
+}
+
+.design__table {
+  @apply w-full text-center text-sm text-gray-2;
+
+  thead {
+    @apply bg-gray-3;
+  }
+
+  th {
+    @apply px-6 py-2 font-normal border border-background;
+  }
+
+  td {
+    @apply px-6 py-4 border border-background;
+  }
+}

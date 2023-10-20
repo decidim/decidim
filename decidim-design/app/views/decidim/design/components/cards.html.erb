@@ -8,107 +8,85 @@
  <a href="#sourcecode">Source code</a>
 <% end %>
 
-<section id="types">
-  <h2 class="text-3xl font-semibold">Types</h2>
+<section id="types" class="design__section">
+  <h2 class="design__heading__3xl">Types</h2>
 
-  <h3 class="mt-10 text-xl font-semibold">Card L <span class="label">list</span></h3>
+  <h3 class="design__heading__xl">Card L <span class="label">list</span></h3>
 
-  <div class="mt-4">
-    <%= render partial: "decidim/design/components/cards/static-card-l" %>
-    <%= render partial: "decidim/design/components/cards/static-card-l" %>
-  </div>
+  <%= render partial: "decidim/design/components/cards/static-card-l" %>
+  <%= render partial: "decidim/design/components/cards/static-card-l" %>
 
-  <h3 class="mt-10 text-xl font-semibold">Card G <span class="label">grid</span></h3>
+  <h3 class="design__heading__xl">Card G <span class="label">grid</span></h3>
 
-  <div class="mt-4 card__grid-grid">
+  <div class="card__grid-grid">
     <%= render partial: "decidim/design/components/cards/static-card-g" %>
     <%= render partial: "decidim/design/components/cards/static-card-g" %>
   </div>
 
-  <h3 class="mt-10 text-xl font-semibold">Card S <span class="label">search</span></h3>
+  <h3 class="design__heading__xl">Card S <span class="label">search</span></h3>
 
-  <div class="mt-4">
-    <%= render partial: "decidim/design/components/cards/static-card-s" %>
-    <%= render partial: "decidim/design/components/cards/static-card-s" %>
-  </div>
+  <%= render partial: "decidim/design/components/cards/static-card-s" %>
+  <%= render partial: "decidim/design/components/cards/static-card-s" %>
 </section>
 
-<section id="variations">
-  <h2 class="text-3xl font-semibold">Variations</h2>
+<section id="variations" class="design__section">
+  <h2 class="design__heading__3xl">Variations</h2>
 
-  <p class="mt-4 text-gray-2">
-    Each card will look like different regarding the properties of the resource displayed. You can override such behaviour in the specific cell.
-  </p>
+  <p>Each card will look like different regarding the properties of the resource displayed. You can override such behaviour in the specific cell.</p>
 
-  <h3 class="mt-10 text-xl font-semibold">Metadata items</h3>
+  <h3 class="design__heading__xl">Metadata items</h3>
 
-  <div class="mt-4 card__grid-grid">
+  <div class="card__grid-grid">
     <%= render partial: "decidim/design/components/cards/static-card-g-metadata" %>
     <%= render partial: "decidim/design/components/cards/static-card-g-metadata-2" %>
   </div>
 
-  <p class="mt-4 text-gray-2">
-    Each resource define its own metadata items
-  </p>
+  <p>Each resource define its own metadata items</p>
 
-  <h3 class="mt-10 text-xl font-semibold">Image and description</h3>
+  <h3 class="design__heading__xl">Highlight</h3>
 
-  <div class="mt-4">
-    <%= render partial: "decidim/design/components/cards/static-card-l-image" %>
-  </div>
+  <%= render partial: "decidim/design/components/cards/static-card-g-highlight" %>
 
-  <p class="mt-4 text-gray-2">
-    Used by <i>Blogs</i> cards
-  </p>
+  <p>Used by resources who allow to highlight</p>
 
-  <h3 class="mt-10 text-xl font-semibold">Description</h3>
+  <h3 class="design__heading__xl">Image and description</h3>
 
-  <div class="mt-4">
-    <%= render partial: "decidim/design/components/cards/static-card-l-description" %>
-  </div>
+  <%= render partial: "decidim/design/components/cards/static-card-l-image" %>
 
-  <p class="mt-4 text-gray-2">
-    Used by <i>Debates</i> cards
-  </p>
+  <p>Used by <i>Blogs</i> cards</p>
 
-  <h3 class="mt-10 text-xl font-semibold">Use different template for the image block</h3>
+  <h3 class="design__heading__xl">Description</h3>
 
-  <div class="mt-4">
-    <%= render partial: "decidim/design/components/cards/static-card-l-meetings" %>
-  </div>
+  <%= render partial: "decidim/design/components/cards/static-card-l-description" %>
 
-  <p class="mt-4 text-gray-2">
-    Used by <i>Meetings</i> cards
-  </p>
+  <p>Used by <i>Debates</i> cards</p>
 
-  <h3 class="mt-10 text-xl font-semibold">Use the extra_data block</h3>
+  <h3 class="design__heading__xl">Use different template for the image block</h3>
 
-  <div class="mt-4">
-    <%= append_stylesheet_pack_tag "decidim_accountability" %>
-    <%= render partial: "decidim/design/components/cards/static-card-l-extra-data" %>
-  </div>
+  <%= render partial: "decidim/design/components/cards/static-card-l-meetings" %>
 
-  <p class="mt-4 text-gray-2">
-    Used by <i>Accountability projects</i> cards
-  </p>
+  <p>Used by <i>Meetings</i> cards</p>
 
-  <div class="mt-4">
-    <%= append_stylesheet_pack_tag "decidim_budgets" %>
-    <%= render partial: "decidim/design/components/cards/static-card-l-extra-data-2" %>
-  </div>
+  <h3 class="design__heading__xl">Use the extra_data block</h3>
 
-  <p class="mt-4 text-gray-2">
-    Used by <i>Budget projects</i> cards
-  </p>
+  <%= append_stylesheet_pack_tag "decidim_accountability" %>
+  <%= render partial: "decidim/design/components/cards/static-card-l-extra-data" %>
+
+  <p>Used by <i>Accountability projects</i> cards</p>
+
+  <%= append_stylesheet_pack_tag "decidim_budgets" %>
+  <%= render partial: "decidim/design/components/cards/static-card-l-extra-data-2" %>
+
+  <p>Used by <i>Budget projects</i> cards</p>
 </section>
 
-<section id="sourcecode">
-  <h2 class="text-3xl font-semibold">Source code</h2>
+<section id="sourcecode" class="design__section">
+  <h2 class="design__heading__3xl">Source code</h2>
 
-  <table class="mt-4 w-full text-center text-sm text-gray-2">
-    <thead class="bg-gray-3">
-      <th class="px-6 py-2 font-normal border border-background">Card</th>
-      <th class="px-6 py-2 font-normal border border-background">Code</th>
+  <table class="design__table">
+    <thead>
+      <th>Card</th>
+      <th>Code</th>
     </thead>
     <tbody>
       <%
@@ -140,8 +118,8 @@
         rows.each do |row|
       %>
         <tr>
-          <td class="px-6 py-4 border border-background"><%= row[:name] %></td>
-          <td class="px-6 py-4 border border-background">
+          <td><%= row[:name] %></td>
+          <td>
             <a href="<%= row[:url] %>" target="_blank" class="text-secondary underline"><%= row[:url].split("/").last %></a>
           </td>
         </tr>
