@@ -77,16 +77,18 @@ export default function redesignedFormDatePicker() {
       };
     });
 
-    document.querySelector('button[name="commit"]').addEventListener("click", () => {
-      inputs.forEach((input) => {
-        if (input.classList.contains("is-invalid-input")) {
-          document.getElementById(`${input.id}_date`).classList.add("is-invalid-input");
-          document.getElementById(`${input.id}_time`).classList.add("is-invalid-input");
-          input.parentElement.querySelectorAll(".form-error").forEach((error) => {
-            document.getElementById(`${input.id}_datepicker_row`).after(error);
-          });
-        };
+    if (document.querySelector('button[name="commit"]')) {
+      document.querySelector('button[name="commit"]').addEventListener("click", () => {
+        inputs.forEach((input) => {
+          if (input.classList.contains("is-invalid-input")) {
+            document.getElementById(`${input.id}_date`).classList.add("is-invalid-input");
+            document.getElementById(`${input.id}_time`).classList.add("is-invalid-input");
+            input.parentElement.querySelectorAll(".form-error").forEach((error) => {
+              document.getElementById(`${input.id}_datepicker_row`).after(error);
+            });
+          };
+        });
       });
-    });
+    };
   };
 };

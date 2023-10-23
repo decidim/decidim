@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 import icon from "src/decidim/icon"
-import { dateToPicker, formatDate, displayDate, formatTime } from "./datepicker_functions"
+import { dateToPicker, formatDate, displayDate, formatTime, calculateDatepickerPos } from "./datepicker_functions"
 import { dateKeyDownListener, dateBeforeInputListener } from "./datepicker_listeners"
 
 export default function generateDatePicker(input, row, formats) {
@@ -38,6 +38,11 @@ export default function generateDatePicker(input, row, formats) {
   date.after(datePicker);
 
   let prevDate = null;
+  let defaultTime = "00:00"
+
+  if (formats.time === 12) {
+    defaultTime = "01:00"
+  };
 
   const datePickerDisplay = (event) => {
     if (!dateColumn.contains(event.target)) {
@@ -71,7 +76,7 @@ export default function generateDatePicker(input, row, formats) {
       if (input.type === "date") {
         input.value = `${formatDate(date.value, formats.date)}`;
       } else if (input.type === "datetime-local") {
-        input.value = `${formatDate(date.value, formats.date)}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id)}`;
+        input.value = `${formatDate(date.value, formats.date)}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id) || defaultTime}`;
       };
     };
   });
@@ -94,7 +99,7 @@ export default function generateDatePicker(input, row, formats) {
       if (input.type === "date") {
         input.value = `${formatDate(date.value, formats.date)}`;
       } else if (input.type === "datetime-local") {
-        input.value = `${formatDate(date.value, formats.date)}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id)}`;
+        input.value = `${formatDate(date.value, formats.date)}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id) || defaultTime}`;
       };
     };
   });
@@ -122,7 +127,7 @@ export default function generateDatePicker(input, row, formats) {
     if (input.type === "date") {
       input.value = `${pickedDate}`;
     } else if (input.type === "datetime-local") {
-      input.value = `${pickedDate}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id)}`;
+      input.value = `${pickedDate}T${formatTime(document.querySelector(`#${input.id}_time`).value, formats.time, input.id) || defaultTime}`;
     };
     datePicker.style.display = "none";
     pickCalendar.setAttribute("disabled", true);
@@ -147,6 +152,15 @@ export default function generateDatePicker(input, row, formats) {
     datePicker.style.display = "block";
 
     document.addEventListener("click", datePickerDisplay);
+
+    if (document.querySelector(".item__edit-sticky")) {
+      const datePickerPos = calculateDatepickerPos(datePicker)
+      if (datePickerPos < 0) {
+        const layoutWrapper = document.querySelector(".layout-wrapper");
+
+        layoutWrapper.style.height = `${layoutWrapper.clientHeight - datePickerPos}px`
+      };
+    };
   });
 
   closeCalendar.addEventListener("click", (event) => {

@@ -247,6 +247,7 @@ export default function generateTimePicker(input, row, formats) {
     document.addEventListener("click", timePickerDisplay);
     hours.value = hourDisplay(hour);
     minutes.value = minuteDisplay(minute);
+    time.value = `${hourDisplay(hour)}:${minuteDisplay(minute)}`;
   });
 
   hourUp.addEventListener("click", (event) => {

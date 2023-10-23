@@ -223,3 +223,8 @@ export const minuteDisplay = (minute) => {
 
   return displayMinute;
 };
+
+export const calculateDatepickerPos = (datePicker) => {
+  return (document.body.clientHeight - (datePicker.getBoundingClientRect().top + window.scrollY)) -
+  (document.querySelector(".item__edit-sticky").clientHeight + datePicker.clientHeight)
+};
