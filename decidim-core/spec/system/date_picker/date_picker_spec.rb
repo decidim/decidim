@@ -7,6 +7,7 @@ describe "Datepicker", type: :system do
   let(:datepicker_content) { "" }
   let(:record) { OpenStruct.new(body: datepicker_content) }
   let(:form) { Decidim::FormBuilder.new(:example, record, template, {}) }
+  let(:datetime_field) { form.datetime_field(:input) }
 
   let(:template_class) do
     Class.new(ActionView::Base) do
@@ -19,7 +20,7 @@ describe "Datepicker", type: :system do
   let(:template) { template_class.new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
 
   let(:html_document) do
-    datepicker_wrapper = form.datetime_field(:input)
+    datepicker_wrapper = datetime_field
     content_wrapper = <<~HTML
       <div data-content>
         <main class="layout-1col">
@@ -105,6 +106,30 @@ describe "Datepicker", type: :system do
         expect(page).to have_field("example_input_time", with: "01:59")
         expect(page).to have_field("example_input_date", with: "20.01.1994")
         expect(page).to have_field("example_input", with: "1994-01-20T01:59", visible: :all)
+      end
+    end
+
+    context "when filling date and leaving time field empty" do
+      it "fills a default time" do
+        fill_in_datepicker :example_input_date, with: "12.12.2021"
+        expect(page).to have_field("example_input", with: "2021-12-12T00:00", visible: :all)
+      end
+
+      context "when input field's default time set to a specific time" do
+        let(:datetime_field) { form.datetime_field(:input, default_time: "23:59") }
+
+        it "fills the time field with the default time" do
+          fill_in_datepicker :example_input_date, with: "12.12.2021"
+          expect(page).to have_field("example_input", with: "2021-12-12T23:59", visible: :all)
+        end
+      end
+    end
+
+    context "when input fields' help texts are hidden" do
+      let(:datetime_field) { form.datetime_field(:input, hide_help: true) }
+
+      it "hides the help texts" do
+        expect(page).not_to have_content("Format: dd.mm.yy")
       end
     end
 

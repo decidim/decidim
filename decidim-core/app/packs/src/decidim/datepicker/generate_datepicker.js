@@ -38,11 +38,7 @@ export default function generateDatePicker(input, row, formats) {
   date.after(datePicker);
 
   let prevDate = null;
-  let defaultTime = "00:00"
-
-  if (formats.time === 12) {
-    defaultTime = "01:00"
-  };
+  let defaultTime = input.getAttribute("default_time") || "00:00"
 
   const datePickerDisplay = (event) => {
     if (!dateColumn.contains(event.target)) {
