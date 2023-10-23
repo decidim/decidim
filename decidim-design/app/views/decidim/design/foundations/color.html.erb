@@ -18,9 +18,9 @@
 
   <%
     base_columns = []
-    base_columns << { value: "#E02D2D", name: "primary", rgba: "rgba(224,45,45,1)", usage: "Main nav component background\nNav menus in homepage and space home" }
-    base_columns << { value: "#155ABF", name: "secondary", rgba: "rgba(21,490,191,1)", usage: "Main color for links and buttons" }
-    base_columns << { value: "#EBC34B", name: "tertiary", rgba: "rgba(235,195,75,1)", usage: "Graphic ornaments and accent color\nCards and list items hover state border" }
+    base_columns << { value: "var(--primary)", name: "primary", usage: "Main nav component background\nNav menus in homepage and space home" }
+    base_columns << { value: "var(--secondary)", name: "secondary", usage: "Main color for links and buttons" }
+    base_columns << { value: "var(--tertiary)", name: "tertiary", usage: "Graphic ornaments and accent color\nCards and list items hover state border" }
   %>
 
   <%= render partial: "decidim/design/foundations/color/table", locals: { columns: base_columns } %>

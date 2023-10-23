@@ -2,8 +2,10 @@
   <thead class="bg-gray-3">
     <th class="px-6 py-2 font-normal border border-background">Value</th>
     <th class="px-6 py-2 font-normal border border-background">Tailwind name</th>
-    <th class="px-6 py-2 font-normal border border-background">Hex code</th>
-    <th class="px-6 py-2 font-normal border border-background">RGBA code</th>
+    <% if columns.first[:rgba].present? %>
+      <th class="px-6 py-2 font-normal border border-background">Hex code</th>
+      <th class="px-6 py-2 font-normal border border-background">RGBA code</th>
+    <% end %>
     <th class="px-6 py-2 font-normal border border-background">Usage</th>
   </thead>
   <tbody>
@@ -13,8 +15,10 @@
           <div class="w-8 h-8 rounded shadow" style="background-color: <%= column[:value] %>;"></div>
         </td>
         <td class="px-6 py-4 border border-background"><%= column[:name] %></td>
-        <td class="px-6 py-4 border border-background"><code><%= column[:value] %></code></td>
-        <td class="px-6 py-4 border border-background"><code><%= column[:rgba] %></code></td>
+        <% if column[:rgba].present? %>
+          <td class="px-6 py-4 border border-background"><code><%= column[:value] %></code></td>
+          <td class="px-6 py-4 border border-background"><code><%= column[:rgba] %></code></td>
+        <% end %>
         <td class="px-6 py-4 border border-background text-left"><%= column[:usage] %></td>
       </tr>
     <% end %>
