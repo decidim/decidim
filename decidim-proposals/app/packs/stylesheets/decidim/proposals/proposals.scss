@@ -13,12 +13,6 @@
   }
 }
 
-/* overwrite defaults */
-.static-map,
-[data-decidim-map] {
-  @apply aspect-[5/1];
-}
-
 .proposal {
   &__cost {
     @apply space-y-3 bg-background rounded p-4 text-black;
