@@ -36,7 +36,6 @@ module Decidim
               ),
               {
                 type: :text,
-                class: "my-4 text-gray-2",
                 values: ["In case of a darker background:"]
               },
               buttons_table_content(
