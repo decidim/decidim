@@ -50,7 +50,6 @@
     "dayjs": "^1.11.0",
     "diff": "^5.0.0",
     "drag-on-drop": "^3.6.1",
-    "foundation-datepicker": "1.5.6",
     "foundation-sites": "^6.7.0",
     "graphiql": "^1.4.7",
     "html5sortable": "0.10.0",
