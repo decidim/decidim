@@ -157,4 +157,16 @@ describe Decidim::UploadModal, type: :cell do
       end
     end
   end
+
+  context "when the engine is mounted on a different route" do
+    let(:path) { "/app/upload_validations" }
+
+    before do
+      allow(Decidim::Core::Engine.routes.url_helpers).to receive(:upload_validations_path).and_return(path)
+    end
+
+    it "generates a path relative to the mount location" do
+      expect(my_cell.send(:upload_validations_url)).to eq(path)
+    end
+  end
 end
