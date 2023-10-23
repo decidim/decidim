@@ -52,7 +52,7 @@
               <%= t(".update_suggested_colors") %>
             </button>
           </fieldset>
-
+        </div>
       </details>
       <%= cell("decidim/announcement", t(".colors_warning_html"), callout_class: "warning") %>
 
@@ -64,6 +64,7 @@
         <%= form.color_field :warning_color, value: current_organization.colors["warning"] %>
         <%= form.color_field :alert_color, value: current_organization.colors["alert"] %>
       </div>
+    </div>
 
     <% if Decidim.enable_html_header_snippets %>
       <div class="row column">
