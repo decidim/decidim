@@ -100,17 +100,23 @@ The redesign has introduced Tailwind CSS framework to compile CSS. It integrates
 
 There are some actions that you will need to do in your existing application that's already done in new applications:
 
-1. Add `tailwind.config.js` to your app's `.gitignore`.
+- Add `tailwind.config.js` to your app's `.gitignore`.
+
 ```console
 echo tailwind.config.js >> .gitignore
 ```
-2. Migrate your settings from your applications's `_decidim-settings.scss` file, available at `app/packs/stylesheets/decidim/_decidim-settings.scss`.
+
+- Migrate your settings from your applications's `_decidim-settings.scss` file, available at `app/packs/stylesheets/decidim/_decidim-settings.scss`.
 If you want to define the colors and other Tailwind related configurations, you can do it following the instructions on the documentation on how to [customize Tailwind](https://docs.decidim.org/en/develop/customize/styles.html#_tailwind_css).
-3. After that's done, remove your `_decidim-settings.scss` file.
+
+- After that's done, remove your `_decidim-settings.scss` file.
+
 ```console
 rm app/packs/stylesheets/decidim/_decidim-settings.scss
 ```
-4. Remove this comment from your `decidim-application.scss` file, available at `app/packs/stylesheets/decidim/decidim_application.scss`.
+
+- Remove this comment from your `decidim-application.scss` file, available at `app/packs/stylesheets/decidim/decidim_application.scss`.
+
 ```javascript
 // To override CSS variables or Foundation settings use _decidim-settings.scss
 ```
