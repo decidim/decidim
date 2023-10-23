@@ -33,7 +33,6 @@ const updateActiveUploads = (modal) => {
     let hidden = ""
     if (file.hiddenField) {
       // if there is hiddenField, this file is new
-      // eslint-disable-next-line no-ternary
       const fileField = isMultiple
         ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`
         : `${modal.options.resourceName}[${modal.options.addAttribute}]`
@@ -41,7 +40,6 @@ const updateActiveUploads = (modal) => {
       hidden = `<input type="hidden" name="${fileField}" value="${file.hiddenField}" />`
     } else {
       // otherwise, we keep the attachmentId
-      // eslint-disable-next-line no-ternary
       const fileField = isMultiple
         ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][id]`
         : `${modal.options.resourceName}[${modal.options.addAttribute}]`
@@ -61,7 +59,6 @@ const updateActiveUploads = (modal) => {
       title = titleValue
     }
 
-    // eslint-disable-next-line no-ternary
     const attachmentIdOrHiddenField = file.attachmentId
       ? `data-attachment-id="${file.attachmentId}"`
       : `data-hidden-field="${file.hiddenField}"`

@@ -241,7 +241,7 @@ shared_examples "manage impersonations examples" do
         click_link "Promote"
       end
 
-      within "form.new_managed_user_promotion" do
+      within ".item__edit form" do
         fill_in :managed_user_promotion_email, with: "foo@example.org"
       end
 
