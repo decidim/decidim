@@ -27,6 +27,12 @@
       @apply flex flex-row-reverse md:flex-col gap-4 items-center md:items-stretch justify-between first:[&>*]:grow last:[&>*]:w-1/4 md:last:[&>*]:w-auto;
     }
   }
+
+  &__container {
+    [data-decidim-map] {
+      @apply aspect-[5/1];
+    }
+  }
 }
 
 .proposal-participatory {
