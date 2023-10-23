@@ -11,7 +11,10 @@
                           multiple:,
                           direct_upload: true,
                           hidden: true,
-                          data: { direct_upload_url: } %>
+                          data: {
+                            direct_upload_url:,
+                            upload_validations_url:
+                          } %>
 
       <%= tag.ul class: "upload-modal__dropzone", hidden: true, data: {
             dropzone_items: "",
