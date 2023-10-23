@@ -110,6 +110,10 @@
 }
 
 @media print {
+  .omnipresent-banner {
+    display: none;
+  }
+
   .decidim-accessibility-indicator {
     display: none;
   }
