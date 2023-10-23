@@ -48,7 +48,7 @@
             <ul class="pl-5 pt-4 space-y-4">
               <% items.each do |item| %>
                 <li class="text-sm text-black cursor-pointer flex items-center gap-1">
-                  <%= link_to item[:name], item[:path], class: "hover:underline first-letter:capitalize" %>
+                  <%= link_to item[:name], item[:path], class: "hover:underline first-letter:capitalize #{params[:id] == item[:name] && controller_name == section[:path] ? "font-bold" : ""}" %>
                   <%= icon "arrow-right-line", class: "w-3 h-3 fill-current" %>
                 </li>
               <% end %>
