@@ -86,6 +86,24 @@ edit_link(
         </span>
       </div>
 
+      <% if current_initiative.offline_signature_type? || current_initiative.online_signature_type? %>
+        <div class="initiative__aside__element__data">
+          <p class="initiative__aside__element__data-title">
+          <%= t("signature_collection", scope: "decidim.initiatives.initiatives.show") %>
+          </p>
+          <span class="initiative__aside__element__data-text">
+            <span class="text-sm font-normal text-gray-2 block">
+              <% if current_initiative.offline_signature_type? %>
+                <%= t("offline", scope: "activemodel.attributes.initiative.signature_type_values") %>
+              <% end %>
+              <% if current_initiative.online_signature_type? %>
+                <%= t("online", scope: "activemodel.attributes.initiative.signature_type_values") %>
+              <% end %>
+            </span>
+          </span>
+        </div>
+      <% end %>
+
       <div class="initiative__aside__element__data">
         <p class="initiative__aside__element__data-title">
           <%= t("scope", scope: "decidim.initiatives.initiatives.show") %>
