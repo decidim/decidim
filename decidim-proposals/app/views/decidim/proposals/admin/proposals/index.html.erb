@@ -1,16 +1,16 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <div class="card-divider pb-4 border-b border-gray mb-4">
-    <h2 class="text-xl font-bold inline-block">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <div>
         <%= t(".title") %>
         <span id="js-selected-proposals-count" class="component-counter component-counter--inline" title="<%= t("decidim.proposals.admin.proposals.index.selected") %>"></span>
       </div>
+      <%= render partial: "bulk-actions" %>
     </h2>
   </div>
   <%= admin_filter_selector(:proposals) %>
-  <%= render partial: "bulk-actions" %>
-  <div class="table-scroll">
+  <div class="table-scroll mt-16">
     <table class="table-list">
       <thead>
         <tr>

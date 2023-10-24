@@ -84,7 +84,6 @@ nl:
         success_color: Succes
         time_zone: Tijdszone
         tos_version: Servicevoorwaarden versie
-        twitter_handler: Twitter gebruikersnaam
         user_groups_enabled: Groepen inschakelen
         users_registration_mode: Gebruikers registratiemodus
         warning_color: Waarschuwing
@@ -154,8 +153,6 @@ nl:
         export: Alles exporteren
         export-selection: Selectie exporteren
         import: Importeren
-        manage: Beheer
-        new: Nieuwe %{name}
         newsletter:
           new: Nieuwe nieuwsbrief
         participatory_space_private_user:
@@ -204,7 +201,6 @@ nl:
           title: Bewerk map
           update: Bijwerken
         index:
-          attachment_collection_used: Deze map kan niet worden verwijderd omdat deze in gebruik is.
           attachment_collections_title: Bijlagemappen
         new:
           create: creëren
@@ -251,7 +247,6 @@ nl:
           update: Bijwerken
         index:
           categories_title: Categorieën
-          category_used: Deze categorie kan niet worden verwijderd omdat het in gebruik is.
         new:
           create: Categorie creëren
           title: Nieuwe categorie
@@ -312,7 +307,6 @@ nl:
       dashboard:
         show:
           view_more_logs: Bekijk meer logs
-          welcome: Welkom bij de beheerder omgeving.
       domain_whitelist:
         form:
           domain_too_short: Domein te kort
@@ -405,7 +399,6 @@ nl:
             all: Alle
             managed: Beheerd
             not_managed: Niet beheerd
-          filter_by: Sorteren op
           impersonate: Nabootsen
           impersonate_new_managed_user: Beheer nieuwe deelnemer
           managed: Beheerd
@@ -491,7 +484,6 @@ nl:
         area_types: Pagina types
         areas: Thema's
         configuration: Configuratie
-        dashboard: Dashboard
         external_domain_whitelist: Toegelaten externe domeinen
         help_sections: Helpsecties
         homepage: Startpagina
@@ -570,7 +562,6 @@ nl:
           fields:
             created_at: Aanmaakdatum
             email: E-mail
-            last_sign_in_at: Datum laatste login
             name: Naam
             role: Rol
             roles:
@@ -676,9 +667,6 @@ nl:
           select_scopes: Filter gebruikers uit die een scope geselecteerd hebben in de Mijn interesses instellingen van hun account.
           select_spaces: Selecteer ruimtes om de nieuwsbrief te segmenteren
           select_users: Selecteer welke gebruikers u de nieuwsbrief wilt verzenden
-          send_to_all_users: Stuur naar alle gebruikers
-          send_to_followers: Stuur naar volgers
-          send_to_participants: Stuur naar deelnemers
           title: Selecteer ontvangers
           warning: "<strong>Opgelet:</strong> Deze nieuwsbrief zal alleen worden verzonden naar gebruikers die <em>Ik wil nieuwsbrieven ontvangen</em> in hun notificatie instellingen hebben geactiveerd."
         show:
@@ -710,7 +698,6 @@ nl:
           officialize: Bevestigen
           title: Deelnemer "%{name}" officieel maken
         show_email_modal:
-          close_modal: Sluit venster
           description: Als je rechtstreeks contact wil opnemen met een deelnemer, kun je op de knop Weergeven klikken om het e-mailadres te zien. Voor deze actie worden logbestanden bewaard.
           email_address: E-mail adres
           full_name: Volledige naam
@@ -727,7 +714,6 @@ nl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In bepaalde teksten kunnen deelnemers enkele HTML-tags toevoegen door gebruik te maken van de rich text-editor.
           social_handlers: Sociaal
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
@@ -740,8 +726,6 @@ nl:
           colors:
             colors_title: Organisatiekleuren
             colors_warning_html: Waarschuwing! Het wijzigen van deze kleuren kan de toegankelijkheid verminderen door een te klein contrast. Je kunt het contrast van je keuze nakijken met <a href="%{link}">WebAIM Contrast Checker</a> of andere vergelijkbare tools.
-            header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
-          cta_button_path_help: 'U kunt de verwijzing van de knop "Call to Action" overschrijven. Gebruik hier gedeeltelijke paden, niet volledige URL''s. Aanvaardt letters, cijfers, streepjes en streepjes en moet beginnen met een brief. De knop "Call to Action" wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving. Voorbeeld: %{url}'
           cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
           homepage_appearance_title: Bewerk de startpagina-weergave
           homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
@@ -876,9 +860,6 @@ nl:
           update: Bijwerken
         form:
           none: Geen
-          slug_help: 'Gebruik gedeeltelijke paden, niet volledige URL''s hier. Accepteert letters, cijfers, streepjes en slashes, en moet beginnen met een letter. Voorbeeld: %{url}'
-        index:
-          last_notable_change: Laatste opvallende verandering
         new:
           create: Creëer pagina
           title: Nieuwe pagina
@@ -901,7 +882,6 @@ nl:
         participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
-        static_pages: Pagina's
         statistics: Activiteit
         user_groups: groepen
         users: Beheerders
@@ -945,7 +925,6 @@ nl:
           last_month: Vorige maand
           last_week: Vorige week
           participants: Deelnemers
-      view_public_page: Bekijk openbare pagina
     metrics:
       blocked_users:
         object: geblokkeerde gebruikers
@@ -993,12 +972,3 @@ nl:
   errors:
     messages:
       invalid_json: Ongeldige JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Nieuwsbrieven
-        settings:
-          title: Instellingen
-        users:
-          title: Deelnemers

@@ -81,7 +81,6 @@ gl:
         edit: Editar
         filter:
           all_processes: Mostrar todos os procesos
-          process_groups: Procesar grupos
         import_process: Importar
         new_process: Novo proceso
         new_process_group: Novo grupo de procesos
@@ -103,7 +102,6 @@ gl:
           attachments: Anexos
           categories: Categorías
           components: Compoñentes
-          info: Información
           moderations: Moderacións
           private_users: Usuarios privados
           process_admins: Usuarios do proceso
@@ -113,7 +111,6 @@ gl:
           fields:
             created_at: Creado en
             private: Privado
-            promoted: Destacado
             published: Publicado
             title: Título
           name: Proceso participativo
@@ -222,7 +219,6 @@ gl:
         edit:
           update: Actualización
         index:
-          not_published: Non publicado
           private: Privado
           public: Público
           published: Publicado
@@ -289,9 +285,6 @@ gl:
         description: Número de procesos participativos nesta organización
         object: procesos participativos
         title: Procesos participativos
-    participatory_process:
-      show:
-        related_assemblies: Xuntanzas relacionadas
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -300,19 +293,12 @@ gl:
           name: Segundo bloque HTML
         html_3:
           name: Terceiro bloque HTML
-        metadata:
-          developer_group: Promovido por
-          name: Metadatos
-          participatory_scope: Que se decide
-          participatory_structure: Como é decidido
-          target: Quen participa
         participatory_processes:
           name: Procesos participativos
         stats:
           name: Actividade
         title:
           meta_scope: Ámbito
-          name: Título, descrición e cancelos
           participatory_processes:
             one: 1 proceso
             other: "%{count} procesos"
@@ -321,7 +307,6 @@ gl:
     participatory_process_steps:
       index:
         process_steps: Pasos do proceso
-        title: Pasos de proceso participativo
     participatory_processes:
       admin:
         content_blocks:
@@ -330,20 +315,15 @@ gl:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatos
-            title: Información xeral
             visibility: Visibilidade
         participatory_process_imports:
           form:
             document_legend: Engadir un documento
         participatory_process_steps:
           form:
-            cta_path_help: 'Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. Se non está establecido, non se mostrará o botón. Exemplo: %{url}'
             cta_text_help: Se non está establecido, non se mostrará o botón.
         participatory_processes:
           form:
@@ -356,7 +336,6 @@ gl:
             related_processes: Procesos relacionados
             select_an_area: Seleccione unha área
             select_process_group: Seleccione un grupo de procesos
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
             title: Información xeral
             visbility: Visibilidade
       content_blocks:
@@ -366,16 +345,6 @@ gl:
         title: Procesos participativos
       last_activity:
         new_participatory_process: Novo proceso participativo
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Procesos activos
-            active_step: Paso activo
-            more_information: Máis información
-            participate: Participar
-            participate_in: Participar no proceso %{resource_name}
-            processes_button_title: Ligazón á páxina de Procesos que amosa todas as procesos
-            see_all_processes: Ver todos os procesos
       participatory_process_steps:
         index:
           back_to_process: Volver á páxina do proceso
@@ -402,25 +371,12 @@ gl:
             past: Pasado
             upcoming: Próximos
           see: Ver
-        index:
-          loading: Cargando resultados ...
         show:
           title: Sobre este proceso
       show:
-        area: Área
         belongs_to_group: Este proceso pertence a
-        dates: Datas
-        developer_group: Grupo promotor
-        end_date: Data de finalización
-        local_area: Área de organización
-        participatory_scope: O que se decide
-        participatory_structure: Como se decide
         private_space: Este é un proceso privado
         related_processes: Procesos relacionados
-        scope: Alcance
-        start_date: Data de inicio
-        target: Quen participa
-        unspecified: Non especificado
     statistics:
       processes_count: Procesos
   layouts:
@@ -430,10 +386,6 @@ gl:
           browse: Buscar
           browse_resource: Explorar o grupo de procesos %{resource_name}
           processes_count: 'Procesos:'
-      participatory_process_widgets:
-        show:
-          active_step: Paso activo
-          take_part: Tomar parte en
       participatory_processes:
         index:
           promoted_processes: Procesos destacados
@@ -443,16 +395,3 @@ gl:
           more_info_about: Máis información sobre o proceso %{resource_name}
           take_part: Tomar parte en
           take_part_in: Participar no proceso %{resource_name}
-        promoted_process:
-          active_step: 'Paso actual:'
-          more_info: Máis información
-          more_info_about: Máis información sobre o proceso %{resource_name}
-          take_part: Tomar parte en
-          take_part_in: Participar no proceso %{resource_name}
-        promoted_process_group:
-          more_info: Máis información
-      process_header_steps:
-        step: Paso %{current} de %{total}
-        view_steps: Ver pasos
-      process_navigation:
-        process_menu_item: O proceso

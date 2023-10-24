@@ -71,9 +71,9 @@
           <% end %>
           <td class="actions">
             <%= icon_link_to "fullscreen-line",
-                              moderation_reports_path(moderation_id: moderation),
-                              t("actions.expand", scope: "decidim.moderations"),
-                              class: "action-icon--expand" %>
+                             moderation_reports_path(moderation_id: moderation),
+                             t("actions.expand", scope: "decidim.moderations"),
+                             class: "action-icon--expand" %>
             <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
               <%= icon_link_to "arrow-go-back-line",
                                unreport_moderation_path(id: moderation),

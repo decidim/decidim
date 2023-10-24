@@ -21,7 +21,7 @@ describe "Admin views proposal details from admin", type: :system do
     path = "processes/#{participatory_process.slug}/f/#{component.id}/proposals/#{proposal.id}"
 
     within ".component__show_nav" do
-      expect(page).to have_link("Link", href: /#{path}/)
+      expect(page).to have_link("See proposal", href: /#{path}/)
     end
   end
 

@@ -5,7 +5,6 @@ ja:
         assemblies_ids: 関連する参加スペース
         available_slots: 利用可能なスロット
         banner_image: バナー画像
-        consultations_ids: 関連する議案
         copy_categories: カテゴリをコピー
         copy_components: コンポーネントをコピー
         copy_features: 機能をコピー
@@ -63,7 +62,7 @@ ja:
         personal_url: 個人URL
         position: 位置
         short_bio: 略歴
-        twitter_handle: Twitterアカウント
+        twitter_handle: Xハンドル
         user_id: ユーザー
       conference_user_role:
         email: Eメールアドレス
@@ -74,7 +73,7 @@ ja:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: このメールアドレスは既に招待されています。
+              already_invited: このメールアドレスはすでに招待されています。
   activerecord:
     models:
       decidim/conference:
@@ -87,7 +86,6 @@ ja:
     admin:
       actions:
         confirm: 確認する
-        new_conference: 新しいカンファレンス
         send_diplomas: 出席証明書を送信
       conference_copies:
         new:
@@ -150,7 +148,6 @@ ja:
         form:
           title: 一般情報
         index:
-          not_published: 未公開
           published: 公開済み
         new:
           create: 作成
@@ -191,18 +188,18 @@ ja:
           conference_invites: 招待
           conference_speakers: スピーカー
           diploma: 出席証明書
-          info: 情報
+          info: このカンファレンスについて
           media_links: メディアリンク
           moderations: モデレーション
           partners: パートナー
           registration_types: 登録種別
           registrations: 登録
+          see_conference: カンファレンスを見る
           user_registrations: ユーザー登録
       models:
         conference:
           fields:
             created_at: 作成日時
-            promoted: 強調表示
             published: 公開済み
             title: タイトル
         conference_speaker:
@@ -328,7 +325,7 @@ ja:
       admin:
         conference_copies:
           form:
-            slug_help: 'URLスラグは、このカンファレンスをポイントするURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help_html: 'URLスラグは、このカンファレンスへのURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         conference_invites:
           create:
             error: 参加者をカンファレンスに招待する際に問題が発生しました。
@@ -345,7 +342,6 @@ ja:
               all: すべて
               rejected: 拒否
               sent: 送信済み
-            filter_by: フィルター
             invite_attendee: 参加者の招待
             invites: 招待
             search: 検索
@@ -369,7 +365,7 @@ ja:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             registrations_count:
               other: '%{count} 件の登録がありました。'
-            slug_help: 'URLスラグは、このカンファレンスをポイントするURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help_html: 'URLスラグは、このカンファレンスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         diplomas:
           edit:
             save: 保存
@@ -422,16 +418,16 @@ ja:
         create:
           invalid: このカンファレンスに参加するのに問題がありました。
           success: カンファレンスに参加しました。
-          unauthorized: カンファレンスに登録する前にサインインする必要があります。
+          unauthorized: カンファレンスに登録する前にログインする必要があります。
         decline_invitation:
           invalid: 招待を辞退するのに問題があった。
           success: 招待を拒否しました。
-          unauthorized: 招待を辞退する前にサインインする必要があります。
+          unauthorized: 招待を拒否する前にログインする必要があります。
         destroy:
           invalid: このカンファレンスから退会するのに問題がありました。
           success: カンファレンスから退会しました。
       conference_speaker:
-        go_to_twitter: Twitter に移動
+        go_to_twitter: X に移動
         more_info: 詳細情報
         personal_website: 個人のウェブサイト
         show:
@@ -449,9 +445,14 @@ ja:
           collaborators: パートナー
           main_promotors: オーガナイザー
         show:
+          already_have_an_account?: すでにアカウントをお持ちですか？
+          are_you_new?: 新しい参加者ですか？
           login_as: '%{name} <%{email} >としてログインしています'
           make_conference_registration: カンファレンスに登録する
+          manage_registration: 登録の管理
           register: 登録
+          sign_in_description: ログインしてカンファレンスに登録する
+          sign_up_description: カンファレンスに登録するアカウントを作成する
       content_blocks:
         highlighted_conferences:
           name: ハイライトされたカンファレンス
@@ -493,9 +494,8 @@ ja:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: アクティブなカンファレンス
-            conferences_button_title: すべてのカンファレンスを表示するカンファレンス一覧ページへのリンク
-            see_all_conferences: すべてのカンファレンスを見る
+            active_spaces: アクティブなカンファレンス
+            see_all_spaces: すべてのカンファレンスを見る
       registration_types:
         index:
           choose_an_option: '登録オプションを選択：'
@@ -507,7 +507,6 @@ ja:
         introduction: はじめに
         objectives: 目的
         related_assemblies: 関連する参加スペース
-        related_consultations: 関連する議案
         related_participatory_processes: 関連する参加型プロセス
     events:
       conferences:
@@ -565,10 +564,8 @@ ja:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: 登録の管理
         register: 登録
-      conference_widgets:
-        show:
-          take_part: 参加する
       conferences:
         conference:
           more_info: 詳細情報
@@ -578,11 +575,7 @@ ja:
         order_by_conferences:
           conferences:
             other: "%{count} 個のカンファレンス"
-        promoted_conference:
-          more_info: 詳細情報
-          take_part: 参加する
       conferences_nav:
-        conference_menu_item: 情報
         conference_partners_menu_item: パートナー
         conference_speaker_menu_item: スピーカー
         media: メディア

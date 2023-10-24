@@ -35,7 +35,6 @@ zh-CN:
         destroy: 删除
         edit: 编辑
         import_csv: 导入 CSV
-        new: 新建 %{name}
         preview: 预览
         timeline_entries: 项目进化
         title: 行动
@@ -51,8 +50,6 @@ zh-CN:
             name: 结果
           status:
             name: 状态
-          timeline_entry:
-            name: 时间线条目
         results:
           edit:
             title: 编辑结果

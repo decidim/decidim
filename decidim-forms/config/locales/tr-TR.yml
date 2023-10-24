@@ -123,7 +123,6 @@ tr:
           max_choices: 'Maksimum seçenek: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Formu yanıtlamak için</a> veya <a href="%{sign_up_link}">hesabınızla giriş yapın</a>.
             title: Formu cevapla
           current_step: '%{step} adım'
           of_total_steps: '%{total_steps}'

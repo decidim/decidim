@@ -45,7 +45,6 @@ hu:
         edit: Szerkesztés
         edit_projects: Projektek kezelése
         import: Javaslatok importálása projektekhez
-        new: Új %{name}
         preview: Előnézet
         send_voting_reminders: Szavazási emlékeztetők kiküldése
         title: Műveletek
@@ -93,6 +92,7 @@ hu:
             cancel: Mégsem
             change_category: Kategória módosítása
             change_scope: Hatáskör megváltoztatása
+            change_selected: Kijelölés módosítása
             deselect_implementation: A kiválasztpott törlése a megvalósításra várók közül
             finished_orders: Befejezett szavazások
             pending_orders: Függőben lévő szavazások
@@ -116,74 +116,114 @@ hu:
             invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} hatásköre: %{projects}.'
             select_a_project: Kérlek, válassz projektet.
             select_a_scope: Kérlek válassz hatókört.
+            success: 'A javaslatok frissítése a(z) %{subject_name} hatáskörben sikeres: %{projects}.'
           update_selected:
+            invalid:
+              selected: 'Ezeket a projekteket már kiválasztásra kerültek a megvalósításra: %{projektek}.'
             select_a_project: Kérlek, válassz projektet.
+            select_a_selection: Kérjük, válasszon egy végrehajtási állapotot.
+            success:
+              selected: 'Ezeket a projektek sikseresen kiválasztásra kerültek a megvalósításra: %{projektek}.'
         proposals_imports:
+          create:
+            invalid: Probléma merült fel a javaslatok projektekbe történő importálásakor.
+            success: "%{number} javaslat sikeresen importálva a projektekbe."
           new:
             create: Javaslatok importálása projektekbe
+            default_budget: Alapértelmezett költségvetés
+            import_all_accepted_proposals: Minden elfogadott javaslat importálása
             no_components: Ebben a részvételi térben nincs más javaslat-összetevő a javaslatok projektekbe való importálásához.
+            origin_component_id: A komponens származása
             select_component: Válassz ki egy elemet
+            title: Javaslatok importálása
         reminders:
           orders:
+            description: A felhasználók egy e-mailt kapnak, amely linkeket tartalmaz a költségvetésekre, ahol függőben lévő sorrendjük van.
             title:
               one: E-mail emlékeztetőt fog küldeni %{count} felhasználó részére
               other: E-mail emlékeztetőt fog küldeni %{count} felhasználó részére
       admin_log:
+        budget:
+          create: "%{user_name} létrehozta a(z) %{resource_name} költségvetést a következő térben: %{space_name}"
+          delete: "%{user_name} törölte a(z) %{resource_name} költségvetést a következő térben: %{space_name}"
+          update: "%{user_name} frissítette a(z) %{resource_name} költségvetést a következő térben: %{space_name}"
         project:
           create: "%{user_name} létrehozta a(z) %{resource_name} nevű projektet itt: %{space_name}"
           delete: "%{user_name} eltávolította a(z) %{resource_name} nevű projektet itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} nevű projektet itt: %{space_name}"
+      budget:
+        view: Az összes költségvetés-projekt megtekintése
+      budget_information_modal:
+        back_to: Vissza a(z) %{component_name} komponenshez
+        close_modal: Ablak bezárás
+        continue: Folytatás
+        more_information: További információk
+      budgets_list:
+        budgets: Költségvetések
+        cancel_order:
+          more_than_one: törölje a(z) %{name} kérdésében leadott szavazatát, és kezdje újra
+          only_one: törölje a szavazatát és kezdje újra.
+        finished_message: Befejezte a szavazási folyamatot. Köszönjük a részvételt!
+        highlighted_cta: Szavazzon a(z) %{name} kérdésében
+        if_change_opinion: Ha meggondolta magát, a következőket teheti
+        progress: Szavazás befejezése
+        remove_vote: Szavazat eltávolítása
+        show: Összes projekt megtekintése
+        vote: Szavazás
+        voted_budgets: Költségvetések ahol szavaztál
+        voted_on: 'Szavazott a következő kérdésében: %{links}.'
+      last_activity:
+        new_vote_at: Új költségvetési szavazás itt
+      limit_announcement:
+        cant_vote: Nem szavazhat erre a költségvetésre. <a href="%{landing_path}">Próbálkozzon egy másik költségvetéssel</a>.
+        limit_reached: 'Aktív szavazásokkal rendelkezik: %{links}. A költségvetésről történő szavazáshoz <a href="%{landing_path}">törölnie kell a szavazatát, és újra kell kezdenie</a>.'
       models:
+        budget:
+          fields:
+            name: Név
+            projects_count: Projektszám
+            total_budget: Teljes költségvetés
         project:
           fields:
             category: Kategória
             id: Azonosító
+            scope: Hatókör
             title: Cím
       order_summary_mailer:
         order_summary:
           selected_projects: 'Az általad kiválasztott projektek a következők:'
+          subject: 'A következő részvételi térben szavazott: %{space_name}'
+          voted_on_space: A(z) %{space_name} részvételi tér %{budget_name} költségvetésére szavazott.
+          voted_on_space_with_scope: 'A(z) %{budget_name} részvételi tér %{space_name} költségvetésére szavazott itt: %{scope_name} (%{scope_type}).'
       projects:
         budget_confirm:
+          are_you_sure: Ha meggondolja magát, később megváltoztathatja szavazatát.
           cancel: Mégse
           confirm: Megerősítés
           description: Ezek azok a projektek, amelyek a költségvetés részét képezik.
           title: Szavazás megerősítése
         budget_excess:
           budget_excess:
+            description: A projekt meghaladja a maximális költségvetést, és nem adható hozzá. Ha szeretné, törölhet egyet a már kiválasztott projektek közül, hogy saját preferenciái szerint adhassa le szavazatát.
             title: Maximális költségkeret túllépve
-          close: Bezárás
+          description: A projekt meghaladja a maximális költségvetést, és nem adható hozzá. Ha szeretné, törölheti a egyet a már kiválasztott projekte közül, hogy saját preferenciái szerint adja le szavazatát.
           ok: OK
+          projects_excess:
+            description: A projekt meghaladja a maximális költségvetést, és nem adható hozzá. Ha szeretné, törölhet egyet a már kiválasztott projektek közül, hogy saját preferenciái szerint adja le szavazatát.
+            title: Projektek maximuma túllépve
         budget_summary:
           are_you_sure: Biztosan szeretnéd visszavonni a szavazatod?
-          assigned: 'Hozzárendelve:'
           cancel_order: töröld a szavazatod és kezdd újra
           checked_out:
             description: 'Már szavaztál a költségvetésre. Ha meggondoltad magad, kattints ide: %{cancel_link}.'
             title: Költségvetési szavazás befejeződött
-          minimum_projects_rule:
-            description: Ön szerint milyen projektekre kellene kiosztani a költségvetést? Válasszon legalább %{minimum_number} hozzáadni kívánt projektet, és szavazzon saját preferenciái szerint a költségvetés meghatározásához.
-            instruction: "<li>Válasszon ki legalább %{minimum_number} projektet és szavazzon preferenciái szerint a költségvetés meghatározásához.</li>"
-          projects_rule:
-            description: Ön szerint milyen projektekre kellene kiosztani a költségvetést? Válasszon legalább %{minimum_number} hozzáadni kívánt projektet, és szavazzon saját preferenciái szerint a költségvetés meghatározásához.
-            instruction: "<li>Válasszon ki legalább %{minimum_number} projektet és szavazzon preferenciái szerint a költségvetés meghatározásához.</li>"
-          projects_rule_maximum_only:
-            description: Ön szerint milyen projektekre kellene kiosztani a költségvetést? Válasszon legalább %{maximum_number} hozzáadni kívánt projektet, és szavazzon saját preferenciái szerint a költségvetés meghatározásához.
-            instruction: "<li>Válasszon ki legalább %{maximum_number} projektet és szavazzon preferenciái szerint a költségvetés meghatározásához.</li>"
-          rules:
-            title: A költségvetés szabályai
-          title: Dönts a költségvetéstről
-          total_budget: Teljes költségvetés
-          total_projects: Összes szavazat
-          vote_threshold_percent_rule:
-            description: Milyen projektek finanszírozására használjuk a költségvetést? Rendeljen hozzá legalább %{minimum_budget} a projektekhez és szavazzon preferenciái szerint a költségvetésükről.
-            instruction: "<li>Válasszon ki legalább %{minimum_budget} projektet és szavazzon preferenciái szerint a költségvetés meghatározásához.</li>"
+          vote: Szavazás a költségvetésre
         count:
           projects_count:
             one: 1 projekt
             other: "%{count} projektek"
         exit_modal:
           cancel: Vissza a szavazáshoz
-          close_modal: Felugró ablak bezárása
           exit: Kilépés a szavazásból
           message: Szavazatod nem regisztráltuk, mert még nem fejezted be a szavazási folyamatot. Biztosan kilépsz a szavazásból?
           title: Még nem szavaztál
@@ -196,21 +236,24 @@ hu:
             all: Összes
             not_selected: Nincs kiválasztva
             selected: Kiválasztva
-        filters_small_view:
-          close_modal: Modal bezárása
-          filter: Szűrő
-          filter_by: 'Szűrés ez alapján:'
-          unfold: Kibont
         index:
-          view_project: Projekt megtekintése
+          back_to_budgets: vissza a költségvetésekhez
         order_progress:
-          vote: Szavazás
-        order_selected_projects:
-          remove: Eltávolítás
-          selected_projects:
-            one: kiválasztott projekt
-            other: kiválasztott projektek
-          view: Nézet
+          assigned: Hozzárendelt
+          budget: Költségvetés
+          dynamic_help:
+            keep_adding_projects: További projektek hozzáadása
+            minimum_reached: Elérted a minimumot a szavazáshoz
+            start_adding_projects: Kezdj el projekteket hozzáadni
+          minimum: Minimum
+          minimum_projects_rule:
+            description: Válassz lekevesebb %{minimum_number} projektet és szavazz a preferenciád szerint a költségvetésük meghatározására.
+          projects_rule:
+            description: Válassz ki legkevesebb %{minimum_number} és legfeljebb %{maximum_number} projektet és szavazz a költségvetés meghatározásához preferenciáid szerint.
+          projects_rule_maximum_only:
+            description: Válassz ki maximum %{maximum_number} projektet és szavazz a preferenciádis szerint a költségvetés meghatározásához.
+          vote_threshold_percent_rule:
+            description: Rendelj hozzá legalább %{minimum_budget} projektet, és szavazz a prefereniáid szerint a költségvetés meghatározásához.
         orders:
           highest_cost: Legmagasabb költség
           label: Projektek rendezése
@@ -229,10 +272,13 @@ hu:
           add_descriptive: Adja hozzá a(z) %{resource_name} projektet a szavazatához.
           added: Hozzáadva a szavazatához
           added_descriptive: A(z) %{resource_name} projekt hozzáadva a szavazatához.
+        project_filter:
+          added: Hozzáadva
+          all: Összes
         projects_for: '%{name} projektek'
+        select_projects: Projektek kiválasztása
         show:
           budget: Költségvetés
-          view_all_projects: Összes projekt megtekintése
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Nem fejezte be a szavazat leadását itt:'
@@ -301,7 +347,8 @@ hu:
     orders:
       checkout:
         error: Hiba történt a szavazatod feldolgozása során.
-        success: A szavazatodat sikeresen leadtad.
+        success_html: <p>A szavazatod sikeresen leadtad.</p><p class="text-sm font-normal">Megnézheted <a class="text-secondary underline" href="%{rest_of_budgets_link}"> a többi költségvetést</a></p>
+        success_no_left_budgets_html: A szavazatodat sikeresen leadtad.
       destroy:
         error: Hiba történt a szavazatod visszavonása során.
         success: A szavazatod visszavonása sikerült.

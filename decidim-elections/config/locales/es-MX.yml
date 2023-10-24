@@ -133,6 +133,13 @@ es-MX:
           values:
             'false': Sin validar
             'true': Validada
+      voting_publications:
+        create:
+          error: Se ha producido un error al publicar esta votación.
+          success: Votación publicada correctamente.
+        destroy:
+          error: Ha habido un problema al despublicar esta votación.
+          success: Votación despublicada correctamente.
     components:
       elections:
         actions:
@@ -153,7 +160,10 @@ es-MX:
         manage_answers: Gestionar las respuestas
         manage_questions: Gestionar las preguntas
         manage_steps: Gestionar las fases
-        new: Nuevo %{name}
+        new_answer: Añadir respuesta
+        new_election: Añadir elección
+        new_question: Añadir pregunta
+        new_trustee: Añadir garante
         preview: Vista previa
         publish: Publicar
         title: Acciones
@@ -226,12 +236,6 @@ es-MX:
         models:
           answer:
             name: Respuesta
-          election:
-            name: Votación
-          question:
-            name: Pregunta
-          trustee:
-            name: Garante
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas como respuestas.
@@ -442,7 +446,6 @@ es-MX:
           key_ceremony_title: Ceremonia de claves
           not_available: No disponible todavía
           not_created: No creado
-          not_published: No publicado
           not_ready: No está listo
           not_started: No iniciado
           published: Publicado
@@ -457,6 +460,7 @@ es-MX:
             started: El proceso de recuento ha comenzado.
           tally_title: Proceso de recuento
           title: Registro de la elección
+          unpublished: Despublicada
           verifiable_results:
             checksum: 'Suma de comprobación SHA256 del archivo:'
             description:
@@ -476,13 +480,7 @@ es-MX:
           all: Todas
           date: Fecha
           finished: Finalizadas
-          search: Buscar
           upcoming: Próximas
-        filters_small_view:
-          close_modal: Cerrar el modal
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desplegar
         preview:
           available_answers: 'Respuestas disponibles:'
           description: 'Estas son las preguntas que encontrarás en el proceso de votación:'
@@ -500,7 +498,6 @@ es-MX:
             change_vote: Cambia tu voto
             vote: Empezar a votar
             vote_again: Votar de nuevo
-          back: Elecciones disponibles
           callout:
             already_voted: Ya has votado en esta elección. Puedes cambiar tu voto o verificarlo.
             pending_vote: Se está emitiendo tu voto en el servidor.
@@ -558,7 +555,6 @@ es-MX:
           backup_modal:
             description: Esta elección se está creando en el Bulletin Board. Es muy importante que cada garante que participe en ella cree una copia de seguridad de estas claves y las almacene en un lugar seguro. Después, el proceso continuará.
             download_election_keys: Descargar claves
-            download_icon: Icono que indica una acción de descarga
             title: Copia de seguridad de claves para la elección %{election}
           key_ceremony_steps:
             back: Volver
@@ -573,7 +569,6 @@ es-MX:
               task: Tarea
             process_warning: Una vez iniciado el proceso, no debes salir de esta página hasta que el proceso termine. Tardará varios minutos, ya que todos los garantes deben estar conectados para completarlo.
             start: Empezar
-            start_icon: Icono que indica un botón de inicio para iniciar la generación de claves de una elección
             status:
               completed: Completada
               pending: Pendiente
@@ -583,7 +578,6 @@ es-MX:
             description: El Bulletin Board tiene tu información como garante de esta elección. Para continuar el proceso, primero sube el archivo de copia de seguridad generado durante la sesión anterior.
             title: Restaurar claves para la elección %{election}
             upload_election_keys: Subir claves de elección
-            upload_icon: Icono que indica una acción de descarga
           tally_started_steps:
             back: Atrás
             description: Los resultados de esta elección están siendo calculados en el Bulletin Board. Para completar este proceso, se necesita tu participación como garante.
@@ -597,7 +591,6 @@ es-MX:
               task: Tarea
             process_warning: Una vez iniciado el proceso, no debes salir de esta página hasta que el proceso termine. Tardará algunos minutos, ya que todas las garantes deben estar conectados para completarlo.
             start: Empezar
-            start_icon: Icono que indica un botón de inicio para iniciar la generación de claves de una elección
             status:
               completed: Completado
               pending: Pendiente
@@ -650,7 +643,7 @@ es-MX:
             success: Tu clave pública de identificación fue guardada con éxito.
       votes:
         ballot_decision:
-          audit: "( Auditar papeleta )"
+          audit: ( Auditar papeleta )
           back: Comenzar de nuevo el proceso de votación
           ballot_hash: 'El indentificador de la papeleta es:'
           cast: Deposita la papeleta para terminar tu voto
@@ -660,14 +653,12 @@ es-MX:
           header: Se está emitiendo el voto...
           text: Tu papeleta se está depositando en la urna.
         confirm:
-          answer: Respuesta
           answer_number: respuesta %{number}
           confirm: Confirmar
           edit: editar
           header: Confirma tu voto
           intro: Aquí tienes un resumen del voto que estás a punto de emitir. <br> Por favor, confirma tu voto o edita tus respuestas.
           nota_option: En blanco
-          question: Preguntas %{count}
         confirmed:
           back: Volver a las votaciones
           experience: '¿Cómo valoras la experiencia?'
@@ -688,11 +679,10 @@ es-MX:
           try_again: Inténtalo de nuevo
         header:
           ballot_decision: Emitir o auditar tu voto
-          casting: Emitiendo el voto
           confirm: Confirma tu voto
-          confirmed: Voto confirmado
-          encrypting: Cifrando el voto
-          failed: Voto fallido
+          election: Elección
+          register: Regístrate
+          vote_for: Vota por %{title}
         messages:
           invalid_token: Tu sesión en la cabina de votación no es válida. Intenta votar de nuevo.
           not_allowed: En este momento no puedes votar en esta votación.
@@ -707,7 +697,6 @@ es-MX:
           question_steps: Pregunta %{current_step} de %{total_steps}
           selections: "Seleccionada <br> %{selected} de %{max_selections}"
         onboarding_modal:
-          close: Cerrar modal
           create_account: Crear Cuenta
           description: '¿Quieres crear una nueva cuenta en la plataforma? Podrás participar en los procesos y ser parte activa de la organización.'
           no_account: No, gracias.
@@ -779,6 +768,9 @@ es-MX:
           title: '¿Qué son las votaciones?'
     menu:
       votings: Votaciones
+    participatory_spaces:
+      related_elections:
+        see_all: Ver todas las elecciones
     statistics:
       elections_count: Elecciones
       votings_count: Votaciones
@@ -804,7 +796,7 @@ es-MX:
               confirm_destroy: '¿Estás segura?'
               destroy: Eliminar
               edit: Editar
-              new: Nueva
+              new: Añadir estilo de papeleta
               title: Acciones
             associated_census_data: Entradas asociadas al censo
             explanation_callout: Un estilo de papeleta especifica qué preguntas se presentarán a las votantes en la cabina. En un estilo de papeleta, puedes elegir qué preguntas del componente de elecciones pertenecen a esa papeleta. El código de estilo de la papeleta se utiliza para hacer coincidir a una votante del censo con la papeleta que se le debe mostrar en la cabina. No crees ningún estilo de papeleta si quieres que simpre se muesten todas las preguntas.
@@ -816,34 +808,33 @@ es-MX:
             invalid: Ha habido un problema al actualizar el estilo de papeleta.
             success: Se ha creado correctamente el estilo de papeleta.
         content_blocks:
+          attachments_and_folders:
+            name: Archivos y carpetas de la votación
+          header:
+            name: Cabecera de la votación
           highlighted_votings:
             max_results: Cantidad máxima de elementos a mostrar
-          landing_page:
-            attachments_and_folders:
-              name: Archivos adjuntos y carpetas de la votación
-            description:
-              name: Descripción de la votación
-            elections:
-              name: Elecciones de la votación
-            header:
-              name: Cabecera de la votación
-            html_block_1:
-              name: Bloque html 1 de la votación
-            html_block_2:
-              name: Bloque html 2 de la votación
-            html_block_3:
-              name: Bloque html 3 de la votación
-            metrics:
-              name: Métricas de votación
-            polling_stations:
-              name: Puntos de votación
-            stats:
-              name: Estadísticas de votación
-            timeline:
-              name: Calendario de votación
+          html_block_1:
+            name: Bloque html 1 de la votación
+          html_block_2:
+            name: Bloque html 2 de la votación
+          html_block_3:
+            name: Bloque html 3 de la votación
+          main_data:
+            name: Titulo y descripción
+          metrics:
+            name: Métricas de la votación
+          polling_stations:
+            name: Puntos de votación
+          related_elections:
+            name: Elecciones
+          stats:
+            name: Estadísticas de la votación
+          timeline:
+            name: Calendario de la votación
         index:
-          not_published: Despublicada
           published: Publicada
+          unpublished: Despublicada
         landing_page:
           content_blocks:
             create:
@@ -869,7 +860,7 @@ es-MX:
             ballot_styles: Estilos de papeleta
             census: Censo
             components: Componentes
-            info: Información
+            info: Acerca de esta votación
             landing_page: Página de inicio
             monitoring_committee: Comité de seguimiento
             monitoring_committee_election_results: Validar resultados
@@ -878,33 +869,29 @@ es-MX:
             monitoring_committee_verify_elections: Verificar elecciones
             polling_officers: Gestores de mesa
             polling_stations: Puntos de votación
+            see_voting: Ver la votación
         models:
           ballot_style:
             fields:
               code: Código
-            name: Estilo de papeleta
           monitoring_committee_member:
             fields:
               email: Correo electrónico
               name: Nombre
-            name: Miembro del comité de seguimiento
           polling_officer:
             fields:
               email: Correo electrónico
               name: Nombre
               polling_station: Punto de votación (rol)
-            name: Gestor de mesa
           polling_station:
             fields:
               address: Dirección
               polling_station_managers: Administradores
               polling_station_president: Presidente
               title: Título
-            name: Punto de votación
           voting:
             fields:
               created_at: Creado el
-              promoted: Destacada
               published: Publicada
               title: Título
         monitoring_committee_election_results:
@@ -1039,8 +1026,6 @@ es-MX:
             confirm_destroy: '¿Estás segura?'
             destroy: Eliminar
             new_voting: Nuevo espacio de votación
-            publish: Publicar
-            unpublish: Despublicar
           create:
             invalid: Hubo un problema al crear esta votación.
             success: Votación creada con éxito.
@@ -1057,7 +1042,7 @@ es-MX:
             select_a_voting_type: Por favor, selecciona un tipo de votación
             show_check_census_help: Especifica si mostrar el enlace "¿Puedo votar?" en el menú público de votaciones.
             slug: Nombre corto de URL
-            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
             voting_type:
               hybrid: Hibrida
@@ -1067,10 +1052,6 @@ es-MX:
           new:
             create: Crear
             title: Nueva votación
-          publish:
-            success: Votación publicada correctamente.
-          unpublish:
-            success: Votación despublicada correctamente.
           update:
             invalid: Hubo un problema al actualizar esta votación.
             success: Votación actualizada correctamente.
@@ -1169,15 +1150,9 @@ es-MX:
         highlighted_votings:
           name: Votaciones destacadas
         landing_page:
-          description:
-            title: Sobre esta votación
-          metrics:
-            heading: Métricas
           polling_stations:
             heading: Puntos de votación
             no_polling_stations: Aún no hay puntos de votación.
-          timeline:
-            heading: Línea de tiempo
       monitoring_committee_members:
         actions:
           confirm_destroy: '¿Estás segura?'
@@ -1187,9 +1162,8 @@ es-MX:
       pages:
         home:
           highlighted_votings:
-            active_votings: Votaciones activas
-            see_all_votings: Ver todas las votaciones
-            votings_button_title: Enlace a la página de Votaciones que las muestra todas
+            active_spaces: Votaciones activas
+            see_all_spaces: Ver todas las votaciones
       polling_officer_zone:
         closures:
           back_to_polling_stations: Volver a los puntos de votación
@@ -1222,7 +1196,6 @@ es-MX:
             info_text: 'Por favor, introduce el número total de papeletas (sobres) recontadas en este punto de votación:'
             modal_ballots_count_error:
               btn_validate_total: Validar recuento total de papeletas
-              close_modal: Cerrar
               info_explanation_text: 'Por favor, revisa el número total de papeletas. Si el número total es incorrecto, debes proporcionar una explicación para el Comité de Seguimiento:'
               info_text: El número total de papeletas (sobres) introducidas no coincide con el registro de personas que han votado en este punto de votación.
               message_for_monitoring_committee: Mensaje para el Comité de Seguimiento
@@ -1240,14 +1213,12 @@ es-MX:
           sign:
             cancel: Cancelar
             check_box: Lo he revisado y es idéntico al certificado físico de cierre electoral
-            close_modal: Cerrar
             confirm: Ok, continuar
             error: Se ha producido un error, por favor inténtalo de nuevo.
             heading: Recuento de votos - Firmar cierre
             info_text: Si continúas ya no podrás modificar ninguna información, esta acción no se puede deshacer.
             submit: Firmar el cierre
             success: Cierre firmado con éxito.
-            title: Esta acción no se puede deshacer
           update:
             error: Se ha producido un error al actualizar los resultados del cierre. Inténtalo de nuevo más tarde.
             success: Resultados de cierre actualizados correctamente.
@@ -1314,7 +1285,7 @@ es-MX:
         actions:
           confirm_destroy: '¿Estás segura?'
           destroy: Borrar
-          new: Nuevo
+          new: Añadir gestora de mesa
           title: Acciones
         roles:
           manager: Administrador
@@ -1335,7 +1306,7 @@ es-MX:
           confirm_destroy: '¿Estás segura?'
           destroy: Borrar
           edit: Editar
-          new: Nuevo
+          new: Añadir punto de votación
           title: Acciones
       votings:
         access_code_modal:
@@ -1378,9 +1349,7 @@ es-MX:
             one: "%{count} votación"
             other: "%{count} votaciones"
         elections_log:
-          bb_status: Estado de la elección
           description: El registro de la elección te mostrará toda la información relevante sobre cada votación. Por ejemplo, el estado de la ceremonia de claves o el recuento o si los resultados ya están publicados. Haz clic en la elección sobre la cual quieres la información del registro.
-          election_log: Registro de la elección
           title: Registro de la elección
         filters:
           active: Activas
@@ -1389,11 +1358,6 @@ es-MX:
           finished: Finalizadas
           search: Buscar
           upcoming: Próximas
-        filters_small_view:
-          close_modal: Cerrar ventana
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desplegar
         index:
           no_votings: Ninguna votación coincide con tus criterios de búsqueda.
           only_finished: Actualmente no hay votaciones programadas, pero aquí puedes encontrar las votaciones terminadas en la lista.
@@ -1405,7 +1369,6 @@ es-MX:
           dont_have_access_code: '¿No tienes un código de acceso?'
           form_title: 'Rellena el siguiente formulario para acceder a la votación:'
           start_voting: Empezar a votar
-          step: Identificación
           title: Identificarme con mis datos del censo
         no_census_contact_information: Aún no hay ninguna información de contacto.
         orders:
@@ -1416,22 +1379,17 @@ es-MX:
           invalid: Hubo un problema al enviar el código de acceso.
           success: Tu código de acceso se ha enviado correctamente.
         show:
-          dates: Fechas
+          title: Acerca de esta votación
       votings_m:
         badge_name:
           finished: Finalizada
           ongoing: En curso
           upcoming: Próximamente
-        footer_button_text:
-          participate: Participar
-          view: Ver
-          vote: Votar
         unspecified: No especificado
         voting_type:
           hybrid: Hibrida
           in_person: Presencial
           online: En línea
-        voting_types_label: Tipo de votación
   layouts:
     decidim:
       election_votes_header:
@@ -1439,10 +1397,8 @@ es-MX:
       voting_navigation:
         check_census: '¿Puedo votar?'
         election_log: Registro de la elección
-        voting_menu_item: La votación
       votings:
         index:
           promoted_votings: Votaciones destacadas
         promoted_voting:
-          more_info: Más información
           vote: Votar

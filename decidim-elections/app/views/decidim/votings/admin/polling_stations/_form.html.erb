@@ -25,7 +25,7 @@
       </div>
 
       <div class="row column user-fields--polling_station_manager-picker">
-        <%= polling_officers_picker(form, :polling_station_managers, polling_officers_picker_voting_path(current_voting)) %>
+        <%= render partial: "decidim/votings/votings/polling_officers_picker", locals: { form:, current_component: current_voting, field: :polling_station_managers } %>
       </div>
     </div>
   </div>

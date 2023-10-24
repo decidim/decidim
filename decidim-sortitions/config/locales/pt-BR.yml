@@ -36,7 +36,6 @@ pt-BR:
         actions:
           destroy: Cancelar a classificação
           edit: Editar
-          new: Nova classificação
           show: Detalhes da classificação
         models:
           sortition:
@@ -50,9 +49,6 @@ pt-BR:
               seed: Semente
               target_items: Itens para selecionar
               title: Título
-            name:
-              one: Sorteio
-              other: Sorteios
         sortitions:
           confirm_destroy:
             confirm_destroy: Deseja mesmo cancelar este sorteio?
@@ -66,7 +62,6 @@ pt-BR:
           form:
             all_categories: Todas as categorias
             select_proposal_component: Selecione o conjunto de propostas
-            title: Nova classificação para propostas
           index:
             title: Sorteios
           new:
@@ -91,14 +86,7 @@ pt-BR:
           all: Todos
           cancelled: Cancelado
           category: Categoria
-          category_prompt: Selecionar uma categoria
-          search: Pesquisar
           state: Estado
-        filters_small_view:
-          close_modal: Fechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Desdobrar
         linked_sortitions:
           selected_proposals: Propostas selecionadas
         orders:
@@ -112,24 +100,22 @@ pt-BR:
         show:
           algorithm: Código de Algoritmo da Classificação
           any_category: de todas as categorias
-          back: Voltar para a lista
           cancelled: Sortição cancelada
           candidate_proposal_ids: Ordem de propostas de classificação e IDs
           candidate_proposals_info: 'A ordenação foi realizada entre as seguintes propostas (%{category_label}), com os seguintes IDs (em negrito as propostas selecionadas)  '
           category: da categoria %{category}
-          dice_result: "(1) resultado dado"
+          dice_result: (1) resultado dado
           introduction: 'Esta página contém os resultados da ordenação %{reference}. Por meio dessa classificação, %{target_items} número de resultados foram selecionados aleatoriamente e com uma distribuição de probabilidade igual ao conjunto de propostas exibidas abaixo. Juntamente com os resultados, as informações exibidas nesta página fornecem todas as informações necessárias para maximizar as garantias e reproduzir os resultados. A chave para a qualidade dessa classificação é a dupla aleatoriedade fornecida pela rolagem de dados (verificada por testemunhas) e o tempo preciso da classificação que fornece dados para um algoritmo que gera uma seleção aleatória. A semente do tempo para a classificação é tão precisa (segundos) que é impossível controlar pelos humanos, fornecendo assim uma entrada dupla "incontrolável" para garantir um resultado justo.  '
           mathematical_result: Resultado (1) x (2)
           proposals_selected_by_sortition: Propostas selecionadas por classificação
           sortition_reproducibility_details: Detalhes de reprodutibilidade de ordenação
-          time_seed: "(2) semente do tempo"
+          time_seed: (2) semente do tempo
           witnesses: Testemunhas
         sortition:
           random_seed: Semente aleatória
           selected_proposals:
             one: 1 proposta selecionada
             other: '%{count} propostas selecionadas'
-          view: Visão
         sortition_author:
           deleted: Usuário excluído
         sortition_cancel_author:

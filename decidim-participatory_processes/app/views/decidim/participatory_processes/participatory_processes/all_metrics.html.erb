@@ -11,7 +11,7 @@
 
   <div id="metrics" class="metric__container">
     <%= metrics.params %>
-    <%= metrics.redesigned_charts Decidim.metrics_registry.filtered(scope: "participatory_process", sort: true) %>
+    <%= metrics.render_charts Decidim.metrics_registry.filtered(scope: "participatory_process", sort: true) %>
   </div>
 
   <%= link_to participatory_process_path(current_participatory_space), class: "button button__sm button__text-secondary mt-10" do %>

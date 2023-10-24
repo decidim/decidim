@@ -1,4 +1,4 @@
-name: "[CI] Generators (Generator flags)"
+name: "[CI] Generators"
 on:
   push:
     branches:
@@ -18,10 +18,11 @@ env:
   CI: "true"
   RUBY_VERSION: 3.1.1
   NODE_VERSION: 18.17.1
+  NODE_ENV: "test"
   DECIDIM_MODULE: decidim-generators
   PARALLEL_TEST_PROCESSORS: 2
   CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
-  WEBPACKER_RUNTIME_COMPILE: "false"
+  SHAKAPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -33,7 +34,13 @@ jobs:
       fail-fast: false
       matrix:
         test-command:
-          - bundle exec parallel_test --type rspec --pattern spec/runtime/config_flags_generator_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/branch_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/component_generator_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/edge_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/no_flags_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/path_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/queue_flag_spec.rb
+          - bundle exec parallel_test --type rspec --pattern spec/runtime/storage_flag_spec.rb
           - bundle exec parallel_test --type rspec --pattern spec/runtime/full_app_generator_spec.rb
           - bundle exec parallel_test --type rspec --pattern spec/lib/
     name: "[CI] Generators"
@@ -77,6 +84,12 @@ jobs:
           key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
+      - uses: actions/cache@v3
+        id: app-cache
+        with:
+          path: ./Gemfile.lock
+          key: gemfile-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: gemfile-${{ hashFiles('Gemfile.lock') }}
       - run: bundle install --jobs 4 --retry 3
         name: Install Ruby deps
         working-directory: ${{ env.DECIDIM_MODULE }}

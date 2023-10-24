@@ -26,6 +26,7 @@ en:
         locale: Locale
         name: Your name
         nickname: Nickname
+        old_password: Current password
         password: Password
         password_confirmation: Confirm your password
         personal_url: Personal URL
@@ -286,11 +287,9 @@ en:
       amendable:
         button: Amend %{model_name}
         error: There has been an error amending this resource.
-        help_text: Improve this %{model_name} by modifying its %{amendable_fields}.
         promote_button: Promote to %{model_name}
         promote_confirm_text: Are you sure you want to promote this emendation?
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}.
-        section_heading: Amendments (%{count})
       amendments:
         title:
           one: "%{count} amendment"
@@ -458,7 +457,6 @@ en:
         one: and %{count} more
         other: and %{count} more
       see_less: "(see less)"
-      see_more: "(see more)"
     components:
       component_order_selector:
         no_content: We could not find any content with this criteria.
@@ -912,14 +910,12 @@ en:
           add_attachment: Add attachment
           add_file: Add file
           add_image: Add image
-          cancel: Cancel
           edit_image: Edit image
           error: Error!
           file_size_too_large: 'File size is too large! Maximun file size: %{megabytes}MB'
           filename: Filename
           remove: Remove
           replace: Replace
-          save: Save
           title: Title
           title_required: Title is required!
           uploaded: Uploaded
@@ -1687,8 +1683,9 @@ en:
         change_my_password: Change my password
         confirm_new_password: Confirm new password
         new_password: New password
-        password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
-        password_help_admin: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and must be different from your old passwords."
+        old_password_help: In order to confirm the changes to your account, please provide your current password.
+        password_help: "%{minimum_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
+        password_help_admin: "%{minimum_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and must be different from your old passwords."
         title: Password change
       new:
         forgot_your_password: Forgot your password?
@@ -1951,8 +1948,6 @@ en:
         continue_session: Continue session
         log_out: Log out
         title: Would you like to continue your session?
-      upload_modal:
-        close_modal: Close modal
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard

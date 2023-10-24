@@ -39,7 +39,6 @@ gl:
         confirm_destroy: Estás seguro?
         destroy: Eliminar
         edit: Editar
-        new: Novo %{name}
         title: Accións
       admin:
         debates:
@@ -59,9 +58,6 @@ gl:
           update:
             invalid: Houbo un problema ao actualizar este debate.
             success: Debate actualizado con éxito.
-        models:
-          debate:
-            name: Debate
       admin_log:
         debate:
           create: "%{user_name} creou o %{resource_name} debate sobre o espazo %{space_name}"
@@ -84,11 +80,6 @@ gl:
           origin: Orixe
           participants: Participantes
           search: Busca
-        filters_small_view:
-          close_modal: Pechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Despregar
         form:
           select_a_category: Selecciona unha categoría
         index:

@@ -26,6 +26,9 @@ zh-CN:
         name: 模板
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: 保存
         questionnaire_templates:
           choose:
             create_from_template: 从模板创建
@@ -36,9 +39,6 @@ zh-CN:
           edit:
             edit: 编辑
             questionnaire: Questionnaire
-          form:
-            save: 保存
-            template_title: 模板信息
           index:
             confirm_delete: 您确定要删除此模板吗？
             title: 问卷模板

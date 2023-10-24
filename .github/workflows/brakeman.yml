@@ -1,4 +1,4 @@
-name: "[CI] Brakeman analysis"
+name: "[CI] Brakeman"
 
 on:
   push:
@@ -16,7 +16,7 @@ env:
   NODE_VERSION: 18.17.1
   PARALLEL_TEST_PROCESSORS: 2
   CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
-  WEBPACKER_RUNTIME_COMPILE: "false"
+  SHAKAPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -52,7 +52,7 @@ jobs:
           - decidim-templates
           - decidim-verifications
     runs-on: ubuntu-latest
-    name: Brakeman
+    name: ${{ matrix.working-directory }}
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     steps:

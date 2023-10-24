@@ -47,11 +47,17 @@ lt:
         edit: Redaguoti
         edit_projects: Valdyti projektus
         import: Importuoti pasiūlymus į projektus
-        new: Naujas %{name}
         preview: Peržiūra
+        send_voting_reminders: Siųsti balsavimo priminimus
         title: Veiksmai
       admin:
         budgets:
+          create:
+            invalid: Kuriant šį biudžetą iškilo problema.
+            success: Biudžetas sukurtas sėkmingai.
+          destroy:
+            invalid: Ištrinant šį biudžetą iškilo problema.
+            success: Biudžetas sėkmingai ištrintas.
           edit:
             title: Koreguoti biudžetą
             update: Atnaujinti biudžetą
@@ -64,6 +70,9 @@ lt:
           new:
             create: Sukurti biudžetą
             title: Naujas biudžetas
+          update:
+            invalid: Atnaujinant šį biudžetą iškilo problema.
+            success: Biudžetas atnaujintas sėkmingai.
         exports:
           projects: Projektai
         models:
@@ -72,6 +81,11 @@ lt:
           project:
             name: Projektas
         projects:
+          create:
+            invalid: Kuriant šį projektą iškilo problema.
+            success: Projektas sukurtas sėkmingai.
+          destroy:
+            success: Projektas ištrintas sėkmingai.
           edit:
             title: Redaguoti projektą
             update: Atnaujinti
@@ -80,8 +94,11 @@ lt:
             cancel: Atšaukti
             change_category: Keisti kategoriją
             change_scope: Keisti sritį
+            change_selected: Keisti pasirinktą būseną
+            deselect_implementation: Nebepasirinkti įgyvendinimui
             finished_orders: Baigti balsavimai
             pending_orders: Balsai laukiantys patvirtinimo
+            select_for_implementation: Pasirinkti įgyvendinimui
             selected: Pasirinkta
             title: Projektai
             update: Atnaujinimas
@@ -89,13 +106,32 @@ lt:
           new:
             create: Sukurti
             title: Naujas projektas
+          update:
+            invalid: Atnaujinant šį projektą iškilo problema.
+            success: Projektas atnaujintas.
           update_category:
             invalid: 'Šie projektai turi %{subject_name} kategoriją: %{projects}.'
+            select_a_category: Pasirinkite kategoriją.
+            select_a_project: Pasirinkite projektą.
             success: 'Projektai sėkmingai atnaujinti %{subject_name} kategorijoje: %{projects}.'
           update_scope:
             invalid: 'Šie projektai jau turi %{subject_name} sritį: %{projects}.'
+            select_a_project: Pasirinkite projektą.
+            select_a_scope: Pasirinkite apimtį.
             success: 'Projektai sėkmingai atnaujinti %{subject_name} srityje: %{projects}.'
+          update_selected:
+            invalid:
+              selected: 'Šie projektai jau pasirinkti įgyvendinimui: %{projects}.'
+              unselected: 'Šie projektai jau nebėra pasirinkti įgyvendinimui: %{projects}.'
+            select_a_project: Pasirinkite projektą.
+            select_a_selection: Prašau pasirinkite įgyvendinimo būseną.
+            success:
+              selected: 'Šie projektai jau pasirinkti įgyvendinimui: %{projects}.'
+              unselected: 'Šių projektų įgyvendinimo atsisakyta: %{projects}.'
         proposals_imports:
+          create:
+            invalid: Importuojant pasiūlymus į projektus kilo problema.
+            success: "%{number} pasiūlymai sėkmingai įkelti į projektus."
           new:
             create: Importuoti pasiūlymus į projektus
             default_budget: Numatytasis biudžetas
@@ -129,17 +165,23 @@ lt:
         continue: Tęsti
         more_information: Daugiau informacijos
       budgets_list:
+        budgets: Biudžetai
         cancel_order:
           more_than_one: ištrinkite balsą %{name} ir pradėkite iš naujo
           only_one: ištrinti balsą ir pradėti iš naujo.
+        finished_message: Baigėte balsuoti. Dėkojame už dalyvavimą!
         highlighted_cta: Balsuoti dėl %{name}
-        my_budgets: Mano biudžetai
+        if_change_opinion: Jeigu persigalvojote, galite
         progress: Baigti balsavimą
+        remove_vote: Pašalinti balsą
         show: Peržiūrėti projektus
         vote: Balsuoti
+        voted_budgets: Biudžetai už kuriuos balsavote
+        voted_on: Jūs balsavote dėl %{links}.
       last_activity:
         new_vote_at: Naujas balsavimas dėl biudžeto sudarymo
       limit_announcement:
+        cant_vote: Jūs negalite balsuoti dėl šio biudžeto. <a href="%{landing_path}">Bandykite balsuoti dėl kito biudžeto</a>.
         limit_reached: Turite aktyvių balsų %{links}. Tam, kad balsuoti šiame biudžete turite <a href="%{landing_path}"> ištrinti balsus ir pradėti iš naujo</a>.
       models:
         budget:
@@ -168,35 +210,20 @@ lt:
           title: Patvirtinti balsavimą
         budget_excess:
           budget_excess:
+            description: Šio projekto kaina viršija didžiausią nustatytą biudžeto ribą ir projekto negalima pridėti. Jei norite, galite pašalinti projektą, kurį jau pasirinkote pridėti, arba balsuotii atsižvelgdmai į tai kam teikiate pirmenybę.
             title: Didžiausia nustatyta biudžeto riba viršyta
-          close: Uždaryti
+          description: Šio projekto kaina viršija didžiausią nustatytą biudžeto ribą ir projekto negalima pridėti. Jei norite, galite pašalinti projektą, kurį jau pasirinkote pridėti, arba balsuotii atsižvelgdmai į tai kam teikiate pirmenybę.
           ok: OK
           projects_excess:
             description: Šio projekto biudžetas viršija didžiausią nustatytą projektų kiekio ribą ir projekto negalima pridėti. Jei norite, galite pašalinti projektą, kurį jau pasirinkote pridėti, arba balsuoti atsižvelgdami į tai kam teikiate pirmenybę.
             title: Didžiausio nustatyto projektų skaičiaus riba viršyta
         budget_summary:
           are_you_sure: Ar tikrai norite atšauti savo balsą?
-          assigned: 'Priskirta:'
           cancel_order: pašalinti balsą ir pradėti iš naujo
           checked_out:
+            description: Jūs jau balsavote už biudžetą. Jeigu persigalvojote, galite ištrinti savo balsą.
             title: Balsavimas dėl biudžeto baigtas
-          minimum_projects_rule:
-            description: Kokiems projektams, jūsų nuomone, turėtume skirti biudžetą? Pasirinkite ne mažiau kaip %{minimum_number} projektus, kuriuos norite paremti ir atitinkamai išreiškite savo prioritetus.
-            instruction: "<li>Pasirinkite bent %{minimum_number} projektus ir balsuokite pagal savo prioritetus tam, kad numatyti biudžeto išlaidas.</li>"
-          projects_rule:
-            description: Kokie projektai Jūsų manymu turėtų gauti finansavimą? Pasirinkite tarp %{minimum_number} ir %{maximum_number} projektų kurių norėtumėt ir skirkite balsuos pagal Jūsų prioritetus.
-            instruction: "<li>Pasirinkite tarp %{minimum_number} ir %{maximum_number} projektų ir balsuokite pagal savo prioritetus tam, kad nustatyti kam skirti biudžetą.</li>"
-          projects_rule_maximum_only:
-            description: Kokiems projektams, jūsų nuomone, turėtume skirti biudžetą? Pasirinkite ne mažiau kaip %{maximum_number} projektus, kuriuos norite paremti ir atitinkamai išreiškite savo prioritetus.
-            instruction: "<li>Pasirinkite iki %{maximum_number} projektų ir balsuokite pagal savo prioritetus tam, kad numatyti biudžeto išlaidas.</li>"
-          rules:
-            title: Biudžeto taisyklės
-          title: Jūs sprendžiate dėl biudžeto
-          total_budget: Visas biudžetas
-          total_projects: Viso balsų
-          vote_threshold_percent_rule:
-            description: Kokiems projektams, jūsų nuomone, turėtume skirti biudžetą? Projektams, kuriuos norite paremti, skirkite ne mažiau kaip %{minimum_budget} ir, norėdami nustatyti biudžetą, balsuokite pagal tai kam teikiate pirmenybę.
-            instruction: "<li>Pasirinkite bent %{minimum_budget} projektus ir balsuokite pagal savo prioritetus tam, kad numatyti biudžeto išlaidas.</li>"
+          vote: Balsuoti už biudžetą
         count:
           projects_count:
             one: 1 projektas
@@ -205,7 +232,6 @@ lt:
             other: "%{count} projektai"
         exit_modal:
           cancel: Grįžti į balsavimą
-          close_modal: Uždaryti modalinį langą
           exit: Išeiti iš balsavimo
           message: Jūsų balsas nebuvo registruotas nes dar neįvykdėte viso balsavimo proceso. Ar tikrai norite išeiti iš balsavimo aplinkos?
           title: Dar nebasavote
@@ -218,23 +244,24 @@ lt:
             all: Visi
             not_selected: Nepasrinkta
             selected: Pasirinkta
-        filters_small_view:
-          close_modal: Uždaryti modalinį langą
-          filter: Filtras
-          filter_by: Filtruoti pagal
-          unfold: Išskleisti
         index:
-          view_project: Peržiūrėti projektą
+          back_to_budgets: atgal į biudžetus
         order_progress:
-          vote: Balsuoti
-        order_selected_projects:
-          remove: Pašalinti
-          selected_projects:
-            one: pasirinktas projektas
-            few: pasirinkti projektai
-            many: pasirinkti projektai
-            other: pasirinkti projektai
-          view: Peržiūra
+          assigned: Priskirta
+          budget: Biudžetas
+          dynamic_help:
+            keep_adding_projects: Pridėkite daugiau projektų
+            minimum_reached: Pasiekėte minimalų projektų kiekį balsavimui
+            start_adding_projects: Pradėktie balsavimą
+          minimum: Mažiausiai
+          minimum_projects_rule:
+            description: Pasirinkite bent %{minimum_number} projektus ir balsuokite pagal savo prioritetus tam, kad numatyti biudžetą.
+          projects_rule:
+            description: Pasirinkite tarp %{minimum_number} ir %{maximum_number} projektų ir balsuokite pagal savo prioritetus tam, kad nustatyti kam skirti biudžetą.
+          projects_rule_maximum_only:
+            description: Pasirinkite iki %{maximum_number} projektų ir balsuokite pagal savo prioritetus tam, kad numatyti biudžeto išlaidas.
+          vote_threshold_percent_rule:
+            description: Pasirinkite bent %{minimum_budget} projektus ir balsuokite pagal savo prioritetus tam, kad numatyti biudžeto išlaidas.
         orders:
           highest_cost: Didžiausia kaina
           label: Rikiuoti projektus pagal
@@ -243,6 +270,8 @@ lt:
           random: Atsitiktinai
           selected: Pasirinkta
         project:
+          add: Pridėti projektą %{resource_name} prie balsų.
+          remove: Pašalinti projektą %{resource_name} iš balsų.
           selected: Pasirinkta
           view: Peržiūrėti
           votes:
@@ -250,13 +279,19 @@ lt:
             few: balsai
             many: balsai
             other: balsai
+          you_voted: Balsavote už
         project_budget_button:
           add: Pridėti prie balsų
+          add_descriptive: Pridėti projektą %{resource_name} prie balsų.
           added: Pridėta prie Jūsų balsų
+          added_descriptive: Projektas %{resource_name} pridėtas prie Jūsų balsų.
+        project_filter:
+          added: Pridėta
+          all: Visi
         projects_for: Projektai dėl %{name}
+        select_projects: Pasirinkite projektus
         show:
           budget: Biudžetas
-          view_all_projects: Peržiūrėti visus projektus
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Aplinkos kuriose nebaigėte balsuoti:'
@@ -279,6 +314,10 @@ lt:
             announcement: Pranešimas
             comments_enabled: Komentarai aktyvuoti
             comments_max_length: Maksimalus komentaro ilgis (įrašyti 0 įprastam ilgiui)
+            form:
+              errors:
+                budget_voting_rule_only_one: Turi būti įjungta tik viena balsavimo taisyklė.
+                budget_voting_rule_required: Būtina viena balsavimo taisyklė.
             geocoding_enabled: Geokodavimas įjungtas
             landing_page_content: Biudžetų numatytasis puslapis
             more_information_modal: Išsamesnės informacijos modalinis langas
@@ -320,6 +359,14 @@ lt:
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
           email_subject: '%{participatory_space_title} %{resource_title} biudžetas dabar aktyvus.'
           notification_title: <a href="%{resource_path}">%{resource_title} biudžetas dabar aktyvus %{participatory_space_title} erdvėje.
+    orders:
+      checkout:
+        error: Apdorojant jūsų balsą iškilo problema.
+        success_html: <p>Jūsų balsas sėkmingai priimtas.</p><p class="text-sm font-normal">Galite peržiūrėti<a class="text-secondary underline" href="%{rest_of_budgets_link}">kitus biudžetus</a>.</p>
+        success_no_left_budgets_html: Jūsų balsas įskaitytas.
+      destroy:
+        error: Atšaukiant jūsų balsą iškilo problema.
+        success: Jūsų balsas atšauktas.
     resource_links:
       included_proposals:
         project_proposal: Į šį projektą įtraukti pasiūlymai

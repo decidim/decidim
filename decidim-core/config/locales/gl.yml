@@ -139,7 +139,6 @@ gl:
         error: Produciuse un erro ao aceptar a emenda.
         success: A modificación foi aceptada con éxito.
       amendable:
-        amended_by: Modificado por
         button: Modificar %{model_name}
         error: Produciuse un erro ao modificar este recurso.
         promote_button: Promoción a %{model_name}
@@ -170,20 +169,14 @@ gl:
       wizard_step_form:
         steps:
           '1': Crea a túa emenda
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
     anonymous_user: Anónimo
     application:
       documents:
         related_documents: Documentos relacionados
-      geocoding:
-        geocoded_address: Enderezo
       photos:
         related_photos: Fotos relacionadas
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar para varios usuarios
       comments:
         one: comentario
         other: comentarios
@@ -283,8 +276,6 @@ gl:
         name: Estatísticas da organización
       sub_hero:
         name: Banner sub-heroe
-    datepicker:
-      help_text: 'Formato esperado: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
@@ -297,10 +288,7 @@ gl:
           already_have_an_account?: Xa ten unha conta?
           newsletter: Recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          sign_in: Iniciar sesión
           sign_up: Rexistrarse
-          sign_up_as:
-            legend: Rexístrate como
           subtitle: Rexístrate para participar en discusións e propostas de apoio.
           tos_agreement: Ao rexistrarte, aceptas %{link}.
           tos_title: Condicións de servicio
@@ -313,7 +301,6 @@ gl:
         newsletter_modal:
           buttons:
             check: Comprobar e continuar
-            close_modal: Pechar modal
           title: Notificacións de boletín informativo
         omniauth_buttons:
           or: Ou
@@ -339,8 +326,6 @@ gl:
         request_data: Solicitar datos
     editor_images:
       drag_and_drop_help: Engade imaxes arrastrándoas ou pegándoas aquí.
-    endorsable:
-      endorsements: Aprobacións
     errors:
       internal_server_error:
         title: Produciuse un problema co noso servidor
@@ -588,12 +573,9 @@ gl:
           title: Que podo facer en %{organization}?
         title: Axuda xeral
     last_activities:
-      activities:
-        no_activities_warning: Non hai actividade
       all: Todos os tipos de actividade
       index:
         last_activity: Última actividade
-        resource_type: Tipo
     links:
       invalid_url: URL non válido
       warning:
@@ -697,11 +679,6 @@ gl:
         retry: Tentar de novo
     open_data:
       not_available_yet: Os ficheiros Open Data aínda non están dispoñibles. Téntao de novo nuns minutos.
-    own_user_groups:
-      index:
-        pending: Pendente
-        rejected: Rexeitado
-        verified: Verificado
     pad_iframe:
       disclaimer: Os contidos deste pad son escritos por usuarios rexistrados e expresan as súas opinións. %{organization} non se responsabiliza dos seus contidos.
       pad: Pad
@@ -723,8 +700,6 @@ gl:
         hero:
           participate: Participar
           welcome: Benvido a %{organization}.
-        metrics:
-          headline: Participación en números
         statistics:
           headline: Estado actual de %{organization}
         sub_hero:
@@ -741,7 +716,7 @@ gl:
     participatory_space_private_users:
       not_allowed: Non tes permiso para ver este contido
     profile:
-      view: Ver
+      deleted: Usuario eliminado
     profiles:
       show:
         activity: Actividade
@@ -750,7 +725,6 @@ gl:
         following: Segue
         groups: Grupos
         members: Membros
-        view_full_profile: Ver o perfil completo
       sidebar:
         badges:
           info: As insignias obtéñense realizando actividades específicas na plataforma.
@@ -792,7 +766,6 @@ gl:
       term_input_placeholder: Busca
     searches:
       filters:
-        back: Voltar aos resultados
         jump_to: 'Ir a:'
         state:
           active: Activo
@@ -800,20 +773,11 @@ gl:
           future: Futuro
           past: Pasado
       filters_small_view:
-        close_modal: Pechar modal
         filter: Filtro
         filter_by: Filtrar por
-        unfold: Despregar
       results:
-        results:
-          one: "%{count} resultado"
-          other: "%{count} resultados"
         view_all: Ver todos (%{count})
     shared:
-      embed_modal:
-        close_window: Pechar ventá
-        embed: Pega este código na túa páxina
-        embed_link: Inserir
       extended_navigation_bar:
         more: Máis
         unfold: Despregar
@@ -828,10 +792,7 @@ gl:
         title: Informar dun problema
       floating_help:
         help: Axuda
-      follow_button:
-        sign_in_before_follow: Inicia sesión antes de realizar esta acción
       login_modal:
-        please_sign_in: Inicia sesión
         sign_up: Rexistrarse
       mentions_modal:
         remove_recipient: Eliminar o destinatario %{name}
@@ -849,7 +810,6 @@ gl:
       results_per_page:
         label: 'Resultados por páxina:'
       share_modal:
-        close_window: Pechar ventá
         copy_share_link: Copiar
         copy_share_link_clarification: Copiar ligazón ao portapapeis
         copy_share_link_copied: Copiado!
@@ -866,8 +826,6 @@ gl:
       participants_count: Participantes
       users_count: Participantes
     user_conversations:
-      show:
-        back: Amosar todas as conversas
       update:
         error: Mensaxe non enviada. Téntao de novo máis tarde
     user_interests:
@@ -880,11 +838,6 @@ gl:
     user_report_mailer:
       notify:
         details: Detalles fornecidos polo usuario
-    version_author:
-      show:
-        deleted: Usuario eliminado
-    versions_list_item:
-      back: Amosar todas as versións
     welcome_notification:
       default_subject: Grazas por unirte a {{organization}}!
   devise:
@@ -902,8 +855,6 @@ gl:
       last_attempt: Tes unha tentativa máis antes de que a túa conta estea bloqueada.
       locked: A túa conta está bloqueada.
       not_found_in_database: O %{authentication_keys} ou o contrasinal non son válidos.
-      timeout: A túa sesión caducou. Inicia sesión de novo para continuar.
-      unauthenticated: Necesitas iniciar sesión ou rexistrarte antes de continuar.
     invitations:
       edit:
         header: Acaba de crear a túa conta
@@ -950,7 +901,6 @@ gl:
         action: Desbloquea a miña conta
         greeting: Ola %{recipient}
         instruction: 'Fai clic na seguinte ligazón para desbloquear a túa conta:'
-        message: A túa conta foi bloqueada debido a unha cantidade excesiva de intentos de inicio de sesión incorrectos.
         subject: Desbloquear instrucións
     omniauth_callbacks:
       failure: Non puiden autenticarme desde %{kind} porque "%{reason}".
@@ -977,18 +927,10 @@ gl:
       signed_up_but_unconfirmed: Enviouse unha mensaxe cunha ligazón de confirmación ao seu enderezo de correo electrónico. Sigue a ligazón para activar a túa conta.
       update_needs_confirmation: Actualizou a súa conta correctamente, pero necesitamos verificar o seu novo enderezo de correo electrónico. Verifique o seu correo electrónico e siga a ligazón de confirmación para confirmar o seu novo enderezo de correo electrónico.
       updated: A túa conta foi actualizada correctamente.
-    sessions:
-      already_signed_out: Saíu con éxito.
-      new:
-        sign_in: Iniciar sesión
-      signed_in: Iniciar sesión con éxito.
-      signed_out: Saíu con éxito.
     shared:
       links:
         back: De volta
         forgot_your_password: Esqueceu o contrasinal?
-        sign_in: Iniciar sesión
-        sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Rexistrarse
       minimum_password_length:
         one: "(Mínimo de%{count} caracteres)"
@@ -998,13 +940,11 @@ gl:
         resend_unlock_instructions: Reenvía instrucións de desbloqueo
       send_instructions: Recibirás un correo electrónico con instrucións sobre como desbloquear a túa conta nuns minutos.
       send_paranoid_instructions: Se a túa conta existe, recibirás un correo electrónico con instrucións sobre como desbloquearlo en poucos minutos.
-      unlocked: A túa conta foi desbloqueada con éxito. Inicia sesión para continuar.
   doorkeeper:
     scopes:
       public: A túa información pública.
   errors:
     messages:
-      already_confirmed: xa se confirmou, intente iniciar sesión
       confirmation_period_expired: Necesítase confirmar dentro de %{period}, solicita un novo
       content_type_allowlist_error: o tipo de ficheiro non é válido
       expired: caducou, por favor solicita unha nova
@@ -1025,17 +965,18 @@ gl:
     timestamp_error_message: Sentímolo, iso foi demasiado rápido. Reenvío de novo.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Tipo
       edit_link:
         edit: Editar
       footer:
         download_open_data: Descargar ficheiros Open Data
         made_with_open_source: Sitio web feito con <a target="_blank" href="https://github.com/decidim/decidim"> software libre</a>.
-      header:
-        close_menu: Pechar o menú
-        main_menu: Menú principal
-        navigation: Navegación
-        sign_in: Rexístrate
         sign_up: Rexistrarse
+      header:
+        main_menu: Menú principal
         user_menu: Menú de usuario
       impersonation_warning:
         close_session: Pechar sesión
@@ -1051,7 +992,6 @@ gl:
         notifications: Notificacións
         profile: A miña conta
         public_profile: O meu perfil público
-        sign_out: Saír
         title: Ligazóns do perfil
       user_profile:
         account: Conta
@@ -1062,8 +1002,6 @@ gl:
         notifications_settings: Configuración de notificacións
         title: Configuración do usuario
         user_groups: Grupos
-      widget:
-        see_more: Ver máis
   locale:
     name: Galego
   password_validator:
@@ -1112,9 +1050,6 @@ gl:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
-  versions:
-    dropdown:
-      choose_diff_view_mode_menu: Escoller o modo de comparación
   views:
     pagination:
       truncate: "&hellip;"

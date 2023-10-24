@@ -41,7 +41,9 @@ es-PY:
         edit: Editar
         import: Importar proyectos a resultados
         import_csv: Importar CSV
-        new: Nuevo/a %{name}
+        new_result: Añadir resultado
+        new_status: Añadir estado
+        new_timeline_entry: Añadir entrada de la cronología
         preview: Previsualizar
         timeline_entries: Evolución del proyecto
         title: Acciones
@@ -77,14 +79,13 @@ es-PY:
             title: Importa resultados vía CSV
         imports:
           create:
+            invalid: Ha habido un problema importando los resultados.
             success: Se está importando el fichero. Recibirás un correo electrónico en los próximos minutos con el resultado de la importación.
         models:
           result:
             name: Resultado
           status:
             name: Estado
-          timeline_entry:
-            name: Evolución del proyecto
         projects_import:
           create:
             invalid: Hubo un problema al importar los proyectos como resultados, por favor, sigue las instrucciones cuidadosamente y asegúrate que has marcado los proyectos seleccionados para su implementación.
@@ -231,6 +232,7 @@ es-PY:
           global_status: Estado de ejecución global
         nav_breadcrumb:
           global: Ejecución global
+        no_results: No hay proyectos
         search:
           search: Buscar actuaciones
         show:

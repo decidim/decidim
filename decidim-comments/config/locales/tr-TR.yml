@@ -20,20 +20,16 @@ tr:
         create:
           error: Yorum oluşturulurken bir sorunla karşılaşıldı.
       comments_count: Yorum sayısı
-      last_activity:
-        new_comment_at_html: "<span> %{link}</span> yeni yorum"
-      view: Görünüm
       votes:
         create:
           error: Yorum oylanırken bir sorun oluştu.
     components:
       add_comment_form:
-        account_message: Yorumunuzu eklemek için <a href="%{sign_in_url}"> hesabınızla oturum açın </a> veya <a href="%{sign_up_url}"> kaydolun </a>.
+        account_message: <a href="%{sign_in_url}">Hesabınızla giriş yapın</a> veya yorumunuzu eklemek için <a href="%{sign_up_url}">kaydolun</a>.
         form:
           body:
             label: Yorum
             placeholder: Bunun hakkında ne düşünüyorsun?
-          submit: Gönder
           user_group_id:
             label: Olarak yorum yap
         opinion:
@@ -65,8 +61,6 @@ tr:
           older: Daha eski
           recent: Son
         title: 'Tarafından sipariş:'
-      comment_thread:
-        title: '%{authorName}ile sohbet'
       comments:
         blocked_comments_for_user_warning: Şu anda yorum yapamıyorsunuz, ancak öncekileri okuyabilirsiniz.
         blocked_comments_warning: Yorumlar şu anda devre dışı, ancak öncekileri okuyabilirsiniz.

@@ -16,7 +16,7 @@ eu:
         nickname: Goitizena
         phone: Telefonoa
       message:
-        body: Gorputza
+        body: Testua
       report:
         details: Iruzkin gehigarriak
       user:
@@ -94,6 +94,15 @@ eu:
       about_x_months:
         one: hilabete inguru
         other: '%{count} hilabete inguru'
+      x_days:
+        one: Egun bat
+        other: "Egun bat"
+      x_hours:
+        one: ordu bat %{count}
+        other: "%{count} ordu"
+      x_minutes:
+        one: '%{count} minutu'
+        other: "Minutu %{count}"
   decidim:
     accessibility:
       external_link: Kanpoko lotura
@@ -200,7 +209,6 @@ eu:
         error: Errore bat gertatu da aldaketa onartuz.
         success: Aldaketa ongi onartu da.
       amendable:
-        amended_by: Aldatua
         button: Aldatu %{model_name}
         error: Errore bat gertatu da baliabidea aldatzen.
         promote_button: '%{model_name}suspertzea'
@@ -218,7 +226,6 @@ eu:
         success: Zuzenketa-zirriborroa zuzen ezabatu da.
       edit_draft:
         discard: Baztertu zirriborro hau
-        discard_confirmation: Ziur zaude zuzenketa-zirriborro hau baztertu nahi duzula?
         send: Aurrebista
         title: Editatu zuzenketa-zirriborroa
       emendation:
@@ -268,8 +275,6 @@ eu:
         download: Deskargatu fitxategia
       documents:
         related_documents: Honekin lotutako agiriak
-      geocoding:
-        geocoded_address: Helbidea
       photo:
         alt: Multimedia-irudia
         title: Irudia
@@ -277,7 +282,6 @@ eu:
         related_photos: Honekin lotutako argazkiak
     author:
       avatar: 'Avatarra: %{name}'
-      avatar_multiuser: Avatarra erabiltzaile batzuentzat
       comments:
         one: iruzkin
         other: iruzkinak
@@ -317,7 +321,6 @@ eu:
       started_at: '%{timestamp} etan hasita'
     authorization_modals:
       content:
-        close_modal: Itxi leihoa
         expired:
           authorize: Errebokatu "%{authorization}" rekin
           explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
@@ -439,8 +442,6 @@ eu:
         name: Erakundearen estatistikak
       sub_hero:
         name: Sub heroi banner
-    datepicker:
-      help_text: 'Espero den formatua: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
@@ -452,13 +453,10 @@ eu:
       registrations:
         new:
           already_have_an_account?: Baduzu kontu bat?
+          log_in:
           newsletter: Jaso nahi dut noizbehinka informazio garrantzitsua duen buletina
           newsletter_title: Harremanetarako baimena
-          nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
-          sign_in: Sartu
           sign_up: Erregistratu
-          sign_up_as:
-            legend: Izena eman honako hau gisa
           subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
           tos_title: Zerbitzu-baldintzak
@@ -467,17 +465,20 @@ eu:
         new:
           are_you_new?: Berria zara plataforman?
           register: Sortu zure kontua
-        user:
-          timed_out: Denbora gehiegi egon zara lanik egin gabe, eta automatikoki bidali zaituzte zerbitzutik. Zerbitzua erabiltzen jarraitu nahi baduzu, sinatu berriro.
       shared:
         newsletter_modal:
           buttons:
             check: Egiaztatu eta jarraitu
-            close_modal: Itxi modal
             uncheck: Mantendu markatu gabe
           title: Buletina jakinarazpenak
         omniauth_buttons:
           or: Edo
+        password_fields:
+          hidden_password: Zure pasahitza ezkutatuta dago
+          hide_password: Pasahitza ezkutatu
+          show_password: Erakutsi pasahitza
+          shown_password: Zure pasahitza ikusgarri dago
+        placeholder_email: kaixo@adibide.org
     doorkeeper:
       authorizations:
         new:
@@ -499,10 +500,9 @@ eu:
         download_data: Deskargatu datuak
         request_data: Eskaera datuak
     editor_images:
+      create:
+        error: Arazo bat gertatu da irudia eguneratzean.
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
-    endorsable:
-      endorsements: Oniritziak
-      endorsements_count: Atxikimendu kopurua
     endorsement_buttons_cell:
       already_endorsed: Desatsegiteak
       endorse: Atsegin dut
@@ -512,6 +512,7 @@ eu:
         select_identity: Hautatu identitatea
     errors:
       internal_server_error:
+        copy_to_clipboard: Kopiatu arbelera
         date_and_time: Data eta ordua
         reference: Erreferentzia
         title: Arazo bat izan da gure zerbitzariarekin
@@ -801,12 +802,10 @@ eu:
           title: Zer egin dezaket %{organization}?
         title: Laguntza orokorra
     last_activities:
-      activities:
-        no_activities_warning: Jarduera ez
       all: Jarduera mota guztiak
       index:
         last_activity: Azken jarduerak
-        resource_type: Mota
+      no_activities_warning: Ez dago sarrerarik ikusgai jarduera mota honetan.
     links:
       invalid_url: URL baliogabea
       warning:
@@ -852,29 +851,35 @@ eu:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{manager} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          outro: Ongi etorri plataformara!
           subject: "%{manager} k elkarrizketa berri bat hasi du %{group} taldearekin"
         comanagers_new_message:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{manager} k mezu berriak argitaratu ditu %{group} taldearen elkarrizketa batean. Egin klik hemen ikusteko:"
+          outro: Ongi etorri plataformara!
           subject: "%{manager} k mezu berriak bidali ditu %{group} gisa"
         new_conversation:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} elkarrizketa berria hasi duzu zurekin. Egin klik hemen ikusteko:"
+          outro: Ongi etorri plataformara!
           subject: "%{sender} elkarrizketa bat hasi da zurekin"
         new_group_conversation:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          outro: Ongi etorri plataformara!
           subject: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin"
         new_group_message:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          outro: Ongi etorri plataformara!
           subject: "%{group} k %{sender} ren mezu berriak ditu"
         new_message:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
+          outro: Ongi etorri plataformara!
           subject: '%{sender}-tik mezu berriak dituzu'
       conversations:
         add_conversation_users:
@@ -961,6 +966,9 @@ eu:
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_digest_mailer:
+      header:
+        daily: Jakinarazpenen eguneroko laburpena
+        weekly: Jakinarazpenen asteko laburpena
       hello: Kaixo %{name},
       see_more: Ikusi jakinarazpen gehiago
     notifications_settings:
@@ -987,11 +995,6 @@ eu:
         retry: Saiatu berriro
     open_data:
       not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxian.
-    own_user_groups:
-      index:
-        pending: Zain
-        rejected: Ukatua
-        verified: Egiaztatuta
     pad_iframe:
       disclaimer: Kutxa honetako edukiak erregistratutako erabiltzaileek idatzita daude eta euren iritziak adierazi. %{organization} ezin da bere edukien erantzule izan.
       pad: pad
@@ -1013,12 +1016,11 @@ eu:
         hero:
           participate: Parte hartu
           welcome: Ongi etorri %{organization} erakundera!
-        metrics:
-          headline: Zifretan parte hartzea
         statistics:
           headline: '%{organization} erakundearen egungo egoera'
         sub_hero:
           register: Erregistroa
+          register_title: Sortu zure kontua saioa hasteko
       index:
         standalone_pages: orrialdeak
         subheading: Laguntza orrietan nabigatzeko %{name}
@@ -1031,7 +1033,7 @@ eu:
     participatory_space_private_users:
       not_allowed: Ez duzu edukia ikusteko baimenik
     profile:
-      view: Bistaratu
+      deleted: Erabiltzailea ezabatua
     profiles:
       show:
         activity: Jarduera
@@ -1043,7 +1045,6 @@ eu:
         members: Bazkideek
         officialized: Parte-hartzaile ofiziala
         send_private_message: Bidali mezu pribatua
-        view_full_profile: Ikusi profil osoa
       sidebar:
         badges:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
@@ -1078,7 +1079,7 @@ eu:
         id: ID
         participatory_space: Parte hartzeko espazioa
         reason: Arrazoia
-        report_html: <p>Hurrengo <a href="%{url}">edukia</a>zalatua izan da.</p>
+        report_html: <p>Hurrengo <a href="%{url}">edukia</a> salatua izan da.</p>
         see_report: Ikusi erreportea
         subject: Eduki bat salatua izan da
     reports:
@@ -1106,7 +1107,6 @@ eu:
       term_input_placeholder: Bilatu
     searches:
       filters:
-        back: Itzuli emaitzara
         jump_to: 'Salto egin:'
         state:
           active: Aktiboak
@@ -1114,14 +1114,9 @@ eu:
           future: Etorkizuna
           past: Iragana
       filters_small_view:
-        close_modal: Itxi modal
         filter: Filter
         filter_by: Iragazi arabera
-        unfold: Zabaldu
       results:
-        results:
-          one: "%{count} emaitza"
-          other: "%{count} emaitzak"
         view_all: Ikusi dena (%{count})
     security:
       selfxss_warning:
@@ -1133,10 +1128,6 @@ eu:
         close_modal: Itxi leihoa
         ok: Ados
         title: Baieztatu
-      embed_modal:
-        close_window: Itxi leihoa
-        embed: Mesedez, erantsi kode hau zure orrian
-        embed_link: Kapsulatu
       extended_navigation_bar:
         more: Gehiago
         unfold: Zabaldu
@@ -1154,7 +1145,6 @@ eu:
         report: Txostena
         spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
         title: Salatu arazo bat
-        visit_profile: Parte-hartzailea eta bere edukiak blokeatu nahi badituzu, joan %{user_link} profilaren orrira.
       flag_user_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         close: Itxi
@@ -1164,23 +1154,19 @@ eu:
         spam: Bertan badago clickbait-ik, publizitaterik edo gidoi-robotik.
         title: Jakinarazi erabiltzaile desegokia
       floating_help:
-        close: Itxi laguntza
         help: Laguntza
       follow_button:
-        sign_in_before_follow: Hasi saioa ekintza hau burutu baino lehen
+        log_in_before_follow: Hasi saioa ekintza hau egin aurretik
       login_modal:
-        close_modal: Itxi leihoa
-        please_sign_in: Mesedez, erregistratu
+        please_log_in: Mesedez, hasi saioa
         sign_up: Erregistratu
       participatory_space_filters:
         filters:
           areas: Arloak
           select_an_area: Hautatu eremu bat
+      progress: Aurrerapena 
       public_participation:
         public_participation: Erakutsi nire asistentzia publikoki
-      redesigned_login_modal:
-        please_sign_in: Mesedez, erregistratu
-        sign_up: Izena eman
       reference:
         reference: 'Erreferentzia: %{reference}'
       represent_user_group:
@@ -1190,7 +1176,6 @@ eu:
         label: 'Emaitzak, orrialdeko:'
         title: Hautatu emaitza kopurua orrialde bakoitzeko
       share_modal:
-        close_window: Itxi leihoa
         copy_share_link: Kopia
         copy_share_link_clarification: Kopiatu arbelera partekatzeko lotura
         copy_share_link_copied: Kopiatuta!
@@ -1220,28 +1205,12 @@ eu:
         existing_error: Mezua ezin izan da sortu. Elkarrizketa bada, mesedez, saiatu berriro orain.
         success: Elkarrizketa zuzen hasi da!
       index:
-        add_max_users: 'Gehitu erabiltzaileak elkarrizketara: gehienez 9 erabiltzaile'
-        add_users_placeholder: Bilatu...
-        close: Itxi
         conversations_info: Elkarrizketak pribatuak dira. Beste inork ezin ditu ikusi. Elkarrizketa has daiteke plataforman erregistratutako edozein parte-hartzaile edo talderekin.
-        from: Nork
-        last_message: Azken mezua
-        modal_title: Elkarrizketa berria
-        new_conversation: Elkarrizketa berria
-        next: Hurrengoa
         no_conversations_warning: Oraindik ez dago elkarrizketarik.
-        no_results: Emaitzarik ez
         time_ago: "duela %{time}"
-      new:
-        title: Hasi elkarrizketa
       reply:
         placeholder: Zure erantzuna...
         send: Bidali
-        title_reply: Erantzun
-      show:
-        back: Erakutsi elkarrizketa guztiak
-        not_allowed: Erabiltzaile honek ez du mezu zuzenik onartzen.
-        title: Elkarrizketa honekin %{usernames}
       update:
         error: Mezua ez da bidali. Saiatu berriro geroago
     user_interests:
@@ -1263,27 +1232,13 @@ eu:
         back_to_resource: Atzera joan
         changes_at_title: Aldaketak hemen "%{title}"
         number_of_versions: Bertsioak
-        show_all_versions: Erakutsi bertsio guztiak
-        version_author: Bertsioaren egilea
         version_created_at: Bertsioaren data
-        version_number: Bertsioaren zenbakia
-        version_number_out_of_total: "%{total_count} etik %{current_version}"
-    version_author:
-      show:
-        deleted: Erabiltzailea ezabatua
     versions:
       resource_version:
         of_versions: "(%{number} etik)"
         see_other_versions: ikusi beste bertsio batzuk
         version: '%{number} bertsio zenbakia'
-    versions_list:
-      show:
-        back_to_resource: Joan atzera
-        changes_at_title: Aldaketak hemen "%{title}"
-        number_of_versions: Bertsioak
-        title: Bertsioak
     versions_list_item:
-      back: Erakutsi bertsio guztiak
       show:
         version_index: '%{index} bertsioa'
     welcome_notification:
@@ -1309,8 +1264,6 @@ eu:
       last_attempt: Zure kontua blokeatuta dago aurretik zure saiakera gehiago duzu.
       locked: Zure kontua blokeatuta dago.
       not_found_in_database: '%{authentication_keys} edo pasahitza baliogabea.'
-      timeout: Zure saioa iraungi da. Hasi saioa berriro jarraitzeko.
-      unauthenticated: Saioa hasi edo saioa hasi behar duzu jarraitu aurretik.
     invitations:
       edit:
         header: Amaitu zure kontua sortzea
@@ -1359,7 +1312,6 @@ eu:
         action: Desblokeatu nire kontua
         greeting: Kaixo %{recipient}!
         instruction: 'Egin klik beheko estekan zure kontua desblokeatzeko:'
-        message: Zure kontua blokeatu egin da saiakera okerreko saiakuntza gehiegizko baten ondorioz.
         subject: Desblokeatu argibideak
     omniauth_callbacks:
       failure: Ezin izan da autentifikatu %{kind} "%{reason}" delako.
@@ -1382,7 +1334,7 @@ eu:
     registrations:
       destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu berriro.
       new:
-        sign_up: Izena eman
+        sign_up: Eman izena
       signed_up: Ongi etorri! Eginda sinatu duzu.
       signed_up_but_inactive: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua oraindik ez baita aktibatuta.
       signed_up_but_locked: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua blokeatuta dagoelako.
@@ -1390,18 +1342,17 @@ eu:
       update_needs_confirmation: Zure kontua arrakastaz eguneratu duzu, baina helbide elektroniko berria egiaztatu behar dugu. Egiaztatu zure posta elektronikoa eta berretsi esteka jarraitu zure helbide elektroniko berria berresteko.
       updated: Zure kontua ondo eguneratu da.
     sessions:
-      already_signed_out: Sinatu arrakastaz.
+      already_signed_out: Saioa behar bezala amaitu da.
       new:
-        sign_in: Saioa hasi
-      signed_in: Saioa hasi da behar bezala.
-      signed_out: Sinatu arrakastaz.
+        log_in: Sartu
+      signed_in: Saioa behar bezala hasi da.
+      signed_out: Saioa behar bezala amaitu da.
     shared:
       links:
         back: Atzera
         forgot_your_password: Zure pasahitza ahaztu duzu?
-        sign_in: Saioa hasi
-        sign_in_with_provider: Hasi saioa %{provider}
-        sign_up: Izena eman
+        log_in:
+        sign_up: Eman izena
       minimum_password_length:
         one: "(%{count} karaktere gutxienez)"
         other: "(Gutxienez%{count} karaktere)"
@@ -1410,7 +1361,6 @@ eu:
         resend_unlock_instructions: Berriro desblokeatzeko argibideak berriro bidaltzea
       send_instructions: Mezu elektroniko bat jasoko duzu jarraibideak zure kontua desblokeatzeko minutu gutxi barru.
       send_paranoid_instructions: Zure kontua badago, mezu elektroniko bat jasoko duzu minutu batzuk barru nola desblokeatzeko argibideekin.
-      unlocked: Zure kontua desblokeatu egin da. Hasi saioa jarraitzeko.
   doorkeeper:
     scopes:
       public: Zure informazio publikoa.
@@ -1424,6 +1374,7 @@ eu:
               bottomLeft: beheko ezker ertza
       link:
         bubbleMenu:
+          edit: Editatu
           remove: Kendu
           url: URL-a
       videoEmbed:
@@ -1452,7 +1403,7 @@ eu:
   errors:
     messages:
       allowed_file_content_types: 'soilik onartuko dira honako hedapenak: %{types}'
-      already_confirmed: dagoeneko baieztatu da. Saiatu saioa hasi
+      already_confirmed: baieztatu da, mesedez saiatu konektatzen
       confirmation_period_expired: '%{period}barruan baieztatu behar da, eskatu beste bat'
       content_type_allowlist_error: fitxategiaren mota ez da baliozkoa
       expired: iraungi egin da, eskatu beste bat
@@ -1481,6 +1432,8 @@ eu:
     timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, bidali.
   layouts:
     decidim:
+      announcements:
+        view_less: Erakutsi gutxiago
       data_consent:
         details:
           columns:
@@ -1501,13 +1454,12 @@ eu:
         cc_by_license: Creative Commons lizentziaduna
         decidim_logo: Decidimen logoa
         download_open_data: Deskargatu Open Data fitxategiak
+        log_in:
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
+        sign_up: Eman izena
       header:
-        close_menu: Itxi menua
+        log_in:
         main_menu: Menu nagusia
-        navigation: Nabigazioa
-        sign_in: Sartu
-        sign_up: Erregistratu
         user_menu: Erabiltzailearen menua
       impersonation_warning:
         close_session: Itxi saioa
@@ -1522,12 +1474,11 @@ eu:
         facebook: "%{organization} Facebooken"
         github: "%{organization} GitHuben"
         instagram: "%{organization} Instagramen"
-        twitter: "%{organization} Twitterren"
         youtube: "%{organization} YouTuben"
       timeout_modal:
         body: Jarduerarik gabe egon zara %{minutes} minututan. Aktibatu gabe jarraitzen baduzu, deskonektatuko zaitugu zure segurtasunerako.
         continue_session: Jarraitu saioa
-        sign_out: Itxi saioa
+        log_out: Amaitu saioa
         title: Saioan jarraitu nahi duzu?
       upload_modal:
         close_modal: Itxi leihoa
@@ -1535,10 +1486,10 @@ eu:
         account: '%{name} erabiltzailearen kontua'
         admin_dashboard: Administrazioko aginte-mahaia
         conversations: Elkarrizketak
+        log_out: Amaitu saioa
         notifications: jakinarazpenak
         profile: Nire kontua
         public_profile: Nire profil publikoa
-        sign_out: Irten
         title: Profilaren loturak
       user_profile:
         account: Kontua
@@ -1549,8 +1500,6 @@ eu:
         notifications_settings: Jakinarazpen-konfigurazioa
         title: Erabiltzaile-ezarpenak
         user_groups: Taldeak
-      widget:
-        see_more: Ikusi gehiago
   locale:
     name: Euskera
     name_with_error: Euskera (akatsa!)
@@ -1622,6 +1571,7 @@ eu:
       option_split: Paraleloan
       option_unescaped: Ez ihes eginda
       option_unified: Bateratua
+      toggle: Aldatu ikuspegia
   views:
     pagination:
       next: Hurrengoa

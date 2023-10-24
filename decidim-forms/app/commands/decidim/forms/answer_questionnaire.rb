@@ -22,7 +22,9 @@ module Decidim
       def call
         return broadcast(:invalid) if @form.invalid? || user_already_answered?
 
-        answer_questionnaire
+        with_events do
+          answer_questionnaire
+        end
 
         if @errors
           reset_form_attachments
@@ -35,6 +37,17 @@ module Decidim
       attr_reader :form, :questionnaire, :current_user
 
       private
+
+      def event_arguments
+        {
+          resource: questionnaire,
+          extra: {
+            session_token: form.context.session_token,
+            questionnaire:,
+            event_author: current_user
+          }
+        }
+      end
 
       # This method will add an error to the `add_documents` field only if there is
       # any error in any other field or an error in another answer in the

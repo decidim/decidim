@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/votings/test/capybara_polling_officers_picker"
 
 describe "Admin manages polling stations", serves_geocoding_autocomplete: true, type: :system do
   let(:address) { "Somewhere over the rainbow" }
@@ -12,7 +11,7 @@ describe "Admin manages polling stations", serves_geocoding_autocomplete: true, 
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    within_admin_menu do
+    within_admin_sidebar_menu do
       click_link "Polling Stations"
     end
   end
@@ -130,7 +129,7 @@ describe "Admin manages polling stations", serves_geocoding_autocomplete: true, 
 
         autocomplete_select "#{polling_officers.first.name} (@#{polling_officers.first.nickname})", from: :polling_station_president_id
 
-        polling_officers_pick(select_data_picker(:polling_station_polling_station_managers, multiple: true), polling_officers.last(2))
+        tom_select("#polling_officers_filter", option_id: polling_officers.last(2).map(&:id))
 
         find("*[type=submit]").click
       end
@@ -177,7 +176,7 @@ describe "Admin manages polling stations", serves_geocoding_autocomplete: true, 
 
         autocomplete_select "#{polling_officers.last.name} (@#{polling_officers.last.nickname})", from: :polling_station_president_id
 
-        polling_officers_pick(select_data_picker(:polling_station_polling_station_managers, multiple: true), polling_officers.first(2))
+        tom_select("#polling_officers_filter", option_id: polling_officers.first(2).map(&:id))
 
         find("*[type=submit]").click
       end

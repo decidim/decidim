@@ -51,7 +51,7 @@ fr:
         confirm_destroy: Êtes-vous certain ?
         destroy: Supprimer
         edit: Modifier
-        new: Nouveau %{name}
+        new: Nouveau débat
         title: Actions
       admin:
         debate_closes:
@@ -81,9 +81,6 @@ fr:
             success: Débat mis à jour avec succès.
         exports:
           comments: Commentaires
-        models:
-          debate:
-            name: Débat
       admin_log:
         debate:
           close: "%{user_name} a clos le débat %{resource_name} dans l'espace %{space_name}"
@@ -96,7 +93,7 @@ fr:
           invalid: Une erreur s'est produite lors de la fermeture du débat.
           success: Débat clos avec succès.
         close_debate_modal:
-          close: Fermer
+          cancel: Annuler
           description: Quel est le résumé ou la conclusion de ce débat?
           send: Clore le débat
         closed: Fermé
@@ -123,18 +120,12 @@ fr:
           official: Officielle
           origin: Origine
           participants: Participants
-          scope: Secteur
           search: Rechercher
           state: Statut
           state_values:
             closed: Fermé
             open: Ouvert
-          user_groups: Groupes
-        filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtre
-          filter_by: Filtrer par
-          unfold: Voir la suite
+          user_group: Groupes
         form:
           select_a_category: Veuillez sélectionner une catégorie
         index:
@@ -150,7 +141,6 @@ fr:
           recent: Les plus récents
           updated: Mis à jour récemment
         show:
-          back: Retour à la liste
           close_debate: Clore le débat
           date: Date
           debate_closed: Fermé
@@ -158,28 +148,21 @@ fr:
           edit_conclusions: Modifier les conclusions
           edit_debate: Modifier le débat
           groups_count: Groupes
-          last_comment_by: Dernier commentaire par
-          no_comments_yet: Pas encore de commentaire
           open: Ouvrir le débat
           participants_count: Participants
         update:
           invalid: Une erreur s'est produite lors de la mise à jour du débat.
           success: Débat mis à jour avec succès.
-        versions:
-          debates:
-            back_to_resource: Revenir au débat
-          index:
-            title: Versions
-        versions_list:
-          back_to_resource: Revenir au débat
       last_activity:
         debate_updated: 'Débat mis à jour :'
         new_debate: 'Nouveau débat :'
       models:
         debate:
           fields:
+            end: Fin
             end_time: Date de fin
             official_debate: Débat officiel
+            start: Début
             start_time: Date de début
             title: Titre
     events:

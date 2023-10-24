@@ -33,8 +33,8 @@ module Decidim
     end
 
     def within_language_menu(options = {})
-      within(options.fetch(:admin, !Decidim.redesign_active) ? ".topbar__dropmenu.language-choose" : "footer") do
-        find(options.fetch(:admin, !Decidim.redesign_active) ? "#admin-menu-trigger" : "#trigger-dropdown-language-chooser").click
+      within(options[:admin] ? ".topbar__dropmenu.language-choose" : "footer") do
+        find(options[:admin] ? "#admin-menu-trigger" : "#trigger-dropdown-language-chooser").click
         yield
       end
     end
@@ -177,12 +177,8 @@ module Decidim
       )
 
       # Wait for the file to be uploaded
-      if respond_to?(:redesigned) && redesigned
-        within "[data-dropzone-items]" do
-          expect(page).to have_content(filename)
-        end
-      else
-        expect(page).to have_css("img[alt='Uploaded file']")
+      within "[data-dropzone-items]" do
+        expect(page).to have_content(filename)
       end
     end
 

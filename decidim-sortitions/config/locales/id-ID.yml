@@ -34,7 +34,6 @@ id:
         actions:
           destroy: Batalkan penyortiran
           edit: Edit
-          new: Pemilahan baru
           show: Detail penyortiran
         models:
           sortition:
@@ -48,8 +47,6 @@ id:
               seed: Benih
               target_items: Item untuk dipilih
               title: Judul
-            name:
-              other: Sortasi
         sortitions:
           confirm_destroy:
             confirm_destroy: Apakah Anda yakin ingin membatalkan penyortiran ini?
@@ -63,7 +60,6 @@ id:
           form:
             all_categories: Semua Kategori
             select_proposal_component: Pilih set proposal
-            title: Sortasi baru untuk proposal
           index:
             title: Sortasi
           new:
@@ -87,14 +83,7 @@ id:
           all: Semua
           cancelled: Dibatalkan
           category: Kategori
-          category_prompt: Pilih Kategori
-          search: Pencarian
           state: Status
-        filters_small_view:
-          close_modal: Tutup modal
-          filter: Filter
-          filter_by: Saring menurut
-          unfold: Membuka
         linked_sortitions:
           selected_proposals: Usulan yang dipilih
         orders:
@@ -111,18 +100,17 @@ id:
           candidate_proposal_ids: Urutan proposal pengurutan dan ID
           candidate_proposals_info: 'Penyortiran dilakukan di antara proposal berikut (%{category_label}), dengan ID berikut (dalam huruf tebal proposal yang dipilih)  '
           category: dari kategori %{category}
-          dice_result: "(1) Hasil dadu"
+          dice_result: (1) Hasil dadu
           introduction: 'Halaman ini berisi hasil sortasi %{reference}. Melalui penyortiran ini, %{target_items} jumlah hasil telah dipilih secara acak dan dengan distribusi probabilitas yang sama dari sekumpulan proposal yang ditampilkan di bawah. Bersama dengan hasilnya, informasi yang ditampilkan pada halaman ini memberikan semua informasi yang diperlukan untuk memaksimalkan jaminan dan mereproduksi hasil. Kunci kualitas penyortiran ini adalah keacakan ganda yang diberikan oleh pengguliran dadu (diverifikasi oleh saksi) dan waktu penyisihan yang tepat yang memberikan input untuk suatu algoritma yang menghasilkan seleksi acak. Benih waktu untuk penyortiran sangat akurat (detik) sehingga tidak mungkin dikendalikan oleh manusia sehingga memberikan input ganda "tidak terkendali" untuk menjamin hasil yang adil.  '
           mathematical_result: Hasil (1) x (2)
           proposals_selected_by_sortition: Proposal dipilih berdasarkan penyortiran
           sortition_reproducibility_details: Rincian reproduksibilitas penyortiran
-          time_seed: "(2) Benih waktu"
+          time_seed: (2) Benih waktu
           witnesses: Saksi
         sortition:
           random_seed: Benih acak
           selected_proposals:
             other: proposal yang dipilih
-          view: Melihat
         sortition_author:
           deleted: Peserta yang dihapus
         sortition_cancel_author:

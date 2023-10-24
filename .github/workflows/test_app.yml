@@ -113,7 +113,8 @@ jobs:
           CI: "true"
           SIMPLECOV: "true"
           PARALLEL_TEST_PROCESSORS: 2
-          WEBPACKER_RUNTIME_COMPILE: "false"
+          SHAKAPACKER_RUNTIME_COMPILE: "false"
+          NODE_ENV: "test"
       - uses: codecov/codecov-action@v3
         name: Upload coverage
         with:

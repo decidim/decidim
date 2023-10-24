@@ -34,7 +34,6 @@ id:
         confirm_destroy: Anda yakin ingin menghapus %{name}ini?
         destroy: Menghapus
         edit: Edit
-        new: Baru %{name}
         preview: Pratinjau
         timeline_entries: Evolusi proyek
         title: Tindakan
@@ -46,8 +45,6 @@ id:
             name: Hasil
           status:
             name: Status
-          timeline_entry:
-            name: Entri waktu
         results:
           edit:
             title: Edit hasil

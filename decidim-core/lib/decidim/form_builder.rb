@@ -434,7 +434,6 @@ module Decidim
       max_file_size = options[:max_file_size] || max_file_size(object, attribute)
       button_label = options[:button_label] || choose_button_label(attribute)
       help_messages = options[:help] || upload_help(object, attribute, options)
-      redesigned = @template.respond_to?(:redesign_enabled?) ? @template.redesign_enabled? : true
 
       options = {
         attribute:,
@@ -447,8 +446,7 @@ module Decidim
         help: help_messages,
         label: label_for(attribute),
         button_label:,
-        button_edit_label: I18n.t("decidim.forms.upload.labels.replace"),
-        redesigned:
+        button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
       }.merge(options)
 
       ::Decidim::ViewModel.cell(
@@ -858,7 +856,7 @@ module Decidim
     end
 
     # Private: Creates a tag from the given options for the field prefix and
-    # suffix. Overridden from Foundation Rails helper to make the generated HTML
+    # suffix. Overridden from FoundationRailsHelper to make the generated HTML
     # valid since these elements are printed within <label> elements and <div>'s
     # are not allowed there.
     def tag_from_options(name, options)
@@ -870,7 +868,7 @@ module Decidim
     end
 
     # Private: Wraps the prefix and postfix for the field. Overridden from
-    # Foundation Rails helper to make the generated HTML valid since these
+    # FoundationRailsHelper to make the generated HTML valid since these
     # elements are printed within <label> elements and <div>'s are not allowed
     # there.
     def wrap_prefix_and_postfix(block, prefix_options, postfix_options)
