@@ -35,11 +35,15 @@ module Decidim
     end
 
     def unauthorized_paths
-      # /locale is for changing the locale
-      %w(/locale) + Decidim::StaticPage.where(
+      default_unauthorized_paths + Decidim::StaticPage.where(
         organization: current_organization,
         allow_public_access: true
       ).pluck(Arel.sql("CONCAT('/pages/', slug)"))
+    end
+
+    def default_unauthorized_paths
+      # /locale is for changing the locale and /manifest.webmanifest to request PWA manifest
+      %w(/locale /manifest.webmanifest)
     end
   end
 end

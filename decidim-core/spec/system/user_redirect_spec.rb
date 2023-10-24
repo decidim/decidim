@@ -12,6 +12,20 @@ describe "UserRedirect", type: :system do
 
     let(:user) { create(:user, :confirmed, organization: organization) }
 
+    context "when accessing manifest" do
+      before do
+        visit decidim.manifest_path(format: "webmanifest")
+      end
+
+      it "does not redirect to login page" do
+        expect(page).not_to have_content("Log in")
+      end
+
+      it "renders a JSON with the manifest" do
+        expect(page).to have_content("\"display\": \"standalone\"")
+      end
+    end
+
     context "when logging for the first time" do
       before do
         visit decidim.pages_path
