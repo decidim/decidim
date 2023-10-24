@@ -156,30 +156,12 @@ In order to continue having support for Webpacker like syntax, we have switched 
 In order to perform the update, you will need to make sure that you **do not have webpacker in your Gemfile**.
 If you have it, please remove it, and allow Decidim to handle the webpacker / shakapacker dependency.
 
-In order to perform the migration to shakapacker, please backup the following files, to make sure that you save any customizations you may have done to webpacker:
-
-```console
-config/webpacker.yml
-config/webpack/*
-package.json
-postcss.config.js
-```
-
-After all the backups and changes mentioned above have been completed, follow the default upgrade steps, as mentioned above in the document.
-Then run the below command, and replace all the configuration with the one that Decidim is providing by default:
-
-```console
-bundle exec rake decidim:webpacker:install
-```
-
-This will make the necessary changes in the `config/webpacker.yml`, but also in the `config/webpack/` folder.
-
 #### Note for development
 
 If you are using the `Procfile.dev` file, you will need to make sure that you have the following line in your configuration. If you have not altered the `Procfile.dev` file, you will not need to do anything, as we covered that part:
 
 ```console
-webpacker: ./bin/webpacker-dev-server
+shakapacker: ./bin/shakapacker-dev-server
 ```
 
 In order to run your development server, you will need to run the following command:
@@ -188,7 +170,12 @@ In order to run your development server, you will need to run the following comm
 ./bin/dev
 ```
 
-You can read more about this change on PR [\#10389](https://github.com/decidim/decidim/pull/10389).
+Also, by migrating to Shakapacker, we no longer use `config/webpacker.yml`. All the webpack configuration will be done through `config/shakapacker.yml`
+
+You can read more about this change on PR
+
+- [\#10389](https://github.com/decidim/decidim/pull/10389)
+- [\#11728](https://github.com/decidim/decidim/pull/11728)
 
 ### 3.6. Initialize content blocks on spaces or resources with landing page
 
