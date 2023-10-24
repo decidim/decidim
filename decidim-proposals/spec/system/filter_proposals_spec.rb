@@ -113,7 +113,6 @@ describe "Filter Proposals", :slow, type: :system do
   end
 
   context "when filtering proposals by SCOPE" do
-    let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
     let!(:scope2) { create(:scope, organization: participatory_process.organization) }
 
     before do
@@ -343,6 +342,9 @@ describe "Filter Proposals", :slow, type: :system do
       let!(:proposal1) { create(:proposal, component:, category:) }
       let!(:proposal2) { create(:proposal, component:, category: category2) }
       let!(:proposal3) { create(:proposal, component:, category: category3) }
+      let!(:proposal4) { create(:proposal, component:, category:) }
+      let!(:proposal1_comment) { create(:comment, commentable: proposal1) }
+      let!(:proposal4_follow) { create(:follow, followable: proposal4) }
 
       before do
         login_as user, scope: :user
@@ -356,7 +358,7 @@ describe "Filter Proposals", :slow, type: :system do
           check category.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
       end
 
       it "can be filtered by two categories" do
@@ -368,7 +370,32 @@ describe "Filter Proposals", :slow, type: :system do
           check category2.name[I18n.locale.to_s]
         end
 
+        expect(page).to have_css("[id^='proposals__proposal']", count: 3)
+      end
+
+      it "can be ordered by most commented and most followed after filtering" do
+        visit_component
+
+        within "#dropdown-menu-filters div.filter-container", text: "Category" do
+          uncheck "All"
+          check category.name[I18n.locale.to_s]
+        end
+
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+
+        within "#dropdown-menu-order" do
+          click_link "Most commented"
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(proposal1.title))
+
+        within "#dropdown-menu-order" do
+          click_link "Most followed"
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(proposal4.title))
       end
     end
   end

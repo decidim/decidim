@@ -40,6 +40,14 @@ describe Decidim::GitBackportManager do
     it "sets the backport_branch as expected" do
       expect(subject.send(:backport_branch)).to eq("backport/fix-topsomething-9876")
     end
+
+    context "when the branch name has a dot" do
+      let(:backport_branch) { "backport/0.26/fix-something-9876" }
+
+      it "sets the backport_branch as expected" do
+        expect(subject.send(:backport_branch)).to eq("backport/0.26/fix-something-9876")
+      end
+    end
   end
 
   describe "#checkout_develop" do

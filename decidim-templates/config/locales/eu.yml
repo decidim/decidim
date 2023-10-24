@@ -9,8 +9,11 @@ eu:
   decidim:
     admin:
       menu:
+        manage: Kudeatu
         templates: Txantiloiak
       templates:
+        actions:
+          new_template: Beste txantiloi bat
         apply:
           error: Arazo bat izan da txantiloi hau aplikatzean.
         copy:
@@ -36,12 +39,15 @@ eu:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Blokearen erabiltzaile-mezuaren txantiloia editatzea
           form:
             save: Gorde
-            template_title: Txantiloiaren informazioa
           index:
             confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
             title: Blokeatutako mezuak
+          new:
+            title: Blokeko erabiltzaile-mezuaren txantiloi berria
           template_chooser:
             select_template: Hautatu txantiloi-fitxategi bat
         questionnaire_templates:
@@ -54,13 +60,14 @@ eu:
           edit:
             edit: Editatu
             questionnaire: Galdetegia
+            title: Galdetegiaren txantiloia editatzea
           form:
-            save: Gorde
-            template_title: Txantiloiaren informazioa
             title: '%{questionnaire_for} galdetegiaren txantiloia'
           index:
             confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
             title: Galdetegi-txantiloiak
+          new:
+            title: Galdera-sortaren txantiloia editatzea
           preview:
             current_step: '%{step} urratsa'
             of_total_steps: '%{total_steps} etik'

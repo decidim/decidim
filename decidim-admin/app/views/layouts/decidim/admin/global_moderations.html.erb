@@ -1,7 +1,5 @@
 <% add_decidim_page_title(t(".title" )) %>
-<% content_for :sidebar_menu_nav do %>
-  <%= sidebar_menu(:admin_global_moderation_menu).render(title: t(".title" )) %>
-<% end %>
+<% add_secondary_root_menu(:admin_global_moderation_menu) %>
 
 <%= render "layouts/decidim/admin/application" do %>
   <%= yield %>

@@ -2,7 +2,7 @@
 
 module Decidim
   module Conferences
-    # This cell renders the conference card for an instance of an Conference
+    # This cell renders the conference card for an instance of a Conference
     # the default size is the Grid Card (:g)
     class ConferenceCell < Decidim::ViewModel
       def show

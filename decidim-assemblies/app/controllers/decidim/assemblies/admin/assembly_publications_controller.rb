@@ -5,40 +5,20 @@ module Decidim
     module Admin
       # Controller that allows managing assembly publications.
       #
-      class AssemblyPublicationsController < Decidim::Assemblies::Admin::ApplicationController
+      # i18n-tasks-use t('decidim.admin.assembly_publications.create.error')
+      # i18n-tasks-use t('decidim.admin.assembly_publications.create.success')
+      # i18n-tasks-use t('decidim.admin.assembly_publications.destroy.error')
+      # i18n-tasks-use t('decidim.admin.assembly_publications.destroy.success')
+      class AssemblyPublicationsController < Decidim::Admin::SpacePublicationsController
         include Concerns::AssemblyAdmin
 
-        def create
-          enforce_permission_to :publish, :assembly, assembly: current_assembly
+        private
 
-          PublishAssembly.call(current_assembly, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("assembly_publications.create.success", scope: "decidim.admin")
-            end
+        def enforce_permission_to_publish = enforce_permission_to(:publish, :assembly, assembly: current_assembly)
 
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("assembly_publications.create.error", scope: "decidim.admin")
-            end
+        def i18n_scope = "decidim.admin.assembly_publications"
 
-            redirect_back(fallback_location: assemblies_path)
-          end
-        end
-
-        def destroy
-          enforce_permission_to :publish, :assembly, assembly: current_assembly
-
-          UnpublishAssembly.call(current_assembly, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("assembly_publications.destroy.success", scope: "decidim.admin")
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("assembly_publications.destroy.error", scope: "decidim.admin")
-            end
-
-            redirect_back(fallback_location: assemblies_path)
-          end
-        end
+        def fallback_location = assemblies_path
       end
     end
   end

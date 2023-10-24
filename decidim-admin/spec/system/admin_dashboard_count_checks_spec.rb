@@ -12,10 +12,6 @@ describe "Admin checks dashboard panel statistics", type: :system do
     visit decidim_admin.root_path
   end
 
-  it "shows Welcome message" do
-    expect(page).to have_content(t("decidim.admin.dashboard.show.welcome"))
-  end
-
   it "show users Activity panel" do
     expect(page).to have_content(t("decidim.admin.titles.statistics"))
     expect(page).to have_content(t("decidim.admin.users_statistics.users_count.participants"))

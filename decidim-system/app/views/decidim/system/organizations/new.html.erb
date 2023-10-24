@@ -21,9 +21,9 @@
       <table>
         <thead>
           <tr>
-            <th>Locale</th>
-            <th>Enabled <%= f.error_for(:available_locales) %></th>
-            <th>Default? <%= f.error_for(:default_locale) %></th>
+            <th><%= t(".locale") %></th>
+            <th><%= t(".enabled") %> <%= f.error_for(:available_locales) %></th>
+            <th><%= t(".default") %><%= f.error_for(:default_locale) %></th>
           </tr>
         </thead>
         <tbody>
@@ -44,9 +44,9 @@
 
     <%= field_set_tag f.label(:users_registration_mode, nil, for: nil) do %>
       <%= f.collection_radio_buttons :users_registration_mode,
-                                    Decidim::Organization.users_registration_modes,
-                                    :first,
-                                    ->(mode) { t("decidim.system.organizations.users_registration_mode.#{mode.first}") } do |builder|
+                                     Decidim::Organization.users_registration_modes,
+                                     :first,
+                                     ->(mode) { t("decidim.system.organizations.users_registration_mode.#{mode.first}") } do |builder|
                                       builder.label(for: nil, class: "form__wrapper-checkbox-label") { builder.radio_button(id: nil) + builder.text }
                                     end %>
     <% end %>

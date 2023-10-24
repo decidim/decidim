@@ -1,56 +1,39 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= edit_questionnaire_title %>
-      <% if questionnaire.answers.any? %>
-        <div class="button--title">
-          <%= export_dropdown(current_component, questionnaire.id) if allowed_to?(:export_answers, :questionnaire) %>
-        </div>
-      <% else %>
-        <button class="button tiny button--title" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.answers") %></button>
-      <% end %>
-    </h2>
-  </div>
-</div>
-
 <div class="questionnaire-questions">
   <div class="row column text-center">
-    <button type="button" class="button collapse-all"><%= t("collapse", scope: "decidim.forms.admin.questionnaires.form") %></button>
-    <button type="button" class="button expand-all"><%= t("expand", scope: "decidim.forms.admin.questionnaires.form") %></button>
+    <button type="button" class="button button__sm button__secondary collapse-all"><%= t("collapse", scope: "decidim.forms.admin.questionnaires.form") %></button>
+    <button type="button" class="button button__sm button__secondary expand-all"><%= t("expand", scope: "decidim.forms.admin.questionnaires.form") %></button>
   </div>
 
   <% if questionnaire.questions_editable? %>
     <%= fields_for "questionnaire[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
       <script type="text/template" class="decidim-question-template decidim-template" id="question-template">
         <%= render "decidim/meetings/admin/poll/question",
-              form: question_form,
-              id: tabs_id_for_question(blank_question),
-              editable: questionnaire.questions_editable?,
-              answer_option_template_selector: "#answer-option-template-dummy" %>
+                   form: question_form,
+                   id: tabs_id_for_question(blank_question),
+                   editable: questionnaire.questions_editable?,
+                   answer_option_template_selector: "#answer-option-template-dummy" %>
       </script>
       <%= render "decidim/meetings/admin/poll/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-dummy" %>
     <% end %>
   <% else %>
-    <div class="callout warning">
-      <%= t("already_answered_warning", scope: "decidim.forms.admin.questionnaires.form") %>
-    </div>
+    <%= cell("decidim/announcement", t("already_answered_warning", scope: "decidim.forms.admin.questionnaires.form"), callout_class: "warning" ) %>
   <% end %>
 
-  <div class="questionnaire-questions-list">
+  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">
     <% @form.questions.each_with_index do |question, index| %>
       <%= fields_for "questionnaire[questions][]", question do |question_form| %>
         <%= render "decidim/meetings/admin/poll/question",
-              form: question_form,
-              id: tabs_id_for_question(question),
-              editable: questionnaire.questions_editable?,
-              answer_option_template_selector: "#answer-option-template-#{index}" %>
+                   form: question_form,
+                   id: tabs_id_for_question(question),
+                   editable: questionnaire.questions_editable?,
+                   answer_option_template_selector: "#answer-option-template-#{index}" %>
         <%= render "decidim/meetings/admin/poll/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-#{index}" %>
       <% end %>
     <% end %>
   </div>
 
   <% if questionnaire.questions_editable? %>
-    <button class="button add-question"><%= t("add_question", scope: "decidim.forms.admin.questionnaires.form") %></button>
+    <button class="button button__sm button__secondary add-question"><%= t("add_question", scope: "decidim.forms.admin.questionnaires.form") %></button>
   <% end %>
 </div>
 

@@ -13,7 +13,7 @@ module Decidim
     end
 
     def call
-      return broadcast(:invalid) unless @form.valid?
+      return broadcast(:invalid, @form.password) unless @form.valid?
 
       update_personal_data
       update_avatar
@@ -24,10 +24,10 @@ module Decidim
         notify_followers
         broadcast(:ok, @user.unconfirmed_email.present?)
       else
-        [:avatar, :password, :password_confirmation].each do |key|
+        [:avatar, :password].each do |key|
           @form.errors.add key, @user.errors[key] if @user.errors.has_key? key
         end
-        broadcast(:invalid)
+        broadcast(:invalid, @form.password)
       end
     end
 
@@ -54,7 +54,6 @@ module Decidim
       return if @form.password.blank?
 
       @user.password = @form.password
-      @user.password_confirmation = @form.password_confirmation
       @user.password_updated_at = Time.current
     end
 

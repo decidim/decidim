@@ -2,7 +2,7 @@
   <h1 class="h1"><%= t ".title" %></h1>
 <% end %>
 
-<%= link_to t("actions.new", scope: "decidim.system", name: t("models.oauth_application.name", scope: "decidim.system")), [:new, :oauth_application], class: "button button__sm md:button__lg button__primary" %>
+<%= link_to t("actions.new_oauth_application", scope: "decidim.system"), [:new, :oauth_application], class: "button button__sm md:button__lg button__primary" %>
 
 <table>
   <thead>

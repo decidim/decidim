@@ -48,7 +48,6 @@ zh-CN:
           success: 会议成功重复。
         new:
           copy: 复制
-          select: 选择要重复的数据
           title: 复制会议
     components:
       meetings:
@@ -138,7 +137,6 @@ zh-CN:
         invalid_destroy:
           proposals_count:
             other: '会议不能被破坏，因为它有 %{count} 个建议与此相关联：'
-        new: 新会议
         preview: 预览
         registrations: 注册
         title: 行动
@@ -192,7 +190,6 @@ zh-CN:
               all: 所有的
               rejected: 已拒绝
               sent: 已发送
-            filter_by: 筛选方式
             invite_attendee: 邀请参与者
             invites: 邀请
             search: 搜索
@@ -223,9 +220,6 @@ zh-CN:
           services:
             add_service: 添加服务
             services: 服务
-        models:
-          meeting:
-            name: 会议
         registrations:
           edit:
             save: 保存
@@ -262,12 +256,8 @@ zh-CN:
               not_found: '在数据库中找不到组织者 (ID: %{id})'
       calendar_modal:
         calendar_url: 日历 URL
-        close_window: 关闭窗口
         export_calendar: 导出日历
       conference_venues: 会议地点
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: 查看全部
       directory:
         meetings:
           index:
@@ -302,14 +292,7 @@ zh-CN:
           origin_values:
             all: 所有的
             official: 官方的
-            user_groups: 群組
-          scope: 范围
           search: 搜索
-        filters_small_view:
-          close_modal: 关闭模式
-          filter: 筛选器
-          filter_by: 筛选方式
-          unfold: 展开...
         form:
           address_help: '地址：由地理编码器用来查找位置'
           create_as: 创建会议为
@@ -317,8 +300,6 @@ zh-CN:
           select_a_category: 请选择一个类别
         index:
           new_meeting: 新会议
-        meeting_minutes:
-          related_information: 相关信息
         meetings:
           upcoming_meetings_warning: 目前没有排定的会议，但在这里你可以找到过去所有会议的清单。
         new:
@@ -330,10 +311,8 @@ zh-CN:
           confirm: 确认
         show:
           attendees: 参与者数量
-          back: 返回列表
           contributions: 捐款计数
           date: 日期
-          edit_meeting: 编辑会议
           join: 加入会议
           meeting_minutes: 会议分钟
           no_slots_available: 无可用槽位
@@ -348,8 +327,6 @@ zh-CN:
         update:
           invalid: 更新会议时出现问题。
           success: 您已成功更新会议。
-      meetings_map:
-        view_meeting: 查看会议
       models:
         invite:
           fields:
@@ -387,8 +364,6 @@ zh-CN:
       types:
         private_meeting: 非公开会议
         transparent: 透明的
-      versions:
-        back_to_resource: 返回会议
     metrics:
       meetings:
         description: 创建的会议数
@@ -399,8 +374,6 @@ zh-CN:
         past_meetings: 过去的会议
         see_all: 查看所有会议 (%{count})
         upcoming_meetings: 即将举行的会议
-      upcoming_meeting_for_card:
-        upcoming_meeting: 即将举行的会议
     resource_links:
       meetings_through_proposals:
         meeting_result: '相关结果：'

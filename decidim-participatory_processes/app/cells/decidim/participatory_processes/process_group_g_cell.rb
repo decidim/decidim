@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     # This cell renders the Grid (:g) process card
-    # for an given instance of a Process
+    # for a given instance of a ParticipatoryProcess
     class ProcessGroupGCell < Decidim::CardGCell
       private
 

@@ -101,7 +101,6 @@ end
 
 load "decidim-dev/lib/tasks/generators.rake"
 load "lib/tasks/common_passwords_tasks.rake"
-load "lib/tasks/redesign_tasks.rake"
 
 desc "Generates a dummy app for testing"
 task test_app: "decidim:generate_external_test_app"
@@ -111,7 +110,7 @@ task development_app: "decidim:generate_external_development_app"
 
 desc "Bundle all Gemfiles"
 task :bundle do
-  [".", "decidim-generators", "decidim_app-design"].each do |dir|
+  [".", "decidim-generators"].each do |dir|
     Bundler.with_original_env do
       puts "Updating #{dir}...\n"
       system!("bundle install", dir)
@@ -119,24 +118,8 @@ task :bundle do
   end
 end
 
-desc "Synchronize npm packages files on the whole repo"
-task :webpack do
-  FileUtils.rm_rf(decidim_app_design_path.join("package-lock.json"))
-  FileUtils.rm_rf(decidim_app_design_path.join("packages"))
-  FileUtils.cp_r(root_folder.join("package.json"), decidim_app_design_path)
-  FileUtils.cp_r(root_folder.join("package-lock.json"), decidim_app_design_path)
-  FileUtils.cp_r(root_folder.join("packages"), decidim_app_design_path)
-
-  system!("npm install", root_folder)
-  system!("npm install", decidim_app_design_path)
-end
-
 def root_folder
   @root_folder ||= Pathname.new(__dir__)
-end
-
-def decidim_app_design_path
-  @decidim_app_design_path ||= Pathname.new(root_folder.join("decidim_app-design"))
 end
 
 def system!(command, path)

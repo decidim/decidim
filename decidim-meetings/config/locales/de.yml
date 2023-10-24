@@ -20,6 +20,7 @@ de:
         description: Beschreibung
         end_time: Endzeit
         id: ID
+        iframe_access_level: iFrame-Zugriffsebene
         iframe_embed_type: iFrame-Einbettungstyp
         location: Ort
         location_hints: Standorthinweise
@@ -56,6 +57,8 @@ de:
           attributes:
             iframe_embed_type:
               not_embeddable: Diese URL kann nicht in der Veranstaltungs- oder Live-Eventseite eingebettet werden.
+            online_meeting_url:
+              url_format: Muss eine gültige URL sein
         meeting_agenda:
           attributes:
             base:
@@ -119,7 +122,6 @@ de:
           success: Dupliziertes Meeting erfolgreich
         new:
           copy: Kopieren
-          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
           title: Doppelte Besprechung
     components:
       meetings:
@@ -221,7 +223,6 @@ de:
             one: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist:'
             other: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind:'
         manage_poll: Umfrage verwalten
-        new: Neue Sitzung
         preview: Vorschau
         registrations: Anmeldungen
         title: Aktionen
@@ -283,7 +284,6 @@ de:
               all: Alle
               rejected: Abgelehnt
               sent: Geschickt
-            filter_by: Filtern nach
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             registrations_disabled: Sie können keine Teilnehmende einladen, weil Registrierungen deaktiviert sind.
@@ -337,12 +337,18 @@ de:
           services:
             add_service: Dienst hinzufügen
             services: Dienstleistungen
+          unpublish:
+            invalid: Beim Zurückziehen der Veröffentlichung dieser Sitzung ist ein Fehler aufgetreten.
+            success: Veröffentlichung der Sitzung erfolgreich rückgängig gemacht.
+          update:
+            invalid: Beim Aktualisieren dieser Sitzung ist ein Problem aufgetreten.
+            success: Sitzung erfolgreich aktualisiert.
         meetings_poll:
           form:
             title: Fragebogen für %{questionnaire_for} bearbeiten
-        models:
-          meeting:
-            name: Treffen
+          update:
+            invalid: Beim Aktualisieren der Veranstaltungsumfrage ist ein Problem aufgetreten.
+            success: Veranstaltungsumfrage erfolgreich aktualisiert.
         registrations:
           edit:
             save: Speichern
@@ -357,6 +363,7 @@ de:
             registrations_count:
               one: Es wurde %{count} registriert.
               other: Es wurden %{count} Anmeldungen vorgenommen.
+            reserved_slots_help: Belassen Sie den Wert auf 0, wenn Sie keine reservierten Slots haben.
             reserved_slots_less_than: Muss kleiner oder gleich %{count}
             title: Anmeldungen
           update:
@@ -379,34 +386,36 @@ de:
           value_types:
             organizer_presenter:
               not_found: 'Der Organisator wurde nicht in der Datenbank gefunden (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} hat den Fragebogen für die Veranstaltung %{meeting_name} aktualisiert"
       application_helper:
         filter_category_values:
           all: Alle
         filter_meeting_space_values:
           all: Alle
-        filter_scope_values:
-          all: Alle
       calendar_modal:
         calendar_url: Kalender-URL
-        close_window: Fenster schließen
         copy_calendar_url: Kopieren
         copy_calendar_url_clarification: Kalender-URL in Zwischenablage kopieren
         copy_calendar_url_copied: Kopiert!
         copy_calendar_url_description: Sie können alle veröffentlichten Meetings in Ihrer Kalenderanwendung oder bei Ihrem Kalender-Anbieter sehen. Kopieren und fügen Sie diese URL mit der Option "Neuen Kalender von einer URL hinzufügen" in Ihren Kalender ein.
+        copy_calendar_url_explanation: Bitte beachten Sie, dass Sie eine Auswahl von Veranstaltungen exportieren, da es aktive Filter gibt. Wenn Sie alle Veranstaltungen exportieren möchten, setzen Sie zuerst alle Filter zurück.
         copy_calendar_url_message: Die URL wurde erfolgreich in die Zwischenablage kopiert.
         export_calendar: Kalender exportieren
       close_meeting_reminder_mailer:
         close_meeting_reminder:
+          body: Die Veranstaltung <a href="%{meeting_path}">"%{meeting_title}"</a> wurde noch nicht abgeschlossen. Bitte fügen Sie einen Bericht über die Veranstaltung mit der Schaltfläche "Meeting schließen" hinzu.
+          greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hallo %{username},
+          subject: Sie können Ihre Veranstaltung jetzt mit einem Bericht auf der %{organization_name} Plattform abschließen
       conference_venues: Tagungsstätten
       content_blocks:
         upcoming_meetings:
           name: Bevorstehende Treffen
-          upcoming_meetings: Bevorstehende Treffen
-          view_all_meetings: Alle ansehen
       directory:
         meetings:
           index:
+            go_to_list: Veranstaltungsliste ansehen
             meetings: Meetings
             space_type: Partizipativer Raum
       iframe_access_level:
@@ -418,6 +427,9 @@ de:
         none: Keiner
         open_in_live_event_page: In Live-Event-Seite öffnen (mit optionalen Umfragen)
         open_in_new_tab: Link in neuem Tab öffnen
+      last_activity:
+        meeting_updated: 'Veranstaltung aktualisiert:'
+        new_meeting: 'Neue Veranstaltung:'
       layouts:
         live_event:
           administrate: Administrativ
@@ -429,7 +441,9 @@ de:
             subject: Einladung, an einem Meeting teilzunehmen
         registration_mailer:
           confirmation:
-            subject: Die Registrierung Ihrer Konferenz wurde bestätigt
+            subject: Sie haben sich erfolgreich angemeldet
+      meeting:
+        not_allowed: Sie dürfen diese Veranstaltung nicht ansehen.
       meeting_closes:
         edit:
           back: Zurück
@@ -439,7 +453,6 @@ de:
         calendar_modal:
           add_to_calendar: Zum Kalender hinzufügen
           apple: Zu Apple Kalender hinzufügen
-          close_window: Fenster schließen
           full_details_html: Für alle Details gehen Sie zu %{link}
           google: Zum Google-Kalender hinzufügen
           outlook: Zum Outlook-Kalender hinzufügen
@@ -469,8 +482,7 @@ de:
             all: Alle
             official: Offiziell
             participants: Teilnehmer
-            user_groups: Gruppen
-          scope: Umfang
+            user_group: Gruppen
           search: Suche
           type: Art
           type_values:
@@ -478,15 +490,11 @@ de:
             hybrid: Hybrid
             in_person: Persönlich
             online: Online
-        filters_small_view:
-          close_modal: Modal schließen
-          filter: Filter
-          filter_by: Filtern nach
-          unfold: Entfalten
         form:
           address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
           available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
           create_as: Besprechung erstellen als
+          disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungsdienstes ist Ihnen bewusst, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzenden dem externen Dienst zur Verfügung stellen.'
           location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
           location_hints_help: 'Standorthinweise: Zusätzliche Informationen. Beispiel: die Etage des Gebäudes, wenn es sich um eine persönliche Sitzung oder das Sitzungspasswort, wenn es sich um ein Online-Meeting mit eingeschränktem Zugriff handelt.'
           online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
@@ -494,14 +502,21 @@ de:
           select_a_category: Bitte wählen sie eine Kategorie
           select_a_meeting_type: Bitte eine Meeting-Art auswählen
           select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+          select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
+          show_embedded_iframe_help: 'Nur wenige Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
         index:
           click_here: Alle Treffen anzeigen
           new_meeting: Neue Besprechung
           see_all: Alle Treffen anzeigen
           see_all_withdrawn: Alle zurückgezogenen Treffen ansehen
-        meeting_minutes:
-          related_information: Zugehörige Informationen
+          text_banner: Hier sehen Sie alle Veranstaltungen, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
+        meeting:
+          close_meeting: Veranstaltung beenden
+          edit_close_meeting: Veranstaltungsbericht bearbeiten
+          edit_meeting: Veranstaltung bearbeiten
+          join_meeting: Veranstaltung beitreten
         meetings:
+          no_meetings_warning: Keine Veranstaltungen entsprechen Ihren Suchkriterien oder es ist keine Besprechung geplant.
           upcoming_meetings_warning: Momentan gibt es keine geplanten Besprechungen, aber hier finden Sie alle aufgelisteten Besprechungen.
         new:
           back: Zurück
@@ -512,12 +527,8 @@ de:
           confirm: Bestätigen
         show:
           attendees: Teilnehmer zählen
-          back: Zurück zur Liste
-          close_meeting: Meeting beenden
           contributions: Beiträge zählen
           date: Datum
-          edit_meeting: Besprechung bearbeiten
-          going: Sie haben sich für diese Sitzung angemeldet
           join: Tritt dem Treffen bei
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
@@ -525,6 +536,7 @@ de:
           link_closed: Der Link, um an dem Treffen teilzunehmen, wird einige Minuten vor dem Start verfügbar sein
           live_event: Dieses Meeting findet gerade statt
           meeting_minutes: Sitzungsprotokolle
+          micro_camera_permissions_warning: Wenn Sie auf die Schaltfläche unten klicken, werden Sie nach Mikrofon- und/oder Kamera-Berechtigungen gefragt und Sie werden der Videokonferenz hinzugefügt
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
           registration_code_help_text: Ihr Registrierungscode
@@ -537,12 +549,11 @@ de:
           view: Anzeigen
           visit_finished: Vergangene Treffen anzeigen
           withdraw_btn_hint: Sie können Ihr Treffen zurückziehen, wenn Sie Ihre Meinung ändern. Das Meeting wird nicht gelöscht, es wird in der Liste der zurückgezogenen Meetings angezeigt.
+          withdraw_confirmation_html: Sind Sie sicher, dass Sie diese Veranstaltung zurückziehen möchten?<br><br><strong> Diese Aktion kann nicht rückgängig gemacht werden!</strong>
           withdraw_meeting: Treffen zurückziehen
         update:
           invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
           success: Sie haben die Sitzung erfolgreich aktualisiert.
-      meetings_map:
-        view_meeting: Besprechung anzeigen
       models:
         invite:
           fields:
@@ -582,14 +593,17 @@ de:
             max_choices_alert: Es wurden zu viele Auswahlmöglichkeiten ausgewählt
             question: Frage
             question_replied: Frage beantwortet
+            reply_question: Frage beantworten
       public_participants_list:
+        attending_organizations: Organisationen
+        attending_participants: Teilnehmende
         hidden_participants_count:
           one: und %{count} weitere Person
           other: und %{count} weitere Personen
       read_more: "(Weiterlesen)"
       registration_mailer:
         confirmation:
-          confirmed_html: Ihre Registrierung für das Treffen <a href="%{url}">%{title}</a> wurde bestätigt.
+          confirmed_html: Ihre Anmeldung für die Veranstaltung <a href="%{url}">%{title}</a> wurde bestätigt.
           details: Sie finden die Details zum Meeting im Anhang.
           registration_code: Ihr Registrierungscode ist %{code}.
       registration_type:
@@ -599,6 +613,7 @@ de:
       registrations:
         create:
           invalid: Bei diesem Meeting ist ein Problem aufgetreten.
+          success: Sie sind der Sitzung erfolgreich beigetreten. Da sie sich für die Sitzung registriert haben, werden Sie benachrichtigt wenn sich an der Sitzung etwas ändert.
         decline_invitation:
           invalid: Es ist ein Problem aufgetreten, dass die Einladung abgelehnt wurde.
           success: Sie haben die Einladung erfolgreich abgelehnt.
@@ -613,8 +628,9 @@ de:
         private_meeting: Private Sitzung
         transparent: Transparent
         withdraw: Zurückgezogen
-      versions:
-        back_to_resource: Zurück zur Besprechung
+      withdraw:
+        error: Beim Zurückziehen der Veranstaltung ist ein Fehler aufgetreten.
+        success: Die Verantstaltung wurde erfolgreich zurückgezogen.
     metrics:
       meetings:
         description: Anzahl der erstellten Meetings
@@ -625,8 +641,6 @@ de:
         past_meetings: Vergangene Treffen
         see_all: Alle anzeigen (%{count})
         upcoming_meetings: Bevorstehende Treffen
-      upcoming_meeting_for_card:
-        upcoming_meeting: Kommendes Treffen
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Ähnliche Ergebnisse:'

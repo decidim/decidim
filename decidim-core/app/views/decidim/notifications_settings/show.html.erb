@@ -2,7 +2,7 @@
   <% add_decidim_page_title(t("notifications_settings", scope: "layouts.decidim.user_profile")) %>
   <% content_for(:subtitle) { t("notifications_settings", scope: "layouts.decidim.user_profile") } %>
 
-  <%= form_for(@notifications_settings, url: notifications_settings_path, method: :put, class: "user-form") do |f| %>
+  <%= form_for(@notifications_settings, url: notifications_settings_path, method: :put) do |f| %>
     <div class="form__wrapper pt-0">
       <label>
         <%= t("receive_notifications_about", scope: "decidim.notifications_settings.show") %>
@@ -99,7 +99,7 @@
         </label>
       </div>
 
-      <% if @notifications_settings.user_is_moderator?(current_user) %>
+      <% if current_user.moderator? %>
         <label>
           <%= t("administrators", scope: "decidim.notifications_settings.show") %>
         </label>

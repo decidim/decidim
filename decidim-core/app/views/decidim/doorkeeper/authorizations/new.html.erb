@@ -1,6 +1,6 @@
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="flex justify-center">
-    <h1 class="h3 md:h1 decorator my-12">
+    <h1 class="title-decorator my-12">
       <%= t("wants_to_use_your_account_html", scope: "decidim.doorkeeper.authorizations.new", application_name: oauth_application.name) %>
       <%= t("by_organization_link_html", scope: "decidim.doorkeeper.authorizations.new", link: link_to(oauth_application.organization_name, oauth_application.organization_url)) %>
     </h1>

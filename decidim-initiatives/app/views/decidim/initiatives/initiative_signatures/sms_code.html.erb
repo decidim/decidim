@@ -1,6 +1,6 @@
 <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_code.help"), callout_class: "secondary") %>
 
-<%= decidim_form_for(@form, url: next_wizard_path, method: :put) do |f| %>
+<%= decidim_form_for(@form, url: sms_code_initiative_signatures_path, method: :put) do |f| %>
   <div class="form__wrapper">
     <%= f.text_field :verification_code %>
   </div>

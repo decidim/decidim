@@ -47,6 +47,8 @@ module Decidim
           end
 
           it "updates the election" do
+            allow(controller).to receive(:elections_path).and_return("/elections")
+            allow(controller).to receive(:election_questions_path).and_return("/elections/#{election.id}/questions")
             allow(controller).to receive(:election_question_answers_path).and_return("/answers")
 
             patch(:update, params:)
@@ -61,9 +63,17 @@ module Decidim
               let(:answer) { create(:election_answer, :with_photos, question:) }
 
               controller(AnswersController) do
-                helper_method :proposals_picker_election_question_answers_path
+                helper_method :proposals_picker_election_question_answers_path, :elections_path, :election_questions_path
                 def proposals_picker_election_question_answers_path(_foo, _bar)
                   "/"
+                end
+
+                def elections_path
+                  "/elections"
+                end
+
+                def election_questions_path(election)
+                  "/elections/#{election.id}/questions"
                 end
               end
 

@@ -150,9 +150,9 @@ module Decidim
     # Replace all the characters from the user supplied input that are uncontrolled
     # and could generate a command line injection
     #
-    # @return [String] the sanitized backport_branch
-    def sanitize_branch(backport_branch)
-      Shellwords.escape(backport_branch.gsub(%r{[^0-9a-z/-]}i, ""))
+    # @return [String] the sanitized branch name
+    def sanitize_branch(branch_name)
+      Shellwords.escape(branch_name.gsub("`", ""))
     end
 
     # Exit the script execution if there are any unstaged changes

@@ -26,11 +26,11 @@ module Decidim
         cat_ids = parent_ids.dup
         cat_ids.prepend(nil) if categories.include?("without")
 
-        subquery = includes(:category).where(decidim_categories: { id: cat_ids })
+        subquery = left_outer_joins(:category).where(decidim_categories: { id: cat_ids })
         return subquery if parent_ids.none?
 
         subquery.or(
-          includes(:category).where(decidim_categories: { parent_id: parent_ids })
+          left_outer_joins(:category).where(decidim_categories: { parent_id: parent_ids })
         )
       }
 

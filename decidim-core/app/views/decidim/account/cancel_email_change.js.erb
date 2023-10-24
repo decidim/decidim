@@ -1,6 +1,6 @@
 <%= render partial: "account_notification" %>
 
 if ("<%= @alert_class %>" === "success") {
-  document.querySelector("#email-change-pending").hidden = true;
+  document.querySelector("#email-change-pending").style.display = "none";
   document.querySelector("#user_email").disabled = false;
 }

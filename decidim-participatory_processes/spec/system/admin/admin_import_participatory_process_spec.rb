@@ -13,7 +13,9 @@ describe "Admin imports participatory process", type: :system do
 
   context "with context" do
     before "Imports the process with the basic fields" do
-      click_link "Import", match: :first
+      within_admin_menu do
+        click_link "Import"
+      end
 
       within ".import_participatory_process" do
         fill_in_i18n(
@@ -37,24 +39,33 @@ describe "Admin imports participatory process", type: :system do
     it "imports the json document" do
       expect(page).to have_content("successfully")
       expect(page).to have_content("Import participatory process")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
 
       within find("tr", text: "Import participatory process") do
-        click_link "Configure"
+        click_link "Import participatory process"
       end
 
-      click_link "Phases"
+      within_admin_sidebar_menu do
+        click_link "Phases"
+      end
+
       within ".table-list" do
         expect(page).to have_content(translated("Magni."))
       end
 
-      click_link "Categories"
+      within_admin_sidebar_menu do
+        click_link "Categories"
+      end
+
       within ".table-list" do
         expect(page).to have_content(translated("Illum nesciunt praesentium explicabo qui."))
         expect(page).to have_content(translated("Expedita sint earum rerum consequatur."))
       end
 
-      click_link "Components"
+      within_admin_sidebar_menu do
+        click_link "Components"
+      end
+
       expect(Decidim::ParticipatoryProcess.last.components.size).to eq(3)
       within ".table-list" do
         Decidim::ParticipatoryProcess.last.components.each do |component|
@@ -62,7 +73,10 @@ describe "Admin imports participatory process", type: :system do
         end
       end
 
-      click_link "Files"
+      within_admin_sidebar_menu do
+        click_link "Files"
+      end
+
       if Decidim::ParticipatoryProcess.last.attachments.any?
         within ".table-list" do
           Decidim::ParticipatoryProcess.last.attachments.each do |attachment|

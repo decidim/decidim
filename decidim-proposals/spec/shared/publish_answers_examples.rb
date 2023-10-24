@@ -16,7 +16,7 @@ shared_examples "publish answers" do
       click_button "Publish answers"
 
       within "#js-publish-answers-actions" do
-        expect(page).to have_content("Answers for 2 proposals will be published.")
+        expect(page).to have_content("Answers for 2 proposal's will be published?")
       end
 
       click_button(id: "js-submit-publish-answers")

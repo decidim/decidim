@@ -1,8 +1,7 @@
-<%= decidim_form_for(@notes_form, url: proposal_proposal_notes_path(proposal, @notes_form), html: { class: "form new_proposal_note" }) do |f| %>
-  <div class="row column">
-    <%= f.text_area :body, rows: 10, label: t(".note") %>
+<%= decidim_form_for(@notes_form, url: proposal_proposal_notes_path(proposal, @notes_form), html: { class: "form form-defaults new_proposal_note" }) do |f| %>
+  <div class="form__wrapper">
+    <%= f.text_area :body, rows: 4, label: t(".note"), class: "rounded border border-text-gray-2 mt-2" %>
   </div>
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".submit") %>
-  </div>
+
+  <%= f.submit t(".submit"), class: "button button__sm button__secondary" %>
 <% end %>

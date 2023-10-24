@@ -68,4 +68,5 @@ lt:
       surveys:
         answer:
           invalid: Atsakant į šios apklausos klausimus iškilo problema.
+          spam_detected: Atsakant į šią formą iškilo problema. Galbūt paskubėjote? Ar galite pabandyti dar kartą?
           success: Į apklausos klausimus atsakyta.

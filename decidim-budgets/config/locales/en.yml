@@ -21,6 +21,9 @@ en:
         scope_id: Scope
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budget
+        other: Budgets
       decidim/budgets/project:
         one: Project
         other: Projects
@@ -46,7 +49,8 @@ en:
         edit: Edit
         edit_projects: Manage projects
         import: Import proposals to projects
-        new: New %{name}
+        new_budget: New budget
+        new_project: New project
         preview: Preview
         send_voting_reminders: Send voting reminders
         title: Actions
@@ -155,8 +159,6 @@ en:
           create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
-      budget:
-        view: View all budget projects
       budget_information_modal:
         back_to: Back to %{component_name}
         close_modal: Close modal
@@ -167,10 +169,12 @@ en:
         cancel_order:
           more_than_one: delete your vote on %{name} and start over
           only_one: delete your vote and start over.
+        count:
+          one: "%{count} budget"
+          other: "%{count} budgets"
         finished_message: You have finished the voting process. Thanks for participating!
         highlighted_cta: Vote on %{name}
         if_change_opinion: If you have changed your mind, you can
-        my_budgets: My budgets
         progress: Finish voting
         remove_vote: Remove vote
         show: See projects
@@ -192,7 +196,6 @@ en:
           fields:
             category: Category
             id: ID
-            scope: Scope
             title: Title
       order_summary_mailer:
         order_summary:
@@ -241,8 +244,6 @@ en:
             all: All
             not_selected: Not selected
             selected: Selected
-        index:
-          back_to_budgets: back to budgets
         order_progress:
           assigned: Assigned
           budget: Budget
@@ -270,7 +271,6 @@ en:
           add: Add project %{resource_name} to your vote.
           remove: Remove project %{resource_name} from your vote.
           selected: Selected
-          view: View
           votes:
             one: vote
             other: votes

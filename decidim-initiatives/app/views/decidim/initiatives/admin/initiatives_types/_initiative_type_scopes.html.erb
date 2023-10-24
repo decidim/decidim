@@ -1,42 +1,44 @@
-<div class="card">
+<div class="card" data-component="accordion" id="accordion-<%= t("initiatives_types.initiative_type_scopes.title", scope: "decidim.initiatives.admin") %>">
   <div class="card-divider">
-    <h2 class="card-title">
-      <%= t ".title" %>
-      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.initiatives_type_scope.name", scope: "decidim.admin")),
+    <h2 class="card-title gap-2" id="<%= t("initiatives_types.initiative_type_scopes.title", scope: "decidim.initiatives.admin") %>">
+      <button class="card-divider-button" data-open="true" data-controls="panel-<%= t("initiatives_types.initiative_type_scopes.title", scope: "decidim.initiatives.admin") %>" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <span>
+          <%= t("initiatives_types.initiative_type_scopes.title", scope: "decidim.initiatives.admin") %>
+        </span>
+      </button>
+      <%= link_to t("actions.new_initiative_type_scope", scope: "decidim.admin"),
                   new_initiatives_type_initiatives_type_scope_path(initiative_type),
-                  class: "button tiny button--title" if allowed_to? :create, :initiative_type_scope %>
+                  class: "button button__sm button__secondary flex-none" if allowed_to? :create, :initiative_type_scope %>
     </h2>
   </div>
-
-  <div class="card-section">
-    <div class="row column">
-      <div class="table-scroll">
-        <table class="table-list">
-          <thead>
+  <div id="panel-<%= t("initiatives_types.initiative_type_scopes.title", scope: "decidim.initiatives.admin") %>" class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+        <tr>
+          <th><%= t("models.initiatives_type_scope.fields.scope", scope: "decidim.admin") %></th>
+          <th class="text-right">
+            <%= t("models.initiatives_type_scope.fields.supports_required", scope: "decidim.admin") %>
+          </th>
+          <th class="actions"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% initiative_type.scopes.each do |s| %>
           <tr>
-            <th><%= t("models.initiatives_type_scope.fields.scope", scope: "decidim.admin") %></th>
-            <th class="text-right">
-              <%= t("models.initiatives_type_scope.fields.supports_required", scope: "decidim.admin") %>
-            </th>
-            <th class="actions"></th>
+            <td><%= translated_attribute(s.scope_name) %></td>
+            <td class="text-right"><%= s.supports_required %></td>
+            <td class="table-list__actions">
+              <%= icon_link_to "pencil-line",
+                               decidim_admin_initiatives.edit_initiatives_type_initiatives_type_scope_path(initiative_type, s),
+                               t("actions.configure", scope: "decidim.admin"),
+                               class: "action-icon--new" if allowed_to? :edit, :initiative_type_scope, initiative_type_scope: s %>
+            </td>
           </tr>
-          </thead>
-          <tbody>
-          <% initiative_type.scopes.each do |s| %>
-            <tr>
-              <td><%= translated_attribute(s.scope_name) %></td>
-              <td class="text-right"><%= s.supports_required %></td>
-              <td class="table-list__actions">
-                <%= icon_link_to "pencil",
-                                decidim_admin_initiatives.edit_initiatives_type_initiatives_type_scope_path(initiative_type, s),
-                                t("actions.configure", scope: "decidim.admin"),
-                                class: "action-icon--new" if allowed_to? :edit, :initiative_type_scope, initiative_type_scope: s %>
-              </td>
-            </tr>
-          <% end %>
-          </tbody>
-        </table>
-      </div>
+        <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

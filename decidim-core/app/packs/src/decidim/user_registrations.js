@@ -1,6 +1,9 @@
+import PasswordToggler from "./password_toggler";
+
 $(() => {
   const $userRegistrationForm = $("#register-form");
   const $userGroupFields      = $userRegistrationForm.find(".user-group-fields");
+  const userPassword         =  document.querySelector(".user-password");
   const inputSelector         = 'input[name="user[sign_up_as]"]';
   const newsletterSelector    = 'input[type="checkbox"][name="user[newsletter]"]';
   const $newsletterModal      = $("#sign-up-newsletter-modal");
@@ -42,4 +45,8 @@ $(() => {
   $newsletterModal.find("[data-check]").on("click", (event) => {
     checkNewsletter($(event.target).data("check"));
   });
+
+  if (userPassword) {
+    new PasswordToggler(userPassword).init();
+  }
 });

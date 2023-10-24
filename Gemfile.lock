@@ -51,7 +51,7 @@ PATH
     decidim-conferences (0.28.0.dev)
       decidim-core (= 0.28.0.dev)
       decidim-meetings (= 0.28.0.dev)
-      wicked_pdf (~> 2.1)
+      wicked_pdf (~> 2.7)
       wkhtmltopdf-binary (~> 0.12)
     decidim-core (0.28.0.dev)
       active_link_to (~> 1.0)
@@ -65,7 +65,7 @@ PATH
       date_validator (~> 0.12.0)
       decidim-api (= 0.28.0.dev)
       devise (~> 4.7)
-      devise-i18n (~> 1.2)
+      devise-i18n (~> 1.2, < 1.11.1)
       diffy (~> 3.3)
       doorkeeper (~> 5.6, >= 5.6.6)
       doorkeeper-i18n (~> 4.0)
@@ -101,12 +101,14 @@ PATH
       rubyXL (~> 3.4)
       rubyzip (~> 2.0)
       seven_zip_ruby (~> 1.3)
-      shakapacker (~> 6.6.0)
+      shakapacker (~> 7.1.0)
       valid_email2 (~> 4.0)
       web-push (~> 3.0)
       wisper (~> 2.0)
     decidim-debates (0.28.0.dev)
       decidim-comments (= 0.28.0.dev)
+      decidim-core (= 0.28.0.dev)
+    decidim-design (0.28.0.dev)
       decidim-core (= 0.28.0.dev)
     decidim-dev (0.28.0.dev)
       bullet (~> 7.0)
@@ -157,7 +159,6 @@ PATH
       decidim-core (= 0.28.0.dev)
       decidim-verifications (= 0.28.0.dev)
       hexapdf (~> 0.32.0)
-      wicked (~> 1.3)
       wicked_pdf (~> 2.1)
       wkhtmltopdf-binary (~> 0.12)
     decidim-meetings (0.28.0.dev)
@@ -265,7 +266,7 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     batch-loader (1.5.0)
-    bcrypt (3.1.18)
+    bcrypt (3.1.19)
     better_html (2.0.1)
       actionview (>= 6.0)
       activesupport (>= 6.0)
@@ -338,8 +339,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.10.2)
-      devise (>= 4.8.0)
+    devise-i18n (1.11.0)
+      devise (>= 4.9.0)
     devise_invitable (2.0.8)
       actionmailer (>= 5.0)
       devise (>= 4.6)
@@ -513,7 +514,7 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.4)
-    minitest (5.19.0)
+    minitest (5.20.0)
     msgpack (1.4.5)
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -597,7 +598,7 @@ GEM
       rack (>= 2.0.0)
     rack-protection (3.0.6)
       rack
-    rack-proxy (0.7.6)
+    rack-proxy (0.7.7)
       rack
     rack-test (2.1.0)
       rack (>= 1.3)
@@ -728,7 +729,7 @@ GEM
       websocket (~> 1.0)
     semantic_range (3.0.0)
     seven_zip_ruby (1.3.0)
-    shakapacker (6.6.0)
+    shakapacker (7.1.0)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -802,16 +803,14 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    wicked (1.4.0)
-      railties (>= 3.0.7)
-    wicked_pdf (2.6.3)
+    wicked_pdf (2.7.0)
       activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
     wkhtmltopdf-binary (0.12.6.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.11)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   ruby
@@ -822,6 +821,7 @@ DEPENDENCIES
   byebug (~> 11.0)
   decidim!
   decidim-conferences!
+  decidim-design!
   decidim-dev!
   decidim-elections!
   decidim-initiatives!

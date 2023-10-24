@@ -18,15 +18,15 @@
     </div>
 
     <div data-dialog-actions>
-      <%= link_to t("sign_out", scope: "layouts.decidim.timeout_modal"), decidim.destroy_user_session_path, method: :delete, class: "button button__sm md:button__lg button__transparent-secondary" %>
+      <%= link_to t("log_out", scope: "layouts.decidim.timeout_modal"), decidim.destroy_user_session_path, method: :delete, class: "button button__sm md:button__lg button__transparent-secondary" %>
       <%= link_to "", decidim.destroy_user_session_path(translation_suffix: :timed_out), method: :delete, id: "reveal-hidden-sign-out", class: "hidden" %>
 
       <%= button_to t("continue_session", scope: "layouts.decidim.timeout_modal"),
-        decidim.heartbeat_path,
-        id: "continueSession",
-        class: "button button__sm md:button__lg button__secondary",
-        remote: true,
-        method: :post %>
+                    decidim.heartbeat_path,
+                    id: "continueSession",
+                    class: "button button__sm md:button__lg button__secondary",
+                    remote: true,
+                    method: :post %>
     </div>
   <% end %>
 <% end %>

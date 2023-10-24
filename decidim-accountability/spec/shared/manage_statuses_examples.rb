@@ -26,7 +26,7 @@ RSpec.shared_examples "manage statuses" do
   end
 
   it "creates a new status" do
-    click_link "New Status"
+    click_link "New status"
 
     within ".new_status" do
       fill_in :status_key, with: "status_key_1"
@@ -69,7 +69,7 @@ RSpec.shared_examples "manage statuses" do
 
     it "deletes a status" do
       within find("tr", text: status2.key) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

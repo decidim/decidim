@@ -159,7 +159,7 @@ module Decidim
 
         gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
 
-        %w(conferences elections initiatives templates).each do |component|
+        %w(conferences design elections initiatives templates).each do |component|
           if options[:demo]
             gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
           else
@@ -221,22 +221,6 @@ module Decidim
             @production_gems.map(&:call)
           end
         end
-      end
-
-      def tweak_bootsnap
-        gsub_file "config/boot.rb", %r{require 'bootsnap/setup'.*$}, <<~RUBY.rstrip
-          require "bootsnap"
-
-          env = ENV["RAILS_ENV"] || "development"
-
-          Bootsnap.setup(
-            cache_dir: File.expand_path(File.join("..", "tmp", "cache"), __dir__),
-            development_mode: env == "development",
-            load_path_cache: true,
-            compile_cache_iseq: !ENV["SIMPLECOV"],
-            compile_cache_yaml: true
-          )
-        RUBY
       end
 
       def tweak_spring

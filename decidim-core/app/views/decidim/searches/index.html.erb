@@ -1,5 +1,9 @@
 <% add_decidim_page_title(t("term_input_placeholder", scope: "decidim.search")) %>
 
+<% content_for :header_snippets do %>
+  <meta name="robots" content="noindex">
+<% end %>
+
 <% content_for :aside do %>
   <%= render partial: "filters" %>
 <% end %>

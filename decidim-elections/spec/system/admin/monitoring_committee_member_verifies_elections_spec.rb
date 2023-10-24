@@ -20,7 +20,9 @@ describe "Monitoring committee member verifies elections", type: :system do
 
   context "when listing the elections" do
     it "lists all the polling stations for the voting" do
-      click_link "Verify Elections"
+      within_admin_sidebar_menu do
+        click_link "Verify Elections"
+      end
 
       within "#monitoring_committee_verify_elections table" do
         expect(page).to have_content(translated(election.title))

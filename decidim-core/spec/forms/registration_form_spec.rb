@@ -14,19 +14,15 @@ module Decidim
 
     let(:organization) { create(:organization) }
     let(:name) { "User" }
-    let(:nickname) { "justme" }
     let(:email) { "user@example.org" }
     let(:password) { "S4CGQ9AM4ttJdPKS" }
-    let(:password_confirmation) { password }
     let(:tos_agreement) { "1" }
 
     let(:attributes) do
       {
         name:,
-        nickname:,
         email:,
         password:,
-        password_confirmation:,
         tos_agreement:
       }
     end
@@ -49,12 +45,6 @@ module Decidim
 
     context "when the name is not present" do
       let(:name) { nil }
-
-      it { is_expected.to be_invalid }
-    end
-
-    context "when the nickname is not present" do
-      let(:nickname) { nil }
 
       it { is_expected.to be_invalid }
     end
@@ -85,40 +75,8 @@ module Decidim
       end
     end
 
-    context "when the nickname already exists" do
-      context "and a user has the nickname" do
-        let!(:user) { create(:user, organization:, nickname: nickname.upcase) }
-
-        it { is_expected.to be_invalid }
-
-        context "and is pending to accept the invitation" do
-          let!(:user) { create(:user, organization:, nickname:, invitation_token: "foo", invitation_accepted_at: nil) }
-
-          it { is_expected.to be_valid }
-        end
-      end
-
-      context "and a user_group has the nickname" do
-        let!(:user_group) { create(:user_group, organization:, nickname:) }
-
-        it { is_expected.to be_invalid }
-      end
-    end
-
-    context "when the nickname is too long" do
-      let(:nickname) { "verylongnicknamethatcreatesanerror" }
-
-      it { is_expected.to be_invalid }
-    end
-
     context "when the name is an email" do
       let(:name) { "test@example.org" }
-
-      it { is_expected.to be_invalid }
-    end
-
-    context "when the nickname has spaces" do
-      let(:nickname) { "test example" }
 
       it { is_expected.to be_invalid }
     end
@@ -135,22 +93,58 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
-    context "when the password confirmation is not present" do
-      let(:password_confirmation) { nil }
-
-      it { is_expected.to be_invalid }
-    end
-
-    context "when the password confirmation is different from password" do
-      let(:password_confirmation) { "invalid" }
-
-      it { is_expected.to be_invalid }
-    end
-
     context "when the tos_agreement is not accepted" do
       let(:tos_agreement) { "0" }
 
       it { is_expected.to be_invalid }
+    end
+
+    describe "nickname" do
+      let(:name) { "justme" }
+
+      context "when the nickname already exists" do
+        context "and a user has the nickname" do
+          let!(:another_user) { create(:user, organization:, nickname: name.upcase) }
+
+          it { is_expected.to be_valid }
+
+          it "adds a suffix in the nickname" do
+            expect(subject.nickname).to eq("justme_2")
+          end
+
+          context "and is pending to accept the invitation" do
+            let!(:another_user) { create(:user, organization:, nickname: name, invitation_token: "foo", invitation_accepted_at: nil) }
+
+            it { is_expected.to be_valid }
+          end
+        end
+
+        context "and a user_group has the nickname" do
+          let!(:user_group) { create(:user_group, organization:, nickname: name) }
+
+          it { is_expected.to be_valid }
+        end
+      end
+
+      context "when the nickname is too long" do
+        let(:name) { "verylongnicknamethatcreatesanerror" }
+
+        it { is_expected.to be_valid }
+
+        it "truncates the nickname" do
+          expect(subject.nickname).to eq("verylongnicknamethat")
+        end
+      end
+
+      context "when the name has spaces" do
+        let(:name) { "test example" }
+
+        it { is_expected.to be_valid }
+
+        it "replaces the space in the nickname" do
+          expect(subject.nickname).to eq("test_example")
+        end
+      end
     end
   end
 end

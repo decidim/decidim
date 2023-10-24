@@ -1,21 +1,23 @@
-<h2 class="process-title-summary">
-  <%= t(".new_managed_user_promotion") %>
-</h2>
-
-<div class="section">
-  <div class="callout warning">
-    <p><%= t(".explanation") %></p>
-  </div>
+<% add_decidim_page_title(t(".new_managed_user_promotion")) %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t(".new_managed_user_promotion") %>
+  </h2>
 </div>
 
-<%= decidim_form_for(@form, url: impersonatable_user_promotions_path, html: { class: "form new_managed_user_promotion" }) do |f| %>
-  <div class="card">
-    <div class="card-section">
-      <%= render partial: "form", object: f %>
-    </div>
-  </div>
+<div class="section">
+  <%= cell("decidim/announcement", t(".explanation"), callout_class: "warning" ) %>
+</div>
 
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".promote") %>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: impersonatable_user_promotions_path, html: { class: "form form-defaults" }) do |f| %>
+      <%= render partial: "form", object: f %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t(".promote"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

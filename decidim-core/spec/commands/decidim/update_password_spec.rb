@@ -7,11 +7,10 @@ module Decidim
     let(:command) { described_class.new(user, form) }
     let(:user) { create(:user, :confirmed, password_updated_at: 1.week.ago) }
     let(:password) { "updatedP4ssw0rd123456789" }
-    let(:password_confirmation) { "updatedP4ssw0rd123456789" }
-    let(:form) { Decidim::PasswordForm.from_params(password:, password_confirmation:) }
+    let(:form) { Decidim::PasswordForm.from_params(password:) }
 
     context "when invalid" do
-      let(:password_confirmation) { "foo" }
+      let(:password) { "" }
 
       it "broadcasts invalid" do
         expect { command.call }.to broadcast(:invalid)

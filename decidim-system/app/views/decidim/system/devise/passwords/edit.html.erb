@@ -1,4 +1,4 @@
-<h2 class="h3">Change your password</h2>
+<h2 class="h3"> <%= link_to t(".change_your_password") %></h2>
 
 <%= decidim_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: %>
@@ -6,7 +6,7 @@
 
   <div class="form__wrapper">
     <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br>
+      <em><%= t(".minimum_characters", minimum: @minimum_password_length) %></em><br>
     <% end %>
     <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>

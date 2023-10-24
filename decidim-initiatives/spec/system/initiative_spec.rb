@@ -56,6 +56,14 @@ describe "Initiative", type: :system do
         end
       end
 
+      describe "follow button" do
+        let!(:user) { create(:user, :confirmed, organization:) }
+        let(:followable) { initiative }
+        let(:followable_path) { decidim_initiatives.initiative_path(initiative) }
+
+        include_examples "follows"
+      end
+
       context "when signature interval is defined" do
         let(:base_initiative) do
           create(:initiative,
@@ -128,6 +136,70 @@ describe "Initiative", type: :system do
         it "does not have comments" do
           expect(page).not_to have_css(".comments")
           expect(page).not_to have_content("0 comments")
+        end
+      end
+
+      context "when I am the author of the initiative" do
+        before do
+          sign_in initiative.author
+          visit decidim_initiatives.initiative_path(initiative)
+        end
+
+        shared_examples_for "initiative does not show send to technical validation" do
+          it { expect(page).not_to have_link("Send to technical validation") }
+        end
+
+        shared_examples_for "initiative shows send to technical validation disabled" do
+          it { expect(page).to have_link("Send to technical validation", href: "#") }
+        end
+
+        context "when initiative state is created" do
+          let(:state) { :created }
+
+          context "when the user cannot send the initiative to technical validation" do
+            before do
+              initiative.committee_members.destroy_all
+              visit decidim_initiatives.initiative_path(initiative)
+            end
+
+            it_behaves_like "initiative shows send to technical validation disabled"
+            it { expect(page).to have_content("Before sending your initiative for technical validation") }
+          end
+
+          context "when the user can send the initiative to technical validation" do
+            it { expect(page).to have_link("Send to technical validation", href: decidim_initiatives.send_to_technical_validation_initiative_path(initiative)) }
+            it { expect(page).to have_content('If everything looks ok, click on "Send to technical validation" for an administrator to review and publish your initiative') }
+          end
+        end
+
+        context "when initiative state is validating" do
+          let(:state) { :validating }
+
+          it_behaves_like "initiative shows send to technical validation disabled"
+        end
+
+        context "when initiative state is discarded" do
+          let(:state) { :discarded }
+
+          it_behaves_like "initiative does not show send to technical validation"
+        end
+
+        context "when initiative state is published" do
+          let(:state) { :published }
+
+          it_behaves_like "initiative does not show send to technical validation"
+        end
+
+        context "when initiative state is rejected" do
+          let(:state) { :rejected }
+
+          it_behaves_like "initiative does not show send to technical validation"
+        end
+
+        context "when initiative state is accepted" do
+          let(:state) { :accepted }
+
+          it_behaves_like "initiative does not show send to technical validation"
         end
       end
     end

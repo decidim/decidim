@@ -1,6 +1,6 @@
 <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.fill_personal_data.help"), callout_class: "secondary") %>
 
-<%= decidim_form_for(@form, url: next_wizard_path, method: :put) do |f| %>
+<%= decidim_form_for(@form, url: fill_personal_data_initiative_signatures_path, method: :put) do |f| %>
   <%= form_required_explanation %>
   <div>
     <div class="form__wrapper">
@@ -12,7 +12,7 @@
     </div>
 
     <div class="form__wrapper">
-      <%= f.date_select :date_of_birth, start_year: 1900, end_year: 16.years.ago.year, default: 35.years.ago, prompt: { day: t(".date_select.day"), month: t(".date_select.month"), year: t(".date_select.year") } %>
+      <%= f.date_field :date_of_birth, min: 120.years.ago.to_date, max: 16.years.ago.to_date, value: 35.years.ago.to_date %>
     </div>
 
     <div class="form__wrapper">
@@ -20,8 +20,8 @@
     </div>
 
     <div class="pb-s">
-      <small class="text-small">
-      <%= strip_tags(translated_attribute(extra_data_legal_information)) %>
+      <small>
+        <%= strip_tags(translated_attribute(extra_data_legal_information)) %>
       </small>
     </div>
   </div>

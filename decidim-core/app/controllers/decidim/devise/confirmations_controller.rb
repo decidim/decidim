@@ -31,6 +31,8 @@ module Decidim
       def after_confirmation_path_for(resource_name, resource)
         return profile_path(resource.nickname) if resource_name == :user_group
 
+        sign_in(resource)
+
         super
       end
     end

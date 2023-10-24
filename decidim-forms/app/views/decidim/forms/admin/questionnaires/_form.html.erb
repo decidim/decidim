@@ -1,107 +1,81 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= edit_questionnaire_title %>
-      <% unless template? questionnaire.questionnaire_for %>
-        <% if allowed_to? :preview, :questionnaire %>
-          <div class="button--title">
-            <%= link_to t(".preview"), public_url, class: "button tiny button--simple", target: :_blank %>
-          </div>
-        <% end %>
-        <% if questionnaire.answers.any? %>
-          <div class="button--title">
-            <%= export_dropdown(current_component, questionnaire.id) if allowed_to? :export_answers, :questionnaire %>
-          </div>
-          <div class="button--title">
-            <% if allowed_to? :show, :questionnaire_answers %>
-              <%= link_to t("actions.show", scope: "decidim.forms.admin.questionnaires"), questionnaire_participants_url, class: "button tiny button--title new" %>
-            <% end %>
-          </div>
-        <% else %>
-          <button class="button tiny button--title" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.answers") %></button>
-        <% end %>
-      <% end %>
-    </h2>
-  </div>
-  <div class="card-section">
-    <div class="row column">
-      <%= form.translated :text_field, :title, autofocus: true %>
-    </div>
-    <div class="row column">
-      <%= form.translated :editor, :description, toolbar: :full, lines: 30, label: t("models.components.description", scope: "decidim.forms.admin") %>
-    </div>
-    <div class="row column">
-      <%= form.translated :editor, :tos, toolbar: :content, lines: 10, label: t("models.components.tos", scope: "decidim.forms.admin") %>
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
+      <div class="row column">
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
+      </div>
+      <div class="row column">
+        <%= form.translated :editor, :description, toolbar: :full, lines: 30, label: t("models.components.description", scope: "decidim.forms.admin"), aria: { label: :description } %>
+      </div>
+      <div class="row column">
+        <%= form.translated :editor, :tos, toolbar: :content, lines: 10, label: t("models.components.tos", scope: "decidim.forms.admin"), aria: { label: :tos } %>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="questionnaire-questions">
-  <div class="row column text-center">
-    <button type="button" class="button collapse-all"><%= t(".collapse") %></button>
-    <button type="button" class="button expand-all"><%= t(".expand") %></button>
+<div class="questionnaire-questions form__wrapper">
+  <div class="row column text-center my-4">
+    <button type="button" class="button button__sm button__secondary collapse-all"><%= t(".collapse") %></button>
+    <button type="button" class="button button__sm button__secondary expand-all"><%= t(".expand") %></button>
   </div>
 
   <% if questionnaire.questions_editable? %>
     <% if questionnaire.answers.any? && !questionnaire.published? %>
-      <div class="callout warning">
-        <%= t(".unpublished_warning") %>
-      </div>
+      <%= cell("decidim/announcement", t(".unpublished_warning"), callout_class: "warning" ) %>
     <% end %>
 
     <%= fields_for "questionnaire[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
       <script type="text/template" class="decidim-question-template decidim-template" id="question-template">
         <%= render "decidim/forms/admin/questionnaires/question",
-              form: question_form,
-              id: tabs_id_for_question(blank_question),
-              editable: questionnaire.questions_editable?,
-              answer_option_template_selector: "#answer-option-template-dummy",
-              display_condition_template_selector: "#display-condition-template-dummy",
-              matrix_row_template_selector: "#matrix-row-template-dummy" %>
+                   form: question_form,
+                   id: tabs_id_for_question(blank_question),
+                   editable: questionnaire.questions_editable?,
+                   answer_option_template_selector: "#answer-option-template-dummy",
+                   display_condition_template_selector: "#display-condition-template-dummy",
+                   matrix_row_template_selector: "#matrix-row-template-dummy" %>
       </script>
       <script type="text/template" class="decidim-separator-template decidim-template" id="separator-template">
         <%= render "decidim/forms/admin/questionnaires/separator",
-              form: question_form,
-              id: tabs_id_for_question(blank_question),
-              editable: questionnaire.questions_editable? %>
+                   form: question_form,
+                   id: tabs_id_for_question(blank_question),
+                   editable: questionnaire.questions_editable? %>
       </script>
       <script type="text/template" class="decidim-title-and-description-template decidim-template" id="title-and-description-template">
         <%= render "decidim/forms/admin/questionnaires/title_and_description",
-              form: question_form,
-              id: tabs_id_for_question(blank_question),
-              editable: questionnaire.questions_editable? %>
+                   form: question_form,
+                   id: tabs_id_for_question(blank_question),
+                   editable: questionnaire.questions_editable? %>
       </script>
       <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-dummy" %>
       <%= render "decidim/forms/admin/questionnaires/display_condition_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "display-condition-template-dummy" %>
       <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "matrix-row-template-dummy" %>
     <% end %>
   <% else %>
-    <div class="callout warning">
-      <%= t(".already_answered_warning") %>
-    </div>
+    <%= cell("decidim/announcement", t(".already_answered_warning"), callout_class: "warning" ) %>
   <% end %>
 
-  <div class="questionnaire-questions-list">
+  <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">
     <% @form.questions.each_with_index do |question, index| %>
       <%= fields_for "questionnaire[questions][]", question do |question_form| %>
         <% if question.separator? %>
           <%= render "decidim/forms/admin/questionnaires/separator",
-                form: question_form,
-                id: tabs_id_for_question(question),
-                editable: questionnaire.questions_editable? %>
+                     form: question_form,
+                     id: tabs_id_for_question(question),
+                     editable: questionnaire.questions_editable? %>
         <% elsif question.title_and_description? %>
           <%= render "decidim/forms/admin/questionnaires/title_and_description",
-                form: question_form,
-                id: tabs_id_for_question(question),
-                editable: questionnaire.questions_editable? %>
+                     form: question_form,
+                     id: tabs_id_for_question(question),
+                     editable: questionnaire.questions_editable? %>
         <% else %>
           <%= render "decidim/forms/admin/questionnaires/question",
-                form: question_form,
-                id: tabs_id_for_question(question),
-                editable: questionnaire.questions_editable?,
-                display_condition_template_selector: "#display-condition-template-#{index}",
-                answer_option_template_selector: "#answer-option-template-#{index}",
-                matrix_row_template_selector: "#matrix-row-template-#{index}" %>
+                     form: question_form,
+                     id: tabs_id_for_question(question),
+                     editable: questionnaire.questions_editable?,
+                     display_condition_template_selector: "#display-condition-template-#{index}",
+                     answer_option_template_selector: "#answer-option-template-#{index}",
+                     matrix_row_template_selector: "#matrix-row-template-#{index}" %>
           <%= render "decidim/forms/admin/questionnaires/display_condition_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "display-condition-template-#{index}" %>
           <%= render "decidim/forms/admin/questionnaires/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-#{index}" %>
           <%= render "decidim/forms/admin/questionnaires/matrix_row_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "matrix-row-template-#{index}" %>
@@ -111,9 +85,11 @@
   </div>
 
   <% if questionnaire.questions_editable? %>
-    <button class="button add-question"><%= t(".add_question") %></button>
-    <button class="button add-separator"><%= t(".add_separator") %></button>
-    <button class="button add-title-and-description"><%= t(".add_title_and_description") %></button>
+    <div class="mt-4">
+      <button class="button button__sm button__secondary add-question"><%= t(".add_question") %></button>
+      <button class="button button__sm button__secondary add-separator"><%= t(".add_separator") %></button>
+      <button class="button button__sm button__secondary add-title-and-description"><%= t(".add_title_and_description") %></button>
+    </div>
   <% end %>
 </div>
 

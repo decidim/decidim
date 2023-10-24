@@ -45,7 +45,6 @@ ar:
         edit: تعديل
         import: استيراد المشاريع للنتائج
         import_csv: استيراد CSV
-        new: '%{name} جديد'
         preview: معاينة
         timeline_entries: تطور المشروع
         title: الإجراءات
@@ -63,8 +62,6 @@ ar:
             name: نتيجة
           status:
             name: الحالة
-          timeline_entry:
-            name: دخول الجدول الزمني
         projects_import:
           create:
             invalid: كان هناك مشكله فى استيراد المشاريع إلى النتائج, يرجى اتباع التعليمات بعناية و التأكد من اختيار مشاريع للتنفيذ.

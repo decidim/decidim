@@ -15,7 +15,7 @@ module Decidim
           description "Lists all initiative types"
         end
 
-        type.field :initiatives_type, InitiativeApiType, null: true, description: "Finds a initiative type" do
+        type.field :initiatives_type, InitiativeApiType, null: true, description: "Finds an initiative type" do
           argument :id, GraphQL::Types::ID, "The ID of the initiative type", required: true
         end
 
@@ -30,7 +30,7 @@ module Decidim
         type.field :initiative,
                    Decidim::Initiatives::InitiativeType,
                    null: true,
-                   description: "Finds a initiative" do
+                   description: "Finds an initiative" do
           argument :id, GraphQL::Types::ID, "The ID of the participatory space", required: false
         end
       end

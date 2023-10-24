@@ -1,4 +1,4 @@
-<div class="card-section">
+<div class="card-section p-4">
   <%= cell("decidim/announcement", t("info_message", scope: "decidim.votings.census.admin.census.new"), callout_class: "warning") %>
   <%= cell("decidim/announcement", ballot_style_callout_text, callout_class: ballot_style_callout_level) %>
 
@@ -10,12 +10,13 @@
 
       <%= decidim_form_for(@form, url: admin_voting_census_path,
                                   method: :post,
-                                  html: { class: "form new_census" }) do |form| %>
+                                  html: { class: "form form-defaults new_census" }) do |form| %>
         <div class="field">
-          <%= form.upload :file, required: true, help_i18n_scope: "decidim.votings.census.admin.census.new.file_help" %>
+          <%= form.upload :file, help_i18n_scope: "decidim.votings.census.admin.census.new.file_help", button_class: "button button__sm button__transparent-secondary" %>
         </div>
-
-        <%= submit_tag t("submit", scope: "decidim.votings.census.admin.census.new"), class: "button" %>
+        <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+          <%= submit_tag t("submit", scope: "decidim.votings.census.admin.census.new"), class: "button button__sm button__secondary" %>
+        </div>
       <% end %>
     </div>
   </div>

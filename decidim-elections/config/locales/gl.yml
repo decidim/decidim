@@ -51,7 +51,6 @@ gl:
         manage_answers: Xestionar respostas
         manage_questions: Xestionar preguntas
         manage_steps: Xestionar pasos
-        new: Nova %{name}
         publish: Publicar
         title: Accións
       admin:
@@ -79,12 +78,6 @@ gl:
         models:
           answer:
             name: Resposta
-          election:
-            name: Elección
-          question:
-            name: Pregunta
-          trustee:
-            name: Comisario
         questions:
           edit:
             title: Editar pregunta
@@ -152,7 +145,6 @@ gl:
           download: Descargar
           not_available: Aínda non dispoñíbel
           not_created: Sen crear
-          not_published: Sen publicar
           not_started: Sen iniciar
           published: Publicado
           results_description:
@@ -166,12 +158,7 @@ gl:
           all: Todas
           date: Data
           finished: Finalizada
-          search: Procurar
           upcoming: Vindeiras
-        filters_small_view:
-          close_modal: Pechar modal
-          filter: Filtrar
-          filter_by: Filtrar por
         preview:
           available_answers: 'Respostas dispoñibles:'
           description: 'Estas son as preguntas que atoparás non proceso de votación:'
@@ -235,7 +222,7 @@ gl:
               submit: Enviar
       votes:
         ballot_decision:
-          audit: "( Auditar papeleta )"
+          audit: ( Auditar papeleta )
           back: Comezar o proceso de voto de novo
           ballot_hash: 'O identificador da túa papeleta é:'
         confirmed:
@@ -251,14 +238,11 @@ gl:
         header:
           ballot_decision: Enviar ou auditar o teu voto
           confirm: Confirma o teu voto
-          confirmed: Voto confirmado
-          encrypting: Cifrando o voto
         messages:
           invalid_token: A túa sesión na cabina de votación non é válida. Tenta votar de novo.
         modal:
           close: Pechar
         onboarding_modal:
-          close: Pechar modal
           create_account: Crear conta
           description: Queres crear unha conta nova na plataforma? Poderás participar nos procesos e ser unha parte activa da organización.
           no_account: Non, grazas.
@@ -296,7 +280,6 @@ gl:
               confirm_destroy: Estás certo/a?
               destroy: Eliminar
               edit: Editar
-              new: Novo
               title: Accións
             title: Estilos de papeletas
           new:
@@ -316,7 +299,6 @@ gl:
           ballot_style:
             fields:
               code: Código
-            name: Estilo de papeleta
         monitoring_committee_election_results:
           actions:
             title: Accións
@@ -416,15 +398,9 @@ gl:
             subject: A exportación dos códigos de acceso á votación de %{voting_title} xa están dispoñibles
       content_blocks:
         landing_page:
-          description:
-            title: Sobre esta votación
-          metrics:
-            heading: Métricas
           polling_stations:
             heading: Puntos de votación
             no_polling_stations: Aínda non hai puntos de votación.
-          timeline:
-            heading: Liña de tempo
       polling_officer_zone:
         closures:
           back_to_polling_stations: Volver aos puntos de votación
@@ -453,7 +429,6 @@ gl:
             info_text: 'Por favor, insire o número total de papeletas (sobres) recontados neste punto de votación:'
             modal_ballots_count_error:
               btn_validate_total: Validar o reconto total de papeletas
-              close_modal: Pechar
               message_for_monitoring_committee: Mensaxe para o comité de seguimento
               review_recount: Revisar o reconto
               text_area_placeholder: Por favor, escribe a túa mensaxe
@@ -467,7 +442,6 @@ gl:
             heading: Reconto de votos
           sign:
             cancel: Cancelar
-            close_modal: Pechar
             error: Produciuse un erro, téntao de novo.
           update:
             error: Produciuse un erro ao actualizar os resultados do peche, téntao de novo.
@@ -557,9 +531,7 @@ gl:
           year: Ano
           year_placeholder: YYYY
         elections_log:
-          bb_status: Estado da elección
           description: O rexistro da elección amosarache toda a información importante sobre cada votación. Por exemplo, o estado da cerimonia de chaves, o reconto ou se os resultados xa están publicados. Fai clic na elección da que desexas a información do rexistro.
-          election_log: Rexistro da elección
           title: Rexistro da elección
         filters:
           date: Data
@@ -569,11 +541,9 @@ gl:
           ask_for_a_new_one: Solicitar un novo.
           form_title: 'Enche o seguinte formulario para acceder á votación:'
           start_voting: Comezar votación
-          step: Identificación
           title: Identificarme cos meus datos do censo da votación
   layouts:
     decidim:
       voting_navigation:
         check_census: Podo votar?
         election_log: Rexistro da elección
-        voting_menu_item: A votación

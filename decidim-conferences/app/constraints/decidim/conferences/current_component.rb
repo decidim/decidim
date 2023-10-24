@@ -2,7 +2,7 @@
 
 module Decidim
   module Conferences
-    # This class infers the current component on an conference context
+    # This class infers the current component on a conference context
     # request parameters and injects it into the environment.
     class CurrentComponent
       # Public: Initializes the class.
@@ -17,7 +17,7 @@ module Decidim
       #
       # request - The request that holds the current component relevant information.
       #
-      # Returns a true if the request matches an conference and a
+      # Returns a true if the request matches a conference and a
       # component belonging to that conference, false otherwise
       def matches?(request)
         CurrentConference.new.matches?(request) &&

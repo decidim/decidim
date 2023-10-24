@@ -12,9 +12,9 @@ Starting with the v0.27.0, you have the following social shares services that yo
 * Pinterest
 * Reddit
 * Telegram
-* Twitter
 * Vkontakte
 * WhatsApp
+* X (former Twitter)
 * Xing
 
 == Configuration
@@ -25,14 +25,14 @@ The format of this variable is as follows
 
 [source,console]
 ----
-DECIDIM_SOCIAL_SHARE_SERVICES="Facebook, Twitter"
+DECIDIM_SOCIAL_SHARE_SERVICES="Facebook, X"
 ----
 
 NOTE: Services names are case sensitive.
 
 == Default services
 
-By default we enable the following services: Twitter, Facebook, WhatsApp and Telegram.
+By default we enable the following services: X, Facebook, WhatsApp and Telegram.
 
 image::social-share-modal-default.png[Social share modal]
 

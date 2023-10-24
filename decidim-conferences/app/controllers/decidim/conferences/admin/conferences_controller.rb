@@ -6,6 +6,8 @@ module Decidim
       # Controller that allows managing conferences.
       #
       class ConferencesController < Decidim::Conferences::Admin::ApplicationController
+        include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
+
         helper_method :current_conference, :current_participatory_space
         layout "decidim/admin/conferences"
         include Decidim::Conferences::Admin::Filterable

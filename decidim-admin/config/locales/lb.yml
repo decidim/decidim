@@ -84,7 +84,6 @@ lb:
         success_color: Erfolg
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
-        twitter_handler: Twitter-Handler
         user_groups_enabled: Benutzergruppen aktivieren
         users_registration_mode: Benutzerregistrierungs-Modus
         warning_color: Warnung
@@ -154,8 +153,6 @@ lb:
         export: Alles exportéieren
         export-selection: Export Auswiel
         import: Importieren
-        manage: Verwalten
-        new: Neu %{name}
         newsletter:
           new: Neuer Newsletter
         participatory_space_private_user:
@@ -202,7 +199,6 @@ lb:
           title: Ordner bearbeiten
           update: Aktualisieren
         index:
-          attachment_collection_used: Dieser Ordner kann nicht entfernt werden, weil er verwendet wird.
           attachment_collections_title: Anhang Ordner
         new:
           create: Erstellen
@@ -247,7 +243,6 @@ lb:
           update: Aktualisieren
         index:
           categories_title: Kategorien
-          category_used: Diese Kategorie kann nicht entfernt werden, weil sie verwendet wird.
         new:
           create: Kategorie erstellen
           title: Neue Kategorie
@@ -391,7 +386,6 @@ lb:
             all: Alle
             managed: Gelang es
             not_managed: Nicht verwaltet
-          filter_by: Filtern nach
           impersonate: Imitieren
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
           managed: Gelang es
@@ -442,7 +436,6 @@ lb:
         area_types: Bereichstypen
         areas: Bereiche
         configuration: Aufbau
-        dashboard: Instrumententafel
         external_domain_whitelist: Erlaabt extern Domainen
         help_sections: Hilfeabschnitte
         homepage: Startseite
@@ -521,7 +514,6 @@ lb:
           fields:
             created_at: Erstellungsdatum
             email: Email
-            last_sign_in_at: Letztes Anmeldedatum
             name: Name
             role: Rolle
             roles:
@@ -627,9 +619,6 @@ lb:
           select_scopes: Nur Teilnehmer anzeigen, die einen der gewählten Themenbereiche in Ihren "Meine Interessen" Einstellungen ihres Kontos aktiviert haben.
           select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
           select_users: Wählen Sie aus, welchen Benutzern Sie den Newsletter senden möchten
-          send_to_all_users: An alle Benutzer senden
-          send_to_followers: An Follower senden
-          send_to_participants: An Teilnehmer senden
           title: Empfänger auswählen
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
         show:
@@ -661,7 +650,6 @@ lb:
           officialize: Offizialisieren
           title: Benutzer "%{name}" offiziellisieren
         show_email_modal:
-          close_modal: Modal schließen
           description: Wann Dir en Participant direkt kontaktéiere musst, kënnt Dir op de Show Knäppchen klickt fir hir E -Mail Adress ze gesinn. Dës Aktioun gëtt protokolléiert.
           email_address: E-Mail-Adresse
           full_name: Voller Name
@@ -678,7 +666,6 @@ lb:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
@@ -690,8 +677,6 @@ lb:
         form:
           colors:
             colors_title: Organisationsfarben
-            header_snippets_help: Verwenden Sie dieses Feld, um Dinge zum HTML-Kopf hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieterdiensten, für die zusätzliches JavaScript oder CSS erforderlich ist. Außerdem können Sie damit dem HTML zusätzliche Meta-Tags hinzufügen. Beachten Sie, dass dies nur auf öffentlichen Seiten und nicht im Admin-Bereich erfolgt.
-          cta_button_path_help: 'Sie können überschreiben, wo die Call To Action-Schaltfläche in der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
           cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
@@ -812,9 +797,6 @@ lb:
           update: Aktualisieren
         form:
           none: Keiner
-          slug_help: 'Benutze partielle Pfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
-        index:
-          last_notable_change: Letzte bemerkenswerte Änderung
         new:
           create: Seite erstellen
           title: Neue Seite
@@ -837,7 +819,6 @@ lb:
         participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
-        static_pages: Seiten
         statistics: Aktivität
         user_groups: Benutzergruppen
       user_group:
@@ -879,7 +860,6 @@ lb:
           last_month: Letzter Monat
           last_week: Letzte Woche
           participants: Teilnehmer
-      view_public_page: Öffentliche Seite anzeigen
     metrics:
       blocked_users:
         object: blockierte Benutzer
@@ -926,12 +906,3 @@ lb:
   errors:
     messages:
       invalid_json: Ungültiger JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Newsletter
-        settings:
-          title: die Einstellungen
-        users:
-          title: Benutzer

@@ -6,6 +6,7 @@ Decidim.register_component(:blogs) do |component|
   component.engine = Decidim::Blogs::Engine
   component.admin_engine = Decidim::Blogs::AdminEngine
   component.icon = "media/images/decidim_blogs.svg"
+  component.icon_key = "pen-nib-line"
   component.permissions_class_name = "Decidim::Blog::Permissions"
 
   component.query_type = "Decidim::Blogs::BlogsType"

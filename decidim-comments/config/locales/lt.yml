@@ -30,23 +30,26 @@ lt:
       comments:
         create:
           error: Kuriant šį komentarą iškilo problema.
+        delete:
+          error: Komentaro ištrinti nepavyko.
         update:
           error: Atnaujinant šį komentarą iškilo problema.
       comments_count: Komentarų skaičius
+      comments_title: Komentaras
       last_activity:
-        new_comment_at_html: "<span>Naujas komentaras %{link}</span>"
-      view: Rodyti
+        new_comment: 'Naujas komentaras:'
       votes:
         create:
           error: Balsuojant už komentarą iškilo problema.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Prisijunkite</a>arba<a href="%{sign_up_url}">registruokitės</a>norėdami komentuoti.
         form:
           body:
             label: Komentaras
             placeholder: Ką manote apie tai?
-          submit: Publikuoti
+          form_error: Tekstas būtinais ir negali viršyti %{length} simbolių.
+          submit_reply: Skelbti atsakymą
+          submit_root_comment: Skelbti komentarą
           user_group_id:
             label: Komentuoti kaip
         opinion:
@@ -64,6 +67,7 @@ lt:
         alignment:
           against: Prieš
           in_favor: Už
+        cancel_reply: Atšaukti atsakymą
         confirm_destroy: Ar tikrai norite ištrinti šį komentarą?
         delete: Ištrinti
         deleted_at: Komentaras ištrintas %{date}
@@ -80,9 +84,15 @@ lt:
           description: Ar šis turinys netinkamas?
           details: Papildomi komentarai
           reasons:
+            does_not_belong: Pateikiama informacija yra neteisėta veikla, grasinimai nusižudyti, asmeninė informacija arba tai, kas, jūsų nuomone, nepriklauso %{organization_name}.
             offensive: Pateikiamoje informacijoje yra rasizmo, seksizmo, keiksmažodžių, asmeninių atakų, grasinimų ar kitokios neapykantos kalbos.
             spam: Pateikiamoje informacijoje yra reklamos, antraščių mąsalo ar apgavysčių.
           title: Pranešti apie netinkamą turinį
+        show_replies:
+          one: Rodyti atsakymą
+          few: Rodyti %{count} atsakymus
+          many: Rodyti %{count} atsakymus
+          other: Rodyti %{count} atsakymus
         single_comment_link_title: Gauti nuorodą
       comment_order_selector:
         order:
@@ -91,8 +101,6 @@ lt:
           older: Ankstesni
           recent: Paskutiniai
         title: 'Rikiuoti pagal:'
-      comment_thread:
-        title: Pokalbis su %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Norėdami komentuoti turite būti patvirtintas(-a), tačiau galite skaityti egzistuojančius komentarus.
         blocked_comments_for_user_warning: Šiuo metu komentarų pateikti negalite, tačiau galite perskaityti ankstesnius komentarus.
@@ -165,3 +173,6 @@ lt:
         description: Komentarų sugeneruotų dalyvių skaičius
         object: komentarai
         title: Komentarai
+  errors:
+    messages:
+      cannot_have_comments: negali turėti komentarų

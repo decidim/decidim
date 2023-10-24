@@ -25,7 +25,9 @@ describe "Admin filters participatory processes private space users", type: :sys
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
-    find("a[href*='participatory_space_private_users']").click
+    within_admin_sidebar_menu do
+      click_link "Private participants"
+    end
   end
 
   include_examples "filterable participatory space users"

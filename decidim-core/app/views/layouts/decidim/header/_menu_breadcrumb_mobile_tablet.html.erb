@@ -20,6 +20,11 @@
       <%= icon "arrow-down-s-line", class: "flex-none w-6 h-6 fill-current" %>
     </button>
   <% end %>
+  <% if content_for?(:participatory_space_mobile_actions) %>
+    <div class="menu-bar__actions-mobile">
+      <%= content_for :participatory_space_mobile_actions %>
+    </div>
+  <% end %>
 </div>
 <% if dropdown_item.present? %>
   <div id="secondary-dropdown-menu-mobile" aria-hidden="true">

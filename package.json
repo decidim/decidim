@@ -3,8 +3,8 @@
   "description": "Note: this is not a package, just the dependencies for the project in the dev environment.",
   "private": true,
   "engines": {
-    "node": ">=16.13.0",
-    "npm": ">=7.21.1"
+    "node": ">=18.17.1",
+    "npm": ">=9.6.7"
   },
   "files": [
     "packages/**/*"
@@ -19,6 +19,7 @@
     "stylelint": "stylelint decidim-*/**/*.scss",
     "prettier": "prettier --check 'decidim-*/**/*.scss'",
     "prettify": "prettier --write 'decidim-*/**/*.scss'",
+    "linthtml": "linthtml decidim-*/**/*.html.erb decidim-*/cells/**/*.erb",
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "test:ci": "npm run lint && npm run test"

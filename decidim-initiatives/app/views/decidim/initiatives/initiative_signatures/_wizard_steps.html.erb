@@ -1,15 +1,15 @@
+<% scope = "layouts.decidim.initiative_signature_creation_header" %>
 <ol id="wizard-steps" class="wizard-steps">
-  <% wizard_steps.each do |wizard_step| %>
-    <% next if wizard_step.to_s == "promotal_committee" && !promotal_committee_required? %>
-    <% next if wizard_step.to_s == "select_initiative_type" && single_initiative_type? %>
-    <% if step == wizard_step %>
-      <li data-active aria-current="step">
-        <%= t(wizard_step, scope: "layouts.decidim.initiative_signature_creation_header") %>
-      </li>
-    <% else %>
-      <li>
-        <%= t(wizard_step, scope: "layouts.decidim.initiative_signature_creation_header") %>
-      </li>
-    <% end %>
+  <% options = { data: { active: false }, aria: { current: "step" } } %>
+
+  <% if fill_personal_data_step? %>
+    <%= content_tag :li, t("fill_personal_data", scope: ),
+                    %w(fill_personal_data update_fill_personal_data).include?(action_name) ? options : {} %>
   <% end %>
+  <% if sms_step? %>
+    <%= content_tag :li, t("sms_phone_number", scope: ),
+                    %w(sms_phone_number update_sms_phone_number).include?(action_name) ? options : {} %>
+    <%= content_tag :li, t("sms_code", scope: ), %w(sms_code update_sms_code).include?(action_name) ? options : {} %>
+  <% end %>
+  <%= content_tag :li, t("finish", scope: ), action_name == "finish" ? options : {} %>
 </ol>

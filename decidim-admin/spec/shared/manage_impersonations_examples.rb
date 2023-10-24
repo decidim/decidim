@@ -39,7 +39,7 @@ shared_examples "manage impersonations examples" do
       let(:document_number) { "123456789Y" }
 
       it "shows the errors in the form" do
-        expect(page).to have_selector("label", text: "Document number*Required field\nis invalid")
+        expect(page).to have_selector("label", text: "Document number*\nRequired field\nis invalid")
       end
     end
 
@@ -241,7 +241,7 @@ shared_examples "manage impersonations examples" do
         click_link "Promote"
       end
 
-      within "form.new_managed_user_promotion" do
+      within ".item__edit form" do
         fill_in :managed_user_promotion_email, with: "foo@example.org"
       end
 
@@ -256,7 +256,6 @@ shared_examples "manage impersonations examples" do
 
       within "form.new_user" do
         fill_in :invitation_user_password, with: "decidim123456789"
-        fill_in :invitation_user_password_confirmation, with: "decidim123456789"
         check :invitation_user_tos_agreement
         find("*[type=submit]").click
       end
@@ -286,7 +285,9 @@ shared_examples "manage impersonations examples" do
 
       it "show only verifications of current organization" do
         navigate_to_impersonations_page
-        click_link "Verification conflicts"
+        within_admin_sidebar_menu do
+          click_link "Verification conflicts"
+        end
 
         expect(page).to have_content("Rigoberto")
       end
@@ -300,7 +301,9 @@ shared_examples "manage impersonations examples" do
 
       it "show only verifications of current organization" do
         navigate_to_impersonations_page
-        click_link "Verification conflicts"
+        within_admin_sidebar_menu do
+          click_link "Verification conflicts"
+        end
 
         expect(page).not_to have_content("Rigoberto")
       end
@@ -318,9 +321,11 @@ shared_examples "manage impersonations examples" do
       fill_in :impersonate_user_authorization_birthday, with: Time.current.change(day: 12)
     end
 
-    expect(page).to have_selector("*[type=submit]", count: 1)
+    within "[data-content]" do
+      expect(page).to have_selector("*[type=submit]", count: 1)
 
-    click_button "Impersonate"
+      click_button "Impersonate"
+    end
   end
 
   def impersonate(user, reason: nil)

@@ -9,7 +9,9 @@ shared_examples "manage assembly private users examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    click_link "Private users"
+    within_admin_sidebar_menu do
+      click_link "Private users"
+    end
   end
 
   it "shows assembly private user list" do
@@ -19,7 +21,7 @@ shared_examples "manage assembly private users examples" do
   end
 
   it "creates a new assembly private users" do
-    find(".card-title a.new").click
+    click_link "New participatory space private user"
 
     within ".new_participatory_space_private_user" do
       fill_in :participatory_space_private_user_name, with: "John Doe"
@@ -37,7 +39,7 @@ shared_examples "manage assembly private users examples" do
 
   describe "when import a batch of private users from csv" do
     it "import a batch of participatory space private users" do
-      find(".card-title a.import").click
+      click_link "Import via CSV"
 
       # The CSV has no headers
       expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("john.doe@example.org", "John Doe", assembly, user)
@@ -55,9 +57,9 @@ shared_examples "manage assembly private users examples" do
       visit current_path
     end
 
-    it "deletes a assembly_private_user" do
+    it "deletes an assembly_private_user" do
       within find("#private_users tr", text: other_user.email) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

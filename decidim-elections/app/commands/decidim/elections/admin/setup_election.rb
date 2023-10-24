@@ -3,7 +3,7 @@
 module Decidim
   module Elections
     module Admin
-      # This command gets called when a election is setup from the admin panel.
+      # This command gets called when an election is setup from the admin panel.
       class SetupElection < Decidim::Command
         # Public: Initializes the command.
         #

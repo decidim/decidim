@@ -12,7 +12,7 @@ module Capybara
 
       yield if block_given?
 
-      front_interface = options[:front_interface] && Decidim.redesign_active
+      front_interface = options.fetch(:front_interface, true)
 
       within ".upload-modal" do
         click_remove(front_interface) if options[:remove_before]
@@ -20,7 +20,7 @@ module Capybara
         input_element.attach_file(file_location)
         within "[data-filename='#{filename}']" do
           expect(page).to have_css(filled_selector(front_interface), wait: 5)
-          expect(page).to have_content(filename) if front_interface
+          expect(page).to have_content(filename.first(12)) if front_interface
         end
         all(title_input(front_interface)).last.set(options[:title]) if options.has_key?(:title)
         click_button(front_interface ? "Next" : "Save") unless options[:keep_modal_open]

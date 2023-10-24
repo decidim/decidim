@@ -44,7 +44,7 @@ shared_examples "manage registrations" do
     it "exports a CSV" do
       visit_edit_registrations_page
 
-      find(".exports.dropdown").click
+      find(".exports").click
 
       click_link "Registrations as CSV"
 
@@ -55,7 +55,7 @@ shared_examples "manage registrations" do
     it "exports a JSON" do
       visit_edit_registrations_page
 
-      find(".exports.dropdown").click
+      find(".exports").click
 
       click_link "Registrations as JSON"
 

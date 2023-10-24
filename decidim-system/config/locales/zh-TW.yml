@@ -37,7 +37,6 @@ zh-TW:
         confirm_destroy: 是否確定要刪除這個？
         destroy: 刪除
         edit: 編輯
-        new: 新的
         save: 儲存
         title: 操作
       admins:
@@ -76,7 +75,6 @@ zh-TW:
           fields:
             created_at: 建立於
             email: 電子郵件
-          name: 管理員
           validations:
             email_uniqueness: 已有相同電子郵件的其他管理員存在
         oauth_application:
@@ -84,7 +82,6 @@ zh-TW:
             created_at: 建立於
             name: OAuth 應用程式名稱
             organization_name: 組織
-          name: Oauth 應用程式
         organization:
           actions:
             save_and_invite: 建立組織並邀請管理員
@@ -94,7 +91,6 @@ zh-TW:
             name: 姓名
             omniauth_settings: Omniauth 設置
             smtp_settings: SMTP設定
-          name: 組織
       oauth_applications:
         create:
           error: 創建應用程序時出現問題。

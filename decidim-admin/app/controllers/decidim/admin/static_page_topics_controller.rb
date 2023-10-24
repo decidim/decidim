@@ -53,7 +53,7 @@ module Decidim
       def destroy
         enforce_permission_to :destroy, :static_page_topic, static_page_topic: topic
 
-        DestroyStaticPage.call(topic, current_user) do
+        DestroyStaticPageTopic.call(topic, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("static_page_topics.destroy.success", scope: "decidim.admin")
             redirect_to static_pages_path

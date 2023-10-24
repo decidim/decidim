@@ -34,12 +34,7 @@ ga:
             title: Díospóireachtaí
         exports:
           comments: Tráchtanna
-        models:
-          debate:
-            name: Díospóireacht
       debates:
-        close_debate_modal:
-          close: Dún
         closed: Dúnta
         edit:
           back: Ar Ais
@@ -49,16 +44,11 @@ ga:
           category_prompt: Roghnaigh catagóir
           official: Oifigiúil
           origin: Bunús
-          scope: Scóip
           search: Cuardaigh
           state: Stádas
           state_values:
             closed: Dúnta
             open: Oscail
-          user_groups: Grúpaí
-        filters_small_view:
-          filter: Scag
-          unfold: Oscail
         form:
           select_a_category: Roghnaigh catagóir le do thoil
         new:
@@ -68,9 +58,6 @@ ga:
           date: Dáta
           debate_closed: Dúnta
           groups_count: Grúpaí
-        versions:
-          index:
-            title: Leaganacha
       models:
         debate:
           fields:

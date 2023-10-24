@@ -12,7 +12,9 @@ describe "Admin manages the monitoring committee", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_votings.edit_voting_path(voting)
-    click_link "Members"
+    within_admin_sidebar_menu do
+      click_link "Members"
+    end
   end
 
   it "shows all members in the monitoring committee page" do
@@ -30,8 +32,8 @@ describe "Admin manages the monitoring committee", type: :system do
 
     it "creates a new user" do
       within ".new_monitoring_committee_member" do
-        fill_in :monitoring_committee_member_email, with: "joe@doe.com"
-        fill_in :monitoring_committee_member_name, with: "Joe Doe"
+        fill_in :voting_user_role_email, with: "joe@doe.com"
+        fill_in :voting_user_role_name, with: "Joe Doe"
 
         find("*[type=submit]").click
       end
@@ -46,7 +48,7 @@ describe "Admin manages the monitoring committee", type: :system do
 
     it "uses an existing user" do
       within ".new_monitoring_committee_member" do
-        select "Existing participant", from: :monitoring_committee_member_existing_user
+        select "Existing participant", from: :voting_user_role_existing_user
         autocomplete_select "#{existing_user.name} (@#{existing_user.nickname})", from: :user_id
 
         find("*[type=submit]").click
@@ -64,7 +66,7 @@ describe "Admin manages the monitoring committee", type: :system do
   context "when deleting a member" do
     it "deletes the member" do
       within find("#monitoring_committee_members tr", text: other_user.email) do
-        accept_confirm(admin: true) { click_link "Delete" }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

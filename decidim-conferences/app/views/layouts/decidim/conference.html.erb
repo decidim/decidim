@@ -8,6 +8,8 @@
 <%= append_javascript_pack_tag "decidim_conferences" %>
 <%= append_stylesheet_pack_tag "decidim_conferences" %>
 
+<%= render partial: "layouts/decidim/header/follow_space_menu_bar_button", locals: { participatory_space: current_participatory_space } %>
+
 <%= render "layouts/decidim/application" do %>
   <%= yield %>
 <% end %>

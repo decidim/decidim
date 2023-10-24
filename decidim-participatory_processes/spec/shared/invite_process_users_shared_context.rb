@@ -11,7 +11,7 @@ shared_context "when inviting process users" do
     login_as user, scope: :user
 
     visit decidim_admin_participatory_processes.participatory_process_user_roles_path(participatory_process)
-    within ".container" do
+    within "[data-content]" do
       click_link "New process admin"
     end
 

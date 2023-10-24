@@ -6,6 +6,8 @@ module Decidim
       # Custom helpers for trustees admin.
       #
       module TrusteesParticipatorySpacesHelper
+        include Decidim::PaginateHelper
+
         def trustee_current_participatory_space(trustee)
           trustee.trustees_participatory_spaces.find_by(participatory_space: current_participatory_space)
         end

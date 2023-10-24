@@ -129,7 +129,6 @@ it:
           max_choices: 'Scelte massime: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Accedi con il tuo account</a> o <a href="%{sign_up_link}">iscriviti</a> per rispondere al questionario.
             title: Rispondi al questionario
           current_step: Passo %{step}
           of_total_steps: di %{total_steps}

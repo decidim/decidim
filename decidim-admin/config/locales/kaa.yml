@@ -1,1 +1,217 @@
 kaa:
+  activemodel:
+    attributes:
+      area:
+        name: Ataması
+      area_type:
+        name: Ataması
+      attachment:
+        attachment_collection_id: Papka
+        file: Fayl
+      component:
+        name: Ataması
+      organization:
+        highlighted_content_banner_image: Súwret
+        name: Ataması
+      participatory_space_private_user:
+        email: Elektron pochta
+      user_group_csv_verification:
+        file: Fayl
+  activerecord:
+    attributes:
+      doorkeeper/application:
+        site: Veb-sayt
+  decidim:
+    admin:
+      actions:
+        add: Qosıw
+        browse: Kóriw
+        import: Importlaw
+      area_types:
+        edit:
+          update: Jańalaw
+      attachment_collections:
+        edit:
+          update: Jańalaw
+        new:
+          create: Jaratıw
+          title: Jańa papka
+      attachments:
+        edit:
+          update: Jańalaw
+      autocomplete:
+        no_results: Nátiyjeler tabılmadı
+      categories:
+        edit:
+          update: Jańalaw
+        index:
+          categories_title: Kategoriyalar
+        new:
+          create: Kategoriya jaratıw
+          title: Jańa kategoriya
+        update:
+          success: Kategoriya tabıslı jańalandı.
+      components:
+        edit:
+          update: Jańalaw
+        index:
+          headers:
+            actions: Háreketler
+      conflicts:
+        'false': 'Yaq'
+        transfer:
+          email: Elektron pochta
+          reason: Sebep
+        'true': 'Awa'
+        user_name: Paydalanıwshı
+      exports:
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+      filters:
+        category_id_eq:
+          label: Kategoriya
+        filter_label: Filtr
+        invitation_accepted_at_present:
+          values:
+            'false': 'Yaq'
+            'true': 'Awa'
+        last_sign_in_at_present:
+          values:
+            'false': 'Yaq'
+            'true': 'Awa'
+        search_label: Izlew
+      help_sections:
+        form:
+          save: Saqlaw
+      impersonatable_users:
+        index:
+          search: Izlew
+          status: Jaǵday
+      impersonations:
+        form:
+          reason: Sebep
+      imports:
+        and: hám
+        new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
+          actions:
+            back: Artqa
+          import: Importlaw
+      logs:
+        filters:
+          user: Paydalanıwshı
+      menu:
+        participants: Qatnasıwshılar
+        settings: Sazlawlar
+        static_pages: Betler
+      models:
+        area:
+          fields:
+            name: Ataması
+        area_type:
+          fields:
+            name: Ataması
+        attachment:
+          fields:
+            collection: Papka
+        user:
+          fields:
+            email: Elektron pochta
+        user_group:
+          fields:
+            phone: Telefon
+      moderated_users:
+        index:
+          actions:
+            title: Háreketler
+          reason: Sebep
+      moderations:
+        reports:
+          show:
+            report_reason: Sebep
+      newsletter_templates:
+        index:
+          preview_template: Aldınnan kóriw
+      newsletters:
+        index:
+          all_users: 'Barlıq paydalanıwshılar '
+          and: 'hám '
+        new:
+          save: Saqlaw
+      officializations:
+        show_email_modal:
+          email_address: Elektron mánzil
+          show: Kórsetiw
+      organization:
+        edit:
+          update: Jańalaw
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          url: URL
+          youtube: YouTube
+      organization_appearance:
+        edit:
+          update: Jańalaw
+        form:
+          images:
+            preview: Aldınnan kóriw
+      organization_external_domain_whitelist:
+        edit:
+          update: Jańalaw
+      organization_homepage:
+        content_blocks:
+          edit:
+            update: Jańalaw
+      participatory_space_private_users:
+        new:
+          create: Jaratıw
+      participatory_space_private_users_csv_imports:
+        new:
+          upload: Júklew
+      reminders:
+        new:
+          submit: Jiberiw
+      resource_permissions:
+        edit:
+          submit: Jiberiw
+      scope_types:
+        edit:
+          update: Jańalaw
+      scopes:
+        edit:
+          update: Jańalaw
+      share_tokens:
+        actions:
+          destroy: Óshiriw
+          share: Bólisiw
+      shared:
+        gallery:
+          add_images: Súwretlerdi qosıw
+          delete_image: Súwretti óshiriw
+          edit_images: Súwretlerdi ózgertiw
+      static_pages:
+        content_blocks:
+          edit:
+            update: Jańalaw
+        edit:
+          update: Jańalaw
+      users_statistics:
+        users_count:
+          participants: Qatnasıwshılar
+    moderations:
+      models:
+        moderation:
+          fields:
+            reports: Sebep
+        report:
+          fields:
+            locale: Til
+            reason: Sebep

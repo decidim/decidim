@@ -33,7 +33,9 @@ describe "Admin chooses user block templates when blocking user", type: :system 
       select template.name["en"], from: :block_template_chooser, wait: 5
       expect(page).to have_field(:block_user_justification, with: translated(template.description))
 
-      find("*[type=submit]").click
+      within("[data-content]") do
+        find("*[type=submit]").click
+      end
       expect(page).to have_admin_callout("successfully")
 
       expect(user.reload).to be_blocked

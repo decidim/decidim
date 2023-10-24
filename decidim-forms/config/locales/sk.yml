@@ -61,7 +61,6 @@ sk:
           max_choices: 'Maximum možností: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Prihláste sa so svojím účtom</a> alebo <a href="%{sign_up_link}"> sa zaregistrujte</a>, aby ste mohli odpovedať.
             title: Odpovedať na formulár
           questionnaire_answered:
             body: Na tento formulár už ste dopovedali.

@@ -1,13 +1,5 @@
-<% content_for :sidebar_menu_nav do %>
-  <%= sidebar_menu(:admin_template_types_menu).render %>
-<% end %>
+<% add_secondary_root_menu(:admin_template_types_menu) %>
 
 <%= render "layouts/decidim/admin/application" do %>
-  <div class="process-title">
-    <div class="process-title-content">
-      <%= link_to t("decidim.admin.titles.templates"), decidim_admin_templates.root_url %>
-    </div>
-  </div>
-
   <%= yield %>
 <% end %>

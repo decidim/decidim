@@ -38,7 +38,7 @@ require "mime-types"
 require "diffy"
 require "ransack"
 require "wisper"
-require "webpacker"
+require "shakapacker"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
 require "decidim/webpacker"
@@ -55,8 +55,8 @@ module Decidim
       isolate_namespace Decidim
       engine_name "decidim"
 
-      initializer "decidim_core.patch_webpacker", before: "webpacker.version_checker" do
-        ENV["WEBPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
+      initializer "decidim_core.patch_webpacker", before: "shakapacker.version_checker" do
+        ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
       end
 
       initializer "decidim_core.action_controller" do |_app|
@@ -692,6 +692,13 @@ module Decidim
         Decidim.register_social_share_service("Twitter") do |service|
           service.icon = "twitter-line"
           service.icon_color = "#1da1f2"
+          service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
+          service.optional_params = %w(hashtags via)
+        end
+
+        Decidim.register_social_share_service("X") do |service|
+          service.icon = "twitter-x-line"
+          service.icon_color = "#000000"
           service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
           service.optional_params = %w(hashtags via)
         end

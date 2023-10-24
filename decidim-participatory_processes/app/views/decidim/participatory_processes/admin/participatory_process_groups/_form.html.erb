@@ -1,72 +1,94 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title"><%= t(".title") %></h2>
-  </div>
-  <div class="card-section">
-    <div class="row column">
-      <%= form.translated :text_field, :title, autofocus: true %>
+<div class="form__wrapper">
+  <div class="card" data-component="accordion" id="accordion-title">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-title" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="title">
+          <%= t("title", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>
+        </h2>
+      </button>
     </div>
+    <div id="panel-title" class="card-section">
+      <div class="row column">
+        <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
+      </div>
 
-    <div class="row column">
-      <%= form.translated :editor, :description %>
-    </div>
+      <div class="row column">
+        <%= form.translated :editor, :description, aria: { label: :description } %>
+      </div>
 
-    <div class="row column">
-      <% if processes_for_select %>
-        <%= form.select :participatory_process_ids, processes_for_select, {}, { multiple: true, class: "chosen-select" } %>
-      <% end %>
-    </div>
+      <div class="row column">
+        <% if processes_for_select %>
+          <%= form.select :participatory_process_ids, processes_for_select, {}, { multiple: true, class: "chosen-select" } %>
+        <% end %>
+      </div>
 
-    <div class="row column">
-      <%= form.upload :hero_image %>
-    </div>
-  </div>
-
-  <div class="card-divider">
-    <h2 class="card-title"><%= t(".metadata") %></h2>
-  </div>
-
-  <div class="card-section">
-    <div class="row column">
-      <%= form.text_field :hashtag %>
-    </div>
-
-    <div class="row column">
-      <%= form.text_field :group_url %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :developer_group %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :local_area %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :meta_scope %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :target %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :participatory_scope %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :participatory_structure %>
+      <div class="row column">
+        <%= form.upload :hero_image, button_class: "button button__sm button__transparent-secondary" %>
+      </div>
     </div>
   </div>
 
-  <div class="card-divider">
-    <h2 class="card-title"><%= t(".visibility") %></h2>
-  </div>
+  <div class="card" data-component="accordion" id="accordion-metadata">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-metadata" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="metadata">
+          <%= t("metadata", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>
+        </h2>
+      </button>
+    </div>
 
-  <div class="card-section">
-    <div class="row column">
-      <%= form.check_box :promoted %>
+    <div id="panel-metadata" class="card-section">
+      <div class="row column">
+        <%= form.text_field :hashtag %>
+      </div>
+
+      <div class="row column">
+        <%= form.text_field :group_url %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :text_field, :developer_group, aria: { label: :developer_group } %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :text_field, :local_area, aria: { label: :local_area } %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :text_field, :meta_scope, aria: { label: :meta_scope } %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :text_field, :target, aria: { label: :target } %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :text_field, :participatory_scope, aria: { label: :participatory_scope } %>
+      </div>
+
+      <div class="row column">
+        <%= form.translated :text_field, :participatory_structure, aria: { label: :participatory_structure } %>
+      </div>
     </div>
   </div>
+
+  <div class="card" data-component="accordion" id="accordion-visibility">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-visibility" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="visibility">
+          <%= t("visibility", scope: "decidim.participatory_processes.admin.participatory_process_groups.form") %>
+        </h2>
+      </button>
+    </div>
+
+    <div id="panel-visibility" class="card-section">
+      <div class="row column">
+        <%= form.check_box :promoted %>
+      </div>
+    </div>
+  </div>
+
 </div>

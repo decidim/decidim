@@ -2,7 +2,7 @@
 <%= append_stylesheet_pack_tag "decidim_accountability" %>
 
 <% content_for :aside do %>
-  <h1 class="h3 md:h1 decorator"><%= component_name %></h1>
+  <h1 class="title-decorator"><%= component_name %></h1>
 
   <% if component_settings.display_progress_enabled? %>
     <%= cell(

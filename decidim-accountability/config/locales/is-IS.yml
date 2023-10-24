@@ -37,7 +37,6 @@ is-IS:
         destroy: Eyða
         edit: Breyta
         import_csv: Flytja inn CSV
-        new: Nýtt %{name}
         preview: Preview
         timeline_entries: Verkefnisþróun
         title: Aðgerðir
@@ -54,8 +53,6 @@ is-IS:
             name: Niðurstaða
           status:
             name: Staða
-          timeline_entry:
-            name: Tímalína færsla
         results:
           edit:
             title: Breyta niðurstöðum

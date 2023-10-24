@@ -1,8 +1,8 @@
-<% add_decidim_page_title(action_name) %>
+<% add_decidim_page_title(t("title", scope: "decidim.initiatives.edit")) %>
 
 <%= render layout:"layouts/decidim/shared/layout_center" do %>
   <div class="text-center py-10">
-    <h1 class="h3 md:h1 decorator inline-block text-left"><%= t("title", scope: "decidim.initiatives.edit") %></h1>
+    <h1 class="title-decorator inline-block text-left"><%= t("title", scope: "decidim.initiatives.edit") %></h1>
   </div>
 
   <%= decidim_form_for @form, html: { class: "form__wrapper edit_initiative" } do |f| %>

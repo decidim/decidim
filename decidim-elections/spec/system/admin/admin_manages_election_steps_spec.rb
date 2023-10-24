@@ -107,8 +107,8 @@ describe "Admin manages election steps", :slow, type: :system do
 
       visit_steps_page
       expect(page).to have_content("Key ceremony")
-      expect(page).to have_css(".loading-spinner") # It shows the loading icon
-      expect(page).not_to have_css("svg.icon--task") # The trustees did not participate yet
+      expect(page).to have_css(".loading") # It shows the loading icon
+      expect(page).not_to have_css(".active") # The trustees did not participate yet
       expect(page).to have_link("Continue", class: "disabled")
 
       download_election_keys(0)
@@ -117,8 +117,8 @@ describe "Admin manages election steps", :slow, type: :system do
 
       visit_steps_page
       expect(page).to have_content("Key ceremony")
-      expect(page).not_to have_css(".loading-spinner") # It is not waiting for any trustee
-      expect(page).to have_css("svg.icon--task") # All the trustees are active
+      expect(page).not_to have_css(".loading") # It is not waiting for any trustee
+      expect(page).to have_css(".active") # All the trustees are active
       expect(page).not_to have_link("Continue", class: "disabled")
       expect(page).to have_link("Continue")
     end
@@ -251,7 +251,7 @@ describe "Admin manages election steps", :slow, type: :system do
 
       # shows the trustee as missing
       within find("tr", text: trustee.name) do
-        expect(page).to have_css("svg.icon--x")
+        expect(page).to have_css(".missing")
       end
 
       # do not allow to mark more trustees as missing
@@ -318,9 +318,7 @@ describe "Admin manages election steps", :slow, type: :system do
         expect(page).to have_css(".card-title", text: "Setup election")
       end
     else
-      within ".process-content .card .card-divider", match: :first do
-        expect(page).to have_css(".card-title", text: translated(election.title))
-      end
+      expect(page).to have_css(".item_show__header .item_show__header-title", text: translated(election.title))
     end
   end
 end

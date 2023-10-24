@@ -1,51 +1,62 @@
-<%= decidim_form_for(@form, url: component_imports_path(name: import_manifest.name), class: "form grid-container") do |form| %>
-  <div class="card">
-    <div class="card-divider">
-      <div class="card-title flex--sbc">
-        <div>
-          <%= import_manifest.message(:title, self) %>
-        </div>
-        <div class="flex--cc flex-gap--1">
-          <div id="js-other-actions-wrapper">
-            <% if import_manifest.has_example? %>
-              <span class="imports-example dropdown tiny button button--simple" data-toggle="example-dropdown"><%= t(".download_example") %></span>
-              <div class="dropdown-pane" id="example-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
-                <ul class="vertical menu add-components">
-                  <% mime_types.each do |format, name| %>
-                    <li class="examples--format--<%= format.downcase %> examples--<%= import_manifest.name %>">
-                      <%= link_to t(".download_example_format", name:),
-                        admin_imports_example_path(@current_component, name: import_manifest.name, format:) %>
-                    </li>
-                  <% end %>
-                </ul>
-              </div>
-            <% end %>
+<% add_decidim_page_title(import_manifest.message(:title, self)) %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= import_manifest.message(:title, self) %>
 
-            <%= link_to t(".actions.back"), manage_component_path(@current_component), class: "button hollow tiny button--simple" %>
+    <div id="js-other-actions-wrapper">
+      <% if import_manifest.has_example? %>
+        <span class="imports-example tiny button button__sm button__secondary button--simple mr-2" data-toggle="example-dropdown">
+          <%= t(".download_example") %>
+          <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
+        </span>
+        <div class="dropdown-pane" id="example-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
+          <ul class="vertical menu add-components">
+            <% mime_types.each do |format, name| %>
+              <li class="examples--format--<%= format.downcase %> examples--<%= import_manifest.name %>">
+                <%= link_to t(".download_example_format", name:),
+                            admin_imports_example_path(@current_component, name: import_manifest.name, format:) %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= link_to t(".actions.back"), manage_component_path(@current_component), class: "button button__sm button__secondary hollow tiny button--simple" %>
+    </div>
+  </h2>
+</div>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: component_imports_path(name: import_manifest.name), html: { class: "form form-defaults grid-container" }) do |form| %>
+      <div class="form__wrapper">
+        <div class="card">
+          <div class="card-divider"></div>
+          <div class="card-section">
+            <div class="row column">
+              <%= render partial: import_manifest.form_view, locals: { form: } if import_manifest.form_view %>
+            </div>
+
+            <div class="row column">
+              <fieldset>
+                <legend>
+                  <%= t(".file_legend", valid_mime_types: mime_types.values.join(", ")).html_safe %>
+                  <div class="guidance">
+                    <%= import_manifest.message(:help, self).html_safe %>
+                  </div>
+                </legend>
+
+                <%= form.upload :file, required: true, help_i18n_scope: "decidim.admin.forms.file_help.import", button_class: "button button__sm button__transparent-secondary" %>
+              </fieldset>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="card-section">
-      <%= render partial: import_manifest.form_view, locals: { form: } if import_manifest.form_view %>
-      <div class="grid-x">
-        <div class="cell">
-          <fieldset>
-            <legend>
-              <%= t(".file_legend", valid_mime_types: mime_types.values.join(", ")).html_safe %>
-              <div class="guidance">
-                <%= import_manifest.message(:help, self).html_safe %>
-              </div>
-            </legend>
-            <div class="row column">
-              <%= form.upload :file, required: true, help_i18n_scope: "decidim.admin.forms.file_help.import" %>
-            </div>
-          </fieldset>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= form.submit t(".import"), class: "button button__sm button__secondary" %>
         </div>
       </div>
-    </div>
+    <% end -%>
   </div>
-  <div class="grid-x align-center mt-sm">
-    <%= form.submit t(".import") %>
-  </div>
-<% end -%>
+</div>

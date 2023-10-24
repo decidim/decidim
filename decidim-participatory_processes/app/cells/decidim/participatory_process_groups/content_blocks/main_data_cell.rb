@@ -27,7 +27,7 @@ module Decidim
           return if hashtag_text.blank?
 
           {
-            icon: "twitter-line",
+            icon: "twitter-x-line",
             text: link_to("##{hashtag_text}", twitter_hashtag_url(hashtag_text), target: "_blank", rel: "noopener")
           }
         end

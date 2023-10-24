@@ -14,14 +14,13 @@ end
   <header>
     <%= render partial: "layouts/decidim/admin_links" if current_user&.admin %>
     <%= render partial: "layouts/decidim/header/main" %>
+    <% if display_flash_messages.present? %>
+      <div class="container">
+        <%= display_flash_messages %>
+      </div>
+    <% end %>
     <%= render partial: "layouts/decidim/header/menu" unless controller_name == "homepage" %>
   </header>
-
-  <% if display_flash_messages.present? %>
-    <div class="container">
-      <%= display_flash_messages %>
-    </div>
-  <% end %>
 
   <div id="content" data-content>
     <%= yield %>

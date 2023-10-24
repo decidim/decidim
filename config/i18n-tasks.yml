@@ -215,10 +215,9 @@ ignore_unused:
   - decidim.budgets.projects.order_progress.maximum_projects_rule.*
   - decidim.budgets.projects.order_progress.vote_threshold_percent_rule.*
   - decidim.orders.checkout.*
-  # REDESIGN_PENDING: The filters translations will be in use after filters
-  # integration in budgets. Remove the following line after doing it
   - decidim.budgets.projects.filters.*
   - decidim.sortitions.admin_log.*
+  - decidim.sortitions.sortitions.filters.*
   - decidim.sortitions.sortitions.orders.*
   - decidim.votings.admin_log.*
   - decidim.votings.votings.filters.*
@@ -367,9 +366,7 @@ ignore_unused:
   - versions.directions.*
   - layouts.decidim.conferences.conference.*
   - decidim.admin.conflicts.*
-  - decidim.profiles.show.badges
   - decidim.profiles.show.conversations
-  - decidim.profiles.show.groups
   - decidim.profiles.show.view_full_profile
   - layouts.decidim.assemblies.promoted_assembly.take_part
   - versions.dropdown.option_*

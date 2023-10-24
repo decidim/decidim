@@ -113,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Use the previous primary and secondary colors as the default selection
     document.documentElement.style.setProperty("--primary", document.querySelector("#organization_primary_color").value);
     document.documentElement.style.setProperty("--secondary", document.querySelector("#organization_secondary_color").value);
+    document.documentElement.style.setProperty("--tertiary", document.querySelector("#organization_tertiary_color").value);
 
     selector.addEventListener("click", ({ target: { dataset: { value }}}) => setTheme(value, Number(primarySaturation.value)));
     primarySaturation.addEventListener("input", ({ target: { value }}) => setTheme(primary.value, Number(value)));
@@ -121,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.querySelector("#organization_primary_color").value = document.querySelector("#preview-primary").value
       document.querySelector("#organization_secondary_color").value = document.querySelector("#preview-secondary").value
+      document.querySelector("#organization_tertiary_color").value = document.querySelector("#preview-tertiary").value
     });
   }
 })

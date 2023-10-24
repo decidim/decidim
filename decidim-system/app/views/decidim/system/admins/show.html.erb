@@ -2,5 +2,5 @@
   <h1 class="h1"><%= link_to @admin.email, @admin %></h1>
 <% end %>
 
-<%= link_to "Edit", [:edit, @admin], class: "button button__sm md:button__lg button__primary" %>
-<%= link_to "Destroy", @admin, method: :delete, class: "button button__sm md:button__lg button__transparent-primary", data: { confirm: "Are you sure you want to do this?" } %>
+<%= link_to t(".edit"), [:edit, @admin], class: "button button__sm md:button__lg button__primary" %>
+<%= link_to t(".destroy"), @admin, method: :delete, class: "button button__sm md:button__lg button__transparent-primary", data: { confirm: "Are you sure you want to do this?" } %>

@@ -4,7 +4,7 @@ module Decidim
   module Initiatives
     module Admin
       module Moderations
-        # This controller allows admins to manage moderation reports in an conference.
+        # This controller allows admins to manage moderation reports in an initiative.
         class ReportsController < Decidim::Admin::Moderations::ReportsController
           include InitiativeAdmin
 

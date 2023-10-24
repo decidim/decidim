@@ -2,13 +2,13 @@
   <% if steps %>
     <%= link_to(
       vote_label,
-      initiative_initiative_signatures_path(initiative_slug: current_initiative.slug),
+      initiative_signatures_path(initiative_slug: current_initiative.slug),
       class: "button button__xl w-full button__secondary"
     ) %>
   <% else %>
     <%= button_to(
       vote_label,
-      initiative_initiative_signatures_path(initiative_slug: current_initiative.slug),
+      initiative_signatures_path(initiative_slug: current_initiative.slug),
       remote: true,
       data: { disable: true },
       class: "button button__xl w-full button__secondary"

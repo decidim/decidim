@@ -1,54 +1,66 @@
-<%= decidim_form_for(@preview_form, url: participatory_texts_path, class: "form grid-container") do |form| %>
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= t(".title") %>
-      <%= render partial: "bulk-actions" %>
-    </h2>
-  </div>
-  <div class="card-section">
-    <% if @drafts.any? %>
-      <p><%= t(".info_1") %></p>
-      <ul id="participatory-text" class="accordion js-sortable mb-m"
-        data-accordion
-        data-multi-expand="true"
-        data-allow-all-closed="true">
-        <%= form.fields_for(:proposals) do |prop_form| %>
-        <% proposal = @drafts[prop_form.index] %>
-          <li class="accordion-item <%= proposal.article? ? "is-active" : nil %>" data-accordion-item>
-            <a href="#" class="accordion-title flex--sbc"><%= preview_participatory_text_section_title(proposal) %><span class="mr-m"><%= icon "menu", class: "icon--small", role: "img", "aria-hidden": true %></span></a>
-            <div class="accordion-content" data-tab-content>
-              <%= render "article-preview", { form: prop_form, proposal: } %>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    <% end -%>
-  </div>
+<% add_decidim_page_title(t(".title")) %>
+
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t(".title") %>
+    <%= render partial: "bulk-actions" %>
+  </h2>
 </div>
 <% if @drafts.any? %>
-  <div class="button--double form-general-submit">
-    <%= form.submit t(".save_draft"), name: :save_draft, class: "button" %>
-    <%= form.submit t(".publish_document"), class: "button success" %>
+  <div class="item__edit item__edit-1col">
+    <div class="item__edit-form">
+      <%= decidim_form_for(@preview_form, url: participatory_texts_path, html: { class: "form-defaults form grid-container" }) do |form| %>
+        <div class="form__wrapper">
+          <div class="card">
+            <div class="row column">
+              <p class="mt-3"><%= t(".info_1") %></p>
+              <ul id="participatory-text" class="draggable-list js-connect js-list-actives accordion  mb-m mt-2.5 ml-2.5 mr-2.5"
+                  data-accordion
+                  data-sort-url="#"
+                  data-multi-expand="true"
+                  data-allow-all-closed="true">
+                <%= form.fields_for(:proposals) do |prop_form| %>
+                  <% proposal = @drafts[prop_form.index] %>
+
+                  <li class="py-4 draggable-content <%= proposal.article? ? "is-active" : nil %>" data-accordion-item draggable="true">
+                    <a href="#" class="accordion-title font-bold mt-5"><%= preview_participatory_text_section_title(proposal) %>
+                      <span class="mr-m"><%= icon "menu-line", class: "fill-black" %></span>
+                    </a>
+                    <div class="accordion-content" data-tab-content>
+                      <%= render "article-preview", { form: prop_form, proposal: } %>
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="item__edit-sticky">
+          <div class="item__edit-sticky-container">
+            <%= form.submit t(".save_draft"), name: :save_draft, class: "button button__sm button__secondary" %>
+            <%= form.submit t(".publish_document"), class: "button button__sm button__secondary" %>
+          </div>
+        </div>
+      <% end -%>
+    </div>
   </div>
 <% end %>
-<% end -%>
 <script>
-$(window).on("load", function() {
-  // Not all browsers submit the buttons as form data.
-  $('button[name="save_draft"]').on("click", function(ev) {
-    ev.preventDefault();
+  $(window).on("load", function() {
+    // Not all browsers submit the buttons as form data.
+    $("button[name=\"save_draft\"]").on("click", function(ev) {
+      ev.preventDefault();
 
-    var $form = $(this).parents("form");
-    $form.append('<input type="hidden" name="save_draft" value="true" />');
-    $form.submit();
+      var $form = $(this).parents("form");
+      $form.append("<input type=\"hidden\" name=\"save_draft\" value=\"true\" />");
+      $form.submit();
+    });
+    $("#participatory-text").on("sortupdate",
+      function(event, ui) {
+        $("#participatory-text li").each(function(idx, li) {
+          input = $(li).find("input.position").val(idx + 1);
+        });
+      }
+    );
   });
-  $( "#participatory-text" ).on( "sortupdate",
-    function( event, ui ) {
-      $('#participatory-text li').each(function(idx, li) {
-        input= $(li).find("input.position").val(idx+1)
-      })
-    }
-  )
-})
 </script>

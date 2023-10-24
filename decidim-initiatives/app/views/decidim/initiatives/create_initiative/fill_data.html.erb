@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t("new", scope: "decidim.initiatives.create_initiative.select_initiative_type")) %>
 <% announcement_body = capture do %>
   <div class="max-w-full prose">
     <%= t("fill_data_help", scope: "decidim.initiatives.create_initiative.fill_data").html_safe %>
@@ -65,20 +66,20 @@
     <% end %>
 
     <% if initiative_type.attachments_enabled? %>
+      <%= f.attachment :documents,
+                       multiple: true,
+                       label: t("decidim.initiatives.form.add_documents"),
+                       button_label: t("decidim.initiatives.form.add_documents"),
+                       button_class: "button button__lg button__transparent-secondary w-full",
+                       button_edit_label: t("decidim.initiatives.form.edit_documents"),
+                       help_text: t("attachment_legend", scope: "decidim.initiatives.form") %>
       <%= f.attachment :photos,
-          multiple: true,
-          label: t("decidim.initiatives.form.add_image"),
-          button_label: t("decidim.initiatives.form.add_image"),
-          button_class: "button button__lg button__transparent-secondary w-full",
-          button_edit_label: t("decidim.initiatives.form.edit_image"),
-          help_text: t("image_legend", scope: "decidim.initiatives.form") %>
-      <%= f.attachment :add_documents,
-          multiple: true,
-          label: t("decidim.initiatives.form.add_documents"),
-          button_label: t("decidim.initiatives.form.add_documents"),
-          button_class: "button button__lg button__transparent-secondary w-full",
-          button_edit_label: t("decidim.initiatives.form.edit_documents"),
-          help_text: t("attachment_legend", scope: "decidim.initiatives.form") %>
+                       multiple: true,
+                       label: t("decidim.initiatives.form.add_image"),
+                       button_label: t("decidim.initiatives.form.add_image"),
+                       button_class: "button button__lg button__transparent-secondary w-full",
+                       button_edit_label: t("decidim.initiatives.form.edit_image"),
+                       help_text: t("image_legend", scope: "decidim.initiatives.form") %>
     <% end %>
 
     <% if @form.state_updatable? %>

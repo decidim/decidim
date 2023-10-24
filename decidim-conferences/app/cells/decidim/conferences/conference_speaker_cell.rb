@@ -2,7 +2,7 @@
 
 module Decidim
   module Conferences
-    # This cell renders the card for an instance of an Conference Speaker
+    # This cell renders the card for an instance of a Conference Speaker
     class ConferenceSpeakerCell < Decidim::AuthorCell
       include Decidim::Meetings::MeetingCellsHelper
       include Cell::ViewModel::Partial
@@ -13,16 +13,6 @@ module Decidim
 
       def show
         render :show
-      end
-
-      def speakers_list
-        cell(
-          "decidim/collapsible_list",
-          presenters_for_speakers(list),
-          cell_name: "decidim/author",
-          cell_options: options.merge(has_actions: false),
-          size:
-        )
       end
 
       private

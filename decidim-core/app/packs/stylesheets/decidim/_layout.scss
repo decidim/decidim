@@ -1,0 +1,108 @@
+.layout-container {
+  @apply flex flex-col min-h-screen;
+
+  &__skip {
+    @apply absolute z-10 left-0 -translate-x-full py-1 px-4 bg-primary rounded-br-lg text-white cursor-pointer transition focus:translate-x-0;
+  }
+
+  [data-content] {
+    @apply min-h-[60vh] relative flex flex-col;
+  }
+}
+
+.layout-1col {
+  @apply container grid grid-rows-[max-content] grid-cols-12 auto-rows-max mb-12 grow;
+
+  &.cols-6 > * {
+    @apply col-span-12 md:col-start-3 md:col-span-8 lg:col-start-4 lg:col-span-6 self-start;
+  }
+
+  &.cols-8 > * {
+    @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8 self-start;
+  }
+
+  &.cols-10 > * {
+    @apply col-span-12 lg:col-start-2 lg:col-span-10 self-start;
+  }
+
+  footer {
+    @apply mb-12;
+  }
+}
+
+.layout-2col {
+  @apply md:grid grid-cols-12 auto-rows-max container grow;
+
+  &__aside {
+    @apply col-span-4 lg:col-span-3 md:pr-16 py-6 md:py-12 gap-6 md:gap-12 flex flex-col justify-between items-start md:justify-start before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-1/2 before:-z-10 md:before:bg-background;
+  }
+
+  &__main {
+    @apply col-span-8 lg:col-span-9 bg-white md:pl-16 py-6 md:py-12;
+  }
+
+  &__reverse &__aside {
+    @apply order-last pr-0 before:left-full before:-translate-x-full;
+  }
+
+  &__reverse &__main {
+    @apply pl-0 md:pr-16;
+  }
+}
+
+.layout-item {
+  @apply container grid grid-cols-1 md:grid-cols-12 py-4 md:py-24 gap-12 md:gap-0;
+
+  &__main {
+    @apply lg:col-start-2 md:col-span-8 lg:col-span-7 relative;
+  }
+
+  &__aside {
+    @apply md:col-start-10 lg:col-start-10 md:col-span-3 lg:col-span-2;
+  }
+
+  &__back {
+    @apply mb-4 md:mb-0 md:absolute md:-left-[1em] md:-top-8 md:-translate-y-full;
+  }
+
+  &__arrow {
+    @apply fixed top-1/2 py-2 bg-background before:content-[''] before:block before:absolute before:-translate-y-1/2 before:top-1/2 before:left-1/2 before:w-16 md:before:w-96 before:h-16 md:before:h-96 before:rounded-full;
+
+    &.prev {
+      @apply -translate-x-1/2 md:translate-x-0 pl-4 pr-0 md:pr-1 left-0 rounded-r before:-translate-x-1/2 md:before:-translate-x-3/4 hover:-translate-x-1/4 transition;
+    }
+
+    &.next {
+      @apply translate-x-1/2 md:translate-x-0 pr-4 pl-0 md:pl-1 right-0 rounded-l before:-translate-x-1/2 md:before:-translate-x-1/4 hover:translate-x-1/4 transition;
+    }
+
+    svg {
+      @apply w-8 h-8 text-secondary fill-current;
+    }
+  }
+}
+
+.layout-main__section + .layout-main__section,
+.layout-aside__section + .layout-aside__section,
+.layout-item__main ~ .layout-item__main,
+.layout-item__aside--footer > * + * {
+  --vertical-spacing: 2.5rem;
+
+  @apply mt-[var(--vertical-spacing)];
+}
+
+.layout-main__heading {
+  @apply space-y-8;
+}
+
+.layout-author {
+  @apply flex items-center gap-4;
+}
+
+.layout-aside__buttons {
+  @apply space-y-4;
+}
+
+.layout-main__buttons {
+  @apply flex gap-x-1 items-center;
+}

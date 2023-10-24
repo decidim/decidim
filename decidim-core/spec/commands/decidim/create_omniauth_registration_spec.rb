@@ -194,7 +194,7 @@ module Decidim
           end
 
           context "with another email than in the one reported by the identity" do
-            let(:verified_email) { "other@email.com" }
+            let(:verified_email) { "other@example.com" }
 
             it "does not confirm the user" do
               command.call

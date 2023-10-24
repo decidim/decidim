@@ -2,8 +2,8 @@
   <% if current_organization.twitter_handler.present? %>
     <li>
       <a target="_blank" data-external-link="false" rel="noopener noreferrer" href="https://twitter.com/<%= current_organization.twitter_handler %>">
-        <span class="sr-only"><%= t("layouts.decidim.social_media_links.twitter", organization: translated_attribute(current_organization.name)) %></span>
-        <%= icon "twitter-line", class: "w-8 h-8 fill-current", "aria-label": "Twitter" %>
+        <span class="sr-only"><%= t("layouts.decidim.social_media_links.x", organization: translated_attribute(current_organization.name)) %></span>
+        <%= icon "twitter-x-line", class: "w-8 h-8 fill-current", "aria-label": "X" %>
       </a>
     </li>
   <% end %>

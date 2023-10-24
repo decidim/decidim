@@ -7,7 +7,9 @@ shared_examples "manage conference speakers examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
-    click_link "Speakers"
+    within_admin_sidebar_menu do
+      click_link "Speakers"
+    end
   end
 
   it "shows conference speakers list" do
@@ -18,7 +20,7 @@ shared_examples "manage conference speakers examples" do
 
   context "without existing user" do
     it "creates a new conference speaker" do
-      find(".card-title a.new").click
+      click_link "New speaker"
 
       within ".new_conference_speaker" do
         fill_in(
@@ -42,7 +44,7 @@ shared_examples "manage conference speakers examples" do
     let!(:speaker_user) { create(:user, organization: conference.organization) }
 
     it "creates a new conference speaker" do
-      find(".card-title a.new").click
+      click_link "New speaker"
 
       within ".new_conference_speaker" do
         select "Existing participant", from: :conference_speaker_existing_user
@@ -65,7 +67,7 @@ shared_examples "manage conference speakers examples" do
       visit current_path
     end
 
-    it "updates an conference speaker" do
+    it "updates a conference speaker" do
       within find("#conference_speakers tr", text: conference_speaker.full_name) do
         click_link "Edit"
       end
@@ -89,7 +91,7 @@ shared_examples "manage conference speakers examples" do
 
     it "deletes the conference speaker" do
       within find("#conference_speakers tr", text: conference_speaker.full_name) do
-        accept_confirm(admin: true) { find("a.action-icon--remove").click }
+        accept_confirm { find("a.action-icon--remove").click }
       end
 
       expect(page).to have_admin_callout("successfully")
