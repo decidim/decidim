@@ -8,7 +8,7 @@ module Decidim
 
     included do
       # Displays the flash messages found in ActionDispatch's +flash+ hash using
-      # Foundation's +callout+ component.
+      # FoundationRailsHelper's +callout+ component.
       #
       # Overrides original function from foundation_rails_helper gem to allow
       # flash messages with links inside.
@@ -34,7 +34,7 @@ module Decidim
 
       private
 
-      # Private: Foundation alert box.
+      # Private: FoundationRailsHelper alert box.
       #
       # Overrides the foundation alert box helper for adding accessibility tags.
       #
@@ -65,7 +65,7 @@ module Decidim
         end
       end
 
-      # Private: Foudation alert box close link.
+      # Private: FoundationRailsHelper alert box close link.
       #
       # Overrides the foundation alert box close link helper for the aria-label
       # translations.
