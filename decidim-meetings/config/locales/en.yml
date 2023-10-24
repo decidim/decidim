@@ -22,7 +22,7 @@ en:
         end_time: End time
         id: ID
         iframe_access_level: Iframe access level
-        iframe_embed_type: Iframe embed type
+        iframe_embed_type: Only a few services allow the "Embed in meeting page" or "Open in live event page" from the following domains - www.youtube.com, www.twitch.tv and meet.jit.si. Note that with the "Embed in the meeting page" on mobiles, as the screenb size is small, it will actually work as an "Open in live event page".
         location: Location
         location_hints: Location hints
         online_meeting_url: Online meeting URL
