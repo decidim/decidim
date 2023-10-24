@@ -288,7 +288,7 @@ describe "Datepicker", type: :system do
           end
 
           context "when pasting an incorrect value to date input field" do
-            it "doesn't paste anything" do
+            it "does not paste anything" do
               fill_in :example_input_clipboard, with: "99.99.9999"
 
               clipboard = find("#example_input_clipboard")
@@ -400,7 +400,7 @@ describe "Datepicker", type: :system do
             expect(page).to have_field("example_input_time", with: "21:22")
           end
 
-          it "doesn't update picker's time if not a correct value" do
+          it "does not update picker's time if not a correct value" do
             fill_in_timepicker :example_input_time, with: "99:99"
             find(".clock_button").click
             hour = find("input.hourpicker")
@@ -448,7 +448,7 @@ describe "Datepicker", type: :system do
           end
 
           context "when pasting an incorrect value to time input field" do
-            it "doesn't paste anything" do
+            it "does not paste anything" do
               fill_in :example_input_clipboard, with: "99:99"
 
               clipboard = find("#example_input_clipboard")
@@ -693,7 +693,7 @@ describe "Datepicker", type: :system do
             expect(minute.value).to eq("15")
           end
 
-          it "doesn't update picker's time if not a correct value" do
+          it "does not update picker's time if not a correct value" do
             fill_in_timepicker :example_input_time, with: "13:55"
             find(".clock_button").click
             hour = find("input.hourpicker")

@@ -92,7 +92,7 @@ en:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
       help:
-        date_format: "Format: dd.mm.yy"
+        date_format: 'Format: dd.mm.yy'
   datetime:
     distance_in_words:
       about_x_hours:
@@ -2031,13 +2031,13 @@ en:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      help:
+        time_format: 'Format: hh:mm'
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      help:
-        time_format: "Format: hh:mm"
   versions:
     directions:
       left: Deletions

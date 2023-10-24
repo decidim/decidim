@@ -268,7 +268,11 @@ shared_examples "manage posts" do
         click_link "Edit"
       end
       within ".edit_post" do
-        fill_in "Publish time", with: Time.current.change(year: 2022, month: 1, day: 1, hour: 0, min: 0)
+        fill_in :post_published_at_date, with: nil, fill_options: { clear: :backspace }
+        fill_in :post_published_at_time, with: nil, fill_options: { clear: :backspace }
+        fill_in_datepicker :post_published_at_date, with: "01.01.2022", visible: :all
+        fill_in_timepicker :post_published_at_time, with: "00:00"
+        expect(page).to have_field(:post_published_at, with: "2022-01-01T00:00", visible: :hidden)
         find("*[type=submit]").click
       end
 

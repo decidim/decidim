@@ -57,8 +57,8 @@ shared_examples "manage conferences" do
       dynamically_attach_file(:conference_banner_image, image2_path)
 
       within ".new_conference" do
-        fill_in :conference_start_date, with: 1.month.ago
-        fill_in :conference_end_date, with: 1.month.ago + 3.days
+        fill_in_datepicker :conference_start_date_date, with: 1.month.ago.strftime("%d.%m.%Y")
+        fill_in_datepicker :conference_end_date_date, with: (1.month.ago + 3.days).strftime("%d.%m.%Y")
 
         find("*[type=submit]").click
       end
