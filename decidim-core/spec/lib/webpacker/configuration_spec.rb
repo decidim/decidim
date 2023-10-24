@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "gem_overrides/webpacker/runner"
+require "gem_overrides/shakapacker/runner"
 
 module Decidim
   module Webpacker

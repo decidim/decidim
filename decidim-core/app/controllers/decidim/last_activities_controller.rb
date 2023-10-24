@@ -5,7 +5,7 @@ module Decidim
   class LastActivitiesController < Decidim::ApplicationController
     include FilterResource
     include Paginable
-    include ::Webpacker::Helper
+    include ::Shakapacker::Helper
     include ::ActionView::Helpers::AssetUrlHelper
     include IconHelper
     include HasSpecificBreadcrumb
