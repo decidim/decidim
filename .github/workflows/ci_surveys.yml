@@ -36,6 +36,5 @@ jobs:
     with:
       working-directory: "decidim-surveys"
       test_command: bundle exec parallel_test --type rspec --pattern spec/
-      bullet_enabled: true
       bullet_n_plus_one: false
       bullet_unused_eager_loading: false

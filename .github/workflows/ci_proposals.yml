@@ -46,7 +46,6 @@ jobs:
     with:
       working-directory: "decidim-proposals"
       test_command: ${{ matrix.test-command }}
-      bullet_enabled: true
       bullet_n_plus_one: false
       bullet_unused_eager_loading: false
 
