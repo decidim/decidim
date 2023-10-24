@@ -1,0 +1,99 @@
+<% content_for :heading do %>
+  Accessibility
+<% end %>
+
+<% content_for :description do %>
+  <p>Decidim follows the <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>.</p>
+<% end %>
+
+<% content_for :toc do %>
+  <a href="#heading-order">Illogical heading order</a>
+  <a href="#unique-h1">Unique H1</a>
+  <a href="#one-heading">Heading on important sections</a>
+  <a href="#color-contrast">Color contrast</a>
+  <a href="#links-buttons">Links and buttons</a>
+  <a href="#a11y-labels">Accessibility labels</a>
+  <a href="#adjacent-links">Adjacent links</a>
+  <a href="#aria">Use ARIA</a>
+  <a href="#elements-hidden">Elements hidden</a>
+<% end %>
+
+<section id="heading-order" class="design__section">
+  <h2 class="design__heading__3xl">Illogical heading order</h2>
+
+  <p>Every page should have a logical heading order when using the &#60;h1&#62;, &#60;h2&#62;, &#60;h3&#62;, &#60;h4&#62;, &#60;h5&#62; and &#60;h6&#62; heading elements.</p>
+
+  <p>See further info <a href="https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_illogical_heading_order" target="_blank" rel="noopener noreferrer">here</a></p>
+</section>
+
+<section id="unique-h1" class="design__section">
+  <h2 class="design__heading__3xl">Unique H1</h2>
+
+  <p>Every page should have a unique H1 heading on it</p>
+
+  <p>See further info <a href="https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_unique_h1_on_every_page" target="_blank" rel="noopener noreferrer">here</a></p>
+</section>
+
+<section id="one-heading" class="design__section">
+  <h2 class="design__heading__3xl">Heading on important sections</h2>
+
+  <p>It is highly important that each important section of the page has a heading to make it easier to understand what important sections are on the page just by browsing through its headings.</p>
+
+  <p>See further info <a href="https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_heading_on_important_sections" target="_blank" rel="noopener noreferrer">here</a></p>
+</section>
+
+<section id="color-contrast" class="design__section">
+  <h2 class="design__heading__3xl">Color contrast</h2>
+
+  <p>When creating user interfaces or modifying the colors, always make sure that you are not breaking accessibility with your changes. You can use the Color contrast checker to ensure that your colors have enough contrast against the background color where they are displayed at.</p>
+
+  <p>See further info <a href="https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_color_contrast " target="_blank" rel="noopener noreferrer">here</a></p>
+</section>
+
+<section id="links-buttons" class="design__section">
+  <h2 class="design__heading__3xl">Links and buttons</h2>
+
+  <p>The anchor elements (i.e. links) are meant to link to different pages or to anchor positions within the page. If the element is supposed to e.g. open some hidden item on that page, you should use the &#60;button&#62; element instead.</p>
+
+  <p>See further info <a href="https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_links_and_buttons" target="_blank" rel="noopener noreferrer">here</a></p>
+</section>
+
+<section id="a11y-labels" class="design__section">
+  <h2 class="design__heading__3xl">Accessibility labels</h2>
+
+  <p>When defining elements, always make sure they make sense for screen reader users.</p>
+
+  <p>See further info <a href="https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_accessibility_labels" target="_blank" rel="noopener noreferrer">here</a></p>
+</section>
+
+<section id="adjacent-links" class="design__section">
+  <h2 class="design__heading__3xl">Adjacent links for the same resource</h2>
+
+  <p>If the same resource has multiple adjacent links pointing to it, it makes it difficult for such users to glance through the page because they might need to go through multiple links to get to the next resource.</p>
+
+  <p>See further info <a href="https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_adjacent_links_for_the_same_resource" target="_blank" rel="noopener noreferrer">here</a></p>
+</section>
+
+<section id="dynamic-changes" class="design__section">
+  <h2 class="design__heading__3xl">Dynamic functionality changes the page context unintuitively</h2>
+
+  <p>Changes in the form inputs should not change the context of the page automatically.</p>
+
+  <p>See further info <a href="https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_dynamic_functionality_changes_the_page_context_unintuitively" target="_blank" rel="noopener noreferrer">here</a></p>
+</section>
+
+<section id="aria" class="design__section">
+  <h2 class="design__heading__3xl">Use ARIA attributes where possible</h2>
+
+  <p>Many elements that provide interactive functionality on the website require ARIA attributes on them to make them accessible.</p>
+
+  <p>See further info <a href="https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_use_aria_attributes_where_possible" target="_blank" rel="noopener noreferrer">here</a></p>
+</section>
+
+<section id="elements-hidden" class="design__section">
+  <h2 class="design__heading__3xl">Elements hidden from the accessibility API</h2>
+
+  <p>To hide an element from assistive technologies, use the aria-hidden="true" attribute on it.</p>
+
+  <p>See further info <a href="https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_elements_hidden_from_the_accessibility_api" target="_blank" rel="noopener noreferrer">here</a></p>
+</section>
