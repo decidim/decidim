@@ -13,11 +13,12 @@ module Decidim
       # Overrides original function from foundation_rails_helper gem to allow
       # flash messages with links inside.
       #
-      # Parameters:
-      # * +closable+ - A boolean to determine whether the displayed flash messages
-      # should be closable by the user. Defaults to true.
-      # * +key_matching+ - A Hash of key/value pairs mapping flash keys to the
-      # corresponding class to use for the callout box.
+      # @param closable [Boolean] - Whether the displayed flash messages
+      #                             should be closable by the user. Defaults to true.
+      # @param key_matching [Hash] - A mapping of the flash keys to the
+      #                              corresponding class to use for the callout box.
+      #
+      # @return [String] the HTML with all the flash messages
       def display_flash_messages(closable: true, key_matching: {})
         key_matching = FoundationRailsHelper::FlashHelper::DEFAULT_KEY_MATCHING.merge(key_matching)
         key_matching.default = :primary
@@ -34,15 +35,17 @@ module Decidim
 
       private
 
-      # Private: FoundationRailsHelper alert box.
+      # FoundationRailsHelper alert box.
       #
       # Overrides the foundation alert box helper for adding accessibility tags.
       #
-      # value - The flash message.
-      # alert_class - The foundation class of the alert message.
-      # closable - A boolean indicating whether the close icon is added.
+      # @private
       #
-      # Returns a HTML string.
+      # @param value [String] - The flash message.
+      # @param alert_class [String] - The foundation class of the alert message.
+      # @param closable [Boolean] - Wether the close icon is added.
+      #
+      # @return [String] the HTML with the alert box
       def alert_box(value, alert_class, closable, opts = {})
         options = {
           class: "flash #{alert_class}",
@@ -59,11 +62,13 @@ module Decidim
         end
       end
 
-      # Private: Icon with wrapper class
+      # Icon with wrapper class
       #
-      # alert_class - The foundation class of the alert message.
+      # @private
       #
-      # Returns a HTML string
+      # @param alert_class [String] - The foundation class of the alert message.
+      #
+      # @return [String] the HTML with the icon
       def flash_icon(alert_class)
         icon = {
           secondary: "information-line",
@@ -77,10 +82,14 @@ module Decidim
         end
       end
 
-      # Private: FoundationRailsHelper alert box close link.
+      # FoundationRailsHelper alert box close link.
       #
       # Overrides the foundation alert box close link helper for the aria-label
       # translations.
+      #
+      # @private
+      #
+      # @return [String] the HTML with the close link
       def close_link
         button_tag(
           class: "close-button",
