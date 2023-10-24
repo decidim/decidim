@@ -52,16 +52,28 @@ module Decidim
         }.merge(opts)
 
         options[:data] = options[:data].merge(closable: "") if closable
+        content_tag(:div, options) do
+          concat flash_icon(alert_class)
+          concat message(value)
+          concat close_link if closable
+        end
+      end
+
+      # Private: Icon with wrapper class
+      #
+      # alert_class - The foundation class of the alert message.
+      #
+      # Returns a HTML string
+      def flash_icon(alert_class)
         icon = {
           secondary: "information-line",
           alert: "alert-line",
           warning: "alert-line",
           success: "checkbox-circle-line"
         }
-        content_tag(:div, options) do
-          concat icon(icon[alert_class])
-          concat message(value)
-          concat close_link if closable
+
+        content_tag(:div, class: "flash__icon") do
+          icon(icon[alert_class])
         end
       end
 
