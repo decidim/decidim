@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t("select_initiative_type", scope: "layouts.decidim.initiative_creation_header")) %>
 <% default_type = available_initiative_types.first %>
 <% content_for :back_link do %>
   <%= link_to initiatives_path do %>
