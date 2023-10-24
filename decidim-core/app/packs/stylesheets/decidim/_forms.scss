@@ -146,6 +146,19 @@
   }
 }
 
+.input-group {
+    @apply w-full relative;
+
+  input {
+    @apply w-full;
+  }
+
+  button {
+    @apply absolute right-2 inset-y-2 bottom-10;
+  }
+}
+
+
 .emoji {
   &__container {
     @apply relative;

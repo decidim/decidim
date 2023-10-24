@@ -80,7 +80,7 @@ export default class PasswordToggler {
 
   addInputGroupWrapperAsParent() {
     const inputGroupWrapper = document.createElement("div");
-    inputGroupWrapper.classList.add("filter-search", "input-group-container");
+    inputGroupWrapper.classList.add("input-group");
 
     this.input.parentNode.replaceChild(inputGroupWrapper, this.input);
     inputGroupWrapper.appendChild(this.input);
