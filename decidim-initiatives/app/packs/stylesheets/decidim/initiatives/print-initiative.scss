@@ -111,6 +111,23 @@
 
 @media print{
   .process-header{
+    display: none:
+  }
+
+
+  h3.print-section-title{
+    display: none;
+  }
+
+  .print-button{
+    display: none;
+  }
+
+  .omnipresent-banner{
+    display: none;
+  }
+
+  .decidim-accessibility-indicator{
     display: none;
   }
 
