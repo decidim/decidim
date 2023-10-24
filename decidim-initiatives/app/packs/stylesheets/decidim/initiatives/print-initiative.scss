@@ -110,6 +110,13 @@
 }
 
 @media print {
+  h3.print-section-title {
+    display: none;
+  }
+  .print-button {
+    display: none;
+  }
+
   .omnipresent-banner {
     display: none;
   }
