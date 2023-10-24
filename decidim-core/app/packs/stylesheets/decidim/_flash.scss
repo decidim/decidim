@@ -18,7 +18,7 @@
   }
 
   .close-button {
-    @apply ml-auto self-start;
+    @apply ml-auto;
 
     svg {
       @apply w-5 h-5 fill-current;
