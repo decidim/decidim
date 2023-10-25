@@ -1,0 +1,61 @@
+.sidebar-menu {
+  @apply p-8 flex-none w-full md:w-fit max-w-full md:max-w-xs;
+
+  &__item {
+    a {
+      @apply gap-x-2 p-2 flex items-center text-secondary text-sm truncate border border-gray-5 rounded;
+
+      > svg {
+        @apply w-4 h-4 flex-none text-gray fill-current;
+      }
+    }
+
+    &.is-active > a,
+    & > a:hover {
+      @apply underline [&>svg]:text-secondary bg-white border;
+    }
+
+    &.is-active > a {
+      @apply font-semibold;
+    }
+
+    ul {
+      @apply ml-10;
+
+      li {
+        a {
+          @apply px-2 py-1;
+
+          .component-counter {
+            @apply ml-auto inline-flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full bg-background-4 border-secondary;
+          }
+        }
+
+        &.is-active a {
+          @apply font-semibold;
+        }
+
+        &.is-active > a,
+        & > a:hover {
+          @apply underline [&>svg]:text-secondary bg-white;
+        }
+      }
+    }
+  }
+
+  &__container {
+    @apply flex flex-col md:flex-row items-stretch;
+
+    [id*="dropdown-menu"] {
+      @apply py-3.5;
+
+      [aria-hidden="false"] {
+        @apply block;
+      }
+    }
+  }
+
+  & + * {
+    @apply grow;
+  }
+}

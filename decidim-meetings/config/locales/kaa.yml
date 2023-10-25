@@ -1,1 +1,7 @@
 kaa:
+  decidim:
+    meetings:
+      admin:
+        registrations:
+          edit:
+            save: Saqlaw

@@ -25,8 +25,8 @@ edit_link(
     <% else %>
       <section class="layout-aside__section layout-aside__buttons">
         <%= link_to t(".edit"),
-            edit_initiative_path(current_initiative),
-            class: "button button__xl w-full button__secondary" %>
+                    edit_initiative_path(current_initiative),
+                    class: "button button__xl w-full button__secondary" %>
         <%= render partial: "send_to_technical_validation", locals: { title: t(".send_to_technical_validation"), confirm: t(".confirm") } %>
       </section>
     <% end %>
@@ -39,26 +39,34 @@ edit_link(
       <%= cell("decidim/nav_links", initiative_nav_items(current_initiative)) %>
     </section>
 
-    <% if current_initiative.offline_signature_type? || current_initiative.online_signature_type? %>
-      <section class="layout-aside__section initiative__aside__element__signature">
-        <span class="initiative__aside__element__signature-title">
-          <%= t("signature_collection", scope: "decidim.initiatives.initiatives.show") %>
-        </span>
-        <div>
-          <% if current_initiative.offline_signature_type? %>
-            <%= icon "community-line", class: "fill-gray inline-block" %>
-            <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">
-              <%= t("offline", scope: "activemodel.attributes.initiative.signature_type_values") %>
-            </span>
-          <% end %>
-          <% if current_initiative.online_signature_type? %>
-            <%= icon "device-line", class: "fill-gray inline-block" %>
-            <span class="text-md font-normal text-gray-2 inline-block align-middle ml–2">
-              <%= t("online", scope: "activemodel.attributes.initiative.signature_type_values") %>
-            </span>
-          <% end %>
+    <% if current_initiative.type.promoting_committee_enabled? && current_user&.admin? %>
+      <div class="layout-aside__section">
+        <div class="initiative__aside__element__committee">
+          <%= icon "account-circle-line", class: "fill-gray inline-block" %>
+          <span class="ml-2 initiative__aside__element-title">
+            <%= t("title", scope: "decidim.initiatives.admin.committee_requests.index") %>
+          </span>
+          <div class="ml-auto fill-secondary inline-block">
+            <input id="urlShareLink-committee" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>" readonly>
+            <button type="button" class="button button__sm button__text-secondary" data-clipboard-copy="#urlShareLink-committee">
+              <%= render_committee_tooltip %>
+              <span class="sr-only"><%= t("decidim.shared.share_modal.copy_share_link") %></span>
+            </button>
+          </div>
         </div>
-      </section>
+          <% if current_initiative.committee_members.empty? %>
+            <span class="initiative__aside__element__data-text">
+              <%= t("no_members_yet", scope: "decidim.initiatives.admin.committee_requests.index") %>
+            </span>
+          <% end %>
+          <% current_initiative.committee_members.each do |request| %>
+            <div class="author" data-id="<%= request.id %>">
+              <div class="profile__group__list">
+                <%= card_for request.user %>
+              </div>
+            </div>
+          <% end %>
+      </div>
     <% end %>
 
     <section class="layout-aside__section">
@@ -77,6 +85,24 @@ edit_link(
           <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
         </span>
       </div>
+
+      <% if current_initiative.offline_signature_type? || current_initiative.online_signature_type? %>
+        <div class="initiative__aside__element__data">
+          <p class="initiative__aside__element__data-title">
+          <%= t("signature_collection", scope: "decidim.initiatives.initiatives.show") %>
+          </p>
+          <span class="initiative__aside__element__data-text">
+            <span class="text-sm font-normal text-gray-2 block">
+              <% if current_initiative.offline_signature_type? %>
+                <%= t("offline", scope: "activemodel.attributes.initiative.signature_type_values") %>
+              <% end %>
+              <% if current_initiative.online_signature_type? %>
+                <%= t("online", scope: "activemodel.attributes.initiative.signature_type_values") %>
+              <% end %>
+            </span>
+          </span>
+        </div>
+      <% end %>
 
       <div class="initiative__aside__element__data">
         <p class="initiative__aside__element__data-title">
@@ -111,36 +137,6 @@ edit_link(
         </div>
       <% end %>
     </section>
-
-    <% if current_initiative.type.promoting_committee_enabled? && current_user&.admin? %>
-      <div class="layout-aside__section">
-        <div class="initiative__aside__element__committee">
-          <%= icon "account-circle-line", class: "fill-gray inline-block" %>
-          <span class="ml-2 initiative__aside__element-title">
-            <%= t("title", scope: "decidim.initiatives.admin.committee_requests.index") %>
-          </span>
-          <div class="ml-auto fill-secondary inline-block">
-            <input id="urlShareLink-committee" type="text" class="!hidden" value="<%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>" readonly>
-            <button type="button" class="button button__sm button__text-secondary" data-clipboard-copy="#urlShareLink-committee">
-              <%= render_committee_tooltip %>
-              <span class="sr-only"><%= t("decidim.shared.share_modal.copy_share_link") %></span>
-            </button>
-          </div>
-        </div>
-          <% if current_initiative.committee_members.empty? %>
-            <span class="initiative__aside__element__data-text">
-              <%= t("no_members_yet", scope: "decidim.initiatives.admin.committee_requests.index") %>
-            </span>
-          <% end %>
-          <% current_initiative.committee_members.each do |request| %>
-            <div class="author" data-id="<%= request.id %>">
-              <div class="profile__group__list">
-                <%= card_for request.user %>
-              </div>
-            </div>
-          <% end %>
-      </div>
-    <% end %>
   </section>
 <% end %>
 

@@ -50,7 +50,6 @@
     "dayjs": "^1.11.0",
     "diff": "^5.0.0",
     "drag-on-drop": "^3.6.1",
-    "foundation-datepicker": "1.5.6",
     "foundation-sites": "^6.7.0",
     "graphiql": "^1.4.7",
     "html5sortable": "0.10.0",
@@ -69,7 +68,7 @@
     "react-i18nify": "^1.8.8",
     "select": "^1.1.2",
     "svg4everybody": "2.1.9",
-    "tom-select": "^2.2.2",
+    "tom-select": "2.2.2",
     "tributejs": "5.1.3",
     "unfetch": "^3.0.0",
     "uuid": "^9.0.0"

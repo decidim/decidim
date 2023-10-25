@@ -1,4 +1,4 @@
-/* eslint-disable require-jsdoc, id-length, no-undefined, no-unused-vars, multiline-ternary, no-ternary, no-nested-ternary, no-invalid-this */
+/* eslint-disable require-jsdoc, id-length, no-undefined, no-unused-vars, multiline-ternary, no-nested-ternary, no-invalid-this */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
 /* eslint no-unused-vars: 0 */
@@ -104,8 +104,7 @@ export default function areachart(opts = {}) {
       .style("display", "none")
 
     let tooltip = select("body").append("div")
-      .attr("id", `${container.node().id}-tooltip`)
-      .attr("class", "chart-tooltip")
+      .attr("id", `${container.node().id}-metric-tooltip`)
       .style("opacity", 0)
 
     svg
@@ -131,7 +130,7 @@ export default function areachart(opts = {}) {
         }
 
         let tooltipContent = `
-          <div class="tooltip-content">
+          <div>
             ${timeFormat("%e %B %Y")(d.key)}<br />
             ${d.value.toLocaleString()} ${objectName}
           </div>`

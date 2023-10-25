@@ -151,7 +151,6 @@ sk:
         error: Pri prijímaní zmeny došlo k chybe.
         success: Tento pozmeňovací návrh bol úspešne prijatý.
       amendable:
-        amended_by: Zmenil
         button: Zmena %{model_name}
         error: Pri zmene tohto zdroja sa vyskytla chyba.
         promote_button: Propagujte na %{model_name}
@@ -169,7 +168,6 @@ sk:
         success: Pozmeňovací návrh bol úspešne zmazaný.
       edit_draft:
         discard: Zahodiť koncept
-        discard_confirmation: Naozaj chcete zahodiť tento pozmeňovací návrh?
         send: Náhľad
         title: Upraviť pozmeňovací návrh
       emendation:
@@ -348,8 +346,6 @@ sk:
         name: Štatistiky organizácie
       sub_hero:
         name: Pruh pod hlavným pruhom
-    datepicker:
-      help_text: 'Očakávaný formát:%{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
@@ -362,10 +358,7 @@ sk:
           already_have_an_account?: Už máte účet?
           newsletter: Dostávajte príležitostný spravodajca s relevantnými informáciami
           newsletter_title: Povolenie kontaktu
-          sign_in: Prihlásiť sa
           sign_up: Zaregistrovať sa
-          sign_up_as:
-            legend: Zaregistrovať sa ako
           subtitle: Registrujte sa, aby ste sa zúčastnili diskusií a návrhov podpory.
           tos_agreement: Prihlásením súhlasíte s%{link}.
           tos_title: Podmienky používania
@@ -378,7 +371,6 @@ sk:
         newsletter_modal:
           buttons:
             check: Skontrolujte a pokračujte
-            close_modal: Zatvoriť okno
           title: Upozornenie na bulletin
         omniauth_buttons:
           or: Alebo
@@ -402,8 +394,6 @@ sk:
       show:
         download_data: Stiahnuť dáta
         request_data: Vyžiadať dáta
-    endorsable:
-      endorsements: Potvrdenie
     endorsements:
       identities:
         done: Hotovo
@@ -641,12 +631,9 @@ sk:
           title: Čo môžem robiť v %{organization}?
         title: Všeobecná nápoveda
     last_activities:
-      activities:
-        no_activities_warning: Žiadna aktivita
       all: Všetky typy aktivit
       index:
         last_activity: Posledná aktivita
-        resource_type: Typ
     log:
       base_presenter:
         create: "%{user_name} vytvořeno %{resource_name}"
@@ -761,11 +748,6 @@ sk:
         success: Nastavenie oznámenie bolo úspešne aktualizované.
     open_data:
       not_available_yet: Súbory Open Data ešte nie sú k dispozícii. Skúste to znova za pár minút.
-    own_user_groups:
-      index:
-        pending: čakajúci
-        rejected: Odmietnuté
-        verified: Overené
     pad_iframe:
       disclaimer: Obsah tejto podložky sú napísané registrovanými užívateľmi a vyjadrujú ich názory. %{Organization} nemôže byť zodpovedný za jeho obsah.
       pad: Podložka
@@ -787,8 +769,6 @@ sk:
         hero:
           participate: zúčastniť sa
           welcome: Vitajte na%{organization}!
-        metrics:
-          headline: Metrika
         statistics:
           headline: Aktuálny stav %{organization}
         sub_hero:
@@ -805,7 +785,7 @@ sk:
     participatory_space_private_users:
       not_allowed: Nemáte povolenie na zobrazenie tohto obsahu
     profile:
-      view: Pohľad
+      deleted: Vymazaný účastník
     profiles:
       show:
         activity: Aktivita
@@ -814,7 +794,6 @@ sk:
         following: Nasleduje
         groups: Skupiny
         members: Členovia
-        view_full_profile: Zobraziť celý profil
       sidebar:
         badges:
           info: Odznaky získate za určité aktivity a účasť na platforme.
@@ -859,7 +838,6 @@ sk:
       term_input_placeholder: Vyhľadávanie
     searches:
       filters:
-        back: Späť na výsledky
         jump_to: 'Skočit do:'
         state:
           active: Aktívne
@@ -867,22 +845,11 @@ sk:
           future: Budúcnosť
           past: Uplynulé
       filters_small_view:
-        close_modal: Zatvoriť modálne
         filter: Filter
         filter_by: Filtrovať podľa
-        unfold: Rozbaliť
       results:
-        results:
-          one: "%{count} výsledek"
-          few: "%{count} výsledků"
-          many: "%{count} výsledků"
-          other: "%{count} výsledků"
         view_all: Zobrazit všechny (%{count})
     shared:
-      embed_modal:
-        close_window: Zátvor okno
-        embed: Vložte tento kód na svoju stránku
-        embed_link: Vložiť
       extended_navigation_bar:
         more: Viac
         unfold: Rozbaliť
@@ -896,10 +863,7 @@ sk:
         title: Nahlásiť problém
       floating_help:
         help: Pomoc
-      follow_button:
-        sign_in_before_follow: Pred vykonaním tejto akcie sa prosím prihláste
       login_modal:
-        please_sign_in: prosím prihláste sa
         sign_up: Prihlásiť sa
       participatory_space_filters:
         filters:
@@ -914,7 +878,6 @@ sk:
         label: 'Výsledky na stránku:'
         title: Vyberte počet výsledkov na stránku
       share_modal:
-        close_window: Zátvor okno
         share: Zdieľať
         share_link: Zdieľať odkaz
     statistics:
@@ -930,9 +893,6 @@ sk:
       update:
         error: Počas aktualizácie vašich záujmov došlo k chybe.
         success: Vaše záujmy boli úspešne aktualizované.
-    version_author:
-      show:
-        deleted: Vymazaný účastník
     welcome_notification:
       default_subject: Ďakujeme, že ste sa pripojili k {{organization}}!
     wizard_step_form:
@@ -956,8 +916,6 @@ sk:
       last_attempt: Máte posledný pokus, potom dôjde k uzamknutiu účtu.
       locked: Váš účet je uzamknutý.
       not_found_in_database: Neplatný%{authentication_keys} alebo heslo.
-      timeout: Vaša relácia vypršala. Pre pokračovanie sa prosím prihláste.
-      unauthenticated: Pred pokračovaním sa musíte prihlásiť alebo zaregistrovať.
     invitations:
       edit:
         header: Dokončite vytvorenie účtu
@@ -1004,7 +962,6 @@ sk:
         action: Odomknite svoj účet
         greeting: Dobrý deň, %{recipient}!
         instruction: 'Kliknutím na odkaz nižšie odomknete svoj účet:'
-        message: Váš účet bol uzamknutý kvôli nadmernému počtu neúspešných pokusov o prihlásenie.
         subject: Odomknite pokyny
     omniauth_callbacks:
       failure: Nemožno vás autentizovať z%{kind} pretože "%{reason}".
@@ -1032,18 +989,10 @@ sk:
       signed_up_but_unconfirmed: Na vašu e-mailovú adresu bola odoslaná správa s potvrdzujúcim odkazom. Kliknutím na odkaz aktivujte svoj účet.
       update_needs_confirmation: Účet ste úspešne aktualizovali, ale musíme overiť novú e-mailovú adresu. Skontrolujte e-mail a potvrďte novú e-mailovú adresu.
       updated: Účet bol úspešne aktualizovaný.
-    sessions:
-      already_signed_out: Bolo úspešne odhlási.
-      new:
-        sign_in: Prihlásiť sa
-      signed_in: Úspešne ste sa prihlásili.
-      signed_out: Odhlásenie prebehlo úspešne.
     shared:
       links:
         back: Späť
         forgot_your_password: Zabudli ste heslo?
-        sign_in: Prihlásiť sa
-        sign_in_with_provider: Prihlásiť sa cez%{provider}
         sign_up: Prihlásiť sa
       minimum_password_length:
         one: "(Minimálne %{count} znakov)"
@@ -1055,13 +1004,11 @@ sk:
         resend_unlock_instructions: Obnovte pokyny k odomknutiu
       send_instructions: Dostanete e-mail s pokynmi pre odomknutie účtu v priebehu niekoľkých minút.
       send_paranoid_instructions: Ak váš účet existuje, dostanete e-mail s pokynmi, ako ho odomknúť v priebehu niekoľkých minút.
-      unlocked: Váš účet bol úspešne odblokovaný. Ak chcete pokračovať, prihláste sa.
   doorkeeper:
     scopes:
       public: Vaše veřejné informace.
   errors:
     messages:
-      already_confirmed: bolo už potvrdené, skúste prosím prihlásiť
       confirmation_period_expired: musí byť potvrdené v rámci %{period}, požiadajte o nový
       content_type_allowlist_error: typ súboru nie je platný
       expired: uplynula, požiadajte o novú
@@ -1085,15 +1032,15 @@ sk:
     timestamp_error_message: Prepáčte, bolo to príliš rýchle! Znovu odošlite.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Typ
       edit_link:
         edit: Upraviť
       footer:
         download_open_data: Stiahnite si súbory s otvorenými dátami
         made_with_open_source: Webová stránka vytvorená s <a target="_blank" href="https://github.com/decidim/decidim"> slobodným softvérom </a>.
-      header:
-        close_menu: Zatvoriť ponuku
-        navigation: Navigácia
-        sign_in: Prihlásiť sa
         sign_up: Registrovať
       impersonation_warning:
         close_session: Zatvoriť sedenie
@@ -1107,7 +1054,6 @@ sk:
         notifications: Oznámenie
         profile: Môj účet
         public_profile: Môj verejný profil
-        sign_out: Odhlásiť sa
       user_profile:
         account: Účet
         authorizations: Autorizácia
@@ -1117,8 +1063,6 @@ sk:
         notifications_settings: Nastavenie oznámenia
         title: Užívateľské nastavenia
         user_groups: Skupiny
-      widget:
-        see_more: Vidieť viac
   locale:
     name: Slovenčina
     name_with_error: Slovenčina (chyba!)

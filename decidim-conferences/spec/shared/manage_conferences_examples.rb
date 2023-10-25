@@ -118,7 +118,7 @@ shared_examples "manage conferences" do
     it_behaves_like "having a rich text editor for field", "#conference_registrations_terms", "content"
 
     it "update an conference without images does not delete them" do
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "About this conference"
       end
       click_button "Update"

@@ -111,6 +111,8 @@ en:
         information: Information
         initiative_type_scopes: Initiative type scopes
         initiatives: Initiatives
+        initiatives_menu:
+          see_initiative: See initiative
         initiatives_settings: Settings
         initiatives_submenu:
           info: About this initiative
@@ -299,8 +301,8 @@ en:
             update: Update
           form:
             authorizations: Authorization settings
-            child_scope_threshold_enabled_help: 'This config flag doesn''t support offline votes. It enables sub-scopes and works with an authorization handler that associates a scope to the user. Make sure you select that authorization, below in authorization settings. For it to work, scopes need to be configured in a hierarchical way: 1 Parent - N Child. For more info on how this configuration works, see <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">initiatives'' admin documentation page</a>.'
-            only_global_scope_enabled_help: Tick this flag if you enabled "Child scope signature" and configured the global scope as your parent scope. By enabling this, initiative type selection will be skipped in the initiative creation wizard. For more info on how this configuration works, see this <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
+            child_scope_threshold_enabled_help_html: 'This config flag doesn''t support offline votes. It enables sub-scopes and works with an authorization handler that associates a scope to the user. Make sure you select that authorization, below in authorization settings. For it to work, scopes need to be configured in a hierarchical way: 1 Parent - N Child. For more info on how this configuration works, see <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">initiatives'' admin documentation page</a>.'
+            only_global_scope_enabled_help_html: Tick this flag if you enabled "Child scope signature" and configured the global scope as your parent scope. By enabling this, initiative type selection will be skipped in the initiative creation wizard. For more info on how this configuration works, see this <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Options
           initiative_type_scopes:
             title: Scopes for the initiative type
@@ -357,7 +359,6 @@ en:
           back: Back
           continue: Continue
           fill_data_help: "<ul> <li>Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative?</li> </ul>"
-          initiative_type: Initiative type
           more_information: "(More information)"
           select_area: Select an area
           select_scope: Select a scope
@@ -463,10 +464,12 @@ en:
             other: and %{count} more people
         committee_members:
           approve: Approve
-          confirm_revoke: Are you sure?
+          confirm_approve: Are you sure you want to approve this member?
+          confirm_revoke: Are you sure you want to revoke this member?
           invite_to_committee_help: Share this link to invite other participants to the promoter committee.
           link: Link
           no_members_yet: There are no members in the promoter committee.
+          revoke: Revoke
           title: Committee members
         count:
           title:
@@ -478,7 +481,6 @@ en:
           author: Author
           myself: My initiatives
           scope: Scope
-          search: Search
           state: Status
           type: Type
         index_header:
@@ -611,8 +613,5 @@ en:
         sms_phone_number: Mobile phone number
         title: Sign %{initiative_title}
       initiatives:
-        initiative:
-          check: Check it out
-          check_and_support: Check it out and sign
         no_initiatives_yet:
           no_initiatives_yet: No initiatives yet!

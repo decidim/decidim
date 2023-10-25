@@ -156,7 +156,6 @@ fi:
         show:
           answer_questionnaire:
             already_have_an_account?: Onko sinulla jo käyttäjätili?
-            anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu sisään tililläsi</a> tai <a href="%{sign_up_link}">rekisteröidy</a> vastataksesi lomakkeeseen.
             are_you_new?: Oletko uusi käyttäjä?
             sign_in_description: Kirjaudu sisään vastataksesi kyselyyn
             sign_up_description: Luo tili tähän palveluun vastataksesi kyselyyn
@@ -178,7 +177,6 @@ fi:
           questionnaire_not_published:
             body: Tätä lomaketta ei ole vielä julkaistu.
           tos_agreement: Osallistumalla hyväksyt käyttöehdot
-          upload_file: Lataa tiedosto
       step_navigation:
         show:
           are_you_sure: Tätä toimintoa ei voi kumota, etkä voi muokata vastauksiasi. Oletko varma?

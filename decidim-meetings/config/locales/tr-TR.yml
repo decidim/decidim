@@ -56,7 +56,6 @@ tr:
           success: Toplantı başarıyla kopyalandı.
         new:
           copy: Kopyala
-          select: Çoğaltmak istediğiniz verileri seçin
           title: Yinelenen toplantı
     components:
       meetings:
@@ -149,7 +148,7 @@ tr:
           proposals_count:
             one: 'Toplantı, kendisiyle ilişkilendirilmiş %{count} teklif içerdiğinden yok edilemez:'
             other: 'Toplantı, kendisiyle ilişkilendirilmiş %{count} teklif içerdiğinden yok edilemez:'
-        new: Yeni toplantı
+        new_meeting: Yeni toplantı
         preview: Ön izleme
         registrations: Kayıtlar
         title: Eylemler
@@ -204,7 +203,6 @@ tr:
               all: Tümü
               rejected: Reddedildi
               sent: Gönderildi
-            filter_by: Tarafından filtre
             invite_attendee: Katılımcı davet et
             invites: Davetler
             search: Arama
@@ -241,9 +239,6 @@ tr:
           services:
             add_service: Servis ekle
             services: Servisler
-        models:
-          meeting:
-            name: Toplantı
         registrations:
           edit:
             save: Kaydet
@@ -281,12 +276,8 @@ tr:
               not_found: 'Organizatör veritabanında bulunamadı (ID: %{id})'
       calendar_modal:
         calendar_url: Takvim URL'si
-        close_window: Pencereyi kapat
         export_calendar: Takvimi dışa aktar
       conference_venues: Konferans Mekanları
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: Hepsini gör
       directory:
         meetings:
           index:
@@ -327,19 +318,12 @@ tr:
           origin_values:
             all: Tümü
             official: Resmi
-            user_groups: Gruplar
-          scope: Kapsam
           search: Arama
           type: Türü
           type_values:
             all: Tümü
             in_person: Şahsen
             online: Çevrimiçi
-        filters_small_view:
-          close_modal: Pencereyi kapat
-          filter: Filtrele
-          filter_by: Şuna göre filtrele
-          unfold: Aç
         form:
           address_help: 'Adres: Geocoder tarafından konumu bulmak için kullanılır'
           available_slots_help: Sınırsız alanınız varsa bunu 0 olarak bırakın
@@ -353,8 +337,6 @@ tr:
           select_a_registration_type: Lütfen bir kayıt türü seçin
         index:
           new_meeting: Yeni toplantı
-        meeting_minutes:
-          related_information: İlgili bilgi
         meetings:
           upcoming_meetings_warning: Şu anda planlanmış bir toplantı yok, ancak burada listelenen tüm geçmiş toplantıları bulabilirsiniz.
         new:
@@ -366,11 +348,8 @@ tr:
           confirm: Onayla
         show:
           attendees: Katılımcı sayısı
-          back: Listeye geri dön
-          close_meeting: Toplantıyı kapat
           contributions: Katkı sayımı
           date: Tarih
-          edit_meeting: Toplantıyı Düzenle
           join: Toplantıya katıl
           meeting_minutes: Görüşme süreleri
           no_slots_available: Kullanılabilir yer yok
@@ -386,8 +365,6 @@ tr:
         update:
           invalid: Bu toplantı güncellenirken bir sorun oluştu.
           success: Toplantıyı başarıyla oluşturdunuz.
-      meetings_map:
-        view_meeting: Toplantıyı görüntüle
       models:
         invite:
           fields:
@@ -432,8 +409,6 @@ tr:
       types:
         private_meeting: Özel toplantı
         transparent: Şeffaf
-      versions:
-        back_to_resource: Toplantı sayfasına geri dön
     metrics:
       meetings:
         description: Oluşturulan toplantı sayısı
@@ -444,8 +419,6 @@ tr:
         past_meetings: Geçmiş toplantılar
         see_all: Tüm toplantıları görün (%{count})
         upcoming_meetings: Yaklaşan toplantılar
-      upcoming_meeting_for_card:
-        upcoming_meeting: Yaklaşan toplantı
     resource_links:
       meetings_through_proposals:
         meeting_result: 'İlgili sonuçlar:'

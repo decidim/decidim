@@ -20,7 +20,7 @@ describe "Monitoring committee member verifies elections", type: :system do
 
   context "when listing the elections" do
     it "lists all the polling stations for the voting" do
-      within_admin_menu do
+      within_admin_sidebar_menu do
         click_link "Verify Elections"
       end
 

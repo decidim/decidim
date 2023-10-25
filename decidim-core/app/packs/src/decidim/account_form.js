@@ -1,42 +1,54 @@
-/**
- * Initializes the edit account form to control the password field elements
- * which should only be required when they are visible.
- *
- * @returns {void}
- */
+import PasswordToggler from "./password_toggler";
+
 const initializeAccountForm = () => {
-  const editUserForm = document.querySelector("form.edit_user");
-  if (!editUserForm) {
+  const newPasswordPanel = document.getElementById("panel-password");
+  const oldPasswordPanel = document.getElementById("panel-old-password");
+  const emailField = document.querySelector("input[type='email']");
+  if (!newPasswordPanel || !emailField) {
     return;
   }
 
-  const passwordChange = editUserForm.querySelector("#panel-password");
-  if (!passwordChange) {
-    return;
-  }
+  const originalEmail = emailField.dataset.original;
+  let emailChanged = originalEmail !== emailField.value;
+  let newPwVisible = false;
 
-  const passwordFields = passwordChange.querySelectorAll("input[type='password']");
-  if (passwordFields.length < 1) {
-    return;
-  }
+  const toggleNewPassword = () => {
+    const input = newPasswordPanel.querySelector("input")
+    if (newPwVisible) {
+      input.required = true;
+    } else {
+      input.required = false;
+      input.value = "";
+    }
+  };
+  const toggleOldPassword = () => {
+    if (!oldPasswordPanel) {
+      return;
+    }
 
-  // Foundation uses jQuery so these have to be bound using jQuery and the
-  // attribute value needs to be set through jQuery.
-  const togglePasswordFieldValidators = (enabled) => {
-    $(passwordFields).attr("required", enabled);
-
-    if (!enabled) {
-      passwordFields.forEach((field) => (field.value = ""));
+    const input = oldPasswordPanel.querySelector("input");
+    if (emailChanged || newPwVisible) {
+      oldPasswordPanel.classList.remove("hidden");
+      input.required = true;
+    } else {
+      oldPasswordPanel.classList.add("hidden");
+      input.required = false;
     }
   }
 
-  $(passwordChange).on("on.zf.toggler", () => {
-    togglePasswordFieldValidators(true);
+  const observer = new MutationObserver(() => {
+    let ariaHiddenValue = newPasswordPanel.getAttribute("aria-hidden");
+    newPwVisible = ariaHiddenValue === "false";
+
+    toggleNewPassword();
+    toggleOldPassword();
   });
-  $(passwordChange).on("off.zf.toggler", () => {
-    togglePasswordFieldValidators(false);
+  observer.observe(newPasswordPanel, { attributes: true });
+
+  emailField.addEventListener("change", () => {
+    emailChanged = emailField.value !== originalEmail;
+    toggleOldPassword();
   });
-  togglePasswordFieldValidators(false);
 };
 
 /**
@@ -69,7 +81,16 @@ const initializeDeleteAccount = () => {
   });
 };
 
+const initializeOldPasswordToggler = () => {
+  const oldUserPassword = document.querySelector(".old-user-password");
+
+  if (oldUserPassword) {
+    new PasswordToggler(oldUserPassword).init();
+  }
+}
+
 $(() => {
   initializeAccountForm();
   initializeDeleteAccount();
+  initializeOldPasswordToggler();
 });

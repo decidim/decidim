@@ -47,7 +47,6 @@ nl:
         confirm_destroy: Ben je zeker?
         destroy: Verwijder
         edit: Bewerk
-        new: Nieuw %{name}
         title: acties
       admin:
         debates:
@@ -73,9 +72,6 @@ nl:
             success: Debat succesvol bijgewerkt.
         exports:
           comments: Reacties
-        models:
-          debate:
-            name: Debat
       admin_log:
         debate:
           create: "%{user_name} heeft het %{resource_name} debat gemaakt in de %{space_name} ruimte"
@@ -106,18 +102,11 @@ nl:
           official: Officieel
           origin: Oorsprong
           participants: Deelnemers
-          scope: Scope
           search: Zoeken
           state: Status
           state_values:
             closed: Gesloten
             open: Open
-          user_groups: Gebruikersgroepen
-        filters_small_view:
-          close_modal: Sluit venster
-          filter: Sorteren
-          filter_by: Sorteren op
-          unfold: Uitvouwen
         form:
           select_a_category: Selecteer een categorie
         index:
@@ -133,20 +122,12 @@ nl:
           recent: Meest recent
           updated: Onlangs bijgewerkt
         show:
-          back: Terug naar het overzicht
           date: 'Datum:'
           edit_debate: Bewerk debat
           open: Debat openen
         update:
           invalid: Er is een fout opgetreden bij het bijwerken van het debat.
           success: Debat succesvol bijgewerkt.
-        versions:
-          debates:
-            back_to_resource: Ga terug naar het debat
-          index:
-            title: versies
-        versions_list:
-          back_to_resource: Ga terug naar het debat
       models:
         debate:
           fields:

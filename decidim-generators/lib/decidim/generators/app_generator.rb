@@ -159,7 +159,7 @@ module Decidim
 
         gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
 
-        %w(ai conferences elections initiatives templates).each do |component|
+        %w(ai conferences design elections initiatives templates).each do |component|
           if options[:demo]
             gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
           else

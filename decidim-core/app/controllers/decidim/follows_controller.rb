@@ -43,9 +43,7 @@ module Decidim
     end
 
     def button_options
-      # REDESIGN_PENDING - After removing the old follow button the inline
-      # param should also be removed
-      params.require(:follow).permit(:button_classes, :inline).to_h.symbolize_keys
+      params.require(:follow).permit(:button_classes).to_h.symbolize_keys
     end
 
     def button_cell_mobile

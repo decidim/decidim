@@ -84,7 +84,6 @@
         success_color: Vellykket
         time_zone: Tidssone
         tos_version: Vilkår for tjenesten
-        twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
         users_registration_mode: Brukerregistrering
         warning_color: Advarsel
@@ -154,8 +153,6 @@
         export: Eksporter alt
         export-selection: Eksporter valg
         import: Importer
-        manage: Administrer
-        new: Nytt %{name}
         newsletter:
           new: Nytt nyhetsbrev
         participatory_space_private_user:
@@ -204,7 +201,6 @@
           title: Rediger mappe
           update: Oppdater
         index:
-          attachment_collection_used: Denne mappen kan ikke fjernes fordi den er i bruk.
           attachment_collections_title: Vedleggsmapper
         new:
           create: Opprett
@@ -251,7 +247,6 @@
           update: Oppdater
         index:
           categories_title: Kategorier
-          category_used: Denne kategorien kan ikke fjernes fordi den er i bruk.
         new:
           create: Opprett kategori
           title: Ny kategori
@@ -312,7 +307,6 @@
       dashboard:
         show:
           view_more_logs: Vis flere logger
-          welcome: Velkommen til Admin-panelet.
       domain_whitelist:
         form:
           domain_too_short: Domene er for kort
@@ -405,7 +399,6 @@
             all: Alle
             managed: Fikk til
             not_managed: Ikke klart
-          filter_by: Filtrer etter
           impersonate: Etterligne
           impersonate_new_managed_user: Administrer ny deltaker
           managed: Fikk til
@@ -483,7 +476,6 @@
         area_types: Områdetyper
         areas: Områder
         configuration: Konfigurasjon
-        dashboard: Skrivebord
         external_domain_whitelist: Tillatte eksterne domener
         help_sections: Hjelpeseksjoner
         homepage: Hjemmeside
@@ -562,7 +554,6 @@
           fields:
             created_at: Opprettelsesdato
             email: Epost
-            last_sign_in_at: Siste påloggingsdato
             name: Navn
             role: Rolle
             roles:
@@ -668,9 +659,6 @@
           select_scopes: Filtrer for brukere som har aktivert et valgt tema i innstillingene for Mine interesser.
           select_spaces: Velg rom for å segmentere nyhetsbrevet
           select_users: Velg hvilke brukere du vil sende nyhetsbrevet
-          send_to_all_users: Send til alle brukere
-          send_to_followers: Send til følgere
-          send_to_participants: Send til deltakerne
           title: Velg mottakere som skal leveres
           warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
         show:
@@ -702,7 +690,6 @@
           officialize: Offisialiser
           title: Offisialiser deltaker "%{name}"
         show_email_modal:
-          close_modal: Lukk modal
           description: Hvis du trenger å kontakte en deltaker direkte, kan du klikke på Vis for å se e-postadressen. Denne handlingen vil bli logget.
           email_address: E-postadresser
           full_name: Fullt navn
@@ -719,7 +706,6 @@
           instagram: Instagram
           rich_text_editor_in_public_views_help: I noen tekstområder vil deltakerne kunne sette inn noen HTML-tagger med å bruke den rike tekst redigereren.
           social_handlers: Sosial
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
@@ -732,8 +718,6 @@
           colors:
             colors_title: Organisasjonens farger
             colors_warning_html: Advarsel! Endring av disse fargene kan ødelegge tilgjengelighetskontraster. Du kan sjekke kontrasten du velger, <a href="%{link}">WebAIM Contrast Checker</a> eller andre lignende verktøy.
-            header_snippets_help: "Bruk dette feltet til å legge til ting i HTML head. Den vanligste bruken er å integrere tredjeparts tjenester som krever litt ekstra JavaScript eller CSS. Du kan også bruke den til å legge til ekstra meta tags til HTML. Merk at dette bare blir gjengitt på offentlige sider, ikke i \nadministrator seksjonen."
-          cta_button_path_help: 'Du kan overskrive hvor Kall til Handlingsknappen på hjemmesiden lenker til. Bruk delvise veier, ikke fullstendige URLer her. Godtar bokstaver, tall, tankestreker og skråstreker, og må starte med en bokstav. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen. Eksempel: %{url}'
           cta_button_text_help: Du kan overskrive Handlingsknappens tekst på hjemmesiden for hvert tilgjengelige språk i organisasjonen. Hvis ikke satt, blir standardverdien brukt. Kall til Handlingknappen vises på hjemmesiden mellom velkomstteksten og beskrivelsen.
           homepage_appearance_title: Endre hjemmesidens utseende
           homepage_highlighted_content_banner_title: Markert innholdsbanner
@@ -868,9 +852,6 @@
           update: Oppdater
         form:
           none: Ingen
-          slug_help: 'Bruk delte stier, ikke fullstendige nettadresser her. Godtar bokstaver, tall, streker og skråstreker, og må starte med en bokstav. Eksempel: %{url}'
-        index:
-          last_notable_change: Siste merkbare endring
         new:
           create: Opprett side
           title: Ny side
@@ -893,7 +874,6 @@
         participants: Deltakere
         scope_types: Tematyper
         scopes: Tema
-        static_pages: Sider
         statistics: Aktivitet
         user_groups: Grupper
         users: Administratorer
@@ -937,7 +917,6 @@
           last_month: Siste måned
           last_week: Siste uke
           participants: Deltakere
-      view_public_page: Vis offentlig side
     metrics:
       blocked_users:
         object: blokkerte brukere
@@ -985,12 +964,3 @@
   errors:
     messages:
       invalid_json: Ugyldig JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Nyhetsbrev
-        settings:
-          title: Innstillinger
-        users:
-          title: Deltakere

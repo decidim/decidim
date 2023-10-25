@@ -2,8 +2,8 @@ eu:
   activerecord:
     models:
       decidim/pages/page:
-        one: page
-        other: orrialdeak
+        one: Orria
+        other: Orriak
   decidim:
     admin_log:
       page:
@@ -28,6 +28,3 @@ eu:
           update:
             invalid: Erroreak gertatu dira orria gordetzean.
             success: Orria zuzen gorde da.
-      home:
-        sub_hero:
-          register_title: Erregistratu kontu bat edukitzeko

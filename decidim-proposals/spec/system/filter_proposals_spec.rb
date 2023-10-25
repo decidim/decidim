@@ -113,7 +113,6 @@ describe "Filter Proposals", :slow, type: :system do
   end
 
   context "when filtering proposals by SCOPE" do
-    let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
     let!(:scope2) { create(:scope, organization: participatory_process.organization) }
 
     before do

@@ -7,7 +7,6 @@ module Decidim
       # and views.
       class PasswordsController < ::Devise::PasswordsController
         helper Decidim::DecidimFormHelper
-        include DisabledRedesignLayout
 
         layout "decidim/system/login"
       end

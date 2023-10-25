@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t(".title")) %>
 <div class="item_show__header">
   <h2 class="item_show__header-title">
     <%= t ".title" %>
@@ -21,7 +22,7 @@
                     <%= f.check_box :send_to_all_users, help_text: t(".all_users_help") %>
                   </div>
                 </div>
-                <hr class="reset mt-s mb-s">
+                <hr class="mt-s mb-s">
               <% end %>
               <div class="grid-x grid-padding-x">
                 <div class="cell small-12 medium-6" id="send_newsletter_to_followers">

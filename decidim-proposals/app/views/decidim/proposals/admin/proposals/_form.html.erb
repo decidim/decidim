@@ -1,18 +1,12 @@
 <div class="form__wrapper">
-  <div class="card">
-    <div class="card-divider">
-      <h2 class="card-title"><%= title %></h2>
-    </div>
-
+  <div class="card pt-4">
     <div class="card-section">
-      <div class="row column hashtags__container">
+      <div class="row column hashtags__container pb-4">
         <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title } %>
       </div>
-
       <div class="row column hashtags__container">
         <%= form.translated :editor, :body, hashtaggable: true, aria: { label: :body } %>
       </div>
-
       <% if @form.component_automatic_hashtags.any? %>
         <div class="field">
           <%= form.label :automatic_hashtags %>
@@ -25,24 +19,21 @@
           </div>
         </div>
       <% end %>
-
       <% if @form.component_suggested_hashtags.any? %>
         <div class="field">
           <%= form.label :suggested_hashtags %>
           <div class="checkboxes hashtags">
             <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map { |hashtag| [hashtag.downcase, "##{hashtag}"] }, :first, :last do |option|
-              option.label { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
-            end %>
+                option.label { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
+              end %>
           </div>
         </div>
       <% end %>
-
       <% if @form.meetings %>
         <div class="meeting-fields">
           <div class="row column">
             <%= form.check_box :created_in_meeting, label: t(".created_in_meeting") %>
           </div>
-
           <div class="row column" id="proposal_meeting">
             <%= form.select :meeting_id,
                             options_for_select(@form.meetings&.map { |meeting| [present(meeting).title(html_escape: true), meeting.id] }, selected: meetings_as_authors_selected ),
@@ -51,53 +42,40 @@
           </div>
         </div>
       <% end %>
-
       <% if @form.geocoding_enabled? %>
         <div class="row column">
           <%= form.geocoding_field :address %>
         </div>
       <% end %>
-
       <% if @form.categories&.any? %>
         <div class="row column">
           <%= form.categories_select :category_id, @form.categories, include_blank: t(".select_a_category") %>
         </div>
       <% end %>
-
       <% if current_component.has_subscopes? %>
         <div class="row column">
           <%= scopes_select_field form, :scope_id, root: current_component.scope %>
         </div>
       <% end %>
-
       <% if component_settings.attachments_allowed? %>
         <%= render partial: "decidim/admin/shared/gallery", locals: { form: } %>
       <% end %>
-
       <% if component_settings.attachments_allowed? %>
         <div class="row column">
-          <fieldset>
-            <legend><%= t(".attachment_legend") %></legend>
-            <%= form.fields_for :attachment, @form.attachment do |form| %>
-              <div class="row column">
-                <%= form.text_field :title %>
-              </div>
-
-              <div class="row column">
-                <%= form.upload :file, button_class: "button button__sm button__transparent-secondary" %>
-                <% if params[:id].present? %>
-                  <% if proposal.documents.present? %>
-                    <%= form.hidden_field :id, value: proposal.documents.first.id %>
-                    <%= form.check_box :delete_file, label: t(".delete_attachment"), value: proposal.documents.first.id %>
-                  <% end %>
-                <% end %>
-              </div>
+          <legend><%= t(".attachment_legend") %></legend>
+          <%= form.fields_for :attachment, @form.attachment do |form| %>
+            <%= form.text_field :title %>
+            <%= form.upload :file, button_class: "button button__sm button__transparent-secondary" %>
+            <% if params[:id].present? %>
+              <% if proposal.documents.present? %>
+                <%= form.hidden_field :id, value: proposal.documents.first.id %>
+                <%= form.check_box :delete_file, label: t(".delete_attachment"), value: proposal.documents.first.id %>
+              <% end %>
             <% end %>
-          </fieldset>
+          <% end %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-
-  <%= append_javascript_pack_tag "decidim_proposals_admin" %>
+<%= append_javascript_pack_tag "decidim_proposals_admin" %>

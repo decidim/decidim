@@ -35,7 +35,7 @@ module Decidim
     end
 
     def self.searchable_resources_of_type_component
-      searchable_resources.select { |r| r.constantize.ancestors.include?(Decidim::HasComponent) }
+      searchable_resources.select { |r| r.constantize.ancestors.include?(Decidim::Searchable) }
     end
 
     def self.searchable_resources_of_type_comment

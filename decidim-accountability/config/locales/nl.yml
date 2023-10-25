@@ -39,7 +39,6 @@ nl:
         destroy: Verwijder
         edit: Bewerk
         import_csv: Importeer CSV
-        new: Nieuw %{name}
         preview: Voorbeeld
         timeline_entries: Project evolutie
         title: acties
@@ -56,8 +55,6 @@ nl:
             name: Resultaat
           status:
             name: Status
-          timeline_entry:
-            name: Tijdlijn gebeurtenis
         results:
           edit:
             title: Bewerk resultaat

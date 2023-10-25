@@ -165,7 +165,6 @@ it:
         error: Si è verificato un errore durante l'accettazione dell'emendamento.
         success: L'emendamento è stato accettato con successo.
       amendable:
-        amended_by: Modificato da
         button: Modificare %{model_name}
         error: Si è verificato un errore durante la modifica di questa risorsa.
         promote_button: Promuovi a %{model_name}
@@ -183,7 +182,6 @@ it:
         success: La proposta di emendamento è stata eliminata con successo.
       edit_draft:
         discard: Scarta questa bozza
-        discard_confirmation: Sei sicuro di voler scartare questa bozza?
         send: Anteprima
         title: Modifica progetto di emendamento
       emendation:
@@ -233,13 +231,10 @@ it:
         download: Scarica file
       documents:
         related_documents: Documenti Relativi
-      geocoding:
-        geocoded_address: Indirizzo
       photos:
         related_photos: Immagini relative
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar per più utenti
       comments:
         one: commento
         other: Commenti
@@ -390,8 +385,6 @@ it:
         name: Statistiche dell'organizzazione
       sub_hero:
         name: Testo in evidenza home
-    datepicker:
-      help_text: 'Formato previsto: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
@@ -405,11 +398,7 @@ it:
           already_have_an_account?: Hai già un account?
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
-          nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
-          sign_in: Accedi
           sign_up: Registrati
-          sign_up_as:
-            legend: Registrati come
           subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
           tos_agreement: Iscrivendoti accetti i %{link} e dichiari di aver preso visione della privacy policy.
           tos_title: Termini di servizio
@@ -418,13 +407,10 @@ it:
         new:
           are_you_new?: Sei nuovo nella piattaforma?
           register: Crea un account
-        user:
-          timed_out: Sei stato inattivo per troppo tempo e sei stato automaticamente disconnesso dal servizio. Se desideri continuare a utilizzare il servizio, accedi di nuovo.
       shared:
         newsletter_modal:
           buttons:
             check: Controlla e continua
-            close_modal: Chiudi modalità
             uncheck: Mantieni deselezionato
           title: Iscrizioni alla newsletter
         omniauth_buttons:
@@ -448,13 +434,9 @@ it:
         ready: Pronto
       show:
         download_data: Scarica i dati
-        download_data_description: Un file contenente tutte le informazioni associate al tuo account verrà inviato a <strong>%{user_email}</strong>. Questa email conterrà un file .zip e una password per aprirlo.<br/><br/>Per decomprimere il file, avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows) o <a href="https://www.keka.io/">Keka</a> (per MacOS). Se si utilizza Linux, la maggior parte delle volte il software predefinito è sufficiente. In caso contrario, è possibile utilizzare <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Richiedi dati
     editor_images:
       drag_and_drop_help: Aggiungi immagini trascinandole o incollandole.
-    endorsable:
-      endorsements: Mi piace
-      endorsements_count: Numero di Appoggi
     endorsements:
       identities:
         done: Fatto
@@ -724,12 +706,9 @@ it:
           title: Cosa posso fare in %{organization}?
         title: Aiuto generale
     last_activities:
-      activities:
-        no_activities_warning: Nessuna attività
       all: Tutti i tipi di attività
       index:
         last_activity: L'ultima attività
-        resource_type: genere
     links:
       invalid_url: URL non valido
       warning:
@@ -895,11 +874,6 @@ it:
         retry: Riprova
     open_data:
       not_available_yet: I file Open Data non sono ancora disponibili, riprova tra qualche minuto.
-    own_user_groups:
-      index:
-        pending: In sospeso
-        rejected: Respinta
-        verified: Verificato
     pad_iframe:
       disclaimer: I contenuti di questo riquadro sono scritti da utenti registrati ed esprimono le loro opinioni. %{organization} non può essere ritenuto responsabile per il suo contenuto.
       pad: tampone
@@ -921,8 +895,6 @@ it:
         hero:
           participate: Partecipa
           welcome: Benvenuto su %{organization}!
-        metrics:
-          headline: Partecipazione in cifre
         statistics:
           headline: Statistiche su %{organization}
         sub_hero:
@@ -939,7 +911,7 @@ it:
     participatory_space_private_users:
       not_allowed: Non sei autorizzato a visualizzare questo contenuto
     profile:
-      view: vista
+      deleted: Utente eliminato
     profiles:
       show:
         activity: Attività
@@ -951,7 +923,6 @@ it:
         members: Utenti
         officialized: Partecipante ufficiale
         send_private_message: Invia messaggio privato
-        view_full_profile: Visualizza il profilo completo
       sidebar:
         badges:
           info: I badge vengono guadagnati eseguendo attività specifiche sulla piattaforma.
@@ -1010,7 +981,6 @@ it:
       term_input_placeholder: Ricerca
     searches:
       filters:
-        back: Torna ai risultati
         jump_to: 'Filtra per:'
         state:
           active: Attivo
@@ -1018,14 +988,9 @@ it:
           future: Futuro
           past: Conclusi
       filters_small_view:
-        close_modal: Chiudi modale
         filter: Filtro
         filter_by: Filtra per
-        unfold: spiegare
       results:
-        results:
-          one: "%{count} risultato"
-          other: "%{count} risultati"
         view_all: Visualizza tutto (%{count})
     security:
       selfxss_warning:
@@ -1037,10 +1002,6 @@ it:
         close_modal: Chiudi modalità
         ok: Ok
         title: Conferma
-      embed_modal:
-        close_window: Chiudi la finestra
-        embed: Se vuoi condividere un'anteprima di questa consultazione nella tua pagina puoi incollare questo codice
-        embed_link: Incorpora
       extended_navigation_bar:
         more: Di Più
         unfold: spiegare
@@ -1065,13 +1026,8 @@ it:
         spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
         title: Segnala utente inappropriato
       floating_help:
-        close: Chiudi l'aiuto
         help: Aiuto
-      follow_button:
-        sign_in_before_follow: Accedi prima di eseguire questa azione
       login_modal:
-        close_modal: Chiudi modalità
-        please_sign_in: Per cortesia, effettua l'accesso
         sign_up: Registrazione
       participatory_space_filters:
         filters:
@@ -1088,7 +1044,6 @@ it:
         label: 'Risultati per pagina:'
         title: Seleziona il numero di risultati per pagina
       share_modal:
-        close_window: Chiudi questa finestra
         copy_share_link: Copia
         copy_share_link_clarification: Copia il link di condivisione negli appunti
         copy_share_link_copied: Copiato!
@@ -1117,28 +1072,12 @@ it:
         existing_error: Il messaggio non può essere creato. La conversazione esiste già, riprova ora.
         success: Conversazione iniziata con successo!
       index:
-        add_max_users: 'Aggiungi utenti alla conversazione: massimo 9 utenti'
-        add_users_placeholder: Cerca...
-        close: Chiudi
         conversations_info: Le conversazioni sono private. Nessun altro può vederle. Una conversazione può essere avviata con qualsiasi partecipante o gruppo registrato sulla piattaforma.
-        from: Da
-        last_message: Ultimo messaggio
-        modal_title: Nuova conversazione
-        new_conversation: Nuova conversazione
-        next: Successivo
         no_conversations_warning: Non ci sono ancora conversazioni.
-        no_results: Nessun risultato
         time_ago: "%{time} fa"
-      new:
-        title: Inizia una conversazione
       reply:
         placeholder: La tua risposta...
         send: Invia
-        title_reply: Rispondi
-      show:
-        back: Tutte le conversazioni
-        not_allowed: Questo utente non accetta più messaggi diretti.
-        title: Conversazione con %{usernames}
       update:
         error: Messaggio non inviato. Riprova più tardi
     user_interests:
@@ -1160,27 +1099,13 @@ it:
         back_to_resource: Torna indietro
         changes_at_title: Modifiche a "%{title}"
         number_of_versions: Versioni
-        show_all_versions: Mostra tutte le versioni
-        version_author: Autore della versione
         version_created_at: Versione creata il
-        version_number: Numero della versione
-        version_number_out_of_total: "%{current_version} di %{total_count}"
-    version_author:
-      show:
-        deleted: Utente eliminato
     versions:
       resource_version:
         of_versions: "(di %{number})"
         see_other_versions: vedi altre versioni
         version: Versione %{number}
-    versions_list:
-      show:
-        back_to_resource: Torna indietro
-        changes_at_title: Modifiche a "%{title}"
-        number_of_versions: Versioni
-        title: Versioni
     versions_list_item:
-      back: Mostra tutte le versioni
       show:
         version_index: Versione %{index}
     welcome_notification:
@@ -1206,8 +1131,6 @@ it:
       last_attempt: Hai ancora un tentativo prima che il tuo account sia bloccato.
       locked: Il tuo account è bloccato.
       not_found_in_database: '%{authentication_keys} o password non validi.'
-      timeout: La tua sessione è scaduta. Per favore accedi di nuovo per continuare.
-      unauthenticated: Devi accedere o registrarti per continuare.
     invitations:
       edit:
         header: Completa la creazione del tuo account
@@ -1254,7 +1177,6 @@ it:
         action: Sblocca il mio account
         greeting: Ciao %{recipient}!
         instruction: 'Clicca sul link sottostante per sbloccare il tuo account:'
-        message: Il tuo account è stato bloccato a causa di una quantità eccessiva di tentativi di accesso non riusciti.
         subject: Sblocca le istruzioni
     omniauth_callbacks:
       failure: Impossibile autenticare da %{kind} perché "%{reason}".
@@ -1282,18 +1204,10 @@ it:
       signed_up_but_unconfirmed: Un messaggio con un link di conferma è stato inviato al tuo indirizzo email. Segui il link per attivare il tuo account.
       update_needs_confirmation: Hai aggiornato correttamente il tuo account, ma dobbiamo verificare il tuo nuovo indirizzo email. Controlla la tua email e segui il link di conferma per confermare il tuo nuovo indirizzo email.
       updated: Il tuo account è stato aggiornato correttamente.
-    sessions:
-      already_signed_out: Logout effettuato.
-      new:
-        sign_in: Accedi
-      signed_in: Login effettuato.
-      signed_out: Logout effettuato.
     shared:
       links:
         back: Indietro
         forgot_your_password: Hai dimenticato la password?
-        sign_in: Accedi
-        sign_in_with_provider: Accedi con %{provider}
         sign_up: Iscriviti
       minimum_password_length:
         one: "(Minimo%{count} caratteri)"
@@ -1303,13 +1217,11 @@ it:
         resend_unlock_instructions: Inviami nuovamente le istruzioni di sblocco
       send_instructions: Riceverai un'email con le istruzioni su come sbloccare il tuo account in pochi minuti.
       send_paranoid_instructions: Se il tuo account esiste, riceverai un'email con le istruzioni su come sbloccarlo in pochi minuti.
-      unlocked: Il tuo account è stato sbloccato correttamente. Per favore accedi per continuare.
   doorkeeper:
     scopes:
       public: Le tue informazioni pubbliche.
   errors:
     messages:
-      already_confirmed: era già confermato, per favore prova ad accedere
       confirmation_period_expired: deve essere confermato entro %{period}, si prega di richiederne uno nuovo
       content_type_allowlist_error: il tipo di file non è valido
       expired: è scaduto, si prega di richiederne uno nuovo
@@ -1337,6 +1249,10 @@ it:
     timestamp_error_message: Mi dispiace, troppo veloce! Per favore, invia di nuovo.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: genere
       edit_link:
         edit: Modifica
       footer:
@@ -1344,12 +1260,9 @@ it:
         decidim_logo: Logo Decidim
         download_open_data: Scarica i file Open Data
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
-      header:
-        close_menu: Chiudere menu
-        main_menu: Menù principale
-        navigation: Navigazione
-        sign_in: Accedi
         sign_up: Registrati
+      header:
+        main_menu: Menù principale
         user_menu: Menù utente
       impersonation_warning:
         close_session: Chiudere la sessione
@@ -1364,12 +1277,10 @@ it:
         facebook: "%{organization} su Facebook"
         github: "%{organization} su GitHub"
         instagram: "%{organization} su Instagram"
-        twitter: "%{organization} su Twitter"
         youtube: "%{organization} su YouTube"
       timeout_modal:
         body: Sei stato inattivo per %{minutes} minuti. Se continui ad essere inattivo, sarai automaticamente disconnesso per la tua sicurezza.
         continue_session: Continua la sessione
-        sign_out: Esci
         title: Vorresti continuare la tua sessione?
       user_menu:
         account: 'Account utente: %{name}'
@@ -1378,7 +1289,6 @@ it:
         notifications: Notifiche
         profile: Il mio account
         public_profile: Il mio profilo
-        sign_out: Esci
         title: Link del profilo
       user_profile:
         account: Account
@@ -1389,8 +1299,6 @@ it:
         notifications_settings: Impostazioni delle notifiche
         title: Impostazioni utente
         user_groups: gruppi
-      widget:
-        see_more: vedi di più
   locale:
     name: Italiano
     name_with_error: Italiano (errore!)
@@ -1454,7 +1362,6 @@ it:
     dropdown:
       choose_diff_view_html: 'Modalità visualizzazione HTML:'
       choose_diff_view_mode: 'Modalità di visualizzazione confronto:'
-      choose_diff_view_mode_menu: Scegli la modalità di ricerca
       option_escaped: Escaped
       option_split: Affiancati
       option_unescaped: Unescaped

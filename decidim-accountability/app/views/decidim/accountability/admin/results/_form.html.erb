@@ -31,21 +31,21 @@
       <% end %>
 
       <div class="row">
-        <div class="columns xlarge-6">
+        <div class="columns">
           <%= form.date_field :start_date %>
         </div>
 
-        <div class="columns xlarge-6">
+        <div class="columns">
           <%= form.date_field :end_date %>
         </div>
       </div>
 
       <div class="row">
-        <div class="columns xlarge-6">
+        <div class="columns">
           <%= form.select :decidim_accountability_status_id, statuses.map { |status| [translated_attribute(status.name), status.id, { "data-progress" => status.progress }] }, include_blank: true %>
         </div>
 
-        <div class="columns xlarge-6">
+        <div class="columns">
           <%= form.number_field :progress %>
         </div>
       </div>

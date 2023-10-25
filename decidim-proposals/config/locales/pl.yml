@@ -380,7 +380,6 @@ pl:
               md: Markdown
               odt: ODT
             bottom_hint: "(Będziesz mógł przeglądać i sortować sekcje dokumentów)"
-            document_legend: 'Dodaj dokument mniejszy niż 2MB, każda sekcja, aż do 3 poziomu, zostanie przekowertowana w propozycję. Wspierane formaty to: %{valid_mime_types}'
             title: Dodaj dokument
             upload_document: Prześlij dokument
           sections:
@@ -440,16 +439,10 @@ pl:
           show:
             amendments_count: Liczba poprawek
             assigned_valuators: Przypisani weryfikatorzy
-            authors: Autorzy
             body: Treść
             comments_count: Liczba komentarzy
-            comments_negative_count: Negatywny
-            comments_neutral_count: Neutralny
-            comments_positive_count: Za
-            created_at: Data utworzenia
             documents: Dokumenty
             endorsements_count: Liczba rekomendacji
-            endorsements_ranking: Ranking wg rekomendacji
             endorsers: Rekomendujący
             link: Link
             n_more_endorsers:
@@ -458,14 +451,12 @@ pl:
               many: i jeszcze %{count}
               other: i jeszcze %{count}
             photos: Zdjęcia
-            proposals: Propozycje
             ranking: "%{ranking} z %{total}"
             related_meetings: Powiązane spotkania
             remove_assignment: Usuń zadanie
             remove_assignment_confirmation: Czy na pewno chcesz usunąć przypisanie weryfikatora z tej propozycji?
             valuators: Weryfikatorzy
             votes_count: Liczba wsparć
-            votes_ranking: Ranking wg wsparć
           update_category:
             invalid: 'Następujące propozycje miały już kategorię %{subject_name}: %{proposals}.'
             success: 'Zaktualizowano kategorię nad %{subject_name} dla następujących propozycji: %{proposals}.'
@@ -503,15 +494,11 @@ pl:
         rejected: Odrzucono
         withdrawn: Wycofano
       application_helper:
-        filter_category_values:
-          all: Wszystko
         filter_origin_values:
           all: Wszystko
           meetings: Spotkania
           official: Urzędnik
           user_groups: Grupy użytkowników
-        filter_scope_values:
-          all: Wszystko
         filter_state_values:
           accepted: Przyjęto
           all: Wszystko
@@ -531,7 +518,6 @@ pl:
               ok: Opublikuj jako propozycję
               title: Poniższe działanie jest nieodwracalne
             success: Wspólny szkic został opublikowany jako propozycja.
-          view_collaborative_draft: Zobacz wspólny szkic
           withdraw:
             error: Podczas zamykania wspólnego szkicu wystąpił błąd.
             irreversible_action_modal:
@@ -539,12 +525,6 @@ pl:
               ok: Wycofaj wspólny szkic
               title: Poniższe działanie jest nieodwracalne
             success: Wspólny szkic został wycofany.
-        count:
-          drafts_count:
-            one: "%{count} wspólny szkic"
-            few: "%{count} wspólne szkice"
-            many: "%{count} wspólne szkice"
-            other: "%{count} wspólne szkice"
         create:
           success: Utworzono wspólny szkic.
         edit:
@@ -569,6 +549,12 @@ pl:
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
+        index:
+          count:
+            one: "%{count} wspólny szkic"
+            few: "%{count} wspólne szkice"
+            many: "%{count} wspólne szkice"
+            other: "%{count} wspólne szkice"
         new:
           send: Dalej
         new_collaborative_draft_button:
@@ -590,7 +576,6 @@ pl:
           rejected_request:
             error: Nie można odrzucić, spróbuj ponownie później.
         show:
-          back: Wróć
           edit: Edytuj wspólny szkic
           final_proposal: ostateczna propozycja
           final_proposal_help_text: Ten szkic jest zakończony. zobacz ostateczną propozycję
@@ -604,7 +589,6 @@ pl:
           published_proposal: opublikowana propozycja
           request_access: Poproś o dostęp
           requested_access: Poproszono o dostęp
-          version_history: zobacz historię wersji tej propozycji
           withdraw: wycofaj szkic
         states:
           open: Otwarty
@@ -615,12 +599,8 @@ pl:
           success: Zaktualizowano wspólny szkic.
         wizard_aside:
           back_from_collaborative_draft: Powrót do wspólnych szkiców
-          info: Tworzysz <strong>wspólny szkic</strong>.
         wizard_header:
           title: Utwórz swój wspólny szkic
-      content_blocks:
-        highlighted_proposals:
-          proposals: Propozycje
       create:
         error: Podczas zapisywania propozycji wystąpił błąd.
         success: Propozycja została utworzona. Zapisano jako szkic.
@@ -628,11 +608,6 @@ pl:
         error: Wystąpił błąd podczas usuwania wspólnego szkicu.
         success: Szkic propozycji został usunięty.
       models:
-        collaborative_draft:
-          fields:
-            authors: Autorzy
-            comments: Komentarze
-            contributions: Zmiany
         proposal:
           fields:
             category: Kategoria
@@ -653,7 +628,6 @@ pl:
         buttons:
           amend: Dodaj poprawkę
           comment: Skomentuj
-          comments: Komentarze
       proposal_votes:
         create:
           error: Podczas próby poparcia propozycji wystąpił błąd.
@@ -665,16 +639,9 @@ pl:
         complete:
           send: Wyślij
           title: Uzupełnij swoją propozycję
-        count:
-          proposals_count:
-            one: "%{count} propozycja"
-            few: "%{count} propozycji"
-            many: "%{count} propozycji"
-            other: "%{count} propozycji"
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
-          gallery_legend: "(Opcjonalnie) Dodaj obraz do karty propozycji"
           select_a_category: Wybierz kategorię
           send: Wyślij
           title: Edytuj propozycję
@@ -696,22 +663,15 @@ pl:
           state: Status
           type: Typ
           voted: Wsparte
-        filters_small_view:
-          close_modal: Zamknij okno
-          filter: Filtr
-          filter_by: Filtruj według
-          unfold: Rozwiń
         index:
           collaborative_drafts_list: Wspólne szkice
+          count:
+            one: "%{count} propozycja"
+            few: "%{count} propozycji"
+            many: "%{count} propozycji"
+            other: "%{count} propozycji"
           new_proposal: Nowa propozycja
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
-          view_proposal: Zobacz propozycję
-        linked_proposals:
-          proposal_votes:
-            one: wsparcie
-            few: wsparć
-            many: wsparcia
-            other: wsparcia
         new:
           send: Dalej
         orders:
@@ -723,11 +683,6 @@ pl:
           random: Losowo
           recent: Najnowsze
           with_more_authors: Z większą liczbą autorów
-        participatory_texts:
-          index:
-            document_index: Indeks dokumentu
-          view_index:
-            see_index: Zobacz indeks
         placeholder:
           address: ul. Żeromskiego 31, 81-346 Gdynia
         preview:
@@ -741,15 +696,9 @@ pl:
             other: Będziesz mógł edytować tę propozycję w ciągu %{count} minut po jej opublikowaniu. Gdy ten czas minie nie będzie można edytować propozycji.
           publish: Publikuj
           title: Opublikuj swoją propozycję
-        proposal:
-          creation_date: 'Utworzono: %{date}'
-          view_proposal: Zobacz propozycję
         show:
           answer: Odpowiedź
-          back_to: Wróć do
-          back_to_list: Powrót do listy
           changes_at_title: Poprawka do „%{title}”
-          comments: Komentarze
           edit_proposal: Edytuj propozycję
           estimated_cost: Szacowany koszt
           hidden_endorsers_count:
@@ -766,14 +715,9 @@ pl:
           proposal_accepted_reason: 'Ta propozycja została zaakceptowana, ponieważ:'
           proposal_in_evaluation_reason: Ta propozycja jest oceniana
           proposal_rejected_reason: 'Ta propozycja została odrzucona, ponieważ:'
-          read_less: Pokaż mniej
-          read_more: Pokaż więcej
-          report: Zgłoś
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Propozycja nie zostanie usunięta, pojawi się na liście wycofanych propozycji.
           withdraw_confirmation_html: Czy na pewno chcesz wycofać tę propozycję?<br><br><strong>Tej akcji nie można anulować!</strong>
           withdraw_proposal: Wycofaj propozycję
-        tags:
-          changed_from: "(zmieniono z <u>%{previous_name}</u> przez administratora)"
         update:
           title: Aktualizuj propozycję
         vote_button:
@@ -789,8 +733,6 @@ pl:
             few: Wsparć
             many: Wsparcia
             other: Wsparcia
-          most_popular_proposal: Najpopularniejsza propozycja
-          need_more_votes: Potrzebujesz więcej wsparć
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Każda propozycja może zebrać więcej niż wynosi limit wsparć %{limit}
@@ -802,7 +744,6 @@ pl:
           title: 'Wspieranie podlega następującym zasadom:'
           vote_limit:
             description: Możesz wesprzeć maksymalnie %{limit} propozycji.
-            left: Pozostało
             votes: Wsparcia
         wizard_aside:
           back: Wróć
@@ -810,20 +751,15 @@ pl:
           back_from_step_2: Wróć do propozycji
           back_from_step_3: Powrót do porównania propozycji
           back_from_step_4: Wróć do edycji szkicu
-          info: Tworzysz <strong>propozycję</strong>.
         wizard_steps:
           current_step: Bieżący krok
-          see_steps: zobacz kroki
           step_1: Utwórz swoją propozycję
           step_2: Porównaj
           step_3: Kompletny
           step_4: Opublikuj swoją propozycję
-          step_of: Krok %{current_step_num} z %{total_steps}
           title: Kroki tworzenia propozycji
       proposals_picker:
         choose_proposals: Wybierz propozycje
-        close: Zamknij
-        more_proposals: 'Liczba pozostałych propozycji: %{number}. Zawęź wyszukiwanie, aby je zlokalizować.'
       publish:
         error: Podczas publikowania propozycji wystąpił błąd.
         success: Propozycja została opublikowana.
@@ -836,12 +772,8 @@ pl:
         error: Wystąpił błąd podczas zapisywania wspólnego szkicu.
         success: Projekt propozycji został zaktualizowany.
       versions:
-        collaborative_drafts:
-          back_to_resource: Wróć do wspólnego szkicu
         index:
           title: Wersje
-        proposals:
-          back_to_resource: Wróć do propozycji
     resource_links:
       copied_from_component:
         proposal_proposal: Powiązane propozycje

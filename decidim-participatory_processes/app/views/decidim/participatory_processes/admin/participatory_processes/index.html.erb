@@ -8,7 +8,7 @@
       <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
     </button>
     <div id="process_groups" class="dropdown-pane" data-position="bottom" data-dropdown data-auto-focus="true">
-      <ul class="list-reset">
+      <ul>
         <%= link_to query_params_with(decidim_participatory_process_group_id_eq: nil) do %>
           <li><%= t("actions.filter.all_processes", scope: "decidim.admin") %></li>
         <% end %>
@@ -23,7 +23,7 @@
   <% if process_group %>
     <div>
       <%= link_to translated_attribute(process_group.title),
-        edit_participatory_process_group_path(process_group) %>
+                  edit_participatory_process_group_path(process_group) %>
     </div>
   <% end %>
   <br>

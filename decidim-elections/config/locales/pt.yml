@@ -18,6 +18,7 @@ pt:
       voting:
         end_time: A votação termina
         start_time: A votação inicia
+        voting_type: Tipo de votação
     errors:
       models:
         answer:
@@ -99,7 +100,6 @@ pt:
         manage_answers: Gerir as respostas
         manage_questions: Gerir as perguntas
         manage_steps: Gerir as etapas
-        new: Novo %{name}
         preview: Pré-visualizar
         publish: Publicar
         title: Ações
@@ -141,12 +141,6 @@ pt:
         models:
           answer:
             name: Resposta
-          election:
-            name: Eleição
-          question:
-            name: Pergunta
-          trustee:
-            name: Curador
         proposals_imports:
           new:
             create: Importar propostas para perguntas
@@ -301,7 +295,6 @@ pt:
           key_ceremony_title: Cerimónia principal
           not_available: Ainda não disponível
           not_created: Não criado
-          not_published: Não publicado
           not_ready: Não está pronto
           not_started: Não iniciado
           published: Publicado
@@ -333,13 +326,7 @@ pt:
           active: Activo
           all: Todos
           finished: Terminado
-          search: Pesquisar
           upcoming: Seguinte
-        filters_small_view:
-          close_modal: Fechar o modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Desdobrar
         preview:
           available_answers: 'Respostas disponíveis:'
           description: 'Estas são as perguntas que encontrará no processo de votação:'
@@ -357,7 +344,6 @@ pt:
             change_vote: Mudar o seu voto
             vote: Começar votação
             vote_again: Votar de novo
-          back: Eleições disponíveis
           callout:
             already_voted: Já votou nesta eleição. Pode alterar o seu voto ou verificá-lo.
             pending_vote: O seu voto está a ser registado no servidor.
@@ -414,7 +400,6 @@ pt:
           backup_modal:
             description: Esta eleição está a ser criada no Quadro Informativo. É muito importante que todos os seus Curadores criem uma cópia de segurança destas chaves e as guardem num lugar seguro. Após isso o processo continua.
             download_election_keys: Descarregar chaves
-            download_icon: Ícone que indica uma acção de descarregar
             title: Chaves %{eleição} em cópia de segurança
           key_ceremony_steps:
             back: Recuar
@@ -429,7 +414,6 @@ pt:
               task: Tarefa
             process_warning: Uma vez o processo é iniciado, você não deve sair desta página até que o processo termine. Pode demorar vários minutos, visto que os Curadores todos os curadores devem estar ligados para completá-lo.
             start: Início
-            start_icon: Ícone que indica um botão de início para iniciar a geração de chaves eleitorais
             status:
               completed: Completo
               pending: Pendente
@@ -439,7 +423,6 @@ pt:
             description: O Quadro Informativo tem informação sua enquanto Curador desta eleição. Para continuar o processo, primeiro transfira ficheiro de segurança gerado durante a sessão anterior.
             title: Restaurar as chaves de eleição para %{election}
             upload_election_keys: Enviar chaves de eleição
-            upload_icon: Ícone que indica uma acção de descarregar
           tally_started_steps:
             description: Os resultados desta eleição estão a ser processados no Quadro Informativo. Para completar este processo é necessária a sua participação como curador.
             keys:
@@ -484,7 +467,7 @@ pt:
             success: A sua chave de identificação pública foi guardada com êxito.
       votes:
         ballot_decision:
-          audit: "( Auditar o boletim de voto )"
+          audit: ( Auditar o boletim de voto )
           back: Começar o processo de votação de novo
           ballot_hash: 'O seu identificador de boletim de voto é:'
           header: 'O boletim de voto está encriptado: registe-o ou audite-o'
@@ -492,14 +475,12 @@ pt:
           header: A registar o voto...
           text: O seu boletim de voto está a ser registado na urna de voto.
         confirm:
-          answer: Responder
           answer_number: resposta %{number}
           confirm: Confirmar
           edit: editar
           header: Confirmar o seu voto
           intro: Aqui está um resumo do voto que está prestes a transmitir. <br> Por favor, confirme o seu voto ou edite as suas respostas.
           nota_option: Em branco
-          question: Questão %{count}
         confirmed:
           back: Retroceder às eleições
           experience: Como foi a sua experiência?
@@ -520,11 +501,7 @@ pt:
           try_again: Tente de novo
         header:
           ballot_decision: Registe ou audite o seu voto
-          casting: A registar o voto
           confirm: Confirmar o seu voto
-          confirmed: Voto confirmado
-          encrypting: A encriptar o voto
-          failed: Votação falhou
         messages:
           invalid_token: A sua sessão na cabine de voto não é válida. Tente votar de novo.
           not_allowed: Não está autorizado a votar nesta eleição neste momento.
@@ -539,7 +516,6 @@ pt:
           question_steps: Questão %{current_step} de %{total_steps}
           selections: "%{selected} de %{max_selections}<br> seleções"
         onboarding_modal:
-          close: Fechar o modal
           create_account: Criar conta
           no_account: Não, obrigado.
         update:
@@ -619,7 +595,6 @@ pt:
               confirm_destroy: Tem a certeza?
               destroy: Eliminar
               edit: Editar
-              new: Novo
               title: Acções
             associated_census_data: Entradas de recenseamento associadas
             title: Estilos de boletim de voto
@@ -629,31 +604,7 @@ pt:
         content_blocks:
           highlighted_votings:
             max_results: Montante máximo dos projectos a mostrar
-          landing_page:
-            attachments_and_folders:
-              name: Anexos e pastas de votação
-            description:
-              name: Descrição da votação
-            elections:
-              name: Eleições de votação
-            header:
-              name: Cabeçalho de votação
-            html_block_1:
-              name: Bloco html de votação 1
-            html_block_2:
-              name: Bloco html de votação 2
-            html_block_3:
-              name: Bloco html de votação 3
-            metrics:
-              name: Métricas da votação
-            polling_stations:
-              name: Assembleias de voto
-            stats:
-              name: Estatísticas da votação
-            timeline:
-              name: Cronologia da votação
         index:
-          not_published: Publicação removida
           published: Publicado
         landing_page:
           content_blocks:
@@ -671,7 +622,6 @@ pt:
             ballot_styles: Estilos de boletim de voto
             census: Recenseamento
             components: Componentes
-            info: Informação
             landing_page: Página de entrada
             monitoring_committee: Comissão de controlo
             monitoring_committee_election_results: Valide Resultados
@@ -684,29 +634,24 @@ pt:
           ballot_style:
             fields:
               code: Código
-            name: Estilo de boletim de voto
           monitoring_committee_member:
             fields:
               email: E-Mail
               name: Nome
-            name: Membro da Comissão de Controlo
           polling_officer:
             fields:
               email: E-Mail
               name: Nome
               polling_station: Secção de voto (papel)
-            name: Oficiais de votação
           polling_station:
             fields:
               address: Endereço
               polling_station_managers: Gestor
               polling_station_president: Presidente
               title: Título
-            name: Secções de voto
           voting:
             fields:
               created_at: Criado em
-              promoted: Realçado
               published: Publicado
               title: Título
         monitoring_committee_election_results:
@@ -812,13 +757,10 @@ pt:
             confirm_destroy: Tem a certeza?
             destroy: Destruir
             new_voting: Novo Espaço de Votação
-            publish: Publicar
-            unpublish: Remover publicação
           edit:
             update: Actualizar
           form:
             select_a_voting_type: Por favor seleccione um tipo de votação
-            slug_help: 'Os identificadores URL são utilizados para gerar os URLs que direccionam para esta votação. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
             title: Título
             voting_type:
               hybrid: Híbrido
@@ -904,25 +846,15 @@ pt:
         highlighted_votings:
           name: Votações realçadas
         landing_page:
-          metrics:
-            heading: Métricas
           polling_stations:
             heading: Secções de voto
             no_polling_stations: Não há ainda secções de voto.
-          timeline:
-            heading: Cronograma
       monitoring_committee_members:
         actions:
           confirm_destroy: Tem a certeza?
           destroy: Eliminar
           new: Novo membro
           title: Acções
-      pages:
-        home:
-          highlighted_votings:
-            active_votings: Votações activas
-            see_all_votings: Ver todas as votações
-            votings_button_title: Ligação para a página de Votações que mostra todas as votações
       polling_officer_zone:
         closures:
           back_to_polling_stations: Retroceder para as secções de voto
@@ -954,7 +886,6 @@ pt:
             info_text: 'Por favor introduza o número total de boletins de voto (envelopes) recontados nesta Secção de Voto:'
             modal_ballots_count_error:
               btn_validate_total: Validar total de recontagem de boletins de voto
-              close_modal: Fechar
               message_for_monitoring_committee: Mensagem da Comissão de Controlo
               review_recount: Rever a recontagem
               text_area_placeholder: Por favor escreva a sua mensagem
@@ -969,7 +900,6 @@ pt:
             info_text: Encerramento eleitoral da secção de voto
           sign:
             cancel: Cancelar
-            close_modal: Fechar
             confirm: Ok, continuar
             error: Ocorreu um erro, por favor tente de novo.
             heading: Recontagem de votos - Assine o encerramento
@@ -1037,7 +967,6 @@ pt:
         actions:
           confirm_destroy: Tem a certeza?
           destroy: Eliminar
-          new: Novo
           title: Acções
         roles:
           manager: Gestor
@@ -1058,7 +987,6 @@ pt:
           confirm_destroy: Tem a certeza?
           destroy: Eliminar
           edit: Editar
-          new: Novo
           title: Acções
       votings:
         access_code_modal:
@@ -1094,9 +1022,7 @@ pt:
             one: "%{count} votos"
             other: "%{count} votos"
         elections_log:
-          bb_status: Estado da eleição
           description: O registo da eleição irá mostrar toda a informação relevante sobre cada votação. Por exemplo, o estado da cerimónia-chave ou contagem ou se os resultados já foram publicados. Clique na eleição da qual quer  o a informação de registo.
-          election_log: Registo de Eleições
           title: Registo de eleições
         filters:
           active: Activo
@@ -1104,11 +1030,6 @@ pt:
           finished: Terminado
           search: Pesquisar
           upcoming: Seguinte
-        filters_small_view:
-          close_modal: Fechar o modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Desdobrar
         index:
           no_votings: Nenhuma votação corresponde aos seus critérios de pesquisa.
           only_finished: Actualmente, não há votações agendadas, mas aqui pode encontrar listadas todas as votações passadas.
@@ -1119,29 +1040,21 @@ pt:
           ask_for_a_new_one: Pedir um novo.
           form_title: 'Preencha o formulário seguinte para aceder à votação:'
           start_voting: Começar votação
-          step: Identificação
           title: Identificar-me com os meus dados de recenseamento para votação
         orders:
           label: 'Ordenar votações por:'
           random: Aleatório
           recent: Mais recente
-        show:
-          dates: Datas
       votings_m:
         badge_name:
           finished: Terminado
           ongoing: Em andamento
           upcoming: Seguinte
-        footer_button_text:
-          participate: Participantes
-          view: Visualizar
-          vote: Votar
         unspecified: Não especificado
         voting_type:
           hybrid: Híbrido
           in_person: Presencial
           online: On-line
-        voting_types_label: Tipo de votação
   layouts:
     decidim:
       election_votes_header:
@@ -1149,10 +1062,8 @@ pt:
       voting_navigation:
         check_census: Posso votar?
         election_log: Registo de eleições
-        voting_menu_item: A votação
       votings:
         index:
           promoted_votings: Votações realçadas
         promoted_voting:
-          more_info: Mais informações
           vote: Votar

@@ -5,7 +5,6 @@ de:
         assemblies_ids: Ähnliche Assemblies
         available_slots: Verfügbare Plätze
         banner_image: Banner-Bild
-        consultations_ids: Verwandte Konsultationen
         copy_categories: Kategorien kopieren
         copy_components: Kopieren Sie Komponenten
         copy_features: Funktionen kopieren
@@ -63,7 +62,7 @@ de:
         personal_url: Persönliche URL
         position: Position
         short_bio: Kurze Beschreibung
-        twitter_handle: Twitter-Handle
+        twitter_handle: X-Handler
         user_id: Nutzer
       conference_user_role:
         email: Email
@@ -90,7 +89,6 @@ de:
     admin:
       actions:
         confirm: Bestätigen
-        new_conference: Neue Konferenz
         send_diplomas: Senden Sie eine Teilnahmebestätigung
       conference_copies:
         new:
@@ -153,7 +151,6 @@ de:
         form:
           title: Allgemeine Information
         index:
-          not_published: Nicht veröffentlicht
           published: Veröffentlicht
         new:
           create: Erstellen
@@ -194,7 +191,6 @@ de:
           conference_invites: Lädt ein
           conference_speakers: Lautsprecher
           diploma: Teilnahmebestätigung
-          info: Info
           media_links: Medienlinks
           moderations: Moderationen
           partners: Partner
@@ -205,7 +201,6 @@ de:
         conference:
           fields:
             created_at: Hergestellt in
-            promoted: Gefördert
             published: Veröffentlicht
             title: Titel
         conference_speaker:
@@ -331,7 +326,7 @@ de:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Konferenz verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         conference_invites:
           create:
             error: Beim Einladen des Benutzers zur Teilnahme an der Konferenz ist ein Problem aufgetreten.
@@ -348,7 +343,6 @@ de:
               all: Alle
               rejected: Abgelehnt
               sent: Geschickt
-            filter_by: Filtern nach
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
             search: Suche
@@ -373,7 +367,7 @@ de:
             registrations_count:
               one: Es gab 1 Registrierung.
               other: Es gab %{count} Registrierungen.
-            slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         diplomas:
           edit:
             save: Speichern
@@ -404,7 +398,7 @@ de:
           success: Konferenz-Teilnahmebestätigung korrekt gesendet
       conference:
         registration_confirm:
-          cancel: Stornieren
+          cancel: Abbrechen
           confirm: Bestätigen
         show:
           going: Gehen
@@ -435,7 +429,7 @@ de:
           invalid: Beim Verlassen dieser Konferenz ist ein Problem aufgetreten.
           success: Sie haben die Konferenz erfolgreich verlassen.
       conference_speaker:
-        go_to_twitter: Gehe zu Twitter
+        go_to_twitter: Gehe zu X
         more_info: Mehr Informationen
         personal_website: Persönliche Webseite
         show:
@@ -447,7 +441,7 @@ de:
       conference_speakers:
         index:
           speakers:
-            one: Sprecher*in
+            one: Sprechende
             other: Sprechende
       conferences:
         partners:
@@ -456,6 +450,7 @@ de:
         show:
           login_as: Sie sind als %{name} <%{email}> angemeldet
           make_conference_registration: Für die Konferenz registrieren
+          manage_registration: Registrierung verwalten
           register: Registrieren
       content_blocks:
         highlighted_conferences:
@@ -498,9 +493,8 @@ de:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktive Konferenzen
-            conferences_button_title: Link zur Konferenz-Seite die alle Konferenzen anzeigt
-            see_all_conferences: Alle Konferenzen anzeigen
+            active_spaces: Aktive Konferenzen
+            see_all_spaces: Alle Konferenzen anzeigen
       registration_types:
         index:
           choose_an_option: 'Wählen Sie Ihre Registrierungsoption:'
@@ -512,7 +506,6 @@ de:
         introduction: Einführung
         objectives: Ziele
         related_assemblies: Ähnliche Gremien
-        related_consultations: Verwandte Konsultationen
         related_participatory_processes: Ähnliche Beteiligungsprozesse
     events:
       conferences:
@@ -570,10 +563,8 @@ de:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Registrierung verwalten
         register: Registrieren
-      conference_widgets:
-        show:
-          take_part: Teilnehmen
       conferences:
         conference:
           more_info: Mehr Informationen
@@ -584,11 +575,7 @@ de:
           conferences:
             one: "%{count} Konferenz"
             other: "%{count} Konferenzen"
-        promoted_conference:
-          more_info: Mehr Informationen
-          take_part: Teilnehmen
       conferences_nav:
-        conference_menu_item: Information
         conference_partners_menu_item: Partner
         conference_speaker_menu_item: Lautsprecher
         media: Medien

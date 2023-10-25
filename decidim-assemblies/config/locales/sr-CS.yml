@@ -28,11 +28,6 @@ sr:
         publish: "%{user_name} je objavio tip veća %{resource_name}"
         unpublish: "%{user_name} je odustao od objavljivanja tipa veća %{resource_name}"
         update: "%{user_name} je ažurirao tip veća %{resource_name}"
-    assemblies:
-      pages:
-        home:
-          highlighted_assemblies:
-            assemblies_button_title: Veza ka strani Veća koja prikazuje sva veća
     events:
       assemblies:
         create_assembly_member:

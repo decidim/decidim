@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t(".title")) %>
 <div class="item_show__header">
   <h2 class="item_show__header-title">
     <%= t("decidim.admin_log.helpers.answers") %>
@@ -26,11 +27,11 @@
 
             <% if @form.signature_dates_required? %>
               <div class="row">
-                <div class="columns xlarge-6">
+                <div class="columns">
                   <%= f.date_field :signature_start_date, disabled: !@form.signature_dates_required? %>
                 </div>
 
-                <div class="columns xlarge-6">
+                <div class="columns">
                   <%= f.date_field :signature_end_date, disabled: !@form.signature_dates_required? %>
                 </div>
               </div>

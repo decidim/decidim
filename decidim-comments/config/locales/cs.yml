@@ -37,8 +37,7 @@ cs:
       comments_count: Počet komentářů
       comments_title: Komentář
       last_activity:
-        new_comment_at_html: "<span>Nový komentář v %{link}</span>"
-      view: Zobrazit
+        new_comment: 'Nový komentář:'
       votes:
         create:
           error: Při hlasování o komentáři došlo k chybě.
@@ -50,7 +49,8 @@ cs:
             label: Komentář
             placeholder: Co si o tom myslíš?
           form_error: Text je povinný a nemůže být delší než %{length} znaků.
-          submit: Odeslat
+          submit_reply: Publikovat odpověď
+          submit_root_comment: Publikovat komentář
           user_group_id:
             label: Komentovat jako
         opinion:
@@ -68,6 +68,7 @@ cs:
         alignment:
           against: Proti
           in_favor: Ve prospěch
+        cancel_reply: Zrušit odpověď
         confirm_destroy: Opravdu chcete odstranit tento komentář?
         delete: Smazat
         deleted_at: Komentář byl smazán dne %{date}
@@ -101,8 +102,6 @@ cs:
           older: Starší
           recent: Nedávné
         title: 'Seřadit podle:'
-      comment_thread:
-        title: Konverzace s číslem %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Musíte být ověřen, abyste mohli komentovat tuto chvíli, ale můžete si přečíst ty předchozí.
         blocked_comments_for_user_warning: Momentálně nemůžete komentovat, ale můžete si přečíst ty předchozí.

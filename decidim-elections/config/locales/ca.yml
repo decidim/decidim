@@ -133,6 +133,13 @@ ca:
           values:
             'false': Sense validar
             'true': Validada
+      voting_publications:
+        create:
+          error: S'ha produït un error en publicar aquesta votació.
+          success: La votació s'ha publicat correctament.
+        destroy:
+          error: Hi ha hagut un problema en despublicar aquesta votació.
+          success: La votació s'ha despublicat correctament.
     components:
       elections:
         actions:
@@ -153,7 +160,10 @@ ca:
         manage_answers: Gestionar les respostes
         manage_questions: Administrar preguntes
         manage_steps: Administrar les fases
-        new: Nova %{name}
+        new_answer: Afegir resposta
+        new_election: Afegir elecció
+        new_question: Afegir pregunta
+        new_trustee: Afegir garant
         preview: Previsualitzar
         publish: Publicar
         title: Accions
@@ -226,12 +236,6 @@ ca:
         models:
           answer:
             name: Resposta
-          election:
-            name: Votació
-          question:
-            name: Pregunta
-          trustee:
-            name: Garant
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes a respostes.
@@ -442,7 +446,6 @@ ca:
           key_ceremony_title: Cerimònia de claus
           not_available: Encara no està disponible
           not_created: No s'ha creat
-          not_published: No publicat
           not_ready: No preparat
           not_started: No s'ha iniciat
           published: Publicat
@@ -457,6 +460,7 @@ ca:
             started: El procés de recompte ha començat.
           tally_title: Procés de recompte
           title: Registre de l'elecció
+          unpublished: Despublicada
           verifiable_results:
             checksum: 'Suma de comprovació SHA256 de l''arxiu:'
             description:
@@ -476,13 +480,7 @@ ca:
           all: Totes
           date: Data
           finished: Finalizada
-          search: Cercar
           upcoming: Properes
-        filters_small_view:
-          close_modal: Tancar el modal
-          filter: Filtrar
-          filter_by: Filtra per
-          unfold: Desplegar
         preview:
           available_answers: 'Respostes disponibles:'
           description: 'Aquestes són les preguntes que trobaràs al procés de votació:'
@@ -500,7 +498,6 @@ ca:
             change_vote: Canvia el teu vot
             vote: Començar a votar
             vote_again: Votar de nou
-          back: Eleccions disponibles
           callout:
             already_voted: Ja has votat en aquesta elecció. Pots canviar el teu vot o verificar-lo.
             pending_vote: S'està dipositant el vot al servidor.
@@ -558,7 +555,6 @@ ca:
           backup_modal:
             description: Aquesta elecció s'està creant al Bulletin Board. És molt important que cada garant que hi participa creï una còpia de seguretat d'aquestes claus i les guardi en un lloc segur. Després d'això, el procés continuarà.
             download_election_keys: Descarregar claus
-            download_icon: Icona que indica una acció de descàrrega
             title: Còpia de seguretat de les claus per l'elecció %{election}
           key_ceremony_steps:
             back: Tornar
@@ -573,7 +569,6 @@ ca:
               task: Tasca
             process_warning: Un cop ha començat el procés, no hauries de sortir d'aquesta pàgina fins que aquest acabi. Trigarà varis minuts, ja que tots els garants han de connectar-se al mateix temps per completar-lo.
             start: Començar
-            start_icon: Icona que indica un botó d'inici per a la generació de claus d'una elecció
             status:
               completed: Completada
               pending: Pendent
@@ -583,7 +578,6 @@ ca:
             description: El Bulletin Board té informació teva com a garant d'aquesta elecció. Per continuar amb el procés, primer puja l'arxiu generat com a còpia de seguretat durant la sessió anterior.
             title: Restaurar claus per l'elecció %{election}
             upload_election_keys: Pujar claus de l'elecció
-            upload_icon: Icona que indica una acció de descàrrega
           tally_started_steps:
             back: Enrere
             description: Els resultats d'aquesta elecció s'estan computant al Bulletin Board. Per completar aquest procés, és necessària la teva participació com a garant.
@@ -597,7 +591,6 @@ ca:
               task: Tasca
             process_warning: Un cop ha començat el procés, no hauries de sortir d'aquesta pàgina fins que aquest acabi. Trigarà alguns minuts, ja que totes les garants han de connectar-se al mateix temps per completar-lo.
             start: Començar
-            start_icon: Icona que indica un botó d'inici per a la generació de claus d'una elecció
             status:
               completed: Completat
               pending: Pendent
@@ -650,7 +643,7 @@ ca:
             success: La teva clau pública d'identificació va ser guardada amb èxit.
       votes:
         ballot_decision:
-          audit: "( Auditar papereta )"
+          audit: ( Auditar papereta )
           back: Començar de nou el procés de votació
           ballot_hash: 'L''identificador de la teva papereta és:'
           cast: Dipositar la papereta per a finalitzar el teu vot
@@ -660,14 +653,12 @@ ca:
           header: El vot s'està dipositant...
           text: La papereta s'està dipositant a l'urna.
         confirm:
-          answer: Resposta
           answer_number: resposta %{number}
           confirm: Confirmar
           edit: editar
           header: Confirmar el teu vot
           intro: Aquí trobarás un resum del vot que estàs a punt d'emetre. <br> Si us plau, confirma el teu vot o edita les teves respostes.
           nota_option: En blanc
-          question: Preguntes %{count}
         confirmed:
           back: Tornar a les votacions
           experience: Com valores l'experiència?
@@ -687,12 +678,11 @@ ca:
           text: Alguna cosa ha anat malament. Si us plau, torna-ho a provar.
           try_again: Prova-ho de nou
         header:
-          ballot_decision: Envia o audita el teu vot
-          casting: El vot s'està dipositant
+          ballot_decision: Emetre
           confirm: Confirma el teu vot
-          confirmed: Vot confirmat
-          encrypting: El vot s'està xifrant
-          failed: Error en el vot
+          election: Elecció
+          register: Registra't
+          vote_for: Vota per %{title}
         messages:
           invalid_token: La sessió de la cabina de votació no és vàlida. Prova de votar de nou.
           not_allowed: No pots votar en aquesta votació en aquest moment.
@@ -707,7 +697,6 @@ ca:
           question_steps: Pregunta %{current_step} de %{total_steps}
           selections: "Seleccionada <br> %{selected} de %{max_selections}"
         onboarding_modal:
-          close: Tanca el modal
           create_account: Crea un compte
           description: Vols crear un nou compte? Podràs participar als processos i ser part activa de l'organització.
           no_account: No, gràcies.
@@ -779,6 +768,9 @@ ca:
           title: Què són les votacions?
     menu:
       votings: Votacions
+    participatory_spaces:
+      related_elections:
+        see_all: Veure totes les eleccions
     statistics:
       elections_count: Eleccions
       votings_count: Votacions
@@ -804,7 +796,7 @@ ca:
               confirm_destroy: N'estàs segura?
               destroy: Esborrar
               edit: Editar
-              new: Nou
+              new: Afegir estil de papereta
               title: Accions
             associated_census_data: Entrades del cens associades
             explanation_callout: Un estil de papereta especifica quines són les preguntes que veuran les votants a la cabina. Així, en aquesta elecció pots escollir-ne quines formaran part de la papereta. El codi d'estil de papereta normalment es fa servir per fer coincidir a una votant del cens amb la papereta que se li ha de mostrar a la cabina. No creïs cap estil de papereta si vols que sempre es mostrin totes les preguntes.
@@ -816,34 +808,33 @@ ca:
             invalid: Hi ha hagut un error en actualitzar l'estil de papereta.
             success: L'estil de papereta s'ha actualitzat correctament.
         content_blocks:
+          attachments_and_folders:
+            name: Arxius i carpetes de la votació
+          header:
+            name: Capçalera de la votació
           highlighted_votings:
             max_results: Quantitat màxima d'elements per mostrar
-          landing_page:
-            attachments_and_folders:
-              name: Arxius i carpetes de la votació
-            description:
-              name: Descripció de la votació
-            elections:
-              name: Eleccions de la votació
-            header:
-              name: Capçalera de la votació
-            html_block_1:
-              name: Bloc html 1 de votació
-            html_block_2:
-              name: Bloc html 2 de votació
-            html_block_3:
-              name: Bloc html 3 de votació
-            metrics:
-              name: Mètriques de la votació
-            polling_stations:
-              name: Punts de votació
-            stats:
-              name: Estadístiques de la votació
-            timeline:
-              name: Calendari de la votació
+          html_block_1:
+            name: Bloc html 1 de la votació
+          html_block_2:
+            name: Bloc html 2 de la votació
+          html_block_3:
+            name: Bloc html 3 de la votació
+          main_data:
+            name: Títol i descripció
+          metrics:
+            name: Mètriques de la votació
+          polling_stations:
+            name: Punts de votació
+          related_elections:
+            name: Eleccions
+          stats:
+            name: Estadístiques de la votació
+          timeline:
+            name: Calendari de la votació
         index:
-          not_published: Despublicada
           published: Publicada
+          unpublished: Despublicada
         landing_page:
           content_blocks:
             create:
@@ -869,7 +860,7 @@ ca:
             ballot_styles: Estils de papereta
             census: Cens
             components: Components
-            info: Informació
+            info: Sobre aquesta votació
             landing_page: Pàgina d'inici
             monitoring_committee: Comitè de seguiment
             monitoring_committee_election_results: Valida els resultats
@@ -878,33 +869,29 @@ ca:
             monitoring_committee_verify_elections: Verificar eleccions
             polling_officers: Gestors de mesa
             polling_stations: Punts de votació
+            see_voting: Veure la votació
         models:
           ballot_style:
             fields:
               code: Codi
-            name: Estil de papereta
           monitoring_committee_member:
             fields:
               email: Correu electrònic
               name: Nom
-            name: Membre del comitè de seguiment
           polling_officer:
             fields:
               email: Correu electrònic
               name: Nom
               polling_station: Punt de votació (rol)
-            name: Gestor de mesa
           polling_station:
             fields:
               address: Adreça
               polling_station_managers: Administradors
               polling_station_president: President
               title: Títol
-            name: Punt de votació
           voting:
             fields:
               created_at: Creada el
-              promoted: Destacada
               published: Publicada
               title: Títol
         monitoring_committee_election_results:
@@ -1039,8 +1026,6 @@ ca:
             confirm_destroy: N'estàs segura?
             destroy: Eliminar
             new_voting: Nou espai de votació
-            publish: Publicar
-            unpublish: Despublicar
           create:
             invalid: S'ha produït un error en crear aquesta votació.
             success: Votació creada correctament.
@@ -1057,7 +1042,7 @@ ca:
             select_a_voting_type: Si us plau selecciona un tipus de votació
             show_check_census_help: Especifica si es mostra l'enllaç "Puc votar?" al menú públic de votacions.
             slug: Nom curt d'URL
-            slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            slug_help_html: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquesta votació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             title: Títol
             voting_type:
               hybrid: Híbrida
@@ -1067,10 +1052,6 @@ ca:
           new:
             create: Crear
             title: Nova votació
-          publish:
-            success: La votació s'ha publicat correctament.
-          unpublish:
-            success: La votació s'ha despublicat correctament.
           update:
             invalid: S'ha produït un error en actualitzar aquesta votació.
             success: La votació s'ha actualitzat correctament.
@@ -1169,15 +1150,9 @@ ca:
         highlighted_votings:
           name: Votacions destacades
         landing_page:
-          description:
-            title: Quant a aquesta votació
-          metrics:
-            heading: Mètriques
           polling_stations:
             heading: Punts de votació
             no_polling_stations: Encara no hi ha cap punt de voració.
-          timeline:
-            heading: Línia de temps
       monitoring_committee_members:
         actions:
           confirm_destroy: N'estàs segura?
@@ -1187,9 +1162,8 @@ ca:
       pages:
         home:
           highlighted_votings:
-            active_votings: Votacions actives
-            see_all_votings: Veure totes les votacions
-            votings_button_title: Enllaç a la pàgina de Votacions que les mostra totes
+            active_spaces: Votacions actives
+            see_all_spaces: Veure totes les votacions
       polling_officer_zone:
         closures:
           back_to_polling_stations: Tornar als punts de votació
@@ -1222,7 +1196,6 @@ ca:
             info_text: 'Si us plau, introdueix el nombre total de paperetes (sobres) recomptades en aquest punt de votació:'
             modal_ballots_count_error:
               btn_validate_total: Validar recompte total de paperetes
-              close_modal: Tancar
               info_explanation_text: 'Si us plau, revisa el nombre total de paperetes. Si el número total és incorrecte, has de proporcionar una explicació per al Comitè de Seguiment:'
               info_text: El nombre total de paperetes (sobres) introduïdes no coincideix amb el registre de persones que han votat en aquest punt de votació.
               message_for_monitoring_committee: Missatge per al Comitè de Seguiment
@@ -1240,14 +1213,12 @@ ca:
           sign:
             cancel: Cancel·lar
             check_box: Ho he revisat i és idèntic al certificat físic de tancament electoral
-            close_modal: Tancar
             confirm: D'acord, continuar
             error: Hi ha hagut un error. Si us plau, torna-ho a provar.
             heading: Recompte de vots - Signar el tancament
             info_text: Si continues ja no podràs modificar cap informació, aquesta acció no es pot desfer.
             submit: Signar el tancament
             success: Tancament signat correctament.
-            title: Aquesta acció no es pot desfer
           update:
             error: S'ha produït un error en actualitzar els resultats del tancament. Intenta-ho de nou més tard.
             success: Resultats de tancament actualitzats correctament.
@@ -1314,7 +1285,7 @@ ca:
         actions:
           confirm_destroy: N'estàs segura?
           destroy: Esborrar
-          new: Nou
+          new: Afegir gestora de mesa
           title: Accions
         roles:
           manager: Administrador
@@ -1335,7 +1306,7 @@ ca:
           confirm_destroy: N'estàs segura?
           destroy: Esborrar
           edit: Editar
-          new: Nou
+          new: Afegir punt de votació
           title: Accions
       votings:
         access_code_modal:
@@ -1378,9 +1349,7 @@ ca:
             one: "%{count} votació"
             other: "%{count} votacions"
         elections_log:
-          bb_status: Estat de l'elecció
           description: El registre de l'elecció et mostrarà tota la informació rellevant sobre cada votació. Per exemple, l'estat de la cerimònia de claus o el recompte o si els resultats ja estan publicats. Fes clic en l'elecció sobre la qual vols la informació del registre.
-          election_log: Registre de l'elecció
           title: Registre de l'elecció
         filters:
           active: Actives
@@ -1389,11 +1358,6 @@ ca:
           finished: Finalitzades
           search: Cercar
           upcoming: Properes
-        filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtrar
-          filter_by: Filtrar per
-          unfold: Desplegar
         index:
           no_votings: Cap votació s'ajusta als vostres criteris de cerca.
           only_finished: Actualment no hi ha votacions programades, però podeu trobar les votacions ja finalitzades.
@@ -1405,7 +1369,6 @@ ca:
           dont_have_access_code: No tens un codi d'accès?
           form_title: 'Emplena el formulari següent per accedir a la votació:'
           start_voting: Començar a votar
-          step: Identificació
           title: Vull identificar-me amb les meves dades del cens de la votació
         no_census_contact_information: Encara no hi ha cap informació de contacte.
         orders:
@@ -1416,22 +1379,17 @@ ca:
           invalid: Hi ha hagut un problema en enviar el codi d'accés.
           success: El teu codi d'accés s'ha enviat correctament.
         show:
-          dates: Dates
+          title: Quant a aquesta votació
       votings_m:
         badge_name:
           finished: Finalitzades
           ongoing: En curs
           upcoming: Properes
-        footer_button_text:
-          participate: Participa
-          view: Veure
-          vote: Vota
         unspecified: Sense especificar
         voting_type:
           hybrid: Híbrida
           in_person: Presencial
           online: En línia
-        voting_types_label: Tipus de votació
   layouts:
     decidim:
       election_votes_header:
@@ -1439,10 +1397,8 @@ ca:
       voting_navigation:
         check_census: Puc votar?
         election_log: Registre de l'elecció
-        voting_menu_item: La votació
       votings:
         index:
           promoted_votings: Votacions destacades
         promoted_voting:
-          more_info: Més informació
           vote: Votar

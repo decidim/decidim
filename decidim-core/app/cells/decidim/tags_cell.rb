@@ -24,8 +24,7 @@ module Decidim
     private
 
     def tags_classes
-      # REDESIGN_PENDING: 'tags' class is legacy. Try to delete
-      (["tags tag-container"] + context[:extra_classes].to_a).join(" ")
+      (["tag-container"] + context[:extra_classes].to_a).join(" ")
     end
 
     def category?

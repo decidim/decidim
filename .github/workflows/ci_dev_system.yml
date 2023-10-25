@@ -1,4 +1,4 @@
-name: "[CI] Dev (system specs)"
+name: "[CI] Dev"
 on:
   push:
     branches:

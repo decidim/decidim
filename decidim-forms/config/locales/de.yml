@@ -156,7 +156,6 @@ de:
         show:
           answer_questionnaire:
             already_have_an_account?: Haben Sie bereits ein Konto?
-            anonymous_user_message: <a href="%{sign_in_link}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_link}">Melden Sie sich an</a> , um den Fragebogen zu beantworten.
             are_you_new?: Neue Teilnehmer*in?
             sign_in_description: Melden Sie sich an, um an der Umfrage teilzunehmen
             sign_up_description: Erstellen Sie ein Nutzendenkonto, um an der Umfrage teilzunehmen
@@ -178,10 +177,9 @@ de:
           questionnaire_not_published:
             body: Dieses Formular ist noch nicht veröffentlicht.
           tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
-          upload_file: Datei hochladen
       step_navigation:
         show:
-          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Bist du sicher?
+          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Sind Sie sicher?
           back: Zurück
           continue: Weiter
           submit: einreichen

@@ -41,7 +41,9 @@ fr-CA:
         edit: Modifier
         import: Importer des projets
         import_csv: Importer un fichier CSV
-        new: Nouveau %{name}
+        new_result: Nouvelle réalisation
+        new_status: Nouveau statut
+        new_timeline_entry: Nouvel élément de chronologie
         preview: Aperçu
         timeline_entries: Évolution de la réalisation
         title: Actions
@@ -77,14 +79,13 @@ fr-CA:
             title: Importer les résultats depuis un fichier CSV
         imports:
           create:
+            invalid: Un problème est survenu lors de l’importation des résultats.
             success: Importation du fichier en cours. Vous receverez un courriel dans les prochaines minutes avec le résultat de l'import.
         models:
           result:
             name: Réalisation
           status:
             name: Progression
-          timeline_entry:
-            name: Élément de chronologie
         projects_import:
           create:
             invalid: Il y a eu un problème lors de l'importation des projets, veuillez suivre attentivement les instructions et assurez-vous que vous avez bien sélectionné les projets à mettre en œuvre.
@@ -231,6 +232,7 @@ fr-CA:
           global_status: État d'exécution global
         nav_breadcrumb:
           global: Exécution globale
+        no_results: Il n'y a aucun projet.
         search:
           search: Rechercher des réalisations
         show:

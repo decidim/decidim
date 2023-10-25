@@ -40,7 +40,6 @@ lt:
         actions:
           destroy: Atšaukti sprendimą burtų keliu
           edit: Redaguoti
-          new: Nauja galimybė spręsti burtų keliu
           show: Išsami informacija apie sprendimą burtų keliu
         models:
           sortition:
@@ -54,11 +53,6 @@ lt:
               seed: Generavimo raktas
               target_items: Pasirinktini elementai
               title: Pavadinimas
-            name:
-              one: Sprendimas burtų keliu
-              few: Sprendimai burtų keliu
-              many: Sprendimai burtų keliu
-              other: Sprendimai burtų keliu
         sortitions:
           confirm_destroy:
             confirm_destroy: Ar tikrai norite atšauti šį sprendimą burtų keliu?
@@ -66,22 +60,27 @@ lt:
             title: Sprendimo burtų keliu atšaukimas
           create:
             error: Rengiant naują sprendimą burtų keliu iškilo problema.
+            success: Sprendimas burtų keliu sukurtas.
+          destroy:
+            error: Negalima atšaukti sprendimo burtų keliu.
+            success: Sprendimas burtų keliu atšauktas.
           edit:
             title: Atnaujinti informaciją apie sprendimo burtų keliu galimybę
             update: Atnaujinti
           form:
             all_categories: Visos kategorijos
             select_proposal_component: Pasirinkti pasiūlymų rinkinį
-            title: Nauja galimybė dėl pasiūlymų spręsti burtų keliu
           index:
             title: Sprendimai burtų keliu
           new:
+            confirm: Spustelėjus mygtuką, data ir laikas bus užregistruoti (sekundžių tikslumu). Kartu su kauliuko metimu ši informacija bus naudojama atsitiktinei atrankai vykdyti. Spustelėjus mygtuką, veiksmas bus negrįžtamas, o jo rezultatas bus paskelbtas kartu su šioje formoje įrašytais duomenimis ir jų nebus galima keisti, taigi, atidžiai patikrinkite turinį.
             create: Sukurti
             title: Nauja galimybė spręsti burtų keliu
           show:
             selected_proposals: Pasirinkti pasiūlymai sprendimui burtų keliu priimti
           update:
             error: Atnaujinant galimybę spręsti burtų keliu iškilo problema.
+            success: Galimybė spręsti burtų keliu atnaujinta.
       admin_log:
         sortition:
           create: "%{user_name} sukūrė %{resource_name} galimybę spręsti burtų keliu %{space_name} erdvėje"
@@ -99,14 +98,7 @@ lt:
           all: Visos
           cancelled: Atšaukti
           category: Kategorija
-          category_prompt: Pasirinkite kategoriją
-          search: Ieškoti
           state: Būsena
-        filters_small_view:
-          close_modal: Uždaryti modalinį langą
-          filter: Filtruoti
-          filter_by: Filtruoti pagal
-          unfold: Išskleisti
         linked_sortitions:
           selected_proposals: Pasirinkti pasiūlymai
         orders:
@@ -122,17 +114,16 @@ lt:
         show:
           algorithm: Galimybės spręsti burtų keliu algoritmo kodas
           any_category: iš visų kategorijų
-          back: Grįžti į sąrašą
           cancelled: Galimybė spręsti burtų keliu atšaukta
           candidate_proposal_ids: Pasiūlymų, dėl kurių sprendžiama burtų keliu, rikiavimo kriterijai ir ID
           candidate_proposals_info: 'Burtų keliu spręsta dėl šių pasiūlymų (%{category_label}) su šiais ID (pasirinkti pasiūlymai – paryškintu šriftu)  '
           category: iš %{category} kategorijos
-          dice_result: "1) Kauliuko metimo rezultatai"
+          dice_result: 1) Kauliuko metimo rezultatai
           introduction: 'Šiame puslapyje pateikiami sprendimo burtų keliu %{reference} rezultatai. Naudojantis šia galimybe spręsti burtų keliu, iš rodomų pasiūlymų rinkinio atsitiktine tvarka pasirenkamas rezultatų skaičius %{target_items}, esant vienodai pasiskirstymo tikimybei. Kartu su rezultatais šiame puslapyje pateikiamoje informacijoje nurodoma viskas, ko reikia siekiant kuo labiau padidinti garantijas ir atkurti rezultatus. Šios galimybės spręsti burtų keliu pagrindas – dvigubas atsitiktinumas, kurį užtikrina kauliuko ridenimas (jį patvirtina liudytojai) ir tikslus sprendimo burtų keliu laikas, – informacija, įvedama į atsitiktinės atrankos vykdymo algoritmą. Sprendimo burtų keliu pradžia yra tokia tiksli (sekundės), kad žmogus šio proceso kontroliuoti negali, taigi, tai dvigubas nekontroliuojamas veiksmas sąžiningam rezultatui užtikrinti.  '
           mathematical_result: Rezultatas (1) x (2)
           proposals_selected_by_sortition: Pasiūlymai pasirinkti burtų keliu
           sortition_reproducibility_details: Rūšiavimo atkuriamumo detalės
-          time_seed: "(2) Time seed"
+          time_seed: (2) Time seed
           witnesses: Liudytojai
         sortition:
           random_seed: Atsitiktinė vertė
@@ -141,7 +132,6 @@ lt:
             few: pasiūlymai pasirinkti
             many: pasiūlymai pasirinkti
             other: pasiūlymai pasirinkti
-          view: Peržiūrėti
         sortition_author:
           deleted: Ištrintas dalyvis
         sortition_cancel_author:

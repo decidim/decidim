@@ -96,7 +96,7 @@ module Decidim
       return unless File.exist?(path)
 
       path
-    rescue ::Webpacker::Manifest::MissingEntryError
+    rescue ::Shakapacker::Manifest::MissingEntryError
       nil
     end
 

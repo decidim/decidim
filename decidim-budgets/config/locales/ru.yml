@@ -63,15 +63,12 @@ ru:
         budget_excess:
           budget_excess:
             title: Превышен предельный бюджет
-          close: Закрыть
           ok: Хорошо
         budget_summary:
           are_you_sure: Вы действительно хотите отменить свой голос?
-          assigned: 'Выделено:'
           cancel_order: удалить свой голос и начать все сначала
           checked_out:
             title: Голосование по бюджету завершено
-          title: Вы определяете бюджет
         count:
           projects_count:
             one: 1 проект
@@ -82,26 +79,10 @@ ru:
           category: Категория
           scope: Охват
           search: Поиск
-        filters_small_view:
-          close_modal: Закрыть окошко
-          filter: Отобрать
-          filter_by: 'Отобрать по признаку:'
-          unfold: Развернуть
-        order_progress:
-          vote: Голосовать
-        order_selected_projects:
-          remove: Удалить
-          selected_projects:
-            one: выбранный проект
-            few: выбранных проекта
-            many: выбранных проектов
-            other: выбранных проектов
-          view: Посмотреть
         project:
           view: Посмотреть
         show:
           budget: Бюджет
-          view_all_projects: Просмотреть все проекты
     components:
       budgets:
         actions:

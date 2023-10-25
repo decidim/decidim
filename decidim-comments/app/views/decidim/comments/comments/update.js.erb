@@ -12,8 +12,6 @@ $(() => {
 
   $comment.replaceWith(commentHtml);
 
-  $comments.foundation();
-
   // Re-create the component
   component = new Decidim.CommentsComponent($comments, $comments.data("decidim-comments"));
   component.mountComponent();

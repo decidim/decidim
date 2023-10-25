@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t("new", scope: "decidim.initiatives.create_initiative.select_initiative_type")) %>
 <% announcement_body = capture do %>
   <div class="max-w-full prose">
     <%= t("fill_data_help", scope: "decidim.initiatives.create_initiative.fill_data").html_safe %>
@@ -10,28 +11,7 @@
   <div class="form__wrapper">
     <%= form_required_explanation %>
 
-    <% if single_initiative_type? %>
-      <%= f.hidden_field :type_id %>
-    <% else %>
-      <%= f.select :type_id,
-                   initiative_type_options,
-                   {},
-                   {
-                     disabled: !@form.signature_type_updatable?,
-                     "data-scope-selector": "initiative_scope_id",
-                     "data-scope-id": f.object.scope_id.to_s,
-                     "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
-                     "data-signature-types-selector": "initiative_signature_type",
-                     "data-signature-type": current_initiative&.signature_type.presence || initiative_type.signature_type,
-                     "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url
-                   } %>
-    <% end %>
-
-    <% unless single_initiative_type? %>
-      <label for="type_description"><%= t ".initiative_type" %>
-        <%= text_field_tag :type_description, strip_tags(translated_attribute(initiative_type.title)), readonly: true %>
-      </label>
-    <% end %>
+    <%= f.hidden_field :type_id %>
 
     <%= f.text_field :title, autofocus: true, value: translated_attribute(f.object.title) %>
 
@@ -66,19 +46,19 @@
 
     <% if initiative_type.attachments_enabled? %>
       <%= f.attachment :documents,
-          multiple: true,
-          label: t("decidim.initiatives.form.add_documents"),
-          button_label: t("decidim.initiatives.form.add_documents"),
-          button_class: "button button__lg button__transparent-secondary w-full",
-          button_edit_label: t("decidim.initiatives.form.edit_documents"),
-          help_text: t("attachment_legend", scope: "decidim.initiatives.form") %>
+                       multiple: true,
+                       label: t("decidim.initiatives.form.add_documents"),
+                       button_label: t("decidim.initiatives.form.add_documents"),
+                       button_class: "button button__lg button__transparent-secondary w-full",
+                       button_edit_label: t("decidim.initiatives.form.edit_documents"),
+                       help_text: t("attachment_legend", scope: "decidim.initiatives.form") %>
       <%= f.attachment :photos,
-          multiple: true,
-          label: t("decidim.initiatives.form.add_image"),
-          button_label: t("decidim.initiatives.form.add_image"),
-          button_class: "button button__lg button__transparent-secondary w-full",
-          button_edit_label: t("decidim.initiatives.form.edit_image"),
-          help_text: t("image_legend", scope: "decidim.initiatives.form") %>
+                       multiple: true,
+                       label: t("decidim.initiatives.form.add_image"),
+                       button_label: t("decidim.initiatives.form.add_image"),
+                       button_class: "button button__lg button__transparent-secondary w-full",
+                       button_edit_label: t("decidim.initiatives.form.edit_image"),
+                       help_text: t("image_legend", scope: "decidim.initiatives.form") %>
     <% end %>
 
     <% if @form.state_updatable? %>

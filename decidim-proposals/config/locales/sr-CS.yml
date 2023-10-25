@@ -65,12 +65,8 @@ sr:
             amendments_count: Broj izmena
             assigned_valuators: Dodeljeni procenjivači
             comments_count: Broj komentara
-            comments_negative_count: Protiv
-            comments_neutral_count: Uzdržan
-            comments_positive_count: Za
             documents: Dokumenti
             endorsements_count: Broj podržavanja
-            endorsements_ranking: Poređano po podržavanjima
             endorsers: Podržavaoci
             link: Veza
             n_more_endorsers:
@@ -83,7 +79,6 @@ sr:
             remove_assignment: Ukloni zadatak
             remove_assignment_confirmation: Da li ste sigurni da želite da uklonite procenjivača sa ovog predloga?
             valuators: Procenjivači
-            votes_ranking: Poređano po podršci
           update_category:
             invalid: 'Ovi predlozi već imaju %{subject_name} kategoriju: %{proposals}.'
             success: 'Predlozi uspešno dodati u kategoriju %{subject_name}: %{proposals}.'
@@ -103,15 +98,8 @@ sr:
             valuators: Procenjivači
       proposals:
         show:
-          back_to_list: Nazad na listu
           estimated_cost: Procenjen trošak
-          read_less: Pročitaj manje
-          read_more: Pročitaj više
-        tags:
-          changed_from: "(preimenovano iz <u>%{previous_name}</u> od strane administratora)"
       proposals_picker:
         choose_proposals: Izaberi predloge
-        close: Zatvori
-        more_proposals: Postoji još %{number} predloga. Smanjite obim pretrage da bi ih pregledali.
       publish_answers:
         success: Odgovori na predloge uspešno objavljeni.

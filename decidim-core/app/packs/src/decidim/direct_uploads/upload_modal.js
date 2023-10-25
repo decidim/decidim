@@ -1,6 +1,12 @@
 import { Uploader } from "src/decidim/direct_uploads/uploader";
-import { truncateFilename, checkTitles, createHiddenInput } from "src/decidim/direct_uploads/upload_utility";
-import { escapeHtml } from "src/decidim/utilities/text";
+import icon from "src/decidim/icon";
+import { truncateFilename } from "src/decidim/direct_uploads/upload_utility";
+import { escapeHtml, escapeQuotes } from "src/decidim/utilities/text";
+
+const STATUS = {
+  VALIDATED: "validated",
+  ERROR: "error"
+}
 
 // This class handles logic inside upload modal, but since modal is not inside the form
 // logic here moves "upload items" / hidden inputs to form.
@@ -28,78 +34,107 @@ export default class UploadModal {
 
     this.options = Object.assign(providedOptions, options)
 
-    this.name = this.button.name;
-    this.modal = document.querySelector(`#${button.dataset.open}`);
-    this.saveButton = this.modal.querySelector(`button.add-file-${this.name}`);
-    this.attachmentCounter = 0;
-    this.dropZoneEnabled = true;
-    this.modalTitle = this.modal.querySelector(".reveal__title");
-    this.uploadItems = this.modal.querySelector(".upload-items");
-    this.locales = JSON.parse(this.uploadItems.dataset.locales);
-    this.dropZone = this.modal.querySelector(".dropzone");
+    this.modal = document.querySelector(`#${button.dataset.dialogOpen}`);
+    this.saveButton = this.modal.querySelector("button[data-dropzone-save]");
+    this.cancelButton = this.modal.querySelector("button[data-dropzone-cancel]");
+    this.modalTitle = this.modal.querySelector("[data-dialog-title]");
+    this.dropZone = this.modal.querySelector("[data-dropzone]");
+
+    this.emptyItems = this.modal.querySelector("[data-dropzone-no-items]");
+    this.uploadItems = this.modal.querySelector("[data-dropzone-items]");
     this.input = this.dropZone.querySelector("input");
-    this.uploadContainer = document.querySelector(`.upload-container-for-${this.name}`);
-    this.activeAttachments = this.uploadContainer.querySelector("[data-active-uploads]");
-    this.trashCan = this.createTrashCan();
+    this.items = []
+
+    this.attachmentCounter = 0;
+    this.locales = JSON.parse(this.uploadItems.dataset.locales);
+
+    this.updateDropZone();
+  }
+
+  uploadFiles(files) {
+    if (this.options.multiple) {
+      Array.from(files).forEach((file) => this.uploadFile(file))
+    } else if (!this.uploadItems.children.length) {
+      this.uploadFile(files[0])
+    }
   }
 
   uploadFile(file) {
-    if (!this.dropZoneEnabled) {
-      return;
-    }
-
-    const title = file.name.split(".")[0].slice(0, 31);
-    const uploadItem = this.createUploadItem(file.name, title, "init");
-    const uploader = new Uploader(this, uploadItem, {
+    const uploader = new Uploader(this, {
       file: file,
       url: this.input.dataset.directUploadUrl,
       attachmentName: file.name
     });
-    if (uploader.fileTooBig) {
-      return;
+
+    const item = this.createUploadItem(file, uploader.errors)
+
+    // add the item to the DOM, before validations
+    this.uploadItems.appendChild(item);
+
+    if (uploader.errors.length) {
+      this.updateDropZone();
+    } else {
+      uploader.upload.create((error, blob) => {
+        if (error) {
+          uploader.errors = [error]
+        } else {
+          // attach the file hash to submit the form, when the file has been uploaded
+          file.hiddenField = blob.signed_id
+
+          // since the validation step is async, we must wait for the responses
+          uploader.validate(blob.signed_id).then(() => {
+            if (uploader.errors.length) {
+              this.uploadItems.replaceChild(this.createUploadItem(file, uploader.errors, { value: 100 }), item)
+            } else {
+              // add only the validated files to the array of File(s)
+              this.items.push(file)
+              this.autoloadImage(item, file)
+            }
+
+            this.updateDropZone();
+          });
+        }
+      });
+    }
+  }
+
+  autoloadImage(container, file) {
+    // if the mime type is not from an image, skip previewing
+    if (!(/image/).test(file.type)) {
+      return
     }
 
-    uploader.upload.create((error, blob) => {
-      if (error) {
-        uploadItem.dataset.state = "error";
-        const progressBar = uploadItem.querySelector(".progress-bar");
-        progressBar.classList.add("filled");
-        progressBar.innerHTML = this.locales.error;
-        console.error(error);
-      } else {
-        const ordinalNumber = this.getOrdinalNumber();
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = ({ target: { result }}) => {
+      const img = container.querySelector("img")
+      img.src = result
+    }
+  }
 
-        const attachmentDetails = document.createElement("div");
-        attachmentDetails.classList.add("attachment-details");
-        attachmentDetails.dataset.filename = escapeHtml(file.name);
-        const titleAndFileNameSpan = document.createElement("span");
-        titleAndFileNameSpan.style.display = "none";
-        attachmentDetails.appendChild(titleAndFileNameSpan);
+  async preloadFiles(element) {
+    // Get a File object from img.src, more info: https://stackoverflow.com/a/38935544/5020256
+    const { src } = element.querySelector("img") || {}
 
-        const hiddenBlobField = createHiddenInput(null, null, blob.signed_id);
-        if (this.options.titled) {
-          hiddenBlobField.name = `${this.options.resourceName}[${this.options.addAttribute}][${ordinalNumber}][file]`;
-        } else {
-          hiddenBlobField.name = `${this.options.resourceName}[${this.options.addAttribute}]`;
-        }
+    let buffer = "";
+    let type = "";
 
-        if (this.options.titled) {
-          const hiddenTitleField = createHiddenInput("hidden-title", `${this.options.resourceName}[${this.options.addAttribute}][${ordinalNumber}][title]`, title);
-          titleAndFileNameSpan.innerHTML = escapeHtml(`${title} (${file.name})`);
-          attachmentDetails.appendChild(hiddenTitleField);
-        } else {
-          titleAndFileNameSpan.innerHTML = escapeHtml(file.name);
-        }
+    if (src) {
+      buffer = await fetch(src).then((res) => res.arrayBuffer())
+      // since we cannot know the exact mime-type of the file,
+      // we assume as "image" if it has the src attribute in order to load the preview
+      type = "image"
+    }
 
-        if (!this.options.multiple) {
-          this.cleanTrashCan();
-        }
+    const file = new File([buffer], element.dataset.filename, { type })
+    const item = this.createUploadItem(file, [], { ...element.dataset, value: 100 })
 
-        attachmentDetails.appendChild(hiddenBlobField);
-        uploadItem.appendChild(attachmentDetails);
-        uploader.validate(blob.signed_id);
-      }
-    });
+    file.attachmentId = element.dataset.attachmentId
+    file.hiddenField = element.dataset.hiddenField
+
+    this.items.push(file)
+    this.uploadItems.appendChild(item);
+    this.autoloadImage(item, file)
     this.updateDropZone();
   }
 
@@ -110,154 +145,130 @@ export default class UploadModal {
   }
 
   updateDropZone() {
-    if (this.options.multiple) {
-      return;
-    }
+    // NOTE: since the FileList HTML attribute of input[type="file"] cannot be set (read-only),
+    // we cannot check this.input.files.length when some item is removed
+    const { children: files } = this.uploadItems
+    const inputHasFiles = files.length > 0
+    this.uploadItems.hidden = !inputHasFiles;
 
-    if (this.uploadItems.children.length > 0) {
-      this.dropZone.classList.add("disabled");
-      this.dropZoneEnabled = false;
-      this.input.disabled = true;
+    // Disabled save button when any children have data-state="error"
+    this.saveButton.disabled = Array.from(files).filter(({ dataset: { state } }) => state === STATUS.ERROR).length > 0;
+
+    // Only allow to continue the upload when the multiple option is true (default: false)
+    const continueUpload = !files.length || this.options.multiple
+    this.input.disabled = !continueUpload
+    if (continueUpload) {
+      this.emptyItems.classList.remove("is-disabled");
+      this.emptyItems.querySelector("label").removeAttribute("disabled");
     } else {
-      this.dropZone.classList.remove("disabled");
-      this.dropZoneEnabled = true;
-      this.input.disabled = false;
+      this.emptyItems.classList.add("is-disabled");
+      this.emptyItems.querySelector("label").setAttribute("disabled", true);
     }
   }
 
-  createUploadItem(fileName, title, state) {
-    const wrapper = document.createElement("div");
-    wrapper.classList.add("upload-item");
-    wrapper.setAttribute("data-filename", escapeHtml(fileName));
+  createUploadItem(file, errors, opts = {}) {
+    const okTemplate = `
+      <img src="" alt="${file.name}" />
+      <span>${escapeHtml(truncateFilename(file.name))}</span>
+    `
 
-    const firstRow = document.createElement("div");
-    const secondRow = document.createElement("div");
-    const thirdRow = document.createElement("div");
-    firstRow.classList.add("row", "upload-item-first-row");
-    secondRow.classList.add("row", "upload-item-second-row");
-    thirdRow.classList.add("row", "upload-item-third-row");
+    const errorTemplate = `
+      <div>${icon("error-warning-line")}</div>
+      <div>
+        <span>${escapeHtml(truncateFilename(file.name))}</span>
+        <span>${this.locales.validation_error}</span>
+        <ul>${errors.map((error) => `<li>${error}</li>`).join("\n")}</ul>
+      </div>
+    `
 
-    const fileNameSpan = document.createElement("span");
-    let fileNameSpanClasses = ["columns", "file-name-span"];
-    if (this.options.titled) {
-      fileNameSpanClasses.push("small-4", "medium-5");
-    } else {
-      fileNameSpanClasses.push("small-12");
-    }
-    fileNameSpan.classList.add(...fileNameSpanClasses);
-    fileNameSpan.innerHTML = escapeHtml(truncateFilename(fileName));
+    const titleTemplate = `
+      <img src="" alt="${file.name}" />
+      <div>
+        <div>
+          <label>${this.locales.filename}</label>
+          <span>${escapeHtml(truncateFilename(file.name))}</span>
+        </div>
+        <div>
+          <label>${this.locales.title}</label>
+          <input class="sm" type="text" value="${escapeQuotes(opts.title || truncateFilename(file.name))}" />
+        </div>
+      </div>
+    `
 
-    const progressBar = document.createElement("div");
-    progressBar.classList.add("progress-bar");
-    if (state) {
-      if (state === "validated") {
-        progressBar.innerHTML = this.locales.uploaded;
-      } else {
-        progressBar.innerHTML = "0%";
-        progressBar.style.width = "15%";
-      }
-      wrapper.dataset.state = state;
-    }
+    let state = STATUS.VALIDATED
+    let content = okTemplate
+    let template = "ok"
 
-    const progressBarBorder = document.createElement("div");
-    progressBarBorder.classList.add("progress-bar-border");
-    progressBarBorder.appendChild(progressBar);
-
-    const progressBarWrapper = document.createElement("div");
-    progressBarWrapper.classList.add("columns", "progress-bar-wrapper");
-    progressBarWrapper.appendChild(progressBarBorder);
-    if (this.options.titled) {
-      progressBarWrapper.classList.add("small-4", "medium-5");
-    } else {
-      progressBarWrapper.classList.add("small-10");
+    if (errors.length) {
+      state = STATUS.ERROR
+      content = errorTemplate
+      template = "error"
     }
 
-    const errorList = document.createElement("ul");
-    errorList.classList.add("upload-errors");
-
-    const removeButton = document.createElement("button");
-    removeButton.classList.add("columns", "small-3", "medium-2", "remove-upload-item");
-    removeButton.innerHTML = `&times; ${this.locales.remove}`;
-    removeButton.addEventListener(("click"), (event) => {
-      event.preventDefault();
-      this.trashCan.append(wrapper);
-      this.updateDropZone();
-    })
-
-    const titleAndFileNameSpan = document.createElement("span");
-    titleAndFileNameSpan.classList.add("columns", "small-5", "title-and-filename-span");
-    titleAndFileNameSpan.innerHTML = escapeHtml(`${title} (${truncateFilename(fileName)})`);
-
-    firstRow.appendChild(fileNameSpan);
-    secondRow.appendChild(progressBarWrapper);
-    thirdRow.appendChild(errorList);
-
-    let titleInputContainer = null;
-    if (this.options.titled) {
-      const titleInput = document.createElement("input");
-      titleInput.classList.add("attachment-title");
-      titleInput.type = "text";
-      titleInput.value = title;
-      titleInput.addEventListener("input", (event) => {
-        event.preventDefault();
-        checkTitles(this.uploadItems, this.saveButton);
-      })
-      titleInputContainer = document.createElement("div");
-      titleInputContainer.classList.add("columns", "small-5", "title-input-container");
-      titleInputContainer.appendChild(titleInput);
-
-      const noTitleErrorSpan = document.createElement("span");
-      noTitleErrorSpan.classList.add("form-error", "no-title-error");
-      noTitleErrorSpan.role = "alert";
-      noTitleErrorSpan.innerHTML = this.locales.title_required;
-      titleInputContainer.appendChild(noTitleErrorSpan);
-
-      const titleLabelSpan = document.createElement("span");
-      titleLabelSpan.classList.add("title-label-span");
-      titleLabelSpan.innerHTML = this.locales.title;
-
-      const titleContainer = document.createElement("div");
-      titleContainer.classList.add("columns", "small-8", "medium-7", "title-container");
-      titleContainer.appendChild(titleLabelSpan);
-      firstRow.appendChild(titleContainer);
-      secondRow.appendChild(titleInputContainer);
+    if (!errors.length && this.options.titled) {
+      content = titleTemplate
+      template = "titled"
     }
 
-    secondRow.appendChild(removeButton);
+    const attachmentId = opts.attachmentId
+      ? `data-attachment-id="${opts.attachmentId}"`
+      : ""
+    const fullTemplate = `
+      <li ${attachmentId} data-filename="${escapeQuotes(file.name)}" data-state="${state}">
+        <div data-template="${template}">
+          ${content.trim()}
+          <button>${this.locales.remove}</button>
+        </div>
+        <progress max="100" value="${opts.value || 0}"></progress>
+      </li>`
 
-    wrapper.appendChild(firstRow);
-    wrapper.appendChild(secondRow);
-    wrapper.appendChild(thirdRow);
+    const div = document.createElement("div")
+    div.innerHTML = fullTemplate.trim()
 
-    this.uploadItems.appendChild(wrapper);
+    const container = div.firstChild
 
-    return wrapper;
+    // append the listeners to the template
+    container.querySelector("button").addEventListener("click", this.handleButtonClick.bind(this))
+
+    return container;
+  }
+
+  handleButtonClick({ currentTarget }) {
+    const item = currentTarget.closest("[data-filename]")
+    const { filename } = item.dataset
+
+    // remove item from DOM
+    item.remove();
+
+    // mark item as removable from the array of File(s), if exists (it could be non-validated)
+    const ix = this.items.findIndex(({ name }) => name === filename)
+    if (ix > -1) {
+      this.items[ix].removable = true
+    }
+
+    this.updateDropZone();
+  }
+
+  setProgressBar(name, value) {
+    this.uploadItems.querySelector(`[data-filename="${escapeQuotes(name)}"] progress`).value = value
   }
 
   updateAddAttachmentsButton() {
-    if (this.activeAttachments.children.length === 0) {
+    if (this.uploadItems.children.length === 0) {
       this.button.innerHTML = this.modalTitle.dataset.addlabel;
     } else {
       this.button.innerHTML = this.modalTitle.dataset.editlabel;
     }
+
+    const requiredCheckbox = this.button.nextElementSibling
+    if (requiredCheckbox) {
+      requiredCheckbox.checked = this.uploadItems.children.length > 0
+    }
   }
 
-  createTrashCan() {
-    const trashCan =  document.createElement("div");
-    trashCan.classList.add("trash-can");
-    trashCan.style.display = "none";
-    this.uploadItems.parentElement.appendChild(trashCan);
-    return trashCan;
-  }
-
-  cleanTrashCan() {
-    Array.from(this.trashCan.children).forEach((item) => {
-      const fileName = item.dataset.filename;
-      const activeAttachment = this.activeAttachments.querySelector(`div[data-filename='${fileName}']`);
-      if (activeAttachment) {
-        activeAttachment.remove();
-      }
-      item.remove();
-    })
+  cleanAllFiles() {
+    this.items = []
+    this.uploadItems.textContent = ""
+    this.updateDropZone();
   }
 }

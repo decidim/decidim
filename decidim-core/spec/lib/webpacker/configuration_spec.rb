@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "gem_overrides/webpacker/runner"
+require "gem_overrides/shakapacker/runner"
 
 module Decidim
   module Webpacker
@@ -44,14 +44,6 @@ module Decidim
             "decidim_geocoding_provider_here" => "#{core_path}/app/packs/entrypoints/decidim_geocoding_provider_here.js",
             "decidim_map_provider_default" => "#{core_path}/app/packs/entrypoints/decidim_map_provider_default.js",
             "decidim_map_provider_here" => "#{core_path}/app/packs/entrypoints/decidim_map_provider_here.js"
-          )
-        end
-
-        it "adds the stylesheet imports to the webpacker runtime configuration" do
-          expect(runtime_config["default"]["stylesheet_imports"].keys).to include("imports")
-          expect(runtime_config["default"]["stylesheet_imports"]["imports"].keys).to include("app")
-          expect(runtime_config["default"]["stylesheet_imports"]["imports"]["app"]).to include(
-            "stylesheets/decidim/initiatives/initiatives"
           )
         end
       end
