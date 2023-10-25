@@ -50,7 +50,7 @@ import "src/decidim/data_consent"
 import "src/decidim/sw"
 
 // local deps that require initialization
-import redesignedFormDatePicker from "./datepicker/form_datepicker"
+import formDatePicker from "./datepicker/form_datepicker"
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
@@ -106,7 +106,7 @@ const initializer = (element = document) => {
 
   svg4everybody();
 
-  redesignedFormDatePicker();
+  formDatePicker();
 
   element.querySelectorAll(".editor-container").forEach((container) => window.createEditor(container));
 

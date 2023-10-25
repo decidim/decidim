@@ -5,7 +5,7 @@ import generateTimePicker from "./generate_timepicker";
 import { formatInputDate, formatInputTime } from "./datepicker_functions";
 import { getDictionary } from "../i18n";
 
-export default function redesignedFormDatePicker() {
+export default function formDatePicker() {
   const inputs = document.querySelectorAll('input[type="datetime-local"], input[type="date"]');
 
   if (inputs.length > 0) {
