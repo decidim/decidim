@@ -7,6 +7,7 @@ module Decidim
       # a voting.
       class VotingAttachmentCollectionsController < Decidim::Admin::ApplicationController
         include Decidim::Admin::Concerns::HasAttachmentCollections
+        include Decidim::Admin::Concerns::HasTabbedMenu
         include VotingAdmin
 
         def after_destroy_path
@@ -16,6 +17,10 @@ module Decidim
         def collection_for
           current_voting
         end
+
+        private
+
+        def tab_menu_name = :decidim_votings_attachments_menu
       end
     end
   end
