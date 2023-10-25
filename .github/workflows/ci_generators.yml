@@ -98,7 +98,7 @@ jobs:
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
           SIMPLECOV: "true"
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4.0.0-beta.3
         name: Upload coverage
         with:
           token: ${{ env.CODECOV_TOKEN }}

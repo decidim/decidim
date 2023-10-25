@@ -115,7 +115,7 @@ jobs:
           PARALLEL_TEST_PROCESSORS: 2
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4.0.0-beta.3
         name: Upload coverage
         with:
           token: ${{ inputs.codecov_token }}
