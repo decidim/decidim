@@ -101,6 +101,10 @@
       @apply text-secondary;
     }
 
+    & + & {
+      @apply mt-6;
+    }
+
     &:focus &-title,
     &:hover &-title {
       @apply underline;
