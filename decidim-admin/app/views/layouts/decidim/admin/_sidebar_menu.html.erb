@@ -6,7 +6,16 @@
     </div>
   </div>
 
-  <div class="item_show__wrapper">
-    <%= yield %>
-  </div>
+  <% if defined?(has_tab_menu?) && has_tab_menu? %>
+    <div class="layout-content__container" data-content>
+      <%= admin_tabs(tab_menu_name).render %>
+      <div class="item_show__wrapper">
+        <%= yield %>
+      </div>
+    </div>
+  <% else %>
+    <div class="item_show__wrapper">
+      <%= yield %>
+    </div>
+  <% end %>
 </div>
