@@ -1009,13 +1009,14 @@ en:
           success: Page successfully destroyed
         edit:
           changed_notably_help: If checked, participants will be notified to accept the new terms of service.
+          last_notable_change: 'Last notable change: %{tos_version_formatted}'
           title: Edit page
           update: Update
         form:
           none: None
           slug_help_html: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
         index:
-          last_notable_change: 'Last notable change: %{tos_version_formatted}'
+          last_notable_change: Last notable change
         new:
           create: Create page
           title: New page

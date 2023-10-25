@@ -5,6 +5,7 @@ module Decidim
     class StaticPageTopicsController < Decidim::Admin::ApplicationController
       layout "decidim/admin/pages"
       helper_method :topic, :topics
+      before_action :set_breadcrumb
 
       def index
         enforce_permission_to :read, :static_page_topic
@@ -66,6 +67,10 @@ module Decidim
       end
 
       private
+
+      def set_breadcrumb
+        controller_breadcrumb_items << { label: I18n.t("page_topics", scope:  "decidim.admin.titles"), active: true }
+      end
 
       def topic
         @topic ||= topics.find(params[:id])
