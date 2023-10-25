@@ -33,6 +33,10 @@ jobs:
           regex: "^[A-Z].+"
           min_length: 5
           max_length: 100
+  check_label:
+    name: Check PR labels
+    runs-on: ubuntu-latest
+    steps:
       - uses: jesusvasquez333/verify-pr-label-action@v1.4.0
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
