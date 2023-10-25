@@ -8,6 +8,7 @@ module Decidim
         include Decidim::ApplicationHelper
         include Decidim::Budgets::Admin::Filterable
         helper Decidim::Budgets::Admin::ProjectBulkActionsHelper
+        helper Decidim::Budgets::ProjectsHelper
 
         helper_method :projects, :finished_orders, :pending_orders, :present, :project_ids
 
@@ -161,6 +162,28 @@ module Decidim
           end
         end
 
+        def update_budget
+          enforce_permission_to :update, :project, project: sample_project
+          ::Decidim::Budgets::Admin::UpdateProjectsBudget.call(reference_budget, project_ids) do
+            on(:invalid_project_ids) do
+              flash.now[:alert] = t(
+                "projects.update_selected.select_a_project",
+                scope: "decidim.budgets.admin"
+              )
+            end
+
+            on(:update_projects_budget) do
+              moved_items(@response)
+              flash.now[:notice] = update_projects_bulk_response_successful(@response, :budget)
+              flash.now[:alert] = update_projects_bulk_response_errored(@response, :budget)
+            end
+          end
+
+          respond_to do |format|
+            format.js { render :update_attribute, locals: { form_selector: "#js-form-budget-change-projects", attribute_selector: "#selected_value", moved_items: } }
+          end
+        end
+
         private
 
         def projects
@@ -175,12 +198,22 @@ module Decidim
           @project_ids ||= params[:project_ids]
         end
 
+        def reference_budget
+          params[:reference_id]
+        end
+
         def pending_orders
           orders.pending
         end
 
         def finished_orders
           orders.finished
+        end
+
+        def sample_project
+          return if project_ids.empty?
+
+          Decidim::Budgets::Project.find(project_ids.first)
         end
 
         def project
@@ -200,6 +233,8 @@ module Decidim
             t("projects.update_category.success", scope: "decidim.budgets.admin", **interpolations)
           when :scope
             t("projects.update_scope.success", scope: "decidim.budgets.admin", **interpolations)
+          when :budget
+            t("projects.update_budget.success", scope: "decidim.budgets.admin", **interpolations)
           when :selected
             if extra[:selection]
               t("projects.update_selected.success.selected", scope: "decidim.budgets.admin", **interpolations)
@@ -222,6 +257,8 @@ module Decidim
             t("projects.update_category.invalid", scope: "decidim.budgets.admin", **interpolations)
           when :scope
             t("projects.update_scope.invalid", scope: "decidim.budgets.admin", **interpolations)
+          when :budget
+            t("projects.update_budget.invalid", scope: "decidim.budgets.admin", **interpolations)
           when :selected
             if extra[:selection]
               t("projects.update_selected.invalid.selected", scope: "decidim.budgets.admin", **interpolations)
@@ -229,6 +266,14 @@ module Decidim
               t("projects.update_selected.invalid.unselected", scope: "decidim.budgets.admin", **interpolations)
             end
           end
+        end
+
+        def moved_items(response = nil)
+          @moved_items ||= if response
+                             @project_ids - response[:failed_ids]
+                           else
+                             @project_ids
+                           end
         end
       end
     end

@@ -147,6 +147,21 @@ module Decidim
 
         items.reject { |item| item[:collection].blank? }
       end
+
+      def budgets_select_tag(name, options: {})
+        select_tag(
+          name,
+          options_for_select(reference_budgets_for_select),
+          options.merge(include_blank: I18n.t("decidim.budgets.prompt"))
+        )
+      end
+
+      def reference_budgets_for_select
+        references = Budget.where(component: current_component).order(weight: :asc)
+        references.map do |budget|
+          ["#{"&nbsp;" * 4} #{translated_attribute(budget.title)}".html_safe, budget.id]
+        end
+      end
     end
   end
 end

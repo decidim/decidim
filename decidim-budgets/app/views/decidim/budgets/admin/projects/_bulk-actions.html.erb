@@ -5,6 +5,7 @@
     <%= render partial: "decidim/budgets/admin/projects/bulk_actions/recategorize" %>
     <%= render partial: "decidim/budgets/admin/projects/bulk_actions/scope-change" %>
     <%= render partial: "decidim/budgets/admin/projects/bulk_actions/change-selected" %>
+    <%= render partial: "decidim/budgets/admin/projects/bulk_actions/budget-change" %>
 
     <% if allowed_to? :export, :budget %>
       <%= export_dropdown(current_component, budget.id) %>
