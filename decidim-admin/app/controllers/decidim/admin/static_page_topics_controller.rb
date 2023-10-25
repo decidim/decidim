@@ -69,7 +69,7 @@ module Decidim
       private
 
       def set_breadcrumb
-        controller_breadcrumb_items << { label: I18n.t("page_topics", scope:  "decidim.admin.titles"), active: true }
+        controller_breadcrumb_items << { label: I18n.t("page_topics", scope: "decidim.admin.titles"), active: true }
       end
 
       def topic

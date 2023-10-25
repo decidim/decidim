@@ -1021,8 +1021,6 @@ en:
           create: Create page
           title: New page
         topic:
-          destroy: Remove topic
-          edit: Edit topic
           empty: There are no pages under this topic.
           without_topic: Pages without topic
         update:
