@@ -15,7 +15,6 @@ module Decidim
     validates :name, presence: true, format: { with: Decidim::User::REGEXP_NAME }
     validates :email, presence: true, "valid_email_2/email": { disposable: true }
     validates :password, presence: true, password: { name: :name, email: :email, username: :nickname }
-    validates :password, confirmation: { message: I18n.t("errors.messages.password_confirmation_message") }
     validates :tos_agreement, allow_nil: false, acceptance: true
 
     validate :email_unique_in_organization
