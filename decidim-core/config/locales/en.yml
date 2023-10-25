@@ -1838,7 +1838,6 @@ en:
       not_saved:
         one: 'There''s been an error processing your request:'
         other: 'There were multiple errors when processing your request:'
-      password_confirmation_message: '"Confirm your password" does not match Password'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
       too_short: is too short (under %{count} characters)
