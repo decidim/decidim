@@ -15,7 +15,7 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :template, template: template
+          enforce_permission_to(:update, :template, template:)
           @form = form(ProposalAnswerTemplateForm).from_model(template)
         end
 
@@ -38,7 +38,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :destroy, :template, template: template
+          enforce_permission_to(:destroy, :template, template:)
 
           DestroyTemplate.call(template, current_user) do
             on(:ok) do
@@ -49,7 +49,7 @@ module Decidim
         end
 
         def fetch
-          enforce_permission_to :read, :template, template: template
+          enforce_permission_to(:read, :template, template:)
 
           response_object = {
             state: template.field_values["internal_state"],
@@ -64,7 +64,7 @@ module Decidim
         end
 
         def update
-          enforce_permission_to :update, :template, template: template
+          enforce_permission_to(:update, :template, template:)
           @form = form(ProposalAnswerTemplateForm).from_params(params)
           UpdateProposalAnswerTemplate.call(template, @form, current_user) do
             on(:ok) do |_questionnaire_template|
@@ -115,7 +115,7 @@ module Decidim
         private
 
         def populate_template_interpolations(proposal)
-          template.description.map do |row|
+          template.description.to_h do |row|
             language = row.first
             value = row.last
             value.gsub!("%{organization}", proposal.organization.name)
@@ -123,7 +123,7 @@ module Decidim
             value.gsub!("%{admin}", current_user.name)
 
             [language, value]
-          end.to_h
+          end
         end
 
         def proposal
@@ -148,7 +148,7 @@ module Decidim
             @avaliablity_options["components-#{component.id}"] = formated_name(component)
           end
           global_scope = { "organizations-#{current_organization.id}" => t("global_scope", scope: "decidim.templates.admin.proposal_answer_templates.index") }
-          @avaliablity_options = global_scope.merge(Hash[@avaliablity_options.sort_by { |_, val| val }])
+          @avaliablity_options = global_scope.merge(@avaliablity_options.sort_by { |_, val| val }.to_h)
         end
 
         def formated_name(component)

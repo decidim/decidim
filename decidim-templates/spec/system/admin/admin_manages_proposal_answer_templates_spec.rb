@@ -4,8 +4,8 @@ require "spec_helper"
 require "decidim/proposals/test/factories"
 
 describe "Admin manages proposal answer templates", type: :system do
-  let!(:organization) { create :organization }
-  let!(:user) { create :user, :admin, :confirmed, organization: organization }
+  let!(:organization) { create(:organization) }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -14,7 +14,7 @@ describe "Admin manages proposal answer templates", type: :system do
   end
 
   describe "listing templates" do
-    let!(:template) { create(:template, :proposal_answer, organization: organization) }
+    let!(:template) { create(:template, :proposal_answer, organization:) }
 
     before do
       visit decidim_admin_templates.proposal_answer_templates_path
@@ -28,7 +28,7 @@ describe "Admin manages proposal answer templates", type: :system do
     end
 
     context "when a template is scoped to an invalid resource" do
-      let!(:template) { create(:template, :proposal_answer, organization: organization, templatable: create(:dummy_resource)) }
+      let!(:template) { create(:template, :proposal_answer, organization:, templatable: create(:dummy_resource)) }
 
       it "shows a table info about the invalid resource" do
         within ".proposal_answer-templates" do
@@ -40,8 +40,8 @@ describe "Admin manages proposal answer templates", type: :system do
   end
 
   describe "creating a proposal_answer_template" do
-    let(:participatory_process) { create :participatory_process, title: { en: "A participatory process" }, organization: organization }
-    let!(:proposals_component) { create :component, manifest_name: :proposals, name: { en: "A component" }, participatory_space: participatory_process }
+    let(:participatory_process) { create(:participatory_process, title: { en: "A participatory process" }, organization:) }
+    let!(:proposals_component) { create(:component, manifest_name: :proposals, name: { en: "A component" }, participatory_space: participatory_process) }
 
     before do
       within ".layout-content" do
@@ -87,9 +87,9 @@ describe "Admin manages proposal answer templates", type: :system do
   end
 
   describe "updating a template" do
-    let!(:template) { create(:template, :proposal_answer, organization: organization) }
-    let(:participatory_process) { create :participatory_process, title: { en: "A participatory process" }, organization: organization }
-    let!(:proposals_component) { create :component, manifest_name: :proposals, name: { en: "A component" }, participatory_space: participatory_process }
+    let!(:template) { create(:template, :proposal_answer, organization:) }
+    let(:participatory_process) { create(:participatory_process, title: { en: "A participatory process" }, organization:) }
+    let!(:proposals_component) { create(:component, manifest_name: :proposals, name: { en: "A component" }, participatory_space: participatory_process) }
 
     before do
       visit decidim_admin_templates.proposal_answer_templates_path
@@ -126,7 +126,7 @@ describe "Admin manages proposal answer templates", type: :system do
   end
 
   describe "updating a template with invalid values" do
-    let!(:template) { create(:template, :proposal_answer, organization: organization) }
+    let!(:template) { create(:template, :proposal_answer, organization:) }
 
     before do
       visit decidim_admin_templates.proposal_answer_templates_path
@@ -151,7 +151,7 @@ describe "Admin manages proposal answer templates", type: :system do
   end
 
   describe "copying a template" do
-    let!(:template) { create(:template, :proposal_answer, organization: organization) }
+    let!(:template) { create(:template, :proposal_answer, organization:) }
 
     before do
       visit decidim_admin_templates.proposal_answer_templates_path
@@ -168,7 +168,7 @@ describe "Admin manages proposal answer templates", type: :system do
   end
 
   describe "destroying a template" do
-    let!(:template) { create(:template, :proposal_answer, organization: organization) }
+    let!(:template) { create(:template, :proposal_answer, organization:) }
 
     before do
       visit decidim_admin_templates.proposal_answer_templates_path
@@ -185,15 +185,15 @@ describe "Admin manages proposal answer templates", type: :system do
   end
 
   describe "using a proposal_answer_template" do
-    let(:participatory_process) { create :participatory_process, title: { en: "A participatory process" }, organization: organization }
-    let!(:component) { create :component, manifest_name: :proposals, name: { en: "A component" }, participatory_space: participatory_process }
+    let(:participatory_process) { create(:participatory_process, title: { en: "A participatory process" }, organization:) }
+    let!(:component) { create(:component, manifest_name: :proposals, name: { en: "A component" }, participatory_space: participatory_process) }
 
     let(:description) { "Some meaningful answer" }
     let(:values) do
       { internal_state: "rejected" }
     end
-    let!(:template) { create(:template, :proposal_answer, description: { en: description }, field_values: values, organization: organization, templatable: component) }
-    let!(:proposal) { create(:proposal, component: component) }
+    let!(:template) { create(:template, :proposal_answer, description: { en: description }, field_values: values, organization:, templatable: component) }
+    let!(:proposal) { create(:proposal, component:) }
 
     before do
       visit Decidim::EngineRouter.admin_proxy(component).root_path

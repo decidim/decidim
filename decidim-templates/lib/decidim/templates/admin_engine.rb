@@ -58,7 +58,7 @@ module Decidim
                           is_active_link?(decidim_admin_templates.questionnaire_templates_path) ||
                             is_active_link?(decidim_admin_templates.root_path)
                         ) && !is_active_link?(decidim_admin_templates.block_user_templates_path) &&
-                          !is_active_link?(decidim_admin_templates.proposal_answer_templates_path)
+                                !is_active_link?(decidim_admin_templates.proposal_answer_templates_path)
 
           menu.add_item :user_reports,
                         I18n.t("template_types.block_user", scope: "decidim.templates"),
