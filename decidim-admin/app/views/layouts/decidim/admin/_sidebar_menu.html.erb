@@ -7,7 +7,7 @@
   </div>
 
   <% if defined?(has_tab_menu?) && has_tab_menu? %>
-    <div class="layout-content__container" data-content>
+    <div class="layout-content__container">
       <%= admin_tabs(tab_menu_name).render %>
       <div class="item_show__wrapper">
         <%= yield %>

@@ -13,7 +13,7 @@ describe "Admin manages conference attachments", type: :system do
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
     within_admin_sidebar_menu do
-      click_link "Files"
+      click_link "Attachments"
     end
   end
 

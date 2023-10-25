@@ -166,7 +166,7 @@ module Decidim
                         submenu: { target_menu: :admin_votings_components_menu }
 
           menu.add_item :attachments,
-                        I18n.t("attachments", scope: "decidim.admin.menu.assemblies_submenu"),
+                        I18n.t("attachments", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.voting_attachments_path(current_participatory_space),
                         icon_name: "attachment-2",
                         active: is_active_link?(decidim_admin_votings.voting_attachments_path(current_participatory_space)) ||
