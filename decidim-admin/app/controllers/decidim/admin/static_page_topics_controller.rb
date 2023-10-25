@@ -4,7 +4,11 @@ module Decidim
   module Admin
     class StaticPageTopicsController < Decidim::Admin::ApplicationController
       layout "decidim/admin/pages"
-      helper_method :topic
+      helper_method :topic, :topics
+
+      def index
+        enforce_permission_to :read, :static_page_topic
+      end
 
       def new
         enforce_permission_to :create, :static_page_topic
@@ -18,7 +22,7 @@ module Decidim
         CreateStaticPageTopic.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("static_page_topics.create.success", scope: "decidim.admin")
-            redirect_to static_pages_path
+            redirect_to static_page_topics_path
           end
 
           on(:invalid) do
@@ -40,7 +44,7 @@ module Decidim
         UpdateStaticPageTopic.call(topic, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("static_page_topics.update.success", scope: "decidim.admin")
-            redirect_to static_pages_path
+            redirect_to static_page_topics_path
           end
 
           on(:invalid) do
@@ -56,7 +60,7 @@ module Decidim
         DestroyStaticPageTopic.call(topic, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("static_page_topics.destroy.success", scope: "decidim.admin")
-            redirect_to static_pages_path
+            redirect_to static_page_topics_path
           end
         end
       end
@@ -64,7 +68,11 @@ module Decidim
       private
 
       def topic
-        @topic ||= current_organization.static_page_topics.find(params[:id])
+        @topic ||= topics.find(params[:id])
+      end
+
+      def topics
+        @topics ||= current_organization.static_page_topics
       end
     end
   end

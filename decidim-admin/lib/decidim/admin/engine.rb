@@ -80,6 +80,25 @@ module Decidim
         end
       end
 
+      initializer "decidim_admin.static_pages_menu" do
+        Decidim.menu :admin_static_pages_menu do |menu|
+          menu.add_item :static_pages,
+                        I18n.t("menu.static_pages", scope: "decidim.admin"),
+                        decidim_admin.static_pages_path,
+                        icon_name: "pages-line",
+                        position: 1,
+                        active: is_active_link?(decidim_admin.static_pages_path, :inclusive),
+                        if: allowed_to?(:read, :static_page)
+          menu.add_item :static_page_topics,
+                        I18n.t("menu.static_page_topics", scope: "decidim.admin"),
+                        decidim_admin.static_page_topics_path,
+                        icon_name: "pages-line",
+                        position: 2,
+                        active: is_active_link?(decidim_admin.static_page_topics_path, :inclusive),
+                        if: allowed_to?(:create, :static_page_topic)
+        end
+      end
+
       initializer "decidim_admin.user_menu" do
         Decidim.menu :admin_user_menu do |menu|
           menu.add_item :users,

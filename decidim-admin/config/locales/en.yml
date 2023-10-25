@@ -132,6 +132,7 @@ en:
         weight: Order position
       static_page_topic:
         description: Description
+        name: Topic name
         show_in_footer: Show in the footer
         title: Title
         weight: Order position
@@ -573,6 +574,7 @@ en:
         scopes: Scopes
         see_site: See site
         settings: Settings
+        static_page_topics: Topics
         static_pages: Pages
         user_groups: Groups
         users: Participants
@@ -1037,6 +1039,7 @@ en:
         impersonatable_users: Manageable participants
         impersonations: Participants management
         metrics: Metrics
+        page_topics: Topics
         pages: Pages
         panel: Admin
         participants: Participants
