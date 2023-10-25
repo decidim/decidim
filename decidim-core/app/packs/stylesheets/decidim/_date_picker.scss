@@ -27,7 +27,7 @@
 .wc-datepicker__next-month-button,
 .wc-datepicker__previous-year-button,
 .wc-datepicker__next-year-button {
-  @apply h-10 text-secondary;
+  @apply h-10 text-secondary bg-transparent;
 }
 
 .wc-datepicker__date:focus > * {
