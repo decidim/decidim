@@ -9,6 +9,7 @@ module Decidim
       class ParticipatoryProcessAttachmentCollectionsController < Decidim::Admin::ApplicationController
         include Decidim::Admin::Concerns::HasAttachmentCollections
         include Concerns::ParticipatoryProcessAdmin
+        include Decidim::Admin::Concerns::HasTabbedMenu
 
         def after_destroy_path
           participatory_process_attachment_collections_path(current_participatory_process)
@@ -17,6 +18,10 @@ module Decidim
         def collection_for
           current_participatory_process
         end
+
+        private
+
+        def tab_menu_name = :admin_participatory_process_attachments_menu
       end
     end
   end

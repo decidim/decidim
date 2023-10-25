@@ -134,17 +134,19 @@ module Decidim
 
       initializer "decidim_participatory_processes_admin.process_attachments_menu" do
         Decidim.menu :admin_participatory_process_attachments_menu do |menu|
-          menu.add_item :participatory_process_attachment_collections,
-                        I18n.t("attachment_collections", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space)),
-                        if: allowed_to?(:read, :attachment_collection)
-
           menu.add_item :participatory_process_attachments,
                         I18n.t("attachment_files", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space)),
-                        if: allowed_to?(:read, :attachment)
+                        if: allowed_to?(:read, :attachment),
+                        icon_name: "attachment-line"
+
+          menu.add_item :participatory_process_attachment_collections,
+                        I18n.t("attachment_collections", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space)),
+                        if: allowed_to?(:read, :attachment_collection),
+                        icon_name: "folder-line"
         end
       end
 
@@ -209,11 +211,11 @@ module Decidim
 
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        "#",
-                        active: false,
+                        decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space)) ||
+                                is_active_link?(decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space)),
                         icon_name: "attachment-2",
-                        if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment),
-                        submenu: { target_menu: :admin_participatory_process_attachments_menu }
+                        if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment)
 
           menu.add_item :participatory_process_user_roles,
                         I18n.t("process_admins", scope: "decidim.admin.menu.participatory_processes_submenu"),
