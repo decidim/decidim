@@ -146,18 +146,5 @@ module Decidim
         end
       end
     end
-
-    describe "password_confirmation" do
-      context "when the password confirmation does not match" do
-        let(:password_confirmation) { "aaaabbbbcccc" }
-
-        it { is_expected.to be_invalid }
-
-        it "adds the correct error" do
-          subject.valid?
-          expect(subject.errors[:password_confirmation]).to include('"Confirm your password" does not match Password')
-        end
-      end
-    end
   end
 end

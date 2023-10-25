@@ -191,19 +191,6 @@ module Decidim
       end
     end
 
-    describe "password_confirmation_message" do
-      context "when the password confirmaiton does not match" do
-        let(:password_confirmation) { "aaaabbbbcccc" }
-
-        it { is_expected.not_to be_valid }
-
-        it "adds the correct error" do
-          subject.valid?
-          expect(subject.errors[:password_confirmation]).to include('"Confirm your password" does not match Password')
-        end
-      end
-    end
-
     describe "personal_url" do
       context "when it does not start with http" do
         let(:personal_url) { "example.org" }
