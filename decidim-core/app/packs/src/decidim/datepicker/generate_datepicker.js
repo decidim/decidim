@@ -21,6 +21,7 @@ export default function generateDatePicker(input, row, formats) {
 
   const datePicker = document.createElement("wc-datepicker");
   datePicker.setAttribute("id", `${date.id}_datepicker`);
+  datePicker.setAttribute("locale", `${document.documentElement.getAttribute("lang") || "en"}`)
   datePicker.style.display = "none";
 
   const closeCalendar = document.createElement("button");
