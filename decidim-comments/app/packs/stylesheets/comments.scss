@@ -325,3 +325,7 @@
     @apply text-md;
   }
 }
+
+* + [id^="comments-for"] {
+  @apply mt-12 md:mt-0;
+}
