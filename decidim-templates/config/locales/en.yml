@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       questionnaire:
@@ -13,6 +14,7 @@ en:
         manage: Manage
         templates: Templates
       templates:
+        missing_resource: "(missing resource)"
         actions:
           new_template: New template
         apply:
@@ -45,6 +47,28 @@ en:
         name: Template
     templates:
       admin:
+        proposal_answer_templates:
+          edit:
+            title: Edit proposal answer template
+          new:
+            title: New proposal answer template
+          form:
+            answer_template: Answer template
+            hint_html: "<strong>Hint:</strong> You can use these variables anywhere on the answer template that will be replaced when using the template"
+            hint1_html: "<strong>%{organization}</strong> will be replaced by the organization's name"
+            hint2_html: "<strong>%{name}</strong> will be replaced by the author's name"
+            hint3_html: "<strong>%{admin}</strong> will be replaced by the admin's name (the one answering the proposal)"
+            save: Save
+            scope_for_availability_help: Note that only participatory spaces having components of the type "proposals" will be listed.
+            template_title: Template information
+          index:
+            confirm_delete: Are you sure you want to delete this template?
+            global_scope: Global (available everywhere)
+            internal_state: Internal State
+            scope_for_availability: Scope
+            title: Proposal answers
+          template_chooser:
+            select_template: Select a template answer
         block_user_templates:
           edit:
             title: Edit block user message template
@@ -88,4 +112,5 @@ en:
           update: "%{user_name} updated the %{resource_name} questionnaire template"
       template_types:
         block_user: Block user messages
+        proposal_answer_templates: Proposal Answers
         questionnaires: Questionnaires

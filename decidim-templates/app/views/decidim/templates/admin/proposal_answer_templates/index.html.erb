@@ -1,0 +1,51 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<div class="card">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
+      <%= t ".title" %>
+      <% if allowed_to?(:create, :template) %>
+        <%= link_to t("actions.new_template", scope: "decidim.admin.templates"), [:new, :proposal_answer_template], class: "button button__sm button__secondary new" %>
+      <% end %>
+    </h2>
+  </div>
+  <% if @templates.any? %>
+    <div class="table-scroll">
+      <table class="table-list proposal_answer-templates">
+        <thead>
+          <tr>
+            <th><%= t("template.name", scope: "decidim.models") %></th>
+            <th><%= t(".internal_state") %></th>
+            <th><%= t(".scope_for_availability") %></th>
+            <th><%= t("template.fields.created_at", scope: "decidim.models") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @templates.each do |template| %>
+            <tr data-proposal_answer-id="<%= template.id %>">
+              <td><%= link_to_if allowed_to?(:update, :template, template:) , translated_attribute(template.name), edit_proposal_answer_template_path(template) %></td>
+              <td> <%= t(template.field_values.dig("internal_state"), scope: "decidim.proposals.admin.proposal_answers.form") %></td>
+              <td><%= availability_option_as_text(template) %></td>
+              <td><%= l template.created_at, format: :long %></td>
+
+              <td class="table-list__actions">
+                <% if allowed_to?(:update, :template, template:) %>
+                  <%= icon_link_to "pencil-line", edit_proposal_answer_template_path(template), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
+                <% end %>
+                <% if allowed_to?(:copy, :template, template:) %>
+                  <%= icon_link_to "file-copy-line", copy_proposal_answer_template_path(template), t("actions.duplicate", scope: "decidim.admin"), method: :post %>
+                <% end %>
+                <% if allowed_to?(:destroy, :template, template:) %>
+                  <%= icon_link_to "delete-bin-line", proposal_answer_template_path(template), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <%= t("templates.empty", scope: "decidim.admin") %>
+  <% end %>
+</div>

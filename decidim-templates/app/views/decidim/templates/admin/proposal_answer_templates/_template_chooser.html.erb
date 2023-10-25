@@ -1,0 +1,16 @@
+<% templates = Decidim::Templates::Template .where(
+  target: :proposal_answer,
+  templatable: [current_organization, current_component]
+).order(:templatable_id) %>
+<% if templates.any? %>
+  <div class="row column">
+    <%= append_javascript_pack_tag "decidim_templates_admin" %>
+
+    <select id="proposal_answer_template_chooser" data-locale="en" data-proposal="<%= proposal.id %>" data-url="<%= decidim_admin_templates.fetch_proposal_answer_templates_url %>">
+      <option value=""><%= t(".select_template") %></option>
+      <% templates.each do |template| %>
+        <option value="<%= template.id %>"><%= translated_attribute(template.name) %></option>
+      <% end %>
+    </select>
+  </div>
+<% end %>
