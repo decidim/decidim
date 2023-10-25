@@ -1,5 +1,17 @@
 name: "[CI] Lint PR format"
 on:
+  # WARNING: we're using `pull_request_target` on this workflow.
+  # This is necessary so the `verify-pr-label-action` can work with forks,
+  # but it introduces a potential security risk, specially if we checkout
+  # code from the forks.
+  #
+  # DO NOT checkout code from forks never in this workflow1
+  #
+  # @see https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_target
+  pull_request_target:
+    branches-ignore:
+      - "chore/l10n*"
+    types: [opened, edited, synchronize, reopened, labeled, unlabeled]
   pull_request:
     branches-ignore:
       - "chore/l10n*"
