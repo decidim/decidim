@@ -1,0 +1,8 @@
+<% sections.each do |section| %>
+  <section id=<%= section[:id] %> class="design__section">
+    <%= section_title(section) %>
+    <% section[:contents].each do |content| %>
+      <%= render_content(content) %>
+    <% end %>
+  </section>
+<% end %>
