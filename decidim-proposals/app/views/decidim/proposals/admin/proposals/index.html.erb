@@ -4,9 +4,14 @@
     <h2 class="item_show__header-title">
       <div>
         <%= t(".title") %>
+
         <span id="js-selected-proposals-count" class="component-counter component-counter--inline" title="<%= t("decidim.proposals.admin.proposals.index.selected") %>"></span>
       </div>
-      <%= render partial: "bulk-actions" %>
+      <div>
+
+        <%= render partial: "bulk-actions" %>
+        <%= render partial: "decidim/admin/components/resource_action" %>
+      </div>
     </h2>
   </div>
   <%= admin_filter_selector(:proposals) %>
