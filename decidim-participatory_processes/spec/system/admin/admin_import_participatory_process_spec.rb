@@ -72,7 +72,7 @@ describe "Admin imports participatory process", type: :system do
           expect(page).to have_content(translated(component.name))
         end
       end
-      
+
       within_admin_sidebar_menu do
         click_link "Attachments"
       end
