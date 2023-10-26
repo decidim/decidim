@@ -104,3 +104,5 @@ jobs:
           token: ${{ env.CODECOV_TOKEN }}
           name: decidim-generators
           flags: decidim-generators
+          verbose: true
+          fail_ci_if_error: true

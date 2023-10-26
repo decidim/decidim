@@ -122,6 +122,7 @@ jobs:
           name: ${{ inputs.working-directory }}
           flags: ${{ inputs.working-directory }}
           verbose: true
+          fail_ci_if_error: true
       - uses: actions/upload-artifact@v3
         if: always()
         with:
