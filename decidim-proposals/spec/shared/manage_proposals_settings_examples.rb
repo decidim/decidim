@@ -4,7 +4,7 @@ shared_examples "manage settings" do
   let(:rich_text_editor_enabled) { true }
   let(:organization) { create(:organization, rich_text_editor_in_public_views: rich_text_editor_enabled) }
   before do
-    within_admin_menu do
+    within "#admin-sidebar-menu-settings" do
       click_link "Components"
     end
     click_link "Configure"
