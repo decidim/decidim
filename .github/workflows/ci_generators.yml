@@ -20,7 +20,7 @@ env:
   NODE_VERSION: 18.17.1
   NODE_ENV: "test"
   DECIDIM_MODULE: decidim-generators
-  PARALLEL_TEST_PROCESSORS: 2
+  PARALLEL_TEST_PROCESSORS: 4
   CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
   SHAKAPACKER_RUNTIME_COMPILE: "false"
 
@@ -44,7 +44,7 @@ jobs:
           - bundle exec parallel_test --type rspec --pattern spec/runtime/full_app_generator_spec.rb
           - bundle exec parallel_test --type rspec --pattern spec/lib/
     name: "[CI] Generators"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-m
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     services:
