@@ -725,7 +725,6 @@ Prior to 0.28, there was the possibility of configuring a list of disallowed pas
 
 You can read more about this change on PR [\#10288](https://github.com/decidim/decidim/pull/10288).
 
-
 ### 5.6. Change in Initiatives configuration
 
 Initiatives configuration has a setting to enable a form to be printed for the creation of Initiatives.
@@ -737,7 +736,6 @@ or if you have not migrated to the environment variables configurations (the def
 so by adding the following snippet in `config/initializers/decidim.rb`
 
 ```ruby
-
 Decidim::Initiatives.configure do |config|
   config.print_enabled = true
 end
