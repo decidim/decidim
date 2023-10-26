@@ -76,10 +76,10 @@ extra_admin_link(
     </section>
   <% end %>
 
-  <% if component_settings.geocoding_enabled? %>
-    <section class="layout-main__section">
+  <% if component_settings.geocoding_enabled? && @proposal.geocoded? %>
+    <div class="static-map__container">
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
-    </section>
+    </div>
   <% end %>
 
   <%= cell "decidim/tab_panels", tab_panel_items %>
@@ -116,7 +116,7 @@ extra_admin_link(
             <span class="fingerprint-modal__span"><%= t "decidim.fingerprint.source" %>:</span>
             <code class="fingerprint-modal__code"><%= @proposal.fingerprint.source %></code>
           </div>
-          <p><%= t("decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "http://www.md5calc.com/sha256", target: "_blank", rel: "noopener")).html_safe %>
+          <p><%= t("decidim.fingerprint.replicate_help", online_calculator_link: link_to(t("decidim.fingerprint.online_calculator_name"), "http://www.md5calc.com/sha256", target: "_blank", rel: "noopener")).html_safe %></p>
         </div>
       </div>
     <% end %>

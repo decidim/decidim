@@ -470,9 +470,9 @@ describe "Initiative", type: :system do
           first("button.card__highlight").click
         end
 
-        it "shows select input for initiative_type" do
-          expect(page).to have_content("Type")
-          expect(find(:xpath, "//select[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
+        it "does not show the select input for initiative_type" do
+          expect(page).not_to have_content("Type")
+          expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
         end
 
         it "have fields for title and description" do
@@ -582,9 +582,9 @@ describe "Initiative", type: :system do
             end
           end
 
-          it "shows select input for initiative_type" do
-            expect(page).to have_content("Type")
-            expect(find(:xpath, "//select[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
+          it "does not show the select input for initiative_type" do
+            expect(page).not_to have_content("Type")
+            expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
           end
 
           it "shows input for signature collection type" do
@@ -604,7 +604,7 @@ describe "Initiative", type: :system do
             it "hides and automatically selects the values" do
               expect(page).not_to have_content("Signature collection type")
               expect(page).not_to have_content("Scope")
-              expect(find(:xpath, "//select[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
+              expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
               expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: :all).value).to eq("offline")
             end
           end

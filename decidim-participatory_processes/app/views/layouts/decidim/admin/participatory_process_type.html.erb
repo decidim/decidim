@@ -8,31 +8,10 @@
         </span>
       <% end %>
     <% end %>
-    <div class="inline-block relative">
-      <%= button_tag id: "processes-menu-trigger", data: { component: "dropdown", target: "processes-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
-        <span>
-          <%= t("menu.manage", scope: "decidim.admin") %>
-        </span>
-        <%= icon "arrow-down-s-line" %>
-      <% end %>
-      <div id="processes-dropdown-menu-settings">
-        <ul class="dropdown dropdown__bottom">
-          <li class="dropdown__item">
-            <% if allowed_to? :import, :process %>
-              <%= icon "upload-line", class: "fill-gray-2" %>
-              <%= link_to t("actions.import_process", scope: "decidim.admin"),
-                          new_import_path,
-                          class: "text-secondary" %>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <%= render partial: "layouts/decidim/admin/manage_processes" %>
   </div>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>
-  <div class="process-content">
-    <%= yield %>
-  </div>
+  <%= yield %>
 <% end %>

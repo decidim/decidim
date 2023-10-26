@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t(".title")) %>
 <div class="item_show__header">
   <h2 class="item_show__header-title">
     <div>
@@ -46,17 +47,18 @@
     <dt><%= t(".report_details") %></dt>
     <dd><%= @report.details %></dd>
   </dl>
-  <div class="item__edit-sticky">
-    <div class="item__edit-sticky-container">
-      <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
-        <%= link_to t("actions.unreport", scope: "decidim.moderations"), unreport_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary" %>
-      <% end %>
-      <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
-        <%= link_to t("actions.hide", scope: "decidim.moderations"), hide_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary alert" %>
-      <% end %>
-      <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
-        <%= link_to t("actions.unhide", scope: "decidim.moderations"), unhide_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary alert" %>
-      <% end %>
-    </div>
+</div>
+
+<div class="item__edit-sticky">
+  <div class="item__edit-sticky-container">
+    <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
+      <%= link_to t("actions.unreport", scope: "decidim.moderations"), unreport_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary" %>
+    <% end %>
+    <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
+      <%= link_to t("actions.hide", scope: "decidim.moderations"), hide_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary alert" %>
+    <% end %>
+    <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
+      <%= link_to t("actions.unhide", scope: "decidim.moderations"), unhide_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary alert" %>
+    <% end %>
   </div>
 </div>

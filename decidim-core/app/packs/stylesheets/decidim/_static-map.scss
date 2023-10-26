@@ -4,4 +4,12 @@
   &__container {
     @apply flex flex-col-reverse md:flex-row items-start md:items-center gap-2 [&>*]:w-full md:[&>*]:w-1/2 last:[&>*]:h-[120px] last:[&>*]:grow;
   }
+
+  &__admin {
+    @apply flex justify-center;
+
+    img {
+      @apply w-52;
+    }
+  }
 }

@@ -21,22 +21,22 @@ on:
       bullet_enabled:
         description: 'Enable bullet performance testing'
         required: false
-        default: false
+        default: true
         type: boolean
       bullet_n_plus_one:
         description: 'Enable bullet n+1 testing'
         required: false
-        default: false
+        default: true
         type: boolean
       bullet_counter_cache:
         description: 'Enable bullet counter cache testing'
         required: false
-        default: false
+        default: true
         type: boolean
       bullet_unused_eager_loading:
         description: 'Enable bullet unused eager loading testing'
         required: false
-        default: false
+        default: true
         type: boolean
 
 jobs:
@@ -113,7 +113,8 @@ jobs:
           CI: "true"
           SIMPLECOV: "true"
           PARALLEL_TEST_PROCESSORS: 2
-          WEBPACKER_RUNTIME_COMPILE: "false"
+          SHAKAPACKER_RUNTIME_COMPILE: "false"
+          NODE_ENV: "test"
       - uses: codecov/codecov-action@v3
         name: Upload coverage
         with:

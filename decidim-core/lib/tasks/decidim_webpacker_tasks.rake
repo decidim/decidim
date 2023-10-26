@@ -16,10 +16,9 @@ namespace :decidim do
       copy_file_to_application "babel.config.json"
       # PostCSS configuration
       copy_file_to_application "decidim-core/lib/decidim/webpacker/postcss.config.js", "postcss.config.js"
-      # Webpacker configuration
-      copy_file_to_application "decidim-core/lib/decidim/webpacker/webpacker.yml", "config/webpacker.yml"
-      # Webpack JS config files
-      copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
+
+      # Remnove the Webpacker config and deploy shakacpacker
+      migrate_shakapacker
 
       # Install JS dependencies
       install_decidim_npm
@@ -47,10 +46,6 @@ namespace :decidim do
       )
       system! "npm uninstall #{webpacker_packages.join(" ")}"
 
-      # Modify the webpack binstubs
-      add_binstub_load_path "bin/webpacker"
-      add_binstub_load_path "bin/webpacker-dev-server"
-
       # Add the Browserslist configuration to the project
       add_decidim_browserslist_configuration
     end
@@ -60,16 +55,30 @@ namespace :decidim do
       raise "Decidim gem is not installed" if decidim_path.nil?
 
       remove_file_from_application "bin/yarn"
-      remove_file_from_application "bin/webpack"
-      remove_file_from_application "bin/webpack-dev-server"
 
-      Rake::Task["webpacker:binstubs"].invoke unless File.exist?(rails_app_path.join("bin/webpacker"))
+      # Remnove the Webpacker config and deploy shakacpacker
+      migrate_shakapacker
 
       # Update JS dependencies
       install_decidim_npm
+    end
 
-      # Update JS config files
+    def migrate_shakapacker
+      remove_file_from_application "config/webpacker.yml"
+      remove_file_from_application "bin/webpack"
+      remove_file_from_application "bin/webpack-dev-server"
+
+      unless File.exist?(rails_app_path.join("config/shakapacker.yml"))
+        copy_file_to_application "decidim-core/lib/decidim/webpacker/shakapacker.yml", "config/shakapacker.yml"
+        remove_folder_from_application "config/webpack"
+      end
+
       copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
+
+      Rake::Task["shakapacker:binstubs"].invoke unless File.exist?(rails_app_path.join("bin/shakapacker"))
+      # Modify the webpack binstubs
+      add_binstub_load_path "bin/shakapacker"
+      add_binstub_load_path "bin/shakapacker-dev-server"
     end
 
     def install_decidim_npm
@@ -166,6 +175,10 @@ namespace :decidim do
       FileUtils.rm(path, force: true)
     end
 
+    def remove_folder_from_application(path)
+      FileUtils.rm_rf(path)
+    end
+
     def add_binstub_load_path(binstub_path)
       file = rails_app_path.join(binstub_path)
       lines = File.readlines(file)
@@ -199,13 +212,13 @@ end
 # being run. Otherwise webpacker might not recognize if the assets need to be
 # compiled again (i.e. if the asset hash has been changed).
 if (config_path = Decidim::Webpacker.configuration.configuration_file)
-  Webpacker.instance = Webpacker::Instance.new(
+  Shakapacker.instance = Shakapacker::Instance.new(
     config_path: Pathname.new(config_path)
   )
 end
 
 # Remove the yarn install prerequisity from assets:precompile
-Rake::Task["assets:precompile"].prerequisites.delete("webpacker:yarn_install")
+Rake::Task["assets:precompile"].prerequisites.delete("shakapacker:yarn_install")
 
 # Add gem overrides path to the beginning in order to override rake tasks
 # Needed because of a bug in Rails 6.0 (see the overridden task for details)

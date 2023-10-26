@@ -241,7 +241,7 @@ shared_examples "manage impersonations examples" do
         click_link "Promote"
       end
 
-      within "form.new_managed_user_promotion" do
+      within ".item__edit form" do
         fill_in :managed_user_promotion_email, with: "foo@example.org"
       end
 
@@ -285,7 +285,7 @@ shared_examples "manage impersonations examples" do
 
       it "show only verifications of current organization" do
         navigate_to_impersonations_page
-        within_admin_menu do
+        within_admin_sidebar_menu do
           click_link "Verification conflicts"
         end
 
@@ -301,7 +301,7 @@ shared_examples "manage impersonations examples" do
 
       it "show only verifications of current organization" do
         navigate_to_impersonations_page
-        within_admin_menu do
+        within_admin_sidebar_menu do
           click_link "Verification conflicts"
         end
 
