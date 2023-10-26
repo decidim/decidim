@@ -1,4 +1,4 @@
-// Choose a Block User Message template, get it by AJAX and add the Template in the justification textarea
+// Choose a Proposal Answer template, get it by AJAX and add the Template in the Proposal Answer textarea
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("proposal_answer_template_chooser").addEventListener("change", () => {
     const dropdown =  document.getElementById("proposal_answer_template_chooser");
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
           editorContainer = document.querySelector(`[name="proposal_answer[answer_${key}]"]`).nextElementSibling;
           let editor = editorContainer.querySelector(".ProseMirror").editor;
 
-          editor.commands.setContent(value);
+          editor.commands.setContent(value, true);
         }
       })
   });

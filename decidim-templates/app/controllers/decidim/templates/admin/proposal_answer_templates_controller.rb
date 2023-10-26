@@ -115,15 +115,17 @@ module Decidim
         private
 
         def populate_template_interpolations(proposal)
-          template.description.to_h do |row|
-            language = row.first
-            value = row.last
+          template.description.to_h do |language, value|
             value.gsub!("%{organization}", proposal.organization.name)
-            value.gsub!("%{name}", proposal.creator_author.name)
+            value.gsub!("%{name}", author_name(proposal))
             value.gsub!("%{admin}", current_user.name)
 
             [language, value]
           end
+        end
+
+        def author_name(proposal)
+          proposal.creator_author.try(:title) || proposal.creator_author.try(:name)
         end
 
         def proposal
