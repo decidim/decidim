@@ -359,7 +359,6 @@ en:
           back: Back
           continue: Continue
           fill_data_help: "<ul> <li>Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative?</li> </ul>"
-          initiative_type: Initiative type
           more_information: "(More information)"
           select_area: Select an area
           select_scope: Select a scope
@@ -465,10 +464,12 @@ en:
             other: and %{count} more people
         committee_members:
           approve: Approve
-          confirm_revoke: Are you sure?
+          confirm_approve: Are you sure you want to approve this member?
+          confirm_revoke: Are you sure you want to revoke this member?
           invite_to_committee_help: Share this link to invite other participants to the promoter committee.
           link: Link
           no_members_yet: There are no members in the promoter committee.
+          revoke: Revoke
           title: Committee members
         count:
           title:
