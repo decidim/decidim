@@ -34,7 +34,7 @@ module Decidim
         def extra_attributes
           EXTRA_ATTRIBUTES.filter_map do |attribute|
             text = translated_attribute(send(attribute))
-            next if text.blank? || text == "<p></p>" 
+            next if text.blank? || text == "<p></p>"
 
             [
               content_tag(:h3, class: "h4") { t(attribute, scope: "activemodel.attributes.assembly") },
