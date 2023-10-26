@@ -87,7 +87,7 @@
       <% end %>
 
       <% if current_initiative.area_enabled? %>
-        <div class="field">
+        <div class="row column">
           <%= form.areas_select :area_id,
                                 areas_for_select(current_organization),
                                 {
