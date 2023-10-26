@@ -11,7 +11,7 @@ module Decidim
         # destin_budget - the destination budget for which the projects should update to.
         # project_ids - the project ids to update.
         def initialize(destin_budget, project_ids)
-          @destin_budget = destin_budget.to_i
+          @destin_budget = find_budget(destin_budget)
           @project_ids = project_ids
           @response = { selection_name: "", successful: [], errored: [], failed_ids: [] }
         end
@@ -45,15 +45,19 @@ module Decidim
 
         def update_project_budget(project)
           project.update!(
-            decidim_budgets_budget_id: @destin_budget
+            decidim_budgets_budget_id: @destin_budget.id
           )
         end
 
         def update_not_allowed?(project)
           origin_budget = project.budget
-          return false unless origin_budget.id == @destin_budget
+          return false unless origin_budget == @destin_budget
 
-          origin_budget.total_budget >= project.budget_amount
+          origin_budget.component == @destin_budget.component
+        end
+
+        def find_budget(id)
+          Budget.find(id)
         end
       end
     end
