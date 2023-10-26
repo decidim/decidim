@@ -326,6 +326,6 @@
   }
 }
 
-* + [id^="comments-for"] {
+[id^="comments-for"]:not(:first-child) {
   @apply mt-12 md:mt-0;
 }
