@@ -121,6 +121,7 @@ jobs:
           token: ${{ inputs.codecov_token }}
           name: ${{ inputs.working-directory }}
           flags: ${{ inputs.working-directory }}
+          verbose: true
       - uses: actions/upload-artifact@v3
         if: always()
         with:
