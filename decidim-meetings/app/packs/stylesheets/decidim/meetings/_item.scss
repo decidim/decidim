@@ -83,7 +83,7 @@
     @apply bg-background grid place-items-center p-8 space-y-4 text-gray-2 text-center text-lg;
 
     iframe {
-      @apply aspect-video;
+      @apply aspect-square md:aspect-video;
     }
   }
 
