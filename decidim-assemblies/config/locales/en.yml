@@ -194,8 +194,15 @@ en:
           error: There was a problem updating an admin for this assembly.
           success: Admin updated successfully for this assembly.
       filters:
+        ceased_date_not_null:
+          label: Ceased
+          values:
+            'false': Not ceased
+            'true': Ceased
         decidim_assemblies_type_id_eq:
           label: Assembly type
+        search_placeholder:
+          full_name_cont: Search
       menu:
         assemblies: Assemblies
         assemblies_settings: Settings
@@ -322,12 +329,6 @@ en:
             select_a_position: Select a position
             select_user: Select a participant
             user_type: Participant type
-          index:
-            filter:
-              all: All
-              ceased: Ceased
-              not_ceased: Not ceased
-            search: Search
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum amount of elements to show
