@@ -299,7 +299,7 @@ describe "Assemblies", type: :system do
         end
 
         it "shows only the published children assemblies" do
-          within(".assembly__block-grid") do
+          within(".participatory-space__block-grid") do
             expect(page).to have_link translated(child_assembly.title)
             expect(page).not_to have_link translated(unpublished_child_assembly.title)
           end
@@ -321,7 +321,7 @@ describe "Assemblies", type: :system do
         end
 
         it "shows only the published, private and transparent children assemblies" do
-          within(".assembly__block-grid") do
+          within(".participatory-space__block-grid") do
             expect(page).to have_link translated(private_transparent_child_assembly.title)
             expect(page).not_to have_link translated(private_transparent_unpublished_child_assembly.title)
           end
@@ -337,7 +337,7 @@ describe "Assemblies", type: :system do
         end
 
         it "not shows any children assemblies" do
-          expect(page).not_to have_css(".assembly__block-grid")
+          expect(page).not_to have_css(".participatory-space__block-grid")
         end
       end
     end
