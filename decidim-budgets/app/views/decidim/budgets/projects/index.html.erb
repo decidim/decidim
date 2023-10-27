@@ -49,7 +49,7 @@
 
   <section class="layout-main__section">
     <span class="text-xl font-semibold">
-      <%= t("select_projects", scope: "decidim.budgets.projects") %>
+      <%= voting_finished? ? t("selected_projects", scope: "decidim.budgets.projects") : t("select_projects", scope: "decidim.budgets.projects") %>
     </span>
   </section>
 
