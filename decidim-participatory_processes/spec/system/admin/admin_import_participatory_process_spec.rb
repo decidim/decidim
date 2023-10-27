@@ -74,7 +74,7 @@ describe "Admin imports participatory process", type: :system do
       end
 
       within_admin_sidebar_menu do
-        click_link "Files"
+        click_link "Attachments"
       end
 
       if Decidim::ParticipatoryProcess.last.attachments.any?

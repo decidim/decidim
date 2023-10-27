@@ -11,6 +11,7 @@ describe "Admin manages area types", type: :system do
     login_as admin, scope: :user
     visit decidim_admin.root_path
     click_link "Settings"
+    click_link "Areas"
     click_link "Area types"
   end
 

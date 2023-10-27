@@ -19,8 +19,6 @@ describe "Conference admin accesses admin sections", type: :system do
       expect(page).to have_content("Components")
       expect(page).to have_content("Categories")
       expect(page).to have_content("Attachments")
-      expect(page).to have_content("Folders")
-      expect(page).to have_content("Files")
       expect(page).to have_content("Media Links")
       expect(page).to have_content("Partners")
       expect(page).to have_content("Speakers")
