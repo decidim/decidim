@@ -199,7 +199,9 @@ module Decidim
         end
 
         def reference_budget
-          params[:reference_id]
+          return unless params[:reference_id]
+
+          Budget.find(params[:reference_id])
         end
 
         def pending_orders
