@@ -42,7 +42,7 @@ describe "Invite process administrator", type: :system do
       end
 
       within_admin_sidebar_menu do
-        expect(page.text).to eq "About this process\nLanding page\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations"
+        expect(page.text).to eq "About this process\nLanding page\nPhases\nComponents\nCategories\nAttachments\nProcess admins\nPrivate participants\nModerations"
       end
     end
   end
@@ -74,7 +74,7 @@ describe "Invite process administrator", type: :system do
       end
 
       within_admin_sidebar_menu do
-        expect(page.text).to eq "About this process\nLanding page\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations"
+        expect(page.text).to eq "About this process\nLanding page\nPhases\nComponents\nCategories\nAttachments\nProcess admins\nPrivate participants\nModerations"
       end
     end
   end
