@@ -87,11 +87,11 @@
 
   &-snippet {
     p {
-      @apply bg-primary/25 rounded-t p-4 font-bold;
+      @apply bg-gray-3 px-6 py-2 text-sm text-gray-2;
     }
 
     a {
-      @apply text-secondary underline font-normal;
+      @apply text-secondary underline;
     }
 
     textarea {
