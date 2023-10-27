@@ -285,6 +285,18 @@ bundle exec rails decidim:robots:replace
 
 You can see more details about this change on PR [\#11693](https://github.com/decidim/decidim/pull/11693)
 
+### 3.12 Clean up orphaned attachment blobs
+
+We have added a new task that helps you clean the orphaned attachment blobs. This task will remove all the attachment blobs that are not referenced by any attachment record. This helps cleaning your filesystem of unused files.
+
+You can run the task with the following command:
+
+```bash
+bundle exec decidim:attachmens:cleanup
+```
+
+You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
