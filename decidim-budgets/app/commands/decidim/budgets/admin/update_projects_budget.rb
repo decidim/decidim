@@ -10,8 +10,8 @@ module Decidim
         #
         # destin_budget - the destination budget for which the projects should update to.
         # project_ids - the project ids to update.
-        def initialize(destin_budget, project_ids)
-          @destin_budget = find_budget(destin_budget)
+        def initialize(destin_budget_id, project_ids)
+          @destin_budget = find_budget(destin_budget_id)
           @project_ids = project_ids
           @response = { selection_name: "", successful: [], errored: [], failed_ids: [] }
         end
