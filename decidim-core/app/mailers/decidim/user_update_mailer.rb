@@ -16,13 +16,14 @@ module Decidim
     private
 
     def format_array(updates)
+      last_update = updates.last
       case updates.length
       when 1
         updates.first
       when 2
-        "#{updates.first} and #{updates.last}"
+        I18n.t("decidim.user_update_mailer.notify.update_two_fields", updates: updates.first, last_update:, count: 2)
       else
-        "#{updates[0..-2].join(", ")}, and #{updates.last}"
+        I18n.t("decidim.user_update_mailer.notify.update_fields", updates: updates[0..-2].join(", "), last_update:, count: updates.length)
       end
     end
   end

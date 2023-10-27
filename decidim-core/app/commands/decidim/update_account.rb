@@ -78,7 +78,7 @@ module Decidim
 
         I18n.t("activemodel.attributes.user.#{attr}")
       end
-      SendUpdateSummaryJob.perform_later(@user, updates)
+      UserUpdateMailer.notify(@user, updates).deliver_later
     end
 
     def attr_set

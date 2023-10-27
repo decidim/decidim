@@ -233,9 +233,9 @@ module Decidim
           end
 
           it "calls the update job in order to send the email" do
-            allow(SendUpdateSummaryJob).to receive(:perform_later).and_call_original
+            allow(UserUpdateMailer).to receive(:notify).and_call_original
             command.call
-            expect(SendUpdateSummaryJob).to have_received(:perform_later).with(user, ["Locale"])
+            expect(UserUpdateMailer).to have_received(:notify).with(user, ["Locale"])
           end
 
           it "sends email with notification about updates" do
