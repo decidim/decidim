@@ -4,16 +4,18 @@
     <% section[:contents].each do |content| %>
       <%= render_content(content) %>
 
-      <div class="design__section-snippet">
-        <p>Source code on GitHub: <a href="http://" target="_blank" rel="noopener noreferrer">cell.rb</a></p>
-        <code>
-          <textarea rows="5">
+      <% if content[:type] == :partial %>
+        <div class="design__section-snippet">
+          <p>Source code on GitHub: <a href="http://" target="_blank" rel="noopener noreferrer">cell.rb</a></p>
+          <code>
+            <textarea rows="5">
 <button class="button button__primary button__xs">
   <span>Send</span>
 </button>
-          </textarea>
-        </code>
-      </div>
+            </textarea>
+          </code>
+        </div>
+      <% end %>
     <% end %>
 
   </section>
