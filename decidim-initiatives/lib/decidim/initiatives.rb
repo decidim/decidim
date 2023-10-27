@@ -75,7 +75,7 @@ module Decidim
     # a printed version of the initiative from the administration
     # panel.
     config_accessor :print_enabled do
-      true
+      false
     end
 
     # Set a service to generate a timestamp on each vote. The
