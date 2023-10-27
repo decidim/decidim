@@ -53,6 +53,10 @@ describe "Initiatives", type: :system do
         create(:initiative, :created, organization:)
       end
 
+      before do
+        allow(Decidim::Initiatives).to receive(:print_enabled).and_return(true)
+      end
+
       it_behaves_like "shows contextual help" do
         let(:index_path) { decidim_initiatives.initiatives_path }
         let(:manifest_name) { :initiatives }
