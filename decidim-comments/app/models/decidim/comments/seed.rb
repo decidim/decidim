@@ -28,7 +28,7 @@ module Decidim
         # Private - creates a comment for a given resource.
         #
         # resource - the resource to add the coments to.
-        # root_commentable - the root commentable resource. It's optional, used for making nested comments.
+        # root_commentable - the root commentable resource. It is optional, used for making nested comments.
         #
         # Returns the created comment.
         def create_comment(resource, root_commentable = nil)
