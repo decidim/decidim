@@ -133,7 +133,7 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes_admin.process_attachments_menu" do
-        Decidim.menu :admin_participatory_process_attachments_menu do |menu|
+        Decidim.menu :participatory_process_admin_attachments_menu do |menu|
           menu.add_item :participatory_process_attachments,
                         I18n.t("attachment_files", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space),

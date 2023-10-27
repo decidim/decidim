@@ -79,7 +79,6 @@ describe "Admin imports assembly", type: :system do
       within_admin_sidebar_menu do
         click_link "Attachments"
       end
-      click_link "Files"
       if Decidim::Assembly.last.attachments.any?
         within ".table-list" do
           Decidim::Assembly.last.attachments.each do |attachment|
