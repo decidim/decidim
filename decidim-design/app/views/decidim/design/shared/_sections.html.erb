@@ -1,8 +1,14 @@
 <% sections.each do |section| %>
-  <section id=<%= section[:id] %> class="design__section">
+  <section id="<%= section[:id] %>" class="design__section">
     <%= section_title(section) %>
     <% section[:contents].each do |content| %>
       <%= render_content(content) %>
+
+      <div class="design__section-snippet">
+        <p>Cell: <a href="http://" target="_blank" rel="noopener noreferrer">cell.rb</a></p>
+        <textarea rows="10"></textarea>
+      </div>
     <% end %>
+
   </section>
 <% end %>
