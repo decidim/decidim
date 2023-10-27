@@ -3,9 +3,9 @@
 module Decidim
   module Admin
     class StaticPageTopicsController < Decidim::Admin::ApplicationController
-      layout "decidim/admin/pages"
+      include Decidim::Admin::Concerns::HasTabbedMenu
+
       helper_method :topic, :topics
-      before_action :set_breadcrumb
 
       def index
         enforce_permission_to :read, :static_page_topic
@@ -68,9 +68,7 @@ module Decidim
 
       private
 
-      def set_breadcrumb
-        controller_breadcrumb_items << { label: I18n.t("page_topics", scope: "decidim.admin.titles"), active: true }
-      end
+      def tab_menu_name = :admin_static_pages_menu
 
       def topic
         @topic ||= topics.find(params[:id])
