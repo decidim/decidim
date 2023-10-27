@@ -102,7 +102,7 @@ module Decidim
       end
 
       initializer "decidim_votings_admin.attachments_menu" do
-        Decidim.menu :decidim_votings_attachments_menu do |menu|
+        Decidim.menu :votings_admin_attachments_menu do |menu|
           menu.add_item :voting_attachments,
                         I18n.t("attachment_files", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.voting_attachments_path(current_participatory_space),

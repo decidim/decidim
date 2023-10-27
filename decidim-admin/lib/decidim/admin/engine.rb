@@ -137,7 +137,6 @@ module Decidim
                         icon_name: "layout-masonry-line",
                         position: 1.5,
                         if: allowed_to?(:read, :area)
-
           menu.add_item :area_types,
                         I18n.t("menu.area_types", scope: "decidim.admin"),
                         decidim_admin.area_types_path,

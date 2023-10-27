@@ -19,7 +19,7 @@ module Decidim
 
         private
 
-        def tab_menu_name = :decidim_votings_attachments_menu
+        def tab_menu_name = :votings_admin_attachments_menu
       end
     end
   end
