@@ -86,16 +86,18 @@
   @apply [&>*+*]:mt-6 [&>p]:text-gray-2;
 
   &-snippet {
+    @apply mt-0;
+
     p {
-      @apply bg-primary/25 rounded-t p-4 font-bold;
+      @apply bg-gray-3 px-4 py-2 text-sm text-gray-2;
     }
 
     a {
-      @apply text-secondary underline font-normal;
+      @apply text-secondary underline;
     }
 
     textarea {
-      @apply w-full;
+      @apply w-full text-sm;
     }
   }
 }
