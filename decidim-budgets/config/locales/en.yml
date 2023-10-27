@@ -285,6 +285,7 @@ en:
           all: All
         projects_for: Projects for %{name}
         select_projects: Select projects
+        selected_projects: Selected projects
         show:
           budget: Budget
       vote_reminder_mailer:

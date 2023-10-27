@@ -18,15 +18,11 @@
   <%= render partial: "budget_excess" %>
   <%= render partial: "budget_confirm" %>
 
-  <div class="budget-summary__container">
-    <% if voting_finished? %>
-      <h2>
-        <%= t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %>
-      </h2>
-    <% else %>
+  <% unless voting_finished? %>
+    <div class="budget-summary__container">
       <%= render partial: "budget_summary", locals: { include_heading: true, project_item: false, responsive: false } %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 
   <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
     <div class="budget-list__map">
@@ -53,7 +49,7 @@
 
   <section class="layout-main__section">
     <span class="text-xl font-semibold">
-      <%= t("select_projects", scope: "decidim.budgets.projects") %>
+      <%= voting_finished? ? t("selected_projects", scope: "decidim.budgets.projects") : t("select_projects", scope: "decidim.budgets.projects") %>
     </span>
   </section>
 

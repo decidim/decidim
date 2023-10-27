@@ -127,10 +127,10 @@ module Decidim
       end
 
       def filter_addition_type_values(added_count:)
-        [
-          ["all", { text: t("all", scope: "decidim.budgets.projects.project_filter"), count: nil }],
-          ["added", { text: t("added", scope: "decidim.budgets.projects.project_filter"), count: added_count }]
-        ]
+        filters = []
+        filters << ["all", { text: t("all", scope: "decidim.budgets.projects.project_filter"), count: nil }]
+        filters << ["added", { text: t("added", scope: "decidim.budgets.projects.project_filter"), count: added_count }] unless voting_finished?
+        filters
       end
 
       def filter_sections
