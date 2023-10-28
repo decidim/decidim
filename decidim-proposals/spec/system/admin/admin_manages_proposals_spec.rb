@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages proposals", type: :system do
+describe "Admin manages proposals" do
   let(:manifest_name) { "proposals" }
   let!(:proposal) { create(:proposal, component: current_component) }
   let!(:reportables) { create_list(:proposal, 3, component: current_component) }

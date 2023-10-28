@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Identity document request edition", type: :system do
+describe "Identity document request edition" do
   let(:organization) do
     create(
       :organization,

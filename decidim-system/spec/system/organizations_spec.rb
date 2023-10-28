@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Organizations", type: :system do
+describe "Organizations" do
   let(:admin) { create(:admin) }
 
   shared_examples "form hiding advanced settings" do

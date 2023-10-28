@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Votings
-  describe AccessCodeMailer, type: :mailer do
+  describe AccessCodeMailer do
     let!(:datum) { create(:datum, :with_access_code) }
     let!(:access_code) { datum.access_code }
     let!(:organization) { datum.dataset.voting.organization }

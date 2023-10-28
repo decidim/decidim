@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Initiative", type: :system do
+describe "Initiative" do
   let(:organization) { create(:organization) }
   let(:state) { :published }
   let(:base_initiative) do

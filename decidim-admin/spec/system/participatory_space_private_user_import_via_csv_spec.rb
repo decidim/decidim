@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory space private users via csv import", type: :system do
+describe "Admin manages participatory space private users via csv import" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }

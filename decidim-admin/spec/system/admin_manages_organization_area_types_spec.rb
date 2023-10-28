@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages area types", type: :system do
+describe "Admin manages area types" do
   let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 

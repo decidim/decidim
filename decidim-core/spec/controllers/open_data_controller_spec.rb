@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe OpenDataController, type: :controller do
+  describe OpenDataController do
     routes { Decidim::Core::Engine.routes }
 
     let!(:organization) { create(:organization) }

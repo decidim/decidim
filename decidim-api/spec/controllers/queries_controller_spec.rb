@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Api
-    describe QueriesController, type: :controller do
+    describe QueriesController do
       routes { Decidim::Api::Engine.routes }
 
       let(:organization) { create(:organization) }

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Map
-    describe DynamicMap::Builder, type: :system do
+    describe DynamicMap::Builder do
       it_behaves_like "a page with dynamic map" do
         let(:html_head) do
           # Overrides Leaflet's `L.tileLayer` method which should be called by

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages scope types", type: :system do
+describe "Admin manages scope types" do
   let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 

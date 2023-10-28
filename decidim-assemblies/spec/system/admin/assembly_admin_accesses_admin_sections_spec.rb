@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Assembly admin accesses admin sections", type: :system do
+describe "Assembly admin accesses admin sections" do
   include_context "when assembly admin administrating an assembly"
 
   before do

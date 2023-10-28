@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages conference attachments", type: :system do
+describe "Admin manages conference attachments" do
   include_context "when admin administrating a conference"
 
   let(:attached_to) { conference }

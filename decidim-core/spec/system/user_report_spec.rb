@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Report User", type: :system do
+describe "Report User" do
   let(:user) { create(:user, :confirmed) }
   let!(:users) { create_list(:user, 3, :confirmed, organization: user.organization) }
   let(:reportable) { users.first }

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Menu", type: :system do
+describe "Menu" do
   let(:organization) { create(:organization) }
 
   before do

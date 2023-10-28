@@ -88,9 +88,6 @@ Capybara/SpecificFinders:
 RSpec/IndexedLet:
   Enabled: false
 
-RSpec/Rails/InferredSpecType:
-  Enabled: false
-
 Rails/HelperInstanceVariable:
   Enabled: false
 
