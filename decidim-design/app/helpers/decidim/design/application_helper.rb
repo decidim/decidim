@@ -3,6 +3,10 @@
 module Decidim
   module Design
     module ApplicationHelper
+      # For the moment keep this as a constant and later decide where to move
+      # this
+      RELEASE_ID = "develop"
+
       def section_title(section)
         content_tag(:h2, section_text(section), class: "design__heading__3xl")
       end
@@ -24,6 +28,22 @@ module Decidim
         else
           content[:values].to_s.html_safe
         end
+      end
+
+      def render_cell_snippet(content)
+        return "" if content[:cell_snippet].blank?
+
+        render partial: "decidim/design/shared/cell_snippet", locals: cell_snippet_locals(content[:cell_snippet][:cell], content[:cell_snippet][:args])
+      end
+
+      def cell_snippet_locals(cell, args)
+        path = args.delete(:path) || File.join("decidim-core/app/cells/", cell)
+        {
+          text: path,
+          url: "https://github.com/decidim/decidim/blob/#{RELEASE_ID}/#{path}_cell.rb",
+          cell:,
+          args:
+        }
       end
 
       def render_row(row)
