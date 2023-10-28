@@ -8,72 +8,127 @@ module Decidim
           {
             id: "sizes",
             contents: [
-              buttons_table_content(
-                { button_classes: "button button__primary button__xs" },
-                { button_classes: "button button__primary button__sm" },
-                { button_classes: "button button__primary button__lg" },
-                { button_classes: "button button__primary button__xl" }
-              )
+              {
+                type: :table,
+                options: buttons_table_options,
+                items: buttons_table_items_from_args(
+                  { button_classes: "button button__primary button__xs" },
+                  { button_classes: "button button__primary button__sm" },
+                  { button_classes: "button button__primary button__lg" },
+                  { button_classes: "button button__primary button__xl" }
+                ),
+                cell_snippet: { cell: "decidim/button", args: [{ text: "Send" }, { button_classes: "button button__primary button__xs" }] }
+              }
             ]
           },
           {
             id: "colors",
             contents: [
-              buttons_table_content(
-                { button_classes: "button button__lg button__primary" },
-                { button_classes: "button button__lg button__secondary" },
-                { button_classes: "button button__lg button__tertiary" }
-              )
+              {
+                type: :table,
+                options: buttons_table_options,
+                items: buttons_table_items_from_args(
+                  { button_classes: "button button__lg button__primary" },
+                  { button_classes: "button button__lg button__secondary" },
+                  { button_classes: "button button__lg button__tertiary" }
+                ),
+                cell_snippet: { cell: "decidim/button", args: [{ text: "Send" }, { button_classes: "button button__lg button__primary" }] }
+              }
             ]
           },
           {
             id: "transparent",
             contents: [
-              buttons_table_content(
-                { button_classes: "button button__lg button__transparent-primary" },
-                { button_classes: "button button__lg button__transparent-secondary" },
-                { button_classes: "button button__lg button__transparent-tertiary" }
-              ),
+              {
+                type: :table,
+                options: buttons_table_options,
+                items: buttons_table_items_from_args(
+                  { button_classes: "button button__lg button__transparent-primary" },
+                  { button_classes: "button button__lg button__transparent-secondary" },
+                  { button_classes: "button button__lg button__transparent-tertiary" }
+                ),
+                cell_snippet: { cell: "decidim/button", args: [{ text: "Send" }, { button_classes: "button button__lg button__transparent-primary" }] }
+              },
               {
                 type: :text,
                 values: ["In case of a darker background:"]
               },
-              buttons_table_content(
-                { button_classes: "button button__lg button__transparent" },
-                background: true
-              )
+              {
+                type: :table,
+                options: buttons_table_options,
+                items: buttons_table_items_from_args(
+                  { button_classes: "button button__lg button__transparent" },
+                  background: true
+                ),
+                cell_snippet: { cell: "decidim/button", args: [{ text: "Send" }, { button_classes: "button button__lg button__transparent" }] }
+              }
             ]
           },
           {
             id: "text",
             contents: [
-              buttons_table_content(
-                { button_classes: "button button__lg button__text" },
-                { button_classes: "button button__lg button__text-primary" },
-                { button_classes: "button button__lg button__text-secondary" },
-                { button_classes: "button button__lg button__text-tertiary" }
-              )
+              {
+                type: :table,
+                options: buttons_table_options,
+                items: buttons_table_items_from_args(
+                  { button_classes: "button button__lg button__text" },
+                  { button_classes: "button button__lg button__text-primary" },
+                  { button_classes: "button button__lg button__text-secondary" },
+                  { button_classes: "button button__lg button__text-tertiary" }
+                ),
+                cell_snippet: { cell: "decidim/button", args: [{ text: "Send" }, { button_classes: "button button__lg button__text" }] }
+              }
             ]
           },
           {
             id: "icons",
             contents: [
-              buttons_table_content(
-                { button_classes: "button button__lg button__secondary", icon: "question-line" },
-                { button_classes: "button button__lg button__transparent-secondary", icon: "question-line" }
-              )
+              {
+                type: :table,
+                options: buttons_table_options,
+                items: buttons_table_items_from_args(
+                  { button_classes: "button button__lg button__secondary", icon: "question-line" },
+                  { button_classes: "button button__lg button__transparent-secondary", icon: "question-line" }
+                ),
+                cell_snippet: { cell: "decidim/button", args: [{ text: "Send", icon: "question-line" }, { button_classes: "button button__lg button__secondary" }] }
+              }
             ]
           },
           {
             id: "disabled",
             contents: [
-              buttons_table_content(
-                {
-                  button_classes: "button button__lg button__secondary",
-                  html_options: { disabled: true },
-                  description: "<code>disabled</code> data-attribute present".html_safe
+              {
+                type: :table,
+                options: buttons_table_options,
+                items: buttons_table_items_from_args(
+                  {
+                    button_classes: "button button__lg button__secondary",
+                    html_options: { disabled: true },
+                    description: "<code>disabled</code> data-attribute present".html_safe
+                  }
+                ),
+                cell_snippet: {
+                  cell: "decidim/button",
+                  args: [
+                    { text: "Send" },
+                    { button_classes: "button button__lg button__secondary", html_options: { disabled: true } }
+                  ]
                 }
-              )
+              }
+            ]
+          },
+          {
+            id: "card_example",
+            contents: [
+              {
+                type: :text,
+                values: ["This is an example of the cell snippet of a card:"],
+                cell_snippet: {
+                  cell: "decidim/meetings/meeting",
+                  path: "decidim-meetings/app/cells/decidim/meetings/meeting",
+                  args: [Decidim::Meetings::Meeting.last, { size: :l }]
+                }
+              }
             ]
           }
         ]
@@ -93,12 +148,14 @@ module Decidim
         ]
       end
 
-      def buttons_table_content(*buttons_args, **opts)
-        {
-          type: :partial,
-          template: "decidim/design/shared/table",
-          locals: { headings: %w(Button Classes), items: buttons_args.map { |button_args| opts[:background] ? background_button_row(button_args) : button_row(button_args) } }
-        }
+      def buttons_table_items_from_args(*buttons_args, **opts)
+        buttons_args.map do |button_args|
+          opts[:background] ? background_button_row(button_args) : button_row(button_args)
+        end
+      end
+
+      def buttons_table_options
+        @buttons_table_options ||= { headings: %w(Button Classes) }
       end
     end
   end
