@@ -23,6 +23,8 @@ module Decidim
             html += content_tag(:p, value, class: content[:class])
           end
           html.html_safe
+        when :table
+          render partial: "decidim/design/shared/table", locals: content.slice(:items).merge(content[:options] || {})
         when :partial
           render partial: content[:template], locals: content[:locals]
         else
