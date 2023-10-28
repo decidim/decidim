@@ -85,9 +85,6 @@ RSpec/NoExpectationExample:
 Capybara/SpecificFinders:
   Enabled: false
 
-Capybara/CurrentPathExpectation:
-  Enabled: false
-
 RSpec/IndexedLet:
   Enabled: false
 

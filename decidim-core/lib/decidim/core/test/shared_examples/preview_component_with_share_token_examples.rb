@@ -15,7 +15,7 @@ shared_examples_for "preview component with share_token" do
 
       it "does not allow visiting component" do
         expect(page).to have_content "You are not authorized"
-        expect(page.current_path).not_to match main_component_path(component)
+        expect(page).not_to have_current_path(main_component_path(component))
       end
     end
 
@@ -32,7 +32,7 @@ shared_examples_for "preview component with share_token" do
       context "when a valid share_token is provided" do
         it "allows visiting component" do
           expect(page).not_to have_content "You are not authorized"
-          expect(page.current_path).to match main_component_path(component)
+          expect(page).to have_current_path(main_component_path(component))
         end
       end
 
@@ -41,7 +41,7 @@ shared_examples_for "preview component with share_token" do
 
         it "does not allow visiting component" do
           expect(page).to have_content "You are not authorized"
-          expect(page.current_path).not_to match main_component_path(component)
+          expect(page).not_to have_current_path(main_component_path(component))
         end
       end
     end
