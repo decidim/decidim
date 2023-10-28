@@ -114,7 +114,21 @@ module Decidim
                     { button_classes: "button button__lg button__secondary", html_options: { disabled: true } }
                   ]
                 }
-              )
+              }
+            ]
+          },
+          {
+            id: "card_example",
+            contents: [
+              {
+                type: :text,
+                values: ["This is an example of the cell snippet of a card:"],
+                cell_snippet: {
+                  cell: "decidim/meetings/meeting",
+                  path: "decidim-meetings/app/cells/decidim/meetings/meeting",
+                  args: [Decidim::Meetings::Meeting.last, { size: :l }]
+                }
+              }
             ]
           }
         ]
