@@ -986,20 +986,6 @@ en:
       static_pages:
         actions:
           view: View public page
-        content_blocks:
-          active_content_blocks: Active content blocks
-          add: Add content block
-          create:
-            error: There was a problem trying to create this content block.
-            success: Content block successfully created.
-          destroy:
-            error: There was a problem trying to delete this content block.
-            success: Content block successfully deleted.
-          destroy_confirmation: Are you sure you want to delete this content block?
-          edit:
-            update: Update
-          inactive_content_blocks: Inactive content blocks
-          title: Page contents
         create:
           error: There was a problem creating a new page.
           success: Page created successfully.

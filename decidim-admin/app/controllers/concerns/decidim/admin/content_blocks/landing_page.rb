@@ -34,34 +34,6 @@ module Decidim
             end
           end
 
-          private
-
-          # Method to be implemented at the controller. You need to
-          # return a symbol that defines the content block scope.
-          # Examples of scopes could be `:homepage` or `:landing_page`.
-          def content_block_scope
-            raise "#{self.class.name} is expected to implement #content_block_scope"
-          end
-
-          # Method to be implemented at the controller. Defines the permissions for
-          # edit and update actions.
-          # For example `enforce_permission_to :manage_landing_page, :voting, voting: current_space`.
-          def enforce_permission_to_update_resource
-            raise "#{self.class.name} is expected to implement #enforce_permission_to_update_resource"
-          end
-
-          # Method to be implemented at the controller. Returns the URL
-          # where the ordered/activated content_blocks is submitted to.
-          def resource_sort_url
-            raise "#{self.class.name} is expected to implement #resource_sort_url"
-          end
-
-          # Method to be implemented at the controller. Returns the URL
-          # where the new content_blocks is submitted to.
-          def resource_create_url
-            raise "#{self.class.name} is expected to implement #resource_create_url"
-          end
-
           # Method that specifies the i18n scope for this controller. This can be overwritten in your controller.
           # so that you can pass a different scope to the i18n methods.
           def i18n_scope = "decidim.admin.organization_homepage"
@@ -95,6 +67,34 @@ module Decidim
           #
           # Example: `t("landing_page.edit.inactive_content_blocks", scope:  "decidim.admin.organization_homepage")`
           def inactive_content_blocks_title = t("edit.inactive_content_blocks", scope: i18n_scope)
+
+          private
+
+          # Method to be implemented at the controller. You need to
+          # return a symbol that defines the content block scope.
+          # Examples of scopes could be `:homepage` or `:landing_page`.
+          def content_block_scope
+            raise "#{self.class.name} is expected to implement #content_block_scope"
+          end
+
+          # Method to be implemented at the controller. Defines the permissions for
+          # edit and update actions.
+          # For example `enforce_permission_to :manage_landing_page, :voting, voting: current_space`.
+          def enforce_permission_to_update_resource
+            raise "#{self.class.name} is expected to implement #enforce_permission_to_update_resource"
+          end
+
+          # Method to be implemented at the controller. Returns the URL
+          # where the ordered/activated content_blocks is submitted to.
+          def resource_sort_url
+            raise "#{self.class.name} is expected to implement #resource_sort_url"
+          end
+
+          # Method to be implemented at the controller. Returns the URL
+          # where the new content_blocks is submitted to.
+          def resource_create_url
+            raise "#{self.class.name} is expected to implement #resource_create_url"
+          end
 
           # Method to be implemented at the controller. Returns a string
           # with the cell name to be used for the drag'n'drop for each content_block.
