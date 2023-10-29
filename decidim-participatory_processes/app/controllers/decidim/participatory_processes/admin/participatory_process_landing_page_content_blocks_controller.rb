@@ -30,25 +30,17 @@ module Decidim
           participatory_process_landing_page_content_block_path(scoped_resource, params[:id])
         end
 
-        def submit_button_text
-          t("participatory_process_group_landing_page_content_blocks.edit.update", scope: "decidim.admin")
-        end
+        def i18n_scope = "decidim.admin.participatory_process_group_landing_page_content_blocks"
 
-        def content_block_create_success_text
-          t("participatory_process_group_landing_page_content_blocks.create.success", scope: "decidim.admin")
-        end
+        def submit_button_text = t("edit.update", scope: i18n_scope)
 
-        def content_block_create_error_text
-          t("participatory_process_group_landing_page_content_blocks.create.error", scope: "decidim.admin")
-        end
+        def content_block_create_success_text = t("create.success", scope: i18n_scope)
 
-        def content_block_destroy_success_text
-          t("participatory_process_group_landing_page_content_blocks.destroy.success", scope: "decidim.admin")
-        end
+        def content_block_create_error_text = t("create.error", scope: i18n_scope)
 
-        def content_block_destroy_error_text
-          t("participatory_process_group_landing_page_content_blocks.destroy.error", scope: "decidim.admin")
-        end
+        def content_block_destroy_success_text = t("destroy.success", scope: i18n_scope)
+
+        def content_block_destroy_error_text = t("destroy.error", scope: i18n_scope)
       end
     end
   end

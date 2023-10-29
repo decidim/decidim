@@ -32,25 +32,17 @@ module Decidim
         organization_homepage_content_block_path(params[:id])
       end
 
-      def submit_button_text
-        t("organization_homepage.content_blocks.edit.update", scope: "decidim.admin")
-      end
+      def i18n_scope = "decidim.admin.organization_homepage.content_blocks"
 
-      def content_block_create_success_text
-        t("organization_homepage.content_blocks.create.success", scope: "decidim.admin")
-      end
+      def submit_button_text =  t("edit.update", scope: i18n_scope)
 
-      def content_block_create_error_text
-        t("organization_homepage.content_blocks.create.error", scope: "decidim.admin")
-      end
+      def content_block_create_success_text = t("create.success", scope: i18n_scope)
 
-      def content_block_destroy_success_text
-        t("organization_homepage.content_blocks.destroy.success", scope: "decidim.admin")
-      end
+      def content_block_create_error_text = t("create.error", scope: i18n_scope)
 
-      def content_block_destroy_error_text
-        t("organization_homepage.content_blocks.destroy.error", scope: "decidim.admin")
-      end
+      def content_block_destroy_success_text = t("destroy.success", scope: i18n_scope)
+
+      def content_block_destroy_error_text = t("destroy.error", scope: i18n_scope)
     end
   end
 end
