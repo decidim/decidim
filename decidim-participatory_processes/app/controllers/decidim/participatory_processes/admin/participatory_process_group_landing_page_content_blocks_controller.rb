@@ -33,18 +33,6 @@ module Decidim
           participatory_process_group_landing_page_content_block_path(scoped_resource, params[:id])
         end
 
-        def i18n_scope = "decidim.admin.participatory_process_group_landing_page_content_blocks"
-
-        def submit_button_text = t("edit.update", scope: i18n_scope)
-
-        def content_block_create_success_text = t("create.success", scope: i18n_scope)
-
-        def content_block_create_error_text = t("create.error", scope: i18n_scope)
-
-        def content_block_destroy_success_text = t("destroy.success", scope: i18n_scope)
-
-        def content_block_destroy_error_text = t("destroy.error", scope: i18n_scope)
-
         alias participatory_process_group scoped_resource
 
         def collection

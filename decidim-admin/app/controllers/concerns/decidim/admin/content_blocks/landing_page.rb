@@ -3,6 +3,11 @@
 module Decidim
   module Admin
     module ContentBlocks
+      # i18n-tasks-use t('decidim.admin.organization_homepage.edit.add')
+      # i18n-tasks-use t('decidim.admin.organization_homepage.edit.destroy_confirmation')
+      # i18n-tasks-use t('decidim.admin.organization_homepage.edit.active_content_blocks')
+      # i18n-tasks-use t('decidim.admin.organization_homepage.edit.inactive_content_blocks')
+      # i18n-tasks-use t('decidim.admin.organization_homepage.edit.title')
       module LandingPage
         extend ActiveSupport::Concern
         included do
@@ -57,45 +62,39 @@ module Decidim
             raise "#{self.class.name} is expected to implement #resource_create_url"
           end
 
-          # Method to be implemented at the controller. Returns a string
-          # with the text for the title of content blocks
-          #
-          # Example: `t("landing_page.edit.title", scope: "decidim.votings.admin")`
-          def content_blocks_title
-            raise "#{self.class.name} is expected to implement #content_blocks_title"
-          end
+          # Method that specifies the i18n scope for this controller. This can be overwritten in your controller.
+          # so that you can pass a different scope to the i18n methods.
+          def i18n_scope = "decidim.admin.organization_homepage"
 
           # Method to be implemented at the controller. Returns a string
           # with the text for the title of content blocks
           #
-          # Example: `t("landing_page.edit.add", scope: "decidim.votings.admin")`
-          def add_content_block_text
-            raise "#{self.class.name} is expected to implement #add_content_block_text"
-          end
+          # Example: `t("edit.title", scope: "decidim.admin.organization_homepage")`
+          def content_blocks_title = t("edit.title", scope: i18n_scope)
 
           # Method to be implemented at the controller. Returns a string
           # with the text for the title of content blocks
           #
-          # Example: `t("landing_page.edit.destroy_confirmation", scope: "decidim.votings.admin")`
-          def content_block_destroy_confirmation_text
-            raise "#{self.class.name} is expected to implement #content_block_destroy_confirmation_text"
-          end
+          # Example: `t("edit.add", scope: "decidim.admin.organization_homepage")`
+          def add_content_block_text = t("edit.add", scope: i18n_scope)
+
+          # Method to be implemented at the controller. Returns a string
+          # with the text for the title of content blocks
+          #
+          # Example: `t("edit.destroy_confirmation", scope: "decidim.admin.organization_homepage")`
+          def content_block_destroy_confirmation_text = t("edit.destroy_confirmation", scope: i18n_scope)
 
           # Method to be implemented at the controller. Returns a string
           # with the header text for the active content_block column.
           #
-          # Example: `t("landing_page.edit.active_content_blocks", scope: "decidim.votings.admin")`
-          def active_content_blocks_title
-            raise "#{self.class.name} is expected to implement #active_content_blocks_title"
-          end
+          # Example: `t("edit.active_content_blocks", scope: "decidim.admin.organization_homepage")`
+          def active_content_blocks_title = t("edit.active_content_blocks", scope: i18n_scope)
 
           # Method to be implemented at the controller. Returns a string
           # with the header text for the inactive content_block column.
           #
-          # Example: `t("landing_page.edit.inactive_content_blocks", scope: "decidim.votings.admin")`
-          def inactive_content_blocks_title
-            raise "#{self.class.name} is expected to implement #inactive_content_blocks_title"
-          end
+          # Example: `t("landing_page.edit.inactive_content_blocks", scope:  "decidim.admin.organization_homepage")`
+          def inactive_content_blocks_title = t("edit.inactive_content_blocks", scope: i18n_scope)
 
           # Method to be implemented at the controller. Returns a string
           # with the cell name to be used for the drag'n'drop for each content_block.
