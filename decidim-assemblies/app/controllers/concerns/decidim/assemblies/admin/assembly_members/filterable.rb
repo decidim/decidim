@@ -29,7 +29,7 @@ module Decidim
             end
 
             def search_field_predicate
-              :full_name_cont
+              :full_name_or_user_name_or_user_nickname_cont
             end
           end
         end

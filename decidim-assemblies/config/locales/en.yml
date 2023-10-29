@@ -202,7 +202,7 @@ en:
         decidim_assemblies_type_id_eq:
           label: Assembly type
         search_placeholder:
-          full_name_cont: Search
+          full_name_or_user_name_or_user_nickname_cont: Search by name or nickname
       menu:
         assemblies: Assemblies
         assemblies_settings: Settings

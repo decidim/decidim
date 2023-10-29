@@ -35,9 +35,30 @@ describe "Admin filters members", type: :system do
     end
   end
 
-  context "when searching by name" do
-    include_examples "admin is searching participatory space users" do
-      let(:value) { full_name }
+  describe "search" do
+    context "when searching members without user" do
+      include_examples "admin is searching participatory space users" do
+        let(:value) { full_name }
+      end
+    end
+
+    context "when searching members with user" do
+      let(:user_name) { "Jorge Mendoza" }
+      let(:user_nickname) { "mendocito" }
+      let(:user) { create(:user, name: user_name, nickname: user_nickname) }
+      let!(:member3) { create(:assembly_member, user:, assembly:) }
+
+      context "when searching by name" do
+        include_examples "admin is searching participatory space users" do
+          let(:value) { user_name }
+        end
+      end
+
+      context "when searching by nickname" do
+        include_examples "admin is searching participatory space users" do
+          let(:value) { user_nickname }
+        end
+      end
     end
   end
 
