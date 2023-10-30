@@ -13,6 +13,12 @@ describe "Organizations" do
     end
 
     describe "current organizations section" do
+      it "has a link for creating a new organization" do
+        click_link "New organization"
+        expect(page).to have_content("New organization")
+        expect(page).to have_button("Create organization & invite admin")
+      end
+
       it "has a list of the current organizations" do
         expect(page).to have_content("Citizen Corp")
       end
