@@ -11,7 +11,7 @@ Decidim::System::Engine.routes.draw do
              }
 
   authenticate(:admin) do
-    resources :organizations, except: [:destroy]
+    resources :organizations, except: [:show, :destroy]
     resources :admins
     resources :oauth_applications
 

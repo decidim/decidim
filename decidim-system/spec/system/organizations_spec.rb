@@ -55,24 +55,6 @@ describe "Organizations", type: :system do
       end
     end
 
-    describe "showing an organization with different locale than user" do
-      let!(:organization) do
-        create(:organization, name: "Citizen Corp", default_locale: :es, available_locales: ["es"], description: { es: "Un texto largo" })
-      end
-
-      before do
-        click_link "Organizations"
-        within "table tbody" do
-          first("tr").click_link "Citizen Corp"
-        end
-      end
-
-      it "shows the organization data" do
-        expect(page).to have_content("Citizen Corp")
-        expect(page).to have_content("Un texto largo")
-      end
-    end
-
     describe "editing an organization" do
       let!(:organization) { create(:organization, name: "Citizen Corp") }
 
