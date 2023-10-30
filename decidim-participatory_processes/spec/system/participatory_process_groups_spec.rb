@@ -146,13 +146,13 @@ describe "Participatory Process Groups", type: :system do
       end
 
       it "shows the description" do
-        within("div.hero__container") do
+        within("[data-process-hero]") do
           expect(page).to have_content(cta_settings[:description_en])
         end
       end
 
       it "Shows the action button" do
-        within("div.hero__container") do
+        within("[data-process-hero]") do
           expect(page).to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
         end
       end
@@ -161,7 +161,7 @@ describe "Participatory Process Groups", type: :system do
         let(:cta_settings) { nil }
 
         it "does not show the block" do
-          expect(page).not_to have_selector("div.hero__container")
+          expect(page).not_to have_selector("[data-process-hero]")
         end
       end
     end
