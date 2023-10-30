@@ -57,9 +57,6 @@ en:
         new:
           create: Create
           title: New admin
-        show:
-          destroy: Destroy
-          edit: Edit
         update:
           error: There was a problem updating this admin.
           success: Admin successfully updated.
@@ -178,6 +175,7 @@ en:
             The platform will add "'self' 'unsafe-inline'", but allows you to add more. leave it blank if you are unsure.
         edit:
           secondary_hosts_hint: Enter each one of them in a new line
+          title: Edit organization
         file_upload_settings:
           content_types:
             admin_hint: These MIME types are allowed for the admin section uploads. Admin users should be aware of the risks with uploading some document formats, so you can expect them to be more cautious with the file uploads.

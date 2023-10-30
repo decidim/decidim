@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe "UserGroups", type: :controller do
+  describe "UserGroups" do
     let!(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization:) }
 
