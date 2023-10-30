@@ -32,7 +32,7 @@ module Decidim
         return [dates_item, status_item, status_description] if template == :project_aside
         return [reference, versions] if template == :show_footer
 
-        [progress_result, dates_item_compact, status_item_compact, category_item]
+        [dates_item_compact, status_item_compact, category_item]
       end
 
       def template
@@ -130,13 +130,6 @@ module Decidim
 
       def has_dates?
         start_date.present? && end_date.present?
-      end
-
-      def progress_result
-        {
-          icon: "loader-4-line",
-          text: "50%"
-        }
       end
     end
   end
