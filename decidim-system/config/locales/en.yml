@@ -245,3 +245,8 @@ en:
       titles:
         dashboard: Dashboard
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Logout
