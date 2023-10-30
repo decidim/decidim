@@ -1,6 +1,13 @@
 <% provide :title do %>
   <h1 class="h1"><%= t("decidim.system.titles.dashboard") %></h1>
-  <h2 class="h3"><%= t ".current_organizations" %></h2>
 <% end %>
 
+<h2 class="h3"><%= t ".current_organizations" %></h2>
+
 <%= render partial: "decidim/system/shared/organizations_list", locals: { organizations: @organizations } %>
+
+<h2 class="h3"><%= t ".admins" %></h2>
+
+<%= link_to t("actions.new_admin", scope: "decidim.system"), [:new, :admin], class: "button button__sm md:button__lg button__primary" %>
+
+<%= render partial: "decidim/system/shared/admins_list", locals: { admins: @admins } %>
