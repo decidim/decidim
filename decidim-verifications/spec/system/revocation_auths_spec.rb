@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Authorizations revocation flow", type: :system do
+describe "Authorizations revocation flow" do
   let!(:organization) do
     create(:organization, available_authorizations: [authorization])
   end

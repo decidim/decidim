@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Authorzing with OAUth applications", type: :system do
+describe "Authorzing with OAUth applications" do
   let(:user) { create(:user, :confirmed) }
   let(:organization) { user.organization }
   let(:application) { create(:oauth_application, organization:) }

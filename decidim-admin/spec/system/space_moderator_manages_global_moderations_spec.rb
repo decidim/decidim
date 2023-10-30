@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Space moderator manages global moderations", type: :system do
+describe "Space moderator manages global moderations" do
   let!(:user) do
     create(
       :process_moderator,

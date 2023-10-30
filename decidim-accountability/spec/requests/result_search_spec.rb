@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe "Result search", type: :request do
+RSpec.describe "Result search" do
   include Decidim::ComponentPathHelper
 
   let(:component) { create(:accountability_component) }

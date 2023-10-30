@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Initiative", type: :system do
+describe "Initiative" do
   let(:organization) { create(:organization) }
   let(:state) { :published }
   let(:base_initiative) do
@@ -22,6 +22,10 @@ describe "Initiative", type: :system do
   describe "initiative page" do
     let!(:initiative) { base_initiative }
     let(:attached_to) { initiative }
+
+    before do
+      allow(Decidim::Initiatives).to receive(:print_enabled).and_return(true)
+    end
 
     it_behaves_like "editable content for admins" do
       let(:target_path) { decidim_initiatives.initiative_path(initiative) }

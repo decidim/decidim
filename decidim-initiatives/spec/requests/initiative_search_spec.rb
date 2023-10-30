@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe "Initiative search", type: :request do
+RSpec.describe "Initiative search" do
   include Decidim::SanitizeHelper
   subject { response.body }
 

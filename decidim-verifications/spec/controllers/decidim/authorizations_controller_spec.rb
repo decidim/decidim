@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Verifications
-  describe AuthorizationsController, type: :controller do
+  describe AuthorizationsController do
     routes { Decidim::Verifications::Engine.routes }
 
     let(:user) { create(:user, :confirmed) }

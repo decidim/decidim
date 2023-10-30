@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Last activity", type: :system do
+describe "Last activity" do
   let(:organization) { create(:organization) }
   let(:commentable) { create(:dummy_resource, component:) }
   let(:comment) { create(:comment, commentable:) }

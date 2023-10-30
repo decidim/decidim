@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Key ceremony", type: :system do
+describe "Key ceremony" do
   include Decidim::Elections::FullElectionHelpers
   context "when performing the key ceremony", :slow, download: true do
     include_context "when performing the whole process"
