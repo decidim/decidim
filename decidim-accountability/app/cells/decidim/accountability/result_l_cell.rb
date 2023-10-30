@@ -16,6 +16,10 @@ module Decidim
         controller.try(:component_settings) || result.component.settings
       end
 
+      def render_extra_data?
+        true
+      end
+
       private
 
       def metadata_cell
