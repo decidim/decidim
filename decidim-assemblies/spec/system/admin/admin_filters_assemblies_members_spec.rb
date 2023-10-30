@@ -29,7 +29,6 @@ describe "Admin filters members", type: :system do
       end
     end
 
-
     context "when filtering: Not ceased" do
       it_behaves_like "a filtered collection", options: "Ceased", filter: "Not ceased" do
         let(:in_filter) { member1.full_name }
