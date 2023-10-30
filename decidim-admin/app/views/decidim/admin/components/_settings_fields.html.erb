@@ -6,7 +6,8 @@
       field_name,
       "decidim.components.#{manifest.name}.settings.#{settings_name}",
       tabs_prefix:,
-      readonly: settings_attribute.readonly?(component: @component)
+      readonly: settings_attribute.readonly?(component: @component),
+      editor: settings_attribute.editor?(component: @component)
     ) %>
   </div>
 <% end %>
