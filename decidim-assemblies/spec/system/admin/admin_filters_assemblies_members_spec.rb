@@ -25,7 +25,7 @@ describe "Admin filters members", type: :system do
     context "when filtering Ceased" do
       it_behaves_like "a filtered collection", options: "Ceased", filter: "Ceased" do
         let(:in_filter) { member2.full_name }
-        let(:not_in_filter) { member1.full_name  }
+        let(:not_in_filter) { member1.full_name }
       end
     end
 
