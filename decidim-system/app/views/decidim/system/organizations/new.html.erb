@@ -16,7 +16,7 @@
 
     <%= f.text_field :organization_admin_name %>
 
-    <%= f.email_field :organization_admin_email %>
+    <%= f.email_field :organization_admin_email, help_text: t(".organization_admin_email_hint") %>
 
     <%= f.fields_for :locales do |fields| %>
       <%= f.label :organization_locales, "", class: @form.respond_to?(:errors) && @form.errors[:default_locale].present? ? "is-invalid-label" : "" %>
