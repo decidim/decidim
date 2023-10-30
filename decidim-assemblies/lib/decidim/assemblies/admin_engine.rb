@@ -16,7 +16,6 @@ module Decidim
 
       routes do
         resources :assemblies_types
-        resource :assemblies_settings, only: [:edit, :update], controller: "assemblies_settings"
 
         resources :assemblies, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "assembly_publications", only: [:create, :destroy]
@@ -108,8 +107,7 @@ module Decidim
                         icon_name: "government-line",
                         position: 2.2,
                         active: is_active_link?(decidim_admin_assemblies.assemblies_path) ||
-                                is_active_link?(decidim_admin_assemblies.assemblies_types_path) ||
-                                is_active_link?(decidim_admin_assemblies.edit_assemblies_settings_path),
+                                is_active_link?(decidim_admin_assemblies.assemblies_types_path),
                         if: allowed_to?(:enter, :space_area, space_name: :assemblies)
         end
       end
@@ -227,13 +225,6 @@ module Decidim
                         active: is_active_link?(decidim_admin_assemblies.assemblies_types_path),
                         position: 1.1,
                         if: allowed_to?(:manage, :assemblies_type)
-
-          menu.add_item :edit_assemblies_settings,
-                        I18n.t("menu.assemblies_settings", scope: "decidim.admin"),
-                        decidim_admin_assemblies.edit_assemblies_settings_path,
-                        active: is_active_link?(decidim_admin_assemblies.edit_assemblies_settings_path),
-                        position: 1.3,
-                        if: allowed_to?(:read, :assemblies_setting)
         end
       end
     end
