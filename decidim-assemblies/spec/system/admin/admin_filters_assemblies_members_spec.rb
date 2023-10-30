@@ -22,15 +22,18 @@ describe "Admin filters members", type: :system do
   include_context "with filterable context"
 
   context "when filtering by ceased" do
-    context "when filtering by ceased" do
-      include_examples "admin is filtering participatory space users", label: "Ceased", value: "Ceased" do
-        let(:compare_with) { member2.full_name }
+    context "when filtering Ceased" do
+      it_behaves_like "a filtered collection", options: "Ceased", filter: "Ceased" do
+        let(:in_filter) { member2.full_name }
+        let(:not_in_filter) { member1.full_name  }
       end
     end
 
-    context "when filtering by not ceased" do
-      include_examples "admin is filtering participatory space users", label: "Ceased", value: "Not ceased" do
-        let(:compare_with) { member1.full_name }
+
+    context "when filtering: Not ceased" do
+      it_behaves_like "a filtered collection", options: "Ceased", filter: "Not ceased" do
+        let(:in_filter) { member1.full_name }
+        let(:not_in_filter) { member2.full_name }
       end
     end
   end
