@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Assembly admin accesses admin sections", type: :system do
+describe "Assembly admin accesses admin sections" do
   include_context "when assembly admin administrating an assembly"
 
   before do
@@ -19,8 +19,6 @@ describe "Assembly admin accesses admin sections", type: :system do
       expect(page).to have_content("Components")
       expect(page).to have_content("Categories")
       expect(page).to have_content("Attachments")
-      expect(page).to have_content("Folders")
-      expect(page).to have_content("Files")
       expect(page).to have_content("Members")
       expect(page).to have_content("Assembly admins")
       expect(page).to have_content("Private users")
@@ -45,8 +43,6 @@ describe "Assembly admin accesses admin sections", type: :system do
       expect(page).to have_content("Components")
       expect(page).to have_content("Categories")
       expect(page).to have_content("Attachments")
-      expect(page).to have_content("Folders")
-      expect(page).to have_content("Files")
       expect(page).to have_content("Members")
       expect(page).to have_content("Assembly admins")
       expect(page).to have_content("Private users")

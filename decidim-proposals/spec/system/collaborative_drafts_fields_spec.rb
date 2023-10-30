@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Collaborative drafts", type: :system do
+describe "Collaborative drafts" do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 

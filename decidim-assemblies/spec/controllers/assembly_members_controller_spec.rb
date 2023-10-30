@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Assemblies
-    describe AssemblyMembersController, type: :controller do
+    describe AssemblyMembersController do
       routes { Decidim::Assemblies::Engine.routes }
 
       let(:organization) { create(:organization) }

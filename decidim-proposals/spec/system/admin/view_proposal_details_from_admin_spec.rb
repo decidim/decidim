@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin views proposal details from admin", type: :system do
+describe "Admin views proposal details from admin" do
   include_context "when admin manages proposals"
   include ActionView::Helpers::TextHelper
 

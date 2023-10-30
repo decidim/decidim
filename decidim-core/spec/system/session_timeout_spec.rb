@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Session timeout", type: :system do
+describe "Session timeout" do
   include ActiveSupport::Testing::TimeHelpers
 
   let(:organization) { create(:organization) }

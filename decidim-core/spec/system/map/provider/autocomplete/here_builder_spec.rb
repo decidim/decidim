@@ -6,7 +6,7 @@ module Decidim
   module Map
     module Provider
       module Autocomplete
-        describe Here::Builder, type: :system do
+        describe Here::Builder do
           it_behaves_like "a page with geocoding input" do
             let(:options) { { apiKey: "key1234" } }
             let(:html_head) do

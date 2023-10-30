@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User activity", type: :system do
+describe "User activity" do
   let(:organization) { create(:organization) }
   let(:comment) { create(:comment) }
   let(:user) { create(:user, :confirmed, organization:) }
