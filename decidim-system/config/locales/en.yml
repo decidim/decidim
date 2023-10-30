@@ -141,7 +141,22 @@ en:
           show: Show advanced settings
         create:
           error: There was a problem creating a new organization.
-          success: Organization successfully created.
+          success_html: |
+            <p>
+              Organization successfully created.
+            </p>
+            <ol>
+              <li>You may need to update your application code, as to allow requests to %{host} you need to add the following to your
+              environment configuration (i.e. <code>config/environment/production.rb</code>) or your <code>config/application.rb</code>:
+                <p> config.hosts << "%{host}" </p>
+              </li>
+              <li>
+                After that is done, you will be able to access to your platform through <a href="http://%{host}">http://%{host}</a>
+              </li>
+              <li>
+                We have sent an email to <b>%{email}</b> that you need to confirm.
+              </li>
+            </ol>
         csp_settings:
           connect_src: Connect src
           connect_src_hint: |
