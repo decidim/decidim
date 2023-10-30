@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Monitoring committee member verifies elections", type: :system do
+describe "Monitoring committee member verifies elections" do
   include_context "when monitoring committee member manages voting"
 
   let(:elections_component) { create(:elections_component, participatory_space: voting) }

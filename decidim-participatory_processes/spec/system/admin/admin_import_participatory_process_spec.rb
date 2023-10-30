@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin imports participatory process", type: :system do
+describe "Admin imports participatory process" do
   include_context "when admin administrating a participatory process"
 
   before do

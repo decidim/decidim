@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ApplicationController, type: :controller do
+  describe ApplicationController do
     let(:default_locale) { "en" }
     let(:alt_locale) { "pt-BR" }
     let(:available_locales) { %w(en ca pt-BR de de-CH) }

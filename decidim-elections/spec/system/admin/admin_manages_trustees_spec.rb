@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages trustees", type: :system do
+describe "Admin manages trustees" do
   let(:manifest_name) { "elections" }
 
   include_context "when managing a component as an admin"

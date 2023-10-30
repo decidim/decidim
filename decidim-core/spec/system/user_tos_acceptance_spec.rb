@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "UserTosAcceptance", type: :system do
+describe "UserTosAcceptance" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :confirmed, organization:) }
   let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }

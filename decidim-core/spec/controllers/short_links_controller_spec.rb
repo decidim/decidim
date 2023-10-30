@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ShortLinksController, type: :controller do
+  describe ShortLinksController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
