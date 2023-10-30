@@ -1,9 +1,9 @@
 <% if allowed_to?(:update, :component, component: current_component) %>
   <%= link_to Decidim::EngineRouter.admin_proxy(current_component.participatory_space).edit_component_path(current_component.id),
-              class: "button button__sm button__secondary" do %>
+    class: "button button__sm button__secondary" do %>
     <%= icon "settings-4-line" %>
     <span>
-              <%= t("actions.configure", scope: "decidim.admin") %>
-            </span>
+      <%= t("actions.configure", scope: "decidim.admin") %>
+    </span>
   <% end %>
 <% end %>
