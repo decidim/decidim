@@ -167,7 +167,7 @@ module Decidim
           ::Decidim::Budgets::Admin::UpdateProjectsBudget.call(reference_budget, project_ids) do
             on(:invalid_project_ids) do
               flash.now[:alert] = t(
-                "projects.update_selected.select_a_project",
+                "projects.update_budget.select_a_project",
                 scope: "decidim.budgets.admin"
               )
             end

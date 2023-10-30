@@ -118,7 +118,6 @@ en:
           update_budget:
             invalid: 'These projects already are in the same budget or their budgets
               are more than the maximum allowed: %{projects}.'
-            select_a_budget: Please select a budget.
             select_a_project: Please select a project.
             success: 'Projects successfully updated to the %{subject_name} budget:
               %{projects}.'
