@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe Decidim::Devise::RegistrationsController, type: :controller do
+  describe Decidim::Devise::RegistrationsController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }

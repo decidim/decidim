@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin reminds users with pending orders", type: :system do
+describe "Admin reminds users with pending orders" do
   include_context "when managing a component as an admin"
 
   let(:organization) { create(:organization) }

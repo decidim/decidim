@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages initiative components", type: :system do
+describe "Admin manages initiative components" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin reports user", type: :system do
+describe "Admin reports user" do
   it_behaves_like "hideable resource during block" do
     let(:reportable) { content.reload.creator.identity }
 

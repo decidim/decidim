@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Search", type: :system do
+describe "Search" do
   let(:organization) { create(:organization) }
   let(:term) { "dolorem" }
 

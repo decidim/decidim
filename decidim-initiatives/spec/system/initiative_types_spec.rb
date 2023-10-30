@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/core/test/shared_examples/has_contextual_help"
 
-describe "Initiatives", type: :system do
+describe "Initiatives" do
   let(:organization) { create(:organization) }
   let(:base_initiative) do
     create(:initiative, organization:)

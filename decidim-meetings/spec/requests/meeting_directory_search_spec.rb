@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe "Meeting directory search", type: :request do
+RSpec.describe "Meeting directory search" do
   include Decidim::ComponentPathHelper
   include Decidim::SanitizeHelper
 
