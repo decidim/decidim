@@ -124,6 +124,7 @@ en:
             invalid: 'These projects already had the %{subject_name} scope: %{projects}.'
             select_a_project: Please select a project.
             select_a_scope: Please select a scope.
+            success: 'Projects successfully updated to the %{subject_name} scope: %{projects}.'
           update_budget:
             invalid: 'These projects already are in the same budget or their budgets are more than the maximum allowed: %{projects}.'
             select_a_project: Please select a project.
