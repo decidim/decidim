@@ -12,7 +12,7 @@ Decidim::System::Engine.routes.draw do
 
   authenticate(:admin) do
     resources :organizations, except: [:show, :destroy]
-    resources :admins
+    resources :admins, except: [:show]
     resources :oauth_applications
 
     root to: "dashboard#show"

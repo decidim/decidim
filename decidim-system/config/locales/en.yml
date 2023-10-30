@@ -57,9 +57,6 @@ en:
         new:
           create: Create
           title: New admin
-        show:
-          destroy: Destroy
-          edit: Edit
         update:
           error: There was a problem updating this admin.
           success: Admin successfully updated.

@@ -16,13 +16,13 @@
     <% @admins.each do |admin| %>
       <tr>
         <td>
-          <%= link_to admin.email, admin %><br>
+          <%= link_to admin.email, edit_admin_path(admin) %><br>
         </td>
         <td>
           <%= l admin.created_at, format: :short %>
         </td>
         <td class="actions">
-          <%= link_to t("actions.edit", scope: "decidim.system"), [:edit, admin] %>
+          <%= link_to t("actions.edit", scope: "decidim.system"), edit_admin_path(admin) %>
           <% unless current_admin?(admin) %>
             <%= link_to t("actions.destroy", scope: "decidim.system"), admin, method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.system") } %>
           <% end %>
