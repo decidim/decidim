@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe Decidim::Devise::OmniauthRegistrationsController, type: :controller do
+  describe Decidim::Devise::OmniauthRegistrationsController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }

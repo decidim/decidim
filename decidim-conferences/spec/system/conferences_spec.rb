@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/core/test/shared_examples/has_contextual_help"
 
-describe "Conferences", type: :system do
+describe "Conferences" do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
   let(:description) { { en: "Description", ca: "Descripció", es: "Descripción" } }

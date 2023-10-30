@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Conferences
-  describe Admin::SendConferenceDiplomaMailer, type: :mailer do
+  describe Admin::SendConferenceDiplomaMailer do
     include ActionView::Helpers::SanitizeHelper
 
     let(:organization) { create(:organization) }

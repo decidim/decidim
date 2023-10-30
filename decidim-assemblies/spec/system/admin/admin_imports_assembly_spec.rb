@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin imports assembly", type: :system do
+describe "Admin imports assembly" do
   include_context "when admin administrating an assembly"
 
   before do
@@ -77,7 +77,7 @@ describe "Admin imports assembly", type: :system do
       end
 
       within_admin_sidebar_menu do
-        click_link "Files"
+        click_link "Attachments"
       end
       if Decidim::Assembly.last.attachments.any?
         within ".table-list" do

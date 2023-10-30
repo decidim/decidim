@@ -33,7 +33,7 @@ PATH
       devise_invitable (~> 2.0)
     decidim-api (0.28.0.dev)
       commonmarker (~> 0.23.0, >= 0.23.9)
-      graphql (~> 2.0)
+      graphql (~> 2.0.0)
       graphql-docs (~> 3.0.1)
       rack-cors (~> 1.0)
     decidim-assemblies (0.28.0.dev)
@@ -108,6 +108,8 @@ PATH
     decidim-debates (0.28.0.dev)
       decidim-comments (= 0.28.0.dev)
       decidim-core (= 0.28.0.dev)
+    decidim-design (0.28.0.dev)
+      decidim-core (= 0.28.0.dev)
     decidim-dev (0.28.0.dev)
       bullet (~> 7.0)
       byebug (~> 11.0)
@@ -138,13 +140,13 @@ PATH
       webmock (~> 3.18)
       wisper-rspec (~> 1.0)
     decidim-elections (0.28.0.dev)
-      decidim-bulletin_board (~> 0.24.1)
+      decidim-bulletin_board (~> 0.24.4)
       decidim-core (= 0.28.0.dev)
       decidim-forms (= 0.28.0.dev)
       decidim-proposals (= 0.28.0.dev)
       rack-attack (~> 6.0)
-      voting_schemes-dummy (~> 0.24.1)
-      voting_schemes-electionguard (~> 0.24.1)
+      voting_schemes-dummy (~> 0.24.4)
+      voting_schemes-electionguard (~> 0.24.4)
     decidim-forms (0.28.0.dev)
       decidim-core (= 0.28.0.dev)
       wicked_pdf (~> 2.1)
@@ -322,11 +324,11 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-bulletin_board (0.24.1)
+    decidim-bulletin_board (0.24.4)
       byebug (~> 11.0)
       graphlient (~> 0.5.0)
       jwt (~> 2.5.0)
-      rails (~> 6.0, >= 5.0.0)
+      rails (>= 5.0.0, < 7.1)
       wisper (~> 2.0.0)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
@@ -770,9 +772,9 @@ GEM
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)
-    voting_schemes-dummy (0.24.1)
+    voting_schemes-dummy (0.24.4)
       rails (>= 5.0.0)
-    voting_schemes-electionguard (0.24.1)
+    voting_schemes-electionguard (0.24.4)
       rails (>= 5.0.0)
     w3c_rspec_validators (0.3.0)
       rails
@@ -819,6 +821,7 @@ DEPENDENCIES
   byebug (~> 11.0)
   decidim!
   decidim-conferences!
+  decidim-design!
   decidim-dev!
   decidim-elections!
   decidim-initiatives!

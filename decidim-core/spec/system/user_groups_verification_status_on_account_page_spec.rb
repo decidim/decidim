@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User group verification status on account page", type: :system do
+describe "User group verification status on account page" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin imports projects to accountability", type: :system do
+describe "Admin imports projects to accountability" do
   let(:manifest_name) { "accountability" }
   let(:resource_controller) { Decidim::Accountability::Admin::ImportResultsController }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }

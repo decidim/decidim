@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Filter Assemblies", type: :system do
+describe "Filter Assemblies" do
   let(:organization) { create(:organization) }
 
   before do

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin filters assemblies private space users", type: :system do
+describe "Admin filters assemblies private space users" do
   include_context "with filterable context"
 
   let(:organization) { create(:organization) }

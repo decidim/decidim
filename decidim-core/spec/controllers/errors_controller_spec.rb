@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ErrorsController, type: :controller do
+  describe ErrorsController do
     let!(:organization) { create(:organization) }
 
     controller Decidim::ErrorsController do

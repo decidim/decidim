@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore projects", :slow, type: :system do
+describe "Explore projects", :slow do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
   let(:budget) { create(:budget, component:) }

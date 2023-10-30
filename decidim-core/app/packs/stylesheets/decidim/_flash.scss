@@ -1,8 +1,10 @@
 .flash {
   @apply flex justify-start items-center gap-4 rounded border-2 border-secondary text-secondary my-4 p-4 bg-secondary/5;
 
-  svg {
-    @apply w-12 h-12 fill-current flex-none;
+  &__icon {
+    svg {
+      @apply w-12 h-12 fill-current flex-none;
+    }
   }
 
   &__message {

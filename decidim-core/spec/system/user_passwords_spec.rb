@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User passwords", type: :system do
+describe "User passwords" do
   let(:organization) { create(:organization) }
 
   before do

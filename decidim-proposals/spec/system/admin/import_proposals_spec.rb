@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Import proposals", type: :system do
+describe "Import proposals" do
   let(:component) { create(:proposal_component) }
   let(:organization) { component.organization }
 
