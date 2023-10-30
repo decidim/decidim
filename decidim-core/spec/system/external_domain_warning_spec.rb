@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "ExternalDomainWarning", type: :system do
+describe "ExternalDomainWarning" do
   let(:whitelist) { ["decidim.org", "example.org"] }
   let(:organization) { create(:organization, external_domain_whitelist: whitelist) }
   let(:content) { { en: 'Hello world <a href="http://www.github.com" target="_blank">Very nice link</a><br><a href="http://www.example.org" target="_blank">Another link</a>' } }

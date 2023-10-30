@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Sorting elections", type: :system do
+describe "Sorting elections" do
   include_context "with a component"
   let(:manifest_name) { "elections" }
 

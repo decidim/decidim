@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Internal server error display", type: :system do
+describe "Internal server error display" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :confirmed, name: "Sarah Kerrigan", organization:) }
   let(:controller) do

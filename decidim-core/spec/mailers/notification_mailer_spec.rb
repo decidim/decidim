@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe NotificationMailer, type: :mailer do
+  describe NotificationMailer do
     let(:organization) { create(:organization, name: "O'Connor") }
     let(:user) { create(:user, name: "Sarah Connor", organization:) }
     let(:resource) { user }

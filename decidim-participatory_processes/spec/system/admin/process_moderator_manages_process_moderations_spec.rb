@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Process moderator manages process moderations", type: :system do
+describe "Process moderator manages process moderations" do
   let!(:user) do
     create(
       :process_moderator,

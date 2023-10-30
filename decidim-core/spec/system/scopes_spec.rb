@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Scopes picker", type: :system do
+describe "Scopes picker" do
   let(:organization) { create(:organization) }
   let(:other_organization) { create(:organization) }
   let!(:scopes) { create_list(:scope, 3, organization:) }

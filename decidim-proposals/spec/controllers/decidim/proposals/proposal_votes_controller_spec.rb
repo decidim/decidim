@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Proposals
-    describe ProposalVotesController, type: :controller do
+    describe ProposalVotesController do
       routes { Decidim::Proposals::Engine.routes }
 
       let(:proposal) { create(:proposal, component:) }

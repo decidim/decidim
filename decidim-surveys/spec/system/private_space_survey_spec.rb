@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Private Space Answer a survey", type: :system do
+describe "Private Space Answer a survey" do
   let(:manifest_name) { "surveys" }
   let(:manifest) { Decidim.find_component_manifest(manifest_name) }
 

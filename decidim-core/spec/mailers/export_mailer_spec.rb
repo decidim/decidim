@@ -4,7 +4,7 @@ require "spec_helper"
 require "zip"
 
 module Decidim
-  describe ExportMailer, type: :mailer do
+  describe ExportMailer do
     let(:user) { create(:user, name: "Sarah Connor", organization:) }
     let!(:organization) { create(:organization) }
 

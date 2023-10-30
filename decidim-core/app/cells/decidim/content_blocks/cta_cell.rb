@@ -23,10 +23,6 @@ module Decidim
         @button_url ||= model.settings.button_url
       end
 
-      def cta_button
-        link_to translated_button_text, button_url, class: "button button--sc medium-6", title: translated_button_text
-      end
-
       def background_image
         model.images_container.attached_uploader(:background_image).path(variant: :big)
       end

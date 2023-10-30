@@ -5,10 +5,10 @@ module Decidim
     # Controller that allows managing all pages at the admin panel.
     #
     class StaticPagesController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Concerns::HasTabbedMenu
       include Decidim::Admin::ContentBlocks::LandingPage
       include Concerns::HasContentBlocks
 
-      layout "decidim/admin/pages"
       before_action :tos_version_formatted, only: [:index, :edit]
 
       helper_method :topics
@@ -122,6 +122,8 @@ module Decidim
       end
 
       private
+
+      def tab_menu_name = :admin_static_pages_menu
 
       def form_params
         form_params = params.to_unsafe_hash

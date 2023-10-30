@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Orders", type: :system do
+describe "Orders" do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
 

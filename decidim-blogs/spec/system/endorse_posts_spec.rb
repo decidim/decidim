@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "endorse posts", type: :system do
+describe "endorse posts" do
   include_context "with a component"
   let(:manifest_name) { "blogs" }
   let(:organization) { create(:organization) }

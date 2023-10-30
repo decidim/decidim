@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "index", type: :system do
+describe "index" do
   include_context "when managing a component as an admin"
 
   let(:manifest_name) { "sortitions" }
