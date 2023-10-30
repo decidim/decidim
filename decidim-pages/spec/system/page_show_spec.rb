@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Show a page", type: :system do
+describe "Show a page" do
   include_context "with a component"
   let(:manifest_name) { "pages" }
 

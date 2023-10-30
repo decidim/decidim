@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages projects attachment collections", type: :system do
+describe "Admin manages projects attachment collections" do
   let(:manifest_name) { "budgets" }
   let(:budget) { create(:budget, component: current_component) }
   let!(:project) { create(:project, budget:) }

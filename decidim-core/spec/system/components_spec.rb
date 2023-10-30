@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Components can be navigated", type: :system do
+describe "Components can be navigated" do
   include_context "with a component"
 
   let(:manifest_name) { "dummy" }

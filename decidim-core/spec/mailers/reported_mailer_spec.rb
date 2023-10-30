@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ReportedMailer, type: :mailer do
+  describe ReportedMailer do
     let(:organization) { create(:organization, name: "Test Organization") }
     let(:user) { create(:user, :admin, organization:) }
     let(:component) { create(:component, organization:) }

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Meetings
-  describe RegistrationMailer, type: :mailer do
+  describe RegistrationMailer do
     include ActionView::Helpers::SanitizeHelper
 
     let(:organization) { create(:organization) }

@@ -12,7 +12,7 @@ def fill_registration_form(
   fill_in :registration_user_password, with: password
 end
 
-describe "Registration", type: :system do
+describe "Registration" do
   let(:organization) { create(:organization) }
   let!(:terms_of_service_page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
 

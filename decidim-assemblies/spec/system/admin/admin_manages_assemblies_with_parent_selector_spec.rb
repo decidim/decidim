@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages assemblies with parent selector", type: :system do
+describe "Admin manages assemblies with parent selector" do
   include_context "when admin administrating an assembly"
 
   let(:image1_filename) { "city.jpeg" }

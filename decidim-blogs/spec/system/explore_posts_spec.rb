@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore posts", type: :system do
+describe "Explore posts" do
   include_context "with a component"
   let(:manifest_name) { "blogs" }
 

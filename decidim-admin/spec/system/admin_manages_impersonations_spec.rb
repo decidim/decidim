@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages impersonations", type: :system do
+describe "Admin manages impersonations" do
   let(:user) { create(:user, :admin, :confirmed, :admin_terms_accepted, organization:) }
 
   def navigate_to_impersonations_page

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Conference registrations", type: :system do
+describe "Conference registrations" do
   let(:organization) { create(:organization) }
   let(:conferences_count) { 5 }
   let!(:conferences) do
