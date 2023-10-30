@@ -26,7 +26,7 @@
           <%= link_to oauth_application.name, oauth_application %><br>
         </td>
         <td>
-          <%= link_to oauth_application.organization_name, oauth_application.organization %><br>
+          <%= link_to oauth_application.organization_name, edit_organization_path(oauth_application.organization) %><br>
         </td>
         <td>
           <%= l oauth_application.created_at, format: :short %>
