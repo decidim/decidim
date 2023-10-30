@@ -216,6 +216,7 @@ en:
           default: Default?
           enabled: Enabled
           locale: Locale
+          organization_admin_email_hint: We will send an email to this address so you can confirm it and set up your password.
           reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organization.
           secondary_hosts_hint: Enter each one of them in a new line.
           title: New organization
