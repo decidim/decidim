@@ -6,6 +6,7 @@ describe "Admin manages projects", type: :system do
   let(:manifest_name) { "budgets" }
   let(:budget) { create(:budget, component: current_component) }
   let!(:project) { create(:project, budget:) }
+  let!(:destin_budget) { create(:budget, component: current_component) }
 
   include_context "when managing a component as an admin"
 
@@ -78,6 +79,24 @@ describe "Admin manages projects", type: :system do
       end
       expect(Decidim::Budgets::Project.find(project.id).selected_at).to eq(Time.zone.today)
       expect(Decidim::Budgets::Project.find(project2.id).selected_at).to eq(Time.zone.today)
+    end
+
+    describe "update projects budget" do
+      it "changes project budget" do
+        find("#projects_bulk").set(true)
+        find("#js-bulk-actions-button").click
+        click_button "Change budget"
+        select translated(destin_budget.title), from: "reference_id"
+        click_button "Update project's budget"
+        within_flash_messages do
+          expect(page).to have_content("Projects successfully updated to the budget: #{translated(project.title)} and #{translated(project2.title)}")
+        end
+        expect(page).not_to have_css("tr[data-id='#{project.id}']")
+        expect(page).not_to have_css("tr[data-id='#{project2.id}']")
+
+        expect(project.reload.budget).to eq(destin_budget)
+        expect(project2.reload.budget).to eq(destin_budget)
+      end
     end
   end
 end
