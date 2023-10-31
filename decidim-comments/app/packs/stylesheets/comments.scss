@@ -326,6 +326,8 @@
   }
 }
 
-* + [id^="comments-for"] {
-  @apply mt-12 md:mt-0;
+[id^="comments-for"]:not(:first-child) {
+  --vertical-spacing: 2.5rem;
+
+  @apply mt-[var(--vertical-spacing)] md:mt-0;
 }

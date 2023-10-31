@@ -84,7 +84,6 @@
 
 .layout-main__section + .layout-main__section,
 .layout-aside__section + .layout-aside__section,
-.layout-item__main ~ .layout-item__main,
 .layout-item__aside--footer > * + * {
   --vertical-spacing: 2.5rem;
 
