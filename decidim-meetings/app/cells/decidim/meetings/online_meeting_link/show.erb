@@ -15,6 +15,6 @@
     <div class="hidden md:block h-[60vh] w-full">
       <%== embed_code(request.host) if show_embed? %>
     </div>
-    <%= link_to t("join_meeting", scope: "decidim.meetings.meetings.meeting"), live_event_url, target: "_blank", class: "button button__xl button__secondary md:hidden", data: { "external-link": false } %>
+     <%= link_to t("join_meeting", scope: "decidim.meetings.meetings.meeting"), live_event_url, target: "_blank", class: "button button__xl button__secondary", data: { "external-link": false } %>
   <% end %>
 </div>
