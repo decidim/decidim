@@ -38,8 +38,8 @@ module Decidim
       end
 
       def edit
-        organization = Organization.find(params[:id])
-        @form = form(UpdateOrganizationForm).from_model(organization)
+        @organization = Organization.find(params[:id])
+        @form = form(UpdateOrganizationForm).from_model(@organization)
       end
 
       def update
@@ -56,6 +56,21 @@ module Decidim
             render :edit
           end
         end
+      end
+
+      def resend_invitation
+        organization = Organization.find(params[:id])
+        InviteUserAgain.call(organization.users.first, "invite_admin") do
+          on(:ok) do
+            flash[:notice] = t("organizations.resend_invitation.success", scope: "decidim.system")
+          end
+
+          on(:invalid) do
+            flash[:alert] = I18n.t("organizations.resend_invitation.error", scope: "decidim.system")
+          end
+        end
+
+        redirect_to organizations_path
       end
 
       private
