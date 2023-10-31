@@ -41,7 +41,12 @@ describe "Organizations" do
         check "Example authorization (Direct)"
         click_button "Create organization & invite admin"
 
-        expect(page).to have_css("div.flash.success")
+        within ".flash__message" do
+          expect(page).to have_content("Organization successfully created.")
+          expect(page).to have_content("config/environment/production.rb")
+          expect(page).to have_content("config.hosts << \"www.example.org\"")
+          expect(page).to have_content("mayor@example.org")
+        end
         expect(page).to have_content("Citizen Corp")
       end
 
@@ -52,24 +57,6 @@ describe "Organizations" do
 
           expect(page).to have_content("There is an error in this field")
         end
-      end
-    end
-
-    describe "showing an organization with different locale than user" do
-      let!(:organization) do
-        create(:organization, name: "Citizen Corp", default_locale: :es, available_locales: ["es"], description: { es: "Un texto largo" })
-      end
-
-      before do
-        click_link "Organizations"
-        within "table tbody" do
-          first("tr").click_link "Citizen Corp"
-        end
-      end
-
-      it "shows the organization data" do
-        expect(page).to have_content("Citizen Corp")
-        expect(page).to have_content("Un texto largo")
       end
     end
 

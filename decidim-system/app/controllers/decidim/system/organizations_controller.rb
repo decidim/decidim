@@ -18,7 +18,7 @@ module Decidim
 
         RegisterOrganization.call(@form) do
           on(:ok) do
-            flash[:notice] = t("organizations.create.success", scope: "decidim.system")
+            flash[:notice] = t("organizations.create.success_html", scope: "decidim.system", host: @form.host, email: @form.organization_admin_email)
             redirect_to organizations_path
           end
 
