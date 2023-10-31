@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe UserUpdateMailer, type: :mailer do
+  describe UserUpdateMailer do
     let(:organization) { create(:organization, name: "Test Organization") }
     let(:user) { create(:user, :confirmed, organization:) }
     let(:updates) { %w(field1 field2 field3) }
