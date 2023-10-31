@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin filters members", type: :system do
+describe "Admin filters members" do
   let(:organization) { create(:organization) }
   let!(:admin) { create(:user, :admin, :confirmed, organization:) }
   let(:assembly) { create(:assembly, organization:) }
