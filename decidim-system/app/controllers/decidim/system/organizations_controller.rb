@@ -66,7 +66,7 @@ module Decidim
           organization_admin_name: current_admin.email.split("@")[0],
           organization_admin_email: current_admin.email,
           available_locales: Decidim.available_locales.map(&:to_s),
-          default_locale: Decidim.default_locale.first.to_s,
+          default_locale: Decidim.default_locale,
           users_registration_mode: "enabled"
         }
       end
