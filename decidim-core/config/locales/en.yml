@@ -1580,7 +1580,6 @@ en:
         hello: Hello %{user}
         main_body: 'The following details have been changed: %{updates}.'
         update_fields: "%{updates}, and %{last_update}"
-        update_two_fields: "%{updates} and %{last_update}"
       subject: Your account was updated
     version:
       show:
