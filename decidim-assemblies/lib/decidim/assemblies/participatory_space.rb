@@ -56,6 +56,19 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
       published_at: Time.current
     )
 
+    hero_image = ActiveStorage::Blob.create_and_upload!(
+      io: File.open(File.join(seeds_root, "city.jpeg")),
+      filename: "hero_image.jpeg",
+      content_type: "image/jpeg",
+      metadata: nil
+    )
+    banner_image = ActiveStorage::Blob.create_and_upload!(
+      io: File.open(File.join(seeds_root, "city2.jpeg")),
+      filename: "banner_image.jpeg",
+      content_type: "image/jpeg",
+      metadata: nil
+    )
+
     2.times do |n|
       params = {
         title: Decidim::Faker::Localized.sentence(word_count: 5),
@@ -69,18 +82,8 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         organization:,
-        hero_image: ActiveStorage::Blob.create_and_upload!(
-          io: File.open(File.join(seeds_root, "city.jpeg")),
-          filename: "hero_image.jpeg",
-          content_type: "image/jpeg",
-          metadata: nil
-        ), # Keep after organization
-        banner_image: ActiveStorage::Blob.create_and_upload!(
-          io: File.open(File.join(seeds_root, "city2.jpeg")),
-          filename: "banner_image.jpeg",
-          content_type: "image/jpeg",
-          metadata: nil
-        ), # Keep after organization
+        hero_image: Faker::Boolean.boolean(true_ratio: 0.5) ? hero_image : nil, # Keep after organization
+        banner_image: Faker::Boolean.boolean(true_ratio: 0.5) ? banner_image : nil, # Keep after organization
         promoted: true,
         published_at: 2.weeks.ago,
         meta_scope: Decidim::Faker::Localized.word,
@@ -161,18 +164,8 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         organization:,
-        hero_image: ActiveStorage::Blob.create_and_upload!(
-          io: File.open(File.join(seeds_root, "city.jpeg")),
-          filename: "hero_image.jpeg",
-          content_type: "image/jpeg",
-          metadata: nil
-        ), # Keep after organization
-        banner_image: ActiveStorage::Blob.create_and_upload!(
-          io: File.open(File.join(seeds_root, "city2.jpeg")),
-          filename: "banner_image.jpeg",
-          content_type: "image/jpeg",
-          metadata: nil
-        ), # Keep after organization
+        hero_image: Faker::Boolean.boolean(true_ratio: 0.5) ? hero_image : nil, # Keep after organization
+        banner_image: Faker::Boolean.boolean(true_ratio: 0.5) ? banner_image : nil, # Keep after organization
         promoted: true,
         published_at: 2.weeks.ago,
         meta_scope: Decidim::Faker::Localized.word,
