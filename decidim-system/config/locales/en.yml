@@ -62,6 +62,7 @@ en:
           success: Admin successfully updated.
       dashboard:
         show:
+          admins: Admins
           current_organizations: Current organizations
       default_pages:
         placeholders:
@@ -258,3 +259,8 @@ en:
       titles:
         dashboard: Dashboard
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Logout
