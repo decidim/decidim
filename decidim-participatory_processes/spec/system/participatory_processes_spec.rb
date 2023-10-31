@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/core/test/shared_examples/has_contextual_help"
 
-describe "Participatory Processes", type: :system do
+describe "Participatory Processes" do
   let(:organization) { create(:organization) }
   let(:show_metrics) { true }
   let(:show_statistics) { true }

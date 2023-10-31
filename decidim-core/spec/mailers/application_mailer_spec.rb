@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe Decidim::DummyResources::DummyResourceMailer, type: :mailer do
+  describe Decidim::DummyResources::DummyResourceMailer do
     describe "smtp_settings" do
       let(:user) { create(:user, organization:) }
       let(:organization) { create(:organization, smtp_settings:) }

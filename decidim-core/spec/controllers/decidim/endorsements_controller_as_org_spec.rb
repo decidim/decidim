@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe EndorsementsController, type: :controller do
+  describe EndorsementsController do
     include_context "when in a resource"
 
     #

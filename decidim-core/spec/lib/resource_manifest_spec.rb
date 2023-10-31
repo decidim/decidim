@@ -46,5 +46,9 @@ module Decidim
 
       it { is_expected.to be_invalid }
     end
+
+    describe "#permissions_class" do
+      it { expect(subject.permissions_class).to be(Decidim::DefaultPermissions) }
+    end
   end
 end

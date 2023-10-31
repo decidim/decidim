@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Preview accountability with share token", type: :system do
+describe "Preview accountability with share token" do
   let(:manifest_name) { "accountability" }
 
   include_context "with a component"

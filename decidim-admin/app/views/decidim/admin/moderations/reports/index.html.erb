@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t(".title")) %>
 <div class="item_show__header">
   <h2 class="item_show__header-title">
     <div>
@@ -8,7 +9,7 @@
 </div>
 
 <div class="card-section moderation-details">
-    <%= cell("decidim/announcement", t(".callout_html", icon: icon("flag-line")), callout_class: "warning" ) %>
+  <%= cell("decidim/announcement", t(".callout_html", icon: icon("flag-line")), callout_class: "warning") %>
   <dl>
     <dt><%= t("models.moderation.fields.reported_content_url", scope: "decidim.moderations") %></dt>
     <% if (reportable_url = moderation.reportable.reported_content_url) %>
@@ -61,44 +62,44 @@
     <dt><%= t(".participatory_space") %></dt>
     <dd><%= translated_attribute moderation.participatory_space.title %></dd>
   </dl>
-  <div class="table-scroll">
-    <table class="table-list">
-      <thead>
-        <tr>
-          <th><%= t("models.report.fields.reason", scope: "decidim.moderations") %></th>
-          <th><%= t("models.report.fields.locale", scope: "decidim.moderations") %></th>
-          <th><%= t("models.report.fields.details", scope: "decidim.moderations") %></th>
-          <th class="actions"><%= t("actions.title", scope: "decidim.moderations") %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% reports.each do |report| %>
-          <tr data-id="<%= report.id %>">
-            <td><%= t("decidim.admin.moderations.report.reasons.#{report.reason}") %></td>
-            <td><%= report.locale.present? ? locale_name(report.locale) : "" %></td>
-            <td><%= report.details&.truncate(250) %></td>
-            <td class="actions">
-              <%= icon_link_to "fullscreen-line",
-                               moderation_report_path(moderation_id: moderation, id: report.id),
-                               t("actions.expand", scope: "decidim.moderations"),
-                               class: "action-icon--expand" %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-  <div class="item__edit-sticky">
-    <div class="item__edit-sticky-container">
-      <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
-        <%= link_to t("actions.unreport", scope: "decidim.moderations"), unreport_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary" %>
-      <% end %>
-      <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
-        <%= link_to t("actions.hide", scope: "decidim.moderations"), hide_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary alert" %>
-      <% end %>
-      <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
-        <%= link_to t("actions.unhide", scope: "decidim.moderations"), unhide_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary alert" %>
-      <% end %>
-    </div>
+</div>
+<div class="table-scroll">
+  <table class="table-list">
+    <thead>
+    <tr>
+      <th><%= t("models.report.fields.reason", scope: "decidim.moderations") %></th>
+      <th><%= t("models.report.fields.locale", scope: "decidim.moderations") %></th>
+      <th><%= t("models.report.fields.details", scope: "decidim.moderations") %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.moderations") %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% reports.each do |report| %>
+      <tr data-id="<%= report.id %>">
+        <td><%= t("decidim.admin.moderations.report.reasons.#{report.reason}") %></td>
+        <td><%= report.locale.present? ? locale_name(report.locale) : "" %></td>
+        <td><%= report.details&.truncate(250) %></td>
+        <td class="actions">
+          <%= icon_link_to "fullscreen-line",
+                           moderation_report_path(moderation_id: moderation, id: report.id),
+                           t("actions.expand", scope: "decidim.moderations"),
+                           class: "action-icon--expand" %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="item__edit-sticky">
+  <div class="item__edit-sticky-container">
+    <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
+      <%= link_to t("actions.unreport", scope: "decidim.moderations"), unreport_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary" %>
+    <% end %>
+    <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
+      <%= link_to t("actions.hide", scope: "decidim.moderations"), hide_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary alert" %>
+    <% end %>
+    <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
+      <%= link_to t("actions.unhide", scope: "decidim.moderations"), unhide_moderation_path(id: moderation), method: :put, class: "button button__sm button__secondary alert" %>
+    <% end %>
   </div>
 </div>

@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Votings
     module Census
-      describe ExportMailer, type: :mailer do
+      describe ExportMailer do
         let(:voting) { create(:voting) }
         let(:user) { create(:user, organization: voting.organization) }
 

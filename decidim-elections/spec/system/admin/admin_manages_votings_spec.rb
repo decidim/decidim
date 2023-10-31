@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages votings", type: :system do
+describe "Admin manages votings" do
   include_context "when admin managing a voting"
 
   before do

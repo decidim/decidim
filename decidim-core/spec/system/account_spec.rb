@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Account", type: :system do
+describe "Account" do
   let(:user) { create(:user, :confirmed, password:) }
   let(:password) { "dqCFgjfDbC7dPbrv" }
   let(:organization) { user.organization }

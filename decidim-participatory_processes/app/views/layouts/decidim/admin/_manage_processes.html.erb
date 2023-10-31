@@ -1,0 +1,36 @@
+<div class="inline-block relative">
+  <%= button_tag id: "processes-menu-trigger", data: { component: "dropdown", target: "processes-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
+    <span>
+      <%= t("menu.manage", scope: "decidim.admin") %>
+    </span>
+    <%= icon "arrow-down-s-line" %>
+  <% end %>
+  <div id="processes-dropdown-menu-settings">
+    <ul class="dropdown dropdown__bottom">
+      <% if allowed_to? :read, :process_list %>
+        <li class="dropdown__item">
+          <%= icon "treasure-map-line", class: "fill-gray-2" %>
+          <%= link_to t("menu.participatory_processes", scope: "decidim.admin"),
+                      decidim_admin_participatory_processes.participatory_processes_path,
+                      class: "text-secondary" %>
+        </li>
+      <% end %>
+      <% if allowed_to? :import, :process %>
+        <li class="dropdown__item">
+          <%= icon "upload-line", class: "fill-gray-2" %>
+          <%= link_to t("actions.import_process", scope: "decidim.admin"),
+                      new_import_path,
+                      class: "text-secondary" %>
+        </li>
+      <% end %>
+      <% if allowed_to? :manage, :participatory_process_type %>
+        <li class="dropdown__item">
+          <%= icon "price-tag-3-line", class: "fill-gray-2" %>
+          <%= link_to t("menu.participatory_process_types", scope: "decidim.admin"),
+                      decidim_admin_participatory_processes.participatory_process_types_path,
+                      class: "text-secondary" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

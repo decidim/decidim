@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages assembly categories", type: :system do
+describe "Admin manages assembly categories" do
   include_context "when admin administrating an assembly"
 
   let!(:category) do

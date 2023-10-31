@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Proposals
-    describe VersionsController, type: :controller, versioning: true do
+    describe VersionsController, versioning: true do
       routes { Decidim::Proposals::Engine.routes }
 
       let(:resource) { create(:proposal) }

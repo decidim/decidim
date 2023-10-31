@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Headers
-    describe "HttpCachingDisabler", type: :controller do
+    describe "HttpCachingDisabler" do
       let!(:organization) { create(:organization) }
       let!(:user) { create(:user, :confirmed, organization:) }
 
