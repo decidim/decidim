@@ -17,7 +17,7 @@ export default class PasswordToggler {
     }
     this.buttonClass = {
       onValid: "mt-5",
-      onInvalid: "mb-2"
+      onInvalid: "mt-4"
     }
   }
 
@@ -80,7 +80,7 @@ export default class PasswordToggler {
 
   addInputGroupWrapperAsParent() {
     const inputGroupWrapper = document.createElement("div");
-    inputGroupWrapper.classList.add("input-group");
+    inputGroupWrapper.classList.add("input-group__password");
 
     this.input.parentNode.replaceChild(inputGroupWrapper, this.input);
     inputGroupWrapper.appendChild(this.input);

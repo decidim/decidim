@@ -146,7 +146,7 @@
   }
 }
 
-.input-group {
+.input-group__password {
     @apply w-full relative;
 
   input {
@@ -157,7 +157,6 @@
     @apply absolute right-2 inset-y-2 bottom-10;
   }
 }
-
 
 .emoji {
   &__container {
