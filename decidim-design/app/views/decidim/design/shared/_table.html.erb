@@ -1,0 +1,12 @@
+<table class="design__table">
+  <thead>
+    <% headings.each do |heading| %>
+      <th><%= heading %></th>
+    <% end %>
+  </thead>
+  <tbody>
+    <% items.each do |row| %>
+        <tr><%= render_row(row) %></tr>
+    <% end %>
+  </tbody>
+</table>

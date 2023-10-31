@@ -13,40 +13,40 @@
   <a href="#readability">Readability</a>
 <% end %>
 
-<section id="typefaces" class="[&>*+*]:mt-6">
-  <h2 class="text-3xl font-semibold">Typefaces</h2>
+<section id="typefaces" class="design__section">
+  <h2 class="design__heading__3xl">Typefaces</h2>
 
   <p>Decidim uses Source Sans Pro as primary typeface. This typeface supports 310 languages</p>
 
   <p>This fonts are licensed under the Open Font License</p>
 
-  <table class="mt-4 w-full text-sm text-gray-2">
-    <thead class="bg-gray-3">
-      <th class="px-6 py-2 font-normal border border-background">Example</th>
+  <table class="design__table">
+    <thead>
+      <th>Example</th>
     </thead>
     <tbody>
       <tr>
-        <td class="px-6 py-4 border border-background text-lg font-bold">Source Sans Pro Bold</td>
+        <td><span class="text-lg font-bold">Source Sans Pro Bold</span></td>
       </tr>
       <tr>
-        <td class="px-6 py-4 border border-background text-lg font-semibold">Source Sans Pro Semibold</td>
+        <td><span class="text-lg font-semibold">Source Sans Pro Semibold</span></td>
       </tr>
       <tr>
-        <td class="px-6 py-4 border border-background text-lg font-normal">Source Sans Pro Regular</td>
+        <td><span class="text-lg font-normal">Source Sans Pro Regular</span></td>
       </tr>
     </tbody>
   </table>
 </section>
 
-<section id="headings">
-  <h2 class="text-3xl font-semibold">Headings</h2>
+<section id="headings" class="design__section">
+  <h2 class="design__heading__3xl">Headings</h2>
 
-  <table class="mt-4 w-full text-sm text-gray-2">
-    <thead class="bg-gray-3">
-      <th class="px-6 py-2 font-normal border border-background">Level</th>
-      <th class="px-6 py-2 font-normal border border-background">Semibold 600</th>
-      <th class="px-6 py-2 font-normal border border-background">Bold 700</th>
-      <th class="px-6 py-2 font-normal border border-background">Size</th>
+  <table class="design__table">
+    <thead>
+      <th>Level</th>
+      <th>Semibold 600</th>
+      <th>Bold 700</th>
+      <th>Size</th>
     </thead>
     <tbody>
       <%
@@ -62,25 +62,25 @@
         rows.each_with_index do |row, ix|
       %>
         <tr>
-          <td class="px-6 py-4 border border-background text-center"><%= row[:level] %></td>
-          <td class="px-6 py-4 border border-background font-semibold <%= row[:size] %>"><%= row[:text] if ix.positive? %></td>
-          <td class="px-6 py-4 border border-background font-bold <%= row[:size] %>"><%= row[:text] %></td>
-          <td class="px-6 py-4 border border-background text-secondary underline text-center"><%= row[:size] %></td>
+          <td><span class="text-center"><%= row[:level] %></span></td>
+          <td><span class="font-semibold <%= row[:size] %>"><%= row[:text] if ix.positive? %></span></td>
+          <td><span class="font-bold <%= row[:size] %>"><%= row[:text] %></span></td>
+          <td><span class="text-secondary underline text-center"><%= row[:size] %></span></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </section>
 
-<section id="content">
-  <h2 class="text-3xl font-semibold">Content</h2>
+<section id="content" class="design__section">
+  <h2 class="design__heading__3xl">Content</h2>
 
-  <table class="mt-4 w-full text-sm text-gray-2">
-    <thead class="bg-gray-3">
-      <th class="px-6 py-2 font-normal border border-background">Regular 400</th>
-      <th class="px-6 py-2 font-normal border border-background">Semibold 600</th>
-      <th class="px-6 py-2 font-normal border border-background">Bold 700</th>
-      <th class="px-6 py-2 font-normal border border-background">Size</th>
+  <table class="design__table">
+    <thead>
+      <th>Regular 400</th>
+      <th>Semibold 600</th>
+      <th>Bold 700</th>
+      <th>Size</th>
     </thead>
     <tbody>
       <%
@@ -94,24 +94,24 @@
         rows.each do |row|
       %>
         <tr>
-          <td class="px-6 py-4 border border-background font-normal <%= row[:size] %>"><%= row[:text] %></td>
-          <td class="px-6 py-4 border border-background font-semibold <%= row[:size] %>"><%= row[:text] %></td>
-          <td class="px-6 py-4 border border-background font-bold <%= row[:size] %>"><%= row[:text] %></td>
-          <td class="px-6 py-4 border border-background text-secondary underline text-center"><%= row[:size] %></td>
+          <td><span class="font-normal <%= row[:size] %>"><%= row[:text] %></span></td>
+          <td><span class="font-semibold <%= row[:size] %>"><%= row[:text] %></span></td>
+          <td><span class="font-bold <%= row[:size] %>"><%= row[:text] %></span></td>
+          <td><span class="text-secondary underline text-center"><%= row[:size] %></span></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </section>
 
-<section id="readability">
-  <h2 class="text-3xl font-semibold">Readability</h2>
+<section id="readability" class="design__section">
+  <h2 class="design__heading__3xl">Readability</h2>
 
-  <table class="mt-4 w-full text-center ext-sm text-gray-2">
-    <thead class="bg-gray-3">
-      <th class="px-6 py-2 font-normal border border-background">Size</th>
-      <th class="px-6 py-2 font-normal border border-background">Layout cols</th>
-      <th class="px-6 py-2 font-normal border border-background">~ Characters per line</th>
+  <table class="design__table">
+    <thead>
+      <th>Size</th>
+      <th>Layout cols</th>
+      <th>~ Characters per line</th>
     </thead>
     <tbody>
       <%
@@ -124,9 +124,9 @@
         rows.each do |row|
       %>
         <tr>
-          <td class="px-6 py-4 border border-background text-secondary underline"><%= row[:size] %></td>
-          <td class="px-6 py-4 border border-background"><%= row[:layout] %></td>
-          <td class="px-6 py-4 border border-background"><%= row[:chars] %></td>
+          <td><span class="text-secondary underline"><%= row[:size] %></span></td>
+          <td><%= row[:layout] %></td>
+          <td><%= row[:chars] %></td>
         </tr>
       <% end %>
     </tbody>
