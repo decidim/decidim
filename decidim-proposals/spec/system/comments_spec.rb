@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Comments", type: :system do
+describe "Comments" do
   let!(:component) { create(:proposal_component, organization:) }
   let!(:author) { create(:user, :confirmed, organization:) }
   let!(:commentable) { create(:proposal, component:, users: [author]) }

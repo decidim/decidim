@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe Decidim::Devise::RegistrationsController, type: :controller do
+  describe Decidim::Devise::RegistrationsController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
@@ -58,7 +58,7 @@ module Decidim
 
         it "adds the flash message" do
           post(:create, params:)
-          expect(controller.flash.now[:alert]).to have_content("Your email cannot be blank")
+          expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
         end
 
         context "when all params are invalid" do
@@ -78,15 +78,7 @@ module Decidim
 
           it "adds the flash message" do
             post(:create, params:)
-            expect(controller.flash.now[:alert]).to have_content(
-              [
-                "Your name cannot be blank",
-                "Your email cannot be blank",
-                "Password is too short",
-                "Password does not have enough unique characters",
-                "Terms of service agreement must be accepted"
-              ].join(", ")
-            )
+            expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
           end
         end
       end
@@ -100,7 +92,7 @@ module Decidim
 
         it "informs the user she must accept the pending invitation" do
           send_form_and_expect_rendering_the_new_template_again
-          expect(controller.flash.now[:alert]).to have_content("You have a pending invitation, accept it to finish creating your account")
+          expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
         end
       end
     end

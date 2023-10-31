@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "ProfileConversations", type: :system do
+describe "ProfileConversations" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let(:another_user) { create(:user, :confirmed, organization:) }

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe "Collaborative draft search", type: :request do
+RSpec.describe "Collaborative draft search" do
   include Decidim::ComponentPathHelper
 
   subject { response.body }

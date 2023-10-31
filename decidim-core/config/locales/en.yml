@@ -588,6 +588,8 @@ en:
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
+        create:
+          error: There was a problem creating your account.
         new:
           already_have_an_account?: Already have an account?
           log_in: Log in

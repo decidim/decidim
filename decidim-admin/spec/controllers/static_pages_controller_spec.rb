@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe StaticPagesController, type: :controller do
+    describe StaticPagesController do
       routes { Decidim::Admin::Engine.routes }
 
       let(:organization) { create(:organization) }

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin orders results", type: :system do
+describe "Admin orders results" do
   let(:manifest_name) { "accountability" }
   let!(:results) do
     [

@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t("new", scope: "decidim.initiatives.create_initiative.select_initiative_type")) %>
 <% announcement_body = capture do %>
   <%= t ".individual_help_text", committee_size: current_initiative.minimum_committee_members %>
   <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>

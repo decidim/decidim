@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages polling stations", serves_geocoding_autocomplete: true, type: :system do
+describe "Admin manages polling stations", serves_geocoding_autocomplete: true do
   let(:address) { "Somewhere over the rainbow" }
   let(:latitude) { 42.123 }
   let(:longitude) { 2.123 }

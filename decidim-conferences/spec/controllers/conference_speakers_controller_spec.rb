@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Conferences
-    describe ConferenceSpeakersController, type: :controller do
+    describe ConferenceSpeakersController do
       routes { Decidim::Conferences::Engine.routes }
 
       let(:organization) { create(:organization) }

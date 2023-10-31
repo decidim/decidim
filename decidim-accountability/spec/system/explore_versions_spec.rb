@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore versions", type: :system, versioning: true do
+describe "Explore versions", versioning: true do
   include_context "with a component"
   let(:manifest_name) { "accountability" }
 

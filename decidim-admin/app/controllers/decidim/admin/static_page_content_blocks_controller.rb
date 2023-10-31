@@ -6,8 +6,6 @@ module Decidim
     class StaticPageContentBlocksController < Decidim::Admin::ApplicationController
       include Decidim::Admin::ContentBlocks::LandingPageContentBlocks
 
-      layout "decidim/admin/pages"
-
       helper_method :page
 
       private

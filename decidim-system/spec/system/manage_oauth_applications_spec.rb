@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Manage OAuth applications", type: :system do
+describe "Manage OAuth applications" do
   include ActionView::Helpers::SanitizeHelper
 
   let(:admin) { create(:admin) }

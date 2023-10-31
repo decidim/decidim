@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Decidim::Initiatives::CommitteeRequestController", type: :system do
+describe "Decidim::Initiatives::CommitteeRequestController" do
   let(:organization) { create(:organization) }
   let(:initiative) { create(:initiative, :created, organization:) }
 

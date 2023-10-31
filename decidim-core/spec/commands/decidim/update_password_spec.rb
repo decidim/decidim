@@ -23,12 +23,23 @@ module Decidim
       end
 
       it "updates the users's password" do
+        original_password = user.encrypted_password
         expect { command.call }.to change(user, :password)
+        user.reload
+        expect(user.encrypted_password).not_to eq(original_password)
       end
 
       it "sets the password_updated_at to the current time" do
         expect { command.call }.to broadcast(:ok)
         expect(user.reload.password_updated_at).to be_between(2.seconds.ago, Time.current)
+      end
+
+      context "and the password has errors" do
+        let(:password) { "short" }
+
+        it "broadcasts invalid" do
+          expect { command.call }.to broadcast(:invalid)
+        end
       end
     end
   end

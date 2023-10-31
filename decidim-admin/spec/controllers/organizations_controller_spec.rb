@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe OrganizationController, type: :controller do
+    describe OrganizationController do
       routes { Decidim::Admin::Engine.routes }
 
       let(:organization) { create(:organization) }
