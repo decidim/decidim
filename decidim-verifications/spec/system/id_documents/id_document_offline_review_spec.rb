@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Identity document offline review", type: :system do
+describe "Identity document offline review" do
   let!(:organization) do
     create(
       :organization,

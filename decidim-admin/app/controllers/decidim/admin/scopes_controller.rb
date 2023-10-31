@@ -5,6 +5,8 @@ module Decidim
     # Controller that allows managing all scopes at the admin panel.
     #
     class ScopesController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Concerns::HasTabbedMenu
+
       layout "decidim/admin/settings"
 
       add_breadcrumb_item_from_menu :admin_settings_menu
@@ -72,6 +74,8 @@ module Decidim
       end
 
       private
+
+      def tab_menu_name = :admin_scopes_menu
 
       def organization_scopes
         current_organization.scopes

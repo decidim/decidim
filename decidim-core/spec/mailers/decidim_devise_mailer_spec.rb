@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe DecidimDeviseMailer, type: :mailer do
+  describe DecidimDeviseMailer do
     describe "confirmation_instructions" do
       let(:mail) { described_class.confirmation_instructions(user, "foo", {}) }
 

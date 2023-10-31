@@ -52,7 +52,10 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :amendments_enabled, type: :boolean, default: false
     settings.attribute :amendments_wizard_help_text, type: :text, translated: true, editor: true, required: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
-    settings.attribute :new_proposal_body_template, type: :text, translated: true, editor: true, required: false
+    settings.attribute :new_proposal_body_template,
+                       type: :text, translated: true,
+                       editor: ->(context) { context[:component].organization.rich_text_editor_in_public_views },
+                       required: false
     settings.attribute :new_proposal_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_1_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_2_help_text, type: :text, translated: true, editor: true

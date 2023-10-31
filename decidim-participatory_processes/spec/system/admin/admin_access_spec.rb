@@ -4,7 +4,7 @@ require "spec_helper"
 
 require "decidim/admin/test/admin_participatory_space_access_examples"
 
-describe "AdminAccess", type: :system do
+describe "AdminAccess" do
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, organization:, title: { en: "My space" }) }
   let(:other_participatory_space) { create(:participatory_process, organization:) }

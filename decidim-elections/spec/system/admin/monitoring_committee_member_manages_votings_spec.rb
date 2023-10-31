@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Monitoring committee member manages votings", type: :system do
+describe "Monitoring committee member manages votings" do
   include_context "when monitoring committee member manages voting"
 
   before do

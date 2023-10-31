@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Initiatives
-    describe CommitteeRequestsController, type: :controller do
+    describe CommitteeRequestsController do
       routes { Decidim::Initiatives::Engine.routes }
 
       let(:organization) { create(:organization) }

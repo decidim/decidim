@@ -724,3 +724,19 @@ Prior to 0.28, there was the possibility of configuring a list of disallowed pas
 - `DECIDIM_PASSWORD_BLACKLIST` becomes `DECIDIM_DENIED_PASSWORDS`
 
 You can read more about this change on PR [\#10288](https://github.com/decidim/decidim/pull/10288).
+
+### 5.6. Change in Initiatives configuration
+
+Initiatives configuration has a setting to enable a form to be printed for the creation of Initiatives.
+
+This used to be enabled by default, and now it's disabled.
+
+If you need to enable back, you can do so by setting the `INITIATIVES_PRINT_ENABLED` environment variable to `true`
+or if you have not migrated to the environment variables configurations (the default since v0.25.0), then you can do
+so by adding the following snippet in `config/initializers/decidim.rb`
+
+```ruby
+Decidim::Initiatives.configure do |config|
+  config.print_enabled = true
+end
+```

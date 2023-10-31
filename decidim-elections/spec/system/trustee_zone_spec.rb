@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Trustee zone", type: :system do
+describe "Trustee zone" do
   let(:organization) { create(:organization, :secure_context) }
   let(:user) { create(:user, :confirmed, organization:) }
   let(:trustee) { create(:trustee, user:, public_key:, organization:) }
