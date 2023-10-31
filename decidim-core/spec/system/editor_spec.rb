@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Editor", type: :system do
+describe "Editor" do
   include Decidim::FrontEndDataTestHelpers
   include Decidim::FrontEndFileTestHelpers
 

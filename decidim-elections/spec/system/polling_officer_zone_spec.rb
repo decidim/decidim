@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Polling Officer zone", type: :system do
+describe "Polling Officer zone" do
   let(:organization) { create(:organization, :secure_context) }
   let(:user) { create(:user, :confirmed, organization:) }
   let(:polling_officers) { [assigned_polling_officer, unassigned_polling_officer] }

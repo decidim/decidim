@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages voting component permissions", type: :system do
+describe "Admin manages voting component permissions" do
   include_examples "Managing component permissions" do
     let(:participatory_space_engine) { decidim_admin_votings }
     let(:user) { create(:user, :admin, :confirmed, organization:) }

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "UserRedirect", type: :system do
+describe "UserRedirect" do
   before do
     switch_to_host(organization.host)
   end

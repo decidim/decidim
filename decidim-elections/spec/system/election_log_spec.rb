@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Election log", :slow, type: :system do
+describe "Election log", :slow do
   include_context "with a component"
 
   let(:manifest_name) { "elections" }

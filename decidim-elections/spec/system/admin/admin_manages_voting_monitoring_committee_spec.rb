@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages the monitoring committee", type: :system do
+describe "Admin manages the monitoring committee" do
   include_context "when admin managing a voting"
 
   let(:other_user) { create(:user, organization:, email: "my_email@example.org") }

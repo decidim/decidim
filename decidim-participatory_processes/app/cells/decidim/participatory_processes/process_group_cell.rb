@@ -15,8 +15,6 @@ module Decidim
         case @options[:size]
         when :s
           "decidim/participatory_processes/process_group_s"
-        when :l
-          "decidim/participatory_processes/process_group_l"
         else
           "decidim/participatory_processes/process_group_g"
         end

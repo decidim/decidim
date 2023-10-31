@@ -107,7 +107,7 @@
   }
 
   &-reply::after {
-    @apply bg-gray inline-block absolute top-8 h-4/5 w-px z-0;
+    @apply bg-background-3 inline-block absolute top-8 h-4/5 w-px -z-10;
 
     content: "";
   }

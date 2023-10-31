@@ -21,22 +21,22 @@ on:
       bullet_enabled:
         description: 'Enable bullet performance testing'
         required: false
-        default: false
+        default: true
         type: boolean
       bullet_n_plus_one:
         description: 'Enable bullet n+1 testing'
         required: false
-        default: false
+        default: true
         type: boolean
       bullet_counter_cache:
         description: 'Enable bullet counter cache testing'
         required: false
-        default: false
+        default: true
         type: boolean
       bullet_unused_eager_loading:
         description: 'Enable bullet unused eager loading testing'
         required: false
-        default: false
+        default: true
         type: boolean
 
 jobs:
@@ -65,8 +65,8 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
       bulletin_board:
-        image: decidim/decidim-bulletin-board:0.24.1
-        ports: ["8000:8000"]
+        image: decidim/decidim-bulletin-board:0.24.4
+        ports: ["8000:3000"]
         env:
           DATABASE_URL: postgresql://postgres:postgres@postgres/bb
           RAILS_ENV: test

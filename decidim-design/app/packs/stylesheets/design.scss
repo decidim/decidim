@@ -84,6 +84,22 @@
 
 .design__section {
   @apply [&>*+*]:mt-6 [&>p]:text-gray-2;
+
+  &-snippet {
+    @apply mt-0;
+
+    p {
+      @apply bg-gray-3 px-4 py-2 text-sm text-gray-2;
+    }
+
+    a {
+      @apply text-secondary underline;
+    }
+
+    textarea {
+      @apply w-full text-sm;
+    }
+  }
 }
 
 .design__table {

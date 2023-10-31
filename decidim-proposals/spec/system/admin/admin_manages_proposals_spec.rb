@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages proposals", type: :system do
+describe "Admin manages proposals" do
   let(:manifest_name) { "proposals" }
   let!(:proposal) { create(:proposal, component: current_component) }
   let!(:reportables) { create_list(:proposal, 3, component: current_component) }
@@ -12,6 +12,7 @@ describe "Admin manages proposals", type: :system do
 
   include_context "when managing a component as an admin"
 
+  it_behaves_like "manage settings"
   it_behaves_like "manage proposals"
   it_behaves_like "manage moderations"
   it_behaves_like "export proposals"

@@ -45,6 +45,13 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
+    banner_image = ActiveStorage::Blob.create_and_upload!(
+      io: File.open(File.join(seeds_root, "city2.jpeg")),
+      filename: "banner_image.jpeg",
+      content_type: "image/jpeg",
+      metadata: nil
+    )
+
     3.times do |n|
       params = {
         organization:,
@@ -54,12 +61,7 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first,
-        banner_image: ActiveStorage::Blob.create_and_upload!(
-          io: File.open(File.join(seeds_root, "city.jpeg")),
-          filename: "banner_image.jpeg",
-          content_type: "image/jpeg",
-          metadata: nil
-        ), # Keep after organization
+        banner_image: Faker::Boolean.boolean(true_ratio: 0.5) ? banner_image : nil, # Keep after organization
         published_at: 2.weeks.ago,
         start_time: n.weeks.from_now,
         end_time: (n + 1).weeks.from_now + 4.hours,

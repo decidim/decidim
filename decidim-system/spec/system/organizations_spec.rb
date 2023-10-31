@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Organizations", type: :system do
+describe "Organizations" do
   let(:admin) { create(:admin) }
 
   shared_examples "form hiding advanced settings" do
@@ -28,6 +28,18 @@ describe "Organizations", type: :system do
 
       it_behaves_like "form hiding advanced settings"
 
+      it "has some fields filled by default" do
+        expect(find(:xpath, "//input[@id='organization_host']").value).to eq("127.0.0.1")
+        expect(find(:xpath, "//input[@id='organization_organization_admin_name']").value).to eq(admin.email.split("@")[0])
+        expect(find(:xpath, "//input[@id='organization_organization_admin_email']").value).to eq(admin.email)
+        within "table" do
+          expect(all("input[type=checkbox]")).to all(be_checked)
+          expect(find(:xpath, "//input[@name='organization[default_locale]']", match: :first)).to be_checked
+        end
+        expect(find(:xpath, "//input[@name='organization[users_registration_mode]']", match: :first).value).to eq("enabled")
+        expect(find(:xpath, "//input[@name='organization[users_registration_mode]']", match: :first)).to be_checked
+      end
+
       it "creates a new organization" do
         fill_in "Name", with: "Citizen Corp"
         fill_in "Host", with: "www.example.org"
@@ -41,7 +53,12 @@ describe "Organizations", type: :system do
         check "Example authorization (Direct)"
         click_button "Create organization & invite admin"
 
-        expect(page).to have_css("div.flash.success")
+        within ".flash__message" do
+          expect(page).to have_content("Organization successfully created.")
+          expect(page).to have_content("config/environment/production.rb")
+          expect(page).to have_content("config.hosts << \"www.example.org\"")
+          expect(page).to have_content("mayor@example.org")
+        end
         expect(page).to have_content("Citizen Corp")
       end
 
@@ -52,24 +69,6 @@ describe "Organizations", type: :system do
 
           expect(page).to have_content("There is an error in this field")
         end
-      end
-    end
-
-    describe "showing an organization with different locale than user" do
-      let!(:organization) do
-        create(:organization, name: "Citizen Corp", default_locale: :es, available_locales: ["es"], description: { es: "Un texto largo" })
-      end
-
-      before do
-        click_link "Organizations"
-        within "table tbody" do
-          first("tr").click_link "Citizen Corp"
-        end
-      end
-
-      it "shows the organization data" do
-        expect(page).to have_content("Citizen Corp")
-        expect(page).to have_content("Un texto largo")
       end
     end
 

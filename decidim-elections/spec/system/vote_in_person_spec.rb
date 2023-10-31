@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Polling Officer zone", type: :system do
+describe "Polling Officer zone" do
   let(:manifest_name) { "elections" }
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:election) { create(:election, :complete, :bb_test, :vote, component:) }
