@@ -28,6 +28,18 @@ describe "Organizations" do
 
       it_behaves_like "form hiding advanced settings"
 
+      it "has some fields filled by default" do
+        expect(find(:xpath, "//input[@id='organization_host']").value).to eq("127.0.0.1")
+        expect(find(:xpath, "//input[@id='organization_organization_admin_name']").value).to eq(admin.email.split("@")[0])
+        expect(find(:xpath, "//input[@id='organization_organization_admin_email']").value).to eq(admin.email)
+        within "table" do
+          expect(all("input[type=checkbox]")).to all(be_checked)
+          expect(find(:xpath, "//input[@name='organization[default_locale]']", match: :first)).to be_checked
+        end
+        expect(find(:xpath, "//input[@name='organization[users_registration_mode]']", match: :first).value).to eq("enabled")
+        expect(find(:xpath, "//input[@name='organization[users_registration_mode]']", match: :first)).to be_checked
+      end
+
       it "creates a new organization" do
         fill_in "Name", with: "Citizen Corp"
         fill_in "Host", with: "www.example.org"
