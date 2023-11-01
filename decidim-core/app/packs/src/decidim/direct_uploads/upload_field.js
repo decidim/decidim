@@ -1,5 +1,6 @@
 import UploadModal from "src/decidim/direct_uploads/upload_modal";
 import { truncateFilename, createHiddenInput } from "src/decidim/direct_uploads/upload_utility";
+import { escapeHtml } from "src/decidim/utilities/text";
 
 const loadAttachments = (modal) => {
   Array.from(modal.activeAttachments.children).forEach((child) => {
@@ -80,9 +81,9 @@ const addSaveButtonEventListener = (modal) => {
           details.appendChild(hiddenTitleField);
           details.appendChild(hiddenIdField);
         }
-        span.innerHTML = `${title} (${truncateFilename(item.dataset.filename)})`;
+        span.innerHTML = `${escapeHtml(title)} (${escapeHtml(truncateFilename(item.dataset.filename))})`;
       } else {
-        span.innerHTML = truncateFilename(item.dataset.filename, 19);
+        span.innerHTML = escapeHtml(truncateFilename(item.dataset.filename, 19));
       }
       span.style.display = "block";
     });

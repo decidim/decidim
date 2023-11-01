@@ -72,7 +72,7 @@ export default class UploadModal {
         const attachmentDetails = document.createElement("div");
         attachmentDetails.classList.add("attachment-details");
         attachmentDetails.dataset.fileid = uploadItem.dataset.fileid;
-        attachmentDetails.dataset.filename = escapeHtml(file.name);
+        attachmentDetails.dataset.filename = file.name;
         const titleAndFileNameSpan = document.createElement("span");
         titleAndFileNameSpan.style.display = "none";
         attachmentDetails.appendChild(titleAndFileNameSpan);
@@ -130,7 +130,7 @@ export default class UploadModal {
     const wrapper = document.createElement("div");
     wrapper.classList.add("upload-item");
     wrapper.setAttribute("data-fileid", Math.random().toString(36).substring(7));
-    wrapper.setAttribute("data-filename", escapeHtml(fileName));
+    wrapper.setAttribute("data-filename", fileName);
 
     const firstRow = document.createElement("div");
     const secondRow = document.createElement("div");
