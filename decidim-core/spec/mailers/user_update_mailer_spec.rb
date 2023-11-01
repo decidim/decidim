@@ -17,7 +17,7 @@ module Decidim
         end
 
         it "includes the updates list" do
-          expect(email_body(mail)).to include("field1, field2, and field3")
+          expect(email_body(mail)).to include("field1, field2 and field3")
         end
 
         it "includes organization name" do
