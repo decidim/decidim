@@ -189,6 +189,8 @@ en:
             The style-src directive restricts the URLs which can be loaded using <style> elements.
             The platform will add "'self' 'unsafe-inline'", but allows you to add more. leave it blank if you are unsure.
         edit:
+          confirm_resend_invitation: Are you sure you want to resend the invitation?
+          resend_invitation: Resend invitation
           secondary_hosts_hint: Enter each one of them in a new line
           title: Edit organization
         file_upload_settings:
@@ -237,6 +239,9 @@ en:
           twitter:
             api_key: API key
             api_secret: API secret
+        resend_invitation:
+          error: There was a problem sending the invitation.
+          success: Invitation successfully sent.
         smtp_settings:
           fieldsets:
             sender: Sender
@@ -256,6 +261,9 @@ en:
         notices:
           no_organization_warning_html: You must create an organization to get started. Make sure you read %{guide} before proceeding.
           our_getting_started_guide: our getting started guide
+        organizations_list:
+          confirm_resend_invitation: Are you sure you want to resend the invitation?
+          resend_invitation: Resend invitation
       titles:
         dashboard: Dashboard
         decidim: Decidim
