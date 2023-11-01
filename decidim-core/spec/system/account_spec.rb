@@ -196,7 +196,8 @@ describe "Account" do
           perform_enqueued_jobs
           perform_enqueued_jobs
 
-          expect(emails.count).to eq(2)
+          # the emails also include the update email notification
+          expect(emails.count).to eq(3)
           visit last_email_link
           expect(page).to have_content("Your email address has been successfully confirmed")
         end
