@@ -88,10 +88,10 @@ ja:
         single_comment_link_title: リンク取得
       comment_order_selector:
         order:
-          best_rated: 最高評価
-          most_discussed: 最も議論されたもの
+          best_rated: 評価の高い順
+          most_discussed: 議論数の多い順
           older: 古い順
-          recent: 最近のもの
+          recent: 新しい順
         title: '並び順：'
       comment_thread:
         title: '%{authorName} との会話'
@@ -130,7 +130,7 @@ ja:
           email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> より <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>.
         comment_created:
-          email_intro: "%{resource_title} はコメントされました。このページでコメントを読むことができます："
+          email_intro: "%{resource_title} にコメントがありました。このページでコメントを読むことができます："
           email_outro: '"%{resource_title}" 、またはその参加者をフォローしているためこの通知を受け取りました。前のリンクからフォローを解除することができます。'
           email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> から <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>

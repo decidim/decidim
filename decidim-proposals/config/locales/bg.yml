@@ -217,6 +217,10 @@ bg:
           email_intro: Предложението "%{resource_title}" беше добавено в "%{participatory_space_title}", което следвате.
           email_outro: Получавате това известие, защото следвате "%{participatory_space_title}". Може да прекратите известията чрез предната връзка.
     proposals:
+      admin:
+        proposals:
+          show:
+            proposals: Предложения
       content_blocks:
         highlighted_proposals:
           proposals: Предложения

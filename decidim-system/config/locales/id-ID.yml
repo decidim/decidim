@@ -48,7 +48,6 @@ id:
           fields:
             created_at: Dibuat di
             name: Nama
-          name: Organisasi
       organizations:
         create:
           error: Terjadi masalah saat membuat organisasi baru.

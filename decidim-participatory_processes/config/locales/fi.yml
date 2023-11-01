@@ -207,8 +207,8 @@ fi:
           error: Osallistumisprosessin julkaisu epäonnistui.
           success: Osallistumisprosessin julkaisu onnistui.
         destroy:
-          error: Osallistumisprosessin julkaisun peruminen epäonnistui.
-          success: Osallistumisprosessin julkaisun lopetus onnistui.
+          error: Osallistumisprosessin julkaisun lopettaminen epäonnistui.
+          success: Osallistumisprosessin julkaisun lopettaminen onnistui.
       participatory_process_step_activations:
         create:
           error: Osallistumisprosessin vaiheen aktivointi epäonnistui.
@@ -403,16 +403,21 @@ fi:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_copies:
+          form:
+            slug_help: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
         participatory_process_groups:
           form:
             metadata: Metatiedot
-            title: Yleiset tiedot
+            title: Yleistä tietoa
             visibility: Näkyvyys
         participatory_process_imports:
           form:
             document_legend: Lisää asiakirja
+            slug_help: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
         participatory_process_steps:
           form:
+            cta_path_help: 'Käytä osittaisia ​​polkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, väliviivat ja kauttaviivat. Arvon täytyy alkaa kirjaimella. Jos asetusta ei ole asetettu, painiketta ei näytetä. Esimerkki: %{url}'
             cta_text_help: Jos asetusta ei ole asetettu, painiketta ei näytetä.
         participatory_processes:
           form:
@@ -427,6 +432,7 @@ fi:
             select_an_area: Valitse alue
             select_participatory_process_type: Valitse prosessityyppi
             select_process_group: Valitse prosessiryhmä
+            slug_help: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
             title: Yleistä tietoa
             visbility: Näkyvyys
       content_blocks:

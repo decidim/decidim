@@ -119,12 +119,25 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing a scope" do
       before do
-        visit decidim_participatory_processes.participatory_processes_path(filter: { with_scope: scope.id })
+        visit decidim_participatory_processes.participatory_processes_path(filter: { with_any_scope: [scope.id] })
       end
 
       it "lists all processes belonging to that scope" do
         expect(page).to have_content(translated(process_with_scope.title))
         expect(page).not_to have_content(translated(process_without_scope.title))
+      end
+
+      context "and unselecting the scope again" do
+        before do
+          within "#participatory-space-filters" do
+            click_link translated(scope.name)
+          end
+        end
+
+        it "lists all processes" do
+          expect(page).to have_content(translated(process_with_scope.title))
+          expect(page).to have_content(translated(process_without_scope.title))
+        end
       end
     end
   end

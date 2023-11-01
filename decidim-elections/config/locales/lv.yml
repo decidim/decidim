@@ -93,10 +93,6 @@ lv:
         models:
           answer:
             name: Atbilde
-          election:
-            name: Vēlēšanas
-          question:
-            name: Jautājums
         proposals_imports:
           create:
             invalid: Importējot priekšlikumus atbildēs, radās problēma

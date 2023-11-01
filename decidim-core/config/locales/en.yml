@@ -534,6 +534,8 @@ en:
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
+        create:
+          error: There was a problem creating your account.
         new:
           already_have_an_account?: Already have an account?
           newsletter: Receive an occasional newsletter with relevant information
@@ -1708,6 +1710,7 @@ en:
       not_saved:
         one: 'There''s been an error processing your request:'
         other: 'There were multiple errors when processing your request:'
+      password_confirmation_message: '"Confirm your password" does not match Password'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
       too_short: is too short (under %{count} characters)
@@ -1804,7 +1807,7 @@ en:
         facebook: "%{organization} at Facebook"
         github: "%{organization} at GitHub"
         instagram: "%{organization} at Instagram"
-        twitter: "%{organization} at Twitter"
+        x: "%{organization} at X"
         youtube: "%{organization} at YouTube"
       timeout_modal:
         body: You have been inactive for %{minutes} minutes. If you continue being inactive, you will be automatically signed out for your own security.
@@ -1871,6 +1874,7 @@ en:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:

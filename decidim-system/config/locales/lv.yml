@@ -50,7 +50,6 @@ lv:
             name: Nosaukums
             omniauth_settings: Omniauth iestatījumi
             smtp_settings: SMTP iestatījumi
-          name: Organizācija
       organizations:
         create:
           error: Jaunas organizācijas izveides laikā radās problēma.

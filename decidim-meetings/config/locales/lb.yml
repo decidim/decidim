@@ -151,6 +151,8 @@ lb:
         registration_code_validated:
           email_intro: Ihr Registrierungscode "%{registration_code}" für die Sitzung "%{resource_title}" wurde bestätigt.
     meetings:
+      actions:
+        new: Nei Versammlung
       admin:
         agenda:
           edit:

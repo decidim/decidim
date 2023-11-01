@@ -108,7 +108,7 @@ pt:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          info: Info
+          info: Informação
           moderations: Moderações
           private_users: Participantes privados
           process_admins: Administradores de processo
@@ -214,6 +214,9 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar esta fase do processo participativo.
           success: Fase participativa atualizada corretamente.
+      participatory_process_types:
+        form:
+          title: Título
       participatory_process_user_roles:
         create:
           error: Ocorreu um problema ao adicionar um participante para este processo participativo.

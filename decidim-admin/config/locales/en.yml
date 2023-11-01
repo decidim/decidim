@@ -93,7 +93,7 @@ en:
         success_color: Success
         time_zone: Time Zone
         tos_version: Terms of service version
-        twitter_handler: Twitter handler
+        twitter_handler: X handler
         user_groups_enabled: Enable groups
         users_registration_mode: Users registration mode
         warning_color: Warning
@@ -799,7 +799,7 @@ en:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
           social_handlers: Social
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:

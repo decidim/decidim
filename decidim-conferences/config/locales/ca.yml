@@ -428,7 +428,7 @@ ca:
         pending_validation:
           confirmation_pending: Rebràs la confirmació en breu
           details: 'La teva inscripció a la jornada és de tipus %{registration_type} amb un cost de %{price} i pots assistir als següents esdeveniments:'
-          pending_html: La teva inscripció a la jornada <a href="%{url}">%{title}</a> està pendent de confirmación.
+          pending_html: La teva inscripció a la jornada <a href="%{url}">%{title}</a> està pendent de confirmació.
       conference_registrations:
         create:
           invalid: S'ha produït un error en inscriure't a aquesta jornada.

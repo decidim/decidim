@@ -1030,9 +1030,9 @@ ja:
       users_statistics:
         users_count:
           admins: 管理者
-          last_day: 過去24時間
-          last_month: 過去1ヶ月間
-          last_week: 過去1週間
+          last_day: 直近24時間
+          last_month: 直近1ヶ月間
+          last_week: 直近1週間
           no_users_count_statistics_yet: まだユーザー数の統計がありません
           participants: 参加者
       view_public_page: 公開ページを表示

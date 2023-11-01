@@ -317,6 +317,7 @@ module Decidim
       template = ""
       template += "<label>#{label_for(attribute) + required_for_attribute(attribute)}</label>" unless options[:label] == false
       template += @template.render("decidim/scopes/scopes_picker_input",
+                                   values_options: { delete_button: true, class: "label primary" },
                                    picker_options: picker_options,
                                    prompt_params: prompt_params,
                                    scopes: scopes,

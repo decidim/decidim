@@ -146,7 +146,7 @@ describe "Authentication", type: :system do
         it "redirects the user to a finish signup page" do
           find(".sign-up-link").click
 
-          click_link "Sign in with Twitter"
+          click_link "Sign in with X"
 
           expect(page).to have_content("Successfully")
           expect(page).to have_content("Please complete your profile")
@@ -162,7 +162,7 @@ describe "Authentication", type: :system do
             create(:user, :confirmed, email: "user@from-twitter.com", organization: organization)
             find(".sign-up-link").click
 
-            click_link "Sign in with Twitter"
+            click_link "Sign in with X"
 
             expect(page).to have_content("Successfully")
             expect(page).to have_content("Please complete your profile")
@@ -184,7 +184,7 @@ describe "Authentication", type: :system do
         it "creates a new User" do
           find(".sign-up-link").click
 
-          click_link "Sign in with Twitter"
+          click_link "Sign in with X"
 
           expect_user_logged
         end

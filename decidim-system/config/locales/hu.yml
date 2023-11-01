@@ -50,7 +50,6 @@ hu:
             name: Név
             omniauth_settings: Omniauth beállítások
             smtp_settings: SMTP beállítások
-          name: Szervezet
       organizations:
         create:
           error: Hiba történt az új szervezet létrehozása során.

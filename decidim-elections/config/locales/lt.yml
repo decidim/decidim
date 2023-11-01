@@ -865,7 +865,6 @@ lt:
             timeline:
               name: Balsavimo laiko juosta
         index:
-          not_published: Nebeskelbiama
           published: Paskelbta
         landing_page:
           content_blocks:

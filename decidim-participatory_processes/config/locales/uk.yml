@@ -91,7 +91,6 @@ uk:
           attachments: Вкладені файли
           categories: Категорії
           components: Складові
-          info: Відомості
           moderations: Дії з модерації
           private_users: Приватні учасники
           process_admins: Учасники руху
@@ -178,6 +177,9 @@ uk:
         update:
           error: При спробі оновити цей крок руху співучасті сталася помилка.
           success: Крок руху співучасті успішно оновлено.
+      participatory_process_types:
+        form:
+          title: Назва
       participatory_process_user_roles:
         create:
           error: При спробі додати учасника в цей рух співучасті сталася помилка.
@@ -270,6 +272,9 @@ uk:
         title: Кроки руху співучасті
     participatory_processes:
       admin:
+        participatory_process_groups:
+          form:
+            title: Загальні відомості
         participatory_processes:
           form:
             announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.

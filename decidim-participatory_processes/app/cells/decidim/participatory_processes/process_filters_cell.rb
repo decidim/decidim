@@ -34,7 +34,7 @@ module Decidim
         {
           filter: {
             with_date: date_filter,
-            with_scope: get_filter(:with_scope),
+            with_any_scope: get_filter(:with_any_scope),
             with_area: get_filter(:with_area),
             with_type: type_filter || get_filter(:with_type)
           }
@@ -45,7 +45,7 @@ module Decidim
         query = ParticipatoryProcess.where(organization: current_organization).ransack(
           {
             with_date: date_filter,
-            with_scope: get_filter(:with_scope),
+            with_any_scope: get_filter(:with_any_scope),
             with_area: get_filter(:with_area),
             with_type: filter_with_type ? get_filter(:with_type) : nil
           },

@@ -473,7 +473,7 @@ it:
               one: e 1 altro
               other: e altri %{count}
             photos: Foto
-            proposals: proposte
+            proposals: Proposte
             ranking: "%{ranking} di %{total}"
             related_meetings: Riunioni correlate
             remove_assignment: Rimuovi assegnazione

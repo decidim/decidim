@@ -98,7 +98,6 @@ lv:
           attachments: Pielikumi
           categories: Kategorijas
           components: Komponenti
-          info: Informācija
           moderations: Moderācijas
           private_users: Privātie dalībnieki
           process_admins: Procesa administratori
@@ -195,6 +194,9 @@ lv:
         update:
           error: Šīs līdzdalības procesa fāzes atjaunināšanas laikā radās problēma.
           success: Līdzdalības procesa fāze ir veiksmīgi atjaunināta.
+      participatory_process_types:
+        form:
+          title: Nosaukums
       participatory_process_user_roles:
         create:
           error: Pievienojot dalībnieku šim līdzdalības procesam, radās problēma.
@@ -315,6 +317,9 @@ lv:
         content_blocks:
           highlighted_processes:
             max_results: Maksimālais parādāmo elementu daudzums
+        participatory_process_groups:
+          form:
+            title: Vispārēja informācija
         participatory_process_imports:
           form:
             document_legend: Pievienot dokumentu

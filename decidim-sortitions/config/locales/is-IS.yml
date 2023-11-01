@@ -28,6 +28,7 @@ is:
         actions:
           destroy: Hætta við flokkunina
           edit: Breyta
+          new: Ný flokkun
           show: Uppsetningarupplýsingar
         models:
           sortition:
@@ -41,9 +42,6 @@ is:
               seed: Fræ
               target_items: Atriði til að velja
               title: Titill
-            name:
-              one: Flokkun
-              other: Flokkanir
         sortitions:
           confirm_destroy:
             confirm_destroy: Ertu viss um að þú viljir hætta við þessa flokkun?

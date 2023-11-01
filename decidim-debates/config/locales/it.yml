@@ -83,7 +83,7 @@ it:
           comments: Commenti
         models:
           debate:
-            name: Dibattito
+            name: Discussione
       admin_log:
         debate:
           close: "%{user_name} ha chiuso il dibattito %{resource_name} sullo spazio %{space_name}"

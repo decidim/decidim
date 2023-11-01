@@ -329,6 +329,9 @@ fi-pl:
         title: Puhujat
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         conference_invites:
           create:
             error: Käyttäjän kutsumisessa konferenssiin esiintyi ongelma.
@@ -370,6 +373,7 @@ fi-pl:
             registrations_count:
               one: Ilmoittautumisia on 1 kpl.
               other: Ilmoittautumisia on %{count} kpl.
+            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         diplomas:
           edit:
             save: Tallenna

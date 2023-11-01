@@ -105,7 +105,7 @@ lb:
           attachments: Unhäng
           categories: Kategorien
           components: Komponenten
-          info: Informatioun
+          info: Info
           moderations: Moderationen
           private_users: Private Benutzer
           process_admins: Benutzer verarbeiten
@@ -169,6 +169,9 @@ lb:
         update:
           error: Beim Aktualisieren dieser partizipativen Prozessgruppe ist ein Fehler aufgetreten.
           success: Partizipative Prozessgruppe wurde erfolgreich aktualisiert.
+      participatory_process_types:
+        form:
+          title: Titel
       titles:
         participatory_process_groups: Prozessgruppen
         participatory_processes: Bedeelegungsprozesser

@@ -54,7 +54,7 @@ describe "Filter Assemblies", type: :system do
 
     context "and choosing a scope" do
       before do
-        visit decidim_assemblies.assemblies_path(filter: { with_scope: scope.id })
+        visit decidim_assemblies.assemblies_path(filter: { with_any_scope: [scope.id] })
       end
 
       it "lists all processes belonging to that scope" do

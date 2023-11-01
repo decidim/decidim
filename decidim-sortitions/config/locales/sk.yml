@@ -38,7 +38,7 @@ sk:
         actions:
           destroy: Zrušiť voľbu losovaním
           edit: Upraviť
-          new: Nová voľba losovaním
+          new: Nové rozvrhnutie
           show: Podrobnosti o voľbe losovaním
         models:
           sortition:

@@ -207,7 +207,7 @@ module Decidim
     ransacker_i18n :title
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_date, :with_area, :with_scope, :with_type]
+      [:with_date, :with_area, :with_any_scope, :with_type]
     end
   end
 end

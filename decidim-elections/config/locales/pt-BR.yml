@@ -723,7 +723,6 @@ pt-BR:
             description:
               name: Descrição da votação
         index:
-          not_published: Despublicado
           published: Publicado
         landing_page:
           content_blocks:

@@ -637,7 +637,6 @@ nl:
             description:
               name: Beschrijving stemronde
         index:
-          not_published: Niet-gepubliceerd
           published: Gepubliceerd
         landing_page:
           content_blocks:

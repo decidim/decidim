@@ -226,7 +226,7 @@ eu:
             success: Ekimena balioztatze teknikora bidali da
             update: eguneratzearen
           form:
-            attachments: Erantsitako artxiboak
+            attachments: Erantsita
             settings: Ezarpenak
             title: Informazio orokorra
           index:

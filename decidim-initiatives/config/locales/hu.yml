@@ -301,7 +301,7 @@ hu:
             child_scope_threshold_enabled_help: 'Ez a konfigurációs jelző nem támogatja az offline szavazást. Engedélyezi az altartományokat, és egy olyan engedélyezési kezelővel működik, amely egy tartományt társít a felhasználóhoz. Győződjön meg róla, hogy ezt a jogosultságot választja ki, alább az engedélyezési beállításoknál. A működéséhez a hatóköröket hierarchikusan kell konfigurálni: 1 Szülő - N gyermek. A konfiguráció működéséről bővebb információért lásd a következő oldalon <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">kezdeményezések admin dokumentációs oldalán</a>.'
             only_global_scope_enabled_help: Jelölje be ezt a jelölőnégyzetet, ha engedélyezte a "Gyermek hatókör aláírás" opciót, és a globális hatókörét szülő hatókörként konfigurálta. Ennek engedélyezésével a kezdeményezés típusának kiválasztása kihagyásra kerül a kezdeményezés létrehozására szolgáló varázslóban. A konfiguráció működésével kapcsolatos további információkért lásd ezt a cikket<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Opciók
-            title: Általános információk
+            title: Általános információ
           initiative_type_scopes:
             title: Kezdeményezés típusának hatásköre
           new:
