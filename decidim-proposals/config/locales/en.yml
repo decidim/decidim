@@ -400,6 +400,7 @@ en:
         participatory_texts: Participatory texts
         show: Show proposal
         title: Actions
+        new_proposal_state: New proposal state
       admin:
         proposal_states:
           update:
