@@ -42,6 +42,13 @@ module Decidim
 
       component_manifest_name "proposals"
 
+
+      belongs_to :proposal_state,
+                 class_name: "Decidim::Proposals::ProposalState",
+                 foreign_key: "decidim_proposals_proposal_state_id",
+                 inverse_of: :proposals,
+                 optional: true
+      
       has_many :votes,
                -> { final },
                foreign_key: "decidim_proposal_id",
