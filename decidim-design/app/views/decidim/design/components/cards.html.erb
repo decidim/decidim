@@ -9,32 +9,32 @@
 <% end %>
 
 <section id="types" class="design__section">
-  <h2 class="design__heading__3xl">Types</h2>
+  <h2>Types</h2>
 
-  <h3 class="design__heading__xl">Card L <span class="label">list</span></h3>
+  <h3>Card L <span class="label">list</span></h3>
 
   <%= render partial: "decidim/design/components/cards/static-card-l" %>
   <%= render partial: "decidim/design/components/cards/static-card-l" %>
 
-  <h3 class="design__heading__xl">Card G <span class="label">grid</span></h3>
+  <h3>Card G <span class="label">grid</span></h3>
 
   <div class="card__grid-grid">
     <%= render partial: "decidim/design/components/cards/static-card-g" %>
     <%= render partial: "decidim/design/components/cards/static-card-g" %>
   </div>
 
-  <h3 class="design__heading__xl">Card S <span class="label">search</span></h3>
+  <h3>Card S <span class="label">search</span></h3>
 
   <%= render partial: "decidim/design/components/cards/static-card-s" %>
   <%= render partial: "decidim/design/components/cards/static-card-s" %>
 </section>
 
 <section id="variations" class="design__section">
-  <h2 class="design__heading__3xl">Variations</h2>
+  <h2>Variations</h2>
 
   <p>Each card will look like different regarding the properties of the resource displayed. You can override such behaviour in the specific cell.</p>
 
-  <h3 class="design__heading__xl">Metadata items</h3>
+  <h3>Metadata items</h3>
 
   <div class="card__grid-grid">
     <%= render partial: "decidim/design/components/cards/static-card-g-metadata" %>
@@ -43,31 +43,31 @@
 
   <p>Each resource define its own metadata items</p>
 
-  <h3 class="design__heading__xl">Highlight</h3>
+  <h3>Highlight</h3>
 
   <%= render partial: "decidim/design/components/cards/static-card-g-highlight" %>
 
   <p>Used by resources who allow to highlight</p>
 
-  <h3 class="design__heading__xl">Image and description</h3>
+  <h3>Image and description</h3>
 
   <%= render partial: "decidim/design/components/cards/static-card-l-image" %>
 
   <p>Used by <i>Blogs</i> cards</p>
 
-  <h3 class="design__heading__xl">Description</h3>
+  <h3>Description</h3>
 
   <%= render partial: "decidim/design/components/cards/static-card-l-description" %>
 
   <p>Used by <i>Debates</i> cards</p>
 
-  <h3 class="design__heading__xl">Use different template for the image block</h3>
+  <h3>Use different template for the image block</h3>
 
   <%= render partial: "decidim/design/components/cards/static-card-l-meetings" %>
 
   <p>Used by <i>Meetings</i> cards</p>
 
-  <h3 class="design__heading__xl">Use the extra_data block</h3>
+  <h3>Use the extra_data block</h3>
 
   <%# NOTE: since the cards belogn to a separate module, we need to import its styles %>
   <%= append_stylesheet_pack_tag "decidim_accountability" %>
@@ -83,7 +83,7 @@
 </section>
 
 <section id="sourcecode" class="design__section">
-  <h2 class="design__heading__3xl">Source code</h2>
+  <h2>Source code</h2>
 
   <table class="design__table">
     <thead>
