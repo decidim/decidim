@@ -7,10 +7,6 @@
     }
   }
 
-  &__container {
-    @apply flex flex-col gap-8;
-  }
-
   &__actions {
     @apply flex flex-col md:flex-row justify-between items-center gap-10;
 

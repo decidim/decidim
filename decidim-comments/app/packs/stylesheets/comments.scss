@@ -325,9 +325,3 @@
     @apply text-md;
   }
 }
-
-[id^="comments-for"]:not(:first-child) {
-  --vertical-spacing: 2.5rem;
-
-  @apply mt-[var(--vertical-spacing)] md:mt-0;
-}
