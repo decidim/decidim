@@ -11,25 +11,25 @@
       <thead>
         <tr>
           <th class="!text-left">
-            <%= t("models.proposal_state.title", scope: 'decidim.proposals') %>
+            <%= t("models.proposal_state.title", scope: "decidim.proposals") %>
           </th>
           <th>
-            <%= t("models.proposal_state.token", scope: 'decidim.proposals') %>
+            <%= t("models.proposal_state.token", scope: "decidim.proposals") %>
           </th>
           <th>
-            <%= t("models.proposal_state.system", scope: 'decidim.proposals') %>
+            <%= t("models.proposal_state.system", scope: "decidim.proposals") %>
           </th>
           <th>
-            <%= t("models.proposal_state.default", scope: 'decidim.proposals') %>
+            <%= t("models.proposal_state.default", scope: "decidim.proposals") %>
           </th>
           <th>
-            <%= t("models.proposal_state.css_class", scope: 'decidim.proposals') %>
+            <%= t("models.proposal_state.css_class", scope: "decidim.proposals") %>
           </th>
           <th class="actions"><%= t("actions.title", scope: "decidim.proposals") %></th>
         </tr>
       </thead>
       <tbody>
-        <% proposal_states.each do |state|%>
+        <% proposal_states.each do |state| %>
           <tr>
             <td>
               <%= translated_attribute(state.title) %>
@@ -50,7 +50,7 @@
               <% end %>
               <% if allowed_to?(:destroy, :proposal_state, proposal_state: state) && !state.system? %>
                 <%= icon_link_to "delete-bin-line", proposal_state_path(state), t("actions.destroy", scope: "decidim.proposals"), method: :delete, data: { confirm: t("actions.delete_proposal_state_confirm", scope: "decidim.proposals") }, class: "action-icon--delete-proposal" %>
-              <% end%>
+              <% end %>
             </td>
           </tr>
         <% end %>

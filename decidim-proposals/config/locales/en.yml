@@ -1,6 +1,5 @@
 ---
 en:
-
   activemodel:
     attributes:
       collaborative_draft:
@@ -392,33 +391,16 @@ en:
         see_all: See all proposals
     proposals:
       actions:
-        edit_proposal_state: Edit proposal state
         answer_proposal: Answer proposal
         edit_proposal: Edit proposal
+        edit_proposal_state: Edit proposal state
         import: Import proposals from another component
         new: New proposal
+        new_proposal_state: New proposal state
         participatory_texts: Participatory texts
         show: Show proposal
         title: Actions
-        new_proposal_state: New proposal state
       admin:
-        proposal_states:
-          update:
-            success: Proposal state updated successfully
-            error: Error updating proposal state
-          edit:
-            update: Update
-            title: Edit proposal state
-          destroy:
-            success: Proposal state deleted successfully
-          create:
-            success: Proposal state created successfully
-            error: Error creating proposal state
-          new:
-            create: Create
-            title: New proposal state
-          index:
-            title: Proposal states
         actions:
           preview: Preview
         exports:
@@ -507,6 +489,23 @@ en:
             submit: Submit
           leave_your_note: Leave your note
           title: Private notes
+        proposal_states:
+          create:
+            error: Error creating proposal state
+            success: Proposal state created successfully
+          destroy:
+            success: Proposal state deleted successfully
+          edit:
+            title: Edit proposal state
+            update: Update
+          index:
+            title: Proposal states
+          new:
+            create: Create
+            title: New proposal state
+          update:
+            error: Error updating proposal state
+            success: Proposal state updated successfully
         proposals:
           answer:
             invalid: There has been a problem answering this proposal.
@@ -750,13 +749,6 @@ en:
         new_proposal: 'New proposal:'
         proposal_updated: 'Proposal updated:'
       models:
-        proposal_state:
-          token: Token
-          title: Proposal state
-          default: Default
-          system: System
-          css_class: CSS class
-          include_in_stats: Include in stats
         proposal:
           fields:
             category: Category
@@ -772,6 +764,13 @@ en:
             valuator: Valuator
             valuators: Valuators
             votes: Votes
+        proposal_state:
+          css_class: CSS class
+          default: Default
+          include_in_stats: Include in stats
+          system: System
+          title: Proposal state
+          token: Token
       new:
         limit_reached: You cannot create new proposals since you have exceeded the limit.
       participatory_text_proposal:

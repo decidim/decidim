@@ -18,7 +18,7 @@ module Decidim
         let(:proposal_state) { create(:proposal_state, :accepted, component:) }
 
         it "prevents deletion" do
-          expect { proposal_state.destroy }.not_to change { Decidim::Proposals::ProposalState.count }
+          expect { proposal_state.destroy }.not_to change(Decidim::Proposals::ProposalState, :count)
         end
       end
     end

@@ -244,12 +244,12 @@ FactoryBot.define do
 
   factory :proposal_state, class: "Decidim::Proposals::ProposalState" do
     token { SecureRandom.hex(10) }
-    title {         Decidim::Faker::Localized.localized { generate(:title) }  }
-    description {          Decidim::Faker::Localized.localized { Faker::Lorem.sentences(number: 3).join("\n") } }
+    title { Decidim::Faker::Localized.localized { generate(:title) } }
+    description { Decidim::Faker::Localized.localized { Faker::Lorem.sentences(number: 3).join("\n") } }
     component { create(:proposal_component) }
     default { false }
     system { false }
-    css_class { "warning"}
+    css_class { "warning" }
 
     trait :not_answered do
       token { :not_answered }
@@ -259,23 +259,23 @@ FactoryBot.define do
     trait :evaluating do
       token { :evaluating }
       system { true }
-      title {         Decidim::Faker::Localized.localized { :evaluating } }
+      title { Decidim::Faker::Localized.localized { :evaluating } }
     end
     trait :accepted do
       token { :accepted }
       system { true }
-      title {         Decidim::Faker::Localized.localized { :accepted } }
+      title { Decidim::Faker::Localized.localized { :accepted } }
     end
     trait :rejected do
       token { :rejected }
       system { true }
-      title {         Decidim::Faker::Localized.localized { :rejected } }
+      title { Decidim::Faker::Localized.localized { :rejected } }
     end
 
     trait :withdrawn do
       token { :withdrawn }
       system { true }
-      title {         Decidim::Faker::Localized.localized { :withdrawn } }
+      title { Decidim::Faker::Localized.localized { :withdrawn } }
     end
   end
 
@@ -322,7 +322,7 @@ FactoryBot.define do
       end
     end
 
-    proposal_state { create(:proposal_state, :not_answered, component: component) }
+    proposal_state { create(:proposal_state, :not_answered, component:) }
 
     after(:build) do |proposal, evaluator|
       proposal.title = if evaluator.title.is_a?(String)
@@ -389,43 +389,43 @@ FactoryBot.define do
     end
 
     trait :evaluating do
-      proposal_state { create(:proposal_state, :evaluating, component: component) }
+      proposal_state { create(:proposal_state, :evaluating, component:) }
       answered_at { Time.current }
       state_published_at { Time.current }
     end
 
     trait :accepted do
-      proposal_state { create(:proposal_state, :accepted, component: component) }
+      proposal_state { create(:proposal_state, :accepted, component:) }
       answered_at { Time.current }
       state_published_at { Time.current }
     end
 
     trait :rejected do
-      proposal_state { create(:proposal_state, :rejected, component: component) }
+      proposal_state { create(:proposal_state, :rejected, component:) }
       answered_at { Time.current }
       state_published_at { Time.current }
     end
 
     trait :withdrawn do
-      proposal_state { create(:proposal_state, :withdrawn, component: component) }
+      proposal_state { create(:proposal_state, :withdrawn, component:) }
     end
 
     trait :accepted_not_published do
-      proposal_state { create(:proposal_state, :accepted, component: component) }
+      proposal_state { create(:proposal_state, :accepted, component:) }
       answered_at { Time.current }
       state_published_at { nil }
       answer { generate_localized_title }
     end
 
     trait :with_answer do
-      proposal_state { create(:proposal_state, :accepted, component: component) }
+      proposal_state { create(:proposal_state, :accepted, component:) }
       answer { generate_localized_title }
       answered_at { Time.current }
       state_published_at { Time.current }
     end
 
     trait :not_answered do
-      proposal_state { create(:proposal_state, :not_answered, component: component) }
+      proposal_state { create(:proposal_state, :not_answered, component:) }
     end
 
     trait :draft do
