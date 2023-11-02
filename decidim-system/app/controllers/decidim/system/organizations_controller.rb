@@ -9,7 +9,7 @@ module Decidim
       helper Decidim::OmniauthHelper
 
       def new
-        @form = form(RegisterOrganizationForm).instance
+        @form = form(RegisterOrganizationForm).from_params(default_params)
         @form.file_upload_settings = form(FileUploadSettingsForm).from_model({})
       end
 
@@ -38,8 +38,8 @@ module Decidim
       end
 
       def edit
-        organization = Organization.find(params[:id])
-        @form = form(UpdateOrganizationForm).from_model(organization)
+        @organization = Organization.find(params[:id])
+        @form = form(UpdateOrganizationForm).from_model(@organization)
       end
 
       def update
@@ -58,7 +58,33 @@ module Decidim
         end
       end
 
+      def resend_invitation
+        organization = Organization.find(params[:id])
+        InviteUserAgain.call(organization.users.first, "invite_admin") do
+          on(:ok) do
+            flash[:notice] = t("organizations.resend_invitation.success", scope: "decidim.system")
+          end
+
+          on(:invalid) do
+            flash[:alert] = I18n.t("organizations.resend_invitation.error", scope: "decidim.system")
+          end
+        end
+
+        redirect_to organizations_path
+      end
+
       private
+
+      def default_params
+        {
+          host: request.host,
+          organization_admin_name: current_admin.email.split("@")[0],
+          organization_admin_email: current_admin.email,
+          available_locales: Decidim.available_locales.map(&:to_s),
+          default_locale: Decidim.default_locale,
+          users_registration_mode: "enabled"
+        }
+      end
 
       # The current organization for the request.
       #

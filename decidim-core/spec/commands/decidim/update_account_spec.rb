@@ -101,7 +101,10 @@ module Decidim
             expect do
               perform_enqueued_jobs { command.call }
             end.to broadcast(:ok, true)
-            expect(last_email.to).to include("new@example.com")
+            recepients = emails.map(&:to)
+            expect(recepients).to include(["new@example.com"])
+            # check account update email has been sent
+            expect(recepients).to include([data[:email]])
           end
         end
 
@@ -227,6 +230,18 @@ module Decidim
             expect(Decidim::EventsManager).not_to receive(:publish)
 
             command.call
+          end
+
+          it "calls the update job in order to send the email" do
+            allow(UserUpdateMailer).to receive(:notify).and_call_original
+            command.call
+            expect(UserUpdateMailer).to have_received(:notify).with(user, ["Locale"])
+          end
+
+          it "sends email with notification about updates" do
+            perform_enqueued_jobs { command.call }
+            expect(last_email.to).to include(user.email)
+            expect(last_email_body).to include("The following details have been changed:")
           end
         end
       end
