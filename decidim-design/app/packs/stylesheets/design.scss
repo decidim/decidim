@@ -82,7 +82,7 @@
   }
 
   h3 {
-    @apply text-xl font-semibold;
+    @apply text-xl font-semibold inline-flex items-center gap-1;
   }
 
   &-snippet {
