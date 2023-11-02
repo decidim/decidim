@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore versions", type: :system, versioning: true do
+describe "Explore versions", versioning: true do
   let(:organization) { create(:organization) }
   let(:initiative) { create(:initiative, organization:) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }

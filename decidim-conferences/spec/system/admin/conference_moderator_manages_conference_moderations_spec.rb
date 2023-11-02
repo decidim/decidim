@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Conference moderator manages conference moderations", type: :system do
+describe "Conference moderator manages conference moderations" do
   include_context "when conference moderator administrating a conference"
 
   let(:current_component) { create(:component, participatory_space: conference) }

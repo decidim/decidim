@@ -1,0 +1,128 @@
+<% content_for :heading do %>
+  Layout
+<% end %>
+
+<% content_for :description do %>
+  <p>For desktop, Decidim uses a 12 column grid with limited number of templates (grid configurations) for different types of content. The objective is that a given type of content (homepage, list of elements, individual item) has a distinctive layout, so users can understand in which kind of content they are just by the general look of the page.</p>
+
+  <p>These simple rules should be followed when creating new modules or customizing existing ones, so a Decidim site can maintain its consistency.</p>
+
+  <ul class="list-disc pl-4">
+    <li>Homepage (of the site, of an space): full width</li>
+    <li>List of elements (of spaces, of items inside a space, etc): left aside</li>
+    <li>Individual item (proposal, blog post): centered, optionally with a right aside</li>
+  </ul>
+<% end %>
+
+<% content_for :toc do %>
+  <a href="#desktop">Desktop</a>
+  <a href="#tablet">Tablet</a>
+  <a href="#mobile">Mobile</a>
+  <a href="#code">Code</a>
+  <a href="#breakpoints">Breakpoints</a>
+<% end %>
+
+<section id="desktop" class="design__section">
+  <h2 class="design__heading__3xl">Desktop <span class="label secondary">lg</span></h2>
+
+  <p>Desktop grid system is composed of 12 flexible columns with a gutter between columns of 16px and left and right margins of 48px</p>
+
+  <div class="grid grid-cols-12 gap-4">
+    <% 12.times do %>
+      <div class="bg-primary/10 text-center h-10"></div>
+    <% end %>
+  </div>
+</section>
+
+<section id="tablet" class="design__section">
+  <h2 class="design__heading__3xl">Tablet <span class="label secondary">md</span></h2>
+
+  <p>Tablet grid system is composed of 8 flexible columns with a gutter between columns of 16px and left and right margins of 24px</p>
+
+  <div class="grid grid-cols-6 gap-4">
+    <% 6.times do %>
+      <div class="bg-primary/10 text-center h-10"></div>
+    <% end %>
+  </div>
+</section>
+
+<section id="mobile" class="design__section">
+  <h2 class="design__heading__3xl">Mobile <span class="label secondary">sm</span></h2>
+
+  <p>Mobile grid system is composed of 4 flexible columns with a gutter between columns of 16px and left and right margins of 16px. For sizes below 320px this margins are set to 8px</p>
+
+  <div class="grid grid-cols-4 gap-4">
+    <% 4.times do %>
+      <div class="bg-primary/10 text-center h-10"></div>
+    <% end %>
+  </div>
+</section>
+
+<section id="code" class="design__section">
+  <h2 class="design__heading__3xl">Code</h2>
+
+  <p>When implementing new modules you have some helpers that automatically provides you with the code needed to setup the HTML structure. You should use these helpers instead of directly using div elements with classes, so you maintain consistency.</p>
+
+  <p>You can find the basic layouts in <a href="https://github.com/decidim/decidim/tree/develop/decidim-core/app/views/layouts/decidim/shared" target="_blank" rel="noopener noreferrer" class="text-secondary underline">https://github.com/decidim/decidim/tree/develop/decidim-core/app/views/layouts/decidim/shared</a></p>
+
+  <h3 class="text-xl">Full width</h3>
+
+  <p>No required</p>
+
+  <h3 class="text-xl">Left aside</h3>
+
+  <code class="p-4 rounded block bg-background">
+    &lt;%= render layout: "layouts/decidim/shared/layout_two_col" do %&gt;
+      ...
+    &lt;% end %&gt;
+  </code>
+
+  <h3 class="text-xl">Right aside</h3>
+
+  <code class="p-4 rounded block bg-background">
+    &lt;%= render layout: "layouts/decidim/shared/layout_two_col", locals: { reverse: true } do %&gt;
+      ...
+    &lt;% end %&gt;
+  </code>
+
+  <h3 class="text-xl">Centered</h3>
+
+  <code class="p-4 rounded block bg-background">
+    &lt;%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 10 } do %&gt;
+      ...
+    &lt;% end %&gt;
+  </code>
+
+  <p>Being the number of columns 10, 8 or 6.</p>
+
+</section>
+
+<section id="breakpoints" class="design__section">
+  <h2 class="design__heading__3xl">Breakpoints</h2>
+
+  <p>To manage the responsive max-width of elements we rely on the default `container` Tailwind class, which states the following breakpoints:</p>
+
+  <table class="design__table">
+    <thead>
+      <th>Breakpoint</th>
+      <th>Properties</th>
+    </thead>
+    <tbody>
+      <%
+        rows = []
+        rows << { breakpoint: "sm (640px)", properties: "max-width: 640px;" }
+        rows << { breakpoint: "md (768px)", properties: "max-width: 768px;" }
+        rows << { breakpoint: "lg (1024px)", properties: "max-width: 1024px;" }
+        rows << { breakpoint: "xl (1280px)", properties: "max-width: 1280px;" }
+        rows << { breakpoint: "2xl (1536px)", properties: "max-width: 1536px;" }
+
+        rows.each do |row|
+      %>
+        <tr>
+          <td><%= row[:breakpoint] %></td>
+          <td><%= row[:properties] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

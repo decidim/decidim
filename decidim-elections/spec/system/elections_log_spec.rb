@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Elections log", type: :system do
+describe "Elections log" do
   let(:manifest_name) { "elections" }
   let!(:organization) { create(:organization) }
   let!(:election) { create(:election, :bb_test, :created, component:) }

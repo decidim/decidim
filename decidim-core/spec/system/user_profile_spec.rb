@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Profile", type: :system do
+describe "Profile" do
   let(:user) { create(:user, :confirmed) }
 
   before do

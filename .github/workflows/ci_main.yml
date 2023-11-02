@@ -13,7 +13,7 @@ env:
   CI: "true"
   RUBY_VERSION: 3.1.1
   NODE_VERSION: 18.17.1
-  WEBPACKER_RUNTIME_COMPILE: "false"
+  SHAKAPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}

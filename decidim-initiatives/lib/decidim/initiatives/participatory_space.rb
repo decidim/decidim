@@ -58,17 +58,19 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
       published_at: Time.current
     )
 
+    banner_image = ActiveStorage::Blob.create_and_upload!(
+      io: File.open(File.join(seeds_root, "city2.jpeg")),
+      filename: "banner_image.jpeg",
+      content_type: "image/jpeg",
+      metadata: nil
+    )
+
     3.times do |n|
       type = Decidim::InitiativesType.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 5),
         description: Decidim::Faker::Localized.sentence(word_count: 25),
         organization:,
-        banner_image: ActiveStorage::Blob.create_and_upload!(
-          io: File.open(File.join(seeds_root, "city2.jpeg")),
-          filename: "banner_image.jpeg",
-          content_type: "image/jpeg",
-          metadata: nil
-        )
+        banner_image: Faker::Boolean.boolean(true_ratio: 0.5) ? banner_image : nil # Keep after organization
       )
 
       organization.top_scopes.each do |scope|

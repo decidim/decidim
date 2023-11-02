@@ -1,0 +1,92 @@
+<%
+  sections = [{
+    url: decidim_design.root_path,
+    path: false,
+    icon: "home-7-line",
+    text: "Home"
+  },{
+    url: false,
+    path: "foundations",
+    icon: "ruler-line",
+    text: "Foundations"
+  },{
+    url: false,
+    path: "components",
+    icon: "focus-line",
+    text: "Components",
+    extra_items: [
+      {
+        name: "cards",
+        path: components_cards_path
+      }
+    ]
+  }]
+%>
+
+<div class="design__layout">
+  <aside>
+    <ul class="design__navigation">
+      <% sections.each do |section| %>
+        <li>
+          <% block = capture do %>
+            <%= icon section[:icon] %>
+            <span><%= section[:text] %></span>
+          <% end %>
+
+          <% if section[:url].present? %>
+            <%= link_to section[:url] do %>
+              <%= block %>
+            <% end %>
+          <% else %>
+            <%= content_tag :span do %>
+              <%= block %>
+            <% end %>
+          <% end %>
+
+          <% items = path_items(section[:path]).concat(section[:extra_items].to_a) %>
+          <% if items.present? %>
+            <ul>
+              <% items.each do |item| %>
+                <li>
+                  <%= link_to item[:name], item[:path], class: params[:id] == item[:name] && controller_name == section[:path] ? "font-bold" : "" %>
+                  <%= icon "arrow-right-line" %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+
+  <main>
+    <% if content_for?(:heading) %>
+      <section class="design__heading__section">
+        <h1 class="design__heading__5xl">
+          <%= yield :heading %>
+        </h1>
+
+        <% if content_for?(:description) %>
+          <div class="design__heading__description">
+            <%= yield :description %>
+          </div>
+        <% end %>
+      </section>
+    <% end %>
+
+    <%= yield %>
+  </main>
+
+  <aside>
+    <div class="design__navigation__right">
+      <% if content_for?(:right_aside) %>
+        <%= yield :right_aside %>
+      <% else %>
+        <nav>
+          <strong>On this page</strong>
+          <%= yield :toc %>
+        </nav>
+      <% end %>
+    </div>
+  </aside>
+</div>

@@ -72,7 +72,7 @@ module Decidim
       options[:required] == true
     end
 
-    # By default Foundation adds form errors next to input, but since input is in the modal
+    # By default FoundationRailsHelper adds form errors next to input, but since input is in the modal
     # and modal is hidden by default, we need to add an additional validation field to the form.
     # This should only be necessary when file is required by the form.
     def input_validation_field
@@ -188,6 +188,10 @@ module Decidim
 
     def direct_upload_url
       Rails.application.class.routes.url_helpers.rails_direct_uploads_path
+    end
+
+    def upload_validations_url
+      Decidim::Core::Engine.routes.url_helpers.upload_validations_path
     end
 
     def form_object_class

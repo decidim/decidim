@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Initiatives
     module Admin
-      describe ExportsController, type: :controller do
+      describe ExportsController do
         routes { Decidim::Initiatives::AdminEngine.routes }
 
         let!(:organization) { create(:organization) }

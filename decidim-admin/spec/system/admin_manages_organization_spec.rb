@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages organization", type: :system do
+describe "Admin manages organization" do
   include ActionView::Helpers::SanitizeHelper
 
   let(:organization) { create(:organization) }

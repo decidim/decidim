@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore budget notifications", :slow, type: :system do
+describe "Explore budget notifications", :slow do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
   let(:budget) { create(:budget, component:) }

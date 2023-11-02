@@ -1,0 +1,154 @@
+<% content_for :heading do %>
+  Iconography
+<% end %>
+
+<% content_for :description do %>
+  <p>We use icons to reinforce the meaning of actions, titles, etc.</p>
+  <p>We use the Remixicon open source library: <a href="https://remixicon.com" target="_blank" rel="noopener noreferrer">https://remixicon.com</a></p>
+<% end %>
+
+<% content_for :toc do %>
+  <a href="#activity">Activity</a>
+  <a href="#actions">Actions</a>
+  <a href="#origin">Origin</a>
+  <a href="#profiles">Profiles</a>
+  <a href="#assemblies">Assemblies</a>
+  <a href="#conferences">Conferences</a>
+  <a href="#participatory-texts">Participatory Texts</a>
+  <a href="#documents">Documents</a>
+  <a href="#status">Status</a>
+<% end %>
+
+<section id="activity" class="design__section">
+  <h2 class="design__heading__3xl">Activity / Search results (spaces and components)</h2>
+
+  <%
+    activity_icons = []
+    activity_icons << { icon: "apps-2-line", text: "All" }
+    activity_icons << { icon: "draft-line", text: "Collaborative draft" }
+    activity_icons << { icon: "chat-new-line", text: "Proposal" }
+    activity_icons << { icon: "treasure-map-line", text: "Process" }
+    activity_icons << { icon: "git-pull-request-line", text: "Project (Budgets)" }
+    activity_icons << { icon: "briefcase-2-line", text: "Result / project (Accountability)" }
+    activity_icons << { icon: "chat-1-line", text: "Comment" }
+    activity_icons << { icon: "lightbulb-flash-line", text: "Initiative" }
+    activity_icons << { icon: "pen-nib-line", text: "Blog post" }
+    activity_icons << { icon: "government-line", text: "Assembly" }
+    activity_icons << { icon: "check-double-fill", text: "Budget voting" }
+    activity_icons << { icon: "discuss-line", text: "Discussion" }
+    activity_icons << { icon: "question-mark", text: "Question" }
+    activity_icons << { icon: "map-pin-line", text: "Meeting" }
+    activity_icons << { icon: "coin-line", text: "Budgets" }
+    activity_icons << { icon: "inbox-archive-line", text: "Result / project container (Accountability)" }
+    activity_icons << { icon: "user-line", text: "Participants" }
+  %>
+
+  <%= render partial: "decidim/design/foundations/iconography/icons", locals: { icons: activity_icons } %>
+</section>
+
+<section id="actions" class="design__section">
+  <h2 class="design__heading__3xl">Actions</h2>
+
+  <%
+    actions_icons = []
+    actions_icons << { icon: "heart-add-line", text: "Endorsements" }
+    actions_icons << { icon: "service-line", text: "Support" }
+  %>
+
+  <%= render partial: "decidim/design/foundations/iconography/icons", locals: { icons: actions_icons } %>
+</section>
+
+<section id="origin" class="design__section">
+  <h2 class="design__heading__3xl">Origin</h2>
+
+  <%
+    origin_icons = []
+    origin_icons << { icon: "star-line", text: "Official" }
+    origin_icons << { icon: "open-arm-line", text: "Citizens" }
+    origin_icons << { icon: "team-line", text: "Groups" }
+  %>
+
+  <%= render partial: "decidim/design/foundations/iconography/icons", locals: { icons: origin_icons } %>
+</section>
+
+<section id="profiles" class="design__section">
+  <h2 class="design__heading__3xl">User profiles</h2>
+
+  <%
+    profile_icons = []
+    profile_icons << { icon: "account-pin-circle-line", text: "Nickname" }
+    profile_icons << { icon: "award-line", text: "Badges" }
+    profile_icons << { icon: "team-line", text: "Groups" }
+    profile_icons << { icon: "link", text: "web / URL" }
+    profile_icons << { icon: "eye-2-line", text: "Following" }
+    profile_icons << { icon: "bubble-chart-line", text: "Activity" }
+    profile_icons << { icon: "group-line", text: "Followers" }
+  %>
+
+  <%= render partial: "decidim/design/foundations/iconography/icons", locals: { icons: profile_icons } %>
+</section>
+
+<section id="assemblies" class="design__section">
+  <h2 class="design__heading__3xl">Assemblies</h2>
+
+  <%
+    assembly_icons = []
+    assembly_icons << { icon: "group-2-line", text: "Type" }
+  %>
+
+  <%= render partial: "decidim/design/foundations/iconography/icons", locals: { icons: assembly_icons } %>
+</section>
+
+<section id="conferences" class="design__section">
+  <h2 class="design__heading__3xl">Conferences</h2>
+
+  <%
+    conference_icons = []
+    conference_icons << { icon: "user-voice-line", text: "Speaker" }
+  %>
+
+  <%= render partial: "decidim/design/foundations/iconography/icons", locals: { icons: conference_icons } %>
+</section>
+
+<section id="partipatory-texts" class="design__section">
+  <h2 class="design__heading__3xl">Participatory Texts</h2>
+
+  <%
+    partipatory_texts_icons = []
+    partipatory_texts_icons << { icon: "bookmark-line", text: "Index item" }
+  %>
+
+  <%= render partial: "decidim/design/foundations/iconography/icons", locals: { icons: partipatory_texts_icons } %>
+</section>
+
+<section id="documents" class="design__section">
+  <h2 class="design__heading__3xl">Documents</h2>
+
+  <%
+    documents_icons = []
+    documents_icons << { icon: "folder-open-line", text: "Folder open" }
+    documents_icons << { icon: "folder-line", text: "Folder close" }
+    documents_icons << { icon: "file-text-line", text: "Document" }
+    documents_icons << { icon: "scales-2-line", text: "Doc. weight (kb/mb)" }
+    documents_icons << { icon: "download-cloud-2-line", text: "Download" }
+  %>
+
+  <%= render partial: "decidim/design/foundations/iconography/icons", locals: { icons: documents_icons } %>
+</section>
+
+<section id="status" class="design__section">
+  <h2 class="design__heading__3xl">Status</h2>
+
+  <%
+    status_icons = []
+    status_icons << { icon: "checkbox-circle-line", text: "Accepted" }
+    status_icons << { icon: "eye-line", text: "Evaluating" }
+    status_icons << { icon: "message-3-line", text: "No answer" }
+    status_icons << { icon: "delete-back-2-line", text: "Rejected / Cancelled" }
+    status_icons << { icon: "pulse-line", text: "Active" }
+    status_icons << { icon: "calendar-2-line", text: "Next" }
+    status_icons << { icon: "calendar-check-line", text: "Closed / Finished" }
+  %>
+
+  <%= render partial: "decidim/design/foundations/iconography/icons", locals: { icons: status_icons } %>
+</section>

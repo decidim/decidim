@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Valuator checks components", type: :system do
+describe "Valuator checks components" do
   let(:manifest_name) { "proposals" }
   let!(:assigned_proposal) { create(:proposal, component: current_component) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }

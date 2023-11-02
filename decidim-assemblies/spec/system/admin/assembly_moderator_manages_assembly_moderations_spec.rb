@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Assembly moderator manages assembly moderations", type: :system do
+describe "Assembly moderator manages assembly moderations" do
   include_context "when assembly moderator administrating an assembly"
 
   let(:current_component) { create(:component, participatory_space: assembly) }
