@@ -6,7 +6,7 @@ module Decidim
       class UpdateProposalAnswerTemplate < Decidim::Command
         # Initializes the command.
         #
-        # template - The Template to update.
+        # template    - The Template to update.
         # form        - The form object containing the data to update.
         # user        - The user that updates the template.
         def initialize(template, form, user)

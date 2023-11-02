@@ -71,7 +71,7 @@ en:
           index:
             confirm_delete: Are you sure you want to delete this template?
             global_scope: Global (available everywhere)
-            internal_state: Internal State
+            internal_state: Internal state
             scope_for_availability: Scope
             title: Proposal answers
           new:
@@ -109,5 +109,5 @@ en:
           update: "%{user_name} updated the %{resource_name} questionnaire template"
       template_types:
         block_user: Block user messages
-        proposal_answer_templates: Proposal Answers
+        proposal_answer_templates: Proposal answers
         questionnaires: Questionnaires

@@ -1,4 +1,4 @@
-<% templates = Decidim::Templates::Template .where(
+<% templates = Decidim::Templates::Template.where(
   target: :proposal_answer,
   templatable: [current_organization, current_component]
 ).order(:templatable_id) %>
