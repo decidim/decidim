@@ -14,7 +14,7 @@
 <% end %>
 
 <section id="base" class="design__section">
-  <h2 class="design__heading__3xl">Base</h2>
+  <h2>Base</h2>
 
   <%
     base_columns = []
@@ -27,7 +27,7 @@
 </section>
 
 <section id="state" class="design__section">
-  <h2 class="design__heading__3xl">State</h2>
+  <h2>State</h2>
 
   <%
     state_columns = []
@@ -40,9 +40,9 @@
 </section>
 
 <section id="main" class="design__section">
-  <h2 class="design__heading__3xl">Main colors</h2>
+  <h2>Main colors</h2>
 
-  <h3 class="design__heading__xl">Typography and texts</h3>
+  <h3>Typography and texts</h3>
 
   <%
     text_columns = []
@@ -54,7 +54,7 @@
 
   <%= render partial: "decidim/design/foundations/color/table", locals: { columns: text_columns } %>
 
-  <h3 class="design__heading__xl">Background and borders</h3>
+  <h3>Background and borders</h3>
 
   <%
     bg_columns = []
@@ -68,7 +68,7 @@
 
   <%= render partial: "decidim/design/foundations/color/table", locals: { columns: bg_columns } %>
 
-  <h3 class="design__heading__xl">Form elements</h3>
+  <h3>Form elements</h3>
 
   <%
     form_elements = []
