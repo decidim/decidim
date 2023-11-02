@@ -23,33 +23,33 @@
   }]
 %>
 
-<div class="grid md:grid-cols-12 container min-h-screen before:content-[''] before:absolute before:-z-10 before:w-1/2 before:h-full before:inset-0 before:bg-background">
-  <aside class="col-span-2 py-12 pr-16">
-    <ul class="sticky top-12 space-y-4">
+<div class="design__layout">
+  <aside>
+    <ul class="design__navigation">
       <% sections.each do |section| %>
         <li>
           <% block = capture do %>
-            <%= icon section[:icon], class: "text-gray fill-current" %>
-            <span class="font-semibold"><%= section[:text] %></span>
+            <%= icon section[:icon] %>
+            <span><%= section[:text] %></span>
           <% end %>
 
           <% if section[:url].present? %>
-            <%= link_to section[:url], class: "flex gap-1 items-center hover:underline" do %>
+            <%= link_to section[:url] do %>
               <%= block %>
             <% end %>
           <% else %>
-            <%= content_tag :span, class: "flex gap-1 items-center" do %>
+            <%= content_tag :span do %>
               <%= block %>
             <% end %>
           <% end %>
 
           <% items = path_items(section[:path]).concat(section[:extra_items].to_a) %>
           <% if items.present? %>
-            <ul class="pl-5 pt-4 space-y-4">
+            <ul>
               <% items.each do |item| %>
-                <li class="text-sm text-black cursor-pointer flex items-center gap-1">
-                  <%= link_to item[:name], item[:path], class: "hover:underline first-letter:capitalize #{params[:id] == item[:name] && controller_name == section[:path] ? "font-bold" : ""}" %>
-                  <%= icon "arrow-right-line", class: "w-3 h-3 fill-current" %>
+                <li>
+                  <%= link_to item[:name], item[:path], class: params[:id] == item[:name] && controller_name == section[:path] ? "font-bold" : "" %>
+                  <%= icon "arrow-right-line" %>
                 </li>
               <% end %>
             </ul>
@@ -59,15 +59,15 @@
     </ul>
   </aside>
 
-  <main class="bg-white col-span-8 py-12 px-16 [&_section+section]:mt-10">
+  <main>
     <% if content_for?(:heading) %>
-      <section class="pb-10 border-b border-background">
-        <h1 class="text-5xl font-bold text-black">
+      <section class="design__heading__section">
+        <h1 class="design__heading__5xl">
           <%= yield :heading %>
         </h1>
 
         <% if content_for?(:description) %>
-          <div class="mt-10 text-gray-2 text-md font-normal [&>*+*]:mt-4">
+          <div class="design__heading__description">
             <%= yield :description %>
           </div>
         <% end %>
@@ -77,13 +77,13 @@
     <%= yield %>
   </main>
 
-  <aside class="bg-white col-span-2 py-12 pl-16">
-    <div class="sticky top-12">
+  <aside>
+    <div class="design__navigation__right">
       <% if content_for?(:right_aside) %>
         <%= yield :right_aside %>
       <% else %>
-        <nav class="space-y-2 text-sm [&>*]:block [&_a]:text-secondary [&_a]:underline">
-          <strong class="text-md mb-4">On this page</strong>
+        <nav>
+          <strong>On this page</strong>
           <%= yield :toc %>
         </nav>
       <% end %>
