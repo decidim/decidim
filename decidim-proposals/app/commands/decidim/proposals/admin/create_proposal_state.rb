@@ -32,13 +32,13 @@ module Decidim
           )
         end
 
+        # By design, the System parameter is not included in the attributes that are supposed to be edited by the user
         def attributes
           {
             title: form.title,
             description: form.description,
             default: form.default,
             token: form.token,
-            system: form.system,
             include_in_stats: form.include_in_stats,
             css_class: form.css_class,
             component:

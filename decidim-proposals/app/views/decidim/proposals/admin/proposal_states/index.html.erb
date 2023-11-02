@@ -4,10 +4,8 @@
     <h2 class="item_show__header-title">
       <%= t(".title") %>
       <%= link_to t("actions.new", scope: "decidim.proposals"), new_proposal_state_path, class: "button button__sm button__secondary" if allowed_to? :create, :proposal_state %>
-
     </h2>
   </div>
-  <%#= admin_filter_selector(:proposals) %>
   <div class="table-scroll mt-16">
     <table class="table-list">
       <thead>
@@ -15,17 +13,17 @@
           <th class="!text-left">
             <%= t("models.proposal_state.title", scope: 'decidim.proposals') %>
           </th>
-          <th class="!text-left">
+          <th>
+            <%= t("models.proposal_state.token", scope: 'decidim.proposals') %>
+          </th>
+          <th>
             <%= t("models.proposal_state.system", scope: 'decidim.proposals') %>
           </th>
-          <th class="!text-left">
+          <th>
             <%= t("models.proposal_state.default", scope: 'decidim.proposals') %>
           </th>
-          <th class="!text-left">
+          <th>
             <%= t("models.proposal_state.css_class", scope: 'decidim.proposals') %>
-          </th>
-          <th class="!text-left">
-            <%= t("models.proposal_state.include_in_stats", scope: 'decidim.proposals') %>
           </th>
           <th class="actions"><%= t("actions.title", scope: "decidim.proposals") %></th>
         </tr>

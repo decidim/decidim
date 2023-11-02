@@ -8,7 +8,11 @@ module Decidim
 
         def diff_fields_mapping
           {
-            title: :i18n
+            title: :i18n,
+            default: :boolean,
+            token: :string,
+            description: :i18n,
+            css_class: :string
           }
         end
       end

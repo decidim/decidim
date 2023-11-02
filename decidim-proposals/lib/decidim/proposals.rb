@@ -51,20 +51,20 @@ module Decidim
         not_answered: { token: :not_answered, css_class: "info", default: true, include_in_stats: {} },
         evaluating: { token: :evaluating, css_class: "warning", default: false, include_in_stats: {} },
         accepted: { token: :accepted, css_class: "success", default: false, include_in_stats: {} },
-        rejected: { token: :rejected, css_class: "rejected", default: false, include_in_stats: {} },
-        withdrawn: { token: :withdrawn, css_class: "rejected", default: false, include_in_stats: {} }
+        rejected: { token: :rejected, css_class: "alert", default: false, include_in_stats: {} },
+        withdrawn: { token: :withdrawn, css_class: "alert", default: false, include_in_stats: {} }
       }
 
+      locale = Decidim.default_locale
       default_states.each_key do |key|
         default_states[key][:object] = Decidim.traceability.create!(
           Decidim::Proposals::ProposalState,
           admin_user,
+          title: { locale => I18n.with_locale(locale) { I18n.t(key, scope: "decidim.proposals.answers") } },
           component:,
           token: default_states.dig(key, :token),
           system: true,
           default: default_states.dig(key, :default),
-          text_color: default_states.dig(key, :text_color),
-          background_color: default_states.dig(key, :background_color),
           include_in_stats: default_states.dig(key, :include_in_stats),
           css_class: default_states.dig(key, :css_class)
         )

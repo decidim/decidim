@@ -392,6 +392,7 @@ en:
         see_all: See all proposals
     proposals:
       actions:
+        edit_proposal_state: Edit proposal state
         answer_proposal: Answer proposal
         edit_proposal: Edit proposal
         import: Import proposals from another component
@@ -749,6 +750,7 @@ en:
         proposal_updated: 'Proposal updated:'
       models:
         proposal_state:
+          token: Token
           title: Proposal state
           default: Default
           system: System

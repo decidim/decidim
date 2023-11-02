@@ -14,6 +14,11 @@ Decidim.register_component(:proposals) do |component|
     raise "Cannot destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
   end
 
+  component.on(:create) do |instance|
+    admin_user = GlobalID::Locator.locate(instance.versions.first.whodunnit)
+    Decidim::Proposals.create_default_states!(instance, admin_user)
+  end
+
   component.data_portable_entities = ["Decidim::Proposals::Proposal"]
 
   component.newsletter_participant_entities = ["Decidim::Proposals::Proposal"]
@@ -229,7 +234,9 @@ Decidim.register_component(:proposals) do |component|
     ) do
       Decidim::Component.create!(params)
     end
-    
+
+    Decidim::Proposals.create_default_states!(component, admin_user)
+
     if participatory_space.scope
       scopes = participatory_space.scope.descendants
       global = participatory_space.scope
