@@ -72,6 +72,43 @@ describe "Organizations" do
       end
     end
 
+    describe "resending the invitation" do
+      let(:organization) { create(:organization) }
+
+      before do
+        login_as admin, scope: :admin
+      end
+
+      context "when there is an admin without a pending invitation" do
+        let!(:organization_admin) { create(:user, :admin, organization:) }
+
+        it "does not show the button" do
+          visit decidim_system.root_path
+          expect(organization_admin).not_to be_invitation_pending
+          expect(page).not_to have_content("Resend invitation")
+        end
+      end
+
+      context "when there is an admin with a pending invitation" do
+        let!(:organization_admin) { create(:user, :admin, invitation_token: "foo", invitation_accepted_at: nil, invitation_sent_at: 10.days.ago, organization:) }
+
+        it "resends the invitation" do
+          visit decidim_system.root_path
+          expect(organization_admin).to be_invitation_pending
+          expect(page).to have_content("Resend invitation")
+          click_link "Resend invitation"
+          within "#confirm-modal-content" do
+            click_button "OK"
+          end
+          within_flash_messages do
+            expect(page).to have_content "Invitation successfully sent"
+          end
+          expect(organization_admin.reload.invitation_token).not_to eq("foo")
+          expect(organization_admin.invitation_sent_at).to be_within(2.seconds).of Time.zone.now
+        end
+      end
+    end
+
     describe "editing an organization" do
       let!(:organization) { create(:organization, name: "Citizen Corp") }
 

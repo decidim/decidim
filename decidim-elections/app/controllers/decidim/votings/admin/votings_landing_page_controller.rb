@@ -32,26 +32,6 @@ module Decidim
                                                   manifest_name:)
         end
 
-        def content_blocks_title
-          t("landing_page.edit.title", scope: "decidim.votings.admin")
-        end
-
-        def add_content_block_text
-          t("landing_page.edit.add", scope: "decidim.votings.admin")
-        end
-
-        def content_block_destroy_confirmation_text
-          t("landing_page.edit.destroy_confirmation", scope: "decidim.votings.admin")
-        end
-
-        def active_content_blocks_title
-          t("landing_page.edit.active_content_blocks", scope: "decidim.votings.admin")
-        end
-
-        def inactive_content_blocks_title
-          t("landing_page.edit.inactive_content_blocks", scope: "decidim.votings.admin")
-        end
-
         def resource_content_block_cell
           "decidim/votings/content_block"
         end

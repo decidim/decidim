@@ -79,7 +79,7 @@ describe "Admin manages organization" do
       expect(page).to have_content("updated successfully")
 
       within "#minimap" do
-        expect(page.all("img").count).to eq(4)
+        expect(page.all("img").count).to eq(3)
       end
     end
   end

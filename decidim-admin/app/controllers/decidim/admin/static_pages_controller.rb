@@ -35,26 +35,6 @@ module Decidim
         static_page_content_blocks_path(scoped_resource, manifest_name:)
       end
 
-      def content_blocks_title
-        t("static_pages.content_blocks.title", scope: "decidim.admin")
-      end
-
-      def add_content_block_text
-        t("static_pages.content_blocks.add", scope: "decidim.admin")
-      end
-
-      def content_block_destroy_confirmation_text
-        t("static_pages.content_blocks.destroy_confirmation", scope: "decidim.admin")
-      end
-
-      def active_content_blocks_title
-        t("static_pages.content_blocks.active_content_blocks", scope: "decidim.admin")
-      end
-
-      def inactive_content_blocks_title
-        t("static_pages.content_blocks.inactive_content_blocks", scope: "decidim.admin")
-      end
-
       def resource_content_block_cell
         "decidim/admin/static_page_content_block"
       end
