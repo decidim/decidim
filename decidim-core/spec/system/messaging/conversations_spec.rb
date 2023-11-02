@@ -28,7 +28,7 @@ describe "Conversations", type: :system do
     end
 
     context "when searching for a user group to a new conversation" do
-      let!(:user_group) { create(:user_group, :confirmed, name: "Example user group", nickname: "example", organization:) }
+      let!(:user_group) { create(:user_group, :confirmed, name: "Example user group", nickname: "example", organization: organization) }
 
       it "only shows one match even if the keyword matches both name and nickname" do
         visit decidim.conversations_path
