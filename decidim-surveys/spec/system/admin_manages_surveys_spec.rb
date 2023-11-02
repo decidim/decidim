@@ -76,7 +76,7 @@ describe "Admin manages surveys", type: :system do
       context "when publishing the survey" do
         let(:clean_after_publish) { true }
         let!(:participatory_process) do
-          create(:participatory_process, organization:)
+          create(:participatory_process, organization: organization)
         end
         let(:participatory_space_path) do
           decidim_admin_participatory_processes.components_path(participatory_process)
