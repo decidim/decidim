@@ -9,8 +9,7 @@ class CreateDecidimProposalsProposalState < ActiveRecord::Migration[6.1]
       t.integer :proposals_count, default: 0, null: false
       t.boolean :default, default: false, null: false
       t.json :include_in_stats, default: {}, null: false
-      t.string :background_color
-      t.string :text_color
+      t.string :css_class
     end
   end
 end
