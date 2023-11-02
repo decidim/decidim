@@ -8,13 +8,14 @@
   <% elsif live? %>
     <p class="h3"><%= t("live_event", scope: "decidim.meetings.meetings.show") %></p>
 
-    <% unless show_embed? %>
+    <% if show_embed? %>
+      <div class="hidden md:block h-[60vh] w-full">
+        <%== embed_code(request.host) %>
+      </div>
+    <% else %>
       <p><%= t("micro_camera_permissions_warning", scope: "decidim.meetings.meetings.show") %></p>
     <% end %>
 
-    <div class="hidden md:block h-[60vh] w-full">
-      <%== embed_code(request.host) if show_embed? %>
-    </div>
      <%= link_to t("join_meeting", scope: "decidim.meetings.meetings.meeting"), live_event_url, target: "_blank", class: "button button__xl button__secondary", data: { "external-link": false } %>
   <% end %>
 </div>
