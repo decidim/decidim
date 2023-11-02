@@ -1,0 +1,27 @@
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section debate-fields">
+      <div class="row column hashtags__container">
+        <%= form.translated :text_field, :title, aria: { label: :title } %>
+      </div>
+      <div class="row column">
+        <%= form.translated :text_area, :description, aria: { label: :description } %>
+      </div>
+      <div class="row column">
+        <%= form.text_field :token %>
+      </div>
+      <div class="row column">
+        <%= form.check_box :system %>
+      </div>
+      <div class="row column">
+        <%= form.check_box :default %>
+      </div>
+      <div class="row column">
+        <%#= form.check_box :include_in_stats %>
+      </div>
+      <div class="row column">
+        <%= form.text_field :css_class %>
+      </div>
+    </div>
+  </div>
+</div>

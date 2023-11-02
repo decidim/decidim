@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       collaborative_draft:
@@ -399,6 +400,23 @@ en:
         show: Show proposal
         title: Actions
       admin:
+        proposal_states:
+          update:
+            success: Proposal state updated successfully
+            error: Error updating proposal state
+          edit:
+            update: Update
+            title: Edit proposal state
+          destroy:
+            success: Proposal state deleted successfully
+          create:
+            success: Proposal state created successfully
+            error: Error creating proposal state
+          new:
+            create: Create
+            title: New proposal state
+          index:
+            title: Proposal states
         actions:
           preview: Preview
         exports:
@@ -730,6 +748,12 @@ en:
         new_proposal: 'New proposal:'
         proposal_updated: 'Proposal updated:'
       models:
+        proposal_state:
+          title: Proposal state
+          default: Default
+          system: System
+          css_class: CSS class
+          include_in_stats: Include in stats
         proposal:
           fields:
             category: Category

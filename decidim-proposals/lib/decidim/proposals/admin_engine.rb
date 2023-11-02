@@ -25,6 +25,8 @@ module Decidim
           resources :proposal_notes, only: [:create]
         end
 
+        resources :proposal_states
+
         resources :participatory_texts, only: [:index] do
           collection do
             get :new_import

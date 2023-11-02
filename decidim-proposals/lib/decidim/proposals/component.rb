@@ -229,7 +229,7 @@ Decidim.register_component(:proposals) do |component|
     ) do
       Decidim::Component.create!(params)
     end
-
+    
     if participatory_space.scope
       scopes = participatory_space.scope.descendants
       global = participatory_space.scope

@@ -48,7 +48,7 @@ module Decidim
                  foreign_key: "decidim_proposals_proposal_state_id",
                  inverse_of: :proposals,
                  optional: true
-      
+
       has_many :votes,
                -> { final },
                foreign_key: "decidim_proposal_id",

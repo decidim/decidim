@@ -1,0 +1,64 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
+      <%= t(".title") %>
+      <%= link_to t("actions.new", scope: "decidim.proposals"), new_proposal_state_path, class: "button button__sm button__secondary" if allowed_to? :create, :proposal_state %>
+
+    </h2>
+  </div>
+  <%#= admin_filter_selector(:proposals) %>
+  <div class="table-scroll mt-16">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th class="!text-left">
+            <%= t("models.proposal_state.title", scope: 'decidim.proposals') %>
+          </th>
+          <th class="!text-left">
+            <%= t("models.proposal_state.system", scope: 'decidim.proposals') %>
+          </th>
+          <th class="!text-left">
+            <%= t("models.proposal_state.default", scope: 'decidim.proposals') %>
+          </th>
+          <th class="!text-left">
+            <%= t("models.proposal_state.css_class", scope: 'decidim.proposals') %>
+          </th>
+          <th class="!text-left">
+            <%= t("models.proposal_state.include_in_stats", scope: 'decidim.proposals') %>
+          </th>
+          <th class="actions"><%= t("actions.title", scope: "decidim.proposals") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% proposal_states.each do |state|%>
+          <tr>
+            <td>
+              <%= translated_attribute(state.title) %>
+            </td>
+            <td><%= state.system? %></td>
+            <td><%= state.default? %></td>
+            <td>
+              <strong class="label <%= state.css_class %>">
+                <%= state.css_class %>
+              </strong>
+            </td>
+            <td><%= state.include_in_stats? %></td>
+            <td>
+              <% if allowed_to? :update, :proposal_state, proposal_state: state %>
+                <%= icon_link_to "pencil-line", edit_proposal_state_path(state), t("actions.edit_proposal_state", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
+              <% else %>
+                <span class="action-space icon"></span>
+              <% end %>
+              <% if allowed_to?(:destroy, :proposal_state, proposal_state: state) && !state.system? %>
+                <%= icon_link_to "delete-bin-line", proposal_state_path(state), t("actions.destroy", scope: "decidim.proposals"), method: :delete, data: { confirm: t("actions.delete_proposal_state_confirm", scope: "decidim.proposals") }, class: "action-icon--delete-proposal" %>
+              <% end%>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= decidim_paginate proposal_states %>

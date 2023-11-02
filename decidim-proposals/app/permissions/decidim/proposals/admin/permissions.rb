@@ -62,6 +62,8 @@ module Decidim
             allow!
           end
 
+          allow! if permission_action.subject == :proposal_state # && permission_action.action == :read
+
           permission_action
         end
 
