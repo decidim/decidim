@@ -45,6 +45,31 @@ module Decidim
     config_accessor :process_group_highlighted_proposals_limit do
       3
     end
+
+    def self.create_default_states!(component, admin_user)
+      default_states = {
+        not_answered: { token: :not_answered, background_color: "#F5A623", text_color: "", default: true, include_in_stats: {} },
+        evaluating: { token: :evaluating, background_color: "#F5A623", text_color: "", default: false, include_in_stats: {} },
+        accepted: { token: :accepted, background_color: "#F5A623", text_color: "", default: false, include_in_stats: {} },
+        rejected: { token: :rejected, background_color: "#F5A623", text_color: "", default: false, include_in_stats: {} },
+        withdrawn: { token: :withdrawn, background_color: "#F5A623", text_color: "", default: false, include_in_stats: {} }
+      }
+
+      default_states.each_key do |key|
+        default_states[key][:object] = Decidim.traceability.create!(
+          Decidim::Proposals::ProposalState,
+          admin_user,
+          component:,
+          token: default_states.dig(key, :token),
+          system: true,
+          default: default_states.dig(key, :default),
+          text_color: default_states.dig(key, :text_color),
+          background_color: default_states.dig(key, :background_color),
+          include_in_stats: default_states.dig(key, :include_in_stats)
+        )
+      end
+      default_states
+    end
   end
 
   module ContentParsers
