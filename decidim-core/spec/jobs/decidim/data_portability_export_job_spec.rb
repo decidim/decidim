@@ -26,7 +26,7 @@ module Decidim
 
       described_class.perform_now(user)
 
-      expect(user.download_your_data_file.attached?).to be(true)
+      expect(user.data_portability_file.attached?).to be(true)
     end
   end
 end
