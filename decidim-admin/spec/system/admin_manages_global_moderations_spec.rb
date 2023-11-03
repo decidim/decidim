@@ -36,7 +36,7 @@ describe "Admin manages global moderations", type: :system do
   context "when on hidden moderations path" do
     let!(:hidden_moderations) do
       moderation = create(:moderation, reportable: reportables.last, report_count: 3, reported_content: reportables.last.reported_searchable_content_text, hidden_at: Time.current)
-      create_list(:report, 3, moderation:, reason: :spam)
+      create_list(:report, 3, moderation: moderation, reason: :spam)
       [moderation]
     end
     let!(:hidden_moderation) { hidden_moderations.first }
