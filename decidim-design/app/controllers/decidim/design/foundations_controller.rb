@@ -5,6 +5,8 @@ module Decidim
     class FoundationsController < Decidim::Design::ApplicationController
       include Decidim::ControllerHelpers
       include Decidim::Design::HasTemplates
+
+      helper ColorsHelper
     end
   end
 end
