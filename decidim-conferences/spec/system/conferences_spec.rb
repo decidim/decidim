@@ -147,7 +147,7 @@ describe "Conferences", type: :system do
         let!(:meetings) { create_list(:meeting, 3, :published, component: meetings_component) }
 
         it "does not show the venues" do
-          expect(page).not_to have_content("Conference Venues")
+          expect(page).not_to have_content("CONFERENCE VENUES")
         end
       end
 
@@ -158,7 +158,7 @@ describe "Conferences", type: :system do
           let!(:meetings) { create_list(:meeting, 3, :published, component: meetings_component) }
 
           it "does show the venues" do
-            expect(page).to have_content("Conference Venues")
+            expect(page).to have_content("CONFERENCE VENUES")
           end
         end
 
@@ -166,7 +166,7 @@ describe "Conferences", type: :system do
           let!(:meetings) { create_list(:meeting, 3, :moderated, :published, component: meetings_component) }
 
           it "does not show the venues" do
-            expect(page).not_to have_content("Conference Venues")
+            expect(page).not_to have_content("CONFERENCE VENUES")
           end
         end
 
@@ -174,7 +174,7 @@ describe "Conferences", type: :system do
           let!(:meetings) { create_list(:meeting, 3, published_at: nil, component: meetings_component) }
 
           it "does not show the venues" do
-            expect(page).not_to have_content("Conference Venues")
+            expect(page).not_to have_content("CONFERENCE VENUES")
           end
         end
 
@@ -182,7 +182,7 @@ describe "Conferences", type: :system do
           let!(:meetings) { create_list(:meeting, 3, :published, private_meeting: true, transparent: false, component: meetings_component) }
 
           it "does not show the venues" do
-            expect(page).not_to have_content("Conference Venues")
+            expect(page).not_to have_content("CONFERENCE VENUES")
           end
         end
 
@@ -190,7 +190,7 @@ describe "Conferences", type: :system do
           let!(:meetings) { create_list(:meeting, 3, :published, private_meeting: true, transparent: true, component: meetings_component) }
 
           it "does not show the venues" do
-            expect(page).to have_content("Conference Venues")
+            expect(page).to have_content("CONFERENCE VENUES")
           end
         end
       end
