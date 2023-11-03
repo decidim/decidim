@@ -6,7 +6,7 @@ module Decidim
       include Decidim::IconHelper
 
       def iconography_sections
-        DEFAULT_RESOURCE_TYPE_ICONS.values.group_by{ |d| d[:category] }.map do |category, values|
+        DEFAULT_RESOURCE_TYPE_ICONS.values.group_by { |d| d[:category] }.map do |category, values|
           {
             id: category,
             contents: [
