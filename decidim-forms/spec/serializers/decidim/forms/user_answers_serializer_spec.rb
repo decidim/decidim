@@ -114,7 +114,7 @@ module Decidim
 
           it "the creation of the answer" do
             key = I18n.t(:created_at, scope: "decidim.forms.user_answers_serializer")
-            expect(serialized[key]).to eq an_answer.created_at.to_s(:db)
+            expect(serialized[key]).to be_within(1.second).of an_answer.created_at
           end
 
           it "the IP hash of the user" do
@@ -144,6 +144,36 @@ module Decidim
 
           it "includes conditional question as empty" do
             expect(serialized).to include("5. #{translated(conditional_question.body, locale: I18n.locale)}" => "")
+          end
+        end
+
+        context "when time zone is UTC" do
+          let(:time_zone) { "UTC" }
+          let(:created_at) { Time.new(2000, 1, 2, 3, 4, 5, 0) }
+
+          before do
+            questionable.organization.update!(time_zone: time_zone)
+            answers.first.update!(created_at: created_at)
+          end
+
+          it "Time uses UTC time zone in exported data" do
+            key = I18n.t(:created_at, scope: "decidim.forms.user_answers_serializer")
+            expect(serialized[key].to_s).to include "UTC"
+          end
+        end
+
+        context "when time zone is non-UTC" do
+          let(:time_zone) { "Hawaii" }
+          let(:created_at) { Time.new(2000, 1, 2, 3, 4, 5, 0) }
+
+          before do
+            questionable.organization.update!(time_zone: time_zone)
+            answers.first.update!(created_at: created_at)
+          end
+
+          it "Time uses UTC time zone in exported data" do
+            key = I18n.t(:created_at, scope: "decidim.forms.user_answers_serializer")
+            expect(serialized[key].to_s).to include "UTC"
           end
         end
       end
