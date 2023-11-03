@@ -130,22 +130,6 @@ module Decidim
         run "bundle install"
       end
 
-      def tweak_bootsnap
-        gsub_file "config/boot.rb", %r{require 'bootsnap/setup'.*$}, <<~RUBY.rstrip
-          require "bootsnap"
-
-          env = ENV["RAILS_ENV"] || "development"
-
-          Bootsnap.setup(
-            cache_dir: File.expand_path(File.join("..", "tmp", "cache"), __dir__),
-            development_mode: env == "development",
-            load_path_cache: true,
-            compile_cache_iseq: !ENV["SIMPLECOV"],
-            compile_cache_yaml: true
-          )
-        RUBY
-      end
-
       def add_ignore_uploads
         append_file ".gitignore", "\n# Ignore public uploads\npublic/uploads" unless options["skip_git"]
       end
