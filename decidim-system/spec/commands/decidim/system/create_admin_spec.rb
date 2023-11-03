@@ -42,7 +42,21 @@ module Decidim
           end
         end
 
-        describe "when the admin doesn't exist" do
+        describe "when the password does not match confirmation" do
+          let(:params) do
+            {
+              email: "email@foo.bar",
+              password: "GcvV56wHp5tJ",
+              password_confirmation: "GcvV56wHp5tJ2"
+            }
+          end
+
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+        end
+
+        describe "when the admin does not exist" do
           before do
             create(:admin, email: "email@foo.bar")
           end
