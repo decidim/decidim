@@ -17,7 +17,7 @@ module Decidim
     validates :name, presence: true, format: { with: Decidim::User::REGEXP_NAME }
     validates :nickname, presence: true, format: { with: Decidim::User::REGEXP_NICKNAME }, length: { maximum: Decidim::User.nickname_max_length }
     validates :email, presence: true, "valid_email_2/email": { disposable: true }
-    validates :password, confirmation: true
+    validates :password, confirmation: { message: I18n.t("errors.messages.password_confirmation_message") }
     validates :password, password: { name: :name, email: :email, username: :nickname }
     validates :password_confirmation, presence: true
     validates :tos_agreement, allow_nil: false, acceptance: true

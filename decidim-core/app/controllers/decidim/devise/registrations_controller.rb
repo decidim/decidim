@@ -37,7 +37,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = @form.errors.full_messages.join(", ") if @form.errors.full_messages.any?
+            flash.now[:alert] = t("error", scope: "decidim.devise.registrations.create")
             render :new
           end
         end
