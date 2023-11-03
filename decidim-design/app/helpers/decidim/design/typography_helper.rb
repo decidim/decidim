@@ -12,8 +12,8 @@ module Decidim
                 type: :text,
                 values: [
                   "Decidim uses Source Sans Pro as primary typeface. This typeface supports 310 languages",
-                  "This fonts are licensed under the Open Font License",
-                ],
+                  "This fonts are licensed under the Open Font License"
+                ]
               },
               {
                 type: :table,
@@ -22,7 +22,7 @@ module Decidim
                   { type: "typefaces", example: "Source Sans Pro Bold", class: "font-bold" },
                   { type: "typefaces", example: "Source Sans Pro Semibold", class: "font-semibold" },
                   { type: "typefaces", example: "Source Sans Pro Regulars", class: "font-normal" }
-                ),
+                )
               }
             ]
           },
@@ -31,7 +31,7 @@ module Decidim
             contents: [
               {
                 type: :table,
-                options: { headings: %w(Level Semibold\ 600 Bold\ 700 Size) },
+                options: { headings: ["Level", "Semibold 600", "Bold 700", "Size"] },
                 items: typography_table(
                   { type: "headings", level: "Hero H1", text: "Hero heading", size: "text-5xl" },
                   { type: "headings", level: "H1", text: "Heading H1", size: "text-4xl" },
@@ -40,7 +40,7 @@ module Decidim
                   { type: "headings", level: "H4", text: "Heading H4", size: "text-xl" },
                   { type: "headings", level: "H5", text: "Heading H5", size: "text-lg" },
                   { type: "headings", level: "H6", text: "Heading H6", size: "text-md" }
-                ),
+                )
               }
             ]
           },
@@ -49,14 +49,14 @@ module Decidim
             contents: [
               {
                 type: :table,
-                options: { headings: %w(Regular\ 400 Semibold\ 600 Bold\ 700 Size) },
+                options: { headings: ["Regular 400", "Semibold 600", "Bold 700", "Size"] },
                 items: typography_table(
-                  { type:"content", text: "Sample content", size: "text-xl" },
-                  { type:"content", text: "Sample content", size: "text-lg" },
-                  { type:"content", text: "Sample content", size: "text-md" },
-                  { type:"content", text: "Sample content", size: "text-sm" },
-                  { type:"content", text: "Sample content", size: "text-xs" },
-                ),
+                  { type: "content", text: "Sample content", size: "text-xl" },
+                  { type: "content", text: "Sample content", size: "text-lg" },
+                  { type: "content", text: "Sample content", size: "text-md" },
+                  { type: "content", text: "Sample content", size: "text-sm" },
+                  { type: "content", text: "Sample content", size: "text-xs" }
+                )
               }
             ]
           },
@@ -65,26 +65,24 @@ module Decidim
             contents: [
               {
                 type: :table,
-                options: { headings: %w(Size Layout\ cols ~\ Characters\ per\ line) },
+                options: { headings: ["Size", "Layout cols", "~ Characters per line"] },
                 items: typography_table(
                   { type: "readability", size: "text-xl", layout: 6, chars: 81 },
                   { type: "readability", size: "text-lg", layout: 6, chars: 90 },
                   { type: "readability", size: "text-md", layout: 5, chars: 84 },
                   { type: "readability", size: "text-sm", layout: 4, chars: 76 }
-                ),
+                )
               }
             ]
-          },
+          }
         ]
       end
 
-      def typography_table(*table_rows, **opts)
+      def typography_table(*table_rows, **_opts)
         table_rows.each_with_index.map do |table_cell, ix|
           row = []
 
-          if table_cell[:type] == "typefaces"
-            row << content_tag(:span, table_cell[:example], class: "text-lg #{table_cell[:class]}")
-          end
+          row << content_tag(:span, table_cell[:example], class: "text-lg #{table_cell[:class]}") if table_cell[:type] == "typefaces"
 
           if table_cell[:type] == "headings"
             row << table_cell[:level]

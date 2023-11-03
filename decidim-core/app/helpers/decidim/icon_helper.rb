@@ -39,7 +39,7 @@ module Decidim
       "badges" => { icon: "award-line", description: "Badges", category: "profile" },
       "profile" => { icon: "team-line", description: "Groups", category: "profile" },
       "user_group" => { icon: "team-line", description: "Groups", category: "profile" },
-      "profile" => { icon: "link", description: "web / URL", category: "profile" },
+      "link" => { icon: "link", description: "web / URL", category: "profile" },
       "following" => { icon: "eye-2-line", description: "Following", category: "profile" },
       "activity" => { icon: "bubble-chart-line", description: "Activity", category: "profile" },
       "followers" => { icon: "group-line", description: "Followers", category: "profile" },

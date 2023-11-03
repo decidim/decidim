@@ -17,7 +17,7 @@ module Decidim
 
       def section_text(section)
         title = section[:title] || section[:id]&.titleize
-        return title unless section[:label].present?
+        return title if section[:label].blank?
 
         title += content_tag(:span, section[:label], class: "label")
         title.html_safe
@@ -36,7 +36,7 @@ module Decidim
         when :partial
           partial = render_partial(content)
 
-          return partial unless content[:layout].present?
+          return partial if content[:layout].blank?
 
           render layout: content[:layout] do
             partial.html_safe
