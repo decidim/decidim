@@ -152,8 +152,8 @@ module Decidim
           let(:created_at) { Time.new(2000, 1, 2, 3, 4, 5, 0) }
 
           before do
-            questionable.organization.update!(time_zone:)
-            answers.first.update!(created_at:)
+            questionable.organization.update!(time_zone: time_zone)
+            answers.first.update!(created_at: created_at)
           end
 
           it "Time uses UTC time zone in exported data" do
@@ -167,8 +167,8 @@ module Decidim
           let(:created_at) { Time.new(2000, 1, 2, 3, 4, 5, 0) }
 
           before do
-            questionable.organization.update!(time_zone:)
-            answers.first.update!(created_at:)
+            questionable.organization.update!(time_zone: time_zone)
+            answers.first.update!(created_at: created_at)
           end
 
           it "Time uses UTC time zone in exported data" do
