@@ -177,15 +177,15 @@ module Decidim
       end
       # rubocop:enable Layout/LineLength
 
-      def cards_table(*args, **_opts)
-        args.map do |arg|
+      def cards_table(*table_rows, **_opts)
+        table_rows.map do |table_cell|
           [
-            arg[:name],
-            link_to(arg[:url].split("/").last, arg[:url], target: "_blank", class: "text-secondary underline", rel: "noopener"),
-            if arg[:usage].to_s.start_with?("http")
-              link_to(arg[:usage].split("/").last, arg[:usage], target: "_blank", class: "text-secondary underline", rel: "noopener")
+            table_cell[:name],
+            link_to(table_cell[:url].split("/").last, table_cell[:url], target: "_blank", class: "text-secondary underline", rel: "noopener"),
+            if table_cell[:usage].to_s.start_with?("http")
+              link_to(table_cell[:usage].split("/").last, table_cell[:usage], target: "_blank", class: "text-secondary underline", rel: "noopener")
             else
-              arg[:usage]
+              table_cell[:usage]
             end
           ]
         end
