@@ -7,6 +7,8 @@ module Decidim
       include Decidim::Design::HasTemplates
 
       helper ColorsHelper
+      helper TypographyHelper
+      helper IconographyHelper
     end
   end
 end

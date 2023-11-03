@@ -80,7 +80,7 @@ module Decidim
         ]
       end
 
-      def cards_table(*table_rows, **opts)
+      def colors_table(*table_rows, **opts)
         table_rows.map do |table_cell|
           row = []
           row << content_tag(:div, nil, class: "w-8 h-8 rounded shadow", style: "background-color: #{table_cell[:value]};")
