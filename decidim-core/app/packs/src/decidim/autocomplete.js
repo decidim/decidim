@@ -1,3 +1,5 @@
+/* eslint max-lines: ["error", 350] */
+
 import AutoCompleteJS from "@tarekraafat/autocomplete.js";
 
 export default class AutoComplete {
@@ -86,11 +88,17 @@ export default class AutoComplete {
           }
         },
         filter: (list) => {
+          const results = list.filter(
+            (item, idx, arr) => {
+              return arr.findIndex((val) => val.value === item.value) === idx;
+            }
+          );
+
           if (this.options.dataFilter) {
-            return this.options.dataFilter(list);
+            return this.options.dataFilter(results);
           }
 
-          return list;
+          return results;
         }
       },
       resultsList: {
