@@ -85,6 +85,14 @@
 .design__section {
   @apply [&>*+*]:mt-6 [&>p]:text-gray-2;
 
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl font-semibold inline-flex items-center gap-1;
+  }
+
   &-snippet {
     @apply mt-0;
 
