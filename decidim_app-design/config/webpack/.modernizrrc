@@ -1,9 +1,0 @@
-{
-  "minify": true,
-    "options": [
-      "setClasses"
-    ],
-    "feature-detects": [
-      "css/transitions"
-    ]
-}

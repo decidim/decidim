@@ -102,3 +102,8 @@ For releases we follow https://semver.org/[Semantic Versioning recommendations].
 Most Decidim websites are under different regulations that require these services to follow accessibility guidelines to make them available to as wide audiences as possible. All user interface changes need to follow the accessibility guidelines.
 
 For more information, refer to the xref:develop:guide_accessibility.adoc[Decidim accessibility guide].
+
+== JavaScript
+
+* Do not use CSS classes to bind JavaScript selectors or Ruby specs. Try to use an `id` (with the `js-` preffix) or a `data-attribute` as selector, in order to shrink the couplish between changing technologies.
+* Do not use jQuery if you can do it with vanilla JavaScript. Specially try to not introduce new code with jQuery, and if you are working with a legacy file take consider migrating it to vanilla JS.

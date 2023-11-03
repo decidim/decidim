@@ -20,9 +20,10 @@ env:
   SIMPLECOV: "true"
   RUBY_VERSION: 3.1.1
   NODE_VERSION: 18.17.1
+  NODE_ENV: "test"
   RAILS_ENV: development
   RAILS_BOOST_PERFORMANCE: "true"
-  WEBPACKER_RUNTIME_COMPILE: "false"
+  SHAKAPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}

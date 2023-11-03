@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Accountability
-    describe VersionsController, type: :controller, versioning: true do
+    describe VersionsController, versioning: true do
       routes { Decidim::Accountability::Engine.routes }
 
       let(:resource) { create(:result) }

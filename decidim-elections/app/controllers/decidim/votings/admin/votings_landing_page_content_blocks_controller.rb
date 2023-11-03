@@ -33,26 +33,6 @@ module Decidim
           voting_landing_page_content_block_path(scoped_resource, params[:id])
         end
 
-        def submit_button_text
-          t("landing_page.content_blocks.edit.update", scope: "decidim.votings.admin")
-        end
-
-        def content_block_create_success_text
-          t("landing_page.content_blocks.create.success", scope: "decidim.votings.admin")
-        end
-
-        def content_block_create_error_text
-          t("landing_page.content_blocks.create.error", scope: "decidim.votings.admin")
-        end
-
-        def content_block_destroy_success_text
-          t("landing_page.content_blocks.destroy.success", scope: "decidim.votings.admin")
-        end
-
-        def content_block_destroy_error_text
-          t("landing_page.content_blocks.destroy.error", scope: "decidim.votings.admin")
-        end
-
         alias current_participatory_space scoped_resource
       end
     end

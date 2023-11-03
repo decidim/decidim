@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages meetings polls", type: :system do
+describe "Admin manages meetings polls" do
   let(:current_organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization: current_organization) }
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }

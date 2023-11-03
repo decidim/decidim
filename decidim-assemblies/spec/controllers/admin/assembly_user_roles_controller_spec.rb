@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Assemblies
     module Admin
-      describe AssemblyUserRolesController, type: :controller do
+      describe AssemblyUserRolesController do
         routes { Decidim::Assemblies::AdminEngine.routes }
 
         let(:organization) { create(:organization) }

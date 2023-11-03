@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Identity document online review", type: :system do
+describe "Identity document online review" do
   let!(:organization) do
     create(:organization, available_authorizations: ["id_documents"])
   end

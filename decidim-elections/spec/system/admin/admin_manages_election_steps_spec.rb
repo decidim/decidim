@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages election steps", :slow, type: :system do
+describe "Admin manages election steps", :slow do
   include Decidim::Elections::FullElectionHelpers
   include_context "with test bulletin board"
   include_context "when admin manages elections"

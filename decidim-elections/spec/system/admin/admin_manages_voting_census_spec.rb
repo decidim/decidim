@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages polling officers", type: :system do
+describe "Admin manages polling officers" do
   include_context "when admin managing a voting"
 
   let(:csv_file) { upload_test_file(Decidim::Dev.test_file("import_voting_census.csv", "text/csv")) }

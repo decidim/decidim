@@ -6,7 +6,7 @@ module Decidim
   module Map
     module Provider
       module Autocomplete
-        describe Osm::Builder, type: :system do
+        describe Osm::Builder do
           it_behaves_like "a page with geocoding input" do
             let(:options) { { url: "https://photon.example.org/api/" } }
             let(:html_head) do
@@ -35,7 +35,7 @@ module Decidim
                               country: "Country1"
                             },
                             geometry: {
-                              coordinates: [1.123, 2.234]
+                              coordinates: [2.234, 1.123]
                             }
                           },
                           {
@@ -46,7 +46,7 @@ module Decidim
                               country: "Country2"
                             },
                             geometry: {
-                              coordinates: [3.345, 4.456]
+                              coordinates: [4.456, 3.345]
                             }
                           },
                           {
@@ -58,7 +58,7 @@ module Decidim
                               country: "Country3"
                             },
                             geometry: {
-                              coordinates: [5.567, 6.678]
+                              coordinates: [6.678, 5.567]
                             }
                           }
                         ]

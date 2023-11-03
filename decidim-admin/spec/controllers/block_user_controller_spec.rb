@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe BlockUserController, type: :controller do
+    describe BlockUserController do
       routes { Decidim::Admin::Engine.routes }
 
       let(:organization) { create(:organization) }

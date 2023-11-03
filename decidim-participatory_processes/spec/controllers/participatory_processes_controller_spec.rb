@@ -5,7 +5,7 @@ require "decidim/dev/test/promoted_participatory_processes_shared_examples"
 
 module Decidim
   module ParticipatoryProcesses
-    describe ParticipatoryProcessesController, type: :controller do
+    describe ParticipatoryProcessesController do
       routes { Decidim::ParticipatoryProcesses::Engine.routes }
 
       let(:organization) { create(:organization) }

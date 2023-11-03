@@ -98,7 +98,28 @@ These are one time actions that need to be done after the code is updated in the
 
 The redesign has introduced Tailwind CSS framework to compile CSS. It integrates with Webpacker, which generates Tailwind configuration dynamically when Webpacker is invoked.
 
-You will need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app from scratch, that entry will already be included in the `.gitignore`.
+There are some actions that you will need to do in your existing application that's already done in new applications:
+
+- Add `tailwind.config.js` to your app's `.gitignore`.
+
+```console
+echo tailwind.config.js >> .gitignore
+```
+
+- Migrate your settings from your applications's `_decidim-settings.scss` file, available at `app/packs/stylesheets/decidim/_decidim-settings.scss`.
+If you want to define the colors and other Tailwind related configurations, you can do it following the instructions on the documentation on how to [customize Tailwind](https://docs.decidim.org/en/develop/customize/styles.html#_tailwind_css).
+
+- After that's done, remove your `_decidim-settings.scss` file.
+
+```console
+rm app/packs/stylesheets/decidim/_decidim-settings.scss
+```
+
+- Remove this comment from your `decidim-application.scss` file, available at `app/packs/stylesheets/decidim/decidim_application.scss`.
+
+```javascript
+// To override CSS variables or Foundation settings use _decidim-settings.scss
+```
 
 You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
 
@@ -156,30 +177,12 @@ In order to continue having support for Webpacker like syntax, we have switched 
 In order to perform the update, you will need to make sure that you **do not have webpacker in your Gemfile**.
 If you have it, please remove it, and allow Decidim to handle the webpacker / shakapacker dependency.
 
-In order to perform the migration to shakapacker, please backup the following files, to make sure that you save any customizations you may have done to webpacker:
-
-```console
-config/webpacker.yml
-config/webpack/*
-package.json
-postcss.config.js
-```
-
-After all the backups and changes mentioned above have been completed, follow the default upgrade steps, as mentioned above in the document.
-Then run the below command, and replace all the configuration with the one that Decidim is providing by default:
-
-```console
-bundle exec rake decidim:webpacker:install
-```
-
-This will make the necessary changes in the `config/webpacker.yml`, but also in the `config/webpack/` folder.
-
 #### Note for development
 
 If you are using the `Procfile.dev` file, you will need to make sure that you have the following line in your configuration. If you have not altered the `Procfile.dev` file, you will not need to do anything, as we covered that part:
 
 ```console
-webpacker: ./bin/webpacker-dev-server
+shakapacker: ./bin/shakapacker-dev-server
 ```
 
 In order to run your development server, you will need to run the following command:
@@ -188,7 +191,12 @@ In order to run your development server, you will need to run the following comm
 ./bin/dev
 ```
 
-You can read more about this change on PR [\#10389](https://github.com/decidim/decidim/pull/10389).
+Also, by migrating to Shakapacker, we no longer use `config/webpacker.yml`. All the webpack configuration will be done through `config/shakapacker.yml`
+
+You can read more about this change on PR
+
+- [\#10389](https://github.com/decidim/decidim/pull/10389)
+- [\#11728](https://github.com/decidim/decidim/pull/11728)
 
 ### 3.6. Initialize content blocks on spaces or resources with landing page
 
@@ -716,3 +724,19 @@ Prior to 0.28, there was the possibility of configuring a list of disallowed pas
 - `DECIDIM_PASSWORD_BLACKLIST` becomes `DECIDIM_DENIED_PASSWORDS`
 
 You can read more about this change on PR [\#10288](https://github.com/decidim/decidim/pull/10288).
+
+### 5.6. Change in Initiatives configuration
+
+Initiatives configuration has a setting to enable a form to be printed for the creation of Initiatives.
+
+This used to be enabled by default, and now it's disabled.
+
+If you need to enable back, you can do so by setting the `INITIATIVES_PRINT_ENABLED` environment variable to `true`
+or if you have not migrated to the environment variables configurations (the default since v0.25.0), then you can do
+so by adding the following snippet in `config/initializers/decidim.rb`
+
+```ruby
+Decidim::Initiatives.configure do |config|
+  config.print_enabled = true
+end
+```
