@@ -3,6 +3,7 @@
 module Decidim
   module Design
     module CardsHelper
+      # rubocop:disable Layout/LineLength
       def cards_sections
         [
           {
@@ -174,6 +175,7 @@ module Decidim
           }
         ]
       end
+      # rubocop:enable Layout/LineLength
 
       def cards_table(*args, **_opts)
         args.map do |arg|
