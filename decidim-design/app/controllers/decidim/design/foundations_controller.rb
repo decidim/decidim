@@ -8,6 +8,7 @@ module Decidim
 
       helper ColorsHelper
       helper TypographyHelper
+      helper IconographyHelper
     end
   end
 end
