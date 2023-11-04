@@ -6,8 +6,8 @@ require "decidim/admin/test/admin_participatory_space_access_examples"
 
 describe "AdminAccess", type: :system do
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, organization:, title: { en: "My space" }) }
-  let(:other_participatory_process) { create(:participatory_process, organization:) }
+  let(:participatory_process) { create(:participatory_process, organization: organization, title: { en: "My space" }) }
+  let(:other_participatory_process) { create(:participatory_process, organization: organization) }
 
   before do
     switch_to_host(organization.host)
@@ -15,7 +15,7 @@ describe "AdminAccess", type: :system do
   end
 
   context "when the user is a normal user" do
-    let(:user) { create(:user, :confirmed, organization:) }
+    let(:user) { create(:user, :confirmed, organization: organization) }
     let(:unauthorized_path) { "/" }
 
     it_behaves_like "a 404 page" do
@@ -32,7 +32,7 @@ describe "AdminAccess", type: :system do
   end
 
   context "when the user is a process admin" do
-    let(:user) { create(:process_admin, :confirmed, organization:, participatory_process:) }
+    let(:user) { create(:process_admin, :confirmed, organization: organization, participatory_process: participatory_process) }
 
     context "and has permission" do
       before do
@@ -52,7 +52,7 @@ describe "AdminAccess", type: :system do
   end
 
   context "when the user is a valuator" do
-    let(:user) { create(:process_valuator, :confirmed, participatory_process:) }
+    let(:user) { create(:process_valuator, :confirmed, participatory_process: participatory_process) }
 
     context "and has permission" do
       before do

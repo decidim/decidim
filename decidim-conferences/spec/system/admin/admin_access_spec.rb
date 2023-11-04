@@ -6,11 +6,11 @@ require "decidim/admin/test/admin_participatory_space_access_examples"
 
 describe "AdminAccess", type: :system do
   let(:organization) { create(:organization) }
-  let(:participatory_space) { create(:conference, organization:, title: { en: "My space" }) }
-  let(:other_participatory_space) { create(:conference, organization:) }
+  let(:participatory_space) { create(:conference, organization: organization, title: { en: "My space" }) }
+  let(:other_participatory_space) { create(:conference, organization: organization) }
 
   context "with participatory space admin" do
-    let(:role) { create(:conference_admin, :confirmed, organization:, conference: participatory_space) }
+    let(:role) { create(:conference_admin, :confirmed, organization: organization, conference: participatory_space) }
     let(:target_path) { decidim_admin_conferences.edit_conference_path(participatory_space) }
     let(:unauthorized_target_path) { decidim_admin_conferences.edit_conference_path(other_participatory_space) }
 
@@ -18,7 +18,7 @@ describe "AdminAccess", type: :system do
   end
 
   context "with participatory space valuator" do
-    let(:role) { create(:conference_valuator, :confirmed, organization:, conference: participatory_space) }
+    let(:role) { create(:conference_valuator, :confirmed, organization: organization, conference: participatory_space) }
     let(:target_path) { decidim_admin_conferences.components_path(participatory_space) }
     let(:unauthorized_target_path) { decidim_admin_conferences.components_path(other_participatory_space) }
 
@@ -26,7 +26,7 @@ describe "AdminAccess", type: :system do
   end
 
   context "with participatory space moderator" do
-    let(:role) { create(:conference_moderator, :confirmed, organization:, conference: participatory_space) }
+    let(:role) { create(:conference_moderator, :confirmed, organization: organization, conference: participatory_space) }
     let(:target_path) { decidim_admin_conferences.moderations_path(participatory_space) }
     let(:unauthorized_target_path) { decidim_admin_conferences.moderations_path(other_participatory_space) }
 
