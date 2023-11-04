@@ -256,7 +256,7 @@ module Decidim
     def moderator?
       Decidim.participatory_space_manifests.map do |manifest|
         participatory_space_type = manifest.model_class_name.constantize
-        return true if participatory_space_type.moderators(organization).exists?(id:)
+        return true if participatory_space_type.moderators(organization).exists?(id: id)
       end
       false
     end
