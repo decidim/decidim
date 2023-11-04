@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "AdminAccess", type: :system do
   let(:organization) { create(:organization) }
-  let(:initiative) { create(:initiative, organization:) }
+  let(:initiative) { create(:initiative, organization: organization) }
 
   before do
     switch_to_host(organization.host)
@@ -12,7 +12,7 @@ describe "AdminAccess", type: :system do
   end
 
   context "when the user is a normal user" do
-    let(:user) { create(:user, :confirmed, organization:) }
+    let(:user) { create(:user, :confirmed, organization: organization) }
     let(:unauthorized_path) { "/" }
 
     it_behaves_like "a 404 page" do
@@ -21,8 +21,8 @@ describe "AdminAccess", type: :system do
   end
 
   context "when the user is the author of the initiative" do
-    let(:user) { create(:user, :confirmed, organization:) }
-    let(:initiative) { create(:initiative, :published, author: user, organization:) }
+    let(:user) { create(:user, :confirmed, organization: organization) }
+    let(:initiative) { create(:initiative, :published, author: user, organization: organization) }
     let(:unauthorized_path) { "/" }
 
     it_behaves_like "a 404 page" do

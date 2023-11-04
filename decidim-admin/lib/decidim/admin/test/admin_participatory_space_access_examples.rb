@@ -21,7 +21,7 @@ shared_examples "admin participatory space access" do
   end
 
   context "when the user is a normal user" do
-    let(:user) { create(:user, :confirmed, organization:) }
+    let(:user) { create(:user, :confirmed, organization: organization) }
     let(:unauthorized_path) { "/" }
 
     it_behaves_like "a 404 page"
