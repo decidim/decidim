@@ -25,7 +25,9 @@ module Decidim
 
       include_examples "publish amendment draft" do
         it "changes the emendation state" do
-          expect { command.call }.to change { emendation.reload[:state] }.from("not_answered").to("evaluating")
+          not_answered = Decidim::Proposals::ProposalState.where(component:, token: "not_answered").pick(:id)
+          evaluating = Decidim::Proposals::ProposalState.where(component:, token: "evaluating").pick(:id)
+          expect { command.call }.to change { emendation.reload[:decidim_proposals_proposal_state_id] }.from(not_answered).to(evaluating)
         end
       end
     end

@@ -4,11 +4,19 @@ require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
 require "decidim/meetings/test/factories"
 
+def generate_state_title(token)
+  Decidim::Faker::Localized.localized { I18n.t(token, scope: "decidim.proposals.answers") }
+end
+
 FactoryBot.define do
   factory :proposal_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name }
     manifest_name { :proposals }
     participatory_space { create(:participatory_process, :with_steps, organization:) }
+
+    after :create do |proposal_component|
+      Decidim::Proposals.create_default_states!(proposal_component, nil, with_traceability: false)
+    end
 
     trait :with_endorsements_enabled do
       step_settings do
@@ -243,39 +251,36 @@ FactoryBot.define do
   end
 
   factory :proposal_state, class: "Decidim::Proposals::ProposalState" do
-    token { SecureRandom.hex(10) }
-    title { Decidim::Faker::Localized.localized { generate(:title) } }
+    token { :not_answered }
+    title { generate_state_title(:not_answered) }
     description { Decidim::Faker::Localized.localized { Faker::Lorem.sentences(number: 3).join("\n") } }
     component { create(:proposal_component) }
     default { false }
-    system { false }
-    css_class { "warning" }
+    system { true }
+    css_class { "" }
 
-    trait :not_answered do
-      token { :not_answered }
-      system { true }
-      title { Decidim::Faker::Localized.localized { :not_answered } }
-    end
     trait :evaluating do
+      title { generate_state_title(:evaluating) }
       token { :evaluating }
       system { true }
-      title { Decidim::Faker::Localized.localized { :evaluating } }
     end
+
     trait :accepted do
+      title { generate_state_title(:accepted) }
       token { :accepted }
       system { true }
-      title { Decidim::Faker::Localized.localized { :accepted } }
     end
+
     trait :rejected do
+      title { generate_state_title(:rejected) }
       token { :rejected }
       system { true }
-      title { Decidim::Faker::Localized.localized { :rejected } }
     end
 
     trait :withdrawn do
+      title { generate_state_title(:withdrawn) }
       token { :withdrawn }
       system { true }
-      title { Decidim::Faker::Localized.localized { :withdrawn } }
     end
   end
 
@@ -285,6 +290,7 @@ FactoryBot.define do
       # user_groups correspondence to users is by sorting order
       user_groups { [] }
       skip_injection { false }
+      state { :not_answered }
     end
 
     title do
@@ -322,9 +328,14 @@ FactoryBot.define do
       end
     end
 
-    proposal_state { create(:proposal_state, :not_answered, component:) }
-
     after(:build) do |proposal, evaluator|
+      if proposal.component
+        existing_states = Decidim::Proposals::ProposalState.where(component: proposal.component).any?
+
+        Decidim::Proposals.create_default_states!(proposal.component, nil, with_traceability: false) unless existing_states
+      end
+
+      proposal.assign_state(evaluator.state)
       proposal.title = if evaluator.title.is_a?(String)
                          { proposal.try(:organization).try(:default_locale) || "en" => evaluator.title }
                        else
@@ -389,43 +400,43 @@ FactoryBot.define do
     end
 
     trait :evaluating do
-      proposal_state { create(:proposal_state, :evaluating, component:) }
+      state { :evaluating }
       answered_at { Time.current }
       state_published_at { Time.current }
     end
 
     trait :accepted do
-      proposal_state { create(:proposal_state, :accepted, component:) }
+      state { :accepted }
       answered_at { Time.current }
       state_published_at { Time.current }
     end
 
     trait :rejected do
-      proposal_state { create(:proposal_state, :rejected, component:) }
+      state { :rejected }
       answered_at { Time.current }
       state_published_at { Time.current }
     end
 
     trait :withdrawn do
-      proposal_state { create(:proposal_state, :withdrawn, component:) }
+      state { :withdrawn }
     end
 
     trait :accepted_not_published do
-      proposal_state { create(:proposal_state, :accepted, component:) }
+      state { :accepted }
       answered_at { Time.current }
       state_published_at { nil }
       answer { generate_localized_title }
     end
 
     trait :with_answer do
-      proposal_state { create(:proposal_state, :accepted, component:) }
+      state { :accepted }
       answer { generate_localized_title }
       answered_at { Time.current }
       state_published_at { Time.current }
     end
 
     trait :not_answered do
-      proposal_state { create(:proposal_state, :not_answered, component:) }
+      state { :not_answered }
     end
 
     trait :draft do

@@ -33,8 +33,7 @@ module Decidim
           def filters
             [
               :is_emendation_true,
-              :with_any_state,
-              :state_eq,
+              :proposal_state_id_eq,
               :scope_id_eq,
               :category_id_eq,
               :valuator_role_ids_has
@@ -44,8 +43,7 @@ module Decidim
           def filters_with_values
             {
               is_emendation_true: %w(true false),
-              state_eq: Proposal::STATES,
-              with_any_state: %w(state_published state_not_published),
+              proposal_state_id_eq: proposal_state_ids,
               scope_id_eq: scope_ids_hash(scopes.top_level),
               category_id_eq: category_ids_hash(categories.first_class),
               valuator_role_ids_has: valuator_role_ids
@@ -55,11 +53,19 @@ module Decidim
           # Cannot user `super` here, because it does not belong to a superclass
           # but to a concern.
           def dynamically_translated_filters
-            [:scope_id_eq, :category_id_eq, :valuator_role_ids_has]
+            [:scope_id_eq, :category_id_eq, :valuator_role_ids_has, :proposal_state_id_eq]
+          end
+
+          def proposal_state_ids
+            ProposalState.where(component: current_component).pluck(:id)
           end
 
           def valuator_role_ids
             current_participatory_space.user_roles(:valuator).pluck(:id)
+          end
+
+          def translated_proposal_state_id_eq(state_id)
+            translated_attribute(ProposalState.find_by(id: state_id)&.title)
           end
 
           def translated_valuator_role_ids_has(valuator_role_id)

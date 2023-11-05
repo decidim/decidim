@@ -104,6 +104,8 @@ en:
             values:
               'false': Proposals
               'true': Amendments
+          proposal_state_id_eq:
+            label: State
           scope_id_eq:
             label: Scope
           state_eq:
@@ -392,6 +394,8 @@ en:
     proposals:
       actions:
         answer_proposal: Answer proposal
+        delete_proposal_state_confirm: Are you sure you want to delete this proposal state?
+        destroy: Delete proposal state
         edit_proposal: Edit proposal
         edit_proposal_state: Edit proposal state
         import: Import proposals from another component
@@ -767,7 +771,6 @@ en:
         proposal_state:
           css_class: CSS class
           default: Default
-          include_in_stats: Include in stats
           system: System
           title: Proposal state
           token: Token

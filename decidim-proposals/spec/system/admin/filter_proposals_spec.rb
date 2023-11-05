@@ -6,7 +6,7 @@ describe "Admin filters proposals" do
   include_context "when admin manages proposals"
   include_context "with filterable context"
 
-  STATES = Decidim::Proposals::Proposal::STATES.keys
+  STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.keys
 
   let(:model_name) { Decidim::Proposals::Proposal.model_name }
   let(:resource_controller) { Decidim::Proposals::Admin::ProposalsController }
@@ -15,12 +15,14 @@ describe "Admin filters proposals" do
     create(:proposal, trait, component:)
   end
 
-  def proposal_with_state(state)
-    Decidim::Proposals::Proposal.where(component:).find_by(state:)
+  def proposal_with_state(token)
+    proposal_state = Decidim::Proposals::ProposalState.where(component:, token:).first
+    Decidim::Proposals::Proposal.where(component:).find_by(proposal_state:)
   end
 
-  def proposal_without_state(state)
-    Decidim::Proposals::Proposal.where(component:).where.not(state:).sample
+  def proposal_without_state(token)
+    proposal_state = Decidim::Proposals::ProposalState.where(component:, token:).first
+    Decidim::Proposals::Proposal.where(component:).where.not(proposal_state:).sample
   end
 
   context "when filtering by state" do

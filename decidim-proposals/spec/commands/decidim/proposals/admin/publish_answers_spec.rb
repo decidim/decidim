@@ -11,7 +11,7 @@ module Decidim
         let(:command) { described_class.new(component, user, proposal_ids) }
         let(:proposal_ids) { proposals.map(&:id) }
         let(:proposals) { create_list(:proposal, 5, :accepted_not_published, component:) }
-        let(:component) { create(:proposal_component) }
+        let!(:component) { create(:proposal_component) }
         let(:user) { create(:user, :admin) }
 
         it "broadcasts ok" do

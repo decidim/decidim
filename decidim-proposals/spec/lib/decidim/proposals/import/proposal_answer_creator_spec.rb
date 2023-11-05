@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Proposals::Import::ProposalAnswerCreator do
   subject { described_class.new(data, context) }
 
-  let(:proposal) { create(:proposal, state:, component:) }
+  let(:proposal) { create(:proposal, state, component:) }
   let!(:moment) { Time.current }
   let(:data) do
     {
@@ -51,7 +51,7 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       expect(record).to be_a(Decidim::Proposals::Proposal)
       expect(record.id).to eq(data[:id])
       expect(record.answer["en"]).to eq(data[:"answer/en"])
-      expect(record[:state]).to eq(data[:state])
+      expect(record.state).to eq(data[:state])
       expect(record.answered_at).to be >= (moment)
     end
 

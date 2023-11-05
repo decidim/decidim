@@ -44,13 +44,13 @@ module Decidim
             form.current_user
           ) do
             attributes = {
-              state: form.state,
               answer: form.answer,
               cost: form.cost,
               cost_report: form.cost_report,
               execution_period: form.execution_period
             }
 
+            proposal.assign_state(form.state)
             if form.state == "not_answered"
               attributes[:answered_at] = nil
               attributes[:state_published_at] = nil

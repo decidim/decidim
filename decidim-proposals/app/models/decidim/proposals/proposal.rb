@@ -29,9 +29,22 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::FilterableResource
 
+      before_create :set_default_state
+
+      def set_default_state
+        return if proposal_state.present?
+
+        assign_state("not_answered")
+      end
+
+      def assign_state(token)
+        proposal_state = Decidim::Proposals::ProposalState.where(component:, token:).first!
+        self.proposal_state = proposal_state
+      end
+
       translatable_fields :title, :body
 
-      STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.freeze
+      # STATES = { not_answered: 0, evaluating: 10, accepted: 20, rejected: -10, withdrawn: -20 }.freeze
 
       fingerprint fields: [:title, :body]
 
@@ -61,19 +74,23 @@ module Decidim
 
       geocoded_by :address
 
-      enum state: STATES, _default: "not_answered"
+      # enum state: STATES, _default: "not_answered"
 
-      scope :accepted, -> { state_published.where(state: "accepted") }
-      scope :rejected, -> { state_published.where(state: "rejected") }
-      scope :evaluating, -> { state_published.where(state: "evaluating") }
+      scope :not_status, ->(status) { joins(:proposal_state).where.not(decidim_proposals_proposal_states: { token: status }) }
+      scope :only_status, ->(status) { joins(:proposal_state).where(decidim_proposals_proposal_states: { token: status }) }
+
+      scope :accepted, -> { state_published.only_status(:accepted) }
+      scope :rejected, -> { state_published.only_status(:rejected) }
+      scope :evaluating, -> { state_published.only_status(:evaluating) }
 
       scope :answered, -> { where.not(answered_at: nil) }
       scope :not_answered, -> { where(answered_at: nil) }
 
       scope :state_not_published, -> { where(state_published_at: nil) }
       scope :state_published, -> { where.not(state_published_at: nil) }
-      scope :except_rejected, -> { not_rejected.or(state_not_published) }
-      scope :except_withdrawn, -> { not_withdrawn }
+      scope :except_rejected, -> { not_status(:rejected).or(state_not_published) }
+      scope :except_withdrawn, -> { not_status(:withdrawn) }
+
       scope :drafts, -> { where(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
@@ -81,9 +98,9 @@ module Decidim
       scope :with_availability, lambda { |state_key|
         case state_key
         when "withdrawn"
-          withdrawn
+          only_status(:withdrawn)
         else
-          except_withdrawn
+          not_status(:withdrawn)
         end
       }
 
@@ -200,7 +217,7 @@ module Decidim
         return amendment.state if emendation?
         return nil unless published_state? || withdrawn?
 
-        super
+        proposal_state&.token
       end
 
       # This is only used to define the setter, as the getter will be overriden below.
@@ -212,7 +229,7 @@ module Decidim
       def internal_state
         return amendment.state if emendation?
 
-        self[:state]
+        proposal_state&.token
       end
 
       # Public: Checks if the organization has published the state for the proposal.
@@ -451,10 +468,8 @@ module Decidim
         return unless %w(accepted rejected evaluating withdrawn).member?(amendment.state)
 
         PaperTrail.request(enabled: false) do
-          update!(
-            state: amendment.state,
-            state_published_at: Time.current
-          )
+          assign_state(amendment.state)
+          update!(state_published_at: Time.current)
         end
       end
 

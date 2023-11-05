@@ -62,7 +62,7 @@ module Decidim
 
         def proposals
           @proposals ||= if @form.import_all_accepted_proposals?
-                           Decidim::Proposals::Proposal.where(component: origin_component).where(state: "accepted")
+                           Decidim::Proposals::Proposal.where(component: origin_component).only_status(:accepted)
                          else
                            Decidim::Proposals::Proposal.where(component: origin_component)
                          end

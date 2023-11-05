@@ -61,7 +61,7 @@ module Decidim
           @initial_state = proposal.state
 
           if POSSIBLE_ANSWER_STATES.include?(state)
-            proposal.state = state
+            proposal.assign_state(state)
             proposal.state_published_at = Time.current if component.current_settings.publish_answers_immediately?
           else
             proposal.errors.add(:state, :invalid)

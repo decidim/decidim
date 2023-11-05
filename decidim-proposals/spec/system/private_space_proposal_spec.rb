@@ -14,7 +14,7 @@ describe "Private Space Proposal" do
 
   let!(:participatory_space) { participatory_space_private }
 
-  let!(:component) { create(:component, manifest:, participatory_space:) }
+  let!(:component) { create(:proposal_component, participatory_space:) }
 
   before do
     switch_to_host(organization.host)
