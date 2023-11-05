@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
-  describe Decidim::Statistics, type: :cell do
+  describe Decidim::StatisticsCell, type: :cell do
     controller Decidim::ApplicationController
 
     subject { cell("decidim/statistics", model).call }
