@@ -68,7 +68,6 @@ en:
         placeholders:
           content: Please add meaningful content to the %{page} static page on the admin dashboard.
           title: Default title for %{page}
-        terms-of-service: Terms of service
       devise:
         passwords:
           edit:
