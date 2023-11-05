@@ -9,6 +9,10 @@ module Decidim
       module ProposalsHelper
         include Decidim::Admin::ResourceScopeHelper
 
+        def available_states
+          Decidim::Proposals::ProposalState.where(component: current_component)
+        end
+
         # Public: A formatted collection of Meetings to be used
         # in forms.
         def meetings_as_authors_selected

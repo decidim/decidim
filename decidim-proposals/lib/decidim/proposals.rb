@@ -68,11 +68,11 @@ module Decidim
         }
 
         default_states[key][:object] = if with_traceability
-                                         Decidim.traceability.create!(
+                                         Decidim.traceability.create(
                                            Decidim::Proposals::ProposalState, admin_user, **attributes
                                          )
                                        else
-                                         Decidim::Proposals::ProposalState.create!(**attributes)
+                                         Decidim::Proposals::ProposalState.create(**attributes)
                                        end
       end
       default_states

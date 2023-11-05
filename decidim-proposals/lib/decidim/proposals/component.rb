@@ -257,7 +257,7 @@ Decidim.register_component(:proposals) do |component|
                                                    elsif n.positive?
                                                      [default_states.dig(:accepted, :object), Decidim::Faker::Localized.sentence(word_count: 10), nil]
                                                    else
-                                                     [default_states.dig(:not_answered, :object), nil, nil]
+                                                     [nil, nil, nil]
                                                    end
 
       params = {
@@ -268,7 +268,7 @@ Decidim.register_component(:proposals) do |component|
         body: { en: Faker::Lorem.paragraphs(number: 2).join("\n") },
         proposal_state:,
         answer:,
-        answered_at: state.present? ? Time.current : nil,
+        answered_at: proposal_state.present? ? Time.current : nil,
         state_published_at:,
         published_at: Time.current
       }

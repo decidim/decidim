@@ -34,6 +34,7 @@
             <td>
               <%= translated_attribute(state.title) %>
             </td>
+            <td><%= state.token %></td>
             <td><%= state.system? %></td>
             <td><%= state.default? %></td>
             <td>
@@ -41,7 +42,6 @@
                 <%= state.css_class %>
               </strong>
             </td>
-            <td><%= state.include_in_stats? %></td>
             <td>
               <% if allowed_to? :update, :proposal_state, proposal_state: state %>
                 <%= icon_link_to "pencil-line", edit_proposal_state_path(state), t("actions.edit_proposal_state", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
