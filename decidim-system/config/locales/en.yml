@@ -164,6 +164,7 @@ en:
         index:
           title: Organizations
         new:
+          default: Default?
           enabled: Enabled
           locale: Locale
           reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organization.
@@ -209,3 +210,8 @@ en:
       titles:
         dashboard: Dashboard
         decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Logout
