@@ -16,29 +16,27 @@ export class Autocomplete extends React.Component {
     this.handleChange = (selectedOption) => {
       this.setState({ selectedOption });
       if (this.props.changeURL) {
-        axios.get(this.props.changeURL, {
-          headers: {
-            Accept: "text/javascript"
-          },
-          withCredentials: true,
-          params: {
-            id: selectedOption.value
-          }
-        }).
-          then((response) => {
+        Rails.ajax({
+          url: this.props.changeURL,
+          type: "GET",
+          data: new URLSearchParams({
+            "id": selectedOption.value
+          }),
+          success: (response) => {
             const script = document.createElement("script");
             script.type = "text/javascript";
             script.innerHTML = response.data;
             document.getElementsByTagName("head")[0].appendChild(script);
-          }).
-          catch((error) => {
+          },
+          error: (error) => {
             if (axios.isCancel(error)) {
               // console.log("Request canceled", error.message);
             }
             else {
               //
             }
-          });
+          }
+        })
       }
     };
 
