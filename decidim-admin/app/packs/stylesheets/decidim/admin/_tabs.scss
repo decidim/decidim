@@ -23,7 +23,6 @@
   .tabs-title > a[aria-selected="true"] {
     @apply font-bold text-secondary;
 
-
     &::before {
       @apply border-white;
 
