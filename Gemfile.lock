@@ -870,7 +870,7 @@ DEPENDENCIES
   web-console (= 4.0.4)
 
 RUBY VERSION
-   ruby 3.1.1p18
+   ruby 2.7.5p203
 
 BUNDLED WITH
    2.3.5
