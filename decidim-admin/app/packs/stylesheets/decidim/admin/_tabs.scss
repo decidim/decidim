@@ -4,15 +4,9 @@
   li {
     @apply p-0.5 rounded-t-sm text-secondary text-xs;
 
-    background-color: rgba(243, 244, 247, 1);
-
     &.is-active,
     &:hover {
       @apply border-b border-secondary;
-    }
-
-    &:hover {
-      background-color: rgba(243, 244, 247, 1);
     }
   }
 
@@ -29,7 +23,6 @@
   .tabs-title > a[aria-selected="true"] {
     @apply font-bold text-secondary;
 
-    background-color: rgba(243, 244, 247, 1);
 
     &::before {
       @apply border-white;
