@@ -24,6 +24,8 @@ describe "Admin manages global moderations", type: :system do
     login_as user, scope: :user
   end
 
+  include_context "with filterable context"
+
   it_behaves_like "manage moderations" do
     let(:moderations_link_text) { "Global moderations" }
   end
