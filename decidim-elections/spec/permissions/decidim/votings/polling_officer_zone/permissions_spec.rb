@@ -20,7 +20,7 @@ module Decidim
         let(:polling_officer) { create(:polling_officer, user:, voting:) }
         let(:polling_officers) { [polling_officer, create(:polling_officer, user:, voting: other_voting)] }
         let(:polling_station) { create(:polling_station, voting:) }
-        let(:closure) { create :ps_closure, polling_officer:, polling_station: }
+        let(:closure) { create(:ps_closure, polling_officer:, polling_station:) }
         let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
         shared_examples "not allowed when a polling officer is not attached to the current user" do
@@ -76,8 +76,8 @@ module Decidim
         end
 
         describe "create polling station results" do
-          let(:election) { create :voting_election, voting: }
-          let!(:another_closure) { create :ps_closure, polling_station:, election: }
+          let(:election) { create(:voting_election, voting:) }
+          let!(:another_closure) { create(:ps_closure, polling_station:, election:) }
           let(:action) do
             { scope: :polling_officer_zone, action: :create, subject: :polling_station_results }
           end
@@ -87,7 +87,7 @@ module Decidim
           it_behaves_like "not allowed when a polling officer is not attached to the current user"
 
           context "when a closure already exists" do
-            let!(:closure) { create :ps_closure, polling_station:, polling_officer: }
+            let!(:closure) { create(:ps_closure, polling_station:, polling_officer:) }
             let(:context) do
               { polling_officer:, closure: }
             end
@@ -118,7 +118,7 @@ module Decidim
           end
 
           context "and closure is sealed" do
-            let(:closure) { create :ps_closure, :completed, polling_officer:, polling_station: }
+            let(:closure) { create(:ps_closure, :completed, polling_officer:, polling_station:) }
 
             it { is_expected.to be false }
           end

@@ -25,7 +25,7 @@ module Decidim
       end
 
       def question
-        @question ||= Decidim::Elections::Question.find_by(id: id)
+        @question ||= Decidim::Elections::Question.find_by(id:)
       end
 
       def closure

@@ -47,12 +47,12 @@ describe Decidim::Votings::ClosureResultForm do
   end
 
   let(:question_results) do
-    questions.map do |question|
+    questions.to_h do |question|
       [question.id.to_s, {
         id: question.id,
         value: Faker::Number.number(digits: 1)
       }]
-    end.to_h
+    end
   end
 
   it { is_expected.to be_valid }
@@ -76,7 +76,6 @@ describe Decidim::Votings::ClosureResultForm do
   end
 
   context "when number of blank votes exceeds the total blank ballots" do
-
     it { is_expected.to be_invalid }
   end
 

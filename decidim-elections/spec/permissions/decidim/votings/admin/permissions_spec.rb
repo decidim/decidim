@@ -68,7 +68,7 @@ describe Decidim::Votings::Admin::Permissions do
   describe "polling stations" do
     let(:action_subject) { :polling_station }
     let(:action_name) { :create }
-    let(:polling_station) { create :polling_station, voting: }
+    let(:polling_station) { create(:polling_station, voting:) }
 
     it { is_expected.to be true }
 
@@ -99,7 +99,7 @@ describe Decidim::Votings::Admin::Permissions do
         it { is_expected.to be true }
 
         context "and has closures" do
-          let!(:closure) { create :ps_closure, polling_station: }
+          let!(:closure) { create(:ps_closure, polling_station:) }
 
           it { is_expected.to be false }
         end

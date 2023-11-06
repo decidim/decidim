@@ -13,7 +13,7 @@ module Decidim::Votings
     let(:polling_officer) { create(:polling_officer, voting:) }
     let(:user) { polling_officer }
 
-    let!(:closure) { create :ps_closure, :with_results, election:, polling_station:, polling_officer: }
+    let!(:closure) { create(:ps_closure, :with_results, election:, polling_station:, polling_officer:) }
 
     it "broadcasts valid" do
       expect(subject.call).to broadcast(:ok)
@@ -28,7 +28,7 @@ module Decidim::Votings
     end
 
     context "when closure is completed" do
-      let(:closure) { create :ps_closure, :with_results, :completed, election:, polling_station:, polling_officer: }
+      let(:closure) { create(:ps_closure, :with_results, :completed, election:, polling_station:, polling_officer:) }
 
       it "broadcasts invalid" do
         expect(subject.call).to broadcast(:invalid)

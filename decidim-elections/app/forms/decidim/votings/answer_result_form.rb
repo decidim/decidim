@@ -23,7 +23,7 @@ module Decidim
       end
 
       def answer
-        @answer ||= Decidim::Elections::Answer.find_by(id: id)
+        @answer ||= Decidim::Elections::Answer.find_by(id:)
       end
     end
   end

@@ -37,7 +37,7 @@ module Decidim
       def self.from_params(params)
         form = super(params)
 
-        # not all questions are send via PATCH/POST if no nota is enabled so we need to 
+        # not all questions are send via PATCH/POST if no nota is enabled so we need to
         # reconstruct the object and grab the user input value if exists
         form.question_results = form.election&.questions&.flat_map do |question|
           question_form = QuestionResultForm.from_model(question:, closure: form.closure)

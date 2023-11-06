@@ -5,8 +5,8 @@ require "spec_helper"
 describe Decidim::Votings::QuestionResultForm do
   subject { described_class.from_params(attributes).with_context(closure:) }
 
-  let(:closure) { create :ps_closure }
-  let(:question) { create(:question, election: closure.election, min_selections: min_selections, max_selections: max_selections) }
+  let(:closure) { create(:ps_closure) }
+  let(:question) { create(:question, election: closure.election, min_selections:, max_selections:) }
   let!(:result) { create(:election_result, :blank_ballots, election: closure.election, closurable: closure, question:, value: blank_total) }
   let(:question_id) { question.id }
   let(:value) { 123 }
