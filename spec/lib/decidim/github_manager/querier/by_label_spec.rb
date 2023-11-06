@@ -91,6 +91,26 @@ describe Decidim::GithubManager::Querier::ByLabel do
       end
     end
 
+    context "when there are issues labeled with `type: fix`" do
+      let(:stubbed_body) do
+        <<~RESPONSE
+          [
+            {"number": 12345, "title": "Fix whatever", "labels": [{"name": "type: fix"}, {"name": "module: admin"}], "pull_request": { "merged_at": "2020-01-01T01:01:01Z" }},
+            {"number": 98765, "title": "An issue labeled incorrectly with type: fix", "labels": [{"name": "type: fix"}, {"name": "module: admin"}]}
+          ]
+        RESPONSE
+      end
+      let(:result) do
+        [
+          { id: 12_345, title: "Fix whatever" }
+        ]
+      end
+
+      it "returns a valid result" do
+        expect(querier.call).to eq result
+      end
+    end
+
     context "when there are pull requests that were not merged" do
       let(:stubbed_body) do
         <<~RESPONSE
