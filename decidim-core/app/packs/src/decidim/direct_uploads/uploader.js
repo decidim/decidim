@@ -60,7 +60,7 @@ export class Uploader {
         formClass: this.modal.options.formObjectClass
       });
 
-      return fetch(`${url}?${params}`, {
+      fetch(`${url}?${params}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
