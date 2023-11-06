@@ -59,7 +59,7 @@ module Decidim
 
         it "adds the flash message" do
           post :create, params: params
-          expect(controller.flash.now[:alert]).to have_content("Your email can't be blank")
+          expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
         end
 
         context "when all params are invalid" do
@@ -80,18 +80,7 @@ module Decidim
 
           it "adds the flash message" do
             post :create, params: params
-            expect(controller.flash.now[:alert]).to have_content(
-              [
-                "Your name can't be blank",
-                "Nickname can't be blank",
-                "Nickname is invalid",
-                "Your email can't be blank",
-                "Confirm your password doesn't match Password",
-                "Password is too short",
-                "Password does not have enough unique characters",
-                "Terms and conditions of use agreement must be accepted"
-              ].join(", ")
-            )
+            expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
           end
         end
       end
@@ -105,7 +94,7 @@ module Decidim
 
         it "informs the user she must accept the pending invitation" do
           send_form_and_expect_rendering_the_new_template_again
-          expect(controller.flash.now[:alert]).to have_content("You have a pending invitation, accept it to finish creating your account")
+          expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
         end
       end
     end

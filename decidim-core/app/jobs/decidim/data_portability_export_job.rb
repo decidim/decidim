@@ -13,6 +13,9 @@ module Decidim
       save_or_upload_file(user, path)
 
       ExportMailer.data_portability_export(user, filename, password).deliver_later
+
+      # Deletes temporary file
+      File.delete(path)
     end
 
     private

@@ -34,6 +34,9 @@ Decidim.configure do |config|
 
   # Map and Geocoder configuration
   #
+  # See Decidim docs at https://docs.decidim.org/en/develop/services/maps.html
+  # for more information about how it works and how to set it up.
+  #
   # == HERE Maps ==
   # config.maps = {
   #   provider: :here,

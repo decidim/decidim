@@ -12,7 +12,7 @@ module Decidim
       attribute :password_confirmation, String
 
       validates :email, presence: true
-      validates :password, presence: true, unless: :admin_exists?
+      validates :password, confirmation: true, presence: true, unless: :admin_exists?
       validates :password_confirmation, presence: true, unless: :admin_exists?
 
       validates :password, password: { email: :email }
