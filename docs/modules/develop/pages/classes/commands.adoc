@@ -1,0 +1,84 @@
+= Commands
+
+A command is custom class that manages the logic between your input, usually a xref:develop:classes/forms.adoc[form] object, a object and an actor.
+
+Usually, a command is used to create, update or delete a object.
+
+Commands are located in the `app/commands/<my_plugin>` directory, and named: `<my_command>.rb`.
+
+An example of a command class would:
+
+```ruby
+# frozen_string_literal: true
+
+module Decidim
+  module MyPlugin
+    # A command with the business logic to invite an user to an organization.
+    class CreateMyResource < Decidim::Command
+      # Public: Initializes the command.
+      #
+      # form
+      # resource
+      def initialize(form, resource)
+        @form = form
+        @resource = resource
+      end
+
+    def call
+      return broadcast(:invalid) if form.invalid?
+
+      transation do
+         create_resource
+      end
+      broadcast(:ok)
+    end
+
+    private
+
+    attr_reader :form, :resource
+
+    def create_resource
+      Decidim.traceability.create!(
+        resource,
+        form.current_user,
+        **attributes,
+        visibility: "public-only"
+      )
+    end
+
+    # this is mapping of
+    # ActiveRecord::attribute => form.attribute
+    def attributes
+      {
+        title: form.title,
+        description: form.description,
+        resource: form.resource
+      }
+    end
+  end
+end
+
+```
+
+
+Sometimes, you may need to extend a `Decidim` supplied command, then you can either override the `attributes` method, either extend it with a `super` call.
+
+```ruby
+module Decidim
+  module Overrides
+    module Commands
+      module CreateMyResource
+        def attributes
+          super.merge(
+            {
+              my_custom_attribute: form.my_custom_attribute
+            }
+          )
+        end
+      end
+    end
+  end
+end
+
+Decidim::MyPlugin::CreateMyResource.prepend(Decidim::Overrides::Commands::CreateMyResource)
+```

@@ -1,0 +1,22 @@
+= Events
+
+The concept regarding the notitication is being described in the xref:develop:notifications.adoc[Notifications] page.
+
+Event classes are located in the `app/events/<my_plugin>` directory, and named: `<my_event>_event.rb`.
+
+```ruby
+
+module Decidim
+  module MyPlugin
+    class MyEvent < Decidim::Events::SimpleEvent
+      # Defines a list of methods that will be used to translate the resource inside the event.
+      i18n_attributes :example_resource_title
+
+      # The name of the method can be 100% customized, but it must return a string.
+      # the resource object used in the method body is the object that is being handled by the event.
+      def example_resource_title
+        translated_attribute(resource.title)
+      end
+    end
+  end
+end
