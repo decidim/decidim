@@ -9,6 +9,7 @@ module Decidim
       helper ButtonsHelper
       helper CardsHelper
       helper AnnouncementHelper
+      helper ShareHelper
     end
   end
 end
