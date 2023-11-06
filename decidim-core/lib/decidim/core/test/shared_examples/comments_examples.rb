@@ -838,5 +838,29 @@ shared_examples "comments" do
         expect(page).to have_link "#decidim", href: "/search?term=%23decidim"
       end
     end
+
+    describe "export_serializer" do
+      let(:comment) { comments.first }
+
+      it "returns the serializer for the comment" do
+        expect(comment.class.export_serializer).to eq(Decidim::Comments::CommentSerializer)
+      end
+
+      context "with instance" do
+        subject { comment.class.export_serializer.new(comment).serialize }
+
+        it { is_expected.to have_key(:id) }
+        it { is_expected.to have_key(:created_at) }
+        it { is_expected.to have_key(:body) }
+        it { is_expected.to have_key(:locale) }
+        it { is_expected.to have_key(:author) }
+        it { is_expected.to have_key(:alignment) }
+        it { is_expected.to have_key(:depth) }
+        it { is_expected.to have_key(:user_group) }
+        it { is_expected.to have_key(:commentable_id) }
+        it { is_expected.to have_key(:commentable_type) }
+        it { is_expected.to have_key(:root_commentable_url) }
+      end
+    end
   end
 end

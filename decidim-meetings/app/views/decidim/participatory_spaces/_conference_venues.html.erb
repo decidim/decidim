@@ -9,9 +9,10 @@
 
         <% meeting_block.last.each_with_index do |meeting, index| %>
           <% next if index != 0 %>
+
           <%== cell("decidim/conferences/conference_address", meeting) %>
-          <% end %>
         <% end %>
+      <% end %>
 
       </div>
     <div class="column medium-8">

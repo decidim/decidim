@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::UploadModal, type: :cell do
+describe Decidim::UploadModalCell, type: :cell do
   subject { my_cell.call }
 
   let(:my_cell) { cell("decidim/upload_modal", form, options) }
