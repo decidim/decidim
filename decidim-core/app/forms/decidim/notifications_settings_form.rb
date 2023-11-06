@@ -41,13 +41,5 @@ module Decidim
     def direct_message_types
       allow_public_contact ? "all" : "followed-only"
     end
-
-    def user_is_moderator?(user)
-      Decidim.participatory_space_manifests.map do |manifest|
-        participatory_space_type = manifest.model_class_name.constantize
-        return true if participatory_space_type.moderators(user.organization).exists?(id: user.id)
-      end
-      false
-    end
   end
 end
