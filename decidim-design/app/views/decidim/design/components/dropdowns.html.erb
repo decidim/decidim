@@ -1,0 +1,64 @@
+<% content_for :heading do %>
+  Dropdowns
+<% end %>
+
+<% content_for :description do %>
+  Dropdowns are a javascript feature available thanks to an external library called <a href="https://github.com/jonathanlevaillant/a11y-dropdown-component" target="_blank" rel="noopener noreferrer">a11y-dropdown-component</a>.
+<% end %>
+
+<% content_for :toc do %>
+  <a href="#example">Demo</a>
+  <a href="#usage">Usage</a>
+<% end %>
+
+<section id="demo" class="design__section">
+  <h2>Demo</h2>
+
+  <p>The dropdowns are used along the application in order to collapse large, easy-readable menus for desktop devices, but too wordy for mobile devices.</p>
+
+  <p>This javascript feature is enhanced with a small css, through the naming: the hideable content MUST HAVE an <code>id</code> starting with <i>dropdown-menu</i>.</p>
+
+  <p>The following example will not be noticeable in desktop, but mobile:</p>
+
+  <button id="dropdown-trigger-element" data-component="dropdown" data-target="dropdown-menu-element" data-auto-close="true">
+    <span><%= t("decidim.searches.filters.jump_to") %></span>
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-up-s-line" %>
+  </button>
+
+  <ul id="dropdown-menu-element">
+    <% 3.times do |item| %>
+      <li class="p-2 text-gray-2">
+        Item <%= item %>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<section id="usage" class="design__section">
+  <h2>Usage</h2>
+
+  <p>An dropdown requires two elements:</p>
+
+  <p>1. A user actionable element, with the data-attributes <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.</p>
+
+  <p>2. A hideable element, whose <code>id</code> matches the data-target value the trigger refers to.</p>
+
+  <div class="design__section-snippet" style="margin-top: inherit;">
+    <p>Source code on GitHub: <%= link_to("decidim-core/app/packs/src/decidim/a11y.js", "https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/src/decidim/a11y.js", target: "_blank", rel: "noopener noreferrer") %></p>
+
+    <code>
+      <textarea rows="8">
+<button id="dropdown-trigger-element" data-component="dropdown" data-target="dropdown-menu-element">
+  Trigger
+</button>
+
+<ul id="dropdown-menu-element">
+  <li>Item</li>
+  <li>Item</li>
+  <li>Item</li>
+</ul>
+      </textarea>
+    </code>
+  </div>
+</section>
