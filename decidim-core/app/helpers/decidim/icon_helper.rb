@@ -129,7 +129,7 @@ module Decidim
     end
 
     def resource_type_icon_key(resource_type)
-      DEFAULT_RESOURCE_TYPE_ICONS[resource_type.to_s][:icon] || DEFAULT_RESOURCE_TYPE_ICONS["other"][:icon]
+      DEFAULT_RESOURCE_TYPE_ICONS.dig(resource_type.to_s, :icon) || DEFAULT_RESOURCE_TYPE_ICONS["other"][:icon]
     end
 
     def text_with_resource_icon(resource_name, text)
