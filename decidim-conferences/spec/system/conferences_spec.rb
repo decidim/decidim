@@ -237,6 +237,21 @@ describe "Conferences", type: :system do
           expect(page).to have_no_css(".statistic__number", text: "3")
         end
       end
+
+      context "when the conference has multiple meetings components" do
+        let!(:meetings_component) { create(:component, :published, participatory_space: conference, manifest_name: :meetings) }
+        let!(:other_meetings_component) { create(:component, :published, participatory_space: conference, manifest_name: :meetings) }
+
+        it "show meeting venues" do
+          create(:meeting, :published, :online, address: "", location_hints: nil, location: "", component: meetings_component)
+          create(:meeting, :published, :in_person, address: "", location_hints: nil, location: "", component: other_meetings_component)
+          create_list(:meeting, 3, :published, :in_person, component: meetings_component)
+
+          visit decidim_conferences.conference_path(conference)
+
+          expect(page).to have_css("#venues .mb-s", count: 3)
+        end
+      end
     end
   end
 end
