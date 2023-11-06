@@ -13,7 +13,7 @@ module Decidim
     end
 
     def resource_path
-      resource_locator(versioned_resource).path
+      Decidim::ResourceLocatorPresenter.new(versioned_resource).path
     end
 
     def i18n_changes_title
