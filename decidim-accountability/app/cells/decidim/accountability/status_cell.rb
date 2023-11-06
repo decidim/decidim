@@ -19,11 +19,15 @@ module Decidim
         render
       end
 
-      private
-
       def render?
-        options[:render_blank] || (results_count&.positive? || progress.present?)
+        options[:render_blank] || has_results?
       end
+
+      def has_results?
+        results_count&.positive? || progress.present?
+      end
+
+      private
 
       def scope
         current_scope.presence
